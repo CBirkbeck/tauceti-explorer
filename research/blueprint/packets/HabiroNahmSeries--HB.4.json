@@ -16,91 +16,126 @@
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Summable.lean",
         "provides": "Norm-summability of f gives Multipliable (1−f) in a complete normed ring.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:tprod_one_add_ne_zero_of_summable",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Summable.lean",
         "provides": "For all 1+f_i nonzero and summable norms, the product is nonzero; CompleteSpace and NormMulClass are required.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.cexp_tsum_eq_tprod",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Summable.lean",
         "provides": "Exponentiating a convergent sum of principal logs equals the product when every factor is nonzero.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:ModularForm.multipliable_one_sub_pow",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
         "provides": "Euler factors 1−q^(n+1) are multipliable for norm q<1.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:ModularForm.differentiableOn_tprod_one_sub_pow",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
         "provides": "The Euler product is differentiable on the open unit disc.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.PosDef.det_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Matrix/PosDef.lean",
         "provides": "Positive-definite finite matrices have positive determinant.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:integral_gaussian",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean",
         "provides": "Real one-dimensional Gaussian integral sqrt(π/b), used with b>0.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:SchwartzMap.tsum_eq_tsum_fourier",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
         "provides": "One-dimensional Poisson summation for Schwartz functions at a real shift.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Asymptotics.IsBigO",
         "kind": "def",
         "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
         "provides": "Eventual norm inequality with an existential constant at a specified filter.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin",
         "kind": "def",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "Intermediate field generated by a set in an ambient extension.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:PowerSeries.coeff",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Linear coefficient extraction for ordinary formal power series.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Polynomial.bernoulli",
         "kind": "def",
         "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
         "provides": "Bernoulli polynomials over Q, with negative Bernoulli-number convention.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot",
         "kind": "structure",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "Primitive root predicate: ζ^m=1 and m divides every exponent giving 1.",
-        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Full declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently reconfirmed by REV-HabiroNahmSeries--HB.4 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "The generated intermediate field is contained in T iff its generators are contained in T; used for both minimality APIs.",
+        "checked": "Full declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IntermediateField.finiteDimensional_adjoin",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+        "provides": "A finite set of integral elements generates a finite-dimensional intermediate field; apply over E to the η_i.",
+        "checked": "Full declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.eq_pow_of_pow_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "In a commutative domain, for k>0 and primitive ζ, any ξ with ξ^k=1 equals ζ^i for some i<k; applies to σ(η_i)/η_i.",
+        "checked": "Full declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsGalois.mem_range_algebraMap_iff_fixed",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "provides": "For a finite-dimensional Galois extension, an element is in the base-field algebra-map range iff all base automorphisms fix it; this supplies coefficientwise descent after the missing identity.",
+        "checked": "Full declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IntermediateField.inclusion",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "For E≤H, the canonical Q-algebra hom E→H; its ring hom supplies the E-algebra structure used by the finite-Galois API.",
+        "checked": "Full declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
       }
     ]
   },
@@ -138,7 +173,8 @@
       "sha256": "13d38474d6b7b6e3fc946d50cc2764094c3a25a194d873c17d9cd334c25600cf",
       "accessed": "2026-10-05",
       "readSections": [
-        "§7.1, (42)–(46), Theorem 7.1, Corollary 7.2, Remark 7.3; §7.2"
+        "§7.1, (42)–(46), Theorem 7.1, Corollary 7.2, Remark 7.3; §7.2",
+        "Independent review: §2.3, Proposition 2.5 and Remark 2.6, pp. 395–396; §7.1 (43), p. 417"
       ]
     },
     {
@@ -210,7 +246,7 @@
       "sources": [
         {
           "sourceId": "gz-published",
-          "locator": "§3, (11), PDF p. 5",
+          "locator": "§3, (11), PDF p. 4",
           "excerpt": "analytic in a finite covering",
           "match": "The printed finite-cover convention is retained exactly; convergence is supplied by a Gaussian majorant."
         }
@@ -295,13 +331,13 @@
         {
           "sourceId": "vz-preprint",
           "locator": "Lemma 2.2(i), PDF p. 3",
-          "excerpt": "asymptotic expansion",
+          "excerpt": "for all n, ε we have an inequality",
           "match": "Motivates the all-index estimate; the block proof given here extends the real estimate to roots of unity."
         },
         {
           "sourceId": "gz-published",
-          "locator": "§4.3, (27), Claims 2–3",
-          "excerpt": "asymptotic expansion",
+          "locator": "§4.3, (27), Claims 2–3, PDF pp. 9–11",
+          "excerpt": "are polynomials defined using Lemma 2.1",
           "match": "Supplies the global input required before the local saddle expansion can control the tails."
         }
       ],
@@ -325,7 +361,6 @@
       "prerequisites": [
         "HabiroNahmSeries:HB.4/finite-product-modulus-estimate",
         "HabiroNahmSeries:HB.3/distinguished-solution",
-        "HabiroNahmSeries:HB.4/summand-tail-bound",
         "mathlib:Matrix.PosDef.det_pos",
         "mathlib:integral_gaussian"
       ],
@@ -337,8 +372,8 @@
       "sources": [
         {
           "sourceId": "vz-preprint",
-          "locator": "Lemma 2.1 and Theorem 2.3, PDF pp. 2, 5–7",
-          "excerpt": "asymptotic expansion",
+          "locator": "Lemma 2.1 and Theorem 2.3, PDF pp. 2, 4–7",
+          "excerpt": "strictly convex",
           "match": "The convexity and expanding-window proof provide the real prototype."
         },
         {
@@ -477,14 +512,15 @@
       "title": "The analytic all-orders radial theorem with explicit constants",
       "kind": "theorem",
       "statement": "The analytic component of the parent radial-asymptotic-expansion holds in the strong, cancellation-safe sense: for every K≥0, e^{−Λ/(mε)}f_{A,B,0}(a/m+iε/(2πm))−∑_{j<K}a_j ε^j=O(ε^K). The coefficients are exactly those of χ_{a,m}^N m^{−N/2}c(Q)G(Q,a/m)S_{Q,ζ}(ε), with c(Q)=(det H)^{−1/2}∏θ_i^{B_i}(1−z_i)^{1/2−1/m}, S and I as in the parent corrected formula, and χ_{a,m}=m^{−1/2}exp[(1/m)∑_{t=1}^{m−1}t Log(1−ζ^t)]=exp(πi s(a,m)). The I integrand is exp[−B·x√ε/m−Nε/(24m)+∑ψ], and the Gaussian is exp(−xᵀHx/(2m)). All roots of positive real numbers and √det H are positive; cyclic-dilogarithm roots are defined by the weighted factor logarithms. For C≠0 multiply the coefficient series by exp(2πiaC/m) exp(−Cε/m). This theorem is solely radial ε→0+; it has no sectorial, minor-arc or arbitrary knot-matrix conclusion.",
-      "hypotheses": [],
+      "hypotheses": [
+        "As in the parent corrected radial target: A is rational symmetric positive definite, B rational, C=0, m≥1 odd, ζ=exp(2πia/m) primitive, and m is coprime to a denominator d of Q. Take a compatible strong denominator D with gcd(m,D)=1."
+      ],
       "proofSteps": [
         "Use the corrected Euler reciprocal expansion, compact local expansion, global tail bound, and CRT theorem. Their bounds are uniform at each fixed order, which permits finite sums and lattice summation.",
         "Combine (ε/2π)^{N/2}, the lattice factor m^{−N}ε^{−N/2}, and Gaussian integral (2πm)^{N/2}(det H)^{−1/2}. This gives exactly m^{−N/2}(det H)^{−1/2}.",
         "Integrate each polynomial with the imported formal Gaussian bracket. Odd polynomial terms vanish and even terms give the ε-series. The analytic proof never invokes Kummer invariance; its field-of-definition assertion is separated below."
       ],
       "prerequisites": [
-        "HabiroNahmSeries:HB.4/radial-asymptotic-expansion",
         "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
         "HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface",
         "HabiroNahmSeries:HB.4/uniform-local-saddle-remainder",
@@ -535,15 +571,18 @@
       "hypotheses": [],
       "proofSteps": [
         "Use the imported positive root lift and Real.rpow identities for the positive embedding. Adjoin the displayed generators with the existing intermediate-field constructor.",
-        "Prove η_i^m=y_i and θ_i^m=z_i. All generators are nonzero; Bezout gives the equality of radical fields without a new root choice.",
+        "Prove η_i^m=y_i and θ_i^m=z_i. All generators are nonzero; Bezout gives the equality of radical fields without a new root choice. The finite set of η_i is integral over E, satisfying X^m−y_i. H_rad contains all roots ζ^sη_i of these polynomials, so it is normal; characteristic zero gives separability.",
         "An E-automorphism sends η_i to ζ^{s_i}η_i and θ_i to ζ^{ds_i}θ_i, subject to all algebraic relations. Gaussian coefficients use H⁻¹ with entries in E; the finite congruence weights and negative-index polylogarithms are rational expressions in H_rad."
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.3/positive-coherent-root-lift",
         "mathlib:IntermediateField.adjoin",
         "mathlib:IsPrimitiveRoot",
-        "HabiroNahmSeries:HB.4/kummer-invariance-of-the-expansion",
-        "HabiroNahmSeries:HB.4/gauss-sum-and-congruence-splitting"
+        "HabiroNahmSeries:HB.4/gauss-sum-and-congruence-splitting",
+        "mathlib:IntermediateField.adjoin_le_iff",
+        "mathlib:IntermediateField.finiteDimensional_adjoin",
+        "mathlib:IsPrimitiveRoot.eq_pow_of_pow_eq_one",
+        "mathlib:IntermediateField.inclusion"
       ],
       "acceptance": [
         "At d=m=1,ζ=1 both fields are Q(z).",
@@ -604,6 +643,31 @@
           "name": "radialKummerField.eq_theta_adjoin",
           "role": "characterisation",
           "statement": "If d,m>0 and coprime and z_i>0, radialKummerField equals Q(y_i,ζ,θ_i), with positive powers interpreted inside C."
+        },
+        {
+          "name": "radialBaseField_le_iff",
+          "role": "universal-property",
+          "statement": "For any intermediate field L⊆C over Q, radialBaseField(d,z,ζ)≤L iff ζ∈L and every real d-th-root coordinate belongs to L. This is the minimal generated field, including for the total definitions."
+        },
+        {
+          "name": "radialKummerField_le_iff",
+          "role": "universal-property",
+          "statement": "For any intermediate field L⊆C over Q, radialKummerField(d,m,z,ζ)≤L iff radialBaseField(d,z,ζ)≤L and all real (dm)-th-root coordinates belong to L."
+        },
+        {
+          "name": "radialKummerField.radical_pow",
+          "role": "relation",
+          "statement": "If d,m>0 and z_i>0, η_i^m=y_i and η_i^d=θ_i, as equalities in C, using the specified positive real roots."
+        },
+        {
+          "name": "radialKummerField.finite_galois",
+          "role": "structure",
+          "statement": "For d,m>0, positive coordinates and ζ primitive of order m, the inclusion E≤H_rad equips H_rad with a finite-dimensional Galois E-algebra structure. Coprimality of d,m is needed for the alternate θ generators, not for this fact."
+        },
+        {
+          "name": "radialKummerField.automorphism_radical",
+          "role": "functoriality",
+          "statement": "For d,m>0, positive coordinates and ζ primitive of order m, every ring automorphism σ of H_rad fixing each element in E sends each η_i to ζ^{s_i}η_i for some s_i∈Z/mZ. The radical-power relation then gives σ(θ_i)=ζ^{ds_i}θ_i. This describes actual automorphisms and does not assert that every vector s defines one."
         }
       ],
       "tests": [
@@ -646,10 +710,10 @@
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.4/coherent-radical-coefficient-fields",
-        "HabiroNahmSeries:HB.4/kummer-invariance-of-the-expansion",
         "HabiroNahmSeries:HB.4/formal-gaussian-integration",
         "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
-        "mathlib:PowerSeries.coeff"
+        "mathlib:PowerSeries.coeff",
+        "mathlib:IsGalois.mem_range_algebraMap_iff_fixed"
       ],
       "acceptance": [
         "For m=1 no root automorphism remains, so coefficient descent follows directly from Gaussian moments.",
@@ -674,18 +738,17 @@
       ],
       "title": "CGZ normalization with separated coefficient and Gauss fields",
       "kind": "comparison",
-      "statement": "Choose d clearing A,B,Q and odd m coprime to d. For the corrected radial series put ω=m^{−N/2}(det H)^{−1/2}∏(1−z_i)^{1/2}>0, μ_{a,m}=χ_{a,m}^N and Φ=G(Q,a/m)∏θ_i^{B_i}(1−z_i)^{−1/m}S. Then ω²∈Q(z)^× and f_{A,B,0}(τ)=μ_{a,m}ωe^{Λ/(mε)}(Φ_{<K}(ε)+O(ε^K)) for every K. Conditional on the exact Kummer identity, Φ^m∈K[[ε]], K=Q(z_i^{1/d},ζ,ζ_D); for integral A with even diagonal and integral B, take d=D=1 and K=Q(z,ζ). Integer-valued Q with half-integral B still requires the B-root field for this displayed normalization. The full arithmetic CGZ package additionally requires the constant Kummer class [Φ(0)^m]=[P_ζ(β)D_ζ(1)^N]^{−1}, interpreted in H_rad^×/H_rad^{×m} and only when Φ(0)≠0, and the specified χ^{−1} eigenspace statement over the coefficient base. For arbitrary rational Q the compatible Bloch class is β=∑[z_i] over Q(z_i^{1/d}), not an unverified integral class over Q(z_i). The rational-data Kummer-class/eigenspace comparison with the Gauss factor is a separate recorded gap. No root of a quotient class is presented as a chosen element.",
+      "statement": "Choose d clearing A,B,Q and odd m coprime to d. For the corrected radial series put ω=m^{−N/2}(det H)^{−1/2}∏(1−z_i)^{1/2}>0, μ_{a,m}=χ_{a,m}^N and Φ=G(Q,a/m)∏θ_i^{B_i}(1−z_i)^{−1/m}S. Then ω²∈Q(z)^× and f_{A,B,0}(τ)=μ_{a,m}ωe^{Λ/(mε)}(Φ_{<K}(ε)+O(ε^K)) for every K. Conditional on the exact Kummer identity, Φ^m∈K[[ε]], K=Q(z_i^{1/d},ζ,ζ_D); for integral A with even diagonal and integral B, take d=D=1 and K=Q(z,ζ). Integer-valued Q with half-integral B still requires the B-root field for this displayed normalization. The full arithmetic CGZ package additionally requires the constant Kummer class [Φ(0)^m]=[P_ζ(β)D_ζ(1)^N]^{−1}, interpreted in H_G^×/H_G^{×m}, H_G=K(η_i), and only when Φ(0)≠0. The separate χ_cyc^{−1} eigenspace target is [Φ(0)^m]∈(K^×/K^{×m})^{χ_cyc^{−1}}, where F_G=Q(y_i,ζ_D), K=F_G(ζ), and χ_cyc:Aut_{F_G}(K)→(Z/mZ)^× is defined by σ(ζ)=ζ^{χ_cyc(σ)}. These are requested arithmetic comparisons, not conclusions of the analytic proof. For arbitrary rational Q the compatible Bloch class is β=∑[z_i] over Q(z_i^{1/d}), not an unverified integral class over Q(z_i). The rational-data Kummer-class/eigenspace comparison with the Gauss factor is a separate recorded gap. No root of a quotient class is presented as a chosen element.",
       "hypotheses": [],
       "proofSteps": [
         "Factor c(Q) into the positive ω and ∏θ_i^{B_i}(1−z_i)^{−1/m}. The analytic statement is purely algebraic rearrangement of the radial theorem.",
         "Raise Φ to m. The rational powers become z_i^{B_i}∈Q(y), the (1−z) factors are in E and G is in Q(ζ_D). The coefficient claim follows from the separate descent identity in exactly K.",
-        "Import the cyclic near-unit map, coherent integral Bloch class, and the parent simplified theorem only for the arithmetic comparison under its required compatibility. The published CGZ (46) must be read as a Kummer-class statement. Its fixed μ is not used as a universal phase for all numerators a."
+        "Import the cyclic near-unit map, coherent integral Bloch class, and the parent simplified theorem only for the arithmetic comparison under its required compatibility. The published CGZ (46) must be read as a Kummer-class statement. Its fixed μ is not used as a universal phase for all numerators a. Extend β from F₀=Q(y_i) to F_G when using R_ζ over that base; its coprimality hypothesis is gcd(m,w_{F_G})=1, where w counts roots of unity before adjoining ζ."
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.4/radial-analytic-remainder-comparison",
         "HabiroNahmSeries:HB.4/coefficientwise-kummer-descent-interface",
         "HabiroNahmSeries:HB.4/coherent-radical-coefficient-fields",
-        "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
         "HabiroNahmSeries:HB.3/coherent-root-exterior-boundary",
         "HabiroNumberFields:HB.2/kummer-value-P"
       ],
@@ -719,7 +782,7 @@
       ],
       "title": "Unit descent and the nonzero constant-term condition",
       "kind": "comparison",
-      "statement": "Let K⊆L be characteristic-zero fields, m≥1, Φ∈L[[ε]] with Φ₀≠0 and Φ^m∈K[[ε]]. Then U=Φ/Φ₀ belongs to K[[ε]]: it is the unique series with U₀=1 and U^m=Φ^m/Φ₀^m. If a representative ε_β∈K^× of R_ζ(β) and a chosen compatible m-th root satisfy ε_β^{1/m}Φ₀∈K^×, then ε_β^{1/m}Φ∈K[[ε]]. Apply this to the radial coefficients only after the preceding arithmetic comparison and the supplier hypotheses (including gcd(m,w_K)=1 where the representative comparison uses it). If Φ₀=0, neither normalization nor this corollary is asserted; the analytic remainder theorem still applies.",
+      "statement": "Let K⊆L be characteristic-zero fields, m≥1, Φ∈L[[ε]] with Φ₀≠0 and Φ^m∈K[[ε]]. Then U=Φ/Φ₀ belongs to K[[ε]]: it is the unique series with U₀=1 and U^m=Φ^m/Φ₀^m. If a representative ε_β∈K^× of R_ζ(β) and a chosen compatible m-th root satisfy ε_β^{1/m}Φ₀∈K^×, then ε_β^{1/m}Φ∈K[[ε]]. Apply this to the radial coefficients only after the preceding arithmetic comparison and the supplier hypotheses (including gcd(m,w_F)=1 where R_ζ is constructed over F with K=F(ζ); in the Gauss-enlarged application take F=F_G=Q(y_i,ζ_D)). If Φ₀=0, neither normalization nor this corollary is asserted; the analytic remainder theorem still applies.",
       "hypotheses": [],
       "proofSteps": [
         "Compare successive coefficients of U^m. At order p the new coefficient is mU_p plus a polynomial in preceding coefficients; characteristic zero allows division by m and inductively puts U_p in K.",
@@ -727,7 +790,6 @@
         "For the near-unit corollary, multiply the descended U by the given scalar in K. The scalar membership is exactly the arithmetic constant-term comparison, not a conclusion of the recursion alone."
       ],
       "prerequisites": [
-        "HabiroNahmSeries:HB.4/unit-corollary-and-nonvanishing",
         "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
         "mathlib:PowerSeries.coeff",
         "HabiroNumberFields:HB.2/the-map-R-zeta"
@@ -759,7 +821,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Compare the quadratic form with the supplier’s min(i,j) Nahm form; its tail-sum convention and reversed coordinates account for the ±(r+1) product classes at B=0.",
-        "Check the trigonometric tuple against the Nahm equation; X₁=1 cannot be a coordinate of the positive distinguished solution. The ordered tuple X₂,…,X_{r+1} passes already in rank two.",
+        "Check the trigonometric tuple against the Nahm equation; X₁=0 cannot be a coordinate of the positive distinguished solution. The ordered tuple X₂,…,X_{r+1} passes already in rank two.",
         "Combine the product identity and eta-theta radial expansion as in the parent acceptance theorem. Import the Rogers dilogarithm identity from its owner to identify Λ; do not replan the real regulator here."
       ],
       "prerequisites": [
@@ -778,14 +840,14 @@
         {
           "sourceId": "cgz-published",
           "locator": "§7.2, (47) and proof of Theorem 7.4, pp. 420–422",
-          "excerpt": "Andrews-Gordon",
+          "excerpt": "By a famous identity of Andrews and Gordon",
           "match": "Imports the identity from its existing q-series owner and retains the parent coordinate correction."
         },
         {
           "sourceId": "zagier",
-          "locator": "II.2C and II.3C(b), pp. 39–41, 53–54",
-          "excerpt": "Poisson summation formula",
-          "match": "The Rogers identity and normalized Gaussian convention are separate owner interfaces."
+          "locator": "II.2C, pp. 39–41, especially the final identity on p. 41",
+          "excerpt": "an equation well known in the physics literature.",
+          "match": "Supplies the precise trigonometric Rogers identity requested from Polylogarithms:P.1; the Gaussian/Poisson proof is cited separately by its analytic nodes."
         }
       ],
       "implementationStatus": "unchecked"
@@ -816,7 +878,7 @@
       "neededBy": [
         "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison"
       ],
-      "detail": "Reconcile the parent simplified unit/eigenspace assertion with β over the coherent d-root field and with G(Q,a/m) in Q(ζ_D). Supply the precise Kummer-class transformation over K=Q(y,ζ,ζ_D), or prove an explicitly stated smaller field suffices. Do not apply CGZ’s fixed μ and F=Q(z) to arbitrary rational data. The analytic formula and its coefficient field conditional on invariance are specified independently."
+      "detail": "Reconcile the parent simplified unit/eigenspace assertion with β over the coherent d-root field and with G(Q,a/m) in Q(ζ_D). Supply the precise Kummer-class transformation over K=Q(y,ζ,ζ_D), or prove an explicitly stated smaller field suffices. Do not apply CGZ’s fixed μ and F=Q(z) to arbitrary rational data. The analytic formula and its coefficient field conditional on invariance are specified independently. Concretely use H_G=K(η_i) for the constant class, and specify the χ_cyc^{−1} action of Aut_{F_G}(K), F_G=Q(y_i,ζ_D), K=F_G(ζ). The representative comparison requires gcd(m,w_{F_G})=1, not gcd(m,w_K)=1: K already contains ζ."
     },
     {
       "title": "Rogers and trigonometric dilogarithm owner input",
@@ -850,8 +912,14 @@
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the journal (17) and (22), collated with arXiv v1. The weighted product yields exp(πi s(a,m)); at a=2,m=3, corrected/printed=exp(−2πi/12).",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     },
     {
       "id": "HabiroNahmSeries/E-HB4-2",
@@ -866,8 +934,14 @@
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Journal (10) now exponentiates ψ, but (14) still multiplies ψ; B has the wrong sign, the eta term is absent, and Gaussian/cyclic arguments remain inconsistent. Expanding Q around s/ε and the reciprocal eta product gives the packet correction; the RR first-coefficient check gives −1/60.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     },
     {
       "id": "HabiroNahmSeries/E-HB4-3",
@@ -882,8 +956,14 @@
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Journal Claim 4 (33) has the displayed (mε) prefactor and inconsistent Gaussian. A lattice of spacing m√ε has covolume m^Nε^{N/2}; for N=1,H=1 its sum is √(2πm)/(m√ε).",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     },
     {
       "id": "HabiroNahmSeries/E-HB4-4",
@@ -898,8 +978,14 @@
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The journal states (20), but the read proof of §4.3 ends at (36) after analytic summation. No action on every coefficient or formal Gaussian translation is supplied there. This is a scoped proof gap, not a disproof of the descent assertion.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     },
     {
       "id": "HabiroNahmSeries/E-HB4-5",
@@ -907,15 +993,21 @@
       "kind": "error",
       "locator": "§4.3, after (35), general smooth-decay discussion",
       "printed": "each term of the right-hand side",
-      "correction": "Use arbitrary-power smallness under Schwartz hypotheses, and exponential smallness only for the polynomial Gaussian actually used in Claim 4.",
+      "correction": "Use arbitrary-power smallness under Schwartz hypotheses, and exponential smallness only for the polynomial Gaussian actually used in Claim 4. In the rapid-decay definition the intended bound is o(|x|^{−K}); adequate derivative decay, such as the Schwartz condition, must also be retained.",
       "reason": "Smoothness alone does not imply exponentially decreasing Fourier transform. A Schwartz transform exp(−(1+ξ²)^(1/4)) supplies a counterexample. The Gaussian application does have exponential decay.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The journal discussion after (35) infers exponential Fourier decay from smoothness; that implication fails even for Schwartz functions. A Schwartz transform exp(−(1+ξ²)^(1/4)) has subexponential decay. Polynomial Gaussians used here do have exponential Fourier decay; also correct the missing negative sign in the displayed rapid-decay condition.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     },
     {
       "id": "HabiroNahmSeries/E-HB4-6",
@@ -930,8 +1022,74 @@
       "searched": [
         "Published GZ article and CGZ journal PDF compared with their named arXiv versions.",
         "Authors’ publication pages and arXiv version listings; no separate correction to these displayed formulas located.",
-        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings."
-      ]
+        "Accepted parent HabiroNahmSeries.json sourceIssues and review history; this is a published-text collation of those findings.",
+        "Independent review on 2026-10-06: Springer article DOI 10.1007/s11139-020-00266-x; arXiv records 1812.07690 (v1 only) and 1712.04887 (latest v3); Garoufalidis and Zagier publication pages; title searches for erratum/corrigendum. No separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Journal Theorem 7.1 retains arbitrary positive order and F=Q(z). The rank-one A=1,B=1/4,m=1 leading value 2^(−1/4) has irrational square, contradicting ω²∈Q with Φ∈Q[[h]]. Odd order is the verified scope of the cited GZ theorem, not a counterexample to every even order. Remark 2.6 explicitly requires gcd(m,w_F)=1 for the representative corollary.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries/E-HB4-7",
+      "source": "gz-published",
+      "kind": "misprint",
+      "locator": "§3, sentence after (13), journal PDF p. 5; arXiv v1 after (14), p. 4",
+      "printed": "the valuation of cn approaches zero",
+      "correction": "The coefficient valuations must tend to +∞ (on the even coefficients used by the Gaussian bracket), so the coefficientwise formal sum exists.",
+      "reason": "For c_{2j}=1 the Gaussian bracket would have infinitely many nonzero contributions to its constant coefficient. The admissible degree/order filtration in the local expansion instead forces valuations to grow.",
+      "affects": "nothing",
+      "known": "Parent HabiroNahmSeries/E9; persists in the journal",
+      "searched": [
+        "Published and named arXiv versions collated on 2026-10-06.",
+        "Accepted parent sourceIssues E9, E16 and E18, author publication pages, publisher article and arXiv version histories; no later separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The journal still prints zero; the formal Gaussian coefficient sum requires valuations tending to infinity. The parent formal integration node already uses the corrected filtration.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries/E-HB4-8",
+      "source": "cgz-published",
+      "kind": "misprint",
+      "locator": "§7.2, proof of Theorem 7.4, display before (48), p. 420; arXiv v3 p. 37",
+      "printed": "X = (X_{r+1}, ..., X_2)",
+      "correction": "For A_ij=2min(i,j), use X=(X_2,...,X_{r+1}). Here X_1=0, not 1.",
+      "reason": "At n=7, the reversed tuple has maximum residual approximately 0.1604895461 in 1−X=X^A, whereas the forward tuple satisfies the equations (numerical residual below 1e−15). The forward ordering also follows by telescoping the sine ratios.",
+      "affects": "nothing",
+      "known": "Parent HabiroNahmSeries/E16; persists in the journal",
+      "searched": [
+        "Published and named arXiv versions collated on 2026-10-06.",
+        "Accepted parent sourceIssues E9, E16 and E18, author publication pages, publisher article and arXiv version histories; no later separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published display still reverses the coordinates. Direct rank-two substitution distinguishes the order; the node statement already uses the forward order, and its proof outline is corrected to X_1=0.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries/E-HB4-9",
+      "source": "cgz-published",
+      "kind": "misprint",
+      "locator": "§7.1, (43), p. 417; arXiv v3 (41), p. 35",
+      "printed": "(1 ≤ j ≤ r)",
+      "correction": "(1 ≤ i ≤ r)",
+      "reason": "The product index j is bound; i is the free index of the system.",
+      "affects": "nothing",
+      "known": "Parent HabiroNahmSeries/E18; persists in the journal",
+      "searched": [
+        "Published and named arXiv versions collated on 2026-10-06.",
+        "Accepted parent sourceIssues E9, E16 and E18, author publication pages, publisher article and arXiv version histories; no later separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published equation still gives the range for the bound index j. All nodes use the intended system indexed by i.",
+        "by": "REV-HabiroNahmSeries--HB.4"
+      }
     }
   ],
   "sourceVersions": [
@@ -977,5 +1135,78 @@
       "read": "2026-10-05",
       "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNahmSeries--HB.4",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 13 nodes, all 18 pinned declarations (13 original and 5 added), public source locators/excerpts and journal/preprint collation, 12 construction API items, 4 tests and 2 planets. Corrected source pointers, direct proof premises, the near-unit base-field coprimality condition, rational-data Kummer-class/character fields, and X₁=0; added concrete Lean interfaces and 3 published collations. All 9 sourceIssues are confirmed. The complete pass is accepted with HB.4 planned, 3 honest gaps and 1 precise owner request; it is not closed or implemented. Lean elaborates with only admitted-declaration warnings. Reader synchronization outside the allowed deliverables is specified in the review report and handoff.",
+    "checked": [
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/analytic-convergence-and-branch-comparison",
+        "verdict": "corrected",
+        "note": "Confirmed normal convergence using the nonzero Euler-product bound and a positive-definite quadratic majorant; the branch lives on the τ cover. Corrected the source page and added the concrete Lean holomorphy signature."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/compact-pochhammer-remainder",
+        "verdict": "verified",
+        "note": "The displacement guard keeps all deformed arguments within sqrt(ρ)<1. The Bernoulli small/large-index split yields the stated uniform ε^J(1+|ν|)^(J+1) bound; the negative-Bernoulli convention agrees with the pinned polynomial."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/finite-product-modulus-estimate",
+        "verdict": "corrected",
+        "note": "Checked all-n root-of-unity block comparison and the logarithmic endpoint error, including n=0. Replaced two excerpts that pointed to the wrong source passages."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/saddlepoint-global-domination",
+        "verdict": "corrected",
+        "note": "Strong convexity gives the global quadratic loss, B is absorbed by completing the square, and the expanding-window tail is flat. Corrected the VZ locator and removed the tail theorem being established from the premises."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/uniform-local-saddle-remainder",
+        "verdict": "verified",
+        "note": "The removed r=2,j=2 term makes every remaining t-order positive; j≤3p and parity p hold. Checked J=12(K+1), P=4(K+1), the weaker Gaussian and lattice-scaled absolute bound. The RR check distinguishes −1/60 from +1/40."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/poisson-covolume-comparison",
+        "verdict": "verified",
+        "note": "Pinned one-dimensional Schwartz Poisson plus Gaussian Fourier transforms supplies arbitrary-power uniform errors. Cell volume is m^N ε^(N/2); the Gaussian integral is (2πm)^(N/2)/sqrt(det H). The cutoff is removed with Gaussian tails."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/cancellation-safe-congruence-remainder",
+        "verdict": "corrected",
+        "note": "CRT and the two exact lattice volumes give a coefficientwise D^(−N) ratio; flat differences remain valid when G=0. Added a concrete restricted-tsum Lean signature; no nonzero leading coefficient is assumed."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/radial-analytic-remainder-comparison",
+        "verdict": "corrected",
+        "note": "Verified χ^N m^(−N/2)cGS, the factorwise-log Dedekind phase, eta correction, negative B, half-Gaussian and general C shift. Made inherited rationality/odd-order/denominator hypotheses explicit and removed the theorem being established from its own proof premises. The QT.6 use retains radial positive-definite hypotheses."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/coherent-radical-coefficient-fields",
+        "verdict": "corrected",
+        "note": "Verified η^m=y, η^d=θ, the Bezout generator equality and finite Kummer/Galois structure. Added five usable API items with matching Lean signatures and pinned support; all four tests discriminate plausible wrong fields. Removed arithmetic invariance as a prerequisite to constructing the fields."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/coefficientwise-kummer-descent-interface",
+        "verdict": "corrected",
+        "note": "The asserted interface is the missing all-coefficient identity for actual E-automorphisms, not all multiplier vectors. Added the pinned finite-Galois fixed-element criterion and removed the unproved parent invariance target as a premise. The named proof gap remains open."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
+        "verdict": "corrected",
+        "note": "Verified the analytic factorization and conditional Φ^m coefficient field. Enlarged the constant-class ambient field to H_G=K(η), specified F_G=Q(y,ζ_D), K=F_G(ζ) and its cyclotomic character, and kept the class/eigenspace comparisons in the explicit arithmetic gap. Removed the unreconciled parent simplified theorem as a proof premise."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/nonzero-unit-series-descent-comparison",
+        "verdict": "corrected",
+        "note": "The characteristic-zero coefficient recursion proves U∈K[[ε]] under Φ₀≠0 and Φ^m∈K[[ε]]. The near-unit representative uses gcd(m,w_F) for the base before adjoining ζ, not w_K; scalar membership remains a separate input. Removed the corollary being proved from its premises."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.4/andrews-gordon-owner-and-acceptance-comparison",
+        "verdict": "corrected",
+        "note": "Confirmed the existing QM.0 min-matrix/identity supplier gives the ±(r+1) product classes. The forward sine tuple passes rank two; corrected X₁=0 and the source excerpts. The precise Rogers request remains with Polylogarithms:P.1 and is supported by Zagier II.2C p. 41."
+      }
+    ]
+  }
 }
