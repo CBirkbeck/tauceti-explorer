@@ -33230,8 +33230,9 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6476"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6476",
+   "finishedAt": "2026-10-06T02:07:24Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.5",
@@ -34045,7 +34046,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields--HB.2",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6446"
   },
   {
    "id": "BP-HabiroNumberFields--HB.6",
