@@ -1,9 +1,15 @@
 /-
-Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541.
-Codex codex-5ebb6f, 2026-10-02. Unchecked; NOT COMPILED; awaits independent review.
-Earlier revision/compilation records below belong to their earlier text only.
-The reader and JSON packet define the full roadmap. New future-carrier signatures
-are comments until their suppliers exist; none asserts a completed Lean proof.
+Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541: Codex codex-5ebb6f (2026-10-02)
+and Claude claude-HJaFqR (2026-10-06). Awaits independent review.
+This file is not the roadmap and is not exhaustive: the packet and its reader document are
+definitive, and the statements below only suggest Lean forms so that contributors and
+reviewers converge on names and signatures.
+This revision imports Mathlib only and elaborates with `lake env lean` at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174, with `sorry` as its only warning
+(claude-HJaFqR, 2026-10-06, after replacing tactic proofs of index side conditions that
+unification had already discharged by term proofs). Earlier revision and compilation
+records below belong to their earlier text only. New future-carrier signatures are
+comments until their suppliers exist; none asserts a completed Lean proof.
 -/
 /-
 FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.

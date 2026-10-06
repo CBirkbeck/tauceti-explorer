@@ -3,7 +3,11 @@ import TauCeti.Algebra.Category.ModuleCat.CartanMap
 
 /-
 Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541.
-Codex codex-5ebb6f, 2026-10-02. Unchecked; NOT COMPILED; awaits independent review.
+Codex codex-5ebb6f, 2026-10-02; merged by Claude claude-HJaFqR, 2026-10-06. Awaits
+independent review. NOT COMPILED: `lean-check` stops at the import
+TauCeti.CategoryTheory.GrothendieckGroup.Exact, whose .olean the shared build at the
+Mathlib pin does not have; the imports were moved above the module docstring, which Lean
+requires, but no declaration below has been elaborated.
 Earlier revision/compilation records below belong to their earlier text only.
 The reader and JSON packet define the full roadmap. New future-carrier signatures
 are comments until their suppliers exist; none asserts a completed Lean proof.

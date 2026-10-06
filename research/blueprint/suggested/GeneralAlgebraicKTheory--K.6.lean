@@ -1,30 +1,72 @@
 /-
 Suggested Lean forms for GeneralAlgebraicKTheory K.6 and the K.7 inputs in this packet.
-FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f, 2026-10-02.
-The reader and JSON packet are definitive. This revision is unchecked and NOT COMPILED.
-Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369.
-Future carriers and their typed signatures below remain comments until the suppliers exist.
-FiniteProjectiveRightModule uses the pinned finiteProjectiveModules Rᵐᵒᵖ and split exact structure.
-KSpace/KGroup are the early K.2 ring/exact-category models. Spectrum, smash, telescope and
-module-fibre signs are H.5 inputs. Frobenius and triangulated model data are the explicit
-structures planned here. IsFlasqueRing is distinct from the pinned sheaf predicate IsFlasque.
-No arbitrary proposition or unit-valued placeholder replaces any of those mathematical objects.
+
+This file is not the roadmap and is not exhaustive: the packet and its reader document are
+definitive, and the statements below only suggest Lean forms so that contributors and reviewers
+converge on names and signatures. Nothing here is claimed to be formalised.
+
+FIX-RT-AREA-ktheory-1~2: Codex codex-5ebb6f (2 October 2026) and Claude claude-HJaFqR
+(6 October 2026). Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369. The file imports Mathlib only and elaborates with
+`lake env lean` at the Mathlib pin, with `sorry` as its only warning.
+
+The objects with Mathlib carriers are stated as Lean declarations: Karoubi's flasqueness data
+and the cone ring, the Nil category with its forgetful functor and zero section, and finite
+chain domination. The rest needs carriers no pinned library has (ring and exact-category
+K-groups and spaces from K.1–K.2, spectra, smash products, telescopes and module-fibre signs
+from StableHomotopyKTheory H.5, Frobenius and triangulated models planned here); those
+signatures are comments naming their supplier until it exists. Right modules are modules over
+Rᵐᵒᵖ. IsFlasqueRing is distinct from the pinned sheaf predicate IsFlasque. No proposition-valued
+or unit-valued placeholder replaces a mathematical object.
 -/
 import Mathlib.LinearAlgebra.Matrix.Defs
 import Mathlib.CategoryTheory.Idempotents.Karoubi
 import Mathlib.RingTheory.Morita.Matrix
+import Mathlib.Algebra.Category.ModuleCat.Basic
+import Mathlib.Algebra.Homology.Homotopy
+import Mathlib.Algebra.Module.Projective
+import Mathlib.RingTheory.Finiteness.Defs
+import Mathlib.RingTheory.Nilpotent.Defs
+
+universe u v w
+
+open CategoryTheory
+
+namespace TauCeti.HigherK
 
 /-!
 GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle
 A ring is FLASQUE, in Karoubi's sense, when there is a bimodule M, finitely generated projective as a right module, together with a bimodule isomorphism from the direct sum of the ring with M onto M. For a flasque ring the zeroth K-group vanishes, because for every finitely generated projective P the natural isomorphism from the direct sum of P with its tensor product against M onto that tensor product makes the class of P equal to zero; this is the Eilenberg swindle. When the underlying right module structure on M is the ring itself the ring is called an INFINITE SUM RING, and the cone rings are examples, hence flasque. The notion has nothing to do with the flasque sheaves that both pinned libraries call by that name, and a formalisation must not reuse the name.
 -/
-/-
-structure IsFlasqueRing (R : Type u) [Ring R] where
-  bimodule : Bimodule R R
-  finiteProjective : FiniteProjective bimodule.rightModule
-  absorb : BimoduleIso (regularBimodule R ⊕ bimodule) bimodule
-theorem IsFlasqueRing.ringK0_trivial (h : IsFlasqueRing R) : Subsingleton (RingK0 R) := sorry
--/
+/-- Karoubi's flasqueness data: a bimodule `M`, finitely generated projective as a right module,
+with a bimodule isomorphism `R ⊕ M ≃ M`. Right modules are modules over `Rᵐᵒᵖ`. -/
+structure IsFlasqueRing (R : Type u) [Ring R] : Type (u + 1) where
+  M : Type u
+  [instAddCommGroup : AddCommGroup M]
+  [instLeft : Module R M]
+  [instRight : Module Rᵐᵒᵖ M]
+  [instComm : SMulCommClass R Rᵐᵒᵖ M]
+  [instFinite : Module.Finite Rᵐᵒᵖ M]
+  [instProjective : Module.Projective Rᵐᵒᵖ M]
+  absorb : (R × M) ≃+ M
+  absorb_smul_left : ∀ (r : R) (x : R × M), absorb (r • x) = r • absorb x
+  absorb_smul_right : ∀ (r : Rᵐᵒᵖ) (x : R × M), absorb (r • x) = r • absorb x
+
+/-- The cone ring: `ℕ × ℕ` matrices with finitely many nonzero entries in each row and column. -/
+def coneRing (R : Type u) [Ring R] : Type u :=
+  {A : ℕ → ℕ → R // (∀ i, {j | A i j ≠ 0}.Finite) ∧ (∀ j, {i | A i j ≠ 0}.Finite)}
+
+instance (R : Type u) [Ring R] : Ring (coneRing R) := sorry
+
+-- Test cone_ring_flasque
+example (R : Type u) [Ring R] : Nonempty (IsFlasqueRing (coneRing R)) := sorry
+
+/- Not stated here: `IsFlasqueRing.K0_eq_zero` (and test `K0_vanishes`) needs the early ring
+K₀ of GeneralAlgebraicKTheory K.2, absent from Mathlib; its form is
+`theorem IsFlasqueRing.K0_eq_zero (h : IsFlasqueRing R) : Subsingleton (RingK0 R)`.
+`IsInfiniteSumRing`, `coneRing_isInfiniteSumRing` and test `infinite_sum_is_flasque` wait for the
+choice of the left action on the regular right module (a ring endomorphism of `R`) recorded in
+the packet; `IsFlasqueRing.not_sheaf_flasque` is a naming rule, not a Lean statement. -/
 
 /- Planning API:
 IsFlasqueRing (structure): The bimodule and the isomorphism witnessing flasqueness.
@@ -143,13 +185,62 @@ theorem projectiveLineKEquiv_inverse : projectiveLineKEquiv.symm = KMap O₀ × 
 GeneralAlgebraicKTheory:K.6/nil-category-and-nil-groups
 For a unital ring R, Nil(R) is the category of pairs (P, ν) in which P is a finitely generated projective R-module and ν is a nilpotent endomorphism of P, with morphisms the module maps commuting with the endomorphisms; it is an exact category, an exact subcategory of the endomorphism category, whose conflations are the sequences of pairs that are exact on the underlying modules. The forgetful functor Nil(R) → P(R), (P, ν) ↦ P, is exact and is split by the exact functor P ↦ (P, 0). The Nil spectrum Nil(R) is the homotopy fibre of the forgetful map K(Nil(R)) → K(R), and Nil_n(R) := π_n Nil(R), the kernel of K_n Nil(R) → K_n(R); because of the splitting, K(Nil(R)) ≃ K(R) × Nil(R) and K_n Nil(R) ≅ K_n(R) ⊕ Nil_n(R) for n ≥ 0. Nil(R) is equivalent to the category H_{1,T}(R[t]) of t-torsion R[t]-modules with a resolution of length at most one by finitely generated projective R[t]-modules: (P, ν) goes to P_ν, the module P on which t acts by ν, resolved by the characteristic sequence 0 → P[t] → P[t] → P_ν → 0 whose first map is t − ν.
 -/
-/-
-structure NilObject (R : Type u) [Ring R] where
-  module : FiniteProjectiveRightModule R
-  endomorphism : module ⟶ module
-  nilpotent : IsNilpotent endomorphism
-def NilK (n : ℕ) (R) : AddSubgroup (KGroup n (NilCategory R)) := ker (nilForgetfulK n R)
--/
+/-- An object of `Nil(R)`: a finitely generated projective right `R`-module with a nilpotent
+endomorphism. -/
+structure NilCat (R : Type u) [Ring R] where
+  P : ModuleCat.{u} Rᵐᵒᵖ
+  [instFinite : Module.Finite Rᵐᵒᵖ P]
+  [instProjective : Module.Projective Rᵐᵒᵖ P]
+  ν : P ⟶ P
+  nilpotent : IsNilpotent ν.hom
+
+namespace NilCat
+
+variable {R : Type u} [Ring R]
+
+/-- Morphisms of `Nil(R)`: module maps commuting with the endomorphisms. -/
+@[ext]
+structure Hom (X Y : NilCat R) where
+  f : X.P ⟶ Y.P
+  comm : X.ν ≫ f = f ≫ Y.ν
+
+instance : Category (NilCat R) where
+  Hom := Hom
+  id X := ⟨𝟙 X.P, by simp⟩
+  comp a b := ⟨a.f ≫ b.f, by rw [← Category.assoc, a.comm, Category.assoc, b.comm,
+    Category.assoc]⟩
+  id_comp a := Hom.ext (Category.id_comp a.f)
+  comp_id a := Hom.ext (Category.comp_id a.f)
+  assoc a b c := Hom.ext (Category.assoc a.f b.f c.f)
+
+/-- The forgetful functor `(P, ν) ↦ P`. -/
+def forget : NilCat R ⥤ ModuleCat.{u} Rᵐᵒᵖ where
+  obj X := X.P
+  map a := a.f
+
+/-- The zero section `P ↦ (P, 0)`. -/
+def zero (P : ModuleCat.{u} Rᵐᵒᵖ) [Module.Finite Rᵐᵒᵖ P] [Module.Projective Rᵐᵒᵖ P] :
+    NilCat R where
+  P := P
+  ν := 0
+  nilpotent := by simp
+
+/-- The zero section is a section of the forgetful functor on objects. -/
+theorem forget_obj_zero (P : ModuleCat.{u} Rᵐᵒᵖ) [Module.Finite Rᵐᵒᵖ P]
+    [Module.Projective Rᵐᵒᵖ P] : forget.obj (zero (R := R) P) = P := rfl
+
+end NilCat
+
+-- Test nilpotent_required (the endomorphism half): 2 is not nilpotent on ℤ.
+example : ¬ IsNilpotent (2 : Module.End ℤ ℤ) := by
+  sorry
+
+/- Not stated here: the exact structure of `NilCat`, `nilGroup`, `KGroup.nilCat_decomposition`,
+`NilCat.equivTorsion`, `nilGroup_map` and tests `nil0_field`, `nil0_dual_numbers`,
+`K0_nil_split` need the exact-category K-theory of K.1–K.2 and the torsion category
+`H_{1,T}(R[t])`; their forms are
+`def NilK (n : ℕ) (R) : AddSubgroup (KGroup n (NilCat R)) := ker (nilForgetfulK n R)`
+and the decomposition `KGroup n (NilCat R) ≃+ KGroup n R × NilK n R`. -/
 
 /- Planning API:
 NilCat (data): Nil(R), with its exact structure.
@@ -173,8 +264,8 @@ GeneralAlgebraicKTheory:K.6/t-torsion-localisation-sequences
 Let R be a unital ring and T = {tⁿ} ⊂ R[t], a set of central nonzerodivisors. (a) The inclusion of H_{1,T}(R[t]) and the localisation R[t] → R[t,t⁻¹] give a homotopy fibration K(H_{1,T}(R[t])) → K(R[t]) → K(R[t,t⁻¹]) of connective K-theory spaces, whose long exact sequence ends with K_0(H_{1,T}(R[t])) → K_0(R[t]) → K_0(R[t,t⁻¹]), a map that need not be onto (Caveat V.7.1.1). (b) Write H_1 for the objects of mod-P¹_R with a length-one resolution by objects of VB(P¹_R) and H_{1,t} ⊂ H_1 for those of the form (M, 0, 0). Then M ↦ (M, 0, 0) is an equivalence H_{1,T}(R[t]) ≃ H_{1,t}, the restriction j^* : VB(P¹_R) → P(R[t⁻¹]), j^*F = M₋, is exact, and K(H_{1,T}(R[t])) → K(P¹_R) → K(R[t⁻¹]) is a homotopy fibration. (c) Restriction to the chart R[t], F ↦ M₊, maps the sequence of (b) to that of (a), identically on the fibre. Through Nil(R) ≃ H_{1,T}(R[t]) the fibre of both is K(Nil(R)) ≃ K(R) × Nil(R).
 -/
 /-
-def nilPolynomialFibre : KSpace (NilCategory R) ≃ₕ* homotopyFiber (KMap (invertCentralVariable R))
-def polynomialLaurentKSequence : KLocalizationSequence (NilCategory R) (Polynomial R) (LaurentPolynomial R)
+def nilPolynomialFibre : KSpace (NilCat R) ≃ₕ* homotopyFiber (KMap (invertCentralVariable R))
+def polynomialLaurentKSequence : KLocalizationSequence (NilCat R) (Polynomial R) (LaurentPolynomial R)
 -/
 
 /-!
@@ -1005,13 +1096,50 @@ theorem stableArtinK4_not_isomorphic (p : ℕ) [Fact p.Prime] (hp : p ≠ 2)
 GeneralAlgebraicKTheory:K.6/finite-chain-domination
 For A fully embedded in an additive U, a bounded complex V in U is A-dominated if a finite complex D in A admits chain maps f:V→D,g:D→V and h:gf≃id_V. The homotopy idempotent fg is not assumed to be an actual degreewise idempotent.
 -/
-/-
-structure FiniteChainDomination (V : ChainComplex A ℤ) where
-  finite : BoundedChainComplex A
-  forward : V ⟶ finite.complex
-  backward : finite.complex ⟶ V
+section FiniteDomination
+
+variable {U : Type v} [Category.{w} U] [Preadditive U]
+
+/-- A finite domination of `V` by a bounded complex with terms in the full subcategory `A`:
+chain maps `f : V ⟶ D`, `g : D ⟶ V` and a homotopy `g ∘ f ≃ id_V`. -/
+structure FiniteChainDomination (A : ObjectProperty U) (V : ChainComplex U ℤ) where
+  D : ChainComplex U ℤ
+  mem : ∀ i, A (D.X i)
+  bounded : ∃ a b : ℤ, ∀ i, (i < a ∨ b < i) → Limits.IsZero (D.X i)
+  forward : V ⟶ D
+  backward : D ⟶ V
   homotopy : Homotopy (forward ≫ backward) (𝟙 V)
--/
+
+namespace FiniteChainDomination
+
+variable {A : ObjectProperty U} {V W : ChainComplex U ℤ}
+
+/-- Transport along a chain homotopy equivalence. -/
+def transport (d : FiniteChainDomination A V) (e : HomotopyEquiv V W) :
+    FiniteChainDomination A W := sorry
+
+/-- `f ∘ g` is idempotent up to the homotopy induced by `d.homotopy`. -/
+def fg (d : FiniteChainDomination A V) :
+    Homotopy ((d.backward ≫ d.forward) ≫ (d.backward ≫ d.forward)) (d.backward ≫ d.forward) :=
+  sorry
+
+/-- Test self_domination: a bounded complex in `A` dominates itself, with `f = g = id`. -/
+def self (hA : ∀ i, A (V.X i))
+    (hb : ∃ a b : ℤ, ∀ i, (i < a ∨ b < i) → Limits.IsZero (V.X i)) :
+    FiniteChainDomination A V :=
+  ⟨V, hA, hb, 𝟙 V, 𝟙 V, Homotopy.ofEq (by simp)⟩
+
+end FiniteChainDomination
+
+-- Test contractible_domination
+example (A : ObjectProperty U) (Z : U) (hZ : Limits.IsZero Z) (hA : A Z) (V : ChainComplex U ℤ)
+    (h : Homotopy (𝟙 V) 0) : Nonempty (FiniteChainDomination A V) := sorry
+
+/- Not stated here: `FiniteChainDomination.sum` needs `A` closed under biproducts and the
+biproduct of chain complexes; test `homotopy_not_idempotent` is a rule against reading the
+homotopy idempotent `fg` as an object of the idempotent completion. -/
+
+end FiniteDomination
 
 /- Planning API:
 FiniteChainDomination (data): A finite A-complex D, chain maps f,g and homotopy gf≃id.
@@ -1031,7 +1159,7 @@ GeneralAlgebraicKTheory:K.6/finite-domination-idempotent-model
 Every A-dominated complex in U is chain homotopy equivalent in U^♮ to a finite complex in A^♮. There is an explicit idempotent p on F=⊕D_i, with [V]=[F,p]−[D_odd] in K0(A^♮). Its image class in K0(U^♮) is the Euler class of V.
 -/
 /-
-def finiteDominationIdempotent (d : FiniteChainDomination V) : IdempotentEndomorphism (finiteTotalModule d.finite)
+def finiteDominationIdempotent (d : FiniteChainDomination A V) : IdempotentEndomorphism (finiteTotalModule d.D)
 def finiteDominationModel (d) : BoundedChainComplex (Karoubi A)
 theorem finiteDominationEuler (d) : eulerClass (finiteDominationModel d) =
   classOf (karoubiImage (finiteDominationIdempotent d)) - classOf (oddTotalModule d.finite) := sorry
@@ -1094,3 +1222,5 @@ def additiveConeIKAgreement (A : SmallIdempotentCompleteAdditiveCategory) (n : �
 The exact-versus-additive comparison still needs Keller’s derived criterion: Section10 and AppendixA have now been read. The existential Frobenius factorization, generic approximation/fibration and spectrum comparisons are decomposed in K.4/K.6. Section10’s finitely presented effaceable functors and the auxiliary exact category are understood, but its invocation of Keller96 §§11.7,12.1 for full faithfulness and its dual has not been independently read. This remaining exact-versus-additive comparison is not required for the spectrum-localization proof; the source’s conditional consequence from Conjecture9.7 must be treated historically rather than as a current vanishing theorem.
 The finite Artin K-three calculations underlying the read counterexample remain inputs: Schlichting2002 §§0–2 were read and the stable-model, triangulated equivalence, fibration and p-primary K4 distinction are now separate nodes. His input K3(ℤ/p²) and K3(𝔽_p[ε]/ε²) calculations cite EF82 and ALPS85; neither calculation paper was independently read. The precise numerical contracts are listed in the application and requested from the relative ring K-theory owner K.5. Next source action: read the cited odd-prime K3 computations, not search again for a triangulated counterexample.
 -/
+
+end TauCeti.HigherK

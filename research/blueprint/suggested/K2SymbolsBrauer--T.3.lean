@@ -1071,10 +1071,11 @@ theorem finite_support_tameSymbol {I : Type v} (v : I → Valuation F ℤᵐ⁰)
 /- `K2SymbolsBrauer:T.3/localization-boundary`: not stated here; the Quillen boundary
 carrier is absent. Exact upstream input: GeneralAlgebraicKTheory K.3 constructs the ring
 localization boundary on K₁ by the cone/cokernel of multiplication by a non-zero-divisor:
-∂[s]=[R/sR] in K₀ of the torsion exact category. For a DVR, dévissage gives ∂[π]=[k]
-and ∂[π^r u]=r[k]. This is not requested from downstream SchemeKTheoryOperations S.3.
-GeneralAlgebraicKTheory K.7 supplies the RIGHT action
-∂(x·j*y)=∂x·i*y and the ordered unit product a·b={a,b}. Hence ∂{π,u}=ū;
+∂[s]=[R/sR] in K₀ of the torsion exact category (K.3/localization-degree-one-index).
+For a DVR, dévissage gives ∂[π]=[k] and ∂[π^r u]=r[k] (K.3/dvr-degree-one-boundary).
+This is not requested from downstream SchemeKTheoryOperations S.3.
+K.3/localization-product-boundary, on K.7's products, supplies the RIGHT action
+∂(x·j*y)=∂x·i*y, and K.7 the ordered unit product a·b={a,b}. Hence ∂{π,u}=ū;
 skew-symmetry gives ∂{u,π}=ū⁻¹ and ∂{π,π}=−1. Expanding
 f=π^r u, g=π^s v gives ∂{f,g}=(−1)^(rs) v̄^r ū^(−s)=tameSymbol v g f,
 the inverse of the roadmap's symbol. This fixes the module-action side and owner without
