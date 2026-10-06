@@ -27577,12 +27577,12 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--L3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #967"
+   "note": "claimed on GitHub issue #967"
   },
   {
    "id": "REV-PadicHodgeRegulators--L3",
@@ -29406,8 +29406,9 @@
    ],
    "avoidAccountOf": "BP-WeightsInEtaleCohomology",
    "prompt": "research/blueprint/prompts/REV-WeightsInEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #502"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #502",
+   "finishedAt": "2026-10-06T10:06:18Z"
   },
   {
    "id": "BP-WeilConjectures--WC.0",
