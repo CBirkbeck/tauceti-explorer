@@ -23405,7 +23405,8 @@
    ],
    "avoidAccountOf": "BP-CrystallineCohomology--CR.5",
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #380"
   },
   {
    "id": "BP-DeligneWeightsAndPurity--DWP.0",
@@ -27886,9 +27887,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidQuotients.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #971"
+   "note": "deliverables arrived from an external worker on issue #971",
+   "finishedAt": "2026-10-06T23:16:24Z"
   },
   {
    "id": "REV-PerfectoidQuotients",
