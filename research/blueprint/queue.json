@@ -27543,7 +27543,7 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
@@ -29332,8 +29332,9 @@
    ],
    "avoidAccountOf": "BP-VectorBundlesAndIsocrystals--VB0",
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #500",
+   "finishedAt": "2026-10-06T12:13:50Z"
   },
   {
    "id": "BP-VectorBundlesAndIsocrystals--VB3",
