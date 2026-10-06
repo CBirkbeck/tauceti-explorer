@@ -1,6 +1,162 @@
 # Handoff: BP-KTheoryFiniteLocalFields (issue #763)
 
-## Current checkpoint — Codex — codex-Gcq0RM, 5 October 2026
+## Completed planning pass — Codex — codex-Pp6J8i, 6 October 2026
+
+Claim [6008932614](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-6008932614)
+was confirmed by bot [6008934111](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-6008934111).
+The whole issue was reread after confirmation. Branch:
+`codex-Pp6J8i-k-finite-local`. This is a **complete target-level planning pass**
+for independent review, under PROTOCOL §0, rather than a checkpoint.
+All seven stages are `planned`; none is `closed`. Every campaign and routed
+stage target has a node whose chain ends in pinned library declarations,
+supplier nodes/requested stages, or a precise recorded gap. Source proofs and
+implementation are not asserted complete. Only the four authorized files change.
+No second issue was claimed.
+
+### Inventory and preserved material
+
+The packet has **280 nodes**: 13 definitions, 13 constructions, 117 theorems,
+113 lemmas, 21 comparisons and 3 applications. The 209 local API items, 117
+local definition/construction tests and 42 planets (six per stage) are retained.
+There are 102 baseline declarations, 35 gaps, 34 supplier requests, 42 local
+source findings and two imported source findings. Stage node counts are
+L.1 61, L.2 17, L.3 21, L.4 35, L.5 85, L.6 50 and L.7 11.
+All 269 inherited node records, 39 inherited source findings and 96 inherited
+baseline records are preserved as JSON data. Executable Lean, after removing
+comments and normalizing whitespace, is unchanged.
+
+### Finite-rank route
+
+Eleven new L.1 nodes finish the routed AV §2.7 items17–18:
+
+1. `classical-degree-three-pullback`: compact SU/Sp comparison and rank
+   stabilization, with the separate geometric étale comparison contract.
+2. `lang-degree-three-edge`: the natural degree-3 edge; its degree-4
+   transgression is Frobenius minus identity, q²−1=0 modulo2.
+3. `finite-classical-h2-no-two-torsion`: odd-order H₂, retaining the reviewed
+   SL₂(F₉)=Sp₂(F₉) exception H₂=ℤ/3.
+4. `finite-classical-h3-coefficient-comparison`: natural UCT comparison
+   H₃(−,ℤ)/2≅H₃(−,F₂), using H₂[2]=0.
+5. `finite-rank-symplectic-h3-mod-two`: the inclusion and stabilization
+   isomorphisms, and the cofinal even-rank filtered-union passage to stable SL.
+6. `stable-sl-plus-universal-cover`: the determinant cover and relative plus
+   comparison, for stable SL even when small-rank SL is not perfect.
+7. `stable-sl-degree-three-hurewicz`: K₂(F_q)=0 gives a 2-connected plus space,
+   hence K₃≅H₃(SL(F_q),ℤ).
+8. `finite-field-k3-coefficient-two`: the Bockstein identification of K₃/2
+   with coefficient K₃; the distinct Bott Bockstein in K₁[2].
+9. `finite-field-chern-bott-product`: the i=2 product formula with independent
+   unit a and root −1, including the q=5 nonsquare witness a=2.
+10. `finite-field-k3-etale-isomorphism`: the nonzero Chern map between groups
+    of order2, identified by Kummer with square classes.
+11. `finite-rank-symplectic-etale-isomorphism`: the actual representation’s
+    class, transported through inclusion, stabilization, Hurewicz and coefficients.
+
+General Sp/SL carriers are not redefined. Six freshly read baseline additions
+are `Matrix.symplecticGroup`, `SymplecticGroup.det_eq_one`,
+`Matrix.SpecialLinearGroup`, `TauCeti.GLSymplectic.mulEquivSymplecticGroup`,
+`TauCeti.Symplectic.groupScheme` and `TauCeti.Symplectic.pointsMulEquiv`.
+The existing group-scheme file explicitly supplies construction/points without
+smoothness or reductivity. The Lang/étale-stack/classical comparison and the
+original finite Schur-multiplier computation remain named gaps. The low-degree
+route does not close Quillen’s complete mod2 cohomology proof gap.
+
+### Ownership and dependency boundary
+
+H.1 owns bar/singular comparisons, natural UCT, field-coefficient duality and
+filtered unions; H.3 owns relative plus, covering comparison and Hurewicz;
+RT.4:topological supplies the compact-classical-group input; M.8 owns general
+étale Chern classes, their product and representation/homology comparisons.
+The upstream ProfiniteCohomology Layer9 Kummer-isomorphism request now explicitly
+includes the odd finite-field, coefficient2 application; an injective Kummer
+map by itself does not suffice.
+
+A new cross-roadmap cycle was found and is **not inserted** as a graph edge.
+The full M.8 regulator stage requires M.7, which requires L.2, which requires
+L.1. The three new Chern consumers therefore cannot import that entire stage.
+Their `unresolvedPrerequisites` preserve the M.8 ownership request, while a
+named gap and PartII structural proposal specify an **early M-owned Chern
+export**, with coefficient/product/Bott, Kummer and H.1/H.3 inputs. The later
+M.8 regulator stage imports this export. Any stage registration must import
+the precise early L.1 coefficient nodes, rather than the whole L.1 stage;
+L.1’s existing sub-layer proposal separates those foundations. No synthetic
+stage identifier or second Chern definition was invented. The currently
+resolved new supplier edges have no return path to L.1 in the registered
+stage graph augmented by this packet’s resolved prerequisites.
+
+All earlier ownership corrections remain: L.1 supplies finite-field K₃ to V.5;
+InductionRestriction Layer6 owns integral virtual characters; RT.2 owns the
+generic genuine/modern TC comparison; CR.4 on CR.5:log-algebra owns universal
+log-Witt theory, with its five preserved imported specifications; the local
+DVR comparisons stay in L.5. The general Poincaré owner remains unregistered
+and is a separate explicit foundation gap. Dyadic hermitian conclusions retain
+full-spectrum/integral versus connective and 2-adic distinctions.
+
+### Source checks and findings
+
+AV arXiv v1 §2.7 pp.16–17 and the IAS author copy were read and compared.
+Weibel’s author-hosted *Étale Chern Classes at the Prime2* was read at the
+coefficient/product, Bott normalization, i=2 Chern formula and Proposition5.1
+sections listed in the packet. The K-book’s independent primitive-unit and
+primitive-root choices in IV.1.13.1 were rechecked. SHA-256 hashes, URLs and
+read sections are in the deliverables; no source download is needed from this
+run’s deleted scratch directory.
+
+E40 records that Corollary1.6.3’s choice of the degree-one generator as −1
+fails over F₅ (and F₉). The Bott root −1 in K₁[2] remains valid; a nonsquare
+unit supplies K₁/2 and the nonzero product Chern class. The K-book already
+states the correct independent choices; no dedicated chapter erratum was found.
+E42 records the Theorem3.3(ii) index c₂₂, which must be c₂₀ on K₄; its own proof already gives that correction. The statement was visually checked.
+E41 records reversed cohomology variance and fixed H³(BG) in the printed
+spectral-sequence page. Correct pullback and full bidegrees are used in the plan.
+The publisher full texts were not obtained: the AV PDF returned an HTML
+challenge and the Weibel chapter page supplied metadata/abstract, not full text.
+These findings are scoped to the actual preprint/author copies, not claimed
+against the unread versions of record. Imported paper E3 remains operative.
+An inherited `sourceVersions.kind` value describing a targeted reread was
+normalized to `author copy`, preserving its hash/date/note.
+
+### Validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryFiniteLocalFields.json`:
+  **0 errors, 0 warnings**, status complete, seven planned stages.
+- `scripts/check_errata.py` on an `errata-v1` projection carrying the packet’s
+  roadmapId, sourceIssues and sourceVersions: **ok**. The packet itself uses
+  `blueprint-v1`; passing it directly to the errata-job checker is the wrong schema.
+- Concordance audit: all 280 reader node identifiers; all 11 new statements,
+  proof steps, acceptance checks and suggested names; all stage coverage notes,
+  remaining lists, gap details and request contracts agree. Inherited node,
+  finding and baseline preservation, and unchanged executable Lean, checked.
+- Dependency audit: seven new resolved supplier stages checked for a return
+  path to L.1; M.8’s actual downstream path identified and retained as an
+  unresolved early-export gap rather than introduced as an edge.
+- Arithmetic witnesses checked for F₃, F₅ and F₉, including four nonzero
+  squares in F₉, square −1, nonsquare 1+i, and Tor(ℤ/3,ℤ/2)=0.
+  These checks do not claim to compute finite group homology in Lean.
+- Both baseline repository HEADs match the full pinned commits.
+- `git diff --check`: clean.
+- Final `lean-check` attempted with 107GB available. It **failed before
+  elaboration**, because the shared build lacks
+  `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`.
+  **This version did not compile.** All 11 added signatures remain comments
+  with explicit statements/hypotheses/proofs/checks because the necessary
+  homotopy/étale carriers are absent. No build, update, cache fetch or language
+  server was run, and no compilation process remains running.
+
+The reader document is definitive and synchronized with the packet. This pass
+is ready for independent review. Review should assess target coverage and the
+precise supplier/source boundaries, especially the early Chern export, Lang
+comparison, Schur exceptions and source version scoping; it should not mistake
+`planned` for `closed` or for implementation.
+
+## Historical checkpoint records
+
+The records below describe earlier versions and their then-current status.
+Their partial-status and next-worker instructions are superseded by the
+completed-pass record above. Their source evidence and unresolved contracts
+remain useful provenance.
+
+## Historical checkpoint — Codex — codex-Gcq0RM, 5 October 2026
 
 Claim [5998536610](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5998536610)
 was confirmed by bot [5998539186](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5998539186).
