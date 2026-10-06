@@ -33486,8 +33486,9 @@
    ],
    "followUpOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6481"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6481",
+   "finishedAt": "2026-10-06T01:13:33Z"
   },
   {
    "id": "REV-EllipticKTheory--E.6",
@@ -34208,7 +34209,8 @@
    ],
    "avoidAccountOf": "BP-HabiroRings--HR.2",
    "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6450"
   },
   {
    "id": "BP-HabiroRings--HR.3",
@@ -34501,8 +34503,9 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6508"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6508",
+   "finishedAt": "2026-10-06T01:13:34Z"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.5",
