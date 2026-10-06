@@ -12,6 +12,13 @@ structure. These are the linear algebra inputs to the imported ER.2/ER.6
 regulator, not definitions of K-theory or Deligne cohomology. The arithmetic
 specialisations cannot yet be stated at the baseline: see the boundary comments
 at the end. No conjectural rank is assumed in the witness API.
+
+The ER.2 request supplies B = H¹(E(C), Q(1))⁻ and its scalar-extension
+comparison with the real Deligne target. The existing real-target computation
+alone does not expose that rational API. Three API signatures below are also
+separate packet lemma nodes because other nodes use them as prerequisites:
+regulatorDet_changeBetti, HasDeterminantWitness.surjective and
+HasDeterminantWitness.rescaleValue.
 -/
 import Mathlib.LinearAlgebra.TensorProduct.Basis
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
@@ -195,7 +202,8 @@ example : (WeierstrassCurve.mk (-1 : ℚ) 0 12 0 0).c₄ = 289 ∧
 potentiallyGoodIntegralityByDescent: I(E)=K2(E) tensor Q for E/F potentially
 good at all finite places. Requires E.6 finite-extension reflection and
 local-global integral membership (requested, Scholl I Corollary 1.3.4 and
-Proposition 1.3.6; Scholl II section 2), plus E.6 good-reduction integrality.
+Proposition 1.3.6; Scholl II section 2), plus the requested local regular-model,
+model-independence and good-reduction integrality specialisations of E.6.
 integralCMClassNonzero: Bloch's ER.5 class U lies in I(E) if E has potentially
 good reduction everywhere. Nonvanishing of the universal regulator also uses
 the ER.2 normalisation comparison as an explicit hypothesis. The potential-good
