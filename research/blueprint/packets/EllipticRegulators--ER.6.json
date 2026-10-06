@@ -1,0 +1,865 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.6",
+  "status": "complete",
+  "scope": [
+    "EllipticRegulators:ER.6"
+  ],
+  "summary": "A complete target-level ER.6 follow-up of the accepted EllipticRegulators parent: fixes the Betti rational determinant line through coordinate and constructed-subspace APIs, separates real surjectivity from conjectural full integral rank/injectivity, repairs the R29.6 analytic dependency with the exact conductor/gamma scalar, and replaces the unsourced potentially-good fibre argument by Scholl’s published local integral-membership descent. An explicit genus-one vertical obstruction tests the hypotheses. Stage planned, not closed: three supplier interfaces and an inherited ER.2 normalisation gap remain. All nodes are unchecked.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Module.Basis",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "kind": "structure",
+        "provides": "A basis is an actual linear equivalence with finitely supported coordinates; no dimension assumption hidden in a numerical finrank.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 89; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "kind": "def",
+        "provides": "A rational basis b induces an R-basis of R tensor_Q B.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 64; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange_apply",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "kind": "lemma",
+        "provides": "The induced basis vector is 1 tensor b(i).",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 73; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange_repr_tmul",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "kind": "lemma",
+        "provides": "Coordinates of a tensor y are b.repr(y)(i) times the left scalar.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 68; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "def",
+        "provides": "Signed determinant of a finite square matrix over a commutative ring.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 60; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "det(MN)=det(M)det(N) for finite square matrices.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 138; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_zero",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "The empty determinant equals 1.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 794; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_one",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "The Fin 1 determinant is its sole entry.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 799; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_two",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "The Fin 2 determinant is a*d-b*c.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 806; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Pi.basisFun",
+        "module": "Mathlib/LinearAlgebra/StdBasis.lean",
+        "kind": "def",
+        "provides": "The standard basis of functions on a finite index type.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 122; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.lift",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "kind": "def",
+        "provides": "Extends an R-linear-to-Q-linear bilinear map to an R-linear map on a tensor product.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 111; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.lift_tmul",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "kind": "theorem",
+        "provides": "The extension evaluates on pure tensors by the bilinear input.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 130; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Module.rank_baseChange",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "kind": "theorem",
+        "provides": "Cardinal rank, without a finite-dimensional assumption, is preserved by scalar extension of free modules (with universe lift).",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 368; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Complex.tendsto_self_mul_Gamma_nhds_zero",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deriv.lean",
+        "kind": "theorem",
+        "provides": "s Gamma(s) tends to 1 on the punctured complex neighbourhood of zero.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 95; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_one",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "kind": "theorem",
+        "provides": "Gamma(1)=1.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 323; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_add_one",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "kind": "theorem",
+        "provides": "Gamma(s+1)=s Gamma(s) when s is nonzero; at s=1 gives Gamma(2)=1.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 312; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:analyticOrderAt",
+        "module": "Mathlib/Analysis/Analytic/Order.lean",
+        "kind": "def",
+        "provides": "Order of a one-variable analytic function, valued in the extended naturals.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 47; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.analyticOrderAt_eq_natCast",
+        "module": "Mathlib/Analysis/Analytic/Order.lean",
+        "kind": "lemma",
+        "provides": "Order n iff f(z)=(z-z0)^n g(z) locally for analytic g with g(z0) nonzero.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 86; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.LFunction",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+        "kind": "def",
+        "provides": "Arithmetic-function Euler coefficients over a number field, including reduction-dependent bad-prime factors; no conductor or functional equation.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 79; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.LSeries",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+        "kind": "def",
+        "provides": "The complex Dirichlet series of those Euler coefficients, not its analytic continuation.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 84; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.c₄",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "kind": "def",
+        "provides": "Invariant b2²-24b4 of a Weierstrass equation.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 121; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "kind": "def",
+        "provides": "Discriminant with the Mathlib/LMFDB sign convention.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 132; the local Mathlib tree has that exact HEAD."
+      },
+      {
+        "ref": "mathlib:Matrix.isUnit_iff_isUnit_det",
+        "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+        "kind": "theorem",
+        "provides": "A finite square matrix is a unit iff its determinant is a unit; over R this tests invertibility by nonzero determinant.",
+        "checked": "Declaration and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 127; the local Mathlib tree has that exact HEAD."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DJZ.2006",
+      "title": "Numerical verification of Beilinson’s conjecture for K₂ of hyperelliptic curves",
+      "authors": "Tim Dokchitser, Rob de Jeu and Don Zagier",
+      "edition": "arXiv:math/0405040v2 (2006); preprint version read",
+      "url": "https://arxiv.org/pdf/math/0405040v2",
+      "sha256": "a9d5c2cce63f2351991789add5ac9cd213b9783b9cbb0e648313e314eadb3ccf",
+      "readSections": [
+        "§2, pp. 3–4: completion, functional equation and leading coefficient",
+        "§3, pp. 4–7: horizontal and vertical tame kernels, Conjecture 3.11, Remarks 3.12–3.14",
+        "§8, pp. 22–24: Theorem 8.3 and its proof"
+      ],
+      "read": "2026-10-06"
+    },
+    {
+      "id": "SchappacherScholl.1988",
+      "title": "Beilinson’s theorem on modular curves",
+      "authors": "Norbert Schappacher and A. J. Scholl",
+      "edition": "Author-hosted retypesetting of the chapter in Beilinson’s Conjectures on Special Values of L-functions, Perspectives in Mathematics 4 (1988), pp. 273–304; pagination cited from retypesetting",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf",
+      "sha256": "7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e",
+      "readSections": [
+        "§§0–1.2.3, pp. 1–5: Q-structures, determinant theorem and limits of its conclusions",
+        "§§7.0–7.4, pp. 17–20: integral elements and correction to integral Manin–Drinfeld"
+      ],
+      "read": "2026-10-06"
+    },
+    {
+      "id": "Scholl.Integral.I",
+      "title": "Integral elements in K-theory and products of modular curves",
+      "authors": "A. J. Scholl",
+      "edition": "Author-hosted version; in The Arithmetic and Geometry of Algebraic Cycles, NATO Science Series C 548 (2000), pp. 467–489; citations use PDF pagination",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/k1.pdf",
+      "sha256": "7bffc95825735b551d93cf8074dba61d28131c3b6302bf855fd1f0e38349a9e6",
+      "readSections": [
+        "Introduction and §1 in full, PDF pp. 1–9: Theorem 1.1.6, graded integral image, Corollary 1.3.4 and Proposition 1.3.6"
+      ],
+      "read": "2026-10-06"
+    },
+    {
+      "id": "Scholl.Integral.II",
+      "title": "Integral elements of K-theory and products of modular curves II",
+      "authors": "A. J. Scholl",
+      "edition": "arXiv:0710.5453v1 (29 October 2007); this preprint was read, not the later version of record",
+      "url": "https://arxiv.org/pdf/0710.5453v1",
+      "sha256": "7e002d151756713aee2080185b91600c643af2c6e39fbe30e4874ea28ac0c3eb",
+      "readSections": [
+        "§1, PDF pp. 1–4: motivic integrality versus ℓ-adic unramifiedness",
+        "§2, PDF pp. 4–5 through diagram (3): localisation and finite-extension reflection"
+      ],
+      "read": "2026-10-06"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.6/regulator-determinant-in-betti-coordinates",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Regulator determinant in rational Betti coordinates",
+      "kind": "construction",
+      "statement": "For a Q-basis b=(b_i) of B and a d-tuple x=(x_j) in I, define Δ_b(r;x)=det((b_R.repr(r(x_j)))_i), with regulator images as columns. It represents the determinant-line image of x relative to the fixed Betti Q-line. The value is signed. Replacing either rational basis rescales it by Q×; replacing b by an arbitrary real basis is not a permitted rational normalisation.",
+      "hypotheses": [
+        "Fix F a number field, E/F elliptic, d=[F:Q]>0, I=K₂(E)_{Z,Q} from E.6 and the restricted universal regulator r:I→D from the parent ER.6 construction. Let B be the ER.2 Betti rational structure of D, of dimension d, with the prescribed Tate twist and combined conjugation; identify D=R⊗Q B. These are imported objects, not newly defined groups. No finite-dimensionality of I is assumed.",
+        "The linear algebra API also makes sense for d=0, with the empty determinant 1. Arithmetic uses have d>0."
+      ],
+      "proofSteps": [
+        "Use the imported tensor-basis extension to choose real coordinates of the Deligne target.",
+        "Apply Mathlib’s signed Matrix.det, not a new determinant construction.",
+        "For a frame change xA, linearity gives M(xA)=M(x)A_R; det_mul gives the factor det(A). For b′=bC, M_b=C_R M_b′; the rational transition C is invertible."
+      ],
+      "acceptance": [
+        "The identity regulator with frame b has determinant 1.",
+        "Swapping the two vectors for d=2 gives -1; multiplying the sole vector for d=1 by 2 gives 2.",
+        "A change of Betti rational basis preserves only the Q× class of the determinant, not its numerical value."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/the-regulator-on-the-integral-part",
+        "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "mathlib:Module.Basis",
+        "mathlib:Module.Basis.baseChange",
+        "mathlib:Module.Basis.baseChange_apply",
+        "mathlib:Module.Basis.baseChange_repr_tmul",
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.det_fin_zero",
+        "mathlib:Matrix.det_fin_one",
+        "mathlib:Matrix.det_fin_two"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "Conjecture 3.11(2), p. 6; Remark 3.14, p. 7",
+          "match": "Specialise the source’s regulator pairing matrix to genus one over all embeddings. Signed coordinates are a derived implementation choice; Q× absorbs the sign and any rational lattice index."
+        },
+        {
+          "sourceId": "SchappacherScholl.1988",
+          "locator": "§1.1.0 and Theorem 1.1.2(ii), PDF pp. 2–3",
+          "match": "Fix the rational structure before comparing the determinant to the L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "DJZ Conjecture 3.11(2) and Remark 3.14",
+          "how": "Compute the determinant in a fixed rational target structure rather than rescaling periods to fit an L-value."
+        },
+        {
+          "where": "EllipticRegulators:ER.6/constructed-determinant-witness",
+          "how": "Certify the exact rational L-value factor of constructed integral classes."
+        },
+        {
+          "where": "EllipticRegulators:ER.7/the-explicit-theorem-for-an-elliptic-curve",
+          "how": "After its regulator normalisation comparison, translate a computed value into Betti determinant coordinates."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.regulatorDet_eq_matrix",
+          "role": "compatibility",
+          "statement": "Δ_b(r;x) is exactly Mathlib Matrix.det of the columns of coordinates in b.baseChange R."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.regulatorDet_changeFrame",
+          "role": "functoriality",
+          "statement": "For every d-by-d matrix A over Q, Δ_b(r;xA)=Δ_b(r;x)·det(A), with det(A) cast to R; A need not be invertible."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.regulatorDet_changeBetti",
+          "role": "compatibility",
+          "statement": "If C_ij=b.repr(b′_j)_i then Δ_b(r;x)=det(C)·Δ_b′(r;x)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.regulatorDet_zero",
+          "role": "simp",
+          "statement": "For d>0, the determinant of the zero regulator on the zero frame is 0."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.regulatorDet_pullback",
+          "role": "functoriality",
+          "statement": "For a Q-linear f:J→I, Δ_b(r∘f;x)=Δ_b(r;f∘x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "regulatorDet_identity",
+          "kind": "compatibility",
+          "statement": "With I=B, r(y)=1⊗y and x=b, Δ_b(r;x)=1."
+        },
+        {
+          "name": "regulatorDet_empty",
+          "kind": "degenerate",
+          "statement": "For d=0, Δ_b(r;x)=1, including the zero map on the zero-dimensional target."
+        },
+        {
+          "name": "regulatorDet_swap_two",
+          "kind": "computation",
+          "statement": "With d=2, I=B, r(y)=1⊗y and x_j=b_(1-j), Δ=-1."
+        },
+        {
+          "name": "regulatorDet_double_one",
+          "kind": "computation",
+          "statement": "With d=1, I=B, r(y)=1⊗y and x_j=2b_j, Δ=2."
+        }
+      ],
+      "planet": {
+        "name": "Regulator determinant"
+      },
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Integral",
+        "namespace": "TauCeti.EllipticRegulators.ER6"
+      },
+      "leanName": "TauCeti.EllipticRegulators.ER6.regulatorDet"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/constructed-determinant-witness",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "The determinant statement on constructed integral classes",
+      "kind": "definition",
+      "statement": "HasDeterminantWitness(b,r,ℓ) means ℓ≠0 and there exist a d-tuple x in I and q∈Q× with Δ_b(r;x)=qℓ. Its nonzero determinant makes the regulator images an R-basis of D and x a Q-basis of its own span V⊂I. This is the weak Beilinson statement on a constructed subspace V, not a rank assertion on I. The two choices of ℓ are the leading coefficient L*(E,0) and π^(−2d)L(E,2); equality of their certificates is proved below.",
+      "hypotheses": [
+        "Fix F a number field, E/F elliptic, d=[F:Q]>0, I=K₂(E)_{Z,Q} from E.6 and the restricted universal regulator r:I→D from the parent ER.6 construction. Let B be the ER.2 Betti rational structure of D, of dimension d, with the prescribed Tate twist and combined conjugation; identify D=R⊗Q B. These are imported objects, not newly defined groups. No finite-dimensionality of I is assumed.",
+        "For source applications ℓ is a specified period-normalised real L-value. Numerical agreement does not supply the exact rational q."
+      ],
+      "proofSteps": [
+        "Record an actual tuple of integral classes, its nonzero rational coefficient and determinant equality.",
+        "A nonzero determinant proves real linear independence of the images, hence rational linear independence of the tuple.",
+        "Rational target basis changes and rescaling ℓ by Q× leave the existential predicate unchanged; surjections on domains lift finite tuples.",
+        "The scalar-extended regulator maps 1⊗x_j onto a real basis, hence is surjective. Nothing here establishes real injectivity."
+      ],
+      "acceptance": [
+        "A zero ℓ is never certified, and for d>0 a zero regulator cannot be certified.",
+        "The projection B⊕B→B in dimension one has a determinant witness with ℓ=1 despite a nontrivial kernel.",
+        "A zero rational coefficient cannot certify an arbitrary regulator."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/regulator-determinant-in-betti-coordinates",
+        "EllipticRegulators:ER.6/three-conclusions-that-are-not-the-same",
+        "mathlib:TensorProduct.AlgebraTensorModule.lift",
+        "mathlib:TensorProduct.AlgebraTensorModule.lift_tmul",
+        "mathlib:Matrix.isUnit_iff_isUnit_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "Remark 3.13, pp. 6–7",
+          "match": "The finite tuple is a constructed subspace, with no claim it generates the integral group."
+        },
+        {
+          "sourceId": "SchappacherScholl.1988",
+          "locator": "§1.1.0, PDF p. 3",
+          "match": "The source gives integral classes with the desired regulator; the witness isolates that conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Schappacher–Scholl Theorem 1.1.2",
+          "how": "Express what an integral modular construction with an exact determinant relation proves."
+        },
+        {
+          "where": "EllipticRegulators:ER.6/full-integral-basis-criterion",
+          "how": "Separate the determinant evidence from the extra real-injectivity assertion in the full conjecture."
+        },
+        {
+          "where": "EllipticRegulators:ER.6/determinant-witnesses-in-the-two-normalisations",
+          "how": "Transfer an exact certificate between the leading coefficient and at-two normalisations."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.mk",
+          "role": "constructor",
+          "statement": "If ℓ≠0, q≠0 and Δ_b(r;x)=qℓ, construct the witness."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.det_ne_zero",
+          "role": "projection",
+          "statement": "A witness supplies a d-tuple x with Δ_b(r;x)≠0."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.rescaleValue",
+          "role": "equivalence",
+          "statement": "For a∈Q×, a witness for aℓ exists iff a witness for ℓ exists."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.changeBetti",
+          "role": "equivalence",
+          "statement": "Any two Q-bases b,b′ of B give equivalent witness predicates."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.liftAlongSurjection",
+          "role": "functoriality",
+          "statement": "For a surjective Q-linear f:J→I, witnesses for r∘f and r are equivalent."
+        },
+        {
+          "name": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness.surjective",
+          "role": "characterisation",
+          "statement": "If r_R:R⊗Q I→D is the scalar extension (r_R(a⊗x)=a r(x)), a determinant witness implies r_R is surjective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "determinantWitness_identity",
+          "kind": "compatibility",
+          "statement": "The inclusion B→R⊗Q B, y↦1⊗y, has a witness with ℓ=1."
+        },
+        {
+          "name": "determinantWitness_zeroValue",
+          "kind": "degenerate",
+          "statement": "No regulator has a witness with ℓ=0."
+        },
+        {
+          "name": "determinantWitness_zeroRegulator",
+          "kind": "non-example",
+          "statement": "For d>0, the zero regulator has no witness for any ℓ."
+        },
+        {
+          "name": "determinantWitness_extraKernel",
+          "kind": "non-example",
+          "statement": "For a one-dimensional B, r:B⊕B→R⊗Q B sends (u,v)↦1⊗u; it has a witness for ℓ=1 although the first projection is not injective."
+        }
+      ],
+      "planet": {
+        "name": "Weak Beilinson statement"
+      },
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulators/Integral",
+        "namespace": "TauCeti.EllipticRegulators.ER6"
+      },
+      "leanName": "TauCeti.EllipticRegulators.ER6.HasDeterminantWitness"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/full-integral-basis-criterion",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Basis criterion for the full integral Beilinson statement",
+      "kind": "theorem",
+      "statement": "Let r_R:R⊗Q I→D be the scalar-extended regulator. A determinant witness for ℓ together with injectivity of r_R is equivalent to: ℓ≠0 and there exist a Q-basis a indexed by Fin d of the entire I and q∈Q× with Δ_b(r;a)=qℓ. Consequently either side gives dim_Q I=d and r_R an isomorphism. Applied to the parent BeilinsonConjecture, this is a reformulation of its rank/isomorphism/determinant conjunction, never a proof that the conjunction holds for an elliptic curve.",
+      "hypotheses": [
+        "Fix F a number field, E/F elliptic, d=[F:Q]>0, I=K₂(E)_{Z,Q} from E.6 and the restricted universal regulator r:I→D from the parent ER.6 construction. Let B be the ER.2 Betti rational structure of D, of dimension d, with the prescribed Tate twist and combined conjugation; identify D=R⊗Q B. These are imported objects, not newly defined groups. No finite-dimensionality of I is assumed.",
+        "The scalar extension is R-linear and evaluates a⊗x to a r(x). Injectivity is on this real-linear map, not merely on r viewed as a Q-linear map."
+      ],
+      "proofSteps": [
+        "A witness gives surjectivity of r_R by its API; the extra injectivity makes r_R a linear equivalence.",
+        "Use cardinal rank preservation under base change, not a bare numerical finrank equality, to deduce that I has a Fin d basis even though no finiteness was assumed.",
+        "A witness frame is Q-independent. In a d-dimensional I it is a basis, retaining the determinant equality.",
+        "Conversely, a basis with nonzero determinant gives an invertible regulator matrix relative to its real scalar extension, so r_R is injective and the witness is immediate."
+      ],
+      "acceptance": [
+        "The projection Q²→Q passes the constructed-subspace certificate and fails the full criterion.",
+        "For d=1, a nonzero regulator on a constructed class yields a one-dimensional subspace; it does not prove that I has dimension one.",
+        "Using Q-injectivity instead of real injectivity is invalid: (a,b)↦a+√2 b from Q² to R is Q-injective but its real extension has a one-dimensional kernel.",
+        "The rational finrank value alone is never used to establish finite-dimensionality."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/constructed-determinant-witness",
+        "EllipticRegulators:ER.6/regulator-determinant-in-betti-coordinates",
+        "EllipticRegulators:ER.6/the-beilinson-statement",
+        "mathlib:Module.rank_baseChange",
+        "mathlib:Module.Basis.baseChange",
+        "mathlib:Matrix.isUnit_iff_isUnit_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "Conjecture 3.11(1–2), p. 6; rational-rank qualification in footnote 3, p. 5",
+          "match": "The full conjecture has both rank and nondegeneracy. This equivalence is a derived linear-algebra formulation; it does not assert finite generation of an integral lattice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.EllipticRegulators.ER6.fullBasisCriterion"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/strictness-and-a-vertical-non-example",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Strict implications and an elliptic vertical obstruction",
+      "kind": "comparison",
+      "statement": "There are independent arithmetic and regulator checks. Horizontal unramifiedness identifies a class in K₂(E)⊗Q, not necessarily in I. Nonzero regulator implies a nonzero class. A d-dimensional determinant witness implies real surjectivity on I. Neither implies real injectivity or the full Beilinson statement. For the smooth genus-one curve y²+(x+12)y+x³=0 with its point at infinity, the DJZ class M={y²/x³,(x−4)/(−4)} is horizontally unramified but no nonzero multiple is integral, by Theorem 8.3(2).",
+      "hypotheses": [
+        "All horizontal closed points, not only F-rational points, enter the tame kernel; use E.3’s rational injectivity.",
+        "In the DJZ example g=1, d_source=3, f=x+12, m=x−4, m(0)=−4 and p=2 does not divide b₁=1. The source’s d is unrelated to the degree [F:Q] denoted d elsewhere here."
+      ],
+      "proofSteps": [
+        "Import the parent three-conclusions comparison; use the explicit Q² projection and Q-injective irrational-slope map to test the missing real-injectivity condition.",
+        "Factor −4t(x)=4x³−x²−24x−144=(x−4)(4x²+15x+36). The quadratic has discriminant −351 and value 160 at x=4, so the cubic has distinct roots.",
+        "Apply DJZ Theorem 8.3(2) to this irreducible linear factor: the horizontal class has a nontorsion vertical residue at p=2. Thus no rational denominator clears it into I.",
+        "The change u=−x gives the Mathlib equation with coefficients (−1,0,12,0,0), c₄=289, Δ=−561600. In particular j is not 2-integral, consistent with failure of potentially good reduction."
+      ],
+      "acceptance": [
+        "The factorisation and nonsingularity checks are exact arithmetic, not numerical regulator evidence.",
+        "For the equation W above, c₄=289 and Δ=−561600; v₂(j)=−6.",
+        "No claimed “all horizontal classes are integral” theorem may apply without its potentially-good hypotheses."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/three-conclusions-that-are-not-the-same",
+        "EllipticRegulators:ER.6/the-vertical-step-that-is-required",
+        "EllipticKTheory:E.3/what-the-sequence-does-not-identify",
+        "EllipticKTheory:E.6/vertical-residues",
+        "EllipticRegulators:ER.6/constructed-determinant-witness",
+        "EllipticRegulators:ER.6/full-integral-basis-criterion",
+        "mathlib:WeierstrassCurve.c₄",
+        "mathlib:WeierstrassCurve.Δ"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "Theorem 8.3(2) and its proof, p. 23",
+          "match": "The displayed elliptic example is a direct substitution into the theorem, not an example transcribed from its tables."
+        },
+        {
+          "sourceId": "SchappacherScholl.1988",
+          "locator": "§1.1.3(iii), PDF p. 3",
+          "match": "The integral constructed subspace does not by itself establish the regulator injectivity conjecture."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/modularity-supplied-leading-term-limit",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Leading coefficient from the modularity functional equation",
+      "kind": "theorem",
+      "statement": "For E/Q, import the analytic continuation and completed functional equation from EllipticCurveModularity R29.6, including the bad Euler factors and the conductor N. Write Λ(s)=N^(s/2)(2π)^(−s)Γ(s)L(s) away from gamma poles and Λ(s)=wΛ(2−s), w=±1. Then lim_(s→0) L(s)/s=wN(2π)^(−2)L(E,2). When L(E,2)≠0, the analytic order is exactly one. The generic analytic prototype also permits Γ(s)^d and obtains lim L(s)/s^d=wN(2π)^(−2d)L(2). L is a continued function agreeing with Mathlib’s raw LSeries in its convergence region, not the totalised raw series at zero.",
+      "hypotheses": [
+        "N is a positive integer and w is ±1; Λ is continuous at zero and the completed identity holds on a punctured complex neighbourhood of zero.",
+        "At s=2, Γ(2)=1; the value of L(2) agrees with the convergent Euler product. To infer exact order d, L is analytic at zero and L(2) is nonzero.",
+        "The normalisation uses (2π), not π, and the conductor appears to the first power in the leading coefficient."
+      ],
+      "proofSteps": [
+        "Use the R29.6 continuation of the full elliptic Euler product; list the R29.6 stage itself as an explicit dependency, in addition to its supplied theorem node, to repair RT-AREA-ktheory-2/9.",
+        "Multiply the completed expression by (sΓ(s))^(−d). The baseline punctured limit sΓ(s)→1 and continuity of powers of positive real constants give lim L(s)/s^d=Λ(0). No evaluation of the totalised Gamma at zero is involved.",
+        "At s=2 the conductor contributes N, the gamma factor contributes 1, and Λ(0)=wΛ(2).",
+        "For an analytic L, a nonzero finite limit of L(s)/s^d means analyticOrderAt L 0=d. E/Q has d=1. Nonvanishing follows from the convergent Euler product with Hasse bounds; request that exact elliptic statement from R29.6 rather than silently deriving it from the name LSeries."
+      ],
+      "acceptance": [
+        "For N=32,w=+1,d=1 the comparison is L′(0)=8π^(−2)L(2); the rational factor is 8.",
+        "Changing w to −1 reverses the signed leading coefficient; the determinant Q× class is unchanged.",
+        "For d=2 the comparison is wN/(16π⁴), not wN/(4π²); the leading coefficient is L″(0)/2!, not L″(0)."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/beilinson-forms-equivalent",
+        "EllipticCurveModularity:R29.6",
+        "EllipticCurveModularity:R29.6/l-function-continuation",
+        "mathlib:WeierstrassCurve.LSeries",
+        "mathlib:WeierstrassCurve.LFunction",
+        "mathlib:Complex.tendsto_self_mul_Gamma_nhds_zero",
+        "mathlib:Complex.Gamma_one",
+        "mathlib:Complex.Gamma_add_one",
+        "mathlib:analyticOrderAt",
+        "mathlib:AnalyticAt.analyticOrderAt_eq_natCast"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "§2, the display following Conjecture 2.1, p. 3",
+          "match": "The source calculation gives the exact conductor/gamma scalar; modularity supplies its conjectural analytic inputs for elliptic curves over Q."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanNames": [
+        "TauCeti.EllipticRegulators.ER6.leadingTermLimit",
+        "TauCeti.EllipticRegulators.ER6.leadingTermOrder"
+      ],
+      "planet": {
+        "name": "Elliptic functional equation comparison"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.6/determinant-witnesses-in-the-two-normalisations",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Equivalent determinant witnesses at zero and at two",
+      "kind": "theorem",
+      "statement": "Let d=[F:Q], N>0 and w=±1. If the specified leading coefficient ℓ₀ satisfies ℓ₀=wN(2π)^(−2d)L(E,2), then HasDeterminantWitness(b,r,ℓ₀) iff HasDeterminantWitness(b,r,π^(−2d)L(E,2)). The rational factors are related by q₂=q₀wN2^(−2d); they are not equal in general. The same rescaling preserves the full integral basis criterion. For E/Q the identity is supplied by the preceding modularity application. Over a general number field it is conditional on the completed continuation and functional equation; in the CM setting it can be supplied by the ER.5 Hecke route.",
+      "hypotheses": [
+        "The Betti rational structure and regulator normalisation are held fixed; changing them to make the formula fit is forbidden.",
+        "In the number-field case use d=r₁+2r₂ and N=|disc F|² Norm_(F/Q)(f_E), with all finite Euler factors. The assumed completion is N^(s/2)(2π)^(−ds)Γ(s)^d L(E,s), with root sign ±1; any other completed convention requires its own conversion.",
+        "The at-two witness predicate is meaningful without analytic continuation. Calling it equivalent to a leading coefficient requires the displayed scalar identity."
+      ],
+      "proofSteps": [
+        "Factor (2π)^(−2d)=2^(−2d)π^(−2d), justified by π>0.",
+        "The scalar wN2^(−2d) is a nonzero rational number, so apply rescaleValue in both directions.",
+        "Apply fullBasisCriterion with the same real-injectivity condition on each side.",
+        "Do not take a real part of a complex leading term to force a real determinant comparison; use the real structure of the actual elliptic L-function. For number fields the analytic inputs are explicit hypotheses; ER.5’s Hecke character identification and AL.1 supply them in the specified CM case."
+      ],
+      "acceptance": [
+        "For d=1,N=32,w=1, a leading-form coefficient q₀=1 becomes q₂=8.",
+        "For d=2,N=16,w=−1 the rational conversion scalar is −1.",
+        "If L(E,2)=0 both determinant witness predicates fail; nonzero leading coefficients are enforced by the witness definition.",
+        "Replacing (2π) by π without changing q gives the wrong exact coefficient."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/constructed-determinant-witness",
+        "EllipticRegulators:ER.6/full-integral-basis-criterion",
+        "EllipticRegulators:ER.6/modularity-supplied-leading-term-limit",
+        "EllipticRegulators:ER.6/beilinson-forms-equivalent",
+        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character"
+      ],
+      "sources": [
+        {
+          "sourceId": "DJZ.2006",
+          "locator": "Remark 3.12, p. 6; Remark 3.14, p. 7",
+          "match": "The at-two formulation needs no continuation to be meaningful; the equivalence does. The rational coefficient transformation is derived explicitly here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.EllipticRegulators.ER6.atTwoWitness_iff"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/potentially-good-integrality-by-local-descent",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Potentially good integrality by finite-extension descent",
+      "kind": "theorem",
+      "statement": "If E/F has potentially good reduction at every finite place, then the rational integral part I(E) is all of K₂(E)⊗Q, hence all horizontally unramified rational function-field classes. This refines the proof of the parent ER.6/potentially-good-reduction-integrality theorem: it uses published integral-membership descent and good reduction, without a case analysis of Kodaira fibre graphs. It is a rational image equality, not an assertion that every integral class itself lifts without taking a multiple.",
+      "hypotheses": [
+        "Potentially good reduction means good reduction of a minimal equation after some finite extension of the completed local field. A nonminimal base-changed equation is not required to have good reduction.",
+        "Use the regular proper model image from E.6 and the same image over each completion and finite extension, not G-theory of an arbitrary singular proper flat model.",
+        "The unweighted K₂ descent statements are requested from their owner E.6. Scholl states the motivic weightwise version; passage to full rational K₂ uses the finite Adams-weight decomposition, explicitly included in that request."
+      ],
+      "proofSteps": [
+        "For α∈K₂(E)⊗Q and a finite place v, pull α to E/F_v. Choose a finite extension L_v/F_v where E has good reduction; no simultaneous global good-reduction field is required.",
+        "E.6 good-reduction integrality and model independence put α_(L_v) in the local integral image; equivalently its rational special-fibre boundary vanishes because K₁ of the smooth proper finite-field curve is torsion.",
+        "Reflect integral membership back along L_v/F_v by Scholl I Corollary 1.3.4 (alteration pullback and degree-normalised transfer), explicitly recalled for finite extensions in Scholl II §2. This is the requested E.6 specialisation.",
+        "Apply Scholl I Proposition 1.3.6, or the identical localization diagram of Scholl II §2, to infer global integrality from all local completions. The reverse inclusion I⊂K₂(E)⊗Q is definitional.",
+        "Scholl II’s H_M,nr is ℓ-adic unramified motivic cohomology; do not identify it with the horizontal tame kernel. The proof uses only its integral-membership descent/localisation discussion, not Theorem 1.1 with the word unramified reinterpreted."
+      ],
+      "acceptance": [
+        "When E has good reduction already at v the extension may be the identity.",
+        "The argument works for wildly ramified extensions in residue characteristics 2 and 3; no rational-tree classification is needed.",
+        "By E.3 rational injectivity and E.6 vertical residues, equality with the full K₂ rational group means every vertical residue of every horizontal rational class is zero.",
+        "The DJZ elliptic example has v₂(j)=−6 and is excluded by the potentially-good hypothesis.",
+        "Neither equality of these two groups nor descent bounds their rational dimension."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.6",
+        "EllipticKTheory:E.6/the-integral-part",
+        "EllipticKTheory:E.6/existence-of-a-regular-proper-model",
+        "EllipticKTheory:E.6/model-independence",
+        "EllipticKTheory:E.6/good-reduction-primes-impose-no-condition",
+        "EllipticKTheory:E.6/vertical-residues",
+        "EllipticKTheory:E.3/what-the-sequence-does-not-identify",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholl.Integral.I",
+          "locator": "§1.3.3, Corollary 1.3.4, Proposition 1.3.6; PDF pp. 8–9",
+          "match": "Degree-normalised alteration transfer reflects integral membership; localisation identifies global membership with membership over all completions. Their potentially-good application is derived here."
+        },
+        {
+          "sourceId": "Scholl.Integral.II",
+          "locator": "§2, PDF p. 5, equations preceding diagram (3)",
+          "match": "The source explicitly recalls reflection of integral membership under finite field extensions. This is not a statement about horizontal tame unramifiedness."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.EllipticRegulators.ER6.potentiallyGoodIntegralityByDescent",
+      "signatureStatus": "Arithmetic signature omitted at the pinned higher-K-theory/model boundary; not replaced by dummy types.",
+      "planet": {
+        "name": "Potentially good reduction integrality"
+      },
+      "refines": "EllipticRegulators:ER.6/potentially-good-reduction-integrality"
+    },
+    {
+      "id": "EllipticRegulators:ER.6/integral-nonzero-bloch-class",
+      "parentStageId": "EllipticRegulators:ER.6",
+      "realises": [
+        "EllipticRegulators:ER.6"
+      ],
+      "title": "Integral membership of the nonzero Bloch class",
+      "kind": "application",
+      "statement": "In the precise ER.5 maximal-order CM setup over Q, let U be its rationally descended Bloch class. Assume E is potentially good at every finite place. The descent integrality theorem gives U∈I(E). Under the ER.2 comparison identifying the imported symbol regulator with the universal regulator by a nonzero normalisation factor, ER.5 nonvanishing gives r(U)≠0, so Q·U is a one-dimensional subspace of I and its scalar-extended regulator is an isomorphism onto the one-dimensional real target. The regulator on all I is surjective. Neither full integral rank nor an exact rational Betti determinant certificate follows just from this nonvanishing.",
+      "hypotheses": [
+        "Use exactly the parent ER.5 maximal-order, class-number-one, rational descent and nonvanishing hypotheses; no additional CM orders or higher-class-number fields are included.",
+        "Potentially good reduction at every finite place is an explicit arithmetic hypothesis here. The j-integrality criterion is imported from the existing elliptic local-reduction layer; a theorem establishing integral j for a broader CM family belongs to that family’s CM owner.",
+        "For the universal-regulator nonvanishing and surjectivity conclusions, assume the parent ER.2 comparison identifies the nonzero Bloch symbol regulator with r by a nonzero factor. This inherited comparison is still a gap. An exact rational determinant certificate additionally needs the normalisation in the fixed Betti rational structure, not a freely rescaled period."
+      ],
+      "proofSteps": [
+        "Import U∈K₂(E)⊗Q and its nonzero symbol regulator from ER.5. Under the explicitly assumed ER.2 comparison, the nonzero normalisation factor also gives r(U)≠0.",
+        "Apply the source-backed potentially-good integrality refinement to place U in the already constructed I.",
+        "A nonzero vector in a one-dimensional real target spans that target; Q·U has rank one because a regulator does not annihilate U. This yields scalar-extended surjectivity on all I.",
+        "Keep the full-basis criterion’s real-injectivity requirement separate. An exact determinant relation in the fixed rational structure also needs the ER.2 regulator comparison, not just nonzero scalar regulator output."
+      ],
+      "acceptance": [
+        "For j=1728 and j=0, the imported j-integrality criterion supplies the reduction hypothesis at every finite place, including additive primes.",
+        "A hypothetical second independent integral class in the real-regulator kernel would leave this conclusion intact and invalidate the full rank-one conjecture; no argument here excludes it.",
+        "The class U and its regulator coefficients are imported unchanged from ER.5’s corrected formulas; the private Bloch scan is not newly cited or claimed to have been read."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.6/potentially-good-integrality-by-local-descent",
+        "EllipticRegulators:ER.6/the-regulator-on-the-integral-part",
+        "EllipticRegulators:ER.5/the-class-U",
+        "EllipticRegulators:ER.5/nonvanishing-and-what-is-not-claimed",
+        "EllipticRegulators:ER.2/the-normalisation-factor",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Scholl.Integral.II",
+          "locator": "§2, PDF p. 5: integral membership after finite extension",
+          "match": "Supports the new arithmetic-membership step; the Bloch class and nonzero regulator are imported parent declarations, not results claimed to be stated in this paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.EllipticRegulators.ER6.integralCMClassNonzero",
+      "signatureStatus": "Arithmetic signature omitted until the imported K₂/Deligne objects exist; the exact theorem is stated in the packet and reader."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.6",
+      "status": "planned",
+      "note": "Every ER.6 target is imported from the reviewed parent or refined here. The potentially-good source gap is replaced by a published local-descent proof with exact E.6 supplier requests. The full integral rank is explicitly conjectural. RT-AREA-ktheory-2/9 is handled by the R29.6 prerequisite and by conditional number-field/CM analytic routing.",
+      "remaining": [
+        "E.6 must expose finite-extension reflection and local-global membership for its full rational K₂ image, with the weightwise-to-unweighted justification.",
+        "R29.6 must expose the continued-function interface and Euler-product nonvanishing at two alongside its already planned FE transfer.",
+        "The inherited ER.2 comparison with the universal regulator is needed for explicit Bloch determinant coordinates.",
+        "The full rank/isomorphism statement remains Beilinson’s conjecture; it is not a requested proof or an unfinished theorem of this pass."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Inherited ER.2 comparison with the universal regulator",
+      "neededBy": [
+        "EllipticRegulators:ER.6/regulator-determinant-in-betti-coordinates",
+        "EllipticRegulators:ER.6/integral-nonzero-bloch-class"
+      ],
+      "detail": "The parent packet explicitly leaves open the comparison of its Brunault/Bloch symbol normalisation with MotivicEtaleKTheory M.8’s universal Deligne regulator (parent gap “Brunault’s normalisation of Deligne cohomology against the universal regulator”). All determinant statements here use the fixed ER.2 Betti rational structure and the imported restricted universal regulator, and their generic linear algebra is independent of this comparison. An exact formula for the Bloch class in those determinant coordinates cannot be inferred from nonvanishing alone. The ER.2 follow-up must supply the comparison with the exact Tate twists and rational factors; this job does not replan that object or claim to discharge that inherited source gap."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "EllipticKTheory:E.6",
+      "need": "Extend the existing integral-part API with the following exact specialisations of Scholl I §1 and II §2: for E over a number field or a characteristic-zero nonarchimedean local field with finite residue field and finite extension F′/F, α∈I(E/F) iff α_(F′)∈I(E_(F′)/F′); pullback is injective after rationalisation. Over a number field, α∈I(E/F) iff α_(F_v) lies in I(E/F_v) for every finite v. Supply these for the full rational K₂ image, justifying the passage from Scholl’s Adams-weight motivic statements using S.6’s finite weight decomposition; keep regular models and the generic-fibre maps explicit. The existing E.6 definition/model-independence/good-prime nodes do not themselves state this reflection/local-global API.",
+      "neededBy": [
+        "EllipticRegulators:ER.6/potentially-good-integrality-by-local-descent"
+      ]
+    },
+    {
+      "supplier": "EllipticCurveModularity:R29.6",
+      "need": "Consume R29.6/l-function-continuation without redefining its objects, and expose an actual continued L-function whose equality with WeierstrassCurve.LSeries is asserted in the convergence region. Supply the conductor N>0, root sign w=±1, full completed identity, functional equation, and L(E,2)≠0 (or positive real value) from the convergent full Euler product and Hasse bounds, with all bad factors. The existing named continuation node supplies the FE transfer; this request pins its analytic interface and the nonvanishing input used for exact order. This is the explicit R29.6→ER.6 edge required by RT-AREA-ktheory-2/9.",
+      "neededBy": [
+        "EllipticRegulators:ER.6/modularity-supplied-leading-term-limit"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Consume, without replanning, the existing HasPotentialGoodReduction definition using a finite extension of a complete DVR fraction field and minimisation after base change, and its j-integrality criterion. Use good reduction to obtain a smooth proper regular model through E.6; the upstream equation layer does not itself construct that scheme. Needed for the local extension step and the j=0,1728 acceptance examples.",
+      "neededBy": [
+        "EllipticRegulators:ER.6/potentially-good-integrality-by-local-descent",
+        "EllipticRegulators:ER.6/integral-nonzero-bloch-class"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "parentPacket": "research/blueprint/packets/EllipticRegulators.json",
+  "baselineAudit": {
+    "source": "data/library-coverage.json",
+    "review": "AUDIT-28",
+    "stage": "EllipticRegulators:ER.6",
+    "verdict": "not built",
+    "application": "The audit finds no arithmetic integral part, higher regulator or Beilinson statement at the pins. Matrix determinants, tensor bases, gamma residue and analytic order are reused; the raw elliptic LSeries is never promoted into a completed function by name alone."
+  },
+  "upstreamStyleSources": [
+    "content/tau-ceti/ArithmeticDirichletSeries/README.md",
+    "content/tau-ceti/HodgeStructures/README.md"
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0405040v2",
+      "read": "2026-10-06",
+      "sha256": "a9d5c2cce63f2351991789add5ac9cd213b9783b9cbb0e648313e314eadb3ccf",
+      "citation": "arXiv:math/0405040v2 (2006); preprint version read"
+    },
+    {
+      "kind": "author-version",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf",
+      "read": "2026-10-06",
+      "sha256": "7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e",
+      "citation": "Author-hosted retypesetting of the chapter in Beilinson’s Conjectures on Special Values of L-functions, Perspectives in Mathematics 4 (1988), pp. 273–304; pagination cited from retypesetting"
+    },
+    {
+      "kind": "author-version",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/k1.pdf",
+      "read": "2026-10-06",
+      "sha256": "7bffc95825735b551d93cf8074dba61d28131c3b6302bf855fd1f0e38349a9e6",
+      "citation": "Author-hosted version; in The Arithmetic and Geometry of Algebraic Cycles, NATO Science Series C 548 (2000), pp. 467–489; citations use PDF pagination"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0710.5453v1",
+      "read": "2026-10-06",
+      "sha256": "7e002d151756713aee2080185b91600c643af2c6e39fbe30e4874ea28ac0c3eb",
+      "citation": "arXiv:0710.5453v1 (29 October 2007); this preprint was read, not the later version of record"
+    }
+  ],
+  "confirmedFindings": [
+    {
+      "id": "RT-AREA-ktheory-2/9",
+      "handledBy": [
+        "EllipticRegulators:ER.6/modularity-supplied-leading-term-limit",
+        "EllipticRegulators:ER.6/determinant-witnesses-in-the-two-normalisations"
+      ],
+      "resolution": "Explicit EllipticCurveModularity:R29.6 prerequisite and request for the E/Q FE/continuation transfer; exact scalar wN(2π)^(−2d), rational conversion wN2^(−2d); general number-field identity is hypothesised and the CM route imports ER.5/AL.1. No FE or conductor is attributed to Mathlib LSeries."
+    }
+  ]
+}
