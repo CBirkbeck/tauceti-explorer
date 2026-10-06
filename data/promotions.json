@@ -350,6 +350,17 @@
     "data/blueprints/ArithmeticKTheory--N.2.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.5.json": {
+   "promotedAt": "2026-10-06T02:24:39Z",
+   "review": "6b472195682a38ec",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.5",
+   "sha256": "c81c99e5f2d023c2bb4b5209f7c33648215a0043eb615b4a2f34b2a516074094",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.5.json",
+    "data/blueprints/ArithmeticKTheory--N.5.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.7.json": {
    "promotedAt": "2026-09-28T15:05:04Z",
    "review": "14157099068371d4",
