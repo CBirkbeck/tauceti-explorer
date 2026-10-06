@@ -31761,8 +31761,9 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.6",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6401"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6401",
+   "finishedAt": "2026-10-06T02:31:13Z"
   },
   {
    "id": "BP-Polylogarithms--P.2",
@@ -31918,7 +31919,8 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6390"
   },
   {
    "id": "REV-Polylogarithms--P.5",
@@ -33280,7 +33282,8 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6477"
   },
   {
    "id": "REV-ArithmeticKTheory--N.6",
@@ -33682,7 +33685,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6485"
   },
   {
    "id": "REV-EllipticRegulators--ER.4",
@@ -33963,8 +33967,9 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.3",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6443"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6443",
+   "finishedAt": "2026-10-06T02:31:17Z"
   },
   {
    "id": "BP-HabiroNumberFields--HB.1",
@@ -34056,8 +34061,9 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields--HB.2",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6446"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6446",
+   "finishedAt": "2026-10-06T02:31:20Z"
   },
   {
    "id": "BP-HabiroNumberFields--HB.6",
