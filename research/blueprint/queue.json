@@ -23406,8 +23406,9 @@
    ],
    "avoidAccountOf": "BP-CrystallineCohomology--CR.5",
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #380"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #380",
+   "finishedAt": "2026-10-06T23:49:58Z"
   },
   {
    "id": "BP-DeligneWeightsAndPurity--DWP.0",
@@ -36625,8 +36626,9 @@
     "REV-Polylogarithms--P.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-Polylogarithms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6424"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6424",
+   "finishedAt": "2026-10-06T23:50:01Z"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra",
@@ -36880,7 +36882,8 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-ClassicalSerreModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #219"
   },
   {
    "id": "ASM-ColemanPowerSeries",
@@ -36961,7 +36964,8 @@
     "REV-DeligneWeightsAndPurity--DWP.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeligneWeightsAndPurity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #223"
   },
   {
    "id": "ASM-DiamondEtaleCohomology",
@@ -37054,8 +37058,9 @@
     "REV-EllipticRegulators--ER.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-EllipticRegulators.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6418"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6418",
+   "finishedAt": "2026-10-06T23:50:04Z"
   },
   {
    "id": "ASM-EndoscopicTransferAndUnitaryTraceComparison",
