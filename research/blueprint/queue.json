@@ -21462,9 +21462,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-AdelicAlgebraicGroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #667"
+   "note": "deliverables arrived from an external worker on issue #667",
+   "finishedAt": "2026-10-06T10:19:56Z"
   },
   {
    "id": "REV-AdelicAlgebraicGroups",
@@ -27376,8 +27377,9 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-PELModuli.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #963"
   },
   {
    "id": "REV-PELModuli",
@@ -29146,8 +29148,9 @@
     "REV-RS-33"
    ],
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #999"
   },
   {
    "id": "REV-StableHomotopyKTheory",
@@ -29465,8 +29468,9 @@
    ],
    "avoidAccountOf": "BP-WeilConjectures--WC.0",
    "prompt": "research/blueprint/prompts/REV-WeilConjectures--WC.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #503"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #503",
+   "finishedAt": "2026-10-06T10:19:58Z"
   },
   {
    "id": "BP-WeilConjectures--WC.6",
