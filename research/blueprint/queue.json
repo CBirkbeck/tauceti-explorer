@@ -25313,9 +25313,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #740"
+   "note": "deliverables arrived from an external worker on issue #740",
+   "finishedAt": "2026-10-06T18:53:17Z"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -28096,12 +28097,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #976"
+   "note": "claimed on GitHub issue #976"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R23.1",
@@ -61284,8 +61285,9 @@
     "REV-FIX-RT-AREA-langlands-2~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5870"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5870",
+   "finishedAt": "2026-10-06T18:53:19Z"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~3",
