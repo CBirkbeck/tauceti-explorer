@@ -75,7 +75,8 @@ import TauCeti.RingTheory.RootsOfUnity.Henselian
 # Suggested Lean forms for `KTheoryFiniteLocalFields` (stages L.1–L.7)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/KTheoryFiniteLocalFields.md` is definitive. The statements below
+`research/blueprint/readmes/KTheoryFiniteLocalFields.md` needs reconciliation with the independent
+review corrections in the packet and `reviews/REV-KTheoryFiniteLocalFields.md`. The statements below
 suggest Lean forms so that contributors and reviewers converge on names and signatures; they claim
 no implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
@@ -83,9 +84,10 @@ Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
 A preceding version has a historical successful compilation record. This version's
-`lean-check` stopped before elaboration because the shared pinned build lacks
+`lean-check` stopped before elaboration because the shared build lacks
 `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled;
-that older result does not certify this file.
+that older result does not certify this file. The shared Mathlib pin agrees, but
+its Tau Ceti checkout is not at the packet's Tau Ceti pin.
 No build, cache download, update or Lean language server was used in this pass.
 
 ## Pinned conventions
@@ -574,7 +576,9 @@ theorem character_baseChange {k' : Type} [Field k'] [Finite k'] [Algebra k k'] [
     character ι (FDRep.of (Representation.baseChange k' V.ρ)) = character ι V := by
   sorry
 
-/-- Changing `ι` into `ι ∘ (x ↦ x^u)` replaces `χ_V(g)` by `χ_V(g^u)`. -/
+/-- The character-function identity under the power homomorphism. For this composite to
+remain an embedding on the relevant eigenvalues, require u coprime to their prime-to-p
+orders; an integer power need not be an automorphism of all prime-to-p roots. -/
 theorem character_change_embedding (u : ℕ) (V : FDRep k G) (g : G) :
     character (ι.comp (powMonoidHom u)) V g = character ι V (g ^ u) := by
   sorry
@@ -1139,7 +1143,8 @@ StableHomotopyKTheory H.6, RefinedTraceMethods RT.4:topological). -/
 
 /-- `KTheoryFiniteLocalFields:L.1/algebraic-closure-k-groups`, degree one. The groups
 `K_n(\bar 𝔽_p)`, `n ≥ 2`, and the Tate-twist identification need the K-groups (supplier:
-GeneralAlgebraicKTheory K.1) and `μ^{⊗ i}` (supplier: MotivicEtaleKTheory M.1); stated:
+GeneralAlgebraicKTheory K.1) and the torsion Tate twist `μ(i)` (supplier: MotivicEtaleKTheory M.1; not an ordinary
+tensor power of the divisible torsion group); stated:
 `K_1(\bar 𝔽_p) = \bar 𝔽_pˣ` is a divisible torsion group without `p`-torsion (so
 `≅ ⊕_{ℓ ≠ p} ℚ_ℓ/ℤ_ℓ`), on which the Frobenius acts by `x ↦ x^p`. -/
 theorem algebraic_closure_k_groups (p : ℕ) [Fact p.Prime] :
@@ -1862,9 +1867,9 @@ variable {E : Type u} [Field E] [ValuativeRel E] [TopologicalSpace E]
   [IsNonarchimedeanLocalField E]
 
 /-- `KTheoryFiniteLocalFields:L.3/local-k2-localisation-sequence`: `0 → K₂(𝒪) →j K₂(E) → kˣ → 0`
-is exact and canonical. The localisation boundary is `∂^{Kb}_v = ∂_v⁻¹` on symbols
-(`K2SymbolsBrauer:T.3/localization-boundary`); it has the same kernel and image as the tame
-symbol `∂_v` used here, so `j(K₂(𝒪)) = ker ∂_v`. The splitting is canonical: `u ↦ {ω(u), π}` is a
+is exact and canonical. With the L.2 left-linear convention the localisation boundary is
+`∂_v` on symbols; the K-book boundary `∂^{Kb}_v` is its inverse and requires sign conversion
+from `K2SymbolsBrauer:T.3/localization-boundary`. Thus `j(K₂(𝒪)) = ker ∂_v`. The splitting is canonical: `u ↦ {ω(u), π}` is a
 section of `∂_v` for every uniformiser `π`, and it does not depend on `π`
 (`KTheoryFiniteLocalFields:L.2/even-k-field-splitting`, `i = 1`). -/
 theorem local_k2_localisation_sequence :
@@ -2236,8 +2241,9 @@ example : KaehlerDifferential.D ℤ (Polynomial ℤ) Polynomial.X ≠ 0 := by
   sorry
 
 -- test TauCeti.HM.connesOperator_not_differential_p2 (non-example): not stated here; needs
--- `TR^n(ℤ_(2);2)`, `η` and `dlog(-1)` in `TR^n_1` (supplier: RefinedTraceMethods RT.2;
--- StableHomotopyKTheory H.6).
+-- an explicit class with `ηd` nonzero. The relation `d² = ηd` and nonzero `η` alone do
+-- not give this witness. It remains the packet's Connes nonzero-square gap (suppliers:
+-- RefinedTraceMethods RT.2; StableHomotopyKTheory H.6).
 
 /-! ### `L.4/moore-spectrum-splitting-for-hz-modules` -/
 
@@ -3059,7 +3065,8 @@ theorem modVerschiebung_one (hp : p ≠ 2) (n : ℕ)
 (`c_s = Π_{j=1}^{s-1} F^j(θ_K([π]))`, by the projection formula `y·V(a) = V(F(y)·a)`); in
 particular `V_π^s` and `V^s` have the same image. -/
 theorem modVerschiebung_iterate (hp : p ≠ 2) (n s : ℕ) (hs : 0 < s)
-    (θ : Polynomial (WittVector p (ResidueField A))) (π : A) (hθ : IsUnit (θ.coeff 0)) :
+    (θ : Polynomial (WittVector p (ResidueField A))) (π : A)
+    (hπ : Irreducible π) (hθ : IsUnit (θ.coeff 0)) :
     ∃ c : (WittModP p n A)ˣ, ∀ a : WittModP p n A,
       modVerschiebungIter p A n θ π s a =
         thetaTeichmuller p A (n + s) θ π *
@@ -3315,7 +3322,8 @@ def toRelative (p : ℕ) [Fact p.Prime] (A : Type v) (K : Type w) [CommRing A] [
 fraction fields `K ⊆ L` (data). -/
 def baseChangeMap (R : Type u) (A : Type v) (K : Type w) (B : Type v) (L : Type w) [CommRing R]
     [CommRing A] [CommRing B] [Algebra R A] [Algebra R B] [Algebra A B] [IsScalarTower R A B]
-    [Field K] [Field L] [Algebra A K] [Algebra B L] :
+    [Field K] [Field L] [Algebra A K] [Algebra B L] [Algebra K L] [Algebra A L]
+    [IsScalarTower A K L] [IsScalarTower A B L] :
     B ⊗[A] LogKaehler R A K →ₗ[B] LogKaehler R B L :=
   sorry
 
@@ -3422,7 +3430,8 @@ complexes (supplier: CrystallineCohomology CR.5:log-algebra). -/
 -- test TauCeti.LogWittComplex.tr_example (computation): not stated here; needs `TR^•_*(ℤ_p|ℚ_p;p)`
 -- (supplier: KTheoryFiniteLocalFields:L.4/thh-of-dvr-with-log-poles, RefinedTraceMethods RT.2).
 -- test TauCeti.LogWittComplex.not_p2 (non-example): not stated here; needs `TR^•_*(ℤ_(2)|ℚ;2)`
--- with Connes' operator (supplier: KTheoryFiniteLocalFields:L.4/connes-operator, RT.2).
+-- with an explicit nonzero `ηd` witness, which has not been supplied (the gap at
+-- KTheoryFiniteLocalFields:L.4/connes-operator, with RT.2).
 
 /- `CrystallineCohomology:CR.4 (import: log-witt-complex)-derived-relations`
 (`TauCeti.KTheoryFiniteLocal.log_witt_complex_derived_relations`): not stated here; needs
@@ -3514,7 +3523,7 @@ rings (supplier: CR.5:log-algebra). -/
 -- (supplier: CrystallineCohomology CR.5:log-algebra).
 
 -- test TauCeti.logDeRhamWitt.frobeniusIterD_teichmuller (computation)
-example (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R] (n : ℕ) (a : R) :
+example (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R] (n : ℕ) (hn : 0 < n) (a : R) :
     frobeniusIterD p R n (TauCeti.WittVector.teichmullerTrunc p n R a) =
       a ^ (p ^ (n - 1) - 1) • KaehlerDifferential.D ℤ R a := by
   sorry
@@ -3709,7 +3718,7 @@ L.4/thh-of-dvr-with-log-poles, RT.2). -/
 (`TauCeti.KTheoryFiniteLocal.reduction_mod_p_of_thh_dvr`): not stated here; needs
 `π̄_*T(A) → π̄_*T(A/p)` and `π̄_*T(k)` (supplier: L.4/thh-of-dvr-with-log-poles, RT.2).
 `KTheoryFiniteLocalFields:L.5/kappa-differential`
-(`TauCeti.KTheoryFiniteLocal.kappa_differential`): not stated here; needs `κ̃ ∈ π̄_2T(A)` and
+(`TauCeti.KTheoryFiniteLocal.kappa_differential`): not stated here; needs `κ̃ ∈ π̄_2T(A)` when `p ∣ e_K`, the universal unit comparison for other K, and
 Connes' operator (supplier: L.4/connes-operator, L.4/thh-of-dvr-with-log-poles).
 `KTheoryFiniteLocalFields:L.5/tate-perfect-field-generators`
 (`TauCeti.KTheoryFiniteLocal.tate_perfect_field_generators`): not stated here; needs the Tate
@@ -3854,7 +3863,7 @@ namespace TauCeti
 /-- `KTheoryFiniteLocalFields:L.5/hochschild-homology-of-truncated-polynomial-algebra`, its
 degree-one part: if `e = 0` in `k`, then `HH_1(k[x]/(x^e)) = Ω¹_{k[x]/(x^e)/k}` is free of rank one
 over `k[x]/(x^e)` on `dx` (so `d(x^e) = e x^{e-1} dx = 0` imposes nothing). The whole graded
-statement `HH_*(k[x]/(x^e)) ≅ k(Π) ⊗ Λ{c_1} ⊗ Γ{c_2}` needs Hochschild homology (supplier:
+statement `HH_*(k[x]/(x^e)/k) ≅ k(Π) ⊗ Λ{c_1} ⊗ Γ{c_2}` needs Hochschild homology (supplier:
 RefinedTraceMethods RT.1). -/
 theorem hochschild_homology_of_truncated_polynomial_algebra (k : Type u) [CommRing k] (e : ℕ)
     (he : (e : k) = 0) :
@@ -5634,4 +5643,214 @@ Acceptance checks:
 Sources: AbdurrahmanVenkatesh.2025.v1, Lemma2.7.2 and footnote6, p.17.
 Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regulator stage is downstream through M.7/L.2 and is not a prerequisite edge; the named gap and structural proposal record the required split.
 
+-/
+
+/-! Independent review concordance — REV-KTheoryFiniteLocalFields, 2026-10-06.
+
+The corrected packet meets the target-level checks with named supplier gaps.
+The review remains needs_changes until its accompanying reader is reconciled.
+These are corrected planning requirements, not extra Lean declarations or proofs.
+The completed-comparison sketches now use finite-level/pro-system arguments. Every
+spectrum interface marked unavailable earlier still needs its named supplier.
+This edited file did not elaborate: lean-check stopped at a missing imported Tau Ceti
+object before checking its declarations. Earlier compile history does not certify it.
+
+KTheoryFiniteLocalFields:L.1/mod-m-products
+Added the ring-spectrum hypothesis to Browder’s scholium and removed unsupported descent of products from a larger modulus.
+
+KTheoryFiniteLocalFields:L.1/brauer-character
+Restricted embedding-change assertions to the finite eigenvalue roots or a true global profinite unit; checked additivity and tensor API.
+
+KTheoryFiniteLocalFields:L.1/fpsi-lifting
+Replaced algebraic Mittag-Leffler by the compact inverse-sequence lim¹ argument; verified Atiyah–Segal’s pro/completion statements in the scan.
+
+KTheoryFiniteLocalFields:L.1/quillen-map
+The finite-level integer Adams comparison is justified; arbitrary profinite embedding changes now terminate in a specific completed-operation gap.
+
+KTheoryFiniteLocalFields:L.1/gl-mod-p-acyclic
+Confirmed E43: stable GL mod-p acyclicity must not be asserted for GL_n; GL₂(F₂) has nonzero H₁ over F₂.
+
+KTheoryFiniteLocalFields:L.1/quillen-homology-iso
+Confirmed E44: field duality supplies the homology comparison, whereas the source’s integral Hom-only implication omits Tor.
+
+KTheoryFiniteLocalFields:L.1/galois-tensor-splitting
+Corrected Exercise IV.6.13 to PDF p.335; the tensor splitting runs over Galois automorphisms and requires separability.
+
+KTheoryFiniteLocalFields:L.1/galois-transfer-formula
+Corrected the source’s i^*i_* excerpt and p.335 locator; the two composites are degree multiplication and the Galois sum respectively.
+
+KTheoryFiniteLocalFields:L.1/finite-field-transfer-formulas
+Corrected the source page; the formulas use compatible generators or intrinsic norm/restriction, not an arbitrary independent choice at each field.
+
+KTheoryFiniteLocalFields:L.1/algebraic-closure-k-groups
+Replaced the zero ordinary tensor power of a divisible torsion group by the torsion Tate twist μ(i); Frobenius acts by p^i.
+
+KTheoryFiniteLocalFields:L.1/completed-k-theory
+Completion is a homotopy inverse limit; κ is multiplicative, while reductions require chosen finite-coefficient products before being called ring maps.
+
+KTheoryFiniteLocalFields:L.2/dvr-localisation
+Added the coefficient/integral boundary pairing needed by the section and requested its left-linear sign from K.7.
+
+KTheoryFiniteLocalFields:L.2/henselian-dvr-mod-m-splitting
+The section needs mixed coefficient/integral left-linearity; its dependence on π and the m-invertibility hypothesis are preserved.
+
+KTheoryFiniteLocalFields:L.2/e-invariant-local-field
+Removed the unsupported assertion that the p-primary e-invariant is false in general; this proof establishes only ℓ≠p.
+
+KTheoryFiniteLocalFields:L.3/local-k2-localisation-sequence
+Harmonized localization with ∂{u,π}=ū; the K-book symbol is inverse, and the canonical section now has the correct target boundary.
+
+KTheoryFiniteLocalFields:L.3/moore-kernel-p-divisible-mixed-characteristic
+Corrected local duality to the dual of twist −1, then used equality of cardinalities with twist +1; no natural positive-twist isomorphism is asserted.
+
+KTheoryFiniteLocalFields:L.4/tr-pro-spectrum
+Made n≥2 explicit for R,F,V while preserving TR¹=T and the HM/NS index shift; checked all eleven API items.
+
+KTheoryFiniteLocalFields:L.4/norm-restriction-cofibre-sequence
+Restricted the norm–restriction sequence to n≥2 so its last TR level exists; the n=2 example has the correct Witt lengths.
+
+KTheoryFiniteLocalFields:L.4/p-typical-tc
+The TC product comes from the homotopy equaliser of id and F, not a fibre of ring map id−F; underlying spectra still have the fibre sequence.
+
+KTheoryFiniteLocalFields:L.4/connes-operator
+Removed the unproved inference η≠0⇒ηd≠0; the nonzero-square witness is a precise gap and three other definition tests remain.
+
+KTheoryFiniteLocalFields:L.4/tate-cohomology-hm-model
+The node already has i≤−2 and the norm-kernel degree −1; E45 confirms the printed HM range is wrong, while the API uses the right range.
+
+KTheoryFiniteLocalFields:L.4/thh-resolution-theorem
+Cofibrations must be admissible degreewise monos whose cokernels lie in E; arbitrary monos in the ambient abelian category were too broad.
+
+KTheoryFiniteLocalFields:L.4/thh-of-dvr-with-log-poles
+Corrected cofibrations in projective complexes to split monos/projective cokernels; multiplication by π is a weak equivalence after inverting π.
+
+KTheoryFiniteLocalFields:L.4/tr-localization-sequence
+Restricted the displayed differential residue-sequence example to complete mixed characteristic with perfect residue field; the localization theorem remains general.
+
+KTheoryFiniteLocalFields:L.5/complete-dvr-eisenstein-presentation
+The Cohen/Witt coefficient embedding and Eisenstein presentation need a precise local-field export beyond the pinned construction of W(k); added its request and gap.
+
+KTheoryFiniteLocalFields:L.5/ghost-image-criterion
+Dividing a ghost vector by p requires each coordinate to lie in pR first; torsion freeness makes its quotient unique.
+
+KTheoryFiniteLocalFields:L.5/verschiebung-one-is-teichmuller-minus-p
+The p=2 counterexamples are in Z, not every R; odd-p universal identities remain intact.
+
+KTheoryFiniteLocalFields:L.5/modified-verschiebung
+The packet already requires a uniformizer; added Irreducible π to the Lean iterate signature so the coefficient’s constant-term unit evaluates to a unit.
+
+KTheoryFiniteLocalFields:L.5/tame-base-change-of-log-differentials
+Added coherent K→L and A→L scalar towers to the Lean log base-change map; the tame condition is p∤e, not e=1.
+
+KTheoryFiniteLocalFields:L.5/homotopy-orbit-de-rham-witt-module
+Replaced ordinary composition with the divided ghost differential and its universal-polynomial proof; added n>0 to the Lean Teichmüller test.
+
+KTheoryFiniteLocalFields:L.5/log-de-rham-witt-dvr-mod-p
+Added s<n to the first basis family and truncated the Z_p example accordingly; otherwise the n=1 example had an extra vector.
+
+KTheoryFiniteLocalFields:L.5/tr-log-structure-maps
+M consists of multiplication weak equivalences after inverting π; Aut_A(A)=A× and does not contain the uniformizer.
+
+KTheoryFiniteLocalFields:L.5/thh-of-dvr-mod-p
+Made HM’s odd-prime standing hypothesis explicit on the displayed mod-p algebra; the p∣e and p∤e cases have different dimensions.
+
+KTheoryFiniteLocalFields:L.5/log-thh-mod-p
+Separated the graded-ring comparison and differential up to a universal unit; the later unit calculation is a dependency, not assumed in its own proof.
+
+KTheoryFiniteLocalFields:L.5/log-thh-p-adic
+Made the read HM odd-prime scope explicit; the noncanonical completed odd formula remains a named missing computation.
+
+KTheoryFiniteLocalFields:L.5/log-thh-tame-descent
+Added odd p to the tame descent scope; a tame Galois extension, rather than an arbitrary ramified extension, is required.
+
+KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-level-two
+Norm sequences require 2≤n≤3; the comparison/divisibility base n=1 remains. This prevents the circular use of Lemma5.6.1 in Addendum3.3.9.
+
+KTheoryFiniteLocalFields:L.5/norm-restriction-exact-low-degrees
+Restricted the norm sequence to n≥2 while retaining unique divisibility of TR²-degree groups at every positive level.
+
+KTheoryFiniteLocalFields:L.5/tr2-of-dvr-divisible
+Corrected the perfect-field kernel to the last V^{n−1} layer; a single V from the entire preceding group is larger at n>2.
+
+KTheoryFiniteLocalFields:L.5/log-thh-mod-p-alpha-presentation
+Added the separate K₀ case and confirmed E46’s target-uniformizer correction; the μ_p root identity is not used when u=1, θ=−1.
+
+KTheoryFiniteLocalFields:L.5/reduction-mod-p-of-thh-dvr
+κ̃ in ordinary THH requires p∣e in both clauses; the claimed Z_p example was impossible since its mod-p THH degree two vanishes.
+
+KTheoryFiniteLocalFields:L.5/kappa-differential
+The κ̃ differential is used only for p∣e; its computation determines the universal unit, giving dκ for all K without assuming a nonexistent κ̃ elsewhere.
+
+KTheoryFiniteLocalFields:L.5/tate-infinite-cycles-uniformizer
+Corrected the example to n=1<v_p(e), yielding the e/p hidden extension; there is no TR⁰ or C₁ assertion.
+
+KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-first-level
+For K₀ the differential kills κ^p and u₁, leaving Λ(dlog p)⊗k[t±1]; removed the unspecified and misleading extra quotient.
+
+KTheoryFiniteLocalFields:L.5/gamma-hat-mod-p-isomorphism
+Separated K₀ from the deeply ramified hidden extension: e/p is not an integer when e=1; its Bockstein argument is the correct separate case.
+
+KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-differentials
+Restricted monomial differentials to 0≤v<n; terms with larger valuation survive that part of the computation.
+
+KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-p
+Corrected the level-one comparison to W₁ω/p; the main Bott comparison is a pro-isomorphism, not a levelwise theorem.
+
+KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-pv
+Removed the false first-level Bott isomorphism: π^{e/(p−1)} is a nonunit. Theorem C still gives the claimed pro-isomorphism.
+
+KTheoryFiniteLocalFields:L.5/thh-of-perfect-field
+Kept Bökstedt’s integral calculation at all primes and restricted this source’s mod-p exterior/DGA model to odd p.
+
+KTheoryFiniteLocalFields:L.5/tr-of-perfect-field
+Corrected the Frobenius kernel to p^{n−1}W_nσ=V^{n−1}(TR¹₂); the R multiplication kills positive σ powers in the limit.
+
+KTheoryFiniteLocalFields:L.5/hochschild-homology-of-truncated-polynomial-algebra
+Specified relative Hochschild homology over k and the relative enveloping algebra; e=0 does not eliminate arbitrary absolute base homology.
+
+KTheoryFiniteLocalFields:L.5/tate-image-of-uniformizer-truncated
+Confirmed E47 visually and replaced u₁ by u_n in the equality case; also excluded level zero.
+
+KTheoryFiniteLocalFields:L.5/relative-tc-of-truncated-polynomial-algebra
+Moved the restriction index r inside each inverse limit and removed the spurious outer product; matched Proposition8’s j-indexed sequence.
+
+KTheoryFiniteLocalFields:L.5/tr-of-smooth-fp-algebra
+Replaced the invalid colimit/holim shortcut by a fixed-degree pro-zero polynomial summand, surjective Witt restriction and Milnor argument, matching Hesselholt Corollary2.4.7. Finite-level Popescu/continuity inputs are explicit supplier contracts.
+
+KTheoryFiniteLocalFields:L.6/w-invariant-prime-to-p-factor
+Removed the conclusion w_i=(q^i−1)w_i^(p) from the hypotheses; it now follows from the primary decomposition and L.2.
+
+KTheoryFiniteLocalFields:L.6/even-integral-k-groups
+Replaced the alleged canonical map to an identified Z/w_i by the canonical quotient K_{2i}/Div; identification and splitting are choices.
+
+KTheoryFiniteLocalFields:L.6/even-k-groups-tate-module
+Added the finiteness argument before identifying the Tate module with Z_p^{λ_i}; arbitrary direct sums of Prüfer groups cannot be exchanged with inverse limits.
+
+KTheoryFiniteLocalFields:L.6/divisible-rank-relation
+The exact sequence is natural with ordinary completion on the left; writing a torsion-split T_i^∧⊕Z/w_i^(p) requires a choice.
+
+KTheoryFiniteLocalFields:L.6/k3-torsion-free-lattice
+Added the injective-divisible projection argument for a complement containing P; scoped the unknown splitting to the 2013 source rather than current research status.
+
+KTheoryFiniteLocalFields:L.6/odd-integral-to-completed-comparison
+Corrected density to the closed ordinary-completion subgroup; density in the whole completed group requires λ_{i−1}=0.
+
+KTheoryFiniteLocalFields:L.6/geisser-hesselholt-regular-local
+Replaced the invalid completion/colimit shortcut by finite-level symbol comparisons, a surjective K/p^n quotient tower and the Witt-filtration kernel argument. The Popescu and Geisser–Levine inputs remain named; confirmed the source’s degree-preserving R−F correction E48.
+
+KTheoryFiniteLocalFields:L.7/transfer-completion-formula
+Added the NumberFieldArithmetic Layer5 semilocal prerequisite needed for the transfer sum, beyond the individual completion extension maps.
+
+KTheoryFiniteLocalFields:L.7/boundary-at-a-prime-via-localisation
+Fixed degree-two acceptance to the same left-linear tame boundary as L.2; the localization-at-a-prime argument retains the other-place projection.
+
+KTheoryFiniteLocalFields:L.7/boundary-completion-compatibility
+Harmonized global and completed boundary signs; the tame-symbol and valuation examples now use the same maps in the naturality square.
+
+KTheoryFiniteLocalFields:L.7/semilocal-completed-map
+Added the semilocal supplier edge; finite products commute with K-theory and p-completion, giving the correct global-to-local regulator carrier.
+
+Supplier specification correction: the imported generic log-Witt p=2 non-example
+also needs an explicit class with ηd nonzero; it shares the Connes witness gap.
+No failure of the differential law is inferred from nonzero η alone.
 -/
