@@ -31942,7 +31942,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.5",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6405"
   },
   {
    "id": "BP-Polylogarithms--P.6",
@@ -33461,8 +33462,9 @@
    ],
    "followUpOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6480"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6480",
+   "finishedAt": "2026-10-06T03:31:44Z"
   },
   {
    "id": "REV-EllipticKTheory--E.5",
