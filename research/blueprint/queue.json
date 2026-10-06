@@ -28203,9 +28203,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #979"
+   "note": "deliverables arrived from an external worker on issue #979",
+   "finishedAt": "2026-10-06T13:03:44Z"
   },
   {
    "id": "REV-PrismaticCohomology--PR.8",
@@ -28952,7 +28953,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraVarieties--V8",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #491"
   },
   {
    "id": "BP-SmallRamificationAndAbelianVarietyBaseCases",
