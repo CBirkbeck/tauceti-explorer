@@ -34,14 +34,22 @@ import Mathlib.Analysis.Normed.Lp.lpSpace
 import Mathlib.Algebra.DirectSum.Module
 import Mathlib.Analysis.InnerProductSpace.Basic
 import Mathlib.RingTheory.DedekindDomain.SInteger
+import Mathlib.RingTheory.FinitePresentation
 
 /-!
 # Adelic algebraic groups and arithmetic quotients: suggested Lean forms
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/AdelicAlgebraicGroups.md` is definitive. These statements suggest Lean
-forms so that contributors and reviewers converge on names and signatures. They claim no
-implementation: every proof is `sorry`.
+Independent review `REV-AdelicAlgebraicGroups` (2026-10-06): **needs_changes**.
+The packet and review report record the corrected mathematics and unresolved obligations.
+The reader document still needs a revision to match them. These suggested forms claim no
+implementation: proofs are `sorry`. Elaboration in the Mathlib-only shared build checks types,
+but does not validate the stand-ins against the pinned Tau Ceti declarations.
+
+The review corrected finite presentation, the right-translation measure factor, the finite-only
+level embedding, the relative-chamber kernel, positive corner coordinates, the identity height,
+and the archimedean hypothesis on Hecke translation. Many signatures still omit finite-type,
+connectedness, reductivity, naturality or normalization hypotheses: see the review report and
+packet gaps. This file is not yet a faithful prototype of the whole packet.
 
 Conventions of this prototype.
 * An affine algebraic group over a field `F` is given by a commutative Hopf algebra `H` over `F`;
@@ -51,7 +59,8 @@ Conventions of this prototype.
   group law is restated below as `pointsGroup` with its proofs left as `sorry`.
 * Objects that the roadmap imports from other roadmaps (the affine-points topology of
   ReductiveGroupsPartII RG2.0, the GL_n coordinate Hopf algebra of Tau Ceti) appear as explicitly
-  named stand-ins or as hypotheses, never as unproved `Prop`s.
+  named stand-ins or as hypotheses. These must be replaced by the actual imported structures
+  before the mathematical assertions can be accepted.
 -/
 
 noncomputable section
@@ -61,6 +70,13 @@ open MeasureTheory Filter Set
 open scoped Pointwise
 
 /-! ## AA.0 Restricted products of Haar measures -/
+
+/-- `AA.0/mixed-space-topology`: the algebraic equivalence alone asserts no continuity. -/
+theorem NumberField.InfiniteAdeleRing.continuous_ringEquiv_mixedSpace
+    (F : Type) [Field F] [NumberField F] :
+    Continuous (NumberField.InfiniteAdeleRing.ringEquiv_mixedSpace F) ∧
+      Continuous (NumberField.InfiniteAdeleRing.ringEquiv_mixedSpace F).symm := by
+  sorry
 
 namespace RestrictedProduct
 
@@ -217,7 +233,8 @@ example [Fintype ι] [∀ i, SigmaFinite (μ i)] :
 -- Test RestrictedProduct.haarProduct_not_probability_product
 /-- The restricted product of Haar measures of noncompact groups is not a product of probability
 measures: it gives infinite mass to the whole group. -/
-example [Infinite ι] (hnc : ∃ i, μ i univ = ∞) : haarProduct μ hμ univ = ∞ := by
+example [Infinite ι] [∀ i, (μ i).IsHaarMeasure]
+    (hnc : ∃ i, μ i univ = ∞) : haarProduct μ hμ univ = ∞ := by
   sorry
 
 /-- `AA.0/restricted-haar-restrict-level` and `AA.0/restricted-haar-box` are the two lemmas above;
@@ -566,9 +583,10 @@ structure _root_.IntegralModel where
   𝓗 : Type
   [instRing : CommRing 𝓗]
   [instHopf : HopfAlgebra (Set.integer S F) 𝓗]
+  [finitePresentation : Algebra.FinitePresentation (S.integer F) 𝓗]
   baseChangeIso : (F ⊗[S.integer F] 𝓗) ≃ₐ[F] H
 
-attribute [instance] IntegralModel.instRing IntegralModel.instHopf
+attribute [instance] IntegralModel.instRing IntegralModel.instHopf IntegralModel.finitePresentation
 
 variable {F H}
 
@@ -676,9 +694,18 @@ example (φ : F →ₐc[F] H) (x : AdelicPoints F H) : map φ x = 1 := by
   sorry
 
 -- Test AdelicPoints.map_not_open
-/-- The squaring map of `𝔸_ℚ^×` has image of infinite index. -/
+/-- Infinite index alone does not imply non-openness. The idelic square image is also closed
+and non-open: every basic unit neighbourhood leaves infinitely many odd-prime square obstructions. -/
 example : ¬ (Subgroup.map (powMonoidHom 2 : (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)ˣ →* _)
     ⊤).FiniteIndex := by
+  sorry
+
+example : IsClosed ((powMonoidHom 2 : (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)ˣ →* _).range :
+      Set (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)ˣ) := by
+  sorry
+
+example : ¬ IsOpen ((powMonoidHom 2 : (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)ˣ →* _).range :
+      Set (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)ˣ) := by
   sorry
 
 end functoriality
@@ -982,6 +1009,17 @@ namespace AdelicPoints
 
 variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
 
+/-- The canonical finite-supported embedding under `G(𝔸) ≃ G(𝔸∞) × G(𝔸f)`. -/
+def finiteEmbed : FiniteAdelicPoints F H →* AdelicPoints F H := sorry
+
+@[simp] theorem finiteEmbed_finite (x : FiniteAdelicPoints F H) :
+    mapPoints (NumberField.adeleFinAlg F) (finiteEmbed x) = x := by
+  sorry
+
+@[simp] theorem finiteEmbed_infinite (x : FiniteAdelicPoints F H) :
+    mapPoints (NumberField.adeleInfAlg F) (finiteEmbed x) = 1 := by
+  sorry
+
 /-- A parabolic subgroup `P = M_P N_P` of `G`, given by its coordinate Hopf algebra and the
 restriction map `H → H_P` of a closed immersion, together with the Hopf algebra of its unipotent
 radical (Tau Ceti `Cocharacter.parabolic` and `Cocharacter.unipotent` give the points). -/
@@ -1053,14 +1091,30 @@ namespace QuotientMeasure
 
 variable {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [LocallyCompactSpace G]
   [SecondCountableTopology G] [T2Space G] [MeasurableSpace G] [BorelSpace G]
-  (Γ : Subgroup G) [MeasurableSpace Γ] [LocallyCompactSpace Γ]
+  (Γ : Subgroup G) [MeasurableSpace Γ] [BorelSpace Γ] [LocallyCompactSpace Γ]
 
 /-- The right coset space `Γ\G` (orbits of `Γ` acting by left multiplication). -/
 abbrev Cosets := MulAction.orbitRel.Quotient Γ G
 
-/-- `AA.2/quotient-measure`: Weil's invariant measure on `Γ\G` for a closed subgroup with
+/-- `AA.2/left-right-quotient-inversion`: left Γ-orbits to Mathlib's right Γ-orbits. -/
+def inversionHomeomorph : Cosets Γ ≃ₜ (G ⧸ Γ) := sorry
+
+@[simp] theorem inversionHomeomorph_mk (g : G) :
+    inversionHomeomorph Γ (Quotient.mk _ g) = ((g⁻¹ : G) : G ⧸ Γ) := by
+  sorry
+
+/-- This is the Haar ingredient for transporting the corresponding fundamental-domain
+quotient measures; the pinned unfolding theorem's integrability and measurability remain needed. -/
+theorem inversion_preserves_biHaar (μ : Measure G) [μ.IsHaarMeasure]
+    [μ.IsMulRightInvariant] : Measure.map (fun g : G => g⁻¹) μ = μ := by
+  sorry
+
+/-- `AA.2/quotient-measure`: right Haar measures have right invariance, finite mass on compact
+sets and positive mass on nonempty open sets; `IsHaarMeasure` itself uses left invariance.
+Weil's right invariant measure on `Γ\G` for a closed subgroup with
 `Δ_G|_Γ = Δ_Γ`. -/
-def measure (μ : Measure G) (ν : Measure Γ) (hΓ : IsClosed (Γ : Set G))
+def measure (μ : Measure G) (ν : Measure Γ) [IsFiniteMeasureOnCompacts μ] [μ.IsOpenPosMeasure] [μ.IsMulRightInvariant]
+    [IsFiniteMeasureOnCompacts ν] [ν.IsOpenPosMeasure] [ν.IsMulRightInvariant] (hΓ : IsClosed (Γ : Set G))
     (hmod : ∀ γ : Γ, Measure.modularCharacter (γ : G) = Measure.modularCharacter γ) :
     Measure (Cosets Γ) := sorry
 
@@ -1071,13 +1125,14 @@ theorem rightAct_mk (g x : G) : rightAct Γ g (Quotient.mk _ x) = Quotient.mk _ 
   sorry
 
 /-- The fibre integral `Γg ↦ ∫_Γ f(γg) dγ`. -/
-def fiberIntegral (ν : Measure Γ) (f : G → ℝ) : Cosets Γ → ℝ := sorry
+def fiberIntegral (ν : Measure Γ) [ν.IsMulRightInvariant] (f : G → ℝ) : Cosets Γ → ℝ := sorry
 
-theorem fiberIntegral_mk (ν : Measure Γ) (f : G → ℝ) (g : G) :
+theorem fiberIntegral_mk (ν : Measure Γ) [ν.IsMulRightInvariant] (f : G → ℝ) (g : G) :
     fiberIntegral Γ ν f (Quotient.mk _ g) = ∫ γ, f ((γ : G) * g) ∂ν := by
   sorry
 
-variable {Γ} (μ : Measure G) (ν : Measure Γ) (hΓ : IsClosed (Γ : Set G))
+variable {Γ} (μ : Measure G) (ν : Measure Γ) [IsFiniteMeasureOnCompacts μ] [μ.IsOpenPosMeasure] [μ.IsMulRightInvariant]
+  [IsFiniteMeasureOnCompacts ν] [ν.IsOpenPosMeasure] [ν.IsMulRightInvariant] (hΓ : IsClosed (Γ : Set G))
   (hmod : ∀ γ : Γ, Measure.modularCharacter (γ : G) = Measure.modularCharacter γ)
 
 theorem integral_eq (f : G → ℝ) (hf : Continuous f) (hfc : HasCompactSupport f) :
@@ -1092,12 +1147,15 @@ theorem unique (lam : Measure (Cosets Γ)) (hlam : ∀ g : G, Measure.map (right
     [IsFiniteMeasureOnCompacts lam] : ∃ c : ℝ≥0∞, lam = c • measure Γ μ ν hΓ hmod := by
   sorry
 
-theorem smul_left (c : ℝ≥0∞) (hc : c ≠ 0) (hc' : c ≠ ∞) :
+theorem smul_left (c : ℝ≥0∞) (hc : c ≠ 0) (hc' : c ≠ ∞)
+    [IsFiniteMeasureOnCompacts (c • ν)] [(c • ν).IsOpenPosMeasure]
+    [(c • ν).IsMulRightInvariant] :
     measure Γ μ (c • ν) hΓ hmod = c⁻¹ • measure Γ μ ν hΓ hmod := by
   sorry
 
 -- Test QuotientMeasure.trivial_subgroup
-example (ν : Measure (⊥ : Subgroup G)) (hν : ν = Measure.dirac 1)
+example (ν : Measure (⊥ : Subgroup G)) [ν.IsHaarMeasure] [ν.IsMulRightInvariant]
+    (hν : ν = Measure.dirac 1)
     (hmod' : ∀ γ : (⊥ : Subgroup G), Measure.modularCharacter (γ : G) = Measure.modularCharacter γ) :
     Measure.map (Quotient.mk _) μ = measure (⊥ : Subgroup G) μ ν (by simp) hmod' := by
   sorry
@@ -1108,8 +1166,10 @@ multiplicatively). -/
 example [MeasurableSpace (Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ)))]
     [LocallyCompactSpace (Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ)))]
     [MeasurableSpace (Multiplicative ℝ)] [BorelSpace (Multiplicative ℝ)]
-    (μ : Measure (Multiplicative ℝ)) (hμ : μ = Measure.map Multiplicative.ofAdd volume)
+    (μ : Measure (Multiplicative ℝ)) [μ.IsHaarMeasure] [μ.IsMulRightInvariant]
+    (hμ : μ = Measure.map Multiplicative.ofAdd volume)
     (hΓ : IsClosed ((Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ)) : Subgroup _) : Set (Multiplicative ℝ)))
+    [Measure.IsHaarMeasure (Measure.count : Measure (Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ))))]
     (hmod : ∀ γ : Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ)),
       Measure.modularCharacter (γ : Multiplicative ℝ) = Measure.modularCharacter γ) :
     measure (Subgroup.zpowers (Multiplicative.ofAdd (1 : ℝ))) μ Measure.count hΓ hmod Set.univ = 1 := by
@@ -1303,7 +1363,10 @@ example : Module.finrank F (GaugeForm F H 0) = 1 := by
 example (eB : ∀ (R : Type) [CommRing R] [Algebra F R], WithConv (H →ₐ[F] R) →* GL (Fin 2) R)
     (hinj : ∀ (R : Type) [CommRing R] [Algebra F R], Function.Injective (eB R))
     (hB : ∀ (R : Type) [CommRing R] [Algebra F R] (x : WithConv (H →ₐ[F] R)),
-      (eB R x : Matrix (Fin 2) (Fin 2) R) 1 0 = 0) (h2 : (2 : F) ≠ 0) :
+      (eB R x : Matrix (Fin 2) (Fin 2) R) 1 0 = 0)
+    (himage : ∀ (R : Type) [CommRing R] [Algebra F R] (g : GL (Fin 2) R),
+      (g : Matrix (Fin 2) (Fin 2) R) 1 0 = 0 → ∃ x, eB R x = g)
+    (h2 : (2 : F) ≠ 0) :
     ∃ g : WithConv (H →ₐ[F] F), ∃ ω : GaugeForm F H 3, rightTranslate 3 g ω ≠ ω := by
   sorry
 
@@ -1331,7 +1394,7 @@ theorem localMeasure_smul (ω : GaugeForm F H d) (c : F) :
 
 theorem localMeasure_rightTranslate (ω : GaugeForm F H d) (g : AdelicPoints.LocalPoints F H v) :
     Measure.map (· * g) (localMeasure d ω v) =
-      (NumberField.localAbs v (localDetAd v g))⁻¹ • localMeasure d ω v := by
+      NumberField.localAbs v (localDetAd v g) • localMeasure d ω v := by
   sorry
 
 -- Test GaugeForm.localMeasure_ga
@@ -1404,6 +1467,8 @@ def measure (d : ℕ) (ω : GaugeForm F H d) : Measure (AdelicPoints F H) := sor
 theorem measure_isHaar (d : ℕ) (ω : GaugeForm F H d) (hω : ω ≠ 0) : (measure d ω).IsHaarMeasure := by
   sorry
 
+/-- REVIEW: the infinite product below requires convergence and canonical `μinf`, `lamv` and
+`ρ` hypotheses. Arbitrary values of those parameters do not describe the Tamagawa measure. -/
 theorem measure_eq_product (d : ℕ) (ω : GaugeForm F H d) (M : IntegralModel F H)
     (S : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)))
     (C : ∀ v, Set (AdelicPoints.LocalPoints F H v)) (hC : ∀ v ∉ S, C v = M.localPoints v)
@@ -1412,7 +1477,7 @@ theorem measure_eq_product (d : ℕ) (ω : GaugeForm F H d) (M : IntegralModel F
     measure d ω {x | AdelicPoints.mapPoints (NumberField.adeleInfAlg F) x ∈ Cinf ∧
         ∀ v, AdelicPoints.proj F H v x ∈ C v} =
       ENNReal.ofReal (Real.sqrt |(NumberField.discr F : ℝ)|) ^ (-(d : ℤ)) * ρ⁻¹ * μinf Cinf *
-        ∏ᶠ v, lamv v * GaugeForm.localMeasure d ω v (C v) := by
+        ∏' v, lamv v * GaugeForm.localMeasure d ω v (C v) := by
   sorry
 
 theorem measure_ga (ω : GaugeForm F H 1) (eGa : ∀ (R : Type) [CommRing R] [Algebra F R],
@@ -1553,9 +1618,15 @@ example (D : MinimalParabolic F H) (e : ∀ (R : Type) [CommRing R] [Algebra F R
 /-- `AA.3/relative-chamber`: the real vector space `a_P = a_{M_P}`. -/
 abbrev aP {D : MinimalParabolic F H} (P : StandardParabolic D) := RealCharacterSpace F P.1.HP
 
+/-- Restriction of rational characters, dualized. REVIEW: the imported parabolic/split-centre
+structures must supply this canonical projection and its canonical splitting. -/
+def aPProjection {D : MinimalParabolic F H} (P₁ P₂ : StandardParabolic D)
+    (h : ∀ (R : Type) [CommRing R] [Algebra F R], P₁.1.toSubgroup R ≤ P₂.1.toSubgroup R) :
+    aP P₁ →ₗ[ℝ] aP P₂ := sorry
+
 def aP_decomp {D : MinimalParabolic F H} (P₁ P₂ : StandardParabolic D) (h : ∀ (R : Type) [CommRing R] [Algebra F R],
     P₁.1.toSubgroup R ≤ P₂.1.toSubgroup R) :
-    aP P₁ ≃ₗ[ℝ] aP P₂ × (aP P₁ →ₗ[ℝ] ℝ) := sorry
+    aP P₁ ≃ₗ[ℝ] aP P₂ × (aPProjection P₁ P₂ h).ker := sorry
 
 def rho {D : MinimalParabolic F H} (P : StandardParabolic D) : aP P →ₗ[ℝ] ℝ := sorry
 
@@ -1788,7 +1859,7 @@ example (H : Type) [CommRing H] [HopfAlgebra ℚ H]
 theorem component_decomposition (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
     (hU : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
     Nonempty (DoubleCoset.Quotient ((AdelicPoints.diagonal F H).range : Set (AdelicPoints F H))
-      ((U.comap (AdelicPoints.mapPoints (NumberField.adeleFinAlg F)) : Set (AdelicPoints F H))) ≃
+      ((U.map AdelicPoints.finiteEmbed : Set (AdelicPoints F H))) ≃
       Σ x : DoubleCoset.Quotient ((finiteDiagonal F H).range : Set (AdelicPoints.FiniteAdelicPoints F H)) U,
         MulAction.orbitRel.Quotient ((levelArithmetic (Quotient.out x) U).map
           (AdelicPoints.mapPoints (Algebra.ofId F (NumberField.InfiniteAdeleRing F)))) (AdelicPoints.InfinitePoints F H)) := by
@@ -1809,7 +1880,9 @@ theorem not_compact_of_isotropic (D : MinimalParabolic F H) (h : Nonempty D.Simp
     ¬ CompactSpace (AutomorphicQuotient F H) := by
   sorry
 
-/-- `AA.3/adelic-height`: the height attached to a faithful representation `r : G → GL_m`. -/
+/-- `AA.3/adelic-height`: finite-place max norms and archimedean Hilbert-Schmidt norms,
+with complex-place multiplicity two. Properness estimates require a proper algebraic
+representation (for example a representation together with its dual), not bare faithfulness. -/
 def height (m : ℕ) (r : ∀ (R : Type) [CommRing R] [Algebra F R], WithConv (H →ₐ[F] R) →* GL (Fin m) R) :
     AdelicPoints F H → ℝ := sorry
 
@@ -1839,7 +1912,8 @@ example (H : Type) [CommRing H] [HopfAlgebra ℚ H]
   sorry
 
 -- Test Reduction.height_one
-example : height m r 1 = 1 := by
+example (hm : 0 < m) :
+    height m r 1 = (m : ℝ) ^ ((Module.finrank ℚ F : ℝ) / 2) := by
   sorry
 
 -- Test Reduction.height_not_finite_only
@@ -1912,15 +1986,16 @@ example (D : HoroData (Matrix.SpecialLinearGroup (Fin 2) ℝ)) (hD : D.N ≠ ⊥
 /-- `AA.3/positive-root-coordinates`: the truncated torus `A_{P,t}`. -/
 def truncatedTorus (D : HoroData G) (t : ℝ≥0) : Set D.A := {a | ∀ α ∈ D.simpleRoots, t < α a}
 
-/-- The corner coordinates `e_P(a) = (a^{-α_1}, …, a^{-α_r})`. -/
-def cornerCoord (D : HoroData G) : D.A ≃ (D.simpleRoots → ℝ≥0) := sorry
+/-- The corner coordinates `e_P(a) = (a^{-α_1}, …, a^{-α_r})` are strictly positive.
+REVIEW: `HoroData` still needs the root-basis and split-torus axioms to justify bijectivity. -/
+def cornerCoord (D : HoroData G) : D.A ≃ (D.simpleRoots → {x : ℝ≥0 // 0 < x}) := sorry
 
 theorem cornerCoord_apply (D : HoroData G) (a : D.A) (α : D.simpleRoots) :
-    cornerCoord D a α = (α.1 a)⁻¹ := by
+    (cornerCoord D a α).val = (α.1 a)⁻¹ := by
   sorry
 
 theorem cornerCoord_truncated (D : HoroData G) (t : ℝ≥0) (ht : 0 < t) :
-    cornerCoord D '' truncatedTorus D t = Set.pi Set.univ (fun _ => Set.Ioo 0 t⁻¹) := by
+    cornerCoord D '' truncatedTorus D t = {x | ∀ α, (x α).val < t⁻¹} := by
   sorry
 
 -- Test RealSiegel.simpleRoots_sl2
@@ -2330,7 +2405,8 @@ def LevelQuotient.mk : AdelicPoints F H → LevelQuotient U Kinf := DoubleCoset.
 
 /-- Right translation `X_{gUg⁻¹} ≃ X_U`, `[x] ↦ [x g]`. -/
 def LevelQuotient.rightTranslate (g : AdelicPoints F H) (gf : AdelicPoints.FiniteAdelicPoints F H)
-    (hg : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g = gf) :
+    (hg : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g = gf)
+    (hgInf : AdelicPoints.mapPoints (NumberField.adeleInfAlg F) g = 1) :
     LevelQuotient (U.map (MulAut.conj gf).toMonoidHom) Kinf ≃ LevelQuotient U Kinf := sorry
 
 @[simp] theorem LevelQuotient.mk_rational (γ : WithConv (H →ₐ[F] F)) (x : AdelicPoints F H) :
@@ -2392,9 +2468,10 @@ example (H : Type) [CommRing H] [HopfAlgebra ℚ H]
 -- Test LevelMaps.levelGroupoid_neat
 example (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (hρ : Function.Injective ρ)
     (hneat : Neat.IsNeatLevel n ρ U) (x : AdelicPoints F H ⧸ levelSubgroup U Kinf)
-    (hK : IsCompact (Kinf : Set (AdelicPoints.InfinitePoints F H))) :
+    (hK : IsCompact (Kinf : Set (AdelicPoints.InfinitePoints F H)))
+    (hU : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
     ∀ g ∈ MulAction.stabilizer (AdelicPoints.diagonal F H).range x,
-      (g : AdelicPoints F H) ∈ Subgroup.center (AdelicPoints F H) := by
+      (g : AdelicPoints F H) = 1 := by
   sorry
 
 -- Test LevelMaps.levelGroupoid_not_space
@@ -2403,30 +2480,33 @@ example : Nat.card (Subgroup.zpowers (ModularGroup.S * ModularGroup.T)) = 6 := b
 
 /-- `AA.4/hecke-correspondence`: `X_U ← X_{U ∩ gUg⁻¹} → X_U`. -/
 def hecke (g : AdelicPoints F H) (gf : AdelicPoints.FiniteAdelicPoints F H)
-    (hg : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g = gf) :
+    (hg : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g = gf)
+    (hgInf : AdelicPoints.mapPoints (NumberField.adeleInfAlg F) g = 1) :
     (LevelQuotient (U ⊓ U.map (MulAut.conj gf).toMonoidHom) Kinf → LevelQuotient U Kinf) ×
       (LevelQuotient (U ⊓ U.map (MulAut.conj gf).toMonoidHom) Kinf → LevelQuotient U Kinf) := sorry
 
 variable (g : AdelicPoints F H) (gf : AdelicPoints.FiniteAdelicPoints F H)
   (hg : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g = gf)
+  (hgInf : AdelicPoints.mapPoints (NumberField.adeleInfAlg F) g = 1)
 
 @[simp] theorem hecke_fst (x : AdelicPoints F H) :
-    (hecke U Kinf g gf hg).1 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf x := by
+    (hecke U Kinf g gf hg hgInf).1 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf x := by
   sorry
 
 @[simp] theorem hecke_snd (x : AdelicPoints F H) :
-    (hecke U Kinf g gf hg).2 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf (x * g) := by
+    (hecke U Kinf g gf hg hgInf).2 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf (x * g) := by
   sorry
 
 theorem hecke_degree (x : LevelQuotient U Kinf) [((U ⊓ U.map (MulAut.conj gf).toMonoidHom).subgroupOf U).FiniteIndex]
     (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (hneat : Neat.IsNeatLevel n ρ U) :
-    Nat.card ((hecke U Kinf g gf hg).1 ⁻¹' {x}) ≤ ((U ⊓ U.map (MulAut.conj gf).toMonoidHom).subgroupOf U).index := by
+    Nat.card ((hecke U Kinf g gf hg hgInf).1 ⁻¹' {x}) ≤ ((U ⊓ U.map (MulAut.conj gf).toMonoidHom).subgroupOf U).index := by
   sorry
 
 -- Test LevelMaps.hecke_one
 example (h1 : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) (1 : AdelicPoints F H) = 1)
+    (h1Inf : AdelicPoints.mapPoints (NumberField.adeleInfAlg F) (1 : AdelicPoints F H) = 1)
     (x : AdelicPoints F H) :
-    (hecke U Kinf 1 1 h1).2 (DoubleCoset.mk _ _ x) = (hecke U Kinf 1 1 h1).1 (DoubleCoset.mk _ _ x) := by
+    (hecke U Kinf 1 1 h1 h1Inf).2 (DoubleCoset.mk _ _ x) = (hecke U Kinf 1 1 h1 h1Inf).1 (DoubleCoset.mk _ _ x) := by
   sorry
 
 -- Test LevelMaps.hecke_Tp_degree
@@ -2435,8 +2515,9 @@ example (p : ℕ) [Fact p.Prime] :
   sorry
 
 -- Test LevelMaps.hecke_not_symmetric
-example (x : AdelicPoints F H) (hg' : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g⁻¹ = gf⁻¹) :
-    (hecke U Kinf g⁻¹ gf⁻¹ hg').2 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf (x * g⁻¹) := by
+example (x : AdelicPoints F H) (hg' : AdelicPoints.mapPoints (NumberField.adeleFinAlg F) g⁻¹ = gf⁻¹)
+    (hgInf' : AdelicPoints.mapPoints (NumberField.adeleInfAlg F) g⁻¹ = 1) :
+    (hecke U Kinf g⁻¹ gf⁻¹ hg' hgInf').2 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf (x * g⁻¹) := by
   sorry
 
 /-- `AA.4/hecke-cartesian`. -/
@@ -2524,10 +2605,18 @@ example (hiso : Function.Bijective cover) : Subsingleton (residualQuotient cover
   sorry
 
 -- Test Approximation.residualQuotient_pgl2
-/-- For `PGL_2` over `ℚ`, `G_res ≃ ℚ^×\𝔸^×/𝔸^{×2}`. -/
-example (H Hsc : Type) [CommRing H] [HopfAlgebra ℚ H] [CommRing Hsc] [HopfAlgebra ℚ Hsc] (cover : H →ₐc[ℚ] Hsc)
-    (det : AdelicPoints ℚ H →* NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ)
-    (hdet : ∀ x, x ∈ plusSubgroup cover ↔ det x ∈ (powMonoidHom 2 : NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ →* _).range) :
+/-- For `PGL_2` over `ℚ`, use the determinant valued in idele square classes. There is no
+canonical determinant lift to the full idele group. Keep surjectivity and rational compatibility. -/
+example (H Hsc : Type) [CommRing H] [HopfAlgebra ℚ H] [CommRing Hsc] [HopfAlgebra ℚ Hsc]
+    (cover : H →ₐc[ℚ] Hsc)
+    (det : AdelicPoints ℚ H →* NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ ⧸
+      (powMonoidHom 2 : NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ →* _).range)
+    (hdet : det.ker = plusSubgroup cover)
+    (hdetSurj : Function.Surjective det)
+    (hprincipal : Subgroup.map det (AdelicPoints.diagonal ℚ H).range =
+      Subgroup.map (QuotientGroup.mk' (powMonoidHom 2 :
+        NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ →* _).range)
+        (NumberField.IdeleGroup.principalSubgroup (NumberField.RingOfIntegers ℚ) ℚ)) :
     Nonempty (residualQuotient cover ≃* NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ ⧸
       (NumberField.IdeleGroup.principalSubgroup (NumberField.RingOfIntegers ℚ) ℚ ⊔
         (powMonoidHom 2 : NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ →* _).range)) := by
@@ -2543,6 +2632,23 @@ end Approximation
 /-! ## AA.5 General-purpose validation -/
 
 namespace AdelicExamples
+
+/-- `AA.5/upper-half-plane-action-conventions`: raw Möbius transformations on ℍ±. -/
+def rawMoebius (g : GL (Fin 2) ℝ) (z : ℂ) : ℂ :=
+  UpperHalfPlane.num g z / UpperHalfPlane.denom g z
+
+theorem rawMoebius_im (g : GL (Fin 2) ℝ) (z : ℂ) :
+    (rawMoebius g z).im = g.det.val * z.im / Complex.normSq (UpperHalfPlane.denom g z) := by
+  sorry
+
+theorem rawMoebius_mul (g h : GL (Fin 2) ℝ) (z : ℂ) (hz : z.im ≠ 0) :
+    rawMoebius (g * h) z = rawMoebius g (rawMoebius h z) := by
+  sorry
+
+theorem folded_eq_glAction (g : GL (Fin 2) ℝ) (z : UpperHalfPlane) :
+    (g • z : UpperHalfPlane) =
+      (⟨if 0 < g.det.val then rawMoebius g z else star (rawMoebius g z), by sorry⟩ : UpperHalfPlane) := by
+  sorry
 
 /-- `AA.5/gl1-adelic-quotient`: for `G_m`, the adelic quotient is the idele class group. -/
 theorem gl1_adelic_quotient (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
