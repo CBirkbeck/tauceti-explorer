@@ -3,6 +3,7 @@ import Mathlib.Analysis.Complex.Periodic
 import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
+import Mathlib.GroupTheory.Index
 
 /-!
 This file is not the roadmap and is not exhaustive. The accompanying roadmap document is
@@ -14,9 +15,9 @@ imported from ModularCurvesPartII:R12.1. C5 supplies proper de Rham--Betti compa
 supplies the actual elliptic Hodge line, integral singular homology and integration pairing.
 No field here asserts that an arbitrary pair of complex numbers is the periods of a curve.
 
-The geometric statement `singular-period-input` and the geometric part of
- `all-embedding-period-transport` need those supplier interfaces and are documented below,
-without substitute Prop fields. This file prototypes their existing scalar/embedding parts.
+The singular-integration supplier request and the geometric part of the imported
+ `all-embeddings-and-the-conjugation-action` need those supplier interfaces and are documented
+below, without substitute Prop fields. This file prototypes their scalar/embedding consequences.
 -/
 
 noncomputable section
@@ -70,6 +71,11 @@ theorem scale_tau (D : RegulatorPeriods) (c : ℂ) (hc : c ≠ 0) :
 theorem scale_normalise (D : RegulatorPeriods) (c : ℂ) (hc : c ≠ 0) (z : ℂ) :
     (D.scale c hc).normalise (c * z) = D.normalise z := by sorry
 
+theorem scale_one (D : RegulatorPeriods) : D.scale 1 one_ne_zero = D := by sorry
+
+theorem scale_mul (D : RegulatorPeriods) (c d : ℂ) (hc : c ≠ 0) (hd : d ≠ 0) :
+    (D.scale c hc).scale d hd = D.scale (d * c) (mul_ne_zero hd hc) := by sorry
+
 -- RegulatorPeriods.test_square_tau
 example : (square.tau : ℂ) = I := by sorry
 -- RegulatorPeriods.test_square_q
@@ -113,10 +119,16 @@ theorem rebase_normalise (D : RegulatorPeriods) (M : Matrix.SpecialLinearGroup (
 example (D : RegulatorPeriods) : D.rebase 1 = D := by sorry
 -- RegulatorPeriods.test_rebase_inverse
 example (D : RegulatorPeriods) (M : Matrix.SpecialLinearGroup (Fin 2) ℤ) :
-    (D.rebase M).rebase M⁻¹ = D := by sorry
+    (D.rebase M).rebase M⁻¹ = D ∧
+    ((D.rebase ModularGroup.S).tau : ℂ) = -1 / (D.tau : ℂ) ∧
+    ∀ z : ℂ, (D.rebase ModularGroup.S).normalise z =
+      D.normalise z / (D.tau : ℂ) := by sorry
 -- RegulatorPeriods.test_rebase_integral_lattice
 example (D : RegulatorPeriods) (M : Matrix.SpecialLinearGroup (Fin 2) ℤ) :
-    (D.rebase M).periods.lattice = D.periods.lattice := by sorry
+    (D.rebase M).periods.lattice = D.periods.lattice ∧
+    ((D.rebase ModularGroup.T).tau : ℂ) = (D.tau : ℂ) + 1 ∧
+    (∀ z : ℂ, (D.rebase ModularGroup.T).normalise z = D.normalise z) ∧
+    (D.rebase ModularGroup.T).q = D.q := by sorry
 -- RegulatorPeriods.test_rebase_minus_identity
 example (D : RegulatorPeriods) :
     (D.rebase (-1)).tau = D.tau ∧ (D.rebase (-1)).normalise 1 = -D.normalise 1 := by sorry
@@ -150,7 +162,10 @@ example (D : RegulatorPeriods) : D.conjugate.conjugate = D := by sorry
 example (D : RegulatorPeriods) (c : ℂ) (hc : c ≠ 0) :
     (D.scale c hc).conjugate = D.conjugate.scale (conj c) (by simpa using hc) := by sorry
 -- RegulatorPeriods.test_conjugate_not_lower_half_plane
-example (D : RegulatorPeriods) : 0 < (D.conjugate.tau : ℂ).im := by sorry
+example (D : RegulatorPeriods) :
+    0 < (D.conjugate.tau : ℂ).im ∧
+    ((square.rebase ModularGroup.T).tau : ℂ) = 1 + I ∧
+    ((square.rebase ModularGroup.T).conjugate.tau : ℂ) = -1 + I := by sorry
 
 -- ER.1/real-period-shape. Existence of the real-oriented basis comes from the
 -- inherited complex-uniformisation node and C6, not a new uniformisation theorem.
@@ -191,7 +206,8 @@ theorem negative_cycle_period_one (D : RegulatorPeriods) (h : (D.tau : ℂ).re =
       2 * ((D.tau : ℂ).im : ℂ) * I := by sorry
 
 theorem eigensublattice_index_two (u v : ℤ) :
-    (∃ a b : ℤ, (u,v) = (a-b,2*b)) ↔ Even v := by sorry
+    ((∃ a b : ℤ, (u,v) = (a-b,2*b)) ↔ Even v) ∧
+    (AddSubgroup.closure ({(1, 0), (-1, 2)} : Set (ℤ × ℤ))).index = 2 := by sorry
 
 -- ER.1/exponential-conjugation-coordinates, also at nonreal embeddings.
 theorem exponential_conjugate (z : ℂ) :
@@ -208,7 +224,7 @@ theorem regulator_period_handoff (D : RegulatorPeriods) :
 
 end RegulatorPeriods
 
--- ER.1/all-embedding-period-transport: use actual Mathlib embeddings. E_sigma,
+-- Imported ER.1/all-embeddings-and-the-conjugation-action: use actual Mathlib embeddings. E_sigma,
 -- c_sigma and period integrals are supplied by R12.1/C6. Choosing gamma1_bar=c gamma1,
 -- gamma2_bar=-c gamma2 gives D_bar=D.conjugate; q_bar=conj q. At real embeddings
 -- retain the real-adapted basis instead of forcing D_bar=D.conjugate.
@@ -222,7 +238,7 @@ theorem paired_embedding_period_q (D E : RegulatorPeriods) (h : E = D.conjugate)
 end Embeddings
 
 /-
-ER.1/singular-period-input (geometric comparison contract, omitted Lean signature):
+The C6 singular-integration supplier request (geometric contract, omitted Lean signature):
 H1_sing(E(C);Z) --integration against omega--> Lambda_omega is a Z-linear isomorphism;
 its value on the projection of t |-> t*lambda is lambda. Stage 5 of upstream
 AlgebraicTopology supplies torus singular homology and its coordinate generators. Stage 6
