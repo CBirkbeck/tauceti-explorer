@@ -32001,8 +32001,9 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.6",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6406"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6406",
+   "finishedAt": "2026-10-06T06:49:17Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
@@ -66621,8 +66622,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticModularityEffectiveComparisons.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1691"
+   "state": "external",
+   "note": "claimed on GitHub issue #1691"
   },
   {
    "id": "REV-DESIGN-EllipticModularityEffectiveComparisons",
