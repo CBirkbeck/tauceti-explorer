@@ -28821,7 +28821,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraData",
    "prompt": "research/blueprint/prompts/REV-ShimuraData.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #489"
   },
   {
    "id": "BP-ShimuraVarieties--V0",
@@ -29435,12 +29436,13 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1005"
+   "note": "deliverables arrived from an external worker on issue #1005",
+   "finishedAt": "2026-10-06T09:46:02Z"
   },
   {
    "id": "REV-WeilConjectures--WC.0",
@@ -37155,8 +37157,9 @@
     "REV-HabiroRings--HR.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6422"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6422",
+   "finishedAt": "2026-10-06T09:46:03Z"
   },
   {
    "id": "ASM-HeegnerPointEulerSystems",
