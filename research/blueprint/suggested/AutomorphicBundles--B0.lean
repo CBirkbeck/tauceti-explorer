@@ -33,6 +33,7 @@ The concrete compatibility test below is therefore restricted to SL₂(Z).
 -/
 
 open scoped MatrixGroups ModularForm
+open CategoryTheory
 
 noncomputable section
 
@@ -266,18 +267,66 @@ def AutomorphyFactor_change_frame (J : AutomorphyFactor β G X R V)
  def AutomorphyFactor_forget (J : AutomorphyFactor β G X R V) :
     β → G → X → (V ≃ₗ[R] V) := J.coefficient
 
+theorem AutomorphyFactor_ext (J K : AutomorphyFactor β G X R V)
+    (h : ∀ k g x, J.coefficient k g x = K.coefficient k g x) : J = K := by sorry
+
+theorem AutomorphyFactor_change_frame_id (J : AutomorphyFactor β G X R V) :
+    AutomorphyFactor_change_frame J (fun _ ↦ LinearEquiv.refl R V) = J := by sorry
+
+theorem AutomorphyFactor_change_frame_comp (J : AutomorphyFactor β G X R V)
+    (u v : X → (V ≃ₗ[R] V)) :
+    AutomorphyFactor_change_frame (AutomorphyFactor_change_frame J u) v =
+      AutomorphyFactor_change_frame J (fun x ↦ (u x).trans (v x)) := by sorry
+
 -- AutomorphicBundles.AutomorphyFactor_test_unit (functional forgetting)
-example (k : β) (g h : G) (x : X) :
-    LinearEquiv.refl R V =
-      (LinearEquiv.refl R V).trans (LinearEquiv.refl R V) := by sorry
+example (k : β) (g : G) (x : X) :
+    let J : AutomorphyFactor β G X R V :=
+      { coefficient := fun _ _ _ ↦ LinearEquiv.refl R V
+        normalized := by sorry
+        cocycle := by sorry }
+    J.coefficient k g x = LinearEquiv.refl R V := by sorry
 
 -- AutomorphicBundles.AutomorphyFactor_test_frame (functional forgetting)
-example (u : X → (V ≃ₗ[R] V)) (g h : G) (x : X) :
-    (u x).symm.trans (u ((g * h) • x)) =
-      ((u x).symm.trans (u (h • x))).trans
-        ((u (h • x)).symm.trans (u (g • (h • x)))) := by sorry
--- AutomorphyFactor_test_order is the rational noncommuting example above.
+example (u : X → (V ≃ₗ[R] V)) (k : β) (g : G) (x : X) :
+    let J : AutomorphyFactor β G X R V :=
+      { coefficient := fun _ _ _ ↦ LinearEquiv.refl R V
+        normalized := by sorry
+        cocycle := by sorry }
+    (AutomorphyFactor_change_frame J u).coefficient k g x =
+      (u x).symm.trans (u (g • x)) := by sorry
 end FactorAPI
+
+end AutomorphicBundles
+
+namespace AutomorphicBundlesTest
+open AutomorphicBundles
+
+-- AutomorphicBundles.AutomorphyFactor_test_order (functional forgetting)
+example :
+    let J : AutomorphyFactor Unit ((ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ)) (ℚ × ℚ) ℚ (ℚ × ℚ) :=
+      { coefficient := fun _ g _ ↦ g
+        normalized := by sorry
+        cocycle := by sorry }
+    J.coefficient () (shearX * shearY) (0, 0) (1, 0) = (2, 1) ∧
+      J.coefficient () (shearY * shearX) (0, 0) (1, 0) = (1, 1) := by sorry
+
+-- AutomorphicBundles.AutomorphyFactor_test_shift (functional forgetting)
+example :
+    let t : Multiplicative (ZMod 2) := Multiplicative.ofAdd 1
+    let u : Multiplicative (ZMod 2) → ((ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ)) :=
+      fun x ↦ if x = 1 then LinearEquiv.refl ℚ (ℚ × ℚ) else shearX
+    let J : AutomorphyFactor Unit (Multiplicative (ZMod 2))
+        (Multiplicative (ZMod 2)) ℚ (ℚ × ℚ) :=
+      AutomorphyFactor_change_frame
+        { coefficient := fun _ _ _ ↦ LinearEquiv.refl ℚ (ℚ × ℚ)
+          normalized := by sorry
+          cocycle := by sorry } u
+    J.coefficient () (t * t) 1 (0, 1) = (0, 1) ∧
+      ((J.coefficient () t 1).trans (J.coefficient () t 1)) (0, 1) = (2, 1) := by sorry
+
+end AutomorphicBundlesTest
+
+namespace AutomorphicBundles
 
 /-- Arithmetic embedding-labelled weights, with actual integer parity equations. -/
 structure HilbertArithmeticWeight (ι : Type*) [Fintype ι] where
@@ -301,6 +350,10 @@ variable {ι : Type*} [Fintype ι]
   k i := weight.k i + otherWeight.k i
   w := weight.w + otherWeight.w
   parity := by sorry
+
+theorem HilbertArithmeticWeight_ext (weight otherWeight : HilbertArithmeticWeight ι)
+    (hk : weight.k = otherWeight.k) (hw : weight.w = otherWeight.w) :
+    weight = otherWeight := by sorry
 
 -- AutomorphicBundles.HilbertArithmeticWeight_test_zero
 example (i : ι) :
@@ -326,6 +379,34 @@ def classicalForms (model : AlgebraicGeometry.Scheme) (Vcan : model.Modules) : T
 def classicalForms_section (model : AlgebraicGeometry.Scheme) (Vcan : model.Modules)
     (f : classicalForms model Vcan) : SheafOfModules.sections Vcan := f
 
+section SuppliedSections
+variable {model : AlgebraicGeometry.Scheme} {V W U : model.Modules}
+
+def classicalForms_map (u : V ⟶ W) : classicalForms model V → classicalForms model W :=
+  SheafOfModules.sectionsMap u
+
+theorem classicalForms_map_id (s : classicalForms model V) :
+    classicalForms_map (𝟙 V) s = s := by sorry
+
+theorem classicalForms_map_comp (u : V ⟶ W) (v : W ⟶ U) (s : classicalForms model V) :
+    classicalForms_map (u ≫ v) s = classicalForms_map v (classicalForms_map u s) := by sorry
+
+-- AutomorphicBundles.classicalForms_test_map_id (supplied-section forgetting)
+example (s : classicalForms model V) : classicalForms_map (𝟙 V) s = s := by sorry
+
+-- AutomorphicBundles.classicalForms_test_map_comp (supplied-section forgetting)
+example (u : V ⟶ W) (v : W ⟶ U) (s : classicalForms model V) :
+    classicalForms_map (u ≫ v) s = classicalForms_map v (classicalForms_map u s) := by sorry
+
+-- AutomorphicBundles.classicalForms_test_map_zero (supplied-section forgetting)
+-- At the pin, compatible sections have no global AddCommGroup instance; compare
+-- the values on each open instead of inventing that instance.
+example (u : V ⟶ W) (s : classicalForms model V)
+    (hs : ∀ X, s.val X = 0) :
+    ∀ X, (classicalForms_map u s).val X = 0 := by sorry
+
+end SuppliedSections
+
 end AutomorphicBundles
 
 end
@@ -336,7 +417,9 @@ end
 The packet records why each unavailable carrier/condition is omitted. These names
 are reserved mathematical contracts for the exact declarations, API and tests.
 Only declarations in the executable part above were elaborated. A comment here
-must never be reported as a compiled geometric signature.
+must never be reported as a compiled geometric signature. The independent review
+accepts the target-level mathematical pass with this explicit section 13 omission;
+it does not close the typed-signature gap.
 
 ### AutomorphicBundles:B0/central-split-quotient
 AutomorphicBundles.centralSplitQuotient : For a reductive Q-group G occurring in a Shimura datum, let Z_s be the largest central Q-subtorus which is R-split and has no nonzero Q-split subtorus (equivalently the character-lattice conditions in Milne III, p.52). Construct Gᶜ=G/Z_s, its quotient homomorphism, and the universal factorization of algebraic representations trivial on Z_s. Use this coefficient quotient, not Gᵈᵉʳ or Gᵃᵈ. Lan §5.3 describes Z_s equivalently as the minimal central subtorus removing the excess real split rank.
@@ -358,8 +441,11 @@ AutomorphicBundles.compactDualCoefficient : Over a characteristic-zero coefficie
 AutomorphicBundles.compactDualCoefficient_fibre [projection] : At the base flag the P-equivariant fibre is V with action ρ.
 AutomorphicBundles.compactDualCoefficient_inflate [compatibility] : The coefficient for an M representation equals that for its inflation to P.
 AutomorphicBundles.compactDualCoefficient_tensor [functoriality] : Associated coefficients preserve tensor products, duals and the tensor unit.
+AutomorphicBundles.compactDualCoefficient_map [functoriality] : For a Pᶜ-equivariant linear map u:V→W over the fixed coefficient field, the induced map sends [g,v] to [g,u(v)] on the associated compact-dual bundles.
+AutomorphicBundles.compactDualCoefficient_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.compactDualCoefficient_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.compactDualCoefficient_test_unit [example, degenerate] : The trivial one-dimensional representation yields O_X̌.
-AutomorphicBundles.compactDualCoefficient_test_gl2 [example, compatibility] : For GL2, the character on the Hodge line gives the tautological line or its dual according to the explicitly selected cohomology convention.
+AutomorphicBundles.compactDualCoefficient_test_gl2 [example, compatibility] : For G=GL2/L and P the stabilizer of Le₁, the contracted-product bundle for χ(p)=a when pe₁=ae₁ is O_(P¹)(−1), via [g,v]↦vge₁; the inverse character χ⁻¹ gives O_(P¹)(1). The cohomological Hodge convention must declare which of these characters is used.
 AutomorphicBundles.compactDualCoefficient_test_unipotent [example, non-example] : The standard P representation with a nontrivial upper-triangular unipotent action is not isomorphic as P-module to its associated graded inflation.
 
 ### AutomorphicBundles:B0/homogeneous-hodge-torsor
@@ -376,6 +462,9 @@ AutomorphicBundles.analyticCoefficient : For a torsion-free effective arithmetic
 AutomorphicBundles.analyticCoefficient_local_trivial [structure] : A small quotient chart identifies the coefficient with its holomorphic product bundle.
 AutomorphicBundles.analyticCoefficient_section_equiv [equivalence] : Sections correspond to equivariant functions under the diagonal fibre relation.
 AutomorphicBundles.analyticCoefficient_change_frame [compatibility] : Changing the frame conjugates the transition cocycle and preserves the descended bundle.
+AutomorphicBundles.analyticCoefficient_map [functoriality] : An equivariant morphism u between the supplied compact-dual coefficients descends on each effective analytic quotient; in a compatible frame it sends the class of (x,v) to (x,u(v)).
+AutomorphicBundles.analyticCoefficient_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.analyticCoefficient_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.analyticCoefficient_test_trivial [example, degenerate] : The trivial representation gives the holomorphic structure sheaf on Γ_eff\X.
 AutomorphicBundles.analyticCoefficient_test_odd [example, non-example] : The −1 stabilizer acts by −1 on an odd-weight GL2 coefficient, so that coefficient does not descend to the coarse quotient unless that stabilizer is removed.
 AutomorphicBundles.analyticCoefficient_test_rank [example, characterisation] : The local rank equals dim V, independent of the arithmetic component.
@@ -388,8 +477,11 @@ AutomorphicBundles.coefficientGaloisDescent : For a finite Galois extension L/E,
 AutomorphicBundles.coefficientGaloisDescent_base_change [compatibility] : The descended coefficient tensored with L is the original J with its given descent maps.
 AutomorphicBundles.coefficientGaloisDescent_unique [extensionality] : Morphisms over E are exactly L-morphisms compatible with all d_σ.
 AutomorphicBundles.coefficientGaloisDescent_associate [functoriality] : Descent commutes with association to a descended principal torsor.
+AutomorphicBundles.coefficientGaloisDescent_map [functoriality] : A coefficient morphism commuting with the actual semilinear Galois descent isomorphisms descends uniquely; its base change is the supplied split-coefficient morphism.
+AutomorphicBundles.coefficientGaloisDescent_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.coefficientGaloisDescent_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.coefficientGaloisDescent_test_identity [example, degenerate] : For L=E and the identity datum descent returns J.
-AutomorphicBundles.coefficientGaloisDescent_test_parallel [example, computation] : A parallel Hilbert weight has its permutation datum invariant under all embeddings, subject to the actual representation form.
+AutomorphicBundles.coefficientGaloisDescent_test_parallel [example, computation] : For a real quadratic F split by L/E, the split tensor of the two embedding-labelled Hodge lines with equal exponent r admits the factor-swap descent isomorphism; applying the nontrivial permutation twice is identity. Retain the actual descent datum of the underlying HB family.
 AutomorphicBundles.coefficientGaloisDescent_test_nonparallel [example, non-example] : For a real quadratic F and weight (k1,k2) with k1≠k2, the nontrivial embedding permutation does not fix the label; it cannot be descended by declaring all d_σ identities.
 
 ### AutomorphicBundles:B0/geometric-analytic-coefficients
@@ -426,7 +518,7 @@ AutomorphicBundles.filtrationReduction_parabolic_fibre [characterisation] : Afte
 AutomorphicBundles.filtrationReduction_levi [compatibility] : Quotienting the filtered-frame torsor by U identifies frames of gr_F H individually.
 AutomorphicBundles.filtrationReduction_test_siegel [example, compatibility] : For the standard Siegel family γ records the Hodge subbundle, with its actual Lagrangian condition.
 AutomorphicBundles.filtrationReduction_test_zero [example, degenerate] : For a rank-zero coefficient the induced filtration is zero, even though the principal datum remains the same.
-AutomorphicBundles.filtrationReduction_test_no_point [example, non-example] : The construction does not select an E-point of X̌_E when that form has none.
+AutomorphicBundles.filtrationReduction_test_no_point [example, non-example] : For the quaternionic Shimura curve of the division algebra B=(−1,3)/Q, the compact dual is the Severi–Brauer conic of B and has no Q-point; the rational γ:Π→X̌_Q does not furnish a section Spec Q→X̌_Q. B is split over R, while 3 is not a norm from Q(i), so this tests an actual nonsplit flag form.
 
 ### AutomorphicBundles:B1/hodge-canonical-principal-bundle
 AutomorphicBundles.hodgeCanonicalPrincipalBundle : For a Hodge-type Shimura datum and a sufficiently small effective level, Tᶜ with γ, its flat Gᶜ connection and its Hecke-tower action is the canonical standard principal bundle over E. Its analytification agrees with the homogeneous standard bundle, and its CM restriction satisfies the reciprocity normalization. The result is on characteristic-zero canonical models; it does not produce arbitrary-prime integral models.
@@ -450,7 +542,7 @@ AutomorphicBundles.connectedPrincipalConjugation : For a connected Shimura datum
 AutomorphicBundles.adjointJetRealization : In the connected semisimple simply connected setting, the adjoint compact-dual coefficient embeds equivariantly into the second-jet bundle of the compact-dual tangent bundle. The induced algebraic automorphic jet comparison controls the adjoint representation and reduces continuity/normalization of principal conjugation to algebraic geometric data. This uses the corrected jet argument, not Harris’s withdrawn 1984 §3.5 proof.
 
 ### AutomorphicBundles:B1.general/general-connected-reduction
-AutomorphicBundles.generalConnectedReduction : In Milne’s connected principal-bundle conjugation problem, control of the adjoint coefficient and of all the required type-A1 subdata implies control of the standard principal bundle. The A1 subgroups generate the semisimple simply connected group after the auxiliary totally real extension prescribed by V7. The compact-dual map and connection are preserved, and uniqueness yields independence of the selected special point.
+AutomorphicBundles.generalConnectedReduction : In Milne’s connected semisimple simply connected principal-bundle conjugation problem, the corrected §9 completion combines adjoint second-jet control with the specified type-A1 subdata to obtain the normalized principal comparison. After the prescribed auxiliary totally real extension, those A1 subgroups generate G as an algebraic group by the root/Lie-algebra argument of Lemma 9.5. The rational-point step uses §9.2’s special-torus generation and auxiliary local-isotropy/simplicity argument; it does not assume Proposition 8.1’s stronger rational-point generation assertion, flagged as conjectural in footnote 14. Lemma 9.3 supplies continuity; the normalized compact-dual map and connection are preserved.
 
 ### AutomorphicBundles:B1.general/general-principal-model
 AutomorphicBundles.generalPrincipalModel : For a general pure Shimura datum satisfying Milne II (2.1), the standard Gᶜ principal bundle on the neat effective canonical tower has a canonical algebraic model over its reflex field E. Its analytification is the homogeneous standard bundle, with the canonical flat connection. Continuous effective Weil descent is proved before inferring a model from the conjugation cocycle.
@@ -459,7 +551,7 @@ AutomorphicBundles.generalPrincipalModel : For a general pure Shimura datum sati
 AutomorphicBundles.generalCompactDualMap : For the general standard principal model Π_E, its complex compact-dual map γ descends as a Gᶜ-equivariant algebraic map Π_E→X̌_E over the reflex field. The target is the descended parabolic-type variety and need not have an E-point. The selected μ and P may require a larger field.
 
 ### AutomorphicBundles:B1.general/general-conjugation-cocycle
-AutomorphicBundles.generalConjugationCocycle : The general canonical principal model and γ admit normalized conjugation isomorphisms for automorphisms of C, compatible with the full Hecke action and flat connection; the two-step conjugation equals the one-step comparison through the canonically twisted datum. Their independence of the normalizing special point supplies the cocycle. The CM uniqueness characterization which also specifies rational Betti structure requires the weight in Gᶜ to be Q-defined as in Milne III (4.5c)/(6.2).
+AutomorphicBundles.generalConjugationCocycle : The general canonical principal model and γ admit normalized conjugation isomorphisms for automorphisms of C, compatible with the full Hecke action and flat connection; the two-step conjugation equals the one-step comparison through the canonically twisted datum. Their independence of the normalizing special point supplies the cocycle. The CM uniqueness characterization which also specifies rational Betti structure requires the weight in Gᶜ to be Q-defined as in Milne III Remark 4.5, final paragraph, and Theorem 6.2.
 
 ### AutomorphicBundles:B2/automorphic-vector-bundles-from-representations-of-the-centralizer
 AutomorphicBundles.automorphicVectorBundle : For the canonical Gᶜ torsor Π→S over E with γ:Π→X̌_E, and a Gᶜ-equivariant coefficient J on X̌ over its actual field L/E, descend γ*J along Π_L→S_L to a locally free bundle V(J). Over a field with a reference P_H, this is the associated bundle of the filtered P_H torsor. For a Levi M coefficient inflate along P_H→M. This construction includes general P coefficients without identifying them with Levi coefficients.
@@ -467,42 +559,54 @@ AutomorphicBundles.automorphicVectorBundle_pullback [characterisation] : Π*V(J)
 AutomorphicBundles.automorphicVectorBundle_levi [compatibility] : For ρ:M→GL(V), V(Jρ)≃P_dR×^{P_H}V after inflation.
 AutomorphicBundles.automorphicVectorBundle_tensor [functoriality] : V preserves tensor products, duals and the unit through canonical descent isomorphisms.
 AutomorphicBundles.automorphicVectorBundle_scalar_extension [compatibility] : V(J)⊗_L L′≃V(J⊗_L L′) for every field extension L′/L.
+AutomorphicBundles.automorphicVectorBundle_map [functoriality] : A Pᶜ-equivariant linear map u:V→W induces the associated coefficient map V(u) on the fixed canonical model; after pulling back to the principal torsor it is the constant map u.
+AutomorphicBundles.automorphicVectorBundle_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.automorphicVectorBundle_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.automorphicVectorBundle_test_unit [example, degenerate] : For J=O_X̌ with trivial fibre action, V(J)=O_S.
 AutomorphicBundles.automorphicVectorBundle_test_hodge [example, compatibility] : In the Siegel cohomology convention, the Hodge-line/standard Levi coefficient gives e*Ω¹_A/S, not its inverse.
-AutomorphicBundles.automorphicVectorBundle_test_nonflat [example, non-example] : The construction supplies no flat connection for an arbitrary M representation; a connection is obtained functorially from a full Gᶜ representation only.
+AutomorphicBundles.automorphicVectorBundle_test_nonflat [example, non-example] : For the upper-triangular P in GL2, χ(diag(a,d))=a defines a rank-one associated automorphic coefficient. It is not the restriction of a one-dimensional GL2 representation: det^n restricts to a^n d^n and cannot equal a for any n. The full-group flat-connection functor therefore cannot be applied to this coefficient by declaring χ to extend.
 
 ### AutomorphicBundles:B2/automorphic-analytic-comparison
 AutomorphicBundles.automorphicAnalyticComparison : Over an embedding L↪C, the analytification of V(J) is canonically the arithmetic quotient of the Borel pullback of J. Its sections in a homogeneous frame obey the same transformation law. The comparison preserves the filtered P coefficient and the M graded coefficient separately.
 
 ### AutomorphicBundles:B2/levi-highest-weight-convention
-AutomorphicBundles.leviHighestWeightConvention : Over a splitting field of M with a chosen Borel and torus, an M-dominant integral highest weight λ determines the irreducible algebraic coefficient. Under the left-coset convention P\G used in BCGP, compare it with the dual highest weight −w₀^Mλ used for L(λ), together with the specified central/similitude character and the Hodge/opposite-Hodge–Tate switch. Over a nonsplit field use Galois descent of the representation; the label alone does not define a rational coefficient.
+AutomorphicBundles.leviHighestWeightConvention : Over a characteristic-zero splitting field of M with a chosen Borel and torus, an M-dominant integral highest weight λ determines the irreducible algebraic representation V_λ. In BCGP Example 3.2.18 the associated sheaf L_λ has fibre V_λ, of highest weight λ. Its left-coset/right-translation realization is (π_*O_(U_P\G))[B_M=−w₀^Mλ]; this function-equivariance character does not relabel the fibre as V_(−w₀^Mλ). The dual representation separately has highest weight −w₀^Mλ. Retain the central/similitude character and the Hodge/opposite-Hodge–Tate switch. Over a nonsplit field use the actual Galois descent datum; a label alone does not define a rational coefficient.
 
 ### AutomorphicBundles:B2/betti-coefficient-local-system
 AutomorphicBundles.bettiCoefficientLocalSystem : For a finite-dimensional rational representation W of Gᶜ and a neat effective arithmetic component Γ\X, form the Betti local system Γ\(X×W) with its arithmetic monodromy. Its associated holomorphic flat bundle is the full-group automorphic bundle. If the projected weight is Q-defined and W is pure of one weight, it has the rational variation of Hodge structure from D3; mixed-weight representations are treated weightwise.
 AutomorphicBundles.bettiCoefficientLocalSystem_monodromy [characterisation] : On Γ\X the local monodromy is the representation of Γ on W.
 AutomorphicBundles.bettiCoefficientLocalSystem_tensor [functoriality] : Betti coefficients preserve tensor products and duals.
 AutomorphicBundles.bettiCoefficientLocalSystem_complex_flat [compatibility] : W_B⊗_Q O_an is the full-group coefficient with its flat connection.
+AutomorphicBundles.bettiCoefficientLocalSystem_map [functoriality] : A full-Gᶜ representation intertwiner u:V→W induces a map of the descended Betti local systems with fibre u and preserves monodromy.
+AutomorphicBundles.bettiCoefficientLocalSystem_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.bettiCoefficientLocalSystem_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.bettiCoefficientLocalSystem_test_unit [example, degenerate] : For W=Q with trivial action, W_B is the constant rational local system.
 AutomorphicBundles.bettiCoefficientLocalSystem_test_standard [example, compatibility] : For the Siegel homology representation, W_B=H₁ of the actual universal abelian family, not R¹π_*Q without a dual.
-AutomorphicBundles.bettiCoefficientLocalSystem_test_levi [example, non-example] : An arbitrary representation of M without a specified extension to Gᶜ is not an input to this construction.
+AutomorphicBundles.bettiCoefficientLocalSystem_test_levi [example, non-example] : The GL2 upper-triangular Levi character (a,d)↦a is not the restriction of any one-dimensional GL2 representation (whose character is det^n). It cannot be supplied as a full-group rank-one Betti input without an extension.
 
 ### AutomorphicBundles:B2/etale-coefficient-local-system
 AutomorphicBundles.etaleCoefficientLocalSystem : For a rational Gᶜ representation W, a prime ℓ and a level with compact ℓ-component preserving a Z_ℓ lattice in W⊗Q_ℓ, descend that lattice along the actual canonical ℓ-level étale tower to a lisse Z_ℓ sheaf, and invert ℓ to obtain W_ℓ on S_E. Changing stable lattices gives canonically the same Q_ℓ sheaf. This is a construction over E with Galois action, not just a local system on S(C).
 AutomorphicBundles.etaleCoefficientLocalSystem_finite_level [projection] : The lattice modulo ℓⁿ is the finite étale sheaf associated to the chosen level quotient action.
 AutomorphicBundles.etaleCoefficientLocalSystem_lattice_independence [equivalence] : After tensoring with Q_ℓ the result is independent of a stable lattice through the common rational representation.
 AutomorphicBundles.etaleCoefficientLocalSystem_hecke [functoriality] : Level and Hecke pullbacks preserve the descended sheaf and its canonical arithmetic Galois structure.
+AutomorphicBundles.etaleCoefficientLocalSystem_map [functoriality] : A continuous full-Gᶜ Q_ℓ-representation intertwiner u:V→W induces the map of the descended arithmetic ℓ-adic local systems; it respects the actual finite-level tower and arithmetic Galois action.
+AutomorphicBundles.etaleCoefficientLocalSystem_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.etaleCoefficientLocalSystem_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.etaleCoefficientLocalSystem_test_unit [example, degenerate] : The trivial representation gives the constant Q_ℓ sheaf over E.
 AutomorphicBundles.etaleCoefficientLocalSystem_test_abelian [example, compatibility] : The symplectic homology coefficient gives (R¹π_*Q_ℓ)∨ with its arithmetic action.
-AutomorphicBundles.etaleCoefficientLocalSystem_test_arithmetic [example, non-example] : A local system specified only on S(C) does not by itself determine this sheaf over E or its Gal(Ebar/E) action.
+AutomorphicBundles.etaleCoefficientLocalSystem_test_arithmetic [example, non-example] : Over Spec Q the étale coefficients Q_ℓ and Q_ℓ(1) have the same one-dimensional geometric/complex realization but different arithmetic Galois actions (trivial versus cyclotomic). Forgetting the arithmetic tower/action cannot characterize the descended coefficient.
 
 ### AutomorphicBundles:B2/filtered-de-rham-coefficient
 AutomorphicBundles.filteredDeRhamCoefficient : For an algebraic full Gᶜ representation W over a number field L containing E, the canonical principal bundle gives a locally free filtered coefficient W_dR with integrable connection ∇ and Griffiths transversality. Its filtration is induced by γ. In Hodge type it agrees with the matching tensor construction in the universal family’s relative H₁,dR; regular-singular boundary extension is a separate B3 theorem.
 AutomorphicBundles.filteredDeRhamCoefficient_connection [structure] : ∇²=0 and the connection descends from Π.
 AutomorphicBundles.filteredDeRhamCoefficient_filtration [projection] : F^aW_dR is the locally direct-summand filtration encoded by γ.
 AutomorphicBundles.filteredDeRhamCoefficient_transversality [compatibility] : ∇F^a⊂F^{a−1}⊗Ω¹_S; tensors and duals carry the induced filtered connections.
+AutomorphicBundles.filteredDeRhamCoefficient_map [functoriality] : A full-Gᶜ representation intertwiner induces a horizontal filtration-preserving map between the associated de Rham coefficients; its principal-frame map is u.
+AutomorphicBundles.filteredDeRhamCoefficient_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.filteredDeRhamCoefficient_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.filteredDeRhamCoefficient_test_unit [example, degenerate] : The tensor unit is (O_S,d) with its weight-zero filtration.
 AutomorphicBundles.filteredDeRhamCoefficient_test_hodge [example, compatibility] : For H¹dR of an abelian family F¹=e*Ω¹_A/S and the connection is Gauss–Manin.
-AutomorphicBundles.filteredDeRhamCoefficient_test_levi [example, non-example] : This full-group construction does not manufacture an integrable connection on every Levi automorphic bundle.
+AutomorphicBundles.filteredDeRhamCoefficient_test_levi [example, non-example] : For the GL2 upper-triangular Levi, (a,d)↦a does not extend to a one-dimensional GL2 representation, since no a^n d^n equals a. Its associated line cannot be treated as a rank-one input to the full-group filtered connection functor.
 
 ### AutomorphicBundles:B2/realization-comparison
 AutomorphicBundles.realizationComparison : After an embedding L↪C, for a rational Gᶜ representation W, W_B⊗Q_ℓ≃W_ℓ|S_C under the algebraic/analytic étale comparison, and W_B⊗O_an≃W_dR^an as flat holomorphic bundles. Under the Q-defined pure weight condition these respect Hodge filtrations and the rational variation. They preserve defining tensors, Tate twists, Hecke pullback and duals. No B_dR, crystalline or p-adic Hodge theorem is included.
@@ -527,6 +631,9 @@ AutomorphicBundles.boundaryCoefficientChart : For a neat characteristic-zero Hod
 AutomorphicBundles.boundaryCoefficientChart_restrict [compatibility] : Restriction to the open family is the given filtered/graded automorphic coefficient.
 AutomorphicBundles.boundaryCoefficientChart_hodge [characterisation] : The Hodge coefficient is e*Ω¹_G/SΣ of the supplied semi-abelian extension.
 AutomorphicBundles.boundaryCoefficientChart_transition [functoriality] : Degeneration-chart transition maps induce tensor-compatible frame/coefficient isomorphisms.
+AutomorphicBundles.boundaryCoefficientChart_map [functoriality] : A morphism of the prescribed boundary representations induces a chart-coefficient morphism compatible with the canonical frame and with every chart transition.
+AutomorphicBundles.boundaryCoefficientChart_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.boundaryCoefficientChart_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.boundaryCoefficientChart_test_tate [example, compatibility] : The dimension-one Hodge frame at a multiplicative fibre is generated by du/u.
 AutomorphicBundles.boundaryCoefficientChart_test_unit [example, degenerate] : The trivial coefficient extends to O of each cusp chart.
 AutomorphicBundles.boundaryCoefficientChart_test_base [example, non-example] : The base logarithmic differential dq/q is not identified with the relative invariant differential du/u.
@@ -537,6 +644,9 @@ AutomorphicBundles.canonicalExtension_restrict [compatibility] : j*V(J)^can_Σ�
 AutomorphicBundles.canonicalExtension_boundary_frame [characterisation] : On a canonical cusp chart V(J)^can is the locally free coefficient of the specified extended frame torsor.
 AutomorphicBundles.canonicalExtension_tensor [functoriality] : The canonical extension functor preserves tensor products, duals and the unit.
 AutomorphicBundles.canonicalExtension_unique [extensionality] : A chart-normalized extension with these transition maps has a unique isomorphism preserving its normalization.
+AutomorphicBundles.canonicalExtension_map [functoriality] : For a coefficient map induced by an algebraic Pᶜ-representation intertwiner, the prescribed canonical chart maps glue to its canonical extension; it restricts to the original coefficient map and respects canonical chart normalization. An arbitrary morphism on the open without this chart condition is not an admitted input.
+AutomorphicBundles.canonicalExtension_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.canonicalExtension_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.canonicalExtension_test_unit [example, degenerate] : The canonical extension of the unit coefficient is O_SΣ.
 AutomorphicBundles.canonicalExtension_test_hodge [example, compatibility] : For an elliptic/PEL Hodge coefficient it is the semi-abelian invariant-differential bundle.
 AutomorphicBundles.canonicalExtension_test_twist [example, non-example] : For nonempty boundary D, V^can(D) has the same open restriction but fails the specified canonical boundary-frame normalization.
@@ -549,6 +659,9 @@ AutomorphicBundles.subcanonicalExtension : For the smooth toroidal model and red
 AutomorphicBundles.subcanonicalExtension_ideal [characterisation] : V^sub≃V^can⊗I_D with D reduced.
 AutomorphicBundles.subcanonicalExtension_inclusion [projection] : V^sub→V^can is the kernel of restriction to D.
 AutomorphicBundles.subcanonicalExtension_restrict [compatibility] : j*V^sub≃V, while boundary restriction of its included sections is zero.
+AutomorphicBundles.subcanonicalExtension_map [functoriality] : A coefficient morphism u^can induces u^sub=u^can⊗id_(I_D); the boundary inclusions commute with u^sub and u^can.
+AutomorphicBundles.subcanonicalExtension_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.subcanonicalExtension_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.subcanonicalExtension_test_empty [example, degenerate] : For an empty boundary, V^sub=V^can.
 AutomorphicBundles.subcanonicalExtension_test_crossing [example, computation] : On Spec k[q1,q2] with reduced D=V(q1q2), the unit subcanonical ideal is (q1q2), so sections vanish on both components.
 AutomorphicBundles.subcanonicalExtension_test_multiplicity [example, non-example] : For a full divisor 2D, V^can(−2D) is not the reduced-boundary subcanonical extension.
@@ -564,6 +677,9 @@ AutomorphicBundles.logarithmicConnectionExtension : For a full Gᶜ coefficient 
 AutomorphicBundles.logarithmicConnectionExtension_restrict [compatibility] : Restriction gives the original integrable flat connection.
 AutomorphicBundles.logarithmicConnectionExtension_residue [structure] : Each boundary residue is nilpotent in the unipotent zero-exponent normalization.
 AutomorphicBundles.logarithmicConnectionExtension_tensor [functoriality] : In that normalization the logarithmic extension preserves tensor products and duals, with induced residue actions.
+AutomorphicBundles.logarithmicConnectionExtension_map [functoriality] : A horizontal map between the admitted regular-singular full-group coefficients extends to a horizontal map between their normalized logarithmic extensions and commutes with the residues.
+AutomorphicBundles.logarithmicConnectionExtension_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.logarithmicConnectionExtension_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.logarithmicConnectionExtension_test_unit [example, degenerate] : The unit coefficient extends to (O_SΣ,d) with zero residues.
 AutomorphicBundles.logarithmicConnectionExtension_test_tate [example, computation] : For a nodal elliptic degeneration the rank-two coefficient has nonzero nilpotent monodromy residue, while its determinant has zero residue.
 AutomorphicBundles.logarithmicConnectionExtension_test_nonunipotent [example, non-example] : A rank-one local system with monodromy −1 cannot be put in a nilpotent-residue normalization without a cover or a different exponent choice.
@@ -573,9 +689,12 @@ AutomorphicBundles.minimalCoherentPushforward : For the proper toroidal-to-minim
 AutomorphicBundles.minimalCoherentPushforward_sections [compatibility] : H⁰(Smin,π_*V^can)=H⁰(SΣ,V^can).
 AutomorphicBundles.minimalCoherentPushforward_coherent [structure] : Proper pushforward of the coherent canonical coefficient is coherent.
 AutomorphicBundles.minimalCoherentPushforward_refinement [functoriality] : Compatible fan refinements induce a canonical isomorphism of these degree-zero pushforwards.
+AutomorphicBundles.minimalCoherentPushforward_map [functoriality] : For a morphism u:F→G of the admitted canonical or subcanonical coefficients, π_*u is its coherent sheaf pushforward on the specified minimal model.
+AutomorphicBundles.minimalCoherentPushforward_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.minimalCoherentPushforward_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.minimalCoherentPushforward_test_proper_open [example, degenerate] : When the Shimura variety is proper and π is identity, the minimal coefficient is V.
 AutomorphicBundles.minimalCoherentPushforward_test_rank [example, compatibility] : On the open S the pushforward restricts to V.
-AutomorphicBundles.minimalCoherentPushforward_test_singular [example, non-example] : Coherence does not imply the coefficient is locally free at a singular minimal boundary; no rank-only criterion is exported.
+AutomorphicBundles.minimalCoherentPushforward_test_singular [example, non-example] : On the noetherian nodal affine scheme Spec L[x,y]/(xy), the ideal (x,y) is coherent but is not locally free at the origin: its generic rank is one and its fibre modulo (x,y) has dimension two. This non-example tests the inference from coherent pushforward to local freeness; it does not identify that ideal with every automorphic coefficient.
 
 ### AutomorphicBundles:B3/minimal-hodge-line-comparison
 AutomorphicBundles.minimalHodgeLineComparison : For the PEL/Hilbert scalar Hodge line under the compactification owner’s positivity and graded-section finite-generation hypotheses, a sufficiently divisible positive power of the toroidal Hodge line is pulled back from an ample invertible sheaf on the minimal compactification. Compare its scalar boundedness/section description with that line. This is an additional scalar theorem; it is not asserted for an arbitrary Levi vector coefficient or every undivided Hodge-line power.
@@ -597,15 +716,24 @@ AutomorphicBundles.classicalForms : For an automorphic coefficient over L and a 
 AutomorphicBundles.classicalForms_section [projection] : A classical form is a global section of the canonical coefficient.
 AutomorphicBundles.classicalForms_fan [equivalence] : Common refinements induce a canonical identification of M for different smooth projective fans.
 AutomorphicBundles.classicalForms_multiply [functoriality] : Tensoring sections gives M(J1)×M(J2)→M(J1⊗J2).
+AutomorphicBundles.classicalForms_map [functoriality] : A map u:V^can→W^can on the supplied model induces H⁰(u):M(V)→M(W). In the available Scheme.Modules forgetting this is exactly SheafOfModules.sectionsMap u.
+AutomorphicBundles.classicalForms_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.classicalForms_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.classicalForms_test_unit [example, degenerate] : For a proper geometrically connected model and trivial coefficient, M=L.
 AutomorphicBundles.classicalForms_test_curve [example, compatibility] : For the modular Hodge coefficient ω^k the space agrees with the geometric modular-form owner’s proper-curve sections.
-AutomorphicBundles.classicalForms_test_open [example, non-example] : Replacing SΣ by a nonproper affine open can give infinite-dimensional H⁰ and is not this definition.
+AutomorphicBundles.classicalForms_test_open [example, non-example] : For Spec L[t] with coefficient O, H⁰=L[t] has the infinite independent family 1,t,t²,…; it cannot replace the proper geometrically connected model, whose unit coefficient has H⁰=L.
+AutomorphicBundles.classicalForms_test_map_id [example, compatibility] : For any supplied Scheme.Modules coefficient V and section s, the supplied-section forgetting sends the identity coefficient map to s.
+AutomorphicBundles.classicalForms_test_map_comp [example, compatibility] : For supplied Scheme.Modules maps u:V→W and v:W→U, mapping a section by v∘u equals mapping first by u then by v.
+AutomorphicBundles.classicalForms_test_map_zero [example, degenerate] : For any supplied Scheme.Modules map u:V→W, its global-section map sends the compatible section whose value on every open is zero to the zero compatible section.
 
 ### AutomorphicBundles:B4/cusp-forms
 AutomorphicBundles.cuspForms : Define S(J,K;L)=H⁰(SΣ,V(J)^sub)=ker[M(J,K;L)→H⁰(DΣ,i*V(J)^can)]. Thus a cusp form vanishes along every component of the reduced boundary in the canonical frame. Its fan-independent definition uses the ideal-pushforward comparison; no Koecher extension theorem makes this vanishing automatic.
 AutomorphicBundles.cuspForms_include [projection] : S(J)↪M(J) is induced by the boundary-ideal inclusion.
 AutomorphicBundles.cuspForms_kernel [characterisation] : A form is cuspidal iff its restriction to every reduced boundary component is zero.
 AutomorphicBundles.cuspForms_tensor [functoriality] : The product of a cusp form with a classical form is cuspidal in the tensor coefficient.
+AutomorphicBundles.cuspForms_map [functoriality] : A map between canonical coefficients induces the boundary-compatible map on their I_D twists and hence S(u):S(V)→S(W); the inclusions into classical forms commute with this map.
+AutomorphicBundles.cuspForms_map_id [simp] : For a fixed admitted input V, the induced map of the identity morphism of V is the identity on its output.
+AutomorphicBundles.cuspForms_map_comp [functoriality] : For admitted composable morphisms u:V→W and v:W→U, the induced map of v∘u is the composite of the induced map of v with the induced map of u; all datum, level, field and model hypotheses remain fixed.
 AutomorphicBundles.cuspForms_test_empty [example, degenerate] : If D=∅, S(J)=M(J).
 AutomorphicBundles.cuspForms_test_constant [example, computation] : For nonempty boundary and trivial coefficient on a proper geometrically connected model, a nonzero constant is not cuspidal.
 AutomorphicBundles.cuspForms_test_crossing [example, characterisation] : At a two-component crossing a holomorphic coefficient is cuspidal iff it lies in the product ideal (q1q2), not merely (q1,q2).
@@ -616,9 +744,13 @@ AutomorphicBundles.AutomorphyFactor_one [simp] : J(1,x)=id.
 AutomorphicBundles.AutomorphyFactor_mul [structure] : J(gh,x)=J(g,hx)∘J(h,x), with the indicated shifted base point.
 AutomorphicBundles.AutomorphyFactor_change_frame [equivalence] : A holomorphic frame change u gives J′(g,x)=u(gx)J(g,x)u(x)⁻¹ and an isomorphic coefficient.
 AutomorphicBundles.AutomorphyFactor_forget [projection] : Forgetting holomorphy yields the normalized linear cocycle input for the existing SlashAction adapter.
+AutomorphicBundles.AutomorphyFactor_ext [extensionality] : Two normalized functional factors with identical coefficient maps at every (k,g,x) are equal; the law proofs carry no extra data. The holomorphic refinement additionally retains its declared analytic hypotheses.
+AutomorphicBundles.AutomorphyFactor_change_frame_id [simp] : Gauge change by the constant identity frame returns the original normalized functional factor.
+AutomorphicBundles.AutomorphyFactor_change_frame_comp [relation] : Changing first by u and then by v equals changing by x↦v(x)∘u(x). This is the displayed order of frame composition, not its reverse.
 AutomorphicBundles.AutomorphyFactor_test_unit [example, degenerate] : The constant identity coefficient is normalized and satisfies the shifted cocycle.
 AutomorphicBundles.AutomorphyFactor_test_frame [example, computation] : For any invertible frame function u, J(g,x)=u(gx)u(x)⁻¹ satisfies the shifted cocycle.
-AutomorphicBundles.AutomorphyFactor_test_order [example, non-example] : On Q² the noncommuting shears detect failure of the unshifted product law and of reversed composition; those tests concern the functional forgotten coefficient.
+AutomorphicBundles.AutomorphyFactor_test_order [example, non-example] : For Q² let Sx(a,b)=(a+b,b), Sy(a,b)=(a,a+b). The constant functional factor J(g,x)=g for the evaluation action of GL(Q²) has J(SxSy,x)(1,0)=(2,1) and J(SySx,x)(1,0)=(1,1). Reversing coefficient composition fails this test.
+AutomorphicBundles.AutomorphyFactor_test_shift [example, non-example] : On C₂ acting on itself by left multiplication, choose frames u(1)=id and u(t)=Sx on Q². Gauge-changing the identity factor gives J(t²,1)(0,1)=(0,1), whereas the unshifted square J(t,1)²(0,1)=(2,1). Thus the base-point shift is necessary.
 
 ### AutomorphicBundles:B4/slash-action-of-automorphy-factor
 AutomorphicBundles.slashActionOfAutomorphyFactor : For any index β, monoid G acting on X on the left, semiring R and R-module V, normalized coefficients J(k,g,x):V≃_R V with J(k,gh,x)=J(k,g,hx)∘J(k,h,x) define Mathlib’s existing SlashAction β G (X→V) by (f|_k g)(x)=J(k,g,x)⁻¹ f(gx). No new slash-action carrier is introduced. The action is additive and R-linear, and |gh equals first |g then |h.
@@ -661,6 +793,7 @@ AutomorphicBundles.HilbertArithmeticWeight_w [projection] : The common integer c
 AutomorphicBundles.HilbertArithmeticWeight_detExponent [data] : m_τ=(w−k_τ)/2.
 AutomorphicBundles.HilbertArithmeticWeight_two_mul_detExponent [characterisation] : 2m_τ=w−k_τ for every τ.
 AutomorphicBundles.HilbertArithmeticWeight_add [constructor] : Pointwise k addition and w addition preserve arithmetic parity.
+AutomorphicBundles.HilbertArithmeticWeight_ext [extensionality] : Arithmetic weights with the same embedding-indexed k and the same w are equal; parity proofs carry no extra data.
 AutomorphicBundles.HilbertArithmeticWeight_test_zero [example, degenerate] : k=0,w=0 is an arithmetic weight and every m_τ=0.
 AutomorphicBundles.HilbertArithmeticWeight_test_negative [example, computation] : For one embedding, k=4,w=2 gives m=−1, so forbidding negative determinant twists would lose an allowed weight.
 AutomorphicBundles.HilbertArithmeticWeight_test_parity [example, non-example] : k=3,w=2 violates parity and is not an arithmetic weight.
