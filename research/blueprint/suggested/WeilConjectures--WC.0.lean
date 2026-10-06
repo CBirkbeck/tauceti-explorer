@@ -30,6 +30,8 @@ import Mathlib.CategoryTheory.IsomorphismClasses
 import Mathlib.CategoryTheory.SingleObj
 import Mathlib.CategoryTheory.Discrete.Basic
 import Mathlib.CategoryTheory.Products.Basic
+import Mathlib.CategoryTheory.Sums.Basic
+import Mathlib.CategoryTheory.Action
 import Mathlib.CategoryTheory.Equivalence
 import Mathlib.GroupTheory.GroupAction.Defs
 import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
@@ -355,6 +357,28 @@ theorem groupoidMass_product {C D : Type*} [Groupoid C] [Groupoid D]
     groupoidMass (C × D) hCD aCD = groupoidMass C hC aC * groupoidMass D hD aD := by
   sorry
 
+/-- Added by the independent review: additivity over a disjoint union (stack stratifications).
+Mathlib has no `IsGroupoid` instance for a sum of groupoids, so it is an argument here. -/
+theorem groupoidMass_sum {C D : Type*} [Groupoid C] [Groupoid D] [IsGroupoid (C ⊕ D)]
+    (hC : Finite (Quotient (isIsomorphicSetoid C)))
+    (hD : Finite (Quotient (isIsomorphicSetoid D)))
+    (hCD : Finite (Quotient (isIsomorphicSetoid (C ⊕ D))))
+    (aC : ∀ x : C, Finite (Aut x)) (aD : ∀ x : D, Finite (Aut x))
+    (aCD : ∀ x : C ⊕ D, Finite (Aut x)) :
+    groupoidMass (C ⊕ D) hCD aCD = groupoidMass C hC aC + groupoidMass D hD aD := by
+  sorry
+
+/-- Added by the independent review: the action groupoid has mass `#Y / #G` (orbit–stabiliser),
+the numerical content of the quotient-stack count `#Y(F_q) / #G(F_q)`. Mathlib's
+`Groupoid (ActionCategory G Y)` instance does not yield `IsGroupoid` by instance search at the
+pin, so it is an argument here. -/
+theorem groupoidMass_actionCategory (G Y : Type*) [Group G] [MulAction G Y] [Finite G] [Finite Y]
+    [IsGroupoid (ActionCategory G Y)]
+    (h : Finite (Quotient (isIsomorphicSetoid (ActionCategory G Y))))
+    (a : ∀ x : ActionCategory G Y, Finite (Aut x)) :
+    groupoidMass (ActionCategory G Y) h a = (Nat.card Y : ℚ) / Nat.card G := by
+  sorry
+
 -- groupoidMass_empty
 example (h : Finite (Quotient (isIsomorphicSetoid (Discrete Empty))))
     (a : ∀ x : Discrete Empty, Finite (Aut x)) : groupoidMass (Discrete Empty) h a = 0 := by
@@ -376,6 +400,14 @@ example (h : Finite (Quotient (isIsomorphicSetoid (SingleObj (Multiplicative (ZM
 example (h : Finite (Quotient (isIsomorphicSetoid (SingleObj (Multiplicative (ZMod 2))))))
     (a : ∀ x : SingleObj (Multiplicative (ZMod 2)), Finite (Aut x)) :
     groupoidMass (SingleObj (Multiplicative (ZMod 2))) h a ≠ 1 := by
+  sorry
+
+-- groupoidMass_regular_action (added by the independent review): two objects, one class, mass 1
+example [IsGroupoid (ActionCategory (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))]
+    (h : Finite (Quotient (isIsomorphicSetoid
+      (ActionCategory (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))))))
+    (a : ∀ x : ActionCategory (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)), Finite (Aut x)) :
+    groupoidMass (ActionCategory (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))) h a = 1 := by
   sorry
 
 /-- Node signed-frobenius-configuration-coefficient: the exponent counts orbits. -/
@@ -414,6 +446,30 @@ theorem signedConfigurationCoefficient_above_card {A : Type*} [DecidableEq A] [F
     (σ : Equiv.Perm A)
     (hf : ∀ n : ℕ, Finite {S : Finset A // S.card = n ∧ S.map σ.toEmbedding = S})
     (n : ℕ) (hn : Nat.card A < n) : signedConfigurationCoefficient σ hf n = 0 := by
+  sorry
+
+/-- Added by the independent review: coefficients multiply under disjoint union, BFP (9). -/
+theorem signedConfigurationCoefficient_sumCongr {A B : Type*} [DecidableEq A] [DecidableEq B]
+    (σ : Equiv.Perm A) (τ : Equiv.Perm B)
+    (hσ : ∀ n : ℕ, Finite {S : Finset A // S.card = n ∧ S.map σ.toEmbedding = S})
+    (hτ : ∀ n : ℕ, Finite {S : Finset B // S.card = n ∧ S.map τ.toEmbedding = S})
+    (hστ : ∀ n : ℕ, Finite {S : Finset (A ⊕ B) // S.card = n ∧
+      S.map (Equiv.sumCongr σ τ).toEmbedding = S}) (n : ℕ) :
+    signedConfigurationCoefficient (Equiv.sumCongr σ τ) hστ n =
+      ∑ i ∈ Finset.range (n + 1),
+        signedConfigurationCoefficient σ hσ i * signedConfigurationCoefficient τ hτ (n - i) := by
+  sorry
+
+open Classical in
+/-- Added by the independent review: for finite `A` the generating polynomial is the product of
+`1 - T ^ #O` over the orbits `O`, the finite form of the inverse-zeta Euler product. -/
+theorem signedConfigurationCoefficient_generating {A : Type*} [DecidableEq A] [Fintype A]
+    (σ : Equiv.Perm A)
+    (hf : ∀ n : ℕ, Finite {S : Finset A // S.card = n ∧ S.map σ.toEmbedding = S}) :
+    (∑ n ∈ Finset.range (Fintype.card A + 1),
+        Polynomial.C (signedConfigurationCoefficient σ hf n) * Polynomial.X ^ n : Polynomial ℤ) =
+      ∏ O : MulAction.orbitRel.Quotient (Subgroup.zpowers σ) A,
+        (1 - Polynomial.X ^ Nat.card O.orbit) := by
   sorry
 
 -- signedConfigurationCoefficient_empty
