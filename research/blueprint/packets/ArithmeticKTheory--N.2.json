@@ -1,0 +1,801 @@
+{
+  "roadmapId": "ArithmeticKTheory",
+  "protocol": "blueprint-v1",
+  "part": "N.2",
+  "scope": [
+    "ArithmeticKTheory:N.2"
+  ],
+  "status": "complete",
+  "summary": "Follow up the accepted N.1 packet by supplying contravariant finite-extension compatibility of arithmetic localisation, including ramification multiplicities on residue terms. Import the general Dedekind sequence and boundary identifications from S.3, degree-two exact sequences from T.5, and the existing N.2 finite-support, transfer and injectivity nodes. The new mathematical argument computes flat pullback before dévissage; all declarations remain plans.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:DirectSum.of",
+        "kind": "def",
+        "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+        "provides": "Canonical inclusion of one summand into a dependent direct sum.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:DirectSum.toAddMonoid",
+        "kind": "def",
+        "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+        "provides": "The additive homomorphism from a direct sum induced by additive homomorphisms on each summand.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:DirectSum.addHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+        "provides": "Homomorphisms out of a direct sum agree if they agree on all canonical summand inclusions.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "The existing type of nonzero prime ideals of a Dedekind domain.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For a prime q, the natural-number length of B_q/(q.under A)B_q; use the unprimed one-ideal definition.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx'_eq_ramificationIdx",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For a nonzero p of a domain and torsion-free Dedekind B, the older two-ideal exponent p.ramificationIdx' q equals q.ramificationIdx A.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For q lying over p with pB nonzero, q.ramificationIdx A equals its count in the normalized factors of pB.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx_tower",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For A → B → C and r over q, with C flat over B, e(r/A)=e(q/A)e(r/B).",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.QuasiFinite.finite_primesOver",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/QuasiFinite/Basic.lean",
+        "provides": "In a quasi-finite algebra, the set of primes over an ideal is finite; finite algebras satisfy the hypothesis.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.quotientEquivPiFactors",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "For nonzero I, B/I is the product of B/q^m over its distinct prime factors with multiplicities m.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DedekindDomain/Dvr.lean",
+        "provides": "Localization of a Dedekind domain at a nonzero prime is a DVR.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing.length_quotient_pow_maximalIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+        "provides": "Length of a DVR modulo the n-th power of its maximal ideal is n.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean",
+        "provides": "The multiplicative valuation at q of an element from F is the valuation at p raised to the older two-ideal ramification index; converts to v_q=e v_p for normalized additive orders.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Spectrum.lean",
+        "provides": "Height-one primes of S.integer F correspond to height-one primes of the original Dedekind ring outside S.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.valuation_integerHeightOneSpectrumEquiv",
+        "kind": "lemma",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Spectrum.lean",
+        "provides": "That height-one-spectrum equivalence preserves the multiplicative valuations.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx_pos",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For a prime q in a finite A-algebra B, the unprimed length ramification index q.ramificationIdx A is positive.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_primesOver_iff_mem_normalizedFactors",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "For nonzero maximal p of a domain and torsion-free Dedekind B, prime ideals over p are exactly the normalized prime factors of pB.",
+        "checked": "Statement read in the source tree at the recorded pinned commit on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Weibel.V.read",
+      "title": "The K-book: Chapter V, The fundamental theorems of higher K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted standalone Chapter V PDF; exact retrieved version fixed by SHA-256; locators use its printed chapter pages.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "V.1.1–1.2 and V.1.8 (pp. 1–3, 8–9): exact functors and admissible filtrations",
+        "V.4.1–4.4 (pp. 33–34): dévissage and the nonexact-quotient warning",
+        "V.5.1 and proof (pp. 35–37): localisation of abelian categories",
+        "V.6.1 (p. 38), V.6.6–6.6.4 (pp. 41–42): Dedekind sequence, tame normalization and transfer",
+        "V.6.8 (pp. 44–45): statement and dependency boundary for the imported Soulé theorem",
+        "V.6.10.2 and V.6.11 (p. 47): ramification example and supported localisation"
+      ]
+    },
+    {
+      "id": "Mathlib.pinned",
+      "title": "Pinned Mathlib source: direct sums, Dedekind ideals and ramification",
+      "authors": "Mathlib contributors",
+      "edition": "Commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "Mathlib/Algebra/DirectSum/Basic.lean",
+        "Mathlib/Algebra/DirectSum/Basic.lean",
+        "Mathlib/Algebra/DirectSum/Basic.lean",
+        "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "Mathlib/RingTheory/QuasiFinite/Basic.lean",
+        "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "Mathlib/RingTheory/DedekindDomain/Dvr.lean",
+        "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+        "Mathlib/NumberTheory/RamificationInertia/Valuation.lean"
+      ]
+    },
+    {
+      "id": "TauCeti.pinned",
+      "title": "Pinned Tau Ceti source: S-integer spectrum",
+      "authors": "Tau Ceti contributors; spectrum adaptation credits Michael Stoll",
+      "edition": "Commit f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/SInteger/Spectrum.lean",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "integerHeightOneSpectrumEquiv and valuation_integerHeightOneSpectrumEquiv"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticKTheory:N.2/ramified-residue-pullback",
+      "parentStageId": "ArithmeticKTheory:N.2",
+      "realises": [
+        "ArithmeticKTheory:N.2"
+      ],
+      "title": "Ramification-weighted pullback on residue direct sums",
+      "kind": "construction",
+      "statement": "For the data above define ρ_n^{B/A}: ⊕_p K_n(k(p)) → ⊕_q K_n(k(q)) as the unique additive homomorphism sending ι_p(x) to Σ_{q|p} ι_q(e(q/p)·res_{k(q)/k(p)}x), with e(q/p)=q.ramificationIdx A. Integer multiples mean repeated addition in the abelian K-group; on K_1(k)=k× this is an e-th power. A prime of B has one contracted prime; each prime of A has finitely many primes above it. The same construction is defined for any family of additive groups and homomorphisms over finite fibres, and is the typeable part of the suggested file.",
+      "hypotheses": [
+        "A → B is an injective finite map of Dedekind domains; F and L are their compatible fraction fields. B is flat over A (equivalently here, finite projective).",
+        "p and q mean nonzero prime ideals, indexed using IsDedekindDomain.HeightOneSpectrum; q lies over p. Residue fields are A/p and B/q, not a new prime carrier.",
+        "n ≥ 0; K_n is the connective Quillen K-group of finitely generated projectives. On regular rings the imported K/G comparison identifies it with G_n."
+      ],
+      "proofSteps": [
+        "Take finite prime fibres using Algebra.QuasiFinite.finite_primesOver (the finite algebra is quasi-finite); use the existing direct-sum and prime carriers.",
+        "For each p sum its finitely many weighted coefficient homomorphisms followed by DirectSum.of. Extend these maps uniquely by DirectSum.toAddMonoid; DirectSum.addHom_ext proves uniqueness.",
+        "The output coordinate can only come from its contracted p. This proves the support bound and makes an unrestricted product unnecessary.",
+        "For identity and towers evaluate on a coordinate; the two weights multiply and residue-field extension of scalars composes. Use Ideal.ramificationIdx_tower under flatness. The all-degree residue K functor and scalar extension are imported from their exact K.1 and K.2:plus nodes, not defined here."
+      ],
+      "prerequisites": [
+        "mathlib:DirectSum.of",
+        "mathlib:DirectSum.toAddMonoid",
+        "mathlib:DirectSum.addHom_ext",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "mathlib:Algebra.QuasiFinite.finite_primesOver",
+        "mathlib:Ideal.ramificationIdx",
+        "mathlib:Ideal.ramificationIdx_tower",
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+        "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
+        "mathlib:Ideal.ramificationIdx_pos"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mathlib.pinned",
+          "locator": "DirectSum/Basic.lean, documentation of toAddMonoid",
+          "excerpt": "induced by a family `φ` of homomorphisms `β i → γ`.",
+          "match": "The dependent direct-sum universal property supplies the assembly; the weights and arithmetic instantiation are this packet’s construction."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.4.3, printed p. 34",
+          "excerpt": "This applies to finitely generated torsion modules over Dedekind domains and curves",
+          "match": "Motivates the residue-summand indexing; the weighted pullback formula is derived in the next node, not quoted as a theorem from this passage."
+        }
+      ],
+      "acceptance": [
+        "Six unit tests distinguish omission of e, use of residue degree f, discarding one split prime, and wrong multiplicative notation.",
+        "Transport between primes of S.integer F and primes outside S must use Tau Ceti’s existing equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Localisation",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "ramifiedResiduePullback"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+          "how": "Is the residue arrow of the contravariant morphism of full localisation sequences."
+        },
+        {
+          "where": "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+          "how": "Gives multiplication by e on residue ranks and e-th powers on residue units."
+        },
+        {
+          "where": "ArithmeticKTheory:N.3:finite-generation and KU-finitegeneration",
+          "how": "Ensures arithmetic localisation maps used by the consumers have finite support and coherent field-extension maps."
+        },
+        {
+          "where": "Mathlib Ideal.ramificationIdx_tower",
+          "how": "Provides the weights required for identity and tower functoriality."
+        }
+      ],
+      "api": [
+        {
+          "name": "ramifiedResiduePullback_of",
+          "role": "simp",
+          "statement": "On the p-summand, ρ_n(ι_p x)=Σ_{q|p} ι_q(e(q/p)·res_{k(q)/k(p)}x)."
+        },
+        {
+          "name": "ramifiedResiduePullback_apply",
+          "role": "projection",
+          "statement": "The q-coordinate of ρ_n(x) is e(q/p)·res(x_p), p=q∩A."
+        },
+        {
+          "name": "ramifiedResiduePullback_unique",
+          "role": "universal-property",
+          "statement": "ρ_n is the unique additive homomorphism with the displayed values on all summand generators, by DirectSum.addHom_ext."
+        },
+        {
+          "name": "ramifiedResiduePullback_support",
+          "role": "compatibility",
+          "statement": "If the q-coordinate of ρ_n(x) is nonzero then x_{q∩A} is nonzero. Thus support(ρ_n x) is contained in the inverse image of support(x), a finite union of finite prime fibres from Algebra.QuasiFinite.finite_primesOver."
+        },
+        {
+          "name": "ramifiedResiduePullback_zero",
+          "role": "simp",
+          "statement": "ρ_n(0)=0."
+        },
+        {
+          "name": "ramifiedResiduePullback_add",
+          "role": "simp",
+          "statement": "ρ_n(x+y)=ρ_n(x)+ρ_n(y)."
+        },
+        {
+          "name": "ramifiedResiduePullback_id",
+          "role": "functoriality",
+          "statement": "For the identity extension every prime fibre is a singleton, its index is 1 and residue restriction is the identity. After reindexing (p,*) as p, ρ_n(x)_p=x_p."
+        },
+        {
+          "name": "ramifiedResiduePullback_tower_apply",
+          "role": "functoriality",
+          "statement": "For A ⊂ B ⊂ C, r|q|p, the r-coordinate of ρ_{B,C}ρ_{A,B}(x) is e(q/p)e(r/q)·res_{k(r)/k(p)}(x_p). Ideal.ramificationIdx_tower and composition of residue restriction identify this with ρ_{A,C}, after the canonical prime-fibre reindexing."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ramifiedResiduePullback.test_zero",
+          "kind": "degenerate",
+          "statement": "For one source prime, one target prime, coefficient group ℤ, identity coefficient map and weight 2, the image of zero is zero."
+        },
+        {
+          "name": "ramifiedResiduePullback.test_identity",
+          "kind": "compatibility",
+          "statement": "For one prime, ℤ coefficients, identity coefficient map and weight 1, the image of x has coordinate x."
+        },
+        {
+          "name": "ramifiedResiduePullback.test_ramified",
+          "kind": "computation",
+          "statement": "For one prime, ℤ coefficients, identity coefficient map and weight 2, the image of 1 is 2. This is the residue K_0 model at (2) in ℤ ⊂ ℤ[i]."
+        },
+        {
+          "name": "ramifiedResiduePullback.test_split",
+          "kind": "computation",
+          "statement": "For a fibre with two primes, ℤ coefficients, identity coefficient maps and both weights 1, x maps to (x,x), the K_0 model of a split prime."
+        },
+        {
+          "name": "ramifiedResiduePullback.test_inert",
+          "kind": "non-example",
+          "statement": "For a singleton fibre, ℤ coefficients, identity coefficient map and weight 1, the image of 3 is 3, not 6. Residue degree 2 does not change this, as at (3) in ℤ ⊂ ℤ[i]."
+        },
+        {
+          "name": "ramifiedResiduePullback.test_units",
+          "kind": "computation",
+          "statement": "For a singleton fibre with coefficient group (ℤ/5ℤ)×, identity coefficient map and weight 3, the unit 2 maps to 2³=3. Additive notation uses 3 times Additive.ofMul(2)."
+        }
+      ],
+      "planet": {
+        "name": "Ramified residue pullback"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.2/ramification-weighted-devissage",
+      "parentStageId": "ArithmeticKTheory:N.2",
+      "realises": [
+        "ArithmeticKTheory:N.2"
+      ],
+      "title": "Flat pullback computed through residue dévissage",
+      "kind": "theorem",
+      "statement": "Let Tor(A) and Tor(B) be the exact abelian categories of finitely generated torsion modules. Under the standard dévissage isomorphisms D_A: ⊕_p K_n(k(p)) ≅ K_n(Tor(A)) and D_B: ⊕_q K_n(k(q)) ≅ K_n(Tor(B)), one has D_B⁻¹ ∘ K_n(B ⊗_A −) ∘ D_A = ρ_n^{B/A} for every n ≥ 0. These are identifications via inclusions of residue vector spaces into torsion categories, not a claim about K_n of the nonregular ring B/q^e.",
+      "hypotheses": [
+        "A → B is an injective finite map of Dedekind domains; F and L are their compatible fraction fields. B is flat over A (equivalently here, finite projective).",
+        "p and q mean nonzero prime ideals, indexed using IsDedekindDomain.HeightOneSpectrum; q lies over p. Residue fields are A/p and B/q, not a new prime carrier.",
+        "n ≥ 0; K_n is the connective Quillen K-group of finitely generated projectives. On regular rings the imported K/G comparison identifies it with G_n."
+      ],
+      "proofSteps": [
+        "Restrict the exact tensor functor to finite-dimensional k(p)-vector spaces V. It sends V to V ⊗_{k(p)} B/pB, a finite-length B-module. The pullback functor is exact because B is flat; it preserves torsion because A → B is injective.",
+        "Since pB ≠ 0, use IsDedekindDomain.quotientEquivPiFactors and the ramification-index factor-count equality to decompose B/pB into the q-primary factors B/q^{e(q/p)} for q|p.",
+        "For a fixed q, filter the coefficient module B/q^e by q^j/q^e for 0 ≤ j ≤ e. The j-th associated quotient q^j/q^{j+1} is a one-dimensional k(q)-vector space: localize at q (a DVR), use a uniformizer to identify successive layers, and note that B/q^e and its layers are unchanged by this localization. The DVR quotient-length theorem checks that exactly e layers occur.",
+        "Tensor these coefficient filtrations with V over the FIELD k(p). Every filtration functor and quotient functor on V is exact. Choosing a basis of each one-dimensional k(q)-line identifies its exact quotient functor with V ↦ k(q) ⊗_{k(p)} V followed by the residue inclusion into Tor(B). The choices change the functors by natural isomorphisms, so do not change induced K maps.",
+        "Apply K.3/additivity-for-exact-categories (V.1.8) to this admissible filtration of exact functors. The q-block contributes e copies of residue restriction on every K_n, hence e·res. Sum the finite blocks and use dévissage and direct-sum extensionality.",
+        "Do not apply V.1.8 to the functor M ↦ M/qM on arbitrary finite-length B-modules: it is not exact (V.4.2.1). Exactness here holds because the source is k(p)-vector spaces and the fixed coefficient modules are tensored over a field."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.2/ramified-residue-pullback",
+        "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+        "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
+        "mathlib:IsDedekindDomain.quotientEquivPiFactors",
+        "mathlib:Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count",
+        "mathlib:IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain",
+        "mathlib:IsDiscreteValuationRing.length_quotient_pow_maximalIdeal",
+        "mathlib:Ideal.mem_primesOver_iff_mem_normalizedFactors"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.1.8, printed p. 9, proof",
+          "excerpt": "Apply the Additivity Theorem 1.2",
+          "match": "This supplies the sum-of-quotient-functors step; the arithmetic coefficient filtration and its exactness are derived explicitly above."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.4.2.1, printed p. 34",
+          "excerpt": "Note that the Admissible Filtrations Proposition 1.8 does not apply",
+          "match": "The source warns against using the nonexact quotient functor on arbitrary artinian modules. Our functors have a semisimple source and fixed coefficients, avoiding that error."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.4.3, printed p. 34",
+          "excerpt": "every object has finite length",
+          "match": "Supplies the torsion-category dévissage into residue-field summands."
+        }
+      ],
+      "acceptance": [
+        "At ℤ ⊂ ℤ[i] above 2 the length is 2 and the K_0 residue arrow is multiplication by 2, although the residue field is unchanged.",
+        "For an unramified inert prime of residue degree 2 the K_0 pullback sends [k(p)] to [k(q)], not 2[k(q)].",
+        "Wild ramification is allowed; no invertibility of e or separability of a generic residue field is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Localisation",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "ramificationWeightedDevissage"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Ramification and dévissage"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+      "parentStageId": "ArithmeticKTheory:N.2",
+      "realises": [
+        "ArithmeticKTheory:N.2"
+      ],
+      "title": "Contravariant compatibility of the full localisation sequence",
+      "kind": "theorem",
+      "statement": "For A ⊂ B as above and all n ≥ 0, the imported Dedekind localisation sequences form a morphism with vertical arrows res_{B/A}: K_n(A) → K_n(B), res_{L/F}: K_n(F) → K_n(L), and ρ_n^{B/A} on the residue direct sums. In particular for n ≥ 1, ∂_B ∘ res_{L/F} = ρ_{n−1}^{B/A} ∘ ∂_A, and for n ≥ 0, res_{B/A} ∘ i_{A,n} = i_{B,n} ∘ ρ_n^{B/A}, where i is the map from the residue terms to the integral term. The integral-to-field square also commutes, including the terminating K_0(F) → 0 row. Each boundary takes values in a direct sum by the imported finite-support theorem.",
+      "hypotheses": [
+        "A → B is an injective finite map of Dedekind domains; F and L are their compatible fraction fields. B is flat over A (equivalently here, finite projective).",
+        "p and q mean nonzero prime ideals, indexed using IsDedekindDomain.HeightOneSpectrum; q lies over p. Residue fields are A/p and B/q, not a new prime carrier.",
+        "n ≥ 0; K_n is the connective Quillen K-group of finitely generated projectives. On regular rings the imported K/G comparison identifies it with G_n."
+      ],
+      "proofSteps": [
+        "Import S.3/dedekind-localisation-sequence and N.2/finite-support. Before dévissage the sequence is K(Tor(A)) → G(A) → G(F); use the exact tensor functors to form the analogous diagram for B and L.",
+        "Tensoring a finitely generated module with finite B remains finitely generated; torsion is preserved; the quotient functor to fraction-field vector spaces commutes with scalar extension by the canonical tensor-associativity isomorphism. This is an exact functor of Serre pairs.",
+        "Use the functorial K.3/abelian-localization-theorem for that diagram. It yields compatible boundary maps before residue dévissage. On the regular rings, the imported resolution/Cartan identification makes the middle and generic arrows the usual K-theory restrictions.",
+        "Replace the torsion arrow using ramification-weighted-devissage. This proves both residue-to-integral and field-boundary squares, not merely equality on K_0 or K_2 symbols.",
+        "No universal injectivity is inferred from this diagram. All injectivity claims remain those of the degree-specific nodes in the accepted N.1 packet and of T.5."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.2/ramification-weighted-devissage",
+        "SchemeKTheoryOperations:S.3/dedekind-localisation-sequence",
+        "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+        "ArithmeticKTheory:N.2/finite-support"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.5.1, printed pp. 35–37",
+          "excerpt": "is a homotopy fibration sequence.",
+          "match": "The functorial localisation theorem is imported from its exact node; the compatible tensor diagram and its ramified residue identification are our deduction."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.6.6, printed p. 41",
+          "excerpt": "Here p runs over the nonzero prime ideals of R",
+          "match": "Identifies the imported Dedekind sequence. V.6.6.3–6.6.4 describe transfer in the opposite direction, and are not misquoted as stating this pullback theorem."
+        }
+      ],
+      "acceptance": [
+        "At n=1 the square reads v_q(x)=e(q/p)v_p(x) for x ∈ F×.",
+        "At n=2 it gives β_q(res z)=res(β_p z)^e with the imported sign convention.",
+        "Both i and ∂ squares hold; a residue-degree multiplier would contradict the n=1 inert-prime test."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Localisation",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "finiteExtensionRestrictionCompatibility"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Localisation and restriction"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+      "parentStageId": "ArithmeticKTheory:N.2",
+      "realises": [
+        "ArithmeticKTheory:N.2"
+      ],
+      "title": "Arithmetic rank, divisor and tame-boundary comparisons",
+      "kind": "comparison",
+      "statement": "In the restriction morphism, identify K_0(k(p)) and K_0(k(q)) with ℤ by rank, and K_1 of each residue field with its unit group by determinant. Then ρ_0 has q-coordinate e(q/p)x_p and ρ_1 has q-coordinate res(u_p)^{e(q/p)}. Consequently normalized additive orders satisfy v_q(res x)=e(q/p)v_p(x), and the imported degree-two boundary β satisfies β_q(res z)=res(β_p z)^{e(q/p)}. Adopt the K-book right-linear boundary convention β_p{a,b}=(-1)^{v_p(a)v_p(b)} overline(b^{v_p(a)}/a^{v_p(b)}), so β_p{π,u}=ū; it is the inverse of T.3’s left-oriented tameSymbol(a,b). In either convention the e-th-power compatibility is identical. On the K_0 integral terms this commutes with extension of divisor ideals pB=∏_{q|p}q^e and the class-map sign [A/p]=[A]−[p]. Import the arithmetic degree-two exact sequence, including injectivity, from T.5; do not derive it here.",
+      "hypotheses": [
+        "A → B is an injective finite map of Dedekind domains; F and L are their compatible fraction fields. B is flat over A (equivalently here, finite projective).",
+        "p and q mean nonzero prime ideals, indexed using IsDedekindDomain.HeightOneSpectrum; q lies over p. Residue fields are A/p and B/q, not a new prime carrier.",
+        "n ≥ 0; K_n is the connective Quillen K-group of finitely generated projectives. On regular rings the imported K/G comparison identifies it with G_n.",
+        "For the arithmetic tame-kernel row take A=O_{F,S}, B=O_{L,T} with finite S and T the full inverse image. This finiteness is used by the imported arithmetic K_1 vanishing theorem, not by the ramification calculation."
+      ],
+      "proofSteps": [
+        "Use field rank and determinant comparisons already supplied by N.1’s classical K_0/K_1 imports and N.2/the-three-classical-rows. Scalar extension preserves vector-space dimension and maps a unit to its residue-field image; multiplying a K_1 class e times is taking the e-th power.",
+        "Apply finite-extension-restriction-compatibility to the imported S.3 unit-valuation boundary and the T.3 comparison (through the existing S.3/N.2 boundary contracts). This gives the additive valuation and tame-boundary equations without constructing any boundary again.",
+        "Check the valuation equality against pinned HeightOneSpectrum.valuation_liesOver, converting its multiplicative power equation to normalized additive order and converting the primed two-ideal index using Ideal.ramificationIdx'_eq_ramificationIdx.",
+        "On symbols write a=π^r u, b=π^s v. The target orders are er and es. Reducing b^{er}/a^{es} gives the e-th power of the source quotient; the sign agrees because e²rs−ers is even. The extra unit in the image of π cancels. This directly checks the convention and is a test of the imported naturality result.",
+        "For the class map use [A/p]=[A]−[p] from the imported S.3 row. Its pullback becomes [B]−[pB]=Σ_{q|p}e(q/p)([B]−[q]) via the coefficient filtration, so the inverse-Picard convention is respected.",
+        "Use the existing T.5 tame-kernel, S-integer and relative S-integer exact-sequence nodes as imports; all three exact statements were read in the T.3 packet. That packet remains partial with a needs-changes review, so these are mathematical contracts rather than reviewed implementation claims. The accepted transfer node goes B → A and uses residue transfers/norms without an e coefficient; this node goes A → B."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+        "ArithmeticKTheory:N.2/the-three-classical-rows",
+        "ArithmeticKTheory:N.2/localisation-sequence-and-finite-extensions",
+        "SchemeKTheoryOperations:S.3/dvr-boundary-unit-valuation",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.5/tame-kernel-sequence",
+        "K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence",
+        "K2SymbolsBrauer:T.5/relative-s-integer-sequence",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
+        "mathlib:Ideal.ramificationIdx'_eq_ramificationIdx"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.6.6.1, printed p. 41",
+          "excerpt": "∂{π, u} = [ū]",
+          "match": "Pins the right-linear boundary normalization, as in the imported T.3 comparison; the e-th-power identity is derived, not a new tame-symbol definition."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.6.6.3–6.6.4, printed p. 42",
+          "excerpt": "exact functors M(R′ ) → M(R) and M(F ′ ) → M(F ) inducing the transfer maps",
+          "match": "Distinguishes the already supplied covariant transfer from our contravariant restriction."
+        },
+        {
+          "sourceId": "Mathlib.pinned",
+          "locator": "HeightOneSpectrum.valuation_liesOver and Ideal.ramificationIdx'_eq_ramificationIdx",
+          "excerpt": "Ramification index is multiplicative in towers.",
+          "match": "The pinned statements recorded in baseline give the valuation-power equation and reconcile its primed index with the unprimed length convention. The excerpt is the ramification module’s overview, not a claimed quotation of the valuation formula."
+        }
+      ],
+      "acceptance": [
+        "At ℤ ⊂ ℤ[i], p=2: v_{1+i}(2)=2 and the residue rank arrow is ×2; p=3: the residue extension is F₃ ⊂ F₉ but the rank arrow is the identity; p=5: its rank arrow is x ↦ (x,x).",
+        "For β at p=5, β{5,2}=2 under the right-linear convention, while the left-oriented tame symbol is 3. An e=3, unchanged-residue extension sends the first value to 3 and the second to 2, consistent with taking cubes.",
+        "The source sequence’s rank/Pic end, and its degree-two injectivity, are imported owner results, not consequences asserted from abstract exactness."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Localisation",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "lowDegreeRamifiedRestriction"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.2/s-integer-restriction-compatibility",
+      "parentStageId": "ArithmeticKTheory:N.2",
+      "realises": [
+        "ArithmeticKTheory:N.2"
+      ],
+      "title": "Finite-extension restriction for S-integers, towers and enlargements",
+      "kind": "application",
+      "statement": "Let L/F be a finite extension of number fields, S a finite set of nonzero primes of O_F, and T={q of O_L : q∩O_F ∈ S}. Put A=O_{F,S} and B=O_{L,T} using S.integer and the existing arithmetic carriers. The full arithmetic localisation sequences admit the contravariant morphism above with residue q-coordinate e(q/p)res(x_p), indexed by p∉S and q∉T. These morphisms compose in finite towers with the full inverse-image sets and commute with enlargements S⊆S₁ (T⊆T₁ the corresponding inverse images); the residue enlargement map discards precisely the inverted-prime summands. If an upper set T₁ strictly contains the inverse image of S, factor the map through O_{L,T} → O_{L,T₁}, apply the same projection on residue terms and do not claim that O_{L,T₁} is finite over A.",
+      "hypotheses": [
+        "F and L are number fields with a compatible F-algebra structure on L; their integral ring maps are the standard ones. S is finite for this stage’s arithmetic theorem.",
+        "T is exactly the inverse image of S for the finite-projective assertion; larger upper prime sets are handled only by the explicit localisation factorization.",
+        "For a tower M/L/F all upper prime sets are full inverse images of the preceding one. No Galois, unramified or tame assumption is imposed."
+      ],
+      "proofSteps": [
+        "Import N.1/S-integers-in-a-finite-extension to obtain the injective finite-projective extension A → B and compatible fraction fields.",
+        "Use integerHeightOneSpectrumEquiv to index the primes by p∉S and q∉T. Localization preserves the residue fields and local rings at these primes, so their ramification indices are unchanged; valuation_integerHeightOneSpectrumEquiv checks the normalization.",
+        "Apply finite-extension-restriction-compatibility and low-degree-ramified-restriction to A → B.",
+        "For towers, evaluate the composite at r|q|p. Residue scalar extension composes and the pinned ramificationIdx_tower gives e(r/p)=e(q/p)e(r/q); uniqueness of contraction and the finite-fibre coordinate formula yield equality of the maps after reindexing.",
+        "For S⊆S₁ use the existing N.2/S-unit-and-class-group-sequence enlargement naturality. If p is inverted then all q over it are inverted; otherwise its residue coefficient and local ramification data are unchanged. The two orders of projection and weighted pullback agree coordinatewise.",
+        "For a larger upper set factor through the finite full-inverse-image ring, then project away the additional primes. This explains the permitted general ring map without falsely assigning finiteness or a transfer to it."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+        "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+        "ArithmeticKTheory:N.1/S-integers-in-a-finite-extension",
+        "ArithmeticKTheory:N.2/S-unit-and-class-group-sequence",
+        "mathlib:Ideal.ramificationIdx_tower",
+        "tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv",
+        "tauceti:IsDedekindDomain.valuation_integerHeightOneSpectrumEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "TauCeti.pinned",
+          "locator": "SInteger/Spectrum.lean, overview",
+          "excerpt": "the height-one primes of `𝒪_S` are exactly the height-one primes of `R` **not** in `S`",
+          "match": "Existing prime and valuation correspondences give the arithmetic indexing; this application imports them rather than defining another S-integer carrier."
+        },
+        {
+          "sourceId": "Weibel.V.read",
+          "locator": "V.6.6.3, printed p. 42",
+          "excerpt": "with R′ finitely generated as an R-module",
+          "match": "Explains why the full-inverse-image S-integer theorem must provide finiteness; the contravariant compatibility is deduced here, while transfer is imported."
+        }
+      ],
+      "acceptance": [
+        "For F=ℚ, L=ℚ(i), S={2}, T={(1+i)}, the 2/(1+i) residue terms are both absent and all other residue arrows remain the computed ones.",
+        "For S=∅ the statement is the ring-of-integers restriction theorem, including the dyadic ramified prime.",
+        "If a prime q of L is inverted without inverting its contracted p in F, its coefficient is projected away; no finite-module assertion for the resulting upper ring is made.",
+        "A two-step extension with indices 2 and 3 gives weight 6 at the corresponding final prime."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Localisation",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "sIntegerRestrictionCompatibility"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "ArithmeticKTheory:N.2",
+      "status": "planned",
+      "remaining": [
+        "Reconcile N.5/soule-mod-l-surjectivity with the existing L.1/k-theory-mod-m and L.1/bott-element suppliers, and close its remaining generic finite-coefficient localisation/product/degree-one-injectivity input gap. The finite-extension restriction gap is fully planned here; no additional N.2 mathematical decomposition is requested."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Inherited finite-coefficient input for the odd-degree isomorphism",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
+        "ArithmeticKTheory:N.5/soule-theorem"
+      ],
+      "detail": "The accepted N.1 packet records missing finite-coefficient inputs for N.5/soule-mod-l-surjectivity: generic finite-coefficient localisation with compatible boundaries/transfers, the product used for modulus not 2 modulo 4, and degree-one injectivity for O_{F,S} → F. The current L.1/k-theory-mod-m and L.1/bott-element nodes now supply the coefficient object, its module structure and natural Bott element; their statements were read, so the older claim that no stage owns any finite-coefficient theory is not repeated. The residual generic localisation/product/injectivity contracts still need to be reconciled and completed by the N.5 owner. This packet closes the contravariant N.2 gap but does not silently close that separately recorded input gap. None of the five new nodes uses the odd isomorphism or this finite-coefficient argument."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ArithmeticKTheory/E2",
+      "source": "Weibel.V.read",
+      "kind": "misprint",
+      "locator": "V.6.6, standalone Chapter V, printed p. 41",
+      "printed": "R and F and regular",
+      "correction": "Then R and F are regular, as are the residue fields R/𝔭",
+      "reason": "The sentence lists what is regular; 'and' is a slip for 'are'.",
+      "affects": "nothing",
+      "known": "Already recorded as ArithmeticKTheory/E2 in the accepted N.1 packet and review; no new published-correction claim.",
+      "searched": [
+        "The accepted REV-ArithmeticKTheory--N.1 source-issue register and its recorded errata search.",
+        "The matching passage in the author-hosted standalone Chapter V PDF retrieved on 2026-10-06; the published edition was not inspected in this run."
+      ]
+    },
+    {
+      "id": "ArithmeticKTheory/E3",
+      "source": "Weibel.V.read",
+      "kind": "misprint",
+      "locator": "V.6.6.1, standalone Chapter V, printed p. 41",
+      "printed": "∂ in K∗ (R)-linear",
+      "correction": "In this case, we know that ∂ is K∗(R)-linear",
+      "reason": "Grammar; the reviewed K2SymbolsBrauer packet reads it the same way in a match note but records no issue.",
+      "affects": "nothing",
+      "known": "Already recorded as ArithmeticKTheory/E3 in the accepted N.1 packet and review; no new published-correction claim.",
+      "searched": [
+        "The accepted REV-ArithmeticKTheory--N.1 source-issue register and its recorded errata search.",
+        "The matching passage in the author-hosted standalone Chapter V PDF retrieved on 2026-10-06; the published edition was not inspected in this run."
+      ]
+    },
+    {
+      "id": "ArithmeticKTheory/E4",
+      "source": "Weibel.V.read",
+      "kind": "gap",
+      "locator": "V.6.8 proof, standalone Chapter V, printed p. 44",
+      "printed": "the fact that Kn (R) is finitely generated",
+      "correction": "For R not of finite type over ℤ or 𝔽_q the finite generation of K_n(R) is not supplied by IV.6.9; reduce to that case by writing R as the filtered union of rings of S-integers with S finite (ℤ_(p) = colim ℤ[1/N], p ∤ N) and using that K_* and the kernel SK_n commute with filtered colimits.",
+      "reason": "Theorem 6.8 is stated for every Dedekind domain whose fraction field is global, but IV.6.9 (PDF p. 333) covers integrally closed subrings of a number field finite over ℤ and coordinate rings of smooth affine curves over a finite field. For R = ℤ_(p), K₁(R) = ℤ_(p)^× contains the independent primes ℓ ≠ p and is not finitely generated. The theorem is still true there by the colimit argument.",
+      "affects": "the proof",
+      "known": "Already recorded as ArithmeticKTheory/E4 in the accepted N.1 packet and review; no new published-correction claim.",
+      "searched": [
+        "The accepted REV-ArithmeticKTheory--N.1 source-issue register and its recorded errata search.",
+        "The matching passage in the author-hosted standalone Chapter V PDF retrieved on 2026-10-06; the published edition was not inspected in this run."
+      ]
+    },
+    {
+      "id": "ArithmeticKTheory/E5",
+      "source": "Weibel.V.read",
+      "kind": "error",
+      "locator": "V.6.8.1 remark, standalone Chapter V, printed p. 44",
+      "printed": "The conclusion of 6.8.1 is false for n = 1.",
+      "correction": "The conclusion of 6.8.1 can fail for n = 1: the cokernel of ∂ : K₁(F; ℤ/ℓ) → ⊕K₀(R/𝔭; ℤ/ℓ) is Pic(R)/ℓ, so ∂ is onto exactly when Pic(R)/ℓ = 0.",
+      "reason": "The mod-ℓ sequence ends K₁(F; ℤ/ℓ) → ⊕ ℤ/ℓ → K₀(R)/ℓ = ℤ/ℓ ⊕ Pic(R)/ℓ → K₀(F)/ℓ = ℤ/ℓ → 0, so the image of ⊕ ℤ/ℓ is Pic(R)/ℓ. For R = ℤ, Pic = 0 and ℚ^×/ℓ → ⊕_p ℤ/ℓ is onto (p ↦ e_p); the remark's 'is false for n = 1' holds only when ℓ divides the class number, e.g. R = 𝓞 of ℚ(√−5), ℓ = 2.",
+      "affects": "nothing",
+      "known": "Already recorded as ArithmeticKTheory/E5 in the accepted N.1 packet and review; no new published-correction claim.",
+      "searched": [
+        "The accepted REV-ArithmeticKTheory--N.1 source-issue register and its recorded errata search.",
+        "The matching passage in the author-hosted standalone Chapter V PDF retrieved on 2026-10-06; the published edition was not inspected in this run."
+      ]
+    },
+    {
+      "id": "ArithmeticKTheory/E6",
+      "source": "Weibel.V.read",
+      "kind": "misprint",
+      "locator": "V.6.8.1 proof, standalone Chapter V, printed pp. 44–45",
+      "printed": "∂(x) = β i−1 ∂(x)",
+      "correction": "Multiplication by β^{i−1} is an isomorphism ⊕K₁(R/𝔭)/ℓ → ⊕K_{2i−1}(R/𝔭; ℤ/ℓ), every element of ⊕K_{2i−1}(R/𝔭; ℤ/ℓ) has the form β^{i−1}a, and ∂(x) = β^{i−1}∂(s) = β^{i−1}a.",
+      "reason": "β lies in K₂(R; ℤ/ℓ), so β^{i−1}a lies in K_{2i−1}(R/𝔭; ℤ/ℓ), which is the target in the diagram that follows; the integral group K_{2i−1}(𝔽_q) ≅ ℤ/(q^i − 1) is not ℤ/ℓ in general. '∂(x) = β^{i−1}∂(x)' is a slip for β^{i−1}∂(s), s being the lift. At primes 𝔭 over ℓ the identification ℤ/ℓ ≅ K₁(R/𝔭)/ℓ also fails (K₁(R/𝔭)/ℓ has order prime to the residue characteristic), though multiplication by β^{i−1} is still an isomorphism there.",
+      "affects": "nothing",
+      "known": "Already recorded as ArithmeticKTheory/E6 in the accepted N.1 packet and review; no new published-correction claim.",
+      "searched": [
+        "The accepted REV-ArithmeticKTheory--N.1 source-issue register and its recorded errata search.",
+        "The matching passage in the author-hosted standalone Chapter V PDF retrieved on 2026-10-06; the published edition was not inspected in this run."
+      ]
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [],
+  "targetCoverage": [
+    {
+      "target": "Full Dedekind/S-integer localisation sequence and low-degree boundary identifications",
+      "providedBy": [
+        "SchemeKTheoryOperations:S.3/dedekind-localisation-sequence",
+        "SchemeKTheoryOperations:S.3/dvr-boundary-unit-valuation",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+        "ArithmeticKTheory:N.2/the-three-classical-rows"
+      ],
+      "ownership": "S.3 supplies the sequence and valuation boundary; T.3 supplies its tame comparison. N.1-packet N.2 nodes are reused arithmetic interfaces, not reproduced."
+    },
+    {
+      "target": "Finite support of maps to residue direct sums",
+      "providedBy": [
+        "ArithmeticKTheory:N.2/finite-support",
+        "ArithmeticKTheory:N.2/ramified-residue-pullback"
+      ],
+      "ownership": "Reuse the accepted finite-support proof; prove the finite-fibre support bound for the newly required pullback."
+    },
+    {
+      "target": "Covariant finite-field-extension compatibility",
+      "providedBy": [
+        "ArithmeticKTheory:N.2/localisation-sequence-and-finite-extensions"
+      ],
+      "ownership": "Reuse the accepted restriction-of-scalars/transfer diagram, with residue transfers and no e coefficient."
+    },
+    {
+      "target": "Contravariant finite-field-extension compatibility with ramification",
+      "providedBy": [
+        "ArithmeticKTheory:N.2/ramified-residue-pullback",
+        "ArithmeticKTheory:N.2/ramification-weighted-devissage",
+        "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+        "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+        "ArithmeticKTheory:N.2/s-integer-restriction-compatibility"
+      ],
+      "ownership": "This packet fills the exact remaining N.2 gap identified by the accepted N.1 coverage record."
+    },
+    {
+      "target": "Degree-two tame-kernel exact row, including injectivity",
+      "providedBy": [
+        "K2SymbolsBrauer:T.5/tame-kernel-sequence",
+        "K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence",
+        "K2SymbolsBrauer:T.5/relative-s-integer-sequence"
+      ],
+      "ownership": "T.5 owns these rows; all three exact interfaces exist in the T.3 packet and are imported. That supplier packet remains partial/needs_changes; no new request or duplicate derivation is needed."
+    },
+    {
+      "target": "S-unit valuation and ideal-class-group sequences, including enlarging S",
+      "providedBy": [
+        "ArithmeticKTheory:N.2/S-unit-and-class-group-sequence",
+        "SchemeKTheoryOperations:S.3/dedekind-localisation-sequence",
+        "ArithmeticKTheory:N.2/s-integer-restriction-compatibility"
+      ],
+      "ownership": "Reuse the low rows and enlargement map; add compatibility with arithmetic restriction."
+    },
+    {
+      "target": "Degree-specific injectivity and odd n ≥ 3 isomorphisms",
+      "providedBy": [
+        "ArithmeticKTheory:N.2/even-degree-injectivity",
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+        "KTheoryFiniteLocalFields:L.1/bott-element"
+      ],
+      "ownership": "Even degrees and the degree-zero counterexample are already in the N.1 packet. The odd isomorphism is N.5-owned and requires its additional arithmetic inputs; do not make N.5 an input of the new restriction nodes or of localisation itself."
+    }
+  ],
+  "prototypeCoverage": {
+    "typeable": [
+      "ramified-residue-pullback finite-fibre dependent-group template",
+      "All eight construction API signatures",
+      "All six construction unit-test examples"
+    ],
+    "omittedNamedSignatures": [
+      {
+        "nodeId": "ArithmeticKTheory:N.2/ramification-weighted-devissage",
+        "reason": "Actual higher Quillen K functor, exact-functor induced maps, dévissage isomorphisms and localisation-boundary types are absent from the pinned baseline; the precise mathematical statement is given in the packet and reader, and named explicitly in the suggested file."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+        "reason": "Actual higher Quillen K functor, exact-functor induced maps, dévissage isomorphisms and localisation-boundary types are absent from the pinned baseline; the precise mathematical statement is given in the packet and reader, and named explicitly in the suggested file."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+        "reason": "Actual higher Quillen K functor, exact-functor induced maps, dévissage isomorphisms and localisation-boundary types are absent from the pinned baseline; the precise mathematical statement is given in the packet and reader, and named explicitly in the suggested file."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/s-integer-restriction-compatibility",
+        "reason": "Actual higher Quillen K functor, exact-functor induced maps, dévissage isomorphisms and localisation-boundary types are absent from the pinned baseline; the precise mathematical statement is given in the packet and reader, and named explicitly in the suggested file."
+      }
+    ],
+    "claims": "Elaboration checks types of the template only. Every proof is a placeholder, every implementationStatus is unchecked; actual K-theory restrictions and boundary theorems are not formalised."
+  },
+  "ownershipCorrections": [
+    {
+      "finding": "RT-AREA-ktheory-1/9",
+      "handling": "Import T.5 degree-two exact rows, including injectivity, through existing exact node ids in the T.3 packet. No tame-kernel definition, certified presentation, or K₂(ℤ)/K₂(ℚ) calculation is added. N.6/N.8 edits are outside this packet’s scope."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/42",
+      "handling": "Import the exact S.3 Dedekind sequence and unit-valuation node. Prerequisites derive the S.3 → N.2 dependency without editing atlas data. New nodes cover only the arithmetic ramified pullback and its map-level specialisations; retain N.1’s finite-support, transfer and injectivity interfaces."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "read": "2026-10-06",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "scope": "Standalone Chapter V only; the printed version of record was not inspected. Known findings are preserved at this version’s locators."
+    }
+  ]
+}
