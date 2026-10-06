@@ -33664,7 +33664,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.3",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6436"
   },
   {
    "id": "BP-EllipticRegulators--ER.4",
@@ -33687,8 +33688,9 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6485"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6485",
+   "finishedAt": "2026-10-06T02:54:14Z"
   },
   {
    "id": "REV-EllipticRegulators--ER.4",
