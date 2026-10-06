@@ -22823,7 +22823,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R26.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #369"
   },
   {
    "id": "BP-ClassicalSerreModularity--R27.3",
@@ -29100,8 +29101,9 @@
    ],
    "avoidAccountOf": "BP-SpecialValuesBirchTate",
    "prompt": "research/blueprint/prompts/REV-SpecialValuesBirchTate.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #496"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #496",
+   "finishedAt": "2026-10-06T07:11:12Z"
   },
   {
    "id": "BP-StableHomotopyKTheory",
