@@ -13,7 +13,7 @@
   "ClassicalSerreModularity:R33.4"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R27.3 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with excerpts re-selected from the sources and the statements narrowed where RS-06 moves material (Theorem 1.2 to R27.4; Lemma 8.2 to R27.1's early package; Hypothesis (H) imported from GL2ModularityLifting R22.6; the Paso 6 terminal cases imported from SmallRamificationAndAbelianVarietyBaseCases R25.5), and adds 22 nodes: for KW I, Lemma 8.2 and the good-dihedral insertion (completing R27.1), Theorem 3.3, (D_0), the choice of p′, the passage from modularity to weight k(ρ̄) and level N(ρ̄) including the scalar dyadic case, Theorem 1.2, the proof of Theorem 9.1 by (D_1), the dyadic weight claim and (D_r), the strong form and its finite-flat weight-two export to R29; for Dieulefait–Pacetti, the modularity transfer, the Fontaine–Laffaille bad-dihedral exclusion, the solvable termination, Pasos 1–5 with the local type Ind κ, Lemmas 2.1 and 2.3 and Remark 6, and the assembly of §2. Five source issues (one KW I cross-reference misprint; two misprints and two gaps in DP, one of them on DP's definition of minimal lift).",
+ "summary": "Checkpoint 1 of the R27.3 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the ten reviewed nodes of the integrated decomposition for these stages, with excerpts re-selected from the sources and the statements narrowed where RS-06 moves material (Theorem 1.2 to R27.4; Lemma 8.2 to R27.1's early package; Hypothesis (H) imported from GL2ModularityLifting R22.6; the Paso 6 terminal cases imported from SmallRamificationAndAbelianVarietyBaseCases R25.5), and adds 22 nodes: for KW I, Lemma 8.2 and the good-dihedral insertion (completing R27.1), Theorem 3.3, (D_0), the choice of p′, the passage from modularity to weight k(ρ̄) and level N(ρ̄) including the scalar dyadic case, Theorem 1.2, the proof of Theorem 9.1 by (D_1), the dyadic weight claim and (D_r), the strong form and its finite-flat weight-two export to R29; for Dieulefait–Pacetti, the modularity transfer, the Fontaine–Laffaille bad-dihedral exclusion, the solvable termination, Pasos 1–5 with the local type Ind κ, Lemmas 2.1 and 2.3 and Remark 6, and the assembly of §2. Five source issues (one KW I cross-reference misprint; two misprints and two gaps in DP, one of them on DP's definition of minimal lift). Red-team fix FIX-RT-BP-ClassicalSerreModularity--R27.3 (Claude claude-eZ1A2V): the residual of the dihedral type is tied to its standard lattice, Lemma 2.3 chooses a stable lattice by the residual case at 2 (L₀ split, L₁ non-split) and checks KW I Theorem 5.1(4) at (3, 2), and Theorem 3.4 propagates the dyadic conductor as a chain of bounds.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -28,7 +28,8 @@
    "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
    "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R27.3): §§1–3 (pp. 2–6), the statements of §§4–5 (pp. 6–10), §6 (pp. 10–12), §§8.1, 8.3, 8.4 with Lemma 8.2 (pp. 12–18; Lemma 8.2 and its Remark checked on the page image), §9 (pp. 18–19) and §10 (pp. 19–21)."
+    "2026-09-29 (cc-39fac3, part R27.3): §§1–3 (pp. 2–6), the statements of §§4–5 (pp. 6–10), §6 (pp. 10–12), §§8.1, 8.3, 8.4 with Lemma 8.2 (pp. 12–18; Lemma 8.2 and its Remark checked on the page image), §9 (pp. 18–19) and §10 (pp. 19–21).",
+    "2026-10-06 (Claude claude-eZ1A2V, FIX-RT-BP-ClassicalSerreModularity--R27.3): the definitions of §5 and Theorem 5.1 with its Remarks (pp. 7–10), §8.4 (pp. 17–18) and the proof of Theorem 9.1 (pp. 18–19), re-read for the lattice and conductor fixes."
    ]
   },
   {
@@ -50,7 +51,8 @@
    "url": "https://arxiv.org/pdf/2108.07577v2",
    "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R27.3): the whole paper, pp. 1–15; Theorems 1.4–1.7 and Lemma 1.15 and Paso 2 (pp. 4, 9–11) checked on the page images."
+    "2026-09-29 (cc-39fac3, part R27.3): the whole paper, pp. 1–15; Theorems 1.4–1.7 and Lemma 1.15 and Paso 2 (pp. 4, 9–11) checked on the page images.",
+    "2026-10-06 (Claude claude-eZ1A2V, FIX-RT-BP-ClassicalSerreModularity--R27.3): §1.3 with the compatibility of inertial types and Theorem 1.9 (pp. 5–6), Paso 2 (p. 11), Lemma 2.3 with its proof, Remark 6 and Paso 4 (pp. 12–13; p. 13 checked on the page image)."
    ]
   },
   {
@@ -448,8 +450,8 @@
    "kind": "theorem",
    "statement": "Theorem 3.4: assume (D_r) for a given r ≥ 0. Then every ρ̄ of S-type of residue characteristic p whose conductor is not divisible by 2^{r+1}, with k(ρ̄) = 2 if p = 2 and r = 0, is modular. Proof (§8.4): reduce to ρ̄|_{ℚ(µ_p)} absolutely irreducible (Lemma 6.2) and non-solvable image when p = 2 (Lemma 6.1); lift by Theorem 5.1(2) to an E-rational almost strictly compatible system (ρ_λ); choose the auxiliary prime p′ (R27.4/auxiliary-characteristic-choice); take q from Lemma 8.2 for ρ̄_{p′} and insert it as a good dihedral prime with Theorem 5.1(4) (R27.1/good-dihedral-prime-insertion), obtaining (ρ′_λ) linked to (ρ_λ) at ρ̄_{p′}; let s be the largest prime < p′: ρ̄′_s is good dihedral for q, s > 2 and 2^{r+1} ∤ N(ρ̄′_s), so (D_r) makes ρ̄′_s modular; Theorem 4.1 at s makes (ρ′_λ) modular, and Theorem 4.1 at p′ makes (ρ_λ), hence ρ̄, modular. (The id keeps the reviewed decomposition's; Lemma 8.2 itself is R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes.)",
    "hypotheses": [
-    "k(ρ̄) = 2 is required only when p = 2 and r = 0: for k(ρ̄) = 4 the Theorem 5.1(2) lift is Steinberg at 2, so 2 divides the conductor of every other member and (D_0) could not be applied",
-    "2^{r+1} ∤ N(ρ̄′_s) because (ρ′_λ) is minimally ramified at 2, so the 2-part of its conductor is that of N(ρ̄)",
+    "k(ρ̄) = 2 is required only when p = 2 and r = 0: for k(ρ̄) = 4 the Theorem 5.1(2) lift is Steinberg at 2, so every member of the first system at a coefficient prime λ ∤ 2 has dyadic conductor exponent 1, and the argument bounds v₂(N(ρ̄′_s)) only by 1, which (D_0) cannot use",
+    "the conductor condition is propagated as a bound, not an equality. Let A be the dyadic conductor exponent of the first system (ρ_λ): the exponent a(r₂) of its Weil–Deligne parameter r₂ at 2, shared by every member ρ_λ with λ ∤ 2 (and by the 2-adic member when ρ̄ is irreducible, by almost strict compatibility). (i) p odd: ρ_p is minimally ramified at 2, so A = v₂(N(ρ̄)) ≤ r. (ii) p = 2, k(ρ̄) = 2: the inertial parameter at 2 is (1 ⊕ 1, 0), so A = 0 ≤ r. (iii) p = 2, k(ρ̄) = 4: the inertial parameter at 2 is (id, N) with N ≠ 0, so A = 0 + dim V^{I₂} − dim ker N = 2 − 1 = 1, while v₂(N(ρ̄)) = 0 because N(ρ̄) is prime to p; the theorem excludes r = 0 here, so A = 1 ≤ r. Then v₂(N(ρ̄_{p′})) ≤ A (reduction at p′ ≠ 2 cannot increase the conductor); the dyadic exponent of the second system (ρ′_λ) equals v₂(N(ρ̄_{p′})), because ρ′_{p′} is minimally ramified at 2 (Theorem 5.1(4): minimal at primes ≠ p′, q, and q ≡ 1 mod 8 is odd); and v₂(N(ρ̄′_s)) is at most that exponent (reduction at s ≠ 2). So v₂(N(ρ̄′_s)) ≤ A ≤ r, that is 2^{r+1} ∤ N(ρ̄′_s). Minimality refers to the intermediate ρ̄_{p′}, not to ρ̄, and each reduction may lower the conductor, so no equality with v₂(N(ρ̄)) is claimed",
     "s > 2 because p′ > 5; s odd is what (D_r)(b) needs",
     "the last transfer is Theorem 4.1 at p′, where ρ̄_{p′} has non-solvable image, so no residually degenerate lifting theorem is needed"
    ],
@@ -457,11 +459,12 @@
     "Reduce to ρ̄|_{ℚ(µ_p)} absolutely irreducible (Lemma 6.2) and to non-solvable image at p = 2 (Lemma 6.1).",
     "Build an almost strictly compatible system by Theorem 5.1(2) and choose p′ (auxiliary-characteristic-choice).",
     "Apply Lemma 8.2 to ρ̄_{p′} and insert q (good-dihedral-prime-insertion).",
-    "Let s be the largest prime < p′; ρ̄′_s is good-dihedral for q and 2^{r+1} ∤ N(ρ̄′_s), so (D_r) applies.",
+    "Let s be the largest prime < p′, so s > 2; ρ̄′_s is good-dihedral for q, and v₂(N(ρ̄′_s)) ≤ (dyadic exponent of (ρ′_λ)) = v₂(N(ρ̄_{p′})) ≤ A ≤ r by the chain of the second hypothesis: PotentialModularityAndCompatibleSystems R24.6/residual-members (iii) for the two reductions, minimality at 2 of the Theorem 5.1(4) lift, and, for A, the Weil–Deligne parameters of R24.3/theorem-5-1-part-2-weight-two with the conductor of ArithmeticGaloisRepresentations R01.3 (monodromy term included). So 2^{r+1} ∤ N(ρ̄′_s) and (D_r) applies.",
     "Theorem 4.1 at s, then along the link at ρ̄_{p′}, gives modularity of (ρ_λ) and of ρ̄."
    ],
    "acceptance": [
-    "Check that 2^{r+1} ∤ N(ρ̄′_s) using minimality at 2 of the system from Theorem 5.1(4)",
+    "Boundary case p = 2, k(ρ̄) = 4, r = 1: v₂(N(ρ̄)) = 0 (N(ρ̄) is prime to 2), the first system has dyadic exponent A = 1 (unramified semisimple part, rank-one monodromy: 2 − dim ker N = 1), and the chain gives v₂(N(ρ̄′_s)) ≤ 1 = r; equality with the original exponent 0 is neither claimed nor needed",
+    "Check that conductor drop is allowed at each reduction: a member that is Steinberg at a prime can reduce to a representation unramified there, as ρ̄_{E,5} for the elliptic curve 11a1 is unramified at 11 although E has multiplicative reduction at 11 (Δ = −11⁵); the chain uses only ≤",
     "Check the role of k(ρ̄) = 2 at p = 2, r = 0 against the Steinberg type of the weight-4 lift of Theorem 5.1(2)"
    ],
    "prerequisites": [
@@ -472,7 +475,10 @@
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
     "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
     "PotentialModularityAndCompatibleSystems:R24.6",
-    "PotentialModularityAndCompatibleSystems:R24.4"
+    "PotentialModularityAndCompatibleSystems:R24.4",
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+    "ArithmeticGaloisRepresentations:R01.3"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/KhareWintenberger",
@@ -1263,22 +1269,25 @@
    ],
    "title": "The dihedral local type Ind κ at the auxiliary prime N",
    "kind": "construction",
-   "statement": "Let q be an odd prime and N a prime with q | N + 1 (so q ∤ N − 1). Let ℚ_{N²} be the unramified quadratic extension of ℚ_N; its residue field is 𝔽_{N²}, whose unit group has order N² − 1 = (N − 1)(N + 1). By local class field theory there is a character κ : G_{ℚ_{N²}} → ℤ̄_q^× of order q whose restriction to the inertia group I_N factors through 𝔽_{N²}^× and not through 𝔽_N^× (niveau 2), normalised by κ(Art(N)) = 1, that is, trivial on the Frobenius of G_{ℚ_{N²}} attached to the uniformiser N. Its induction τ_N = Ind_{G_{ℚ_{N²}}}^{G_{ℚ_N}} κ is irreducible, τ_N|_{I_N} ≅ κ ⊕ κ^N, and its image is dihedral of order 2q. Without the normalisation, κ(Art(N)) = ζ ≠ 1 is a scalar in the image, which then has order 2q²; the projective image is dihedral of order 2q in either case, and the inertial type depends only on κ|_{I_N}. Its reduction modulo the maximal ideal is unramified (κ̄ = 1, as 𝔽̄_q^× has no element of order q) with zero trace at Frobenius. The same construction with coefficients in ℤ̄_p for p ≠ q stays irreducible after reduction.",
+   "statement": "Let q be an odd prime and N a prime with q | N + 1 (so q ∤ N − 1). Let ℚ_{N²} be the unramified quadratic extension of ℚ_N; its residue field is 𝔽_{N²}, whose unit group has order N² − 1 = (N − 1)(N + 1). By local class field theory there is a character κ : G_{ℚ_{N²}} → ℤ̄_q^× of order q whose restriction to the inertia group I_N factors through 𝔽_{N²}^× and not through 𝔽_N^× (niveau 2), normalised by κ(Art(N)) = 1, that is, trivial on the Frobenius of G_{ℚ_{N²}} attached to the uniformiser N. Its induction τ_N = Ind_{G_{ℚ_{N²}}}^{G_{ℚ_N}} κ is irreducible, τ_N|_{I_N} ≅ κ ⊕ κ^N, and its image is dihedral of order 2q. Without the normalisation, κ(Art(N)) = ζ ≠ 1 is a scalar in the image, which then has order 2q²; the projective image is dihedral of order 2q in either case, and the inertial type depends only on κ|_{I_N}. Its standard integral model is the induced lattice L_std = Ind 𝒪(κ) = 𝒪[G_{ℚ_N}] ⊗_{𝒪[G_{ℚ_{N²}}]} 𝒪(κ), over the ring of integers 𝒪 of a finite extension of ℚ_q containing µ_q, with basis e₁ = 1 ⊗ 1, e₂ = s ⊗ 1 for a Frobenius lift s: a generator σ of tame inertia acts by diag(κ(σ), κ(σ)^N) and s by (0 1; 1 0), because κ(s²) = κ(Art(N)) = 1 for every Frobenius lift s. The reduction of L_std modulo the maximal ideal is unramified (κ̄ = 1, as 𝔽̄_q^× has no element of order q), namely 1 ⊕ η with η the unramified quadratic character, with zero trace at Frobenius. This residual statement is about L_std: every G_{ℚ_N}-stable lattice has semisimplified reduction 1 ⊕ η (Brauer–Nesbitt), but another stable lattice can reduce to a non-split extension with nontrivial unipotent inertia, as the lattice L₁ of R33.3/dp-dyadic-transition-and-the-order-three-type does at (q, N) = (3, 2). The same construction with coefficients in ℤ̄_p for p ≠ q stays irreducible after reduction.",
    "hypotheses": [
     "q odd and q | N + 1; the source prints \"residue field has order (N − 1)(N + 1)\" and \"restriction to the inertia group at q\" (source issues ClassicalSerreModularity/E4 and E5)",
     "κ exists because 𝒪_{ℚ_{N²}}^× → 𝔽_{N²}^× has a cyclic quotient of order q (q | N² − 1), extended to G_{ℚ_{N²}} by local class field theory",
     "level 2 is essential: a character of order q factoring through 𝔽_N^× would make Ind κ reducible on inertia",
-    "the normalisation κ(Art(N)) = 1 is needed for the image of τ_N to be dihedral of order 2q; the source (Paso 2) speaks of a dihedral representation, which is true for every κ in the sense of being induced, and only the inertial type of τ_N is used by the nodes that consume it"
+    "the normalisation κ(Art(N)) = 1 is needed for the image of τ_N to be dihedral of order 2q; the source (Paso 2) speaks of a dihedral representation, which is true for every κ in the sense of being induced, and only the inertial type of τ_N is used by the nodes that consume it",
+    "the split residual statement is tied to the standard lattice L_std; it is what Paso 2 uses (R33.2/dp-lift-existence-and-good-dihedral-insertion), where N ∉ S₁, so ρ̄|_{I_N} is trivial and L_std realises it, which is the compatibility DP Theorem 1.9(4) asks for at N (DP p. 6). A consumer whose residual inertia at N is nontrivial needs another stable lattice (R33.3 at (q, N) = (3, 2))"
    ],
    "proofSteps": [
     "Local class field theory for ℚ_{N²} and the tame quotient of I_N (ArithmeticGaloisRepresentations R01.2).",
     "Irreducibility: κ ≠ κ^N because κ^{N−1} ≠ 1 (q ∤ N − 1).",
     "Image: with κ(Art(N)) = 1, κ^{Frob} = κ^N = κ^{−1} on all of G_{ℚ_{N²}}, so G_{ℚ_{N²}} maps onto {diag(ζ, ζ^{−1}) : ζ ∈ µ_q}; a Frobenius lift s maps to an antidiagonal matrix with s² ↦ κ(Art(N))·1 = 1, so the image is dihedral of order 2q.",
-    "Reduction: κ̄ = 1, so the residual representation is Ind 1 = 1 ⊕ η with η the unramified quadratic character; trace at Frob_N is 1 − 1 = 0."
+    "The standard lattice: s e₁ = e₂ and s e₂ = s² ⊗ 1 = κ(s²) e₁. The transfer G_{ℚ_N}^{ab} → G_{ℚ_{N²}}^{ab} sends s to s² and corresponds to the inclusion ℚ_N^× ⊂ ℚ_{N²}^×, so s² = Art(Nu) with u ∈ ℤ_N^×; κ is trivial on ℤ_N^× because the image of 𝔽_N^× in the order-q quotient of 𝔽_{N²}^× is trivial (q ∤ N − 1). Hence κ(s²) = κ(Art(N)) = 1 and s acts by (0 1; 1 0); σ ∈ I_N acts on e₂ by κ(s⁻¹σs) = κ(σ)^N.",
+    "Reduction of the standard lattice: κ̄ = 1, so L_std/𝔪L_std is Ind 1 = 1 ⊕ η with η the unramified quadratic character, and the trace at Frob_N is 1 − 1 = 0. Every other stable lattice has the same semisimplified reduction by Brauer–Nesbitt; its reduction itself need not be split."
    ],
    "acceptance": [
     "Check |𝔽_{N²}^×| = (N − 1)(N + 1) and |𝔽_{N²}| = N² on N = 5 (checked in the suggested Lean file)",
-    "Check that for p ≠ q the reduction of Ind κ is irreducible, since κ̄ (mod p) still has order q and level 2"
+    "Check that for p ≠ q the reduction of Ind κ is irreducible, since κ̄ (mod p) still has order q and level 2",
+    "Check that the split residual statement is applied only to L_std, and that Paso 2 needs no other lattice (ρ̄ unramified at N)"
    ],
    "prerequisites": [
     "ArithmeticGaloisRepresentations:R01.2",
@@ -1339,7 +1348,7 @@
     {
      "name": "TauCeti.SerreConjecture.DP.dihedralType",
      "role": "constructor",
-     "statement": "τ_N = Ind κ : G_{ℚ_N} → GL₂(𝒪)"
+     "statement": "τ_N = Ind κ : G_{ℚ_N} → GL₂(𝒪), written in the basis e₁ = 1 ⊗ 1, e₂ = s ⊗ 1 of the standard lattice L_std = Ind 𝒪(κ)"
     },
     {
      "name": "TauCeti.SerreConjecture.DP.dihedralType_irreducible",
@@ -1347,9 +1356,19 @@
      "statement": "τ_N is irreducible, and so is its reduction modulo any prime p ≠ q"
     },
     {
-     "name": "TauCeti.SerreConjecture.DP.dihedralType_residual",
+     "name": "TauCeti.SerreConjecture.DP.dihedralType.standardLattice",
+     "role": "data",
+     "statement": "L_std = Ind 𝒪(κ) = 𝒪e₁ ⊕ 𝒪e₂, e₁ = 1 ⊗ 1, e₂ = s ⊗ 1 for a Frobenius lift s; on it σ ∈ I_N acts by diag(κ(σ), κ(σ)^N) and s by (0 1; 1 0), since κ(s²) = κ(Art(N)) = 1"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.dihedralType_standardLattice_residual",
      "role": "compatibility",
-     "statement": "the reduction of τ_N modulo q is 1 ⊕ η, η unramified quadratic; trace 0 at Frob_N"
+     "statement": "the reduction of the standard lattice, L_std/𝔪L_std, is 1 ⊕ η with η unramified quadratic: unramified, with trace 0 at Frob_N. This is a statement about L_std only"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.dihedralType_residual_semisimplification",
+     "role": "compatibility",
+     "statement": "for every G_{ℚ_N}-stable 𝒪-lattice Λ in τ_N, (Λ/𝔪Λ)^{ss} ≅ 1 ⊕ η (Brauer–Nesbitt); the reduction Λ/𝔪Λ itself depends on Λ"
     }
    ],
    "tests": [
@@ -1371,12 +1390,17 @@
     {
      "name": "residual_trace_zero",
      "kind": "degenerate",
-     "statement": "κ̄ = 1 and Ind 1 = 1 ⊕ η has trace 1 + η(Frob_N) = 1 − 1 = 0 at Frob_N"
+     "statement": "on the standard lattice, κ̄ = 1 and Ind 1 = 1 ⊕ η has trace 1 + η(Frob_N) = 1 − 1 = 0 at Frob_N"
     },
     {
      "name": "unnormalised_character",
      "kind": "non-example",
      "statement": "if κ(Art(N)) = ζ ≠ 1 then G_{ℚ_{N²}} maps onto µ_q × µ_q (the scalar ζ together with diag(ξ, ξ^{−1})), so Ind κ has image of order 2q², while its projective image is still dihedral of order 2q"
+    },
+    {
+     "name": "residual_depends_on_lattice",
+     "kind": "non-example",
+     "statement": "(q, N) = (3, 2), 𝒪 = ℤ₃[ζ], π = ζ − 1: the stable lattice L₁ = 𝒪(e₁ + e₂) + 𝒪πe₂ reduces to σ ↦ (1 0; 1 1), with one-dimensional inertia invariants, while L_std reduces to the trivial inertia action; a residual statement that names no lattice is therefore false (checked in Lean, with the R33.3 tests)"
     }
    ]
   },
@@ -1632,28 +1656,38 @@
    ],
    "title": "Lemma 2.3: the order-three local type at 2, reached by a congruence at 3",
    "kind": "construction",
-   "statement": "Let {ρ_ℓ} be an almost strictly compatible system with Hodge–Tate weights {0, 1}, unramified at 3, whose Weil–Deligne representation at 2 is a twist of Steinberg, and with ρ̄₃ of non-solvable image. Let χ′ be a character of G_{ℚ₄} (ℚ₄ the unramified quadratic extension of ℚ₂) of order 3 and niveau 2, and ρ̃₂ = Ind_{G_{ℚ₄}}^{G_{ℚ₂}} χ′ (3-adic), so ρ̃₂|_{I₂} ≅ χ′ ⊕ χ′² with trivial monodromy. Then ρ̄₃|_{D₂} ≅ (χ̄₃ ∗; 0 1) up to twist, and ρ̄₃ and ρ̃₂ have the same reduction on I₂ and zero trace at Frobenius; Theorem 1.9(4) gives a crystalline weight-2 lift ρ′₃ of ρ̄₃ with inertial type ρ̃₂|_{I₂} at 2 (and the previous types elsewhere), and Theorem 1.11 a system {ρ′_ℓ} with the same Hodge–Tate weights and ramification set, congruent to {ρ_ℓ} at 3, whose type at 2 comes from an order-3 character. Modularity of one system is equivalent to modularity of the other (Theorem 1.4 at 3).",
+   "statement": "Let {ρ_ℓ} be an almost strictly compatible system with Hodge–Tate weights {0, 1}, unramified at 3, whose Weil–Deligne representation at 2 is Steinberg up to an unramified twist, and with ρ̄₃ of non-solvable image. Let χ′ be a character of G_{ℚ₄} (ℚ₄ the unramified quadratic extension of ℚ₂) of order 3 and niveau 2, normalised by χ′(Art(2)) = 1, with values in 𝒪 = ℤ₃[ζ], ζ² + ζ + 1 = 0, uniformiser π = ζ − 1, and ρ̃₂ = Ind_{G_{ℚ₄}}^{G_{ℚ₂}} χ′, so ρ̃₂|_{I₂} ≅ χ′ ⊕ χ′² with trivial monodromy. Then ρ̄₃|_{D₂} ≅ γ ⊗ (χ̄₃ c; 0 1) with γ unramified, and either c = 0 (split case: ρ̄₃ is unramified at 2 and ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1), η = χ̄₃|_{D₂} the unramified quadratic character) or ρ̄₃|_{I₂} is a nontrivial unipotent module (non-split case). There is a G_{ℚ₂}-stable 𝒪-lattice Λ in ρ̃₂ with γ ⊗ (Λ/πΛ) ≅ ρ̄₃|_{D₂}: the standard lattice L₀ = 𝒪e₁ ⊕ 𝒪e₂ of R33.2/dihedral-local-type-at-n in the split case, and the adapted lattice L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂ in the non-split case; L₀ does not serve in the non-split case. Hence ρ̃₂|_{I₂} is an inertial type compatible with ρ̄₃ at 2 in DP's sense (p. 6), and both reductions have trace 0 at Frobenius. A lift ρ′₃ of ρ̄₃, crystalline of weight 2 at 3, minimal away from 2 and 3, with ρ′₃|_{I₂} ≅ χ′ ⊕ χ′², exists by Theorem 1.9(4), and also by KW I Theorem 5.1(4) at (p, q) = (3, 2), whose hypotheses ρ̄₃ satisfies; Theorem 1.11 gives a system {ρ′_ℓ} with the same Hodge–Tate weights and ramification set, congruent to {ρ_ℓ} at 3, whose type at 2 comes from an order-3 character. Modularity of one system is equivalent to modularity of the other (Theorem 1.4 at 3).",
    "hypotheses": [
-    "Lemma 2.3 needs the system unramified at 3, Steinberg (up to twist) at 2, and non-solvable residual image at 3",
+    "Lemma 2.3 needs the system unramified at 3, Steinberg (up to twist) at 2, and non-solvable residual image at 3. Where the lemma is used the twist is unramified: Paso 4 step (1) produces the Steinberg type by Theorem 1.9(2), whose inertial parameter at 2 is (ω₁ ⊕ 1, N) with N ≠ 0, and KW I (proof of Theorem 9.1) say \"up to unramified twist\"",
     "k(ρ̄₃) = 2: the system is unramified at 3 with Hodge–Tate weights {0, 1}, so ρ₃ is crystalline at 3 and ρ̄₃ is finite flat; this is what allows a crystalline lift at 3",
     "the construction is DP Paso 2's with (q, N) = (3, 2): 3 | 2 + 1",
+    "the reduction of ρ̃₂ depends on the lattice: R33.2/dihedral-local-type-at-n computes it for the standard lattice L₀ only, where it is split and unramified. Matching the characteristic-zero inertial type and the Frobenius trace does not identify residual I₂-modules. DP's compatibility (p. 6) asks for a stable 𝒪_E-lattice whose reduction is ρ̄₃|_{I₂}, so the lattice is chosen by the case: L₀ when ρ̄₃ is unramified at 2, L₁ when ρ̄₃|_{I₂} is nontrivial. DP's sentence that both representations \"have the same reduction\" on I₂ holds for this choice; no source erratum is asserted",
+    "KW I Theorem 5.1(4) at (p, q) = (3, 2): ρ̄₃ is of S-type with k(ρ̄₃) = 2 ∈ [2, p + 1]; ρ̄₃|_{ℚ(µ₃)} is absolutely irreducible, since the image of ρ̄₃ is non-solvable and ℚ(µ₃) is quadratic; ρ̄₃|_{D₂} is (χ̄₃ ∗; 0 1) up to unramified twist; 3 | 2 + 1; χ′|_{I₂} = ω_{2,2} (i = 1, j = 0) has level 2 and order 3; there is no parity condition, as p = 3 is odd. Its conclusion at p is item 2 with k = 2, inertial parameter (1 ⊕ 1, 0), so ρ′₃ is crystalline of weight 2 at 3 and minimal at every ℓ ≠ 2, 3. Its local input at 2 is the level-two inertia-rigid condition of LocalGaloisDeformationRings R08.6/export-away-from-p (b), whose explicit lifts (ρ(F), ρ(σ)) with ρ(F)ρ(σ)ρ(F)⁻¹ = ρ(σ)^q are, at (p, q) = (3, 2), the matrices of L₀ and L₁",
     "KW I build the same order-3 type at 2 with their Theorem 5.1(4) in the proof of (D_1) (R27.5)"
    ],
    "proofSteps": [
-    "Steinberg at 2 gives ρ̄₃|_{D₂} ≅ (χ̄₃ ∗; 0 1) up to twist.",
-    "Induce χ′; compare reductions on I₂ and traces at Frobenius.",
-    "Theorem 1.9(4) with the type ρ̃₂|_{I₂} at 2; Theorem 1.11; Theorem 1.4 at 3."
+    "Residual shape at 2. Steinberg up to an unramified twist γ̃ gives ρ₃(Frob₂) the eigenvalues γ̃(Frob₂)·{2, 1}, which reduce to γ(Frob₂)·{−1, 1} because χ̄₃(Frob₂) = 2 = −1 in 𝔽₃; and ρ̄₃(I₂) is unipotent, of order 1 or 3, so wild inertia acts trivially and I₂ acts through its quotient of order 3, generated by the image of a tame generator σ (ArithmeticGaloisRepresentations R01.2). If ρ̄₃(σ) = 1, ρ̄₃(Frob₂) has the distinct eigenvalues ±γ(Frob₂), so ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1): the split case. Otherwise, in a basis whose first vector spans the inertia invariants, ρ̄₃(σ) = (1 b; 0 1) with b ≠ 0 and ρ̄₃(Frob₂) = (α x; 0 β); the tame relation Frob₂ σ Frob₂⁻¹ = σ² forces α = −β; conjugating by an upper unipotent matrix, which commutes with ρ̄₃(σ), makes ρ̄₃(Frob₂) diagonal, and conjugating by diag(b⁻¹, 1) makes b = 1. So ρ̄₃|_{D₂} ≅ β ⊗ (Frob₂ ↦ diag(−1, 1), σ ↦ (1 1; 0 1)): the non-split case, with one-dimensional inertia invariants.",
+    "The standard lattice L₀ (R33.2/dihedral-local-type-at-n at (q, N) = (3, 2)): σ ↦ D₀ = diag(ζ, ζ²) and Frob₂ ↦ F₀ = (0 1; 1 0). Modulo π, D₀ ≡ 1 and F₀ has eigenvalues 1 and −1, so L₀/πL₀ ≅ 1 ⊕ η: twisted by an unramified lift γ̃ of γ it realises the split case; it cannot realise the non-split case, whose inertia invariants are one-dimensional.",
+    "The adapted lattice L₁ = 𝒪f₁ ⊕ 𝒪f₂, f₁ = e₁ + e₂, f₂ = πe₂, with change of basis P = (1 0; 1 π): D₀P = PD₁ and F₀P = PF₁ for D₁ = (ζ 0; ζ ζ²) and F₁ = (1 π; 0 −1), so L₁ is G_{ℚ₂}-stable, and both pairs satisfy D³ = F² = 1 and FDF⁻¹ = D². Modulo π, D₁ ≡ (1 0; 1 1) and F₁ ≡ diag(1, −1); in the basis (f₂, f₁) this is Frob₂ ↦ diag(−1, 1), σ ↦ (1 1; 0 1), the non-split module of step 1. Twisted by γ̃ it realises ρ̄₃|_{D₂}.",
+    "So ρ̃₂|_{I₂} is compatible with ρ̄₃ at 2 in DP's sense, and after the twist both reductions have trace γ(Frob₂)·(1 − 1) = 0 at Frobenius.",
+    "The lift: Theorem 1.9(4) with the compatible type ρ̃₂|_{I₂} at 2 and the crystalline clause at 3 (k(ρ̄₃) = 2; PotentialModularityAndCompatibleSystems R24.3/modern-prescribed-type-lifts, under the R24.3 request), or KW I Theorem 5.1(4) at (p, q) = (3, 2) (R24.3/theorem-5-1-part-4-level-two-type-at-q), whose hypotheses are checked above and whose local input at 2 is LocalGaloisDeformationRings R08.6/export-away-from-p (b). Then Theorem 1.11 (R24.6) and Theorem 1.4 at 3 (R33.1/dp-modularity-lifting-inputs)."
    ],
    "acceptance": [
     "Check that the congruence used is at 3 and that \"unramified at 3\" holds where the lemma is used (after Paso 3)",
-    "Check that ρ̃₂ has trivial monodromy, so the new system is potentially crystalline at 2"
+    "Check that ρ̃₂ has trivial monodromy, so the new system is potentially crystalline at 2",
+    "Check the lattice identities exactly over ℤ[ζ] and their reductions modulo π: L₀ reduces to a split module, L₁ to the non-split one (checked in the suggested Lean file)",
+    "Check that the lattice is chosen by the residual case: L₀ when ρ̄₃ is unramified at 2, L₁ when it is ramified"
    ],
    "prerequisites": [
     "ClassicalSerreModularity:R33.2/lemma-2-1-large-image",
     "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
     "PotentialModularityAndCompatibleSystems:R24.3",
     "PotentialModularityAndCompatibleSystems:R24.6",
-    "ClassicalSerreModularity:R33.2/dihedral-local-type-at-n"
+    "ClassicalSerreModularity:R33.2/dihedral-local-type-at-n",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+    "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts",
+    "LocalGaloisDeformationRings:R08.6/export-away-from-p"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/DieulefaitPacetti",
@@ -1674,6 +1708,21 @@
      "sourceId": "dieulefait-pacetti",
      "locator": "Lemma 2.3, p. 12 of the arXiv version",
      "match": "The equivalence."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "§1.3, before Theorem 1.9, p. 6 of the arXiv version",
+     "match": "DP's compatibility of an inertial type, which the choice of L₀ or L₁ verifies at ℓ = 2."
+    },
+    {
+     "sourceId": "dieulefait-pacetti",
+     "locator": "Proof of Lemma 2.3, p. 13 of the arXiv version",
+     "match": "The comparison of reductions that the lattice choice makes precise."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "Theorem 5.1(4), p. 10 of the preprint",
+     "match": "The residual hypothesis of the level-two type at q, checked for ρ̄₃ at (p, q) = (3, 2)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1692,13 +1741,17 @@
     {
      "where": "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
      "how": "the same order-3 type at 2 in KW I's proof of (D_1)"
+    },
+    {
+     "where": "Dieulefait–Pacetti, Theorem 1.9(4), p. 6",
+     "how": "the inertial type at 2 must be compatible with ρ̄₃: a stable lattice reducing to ρ̄₃|_{I₂}"
     }
    ],
    "api": [
     {
      "name": "TauCeti.SerreConjecture.DP.orderThreeCharacter",
      "role": "constructor",
-     "statement": "χ′ : G_{ℚ₄} → ℤ̄₃^× of order 3 and niveau 2"
+     "statement": "χ′ : G_{ℚ₄} → ℤ₃[ζ]^× of order 3 and niveau 2, normalised by χ′(Art(2)) = 1; on I₂ it is the level-2 fundamental character ω_{2,2} : I₂ → 𝔽₄^×, composed with an identification 𝔽₄^× ≅ µ₃ ⊂ ℤ₃[ζ]^×"
     },
     {
      "name": "TauCeti.SerreConjecture.DP.orderThreeType",
@@ -1706,9 +1759,34 @@
      "statement": "ρ̃₂ = Ind χ′ with ρ̃₂|_{I₂} ≅ χ′ ⊕ χ′² and monodromy 0"
     },
     {
-     "name": "TauCeti.SerreConjecture.DP.orderThreeType_reduction",
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType.standardLattice",
+     "role": "data",
+     "statement": "L₀ = 𝒪e₁ ⊕ 𝒪e₂, the standard lattice of R33.2 at (q, N) = (3, 2): σ ↦ diag(ζ, ζ²), Frob₂ ↦ (0 1; 1 0)"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType.adaptedLattice",
+     "role": "data",
+     "statement": "L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂, π = ζ − 1, G_{ℚ₂}-stable: σ ↦ (ζ 0; ζ ζ²), Frob₂ ↦ (1 π; 0 −1)"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType_standardLattice_reduction",
      "role": "compatibility",
-     "statement": "ρ̃₂ and ρ̄₃|_{D₂} have the same reduction on I₂ and trace 0 at Frobenius"
+     "statement": "L₀/πL₀ ≅ 1 ⊕ η as a G_{ℚ₂}-module: inertia acts trivially"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType_adaptedLattice_reduction",
+     "role": "compatibility",
+     "statement": "L₁/πL₁ is the non-split extension: σ acts by (1 0; 1 1), with one-dimensional invariants, and Frob₂ by diag(1, −1)"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType_exists_lattice_reduction_iso",
+     "role": "characterisation",
+     "statement": "if ρ̄₃|_{D₂} ≅ γ ⊗ (χ̄₃ c; 0 1) with γ unramified, there is a G_{ℚ₂}-stable lattice Λ in ρ̃₂ with γ ⊗ (Λ/πΛ) ≅ ρ̄₃|_{D₂}: Λ = L₀ if c = 0 and Λ = L₁ if c ≠ 0; L₀ fails when c ≠ 0"
+    },
+    {
+     "name": "TauCeti.SerreConjecture.DP.orderThreeType_isCompatible",
+     "role": "compatibility",
+     "statement": "ρ̃₂|_{I₂} is an inertial type compatible with ρ̄₃ at 2 (DP p. 6), and both reductions have trace 0 at Frobenius: the hypothesis of Theorem 1.9(4) at ℓ = 2"
     },
     {
      "name": "TauCeti.SerreConjecture.DP.typeChangeAtTwo",
@@ -1736,6 +1814,31 @@
      "name": "needs_unramified_at_3",
      "kind": "degenerate",
      "statement": "if the system is ramified at 3, ρ₃ need not be crystalline and k(ρ̄₃) = 2 can fail, so Theorem 1.9(4) gives no crystalline lift at 3"
+    },
+    {
+     "name": "standard_lattice_relations",
+     "kind": "computation",
+     "statement": "over ℤ[ζ]: D₀³ = F₀² = 1 and F₀D₀F₀⁻¹ = D₀² (the tame relation at 2), and D₀ ≡ 1 mod π (checked in Lean)"
+    },
+    {
+     "name": "adapted_lattice_change_of_basis",
+     "kind": "computation",
+     "statement": "D₀P = PD₁ and F₀P = PF₁ for P = (1 0; 1 π), so L₁ is stable; D₁³ = F₁² = 1 and F₁D₁F₁⁻¹ = D₁² (checked in Lean)"
+    },
+    {
+     "name": "adapted_lattice_nonsplit",
+     "kind": "characterisation",
+     "statement": "modulo π, D₁ ≡ (1 0; 1 1) ≠ 1 and F₁ ≡ diag(1, −1): the inertia invariants of L₁/πL₁ are one-dimensional, as for ramified ρ̄₃ (checked in Lean)"
+    },
+    {
+     "name": "standard_lattice_nonexample",
+     "kind": "non-example",
+     "statement": "when ρ̄₃ is ramified at 2, L₀ does not realise ρ̄₃|_{I₂}: D₀ ≡ 1 mod π has two-dimensional invariants (checked in Lean)"
+    },
+    {
+     "name": "split_case_standard_lattice",
+     "kind": "degenerate",
+     "statement": "when ρ̄₃ is unramified at 2, ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1), which L₀ realises: F₀ mod π squares to 1 and is neither 1 nor −1, so its eigenvalues are 1 and −1 = 2 = χ̄₃(Frob₂) (checked in Lean)"
     }
    ]
   },
@@ -2165,9 +2268,10 @@
   },
   {
    "supplier": "ArithmeticGaloisRepresentations:R01.2",
-   "need": "Local Galois groups at N: the unramified quadratic extension ℚ_{N²}, the tame quotient of inertia through 𝔽_{N²}^×, local class field theory for characters of G_{ℚ_{N²}}, and induced local representations with their Weil–Deligne types.",
+   "need": "Local Galois groups at N: the unramified quadratic extension ℚ_{N²}, the tame quotient of inertia through 𝔽_{N²}^×, local class field theory for characters of G_{ℚ_{N²}}, and induced local representations with their Weil–Deligne types. For Lemma 2.3 at (q, N) = (3, 2): the tame relation Frob σ Frob⁻¹ = σ^q in the tame quotient of D₂, and the unique quotient of order 3 of I₂ through which a unipotent mod-3 action factors.",
    "neededBy": [
-    "ClassicalSerreModularity:R33.2/dihedral-local-type-at-n"
+    "ClassicalSerreModularity:R33.2/dihedral-local-type-at-n",
+    "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type"
    ],
    "status": "open"
   },
@@ -2238,6 +2342,14 @@
    "need": "Deligne–Serre attachment of the odd two-dimensional complex representation to a weight-one cuspidal newform; only this forward attachment is imported, not an unproved converse.",
    "neededBy": [
     "ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.3",
+   "need": "The conductor exponent of a Frobenius-semisimple Weil–Deligne representation (r, N) of W_{ℚ_ℓ} on a two-dimensional V, with the monodromy term: a(r, N) = a(r) + dim V^{I_ℓ} − dim (ker N)^{I_ℓ}; in particular a = 1 for r unramified and N ≠ 0 (the Steinberg parameter), while a residual representation unramified at ℓ has exponent 0. With PotentialModularityAndCompatibleSystems R24.6/residual-members (iii) (reduction at a prime ≠ ℓ cannot increase the conductor) this gives KW I §8.4's bound v₂(N(ρ̄′_s)) ≤ r, where the first system of Theorem 5.1(2) at p = 2, k(ρ̄) = 4 has dyadic exponent 1 although N(ρ̄) is odd.",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice"
    ],
    "status": "open"
   }
@@ -2530,6 +2642,32 @@
     "pp. 6, 9–11"
    ],
    "note": "Fresh selected-passage check for FIX-RT-AREA-langlands-2~2; no new whole-paper reading claimed."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+   "citation": "KW I author PDF; Theorem 5.1 (pp. 9–10), §8.4 (pp. 17–18) and the proof of Theorem 9.1 (pp. 18–19).",
+   "read": "2026-10-06",
+   "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+   "worker": "Claude — claude-eZ1A2V",
+   "readSections": [
+    "pp. 7–10",
+    "pp. 17–19"
+   ],
+   "note": "Selected-passage reading for FIX-RT-BP-ClassicalSerreModularity--R27.3; the Inventiones printing was not collated."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2108.07577v2",
+   "citation": "Dieulefait–Pacetti arXiv v2; §1.3 and Theorem 1.9 (pp. 5–6), Lemma 2.3, Remark 6 and Paso 4 (pp. 12–13).",
+   "read": "2026-10-06",
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "worker": "Claude — claude-eZ1A2V",
+   "readSections": [
+    "pp. 5–6",
+    "pp. 11–13"
+   ],
+   "note": "Selected-passage reading for FIX-RT-BP-ClassicalSerreModularity--R27.3; p. 13 checked on the page image."
   }
  ],
  "review": {
