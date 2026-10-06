@@ -26435,8 +26435,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryFiniteLocalFields",
    "prompt": "research/blueprint/prompts/REV-KTheoryFiniteLocalFields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #440"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #440",
+   "finishedAt": "2026-10-06T05:16:48Z"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.1",
@@ -33821,8 +33822,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.6",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6439"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6439",
+   "finishedAt": "2026-10-06T05:16:51Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.7",
@@ -34405,8 +34407,9 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6501"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6501",
+   "finishedAt": "2026-10-06T05:16:55Z"
   },
   {
    "id": "REV-HabiroRings--HR.6",
@@ -34471,7 +34474,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries--HB.10",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.10.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6457"
   },
   {
    "id": "BP-HabiroNahmSeries--HB.3",
