@@ -1,0 +1,23 @@
+# REV-ShimuraVarieties--V0 handoff
+
+Completed independent review for #490 by Codex, session `codex-p9VIPI`, on 6 October 2026. **This review job is finished, not a checkpoint.** Its verdict is `needs_changes`, recorded by `independent-review-REV-ShimuraVarieties--V0` in the packet. No second job was claimed.
+
+The deliverables are the corrected [packet](../packets/ShimuraVarieties--V0.json), [suggested file](../suggested/ShimuraVarieties--V0.lean) and [review report](../reviews/REV-ShimuraVarieties--V0.md), plus this note. The report has the counts, all corrections, baseline verification, source-finding verdicts, target coverage and the per-node locator ledger. The packet has individual notes for all 69 nodes: 44 verified, 24 corrected, one unverifiable. No nodes were added or removed. Thirteen APIs and six explicit gaps were added; four test specifications were corrected. There are 14 source findings, 13 confirmed and one rejected, with read versions and hashes.
+
+The remaining specification blockers are:
+
+1. `V2/analytic-automorphic-ring` does not define the all-type boundary-growth predicate precisely. SVI 3.13(c) provides the automorphy factor, not this predicate. The public Annals Baily–Borel landing page did not provide the primary text. A revision must state the analytic boundary charts, allowed exponents and extension/growth condition independently of the later compactification, and verify the weight-zero, modular weight 2n, restriction/product and Veronese APIs. V2 and the packet are now `partial` to reflect this missing definition.
+2. The original reader was input-only under #490's file authorization, so it was not edited. Include `research/blueprint/readmes/ShimuraVarieties--V0.md` in the revision's outputs and synchronize it from the corrected packet. The report's final section lists all required changes, including its false full deck-group equality, CM reduction proof, connected carrier/twist acceptance, old tests/API, source findings and coverage summary.
+
+Other proof/supplier gaps remain honest planning obligations. Apply the shared CA.0 carrier/holomorphic-gluing proposals through their owning jobs, including the assigned RT-AREA-algebraicgeometry/3 and /28 consumer/PR records. Clarify the atlas V1 deck-group target for disconnected covers. Route AA.3/AA.4 arithmetic refinements, arithmetic ReductiveGroups Part II, CFT.N unit topology/cyclic norm, CM.S Serre/Taniyama extension, ALS.0 rigidity and R09 continuous descent to their owners. No upstream/foreign ownership files were edited.
+
+Resume mathematical source work at these precise points:
+
+- [SVI](https://jmilne.org/math/xnotes/svi.pdf), 3.13(c) and the primary Baily–Borel definitions; packet gap “Exact automorphic boundary predicate”.
+- [Milne 1983](https://jmilne.org/math/articles/1983a.pdf), §3.10 p.252 and §4 pp.253–254; [Platonov–Rapinchuk original](https://uva.theopenscholar.com/files/ixqrlw/files/doklady_r_247_8.pdf), Theorem 1 p.279 and final discussion p.282. The cited theorem proves perfection of a semisimple norm-one group, not simplicity of the full reductive subgroup containing the torus. E12 and the gap “Exceptional central adjustment and rank-one perfection” record the exact missing bridge. The concrete SU(4,1) check in the report prevents repeating the literal false claim.
+- [Milne 2007c](https://jmilne.org/math/articles/2007c.pdf), Lemmas 3.6 and 3.12; gap “CM norm-kernel inputs” identifies the unprovided Chevalley/Hasse norm prerequisites.
+- The exact Deligne connected adelic/Galois extension and the full Milne–Shih Taniyama construction remain the existing V6/V7 refinement gaps. The corrected connected carrier uses S→G^ad_R, without demanding a lift to the simply connected cover.
+
+Validation: packet checker 0 errors/0 warnings; source-finding/version validation and permitted-file checks pass; all names and mathematical specifications in the omission manifest agree with the packet; `git diff --check` passes. `lean-check` exits 0 with 23 `sorry` warnings only. The build has the exact Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; its Tau Ceti HEAD differs from the packet's pin. Because the file imports only Mathlib, this checks its orbit and inverse-Artin native slices, with no exact-pin Tau Ceti integration claim. The advanced analytic and canonical signatures remain explicitly omitted, not formalized.
+
+All source URLs, read sections and hashes needed to continue are in the packet. Scratch files are disposable and are removed after the PR opens. The pull request records the remote submission check. Do not re-run this review as an unfinished job; use the orchestrator's revision round to address its verdict.

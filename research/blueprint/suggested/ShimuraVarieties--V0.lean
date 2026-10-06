@@ -8,16 +8,18 @@ import Mathlib.Algebra.Group.Subgroup.Ker
 /-!
 # Suggested declarations for ShimuraVarieties V0–V7
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/ShimuraVarieties--V0.md` is definitive. These statements
-suggest Lean forms so contributors and reviewers converge on names and signatures.
+This file is not the roadmap and is not exhaustive. The roadmap document is
+`research/blueprint/readmes/ShimuraVarieties--V0.md`; independent review has recorded
+corrections it still needs. The packet and review report specify those corrections.
+These statements suggest Lean forms so contributors and reviewers converge on names and signatures.
 Every proposed declaration remains unchecked; proof placeholders claim no implementation.
 
 The pinned libraries do not yet have the analytic-space category, pure Shimura datum,
 special-pair predicate, canonical-model condition, or connected Galois extension needed
 for the advanced signatures. Protocol §13 requires leaving unstated conditions out
-honestly. The omission manifest below gives their exact names and mathematical
-statements. It contains no replacement predicates or assumed existence classes.
+honestly. The omission manifest below gives their names and mathematical
+specifications, including the explicitly unresolved boundary predicate.
+It contains no replacement predicates or assumed existence classes.
 
 The code that does elaborate specifies two genuine native slices: the diagonal/right
 orbit carrier, and inversion of arithmetic reciprocity in an abelian target. The groups
@@ -201,6 +203,11 @@ this file elaborating. Even the two native slices omit their mathematical
 specializations: quotient topology and literal GL₂ datum tests for AnalyticPoints;
 global reciprocity, continuity and number-field tests for geometricArtin.
 
+Independent review REV-ShimuraVarieties--V0 corrected the specifications below.
+The reader is an input to that review and still needs the synchronization listed in
+the review report; the review verdict is needs_changes. In particular V2’s all-type
+boundary predicate is not yet an exact mathematical definition.
+
 ShimuraVarieties:V0/stabilizer-arithmetic
 TauCeti.Shimura.stabilizer_arithmetic — For a pure datum (G,X), component X⁺, compact open K and a∈G(A_f), Γ_a=G(Q)_+∩aKa⁻¹ is an arithmetic subgroup of G(Q), of finite index in G(Q)∩aKa⁻¹. Its image in the effective real automorphism group of X⁺ is arithmetic and discrete. G(Q)_+ means the inverse image of G^ad(R)^+, with compact adjoint factors removed only in the effective image.
 
@@ -208,7 +215,7 @@ ShimuraVarieties:V0/stabilizer-commensurable
 TauCeti.Shimura.stabilizer_commensurable — For fixed G and X⁺, Γ_{a,K} and Γ_{b,L} are commensurable for arbitrary a,b∈G(A_f) and compact open K,L, since they are arithmetic in the same rational group. If b=qak with q∈G(Q)_+, k∈K and L=K, then Γ_b=qΓ_aq⁻¹, and x↦qx identifies their effective quotients.
 
 ShimuraVarieties:V0/neat-sublevels
-TauCeti.Shimura.neat_sublevels — Every compact open K⊂G(A_f) contains a compact open K₀ normal in K that is rationally neat at every adelic conjugate. The neatness predicate and its representation independence are imported from D5; this theorem proves existence, including normal core and cofinality.
+TauCeti.Shimura.neat_sublevels — Specialize AA.4/neat-level-exists to the rational group of a pure Shimura datum: every compact open K contains a normal open K₀ of finite index that is neat in the D5 rational-conjugate sense. Apply the same supplier inside every prescribed compact open sublevel for cofinality. Existence and the normal-core construction remain owned by AA.4; this node is only the convention bridge to the Shimura tower.
 
 ShimuraVarieties:V0/effective-proper-action
 TauCeti.Shimura.effective_proper_action — The effective image Γ_a^eff acts properly discontinuously on X⁺; at rationally neat K it acts freely. Thus its orbit projection is a covering map locally biholomorphic once the holomorphic quotient carrier is supplied. No conclusion that Γ_a itself acts freely is drawn.
@@ -217,7 +224,7 @@ ShimuraVarieties:V0/component-decomposition
 TauCeti.Shimura.component_decomposition — For every compact open K, G(Q)_+\G(A_f)/K is finite, and choice of representatives a induces ⨿_a Γ_a\X⁺ ≅ G(Q)\(X×G(A_f)/K), first as topological spaces and then as complex analytic spaces. Changing a=qbk transports the component by q, so the decomposition is independent of representatives up to the specified analytic isomorphisms.
 
 ShimuraVarieties:V0/simply-connected-components
-TauCeti.Shimura.simply_connected_components — Assume G^der is simply connected. Put T=G/G^der and ν:G→T, T(Q)^†=ν(G(Q)_+). Then π₀(Sh_K^an(G,X))≃T(Q)^†\T(A_f)/ν(K). Apply strong approximation only to the semisimple simply connected derived group, whose Q-simple factors have noncompact real points by SV3; never to G or a torus without hypotheses.
+TauCeti.Shimura.simply_connected_components — Assume G^der is simply connected. Put T=G/G^der and ν:G→T, T(Q)^†=ν(G(Q)_+)=T(Q)∩ν(Z(G)(R)). Then π₀(Sh_K^an(G,X))≃T(Q)^†\T(A_f)/ν(K). Apply strong approximation only to the semisimple simply connected derived group, whose Q-simple factors have noncompact real points by SV3; never to G or a torus without hypotheses.
 
 ShimuraVarieties:V1/analytic-points
 TauCeti.Shimura.AnalyticPoints — For a pure datum and compact open K, Sh_K^pts is the orbit set of X×G(A_f)/K under q·(x,aK)=(qx,qaK), q∈G(Q). Its quotient topology comes from X with its domain topology and the discrete coset space G(A_f)/K. This defines the carrier; V1/analytic-structure equips it with its complex analytic structure.
@@ -233,7 +240,7 @@ ShimuraVarieties:V1/analytic-structure
 TauCeti.Shimura.analytic_structure — The carrier Sh_K^pts has a canonical normal complex analytic-space structure characterized componentwise by Γ_a^eff\X⁺. If K is rationally neat it is a smooth complex manifold. For general K choose neat normal K′⊂K; the analytic finite quotient by the actual K/K′ action gives the same space, independently of K′.
 
 ShimuraVarieties:V1/holomorphic-level-maps
-TauCeti.Shimura.holomorphic_level_maps — For K′⊂K, Sh_{K′}^an→Sh_K^an is finite and holomorphic. If K is neat it is locally biholomorphic; after algebraization in V3 it is finite étale. If K′ is normal, the effective finite permutation group of K/K′ on Sh_{K′} is the deck group and its quotient is Sh_K. For nonnormal K′ no deck group formula is asserted.
+TauCeti.Shimura.holomorphic_level_maps — For K′⊂K, Sh_{K′}^an→Sh_K^an is finite and holomorphic. If K is neat it is locally biholomorphic; after algebraization in V3 it is finite étale. For K′ normal in K, the effective image H of K/K′ in Aut(Sh_{K′}^an) acts over Sh_K^an and its orbit quotient is Sh_K^an. H is a subgroup of the automorphisms over the base; it need not be the full deck group on a disconnected cover. A full deck-group formula requires the separate connected regular-cover hypotheses. For nonnormal K′ no such group formula is asserted.
 
 ShimuraVarieties:V1/right-translation
 TauCeti.Shimura.right_translation — For g∈G(A_f), R_g:Sh_K^an→Sh_{g⁻¹Kg}^an sends [x,a] to [x,ag]. It is a biholomorphism with inverse R_{g⁻¹}; R_h∘R_g=R_{gh} with conjugated intermediate levels. It commutes with level projections.
@@ -257,9 +264,12 @@ API TauCeti.Shimura.AutomorphicRing.mul (structure): Multiplication A_m×A_n→A
 API TauCeti.Shimura.AutomorphicRing.siegel (projection): Restriction to a rational boundary component is the weight-compatible Siegel operator and commutes with products.
 API TauCeti.Shimura.AutomorphicRing.level (functoriality): For Γ′⊂Γ, pullback embeds A_n(Γ) into A_n(Γ′); identity and composition hold.
 API TauCeti.Shimura.AutomorphicRing.veronese (compatibility): Changing to a positive common tensor power gives the corresponding Veronese ring and the same projective spectrum after finite-generation is established.
+API TauCeti.Shimura.AutomorphicRing.mk (constructor): A weight-n holomorphic section satisfying the transformation law and the specified boundary predicate defines an element of A_n; its underlying section is unchanged.
+API TauCeti.Shimura.AutomorphicRing.ext (extensionality): Two elements of A_n are equal if their holomorphic section values agree at every point of D.
+API TauCeti.Shimura.AutomorphicRing.eval (projection): Evaluation on D is complex-linear on each degree and carries the graded product to pointwise multiplication.
 Test TauCeti.Shimura.AutomorphicRing.degree_zero (degenerate): On a connected compactification the degree-zero piece consists of constants.
 Test TauCeti.Shimura.AutomorphicRing.elliptic_weight (compatibility): For ℍ the canonical n-th automorphy factor corresponds to scalar modular weight 2n, with holomorphy at cusps.
-Test TauCeti.Shimura.AutomorphicRing.not_cusp (non-example): At full SL₂ level the Eisenstein series E₄ has nonzero constant coefficient and is an allowed weight-4 form; it is not a cusp form.
+Test TauCeti.Shimura.AutomorphicRing.not_cusp (non-example): For the torsion-free principal group Γ(3)⊂SL₂(Z), the restriction of E₄ is an allowed weight-4 (degree-two) form, with constant Fourier coefficient 1 at infinity. It is not a cusp form.
 
 ShimuraVarieties:V2/poincare-eisenstein
 TauCeti.Shimura.poincare_eisenstein — For the analytic automorphy factor above, sufficiently divisible positive weights admit Poincaré–Eisenstein sections with convergent series, prescribed boundary restrictions and enough sections to separate points of Γ\D* and local analytic germs. State and prove the convergence, boundary extension and separation results before using a projective embedding.
@@ -317,6 +327,8 @@ API TauCeti.Shimura.ReflexNorm.principal (compatibility): For b∈E×, r_h(b)∈
 API TauCeti.Shimura.ReflexNorm.map (functoriality): For a torus subdatum morphism f, after norm from a common reflex field, f∘r_h=r_{f∘h}; retain the field-change norm.
 API TauCeti.Shimura.ReflexNorm.cm_type (compatibility): For the CM torus datum supplied by D5/cm-torus and CM.0, r_h agrees with the multiplicative reflex-type norm.
 API TauCeti.Shimura.ReflexNorm.continuous (structure): The finite-idelic map is a continuous group homomorphism.
+API TauCeti.Shimura.ReflexNorm.ext (extensionality): Two rational torus homomorphisms Res_{E/Q}G_m→T agreeing on the split cocharacter formula after a splitting-field base change are equal.
+API TauCeti.Shimura.ReflexNorm.mul (simp): The reflex norm sends 1 to 1 and r_h(st)=r_h(s)r_h(t), as an algebraic group morphism and on finite ideles.
 Test TauCeti.Shimura.ReflexNorm.trivial (degenerate): A trivial cocharacter gives the constant identity morphism.
 Test TauCeti.Shimura.ReflexNorm.split_power (computation): For T=G_m, E=Q and μ(t)=t^n, r_h(s)=s^n, including n=0 and negative n.
 Test TauCeti.Shimura.ReflexNorm.aghmp (compatibility): For T=Res_{E/Q}G_m/ker(N_{F/Q}) in AGHMP §3.1 and its distinguished cocharacter, r_h is the natural quotient map Res_E G_m→T.
@@ -332,9 +344,11 @@ API TauCeti.Shimura.CanonicalModel.special_rational (data): For every actual spe
 API TauCeti.Shimura.CanonicalModel.special_action (characterisation): Its Galois action is the precise geometric-Artin reflex-norm formula, independent of an Artin lift.
 API TauCeti.Shimura.CanonicalModel.level (functoriality): A tower supplies level maps over E, with identity/composition and analytic point formula.
 API TauCeti.Shimura.CanonicalModel.baseChange (compatibility): For E⊂L⊂C, base change retains the same comparison and restricted special-point action; the defining minimal field remains E.
+API TauCeti.Shimura.CanonicalModel.ofSpecialAction (constructor): An E-scheme with the stated normal/quasi-projective structure, analytic comparison, special-point rationality and the full reciprocity formula defines a finite-level canonical model. Tower construction also requires compatible level maps and translations.
+API TauCeti.Shimura.CanonicalModel.hom_ext (extensionality): Two E-morphisms between the underlying finite-level models whose complex analytic maps agree are equal, by faithful base change and analytification. This is morphism extensionality; model uniqueness remains V8.
 Test TauCeti.Shimura.CanonicalModel.trivial (degenerate): The trivial datum has canonical model Spec Q with its one-point comparison.
 Test TauCeti.Shimura.CanonicalModel.torus_neat (compatibility): The finite étale torus model satisfies this condition using its constructed Galois action.
-Test TauCeti.Shimura.CanonicalModel.not_arbitrary_subset (non-example): A model tested only on an empty chosen special subset does not satisfy the definition; every D4 special pair is required.
+Test TauCeti.Shimura.CanonicalModel.not_arbitrary_subset (non-example): For T=G_m, h(z)=z zbar and principal K(5), the analytic quotient has two points (Z/5Z)×/{±1}. The split model Spec Q ⊔ Spec Q with any two-point comparison passes an empty-subset test but fails canonicity: an automorphism with cyclotomic character 2 modulo 5 must interchange the two classes by reciprocity, whereas the split model fixes both.
 
 ShimuraVarieties:V4/torus-model
 TauCeti.Shimura.torusModel — The finite continuous Gal(Qbar/E)-set T(Q)\T(A_f)/K from reciprocity corresponds to a finite étale E-scheme S_K. Its complex points identify with Sh_K(T,{h}), and the constructed Galois action makes it a canonical model. This is the coarse scheme at every K; the AGHMP non-neat quotient stack is a separate object.
@@ -343,6 +357,7 @@ API TauCeti.Shimura.torusModel.level (functoriality): For K′⊂K the double-qu
 API TauCeti.Shimura.torusModel.translate (functoriality): Right translation by a∈T(A_f) is defined over E and commutes with reciprocity.
 API TauCeti.Shimura.torusModel.map (functoriality): A morphism of torus data gives a map over a common field containing both reflex fields, compatible with the norm on Artin lifts.
 API TauCeti.Shimura.torusModel.finiteEtale (structure): The resulting scheme is finite étale over E, with degree equal to the Galois-set cardinality.
+API TauCeti.Shimura.torusModel.hom_ext (extensionality): Two E-morphisms between finite étale torus models agreeing on all geometric points are equal under the finite-continuous-Galois-set equivalence.
 Test TauCeti.Shimura.torusModel.maximal_split (computation): For T=G_m, h(z)=z zbar, K=Zhat×, E=Q, the coarse scheme is Spec Q.
 Test TauCeti.Shimura.torusModel.split_level_five (computation): For the same datum and principal K(5), the Galois set is (Z/5Z)×/{±1}; the degree-two model is Q(ζ₅+ζ₅⁻¹), not Q(ζ₅).
 Test TauCeti.Shimura.torusModel.trivial (degenerate): For the trivial torus every level gives Spec Q.
@@ -366,6 +381,8 @@ API TauCeti.Shimura.CMAbelianVariety.type (projection): The type is the subset o
 API TauCeti.Shimura.CMAbelianVariety.homology (compatibility): H₁(A,Q) is free of rank one over E, with eigenspace decomposition Φ in Lie(A).
 API TauCeti.Shimura.CMAbelianVariety.transport (functoriality): An E-linear quasi-isogeny transports the full action and type; identity/composition hold.
 API TauCeti.Shimura.CMAbelianVariety.rosati (characterisation): A retained compatible polarization has Rosati restriction equal to the CM conjugation, with positive Riemann form.
+API TauCeti.Shimura.CMAbelianVariety.ofAction (constructor): An actual abelian variety with an injective CM-algebra action of dimension 2 dim A supplies the full CM object and its Lie type; a compatible polarization is included when Rosati data are requested.
+API TauCeti.Shimura.CMAbelianVariety.hom_ext (extensionality): Two E-linear quasi-homomorphisms between full CM objects agreeing on H₁(-,Q), or on a rational Tate module after comparison, are equal.
 Test TauCeti.Shimura.CMAbelianVariety.quadratic (computation): An elliptic curve with an imaginary quadratic embedding in End⁰ has a full CM action of degree two.
 Test TauCeti.Shimura.CMAbelianVariety.product (compatibility): The product of two CM elliptic curves has full action by their product CM algebra; it need not be simple.
 Test TauCeti.Shimura.CMAbelianVariety.insufficient_degree (non-example): A scalar Q-action on a positive-dimensional abelian variety is not full CM, and a degree-two action on dimension two alone is insufficient.
@@ -407,11 +424,13 @@ ShimuraVarieties:V6/hodge-canonical
 TauCeti.Shimura.hodge_canonical — Every Hodge-type datum of D4 has a canonical tower over its reflex field, by choosing its actual embedding into a Siegel datum, applying Siegel existence and subdatum inheritance. The resulting tower is independent of the embedding through canonical-model uniqueness.
 
 ShimuraVarieties:V6/connected-tower
-TauCeti.Shimura.ConnectedTower — For the connected derived datum (G^der,X⁺), form M⁰=lim_Γ Γ\X⁺ over torsion-free arithmetic subgroups of G^ad(Q)^+ open in the congruence topology induced by G^der. Retain the completion of G^ad(Q)^+ relative to G^der and its action. A connected canonical formulation includes the adelic/Galois extension and its reciprocity on actual maximal special tori, as in Deligne 2.7.13; a bare connected pro-variety over Qbar is insufficient.
+TauCeti.Shimura.ConnectedTower — For the connected derived datum (G^der,X⁺), whose points are S→G^ad_R and are not required to lift to G^der_R, form the analytic pro-object M⁰=(Γ\X⁺)_Γ and its inverse-limit point set over torsion-free arithmetic subgroups of G^ad(Q)^+ open in the congruence topology induced by G^der. Retain the completion of G^ad(Q)^+ relative to G^der and its action. A connected canonical formulation includes the adelic/Galois extension and its reciprocity on actual maximal special tori, as in Deligne 2.7.13; a bare connected pro-variety over Qbar is insufficient.
 API TauCeti.Shimura.ConnectedTower.level (projection): The Γ-level is the actual algebraized quotient Γ\X⁺.
 API TauCeti.Shimura.ConnectedTower.transition (functoriality): Subgroup inclusion gives finite algebraic maps; identity and composition hold.
 API TauCeti.Shimura.ConnectedTower.completedAction (structure): The completed adjoint rational symmetry acts compatibly on the pro-object; its topology is induced by derived-group congruence subgroups.
 API TauCeti.Shimura.ConnectedTower.canonicalExtension (data): The connected canonical version retains the adelic/Galois extension, with its multiplication/coherence and marked-special-torus reciprocity.
+API TauCeti.Shimura.ConnectedTower.hom_ext (extensionality): Two morphisms of the congruence-indexed tower diagrams agreeing at each finite level are equal; canonical morphisms additionally commute with the specified completion/Galois extension.
+API TauCeti.Shimura.ConnectedTower.lift (universal-property): Compatible holomorphic maps from a test complex analytic space Y to every finite Γ\X⁺ quotient give a unique morphism from the constant pro-object Y to the analytic tower; projections recover those maps. The algebraic tower has the analogous compatible-morphism universal property in its pro-category. No finite-dimensional analytic-space structure is asserted on the inverse-limit point set.
 Test TauCeti.Shimura.ConnectedTower.trivial (degenerate): A trivial derived group gives the one-point connected tower.
 Test TauCeti.Shimura.ConnectedTower.sl2 (compatibility): For the GL₂ datum the connected tower is the congruence tower Γ\ℍ induced by SL₂, with effective ±I removed where present.
 Test TauCeti.Shimura.ConnectedTower.not_full (non-example): A singleton connected derived torus tower does not recover the multiple full torus level components without the component/reciprocity extension.
@@ -432,24 +451,25 @@ ShimuraVarieties:V7/simple-connected-reduction
 TauCeti.Shimura.simple_connected_reduction — To prove general canonical-model existence it suffices to prove marked conjugation with completed symmetry for connected data whose group is semisimple simply connected and almost Q-simple. Such a group is Res_{F/Q}G′ for a totally real number field F and an absolutely almost simple simply connected F-group G′. Products, the derived central cover and V6 reconstruction then restore the original reductive datum.
 
 ShimuraVarieties:V7/auxiliary-cm-splitting
-TauCeti.Shimura.auxiliary_cm_splitting — For the simple connected case and a maximal special torus T′⊂G′, choose a finite totally real extension F′/F such that the base-changed torus splits over a CM quadratic extension L′/F′. The corresponding restriction-of-scalars datum admits the compatible connected embedding of the original datum. Proving the comparison there implies it for the original embedded connected tower.
+TauCeti.Shimura.auxiliary_cm_splitting — For the simple connected case and a maximal torus T′⊂G′ whose adjoint image contains the marked S-map, choose a finite totally real extension F′/F such that the base-changed torus splits over a CM quadratic extension L′/F′. The corresponding restriction-of-scalars datum admits the compatible connected embedding of the original datum. Proving the comparison there implies it for the original embedded connected tower.
 
 ShimuraVarieties:V7/rank-one-subdata
-TauCeti.Shimura.rank_one_subdata — Assume T′ splits over a CM quadratic L/F. For each root α of (G′,T′) noncompact at some real place, the Lie algebra Lie(T′)⊕g_α⊕g_{−α} descends to a reductive F-subgroup H′_α containing T′, whose derived group has type A₁. Res_{F/Q}H′_α with the restricted special homomorphism supplies the required connected rank-one Shimura subdatum, after the derived cover/effective domain adjustment.
+TauCeti.Shimura.rank_one_subdata — Assume T′ splits over a CM quadratic L/F. For each root α of (G′,T′) noncompact at some real place, the Lie algebra Lie(T′)⊕g_α⊕g_{−α} descends to a reductive F-subgroup H′_α containing T′, whose derived group has type A₁. Res_{F/Q}H′_α has an induced adjoint S-map obtained by projecting h through T^ad→(H′_α)^ad. After taking the simply connected cover of its derived group and removing compact ineffective factors it gives the required connected rank-one subdatum. No lift of h to that cover is required.
 
 ShimuraVarieties:V7/rank-one-central-separation
 TauCeti.Shimura.rank_one_central_separation — In the CM-split simple case, let Z_α=Z(H_α), with α ranging over roots noncompact at some real place. Then Z(G)=∩_α Z_α. Put Tbar=T/Z(G) and Zbar_α=Z_α/Z(G). Regard Zbar_α(A_f)/Zbar_α(Q) as subgroups of the abelian quotient Tbar(A_f)/Tbar(Q); their intersection is trivial. These identities force the residual adelic central adjustment in the marked comparison to be rational.
 
 ShimuraVarieties:V7/conjugated-datum
-TauCeti.Shimura.conjugatedDatum — For the semisimple simply connected connected case, given τ∈Aut(C) and an actual maximal special torus (T,h), form the Serre-protorus torsor S_τ=π⁻¹(τ|Qbar) in the Taniyama extension 1→S→𝒯→Gal(Qbar/Q)→1, with its distinguished finite-adelic section. The cocharacter μ_h gives ρ_h:S→T/Z(G); let S act on G by this inner action. Define the inner form {}^{τ,h}G=S_τ×^S G, its embedded untwisted T, the homomorphism {}^τh with cocharacter τμ_h, and its connected real conjugacy class {}^{τ,h}X⁺. This defines a connected datum and a distinguished G(A_f)≅{}^{τ,h}G(A_f).
+TauCeti.Shimura.conjugatedDatum — Let G/Q be semisimple simply connected with connected datum X⁺, a G^ad(R)^+-class of h:S→G^ad_R satisfying the connected Shimura conditions. Choose a maximal rational torus T⊂G with h factoring through T^ad=T/Z(G); this is a D4 special pair for the adjoint datum. For τ∈Aut(C), the Taniyama extension 1→S→𝒯→Gal(Qbar/Q)→1 supplies the Serre-protorus torsor S_τ and its distinguished finite-adelic point. The marked cocharacter μ_h is in X_*(T^ad), and gives ρ_h:S→T^ad. Use this inner action to form {}^{τ,h}G=S_τ×^S G. T is unchanged, {}^τh:S→({}^{τ,h}G)^ad_R factors through T^ad with cocharacter τμ_h, and {}^{τ,h}X⁺ is its connected adjoint real class. Retain the distinguished topological isomorphism G(A_f)≅{}^{τ,h}G(A_f). This construction is of connected data, not a full pure datum on the simply connected group.
 API TauCeti.Shimura.conjugatedDatum.group (projection): The rational group is the contracted product inner form S_τ×^S G.
-API TauCeti.Shimura.conjugatedDatum.specialTorus (data): The unchanged T embeds into the twist and the marked homomorphism has cocharacter τμ_h.
+API TauCeti.Shimura.conjugatedDatum.specialTorus (data): The unchanged T embeds into the twist; the marked S-map factors through T^ad in the adjoint group and has cocharacter τμ_h.
 API TauCeti.Shimura.conjugatedDatum.adelic (equivalence): The finite-adelic section induces the specified topological group isomorphism, compatible with embeddings of marked tori.
 API TauCeti.Shimura.conjugatedDatum.localClass (characterisation): The inner twist is finite-locally trivial and its real cohomology class is represented by τμ_h(−1)/μ_h(−1).
-API TauCeti.Shimura.conjugatedDatum.map (functoriality): An inclusion preserving the special torus and cocharacter induces the compatible inclusion of twisted data, with the same adelic trivialization.
+API TauCeti.Shimura.conjugatedDatum.map (functoriality): An inclusion of connected data preserving the marked adjoint torus/cocharacter induces the compatible inclusion of twists and their adelic trivializations. Identity and composition hold.
+API TauCeti.Shimura.conjugatedDatum.descent_ext (extensionality): Two morphisms of contracted-product twists agreeing after a common torsor-trivializing faithfully flat extension are equal; marked isomorphisms also retain the torus and distinguished adelic trivialization.
 Test TauCeti.Shimura.conjugatedDatum.identity (degenerate): For τ=id the distinguished torsor section gives the original datum and identity adelic map.
-Test TauCeti.Shimura.conjugatedDatum.torus (computation): For a torus the group is unchanged while the special cocharacter becomes τμ_h; this need not be μ_h.
-Test TauCeti.Shimura.conjugatedDatum.finiteLocal (non-example): All finite local groups agree through the specified maps, but the real form need not agree; finite adelic isomorphism is not a Q-isomorphism.
+Test TauCeti.Shimura.conjugatedDatum.sl2_conjugation (computation): For G=SL₂ with the norm-one Q(i) torus and the standard upper-half-plane adjoint S-map, τ equal to complex conjugation sends μ_h to its inverse and selects the lower-half-plane component. The group twist is split SL₂: the real obstruction μ_h(−1)⁻² is trivial and all finite local obstructions vanish. The marked adjoint homomorphism changes even though the group remains isomorphic.
+Test TauCeti.Shimura.conjugatedDatum.finiteLocal (compatibility): For each finite prime p and t∈T(Q_p), the distinguished local isomorphism sends the embedded t to the same t in the untwisted marked torus of {}^{τ,h}G. An arbitrary unmarked local isomorphism need not have this property.
 
 ShimuraVarieties:V7/kazhdan-uniformization
 TauCeti.Shimura.kazhdan_uniformization — For a torsion-free arithmetic Hermitian quotient Γ\D and τ∈Aut(C), the universal cover of τ(Γ\D) is a Hermitian symmetric domain D′, and its fundamental group acts as a lattice in Aut(D′)^+. This is a key theorem to prove, with its exceptional noncompact cases included.
@@ -470,7 +490,7 @@ ShimuraVarieties:V7/conjugation-cocycle
 TauCeti.Shimura.conjugation_cocycle — For σ fixing E(G,X), identify the conjugated datum with the original through the transformed cocharacter class and special-point-independent transition. The comparison defines an equivariant algebraic descent system f_σ:σSh_C→Sh_C with f_{στ}=f_σ∘σ(f_τ), compatible with levels, right translations and the actual special-pair reciprocity formula.
 
 ShimuraVarieties:V7/finite-rigidifying-points
-TauCeti.Shimura.finite_rigidifying_points — At a neat effective level, the automorphism group of a positive-dimensional arithmetic Hermitian quotient is finite. A Zariski-dense Hecke orbit of an actual special point contains a finite subset Σ whose pointwise stabilizer is trivial. The constructed descent system fixes Σ over a finite extension of the reflex field because each special point has an open reciprocity stabilizer.
+TauCeti.Shimura.finite_rigidifying_points — At a neat effective level, the automorphism group of a positive-dimensional arithmetic Hermitian quotient is finite. A Zariski-dense Hecke orbit of an actual special point contains a finite subset Σ whose pointwise stabilizer is trivial. In dimension zero the finite point set itself is a rigidifying set. The constructed descent system fixes Σ over a finite extension of the reflex field because each special point has an open reciprocity stabilizer.
 
 ShimuraVarieties:V7/continuous-descent
 TauCeti.Shimura.continuous_descent — The canonical descent system at each neat level is continuous: it splits over a finitely generated field extension of E inside C in the sense of Milne 1999 Theorem 1.1. A finite rigidifying subset fixed over a finite field forces this property by Corollary 1.2. Level comparisons then give the required compatible system at all levels.
