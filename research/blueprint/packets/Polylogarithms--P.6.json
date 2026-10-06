@@ -149,14 +149,14 @@
         "At z=2, a=log 2, b=0, D=0 and v/(z-1)=v, giving -(1/3)(log 2)^2 Re(v). Differentiability comes from the theorem even though z is on the principal polylogarithm cut.",
         "At z=-1, a=0 and D=0 because D vanishes on the reals; hence the derivative is zero.",
         "On norm z=1, a=0; v=z has Im(v/z)=0 and v=i z has Im(v/z)=1. Thus the radial derivative vanishes and the angular derivative is -D(z).",
-        "Specialise to z=i: angular direction i*i=-1 and radial direction i. Positivity of D in the upper half-plane, imported from P.1/bloch-wigner-dilogarithm, makes the angular derivative strictly negative."
+        "Specialise to z=i: angular direction i*i=-1 and radial direction i. Apply the separate promoted lemma P.1/bloch-wigner-positivity, whose statement gives D(i)>0, to make the angular derivative strictly negative. Its existing minimum-principle proof obligation is recorded below; no positivity theorem is inferred merely from the definition of D."
       ],
       "acceptance": [
         "L_3 is real-differentiable at z = 1/2, and for every v in C, dL_3(1/2)[v] = (4/3)(log 2)^2 Re(v).",
         "L_3 is real-differentiable at z = 2, and for every v in C, dL_3(2)[v] = -(1/3)(log 2)^2 Re(v). Thus the theorem cannot exclude the whole principal branch cut.",
         "L_3 is real-differentiable at z = -1, and its real Fréchet derivative is zero.",
         "For norm z = 1 and z != 1, L_3 is real-differentiable at z; dL_3(z)[z] = 0 and dL_3(z)[i z] = -D(z). These are respectively the radial and positively oriented angular directions.",
-        "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-dilogarithm."
+        "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-positivity, with its recorded proof obligation."
       ],
       "tests": [
         {
@@ -182,12 +182,13 @@
         {
           "name": "trilog_diff_i_sign",
           "kind": "non-example",
-          "statement": "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-dilogarithm."
+          "statement": "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-positivity, with its recorded proof obligation."
         }
       ],
       "prerequisites": [
         "Polylogarithms:P.6/single-valued-trilogarithm-differential",
         "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "Polylogarithms:P.1/bloch-wigner-positivity",
         "mathlib:DifferentiableAt",
         "mathlib:fderiv"
       ],
@@ -215,9 +216,11 @@
     {
       "target": "p-adic regulator matrix, rank and totally real determinant",
       "nodes": [
-        "Polylogarithms:P.6/padic-regulator"
+        "Polylogarithms:P.6/padic-regulator",
+        "ColemanIntegration:L0/iwasawa-logarithm",
+        "ColemanIntegration:L0/log-branch-field-compatibility"
       ],
-      "disposition": "Reuse the accepted node, its five API items and its four tests; index the columns by all degree(K) embeddings, not merely by places."
+      "disposition": "Reuse the accepted node, its five API items and its four tests; index the columns by all degree(K) embeddings, not merely by places. The analytic logarithm and finite-extension compatibility already have these exact ColemanIntegration L0 supplier nodes; D.1 imports them and supplies the regulator-specific comparison."
     },
     {
       "target": "Leopoldt / regulator equivalence",
@@ -259,7 +262,7 @@
     },
     {
       "supplier": "PadicHodgeRegulators:D.1",
-      "need": "Iwasawa logarithm on the algebraic closure of Q_p (or C_p), with the normalisation log_p(p)=0, compatibility with finite extension embeddings and homomorphism on units; its kernel on algebraic local units consists of roots of unity. Supply the finite-extension principal-unit/rationalised rank comparison, tracking its finite torsion kernel rather than assuming integral injectivity. P.6 reuses this analytic function, not a new Coleman logarithm.",
+      "need": "Reuse ColemanIntegration:L0/iwasawa-logarithm, ColemanIntegration:L0/log-branch and ColemanIntegration:L0/log-branch-field-compatibility for the existing logarithm on C_p, log_p(p)=0, the unit homomorphism and compatibility with finite embeddings. D.1 supplies only the regulator-specific finite-extension principal-unit and rationalised rank comparison: identify the kernel on algebraic local units as roots of unity, track its finite torsion kernel (including p-primary torsion at p=2), and identify the embedding-wise regulator matrix with the rationalised completed unit map. This is a comparison with the existing Coleman logarithm, never a second construction of that logarithm.",
       "neededBy": [
         "Polylogarithms:P.6/padic-regulator",
         "Polylogarithms:P.6/leopoldt-equivalence"
@@ -278,13 +281,22 @@
       "stageId": "Polylogarithms:P.6",
       "status": "planned",
       "remaining": [
-        "Bind the inherited P.6 Leopoldt-equivalence adapter to declaration-level nodes for I.2’s completed map, strong proposition and defect, and D.1’s logarithmic comparison when those supplier interfaces are delivered.",
+        "Bind the inherited P.6 Leopoldt-equivalence adapter to declaration-level nodes for I.2’s completed map, strong proposition and defect, and D.1’s regulator-specific principal-unit/kernel/rank comparison. The logarithm itself and its finite-extension compatibility already have exact ColemanIntegration L0 supplier nodes listed in targetCoverage.",
         "At assembly treat the old P.6/leopoldt-statement as an I.2 import and remove its stale ownership sentence and planet from P.6. Retain the regulator equivalence and tests; add the I.2 -> P.6 edge without a reverse dependency.",
-        "At assembly add the new differential prerequisite to the old P.6/tests node and remove only the weight-three differential clause of its source gap. Preserve the general-weight, higher-Bloch descent and P.5 current/source obligations belonging to their own stages."
+        "At assembly add the new differential prerequisite to the old P.6/tests node and remove only the weight-three differential clause of its source gap. Preserve the general-weight, higher-Bloch descent and P.5 current/source obligations belonging to their own stages.",
+        "Discharge the inherited P.1/bloch-wigner-positivity minimum-principle gap before the strict sign assertion of trilog_diff_i_sign is proved; its derivative equality and radial assertion do not use positivity."
       ]
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "title": "Inherited proof input for the strict Bloch-Wigner sign test",
+      "neededBy": [
+        "Polylogarithms:P.6/trilogarithm-differential-regression-tests"
+      ],
+      "detail": "The exact derivative and its equality to -D(i) are established by the new differential node. Strict negativity additionally imports Polylogarithms:P.1/bloch-wigner-positivity. The accepted base packet records that lemma’s remaining analytic input: a strong minimum principle for superharmonic functions on the upper half-plane, with zero boundary values on R and at infinity. This follow-up exposes that existing P.1 proof obligation without duplicating positivity or claiming it is closed. Only the strict sign assertion in trilog_diff_i_sign depends on it."
+    }
+  ],
   "restructure": [
     {
       "action": "rescope",
@@ -321,10 +333,33 @@
         "arXiv abstract/version record math/0003086 (only v1 located)",
         "MPIM preprint listing 2000(70)",
         "Author publication listing and publisher searches for the paper/corrections; published full text not obtained"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the arXiv math/0003086v1 text and inspected the page images: the first definition on printed p.3 has exponent n-k, while (33) on printed p.19 has exponent k. The p.3 coefficients and the immediately following weight-two Bloch-Wigner formula require powers 0 and 1, confirming the intended correction. The verdict concerns this preprint only; no published version was inspected.",
+        "by": "REV-Polylogarithms--P.6"
+      }
     }
   ],
   "upstreamStyle": [
     "Read in full: content/tau-ceti/ConformalMapping/README.md and content/tau-ceti/ArithmeticDirichletSeries/README.md. Their definitions, normalisations, named results and exact acceptance instances guide the reader and prototype."
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-Polylogarithms--P.6",
+    "date": "2026-10-06",
+    "notes": "Independent review by Codex, session codex-PaORFX; original planning session codex-Omyv0N. Read Goncharov math/0003086v1 §2 items 1,4,6 and the complete Proposition 4.1 proof, pp.17–20; confirmed all locators/excerpts, the weight-three formula, branch conventions and five exact examples. Read all four cited pinned Mathlib statements and relevant supplier node statements, library audits and RT-AREA-ktheory-2/26 with its verification. Added the exact positivity prerequisite and exposed its inherited P.1 proof gap; named the existing Coleman logarithm suppliers and narrowed D.1 to the regulator comparison. Confirmed E22 only for the preprint inspected. No node or definition was added. Accept this complete target-level pass with planned coverage, three supplier requests and one honestly recorded inherited proof gap; do not interpret acceptance as formalisation or closed proof dependencies. Suggested file elaborated at pinned Mathlib with only seven intended proof-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.6/single-valued-trilogarithm-differential",
+        "verdict": "verified",
+        "note": "Proposition 4.1 (28) with (15), beta_2=1/3 and Lhat_2=iD gives exactly the real-linear derivative. Independently differentiated the defining combination and checked smooth extension across the cut using the imported branch-change node. All four baseline declarations confirmed at the pinned commit; the log derivative is used only on its slit plane."
+      },
+      {
+        "nodeId": "Polylogarithms:P.6/trilogarithm-differential-regression-tests",
+        "verdict": "corrected",
+        "note": "All five exact specialisations and their differentiability conjuncts verified against the suggested file. Added the promoted P.1/bloch-wigner-positivity prerequisite for strict negativity at i and recorded its inherited minimum-principle proof input. Real-axis vanishing, continuity and normalisations are supplied by the existing P.1 nodes; no new analytic functions are defined."
+      }
+    ]
+  }
 }

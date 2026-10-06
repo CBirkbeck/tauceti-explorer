@@ -5,6 +5,7 @@ suggest Lean forms so that contributors and reviewers converge on names and
 signatures. They claim no implementation.
 
 BP-Polylogarithms--P.6, Codex — codex-Omyv0N.
+Independent review: REV-Polylogarithms--P.6, Codex — codex-PaORFX.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -79,7 +80,10 @@ example {z : ℂ} (hz : ‖z‖ = 1) (hz1 : z ≠ 1) :
         fderiv ℝ (singleValuedPolylog 3) z (I * z) = -blochWigner z := by
   sorry
 
-/-- Test `trilog_diff_i_sign`: `D(i)>0` is an imported P.1 fact. -/
+/-- Test `trilog_diff_i_sign`: `D(i)>0` imports the separate
+P.1/bloch-wigner-positivity lemma. Its existing minimum-principle proof input
+is recorded as an inherited gap in the packet; the derivative equalities
+themselves do not require positivity. -/
 example : DifferentiableAt ℝ (singleValuedPolylog 3) I ∧
     fderiv ℝ (singleValuedPolylog 3) I (-1) = -blochWigner I ∧
       fderiv ℝ (singleValuedPolylog 3) I (-1) < 0 ∧
