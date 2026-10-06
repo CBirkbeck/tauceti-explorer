@@ -1,115 +1,64 @@
 # BP-MetaplecticAutomorphicForms--MP.8 handoff
 
-Worker: Codex — codex-hjdg0j. Issue: #772. Claim comment 5851313060;
-winning bot reply 5851314012 was read before work. Snapshot:
-8ba49bd1dd6debd132e37b3cf8a6164f6ff7eae4. Only the four authorized deliverables
-are changed. Status is **partial**; do not mark MP.8 complete.
+Worker: **Codex — codex-KMZtHy**, 6 October 2026. Issue: [#772](https://github.com/CBirkbeck/tauceti-explorer/issues/772). The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/772#issuecomment-6015246109) and [winning bot reply](https://github.com/CBirkbeck/tauceti-explorer/issues/772#issuecomment-6015248989) were read before work and rechecked before submission. Branch: `codex-KMZtHy-mp8`. Starting explorer commit: `6fe1f6c06133b4fd5599c3433d1227fc11b82d61`.
 
-## Delivered component
+## Delivered planning pass
 
-Nine declaration nodes: two constructions, five lemmas and two theorems. They
-provide the integral genus-two Fourier-index shift, the discriminant quadratic
-form, invariant residues, recovery at fixed vector, uniqueness of the shift
-parameter, orbit classification, uniqueness for a prescribed residue lift and
-coefficient equality conditional on actual shift invariance. The node graph
-ends in checked native declarations and elementary integer algebra.
+The packet is **complete** under PROTOCOL §0: every MP.8 target has a declaration-level plan. MP.8 coverage is **planned, not closed**. Seven precise gaps, fourteen supplier contracts and signature refinements remain. All implementation statuses are **unchecked**; this pass makes no formalization claim.
 
-There are eight API items, six definition tests, ten total example statements,
-three planets, eighteen baseline declarations, three gaps, two external requests,
-three source findings and one ownership rescope proposal. All implementation
-statuses remain unchecked. The plan does not claim an analytic coefficient,
-Jacobi form, double cover or Eisenstein series has been constructed.
+Only the four authorized deliverables are changed. The original nine integral quadratic Fourier-index nodes and stable identifiers are preserved. The expanded plan has **85 nodes: 16 definitions, 18 constructions, 6 lemmas, 41 theorems and 4 comparisons**; **104 API items, 102 definition/construction tests, 6 planets, 26 checked baseline declarations and 35 proposed modules**. The reader has approximately 23,848 words. Every definition/construction has at least three API items and three tests derived from its uses. Both node and proposed-module graphs are acyclic.
 
-Use native pairs (Q,R), with Q a Z-valued quadratic form on Z². Do not replace
-them with a newly invented half-integral symmetric-matrix wrapper. The crucial
-normalization is a=m/N, c=N for j=0 and c=1 for j=1; source U equals N times the
-symmetric matrix of Δ=4aQ−c(R·−)². The invariant is the full quadratic form,
-not its determinant. Classification needs a≠0; construction and invariance do
-not. Keep the arbitrary prescribed residue lift distinct from a canonical one.
+The plan covers the genus-two Siegel domain; positive symplectic similitudes and their actual square-root double cover; arithmetic and Jacobi comparisons; theta functions, torus pairing, contour shift and coefficient decomposition; elliptic-newform seeds and genuine induced Eisenstein families; archimedean Whittaker continuation and test vectors; both cusp expansions and primitive-pair/Möbius arithmetic; local root counts and Euler factors; cover-specific spectral comparisons, constant terms and residue interchanges; and the jointly meromorphic two-variable polar formula exported to BSD.2.
 
-## Sources and findings
+## Sources and corrections
 
-Published BFH Invent. Math.102(1990),543–618 scan:
-https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf
+The published BFH Inventiones paper, *Nonvanishing theorems for L-functions of modular forms and their derivatives*, Invent. Math. 102 (1990), 543–618, DOI 10.1007/BF01233440, was read throughout, including the previously unread printed pages 558–612. The [public scan](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf) has SHA-256 `d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c`. Its first physical page is a repository cover sheet; zero-based PDF page index is printed page minus 542. OCR was checked against rendered pages for the formulas, domains, transposes, branches and normalizations used by the nodes. Node source records give exact locators and literal excerpts of at most 300 characters.
 
-SHA-256: d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c.
-Read on 2026-09-27. Physical page1 is a repository cover sheet. Rendered physical
-pages2–16 correspond to printed543–557, and physical72–77 to printed613–618.
-All reads were batched at most three physical pages. Full §§1–2 and §9 were
-read; the opening of §3 and ending of §8 were read. Printed558–612 remain
-unread. The source PDF is scanned, so rendered pages rather than extracted
-empty text were inspected. Physical6,7,9 were also viewed at higher resolution
-to check the Fricke transform, stabilizer and functional equation.
+The distinct BFH paper *Eisenstein series on the metaplectic group and nonvanishing theorems for automorphic L-functions and their derivatives*, Annals 131 (1990), 53–127, DOI 10.2307/1971508, has only had its [publisher metadata](https://annals.math.princeton.edu/1990/131-1/p03) inspected. Its §5 is a precise unread Bessel-formula gap. The cited Gradshteyn–Ryzhik, Jacquet–Piatetski-Shapiro–Shalika and Maass passages are also unread. Weil/Kudla and general Jacobi sources remain supplier-owned foundations, not sources decomposed by this MP.8 job.
 
-Three source issues are recorded with checks: E-MP8-1 reverses m|N to N|m,
-confirmed by the explicit §9 choice; E-MP8-2 includes positive central scalars
-in the GSp⁺ stabilizer, with 2I₄ as counterexample; E-MP8-3 restores M in the
-original level-M newform's Fricke equation and completion while retaining N in
-the separate seed transform. The publisher page
-https://link.springer.com/article/10.1007/BF01233440 and Friedberg's publication
-list were searched for corrections, together with exact-title web searches.
-No addressing correction was found. These are proposed findings for independent
-review, not an accusation that the main theorem fails.
+Four proposed source issues require independent review:
 
-The distinct BFH Annals131(1990),53–127 paper, the relevant Weil/Kudla sources,
-and the Jacobi inputs referred to Eichler–Zagier and Ziegler have not been read
-in this job. Do not describe the full source list as decomposed.
+- **E-MP8-2**, p.548: the full stabilizer of iI₂ in GSp₄⁺ includes positive central scalars. The matrix 2I₄ fixes iI₂ and is not orthogonal; the compact stabilizer is its Sp₄ part.
+- **E-MP8-3**, p.550: restore original conductor M in the original newform's Fricke equation and completion. Keep auxiliary N in the separate transformed seed. The level-one discriminant form with N=8 distinguishes these conventions.
+- **E-MP8-4**, p.568, Proposition 3.9: the printed condition Im x₁ < ε includes x₁=−i, a singularity of (1+x₁²)⁻¹ᐟ². Use a bounded strip, or the upward-shift strip needed by the proof.
+- **E-MP8-5**, p.602, Proposition 8.1: (6.1), n₂=1/N, and (3.37) give F±(u,s,N⁻¹y₂), consistently with the later boundary formula. The printed unscaled y₂ is recorded as a normalization discrepancy for review.
 
-## Ownership and prerequisite checks
+**Withdraw inherited E-MP8-1.** Rendered p.545 already says N divides m, not m divides N. That incorrect inherited finding is removed. Exact-title correction/erratum searches and publisher/author lists found no addressing correction on 6 October 2026; this is not proof that none exists, and these findings do not assert failure of the main theorem.
 
-The full reviewed AUDIT-15 MP.8 row was read before planning. The campaign
-README, complete MP.8 stage, all17 touching edges, MP.0/MP.7, AS.1/AS.2, BSD.2
-and QM.1 stage descriptions were read. The link screen found zero stage-specific
-entries and29 roadmap-only screens. There was no existing Metaplectic packet
-or integrated MP.8 decomposition at the checked snapshot.
+## Ownership and baseline
 
-Five precise QM.1 nodes and their hypotheses/proofs/prerequisites/sources were
-read: jacobi-form, jacobi-fourier-coefficient, jacobi-coefficient-discriminant,
-theta-decomposition and theta-decomposition-weil-representation. They are
-rank-one statements and retain their existing ownership. Its four MP requests
-name MP.7. The packet proposes a rank-one/genus-two distinction in the stage
-wording and does not introduce a reverse MP.8→QM.1 prerequisite. MP.0 supplies
-the Heisenberg foundations. AS.1–2 requests ask for explicit linear-group
-analytic inputs; MP.8 must prove the adaptation to the double cover. BSD.2 owns
-the twist-series comparison and final residue/local-condition argument.
+The reviewed AUDIT-15 MP.8 row, campaign/stage targets, MP.0–7 stages, relevant spectral/automorphic/L-function stages, BSD.2, QM.1, link screen and confirmed RT-AREA-automorphic-1/20 with its verification were read. General H(W) ⋊ Sp(W), its unitary analogue, Schrödinger–Weil action, Jacobi weight/index/multiplier spaces, Fourier–Jacobi extraction and theta decomposition belong in **MP.6 before MP.7**. MP.8 imports this theory and supplies its BFH genus-two arithmetic/similitude specializations and actual cover-specific Eisenstein analysis. QM.1 retains q-series applications. No MP dependency on that consumer or a converse-theorem consumer is added. BSD.2 owns the ultimate twist nonvanishing/local-condition argument.
 
-Both pinned trees were searched. Native QuadraticForm, linear-form products,
-ordered-basis expansion, dotProductBilin and Int.ModEq were read and reused.
-The root namespace of dotProductBilin was checked in Lean. The generic
-symplectic matrix group and semidirect product are boundary declarations;
-neither is the BFH cover. GrothendieckEulerForms and JacobianChallenge upstream
-documents were read in full during the session and verified unchanged here.
+Fresh main `ed9e36ce0a1ef390431039e3695e63a672a354c3` was checked before submission. Binding protocols, baseline, MP.8 target and deliverables are unchanged. Its QM.1 fix now imports MP.6 in seven classical Jacobi nodes and adds a scalar-index comparison. The new RT-AREA-automorphic-1.fixes-2 /20 record and exact QM.1 request were read; they agree with this packet's boundary but do not supply the missing MP.6 native interface. This job edits neither those files nor the atlas stages.
 
-## Validation
+Pinned declarations were read at **Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`** and **Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`**. The native quadratic-form interface is retained. New checked inputs include positive-definite matrices, unitary groups, the two-variable Jacobi theta series, arithmetic Möbius function, PID diagonalization, matrix-to-linear-map equivalence, one-variable meromorphic functions and Tau Ceti's Cholesky equivalence. Cholesky gives lower-triangular LLᵀ; reversing the basis gives BFH's upper-triangular QQᵀ. Generic Gaussian, Smith normal form, Peter–Weyl, classical newform/Hecke/Fricke/L-function and supplier-owned Jacobi theory are imported, not replanned. Upstream InductionRestriction, ConformalMapping and relevant ModularForms layers were read for structure and exact boundaries.
 
-The suggested file compiled with Lean4.34.0-rc2 against the pinned Mathlib
-source imports: exit0, zero errors,25 warnings, all required proof placeholders.
-It contains two constructions,15 named proof/API signatures,10 examples and
-three declaration checks. All1,791 imported Mathlib source files were verified
-against the pin and compiled-cache source bytes; no Tau Ceti modules are
-imported. The native definitions have explicit expressions; theorem and example
-proofs are placeholders and no implementation claim follows.
+The fourteen requests are to MP.1, MP.2, MP.4, MP.6, GN.0, AF.1, AL.3, AS.1, AS.2, upstream CompactGroups layer 5 and upstream ModularForms layers 2, 4, 6 and 7. Each gives a mathematical contract and exact consuming nodes. Retarget stage-level requests when native supplier declaration ids exist.
 
-Suggested-file SHA-256: 14e4f1684a86e4a60d221e79cd867dff6916d9312c02c0bbf9752b53b804a350.
+## Conventions to preserve
 
-The indexed packet checker reports zero errors and zero warnings. Intake reports
-four files and zero problems. Source-issue/version schema checks pass. Every node,
-API and definition-test name matches the suggested file; the internal graph is
-acyclic and only the four deliverables differ from the starting archive. Fresh
-main 8f6fe5b8ff79f514c6c42a430b1813e4eae48ea5 leaves all60 guarded inputs
-unchanged and adds no relevant supplier packet. The issue body, active claim and
-winning bot reply were rechecked. The packet has28 acceptance properties.
+Keep the integral component's full discriminant quadratic form, not merely its determinant, and distinguish a prescribed residue lift from a canonical one. Its normalization is a=m/N, c=N at cusp j=0 and c=1 at j=1; classification requires a≠0. BFH uses J with blocks (0,−I;I,0), Y=QQᵀ and CDᵀ=DCᵀ. Normalize the cover root by the positive similitude μ. The J lift is i√(−det Z); compare the theta factor with its compensating Weil phase. Similitudes transport m to μm. The theta torus norm is √det Y/(2a); retain the coordinate-change Jacobian. Compare native G/H classes gH and BFH H\G classes Hg by inversion.
 
-## Resume
+Distinguish holomorphic Jacquet V from gamma-normalized meromorphic W. Nondegenerate rapid decay does not imply the same two-variable decay for W⁰. The Novodvorsky integral is iterated, without an unjustified joint Fubini step. The normalized inducing parameter is ν=s−2, with reflection 4−s. Keep M distinct from N and retain rank-one opposite-cusp terms until cuspidal extraction cancels them. The polar formula uses N⁻¹y₂ and joint meromorphy in two complex variables.
 
-1. Group and analytic objects in BFH §1, pp.545–551: use the native symplectic group and generic semidirect product, import the Heisenberg data from MP.0, and construct the actual positive-similitude GSp4 group, action on H₂, double cover, compatible Jacobi action, arithmetic subgroup and adelic realization. Resolve the stabilizer and level misprints recorded here. Specify slash-operator branch, central character, K-type, section I_s and the original newform versus its Fricke transform. Every new definition needs its API and three tests.
+## Validation and signature limits
 
-2. Theta and Fourier analysis in BFH §2, pp.551–557: construct genus-two theta series, prove normal convergence, Gaussian orthogonality (Proposition 2.1, whose proof is omitted in BFH and referred to Eichler–Zagier Theorem 5.3), Fourier extraction (2.2)–(2.3), and the holomorphic contour translation establishing (2.9). Then instantiate coefficient-invariants for B_j, establish the half-integral matrix/native quadratic-form dictionary as a reusable interface, prove Proposition 2.2 including the S-transform/branch and infinite-sum regrouping, and split Propositions 2.3, 2.5, 2.6, 2.7 and Corollaries 2.4, 2.8. Rank-one Jacobi forms and their already planned coefficient/theta results remain QM.1; no reverse MP.8 dependency on that consumer is introduced.
+The packet checker reports **0 errors, 0 warnings**. Intake checks report **four files, zero problems**. Manual checks confirm node/API/test names agree across deliverables, every definition/construction meets the three-item requirements, statuses are unchecked, excerpts obey the length limit and both dependency graphs are acyclic. No packet contains Lean code or private paths. Git whitespace checks pass.
 
-3. Cover-specific analysis: physical pp.17–71, printed558–612, are unread. Read and decompose the remainder of §3 and §§4–8 line by line: actual Whittaker kernels and K-types, local test functions, Eisenstein/Fourier coefficient expansions, initial convergence, constant terms, intertwining operators, meromorphic continuation, functional equations, singular hyperplanes and justified coefficient/residue interchanges. The beginning of §3 at p.557 and the end of §8 at pp.613–614 are read boundaries, not evidence that their intervening proofs are closed. Adapt AS.1–2 estimates to the double cover with explicit comparison theorems.
+The suggested file elaborated with **lean-check** in the shared pinned Mathlib build: **exit 0, zero errors, 309 warnings, all `declaration uses sorry`**. It has **152 named theorem/lemma signatures and 106 examples** (102 named tests and four additional inherited examples). No language server or library build was started. Suggested-file SHA-256: `fd7517ee0608a219534169a46a486b5c5fe1fcd91c5f966c6622d366ed2a4f09`.
 
-4. Complete source coverage: the campaign references Weil (1964), Kudla (1996), BFH/Friedberg–Hoffstein routes, and BFH cites Eichler–Zagier and Ziegler for Jacobi foundations. Obtain and read the passages required for the exact objects and proofs, resolving ownership against MP.0–7 and QM.1. The distinct BFH Annals131(1990),53–127 paper has not been read in this job and must not be confused with the Inventiones paper. No source-complete claim is made.
+Missing supplier interfaces are explicit in packet `signatureOmissions` and Lean comments. The arithmetic-adelic comparison has no pretended native signature. Raw-function sketches omit identified supplier conditions and are not unconditional mathematical claims; full mathematical statements are in the reader and packet. Available native measurable, integrable, continuous and convergence conditions are used; no opaque proposition or stored theorem conclusion substitutes for a missing object. Placeholders and compilation establish only that displayed signatures elaborate.
 
-5. BSD.2 export: state and prove the precise genus-two coefficient, local-factor, continuation and permissible-interchange outputs consumed by the twist-series comparison. BFH §9, pp.614–617, has been read to confirm m=N·rad(N), separation by K-types, the two-variable pole argument and infinitude of fundamental discriminants; the final twist residue, positivity/nonvanishing and simultaneous local-condition selection belong to RankZeroOneBSD:BSD.2 and are not nodes of MP.8. Reading the final argument does not supply its unread §3–8 premises.
+## Follow-up frontier
 
-Start with the actual Fourier coefficient and the contour translation on pp.552–553, preserving these node ids and the native quadratic-form interface. Acquire the cited orthogonality proof and justify the infinite sums before claiming the theta expansion. Read printed558–612 in batches of no more than three physical pages, inventorying each definition and key theorem and keeping BSD.2 ownership explicit. Recheck fresh main for suppliers and retain every correct existing item.
+Resume from the seven gaps and their exact consuming nodes, rather than restarting the finished BFH target inventory:
+
+1. Establish MP.4 rational/finite-place splitting, finite theta vector, dyadic lift and added similitude comparison with the MP.6 Jacobi dictionary.
+2. Read or prove Gradshteyn–Ryzhik 3.384.9 and 9.237 with exact branches, chambers and gamma factors.
+3. Read or prove Jacquet–Piatetski-Shapiro–Shalika §8.3.3 with uniform parameter, compact-convolution and differentiated hypotheses for both kinds of Whittaker bound.
+4. Read or prove Maass §11 and p.160: primitive symmetric-pair completion and rank-one normal form with precise congruence reductions.
+5. Obtain BFH Annals §5, reconcile its Bessel formula/measures and give the finite K-type construction omitted in Inventiones Proposition 3.15.
+6. Prove the omitted ramified P(s,0,r) regularity near s=2 by independent arithmetic factor calculations. Avoid circular use of E-regularity and P-regularity to establish each other.
+7. Complete the AS.1–2 genuine-cover adaptation: actual induced topology/Haar measures, convergence/differentiation bounds, normalized intertwiners, constant terms/poles, Fourier/residue exchanges and joint two-variable meromorphy.
+
+Discharge the fourteen contracts and replace partial signatures once supplier types exist. Independently verify the four source issues, all local root-count rows and completed-function normalizations. Independent review must assess this planning pass before follow-up/assembly. Scratch files are disposable; this note and the mathematical deliverables hold the continuation information.
