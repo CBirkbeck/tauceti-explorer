@@ -6,7 +6,8 @@ The arithmetic source hypotheses and carrier identifications listed in comments
 remain omitted where the pinned supplier APIs cannot express them (protocol §13).
 Read these as arithmetic signature prototypes under those hypotheses. The packet
 and reader contain the complete statements, not implementation claims. The prior
-independent review is preserved; this revision awaits a new review.
+independent review is preserved; round-two review accepts the source-backed plan.
+Its supplier gaps and omitted prototype conditions remain explicit.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369.
@@ -38,6 +39,9 @@ local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
 /- HE.1: the map includes the integral Jacobian/basepoint construction.
 Omitted: CM descent, exact level, Hodge denominator, fixed quotient and its degree.
 The map and CM point family are supplied data, not fabricated Prop witnesses. -/
+/- HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation
+Mathematical statement: Fix the descended CM family x_c, the level orientation, the integral cusp or d-cleared Hodge construction, and an actual fixed modular quotient φ:J→A defined over the base. Define P_c=φ([d x_c−d ξ])∈A(K[c]); the modular cusp branch has d=1. Keep deg φ and any Manin constant as data. Define y_K=Tr_{K[1]/K}P_1 separately: P_1 is generally not K-rational. In Lean the supplier geometry is an explicitly missing condition on the supplied CM points and map, not an invented CM-point carrier.
+-/
 def conductorPoint {X M : Type*} (φ : X → M) (x : ℕ → X) (c : ℕ) : M := by
   sorry
 
@@ -70,6 +74,9 @@ example : conductorPoint (id : ℤ → ℤ) (fun _ => (1 : ℤ)) 1 ≠
   sorry
 
 /- HE.4: the eigenvalues are supplied; no generic derivative operator is replanned. -/
+/- HeegnerPointEulerSystems:HE.4/heegner-coefficient-ideal
+Mathematical statement: Fix an odd prime p and an actual Hecke eigenvalue function a_ℓ. Set I_ℓ=(a_ℓ,ℓ+1)⊂Z_p and I_n=Σ_{ℓ|n}I_ℓ for squarefree n of admissible inert primes. The quotient is Z_p/I_n. For n=1 the empty sum is zero, so the coefficient module is the full Tate lattice, not its residual reduction. If n>1 then I_n=(p^M(n)) with M(n)=min_{ℓ|n}min(v_p(a_ℓ),v_p(ℓ+1)). An intersection/product would give the wrong modulus.
+-/
 def coefficientIdeal (p : ℕ) [Fact p.Prime] (a : ℕ → ℤ) (s : Finset ℕ) :
     Ideal ℤ_[p] := by
   sorry
@@ -105,6 +112,9 @@ example : coefficientIdeal 5 (fun ℓ => if ℓ = 19 then 10 else 25) {19, 149} 
 
 /- resInv is the actual restriction equivalence after torsion-invariant vanishing.
 Omitted: the continuous Galois field/coefficient carrier contract. -/
+/- HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K
+Mathematical statement: Under the proved torsion-invariant vanishing, inflation–restriction gives res:H¹_cont(K,E[p^m])≃H¹_cont(K[n],E[p^m])^𝒢_n for m≤M(n). Define c_m(n) as res⁻¹ of the Kummer class of ˜P_n. For integral conductor-one use the T_pE Kummer class of y_K. Without invariant vanishing, keep the H¹/H² kernel/cokernel terms and use the separate error-tolerant ES3/4 construction; there is no unrestricted unique inverse.
+-/
 def descendedClass {C I : Type*} [AddCommGroup C] [AddCommGroup I]
     (resInv : C ≃+ I) (z : I) : C := by
   sorry
@@ -141,6 +151,9 @@ example : (0 : ℤ) ≠ 1 ∧ (0 : ℤ →+ ℤ) 0 = (0 : ℤ →+ ℤ) 1 := by
 
 /- HE.5: χ must be a proved global action, not merely a local coefficient matrix.
 Omitted: the Heegner χ localization/change-of-group comparison and tensor carrier. -/
+/- HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system
+Mathematical statement: For the actual descended Heegner family κ_n, construct commuting global cohomology automorphisms χ_ℓ inducing the specified local Howard correction. Let χ_n=∏_{ℓ|n}χ_ℓ. Define κ′_n=χ_n⁻¹(κ_n)⊗σ_n in the cyclic tensor target. Then κ′ satisfies the strong ES1/3 edge relation and κ′_1=κ_1. A local non-G_K-linear coefficient automorphism alone cannot be postcomposed with global cocycles; a legitimate change-of-group action and its localization comparison must be supplied.
+-/
 def correctedClass {C : Type*} [AddCommGroup C] (χ : C ≃+ C) (κ : C) : C := by
   sorry
 
@@ -300,7 +313,7 @@ theorem inert_reduction_frobenius_congruence {F k : Type*} [Field F] [Field k] (
   sorry
 
 /- HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization
-For Zhang’s m∈Λ′+ and an admissible q∤m, reduction of x_m(n) at q is x_mq(n) in the definite Shimura set, using the matched optimal embedding and supersingular identification. For q|m, specialization is x_m/q(n) on the chosen vertex copy of the semistable reduction graph. Both formulas require the same CM/basepoint identifications and q splitting completely in the fields of definition used.
+For Zhang’s m∈Λ′+ and an admissible q∤m, reduction of x_m(n) at q is x_mq(n) in the definite Shimura set, using the matched optimal embedding and supersingular identification. For q|m, specialization is x_m/q(n) on the chosen vertex copy of the semistable reduction graph. Both formulas require the same CM/basepoint identifications and the prime λ=qO_K splitting completely in the CM fields of definition over K (in particular K[n]/K, since q∤n). Rational q is inert in K/Q; reduction uses residue field F_q².
 Prototype boundary: The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement. -/
 theorem quaternionic_reduction_specialization {X Xq : Type*} (reduction : X → Xq) (x : ℕ → X) (xq : ℕ → Xq) (n : ℕ) : reduction (x n) = xq n := by
   sorry
