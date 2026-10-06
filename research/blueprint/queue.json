@@ -28873,7 +28873,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraCompactifications--C0",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications--C0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #487"
   },
   {
    "id": "BP-ShimuraCompactifications--C6",
