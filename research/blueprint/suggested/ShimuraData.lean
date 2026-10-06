@@ -12,6 +12,8 @@ import Mathlib.NumberTheory.Real.Irrational
 import Mathlib.Data.Nat.ModEq
 import Mathlib.Geometry.Manifold.Complex
 import Mathlib.AlgebraicGeometry.Scheme
+import Mathlib.AlgebraicGeometry.Pullbacks
+import Mathlib.Topology.Connected.Clopen
 import TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.Weight
 import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
 import TauCeti.AlgebraicTopology.LocalCoefficient
@@ -86,10 +88,11 @@ theorem weightNormCocharacters (t : ℝˣ) (p q : ℤ) :
     t ^ (-p) * t ^ (-q) = t ^ (-(p+q)) := by sorry
 
 section Grading
-variable (V : Type*) [AddCommGroup V] [Module ℝ V]
+variable (V : Type*) [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
 
 /-- The grading is real; pure objects use the pinned canonical conjugation. -/
-structure GradedRealHodge where
+structure GradedRealHodge (V : Type*) [AddCommGroup V] [Module ℝ V]
+    [Module.Finite ℝ V] where
   weight : ℤ → Submodule ℝ V
   internal : DirectSum.IsInternal weight
   finiteSupport : {n | weight n ≠ ⊥}.Finite
@@ -97,6 +100,16 @@ structure GradedRealHodge where
     (Hodge.complexificationConjugation (weight n)) n
 
 def gradedRealHodge := GradedRealHodge V
+
+def gradedMk (weight : ℤ → Submodule ℝ V)
+    (internal : DirectSum.IsInternal weight)
+    (finiteSupport : {n | weight n ≠ ⊥}.Finite)
+    (pure : ∀ n, Hodge.HodgeStructureOn (ℂ ⊗[ℝ] weight n)
+      (Hodge.complexificationConjugation (weight n)) n) : gradedRealHodge V :=
+  ⟨weight, internal, finiteSupport, pure⟩
+
+lemma gradedExt (H K : gradedRealHodge V) (hweight : H.weight = K.weight)
+    (hpure : ∀ n, HEq (H.pure n) (K.pure n)) : H = K := by sorry
 
 lemma gradedWeight (H : gradedRealHodge V) (m n : ℤ) (h : m ≠ n) :
     Disjoint (H.weight m) (H.weight n) := by sorry
@@ -258,6 +271,15 @@ example : mumfordTateGroup Set.univ (MonoidHom.id ℂˣ) = ⊤ := by sorry
 example (T : Subgroup (Matrix.GeneralLinearGroup (Fin 2) ℂ)) (hT : T ≠ ⊤)
     (h : ℂˣ →* Matrix.GeneralLinearGroup (Fin 2) ℂ) (hh : h.range = T) :
     mumfordTateGroup Set.univ h ≠ ⊤ := by sorry
+-- These separate targets take the coordinate Hopf algebra of MT(V), supplied by R0.
+-- The identification with mumfordTateGroup and the finite-dimensional rational Hodge
+-- input are not expressible in this point prototype and are omitted. Reductivity additionally
+-- requires polarizability and H1/R6 semisimplicity; it is not a property of every Hopf algebra.
+lemma mumfordTateConnected (Hmt : TauCeti.FiniteTypeCommHopfAlgCat ℚ) :
+    TauCeti.geometricallyConnectedCommHopfAlgProperty ℚ Hmt.obj := by sorry
+lemma mumfordTateReductive (Hmt : TauCeti.FiniteTypeCommHopfAlgCat ℚ) :
+    TauCeti.reductiveCommHopfAlgProperty ℚ Hmt := by sorry
+
 -- Uses a supplied ambient rational similitude subgroup; H¹(A) extraction is omitted.
 def hodgeGeneric {G : Type*} [Group G] (MT GSp : Subgroup G) : Prop := MT = GSp
 lemma hodgeGenericBasis {G H : Type*} [Group G] [Group H]
@@ -331,6 +353,13 @@ lemma compactRealFactor {T : Type*} [AddCommGroup T] [Module ℝ T]
     ∀ x : T, x = 0 := by sorry
 -- Chart and symmetric-space structures are unavailable. These signatures retain the
 -- noncompact tangent and uniquely determined holomorphic tangent operator.
+-- The real algebraic supplier provides finiteness for G(ℝ); quotient charts provide
+-- a continuous surjective orbit map. This lemma is its general topological consequence.
+lemma hodgeOrbitFiniteComponents {G X : Type*} [TopologicalSpace G]
+    [TopologicalSpace X] [Finite (ConnectedComponents G)] (orbit : G → X)
+    (hcont : Continuous orbit) (hsurj : Function.Surjective orbit) :
+    Finite (ConnectedComponents X) := by sorry
+
 lemma hermitianDomainComponents {T : Type*} [AddCommGroup T] [Module ℝ T]
     (J : T →ₗ[ℝ] T) (hJ : J.comp J = -LinearMap.id) : ∀ x, J (J x) = -x := by sorry
 lemma uniqueComplexStructure {T : Type*} [AddCommGroup T] [Module ℝ T]
@@ -556,12 +585,18 @@ lemma reflexFinite {A : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
     (c : A) (K : IntermediateField ℚ Qbar) [FiniteDimensional ℚ K]
     (hK : K.fixingSubgroup ≤ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) c) :
     FiniteDimensional ℚ (reflexField c) := by sorry
--- Scheme descent and projectivity predicates are not included in the point prototype.
--- A descent datum and its effective projective descent are the R7/SF supplier target.
+-- X is the complex compact dual. The effective Galois descent datum and projectivity
+-- are unavailable supplier conditions, omitted here. The conclusion retains the actual
+-- scalar-extension comparison over ℂ; a scheme already given over E is not a descent proof.
 theorem reflexFlagDescent (X : AlgebraicGeometry.Scheme) (E : IntermediateField ℚ Qbar)
-    (structureMap : X ⟶ AlgebraicGeometry.Scheme.Spec.obj (Opposite.op (CommRingCat.of E))) :
-    ∃ Y : AlgebraicGeometry.Scheme,
-      Nonempty (Y ≅ X) ∧ Nonempty (Y ⟶ AlgebraicGeometry.Scheme.Spec.obj (Opposite.op (CommRingCat.of E))) := by sorry
+    (ι : E →+* ℂ)
+    (xToC : X ⟶ AlgebraicGeometry.Spec (CommRingCat.of ℂ)) :
+    ∃ (Y : AlgebraicGeometry.Scheme)
+      (yToE : Y ⟶ AlgebraicGeometry.Spec (CommRingCat.of E)),
+      ∃ e : CategoryTheory.Limits.pullback yToE
+          (AlgebraicGeometry.Spec.map (CommRingCat.ofHom ι)) ≅ X,
+        e.hom ≫ xToC = CategoryTheory.Limits.pullback.snd yToE
+          (AlgebraicGeometry.Spec.map (CommRingCat.ofHom ι)) := by sorry
 
 /- General Kostant combinatorics with supplier Coxeter data. The Coxeter/parabolic hypotheses
 on `len` and `M` are omitted from these signatures; minimality itself is explicit. -/
@@ -758,10 +793,16 @@ def adjointDatum (D : shimuraDatum) (A : Type) [Group A] (q : D.G →* A) : shim
   pointDatumOfHom (q.comp (Classical.choose D.orbit.nonempty))
 lemma adjointMorphism (D : shimuraDatum) (A : Type) [Group A] (q : D.G →* A) :
     ∃ f : datumMorphism D (adjointDatum D A q), ∀ x, f.val x = q x := by sorry
--- Missing algebraic adjoint/abelian quotient compatibility is omitted here.
+-- R6 supplies the finite kernel of the joint adjoint/abelian map, not its injectivity.
+-- Orbit maps are continuous in the supplied real-point topology. Connectedness of ℂˣ
+-- makes the ratio of two lifts into that finite central kernel constant, hence identity.
+-- The identification of these point maps with algebraic quotients remains omitted.
 lemma adjointDomainInjective (D : shimuraDatum) {A B : Type} [Group A] [Group B]
+    [TopologicalSpace D.G] [IsTopologicalGroup D.G] [T2Space D.G]
+    [ConnectedSpace ℂˣ]
     (q : D.G →* A) (ab : D.G →* B)
-    (joint : ∀ x y, q x = q y → ab x = ab y → x = y)
+    (jointKernel : Finite (q.ker ⊓ ab.ker))
+    (orbitContinuous : ∀ h ∈ D.orbit.X, Continuous h)
     (abelianOrbit : ∀ h ∈ D.orbit.X, ∀ k ∈ D.orbit.X, ab.comp h = ab.comp k) :
     Function.Injective (fun h : {h // h ∈ D.orbit.X} => q.comp h.val) := by sorry
 lemma adjointIdempotent {A : Type*} [Group A] : (MonoidHom.id A).comp (MonoidHom.id A) = MonoidHom.id A := by sorry
@@ -925,7 +966,8 @@ lemma neatLevelShrink {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
 lemma neatLevelGamma {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
     (eigen : Q → Set ℂˣ) (K : Subgroup A) (h : neatLevel ι eigen K) (a : A) :
     ∀ q ∈ K.comap ((MulAut.conj a⁻¹).toMonoidHom.comp ι), neat (eigen q) := by sorry
--- Principal-level congruence theorem is imported from V0; the point signature retains its N≥3 input.
+-- Principal-level congruence uses the D5 calculation and AA.3 rational lattice comparison.
+-- V0 is a downstream arithmeticity consumer; the signature retains its N≥3 input.
 -- TauCeti.Shimura.tests.levelPrincipal
 example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (eigen : Q → Set ℂˣ)
     (K : ℕ → Subgroup A) (congruence : ∀ N, 3 ≤ N → neatLevel ι eigen (K N)) : neatLevel ι eigen (K 3) := by sorry
@@ -968,7 +1010,8 @@ lemma componentGammaRepresentative {Q A X : Type*} [Group Q] [Group A] [MulActio
     (hq : q • C = C) (k : K) :
     componentSubgroup ι K (ι q * a * k) C =
       (componentSubgroup ι K a C).map (MulAut.conj q).toMonoidHom := by sorry
--- The determinant-positive and principal congruence identifications are supplied by V0.
+-- Determinant positivity is the component condition; principal congruence uses the D5
+-- calculation with the AA.3 lattice comparison, before downstream V0 arithmeticity.
 -- TauCeti.Shimura.tests.gammaGl2
 example {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
     (ι : Q →* A) (K : Subgroup A) (C : Set X) (q : Q) :
@@ -1270,7 +1313,8 @@ lemma gsp4CayleyAction (A B : Matrix (Fin 2) (Fin 2) ℝ)
       (Matrix.fromBlocks (S*A*S) (S*B) (-B*S) A)).map (algebraMap ℝ ℂ) * gsp4CayleyBasis =
       Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks ((S*A*S).map (algebraMap ℝ ℂ) - Complex.I • (S*B*S).map (algebraMap ℝ ℂ)) 0 0
         (A.map (algebraMap ℝ ℂ) + Complex.I • B.map (algebraMap ℝ ℂ))) := by sorry
--- Root lattice comes from RG2.5. This is half the sum for the corrected lower Borel.
+-- Absolute root and dual lattices come from R7; RG2.5 supplies dualization.
+-- This is half the sum for the corrected lower Borel; simples have coroots f₂−f₁,−f₂.
 lemma gsp4PilloniConvention :
     ((-1 : ℚ)+(-2)+(-1)+0)/2 = -2 ∧
     ((1 : ℚ)+0+(-1)+(-2))/2 = -1 := by sorry
