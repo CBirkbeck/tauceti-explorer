@@ -21665,9 +21665,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #671"
+   "note": "deliverables arrived from an external worker on issue #671",
+   "finishedAt": "2026-10-06T07:48:49Z"
   },
   {
    "id": "REV-AlgebraicModularFormsAndSerreWeights",
@@ -35571,7 +35572,8 @@
     "DESIGN-LV~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-LV~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6393"
   },
   {
    "kind": "design",
