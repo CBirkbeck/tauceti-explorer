@@ -33082,7 +33082,8 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6473"
   },
   {
    "id": "REV-ArithmeticKTheory--N.2",
