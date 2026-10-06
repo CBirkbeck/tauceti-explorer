@@ -1349,7 +1349,7 @@
       ],
       "title": "Every central extension of the finite-rank Steinberg group splits, for n at least five",
       "kind": "theorem",
-      "statement": "For n at least five every central extension of St_n(R) splits; consequently St_n(R) is the universal central extension of E_n(R).",
+      "statement": "For n at least five every central extension of St_n(R) splits. If the canonical surjection St_n(R) -> E_n(R) is separately known to have central kernel, then it is the universal central extension of E_n(R); centrality is not a consequence of splitting.",
       "hypotheses": [
         "R is an associative unital ring; n is at least five."
       ],
@@ -1358,7 +1358,8 @@
         "Choose distinct indices and elements over three generators, and show that the commutator subgroup of the subgroup they generate is abelian.",
         "Use the Hall-Witt style identity to show that the element defined as a commutator of two lifts does not depend on the intermediate index nor on the chosen lifts.",
         "Prove that these elements satisfy the Steinberg relations, so that they define a homomorphism from St_n(R) to the extension splitting it.",
-        "Gap G-lifted-relations: expand the Hall-Witt use, independence of the auxiliary index, and additivity of lifted generators; the source leaves the last calculation to the reader. Finite-rank centrality is not deduced from splitting."
+        "Gap G-lifted-relations: expand the Hall-Witt use, independence of the auxiliary index, and additivity of lifted generators; the source leaves the last calculation to the reader. Finite-rank centrality is not deduced from splitting.",
+        "For the conditional universality consequence, apply finite Steinberg perfectness and split-central-extension-universal to the canonical surjection to E_n(R), only after its centrality is separately supplied. This does not prove finite-rank centrality."
       ],
       "acceptance": [
         "The bound n at least five is used in the first step and is recorded, not smoothed over.",
@@ -1366,14 +1367,17 @@
         "The statement does not say that the kernel of the finite-rank map is central, which is the separate caveat below."
       ],
       "prerequisites": [
-        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank"
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/split-central-extension-universal"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.5.1 (PDF p. 228)",
           "excerpt": "Proposition 5.5.1. If n >= 5, every central extension Y -> St_n(R) is split. Hence St_n(R) is the universal central extension of E_n(R).",
-          "match": "The proposition, with the proof of the source followed step by step."
+          "match": "The splitting assertion and its proof. The printed finite-rank universality consequence requires the separate centrality input recorded in source issue K2SymbolsBrauer/E2."
         }
       ],
       "implementationStatus": "unchecked"
