@@ -1,0 +1,3038 @@
+{
+ "roadmapId": "GrossZagierAndArithmeticHeights",
+ "protocol": "blueprint-v1",
+ "part": "GZ.8",
+ "scope": [
+  "GrossZagierAndArithmeticHeights:GZ.8",
+  "GrossZagierAndArithmeticHeights:GZ.9"
+ ],
+ "status": "complete",
+ "summary": "Blueprint of GZ.8 and GZ.9 of Gross–Zagier formulas and arithmetic heights, at target level. GZ.8 plans the χ-isotypic Mordell–Weil space, the L-linear Néron–Tate pairing and the χ-Heegner point (integral and finite forms, related by the toric volume 2L(1, η)), states the Yuan–Zhang–Zhang formula as an identity of invariant bilinear forms with its vacuous case, the global sign −1 in the essential case and the nonvanishing criterion (Heegner points detect L', and conjugate derivatives vanish together by Rosati positivity), and specialises it: Gross–Zagier's main identity ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} and its corollaries (positivity, Galois invariance of low orders), the Gross–Zagier formula on X₀(N) for ring-class characters and its elliptic-curve form with degree and Manin constant (Cai–Shu–Tian Theorem 1.1), Cai–Shu–Tian's admissible orders, explicit formula and variation over totally real fields, the Shimura-curve formula over ℚ quoted by Skinner from YZZ Theorem 3.13, and the non-torsion criterion for the trace point that HeegnerPointEulerSystems HE.7 requests. GZ.9 plans the BDP anticyclotomic p-adic L-function in weight two (JSW's interpolation (5.1.a), for N⁻ = 1 and N⁻ > 1, f not necessarily ordinary), its relation to the square of the L3h square-root distribution, Brooks's quaternionic construction with its CM-value Waldspurger formula and Petersson ratio, the weight-two Abel–Jacobi/logarithm identification, the BDP weight-two Heegner-point formula (imported from GH.1's Theorem 5.13 at r = j = 0), Brooks's Proposition 8.13 = JSW Proposition 5.1.6 (with the missing square restored) and JSW's p-optimal form, the formula at a multiplicative prime (no exceptional zero; Castella), Skinner's integrality of the function in O^ur⟦Γ⟧ and his dictionary with BDP and Brooks, detection of non-torsion Heegner points by the logarithm (elementary for elliptic curves, through Burungale–Skinner–Wan's eigenlogarithm theorem in general), the Bloch–Kato/Kummer comparison, and compatibilities with isogenies, differentials, characters and anticyclotomic specialisation. RT-AREA-iwasawa-1/11 is resolved by giving L3h the square-root distribution and GH.1 BDP Theorem 5.13, with the stage edges recorded in restructure.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:TensorProduct",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+    "provides": "Tensor products, for A(K^ab) ⊗_M L and L ⊗_Q ℝ.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinMap",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+    "provides": "Bilinear maps, the type of the L-linear height pairing.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.Dual",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+    "provides": "Linear functionals, for the toric functional ℓ ∈ Hom(π ⊗ χ, L) and for log_ω.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.End.eigenspace",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+    "provides": "Eigenspaces of one endomorphism; the χ-isotypic space is the intersection of the eigenspaces of the σ_t.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.classNumber",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+    "provides": "The class number h_K.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.Units.torsionOrder",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+    "provides": "#μ(K), whose half is the unit index u.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "CM fields: K totally imaginary quadratic over a totally real field.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CuspForm",
+    "kind": "structure",
+    "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+    "provides": "Cusp forms of weight k for an arithmetic subgroup.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma0",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ₀(N).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:UpperHalfPlane.petersson",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/Petersson.lean",
+    "provides": "The Petersson integrand conj(f(τ))·f'(τ)·(Im τ)^k.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:UpperHalfPlane.peterssonInner",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
+    "provides": "∫_D conj(f)·g·(Im τ)^k dμ with dμ = dx dy / y²; for k = 2 and D a fundamental domain of Γ₀(N) it is CST's (φ, φ)_{Γ₀(N)} = ∫|φ|² dx dy.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:UpperHalfPlane.peterssonInner_self_re_nonneg",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
+    "provides": "The self-pairing has nonnegative real part.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:DirichletCharacter.LFunction",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    "provides": "Dirichlet L-functions, for L(1, η) with η the quadratic character of K/ℚ.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:riemannZeta",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "provides": "ζ(2) = ζ_ℚ(2) in the constant of the Gross–Zagier formula over ℚ.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Affine.Point",
+    "kind": "inductive",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+    "provides": "Points of a Weierstrass curve, the carrier of E(K).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+    "kind": "def",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+    "provides": "Tau Ceti's canonical height ½·lim h(x(2ⁿP))/4ⁿ, relative to the base field's admissible absolute values (the (O)-normalised height).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing",
+    "kind": "def",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+    "provides": "The halved polar form of canonicalHeight.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:FormalGroup",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+    "provides": "One-dimensional formal group laws, the carrier of the elliptic formal group.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:PowerSeries",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+    "provides": "R⟦T⟧ ≅ R[[Γ]] after choosing a topological generator of Γ ≅ ℤ_p.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:PowerSeries.eval₂",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+    "provides": "Evaluation of a power series at a point, meaningful at a topologically nilpotent element, i.e. at T = ψ(γ) − 1.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:QuadraticMap.polar",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+    "provides": "The polar form Q(x + y) − Q(x) − Q(y), the BSD pairing of a canonical height.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Algebra.trace",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Trace/Defs.lean",
+    "provides": "The trace of ℝ ⊗_ℚ M over ℝ, which recovers the rational pairing from the coefficient pairing.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsTopologicallyNilpotent",
+    "kind": "def",
+    "module": "Mathlib/Topology/Algebra/TopologicallyNilpotent.lean",
+    "provides": "The condition on ψ(γ) − 1 under which the evaluation is defined.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ContinuousMonoidHom",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+    "provides": "Continuous characters ψ : Γ → R^×.",
+    "checked": "statement read at the pinned commit"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "yzz-2013",
+   "title": "The Gross–Zagier Formula on Shimura Curves",
+   "authors": "Xinyi Yuan, Shou-Wu Zhang and Wei Zhang",
+   "edition": "Annals of Mathematics Studies 184, Princeton University Press, 2013. Not re-read in this job: no public copy was reachable (the publisher's text is paywalled and the authors' preprint links are gone). Every YZZ statement used here is the excerpt verified at its locator by the accepted integrated decomposition data/decompositions/GrossZagierAndArithmeticHeights.json (review independent-review-REVIEW-EXT-01-EXT-15), cross-checked against the public restatements in Zhang 2010 §4.2, Cai–Shu–Tian 2014 §1.2 and Skinner 2020 §2.5.",
+   "url": "https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184",
+   "readSections": [
+    "Not read directly. Used through the decomposition's verified excerpts of Chapter 1: Thm. 1.1 (p. 1), Secs. 1.2.1 and 1.3.1 (pp. 2–3, 6), Thm. 1.2 and the paragraph after it (p. 9), Sec. 1.5.3 (p. 14)."
+   ]
+  },
+  {
+   "id": "yzz-erratum-2026",
+   "title": "Erratum: Gross–Zagier Formula On Shimura Curves",
+   "authors": "Xinyi Yuan, Shou-Wu Zhang and Wei Zhang",
+   "edition": "Dated 28 June 2026. The host faculty.bicmr.pku.edu.cn did not answer from this machine on 2026-10-06; used only through the decomposition's verified record of items 1, 2, 4, 5, 15 and 16.",
+   "url": "https://faculty.bicmr.pku.edu.cn/~yxy/preprints/erratum-GZSC.pdf",
+   "readSections": [
+    "Not read directly; items 1, 2, 4, 5, 15, 16 as recorded and verified in data/decompositions/GrossZagierAndArithmeticHeights.json."
+   ]
+  },
+  {
+   "id": "zhang-2010",
+   "title": "Arithmetic of Shimura curves",
+   "authors": "Shou-Wu Zhang",
+   "edition": "Science China Mathematics 53 (2010), no. 3, 573–592, doi:10.1007/s11425-010-0046-2; author's PDF read 2026-10-06",
+   "url": "https://web.math.princeton.edu/~shouwu/publications/crmnote.pdf",
+   "sha256": "1f46be497752b0795dbef8b06b423ef7bea5203096d3480c6da2642c333e73f0",
+   "readSections": [
+    "§3.2–3.3 (Gross–Zagier formula for modular and Shimura curves over Q), §4.2 (Gross–Zagier formula over totally real fields, Theorem 4.2.1, the root-number set Σ and the toric measure of volume 2L(1,η)), §4.3 (Theorems 4.3.1–4.3.3)."
+   ]
+  },
+  {
+   "id": "cai-shu-tian-2014",
+   "title": "Explicit Gross–Zagier and Waldspurger formulae",
+   "authors": "Li Cai, Jie Shu and Ye Tian",
+   "edition": "arXiv:1408.1733v2 (18 Nov 2014); published in Algebra & Number Theory 8 (2014) 2523–2572; read 2026-10-06",
+   "url": "https://arxiv.org/abs/1408.1733v2",
+   "sha256": "8d908543404abfbd9c1708ad9af696c4fb71595701bd67cb5bff11b3a8d6ac43",
+   "readSections": [
+    "§1.1 (Theorems 1.1 and 1.2, the BSD comparison), §1.2 (setting, Definitions 1.3–1.4, Theorem 1.5 with Special cases 1–2 and the X_0(N) example, Theorem 1.6 with the X_0(36) example), §1.3 opening (root-number convention)."
+   ]
+  },
+  {
+   "id": "skinner-2020",
+   "title": "A converse to a theorem of Gross, Zagier, and Kolyvagin",
+   "authors": "Christopher Skinner",
+   "edition": "arXiv:1405.7294v1 (28 May 2014); published in Annals of Mathematics 191 (2020) 329–354; read 2026-10-06",
+   "url": "https://arxiv.org/abs/1405.7294v1",
+   "sha256": "9e4650618c83394c400a10e990759f9fba42113eedc79fe2fcbe029d6c8381ff",
+   "readSections": [
+    "§2.4 (Heegner points P_K(f) in Cases I and II), §2.5 (Proposition 2.5.1 and its derivation from YZZ Theorem 3.13, Corollary 2.5.2), §2.6 (the anticyclotomic p-adic L-function L_p^S(f), Proposition 2.6.1, Corollary 2.6.2)."
+   ]
+  },
+  {
+   "id": "jsw-2017",
+   "title": "The Birch and Swinnerton-Dyer formula for elliptic curves of analytic rank one",
+   "authors": "Dimitar Jetchev, Christopher Skinner and Xin Wan",
+   "edition": "arXiv:1512.06894v1 (21 Dec 2015), the latest arXiv version; published in Cambridge Journal of Mathematics 5 (2017) 369–434. Read the arXiv version 2026-10-06; locators are to it.",
+   "url": "https://arxiv.org/abs/1512.06894v1",
+   "sha256": "908562efdddaf46b2653317294cb65ae627802bc996400a779b1cd51b5a7d49d",
+   "readSections": [
+    "§3 opening ((split), (irred_K)), §4.1–4.2 ((H), (gen-H), (sign −1), the Shimura curve X_{N+,N−}, Remark 4.2.1), §5.1 in full (Σ_cc, the interpolation formula (5.1.a), Remark 5.1.1, Proposition 5.1.3, the incomplete L_p^Σ, Remark 5.1.4, Propositions 5.1.6–5.1.7 with proof)."
+   ]
+  },
+  {
+   "id": "brooks-2015",
+   "title": "Shimura curves and special values of p-adic L-functions",
+   "authors": "Ernest Hunter Brooks",
+   "edition": "International Mathematics Research Notices 2015, no. 12, 4177–4241, doi:10.1093/imrn/rnu062 (published version, EPFL Infoscience copy); read 2026-10-06, pages 62–63 also inspected as rendered images",
+   "url": "https://infoscience.epfl.ch/record/212373",
+   "sha256": "90898527cf2e7e69bb6eba200dc7646e7f61837fa310299852ea2b958f925219",
+   "readSections": [
+    "§1 (Theorem 1.1 and the outline), §6.4 (the case of weight two), §7 Proposition 7.4 and Lemma 7.5, §8 in full (8.1 character spaces, 8.2 Lemma 8.1 and Theorem 8.2, 8.3 Propositions 8.3–8.5 and Lemma 8.4, 8.4 Propositions 8.7–8.9 and Lemma 8.6, 8.5 Proposition 8.10 and Theorem 8.11, 8.6 Propositions 8.12–8.13)."
+   ]
+  },
+  {
+   "id": "bdp-2013",
+   "title": "Generalized Heegner cycles and p-adic Rankin L-series",
+   "authors": "Massimo Bertolini, Henri Darmon and Kartik Prasanna (appendix by Brian Conrad)",
+   "edition": "Duke Mathematical Journal 162 (2013), no. 6, 1033–1148, doi:10.1215/00127094-2142056 (published version, from Darmon's publication page); read 2026-10-06",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
+   "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc",
+   "readSections": [
+    "Introduction, the r = j = 0 discussion (pp. 1038–1039), Remark 2.6 and Proposition 2.7, §5 in full (5.1 Theorems 5.1, 5.4, 5.5 and Lemmas 5.2–5.3; 5.2 the p-adic period (5.2.2), the definition (5.2.3)–(5.2.4), Theorems 5.7 and 5.9, Proposition 5.10, Remark 5.11; 5.3 Assumption 5.12, Theorem 5.13 with proof)."
+   ]
+  },
+  {
+   "id": "castella-hsieh-2018",
+   "title": "Heegner cycles and p-adic L-functions",
+   "authors": "Francesc Castella and Ming-Lun Hsieh",
+   "edition": "arXiv:1505.08165v2 (7 Jan 2017); published in Mathematische Annalen 370 (2018) 567–628; read 2026-10-06",
+   "url": "https://arxiv.org/abs/1505.08165v2",
+   "sha256": "a98f9f37a45f46b55968e1fde8fc952b909dda91e6239dafc1dd3688fd8b9755",
+   "readSections": [
+    "§3.3 (Definition 3.4, the toric period, Proposition 3.6, Definition 3.7 of the measure L_{p,ψ}(f), Proposition 3.8, Theorem 3.9), §4.5 (Bloch–Kato logarithm, Theorem 4.9)."
+   ]
+  },
+  {
+   "id": "castella-2020-exceptional",
+   "title": "On the exceptional specializations of big Heegner points",
+   "authors": "Francesc Castella",
+   "edition": "arXiv:1507.04260v1 (15 Jul 2015; manuscript dated 19 Sep 2018); published in Journal of the Institute of Mathematics of Jussieu. Read the arXiv version 2026-10-06; locators are to it.",
+   "url": "https://arxiv.org/abs/1507.04260v1",
+   "sha256": "f58fcad0d1869ee6888d97b4b73b9a86a806abb95170e7800ae800d62e13a2cf",
+   "readSections": [
+    "Introduction (the exceptional zero (0.3), the L-invariant (0.4) and the main theorem), §2.5 (Theorems 2.10 and 2.11, the semistable p-adic Gross–Zagier formula), §3.4 (Theorem 3.11)."
+   ]
+  },
+  {
+   "id": "castella-2018-multiplicative",
+   "title": "On the p-part of the Birch–Swinnerton-Dyer formula for multiplicative primes",
+   "authors": "Francesc Castella",
+   "edition": "arXiv:1704.06608v2 (14 Jun 2017); published in Cambridge Journal of Mathematics 6 (2018). Read the arXiv version 2026-10-06; locators are to it.",
+   "url": "https://arxiv.org/abs/1704.06608v2",
+   "sha256": "23e3ab4e9d99ceba88d3aaf0fa0612b60ac728086f82555f951f4e1853323081",
+   "readSections": [
+    "§1 (introduction, the p-adic Waldspurger formula (1.c) for p | N and the role of the L-invariant), §3 (Theorem 3.1 with proof, (3.1), Theorem 3.2 with proof)."
+   ]
+  },
+  {
+   "id": "gross-zagier-1986",
+   "title": "Heegner points and derivatives of L-series",
+   "authors": "Benedict H. Gross and Don B. Zagier",
+   "edition": "Inventiones mathematicae 84 (1986), 225–320 (published scan from wstein.org, no text layer; pages inspected as rendered images 2026-10-06)",
+   "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
+   "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
+   "readSections": [
+    "Chapter I §5 (pp. 229: (5.1)–(5.5)), §6 (p. 230: Theorems (6.1)–(6.3), (6.4), (6.5)); Chapter V §1 (pp. 307–309: the coefficient identity, the proof of Theorem (6.3), Corollaries (1.1)–(1.3)), §2 (p. 311: Theorem (2.1), Conjectures (2.2)–(2.3))."
+   ]
+  },
+  {
+   "id": "bsw-2026",
+   "title": "A refined non-vanishing of the p-adic logarithm of a rational point on an abelian variety",
+   "authors": "Ashay Burungale, Christopher Skinner and Xin Wan",
+   "edition": "arXiv:2603.20886v2 (10 May 2026); read 2026-10-06",
+   "url": "https://arxiv.org/abs/2603.20886v2",
+   "sha256": "f2b4a020bf5dbcd33df3a4b30cbf27230dc0d0775312f5e543b03b2486f6a994",
+   "readSections": [
+    "§1.1–1.4 (the BDP formula (1.1), the question about every eigenlogarithm, Theorem 1.1), §2.3 (Theorem 2.8 for χ-twisted Heegner-type points)."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The χ-isotypic Mordell–Weil space A(χ)",
+   "kind": "construction",
+   "statement": "Let F be a totally real field, K/F a totally imaginary quadratic extension, A/F a simple abelian variety of strict GL(2)-type with M = End⁰(A) a field, L a finite extension of M and χ : K^× \\ 𝔸_K^× → L^× a Hecke character of finite order. Put A(K^ab)_ℚ = A(K^ab) ⊗_ℤ ℚ, an M-module through End⁰(A), and let 𝔸_K^× act on A(K^ab)_ℚ ⊗_M L through the reciprocity map t ↦ σ_t (GZ.0's convention). Define A(χ) = {x ∈ A(K^ab)_ℚ ⊗_M L : σ_t x = χ(t)^{-1} x for all t ∈ 𝔸_K^×}; the exponent is fixed so that the χ-Heegner point P_χ(f) = ∫ f(P)^{σ_t} χ(t) dt lies in A(χ), as in YZZ Thm. 1.2, where P_χ(f1) ∈ A(χ) is paired with P_{χ^{-1}}(f2) ∈ A^∨(χ^{-1}). If χ factors through Gal(H/K) for a finite abelian H/K, then A(χ) is the image of the idempotent e_χ = [H:K]^{-1} Σ_{σ ∈ Gal(H/K)} χ(σ) σ on A(H)_ℚ ⊗_M L, and it is a finite-dimensional L-vector space.",
+   "hypotheses": [
+    "A simple of strict GL(2)-type over F, M = End⁰(A) a field (YZZ Sec. 1.2.3; CST §1.2).",
+    "χ of finite order with values in L ⊇ M; the reciprocity convention is GZ.0's (arithmetic Frobenius), and changing it replaces A(χ) by A(χ^{-1}).",
+    "Finite dimensionality uses the Mordell–Weil theorem for A over the number field H."
+   ],
+   "proofSteps": [
+    "σ_t acts L-linearly on A(K^ab)_ℚ ⊗_M L because the Galois action commutes with End⁰(A) for A defined over F ⊂ K.",
+    "For χ factoring through G = Gal(H/K), the elements e_χ are orthogonal idempotents in L[G] summing to 1 (character orthogonality for the finite abelian group G with |G| invertible in L), so A(H)_ℚ ⊗_M L = ⊕_χ e_χ(A(H)_ℚ ⊗_M L) and e_χ projects onto the χ-eigenspace.",
+    "A point fixed by Gal(K^ab/H) lies in A(H)_ℚ (Galois descent for A(H) = A(K^ab)^{Gal(K^ab/H)} after ⊗ℚ), so A(χ) ⊂ A(H)_ℚ ⊗_M L, which is finite-dimensional by Mordell–Weil."
+   ],
+   "acceptance": [
+    "For χ = 1, A(χ) = A(K)_ℚ ⊗_M L.",
+    "Torsion points contribute nothing: A(K^ab)_tors ⊗ ℚ = 0.",
+    "Replacing the arithmetic by the geometric reciprocity convention exchanges A(χ) and A(χ^{-1}) (GZ.0/artin-map-convention)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention",
+    "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+    "mathlib:TensorProduct",
+    "mathlib:Module.End.eigenspace",
+    "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients"
+   ],
+   "uses": [
+    {
+     "where": "YZZ Thm. 1.2 (p. 9)",
+     "how": "the target space of P_χ(f) and the domain of the L-linear pairing ⟨·,·⟩_L"
+    },
+    {
+     "where": "CST Theorem 1.5",
+     "how": "P⁰_χ(f) ∈ A(K^ab)_ℚ ⊗_M L lies in the χ-eigenspace"
+    },
+    {
+     "where": "Zhang 2010, Theorem 4.3.1(2)",
+     "how": "dim (A(K^ab) ⊗ ℂ)^χ is the rank statement of Tian–Zhang"
+    },
+    {
+     "where": "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+     "how": "for χ = 1 the rank of A(K) over O_L is read off from A(1)"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic",
+     "role": "constructor",
+     "statement": "A(χ) as the L-submodule {x | ∀ t, σ_t • x = χ(t)^{-1} • x} of a module with a commuting group action."
+    },
+    {
+     "name": "TauCeti.GrossZagier.mem_chiIsotypic_iff",
+     "role": "characterisation",
+     "statement": "x ∈ A(χ) ↔ ∀ t, σ_t • x = χ(t)^{-1} • x."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiProjector",
+     "role": "data",
+     "statement": "e_χ = |G|^{-1} Σ_σ χ(σ) • σ for a finite abelian quotient G."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiProjector_mem",
+     "role": "projection",
+     "statement": "e_χ x ∈ A(χ) for every x."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiProjector_of_mem",
+     "role": "simp",
+     "statement": "x ∈ A(χ) → e_χ x = x."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic_one",
+     "role": "compatibility",
+     "statement": "A(1) is the submodule of K-rational vectors (fixed by every σ_t)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic_disjoint",
+     "role": "relation",
+     "statement": "A(χ) ⊓ A(χ') = ⊥ for χ ≠ χ'."
+    },
+    {
+     "name": "TauCeti.GrossZagier.sum_chiProjector",
+     "role": "relation",
+     "statement": "Σ_χ e_χ = 1 on vectors fixed by the kernel of G."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic_trivial_eq_fixed",
+     "kind": "degenerate",
+     "statement": "For χ = 1 the χ-isotypic subspace is the space of vectors fixed by every σ_t (A(1) = A(K)_ℚ ⊗_M L)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiProjector_idem",
+     "kind": "characterisation",
+     "statement": "e_χ ∘ e_χ = e_χ, and e_χ ∘ e_χ' = 0 for χ ≠ χ' (orthogonal idempotents)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic_quadratic_sign",
+     "kind": "computation",
+     "statement": "For G = ℤ/2 acting on V = L² by swapping coordinates and χ the nontrivial character, A(χ) = {(a, −a)}, while A(1) = {(a, a)}."
+    },
+    {
+     "name": "TauCeti.GrossZagier.chiIsotypic_ne_whole",
+     "kind": "non-example",
+     "statement": "A(χ) is not A(H)_ℚ ⊗_M L: for G = ℤ/2 swapping coordinates, (1, 0) lies in neither eigenspace."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "<.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate height pairing induced by the M-linear Neron-Tate height pairing",
+     "match": "A(χ) is the domain of YZZ's L-linear pairing."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, before Theorem 1.5, p. 6",
+     "excerpt": "Define a Heegner cycle associated to (π, χ) to be P⁰_χ(f) := Σ_{t∈Pic_{K/F}(O_{c1})} f(P)^{σ_t} χ(t) ∈ A(K^ab)_Q ⊗_M L",
+     "match": "The ambient space A(K^ab)_ℚ ⊗_M L and the reciprocity action t ↦ σ_t."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.3, Theorem 4.3.1(2), p. 588",
+     "excerpt": "dim(AΠ(E^ab) ⊗ C)^χ = deg LΠ(χ) where (AΠ(E^ab) ⊗ C)^χ is the χ-eigen subspace of AΠ(E^ab) ⊗ C under action by Gal(E^ab/E)",
+     "match": "The χ-eigenspace as the object whose dimension the BSD consequences control."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/HeightFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The L-linear Néron–Tate pairing on A(χ) × A^∨(χ^{-1})",
+   "kind": "construction",
+   "statement": "Let ⟨·,·⟩_K : A(K̄)_ℚ × A^∨(K̄)_ℚ → ℝ be the Néron–Tate pairing over K from the Poincaré biextension (GZ.1), normalised relative to K. Let ⟨·,·⟩_{K,M} : A(K̄)_ℚ ⊗_M A^∨(K̄)_ℚ → M ⊗_ℚ ℝ be the unique M-bilinear pairing with ⟨·,·⟩_K = tr_{M⊗ℝ/ℝ} ∘ ⟨·,·⟩_{K,M}, for the action of M on A^∨ by dual endomorphisms (Rosati-transposed). Its L-linear extension ⟨·,·⟩_{K,L} : (A(K̄)_ℚ ⊗_M L) ⊗_L (A^∨(K̄)_ℚ ⊗_M L) → L ⊗_ℚ ℝ restricts to a pairing A(χ) × A^∨(χ^{-1}) → L ⊗_ℚ ℝ; it is zero on A(χ) × A^∨(χ') for χ' ≠ χ^{-1}.",
+   "hypotheses": [
+    "A of strict GL(2)-type with M = End⁰(A) a field; L a finite extension of M.",
+    "Heights relative to K: the pairing over a finite extension H/K is [H:K] times the pairing over K (YZZ Thm. 1.1 uses the pairing over H, written ⟨,⟩^H_NT)."
+   ],
+   "proofSteps": [
+    "Existence and uniqueness of ⟨,⟩_{K,M}: M ⊗ ℝ is a product of copies of ℝ and ℂ, the trace form on it is nondegenerate, and the pairing (x, y) ↦ ⟨m x, y⟩_K is ℚ-bilinear in m; take the element of M ⊗ ℝ representing m ↦ ⟨m x, y⟩_K under the trace form (CST §1.2).",
+    "Galois invariance of the Néron–Tate pairing, ⟨σx, σy⟩ = ⟨x, y⟩, gives ⟨σ_t x, σ_t y⟩_{K,L} = ⟨x, y⟩_{K,L}; for x ∈ A(χ), y ∈ A^∨(χ') this forces (χχ'(t) − 1)⟨x, y⟩ = 0, so the pairing vanishes unless χ' = χ^{-1}."
+   ],
+   "acceptance": [
+    "Restricted to χ = 1, M = L = ℚ and A = E an elliptic curve with its principal polarisation, ⟨P, P⟩_{K,L} equals the K-relative BSD pairing ⟨P, P⟩_BSD of GZ.0, i.e. twice Tau Ceti's canonicalHeight over K.",
+    "The pairing kills torsion and is ℝ-valued after tr_{L⊗ℝ/ℝ}."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.1",
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+    "mathlib:LinearMap.BilinMap",
+    "mathlib:TensorProduct",
+    "mathlib:Algebra.trace",
+    "mathlib:QuadraticMap.polar"
+   ],
+   "uses": [
+    {
+     "where": "YZZ Thm. 1.2 (p. 9)",
+     "how": "the left side ⟨P_χ(f1), P_{χ^{-1}}(f2)⟩_L of the Gross–Zagier identity"
+    },
+    {
+     "where": "CST Theorems 1.5–1.6",
+     "how": "⟨P⁰_χ(f1), P⁰_{χ^{-1}}(f2)⟩_{K,L} on the explicit side"
+    },
+    {
+     "where": "Skinner 2020, Prop. 2.5.1",
+     "how": "⟨P_K(f), P_K(f)⟩_L = ⟨P_K(f), λ(P_K(f))⟩_NT for a polarisation λ"
+    },
+    {
+     "where": "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+     "how": "positivity of the Hermitian self-pairing turns one nonzero derivative into all"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing",
+     "role": "constructor",
+     "statement": "The unique M-bilinear pairing whose trace is the ℚ-bilinear Néron–Tate pairing."
+    },
+    {
+     "name": "TauCeti.GrossZagier.trace_coeffPairing",
+     "role": "characterisation",
+     "statement": "tr_{M⊗ℝ/ℝ}(⟨x, y⟩_{K,M}) = ⟨x, y⟩_K."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_smul_left",
+     "role": "simp",
+     "statement": "⟨m x, y⟩_{K,M} = m ⟨x, y⟩_{K,M} for m ∈ M."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_smul_right",
+     "role": "simp",
+     "statement": "⟨x, m^† y⟩_{K,M} = m ⟨x, y⟩_{K,M}, with m^† the dual endomorphism."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_galois",
+     "role": "relation",
+     "statement": "⟨σx, σy⟩_{K,L} = ⟨x, y⟩_{K,L} for σ ∈ Gal(K̄/K)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_chi_orthogonal",
+     "role": "relation",
+     "statement": "⟨A(χ), A^∨(χ')⟩_{K,L} = 0 unless χ' = χ^{-1}."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_torsion_left",
+     "role": "other",
+     "statement": "The pairing vanishes on torsion points."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_elliptic",
+     "role": "compatibility",
+     "statement": "For A = E with M = L = ℚ and its principal polarisation, ⟨P, Q⟩_{K,L} = bsdHeightPairing over K (GZ.0)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_rat",
+     "kind": "degenerate",
+     "statement": "If M = L = ℚ the coefficient pairing equals the ℚ-bilinear Néron–Tate pairing (the trace is the identity)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_trace_qsqrt5",
+     "kind": "computation",
+     "statement": "For M = ℚ(√5) and a pairing with ⟨x, y⟩_{K,M} = a + b√5, the rational pairing is 2a (trace), and ⟨√5·x, y⟩_K = 10b."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_eq_bsd",
+     "kind": "compatibility",
+     "statement": "For an elliptic curve with M = L = ℚ, ⟨P, P⟩_{K,L} = 2 · canonicalHeight P over K, the BSD pairing of GZ.0."
+    },
+    {
+     "name": "TauCeti.GrossZagier.coeffPairing_not_trace",
+     "kind": "non-example",
+     "statement": "The rational pairing is not M-bilinear when M ≠ ℚ: ⟨√5 x, y⟩_K ≠ √5 ⟨x, y⟩_K in general; only the coefficient pairing is."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, before Theorem 1.5, p. 6",
+     "excerpt": "Let ⟨,⟩_{K,M} : A(K̄)_Q ⊗_M A∨(K̄)_Q → M ⊗_Q R be the unique M-bilinear pairing such that ⟨,⟩_K = tr_{M⊗R/R} ⟨,⟩_{K,M}.",
+     "match": "The coefficient pairing and its trace characterisation."
+    },
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "Here <.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate height pairing induced by the M-linear Neron-Tate height pairing <.,.>_M between A(F) and A-dual(F).",
+     "match": "The pairing in YZZ's main theorem."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/HeightFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The χ-Heegner point P_χ(f) and its finite form P⁰_χ(f)",
+   "kind": "construction",
+   "statement": "In the setting of YZZ Sec. 1.3 (B an incoherent quaternion algebra over 𝔸 = 𝔸_F with #Σ(B) odd and B_∞ totally definite, X the Shimura curve system, K/F totally imaginary with a fixed embedding 𝔸_K ↪ B, π_A = Hom⁰_ξ(X, A)), let P ∈ X^{K^×}(K^ab) be a CM point, fixed by K^× (HE.1). For f ∈ π_A put P_χ(f) = ∫_{K^× \\ 𝔸_K^× / 𝔸^×} f(P)^{σ_t} χ(t) dt ∈ A(K^ab)_ℚ ⊗_M L, where dt is the Haar measure of total volume vol(K^× \\ 𝔸_K^× / 𝔸^×) = 2L(1, η) (erratum-corrected; GZ.0), and f(P) uses the ξ-normalised base point so that f(P) ∈ A(K^ab)_ℚ. If f is invariant under U and χ is trivial on Ô_c^× for an order O_c with U ∩ K̂^× ⊇ Ô_c^×, the integrand factors through Pic_{K/F}(O_c) = K̂^× / K^× F̂^× Ô_c^×, and the finite form is P⁰_χ(f) = Σ_{t ∈ Pic_{K/F}(O_c)} f(P)^{σ_t} χ(t) (CST §1.2). Both satisfy σ_s P = χ(s)^{-1} P for every s ∈ 𝔸_K^×, so they lie in A(χ) as normalised in chi-isotypic-mordell-weil-space.",
+   "hypotheses": [
+    "χ of finite order with ω_A · χ|_{𝔸_F^×} = 1, so the integrand is 𝔸^×-invariant and the integral over K^× \\ 𝔸_K^× / 𝔸^× is defined.",
+    "The measure is the erratum-corrected toric measure of volume 2L(1, η), not a Tamagawa measure (YZZ erratum items 4, 10, 13; GZ.0).",
+    "The base point is the normalised Hodge class ξ (GZ.3); on X₀(N) a rational cusp gives the same f-isotypic point because cuspidal divisors are Eisenstein (Skinner §2.4)."
+   ],
+   "proofSteps": [
+    "CM theory (HE.1/canonical-model-cm-descent): P is defined over K^ab and σ_t acts on X^{K^×} through the Hecke action of t; f is Galois-equivariant, so t ↦ f(P)^{σ_t} χ(t) is a locally constant function on K^× \\ 𝔸_K^× / 𝔸^× with values in a finite-dimensional ℚ-space, and the integral is a finite sum.",
+    "Changing variables u = st gives σ_s P_χ(f) = ∫ f(P)^{σ_u} χ(s^{-1}u) du = χ(s)^{-1} P_χ(f), so P_χ(f) ∈ A(χ); the opposite reciprocity convention exchanges χ and χ^{-1} (GZ.0/artin-map-convention).",
+    "The comparison with the finite form is the lemma toric-integral-versus-finite-sum."
+   ],
+   "acceptance": [
+    "For F = ℚ, B ramified only at ∞ (the modular case), U = U₀(N) and the Heegner condition, P⁰_χ(f) for f = (X₀(N) → E, ∞ ↦ O) is Σ_{[a]} f(P_a)χ([a]) with P_a the CM point C/a → C/a𝔑^{-1} (CST §1.1).",
+    "For χ = 1, P⁰_1(f) = Tr_{H_c/K} f(P) ∈ A(K)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space",
+    "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+    "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+    "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "mathlib:DirichletCharacter.LFunction"
+   ],
+   "uses": [
+    {
+     "where": "YZZ Thm. 1.2 (p. 9)",
+     "how": "both sides of the Gross–Zagier identity are functions of P_χ(f1), P_{χ^{-1}}(f2)"
+    },
+    {
+     "where": "CST Theorems 1.1, 1.5, 1.6",
+     "how": "the explicit formulas are stated for P⁰_χ(f) and its variant with the normalised integral"
+    },
+    {
+     "where": "RankZeroOneBSD:BSD.3",
+     "how": "the non-torsion Heegner point in E(K) is P⁰_1(f) = Tr f(P)"
+    },
+    {
+     "where": "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+     "how": "the point y = Tr_{K(x)/K} ι_A(x) is P⁰_1(f) for the quotient map f"
+    },
+    {
+     "where": "Gross–Zagier I (6.3)",
+     "how": "ĥ(c_{χ,f}) of the f-isotypical component of c_χ is the arithmetic side"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite",
+     "role": "constructor",
+     "statement": "P⁰_χ(x) = Σ_{g ∈ G} χ(g) • (g • x) for a finite group G acting on a module and a character χ."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_smul",
+     "role": "relation",
+     "statement": "P⁰_χ(h • x) = χ(h)^{-1} • P⁰_χ(x)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_mem_chiIsotypic",
+     "role": "projection",
+     "statement": "h • P⁰_χ(x) = χ(h)^{-1} • P⁰_χ(x), so P⁰_χ(x) ∈ A(χ)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_one",
+     "role": "simp",
+     "statement": "P⁰_1(x) = Σ_g g • x, the trace."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_add",
+     "role": "simp",
+     "statement": "P⁰_χ(x + y) = P⁰_χ(x) + P⁰_χ(y)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_map",
+     "role": "functoriality",
+     "statement": "For an equivariant linear map φ, P⁰_χ(φ x) = φ(P⁰_χ x): the Heegner point of a composite parametrisation is the image point."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerIntegral_eq",
+     "role": "compatibility",
+     "statement": "P_χ(f) = (2L(1,η)/#Pic_{K/F}(O_c)) · P⁰_χ(f) (lemma toric-integral-versus-finite-sum)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_inv_eq_gz",
+     "role": "compatibility",
+     "statement": "Gross–Zagier's eigencomponent c_χ = Σ_σ χ^{-1}(σ) c^σ is P⁰_{χ^{-1}}(c) in this notation; the two conventions differ by χ ↔ χ^{-1} (GZ.0/artin-map-convention)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_trivial_group",
+     "kind": "degenerate",
+     "statement": "For G trivial, P⁰_χ(x) = x."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_sign_char",
+     "kind": "computation",
+     "statement": "For G = ℤ/2 = {1, σ} and χ(σ) = −1, P⁰_χ(x) = x − σx; for x = (1, 0) in L² with σ swapping coordinates, P⁰_χ(x) = (1, −1)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_fixed_nontrivial",
+     "kind": "non-example",
+     "statement": "If x is G-fixed and χ ≠ 1 then P⁰_χ(x) = 0: a K-rational point has no χ-component for a nontrivial χ."
+    },
+    {
+     "name": "TauCeti.GrossZagier.heegnerFinite_one_eq_trace",
+     "kind": "compatibility",
+     "statement": "For χ = 1, P⁰_1(x) is the trace Σ_g g • x, the point y_K = Tr_{H/K} P of HE.1."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, before Theorem 1.5, p. 6",
+     "excerpt": "Fix a point P ∈ X^{K×} and let f ∈ V(π, χ) be a non-zero vector. Define a Heegner cycle associated to (π, χ) to be P⁰_χ(f) := Σ_{t∈Pic_{K/F}(O_{c1})} f(P)^{σ_t} χ(t)",
+     "match": "The finite form of the χ-Heegner point."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.2, p. 587",
+     "excerpt": "Pχ = ∫_{Gal(E^ab/E)} χ(σ)^{-1}(P^σ − ξ_{P^σ}) dσ ∈ Alb(X)(E^ab) ⊗ C with respect to a Haar measure of volume 2L(1, η)",
+     "match": "The integral form with the toric measure of volume 2L(1, η) and the Hodge-class base point."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Theorem 1.6, p. 8",
+     "excerpt": "P⁰_χ(f′) = #Pic(O_{c1}) / Vol(K^× F̂^× \\ K̂^×, dt) · ∫ f′(P)^{σ_t} χ(t) dt",
+     "match": "The normalised integral that recovers P⁰_χ from the integral form."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter I §6, p. 230",
+     "excerpt": "We identify χ with a character of Gal(H/K), and define c_χ = Σ_σ χ^{-1}(σ) c^σ in the χ-eigenspace of J(H) ⊗ ℂ. (This is h times the standard eigencomponent.)",
+     "match": "The classical eigencomponent and its normalisation."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/HeightFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "χ-Heegner point"
+   }
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/toric-integral-versus-finite-sum",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Toric integral versus finite trace",
+   "kind": "lemma",
+   "statement": "Let f ∈ π_A be invariant under an open compact U ⊂ B_f^× and χ trivial on Ô_c^×, where O_c is an order of K with Ô_c^× ⊂ U ∩ K̂^×, and assume the integrand of P_χ(f) is invariant under the archimedean torus. Then P_χ(f) = (vol / #Pic_{K/F}(O_c)) · P⁰_χ(f) with vol = vol(K^× \\ 𝔸_K^× / 𝔸^×) = 2L(1, η) for the erratum-corrected measure. Consequently ⟨P_χ(f1), P_{χ^{-1}}(f2)⟩_L = (2L(1,η)/#Pic_{K/F}(O_c))² ⟨P⁰_χ(f1), P⁰_{χ^{-1}}(f2)⟩_{K,L}, and every formula stated with P_χ converts to one with P⁰_χ by this square. For χ = 1 and F = ℚ, P⁰_1(f) is the trace Tr_{H_c/K} f(P) and the normalised average is P⁰_1(f)/h_c; their heights differ by h_c² (GZ.0/trace-versus-average).",
+   "hypotheses": [
+    "The integrand is locally constant and factors through the finite group Pic_{K/F}(O_c) = K̂^× / K^× F̂^× Ô_c^×.",
+    "The measure on K^× \\ 𝔸_K^× / 𝔸^× has total volume 2L(1, η) (erratum items 4, 10, 13)."
+   ],
+   "proofSteps": [
+    "The quotient K^× \\ 𝔸_K^× / 𝔸^× maps onto the finite group Pic_{K/F}(O_c) with fibres the cosets of the image of Ô_c^× K_∞^×; a Haar measure gives each fibre volume vol/#Pic_{K/F}(O_c).",
+    "Integrate the fibrewise constant function t ↦ f(P)^{σ_t} χ(t) and use bilinearity of ⟨,⟩_{K,L}.",
+    "For χ = 1 the sum over Pic(O_c) ≅ Gal(H_c/K) is the Galois trace; GZ.0/trace-versus-average converts traces to averages."
+   ],
+   "acceptance": [
+    "CST Theorem 1.6's normalisation #Pic(O_{c1}) / Vol(K^× F̂^× \\ K̂^×, dt) · ∫ is exactly the inverse of this factor, so the variation formula reproduces P⁰_χ.",
+    "For F = ℚ, K of class number one and c = 1: #Pic_{K/F}(O_K) = 1 and the factor is the whole toric volume 2L(1, η)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+    "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+    "mathlib:NumberField.classNumber"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Theorem 1.6, p. 8",
+     "excerpt": "P⁰_χ(f′) = #Pic(O_{c1}) / Vol(K^× F̂^× \\ K̂^×, dt) · ∫_{K^× F̂^× \\ K̂^×} f′(P)^{σ_t} χ(t) dt",
+     "match": "The ratio between the integral and the finite sum."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.2, p. 587",
+     "excerpt": "with respect to a Haar measure of volume 2L(1, η)",
+     "match": "The total volume of the toric measure."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/heegner-functional-equivariance",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The Heegner map is a toric-invariant functional",
+   "kind": "lemma",
+   "statement": "For t ∈ 𝔸_K^× ⊂ B^× acting on π_A by right translation, P_χ(π_A(t) f) = χ(t)^{-1} P_χ(f). Hence f ↦ P_χ(f) is an element of Hom_{𝔸_K^×}(π_A ⊗ χ, ℂ) ⊗ A(χ), after extending scalars along an embedding L ↪ ℂ; with the local toric spaces of GZ.4, it factors through ⊗_v Hom_{K_v^×}(π_{A,v} ⊗ χ_v, ℂ).",
+   "hypotheses": [
+    "ω_A · χ|_{𝔸_F^×} = 1 (YZZ's central-character condition)."
+   ],
+   "proofSteps": [
+    "CM theory: the Hecke action of t on X^{K^×} agrees with σ_t (HE.1/canonical-model-cm-descent), so (π(t)f)(P) = f(P)^{σ_t} up to the convention of GZ.0.",
+    "Substitute s = ts in the integral defining P_χ."
+   ],
+   "acceptance": [
+    "For F = ℚ and the classical Heegner points, translating the CM point by an ideal class a multiplies P⁰_χ by χ([a])^{-1} (CST's sum over Pic(O_c)).",
+    "The vanishing of the toric Hom space at one place forces P_χ = 0 (vacuous-case)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+    "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+    "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention"
+   ],
+   "sources": [
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.2, p. 587",
+     "excerpt": "NTχ((t1, t2)f) = χ^{-1}(t1)χ(t2)NTχ(f)",
+     "match": "The toric equivariance of the height distribution, whose source is the equivariance of P_χ."
+    },
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "If Sigma(B) not= Sigma(A, chi), the linear space is zero and thus both sides of the formula are zero.",
+     "match": "Both sides of Thm. 1.2 lie in the toric Hom spaces, which is what the equivariance gives."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The Yuan–Zhang–Zhang Gross–Zagier formula (YZZ Theorem 1.2)",
+   "kind": "theorem",
+   "statement": "Let F be totally real, B an incoherent quaternion algebra over 𝔸_F with ramification set Σ(B) of odd cardinality and B_∞ totally definite, X the Shimura curve system of B, A a simple abelian variety over F parametrised by X with M = End⁰(A) and π_A = Hom⁰_ξ(X, A), K/F totally imaginary quadratic with a fixed embedding 𝔸_K ↪ B, L ⊇ M a finite extension and χ : K^× \\ 𝔸_K^× → L^× of finite order with ω_A · χ|_{𝔸_F^×} = 1. Then, as an identity in L ⊗_ℚ ℂ, for all f1 ∈ π_A and f2 ∈ π_{A^∨}: ⟨P_χ(f1), P_{χ^{-1}}(f2)⟩_L = ζ_F(2) L'(1/2, π_A, χ) / (4 L(1, η)² L(1, π_A, ad)) · α(f1, f2). Here L(s, π_A, χ) is the base-change Rankin L-function L(s, π_{A,K} ⊗ χ) in the unitary normalisation (centre 1/2), α = ∏_v α_v is the product of the normalised local toric integrals of GZ.4, and the measures are the erratum-corrected ones (toric volume 2L(1, η)). The identity is first an equality of the two elements ⟨P_χ(·), P_{χ^{-1}}(·)⟩_L and α of the space Hom_{𝔸_K^×}(π_A ⊗ χ, ℂ) ⊗ Hom_{𝔸_K^×}(π_{A^∨} ⊗ χ^{-1}, ℂ), of dimension at most one; it is proved for factorisable f1, f2 and extended by bilinearity, and no zero pairing is placed in a denominator.",
+   "hypotheses": [
+    "A simple and parametrised by X; χ of finite order; ω_A · χ|_{𝔸_F^×} = 1.",
+    "B incoherent (#Σ(B) odd) and totally definite at infinity; K/F totally imaginary. These are the standing hypotheses of YZZ Secs. 1.2.1 and 1.3.1.",
+    "Root numbers in the base-change convention of the erratum: Σ(A, χ) = {v : ε(1/2, π_{A,v}, χ_v) ≠ χ_v(−1)}; Rankin–Selberg-over-F sources (Zhang 2010, CST) carry the extra η_v(−1), which is the same condition (GZ.0).",
+    "The tower X is a regular locally noetherian scheme only if #Σ(B) > 1 (erratum item 1); in the modular case Σ(B) = {∞} work with the finite-level curves X_U."
+   ],
+   "proofSteps": [
+    "Reduce to the projector form, YZZ Thm. 3.15: ⟨T(f1 ⊗ f2) P_χ, P_{χ^{-1}}⟩_NT = the same constant times α(f1 ⊗ f2), using T_alg(f1 ⊗ f2) = f2^∨ ∘ f1 and the projection formula for heights (YZZ Sec. 1.5.3).",
+    "Reduce Thm. 3.15 to the kernel identity (1.5.4) by the arithmetic theta lifting identity (1.5.5) (GZ.6).",
+    "Reduce the kernel identity for general Schwartz data to degenerate data using the one-dimensionality of the toric Hom spaces (GZ.4) and the local existence results (GZ.7).",
+    "Prove the degenerate kernel identity by decomposing both kernels over the nonsplit places: archimedean and good finite places by the local intersection computations, bad places by the nearby-quaternion approximation (GZ.7); the coherent kernels left over are perpendicular to σ by Saito–Tunnell at the nearby algebras B(v) (GZ.4).",
+    "The constant 4L(1, η)² (against 8L(1, η)² in Waldspurger's formula, GZ.5) comes from the toric measure of volume 2L(1, η) and the arithmetic theta lifting constant."
+   ],
+   "acceptance": [
+    "Vacuous case: if Σ(B) ≠ Σ(A, χ) both sides vanish (vacuous-case).",
+    "Essential case: Σ(B) = Σ(A, χ) forces ε(1/2, π_A, χ) = −1 (essential-case-root-number).",
+    "Specialisation F = ℚ, Σ(B) = {∞}, Heegner hypothesis: recovers CST Theorem 1.1 after toric-integral-versus-finite-sum and the comparison of α with the Petersson norm (classical-gross-zagier-formula).",
+    "Scaling: replacing f1 by c f1 multiplies both sides by c; replacing a local pairing by c times it multiplies α_v by c (decomposition review)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.8/heegner-functional-equivariance",
+    "GrossZagierAndArithmeticHeights:GZ.8/toric-integral-versus-finite-sum",
+    "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+    "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+    "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+    "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+    "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+    "GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "Theorem 1.2. Assume omega_A . chi|_{A_F^x} = 1. For any f1 in pi_A and f2 in pi_{A-dual}, <P_chi(f1), P_{chi^{-1}}(f2)>_L = [zeta_F(2) L'(1/2, pi_A, chi) / (4 L(1, eta)^2 L(1, pi_A, ad))] alpha(f1, f2)",
+     "match": "The theorem with its exact constant."
+    },
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, Secs. 1.2.1 and 1.3.1, printed pp. 2–3 and 6 (via the decomposition's verified excerpt)",
+     "excerpt": "Now assume that F is a totally real number field and that B is an incoherent quaternion algebra over A, totally definite at infinity ... Let E/F be a totally imaginary quadratic extension, with a fixed embedding E_A into B over A.",
+     "match": "The standing hypotheses."
+    },
+    {
+     "sourceId": "yzz-erratum-2026",
+     "locator": "Erratum items 1 and 16 (via the decomposition's verified record)",
+     "excerpt": "Change 'It is a regular scheme over F, locally noetherian but not of finite type' to 'If #Sigma > 1, it is a regular scheme over F, locally noetherian but not of finite type.'",
+     "match": "The structural restriction in the modular case."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.2, Theorem 4.2.1, p. 587",
+     "excerpt": "Theorem 4.2.1 (Gross-Zagier [2], Yuan-Zhang-Zhang [7]). NT_{π^JL,χ} = L′(1/2, π, χ) L(1, η) β_{π^JL,χ}.",
+     "match": "A public statement of the same theorem in distribution form, with the Rankin–Selberg root-number set Σ."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Yuan–Zhang–Zhang Gross–Zagier formula"
+   }
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/vacuous-case",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The zero case: vanishing of the toric Hom space",
+   "kind": "theorem",
+   "statement": "In the setting of the Yuan–Zhang–Zhang formula, suppose Σ(B) ≠ Σ(A, χ) (equivalently, Hom_{K_v^×}(π_{A,v} ⊗ χ_v, ℂ) = 0 for some place v, by the Saito–Tunnell dichotomy with the erratum's convention). Then P_χ(f) = 0 in A(χ) for every f ∈ π_A, and α(f1, f2) = 0 for all f1, f2; the Gross–Zagier identity holds as 0 = 0 and gives no information about L'(1/2, π_A, χ).",
+   "hypotheses": [
+    "ω_A · χ|_{𝔸_F^×} = 1.",
+    "Σ(A, χ) computed with ε(1/2, π_{A,v}, χ_v) ≠ χ_v(−1) (base-change convention)."
+   ],
+   "proofSteps": [
+    "By heegner-functional-equivariance, f ↦ P_χ(f) lies in Hom_{𝔸_K^×}(π_A ⊗ χ, ℂ) ⊗ A(χ), and a K_A^×-invariant functional on a restricted tensor product restricts to a nonzero local invariant functional at each v if it is nonzero.",
+    "By Saito–Tunnell (GZ.4) the local space at v is zero exactly when B_v is not the quaternion algebra prescribed by ε(1/2, π_{A,v}, χ_v) χ_v(−1); Σ(B) ≠ Σ(A, χ) means this happens at some v.",
+    "α is the product of local α_v, and α_v vanishes on the zero local Hom space."
+   ],
+   "acceptance": [
+    "Example: F = ℚ, K with a prime q | N inert in K and q ∥ N, χ = 1, and B = M₂ at q; then Σ(A, 1) contains q and P_1(f) = 0 for every parametrisation by the modular curve — the classical Heegner hypothesis is exactly what avoids this.",
+    "The vacuous case is recorded, not assumed away: the theorem is stated for all f1, f2."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/heegner-functional-equivariance",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity"
+   ],
+   "sources": [
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "If Sigma(B) not= Sigma(A, chi), the linear space is zero and thus both sides of the formula are zero. The theorem is vacuous in this case.",
+     "match": "The zero case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/essential-case-root-number",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Matching local signs force the global sign −1",
+   "kind": "theorem",
+   "statement": "If Σ(B) = Σ(A, χ), then the global root number is ε(1/2, π_A, χ) = ∏_v ε(1/2, π_{A,v}, χ_v) = (−1)^{#Σ(B)} = −1, so L(1/2, π_A, χ) = 0 and the Gross–Zagier identity concerns the first derivative. More generally ε(1/2, π_A, χ) = (−1)^{#Σ(A,χ)} whenever ω_A · χ|_{𝔸_F^×} = 1.",
+   "hypotheses": [
+    "ω_A · χ|_{𝔸_F^×} = 1, which gives ∏_v χ_v(−1) = χ(−1) = 1 for −1 ∈ F^× ⊂ K^×.",
+    "Base-change root numbers; in the Rankin–Selberg convention the same computation uses ∏_v η_v(−1) = 1."
+   ],
+   "proofSteps": [
+    "ε(1/2, π_A, χ) = ∏_v ε_v, and ε_v = χ_v(−1) for v ∉ Σ(A, χ), ε_v = −χ_v(−1) for v ∈ Σ(A, χ), all ε_v = ±1.",
+    "∏_v χ_v(−1) = 1 because χ is trivial on K^× ∋ −1; hence ε = (−1)^{#Σ(A,χ)}.",
+    "#Σ(B) is odd for an incoherent B."
+   ],
+   "acceptance": [
+    "F = ℚ, Heegner hypothesis (every p | N split in K), χ = 1: Σ(A, 1) = {∞}, so ε = −1 and L(E/K, 1) = 0, as in Gross–Zagier.",
+    "JSW (gen-H): N⁻ a squarefree product of an even number of inert primes; Σ = {∞} ∪ {q | N⁻}, odd, so ε = −1 (JSW (sign −1))."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+    "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "In the essential case Sigma(B) = Sigma(A, chi), the linear space is one-dimensional and alpha is a generator. ... Note that epsilon(1/2, pi_A, chi) = -1 in this case.",
+     "match": "The global sign in the essential case."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.2, p. 586",
+     "excerpt": "Thus we have ε(1/2, π, χ) = (−1)^{#Σ}",
+     "match": "The parity formula for the root number."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§4.1, after (gen-H), p. 25",
+     "excerpt": "The third and forth assumption of either Heegner-type hypothesis implies that the epsilon factor ǫ(π, K, s) of the base change of π to GL2(AK) satisfies ǫ(π, K, 1/2) = −1.",
+     "match": "The sign in the generalised Heegner setting."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Heegner points detect a nonzero central derivative",
+   "kind": "theorem",
+   "statement": "Assume Σ(B) = Σ(A, χ). (a) If L'(1/2, π_A, χ) ≠ 0 in L ⊗_ℚ ℂ (some component nonzero), then for every f1 with a partner f2 such that α(f1, f2) ≠ 0 — such f1 exist, since the local toric spaces are one-dimensional and α_v is nonzero on a generator — the point P_χ(f1) ∈ A(χ) is nonzero; for χ = 1 the trace point P⁰_1(f1) ∈ A(K) has infinite order. (b) Conversely, if P_χ(f) ≠ 0 for some f, then every component L'(1/2, π_A^ι, χ^ι), ι : L ↪ ℂ, is nonzero: the Galois-conjugate derivatives vanish together. (c) For χ = 1 and A of strict GL(2)-type with [M : ℚ] = dim A, P⁰_1(f) ≠ 0 implies ord_{s=1} L(A/K, s) = dim A.",
+   "hypotheses": [
+    "Essential case Σ(B) = Σ(A, χ).",
+    "(b) uses the positivity of the Néron–Tate pairing under the Rosati involution (GZ.1) through the Hermitian self-pairing ⟨P_χ(f), P_{χ^{-1}}(f^†)⟩ for a polarisation λ and f^† = λ ∘ f.",
+    "Non-torsion is a statement about the point, not about a Selmer class: no non-torsion point is inferred from a nonzero cohomology class."
+   ],
+   "proofSteps": [
+    "(a) Both sides of the Yuan–Zhang–Zhang identity are bilinear; if the right side is nonzero then ⟨P_χ(f1), P_{χ^{-1}}(f2)⟩_L ≠ 0, and the pairing kills 0 (l-linear-neron-tate-pairing).",
+    "Existence of f1, f2 with α(f1, f2) ≠ 0: α generates the one-dimensional space of the essential case (YZZ p. 9), so it is a nonzero bilinear form.",
+    "(b) For f^† = λ ∘ f with λ a polarisation, ⟨P_χ(f), P_{χ^{-1}}(f^†)⟩ has every ι-component positive when P_χ(f) ≠ 0 (Rosati positivity of GZ.1), so every component of the right side is nonzero; α(f, f^†) ∈ L^× because α ≠ 0 lies in L.",
+    "(c) L(A/K, s) = ∏_ι L(s − 1/2, π_A^ι, 1) and each factor has odd order of vanishing ≥ 1 at the centre by essential-case-root-number; (b) makes each order exactly one (Skinner Corollary 2.5.2)."
+   ],
+   "acceptance": [
+    "Skinner Proposition 2.5.1 and Corollary 2.5.2: P_K(f) ≠ 0 ⇒ ord_{s=1} L(A_f/K, s) = [M_f : ℚ].",
+    "Tian–Zhang (Zhang 2010, Theorem 4.3.1(1)): ord_{s=1} L(s, π, χ) = 1 implies the same for every conjugate.",
+    "A non-example: a nonzero element of the Selmer group of A over K does not give a non-torsion point; (a) produces the point P_χ(f1) itself."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.8/essential-case-root-number",
+    "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional"
+   ],
+   "sources": [
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.5, Proposition 2.5.1, p. 11",
+     "excerpt": "Suppose (sqf), (sgn), and (ram) hold. If P_K(f) ≠ 0, then ord_{s=1} L(f, K, s) = 1.",
+     "match": "The converse direction (b)–(c) in the classical rational case."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.5, Corollary 2.5.2, p. 12",
+     "excerpt": "If P_K(f) ≠ 0, then ord_{s=1} L(A_f/K, s) = [M_f : Q].",
+     "match": "Simultaneous nonvanishing of the conjugates."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.3, Theorem 4.3.1, p. 588",
+     "excerpt": "Assume that ords=1 L(s, π, χ) = 1. Then 1. ords=1 L(s, π σ , χσ ) = 1 for all automorphism σ of C",
+     "match": "The same simultaneous nonvanishing over a totally real field."
+    },
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
+     "excerpt": "In the essential case Sigma(B) = Sigma(A, chi), the linear space is one-dimensional and alpha is a generator.",
+     "match": "α is a nonzero generator, so suitable test vectors exist."
+    }
+   ],
+   "planet": {
+    "name": "Nonvanishing of Heegner points"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/petersson-norm-and-parametrisation-degree",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Petersson norm, parametrisation degree and Manin constant",
+   "kind": "lemma",
+   "statement": "Let φ ∈ S₂(Γ₀(N)) be a newform with rational coefficients, ω_φ = 2πi φ(z) dz on X₀(N)(ℂ), (φ, φ)_{Γ₀(N)} = ∫_{Γ₀(N)\\ℍ} |φ(z)|² dx dy (= peterssonInner 2 D φ φ for a fundamental domain D of Γ₀(N)), E/ℚ the optimal or any elliptic curve with a modular parametrisation f : X₀(N) → E, ∞ ↦ O, ω₀ a Néron differential and C ∈ ℤ_{>0} the Manin constant of f, f^*ω₀ = ±C·ω_φ. Then ∫_{X₀(N)(ℂ)} |ω_φ ∧ ω̄_φ| = 8π² (φ, φ)_{Γ₀(N)} and 8π² (φ, φ)_{Γ₀(N)} = deg f · ‖ω₀‖² / C², where ‖ω₀‖² = ∫_{E(ℂ)} |ω₀ ∧ ω̄₀|.",
+   "hypotheses": [
+    "(φ, φ) is integrated against dx dy, the convention of CST and of Tau Ceti's peterssonInner with weight k = 2 ((Im τ)² against dx dy / y²).",
+    "C is part of the data of f (HE.1/parameter-choice-and-degree); no claim C = 1 is made."
+   ],
+   "proofSteps": [
+    "ω_φ ∧ ω̄_φ = 4π²|φ|² dz ∧ dz̄ and dz ∧ dz̄ = −2i dx ∧ dy, so |ω_φ ∧ ω̄_φ| = 8π² |φ|² dx dy; integrate over a fundamental domain.",
+    "f is a finite map of degree deg f, so ∫_{X₀(N)} |f^*ω₀ ∧ \\overline{f^*ω₀}| = deg f · ∫_{E(ℂ)} |ω₀ ∧ ω̄₀|; substitute f^*ω₀ = ±C ω_φ."
+   ],
+   "acceptance": [
+    "Isogeny test: for ψ : E → E' of degree d with ψ^*ω₀' = c_ψ ω₀, the composite ψ ∘ f has degree d·deg f and Manin constant c_ψ C, and ‖ω₀'‖² = c_ψ² ‖ω₀‖² / d; the combination deg f · ‖ω₀‖² / C² is unchanged, as it must be, since the left side depends only on φ.",
+    "For the X₀(11) parametrisation f = id of 11a1 (deg 1, C = 1), 8π²(φ, φ) = ‖ω₀‖²."
+   ],
+   "prerequisites": [
+    "tauceti:UpperHalfPlane.peterssonInner",
+    "mathlib:UpperHalfPlane.petersson",
+    "mathlib:CuspForm",
+    "mathlib:CongruenceSubgroup.Gamma0",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.1, before Theorem 1.1, p. 1",
+     "excerpt": "Let (φ, φ)Γ0(N) denote the Petersson norm of φ: (φ, φ)Γ0(N) = ∫∫_{Γ0(N)\\H} |φ(z)|² dxdy, z = x + iy.",
+     "match": "The normalisation of the Petersson norm."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.1, after Theorem 1.1, p. 2",
+     "excerpt": "C is the positive integer such that if ω0 is a Néron differential on E then f*ω0 = ±C · 2πiφ(z)dz.",
+     "match": "The Manin constant of the parametrisation."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter I §6, after (6.4), p. 230",
+     "excerpt": "We remark also that the quantity 8π²(f, f) is equal to the period integral ‖ω_f‖² = ∫∫_{X(ℂ)} ω_f ∧ iω̄_f, where ω_f = 2πif(z)dz is the eigendifferential associated to f.",
+     "match": "The Petersson–period identity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The Gross–Zagier formula on X₀(N) for ring-class characters",
+   "kind": "theorem",
+   "statement": "Let φ ∈ S₂(Γ₀(N)) be a newform, K imaginary quadratic of discriminant D, c ≥ 1, O_c = ℤ + cO_K and χ a primitive character of Pic(O_c). Assume (1) (c, N) = 1, no prime p | N is inert in K, and p splits in K if p² | N; (2) χ([𝔭]) ≠ a_p for every p | (N, D), 𝔭 the prime of O_K above p. Let 𝔑 ⊂ O_c be a proper ideal with O_c/𝔑 ≅ ℤ/Nℤ, P_a ∈ X₀(N)(H_c) the point of C/a → C/a𝔑^{-1}, P_χ = Σ_{[a] ∈ Pic(O_c)} [P_a − ∞] ⊗ χ([a]) ∈ J₀(N)(H_c) ⊗ ℂ and P_χ^φ its φ-isotypic component. Then L'(1, φ, χ) = 2^{−μ(N,D)} · 8π²(φ, φ)_{Γ₀(N)} / (u² √|Dc²|) · ĥ_K(P_χ^φ), where L(s, φ, χ) is the Rankin L-series of φ and the theta series of χ without the archimedean factor (centre s = 1), μ(N, D) is the number of primes dividing (N, D), u = [O_c^× : ℤ^×] and ĥ_K is the Néron–Tate height on J₀(N) over K, extended Hermitian-linearly. For c = 1, D odd and every p | N split, this is Gross–Zagier's theorem; YZZ Thm. 1.1 states it with the height over H, which is h_K times ĥ_K.",
+   "hypotheses": [
+    "Conditions (1)–(2) imply sign −1 for L(s, φ, χ) and B = M₂(ℚ) (CST Lemma 3.1).",
+    "u = [O_c^× : ℤ^×] is half the number of roots of unity in O_c (GZ.0/heegner-unit-index for c = 1).",
+    "Heights relative to K; the cusp ∞ may be replaced by the normalised Hodge class without changing P_χ^φ, cuspidal divisors being Eisenstein."
+   ],
+   "proofSteps": [
+    "Gross–Zagier's route for c = 1, D odd, (D, N) = 1: put c_χ = Σ_σ χ^{-1}(σ) c^σ; by Galois invariance ⟨c_χ, T_m c_χ⟩ = h Σ_σ χ(σ) ⟨c, T_m c^σ⟩, so L'(f, χ, 1) = Σ_𝒜 χ(𝒜) L'_𝒜(f, 1) = 8π²/(u²|D|^{1/2}) · (1/h) Σ_m ⟨c_χ, T_m c_χ⟩-series paired with f (coefficient-identity), and expanding c_χ in Hecke eigencomponents leaves ĥ(c_{χ,f}) (f, f) because distinct eigencomponents are orthogonal: L'(f, χ, 1) = 8π²(f, f)/(h u² |D|^{1/2}) · ĥ_H(c_{χ,f}), with ĥ_H = h ĥ_K (Gross–Zagier I (6.3)–(6.5)).",
+    "General c, D and (N, D): special case of CST Theorem 1.5 (explicit-gross-zagier-formula) with F = ℚ, the admissible order R = {(a b; c d) ∈ M₂(ℤ̂) : N | c} and f : X₀(N) → A, ∞ ↦ O in V(π_A, χ).",
+    "The CM point fixed by K^× represents C/O_c → C/𝔑^{-1}; the sum over Pic(O_c) is P⁰_χ(f) (chi-heegner-point), equal to Gross–Zagier's c_χ up to the Artin-map convention χ ↔ χ^{-1} (GZ.0).",
+    "Translate (f1, f2)_{R^×} and the factors 2^{−#Σ_D}, u₁, ‖c₁‖ of Theorem 1.5 into μ(N, D), u, |Dc²|."
+   ],
+   "acceptance": [
+    "Constant check against YZZ Thm. 1.1 as quoted in the decomposition: ⟨P_χ(f), P_χ(f)⟩^H_NT = h u² |D|^{1/2}/(8π²(f, f)) · L'(f, χ, 1) for odd D and c = 1 is the same identity after ⟨,⟩^H = h·ĥ_K.",
+    "Unit factor: K = ℚ(√−3), c = 1 gives u = 3 and the factor 1/9; K = ℚ(i) gives u = 2.",
+    "μ(N, D) > 0 only when a prime of N ramifies in K, allowed by condition (1) when p² ∤ N."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.8/petersson-norm-and-parametrisation-degree",
+    "GrossZagierAndArithmeticHeights:GZ.0/heegner-unit-index",
+    "GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres",
+    "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "mathlib:NumberField.classNumber",
+    "mathlib:NumberField.Units.torsionOrder",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3",
+    "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.1, Theorem 1.1, p. 2",
+     "excerpt": "Theorem 1.1. Let φ, χ be as above satisfying the Heegner conditions (1) and (2). Then L′(1, φ, χ) = 2^{−µ(N,D)} · 8π²(φ, φ)Γ0(N) / (u² √|Dc²|) · ĥK(Pχφ)",
+     "match": "The formula with its constant."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.1, conditions (1)–(2), p. 1",
+     "excerpt": "(1) (c, N) = 1, and no prime divisor p of N is inert in K, and also p must be split in K if p²|N. (2) χ([p]) ≠ ap for any prime p|(N, D)",
+     "match": "The Heegner conditions."
+    },
+    {
+     "sourceId": "yzz-2013",
+     "locator": "Chapter 1, Thm. 1.1, printed p. 1 (via the decomposition's verified excerpt)",
+     "excerpt": "Theorem 1.1 (Gross-Zagier). Denote by h the class number of K, and u half of the number of units of O_K. Then <P_chi(f), P_chi(f)>^H_NT = [h u^2 |D|^{1/2} / (8 pi^2 (f, f))] . L'(f, chi, 1).",
+     "match": "The classical formula as YZZ quote it."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter I §6, Theorem (6.3) and (6.5), p. 230",
+     "excerpt": "(6.3) Theorem. L'(f, χ, 1) = 8π²(f, f)/(h u² |D|^{1/2}) ĥ(c_{χ,f}). Here ĥ is the canonical height on J over H",
+     "match": "The original formula, with heights over H; (6.5) restates it with ĥ_K and ‖ω_f‖² = 8π²(f, f)."
+    }
+   ],
+   "planet": {
+    "name": "Gross–Zagier formula"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/elliptic-curve-heegner-height-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Heights of Heegner points on an elliptic curve",
+   "kind": "theorem",
+   "statement": "Let E/ℚ have conductor N, f : X₀(N) → E a modular parametrisation with f(∞) = O, Manin constant C and Néron differential ω₀, and K, c, χ as in classical-gross-zagier-formula. Put P⁰_χ(f) = Σ_{[a] ∈ Pic(O_c)} f(P_a) ⊗ χ([a]) ∈ E(H_c)_ℂ. Then L'(1, E, χ) = 2^{−μ(N,D)} · 8π²(φ, φ)_{Γ₀(N)} / (u² √|Dc²|) · ĥ_K(P⁰_χ(f)) / deg f = 2^{−μ(N,D)} · ‖ω₀‖² ĥ_K(P⁰_χ(f)) / (C² u² √|Dc²|). For χ = 1 and c = 1, P⁰_1(f) = P_K(f) = Tr_{H_K/K} f(P) ∈ E(K), and ĥ_K(P) = ⟨P, P⟩_BSD computed over K, which is twice Tau Ceti's canonicalHeight for the K-relative height; it is nonzero exactly when P_K(f) has infinite order.",
+   "hypotheses": [
+    "Heegner conditions (1)–(2) of CST.",
+    "ĥ_K is the Néron–Tate height relative to K (the x-height normalisation, GZ.0); Tau Ceti's canonicalHeight is relative to the admissible absolute values of its base field, and no number-field instance exists at the pin (the GZ.0 gap), so the comparison is stated for that instance.",
+    "deg f and C are data of f; replacing f by its composite with an isogeny changes both and leaves the formula invariant."
+   ],
+   "proofSteps": [
+    "The φ-isotypic projection commutes with f_*: J₀(N) → E, and the height on E pulls back along f to deg f times the height on the f-isotypic part of J₀(N) (projection formula for Néron–Tate heights with the dual map f^∨ ∘ f = deg f on E).",
+    "Combine classical-gross-zagier-formula with petersson-norm-and-parametrisation-degree.",
+    "For χ = 1 the χ-sum is the Galois trace (toric-integral-versus-finite-sum)."
+   ],
+   "acceptance": [
+    "Gross–Zagier's form L'(E/K, 1) = ‖ω‖² ĥ(y_K) / (c² u² √|D|) for (N, D) = 1 and c = 1 is the case μ = 0.",
+    "Isogeny invariance: for ψ : E → E' of degree d, ĥ(ψ P) = d ĥ(P), deg(ψ ∘ f) = d deg f, and C changes by c_ψ; both sides of the second formula are unchanged.",
+    "For 37.a1 and K = ℚ(√−7) the right side must match L'(E/K, 1) = L'(E, 1) L(E^K, 1), a positive real number; a sign or factor-2 error in the height convention is detected by this check.",
+    "Gross–Zagier I Theorem (7.3) (L'(E, 1) is a nonzero rational multiple of Ω·⟨P, P⟩) is RankZeroOneBSD BSD.5's rationality theorem; this node supplies its Gross–Zagier input (Theorem V (2.1)), and the choice of K with L(E^K, 1) ≠ 0 is BSD.2's."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
+    "GrossZagierAndArithmeticHeights:GZ.8/petersson-norm-and-parametrisation-degree",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+    "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+    "mathlib:WeierstrassCurve.Affine.Point"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.1, Theorem 1.1, second display, p. 2",
+     "excerpt": "the Heegner divisor Pχ0 (f ) := Σ_{[a]∈Pic(Oc)} f (Pa ) ⊗ χ([a]) ∈ E(Hc )C satisfies L′(1, E, χ) = 2^{−µ(N,D)} · 8π²(φ, φ)Γ0(N) / (u² √|Dc²|) · ĥK (Pχ0 (f )) / deg f",
+     "match": "The elliptic-curve formula with the degree of the parametrisation."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.4, p. 11",
+     "excerpt": "Put PK (f ) = φ(QK (f )) ∈ Af (K) ⊗ Mf .",
+     "match": "The trace Heegner point in the rational modular case."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter V §2, Theorem (2.1), p. 311",
+     "excerpt": "(2.1) Theorem. L'(E/K, 1) = ‖ω‖² ĥ(P_K)/c² u_K² |D|^{1/2}.",
+     "match": "The elliptic-curve form with the Manin constant c and ‖ω‖² = ∫∫_{E(ℂ)} |ω ∧ ω̄|."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/admissible-order-test-vector",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Admissible orders and the test-vector line V(π, χ)",
+   "kind": "definition",
+   "statement": "Let N be the conductor of π^JL, D = D_{K/F}, c the conductor of χ, Σ₁ = {v | N nonsplit in K : ord_v(c) < ord_v(N)}, c₁ the Σ₁-off part of c, N₂ the Σ₁-part of N. An Ô-order R of B_f is admissible for (π, χ) if it has discriminant N, R ∩ K̂ = Ô_{c₁}, and at each v | (c₁, N) it is the intersection of two maximal orders R'_v, R''_v with R'_v ∩ K_v = O_{c,v} and R''_v ∩ K_v = O_{c/N,v} if ord_v(c/N) ≥ 0 and O_{K,v} otherwise, with the conductor condition (2) of CST when 0 < ord_v(c₁) < ord_v(N). With U = R̂^× and ω the central character, V(π, χ) ⊂ π_A ⊗_M L is the space of f that are ω-eigen under U^{(N₂)} and χ_v^{-1}-eigen under K_v^× for all v ∈ Σ₁. CST Proposition 3.7: V(π, χ) is one-dimensional over L and every nonzero vector is a test vector, i.e. α(f, f') ≠ 0 for nonzero f ∈ V(π_A, χ), f' ∈ V(π_{A^∨}, χ^{-1}).",
+   "hypotheses": [
+    "ω_A · χ|_{𝔸_F^×} = 1 and the local condition ε(π_v, χ_v) = χ_v η_v(−1) ε(B_v) (Rankin–Selberg convention of CST, equivalent to the erratum's base-change form).",
+    "At v | N₁ the algebra B_v is split (CST Lemma 3.1(5))."
+   ],
+   "proofSteps": [
+    "Existence and uniqueness of admissible R_v up to K_v^×-conjugacy away from (c₁, N), and the two conjugacy classes when 0 < ord_v(c₁) < ord_v(N) (CST Lemmas 3.3–3.4).",
+    "Local test-vector theory: the fixed space is one-dimensional and the local toric integral is nonzero on it (CST Propositions 3.7–3.8, §3.3–3.4); it imports the local toric functional of GZ.4."
+   ],
+   "acceptance": [
+    "F = ℚ, Heegner conditions: R = {(a b; c d) ∈ M₂(ℤ̂) : N | c} is admissible and f : X₀(N) → A, ∞ ↦ O lies in V(π_A, χ) (CST, Example after Theorem 1.5).",
+    "The unramified newvector is not always a test vector: when v | (N, D) the line V(π, χ) is the χ_v^{-1}-eigenline of K_v^×, not the U₀(N)-newline."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+    "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "uses": [
+    {
+     "where": "CST Theorems 1.5 and 1.8",
+     "how": "the explicit formulas are stated for f ∈ V(π, χ)"
+    },
+    {
+     "where": "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+     "how": "the denominator (f1, f2)_{R^×} and the nonvanishing of α"
+    },
+    {
+     "where": "JSW Remark 4.2.1",
+     "how": "comparison of Heegner points on X_{N⁺,N⁻} with CST's normalisation"
+    },
+    {
+     "where": "HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev",
+     "how": "the CM point x of the specified level is a test vector exactly when its level is admissible"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.IsAdmissibleOrder",
+     "role": "constructor",
+     "statement": "The predicate that an order R of B_f is admissible for (π, χ): discriminant N, R ∩ K̂ = Ô_{c₁}, and the local conditions at v | (c₁, N)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.testVectorLine",
+     "role": "data",
+     "statement": "V(π, χ): the ω-eigen, χ_v^{-1}-eigen subspace of π ⊗_M L."
+    },
+    {
+     "name": "TauCeti.GrossZagier.finrank_testVectorLine",
+     "role": "characterisation",
+     "statement": "dim_L V(π, χ) = 1 (CST Proposition 3.7)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.localToric_ne_zero_of_mem_testVectorLine",
+     "role": "other",
+     "statement": "α(f, f') ≠ 0 for nonzero f ∈ V(π_A, χ), f' ∈ V(π_{A^∨}, χ^{-1})."
+    },
+    {
+     "name": "TauCeti.GrossZagier.isAdmissibleOrder_eichler",
+     "role": "example",
+     "statement": "For F = ℚ and the Heegner conditions, the Eichler order of level N is admissible."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.isAdmissibleOrder_eichler_X0",
+     "kind": "computation",
+     "statement": "For F = ℚ, K = ℚ(√−7), N = 11 (split in K), c = 1: the Eichler order {(a b; c d) : 11 | c} with the embedding of CST's Example is admissible and its CM point is the Heegner point C/O_K → C/𝔑^{-1}."
+    },
+    {
+     "name": "TauCeti.GrossZagier.testVectorLine_unramified",
+     "kind": "degenerate",
+     "statement": "If π is unramified everywhere finite, K/F is unramified and χ is unramified, V(π, χ) is the line of R̂^×-invariant vectors for a maximal order R."
+    },
+    {
+     "name": "TauCeti.GrossZagier.testVectorLine_finrank_one",
+     "kind": "characterisation",
+     "statement": "V(π, χ) is one-dimensional, so any two nonzero test vectors are proportional."
+    },
+    {
+     "name": "TauCeti.GrossZagier.newline_not_testVector",
+     "kind": "non-example",
+     "statement": "For p | (N, D) with p ∥ N and χ([𝔭]) = a_p, the newform line is not a test vector: CST condition (2) fails and the toric integral of the newvector vanishes."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Definition 1.3, p. 5",
+     "excerpt": "An Ô-order R of B_f is called admissible for (π, χ) if for every finite place v of F, R_v := R ⊗_Ô O_v is admissible for (π_v, χ_v).",
+     "match": "Admissible orders."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Definition 1.4, p. 6",
+     "excerpt": "Let V(π, χ) denote the space of forms f ∈ πA ⊗M L, which are ω-eigen under U^(N2), and χ_v^{-1}-eigen under Kv^× for all places v ∈ Σ1. The space V(π, χ) is actually a one dimensional L-space (see Proposition 3.7).",
+     "match": "The test-vector line."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/HeightFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "planet": {
+    "name": "Admissible test vector"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The explicit Gross–Zagier formula of Cai–Shu–Tian",
+   "kind": "theorem",
+   "statement": "Let F be totally real of degree d, A/F an abelian variety parametrised by a Shimura curve with Hilbert newform φ of parallel weight two, K/F totally imaginary with relative discriminant D and absolute discriminant D_K, χ a finite Hecke character of conductor c with values in L ⊇ M. Assume ω_A · χ|_{𝔸_F^×} = 1 and ε(π_{A,v}, χ_v) = χ_v η_v(−1) ε(B_v) for every v. For nonzero f1 ∈ V(π_A, χ), f2 ∈ V(π_{A^∨}, χ^{-1}): L^{(Σ)'}(1, A, χ) = 2^{−#Σ_D} · (8π²)^d (φ, φ)_{U₀(N)} / (u₁² √(|D_K| ‖c₁²‖)) · ⟨P⁰_χ(f1), P⁰_{χ^{-1}}(f2)⟩_{K,L} / (f1, f2)_{R^×}, an equality in L ⊗_ℚ ℂ, with Σ = {v | (N, Dc) : if v ∥ N then ord_v(c/N) ≥ 0}, Σ_D = {v | (N, D) : ord_v(c) < ord_v(N)}, u₁ = #κ_{c₁} · [O_{c₁}^× : O^×] and L^{(Σ)} the L-series with the Euler factors at Σ removed. Special case (N, Dc) = 1: L'(1, A, χ) = (8π²)^d (φ, φ)_{U₀(N)} / (u² √(|D_K| ‖c²‖)) · ⟨P⁰_χ(f1), P⁰_{χ^{-1}}(f2)⟩_{K,L} / (f1, f2)_U for any non-constant f1 : X_U → A, f2 : X_U → A^∨ sending a Hodge class to torsion.",
+   "hypotheses": [
+    "The local sign condition is in the Rankin–Selberg convention; it is the erratum's base-change condition ε(1/2, π_{K,v} ⊗ χ_v) = χ_v(−1) ε(B_v) because the two local root numbers differ by λ(K_v/F_v, ψ_v)² = η_v(−1) (GZ.0).",
+    "(f1, f2)_U = Vol(X_U)(f1, f2) with (f1, f2) = Vol(X_U)^{-1} f1 ∘ f2^∨ ∈ M; for an elliptic curve (f, f)_U = deg f.",
+    "Unit index u₁ includes #κ_{c₁} ∈ {1, 2}, the kernel of Pic(O_F) → Pic(O_{c₁})."
+   ],
+   "proofSteps": [
+    "Apply the Yuan–Zhang–Zhang formula to f1 ∈ V(π_A, χ), f2 ∈ V(π_{A^∨}, χ^{-1}) and convert P_χ to P⁰_χ (toric-integral-versus-finite-sum).",
+    "Evaluate α(f1, f2) at the test vectors by the local computations of CST §3.4 (Propositions 3.11–3.12, Lemma 3.13) and the Petersson pairing formula (CST Proposition 2.1), using the Waldspurger-side normalisations of GZ.5.",
+    "Compare L(1, π_A, ad) with (φ, φ)_{U₀(N)} (CST Proposition 2.1) and collect the local factors into 2^{−#Σ_D}, u₁ and ‖c₁‖."
+   ],
+   "acceptance": [
+    "F = ℚ with the Heegner conditions recovers classical-gross-zagier-formula (CST's Example after Theorem 1.5).",
+    "Special case 2 (ω_A trivial) removes the Euler factors exactly at Σ = {v | (cD, N) : v ∥ N ⇒ v ∤ D}.",
+    "Unit factor u₁ = 1 for K/F with O_{c₁}^× = O^× and κ_{c₁} = 1."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.8/admissible-order-test-vector",
+    "GrossZagierAndArithmeticHeights:GZ.8/toric-integral-versus-finite-sum",
+    "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+    "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+    "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+    "GrossZagierAndArithmeticHeights:GZ.0/heegner-unit-index"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Theorem 1.5, p. 6",
+     "excerpt": "Theorem 1.5 (Explicit Gross-Zagier Formula). ... For any non-zero forms f1 ∈ V(πA, χ) and f2 ∈ V(πA∨, χ^{-1}), we have an equality in L ⊗Q C",
+     "match": "The general explicit formula."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Special case 1, p. 7",
+     "excerpt": "Special case 1. Further assume that (N, Dc) = 1. Then there is a non-constant morphism f : XU −→ A mapping a Hodge class on XU to torsion of A",
+     "match": "The coprime special case used for totally real fields."
+    }
+   ],
+   "planet": {
+    "name": "Explicit Gross–Zagier formula"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/explicit-formula-variation",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Variation of the explicit formula for other test vectors",
+   "kind": "theorem",
+   "statement": "With (A, χ), f1 ∈ V(π_A, χ), f2 ∈ V(π_{A^∨}, χ^{-1}) as in explicit-gross-zagier-formula, let S be a finite set of finite places and f1' ∈ π_A, f2' ∈ π_{A^∨} pure tensors agreeing with f1, f2 outside S, with ⟨f'_{1,v}, f'_{2,v}⟩_v ≠ 0 and β⁰(f'_{1,v}, f'_{2,v}) ≠ 0 for v ∈ S, where β⁰(f'_1, f'_2) = ∫_{F_v^× \\ K_v^×} ⟨π(t) f'_1, f'_2⟩_v / ⟨f'_1, f'_2⟩_v · χ_v(t) dt. Put P⁰_χ(f1') = #Pic(O_{c₁}) / Vol(K^× F̂^× \\ K̂^×) · ∫ f1'(P)^{σ_t} χ(t) dt. Then L^{(Σ)'}(1, A, χ) = 2^{−#Σ_D} (8π²)^d (φ, φ) / (u₁² √(|D_K| ‖c₁²‖)) · ⟨P⁰_χ(f1'), P⁰_{χ^{-1}}(f2')⟩_{K,L} / (f1', f2')_{R^×} · ∏_{v ∈ S} β⁰(f_{1,v}, f_{2,v}) / β⁰(f'_{1,v}, f'_{2,v}), independent of the Haar measures at v ∈ S.",
+   "hypotheses": [
+    "Same hypotheses as explicit-gross-zagier-formula; the ratio β⁰/β⁰ is independent of the local measure."
+   ],
+   "proofSteps": [
+    "Both sides are bilinear invariant forms; by the one-dimensionality of the toric Hom spaces their ratio for (f1', f2') against (f1, f2) is the ratio of the local toric integrals at v ∈ S.",
+    "Apply explicit-gross-zagier-formula to (f1, f2) and substitute."
+   ],
+   "acceptance": [
+    "CST's example: E = X₀(36), K = ℚ(√−3), p ≡ 2 mod 9 and χ the cubic character of K(∛p)/K give L'^{(∞)}(1, A, χ) = 9 · 8π²(φ, φ)_{Γ₀(36)} / (3p²) · ⟨P⁰_χ(f'), P⁰_{χ^{-1}}(f')⟩_{K,K}, with β⁰ ratios 1 at v = 2 and 4 at v = 3.",
+    "Taking S = ∅ recovers explicit-gross-zagier-formula."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Theorem 1.6, p. 8",
+     "excerpt": "Theorem 1.6 (Variation of Gross-Zagier Formula). Let (A, χ) and f1 ∈ V(πA, χ), f2 ∈ V(πA∨, χ^{-1}) be as in Theorem 1.5. Let S be a finite set of finite places of F",
+     "match": "The variation formula."
+    },
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Example after Theorem 1.6, p. 8",
+     "excerpt": "Let A be the elliptic curve X0(36) with the cusp ∞ as the identity point and let K = Q(√−3). Let p ≡ 2 mod 9 be a prime",
+     "match": "The cube-sum example."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/rational-shimura-curve-heegner-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Heegner points on X_{N⁺,N⁻} over ℚ and the trivial character",
+   "kind": "theorem",
+   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform with Hecke field M_f, K imaginary quadratic, and assume (sqf) N squarefree, (sgn) ε(f, K) = −1 and (ram) — if (D, N) ≠ 1 then π_ℓ ≅ σ_ℓ ⊗ ξ_ℓ for ℓ | (D, N) and every ℓ | N/(D, N) splits in K. Then either (Case I) every ℓ | N splits or ramifies in K and X = X₀(N), or (Case II) N = N⁺N⁻ with N⁻ a nontrivial product of an even number of inert primes and X = X_{N⁺,N⁻} the Shimura curve of the indefinite quaternion algebra of discriminant N⁻ and an Eichler order of level N⁺. Let φ : J(X) → A_f be the quotient by the kernel of the f-eigencharacter, P_K(f) ∈ A_f(K) ⊗ M_f the trace Heegner point (Skinner §2.4), L a symmetric ample line bundle on A_f with polarisation λ. Then ⟨P_K(f), P_K(f)⟩_L = h_K² ζ(2) L'(f, K, 1) (f1 ∘ f2^∨) / (4 L(χ_D, 1)² L(Sym² f, 2) vol(X)), with f1 = φ, f2 = λ ∘ φ and f1 ∘ f2^∨ ∈ M_f. Consequently P_K(f) ≠ 0 if and only if L'(f, K, 1) ≠ 0, and then ord_{s=1} L(A_f/K, s) = [M_f : ℚ].",
+   "hypotheses": [
+    "(sqf), (sgn), (ram) as in Skinner §2.5.",
+    "The cusp ∞ (Case I) or the normalised Hodge class (Case II) is used as base point; cuspidal and Hodge divisors are Eisenstein, so P_K(f) is unchanged.",
+    "L(Sym² f, 2) and L(χ_D, 1) are the finite L-values in Skinner's normalisation, the trivial-character, F = ℚ specialisation of YZZ's L(1, π, ad) and L(1, η)."
+   ],
+   "proofSteps": [
+    "P_K(f) = h_K · P(f1)^ι with P(f1) the YZZ point of the homomorphism f1 = φ and the CM point P (Skinner §2.5).",
+    "Apply YZZ Theorem 3.13 (the projector form of the Yuan–Zhang–Zhang formula specialised to F = ℚ, χ = 1, Σ(B) = {∞} ∪ {ℓ | N⁻}).",
+    "⟨P_K(f), P_K(f)⟩_L ≠ 0 iff P_K(f) ≠ 0, by positivity of the height attached to an ample symmetric bundle; f1 ∘ f2^∨ is a nonzero element of M_f because λ is an isogeny.",
+    "The order of vanishing follows from nonvanishing-criterion (c)."
+   ],
+   "acceptance": [
+    "Case I with (D, N) = 1 is the classical Gross–Zagier setting; Case II is the generalised Heegner hypothesis (gen-H) of JSW with no ramified primes.",
+    "The factor h_K² records the trace normalisation P_K(f) = h_K P(f1): an averaged point would remove it (toric-integral-versus-finite-sum)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+    "GrossZagierAndArithmeticHeights:GZ.8/toric-integral-versus-finite-sum",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "mathlib:riemannZeta",
+    "mathlib:DirichletCharacter.LFunction",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.5, proof of Proposition 2.5.1, p. 12",
+     "excerpt": "⟨PK(f), PK(f)⟩_L = ⟨PK(f), λ(PK(f))⟩_NT = hK² ⟨P(f1)^ι, P(f2)^ι⟩_NT = hK² ζ(2)L′(f, K, 1) · (f1 ◦ f2∨)^ι / (4L(χD, 1)² L(Sym² f, 2)vol(X))",
+     "match": "The height formula, quoted by Skinner from YZZ Theorem 3.13."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.4, Cases I and II, p. 10",
+     "excerpt": "II. N = N^− N^+ with N^− a nontrivial product of an even number of primes that are inert in K and N^+ is the product of primes that split in K",
+     "match": "The quaternionic case."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§4.1, (gen-H), p. 24",
+     "excerpt": "ℓ | N+ if and only if ℓ is split or ramified in K; ℓ | N− if and only if ℓ is inert in K; N− is squarefree with an even number of prime factors.",
+     "match": "The generalised Heegner hypothesis of the consumers."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/totally-real-trace-point-nontorsion",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Non-torsion of the trace point on a parametrised GL(2)-type quotient",
+   "kind": "theorem",
+   "statement": "Let F be totally real, B/F ramified at all real places but one and at a finite set S_B with #S_B ≡ [F:ℚ] − 1 mod 2, R an admissible order for (π_A, 1) in the sense of admissible-order-test-vector, X_U the Shimura curve of U = R̂^×, A/F a simple quotient of J(X_U) of strict GL(2)-type with M = End⁰(A), K/F totally imaginary with every v ∈ S_B nonsplit in K, x ∈ X_U a CM point by K of the admissible level, and f : X_U → A the quotient map normalised by the Hodge class (ι(P) = m[P] − mξ). Assume ω_A unramified and (N, D) = 1. Put y = Tr_{K(x)/K} f(x) = P⁰_1(f) ∈ A(K)_ℚ. Then y has infinite order if and only if L'(1, A, 1_K) ≠ 0 in M ⊗ ℂ, if and only if ord_{s=1} L(A/K, s) = [M : ℚ] = dim A. In particular, analytic rank exactly dim A over K for L(A/K, s) certifies that this specified y is non-torsion; analytic rank alone without the admissible level does not.",
+   "hypotheses": [
+    "The CM point x has the admissible level, so f is a test vector (α(f, f^∨) ≠ 0); for a non-admissible level y may be torsion although L'(1, A, 1_K) ≠ 0.",
+    "Each conjugate L(s, π_A^ι, 1_K) has root number −1 because the local signs match B (essential-case-root-number), so its order is odd.",
+    "This is the statement HE.7/admissible-rm-kolyvagin-logachev requests; Kolyvagin–Logachev descent (HE.7) then gives rank_ℤ A(K) = dim A."
+   ],
+   "proofSteps": [
+    "Apply the special case (N, Dc) = 1 of explicit-gross-zagier-formula with χ = 1: L'(1, A, 1) is a nonzero multiple of ⟨y, λ y⟩_{K,M} / (f, λ ∘ f)_U.",
+    "Positivity of the Néron–Tate pairing for the polarisation λ (GZ.1) makes ⟨y, λ y⟩_{K,M} totally positive in M ⊗ ℝ when y has infinite order and zero otherwise.",
+    "Conclude with nonvanishing-criterion (b)–(c): the conjugate derivatives vanish simultaneously, and L(A/K, s) = ∏_ι L(s − 1/2, π_A^ι, 1_K)."
+   ],
+   "acceptance": [
+    "For F = ℚ, A = E and B = M₂(ℚ) this is the Gross–Zagier criterion y_K non-torsion ⟺ L'(E/K, 1) ≠ 0.",
+    "The integer m clearing the Hodge denominator scales y by m and does not affect non-torsion."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+    "GrossZagierAndArithmeticHeights:GZ.8/admissible-order-test-vector",
+    "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+    "GrossZagierAndArithmeticHeights:GZ.8/essential-case-root-number",
+    "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "cai-shu-tian-2014",
+     "locator": "§1.2, Special case 1, p. 7",
+     "excerpt": "For any such f1 : XU → A and f2 : XU → A∨, let (f1, f2) = f1 ◦ f2∨. Then we have an equality in L ⊗Q C",
+     "match": "The formula for the trace point at an admissible level."
+    },
+    {
+     "sourceId": "zhang-2010",
+     "locator": "§4.3, Theorem 4.3.1, p. 588",
+     "excerpt": "Assume that ords=1 L(s, π, χ) = 1. Then 1. ords=1 L(s, π σ , χσ ) = 1 for all automorphism σ of C",
+     "match": "Simultaneous order one for all conjugates."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The ratio α(f, f_B) of Petersson norms",
+   "kind": "definition",
+   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform, N = N⁺N⁻ with N⁻ a squarefree product of an even number of primes, B the indefinite quaternion algebra over ℚ of discriminant N⁻, O_{B,N⁺} an Eichler order of level N⁺ and Γ₀^B(N⁺) its norm-one units. Let f_B be the weight-two cusp form on Γ₀^B(N⁺)\\ℍ with the Hecke eigenvalues of f at all ℓ ∤ N⁻ (Jacquet–Langlands), normalised to be defined over ℤ(f)_(p) and nonzero modulo p. Define α(f, f_B) = ⟨f, f⟩_{Γ₀(N)} / ⟨f_B, f_B⟩_{Γ₀^B(N⁺)}, with ⟨g, g⟩_Γ = ∫_{Γ\\ℍ} |g(z)|² dx dy, the weight-two Petersson norm. It lies in the Hecke field (Brooks), and for N⁻ = 1 with f_B = f it equals 1.",
+   "hypotheses": [
+    "The normalisation of f_B (integral at p and nonzero mod p) fixes it up to a unit of ℤ(f)_(p); α(f, f_B) is therefore defined up to the square-norm of such a unit, which is how it enters the interpolation formula 'up to a p-adic unit'.",
+    "For a weight-two form the invariant measure on Γ\\ℍ is (Im z)² · dx dy / y² = dx dy; JSW §5.1 prints dx dy / y² (recorded as a misprint, E3)."
+   ],
+   "proofSteps": [
+    "Existence and uniqueness up to scalar of f_B: global Jacquet–Langlands (GL2AutomorphicRepresentationsAndTransfer R17.3) and strong multiplicity one on B^×.",
+    "Rationality of the ratio: Brooks quotes Harris–Kudla [20, Theorem 12.3]; integrality at p for p > k + 1 and p ∤ N ∏_{ℓ|N⁻}(ℓ − 1)ℓ(ℓ + 1) is Prasanna [31, Theorem 2.4]; both are imported, not reproved."
+   ],
+   "acceptance": [
+    "N⁻ = 1: B = M₂(ℚ), f_B = f and α = 1, so JSW (5.1.a) reduces to BDP's normalisation.",
+    "Scaling f_B by u ∈ ℤ(f)_(p)^× divides α by |u|²."
+   ],
+   "prerequisites": [
+    "tauceti:UpperHalfPlane.peterssonInner",
+    "mathlib:CuspForm",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "uses": [
+    {
+     "where": "JSW (5.1.a)",
+     "how": "α(f, f_B) divides the interpolated value"
+    },
+    {
+     "where": "Brooks, Theorem 8.2 and Proposition 8.7",
+     "how": "α(f, f_GL2) relates the quaternionic CM sum to L(f, χ^{-1}, 0); Brooks's α is the inverse ratio ⟨f_GL2, f_GL2⟩/⟨f, f⟩ with his f quaternionic"
+    },
+    {
+     "where": "Skinner §2.6",
+     "how": "the constant C(f, K) = α(f, f_GL2)^{-1}"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio",
+     "role": "constructor",
+     "statement": "α(f, f_B) = ⟨f, f⟩_{Γ₀(N)} / ⟨f_B, f_B⟩_{Γ₀^B(N⁺)} for weight-two Petersson norms."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_split",
+     "role": "simp",
+     "statement": "For N⁻ = 1 and f_B = f, α = 1."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_smul",
+     "role": "relation",
+     "statement": "α(f, u f_B) = α(f, f_B) / |u|²."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_pos",
+     "role": "other",
+     "statement": "α(f, f_B) > 0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_self",
+     "kind": "degenerate",
+     "statement": "α(f, f) = 1 when the quaternion algebra is split (N⁻ = 1)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_scale_two",
+     "kind": "computation",
+     "statement": "Replacing f_B by 2 f_B multiplies α by 1/4."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_eq_peterssonInner",
+     "kind": "compatibility",
+     "statement": "The numerator is Tau Ceti's peterssonInner 2 D f f for a fundamental domain D of Γ₀(N)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.peterssonRatio_not_dxdy_over_ysq",
+     "kind": "non-example",
+     "statement": "The integral of |g|² against dx dy / y² is not Γ-invariant for weight two (it changes by |cz + d|⁴ under γ), so it does not define the norm."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1, list after (5.1.a), p. 32",
+     "excerpt": "α(f, fB) = ⟨f,f⟩Γ0(N) / ⟨fB,fB⟩Γ0B(N+) is a ratio of Petersson norms ... in [Bro14] this ratio was shown to belong to L",
+     "match": "The ratio and its rationality."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.2, after Theorem 8.2, p. 4232",
+     "excerpt": "The element α( f, fGL2 ) is the quotient of the Petersson inner products ⟨fGL2, fGL2⟩/⟨f, f⟩. Because of our normalization of f, it is an element of K by [20, Theorem 12.3].",
+     "match": "Brooks's inverse convention and the rationality."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/PadicLogarithmFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The BDP anticyclotomic p-adic L-function in weight two",
+   "kind": "definition",
+   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform, K imaginary quadratic of discriminant −D_K with (gen-H) for N = N⁺N⁻, p ∤ N (good) and p = v v̄ split in K, v fixed by ι_p. Let Γ = Gal(K_∞/K) be the anticyclotomic ℤ_p-extension, O ⊂ L the coefficients (L containing the Hecke field and the Hilbert class field of K), R the completion of the ring of integers of L·ℚ_p^ur, and Λ_R = R⟦Γ⟧. Let Σ_cc be the set of continuous ψ : G_K → ℚ̄_p^× factoring through Γ with ψ^τ = ψ^{-1}, crystalline at v and v̄, of Hodge–Tate weights −n < 0 at v and n at v̄, and ψ^alg its algebraic Hecke character (infinity type (n, −n)). The BDP p-adic L-function is the unique L_p(f) ∈ Λ_R such that for all ψ ∈ Σ_cc with n ≡ 0 mod (p − 1): ψ(L_p(f)) = E_v̄(f, ψ)² · t_K · C(f, ψ) / (α(f, f_B) W(f, ψ)) · Ω_p^{4n} · L(f, ψ^alg, 1) / Ω_∞^{4n}, where E_v̄(f, ψ) = 1 − ψ^alg(ϖ_v̄) a_p p^{-1} + ψ^alg(ϖ_v̄)² p^{-1}, t_K is a power of 2, C(f, ψ) = ¼ π^{2n−1} Γ(n) Γ(n + 1) w_K √D_K ∏_{ℓ|N⁻} (ℓ − 1)/(ℓ + 1), W(f, ψ) is the norm-one constant of Brooks Proposition 8.3, α(f, f_B) is the Petersson ratio, Ω_p ∈ R^×, Ω_∞ ∈ ℂ^× are the p-adic and complex CM periods, and L(f, ψ^alg, s) = L(π_K × ψ^alg, s − 1/2). The trivial character (the BDP point) is not in Σ_cc: L_p(f, 1) lies outside the interpolation range.",
+   "hypotheses": [
+    "(gen-H): N⁺ divisible only by split or ramified primes, N⁻ a squarefree product of an even number of inert primes; (good) p ∤ N; (split) p = v v̄.",
+    "Ordinarity of f at p is not assumed: the CM points are ordinary because p splits in K, and L_p(f) is a bounded measure even for supersingular f.",
+    "Uniqueness uses that the n ≡ 0 mod (p − 1) characters give infinitely many distinct values ψ(γ) − 1 in the maximal ideal, and a nonzero element of R⟦T⟧ has finitely many zeros there (Weierstrass preparation).",
+    "Existence: for N⁻ = 1 from the square of the L3h square-root distribution (bdp-square-root-comparison) or BDP §5.2; for N⁻ > 1 from Brooks's construction (quaternionic-bdp-construction).",
+    "The incomplete L_p^Σ(f) = L_p(f) · ∏_{w ∈ Σ} P_w(ε^{-1}Ψ^{-1}(Frob_w)) for a finite set Σ of places not above p interpolates the incomplete L-values; at an inert w = (ℓ) the factor (1 − a_ℓ ℓ^{-1} + ℓ^{-1})(1 + a_ℓ ℓ^{-1} + ℓ^{-1}) can raise the μ-invariant."
+   ],
+   "proofSteps": [
+    "Uniqueness: identify Λ_R ≅ R⟦T⟧ by γ − 1 ↦ T and apply PadicMeasuresIwasawaAlgebras L4's factorisation of nonzero power series to the difference of two candidates.",
+    "Existence for N⁻ = 1: BDP define L_p(f, χ) on the completion Σ̂_cc by (5.2.3) and prove continuity (Proposition 5.10); the measure is the square of the Castella–Hsieh / L3h distribution (bdp-square-root-comparison), and the interpolation constants match JSW Remark 5.1.1(b) with χ^{-1} = ψ^alg |·|_{𝔸_K}.",
+    "Existence for N⁻ > 1: quaternionic-bdp-construction."
+   ],
+   "acceptance": [
+    "Compatibility with BDP's normalisation for N⁻ = 1: α = 1, and L(f, ψ^alg, 1) = L(f, χ^{-1}, 0) for χ^{-1} = ψ^alg|·|.",
+    "Supersingular test: for a_p = 0 the element still lies in Λ_R (bounded), unlike the cyclotomic p-adic L-function of a supersingular form.",
+    "The trivial character is not interpolated: L(f, K, 1) = 0 under (gen-H) while L_p(f, 1) need not vanish."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+    "PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "AutomorphicPadicLFunctions:L0",
+    "AutomorphicPadicLFunctions:L3",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3",
+    "mathlib:PowerSeries",
+    "mathlib:PowerSeries.eval₂",
+    "mathlib:IsTopologicallyNilpotent",
+    "mathlib:ContinuousMonoidHom"
+   ],
+   "uses": [
+    {
+     "where": "JSW §5.1.5, Propositions 5.1.6–5.1.7",
+     "how": "the value L_p(f, 1) at the BDP point is the square of a logarithm of a Heegner point"
+    },
+    {
+     "where": "HeegnerPointEulerSystems:HE.8b",
+     "how": "char(X_Gr)Λ^ur = (L_BDP²) in BCGS's square-root convention, whose square is this function"
+    },
+    {
+     "where": "RankZeroOneBSD:BSD.6a",
+     "how": "the JSW supersingular branch consumes the good-reduction formula for not necessarily ordinary f"
+    },
+    {
+     "where": "RankZeroOneBSD:BSD.7a",
+     "how": "the Eisenstein branch compares the BDP function with Katz-type character p-adic L-functions"
+    },
+    {
+     "where": "AutomorphicCongruences:L5a",
+     "how": "the BCS two-variable comparison is checked against this one-variable specialisation"
+    },
+    {
+     "where": "Skinner 2020, §2.6",
+     "how": "L_p^S(f, 1) ≐ (log_ω P_K(f))² and P_K(f) ≠ 0 iff L_p^S(f, 1) ≠ 0"
+    },
+    {
+     "where": "GrossZagierAndArithmeticHeights:GZ.9/bdp-measure-integrality",
+     "how": "membership of the imprimitive function in O^ur⟦Γ⟧"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction",
+     "role": "constructor",
+     "statement": "L_p(f) ∈ R⟦T⟧ ≅ R⟦Γ⟧, the BDP p-adic L-function of the weight-two data (f, K, p, N⁺, N⁻)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_interpolation",
+     "role": "characterisation",
+     "statement": "For ψ ∈ Σ_cc with n ≡ 0 mod (p − 1), ψ(L_p(f)) is given by JSW (5.1.a)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_eq_of_interpolation",
+     "role": "extensionality",
+     "statement": "Two elements of R⟦T⟧ agreeing at infinitely many points ψ(γ) − 1 of the maximal ideal are equal."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_eval",
+     "role": "data",
+     "statement": "Evaluation at a character: ψ(L_p(f)) = eval₂ id (ψ(γ) − 1) L_p(f), the evaluation of the power series at T = ψ(γ) − 1."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_eval_one",
+     "role": "simp",
+     "statement": "The value at the trivial character is the constant coefficient: L_p(f, 1) = constantCoeff L_p(f)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_incomplete",
+     "role": "data",
+     "statement": "L_p^Σ(f) = L_p(f) · ∏_{w ∈ Σ} P_w(ε^{-1}Ψ^{-1}(Frob_w))."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_period_change",
+     "role": "relation",
+     "statement": "Replacing Ω_p by u Ω_p with u ∈ R^× multiplies ψ(L_p(f)) by u^{4n} for ψ of weight (−n, n)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_eq_sq",
+     "role": "compatibility",
+     "statement": "For N⁻ = 1, L_p(f) is an explicit unit times the square of the L3h square-root distribution (bdp-square-root-comparison)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_eval_zero",
+     "kind": "degenerate",
+     "statement": "Evaluation at T = 0 (the trivial character) is the constant coefficient of the power series."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_unique",
+     "kind": "characterisation",
+     "statement": "If F ∈ R⟦T⟧ vanishes at infinitely many distinct points of the maximal ideal then F = 0; so the interpolation property determines L_p(f)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_euler_11a1",
+     "kind": "computation",
+     "statement": "For f the newform of 11a1, K = ℚ(√−19) (11 and 5 split) and p = 5: a₅ = 1, so the BDP-point Euler factor (1 + p − a_p)/p equals 1."
+    },
+    {
+     "name": "TauCeti.GrossZagier.bdpLFunction_trivial_not_interpolated",
+     "kind": "non-example",
+     "statement": "The trivial character has Hodge–Tate weight n = 0 and is not in Σ_cc (n > 0, n ≡ 0 mod p − 1): L_p(f, 1) is not an interpolated value. A function interpolating at n = 0, such as the cyclotomic Mazur–Tate–Teitelbaum function at its critical twists, is a different object (and unbounded for supersingular f, whereas L_p(f) is bounded)."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1, display (5.1.a), p. 32",
+     "excerpt": "there exists Lp(f) ∈ ΛR := Λ⊗̂O R = R[[Γ]] such that for ψ ∈ Σcc with n ≡ 0 (mod p − 1), the image Lp(f, ψ) := ψ̂(Lp(f)) ∈ R ... satisfies (5.1.a)",
+     "match": "The definition by interpolation."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1, Remark 5.1.1(c), p. 32",
+     "excerpt": "In [BDP13] and [Bro14] the p-adic L-function is only constructed as a continuous function (though the construction clearly gives a measure). The measure is made explicit, for example, in [Bur14].",
+     "match": "Measure versus continuous function."
+    },
+    {
+     "sourceId": "bdp-2013",
+     "locator": "§5.2, (5.2.3) and Proposition 5.10, pp. 1134–1135",
+     "excerpt": "The function χ ↦ Lp(f, χ) extends to a continuous function on Σ̂cc(N).",
+     "match": "BDP's construction for N⁻ = 1."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, p. 13",
+     "excerpt": "There is an anticyclotomic p-adic L-function L^S_p(f) ∈ O[[Γ]] such that for ψ ∈ Σcp",
+     "match": "The imprimitive measure and its Case I/II sources."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/PadicLogarithmFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "planet": {
+    "name": "BDP p-adic L-function"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The BDP function is the square of the toric square-root distribution",
+   "kind": "comparison",
+   "statement": "Assume N⁻ = 1 in bdp-p-adic-l-function, so the Heegner hypothesis holds with N⁺ = N. Let ψ₀ be an anticyclotomic Hecke character of infinity type (1, −1) and conductor prime to pN, and L_{p,ψ₀}(f) the Castella–Hsieh measure on Γ̃ = Gal(K_{p^∞}/K), the F = ℚ, n⁻ = 1 specialisation of AutomorphicPadicLFunctions L3h's Hsieh distribution. For every p-adic avatar φ̂ of an anticyclotomic character of infinity type (m, −m), m ≥ 0, and p-power conductor, (L_{p,ψ₀}(f)(φ̂) / Ω_p^{2+2m})² = L^alg(1/2, π_K ⊗ ψ₀φ) · e_p(f, ψ₀φ) · φ(𝔑^{-1}) · 2^{#A(ψ₀)+3} c_o ε(f) u_K² √D_K (Castella–Hsieh Prop. 3.8). Comparing with JSW (5.1.a), the restriction of L_p(f) to the characters of Γ equals L_{p,ψ₀}(f)², transported to Γ by twisting by ψ̂₀^{-1}, times an explicit unit of R built from t_K, w_K, u_K, ε(f), 2 and the root of unity φ(𝔑^{-1}). Consequently: L_p(f) is a square in Λ_R up to a unit; its μ-invariant is even and its λ-invariant is even; and the value at the BDP point is the square of an element linear in the Heegner-point logarithm. The square-root distribution, not L_p(f), is what BCGS's 'L_BDP' denotes.",
+   "hypotheses": [
+    "N⁻ = 1 (Castella–Hsieh's (Heeg') with N_f⁻ = 1); for N⁻ > 1 Hsieh's GL₂ toric period vanishes because the type-two characters need B ramified at the inert primes of N⁻ (Saito–Tunnell), and Brooks's quaternionic construction replaces it.",
+    "The comparison is an identity of measures, proved on the Zariski-dense set of characters where both interpolation formulas hold."
+   ],
+   "proofSteps": [
+    "Both sides are elements of Λ_R; by bdp-p-adic-l-function's uniqueness it suffices to compare values at ψ ∈ Σ_cc with n ≡ 0 mod (p − 1).",
+    "At such ψ pass between JSW's ψ^alg (with χ^{-1} = ψ^alg |·|_{𝔸_K}, JSW Remark 5.1.1(b)) and Castella–Hsieh's ψ₀φ of infinity type (1 + m, −1 − m), and compare the constants of JSW (5.1.a) with those of Castella–Hsieh Proposition 3.8 (both come from the explicit Waldspurger formula of Hsieh Theorem 3.14).",
+    "The ratio is a unit of R independent of ψ after the twist; collect it."
+   ],
+   "acceptance": [
+    "Square versus square root: at a simple zero of the square-root distribution L_p(f) has a double zero; a wrong identification would make the λ-invariant odd.",
+    "BCGS/HE.8b check: char(X_Gr) Λ^ur = (L_BDP)² with L_BDP the square-root distribution, i.e. the characteristic ideal is generated by L_p(f) itself up to a unit."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "AutomorphicPadicLFunctions:L3h",
+    "AutomorphicPadicLFunctions:L0",
+    "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional"
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-2018",
+     "locator": "§3.3, Definition 3.7, p. 13",
+     "excerpt": "Define the p-adic measure Lp,ψ (f ) on Γ̃ by Lp,ψ (f )(ρ) = Σ_{[a]∈Pic Oco} ψ(a)N(a)^{−r} · f̂♭_a ⊗ ψp ρ|[a] (Aa , ηa ).",
+     "match": "The square-root measure."
+    },
+    {
+     "sourceId": "castella-hsieh-2018",
+     "locator": "§3.3, Proposition 3.8, p. 13",
+     "excerpt": "If φ̂ ∈ Xp∞ is the p-adic avatar of a Hecke character φ of infinity type (m, −m) with m ≥ 0 and p-power conductor, then (Lp,ψ (f )(φ̂)/Ω_p^{2r+2m})² = L^alg(1/2, πK ⊗ ψφ) · ep(f, ψφ) · φ(N^{−1}) · 2^{#A(ψ)+3} co ε(f) · u_K² √DK.",
+     "match": "The square interpolates the central values."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "Brooks's quaternionic p-adic L-function",
+   "kind": "construction",
+   "statement": "Assume (gen-H) with N⁻ > 1, (good) and (split). Let X = X_{N⁺,N⁻} be the Shimura curve of false elliptic curves with K-level structure, f_B the Jacquet–Langlands form of f normalised as in petersson-norm-ratio, A a false elliptic curve with normalised CM by O_K and level structure t, ω a nonvanishing invariant differential defined over the Hilbert class field, Ω ∈ ℂ^× and Ω_p ∈ ℂ_p^× its complex and Serre–Tate p-adic periods. For a central critical character χ of type two (infinity type (k + j, −j), j ≥ 0, k = 2) put L_p(f, χ) = Ω_p^{2(k+2j)} (1 − χ^{-1}(p̄) a_p + χ^{-2}(p̄) ε_f(p) p^{k−1})² L^alg(f, χ^{-1}, 0), where L^alg(f, χ^{-1}, 0) = α(f, f_GL2)^{-1} W(f, χ)^{-1} C(f, χ) L(f, χ, 0) / Ω^{2(k+2j)}. Then L_p(f, χ) = (Σ_{[a] ∈ Cl(O_K)} χ_j^{-1}(a) · θ^j f_B^♭(a ⋆ (A, t, ω̂)))², where θ is the Atkin–Serre operator in Serre–Tate coordinates and f_B^♭ = f_B|(VU − UV) the p-depletion; the function χ ↦ L_p(f, χ) extends continuously to the completion Σ̂_cc, and is given by a measure in Λ_R satisfying JSW (5.1.a).",
+   "hypotheses": [
+    "k = 2 and trivial nebentypus; χ ranges over type-two central critical characters, where the sign of L(f, χ^{-1}, s) is +1 (an even number of primes divide N⁻).",
+    "The Serre–Tate period Ω_p depends on a basis of the Tate module of the reduction of A; changing it by a ∈ ℤ_p^× multiplies L_p(f, χ) by a^{2(k+2j)}.",
+    "That the continuous function is a measure is Burungale's refinement (JSW Remark 5.1.1(c)); its integral structure is part of this construction."
+   ],
+   "proofSteps": [
+    "Waldspurger-type formula for CM values on X (quaternionic-cm-waldspurger-formula): C(f, χ) L(f, χ^{-1}, 0) = α(f, f_GL2) W(f, χ) (Σ χ^{-1}(a) Na^{-j} Θ^j_∞ f_B(a ⋆ (A, P, ω_ℂ)))² (Brooks Proposition 8.5).",
+    "At ordinary CM points the Maass–Shimura derivative Θ_∞^j f_B and the p-adic θ^j f_B take the same algebraic values (unit-root splitting equals the Hodge splitting for CM by K with p split; Brooks Corollary 8.8).",
+    "Remove the Euler factor at p̄ with the p-depletion: θ^j f^♭ at a ⋆ (A, t, ω) differs from θ^j f by the factor of Lemma 8.6 (Brooks Proposition 8.9).",
+    "Continuity: if ψ₁ ≡ ψ₂ mod p^M then j₁ ≡ j₂ mod (p − 1)p^{M−1} and θ^{j₁} f^♭ ≡ θ^{j₂} f^♭ mod p^M at ordinary CM points (Brooks Proposition 8.10, from the Serre–Tate expansion, Proposition 4.19).",
+    "The Serre–Tate coordinates, θ and the depletion on X are owned here for weight two; the Shimura curve, its integral model smooth at p ∤ N and the moduli of false elliptic curves are imported from HilbertModularVarietiesAndShimuraCurves R18.1."
+   ],
+   "acceptance": [
+    "For N⁻ = 1 the same construction with q-expansions is BDP §5.2, so the two agree on overlapping data.",
+    "Changing the trivialisation of the formal group by a ∈ ℤ_p^× multiplies L_p(f, χ) by a^{2(k+2j)} (BDP Remark 5.8)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1",
+    "AutomorphicPadicLFunctions:L3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "uses": [
+    {
+     "where": "JSW §5.1",
+     "how": "the existence of L_p(f) ∈ Λ_R with (5.1.a) when N⁻ > 1"
+    },
+    {
+     "where": "Brooks Propositions 8.12–8.13",
+     "how": "its value at the BDP point is the square of a logarithm"
+    },
+    {
+     "where": "RankZeroOneBSD:BSD.6a",
+     "how": "the quaternionic logarithm comparison of the JSW branch"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP",
+     "role": "constructor",
+     "statement": "L_p(f, ·) on Σ̂_cc for N⁻ > 1, defined from Serre–Tate expansions of f_B^♭ at ordinary CM points."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_eq_sq_sum",
+     "role": "characterisation",
+     "statement": "L_p(f, χ) = (Σ_{[a]} χ_j^{-1}(a) θ^j f_B^♭(a ⋆ (A, t, ω̂)))² (Brooks Proposition 8.9)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_continuous",
+     "role": "other",
+     "statement": "χ ↦ L_p(f, χ) extends continuously to Σ̂_cc (Brooks Proposition 8.10)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_period",
+     "role": "relation",
+     "statement": "Changing Ω_p by a ∈ ℤ_p^× multiplies L_p(f, χ) by a^{2(k+2j)}."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_measure",
+     "role": "compatibility",
+     "statement": "The function is the evaluation of the measure L_p(f) ∈ Λ_R of bdp-p-adic-l-function on characters of Γ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_sq_sum_one_class",
+     "kind": "computation",
+     "statement": "For class number one the sum has one term, so L_p(f, χ) = (θ^j f_B^♭(A, t, ω̂))²."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_zero_form",
+     "kind": "degenerate",
+     "statement": "For f_B = 0 the function is identically zero (the construction is quadratic in f_B)."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_scale",
+     "kind": "characterisation",
+     "statement": "Replacing f_B by c f_B multiplies L_p(f, χ) by c² and α(f, f_B) by c^{-2}, so (5.1.a) is unchanged."
+    },
+    {
+     "name": "TauCeti.GrossZagier.quaternionicBDP_is_square",
+     "kind": "non-example",
+     "statement": "The value is a square in R; the unsquared CM sum (the square-root convention) is a different object, which scales by c rather than c² when f_B is replaced by c f_B."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.4, definition before Proposition 8.9, p. 4237",
+     "excerpt": "Now set L p( f, χ ) = Ω p^{2(k+2 j)} (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) pk−1 )2 L alg ( f, χ −1 , 0).",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.5, Proposition 8.10, p. 4237",
+     "excerpt": "The function χ → L p( f, χ ) extends to a continuous function on all of Σ̂cc (which we will still write as L p.)",
+     "match": "Continuity."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1, p. 31",
+     "excerpt": "As explained in [BDP13], [Bro14], and [Bur14], under the hypotheses (H) and (good) there exists Lp (f ) ∈ ΛR",
+     "match": "The measure in the quaternionic case."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GrossZagier/PadicLogarithmFormula",
+    "namespace": "TauCeti.GrossZagier"
+   },
+   "planet": {
+    "name": "Brooks's quaternionic p-adic L-function"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-cm-waldspurger-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The Waldspurger formula at CM points of X_{N⁺,N⁻}",
+   "kind": "theorem",
+   "statement": "Let χ be an unramified Hecke character of K of infinity type (k + j, −j), j ≥ 0, whose central character is the nebentypus of f, and let (A, P, ω_ℂ) be the CM triple of quaternionic-bdp-construction. Then C(f, χ) L(f, χ^{-1}, 0) = α(f, f_GL2) W(f, χ) (Σ_{a ∈ Cl(O_K)} χ^{-1}(a) Na^{-j} (Θ^j_∞ f)(a ⋆ (A, P, ω_ℂ)))², with C(f, χ) = ¼ π^{k+2j−1} Γ(j + 1) Γ(k + j) w_K |d_K|^{1/2} 2^{#S_f} ∏_{ℓ | N⁻} (ℓ − 1)/(ℓ + 1), S_f the primes ramified in K dividing N⁺ but not the conductor of the nebentypus, and W(f, χ) of absolute value one. Consequently L^alg(f, χ^{-1}, 0) is algebraic and equals the square of the CM sum of Θ^j_∞ f at the algebraic triple (A, t, ω) (Brooks Proposition 8.7).",
+   "hypotheses": [
+    "χ unramified, of type two; even number of primes in N⁻.",
+    "The complex conjugation on CM triples is compared with an Atkin–Lehner involution (Brooks Propositions 8.3–8.5) to replace |·|² by a square; W(f, χ) records that comparison."
+   ],
+   "proofSteps": [
+    "Brooks Theorem 8.2: the explicit Waldspurger formula of Prasanna [31, Theorem 3.2] with BDP's local computations (BDP §4), for the toric period of Θ^j_∞ f on B^× (GZ.5 supplies Waldspurger's formula; this node is its specialisation at Maass–Shimura derivatives).",
+    "Brooks Proposition 8.3 and Lemma 8.4: complex conjugation of a CM triple is b ⋆ w_N applied to a rescaled triple; f^ρ ∘ w_N = W_f f.",
+    "Sum over Cl(O_K) to obtain Proposition 8.5, then divide by Ω^{2(k+2j)} (Proposition 8.7)."
+   ],
+   "acceptance": [
+    "For N⁻ = 1 this is BDP Theorem 5.4 (with α = 1).",
+    "Absolute values: |W(f, χ)| = 1, so the formula is consistent with the positivity of L(f, χ^{-1}, 0) up to the square."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+    "GrossZagierAndArithmeticHeights:GZ.5",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
+    "AutomorphicPadicLFunctions:L3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.2, Theorem 8.2, p. 4232",
+     "excerpt": "Let χ be an unramified Hecke character of K of infinity type (k + j, − j) whose central character is the nebentypus of f. Then one has, for some α( f, fGL2 ) ∈ K",
+     "match": "The Waldspurger-type formula."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.3, Proposition 8.5, p. 4235",
+     "excerpt": "Under the hypotheses of Theorem 8.2, one has C ( f, χ )L( f, χ −1 , 0) = α( f, fGL2 )W( f, χ )(Σ χ −1 (a)Na− j · (Θ∞ j f)(a ⋆ (A, P , ωC )))2",
+     "match": "The squared form."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The Euler factor at the BDP point",
+   "kind": "lemma",
+   "statement": "For a newform f ∈ S₂(Γ₀(N)) and p ∤ N, the factor E_p(f) = 1 − a_p p^{-1} + p^{-1} = (1 + p − a_p)/p that multiplies the BDP-point formula is nonzero; for an elliptic curve E/ℚ with good reduction at p it equals #Ẽ(𝔽_p)/p. Hence, for p ≥ 5, v_p(E_p(f)) = 0 if a_p = 1 (anomalous p) and v_p(E_p(f)) = −1 otherwise; for general f, ∏_{σ : M_f ↪ ℂ} (1 + p − σ(a_p)) = #Ã_f(𝔽_p) ≥ 1. For a finite-order χ of conductor prime to p the factor is E_p(f, χ) = 1 − χ^{-1}(p̄) a_p p^{-1} + χ^{-2}(p̄) p^{-1}, Brooks's and BDP's (1 − χ'^{-1}(p̄) a_p + χ'^{-2}(p̄) ε_f(p) p) evaluated at the infinity-type-(1, 1) character χ' = χN, using χ'(p̄) = p χ(p̄).",
+   "hypotheses": [
+    "p ∤ N, so f has good reduction at p and ε_f(p) = 1.",
+    "The Hasse bound |a_p| ≤ 2√p for elliptic curves (EllipticCurves Layer 3) and the Ramanujan–Petersson bound for weight-two newforms (AutomorphicGaloisRepresentations R19.1) give |a_p| < p + 1."
+   ],
+   "proofSteps": [
+    "1 + p − a_p = #Ẽ(𝔽_p) ≥ 1 for E (the identity is a point), or > 0 by |a_p| ≤ 2√p < p + 1.",
+    "For p ≥ 5, #Ẽ(𝔽_p) ≤ p + 1 + 2√p < 2p, so p | #Ẽ(𝔽_p) iff #Ẽ(𝔽_p) = p iff a_p = 1.",
+    "The χ-twisted factor is the specialisation of Brooks's (1 − χ^{-1}(p̄) a_p + χ^{-2}(p̄) ε_f(p) p) at a character of infinity type (1, 1), divided by the norm."
+   ],
+   "acceptance": [
+    "11a1, p = 5 (split in ℚ(√−19)): a₅ = 1, E_p = 1, a unit — p = 5 is anomalous for 11a1.",
+    "11a1, p = 23 (split in ℚ(√−19), since −19 ≡ 2² mod 23): a₂₃ = −1, so E_p = 25/23 has valuation −1.",
+    "Supersingular p (a_p = 0): E_p = (1 + p)/p, never zero."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+    "AutomorphicGaloisRepresentations:R19.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1.5, Proposition 5.1.6, p. 34",
+     "excerpt": "Lp (f, 1) = 1/(1 − aℓ0 + ℓ0)² · ((1 + p − ap)/p)² · log²_ωf x_K^{N+,N−}",
+     "match": "The Euler factor at the BDP point."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.6, Proposition 8.12, p. 4239",
+     "excerpt": "L p( f, χ ) = (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) p)2 · logω f ( f Δχ ).",
+     "match": "The χ-twisted factor in weight two."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "In weight two the p-adic Abel–Jacobi map is the formal logarithm",
+   "kind": "lemma",
+   "statement": "Let C be X₀(N) or X_{N⁺,N⁻} over a finite extension F_𝔭 of ℚ_p with p ∤ N, J its Jacobian, and ε_f the Hecke projector with ε_f H_dR^1(C/F) = F ω_f. For a degree-zero divisor D on C over F_𝔭 (for instance ε_f Δ₀ for an arbitrary divisor Δ₀, which is automatically homologically trivial), the p-adic Abel–Jacobi image AJ_p(D)(ω_f) equals log_{ω_f}([D]), where for ω ∈ H⁰(J, Ω¹) = Fil¹H¹_dR the map log_ω : J(F_𝔭) → F_𝔭 is the unique homomorphism with d log_ω = ω. On X₀(N) with D = ε_f(Δ_φ − ∞) this is the r = 0 case of BDP's Abel–Jacobi map; a choice of base point changes AJ on C(F_𝔭) but not on Pic⁰(C).",
+   "hypotheses": [
+    "Good reduction of C at p (p ∤ N); for X_{N⁺,N⁻} the smooth model over ℤ_(p) of R18.1.",
+    "r = 0: the generalized Kuga–Sato variety is C itself and the de Rham target is (S₂ ⊗ F)^∨ = (Fil¹H¹_dR)^∨."
+   ],
+   "proofSteps": [
+    "For r = 0 the p-adic Abel–Jacobi map CH¹(C)₀ → (Fil¹ H¹_dR(C/F))^∨ is given by Coleman integration of holomorphic differentials (BDP §3; Brooks §7.1), and the Coleman integral of a holomorphic form along a degree-zero divisor is the logarithm of the formal group of J evaluated on its class (ColemanIntegration L1; Brooks §6.4).",
+    "Hecke-equivariance: the projector ε_f acts compatibly on divisors and on differentials, and log_{ω_f}(ε_f x) = log_{ω_f}(x) since ε_f^* ω_f = ω_f (Brooks Lemma 7.5)."
+   ],
+   "acceptance": [
+    "Base-point independence: two Abel–Jacobi maps C → J differing by a translation give the same value on degree-zero divisors.",
+    "Cusps are Eisenstein: replacing ∞ by another cusp changes D by a torsion class (Manin–Drinfeld), which log kills."
+   ],
+   "prerequisites": [
+    "GeneralizedHeegnerCycles:GH.1/p-adic-abel-jacobi-map",
+    "ColemanIntegration:L1",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1",
+    "mathlib:Module.Dual"
+   ],
+   "sources": [
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§6.4, p. 4224",
+     "excerpt": "In the weight two case, the p-adic Abel–Jacobi map can be identified with a formal group logarithm as follows: writing J for the Jacobian of C , there is, for each differential form ω ∈ Ω J , a unique group homomorphism logω : J(F p) → F p with dlogω = ω.",
+     "match": "The identification."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§7, Lemma 7.5, p. 4229",
+     "excerpt": "Suppose that the weight of f is 2. Then for any zero-cycle Δ on C , one has (θ −1 f ♭ )(ε f Δ0 ) = (θ −1 f ♭ )(Δ0 ).",
+     "match": "The projector does not change the value."
+    },
+    {
+     "sourceId": "bdp-2013",
+     "locator": "Remark 2.6 and Proposition 2.7, p. 1053",
+     "excerpt": "When r = 0, the generalized Heegner cycle Δϕ is a CM point on the modular curve C. In this case, we replace Δϕ by Δϕ − ∞, where ∞ is any cusp, in order to make Δϕ homologically trivial.",
+     "match": "The weight-two cycle."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The BDP p-adic Gross–Zagier formula in weight two",
+   "kind": "theorem",
+   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform, K of odd discriminant satisfying the Heegner hypothesis (every prime of N splits), c odd and prime to N d_K, p ∤ Nc split in K, and χ a finite-order character of Pic(O_c), viewed as the central critical character χN of infinity type (1, 1) in Σ_cc^{(1)}(𝔑). Let P_a ∈ X₀(N)(H_c) be the Heegner points C/a → C/a𝔑_c^{-1} of HE.1 and ω_f the differential of f. Then L_p(f, χN) = (1 − χ^{-1}(p̄) a_p p^{-1} + χ^{-2}(p̄) p^{-1})² · (Σ_{[a] ∈ Pic(O_c)} χ^{-1}(a) log_{ω_f}([P_a − ∞]))². For χ = 1 and c = 1 this reads L_p(f, 1) = ((1 + p − a_p)/p)² · log_{ω_f}(P_K)², with P_K = Σ_σ [P^σ − ∞] = the trace Heegner divisor class on J₀(N), and equivalently log_ω(P_K(f))² for the point P_K(f) on A_f with φ^*ω = ω_f.",
+   "hypotheses": [
+    "BDP Assumption 5.12 at k = 2: D_K odd, Heegner hypothesis, c odd prime to N d_K, p split and prime to Nc.",
+    "The value is at a character outside the range of interpolation; L(f, χ^{-1}, 0) vanishes there, and the formula is a special value, not a derivative.",
+    "This is not a p-adic height formula: it involves the logarithm (Abel–Jacobi image), not the cyclotomic p-adic height of Perrin-Riou."
+   ],
+   "proofSteps": [
+    "Import BDP Theorem 5.13 at r = j = 0 from GeneralizedHeegnerCycles GH.1 (requested in its full Assumption 5.12 generality): L_p(f, χ') = E(f, χ')² (Σ χ'^{-1}(a) N(a) AJ_F(φ_a φ_0)(ω_f))² for χ' of infinity type (1, 1), with c^0/0! = 1 and Ω_p^0 = 1.",
+    "For r = 0 the cycle attached to φ_a φ_0 is the CM point P_a corrected by a cusp, and AJ_F(P_a − ∞)(ω_f) = log_{ω_f}([P_a − ∞]) (weight-two-abel-jacobi-is-logarithm).",
+    "Rewrite χ^{-1}(a)N(a) for the character χN of infinity type (1, 1) as the finite-order χ^{-1}(a), and the Euler factor at χN as in euler-factor-at-bdp-point.",
+    "For χ = 1 and c = 1 the sum over Pic(O_K) is the Galois trace; through the quotient φ : J₀(N) → A_f with φ^*ω = ω_f, log_{ω_f}(Q) = log_ω(φ(Q)) (isogeny-and-differential-compatibility)."
+   ],
+   "acceptance": [
+    "Skinner Proposition 2.6.1, Case I: L_p^S(f, 1) ≐ (log_ω P_K(f))², with the Euler factors at S removed.",
+    "Class number one, unit group of order 2: BDP's introduction reduces the formula to L_p(f, 1) = ((1 + p − a_p)/p)² log_{ω_f}(P_A − ∞)².",
+    "A non-example: replacing the logarithm by the p-adic height of P_K gives Perrin-Riou's formula for the cyclotomic derivative, a different statement."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point",
+    "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images",
+    "GeneralizedHeegnerCycles:GH.1",
+    "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point"
+   ],
+   "sources": [
+    {
+     "sourceId": "bdp-2013",
+     "locator": "§5.3, Theorem 5.13, p. 1137",
+     "excerpt": "Suppose that χ ∈ Σ(1)cc(N) is a character of infinity type (k − 1 − j, 1 + j), with 0 ≤ j ≤ r. Then Lp(f, χ)/Ω_p^{2(r−2j)} = (1 − χ^{−1}(p̄)ap + χ^{−2}(p̄)εf(p)p^{k−1})² (c^j/j! Σ χ^{−1}(a)N(a) · AJF(ϕa ϕ0)(ωf ∧ ωA^j ηA^{r−j}))²",
+     "match": "The general theorem, imported from GH at r = j = 0."
+    },
+    {
+     "sourceId": "bdp-2013",
+     "locator": "Introduction, p. 1038",
+     "excerpt": "Those approaching this paper for the first time may find it pedagogically helpful to focus on the simplest case r = j = 0, where f is a newform of weight 2 and χ ∈ Σ(1)cc(N) is a grossencharacter of infinity type (1, 1).",
+     "match": "The weight-two case."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, Proposition 2.6.1, p. 14",
+     "excerpt": "Suppose (sqf), (sgn), (ram), (flt), and (odd) hold. Then L^S_p(f, 1) ≐ (logω PK (f ))².",
+     "match": "The trace-point form."
+    }
+   ],
+   "planet": {
+    "name": "BDP p-adic Gross–Zagier formula"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-weight-two-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The quaternionic weight-two formula of Brooks and JSW",
+   "kind": "theorem",
+   "statement": "Assume (gen-H) with N⁻ > 1, (-free) N squarefree, (good) and (split). Let X* = X_{N⁺,N⁻}, ℓ₀ ∤ pN a prime split in K with 1 − a_{ℓ₀} + ℓ₀ ≠ 0, ι_{N⁺,N⁻}(x) = (T_{ℓ₀} − ℓ₀ − 1)[x], and x_K^{N⁺,N⁻} ∈ J(X*)(K) the Heegner point of JSW §4.3. Then L_p(f, 1) = (1 − a_{ℓ₀} + ℓ₀)^{-2} · ((1 + p − a_p)/p)² · log_{ω_f}(x_K^{N⁺,N⁻})² up to a p-adic unit, where log_{ω_f} : J(X*)(K_v) ⊗ O → K_v is the logarithm with d log_{ω_f} = ω_f for the O-basis ω_f attached to f_B. Exactly (Brooks Proposition 8.13 with the square restored): for a central critical χ of infinity type (1, 1), L_p(f, χ) = (1 − χ^{-1}(p̄) a_p + χ^{-2}(p̄) ε_f(p) p)² · log_{ω'_f}(Δ'_χ)², with Δ'_χ = φ(ε_f Δ_χ) ∈ Div(C')(K) ⊗ ℚ̄ on the quotient C' = ℍ/Γ_{0,N⁺} and Δ_χ = Σ_a χ^{-1}(a) N(a) P_a, the sum of the CM points a ⋆ (A, t) (Brooks prints P_χ inside the sum; source issue E4).",
+   "hypotheses": [
+    "(-free) and (gen-H) as in JSW Proposition 5.1.6; f need not be ordinary at p.",
+    "The exact form is Brooks's; JSW's restatement is up to a p-adic unit and replaces Brooks's x̃_K = Σ_σ ε_f[x]^σ by x_K^{N⁺,N⁻} = (1 − a_{ℓ₀} + ℓ₀) x̃_K.",
+    "Brooks prints log_{ω_f}(ε_f Δ_χ) without the square in Propositions 8.12–8.13; Theorem 8.11, from which they are deduced, and JSW's restatement have the square (source issue E2)."
+   ],
+   "proofSteps": [
+    "Brooks Theorem 8.11 at k = 2, j = 0: L_p(f, χ) = (Euler factor)² · (Σ χ^{-1}(a) N(a) AJ_p(Δ_a)(ω_f))², obtained from the continuity of quaternionic-bdp-construction, θ^{-1} f^♭ as the Coleman primitive (Brooks Lemma 7.3) and the Euler-factor removal of Lemma 8.6.",
+    "Weight two: compute with Δ_χ rather than ε_f Δ_χ (Brooks Lemma 7.5) and identify AJ_p with log_{ω_f} (weight-two-abel-jacobi-is-logarithm).",
+    "Descend from C to C' = ℍ/Γ_{0,N⁺} with log_{φ^*ω}(P) = log_ω(φ(P)); Shimura reciprocity shows Δ'_χ is defined over K.",
+    "JSW's form: log_{ω_f} x_K^{N⁺,N⁻} = log_{ω_f} ε_f x_K^{N⁺,N⁻} = (1 − a_{ℓ₀} + ℓ₀) log_{ω_f} x̃_K^{N⁺,N⁻}."
+   ],
+   "acceptance": [
+    "Squared logarithm: both sides are quadratic in ω_f; replacing ω_f by u ω_f multiplies the right side by u² and the left side through the normalisation of f_B by the same u², a test a non-squared version fails.",
+    "The auxiliary ℓ₀ cancels: changing ℓ₀ multiplies x_K by (1 − a_{ℓ₀'} + ℓ₀')/(1 − a_{ℓ₀} + ℓ₀) and the prefactor by its inverse square."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-cm-waldspurger-formula",
+    "HeegnerPointEulerSystems:HE.1/optimal-embedding-cm-points",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1.5, Proposition 5.1.6, p. 34",
+     "excerpt": "Proposition 5.1.6 ([Bro14, Prop. 8.13]). Suppose (-free) holds and N and K satisfy (gen-H). Then Lp (f, 1) = 1/(1 − aℓ0 + ℓ0 )² · ((1 + p − ap)/p)² · log²ωf x_K^{N+,N−}, where the equality is up to a p-adic unit.",
+     "match": "The formula used by JSW."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.6, Proposition 8.13, p. 4239",
+     "excerpt": "The cycle Δ′χ ∈ Div(C′)(K) ⊗ Q̄ satisfies L p( f, χ ) = (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) p)2 · logω′f (Δ′χ ).",
+     "match": "Brooks's statement, printed without the square on the logarithm."
+    },
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.5, Theorem 8.11, p. 4238",
+     "excerpt": "Lp(f, χ)/Ωp^{2(k−2−2j)} = (1 − χ^{−1}(p̄)ap + χ^{−2}(p̄)εf(p)p^{k−1})² · ((1/j!) Σ χ^{−1}(a)N(a) · AJp(Δa)(ωf ∧ ωA^j ηA^{k−2−j}))²",
+     "match": "The general-weight theorem, with the square."
+    }
+   ],
+   "planet": {
+    "name": "Quaternionic p-adic Waldspurger formula"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/p-optimal-quotient-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The formula for a p-optimal quotient",
+   "kind": "theorem",
+   "statement": "Assume (good) and (irred_K): the residual representation of V = V_f is irreducible over G_K. Take the quotient π : J(X*_{N⁺,N⁻}) → A_f to be (ℤ(f), 𝔭)-optimal, i.e. π = φ ∘ π₀ with π₀ an optimal quotient and φ : A₀ → A_f an isogeny such that φ(T_p A₀) ⊄ p T_p A_f, and ω_{A_f} the differential of A_f with the image of the 𝔭-summand basis. Then π^*(ω_{A_f}) ∈ O^× ω_f, and with z_K = π(x_K^{N⁺,N⁻}) and ℓ₀ ∤ pN split in K with 1 − a_{ℓ₀} + ℓ₀ a 𝔭-adic unit: L_p(f, 1) = ((1 + p − a_p)/p)² · log_{ω_{A_f}}(z_K)² up to a unit in O.",
+   "hypotheses": [
+    "(good) p ∤ N; (irred_K); p − 1 > 1 (p odd) for the direct-summand argument of BLR Theorem 4, p. 187.",
+    "The choice of a 𝔭-optimal quotient and of ℓ₀ with 1 − a_{ℓ₀} + ℓ₀ ∈ O^× (possible under (irred_K))."
+   ],
+   "proofSteps": [
+    "Néron models of J, A₀ and A_f are abelian schemes over ℤ_p by (good); π, π₀, φ extend.",
+    "π₀ optimal ⇒ π₀^* Ω¹(A₀/ℤ_p) is a direct summand of Ω¹(J/ℤ_p) (BLR, since p − 1 > 1).",
+    "Ω¹(A_f/ℤ_p) ⊗ O/p = Lie_{𝔽_p}(A_f[p]⁰)^∨ ⊗ O/p; T_p A₀ → T_p A_f not landing in p T_p A_f and irreducibility give A₀[p] ↠ A_f[𝔭^{e_𝔭}], hence injectivity on cotangent spaces, so φ^*ω_{A_f} is part of an O-basis.",
+    "Substitute log_{π^*ω}(x) = log_ω(π(x)) into quaternionic-weight-two-formula."
+   ],
+   "acceptance": [
+    "Without (irred_K) the optimal-quotient differential can fail to be a unit multiple of ω_f, and the formula holds only up to the index of φ^*ω_{A_f} — a test that a version dropping the hypothesis fails.",
+    "For N⁻ = 1 and E optimal, π^*ω_E = c_E ω_f with the Manin constant c_E; the statement says c_E is a p-adic unit under these hypotheses, consistent with the known results for p odd."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-weight-two-formula",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1.5, Proposition 5.1.7, p. 34",
+     "excerpt": "Proposition 5.1.7. Suppose (good) and (irredK ) hold. Then with the above choice of Af and π, up to a unit in O we have that Lp (f, 1) equals ((1 + p − ap)/p)² log²_{ωAf} z_K^{N+,N−}",
+     "match": "The p-optimal form."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1.5, proof of Proposition 5.1.7, pp. 34–35",
+     "excerpt": "To prove this proposition it suffices to prove that π∗(ωAf ) is an O×-multiple of ωf . By the hypothesis (good), each of J(X∗N+,N−), A0, and Af has good reduction at p.",
+     "match": "The proof strategy."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/logarithm-detects-heegner-point",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The formal logarithm detects non-torsion Heegner points",
+   "kind": "theorem",
+   "statement": "Let A be an abelian variety over K with good reduction at v | p, K_v = ℚ_p, and ω a nonzero invariant differential. (a) For an elliptic curve E (dim 1), log_ω(P) ≠ 0 if and only if P ∈ E(K) has infinite order: log_E : E(K_v) → K_v has kernel the torsion subgroup and E(K) ⊂ E(K_v). (b) For A of strict GL(2)-type with M = End⁰(A) a field of degree dim A and ω an M-eigendifferential, the same equivalence holds for actual points by eigenlogarithm-nonvanishing; it is not a consequence of freeness of A(K) ⊗ ℚ_p over M ⊗ ℚ_p, since log_A(P) ≠ 0 only says that some eigencomponent is nonzero. Consequently, under the hypotheses of bdp-weight-two-heegner-formula (resp. quaternionic-weight-two-formula), P_K(f) ≠ 0 if and only if L_p(f, 1) ≠ 0. A nonzero Selmer class whose localisation at v vanishes has Bloch–Kato logarithm zero; the equivalence is for the Kummer classes of global points only.",
+   "hypotheses": [
+    "Lie(A) is free of rank one over M ⊗ K_v (strict GL(2)-type), so A(K_v) ⊗ ℚ is free of rank one over M ⊗ ℚ_p.",
+    "E_p(f) ≠ 0 (euler-factor-at-bdp-point) and 1 − a_{ℓ₀} + ℓ₀ ≠ 0 are needed to pass from the logarithm to L_p(f, 1)."
+   ],
+   "proofSteps": [
+    "The logarithm of the commutative p-adic Lie group A(K_v) is a homomorphism with kernel the torsion subgroup and is an isomorphism A(K_v) ⊗ ℚ → Lie(A/K_v) (AbelianSchemesAndArithmeticModuli A4); A(K) ⊂ A(K_v).",
+    "dim 1: Lie(E/K_v) is one-dimensional and ω ≠ 0 identifies it with K_v, so log_ω(P) = 0 iff log_E(P) = 0 iff P is torsion.",
+    "GL(2)-type: use eigenlogarithm-nonvanishing for the λ-eigencomponent singled out by ι_p.",
+    "Insert into the weight-two formulas: L_p(f, 1) is a nonzero multiple of log_ω(P_K(f))² (euler-factor-at-bdp-point)."
+   ],
+   "acceptance": [
+    "Skinner Corollary 2.6.2: P_K(f) ≠ 0 iff L^S_𝔭(f, 1) ≠ 0, with the eigencomponent input of eigenlogarithm-nonvanishing (PAPER-SKINNER-20/E6).",
+    "Non-example: for M = ℚ(√5) and a point P with log_A(P) ≠ 0, the projection of log_A(P) to one λ-eigenline can a priori vanish; excluding this needs transcendence, not linear algebra."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-weight-two-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "mathlib:FormalGroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, Corollary 2.6.2, p. 14",
+     "excerpt": "PK (f ) ≠ 0 if and only if LSp (f, 1) ≠ 0.",
+     "match": "The detection statement."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, after Proposition 2.6.1, p. 14",
+     "excerpt": "To prove that PK (f ) ≠ 0, and hence that Af (K) has positive rank, it suffices to show that logω PK (f ) ≠ 0 and, therefore, to show that LSp (f, 1) ≠ 0.",
+     "match": "The logarithm detects the point."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "Bloch–Kato logarithm of the Heegner Kummer class",
+   "kind": "comparison",
+   "statement": "Let A/K be an abelian variety with good reduction at v | p, V = V_p A, and κ : A(K) → H¹_f(K, V) the Kummer map (HE.3). Then loc_v κ(P) lies in H¹_f(K_v, V) = H¹_e(K_v, V) (D_cris(V)^{φ=1} = 0 by purity), and under D_dR(V)/Fil⁰ D_dR(V) ≅ Lie(A/K_v) the Bloch–Kato logarithm of loc_v κ(P) is the formal logarithm log_A(P). Hence for an invariant differential ω ∈ H⁰(A, Ω¹) ⊗ K_v, viewed in Fil⁰ D_dR(V^*(1)), the dual of D_dR(V)/Fil⁰ ≅ Lie(A/K_v), ⟨log_BK loc_v κ(P_K(f)), ω_f⟩ = log_{ω_f}(P_K(f)), and the BDP-point formulas may be written L_p(f, 1) = E_p(f)² ⟨log_BK loc_v κ(P_K(f)), ω_f⟩² with the exact differential normalisation of the formula used.",
+   "hypotheses": [
+    "Good reduction at v; V_p A crystalline with Frobenius eigenvalues of weight 1 (no eigenvalue 1, so H¹_e = H¹_f).",
+    "The identification D_dR(V_p A)/Fil⁰ ≅ Lie(A) ⊗ K_v and the pairing with differentials use the de Rham comparison (PadicHodgeRegulators L0–L1); the sign convention of log_BK as the inverse of exp_BK is the one fixed there."
+   ],
+   "proofSteps": [
+    "The Kummer image of A(K_v) ⊗ ℚ_p is H¹_f(K_v, V) (Bloch–Kato, Example 3.10.1), and the Bloch–Kato exponential Lie(A) ⊗ K_v → H¹(K_v, V) is the composite of the exponential of the formal group with the Kummer map (PadicHodgeRegulators L1).",
+    "Invert: log_BK ∘ loc_v ∘ κ = log_A on A(K_v) ⊗ ℚ.",
+    "Pair with ω_f ∈ Fil⁰ D_dR(V^*(1)) through the de Rham pairing, as Castella–Hsieh §4.5 do for generalized Heegner classes."
+   ],
+   "acceptance": [
+    "A global Selmer class with trivial localisation at v has log_BK = 0 although it may be nonzero: logarithms detect points, not Selmer classes (logarithm-detects-heegner-point).",
+    "Compatibility with GeneralizedHeegnerCycles GH.8's weight-two comparison: the étale Abel–Jacobi class of ε_f(P − ∞) maps to κ(P) under the modular quotient, so the same logarithm appears."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/logarithm-detects-heegner-point",
+    "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+    "HeegnerPointEulerSystems:HE.3/coefficient-prime-local-condition",
+    "PadicHodgeRegulators:L1",
+    "AbelianSchemesAndArithmeticModuli:A4"
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-hsieh-2018",
+     "locator": "§4.5, p. 19",
+     "excerpt": "If Dcris,L (V )^{Φ=1} = 0, then the natural inclusion H¹e(L, V ) ⊂ H¹f (L, V ) is an equality (see for example [BK90, Cor. 3.8.4]), and we define the Bloch–Kato logarithm map log := logL,V : H¹f (L, V ) −→ DdR,L (V )/Fil⁰DdR,L (V )",
+     "match": "The Bloch–Kato logarithm and its domain."
+    },
+    {
+     "sourceId": "castella-hsieh-2018",
+     "locator": "§4.5, Theorem 4.9, p. 20",
+     "excerpt": "relates the Bloch–Kato logarithm of generalized Heegner classes to the values of the p-adic L-function Lp,ψ (f ) at characters outside the range of interpolation",
+     "match": "The logarithm of Heegner classes in the p-adic Gross–Zagier formula."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "Compatibility with isogenies, differentials and characters",
+   "kind": "lemma",
+   "statement": "(a) For a homomorphism φ : A → A' of abelian varieties over K_v and ω' ∈ H⁰(A', Ω¹), log_{φ^*ω'}(P) = log_{ω'}(φ(P)). (b) If π' = ψ ∘ π for an isogeny ψ : A_f → A' with ψ^*ω_{A'} = c_ψ ω_{A_f}, then log_{ω_{A'}}(π'(x)) = c_ψ log_{ω_{A_f}}(π(x)), so every BDP-point formula stated with log_{ω_{A_f}}² changes by c_ψ²; for a modular parametrisation with π^*ω₀ = c_π ω_f, log_{ω₀}(π x) = c_π log_{ω_f}(x) and the squared identity gains c_π^{-2} when written with log_{ω₀}. (c) For a finite-order character χ of Pic(O_c) and its conjugate, the χ-sum of logarithms transforms by the Galois action: σ(Σ χ^{-1}(a) log(P_a)) = Σ χ^{-1}(a) log(P_a^σ) for σ fixing the coefficients, and complex conjugation sends the χ-sum to the χ^{-1}-sum up to the root number of HE.1's Fricke action. (d) Anticyclotomic specialisation: evaluation of L_p(f) ∈ R⟦Γ⟧ at a character factoring through Gal(K_c/K) ∩ Γ commutes with the restriction R⟦Γ̃⟧ → R⟦Γ⟧.",
+   "hypotheses": [
+    "Logarithms are the formal logarithms of AbelianSchemesAndArithmeticModuli A4 over K_v.",
+    "c_ψ, c_π are nonzero; no claim that they are p-adic units without p-optimality (p-optimal-quotient-formula)."
+   ],
+   "proofSteps": [
+    "(a) d(log_{ω'} ∘ φ) = φ^*ω' and both sides are homomorphisms vanishing at 0 with the same derivative, so they agree (uniqueness of the logarithm).",
+    "(b) apply (a) to ψ and to the parametrisation.",
+    "(c) Galois-equivariance of the formal logarithm for points over an extension, and HE.1/parameter-choice-and-degree for the Fricke action.",
+    "(d) the restriction R⟦Γ̃⟧ → R⟦Γ⟧ is the ring map induced by Γ̃ → Γ and character evaluation is functorial (PadicMeasuresIwasawaAlgebras L1)."
+   ],
+   "acceptance": [
+    "Brooks §8.6: log_{φ^*ω}(P) = log_ω(φ(P)) for the map C → C'.",
+    "Matches GeneralizedHeegnerCycles GH.8's differential factor: replacing the Abel–Jacobi evaluation by the elliptic logarithm in a squared identity introduces c_π^{-2}, not c_π^{-1}."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+    "AbelianSchemesAndArithmeticModuli:A4"
+   ],
+   "sources": [
+    {
+     "sourceId": "brooks-2015",
+     "locator": "§8.6, before Proposition 8.13, p. 4239",
+     "excerpt": "Writing φ : C → C′ for the natural map, one has the rule for p-adic logarithms logφ∗ω(P ) = logω(φ(P )).",
+     "match": "The pullback rule."
+    },
+    {
+     "sourceId": "jsw-2017",
+     "locator": "§5.1.5, p. 34",
+     "excerpt": "logωf x_K^{N+,N−} = logωf εf · x_K^{N+,N−} = (1 − aℓ0 + ℓ0 ) · logωf x̃_K^{N+,N−}",
+     "match": "Compatibility with the Hecke projector and the auxiliary prime."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/multiplicative-prime-formula",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The weight-two formula at a multiplicative prime",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be semistable of conductor N, optimal, with modular parametrisation π : X₀(N) → E, π(∞) = O, π^*ω_E = c·ω_f with c ∈ ℤ_(p)^×; let p ≥ 5 divide N exactly (multiplicative reduction, a_p = ±1), K imaginary quadratic with every prime of N split or ramified in K and p split, and L_p(f) ∈ Λ_{R₀} the anticyclotomic p-adic L-function interpolating Γ(n)Γ(n + 1)(1 − a_p p^{-1} φ(p))² Ω_p^{4n} L(f/K, φ, 1)/(π^{2n+1} Ω_K^{4n}) at unramified φ of infinity type (−n, n), n > 0 (the square of the twisted Castella–Hsieh measure, extended to p | N). Then L_p(f, 1) = (1 − a_p p^{-1})² · (log_{ω_E} P_K)² up to a p-adic unit, P_K ∈ E(K) the trace Heegner point. The factor 1 − a_p p^{-1} = 1 ∓ p^{-1} is nonzero: there is no exceptional zero in this formula. The exceptional zero occurs instead for the weight-two specialisation of Howard's big Heegner points, where the family factor 1 − a_p^{-1} vanishes when a_p = 1 and Castella's derivative formula Z'_{p,f,0} = 𝓛_p(f, K) · loc_p(κ_f) carries the L-invariant 𝓛_p(f, K) = 𝓛_p(f) − log_p(ϖ_p)/ord_p(ϖ_p); that formula is a statement about Hida families and is owned by GeneralizedHeegnerCycles GH.7.",
+   "hypotheses": [
+    "p ∥ N, p ≥ 5, split in K; the Heegner hypothesis allows p | N because p splits.",
+    "ε_p = 0 in Castella's Euler factor (1 − a_p p^{-1} φ(p) + ε_p φ²(p)) since p | N; it is p^{-1} when p ∤ N, recovering euler-factor-at-bdp-point.",
+    "The p-adic L-function is the square of the twisted toric measure: Castella's proof writes L_p(f) := Tw_{ψ^{-1}}(L_{p,ψ}(f)) without the square, while the interpolation he states is that of the square (source issue E5)."
+   ],
+   "proofSteps": [
+    "Extend the BDP construction to p-new f: the p-adic multiplier becomes (1 − a_p χ^{-1}(p̄))² because β_p = 0 (Castella, Theorem 2.10).",
+    "Semistable p-adic Gross–Zagier: L_p(f)(χ)/Ω_p^{r−2j} = (1 − a_p χ^{-1}(p̄)) · (c^{-j}/j!) Σ χ^{-1}(a) N(a) AJ_F(Δ_{φ_a φ_0})(ω_f ∧ ω_A^j η_A^{r−j}) for the square-root function (Castella, Theorem 2.11), using rigid cohomology and Coleman integration in the semistable non-crystalline setting.",
+    "At r = j = 0 the cycle is [(A, A[𝔑]) − (∞)] and AJ_F(Δ)(ω_f) = log_{ω_f}(Δ) (weight-two-abel-jacobi-is-logarithm); sum over Gal(H/K) and push to E with π^*ω_E = c ω_f (isogeny-and-differential-compatibility)."
+   ],
+   "acceptance": [
+    "Castella's Theorem 3.2: L_p(f, 1) = (1 − a_p p^{-1} + ε_p)² (log_{ω_E} P_K)² up to a p-adic unit, uniformly for p ∤ N (ε_p = p^{-1}) and p | N (ε_p = 0).",
+    "Split multiplicative a_p = 1: the factor is ((p − 1)/p)², a p-adic unit times p^{-2}·(p−1)², never zero.",
+    "The L-invariant does not appear: a version of the formula containing 𝓛_p(f) is the big-Heegner-point derivative formula, not this one."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility",
+    "GrossZagierAndArithmeticHeights:GZ.9/logarithm-detects-heegner-point",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "AutomorphicPadicLFunctions:L3h",
+    "ColemanIntegration:L1"
+   ],
+   "sources": [
+    {
+     "sourceId": "castella-2018-multiplicative",
+     "locator": "§3, Theorem 3.2, p. 9",
+     "excerpt": "Theorem 3.2. The following equality holds up to a p-adic unit: Lp (f, 1) = (1 − ap p−1 + εp )2 · (logωE PK )2 , where εp = p−1 if p ∤ N and εp = 0 otherwise, and PK ∈ E(K) is a Heegner point.",
+     "match": "The formula, uniform in p ∤ N and p | N."
+    },
+    {
+     "sourceId": "castella-2020-exceptional",
+     "locator": "§2.5, Theorem 2.11, p. 15",
+     "excerpt": "Let f = q + Σ an(f)q^n ∈ Sk(Γ0(Np)) be a p-new eigenform of weight k = r + 2 ≥ 2, and suppose that χ ∈ Σ−k,c has infinity type (r + 1 − j, 1 + j), with 0 ≤ j ≤ r.",
+     "match": "The semistable extension of BDP's theorem."
+    },
+    {
+     "sourceId": "castella-2020-exceptional",
+     "locator": "Introduction, Theorem and (0.4), pp. 2–3",
+     "excerpt": "Then Zp,f,0 = 0 and Z′p,f,0 = Lp (f, K) · locp (κf ).",
+     "match": "The exceptional zero belongs to the big Heegner point, with the L-invariant."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "The main identity on X₀(N): heights as Fourier coefficients",
+   "kind": "theorem",
+   "statement": "Let N > 1, K = ℚ(√D) imaginary quadratic with D odd, (D, N) = 1 and every p | N split in K, x ∈ X₀(N)(H) a Heegner point of discriminant D, c the class of (x) − (∞) in J₀(N)(H), σ ∈ Gal(H/K) ↔ 𝒜 ∈ Cl_K under the Artin map, ⟨ , ⟩ the Néron–Tate pairing over H extended Hermitian to J(H) ⊗ ℂ, u = #O_K^×/2, and Φ_𝒜 = Σ a_{m,𝒜} q^m the weight-two cusp form of Gross–Zagier IV Theorem (6.9), which satisfies L'_𝒜(f, 1) = 8π²|D|^{-1/2} (f, Φ_𝒜) for newforms f. Then for every m ≥ 1 with (m, N) = 1, ⟨c, T_m c^σ⟩ = u² a_{m,𝒜}. Consequently g_𝒜 = Σ_{m ≥ 1} ⟨c, T_m c^σ⟩ q^m is a cusp form of weight two on Γ₀(N), g_𝒜 − u² Φ_𝒜 is an old form, and (f, g_𝒜) = u²|D|^{1/2}/(8π²) · L'_𝒜(f, 1) for every newform f (Gross–Zagier I Theorem (6.1)–(6.2)), where L_𝒜(f, s) = Σ_{(n,DN)=1} ε(n) n^{1−2s} · Σ a_n r_𝒜(n) n^{−s}.",
+   "hypotheses": [
+    "N > 1 (N = 1 is treated separately by Gross–Zagier [18]); D odd, so D ≡ 1 mod 4 and (D, 2N) = 1; the Heegner hypothesis D ≡ β² mod 4N.",
+    "g_𝒜 depends on the choice of the Heegner point x only through old forms; ⟨c, T_m c^σ⟩ for (m, N) = 1 does not depend on it (action of W × Gal(H/K))."
+   ],
+   "proofSteps": [
+    "Decompose ⟨c, T_m d^σ⟩ into local heights: archimedean contribution from Chapter II Propositions (4.2) and (5.8) (GZ.7), finite contributions from Chapter III Propositions (9.2), (9.7) and (9.11) (GZ.7).",
+    "Rewrite both through Chapter IV Proposition (4.6) (the Fourier coefficients of the holomorphic projection of the derivative of the Rankin kernel, GZ.6) and add: ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1.",
+    "Two cusp forms whose m-th coefficients agree for (m, N) = 1 differ by an old form, which has the same Petersson product with every newform; use L'_𝒜(f, 1) = 8π² u^{-2} |D|^{-1/2} (f, g_𝒜)."
+   ],
+   "acceptance": [
+    "The identity is between coefficients with (m, N) = 1 only; a statement for all m would be false because g_𝒜 depends on x through old forms.",
+    "Gross–Zagier V §3 announces the indefinite quaternionic analogue (the coefficients a_{m,𝒜} are a fixed multiple of ⟨x, T_m x^σ⟩ on Pic(X)); in this packet that case is the specialisation of the Yuan–Zhang–Zhang formula (general-quaternionic-gross-zagier-identity) to F = ℚ, not a separate theorem."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+    "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+    "GrossZagierAndArithmeticHeights:GZ.6",
+    "GrossZagierAndArithmeticHeights:GZ.7",
+    "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "mathlib:CuspForm",
+    "mathlib:CongruenceSubgroup.Gamma0",
+    "tauceti:UpperHalfPlane.peterssonInner"
+   ],
+   "sources": [
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter I §6, Theorem (6.1)–(6.2), p. 230",
+     "excerpt": "(6.1) Theorem. The series g_𝒜(z) = Σ_{m≥1} ⟨c, T_m c^σ⟩ e^{2πimz} is a cusp form of weight 2 on Γ₀(N) which satisfies (6.2) (f, g_𝒜) = u²|D|^{1/2}/(8π²) L'_𝒜(f, 1) for all f in the space of newforms of weight 2 on Γ₀(N).",
+     "match": "The main identity."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter V §1, p. 307",
+     "excerpt": "find the identity ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1, where a_{m,𝒜} is the m-th Fourier coefficient of the cusp form defined in Theorem (6.9) of Chap. IV!",
+     "match": "The coefficient identity and its proof by adding the archimedean and finite local heights."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.8/derivative-corollaries",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.8"
+   ],
+   "title": "Corollaries on derivatives: positivity and Galois invariance",
+   "kind": "theorem",
+   "statement": "Under the hypotheses of the Gross–Zagier formula on X₀(N): (a) for every newform f ∈ S₂(Γ₀(N)) and every character χ of Gal(H/K), L'(f, χ, 1) ≥ 0; (b) either all conjugates L(f^α, χ^α, s), α ∈ Gal(ℚ̄/ℚ), have a simple zero at s = 1, or all have a zero of order ≥ 3; (c) if moreover there is such a K with L(f ⊗ ε_K, 1) ≠ 0, then ord_{s=1} L(f, s) and ord_{s=1} L(f^α, s) are simultaneously 0, simultaneously 1, simultaneously ≥ 2 and simultaneously ≥ 3.",
+   "hypotheses": [
+    "(a)–(b): the Heegner hypothesis and D odd, as in coefficient-identity; (c) takes as a hypothesis an imaginary quadratic K with the Heegner hypothesis and L(f ⊗ ε_K, 1) ≠ 0 (Waldspurger's theorem provides one; its choice belongs to RankZeroOneBSD BSD.2 and is not planned here).",
+    "Galois conjugates are taken on the coefficients of f and the values of χ."
+   ],
+   "proofSteps": [
+    "(a) L'(f, χ, 1) = 8π²(f, f)/(h u² |D|^{1/2}) ĥ(c_{χ,f}) and both the Petersson product and the Néron–Tate pairing are positive definite.",
+    "(b) ord_{s=1} L(f^α, χ^α, s) is odd by the functional equation (sign −1); L'(f^α, χ^α, 1) = 0 iff c_{χ^α, f^α} = 0, and c_{χ^α, f^α} = (c_{χ,f})^α, so all vanish together.",
+    "(c) L(f, 1)·L_ε(f, 1) = L(f, 1, 1) and L'(f, 1, 1) = L'(f, 1) L_ε(f, 1) when L(f, 1) = 0; apply (b) with χ = 1 and the parity of the functional equation of L(f, s)."
+   ],
+   "acceptance": [
+    "(a) is what the Riemann hypothesis predicts for the real function L(f, χ, s) on the real axis.",
+    "Agreement with nonvanishing-criterion (b) over a totally real field."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
+    "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+    "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+    "tauceti:UpperHalfPlane.peterssonInner_self_re_nonneg",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter V §1, Corollaries (1.1)–(1.2), pp. 308–309",
+     "excerpt": "(1.1) Corollary. Let f ∈ S₂(Γ₀(N)) be any newform and χ any character of Gal(H/K). Then L'(f, χ, 1) ≥ 0.",
+     "match": "Positivity."
+    },
+    {
+     "sourceId": "gross-zagier-1986",
+     "locator": "Chapter V §1, Corollary (1.3), p. 309",
+     "excerpt": "(1.3) Corollary. Let f be any newform of weight 2 and f^α (α ∈ Gal(Q̄/Q)) any conjugate of f. Then ord_{s=1} L(f, s) = 0 ⇔ ord_{s=1} L(f^α, s) = 0",
+     "match": "Galois invariance of low orders of vanishing."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/bdp-measure-integrality",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "The BDP function lies in the Iwasawa algebra",
+   "kind": "theorem",
+   "statement": "Under (sqf), (sgn), (ram), (flt) and (odd) of Skinner §2 (Case I: every prime of N split or ramified in K; Case II: N = N⁺N⁻ as in quaternionic-weight-two-formula), let O^ur be the ring of integers of the completion of the maximal unramified extension of L. The imprimitive function L^S_𝔭(f), defined by BDP (Case I) and Brooks (Case II) only as a continuous function on the characters of Γ, is the evaluation map of an element of O^ur⟦Γ⟧. Its coefficients lie in O^ur and not in O in general, because the p-adic CM period Ω_p is a unit of O^ur that need not lie in L.",
+   "hypotheses": [
+    "The Iwasawa-algebra statement needs the interpolation at characters ramified at the primes above p: Brakočević's extension, or the constructions of Eischen–Harris–Li–Skinner and Wan (which also construct the function directly when some ℓ | N is inert or ramified in K).",
+    "Skinner's preprint writes O⟦Γ⟧; the published version corrects this to O^ur⟦Γ⟧ (PAPER-SKINNER-20/E1)."
+   ],
+   "proofSteps": [
+    "Case I with N⁻ = 1: by bdp-square-root-comparison L_p(f) is a unit times the square of the image of L3h's distribution, which is a measure: Hsieh's interpolation covers characters of p-power conductor (Castella–Hsieh Proposition 3.8 for m ≥ 0 and conductor p^n), i.e. Brakočević's extension.",
+    "Case II: the Serre–Tate expansion of f_B^♭ at the CM points gives, character by character, the values of an O^ur-valued measure on Γ̃ (Burungale's construction, quaternionic-bdp-construction); the continuity estimate of Brooks Proposition 8.10 is the boundedness of this measure.",
+    "Remove the Euler factors at S ∖ {p} by multiplying by the elements P_w(εΨ^{-1}(Frob_w)) of O⟦Γ⟧."
+   ],
+   "acceptance": [
+    "Without the extension to characters ramified at p a continuous function on the crystalline characters is not known to be a measure, and the Iwasawa main conjecture of Skinner §2.7 could not be formulated.",
+    "Coefficient ring test: Ω_p ∉ L in general, so a statement with coefficients in O⟦Γ⟧ is false as written."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "AutomorphicPadicLFunctions:L3h",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "sources": [
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, paragraph after the interpolation formula, p. 14",
+     "excerpt": "the functions constructed in [1] and [6] are a priori only continuous on Γ. That they belong to the Iwasawa algebra (which follows from the constructions in [7] and [26]) requires additional argument",
+     "match": "The integrality statement and its sources."
+    },
+    {
+     "sourceId": "castella-hsieh-2018",
+     "locator": "§3.3, Proposition 3.8, p. 13",
+     "excerpt": "If φ̂ ∈ Xp∞ is the p-adic avatar of a Hecke character φ of infinity type (m, −m) with m ≥ 0 and p-power conductor",
+     "match": "The interpolation at characters ramified at p."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/imprimitive-function-dictionary",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "Dictionary between Skinner's L^S_𝔭(f) and the BDP and Brooks functions",
+   "kind": "comparison",
+   "statement": "For ψ crystalline of weight (−n, n), n > 0, n ≡ 0 mod (p − 1), let χ be the Hecke character with χ^{-1} = ψ^alg |Nm(·)|_ℚ. Then L^S_𝔭(f) is the imprimitive variant, with the Euler factors at the primes of S = {ℓ | pND} not dividing p removed, of BDP's L_p(f, χ) in Case I and of Brooks's L_p(f, χ) in Case II; the corresponding character sets are Σ^{(2)}_cc(𝔫) and Σ^{(2)}_cc(𝔫⁺); the interpolated values L(f, χ^{-1}, 0) equal L(f, ψ^alg, 1); and the constants correspond by e_∞(f, ψ) w_K (2πi)^{1+2n} = C(f, χ, 1), w(f, ψ) = w_K w(f, χ)^{-1} and C(f, K) = α(f, f_GL2)^{-1}. In JSW's normalisation the same function is L^Σ_p(f) = L_p(f) ∏_{w ∈ Σ} P_w(ε^{-1}Ψ^{-1}(Frob_w)), with JSW's (5.1.a) related to BDP and Brooks by the same substitution χ^{-1} = ψ^alg|·|_{𝔸_K}.",
+   "hypotheses": [
+    "Same hypotheses as bdp-measure-integrality.",
+    "Skinner's e_p(f, ψ) is a ratio of two Euler-type factors at 𝔭̄ and 𝔭; its numerator is the square-root of BDP's squared multiplier at the BDP-type characters, and the comparison is made on the interpolation set where both are defined."
+   ],
+   "proofSteps": [
+    "Match the interpolation formulas character by character: Skinner's §2.6 formula, BDP (5.2.3) with Theorem 5.5's L^alg, Brooks §8.4 with Proposition 8.7's L^alg and JSW (5.1.a).",
+    "Uniqueness of a measure with prescribed values on a dense set of characters (bdp-p-adic-l-function) turns the agreement of values into an identity in O^ur⟦Γ⟧."
+   ],
+   "acceptance": [
+    "At ψ = 1 the dictionary gives Skinner's Proposition 2.6.1 from BDP's and Brooks's formulas (bdp-weight-two-heegner-formula, quaternionic-weight-two-formula).",
+    "Removing the Euler factor at an inert w = (ℓ) multiplies by (1 − a_ℓ ℓ^{-1} + ℓ^{-1})(1 + a_ℓ ℓ^{-1} + ℓ^{-1}), which can raise μ (JSW Remark 5.1.4)."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-measure-integrality"
+   ],
+   "sources": [
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, p. 14",
+     "excerpt": "Then L^S_p(f) is the imprimitive variant of the p-adic L-function denoted Lp(f, χ) in [1] (in Case I) and in [6] (in Case II).",
+     "match": "The identification."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, p. 14",
+     "excerpt": "Also, still in the notation of [1] and [6], e∞(f, ψ)wK(2πi)^{1+2n} = C(f, χ, 1), and w(f, ψ) = wK w(f, χ)^{−1}. The constant we have denoted C(f, K) is denoted α(f, fGL2)^{−1} in [6]",
+     "match": "The constants."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights:GZ.9/eigenlogarithm-nonvanishing",
+   "parentStageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "realises": [
+    "GrossZagierAndArithmeticHeights:GZ.9"
+   ],
+   "title": "Heegner points have nonzero logarithm in every eigencomponent",
+   "kind": "theorem",
+   "statement": "Let A_f be the modular abelian variety of a weight-two newform f with Hecke field M_f (totally real) and dim A_f = [M_f : ℚ], and ω a nonzero M_f-eigendifferential (a^*ω = σ(a)ω for some σ : M_f ↪ ℚ̄). (a) Every non-torsion x ∈ A_f(ℚ̄) has log_ω(x) ≠ 0 (Burungale–Skinner–Wan Theorem 1.1). (b) In Skinner's Cases I and II, let Q^ξ_K ∈ J(X)(K) ⊗ ℚ be the rational Hodge-divisor class, y = φ(Q^ξ_K) ∈ A_f(K) ⊗ ℚ and P_K(f) = φ(ε_f Q^ξ_K). Then log_ω P_K(f) = log_ω y, and if P_K(f) ≠ 0 then log_ω P_K(f) ≠ 0. (c) For a finite-order ring-class character χ with values in a totally real field, the χ-twisted sum Σ_τ χ(τ) log_{ω₀}(τ y) is nonzero whenever the point x = Σ τ(y) ⊗ χ(τ) is non-torsion (BSW Theorem 2.8(i)). Hence P_K(f) ≠ 0 if and only if L^S_𝔭(f, 1) ≠ 0, for every choice of ι_p.",
+   "hypotheses": [
+    "dim A_f = [M_f : ℚ] and M_f has a real embedding: the input of the p-adic analytic subgroup theorem in BSW's form.",
+    "The statement concerns actual algebraic points and the specific Heegner tensor P_K(f) obtained from one; it asserts nothing about an arbitrary nonzero M_f- or ℂ_p-linear tensor or an arbitrary nonzero cohomology class."
+   ],
+   "proofSteps": [
+    "(a) is imported from DiophantineApproximationAndTranscendence DT.3 (BSW Theorems 1.1 and 2.3, from the p-adic analytic subgroup theorem).",
+    "(b) ε_f^* ω_f = ω_f and φ^*ω = ω_f give log_ω P_K(f) = log_{ω_f}(ε_f Q^ξ_K) = log_{ω_f}(Q^ξ_K) = log_ω y (isogeny-and-differential-compatibility); if P_K(f) ≠ 0 then y ≠ 0, so [m]y is a non-torsion point of A_f(K) for some m ≥ 1, and (a) gives log_ω([m]y) ≠ 0.",
+    "(c) BSW Theorem 2.8(i) for E totally real.",
+    "Combine with bdp-weight-two-heegner-formula or quaternionic-weight-two-formula and euler-factor-at-bdp-point."
+   ],
+   "acceptance": [
+    "For an elliptic curve (M_f = ℚ) (a) is the elementary fact that the formal logarithm kills only torsion; for [M_f : ℚ] > 1 it is a transcendence theorem: freeness of A_f(K) ⊗ ℚ_p over M_f ⊗ ℚ_p alone does not give componentwise nonvanishing.",
+    "Skinner Corollary 2.6.2 (P_K(f) ≠ 0 ⇔ L^S_𝔭(f, 1) ≠ 0) is proved this way; the gap in its printed deduction is PAPER-SKINNER-20/E6."
+   ],
+   "prerequisites": [
+    "GrossZagierAndArithmeticHeights:GZ.9/logarithm-detects-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-weight-two-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility",
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point",
+    "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+    "DiophantineApproximationAndTranscendence:DT.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "bsw-2026",
+     "locator": "§1.4, Theorem 1.1, p. 3",
+     "excerpt": "Theorem 1.1. Let A/Q be an abelian variety. Suppose there is a field F ⊂ End0(A) such that (a) dim(A) = [F : Q], (b) F has at least one real embedding. For any non-torsion x ∈ A(Q), we have logω (x) ≠ 0 for all 0 ≠ ω ∈ Ωσ and all σ ∈ ΣF.",
+     "match": "The algebraic-point nonvanishing."
+    },
+    {
+     "sourceId": "bsw-2026",
+     "locator": "§1.3, p. 3",
+     "excerpt": "Let x ∈ A(Q) be a non-torsion point. Then it is clear that logA (x) is non-zero and hence that logωfσ (x) ≠ 0 for some σ but possibly not all.",
+     "match": "Why the eigencomponent statement is not elementary."
+    },
+    {
+     "sourceId": "skinner-2020",
+     "locator": "§2.6, Corollary 2.6.2, p. 14",
+     "excerpt": "PK (f ) ≠ 0 if and only if LSp (f, 1) ≠ 0.",
+     "match": "The consumer statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "GeneralizedHeegnerCycles:GH.1",
+   "need": "State BDP Theorem 5.13 in the generality of BDP Assumption 5.12 (any class number, odd conductor c prime to N d_K, characters of finite type (c, 𝔑, ε_f), all 0 ≤ j ≤ r), not only under the three simplifying hypotheses of the decomposition node GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images, and include the r = 0 cycle Δ_φ − ∞ explicitly. GZ.9 imports the r = j = 0 case and does not plan Theorem 5.13 itself (resolution of RT-AREA-iwasawa-1/11: GH owns BDP Theorem 5.13 for every r).",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula"
+   ]
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3h",
+   "need": "Export the F = ℚ, n⁻ = 1 specialisation of Hsieh's square-root distribution as Castella–Hsieh's measure L_{p,ψ}(f) on Γ̃ = Gal(K_{p^∞}/K) with coefficients in R, with its interpolation formula (Castella–Hsieh Proposition 3.8) including the factors 2^{#A(ψ)+3}, c_o, ε(f), u_K², √D_K and φ(𝔑^{-1}), and its extension to p-new f (Euler factor 1 − a_p p^{-1} φ(p)). GZ.9 squares it; it does not construct it.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison",
+    "GrossZagierAndArithmeticHeights:GZ.9/multiplicative-prime-formula"
+   ]
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L0",
+   "need": "p-adic avatars ψ̂ of anticyclotomic Hecke characters of K of infinity type (n, −n) and their algebraic avatars ψ^alg, the crystalline (unramified at p) condition, and the set Σ_cc of JSW §5.1 as a subset of characters of Γ.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison"
+   ]
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "CM periods: the complex period Ω_∞ and the p-adic (Serre–Tate / formal-group) period Ω_p ∈ R^× of an elliptic curve with CM by O_K at a split prime, their dependence on the trivialisation of the formal group, and the algebraicity of the CM values of nearly holomorphic forms via the unit-root splitting at ordinary CM points.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-cm-waldspurger-formula"
+   ]
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+   "need": "The completed group ring R⟦Γ⟧ for R the completion of O·ℤ_p^ur (a complete DVR with algebraically closed residue field), its identification with R⟦T⟧ for a topological generator γ, and evaluation at continuous characters ψ : Γ → R^× as the ring map T ↦ ψ(γ) − 1; restriction along Γ̃ → Γ.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+    "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeRegulators:L1",
+   "need": "For an abelian variety A over a finite extension of ℚ_p with good reduction: H¹_e = H¹_f for V_p A, and log_BK ∘ κ = log_A on A(K_v) ⊗ ℚ under D_dR(V_p A)/Fil⁰ ≅ Lie(A) ⊗ K_v (Bloch–Kato Example 3.10.1), with the sign convention of the exponential fixed.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class"
+   ]
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A4",
+   "need": "The p-adic logarithm log_A : A(F_v) → Lie(A/F_v) of an abelian variety over a finite extension F_v/ℚ_p: a homomorphism with kernel the torsion subgroup, an isomorphism after ⊗ℚ onto its image, functorial (log_B ∘ φ = dφ ∘ log_A), and log_ω = ⟨ω, log_A⟩ the unique homomorphism with d log_ω = ω for ω ∈ H⁰(A, Ω¹). No roadmap plans this general notion; Tau Ceti's EllipticCurves Layer 1 plans only the elliptic formal logarithm.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/p-optimal-quotient-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/logarithm-detects-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class",
+    "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility"
+   ]
+  },
+  {
+   "supplier": "ColemanIntegration:L1",
+   "need": "For a smooth proper curve C with good reduction over a finite extension of ℚ_p and a holomorphic differential ω, the Coleman integral of ω along a degree-zero divisor D equals log_ω([D]) on the Jacobian, independent of base point; also in the semistable non-crystalline setting used by Castella §2.3 for p ∥ N.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/multiplicative-prime-formula"
+   ]
+  },
+  {
+   "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.1",
+   "need": "The Shimura curve X_{N⁺,N⁻} over ℚ (indefinite B of discriminant N⁻, Eichler order of level N⁺) as coarse moduli of false elliptic curves with K-level structure, its smooth model over ℤ_(p) for p ∤ N, CM points by O_K with Shimura reciprocity, the normalised Hodge class, its Jacobian and the Hecke correspondences T_ℓ; and, over totally real F, the curves X_U of admissible level used by totally-real-trace-point-nontorsion.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.8/rational-shimura-curve-heegner-formula",
+    "GrossZagierAndArithmeticHeights:GZ.8/totally-real-trace-point-nontorsion",
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-cm-waldspurger-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/weight-two-abel-jacobi-is-logarithm",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-weight-two-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/p-optimal-quotient-formula"
+   ]
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+   "need": "Global Jacquet–Langlands for weight two: f ↦ f_B on Γ₀^B(N⁺) with the Hecke eigenvalues of f away from N⁻, unique up to scalar, normalised to be defined over ℤ(f)_(p) and nonzero mod p; and the identification of the local components needed for CST's admissible orders.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.8/admissible-order-test-vector"
+   ]
+  },
+  {
+   "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+   "need": "For GL₂ over a totally real F and a CM extension K/F: the base-change Rankin L-function L(s, π_K ⊗ χ) with analytic continuation, functional equation and local root numbers ε(1/2, π_{K,v} ⊗ χ_v); the Rankin–Selberg-over-F root numbers and their comparison ε_RS = η_v(−1) ε_BC (Langlands λ-factor); the adjoint L-value L(1, π, ad); and the relation L(f, ψ^alg, s) = L(π_K × ψ^alg, s − 1/2).",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.8/essential-case-root-number",
+    "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function"
+   ]
+  },
+  {
+   "supplier": "AutomorphicGaloisRepresentations:R19.1",
+   "need": "The Ramanujan–Petersson bound |σ(a_p)| ≤ 2√p for weight-two newforms at p ∤ N, or equivalently ∏_σ (1 + p − σ(a_p)) = #Ã_f(𝔽_p) for the Eichler–Shimura abelian variety, giving 1 + p − a_p ≠ 0.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+   "need": "The Hasse bound and a_p = p + 1 − #Ẽ(𝔽_p) for an elliptic curve with good reduction at p, so that 1 + p − a_p = #Ẽ(𝔽_p) ≥ 1.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/euler-factor-at-bdp-point"
+   ]
+  },
+  {
+   "supplier": "DiophantineApproximationAndTranscendence:DT.3",
+   "need": "Burungale–Skinner–Wan, arXiv:2603.20886v2: the p-adic analytic subgroup theorem for an algebraic point on an abelian variety (their Theorems 3.1–3.2), and its consequences Theorem 1.1 (for A/ℚ̄ with a field F ⊂ End⁰(A), dim A = [F : ℚ] and F with a real embedding, log_ω(x) ≠ 0 for every non-torsion x and every nonzero F-eigendifferential ω) and Theorem 2.8 (χ-twisted points, E totally real). GZ.9 imports Theorem 1.1 and Theorem 2.8(i); this is PAPER-SKINNER-20 items 79–81, routed to DT.3.",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/eigenlogarithm-nonvanishing"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "GrossZagierAndArithmeticHeights:GZ.8",
+   "status": "planned",
+   "remaining": [
+    "Re-read YZZ Theorem 1.2, Sec. 1.5.3 (Theorem 3.15) and the erratum from the book once a copy is available to the worker, and confirm whether L(1, η) in the toric volume 2L(1, η) is the complete or the finite L-value; the nodes currently rest on the integrated decomposition's verified excerpts and on the public restatements (Zhang 2010, CST, Skinner).",
+    "Refine general-quaternionic-gross-zagier-identity into the projector-form reduction (YZZ Theorem 3.15 and T_alg) as its own lemma when the roadmap moves to lemma level.",
+    "CST Theorems 1.8–1.10 (explicit Waldspurger) are GZ.5's export and are not planned here; the Petersson pairing formula (CST Proposition 2.1) used in explicit-gross-zagier-formula is cited inside its proof and becomes a node at lemma level."
+   ]
+  },
+  {
+   "stageId": "GrossZagierAndArithmeticHeights:GZ.9",
+   "status": "planned",
+   "remaining": [
+    "The measure property of Brooks's quaternionic function (Burungale's construction, JSW Remark 5.1.1(c)) is recorded inside quaternionic-bdp-construction; Burungale's paper was not read.",
+    "No Hida-family variant is a GZ.9 target: the two-variable Rankin–Selberg/Hida p-adic L-function (JSW §5.2) is AutomorphicCongruences L5a's comparison, and Howard's big Heegner points with Castella's exceptional-zero derivative formula are GeneralizedHeegnerCycles GH.7's; the PadicFamilies edge in the stage text has no GZ.9 consumer."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The YZZ book and its erratum were not re-read in this job",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+    "GrossZagierAndArithmeticHeights:GZ.8/vacuous-case",
+    "GrossZagierAndArithmeticHeights:GZ.8/essential-case-root-number",
+    "GrossZagierAndArithmeticHeights:GZ.8/chi-heegner-point",
+    "GrossZagierAndArithmeticHeights:GZ.8/toric-integral-versus-finite-sum"
+   ],
+   "detail": "No public copy of Yuan–Zhang–Zhang (Annals of Math. Studies 184) was reachable from this machine, and the erratum's host faculty.bicmr.pku.edu.cn did not answer on 2026-10-06. Every YZZ statement in these nodes is the excerpt verified by the accepted integrated decomposition (data/decompositions/GrossZagierAndArithmeticHeights.json), cross-checked against Zhang 2010 §4.2, CST §1.2 and Skinner §2.5, which agree with it. Not verified here: the normalisation of L(1, η) in vol = 2L(1, η) (complete or finite), and YZZ Sec. 3.3's proof of the equivalence of Theorems 1.2 and 3.15. Next action: read Chapter 1, Sec. 3.3 and the erratum from the book."
+  },
+  {
+   "title": "Burungale's measure for the quaternionic BDP function was not read",
+   "neededBy": [
+    "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+    "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function"
+   ],
+   "detail": "JSW Remark 5.1.1(c) states that BDP and Brooks construct the p-adic L-function as a continuous function and that the measure is made explicit in Burungale [Bur14] (On the non-triviality of generalised Heegner cycles modulo p, II: Shimura curves). The packet asserts the measure through JSW §5.1, which quotes it; Burungale's construction and his Theorem B (μ = 0) were not read. Next action: read Burungale §§2–4 and add the Serre–Tate measure construction to quaternionic-bdp-construction's proof."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GrossZagierAndArithmeticHeights",
+    "GeneralizedHeegnerCycles",
+    "AutomorphicPadicLFunctions"
+   ],
+   "detail": "RT-AREA-iwasawa-1/11: GZ.9 planned the GL₂ BDP square-root distribution (also planned by AutomorphicPadicLFunctions L3h) and the weight-two case of BDP Theorem 5.13 (also stated by the accepted decomposition node GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycles-and-their-abel-jacobi-images).",
+   "proposal": "Owners: L3h owns the square-root distribution for every totally real F (specialised to F = ℚ, n⁻ = 1 for GZ.9); GH.1 owns BDP Theorem 5.13 for every r ≥ 0; GZ.9 imports both (bdp-square-root-comparison squares the L3h measure; bdp-weight-two-heegner-formula imports Theorem 5.13 at r = j = 0) and owns what is new in weight two: Brooks's quaternionic construction and Proposition 8.13 (= JSW Proposition 5.1.6), JSW Proposition 5.1.7, the multiplicative-prime formula, the formal-logarithm and Bloch–Kato/Kummer comparisons and the isogeny/differential compatibilities. Add the stage edges AutomorphicPadicLFunctions:L3h → GZ.9 and GeneralizedHeegnerCycles:GH.1 → GZ.9; both are acyclic (no path from GZ.9 to either in research/blueprint/atlas/stage-edges.json)."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GrossZagierAndArithmeticHeights",
+    "ModularSymbolsPadicLFunctions"
+   ],
+   "detail": "The stage edge ModularSymbolsPadicLFunctions:L2 → GZ.9 (p-stabilised modular-symbol measures) is not used: neither the BDP nor the Brooks construction uses modular symbols, and no GZ.9 node needs L2.",
+   "proposal": "Drop the edge ModularSymbolsPadicLFunctions:L2 → GrossZagierAndArithmeticHeights:GZ.9. Add instead the edges actually used: AutomorphicPadicLFunctions:L0 and L3 → GZ.9 (character avatars, CM periods), HilbertModularVarietiesAndShimuraCurves:R18.1 → GZ.9 (Shimura curves X_{N⁺,N⁻}), GL2AutomorphicRepresentationsAndTransfer:R17.3 → GZ.9 (Jacquet–Langlands), ColemanIntegration:L1 → GZ.9, AbelianSchemesAndArithmeticModuli:A4 → GZ.9, GrossZagierAndArithmeticHeights:GZ.5 → GZ.9 (the CM-value Waldspurger formula) and HeegnerPointEulerSystems:HE.1 → GZ.8."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GrossZagierAndArithmeticHeights",
+    "GeneralizedHeegnerCycles",
+    "RankZeroOneBSD"
+   ],
+   "detail": "GZ.9's stage text asks for 'a multiplicative exceptional-zero formula ... with its Tate-period/L-invariant term whenever consumed by the corrected BSD multiplicative branch'. The weight-two BDP formula at a multiplicative prime has the nonvanishing factor (1 − a_p p^{-1})² and no exceptional zero (Castella, Theorem 2.11; Castella CJM Theorem 3.2), and that formula is what the multiplicative BSD branch (Castella CJM Theorem A, in RankZeroOneBSD BSD.6a) consumes; it is planned here as multiplicative-prime-formula. The L-invariant appears only in the derivative formula for Howard's big Heegner points at an exceptional weight-two point (Castella, Theorem 3.11), a Hida-family statement.",
+   "proposal": "Replace GZ.9's exceptional-zero clause by: 'the weight-two formula at a multiplicative prime p ∥ N split in K (no exceptional zero)'. The exceptional-zero derivative formula for big Heegner points, with the L-invariant 𝓛_p(f, K), belongs to GeneralizedHeegnerCycles GH.7. PadicHodgeTheory R06.6's recorded use 'the Tate-period/L-invariant term of the multiplicative exceptional-zero formula' should name GH.7 instead of GZ.9."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GrossZagierAndArithmeticHeights",
+    "GeneralizedHeegnerCycles"
+   ],
+   "detail": "The unreviewed GeneralizedHeegnerCycles--GH.8 checkpoint plans weight-two comparisons (weight-zero-cycle, differential-evaluation) that coincide with GZ.9's weight-two-abel-jacobi-is-logarithm and isogeny-and-differential-compatibility. GZ.9 precedes GH.8 in the stage graph (GZ.9 → HE.8 → GH.8), so GZ.9 cannot import them.",
+   "proposal": "GH.8 imports GZ.9/weight-two-abel-jacobi-is-logarithm and GZ.9/isogeny-and-differential-compatibility and keeps only its family-specific comparisons (stabilised classes, corestriction, uniform lattices, Hida specialisation)."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "GrossZagierAndArithmeticHeights/E2",
+   "source": "brooks-2015",
+   "kind": "misprint",
+   "locator": "§8.6, Propositions 8.12 and 8.13, p. 4239 (published IMRN version)",
+   "printed": "L p( f, χ ) = (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) p)2 · logω f ( f Δχ ).",
+   "correction": "The logarithm is squared: L_p(f, χ) = (1 − χ^{-1}(p̄) a_p + χ^{-2}(p̄) ε_f(p) p)² · log_{ω_f}(ε_f Δ_χ)², and likewise log_{ω'_f}(Δ'_χ)² in Proposition 8.13.",
+   "reason": "Both propositions are stated as the weight-two case of Theorem 8.11 ('In this case, Theorem 8.11 reads'), whose right side is the square of the Abel–Jacobi sum; the left side L_p(f, χ) is quadratic in f_B (Proposition 8.9), while the printed right side is linear in ω_f. JSW Proposition 5.1.6, citing Brooks Proposition 8.13, prints log² ω_f.",
+   "affects": "nothing",
+   "known": "Restated with the square in Jetchev–Skinner–Wan, Proposition 5.1.6 (arXiv:1512.06894v1; Cambridge J. Math. 5 (2017)); no erratum to Brooks found.",
+   "searched": [
+    "IMRN article page for rnu062 (no correction notice)",
+    "EPFL Infoscience record 212373",
+    "Brooks's University of Michigan thesis record (not retrievable)",
+    "citing restatements in JSW §5.1.5 and Skinner §2.6"
+   ]
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights/E3",
+   "source": "jsw-2017",
+   "kind": "misprint",
+   "locator": "§5.1, list after (5.1.a), p. 32 (arXiv:1512.06894v1)",
+   "printed": "α(f, fB) = ⟨f,f⟩Γ0(N) / ⟨fB,fB⟩Γ0B(N+) is a ratio of Petersson norms, which are normalized so that ⟨g, g⟩Γ = ∫Γ\\h g(z)ḡ(z) dxdy/y²",
+   "correction": "For weight-two forms the Petersson norm is ∫_{Γ\\ℍ} |g(z)|² y² · dx dy / y² = ∫_{Γ\\ℍ} |g(z)|² dx dy.",
+   "reason": "Under γ ∈ Γ, |g(γz)|² = |cz + d|⁴ |g(z)|² while dx dy / y² is invariant, so the printed integrand is not Γ-invariant and the integral over Γ\\ℍ is not defined; the factor y² (weight two) is missing. Brooks and CST use the invariant normalisation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1512.06894 (only v1 exists)",
+    "the published version in Cambridge J. Math. 5 (2017) was not opened"
+   ]
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights/E4",
+   "source": "brooks-2015",
+   "kind": "misprint",
+   "locator": "§8.5, the remark closing the proof of Theorem 8.11, p. 4239 (published IMRN version)",
+   "printed": "the cycle Δχ = Σ χ −1 (a)N(a)Pχ rather than the cycle ε f Δχ",
+   "correction": "Δ_χ = Σ_{[a]} χ^{-1}(a) N(a) P_a, the χ-weighted sum of the CM points a ⋆ (A, t); the summand does not depend on a as printed.",
+   "reason": "The summation variable a does not occur in P_χ, so the printed sum would be (Σ χ^{-1}(a) N(a)) · P_χ, which vanishes for nontrivial χ by orthogonality; the proof of Theorem 8.11 sums the values at a ⋆ (A, t, ω).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "IMRN article page for rnu062",
+    "EPFL Infoscience record 212373"
+   ]
+  },
+  {
+   "id": "GrossZagierAndArithmeticHeights/E5",
+   "source": "castella-2018-multiplicative",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3.1, p. 9 (arXiv:1704.06608v2)",
+   "printed": "let Lp,ψ (f ) ∈ ΛR0 be as in [CH17, Def. 3.7], and set Lp (f ) := Twψ−1 (Lp,ψ (f )),",
+   "correction": "L_p(f) := Tw_{ψ^{-1}}(L_{p,ψ}(f))², up to a unit: Castella–Hsieh's L_{p,ψ}(f) is the square-root measure, whose square interpolates the central values (Castella–Hsieh Proposition 3.8), while Theorem 3.1 states an interpolation linear in L(f/K, φ, 1).",
+   "reason": "Castella–Hsieh Proposition 3.8 gives (L_{p,ψ}(f)(φ̂)/Ω_p^{2r+2m})² = L^alg(1/2, π_K ⊗ ψφ) · (...); a twist does not change degree, so Tw_{ψ^{-1}}(L_{p,ψ}(f)) interpolates square roots of L-values, not the L-values of Theorem 3.1. Theorem 3.2 (L_p(f, 1) = (...)² (log P_K)²) is also consistent only with the square.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1704.06608 (v1 and v2; v2 read)",
+    "the published version in Cambridge J. Math. 6 (2018) was not opened"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://infoscience.epfl.ch/record/212373",
+   "read": "2026-10-06",
+   "sha256": "90898527cf2e7e69bb6eba200dc7646e7f61837fa310299852ea2b958f925219",
+   "citation": "Brooks, IMRN 2015, no. 12, 4177–4241"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1512.06894v1",
+   "read": "2026-10-06",
+   "sha256": "908562efdddaf46b2653317294cb65ae627802bc996400a779b1cd51b5a7d49d",
+   "citation": "Jetchev–Skinner–Wan; the published Camb. J. Math. version was not opened, so E3 is scoped to the arXiv text"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1704.06608v2",
+   "read": "2026-10-06",
+   "sha256": "23e3ab4e9d99ceba88d3aaf0fa0612b60ac728086f82555f951f4e1853323081",
+   "citation": "Castella, multiplicative primes; the published Camb. J. Math. version was not opened, so E5 is scoped to the arXiv text"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
+   "read": "2026-10-06",
+   "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc",
+   "citation": "Bertolini–Darmon–Prasanna, Duke 2013"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1408.1733v2",
+   "read": "2026-10-06",
+   "sha256": "8d908543404abfbd9c1708ad9af696c4fb71595701bd67cb5bff11b3a8d6ac43",
+   "citation": "Cai–Shu–Tian (published ANT 8 (2014), same numbering)"
+  }
+ ]
+}
