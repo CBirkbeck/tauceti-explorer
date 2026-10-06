@@ -73,12 +73,18 @@ abbrev verticalKernel (τ : ℍ) (p : ℤ × ℤ) : ℂ :=
 abbrev tauI : ℍ := ⟨I, by simp⟩
 
 -- EllipticRegulators:ER.4/direct-series-convergence
--- This is a target-level convergence declaration: its four estimates are
+-- This is a target-level convergence declaration: its estimates are
 -- proved together before any finite/infinite sum interchange.
 theorem directSeriesConvergence (C : ℕ) [NeZero C] (τ : ℍ) (f : T C → ℂ) :
     (∀ u : T C,
       Summable (fun n : ℕ => ‖logTerm (x C τ u * q τ^n)‖) ∧
       Summable (fun n : ℕ => ‖logTerm ((x C τ u)⁻¹ * q τ^(n+1))‖) ∧
+      Summable (fun p : ℕ × ℕ =>
+        ‖(Real.log ‖x C τ u * q τ^p.1‖ : ℂ) *
+          (x C τ u * q τ^p.1)^(p.2+1) / ((p.2+1 : ℕ) : ℂ)‖) ∧
+      Summable (fun p : ℕ × ℕ =>
+        ‖(Real.log ‖(x C τ u)⁻¹ * q τ^(p.1+1)‖ : ℂ) *
+          ((x C τ u)⁻¹ * q τ^(p.1+1))^(p.2+1) / ((p.2+1 : ℕ) : ℂ)‖) ∧
       Summable (fun n : ℕ => ‖li2Disc (x C τ u * q τ^n)‖) ∧
       Summable (fun n : ℕ => ‖li2Disc ((x C τ u)⁻¹ * q τ^(n+1))‖) ∧
       Summable (fun p : ℕ × ℕ =>
@@ -121,8 +127,13 @@ example (τ : ℍ) : blochLogTerm 3 τ (character 3 (0,1)) =
 example : logTerm I = 0 ∧ logTerm 1 = 0 := by
   sorry
 -- log_test_complex_scalar
+-- A real-part logarithmic kernel also passes this linearity test.
 example (C : ℕ) [NeZero C] (τ : ℍ) (f : T C → ℂ) :
     blochLogTerm C τ (I • f) = I * blochLogTerm C τ f := by
+  sorry
+-- log_test_nonreal_kernel: detects replacing Complex.log by its real part.
+example : (logTerm (I / 2)).im = Real.log 2 * Real.arctan (1 / 2) ∧
+    0 < (logTerm (I / 2)).im := by
   sorry
 
 -- API: blochDilogTerm (weighted-dilogarithmic-term).
