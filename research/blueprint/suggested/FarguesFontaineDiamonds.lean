@@ -22,6 +22,10 @@ Mathlib types. Every proof and constructed comparison uses sorry.
 Each test is an example, labelled by its proposed packet name in its comment.
 Elaboration checks the stated shapes; it cannot check missing supplier types,
 continuity of theta on plus rings, geometric hypotheses, or enhanced data.
+Independent review retains these omissions under PROTOCOL section 13. Before
+implementation, specialize the parameters to the supplier objects and restore
+their hypotheses. These signatures cannot be used as generic mathematical
+theorems about arbitrary types, maps, ideals or categories.
 -/
 import Mathlib.CategoryTheory.Equivalence
 import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.ProdComparison
@@ -112,6 +116,15 @@ lemma affinoid_product_inverse_formula (Ypoints Spoints Qpoints : Type u)
       (WittVector.teichmuller p x) = (f x).untilt := by
   sorry
 
+-- Extensionality keeps the tilted base map and the marked untilt separately.
+lemma affinoid_product_ext (Ypoints Spoints Qpoints : Type u) (z z' : Ypoints) :
+    z = z' ↔
+      (affinoid_product Ypoints Spoints Qpoints z).1 =
+        (affinoid_product Ypoints Spoints Qpoints z').1 ∧
+      (affinoid_product Ypoints Spoints Qpoints z).2 =
+        (affinoid_product Ypoints Spoints Qpoints z').2 := by
+  sorry
+
 /- Test TauCeti.FFDiamond.affinoid_product_base (computation): For T=S and any marked Q_p-untilt u of S, the theta-defined i_u maps to (id_S,u).
 Supplier conditions not typeable at the pin are omitted as above. -/
 example (Ypoints Spoints Qpoints : Type u) (thetaPoint : Ypoints)
@@ -130,6 +143,23 @@ example {R A : Type u} [CommRing R] [CommRing A] (p : ℕ) [Fact p.Prime]
     (f : R →+* PreTilt A p) (varpi : R) :
     (WittVector.fontaineTheta A p).comp (WittVector.map f)
       (WittVector.teichmuller p varpi) = (f varpi).untilt := by sorry
+
+/- Test TauCeti.FFDiamond.affinoid_product_compatible_roots (computation):
+For F=completion(F_p((t^{1/p^infty}))) and the completion of
+Q_p(p^{1/p^infty}), the inverse of (id_S,u) sends every [t^{1/p^m}]
+to p^{1/p^m}, with the p-power relations retained. The complete fields,
+their plus rings, the marking t^sharp=p and the two invertible elements
+are not yet typeable. This fragment tests the actual theta evaluations on
+a compatible root family with the marking equations stated as hypotheses. -/
+example {R A : Type u} [CommRing R] [CommRing A] (p : ℕ) [Fact p.Prime]
+    [Fact (¬ IsUnit (p : A))] [IsAdicComplete (Ideal.span {(p : A)}) A]
+    (f : R →+* PreTilt A p) (tRoots : ℕ → R) (pRoots : ℕ → A)
+    (hmark : ∀ m, (f (tRoots m)).untilt = pRoots m)
+    (hroots : ∀ m, pRoots (m + 1) ^ p = pRoots m) :
+    (∀ m, (WittVector.fontaineTheta A p).comp (WittVector.map f)
+      (WittVector.teichmuller p (tRoots m)) = pRoots m) ∧
+    (∀ m, pRoots (m + 1) ^ p = pRoots m) := by
+  sorry
 
 /-! FarguesFontaineDiamonds:F1/point_naturality
 For every morphism g:T′→T of characteristic-p perfectoid test spaces, alpha_T′(g^*z)=(f∘g,g^*u) when alpha_T(z)=(f,u). This includes rational restrictions and arbitrary test spaces after gluing. Untilts are pulled back in the perfectoid slice category, with the induced marking. The affinoid formulas agree on overlaps and are invariant under isomorphic presentations of the untilt. -/
@@ -163,6 +193,15 @@ lemma product_iso_over_qp {V : Type u} [Category.{v} V] [HasBinaryProducts V]
     (product_iso Y S Qp).hom ≫ prod.snd = structural := by
   sorry
 
+lemma product_iso_ext {V : Type u} [Category.{v} V] [HasBinaryProducts V]
+    (Y S Qp Z : V) (h k : Z ⟶ Y) :
+    h = k ↔
+      h ≫ (product_iso Y S Qp).hom ≫ prod.fst =
+        k ≫ (product_iso Y S Qp).hom ≫ prod.fst ∧
+      h ≫ (product_iso Y S Qp).hom ≫ prod.snd =
+        k ≫ (product_iso Y S Qp).hom ≫ prod.snd := by
+  sorry
+
 /- Test TauCeti.FFDiamond.product_iso_identity_section (computation): For any marked untilt u:S→Spd Q_p, the diamond map of i_u is sent to the graph (id_S,u).
 Supplier conditions not typeable at the pin are omitted as above. -/
 example {V : Type u} [Category.{v} V] [HasBinaryProducts V]
@@ -194,7 +233,7 @@ theorem projection_field_naturality {V : Type u} [Category.{v} V]
   sorry
 
 /-! FarguesFontaineDiamonds:F2/frobenius_equivariance
-With phi_Y induced contravariantly by Witt Frobenius and phi_S induced by x↦x^p, alpha_F ∘ phi_Y^diamond = (phi_S×id) ∘ alpha_F. On an affinoid point represented by theta_u ∘ W(f), postcomposition with phi_Y changes f to f∘Frob_O_F, while retaining u. The radius kappa=log|[varpi]|/log|p| satisfies kappa(phi_Y x)=p·kappa(x). -/
+With phi_Y induced contravariantly by Witt Frobenius and phi_S induced by x↦x^p, alpha_F ∘ phi_Y^diamond = (phi_S×id) ∘ alpha_F. On an affinoid point represented by theta_u ∘ W(f), postcomposition with phi_Y changes f to f∘Frob_O_F, while retaining u. The radius kappa=log|[varpi]|/log|p|, evaluated on the unique rank-one generalization of an analytic point, satisfies kappa(phi_Y x)=p·kappa(x). -/
 -- phiY is Witt Frobenius's diamond; phiS is absolute p-power Frobenius.
 -- The valuation-radius assertion is recorded separately below.
 theorem frobenius_equivariance {V : Type u} [Category.{v} V]
@@ -347,7 +386,7 @@ theorem chart_site_compatibility (Cet Det CChart DChart : Type u)
   sorry
 
 /-! FarguesFontaineDiamonds:F3/sheaf_descent
-For any coefficient category for which étale sheaf descent is defined (in particular sets and modules over a discrete commutative ring), construct the equivalence between sheaves on X^diamond_et and pairs (M,c) with M a sheaf on Y^diamond_et and c:phi_Y^{diamond,*}M≅M. The induced c_n:phi_Y^{diamond,n,*}M≅M satisfy c_0=id and c_{m+n}=c_n∘phi^{n,*}(c_m), with the chosen pullback associators. Morphisms intertwine c. This is the graph-relation Cech descent category supplied by D0, not a private replacement for descent data. -/
+For any coefficient category for which étale sheaf descent is defined (in particular sets and modules over a discrete commutative ring), construct the equivalence between sheaves on X^diamond_et and pairs (M,c) with M a sheaf on Y^diamond_et and c:phi_Y^{diamond,*}M≅M. The induced c_n:phi_Y^{diamond,n,*}M≅M satisfy c_0=id and c_{m+n}=c_n∘phi^{n,*}(c_m), with the chosen pullback associators. Morphisms intertwine c. Use D0’s graph-relation Cech descent category, with the explicitly requested specialization to étale sheaves. Its quotient-stack API alone does not establish that the étale-sheaf pseudofunctor is a stack. -/
 -- ShX and Desc are the supplier's actual sheaf and Cech descent categories.
 -- No local descent-data structure is introduced. Frobenius/associator data are omitted.
 def sheaf_descent (ShX Desc : Type u) [Category.{v} ShX] [Category.{v} Desc] :
