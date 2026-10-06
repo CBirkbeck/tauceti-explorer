@@ -908,12 +908,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 68,
-     "missingDeclarations": 68,
+     "declarations": 96,
+     "missingDeclarations": 96,
      "depth": 19,
-     "layersCovered": 8,
+     "layersCovered": 9,
      "layers": 9,
-     "sourcePages": 57
+     "sourcePages": 94
     }
    },
    "measurement": 6.37,
