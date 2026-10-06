@@ -25519,11 +25519,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #745"
+   "note": "deliverables arrived from an external worker on issue #745",
+   "finishedAt": "2026-10-06T09:11:48Z"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.8",
@@ -29478,12 +29479,13 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1006"
+   "note": "deliverables arrived from an external worker on issue #1006",
+   "finishedAt": "2026-10-06T09:11:50Z"
   },
   {
    "id": "REV-WeilConjectures--WC.6",
