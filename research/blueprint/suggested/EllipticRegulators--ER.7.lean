@@ -259,6 +259,8 @@ regulator; full-level F-rational cusp units and Weil reciprocity keep the lift
 in the unit-symbol span; requires early L1 and compact/open Deligne projection.
 ER.7/regulator-period-inclusion — all-embedding period-line inclusion;
 requires normalized RS, coefficient field periods and real Deligne regulator.
+The L-value quotient in SS 2.3 has no 2πi factor; that factor belongs to
+the regulator integral in SS 1.3.2 and 5.2.
 ER.7/regulator-nonvanishing-after-level-change — finite auxiliary-level nonzero
 pairing, never primitive-character existence at the initial level.
 ER.7/isotypic-regulator-image — full Hom(Vπ^K,Qbar) image, including oldvectors.
@@ -269,8 +271,12 @@ cuspidal supersingular module quotient Qbar[Σ]/Qbar[S].
 ER.7/full-level-modular-symbol-integrality — vertical tame boundaries vanish over
 finite fields; requires arithmetic-surface localization with weight comparison.
 ER.7/integral-beilinson-subspace — P_K lies in the model-independent integral part.
+General modular curves need resolved regular graphs/common models, total K/G
+transfer and restriction-compatible weight projectors, not elliptic-only E.6.
 ER.7/elliptic-regulator-adjointness — proper covariance, form duality and invariant
 rational Galois descent on E, without an unproved orbit-sum noncancellation claim.
+Its compact-class proof does not close the stronger inherited function-field
+assertion; that compact/open functorial extension remains in G2.
 ER.7/modular-elliptic-regulator-line — integral class β with regulator L′(E,0)b;
 conditional on φ/f first, then uses R29.5/R29.6 for every E/Q.
 
