@@ -5,8 +5,8 @@
   "scope": [
     "AutomorphicBundles:B5"
   ],
-  "status": "partial",
-  "summary": "The determinant-Hodge, good-prime PEL Fourier-Jacobi strand, retaining all fifteen nodes and the coefficient-devissage argument. The residue-component request now has a precise neat-level route through smooth proper stratum closures and the finite etale Stein factor over the arithmetic base. Its generic geometric proof is assigned to the existing foundations owners, not duplicated in B5. Finite-thickening coefficient comparisons are separated from an unjustified tensor/inverse-limit interchange. The actual stratum-closure identification, non-neat component transport, formal-chart descent, common completion, general Hecke action and geometric Lean signatures remain explicit open leaves. No geometric node is an implementation claim. The finite-coefficient reduction now directly imports the prime-filtration and exact-sequence induction theorems already present in pinned Mathlib; the provisional R03.3 supplier request and its scope gap are removed without changing the geometric hypotheses.",
+  "status": "complete",
+  "summary": "A completed target-level planning pass for all of B5: the preserved scalar good-prime PEL Fourier–Jacobi and arbitrary-coefficient devissage strand; geometric Hecke operators, convolution and non-neat descent; imported modular Tate/analytic comparisons; ramified prime-to-p Hilbert q-expansions, recognition and cusp constants; finite-projective vector coefficients; and the three routed finite-dimensional/classical BCGP comparisons. Every target has an exact statement and prerequisite chain ending in verified pinned declarations, exact owner nodes, requested owner stages or named gaps. B5 is planned, not closed: actual chart/trace/descent interfaces, pending VB/BGG supplier stages, unread underlying comparison proofs and full geometric Lean carriers remain precise follow-up work. All implementation statuses are unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,70 +16,133 @@
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/NormTrace.lean",
         "provides": "Unnormalized analytic trace for modular forms from a finite-relative-index subgroup; the cosets are those of the intersection, and subgroup containment is not required by this definition.",
-        "checked": "Definition and its finite-sum, holomorphy and cusp-boundedness proofs read at 082e2d3, lines 25-90, in the preceding checkpoint. Preserved, not claimed as a new verification."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:CuspForm.trace",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/NormTrace.lean",
         "provides": "The same unnormalized trace on cusp forms, preserving vanishing at every cusp.",
-        "checked": "Definition and finite-sum vanishing proof read at 082e2d3, lines 92-105, in the preceding checkpoint. Preserved, not claimed as a new verification."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Prime/Basic.lean",
         "provides": "For positive level, a prime coprime to the level and a function in the actual nebentypus space, identifies the twisted prime double-coset sum with its upper-triangular part plus the character-weighted scaling term. This is an analytic normalization input, not an algebraic correspondence theorem.",
-        "checked": "Statement and coset/slash proof read at f790474, lines 92-120, in the preceding checkpoint. No extension to composite indices inferred."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
         "provides": "Over a ring, a formal power series is a unit exactly when its constant coefficient is a unit. In particular 1-X is a unit. This supplies the algebraic regression against an unrestricted map of face-stratum completions, not a toroidal comparison theorem.",
-        "checked": "Statement, Ring hypotheses and proof by MvPowerSeries.isUnit_iff_constantCoeff read at 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 101-124, on 2026-09-26 in the preceding checkpoint."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:CategoryTheory.ShortComplex.mono_τ₂_of_exact_of_mono",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean",
         "provides": "For a morphism of short complexes in a preadditive balanced category, exactness of the source row, monicity of both first row maps, and monicity of the two outer vertical maps imply monicity of the middle vertical map. No epimorphism of the last row map is required. B5 must construct its actual section/expansion diagram before applying this existing theorem.",
-        "checked": "Statement, section hypotheses and proof read at 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 779-839, on 2026-09-26. Blob 4061209ac58f4b523e996d0e1fe1179db463028b. The proof lifts a zero-composite through the exact source row and cancels the two monomorphisms. This is a more general existing theorem, not a new B5 lemma."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean",
         "provides": "For any commutative Noetherian ring R and finite R-module M, a RelSeries of actual submodules from bottom to top whose successive quotients are R-linearly equivalent to R/p for prime ideals p. No localness, completeness, finite length or freeness is assumed.",
-        "checked": "Full statement, ambient parameters and proof by ascending-chain induction with prime cyclic subquotients read at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26. File blob 8981a4233c39016cfd51e882d7da6d90c368dec9; Stacks annotation 00L0."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean",
         "provides": "Induction for properties of finite modules over any commutative Noetherian ring: subsingleton modules, modules linearly equivalent to R/p, and short exact coefficient sequences with injective first map, surjective second map and Function.Exact. The motive and equivalence form preserve the module-universe distinction.",
-        "checked": "Full dependent signature and proof read at the same pinned commit and file blob on 2026-09-26, including linear-equivalence transport and the subtype/quotient exact sequences. This directly supplies the generic devissage used here, not the geometric prime-quotient or extension hypotheses."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:Ideal.iInf_pow_smul_eq_bot_of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Filtration.lean",
         "provides": "For a finite module over a commutative Noetherian local ring and a proper ideal I, the intersection of I-power multiples is zero.",
-        "checked": "Statement, section hypotheses and proof read at Mathlib 082e2d3 on 2026-09-26; file blob checked against the pinned tree. Direct-use examples in the suggested file check the combined hypotheses."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:IsHausdorff.of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
         "provides": "A finite module over a Noetherian local ring is I-adically separated for any proper ideal I.",
-        "checked": "Statement, section hypotheses and proof read at Mathlib 082e2d3 on 2026-09-26; file blob checked against the pinned tree. Direct-use examples in the suggested file check the combined hypotheses."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
       },
       {
         "ref": "mathlib:AdicCompletion.of_injective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The canonical linear map from an I-adically separated module to its actual AdicCompletion is injective.",
-        "checked": "Statement, section hypotheses and proof read at Mathlib 082e2d3 on 2026-09-26; file blob checked against the pinned tree. Direct-use examples in the suggested file check the combined hypotheses."
+        "checked": "Statement, ambient hypotheses and relevant proof read at the recorded exact commit on 2026-10-06. Earlier verification retained in Git history; no wider generality inferred."
+      },
+      {
+        "ref": "tauceti:HeckeCosetModule.instRingHeckeRing",
+        "kind": "instance",
+        "module": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
+        "provides": "The existing convolution ring on HeckeCosetModule for an IsHeckeTriple; B5 constructs its geometric representation, never another Hecke ring.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:HeckeRing.GL2.heckeRingHomCharSpace",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Action.lean",
+        "provides": "Existing analytic ring action on the actual weight-k nebentypus space over C, with integral double-coset coefficients. The geometric compatibility is new, not this action.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:UpperHalfPlane.qExpansion",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+        "provides": "Taylor coefficients of the cusp function for q=exp(2πiτ/h); a function-to-PowerSeries C definition, with positive strict-period hypotheses needed by its analytic lemmas.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:ModularForm.qExpansion_injective",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+        "provides": "Injectivity for analytic modular forms of fixed integer weight, positive real h in the subgroup strict periods. It does not supply an integral or all-cusp geometric principle.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:ModularForm.isCuspForm_iff_coeffZero_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ModularForms/CuspFormSubmodule.lean",
+        "provides": "Zero constant coefficient at infinity characterizes cusp forms for the full modular group SL2(Z); not a theorem for one cusp at arbitrary level.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.trace_algebraMap_of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "With an actual basis b indexed by a finite type, algebra trace of a base scalar is card(index) times it. This local finite-free trace calculation is not a global finite-projective sheaf trace.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "Actual category of sheaves of modules on a scheme with sections and section maps. Stack coefficients and the Shimura boundary chart remain supplier inputs.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.tensorProduct",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/Modules/TensorProduct.lean",
+        "provides": "Actual sheafified tensor product of O_X modules, specialized from the site-level TauCeti tensor product. No tensor/global-sections interchange is included.",
+        "checked": "Statement and ambient hypotheses read at the recorded exact commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.tilde.isoTop",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+        "provides": "The actual ModuleCat isomorphism between a module and global sections of its affine tilde sheaf. Used for the supplied Tate coefficient trivialization, not a construction of the Shimura/Tate chart.",
+        "checked": "Definition, tilde carrier, scalar restriction, toOpen and functoriality read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
       }
     ]
   },
@@ -98,10 +161,13 @@
         "6.2.5, stratum ideals and the common completion preceding (6.2.5.22), printed pp. 478-483; Remarks 6.2.5.30-6.2.5.31, printed p. 485 (preceding checkpoint)",
         "6.4.1.1(5), the individual-stratum formal-completion interface",
         "Notation, printed p. xxv: the set of retained rational primes may be infinite; 1.4.1.1, choice of good primes",
-        "6.4.1.1(2)-(5), smooth strata, relative normal crossings and the neat no-self-intersection clause, printed p. 520; 6.4.1.2 and its proof, printed p. 523; 7.1.2.14, printed p. 539, re-read in the fiber-detection continuation"
+        "6.4.1.1(2)-(5), smooth strata, relative normal crossings and the neat no-self-intersection clause, printed p. 520; 6.4.1.2 and its proof, printed p. 523; 7.1.2.14, printed p. 539, re-read in the fiber-detection continuation",
+        "5.4.3.1–5.4.3.2, pp.431–432; 5.4.3.8–5.4.3.10, pp.438–439: right translation and cusp transport",
+        "6.4.3.1–6.4.3.4, pp.527–530: toroidal Hecke maps and compatible refinements; 7.1.1–7.1.2, pp.532–540, freshly re-read"
       ],
-      "accessDate": "2026-09-26",
-      "accessNote": "Earlier reading notes are retained as provenance, not repeated verification. Earlier checkpoints inspected pp. 482-485, 533, 536 and 539-540 and the notation. The fiber-detection continuation inspected rendered printed pp. 520, 523 and 539 (PDF indices 547, 550 and 566), plus the surrounding theorem text. Its new argument uses the relative normal-crossings clause, not just the constant component count of 6.4.1.2. No local byte copy, source hash or inspection of the publisher edition is claimed."
+      "accessDate": "2026-10-06",
+      "accessNote": "Fresh author-hosted bytes read on 6 October 2026; earlier section readings retained as provenance. This hash identifies this pass, not an inspected publisher copy.",
+      "sha256": "a7a454f5d0735f4bf11f00a8afc14c361c5fc2cefd691d7466f7620ab4c3a079"
     },
     {
       "id": "LAN-ERRATA",
@@ -113,7 +179,9 @@
         "Items 71-77: formal charts, etale descent, lower-dimensional moduli stack and stabilizer invariance",
         "Search of the full parsed errata for 7.1.1 and free; no correction of the p. 533 free-submodule reduction located"
       ],
-      "accessDate": "2026-09-26"
+      "accessDate": "2026-10-06",
+      "sha256": "14343693efbc34ef8e9fa63e65ac9586c663d1c731409c0db64ec39a7e84eb88",
+      "accessNote": "Fresh author-hosted bytes read on 6 October 2026; earlier section readings retained as provenance. This hash identifies this pass, not an inspected publisher copy."
     },
     {
       "id": "LAN-INTRO",
@@ -123,7 +191,10 @@
       "url": "https://www.kwlan.org/articles/intro-sh-ex.pdf",
       "readSections": [
         "4.2.7, canonical and subcanonical extensions, printed pp. 49-50; rendered p. 50 inspected in the preceding checkpoint"
-      ]
+      ],
+      "sha256": "d9a3e75544a0a168db70d552a80696c4ef2f84d8184654cd0ca45eae81b32dad",
+      "accessDate": "2026-10-06",
+      "accessNote": "Fresh author-hosted bytes read on 6 October 2026; earlier section readings retained as provenance. This hash identifies this pass, not an inspected publisher copy."
     },
     {
       "id": "STACKS-PRIME-FILTRATION",
@@ -202,6 +273,61 @@
       "readSections": [
         "Printed pp. 195–199, physical PDF pages 194–198: completion of coherent sheaves, 10.8.5–10.8.14; extension of morphisms, 10.9.1–10.9.5, and the opening of 10.9.6. The two imported contracts use 10.8.11 and 10.9.1–10.9.3."
       ]
+    },
+    {
+      "id": "LAN-HIGHER",
+      "title": "Higher Koecher’s principle",
+      "authors": "Kai-Wen Lan",
+      "edition": "Mathematical Research Letters 23 (2016), 163–199",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/mrl/2016/0023/0001/MRL-2016-0023-0001-a009.pdf",
+      "readSections": [
+        "§2, pp.165–166: neat PEL setup and finite projective representation coefficients",
+        "Proposition 5.6, its proof and Remark 5.7, pp.177–179: boundary coefficient bundle and the non-descending filtration",
+        "Corollary 5.9 and Definition 5.10, pp.179–180: completed Fourier–Jacobi coefficients; only degree-zero coefficients are used here"
+      ],
+      "accessDate": "2026-10-06",
+      "sha256": "63838ab62fbbe3e4c51f539b7d4172838868c82a6917d404d045982869489460"
+    },
+    {
+      "id": "DIAMOND-2022",
+      "title": "Compactifications of Iwahori-level Hilbert modular varieties",
+      "authors": "Fred Diamond",
+      "edition": "arXiv:2211.06922v1, 13 November 2022 (PDF cover date)",
+      "url": "https://arxiv.org/pdf/2211.06922v1",
+      "readSections": [
+        "Notation and §§2.1–2.3, pp.2–4: coefficient field, ramified splitting model and cusp data",
+        "§§6.1–6.3, pp.24–26: weights, determinant normalization, q-expansions, coefficient recognition and cusp constants",
+        "§6.5, pp.28–29: prime-to-p Hecke coefficient formula and its normalized adelic coefficients"
+      ],
+      "accessDate": "2026-10-06",
+      "sha256": "672b6b4bc3bedb9081dbad088829cba95754e2461dcbb22a1a0453cf0585b24c"
+    },
+    {
+      "id": "BCGP-2025",
+      "title": "Modularity theorems for abelian surfaces",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:2502.20645v1, 28 February 2025",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "readSections": [
+        "§1.8, pp.17–18: transposed Hecke-correspondence convention",
+        "§4.5.1, pp.72–74 and §§4.5.17–4.5.22, pp.78–80: coefficient functors, refinements and finite-dimensional comparison context",
+        "§§4.6.1–4.6.2, pp.81–82: classical smooth bundles and Tate normalization",
+        "§4.8.1–Theorem 4.8.2, pp.101–102: ordinary and compact-support classical Siegel comparisons"
+      ],
+      "accessDate": "2026-10-06",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c"
+    },
+    {
+      "id": "MILNE-2018",
+      "title": "Automorphic vector bundles on connected Shimura varieties",
+      "authors": "J. S. Milne",
+      "edition": "Author notes, corrected 11 March 2018",
+      "url": "https://jmilne.org/math/xnotes/AA.pdf",
+      "readSections": [
+        "Chapter VII §§1–5, pp.100–102: Fourier–Jacobi description; §4.1 is explicitly a conjecture, not a general integral theorem"
+      ],
+      "accessDate": "2026-10-06",
+      "sha256": "f4a36ecc28ae2439c6270c4e0075ce4ab8a839f56bcaa3026cb6eaeb6d46805e"
     }
   ],
   "sourceVersions": [
@@ -222,6 +348,34 @@
       "url": "https://www.numdam.org/article/PMIHES_1960__4__5_0.pdf",
       "read": "2026-09-26",
       "sha256": "9aba23020217535977e279bdd06a0413f48da703086865ba4c00766c85df4ae6"
+    },
+    {
+      "kind": "public version",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/mrl/2016/0023/0001/MRL-2016-0023-0001-a009.pdf",
+      "citation": "Higher Koecher’s principle; Mathematical Research Letters 23 (2016), 163–199",
+      "read": "2026-10-06",
+      "sha256": "63838ab62fbbe3e4c51f539b7d4172838868c82a6917d404d045982869489460"
+    },
+    {
+      "kind": "public version",
+      "url": "https://arxiv.org/pdf/2211.06922v1",
+      "citation": "Compactifications of Iwahori-level Hilbert modular varieties; arXiv v1, PDF cover 13 November 2022",
+      "read": "2026-10-06",
+      "sha256": "672b6b4bc3bedb9081dbad088829cba95754e2461dcbb22a1a0453cf0585b24c"
+    },
+    {
+      "kind": "public version",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "citation": "Modularity theorems for abelian surfaces; arXiv:2502.20645v1, 28 February 2025",
+      "read": "2026-10-06",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://jmilne.org/math/xnotes/AA.pdf",
+      "citation": "Automorphic vector bundles on connected Shimura varieties; Author notes, corrected 11 March 2018",
+      "read": "2026-10-06",
+      "sha256": "f4a36ecc28ae2439c6270c4e0075ce4ab8a839f56bcaa3026cb6eaeb6d46805e"
     }
   ],
   "nodes": [
@@ -297,7 +451,10 @@
         "AutomorphicBundles:B4",
         "ShimuraCompactifications:C0",
         "ShimuraCompactifications:C4",
-        "ShimuraCompactifications:C5"
+        "ShimuraCompactifications:C5",
+        "mathlib:AlgebraicGeometry.Scheme.Modules",
+        "tauceti:AlgebraicGeometry.Scheme.Modules.tensorProduct",
+        "mathlib:AlgebraicGeometry.tilde.isoTop"
       ],
       "library": {
         "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/FourierJacobi",
@@ -691,8 +848,8 @@
         {
           "sourceId": "LAN-2021",
           "locator": "The geometric composition in 7.1.2.3 and the diagram in 7.1.2.14",
-          "excerpt": "Paraphrase: the expansion morphisms are compatible with the coefficient maps in the diagram.",
-          "match": "Makes the naturality used by the source diagram a named construction-dependent lemma."
+          "excerpt": "with exact rows.",
+          "match": "Makes the naturality used by the source diagram a named construction-dependent lemma. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -735,8 +892,8 @@
         {
           "sourceId": "LAN-2021",
           "locator": "First paragraph of the proof of 7.1.2.14, printed p. 539",
-          "excerpt": "Paraphrase: the coefficient functors are left exact because global sections are left exact.",
-          "match": "Supplies the missing explicit flat-tensor justification before invoking left exactness of sections; it does not replace AF by a scalar tensor product of global sections."
+          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
+          "match": "Supplies the missing explicit flat-tensor justification before invoking left exactness of sections; it does not replace AF by a scalar tensor product of global sections. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -782,8 +939,8 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14, first paragraph and exact-row diagram on printed p. 539",
-          "excerpt": "Paraphrase: the Fourier-Jacobi coefficient functor gives the lower left-exact row.",
-          "match": "Expands the coefficient-family left-exactness input into flatness, products and unique invariant lifts; the proof does not assume exact invariants."
+          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
+          "match": "Expands the coefficient-family left-exactness input into flatness, products and unique invariant lifts; the proof does not assume exact invariants. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -900,8 +1057,8 @@
         {
           "sourceId": "LAN-2021",
           "locator": "The left-exact coefficient functors in the proof of 7.1.2.14",
-          "excerpt": "Paraphrase: both coefficient functors are left exact.",
-          "match": "This is a devissage refinement of the source proof, using an existing library diagram lemma; it is not attributed to a separately numbered theorem in Lan."
+          "excerpt": "left exact because they are defined by taking global sections of sheaves.",
+          "match": "This is a devissage refinement of the source proof, using an existing library diagram lemma; it is not attributed to a separately numbered theorem in Lan. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -952,8 +1109,8 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.1.4 and the reduction in 7.1.2.14(1)",
-          "excerpt": "Paraphrase: reduce the coefficient module before applying geometric restriction.",
-          "match": "Alternative coefficient reduction that keeps the original theorem's geometric component obligation explicit."
+          "excerpt": "the same reduction steps",
+          "match": "Alternative coefficient reduction that keeps the original theorem's geometric component obligation explicit. The excerpt is literal; the stated coefficient hypotheses and corrected reduction are a source-faithful derived argument, not quoted as a verbatim theorem."
         },
         {
           "sourceId": "MATHLIB-PRIME-FILTRATION",
@@ -1110,6 +1267,863 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/hecke-section-operator",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Geometric Hecke operators on classical sections",
+      "kind": "construction",
+      "statement": "For the B1–B4 automorphic bundle E(V) on a fixed toroidal model X_K over R, take an admissible prime-to-characteristic element g with K_g=K∩gKg⁻¹ and the correspondence X_K ←p1 X_Kg →p2 X_K. After compatible cone refinement, the B2/B3 equivariant realization supplies θ_g:p2*E(V)→p1*E(V). For every R-module M define H_g=tr_p1 ∘ θ_g ∘ p2* on Γ(X_K,E(V)⊗_R M). Here the trace is the extension of the finite locally free trace through the supplied toric-refinement comparison, not a trace inferred for an arbitrary proper map. Fix a K-bi-invariant multiplicative character ν of the admissible monoid with values in R×, and set T_g=ν(g)H_g. The construction is independent of common refinement and representatives and preserves the subcanonical section module when the boundary ideal transport is supplied.",
+      "hypotheses": [
+        "Use actual bundle sections, including coefficients inside the sheaf; Γ(E)⊗M is not substituted.",
+        "p1 is finite locally free on a compatible intermediate model; a further fan refinement can be proper rather than finite. Its coefficient-sensitive pushforward comparison is required.",
+        "θ_g uses the right-translation and isogeny convention; ν is part of the level/weight normalization, not division by every correspondence degree."
+      ],
+      "proofSteps": [
+        "Import the correspondence and degree convention from AA.4 and its actual compactified extension from C3.",
+        "Pull back the canonical bundle and M; use B2/B3 equivariance to identify it with the p1-pullback, retaining its cocycle.",
+        "On finite-free charts use algebra trace and the projection formula; descend the finite-projective trace from SF.0 and remove refinements using B3/C3. These trace/base-change inputs remain explicit requests.",
+        "Compose and multiply by ν(g); the boundary ideal comparison proves the same construction for cusp sections."
+      ],
+      "acceptance": [
+        "H_1 is identity and H_g sends the weight-zero constant 1 to deg(p1); T_g(1)=ν(g)deg(p1).",
+        "For GL2 geometric isogeny pullback on ω^k, ν(g)=det(g)⁻¹ changes det(g)^k j(g,z)⁻k to the analytic det(g)^(k−1) factor. The chosen double-coset orientation must first be compared to the supplier, which may use inverse representatives.",
+        "For a degree-ℓ good modular correspondence and ν=ℓ⁻¹, the weight-zero value is (ℓ+1)/ℓ. ℓ must be a unit; no extension of this formula to ℓ=p is inferred."
+      ],
+      "prerequisites": [
+        "AdelicAlgebraicGroups:AA.4/hecke-correspondence",
+        "AdelicAlgebraicGroups:AA.4/hecke-degree-double-coset",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4",
+        "ShimuraCompactifications:C3",
+        "SchemeAndStackFoundations:SF.0",
+        "mathlib:Algebra.trace_algebraMap_of_basis"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "LAN-2021",
+          "locator": "6.4.3.1–6.4.3.4, pp.527–530",
+          "excerpt": "This surjection is proper",
+          "match": "Supplies toroidal translation after refinement, not the missing global coefficient trace."
+        },
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "§6.1, weight/level pullback convention, p.24",
+          "excerpt": "These satisfy the usual compatibilities",
+          "match": "Fixes the norm-scaled pullback convention in the Hilbert specialization; finite correspondence trace is a derived extension requiring the listed suppliers."
+        },
+        {
+          "sourceId": "BCGP-2025",
+          "locator": "§1.8, pp.17–18",
+          "excerpt": "transpose",
+          "match": "The isogeny correspondence convention is transposed relative to Faltings–Chai; comparison must transport it explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "ClassicalHecke.operator",
+          "role": "constructor",
+          "statement": "The R-linear composite ν(g)tr_p1 θ_g p2* on the actual section module."
+        },
+        {
+          "name": "ClassicalHecke.operator_one",
+          "role": "simp",
+          "statement": "The identity correspondence with ν(1)=1 acts as identity."
+        },
+        {
+          "name": "ClassicalHecke.coefficient_map",
+          "role": "functoriality",
+          "statement": "An R-linear coefficient map M→N commutes with T_g, by coefficient-compatible pullback, trace and θ_g."
+        },
+        {
+          "name": "ClassicalHecke.refinement",
+          "role": "compatibility",
+          "statement": "Transport across the B3 section comparison along a common fan refinement intertwines T_g, with identity and composition laws."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ClassicalHecke.identity",
+          "kind": "degenerate",
+          "statement": "The identity correspondence acts as identity on canonical and subcanonical sections."
+        },
+        {
+          "name": "ClassicalHecke.weightZeroTrace",
+          "kind": "computation",
+          "statement": "For a finite-free degree-d chart and the trivial bundle, the raw operator on 1 is d, not 1; the normalized value is ν(g)d."
+        },
+        {
+          "name": "ClassicalHecke.modularNormalization",
+          "kind": "compatibility",
+          "statement": "Over C, after the imported modular comparison and correct coset orientation, GL2 det⁻¹-scaled isogeny pull-identify-trace agrees with the existing HeckeRing.GL2.heckeRingHomCharSpace action; at an unramified prime its coefficients have the character-weighted ℓ^(k−1) term."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicBundles:B5/hecke-convolution",
+          "how": "Produces the basis operators of the existing integral Hecke ring."
+        },
+        {
+          "where": "OverconvergentAutomorphicForms:O6",
+          "how": "Provides the normalization and cusp-preserving classical operator used to compare the p-adic action."
+        }
+      ],
+      "planet": {
+        "name": "Hecke operators"
+      }
+    },
+    {
+      "id": "AutomorphicBundles:B5/hecke-convolution",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Convolution law for the geometric Hecke action",
+      "kind": "theorem",
+      "statement": "With the correspondences, trace/base-change comparisons, θ cocycle and multiplicative normalization of hecke-section-operator, the assignment [KgK]↦T_g extends to a unital ring homomorphism from the existing integral Hecke ring to End_R Γ(X_K,E(V)⊗_R M), and restricts to the subcanonical section module. The multiplication convention is the existing HeckeCosetModule convolution, after an explicit right-coset/inverse-orientation comparison; its integer multiplicities are unchanged.",
+      "hypotheses": [
+        "Require the full double-coset fibre-product/Mackey decomposition, not a false Cartesian square for an arbitrary normal finer level.",
+        "Coefficient traces satisfy composition and finite-flat base change; normalization ν is multiplicative and bi-K-invariant."
+      ],
+      "proofSteps": [
+        "Import the actual double-coset correspondence calculus from AA.4, rather than constructing another Hecke algebra.",
+        "Decompose the composed correspondence into the finite double-coset pieces with their multiplicities; apply trace transitivity and base change to each.",
+        "Use the θ cocycle and multiplicativity of ν to identify the composite with the convolution sum. Compare inverses and order with the pinned analytic action."
+      ],
+      "acceptance": [
+        "The identity coset maps to identity and a sum maps to the sum of operators.",
+        "In the good GL2 prime case the transported formula recovers the existing analytic convolution action, including its character term.",
+        "A normalization chosen by dividing each coset by its degree need not be a multiplicative character; the construction does not silently permit it."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AdelicAlgebraicGroups:AA.4/hecke-cartesian",
+        "tauceti:HeckeCosetModule.instRingHeckeRing",
+        "tauceti:HeckeRing.GL2.heckeRingHomCharSpace",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "BCGP-2025",
+          "locator": "§1.8, Hecke conventions, pp.17–18",
+          "excerpt": "transpose",
+          "match": "Geometric action follows correspondence composition after the stated convention comparison."
+        },
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "§6.1, p.24",
+          "excerpt": "These satisfy the usual compatibilities",
+          "match": "A source specialization of the normalized action; the general geometric convolution proof is a derived target with explicit Mackey/trace requests."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/non-neat-hecke-descent",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Hecke action at non-neat level",
+      "kind": "theorem",
+      "statement": "Let K′◁K be neat and normal with finite Γ=K/K′, and use the actual equivariant canonical or subcanonical bundle on the stack quotient [X_K′/Γ]. Descent identifies its section module with Γ(X_K′,E⊗_R M)^Γ for every allowed R-module M. Define the K-Hecke operators through the refined K_g correspondences and their common neat covers. The resulting operators preserve this descent equalizer, are independent of the chosen neat cover, and agree under the descent identification with the stack pull-identify-trace action.",
+      "hypotheses": [
+        "The quotient means the stack with its bundle action; no coarse-space vector bundle descent is assumed.",
+        "No inversion of |Γ| is required for the equalizer. Hecke compatibility uses the refined correspondence and Mackey sum, not restriction of a single K′-double-coset operator."
+      ],
+      "proofSteps": [
+        "Use SF.1 effective equivariant descent for the actual sheaves and sections.",
+        "Construct common neat covers of both correspondence legs with C3; compare operators using trace base change and the double-coset decomposition.",
+        "Prove the equalizer is stable and changes of neat cover commute; uniqueness of descent gives independence."
+      ],
+      "acceptance": [
+        "For the trivial action of C_p on F_p, invariants are F_p, while the group sum is zero.",
+        "For the unipotent C_p action on F_p², taking invariants does not preserve the surjection to the second-coordinate quotient. The proof uses only the equalizer, not exactness of invariants.",
+        "Do not assume K′∩K_g=K′∩gK′g⁻¹; AA.4’s Cartesian theorem requires its additional product condition."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/hecke-convolution",
+        "AdelicAlgebraicGroups:AA.4/hecke-cartesian",
+        "SchemeAndStackFoundations:SF.1",
+        "ShimuraCompactifications:C3"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "§6.1, non-small U and normal fine U′, p.24",
+          "excerpt": "taking invariants",
+          "match": "Descent uses invariants without averaging; the general Hecke comparison is the corresponding stack argument."
+        },
+        {
+          "sourceId": "LAN-2021",
+          "locator": "7.1.2.6–7.1.2.8, pp.536–537",
+          "excerpt": "full group",
+          "match": "Retains the full stabilizer in Fourier coefficients and compatibility with non-neat descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/modular-expansion-comparison",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Tate and analytic q-expansion comparison",
+      "kind": "comparison",
+      "statement": "Under B3/B4’s modular specialization and the R15.1 all-weight analytic comparison, the rank-one Fourier–Jacobi expansion is the imported Tate q-expansion, and over C it equals UpperHalfPlane.qExpansion h at the same cusp parameter q=exp(2πiτ/h) and invariant-differential trivialization. At full level n≥3 use Tate(q^n) over Z[1/n,ζ_n][[q]] as in the owner: the Kodaira–Spencer image of the square of the canonical differential is n dq/q. Import the R15.2 all-component integral q-expansion principle and cusp exact sequence rather than asserting new modular theorems. Transport Hecke normalization to the existing analytic action and the owned geometric R15.2 operators.",
+      "hypotheses": [
+        "Match the selected cusp, width h>0 in the actual subgroup strict periods, roots of unity and descent data.",
+        "Levels 1 and 2 use the owner’s stack/rigidifying-cover descent. One infinity constant detects cuspidality only in the full modular group case already proved in Mathlib."
+      ],
+      "proofSteps": [
+        "Identify the rank-one toric coefficient sheaf and Hodge trivialization with the exact R15.1 Tate interface.",
+        "Apply the owner’s analytification comparison; Taylor uniqueness with the same q-parameter identifies the formal and analytic coefficients.",
+        "Compare isogeny/differential pullback and the ν scalar with R15.2’s geometric operators and the pinned analytic ring action."
+      ],
+      "acceptance": [
+        "Retain n dq/q at Tate(q^n); replacing du/u with a base differential loses the convention.",
+        "The local monomial q^r(du/u)^k has coefficient 1 in degree r and 0 elsewhere; this is a local chart test, not a global existence claim.",
+        "Import the modular principle for one cusp per component and all-cusp cuspidality; analytic injection alone supplies neither statement over torsion coefficients."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/local-fj-expansion",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization",
+        "AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/cuspidal-exact-sequence-equivariance",
+        "mathlib:UpperHalfPlane.qExpansion",
+        "mathlib:ModularForm.qExpansion_injective",
+        "mathlib:ModularForm.isCuspForm_iff_coeffZero_eq_zero",
+        "tauceti:HeckeRing.GL2.heckeRingHomCharSpace"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "LAN-2021",
+          "locator": "7.1.2.1–7.1.2.4, pp.534–535",
+          "excerpt": "Fourier–Jacobi expansion",
+          "match": "Rank-one specialization is compared to the exact imported Tate/analytic interfaces; it does not rebuild them."
+        },
+        {
+          "sourceId": "LAN-INTRO",
+          "locator": "§4.2.7, pp.49–50",
+          "excerpt": "canonical extensions",
+          "match": "Explains the section interpretation whose specialized comparison is owned by R15.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/vector-fj-expansion",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Fourier–Jacobi expansion with vector coefficients",
+      "kind": "construction",
+      "statement": "In Lan’s neat good-prime PEL setup, let R be a Noetherian coefficient algebra over the allowed reflex/representation base and W a finite projective R-representation of the actual Levi group. Import Ecan(W) from B2/B3. For each cusp chart the Raynaud/parabolic identification supplies a locally free bundle E0(W) on its abelian torsor C whose pullback is Ecan(W) on the completed Mumford family. For every R-module M define degree-ell coefficients as Γ(C,Ψ(ell)⊗E0(W)⊗_R M), and define the expansion by actual formal restriction, the bundle identification and graded extraction. Impose the completed support condition and full-stabilizer transports before passing to invariants. For general characteristic-zero Shimura data use this construction only after C3.general supplies the actual mixed-boundary formal isomorphism and coefficient-bundle comparison; Milne VII.4.1 is a conjectural description in the inspected notes, not that supplier’s proof.",
+      "hypotheses": [
+        "The PEL bundle W is finite projective and the fan smooth/projective as in Lan Higher §2; arbitrary infinite-dimensional or p-adic analytic representations are not included.",
+        "The degree-zero coefficient module is Γ(C,Ψ(ell)⊗E0⊗M). Definition 5.10 also treats higher cohomology, which is not replaced here by a degree-zero product.",
+        "E0’s filtration is on C. Its graded pieces descend locally over the lower base, but the whole filtration need not descend through the stabilizer quotient."
+      ],
+      "proofSteps": [
+        "Import the actual canonical bundle and parabolic reduction; Proposition 5.6 identifies its formal pullback with E0 on C. This representation realization is B2/B3’s work.",
+        "Use the completed graded algebra of Corollary 5.9 to extract coefficients on the actual torsor and retain its support topology.",
+        "Repeat the common-completion comparison and full-stabilizer descent with E0 in place of the determinant power; character sheaf transports include the coefficient-bundle action.",
+        "For general characteristic zero request the mixed-boundary comparison from C3.general. Its absence is a recorded gap rather than an unconditional theorem extracted from Milne’s conjecture."
+      ],
+      "acceptance": [
+        "For the determinant representation giving ω^k, this agrees with the scalar FJ construction including det_Z(X)⊗ω_A.",
+        "On a trivialized rank-two local coefficient bundle, a monomial q^n(v1,v2) has precisely the vector (v1,v2) in degree n; one scalar coefficient loses data.",
+        "Do not descend E0’s filtration to the stabilizer quotient merely because its graded pieces descend locally."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/fj-coefficient-module",
+        "AutomorphicBundles:B5/local-fj-expansion",
+        "AutomorphicBundles:B5/cone-compatibility",
+        "AutomorphicBundles:B5/global-fj-expansion",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B3.general",
+        "AutomorphicBundles:B4",
+        "ShimuraCompactifications:C3.general",
+        "ShimuraCompactifications:C4"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "LAN-HIGHER",
+          "locator": "Proposition 5.6 and Remark 5.7, pp.177–179",
+          "excerpt": "canonically determined locally free coherent sheaf",
+          "match": "Identifies the boundary coefficient bundle; the remark distinguishes the characteristic-zero general construction."
+        },
+        {
+          "sourceId": "LAN-HIGHER",
+          "locator": "Corollary 5.9 and Definition 5.10, pp.179–180",
+          "excerpt": "locally free coherent sheaf",
+          "match": "Degree-zero specialization gives sections with E0, retaining the completed chart rather than asserting all products are global expansions."
+        },
+        {
+          "sourceId": "MILNE-2018",
+          "locator": "VII.4, Conjecture 4.1, p.102",
+          "excerpt": "For Siegel modular varieties, it is proved",
+          "match": "The general formal isomorphism is a conjecture in these notes. The node explicitly requires a proven owner interface, with the Siegel case identified separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "VectorFourierJacobi.coefficient",
+          "role": "projection",
+          "statement": "Extract the degree-ell section of Ψ(ell)⊗E0(W)⊗M from the completed boundary restriction."
+        },
+        {
+          "name": "VectorFourierJacobi.coefficient_map",
+          "role": "functoriality",
+          "statement": "An equivariant R-linear representation map W→W′ and a coefficient map M→M′ induce commuting degreewise maps, respecting identities and composition."
+        },
+        {
+          "name": "VectorFourierJacobi.transport",
+          "role": "functoriality",
+          "statement": "A cusp transport moves the lattice degree, Ψ and E0 together and intertwines extraction."
+        },
+        {
+          "name": "VectorFourierJacobi.determinant",
+          "role": "compatibility",
+          "statement": "The determinant-Hodge representation specializes to the scalar FJ map, under B3’s supplied boundary bundle isomorphism."
+        },
+        {
+          "name": "VectorFourierJacobi.refinement",
+          "role": "compatibility",
+          "statement": "The canonical section comparison for a common fan refinement intertwines vector expansions and has its cocycle law."
+        }
+      ],
+      "tests": [
+        {
+          "name": "VectorFourierJacobi.zeroRepresentation",
+          "kind": "degenerate",
+          "statement": "For W=0 or M=0 every coefficient and expansion is zero."
+        },
+        {
+          "name": "VectorFourierJacobi.rankTwoMonomial",
+          "kind": "computation",
+          "statement": "On a trivial rank-two local coefficient bundle and rank-one chart, q^n(v1,v2) has vector coefficient (v1,v2) at n and zero at other degrees."
+        },
+        {
+          "name": "VectorFourierJacobi.scalarSpecialization",
+          "kind": "compatibility",
+          "statement": "For the determinant-Hodge representation giving ω^k the expansion equals the scalar map after the actual boundary-line identification."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicBundles:B5/vector-expansion-principle",
+          "how": "Supplies the formal restriction whose coefficients detect vector-valued sections."
+        },
+        {
+          "where": "OverconvergentAutomorphicForms:O6",
+          "how": "Provides the finite-dimensional coefficient reference for p-adic q/FJ normalization."
+        },
+        {
+          "where": "BCGP-2025 §4.6.1",
+          "how": "Keeps classical finite-dimensional bundles distinct from the higher Coleman coefficient functor."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicBundles:B5/vector-expansion-principle",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Expansion principle for locally free automorphic coefficients",
+      "kind": "theorem",
+      "statement": "Let R be Noetherian, X a qcqs toroidal model smooth over R in the supplied PEL or characteristic-zero setup, Ecan a finite-rank locally free canonical automorphic bundle, and C_i its R-flat abelian-torsor charts with locally free E0,i. Require the actual formal restriction/graded coefficient identification, descent, and a finite collection of strata whose restrictions meet every irreducible component of X_(R/p) for every prime p⊂R. Then the joint vector Fourier–Jacobi map Γ(X,Ecan⊗_R M)→∏_i FJE_i(Ecan,M) is injective for every R-module M. For M1⊂M, membership of every expansion in the image from M1 is equivalent to membership of the global section in Γ(X,Ecan⊗M1). Boundary-zero coefficients at all required boundary strata characterize the image of Esub=Ecan(−D), when its relative boundary tensor sequence is exact.",
+      "hypotheses": [
+        "The component condition is fibrewise after every prime reduction, including the zero prime when present; total-model density alone is not used as this hypothesis.",
+        "Use the sheaf colimit theorem on qcqs stacks via SF.1, or schemes at neat level. Products of coefficient modules are not asserted to commute with filtered colimits.",
+        "This is a derived vector-bundle extension of Lan’s scalar argument, with the formal identification from Higher Koecher’s principle; it is not claimed as a verbatim statement of either paper."
+      ],
+      "proofSteps": [
+        "For R/p the bundle is coherent on the actual reduced model. Zero graded coefficients give zero formal restrictions; apply finite-stalk Krull separation and F0’s coherent-section detection on an atlas. The specified fibrewise component hypothesis gives global zero.",
+        "R-flatness of X and C_i plus local freeness give the two left-exact coefficient rows; products and invariants preserve left exactness by unique lifts.",
+        "Use the existing Mathlib prime-filtration induction and short-complex monicity theorem for finite M. Lift an arbitrary section from a finite coefficient submodule using qcqs section/colimit compatibility, without interchanging colimits with products.",
+        "For recognition apply injection to M/M1 and the two exact rows. For cusp sections use the separately exact boundary sequence and the degree-zero restriction theorem."
+      ],
+      "acceptance": [
+        "W=det^k recovers the scalar principle with the same component and coefficient hypotheses.",
+        "A rank-two direct sum is detected component by component; the theorem does not collapse coefficients to a scalar.",
+        "The nonsplit Z/4 extension is included. The Iwahori Hilbert special fibre with a component disjoint from all cusps fails the required hypothesis."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/coefficient-naturality",
+        "AutomorphicBundles:B5/coefficient-sequence-exact",
+        "AutomorphicBundles:B5/fj-target-left-exact",
+        "AutomorphicBundles:B5/fj-injectivity-finite",
+        "AutomorphicBundles:B5/coefficient-recognition",
+        "AutomorphicBundles:B5/constant-term-restriction",
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AdicSpacesPartII:F0/completion-detects-near-closed",
+        "SchemeAndStackFoundations:SF.1",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "LAN-2021",
+          "locator": "Proposition 7.1.2.14, pp.539–540",
+          "excerpt": "with exact rows.",
+          "match": "The scalar proof supplies the devissage pattern; the vector result additionally uses the explicit formal bundle and flatness hypotheses."
+        },
+        {
+          "sourceId": "LAN-HIGHER",
+          "locator": "Proposition 5.6, p.177",
+          "excerpt": "locally free coherent sheaf",
+          "match": "Provides the local coefficient bundle needed to carry the scalar detection argument over to vectors."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/hilbert-cusp-expansion",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Hilbert cusp q-expansions and coefficient lines",
+      "kind": "construction",
+      "statement": "Use Diamond’s Hilbert setting: F≠Q totally real, a rational prime p possibly ramified in F, a sufficiently large p-adic field with valuation ring O and embeddings Θ, and U=U^p GL2(O_F,p). Let R be a Noetherian O-algebra and (k,m)∈Z^Θ×Z^Θ with χ_(k+2m),R trivial on O_F×∩U. For the imported automorphic line A_(k,m), M_(k,m)(U;R)=Γ(Y,A)=Γ(Ymin,j_*A). At a cusp c represented by 0→I→H→J→0, polarization λ and level η, set Λ=d_F⁻¹I⁻¹J. Choose a prime-to-p full level N≥3 contained in U, ζ_N∈O, and a splitting H≅J⊕I. Let D_(k,m),c=⊗_θ (I⁻¹)_θ^⊗kθ ⊗ (d_F(IJ)⁻¹)_θ^⊗mθ. Define q_c by formal restriction into the series with coefficient line D_c⊗_O R and indices N⁻¹Λ_+∪{0}, using the actual unit action and completion. Changes of splitting, cusp representative and fine level use the canonical transports of these data; the expansion at general U is independent of a chosen cusp above c. The minimal pushforward j_*A is not assumed locally free.",
+      "hypotheses": [
+        "All the weight, level and trivial-unit-character conditions are part of the definition; p=2 and ramified p are not discarded.",
+        "The ramified Pappas–Rapoport splitting model and its automorphic line are imported from H2/B2/B3 and the Hilbert cusp geometry from C6.",
+        "The series includes zero and totally positive degrees in the stated fractional lattice; the coefficient line and unit action cannot be replaced by a naked scalar monoid algebra."
+      ],
+      "proofSteps": [
+        "Import the cusp lattice, compactifications and completed chart from C6, including the ramified splitting-model comparison from H2.",
+        "Identify the boundary automorphic line with the stated D_c using B2/B3’s embedding-indexed weight realization.",
+        "Restrict j_*A to the completion and use the source’s inclusion into formal q-series. Prove its transport laws using the actual cusp unit action.",
+        "At general prime-to-p level pull to fine U(N); the fine-cusp independence is descended by invariants, without averaging."
+      ],
+      "acceptance": [
+        "The full weight vector and D_c survive; χ_(k+2m)=1 is not replaced by parallel k alone.",
+        "The source permits ramified p but does not give an all-component principle for general U0(P).",
+        "F=Q comparison is imported through the modular specialization; Diamond’s source itself assumes F≠Q."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "HilbertModularVarietiesAndShimuraCurves:H2",
+        "HilbertModularVarietiesAndShimuraCurves:H3",
+        "ShimuraCompactifications:C6",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "§6.1 and §6.2, pp.24–25",
+          "excerpt": "q-expansion map",
+          "match": "Defines q_c, its coefficient line, splitting, full-level denominator and independence at general level."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "HilbertQExpansion.map",
+          "role": "constructor",
+          "statement": "The R-linear formal restriction q_c into the coefficient-line series in the specified fractional positive lattice."
+        },
+        {
+          "name": "HilbertQExpansion.coeff",
+          "role": "projection",
+          "statement": "Extract the D_c⊗R coefficient of t∈N⁻¹Λ_+∪{0}, including zero."
+        },
+        {
+          "name": "HilbertQExpansion.transport",
+          "role": "functoriality",
+          "statement": "The canonical lattice/line isomorphism for a cusp representative or splitting change intertwines the transformed series; transports compose."
+        },
+        {
+          "name": "HilbertQExpansion.coefficient_map",
+          "role": "functoriality",
+          "statement": "A Noetherian O-algebra map R→R′ commutes with each coefficient after base change of the actual form."
+        },
+        {
+          "name": "HilbertQExpansion.fineLevel",
+          "role": "compatibility",
+          "statement": "Restriction to a fine U(N) and any cusp above c gives the same expansion after the canonical line/lattice identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertQExpansion.zero",
+          "kind": "degenerate",
+          "statement": "The zero form has zero coefficient in every degree; over the zero coefficient ring all forms and coefficients vanish."
+        },
+        {
+          "name": "HilbertQExpansion.localMonomial",
+          "kind": "computation",
+          "statement": "On a chosen formal cusp chart and coefficient-line trivialization, q^t d has coefficient d at t and zero elsewhere; no global form or unit invariance of this local monomial is asserted."
+        },
+        {
+          "name": "HilbertQExpansion.unitTransport",
+          "kind": "non-example",
+          "statement": "A family supported at a positive t moved to a different degree by a cusp unit, with nonzero coefficient only at t, is not invariant unless its full transported orbit satisfies the unit relation. It cannot be declared the expansion of a descended form."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AutomorphicBundles:B5/hilbert-expansion-principle",
+          "how": "Supplies the all-component expansion map and coefficient recognition target."
+        },
+        {
+          "where": "AutomorphicBundles:B5/hecke-expansion-compatibility",
+          "how": "Supplies the normalized Hilbert coefficients used by the prime-to-p Hecke formula."
+        },
+        {
+          "where": "OverconvergentAutomorphicForms:O6",
+          "how": "Fixes the cusp lattice, coefficient line and p-adic/classical comparison conventions."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicBundles:B5/hilbert-expansion-principle",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Hilbert q-expansion principle",
+      "kind": "theorem",
+      "statement": "In hilbert-cusp-expansion’s prime-to-p-level setup, let S be a collection of cusps meeting every connected component of Ymin, equivalently with surjective determinant map S→F_+×\\A_F,f×/det(U). Then q_S is injective. If R′⊂R is a Noetherian O-subalgebra and every coefficient lies in D_c⊗_O R′ at all c∈S, then the form comes from M_(k,m)(U;R′). This is Diamond Proposition 6.2.1; its geometric supplier must verify the component-to-fibre-detection comparison used by the vector principle. No analogous assertion is made for general Iwahori special fibres Y0(P)min_R, whose irreducible components need not contain cusps.",
+      "hypotheses": [
+        "Retain the weight/unit condition over both rings and the exact prime-to-p level U.",
+        "The determinant surjectivity is the source’s component condition, not merely the choice of one representative in a polarization class.",
+        "Before importing the vector proof at torsion R, C6 must supply the actual fibrewise detection argument; it remains an explicit input rather than an inferred smoothness claim for every ramified integral model."
+      ],
+      "proofSteps": [
+        "Use the source’s fine-level formal chart and component argument; request the precise ramified/fibrewise geometric detection interface from C6 and H2.",
+        "At neat fine level specialize the vector detection and quotient-recognition argument with D_c’s O-flat coefficient line.",
+        "At general U pass to a normal fine cover and its equalizer; no division by the finite level group order is needed."
+      ],
+      "acceptance": [
+        "A set of infinity cusps covering the determinant classes gives an injective map.",
+        "Coefficients in R′=O inside its fraction field detect the corresponding integral form in the stated setup.",
+        "For U0(P) the source explicitly warns that components may contain no cusp, so the same criterion is not available."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/vector-expansion-principle",
+        "AutomorphicBundles:B5/coefficient-recognition",
+        "ShimuraCompactifications:C6",
+        "HilbertModularVarietiesAndShimuraCurves:H2",
+        "HilbertModularVarietiesAndShimuraCurves:H3",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "Proposition 6.2.1 and following Iwahori warning, p.25",
+          "excerpt": "qS is injective",
+          "match": "States both injectivity and coefficient-subalgebra recognition with the determinant/component condition, and excludes the general Iwahori analogue."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hilbert q-expansion principle"
+      }
+    },
+    {
+      "id": "AutomorphicBundles:B5/hilbert-cuspidal-boundary",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Hilbert cusp forms and all cusp constants",
+      "kind": "theorem",
+      "statement": "In the Hilbert prime-to-p setting, let e_c be the constant coefficient of q_c with values in D_c⊗_O R. The source’s cusp space is ker(∏_c e_c), using all cusps. Under B3’s canonical/subcanonical boundary comparison and exact relative boundary tensor sequence, this is the image of Γ(Ytor,A_(k,m)(−D)⊗_O R) in the canonical sections. Each e_c is independent of splitting and lands in the actual cusp-unit invariants. In the characteristic-zero/flat O setting of §6.3, if the pair of weight vectors is not parallel, meaning (kθ,mθ) is not independent of θ, these invariant constants vanish and every such form is cuspidal; the conclusion is not inferred for arbitrary torsion R.",
+      "hypotheses": [
+        "Use every required boundary component and its unit/line action. One infinity coefficient at arbitrary level is insufficient.",
+        "B3/C6 supply the precise Hilbert boundary ideal and tensor exactness, including the ramified model; Koecher extension does not replace the cusp ideal."
+      ],
+      "proofSteps": [
+        "Extract degree zero using the actual completed restriction; the unit action makes the constant independent of the splitting.",
+        "Import the boundary ideal comparison and apply the relative boundary sequence, using exactness for the chosen coefficients rather than right exactness of global sections.",
+        "Use the character ideal calculation in Diamond §6.3 for the flat/characteristic-zero parallelness criterion; keep torsion invariant constants separate."
+      ],
+      "acceptance": [
+        "At all cusps a local q^t d with t strictly positive has zero constant; a local constant d has its actual D_c value.",
+        "The source’s nonparallel flat-coefficient case makes the cusp and full section spaces equal; torsion coefficients require rechecking the character ideal.",
+        "No automatic cusp assertion follows merely because the Hilbert minimal boundary has codimension greater than one."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/constant-term-restriction",
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AutomorphicBundles:B3",
+        "ShimuraCompactifications:C6"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "§6.3, p.26",
+          "excerpt": "ker(eC )",
+          "match": "Defines cusp forms by all constant terms, their unit-invariant values and the flat-coefficient parallelness condition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/hecke-expansion-compatibility",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Hecke action on Fourier–Jacobi coefficients",
+      "kind": "theorem",
+      "statement": "For an admissible geometric Hecke correspondence of hecke-section-operator, the actual completed cusp correspondence and bundle transport induce a coefficient operator H_g^FJ. The square FJ∘T_g = ν(g)H_g^FJ∘FJ commutes, including cusp-label changes, finite trace and full-stabilizer transport; it is independent of compatible refinement and commutes with allowed coefficient changes. No universal scalar formula for higher-dimensional coefficients is asserted: they remain sections on abelian torsors. At a good modular prime ℓ∤N, under modular-expansion-comparison this specializes to b_n=a_(ℓn)+χ(ℓ)ℓ^(k−1)a_(n/ℓ), with a_(n/ℓ)=0 when ℓ∤n and the n=0 term included. In Diamond’s Hilbert normalization r_m^t, for U1(n) or U(n) and v∤np, it specializes to r_m^t(T_v f)=r_m^(ϖ_v t)(f)+Nm(v) r_m^(ϖ_v⁻¹t)(S_v f); for U1(n) and v|n the second term is absent. Here r_m^t includes the coefficient-line/χ_m normalization of (6.1), and S_v is the actual central correspondence.",
+      "hypotheses": [
+        "The comparison requires formal trace/base-change and actual degree/cusp maps from C3/C4; these are requests, not consequences of ordinary toric inclusions.",
+        "The modular geometric normalization requires ℓ invertible and the source’s good-prime hypotheses. Diamond’s displayed formulas use primes outside p; no saving trace or U_p at p is inferred.",
+        "Retain the different cusp/component t in the Hilbert formula and its character normalization."
+      ],
+      "proofSteps": [
+        "Complete the actual correspondence along each cusp lying over the target and import the resulting sheaf trace compatibility.",
+        "Use functoriality of graded extraction with the character lattice map and θ_g; trace the transported coefficient sections and descend stabilizer invariance.",
+        "For rank one compare with the owned R15.2 geometric formula and the pinned analytic good-prime sum.",
+        "For Hilbert forms compute using Diamond Proposition 6.5.1, retaining r_m^t and the central S_v term rather than treating it as an unnormalized q coefficient."
+      ],
+      "acceptance": [
+        "For a local modular sequence supported in degree r and n not divisible by ℓ, only the a_(ℓn) term contributes; when ℓ|n the second term has χ(ℓ)ℓ^(k−1).",
+        "At n=0 the good modular operator gives (1+χ(ℓ)ℓ^(k−1))a_0; this also tests the normalization on constant weight-zero forms.",
+        "Over R/p² at ℓ≠p, coefficient change and the normalized operator commute; reduction at p does not erase a missing integral trace construction.",
+        "Higher-rank coefficients move through abelian-torsor sections, rather than being scalar Fourier coefficients."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/non-neat-hecke-descent",
+        "AutomorphicBundles:B5/modular-expansion-comparison",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "ShimuraCompactifications:C3",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C6",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions",
+        "tauceti:HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "DIAMOND-2022",
+          "locator": "Proposition 6.5.1, equation (6.1) and Remark 6.5.2, pp.27–29",
+          "excerpt": "The effect of the operators",
+          "match": "The formula is for normalized adelic coefficients at infinity; the R15 supplier owns its modular integral specialization."
+        },
+        {
+          "sourceId": "LAN-2021",
+          "locator": "5.4.3.8–5.4.3.10 and 6.4.3, pp.438–439 and 527–530",
+          "excerpt": "map from the set of cusp labels",
+          "match": "Supplies the geometric cusp assignment. Formal trace/graded extraction compatibility is a derived target and remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/classical-bcgp-equivariance",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Classical algebraic bundles in the Hodge–Tate coefficient functor",
+      "kind": "comparison",
+      "statement": "In BCGP’s Hodge-type setting, fix neat tame K^p, a sufficiently large p-adic coefficient field E, the actual Levi M, finite-dimensional algebraic L_κ with κ M-dominant, and compatible smooth toroidal data. The imported coefficient functor VB^0 identifies VB^0(L_κ)=ω^(κ,sm) with the smooth tower of the finite-level classical automorphic bundles of B2/B3, with its μ-weight Tate normalization. Its coherent cohomology is colim_(Kp) RΓ(X_KpK^p,ω_Kp^κ), a complex of smooth admissible G(Q_p)-representations. The same compatibility holds after tensoring by the actual boundary ideal (−D). Level pullbacks, prime-to-p Hecke maps and compatible fan refinements commute with the identification; G(Q_p) may change the fan. For GSp4 the convention check is ω^((1,0;−1),sm)=ω_A(−1)⊗O^sm, with Q_p(1) of Hodge–Tate weight −1 and Sen eigenvalue +1. The full derived/analytic VB machinery belongs to the already proposed HigherHidaAndColemanTheory, not to B5.",
+      "hypotheses": [
+        "The bundle is finite-dimensional and algebraic, not a locally analytic Coleman coefficient.",
+        "Retain the μ normalization; §4.8 uses untwisted coherent bundles and applies its Tate twists separately.",
+        "The supplier for the complete VB functor is pending design, so its actual carrier is a recorded gap and its existing proposal is retained rather than invented as a new stage."
+      ],
+      "proofSteps": [
+        "Import B1/B2/B3’s finite-dimensional representation realization and T6’s logarithmic coefficient comparison.",
+        "Use BCGP §4.6.1’s descent of VB^0(L_κ) and compare transition maps; the pending HigherHida supplier must provide its actual VB carrier and the finite-dimensional acyclicity/descent interface.",
+        "Transport the actual boundary ideal under refinement; apply coherent level-colimit compatibility from SF.2 and the existing Hecke correspondences.",
+        "Check the tautological differential sequence and the (1,0;−1) Tate shift as in §4.6.2."
+      ],
+      "acceptance": [
+        "The (1,0;−1) coefficient is ω_A(−1), not untwisted ω_A.",
+        "At κ=0 the actual constant coefficient matches the classical structure sheaf with its supplied normalization.",
+        "The cusp comparison uses ω_Kp^κ(−D_Kp) on every finite model and compatible boundary pullback, not ordinary Γ on the open Shimura variety."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B1",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B3.general",
+        "AutomorphicBundles:B4",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "SchemeAndStackFoundations:SF.2",
+        "ShimuraCompactifications:C3.general",
+        "AutomorphicBundles:B5/hecke-section-operator"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "BCGP-2025",
+          "locator": "§§4.6.1–4.6.2, pp.81–82; §§4.5.17–4.5.22 for refinement context",
+          "excerpt": "the usual sheaf of modular forms",
+          "match": "The finite-dimensional bundle descends to the classical finite-level sheaf with its stated Tate normalization. The source’s general VB construction is imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Classical Siegel Hodge–Tate decomposition",
+      "kind": "theorem",
+      "statement": "For the finite-level GSp4 toroidal model X=X_KpK^p in BCGP’s setting, let κ=(k1,k2;w) be an integral G-dominant weight with 0≥k1≥k2 and k1+k2+w even, and let V_κ∨ be its canonical pro-Kummer-étale coefficient local system. Use the untwisted canonical coherent bundles ω^λ of §4.8. Define λ0=(k1,k2;−w), λ1=(2−k1,k2;−w), λ2=(3−k2,k1+1;−w), λ3=(3−k2,3−k1;−w); 2a0=k1+k2+w, 2a1=2−k1+k2+w, 2a2=4−k2+k1+w, 2a3=6−k1−k2+w. For every i≥0 there is a G_Qp×T_KpK^p-equivariant isomorphism H^i(X,V_κ∨)⊗_Qp C_p ≅ ⊕_(j=0..3) H^(i−j)(X,ω^λj)(−a_j), with negative coherent degrees interpreted as zero. The étale group is the logarithmic/pro-Kummer cohomology in the source notation; it is not reinterpreted as ordinary étale cohomology of the proper underlying toroidal space with an arbitrary lisse extension. The Tate convention is Q_p(1) of Hodge–Tate weight −1, Sen eigenvalue +1.",
+      "hypotheses": [
+        "Keep all four weights, central weight −w, shifts i−j and separate Tate twists −a_j. Parity makes every a_j integral.",
+        "The logarithmic comparison and canonical local system are T6/B1 inputs. The dual BGG/Kostant identification and degeneration/Hecke comparison underlying FC90 Theorem 6.2 are not proved in the inspected BCGP passage and remain explicit gaps."
+      ],
+      "proofSteps": [
+        "Import the actual logarithmic local system/de Rham comparison from T6 and the canonical coefficient realization from B1/B2/B3.",
+        "Identify the four coherent weights by the GSp4 dual BGG/Kostant calculation. This lies beyond upstream LieHighestWeight, which expressly excludes BGG, and needs its already proposed Part II input.",
+        "Apply the source-qualified classical Hodge–Tate decomposition quoted as FC90 Theorem 6.2; acquire and check the underlying proof and its degeneration and functoriality inputs. No deduction from a spectral sequence alone is claimed.",
+        "Compare Hecke and Galois actions using the actual coefficient maps and the pinned convention; the explicit μ pairing gives the four Tate shifts."
+      ],
+      "acceptance": [
+        "At κ=(0,0;0), λj=(0,0;0),(2,0;0),(3,1;0),(3,3;0) and a_j=0,1,2,3.",
+        "At i=0 only the j=0 summand can survive; negative coherent degree is zero.",
+        "For κ=(0,0;1), parity fails and the integral GSp4 representation in this convention is unavailable; a formula using integer truncation of half-weights is rejected."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B1",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "SchemeAndStackFoundations:SF.2",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/hecke-convolution"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "BCGP-2025",
+          "locator": "§4.8.1 and Theorem 4.8.2, pp.101–102",
+          "excerpt": "equivariant isomorphisms",
+          "match": "States the four-term classical decomposition and attributes the proof to FC90 Theorem 6.2; the uninspected proof is explicitly recorded as a gap."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Siegel Hodge–Tate decomposition"
+      }
+    },
+    {
+      "id": "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison",
+      "parentStageId": "AutomorphicBundles:B5",
+      "realises": [
+        "AutomorphicBundles:B5"
+      ],
+      "title": "Compact-support Siegel Hodge–Tate decomposition",
+      "kind": "comparison",
+      "statement": "With exactly the weight, coefficient local system, finite-level model and Tate convention of classical-siegel-ht-comparison, there is a G_Qp×T_KpK^p-equivariant isomorphism H_c^i(X,V_κ∨)⊗_Qp C_p ≅ ⊕_(j=0..3) H^(i−j)(X,ω^λj(−D))(−a_j), where D is the actual reduced toroidal boundary divisor and H_c is the compact-support logarithmic/étale theory used by BCGP. Keep this as a separate comparison from the ordinary canonical-bundle statement. The cusp twist is the subcanonical coefficient sheaf, not replacement by a selected set of zero constant terms in cohomological degree i.",
+      "hypotheses": [
+        "Use the same four λ_j and a_j, all component boundary ideals and compact-support functoriality.",
+        "The boundary/logarithmic compact-support comparison and duality are supplier inputs. It is not a formal consequence of degree-zero cuspidality or of the ordinary decomposition."
+      ],
+      "proofSteps": [
+        "Import the subcanonical extensions and boundary ideal from B3 and the compact-support logarithmic comparison from T6/SF.2.",
+        "Use the compact-support version quoted in Theorem 4.8.2, whose FC90 proof and boundary functoriality must be read and supplied.",
+        "Apply the same four-weight calculation and compare the Hecke/Galois actions with the boundary ideal maps; verify all coherent summands carry (−D)."
+      ],
+      "acceptance": [
+        "At κ=0 the four coherent terms have twists −D and Tate shifts 0,−1,−2,−3, with their degree shifts retained.",
+        "When D is empty the boundary twist is identity and the proper compact-support theory agrees with the ordinary one under the supplier comparison.",
+        "When D is nonempty, silently using ω^λ in place of ω^λ(−D) fails the cusp-coefficient convention."
+      ],
+      "prerequisites": [
+        "AutomorphicBundles:B1",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "SchemeAndStackFoundations:SF.2",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/hecke-convolution",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/AutomorphicBundles/B5",
+        "namespace": "AutomorphicBundles"
+      },
+      "sources": [
+        {
+          "sourceId": "BCGP-2025",
+          "locator": "Theorem 4.8.2, compact-support display, pp.101–102",
+          "excerpt": "Theorem 4.8.2 ([FC90], Thm. 6.2).",
+          "match": "The second display uses compact support and the boundary twist in every coherent summand. Proof and actual cohomology carriers remain supplied inputs."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -1134,9 +2148,12 @@
     },
     {
       "supplier": "ShimuraCompactifications:C3",
-      "need": "Compatible refinement maps, universal-family pullback and common-refinement comparison, with the coefficient-sensitive section comparison supplied separately by B3. A fixed fan is not assumed stable under every Hecke map.",
+      "need": "Compatible refinement maps, universal-family pullback and common-refinement comparison, with the coefficient-sensitive section comparison supplied separately by B3. A fixed fan is not assumed stable under every Hecke map. Include compactified Hecke maps factored through compatible finite-flat level maps and proper toric refinements, the refined/Mackey fibre-product decomposition, boundary ideal transport and completed coefficient trace compatibility. An arbitrary toroidal Hecke map is not assumed finite flat.",
       "neededBy": [
-        "AutomorphicBundles:B5/fj-refinement"
+        "AutomorphicBundles:B5/fj-refinement",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/non-neat-hecke-descent",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility"
       ]
     },
     {
@@ -1149,7 +2166,9 @@
         "AutomorphicBundles:B5/global-fj-expansion",
         "AutomorphicBundles:B5/constant-term-restriction",
         "AutomorphicBundles:B5/fj-target-left-exact",
-        "AutomorphicBundles:B5/cuspidal-boundary-criterion"
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility"
       ]
     },
     {
@@ -1178,64 +2197,161 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Generic quasi-coherent tensor operations, preservation of coefficient injections by an R-flat sheaf, left exactness of sections, and sheaf identification under closed base change R to R/p. Tensor products commute with filtered colimits. Supply the quotient-tensor isomorphism at each finite ideal thickening used by F0, with transition compatibility, not a blanket inverse-limit assertion. For the SF.1 component-detection proof, supply regularity under a smooth morphism to a regular base, openness of smooth morphisms, closedness of proper morphisms, and the relative normal-crossing coordinate intersection and fiberwise-density facts. These are generic inputs, not newly defined B5 carriers; no assertion that global sections commute with arbitrary base change is included.",
+      "need": "Generic quasi-coherent tensor operations, preservation of coefficient injections by an R-flat sheaf, left exactness of sections, and sheaf identification under closed base change R to R/p. Tensor products commute with filtered colimits. Supply the quotient-tensor isomorphism at each finite ideal thickening used by F0, with transition compatibility, not a blanket inverse-limit assertion. For the SF.1 component-detection proof, supply regularity under a smooth morphism to a regular base, openness of smooth morphisms, closedness of proper morphisms, and the relative normal-crossing coordinate intersection and fiberwise-density facts. These are generic inputs, not newly defined B5 carriers; no assertion that global sections commute with arbitrary base change is included. Also supply the finite locally free algebra/sheaf trace by finite-free localization and descent, its projection formula, transitivity and base change, compatible with arbitrary allowed coefficient M. The pinned basis trace is a local input, not this sheaf theorem.",
       "neededBy": [
         "AutomorphicBundles:B5/coefficient-sequence-exact",
         "AutomorphicBundles:B5/fj-target-left-exact",
         "AutomorphicBundles:B5/fj-injectivity-cyclic",
-        "AutomorphicBundles:B5/fj-injectivity"
+        "AutomorphicBundles:B5/fj-injectivity",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/hecke-convolution"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Effective flat-atlas descent for quasi-coherent coefficient sheaves, exactness and vanishing checks, and the qcqs-stack section/filtered-colimit comparison (Stacks 0GQZ with G=O_X), coordinating SF.2 for the generic site theorem. Add the precise algebraic-space component interface: a smooth proper X over a regular Noetherian base has a finite etale Stein factor E and X to E is proper surjective with connected geometric fibers (Stacks 76.36.1, 76.36.4, 76.36.9). Coordinate SF.2 for proper coherent cohomology/formal functions used by its proof. For finitely many smooth proper closed W_a in X and opens Z_a fiberwise dense in W_a, prove that meeting every total irreducible component by the Z_a implies meeting every geometric-fiber component: W_a to E is smooth and proper, its clopen image covers components of E, and fiberwise density reaches the corresponding fibers. The reader gives the complete generic argument. This is an owner theorem to implement once, not a private Shimura construction; do not extend this algebraic-space statement to non-neat stacks without an actual descent theorem. Carry the open zero locus and componentwise density argument through the actual atlas.",
+      "need": "Effective flat-atlas descent for quasi-coherent coefficient sheaves, exactness and vanishing checks, and the qcqs-stack section/filtered-colimit comparison (Stacks 0GQZ with G=O_X), coordinating SF.2 for the generic site theorem. Add the precise algebraic-space component interface: a smooth proper X over a regular Noetherian base has a finite etale Stein factor E and X to E is proper surjective with connected geometric fibers (Stacks 76.36.1, 76.36.4, 76.36.9). Coordinate SF.2 for proper coherent cohomology/formal functions used by its proof. For finitely many smooth proper closed W_a in X and opens Z_a fiberwise dense in W_a, prove that meeting every total irreducible component by the Z_a implies meeting every geometric-fiber component: W_a to E is smooth and proper, its clopen image covers components of E, and fiberwise density reaches the corresponding fibers. The reader gives the complete generic argument. This is an owner theorem to implement once, not a private Shimura construction; do not extend this algebraic-space statement to non-neat stacks without an actual descent theorem. Carry the open zero locus and componentwise density argument through the actual atlas. Include equivariant canonical/subcanonical stack sections as the descent equalizer on normal neat covers, with no averaging even when the group order is zero in R. Transport the actual refined Hecke correspondence, not a naive restriction of one fine-level operator.",
       "neededBy": [
         "AutomorphicBundles:B5/coefficient-sequence-exact",
         "AutomorphicBundles:B5/fj-target-left-exact",
         "AutomorphicBundles:B5/fj-injectivity-cyclic",
-        "AutomorphicBundles:B5/fj-injectivity"
+        "AutomorphicBundles:B5/fj-injectivity",
+        "AutomorphicBundles:B5/non-neat-hecke-descent",
+        "AutomorphicBundles:B5/vector-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-expansion-principle"
       ]
     },
     {
       "supplier": "AutomorphicBundles:B3",
-      "need": "The actual locally free Hodge extension, subcanonical boundary ideal sequence with its coefficient exactness conditions, and the coefficient-sensitive section comparison under fan refinements. The latter must handle finite projective summands by splitting from finite free modules (Stacks 00NX) and torsion reductions with the correct toric direct-image theorem, not by an unsupported filtered union of free submodules.",
+      "need": "The actual locally free Hodge extension, subcanonical boundary ideal sequence with its coefficient exactness conditions, and the coefficient-sensitive section comparison under fan refinements. The latter must handle finite projective summands by splitting from finite free modules (Stacks 00NX) and torsion reductions with the correct toric direct-image theorem, not by an unsupported filtered union of free submodules. Include finite-dimensional Ecan(W) and Esub(W), their coefficient-sensitive fan comparison, θ_g and boundary ideal transports, and the actual vector-bundle/torsor instance of Lan Higher Proposition 5.6. No filtration on C is assumed to descend to C/Γ.",
       "neededBy": [
         "AutomorphicBundles:B5/coefficient-sequence-exact",
         "AutomorphicBundles:B5/fj-refinement",
-        "AutomorphicBundles:B5/cuspidal-boundary-criterion"
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AutomorphicBundles:B5/fj-coefficient-module",
+        "AutomorphicBundles:B5/local-fj-expansion",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/vector-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-cuspidal-boundary",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
       ]
     },
     {
       "supplier": "AutomorphicBundles:B4",
-      "need": "The actual coefficient functor AF(k,M)=Gamma(X,omega_tor^k tensor_R M), its module-map functoriality and identification with geometric determinant-weight forms. Specialize the SF.0/SF.1 section theorem to directed unions of finite coefficient submodules. This does not identify AF(k,R) tensor M with AF(k,M) for arbitrary M.",
+      "need": "The actual coefficient functor AF(k,M)=Gamma(X,omega_tor^k tensor_R M), its module-map functoriality and identification with geometric determinant-weight forms. Specialize the SF.0/SF.1 section theorem to directed unions of finite coefficient submodules. This does not identify AF(k,R) tensor M with AF(k,M) for arbitrary M. Include all finite-dimensional classical section modules and their coefficient functoriality, the Hilbert (k,m) weight conventions and the smooth finite-level cohomology comparison interface; no unconditional Γ(E)⊗M base-change assertion.",
       "neededBy": [
         "AutomorphicBundles:B5/coefficient-sequence-exact",
-        "AutomorphicBundles:B5/fj-injectivity"
+        "AutomorphicBundles:B5/fj-injectivity",
+        "AutomorphicBundles:B5/fj-coefficient-module",
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/vector-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicBundles:B1",
+      "need": "The actual canonical principal bundle and canonical pro-Kummer-étale local system for the finite-dimensional algebraic representation, with Hecke/Galois conventions. B5 consumes the routed BCGP comparison, not the AGHMP or Caraiani–Scholze B0–B2 realizations themselves.",
+      "neededBy": [
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicBundles:B2",
+      "need": "Finite-projective algebraic Levi representation realization, the equivariant θ_g isomorphism and its cocycle; the boundary parabolic/Raynaud E0(W) bundle of Lan Higher Proposition 5.6; embedding-indexed Hilbert weight lines including dual powers. General representation theory and bundle formation stay here.",
+      "neededBy": [
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicBundles:B3.general",
+      "need": "The actual general-data canonical vector-bundle extension and boundary coefficient identification in characteristic zero. No all-prime non-PEL integral statement is required.",
+      "neededBy": [
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C3.general",
+      "need": "The actual mixed-boundary formal isomorphism and finite-dimensional coefficient transport for general characteristic-zero toroidal models, compatible with refinements and Hecke maps. Milne VII.4.1 describes this as a conjecture in the inspected notes; supply a proven precise interface and its source.",
+      "neededBy": [
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C6",
+      "need": "Diamond’s prime-to-p Hilbert toroidal/minimal cusp charts over the ramified splitting model, fractional lattice d^-1 I^-1 J and unit action; the exact component/fibre detection used in Proposition 6.2.1, canonical/subcanonical boundary ideal and completed prime-to-p Hecke maps. Preserve the Iwahori failure warning.",
+      "neededBy": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cuspidal-boundary",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H2",
+      "need": "The actual ramified Pappas–Rapoport splitting model and coefficient-base-change comparison needed by Diamond §§2 and 6. Do not infer smoothness of the whole Deligne–Pappas model or cusp coverage of arbitrary Iwahori special fibres.",
+      "neededBy": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-expansion-principle"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H3",
+      "need": "Arithmetic Hilbert cusp representative, embedding-weight character and polarization/unit transports, plus the determinant-component identification. Use Diamond’s level convention instead of silently substituting the BHW unit quotient formula.",
+      "neededBy": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-expansion-principle"
+      ]
+    },
+    {
+      "supplier": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "need": "Finite-dimensional canonical local-system/logarithmic de Rham and Hodge–Tate comparison, including its compact-support/subcanonical boundary version, tensor/Tate normalization and Hecke/Galois functoriality. Supply actual cohomology carriers and the degeneration/comparison hypotheses required by the classical FC90 theorem, without importing downstream B5 into the foundational comparison.",
+      "neededBy": [
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Actual coherent cohomology and level-colimit comparisons for finite-dimensional classical coefficients, including boundary twists; coordinate the compact-support/duality input with T6. Its existing proper-duality counit trace is not ordinary finite-projective algebra trace.",
+      "neededBy": [
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
       ]
     }
   ],
   "coverage": [
     {
       "stageId": "AutomorphicBundles:B5",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Full pull-identify-trace Hecke action, abstract Hecke-ring composition, scalar normalizations and non-neat descent.",
-        "General Levi-valued, Hilbert and ramified integral examples, and analytic q-expansion comparisons.",
-        "Apply the smooth-closure component argument to the actual neat PEL strata by establishing the exact relative coordinate-stratum/fiberwise-density identification. Prove the non-neat branch/stack transport separately. The generic proof is now explicit; these instantiations and owner implementations are not closed.",
-        "Proof-level closure of the common formal-chart, finite-thickening coefficient maps and descent, and coefficient-sensitive refinement requests.",
-        "Geometric Lean signatures and the nine definition/construction unit tests; suggested code still contains only baseline checks, low-level diagram examples and algebraic regressions, not a formal Shimura instantiation.",
-        "Resolve the early/late C5 split before promoting whole-stage dependency edges."
+        "Supply the actual common-completion coefficient comparison and stack descent, and instantiate residue-fibre detection and coefficient-sensitive boundary/refinement exactness.",
+        "Complete finite-projective sheaf trace, refined correspondence composition, normalization and non-neat descent on the actual toroidal coefficient modules.",
+        "Provide the general-data formal boundary identity and the ramified Hilbert chart, unit-line and component interfaces; read the underlying Rapoport proof.",
+        "Assign the existing pending VB and BGG suppliers, read FC90 Theorem 6.2’s ordinary/compact-support proof, and provide the logarithmic cohomology carriers and functoriality.",
+        "State the omitted full geometric Lean signatures and tests against those imported carriers, and validate the C5 early/late split in the atlas DAG."
       ]
     }
   ],
   "gaps": [
-    {
-      "title": "Partial source and signature coverage",
-      "neededBy": [
-        "AutomorphicBundles:B5"
-      ],
-      "detail": "The determinant-Hodge PEL strand is not all of B5. Fifteen geometric nodes have mathematical statements, but their advanced signatures and nine definition/construction unit tests are not yet stated against verified pinned Lean carriers. No opaque proposition fields replace them."
-    },
     {
       "title": "Residue-fiber detection after coefficient reduction",
       "neededBy": [
@@ -1270,18 +2386,99 @@
       "detail": "The preceding checkpoint resolved rendering and rejected the generic direct map between different stratum completions by the k[x,y] unit obstruction. Still needed are C4/early-C5's common Mumford-family chart mapping to the toroidal model, and C0/F0's homogeneous boundary ideal, continuous maps to the individual completions, separated degree projections and coefficient-compatible descent. Corrected indices alone do not close this node. The ordinary scheme completion-map construction is now imported through the exact F0/completion-of-morphism node; its application to the actual charts, homogeneous coefficients and stack descent remain open."
     },
     {
-      "title": "Hecke and classical comparisons remain open",
+      "title": "Actual geometric suggested-file carriers",
       "neededBy": [
-        "AutomorphicBundles:B5"
+        "AutomorphicBundles:B5/fj-coefficient-module",
+        "AutomorphicBundles:B5/local-fj-expansion",
+        "AutomorphicBundles:B5/cone-compatibility",
+        "AutomorphicBundles:B5/global-fj-expansion",
+        "AutomorphicBundles:B5/fj-refinement",
+        "AutomorphicBundles:B5/constant-term-restriction",
+        "AutomorphicBundles:B5/coefficient-naturality",
+        "AutomorphicBundles:B5/coefficient-sequence-exact",
+        "AutomorphicBundles:B5/fj-target-left-exact",
+        "AutomorphicBundles:B5/fj-injectivity-cyclic",
+        "AutomorphicBundles:B5/fj-injectivity-extension",
+        "AutomorphicBundles:B5/fj-injectivity-finite",
+        "AutomorphicBundles:B5/fj-injectivity",
+        "AutomorphicBundles:B5/coefficient-recognition",
+        "AutomorphicBundles:B5/cuspidal-boundary-criterion",
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/hecke-convolution",
+        "AutomorphicBundles:B5/non-neat-hecke-descent",
+        "AutomorphicBundles:B5/modular-expansion-comparison",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/vector-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cuspidal-boundary",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance",
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
       ],
-      "detail": "The reviewed AUDIT-13 result confirms the analytic Hecke/q-expansion material and the missing geometric counterpart. Reuse those analytic suppliers rather than rebuilding them. Read exact ModularCurvesPartII R14, AlgebraicModularFormsAndSerreWeights R15, abstract Hecke and general correspondence interfaces before adding geometric comparison nodes. Prove arithmetic normalization and non-neat descent hypotheses."
+      "detail": "The suggested file retains the compiled algebraic regression layer and adds actual Scheme.Modules/affine tilde section-map prototypes and explicit weight calculations where the pinned carriers suffice. It does not fabricate Shimura stacks, completed Mumford families, fractional Hilbert positive-index series or logarithmic cohomology. Full geometric definitions, their API and geometric tests require the specified B1–B4, C0–C6, F0 and T6 carrier imports. Each omitted signature is named in the file. Algebraic compilation is not closure of these targets."
     },
     {
-      "title": "Geometric prototype elaboration and cross-roadmap validation",
+      "title": "Finite-projective trace and toroidal Hecke refinement",
       "neededBy": [
-        "AutomorphicBundles:B5"
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/hecke-convolution",
+        "AutomorphicBundles:B5/non-neat-hecke-descent",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility"
       ],
-      "detail": "The algebraic suggested file is compiled in this continuation after correcting one inherited tuple type-ascription. It still has none of the fifteen actual geometric node signatures or nine geometric definition/construction tests. Supply those against verified carriers and validate the actual chart comparisons and the early/late C5 dependency split. Passing the packet checker and the algebraic compile does not establish these missing geometric interfaces."
+      "detail": "Establish SF.0’s local-to-global coefficient trace and its base-change/transitivity laws, then B3/C3’s extension through proper toric refinements and boundary ideals. Read and compare actual coefficient/isogeny cocycles and ν against the inverse/right-coset convention. A geometric action is not supplied by analytic ModularForm.trace or SF.2’s duality counit."
+    },
+    {
+      "title": "Refined correspondences and non-neat action",
+      "neededBy": [
+        "AutomorphicBundles:B5/hecke-convolution",
+        "AutomorphicBundles:B5/non-neat-hecke-descent"
+      ],
+      "detail": "AA.4/hecke-cartesian has the additional product hypothesis U′L=U. An arbitrary normal neat cover does not make the needed square Cartesian, nor identify its g-double-coset with the original one. Supply the actual common refinement/Mackey decomposition and stack descent; never average or assert exactness of invariants."
+    },
+    {
+      "title": "General-data Fourier–Jacobi source interface",
+      "neededBy": [
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/vector-expansion-principle"
+      ],
+      "detail": "The inspected Milne VII.4.1 explicitly states the general mixed-boundary formal identity as a conjecture and singles out the proven Siegel case. C3.general/B3.general must supply a proven formal boundary/coefficient comparison in the exact characteristic-zero generality used. Lan Higher Proposition 5.6 supplies the good-prime PEL vector case; it does not prove an all-prime general integral version."
+    },
+    {
+      "title": "Ramified Hilbert charts and component detection",
+      "neededBy": [
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/hilbert-expansion-principle",
+        "AutomorphicBundles:B5/hilbert-cuspidal-boundary",
+        "AutomorphicBundles:B5/hecke-expansion-compatibility"
+      ],
+      "detail": "C6/H2/H3 must identify the actual ramified splitting-model cusp completion and weight line, unit action and determinant components, and verify the coefficient/fibre-detection argument in Proposition 6.2.1. Diamond’s prime-to-p statement is retained, while general Iwahori component coverage is explicitly false. The printed §6.2 proof cites Rapoport 1978 Theorem 6.7; that underlying proof has not been read in this pass."
+    },
+    {
+      "title": "Pending higher Coleman coefficient supplier",
+      "neededBy": [
+        "AutomorphicBundles:B5/classical-bcgp-equivariance"
+      ],
+      "detail": "BCGP’s VB and VB^0 carriers and finite-dimensional descent are routed to the existing pending HigherHidaAndColemanTheory design from Pilloni20/BCGP25. It has no assigned atlas stage here. Do not invent an id or rebuild the derived/analytic coefficient functor in B5; request its finite-dimensional interface once design assigns stages. T6 supplies the foundational logarithmic comparison. The Part II proposal is recorded in restructure."
+    },
+    {
+      "title": "Classical BGG and FC90 comparison proof",
+      "neededBy": [
+        "AutomorphicBundles:B5/classical-siegel-ht-comparison",
+        "AutomorphicBundles:B5/cuspidal-siegel-ht-comparison"
+      ],
+      "detail": "BCGP Theorem 4.8.2 states the full ordinary and compact-support decompositions and quotes Faltings–Chai 1990 Theorem 6.2. That underlying proof, the exact logarithmic/compact-support definitions and degeneration/Hecke functoriality inputs have not been independently read here. The four-weight calculation is explicit, but it is not the decomposition proof. Upstream LieHighestWeight expressly excludes full BGG; its already proposed LieHighestWeightPartIICompletedCategoryO is the candidate supplier for the dual BGG/Kostant input, pending a designed exact stage. No such stage is invented."
+    },
+    {
+      "title": "Cross-roadmap early/late stage validation",
+      "neededBy": [
+        "AutomorphicBundles:B5/hecke-section-operator",
+        "AutomorphicBundles:B5/vector-fj-expansion",
+        "AutomorphicBundles:B5/hilbert-cusp-expansion",
+        "AutomorphicBundles:B5/classical-bcgp-equivariance"
+      ],
+      "detail": "The local packet node graph is acyclic. The existing C5 stage combines toroidal inputs with the minimal endpoint consuming B5, so the requested early/late split must be approved before whole-atlas stage-DAG closure can be certified. General-data, Hilbert and T6 comparisons retain their exact supplier directions; no claim is made that the pending coefficient/BGG designs already have validated stages."
     }
   ],
   "sourceIssues": [
@@ -1333,6 +2530,34 @@
         "Web queries for Lan, 7.1.1.4, free submodules and errata found no additional relevant primary correction",
         "Stacks tag 00NX, finite-projective direct-summand statement and proof, read as the proposed repair"
       ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "ShimuraCompactifications"
+      ],
+      "detail": "C5 contains early good-prime toroidal charts consumed by B5 and the late minimal endpoint whose proof consumes B5 constant terms.",
+      "proposal": "Keep the current scope and references during this pass. Split C5 into an early toroidal/model/formal-chart interface and a late arithmetic minimal-compactification endpoint; early C5 precedes B3/B5, while late C5 consumes B5/constant-term-restriction. Do not confuse the arithmetic-base Stein factor with the minimal compactification."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AutomorphicBundles",
+        "PadicFamilies",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+      ],
+      "detail": "B5 owns the classical finite-dimensional comparison targets routed from BCGP; it consumes the full VB and BGG machinery, which existing pending proposals already own.",
+      "proposal": "Coalesce the existing HigherHidaAndColemanTheory proposal as the higher Coleman/Hida Part II direction, importing finite-dimensional bundles from B1–B5. Reuse the existing proposed LieHighestWeightPartIICompletedCategoryO, extending upstream LieHighestWeight beyond its explicit BGG exclusion, for the dual BGG/Kostant input. Assign exact supplier stages in those design jobs; B5 retains only the classical comparisons and records carrier/proof gaps until then. No new roadmap is defined by this packet."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "AutomorphicBundles"
+      ],
+      "detail": "B5 now contains scalar/vector Fourier–Jacobi theory, geometric Hecke action, modular/Hilbert specialization and routed classical Siegel comparison.",
+      "proposal": "For atlas presentation subdivide B5 into Fourier–Jacobi coefficients and expansion principle (the fifteen preserved nodes plus vector-fj-expansion/vector-expansion-principle), Geometric Hecke action (hecke-section-operator/hecke-convolution/non-neat-hecke-descent/hecke-expansion-compatibility), Modular and Hilbert comparisons (modular-expansion-comparison and the three hilbert nodes), and Classical cohomological comparisons (classical-bcgp-equivariance and the two siegel-ht nodes). The current packet keeps exactly AutomorphicBundles:B5 in scope and six planets; no stage id is changed here."
     }
   ]
 }
