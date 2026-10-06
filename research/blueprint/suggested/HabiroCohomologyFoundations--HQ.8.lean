@@ -43,6 +43,13 @@ different categories. The staging rule and the acceptance suite are constraints
 on the packet and are recorded in comments, not as declarations. The failure of
 the décalage filtrations to glue is a remark of the source, not a theorem, and is
 recorded in a comment.
+
+Revision 2 also records two target nodes, without asserting their unverified
+compatibilities as declarations:
+`HQ.8/compatibility-with-the-theta-de-rham-row` and
+`HQ.8/compatibility-with-the-witt-crystalline-row`. They are separate from the
+eight-square commutation theorem. Their exact diagrams and proof gaps are in
+the roadmap document; the comments at the end pin the intended composites.
 -/
 import Mathlib.Algebra.Exact.Basic
 import Mathlib.Algebra.Ring.GeomSum
@@ -682,6 +689,39 @@ theorem deRhamSquare.torsionSequence {B : Type u} [CommRing B] (t : B)
         (fun x hx => by obtain ⟨y, rfl⟩ := hx; exact (h₁ _).2 ⟨y, rfl⟩)) ∧
       LinearMap.range g = LinearMap.ker (t • LinearMap.id : M₂ →ₗ[B] M₂) := by
   sorry
+
+/-! ## The two CP.1 compatibility targets (proofs remain gaps)
+
+These are map-level targets, not extra verified squares. Let `S` be a smooth
+ℤ-algebra, `C` a complete algebraically closed nonarchimedean extension of ℚ_p,
+`R = (S ⊗ O_C)^∧_p`, and fix ε and `q = [ε]`. Set
+`F_S = qΩ_{S/ℤ} ⊗̂ A_inf`, with `(p, ξ)`-completed derived tensor product.
+The map `β_S : F_S ≃ AΩ_R` is the exact composite of `aInfSquare`, through
+A.1(b), bounded-prism base change, 16.18 and 17.2.
+
+* `HQ.8/compatibility-with-the-theta-de-rham-row` asks for
+  `c_{θ,R} ∘ β_{S,θ} = a_{θ,S}`. The common target is the continuous de Rham
+  complex of `R/O_C`; `c_{θ,R}` is BMS1 14.1(ii) (AI.4, CP.1), and `a_{θ,S}`
+  is A.1(a) with derived completed base change and smooth de Rham base change.
+  Reduction is along θ, not θ̃, and the differential and enhanced
+  multiplicative maps must be retained.
+* `HQ.8/compatibility-with-the-witt-crystalline-row` asks for
+  `c_{w,R} ∘ β_{S,w} = ι_S ∘ a_{w,S}`, where `w : A_inf → W(k)` is the residue
+  specialization, `a_{w,S}` is A.1(a) on the p-completed lift `S ⊗ W(k)`,
+  `ι_S` is the inverse of the smooth-lift PD Poincaré comparison (CR.2), and
+  `c_{w,R}` is BMS1 14.1(i) with ordinary de Rham–Witt/crystalline comparison
+  (AI.4, CR.4, CP.1). Track the Frobenius pullback and its Witt specialization.
+  This route never inverts the map from ordinary to q-de Rham–Witt.
+
+All tensors after θ or w are derived and p-completed. BS18.2 applies to full
+symmetric monoidal functors on all p-completely smooth algebras over the
+quotient of a perfect prism, with their Hodge–Tate structure maps. A comparison
+on the subcategory of ℤ-defined lifts, or an arbitrary comparison after
+specialization, does not satisfy those hypotheses automatically. The supplier
+must compare the explicit models or verify the extension and structure maps
+before using uniqueness. Sheaf-level agreement and descent to CP.1's proper
+smooth diagram remain part of the same gap. No opaque proposition or assumed
+commutative square is substituted for either target here. -/
 
 end HQ8
 
