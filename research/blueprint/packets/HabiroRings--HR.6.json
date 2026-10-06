@@ -1,0 +1,634 @@
+{
+  "roadmapId": "HabiroRings",
+  "protocol": "blueprint-v1",
+  "part": "HR.6",
+  "scope": [
+    "HabiroRings:HR.6"
+  ],
+  "status": "complete",
+  "summary": "A completed target-level follow-up, importing the five accepted HR.6 targets. It supplies an order-one fibre/Nakayama proof route for regulator completion-triviality and the supported arithmetic scalar square. HB.7 effective descent and arithmetic naturality, enhanced carriers, and a nontrivial pre-completion regulator class remain honest gaps. HR.6 is planned, not closed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Module.Invertible",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Canonical dual contraction is bijective; inherited finite/projective instances, dual and tensor invertibility, and invertibility after ordinary algebra scalar extension. No freeness hypothesis.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.Invertible.bijective_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "A surjective linear map between invertible modules over a commutative semiring is bijective.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.Invertible.free_iff_linearEquiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "For invertible M, Free R M iff there exists an R-linear equivalence M ≃ R.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Existing multiplicative Picard class of an actual invertible module.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Pic.mk R M = 1 iff there is an R-linear equivalence M ≃ R.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_eq_mk_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Equality of two module classes iff their actual modules are linearly equivalent.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mapRingHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Ordinary scalar extension along any ring homomorphism induces a Picard group homomorphism.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mapRingHom_comp_mapRingHom",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Picard scalar extension respects composition of ring homomorphisms.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mapRingHom_id",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "The identity ring map induces the identity Picard map.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "Coherent ordinary iterated scalar-extension equivalence M tensor_A (A tensor_R N) ≃ M tensor_R N, with the stated algebra and scalar-tower structures.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "Scalar extension distributes over module tensor products.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lid",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Tensor unit equivalence R tensor_R M ≃ M; pure tensor r tensor m maps to r*m.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Ring homomorphism R[[X]] → R, with the existing constant section C and variable X.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_surj",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Constant coefficient is surjective, via the constant series section.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X_dvd_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "X divides a series iff its constant coefficient is zero; identifies the kernel with the principal X ideal.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "A series over a commutative ring is a unit iff its constant coefficient is a unit.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_jacobson_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Jacobson/Ideal.lean",
+        "provides": "x lies in jacobson I iff for every y there is z with z*y*x+z−1 in I. For I=0 and x=X, invert 1+yX.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Every element of the ordinary module quotient has a lift.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LinearMap.toSpanSingleton",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
+        "provides": "For s in P, the linear map B → P sending b to b*s.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LinearMap.surjective_of_surjective_comp_mkQ",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "For finite N, a linear map M→N surjective modulo I*N is surjective if I is contained in jacobson(0). No local/noetherian hypothesis.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "provides": "For an R-module M and ideal I, (R/I) tensor_R M is R-linearly equivalent to M/(I*top).",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RingHom.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "For a surjective ring homomorphism f:R→S, the quotient of R by ker(f) is ring-equivalent to S, with the prescribed quotient map.",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Wagner.v2",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2, 8 October 2025",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.1 paragraph 1.4, printed p.4; Theorem 3.11, Example 3.12 and Corollary 3.13 with proof, printed pp.25–27; Corollary 2.13 checked against the parent supplier."
+      ]
+    },
+    {
+      "id": "GSWZ.v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025; PDF dated 13 August 2025",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Definition 1.1 and (13), printed pp.6–7; §1.5 in full (Definitions 1.3–1.4, Theorems 1–2, Proposition 1.5), printed pp.8–11; §3.2 through §3.3 in full, printed pp.39–45, especially order-one constants and the proof of Theorem 2.",
+        "§§4.5–4.6, printed pp.54–57, in full: global abelian generator claim and numerical cubic-field knot comparisons, read to delimit the missing nontrivial Picard witness."
+      ]
+    },
+    {
+      "id": "Wagner.qWitt.v5",
+      "title": "The q-de Rham–Witt complex",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2410.23078v5, 6 October 2025",
+      "url": "https://arxiv.org/pdf/2410.23078v5",
+      "sha256": "c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§3.4 Proposition 3.31 and Lemma 3.32, statements and proofs, printed pp.50–52; Corollary 3.33 statement. Imported through HQ.4, never duplicated here."
+      ]
+    },
+    {
+      "id": "Wagner.author.2026",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "Author-hosted PDF dated 14 January 2026, exact bytes fetched 6 October 2026",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Habiro.pdf",
+      "sha256": "7c6b0e3106da456baad6c6f416714d6141d7b39e1107affc9d8a5be99bb92075",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Paragraph 1.4, printed p.4; Theorem 3.11, Example 3.12 and Corollary 3.13, printed pp.25–27. The completion-triviality assertion still has no proof there; inherited E6 persists."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroRings:HR.6/followup-order-one-fibre",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "Order-one fibre trivialization of a transported Habiro line",
+      "kind": "construction",
+      "statement": "Let F be a number field, Δ>0 with 6|disc F| dividing Δ, R=O_F[1/Δ], H=H_{R/Z}, κ:H≅H_R the Taylor-compatible ring comparison, M_ξ=κ*H_{R,ξ}, and v=constantCoeff∘c:H→R for c:H→R[[X]], X=q−1. Under HB.7 effective global descent and its tensor bijectivity, order-one evaluation gives e_ξ:R⊗_{H,v}M_ξ→R, e_ξ(r⊗f)=r f_1(0). Construct the unique R-linear equivalence t_ξ with underlying map e_ξ. The order-one Kummer torsor is canonically trivial, so the value lies in R without a root choice. This trivializes the fibre, not M_ξ over H. The typed ordinary prototype OrderOneFibre.trivialization accepts an actual invertible H-module M, its evaluation map e on R⊗_H M, and a preimage of 1; the HB.7 finite inverse-tensor certificate supplies that preimage in this application.",
+      "hypotheses": [
+        "HB.7 supplies actual additive modules and their invertibility, conditional on its G-global-descent; it is not inferred from local rank one alone.",
+        "HB.7 supplies the semilinear constant evaluation and its compatibility with multiplication; this small additional API is requested from its sole owner.",
+        "No R-algebra structure on H is assumed. The algebra H→R in the tensor product is v."
+      ],
+      "proofSteps": [
+        "Use GSWZ Definition 1.4 and Proposition 1.5(f) at m=1: ε_1 has a canonical trivial torsor and f_1(0) belongs to R. Addition and scalar multiplication of the actual sections give the v-semilinear evaluation; request this API from HB.7.",
+        "HB.7/followup-tensor-bijectivity yields finitely many f_i∈M_ξ and g_i∈M_{−ξ} with Σ f_i g_i=1. Evaluating constants yields Σ f_i(0) g_i(0)=1. Thus z=Σ g_i(0)⊗f_i belongs to the fibre and e_ξ(z)=1. No individual f_i is asserted to be a unit section.",
+        "Since e_ξ(r z)=r, e_ξ is surjective. Ordinary scalar extension preserves Module.Invertible. Apply Module.Invertible.bijective_of_surjective between this fibre and R, then promote e_ξ to a linear equivalence. Its underlying map determines it uniquely.",
+        "The inverse image t_ξ^{-1}(1) is independent of the inverse certificate. Tensor multiplication of fibres intertwines their evaluations and t_{ξ+η}; this follows by pure tensors and the supplied multiplication API."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.6/the-transported-regulator",
+        "HabiroRings:HR.6/the-q-minus-one-completion-is-not-injective",
+        "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "HabiroNumberFields:HB.7",
+        "mathlib:Module.Invertible",
+        "mathlib:Module.Invertible.bijective_of_surjective",
+        "mathlib:PowerSeries.constantCoeff",
+        "mathlib:TensorProduct.lid"
+      ],
+      "acceptance": [
+        "Construct a preimage of 1 from a finite SUM of evaluated products; a global generator must not appear in the assumptions.",
+        "At ξ=0, t_0 is the ordinary tensor-unit map after v.",
+        "The map is normalized by actual evaluation, and all tensors use H→R rather than a supposed R→H."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "Definition 1.4, printed pp.9–10; Proposition 1.5(f), printed p.11",
+          "excerpt": "then fm(0)",
+          "match": "The m=1 specialization is the integral order-one evaluation. Its module/tensor interpretation is conditional on the explicitly imported HB.7 descent contract."
+        },
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "Theorem 2, (25), printed p.10; §3.3, printed pp.43–44",
+          "excerpt": "canonical isomorphism",
+          "match": "Supplies the inverse tensor pairing as refined by the accepted HB.7 follow-up; the source proof alone does not establish effective global descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.HabiroCoefficients.OrderOneFibre.trivialization",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/CoefficientInterfaces",
+        "namespace": "TauCeti.HabiroCoefficients"
+      },
+      "uses": [
+        {
+          "where": "HabiroRings:HR.6/followup-completed-regulator-triviality",
+          "how": "The canonical trivial first fibre supplies a generator modulo X for the completed line."
+        },
+        {
+          "where": "HabiroRings:HR.6/followup-regulator-scalar-square",
+          "how": "Evaluation commutes with supported field pullback, so the fibre comparison is natural."
+        },
+        {
+          "where": "HabiroRings:HR.7",
+          "how": "Tests distinguish a trivial fibre from a free original line and check the normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "OrderOneFibre.map_eq_eval",
+          "role": "characterisation",
+          "statement": "For every x in R⊗_H M, t(x)=e(x)."
+        },
+        {
+          "name": "OrderOneFibre.inverse_one",
+          "role": "simp",
+          "statement": "e(t^{-1}(1))=1."
+        },
+        {
+          "name": "OrderOneFibre.coordinates",
+          "role": "universal-property",
+          "statement": "For every x in the fibre, e(x)·t^{-1}(1)=x."
+        },
+        {
+          "name": "OrderOneFibre.unique",
+          "role": "extensionality",
+          "statement": "Any R-linear equivalence with underlying evaluation e equals t."
+        },
+        {
+          "name": "OrderOneFibre.rescale",
+          "role": "compatibility",
+          "statement": "If evaluation is multiplied by a unit u of R, its normalized fibre equivalence is u times t."
+        }
+      ],
+      "tests": [
+        {
+          "name": "OrderOneFibreTests.identity",
+          "kind": "degenerate",
+          "statement": "For H=R, M=R and e the Mathlib tensor-unit map, t(1⊗r)=r for every r. In the actual regulator application this is ξ=0."
+        },
+        {
+          "name": "OrderOneFibreTests.negativeUnit",
+          "kind": "computation",
+          "statement": "For H=R=Z and e the negative tensor-unit map, t(1⊗3)=−3. A construction ignoring the evaluation normalization fails."
+        },
+        {
+          "name": "OrderOneFibreTests.inverseGenerator",
+          "kind": "characterisation",
+          "statement": "For any fibre/e/preimage of 1 and any r, t(r·t^{-1}(1))=r. This is a statement about the base-changed fibre only."
+        },
+        {
+          "name": "OrderOneFibreTests.zeroEvaluation",
+          "kind": "non-example",
+          "statement": "For H=R=M=Z, the zero evaluator on Z⊗_Z Z has no preimage of 1 and cannot be used to construct t."
+        }
+      ],
+      "planet": {
+        "name": "Order-one fibre trivialization"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.6/followup-completed-regulator-triviality",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "Triviality of the completed K₃ regulator",
+      "kind": "theorem",
+      "statement": "With F, Δ, R, H, M_ξ and c as above, and conditional on HB.7 effective global descent and inverse tensor pairing, P_ξ=R[[X]]⊗_{H,c}M_ξ is free of rank one. Equivalently, Pic(c)([M_ξ])=1 in the multiplicatively written Mathlib Picard group, so Pic(c)∘ρ is the trivial homomorphism. The ordinary-module core is stronger: for any commutative R and any invertible P over B=R[[X]], an isomorphism P/XP≅R (B-linear via constant coefficient) implies the existence of an isomorphism P≅B. The latter is not canonical; no choice of generator over H and no local-ring hypothesis on R is required.",
+      "hypotheses": [
+        "All algebra/module structures in P_ξ and the first fibre come from c and v. Ordinary and derived scalar extension agree here because M_ξ is finite projective.",
+        "The order-one fibre is the actual quotient P_ξ/XP_ξ, identified using iterated base change; a Taylor expansion over F[[X]] is not substituted for this quotient."
+      ],
+      "proofSteps": [
+        "By existing base-change invertibility, P_ξ is invertible and finite over B. The identities ker(constantCoeff)=(X) and surjectivity of constantCoeff identify B/(X) with R via RingHom.quotientKerEquivOfSurjective. TensorProduct.quotTensorEquivQuotSMul and TensorProduct.AlgebraTensorModule.cancelBaseChange identify P_ξ/XP_ξ with R⊗_H M_ξ; apply followup-order-one-fibre.",
+        "Lift the fibre generator t_ξ^{-1}(1) to s∈P_ξ using Submodule.mkQ_surjective. The map a:B→P_ξ, b↦b s, is surjective modulo X.",
+        "For any y∈B, 1+yX has unit constant coefficient 1, hence is a unit by PowerSeries.isUnit_iff_constantCoeff. Ideal.mem_jacobson_iff gives X∈jacobson(0), hence (X)⊆jacobson(0). This works for the generally nonlocal Dedekind coefficient ring R.",
+        "Apply LinearMap.surjective_of_surjective_comp_mkQ to the finite target P_ξ and the ideal (X). Then a is surjective; since B and P_ξ are invertible, Module.Invertible.bijective_of_surjective makes a an isomorphism. Pic.mk_eq_one_iff translates this into the asserted Picard identity.",
+        "There is no new global-deformation or Picard theorem to plan: the proof is an application of existing ordinary Nakayama and invertible-module APIs. Trivializations over B form a B-unit torsor. Even after fixing the fibre trivialization, multiplying by 1+X gives another lift; raw f_1(X) need not be integral beyond its constant term."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.6/followup-order-one-fibre",
+        "HabiroRings:HR.6/completed-scalar-extension",
+        "HabiroNumberFields:HB.7/followup-picard-character",
+        "mathlib:Module.Invertible",
+        "mathlib:Module.Invertible.bijective_of_surjective",
+        "mathlib:Module.Invertible.free_iff_linearEquiv",
+        "mathlib:CommRing.Pic.mk",
+        "mathlib:CommRing.Pic.mk_eq_one_iff",
+        "mathlib:CommRing.Pic.mapRingHom",
+        "mathlib:PowerSeries.constantCoeff_surj",
+        "mathlib:PowerSeries.X_dvd_iff",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:Ideal.mem_jacobson_iff",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:LinearMap.toSpanSingleton",
+        "mathlib:LinearMap.surjective_of_surjective_comp_mkQ",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+        "mathlib:RingHom.quotientKerEquivOfSurjective"
+      ],
+      "acceptance": [
+        "Every class in the actual transported regulator image maps to the Picard identity; this alone does not produce a nonidentity class in that image.",
+        "Use only integral constants, not an unproved integral Taylor expansion.",
+        "The typed theorem accepts any R, including nonlocal R; multiplying a completed basis by 1+X shows the absence of a canonical full trivialization.",
+        "The proof establishes freeness conditional on the named HB.7 contract, not a proof of that supplier contract."
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.v2",
+          "locator": "§1.1, paragraph 1.4, printed p.4",
+          "excerpt": "regulator becomes trivial",
+          "match": "The source asserts completion-triviality without its proof. The new proof route is the first-fibre argument and pinned ordinary Nakayama, conditional on HB.7."
+        },
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "Proposition 1.5(f), printed p.11; §3.3, printed p.45",
+          "excerpt": "then fm(0)",
+          "match": "Integral order-one values supply the fibre map, which is the only coefficient integrality needed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.HabiroCoefficients.completedRegulatorTriviality",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/CoefficientInterfaces",
+        "namespace": "TauCeti.HabiroCoefficients"
+      },
+      "planet": {
+        "name": "Triviality of the completed regulator"
+      },
+      "refines": "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion"
+    },
+    {
+      "id": "HabiroRings:HR.6/followup-regulator-scalar-square",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "Field scalar extension of the transported regulator",
+      "kind": "comparison",
+      "statement": "Let F→E be an embedding of number fields, choose one positive Δ divisible by both 6|disc F| and 6|disc E|, R=O_F[1/Δ], S=O_E[1/Δ], H=H_{R/Z}, H′=H_{S/Z}. HB.7/followup-scalar-equivalence, conditional on effective descent and arithmetic naturality, identifies H_S⊗_{H_R}H_{R,ξ}≅H_{S,res ξ}. Transport this actual module equivalence through κ_R and κ_S to obtain H′⊗_H M_ξ≅M_{res ξ}. Hence Pic(H→H′)(ρ_F(ξ))=ρ_E(res ξ). The Taylor-compatible κ square commutes, and order-one evaluation and c:H→R[[X]], c′:H′→S[[X]] commute with the coefficient map R→S (abstract roots and X fixed). Thus both the first-fibre maps and the completed Picard maps commute. Identity and successive embeddings give the usual tensor-unit and associator coherences. This is exactly the supported scalar comparison; it is not a trace, linear transfer of sections, or a comparison for an arbitrary coefficient change.",
+      "hypotheses": [
+        "The common Δ hypothesis ensures both actual coefficient rings and HB.7 lines are defined in the unramified p>3 range.",
+        "Use the HB.7 restriction map on its imported K₃ group, not a reconstructed group.",
+        "HB.7 arithmetic naturality and effective global descent are explicit outstanding supplier hypotheses."
+      ],
+      "proofSteps": [
+        "Use HR.5 functoriality and the Taylor-compatible κ_R, κ_S. Coefficient pullback fixes ζ_m and X; the two composites agree on every Taylor coordinate, so the comparison square of ring maps commutes.",
+        "Apply the actual scalar equivalence HB.7/followup-scalar-equivalence and ordinary iterated tensor-base-change equivalences to conjugate it by κ_R, κ_S. This produces an H′-linear equivalence of the actual lines.",
+        "Apply CommRing.Pic.mk_eq_mk_iff and Pic.mapRingHom composition. The typed ordinary prototype regulatorScalarSquare_of_ringSquare records precisely the formal Picard step; it does not establish arithmetic naturality.",
+        "Constant evaluation and every Taylor projection commute with coefficient pullback. Pure tensors therefore give the canonical first-fibre square; applying completed scalar extension gives the completed square. Identity/composition are inherited from HB.7 and the tensor associator, with the same chosen common localization."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.6/the-transported-regulator",
+        "HabiroRings:HR.6/completed-scalar-extension",
+        "HabiroRings:HR.5/the-relative-habiro-ring",
+        "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-scalar-equivalence",
+        "HabiroNumberFields:HB.7/followup-picard-character",
+        "HabiroRings:HR.6/followup-order-one-fibre",
+        "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
+        "mathlib:CommRing.Pic.mk_eq_mk_iff",
+        "mathlib:CommRing.Pic.mapRingHom_comp_mapRingHom",
+        "mathlib:CommRing.Pic.mapRingHom_id"
+      ],
+      "acceptance": [
+        "The scalar tensor is over H_{R/Z}; an expression S⊗_R M_ξ is not used.",
+        "Field embeddings preserve the abstract cyclotomic coordinate and induce the supported changed K₃ degree.",
+        "The Picard square follows from an actual module equivalence; a class-only formal square cannot replace HB.7 descent.",
+        "Identity and two successive field extensions commute before and after q−1 completion."
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.v2",
+          "locator": "Definition 1.1, (13), printed pp.6–7; Definition 1.4, printed pp.9–10",
+          "excerpt": "gluing property",
+          "match": "Coordinate pullback of the ring/module formulas is the source motivation; scalar equivalence/naturality is the conditional imported HB.7 refinement, not a theorem stated by GSWZ."
+        },
+        {
+          "sourceId": "Wagner.v2",
+          "locator": "Corollary 2.13, printed p.19, and proof",
+          "excerpt": "agrees with the Habiro ring",
+          "match": "The ring comparison is coordinatewise and so commutes with a supported coefficient pullback; the common-Δ extension is supplied by the parent node."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.HabiroCoefficients.regulatorScalarSquare",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/CoefficientInterfaces",
+        "namespace": "TauCeti.HabiroCoefficients"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "node": "HabiroRings:HR.6/the-degree-zero-identification",
+      "disposition": "Retain its full étale E∞ ring comparison, all cyclotomic specializations, q−1 completion and functoriality. The HR.4 follow-up now plans complete principal deformation universality, conditional on its exact enhanced suppliers. Use Theorem 3.11(b), as corrected by inherited E6."
+    },
+    {
+      "node": "HabiroRings:HR.6/completed-scalar-extension",
+      "disposition": "Retain the derived complete-module functor, adjunction, monoidality and perfect/invertible comparisons; this follow-up does not replan generic enhanced module theory."
+    },
+    {
+      "node": "HabiroRings:HR.6/the-transported-regulator",
+      "disposition": "Retain the actual κ-pullback and Picard character, with the sharper accepted HB.7 conditional contract rather than an unconditional claim."
+    },
+    {
+      "node": "HabiroRings:HR.6/the-q-minus-one-completion-is-not-injective",
+      "disposition": "Retain the Z injectivity and Z[1/p] disconnected cyclotomic-factor idempotent witness. Ring noninjectivity is not a Picard or regulator nontriviality proof."
+    },
+    {
+      "node": "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion",
+      "disposition": "Its missing completion proof is refined by the two new fibre/completion nodes; the supplier descent condition remains explicit."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroRings:HR.6",
+      "status": "planned",
+      "remaining": [
+        "Resolve HB.7 G-global-descent and G-arithmetic-naturality, and add its integral order-one evaluation/multiplication API. The completion argument here is conditional on those supplied objects, not on an assumed global generator.",
+        "Exhibit an actual F, Δ, ξ with [M_ξ]≠1, with a rigorous nonfreeness/detection argument. Ring noninjectivity and numerical knot comparisons do not establish this.",
+        "Instantiate the omitted actual K₃/enhanced signatures when HB.7, HR.2, HR.4, HQ.3–5 and their existing generic suppliers land; discharge inherited enhanced deformation/completion supplier gaps."
+      ],
+      "note": "Every stage target is either one of the five retained parent nodes or a new refinement below. The historical HQ.1 cycle concern is resolved in the current accepted packets; no reverse edge is added. No nonzero Picard witness was established."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-global-descent",
+      "title": "Actual HB.7 global lines and inverse tensor certificates remain conditional",
+      "neededBy": [
+        "HabiroRings:HR.6/followup-order-one-fibre",
+        "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "HabiroRings:HR.6/followup-regulator-scalar-square"
+      ],
+      "detail": "Import the accepted HabiroNumberFields--HB.7 G-global-descent exactly: additive closure of Definition 1.4, finite projectivity, actual chart base changes and conservative descent must be proved. The finite SUM inverse certificate used here follows from HB.7/followup-tensor-bijectivity once that contract holds. GSWZ §3.3 only verifies multiplication/gluing, not effective global descent. The new Nakayama proof closes the downstream reasoning, not this upstream gap."
+    },
+    {
+      "id": "G-arithmetic-naturality",
+      "title": "Supported field-change interfaces still inherit HB.7 naturality",
+      "neededBy": [
+        "HabiroRings:HR.6/followup-regulator-scalar-square"
+      ],
+      "detail": "The exact common-Δ field scalar equivalence, Kummer/Chern torsor restriction and completed-regulator naturality are HB.7/followup-field-pullback and followup-scalar-equivalence contracts, conditional on its accepted G-arithmetic-naturality. Their existing D.1/D.4/M.8 requests stay with HB.7. Do not promote the formal Picard square to an arithmetic theorem without those inputs."
+    },
+    {
+      "id": "G-nonzero-regulator",
+      "title": "No rigorous nontrivial pre-completion regulator class is supplied",
+      "neededBy": [
+        "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion"
+      ],
+      "detail": "The parent asks for F, Δ, ξ such that the actual transported line has Picard class different from 1. Wagner paragraph 1.4 asserts nontrivial geometry; GSWZ printed p.10 reports numerical comparisons of knots in the cubic discriminant −23 field but does not give a nonfreeness proof for such a line. The completed triviality argument does not produce one, and nonzero K₃, a nonzero local regulator, or a nonzero ring-kernel idempotent is insufficient. No source-supported example was established in this pass. This remains an explicit target-level gap, not a proposed false theorem."
+    },
+    {
+      "id": "G-signatures-and-enhanced-inputs",
+      "title": "Actual K₃ and enhanced coefficient carriers are not installed at the pins",
+      "neededBy": [
+        "HabiroRings:HR.6/followup-order-one-fibre",
+        "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "HabiroRings:HR.6/followup-regulator-scalar-square",
+        "HabiroRings:HR.6/the-degree-zero-identification",
+        "HabiroRings:HR.6/completed-scalar-extension"
+      ],
+      "detail": "The pins supply ordinary invertible modules, Picard maps, power series and Nakayama, not actual indexed Habiro modules, relative Habiro rings, chosen q-Hodge pairs or enhanced complete E∞ module categories. The suggested file types the ordinary-module core and formal Picard square and gives an exact omission ledger for the unavailable actual signatures. The inherited HR.4 complete-principal deformation universality and HR.2/HQ derived completion/monoidal interfaces also retain their own supplier refinements. Install genuine imported carriers and discharge those recorded supplier obligations; no private stand-in or Prop-valued axiom field is used."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "HabiroNumberFields:HB.7",
+      "need": "Supply, for actual Definition 1.4 modules and m=1, a canonical ε_1-torsor trivialization, the H_R→R-semilinear map f↦f_1(0) valued in R by Proposition 1.5(f), and compatibility with addition, module scalars and graded multiplication. Carry the accepted effective global descent/tensor certificate and supported field scalar/naturality contracts explicitly, including common Δ. This is a small HB.7 API extension, not a second K₃ or line construction.",
+      "neededBy": [
+        "HabiroRings:HR.6/followup-order-one-fibre",
+        "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "HabiroRings:HR.6/followup-regulator-scalar-square"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "inheritedSourceIssues": [
+    {
+      "id": "HabiroRings/E6",
+      "packet": "HabiroRings.json",
+      "disposition": "Use Theorem 3.11(b) rather than (a) in the Corollary 3.13 reduction argument. Confirmed again in the 14 January 2026 author copy; do not duplicate the finding."
+    },
+    {
+      "id": "HabiroNumberFields/E23",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Accepted HB.7 G-global-descent remains upstream of this fibre argument; multiplication of local conditions is not tensor bijectivity."
+    },
+    {
+      "id": "HabiroNumberFields/E24",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Use the accepted corrected integral linear-jet contract upstream. No whole Taylor-series integrality is asserted here."
+    },
+    {
+      "id": "HabiroNumberFields/E26",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Unproved global abelian generator claim is not needed for this proof and is not used."
+    }
+  ],
+  "upstreamNotes": [],
+  "ownership": {
+    "parentPacket": "HabiroRings.json",
+    "retainedParentNodes": [
+      "HabiroRings:HR.6/the-degree-zero-identification",
+      "HabiroRings:HR.6/completed-scalar-extension",
+      "HabiroRings:HR.6/the-transported-regulator",
+      "HabiroRings:HR.6/the-q-minus-one-completion-is-not-injective",
+      "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion"
+    ],
+    "cycleDisposition": "Current HQ.3/the-coordinate-model-and-the-etale-case, HQ.3/the-etale-case and HQ.5/algebraic-habiro-cohomology-of-a-scheme do not require HR.6. Keep the late HQ.3–5 → HR.6 return edge. HQ owns its cohomology functor; HR.6 only identifies the separately constructed coefficients.",
+    "rs10": "Accepted RS-10 is not yet an installed QWittVectors/AnalyticHabiroStack stage graph. Use the existing HR/HQ suppliers until an atomic migration; no absent supplier is referenced."
+  },
+  "librarySearch": {
+    "date": "2026-10-06",
+    "audit": "data/library-coverage.json, accepted AUDIT17 record HabiroRings:HR.6: not built; existing invertible/Picard baseline only.",
+    "tauceti": "Searched all tracked TauCeti Lean sources at f790474 for Habiro, q-Hodge/qHodge and q-Witt/qWitt names/text; no matches. Read baseline algebra at exact Mathlib pin. Ordinary library APIs are reused, not planned as new generic nodes.",
+    "style": [
+      "content/tau-ceti/AdicSpaces/README.md",
+      "content/tau-ceti/HodgeStructures/README.md"
+    ],
+    "links": "Read all atlas stage edges touching HR.6. No links entry uses the exact stage id; the ClassFieldTheory screen entry mentioning HabiroRings HR.5/HR.6 is a negative class-field screen and supplies no dependency."
+  },
+  "sourceSearch": {
+    "date": "2026-10-06",
+    "checked": [
+      "GSWZ v2 §1.5 and §3.2–3.3, including the numerical knot discussion and inverse tensor assertion; §§4.5–4.6 examples in full",
+      "Wagner arXiv v2 paragraph 1.4 and Corollary 3.13; current author-hosted 14 January 2026 copy at the same passages",
+      "Public title/author searches for Habiro Picard nontrivial regulator examples; current papers and the explicit-Habiro-cohomology abstract located",
+      "Accepted HB.7 sourceSearch/review and its retained descent/naturality gaps"
+    ],
+    "result": "No rigorous pre-completion nontrivial Picard-class witness was established. Explicit higher-dimensional cycle constructions are not evidence of nonfreeness of these number-field lines. No new source error is asserted."
+  },
+  "planetPolicy": {
+    "new": [
+      "HabiroRings:HR.6/followup-order-one-fibre",
+      "HabiroRings:HR.6/followup-completed-regulator-triviality"
+    ],
+    "retainedParentNodesNotDuplicated": true,
+    "reason": "Two new interface planets, within the six-per-layer limit. Parent targets are imported rather than recreated as extra planet nodes."
+  },
+  "suggestedPolicy": "All five API names and four named tests of the new construction occur in the suggested file. Actual imported Habiro/K₃ and enhanced signatures are explicitly omitted with exact mathematical types under PROTOCOL §13; the ordinary fibre construction and completion theorem are typed against actual Mathlib modules. The supported arithmetic comparison has a typed formal Picard-square prototype and an exact actual-signature omission. Successful elaboration checks signatures, not proofs or missing carriers."
+}
