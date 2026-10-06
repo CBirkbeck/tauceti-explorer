@@ -31904,7 +31904,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.4",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6404"
   },
   {
    "id": "BP-Polylogarithms--P.5",
@@ -34368,8 +34369,9 @@
    ],
    "avoidAccountOf": "BP-HabiroRings--HR.4",
    "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6452"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6452",
+   "finishedAt": "2026-10-06T04:23:41Z"
   },
   {
    "id": "BP-HabiroRings--HR.6",
@@ -34435,7 +34437,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.10.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6505"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.10",
@@ -34619,8 +34622,9 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6509"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6509",
+   "finishedAt": "2026-10-06T04:23:43Z"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.8",
