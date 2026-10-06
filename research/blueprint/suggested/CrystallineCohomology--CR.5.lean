@@ -11,6 +11,13 @@ The geometric suppliers are not yet library modules. The prototypes below expose
  No unstated condition is replaced by an arbitrary proposition field.
  The pinned TauCeti.nilpotentExpUnit source was read, but its module is not built in the shared
  build. The exponential signatures use its underlying Mathlib IsNilpotent.exp operation.
+
+Independent review REV-CrystallineCohomology--CR.5: needs_changes.
+Several geometric signatures below quantify over arbitrary objects or maps after dropping
+essential hypotheses. Those signatures are false as written; their comments do not restrict
+Lean's quantifiers. They are retained for the revision worker, not endorsed by this review.
+See the review report and the packet's per-node verdicts for the required corrections.
+Elaboration with sorry checks the types and does not verify these mathematical assertions.
 -/
 import Mathlib.AlgebraicGeometry.Sites.Etale
 import Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
@@ -156,9 +163,13 @@ example {A k : Type} [CommRing A] [Field k] (f : A →+* k) (π : A) (hπ : f π
 def characteristicMonoid {A : Type} [CommRing A] (L : LogStructure A) : CommMonCat.{0} := by sorry
 namespace characteristicMonoid
  def quotient {A : Type} [CommRing A] (L : LogStructure A) : L.monoid →* characteristicMonoid L := by sorry
- -- Kernel statement of the group quotient, avoiding a second groupification construction.
- theorem gp_quotient {A : Type} [CommRing A] (L : LogStructure A) (m : L.monoid) :
-    quotient L m = 1 ↔ IsUnit (L.structureMap m) := by sorry
+ -- The log unit condition gives the canonical monoid homomorphism from ring units.
+ def logUnits {A : Type} [CommRing A] (L : LogStructure A) : Aˣ →* L.monoid := by sorry
+ -- Quotient by the image: groupification need not embed the unit group for a nonintegral log.
+ def gp_quotient {A : Type} [CommRing A] (L : LogStructure A) :
+    Algebra.GrothendieckGroup (characteristicMonoid L) ≃*
+      (Algebra.GrothendieckGroup L.monoid ⧸
+        (Algebra.GrothendieckGroup.of.comp (logUnits L)).range) := by sorry
  theorem sharp {A : Type} [CommRing A] (L : LogStructure A) (m : characteristicMonoid L)
     (hm : IsUnit m) : m = 1 := by sorry
 end characteristicMonoid
@@ -182,8 +193,8 @@ namespace IsIntegralMonoid
  theorem cancel (P : Type) [CommMonoid P] : IsIntegralMonoid P ↔ ∀ a b c : P, a*b=a*c → b=c := by sorry
  theorem of_injective (P : Type) [CommMonoid P] (h : IsIntegralMonoid P) :
     Function.Injective (Algebra.GrothendieckGroup.of (M := P)) := by sorry
- theorem characteristic_iff {A : Type} [CommRing A] (L : LogStructure A) :
-    IsIntegralMonoid L.monoid ↔ IsIntegralMonoid (characteristicMonoid L) := by sorry
+ theorem characteristic {A : Type} [CommRing A] (L : LogStructure A)
+    (h : IsIntegralMonoid L.monoid) : IsIntegralMonoid (characteristicMonoid L) := by sorry
 end IsIntegralMonoid
 namespace IsFineMonoid
  theorem integral (P : Type) [CommMonoid P] (h : IsFineMonoid P) : IsIntegralMonoid P := by sorry
@@ -1096,7 +1107,7 @@ structure LogLift {A : Type} [CommRing A] (I : Ideal A) (L : LogStructure (A ⧸
 def uniquePDivisible_logLift {A : Type} [CommRing A] (p : ℕ) [Fact p.Prime]
     (I : Ideal A) (δ : DividedPowers I) (L : LogStructure (A ⧸ I))
     (hdiv : Function.Bijective (fun x : characteristicMonoid L => x^p)) : LogLift I L := by sorry
--- Shared period ring A and finite PD quotients come from CR.0; the Teichmüller chart comes from AI.0.
+-- Shared period ring A and finite PD quotients come from CR.0; the chart comes from AI.0:integral.
 def aCrisLog {A P : Type} [CommRing A] [CommMonoid P] (α : P →* A) : LogStructure A := associatedLog α
 namespace aCrisLog
  def finite_lift {A B P : Type} [CommRing A] [CommRing B] [CommMonoid P]
@@ -1302,7 +1313,8 @@ theorem hk_exp_formula {K M : Type} [Field K] [CharZero K] [AddCommGroup M]
     [Module K M] [Module ℚ (Module.End K M)] (N : Module.End K M) (a : K) (s : ℕ)
     (h : (a • N)^s=0) : IsNilpotent.exp (a • N)=
     ∑ j ∈ Finset.range s, (j.factorial:ℚ)⁻¹ • (a • N)^j := by sorry
--- Derived Künneth assembly is supplied by CP.2; the monodromy on its tensor product is explicit.
+-- CR.3 supplies ordinary Künneth; CR.6 owns its log adaptation (Kato p.222).
+-- This signature currently exposes only the tensor monodromy operator, not that comparison.
 def hyodoKato_products {K M N : Type} [Field K] [AddCommGroup M] [Module K M]
     [AddCommGroup N] [Module K N] (NM : Module.End K M) (NN : Module.End K N) :
     Module.End K (M ⊗[K] N) := TensorProduct.map NM LinearMap.id + TensorProduct.map LinearMap.id NN
@@ -1399,7 +1411,8 @@ example {K : Type} [NormedField K] (D E : SteinHKData K) : D.space ≃L[K] E.spa
 -- Test: TauCeti.LogCrystalline.steinHK.affinoid_warning
 example {K : Type} [NormedField K] (D : SteinHKData K) (x : D.space)
     (hx : ∀ U ∈ nhds (0 : D.space), x∈U) : x=0 := by sorry
--- Completed scalar extension over K₀^nr is supplied by RD.5; comparison is a continuous equivalence.
+-- RD.5 supplies completed scalar extension over the complete field K̆₀=widehat(K₀^nr).
+-- The geometric source/target identification is missing from this universal signature.
 def stein_hyodoKato_comparison {K : Type} [NormedField K] (H D : SteinHKData K) : H.space ≃L[K] D.space := by sorry
 -- The full analytic ind-Fréchet topology and geometric Galois/tower identification remain RD.5 inputs.
 structure TowerHKData (K : Type) [NormedField K] where
