@@ -1,0 +1,328 @@
+{
+  "roadmapId": "Polylogarithms",
+  "protocol": "blueprint-v1",
+  "part": "P.6",
+  "scope": [
+    "Polylogarithms:P.6"
+  ],
+  "status": "complete",
+  "summary": "Target-level follow-up of the accepted Polylogarithms packet: prove the missing real differential of Zagier’s single-valued trilogarithm and add exact derivative regression tests, including a point on the principal branch cut. Reuse the accepted P.6 regulator and certificate tests. The shared completed unit map, strong Leopoldt statement and defect belong to IntegralIwasawaTheory I.2; P.6 consumes that interface and retains the p-adic regulator equivalence. This is a complete planning pass, with supplier requests, and claims no formalisation.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:DifferentiableAt",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Defs.lean",
+        "provides": "Existence of a real continuous-linear Fréchet derivative; excludes a spurious formula for the totalised derivative of a nondifferentiable function.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 139–147."
+      },
+      {
+        "ref": "mathlib:fderiv",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Defs.lean",
+        "provides": "The real Fréchet derivative, a continuous linear map, totalised to zero outside differentiability.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 156–161."
+      },
+      {
+        "ref": "mathlib:Complex.log_re",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "Re(log z) = log(norm z), used to differentiate log moduli on local branches.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 30–35."
+      },
+      {
+        "ref": "mathlib:Complex.hasStrictFDerivAt_log_real",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean",
+        "provides": "On the slit plane the real derivative of complex log is multiplication by z inverse. This baseline theorem is used only locally off its cut, never asserted on the cut.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 45–47."
+      }
+    ],
+    "audit": "Reviewed data/library-coverage.json entries Polylogarithms:P.1 and P.6: higher single-valued polylogarithms and this differential are absent. Source searches at both pinned commits found no polylogarithm/trilogarithm implementation supplying the target.",
+    "upstreamWork": [
+      {
+        "url": "https://github.com/leanprover-community/mathlib4/pull/44531",
+        "head": "7d07d5f2ab28d30d107139029aff9ffe2e4aa0c7",
+        "checked": "2026-10-06",
+        "detail": "Open PR, not in the pinned baseline. Read Complex.polylog (complex weight), mul_deriv_polylog_add_one, analyticOnNhd_polylog_right and the lower-half-plane limit definition in Mathlib/Analysis/SpecialFunctions/Polylog/Basic.lean. Its classical branch convention agrees with the imported P.1 lower-side convention. P.1 should adopt this supplier and its names upon integration, with integer weights cast to C; no classical function is replanned in this follow-up. It does not supply Zagier’s single-valued function or its differential. Public Zulip/archive name searches found no additional design discussion."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Goncharov.2000.explicit",
+      "title": "Explicit regulator maps on polylogarithmic motivic complexes",
+      "authors": "Alexander B. Goncharov",
+      "edition": "arXiv math/0003086v1, 15 March 2000",
+      "url": "https://arxiv.org/pdf/math/0003086v1",
+      "sha256": "47a616bada4abeaee1672679593e5b69e6d293b2cf98e08de6b726072f9a69ea",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§2 item 1, printed p. 3: polylogarithms, parity projection, coefficients and Lhat_2 = iD",
+        "§2 item 4, printed pp. 4–5: alpha and the weight-three example",
+        "§2 item 6, equation (15), printed p. 7: Lhat_{p,q}",
+        "§4 Proposition 4.1 and its complete proof, equations (28)–(38), printed pp. 17–20"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Polylogarithms:P.6/single-valued-trilogarithm-differential",
+      "parentStageId": "Polylogarithms:P.6",
+      "realises": [
+        "Polylogarithms:P.6"
+      ],
+      "title": "The real differential of the single-valued trilogarithm",
+      "kind": "theorem",
+      "declaration": "singleValuedPolylog_three_differential",
+      "statement": "Let L_3 and D be the real-valued functions of P.1/single-valued-polylogarithm and P.1/bloch-wigner-dilogarithm. For z in C with z != 0 and z != 1, L_3 is differentiable as a map from the real normed space C to R. Put a = log|z| and b = log|1-z|. Its real Fréchet derivative satisfies, for every v in C, dL_3(z)[v] = -D(z) Im(v/z) + (a/3)(b Re(v/z) - a Re(v/(z-1))). Equivalently dL_3 = -D darg z + (1/3) a (b dlog|z| - a dlog|1-z|). Here darg z means the globally defined one-form v |-> Im(v/z), not a derivative of the discontinuous principal argument. The formula holds also for real z > 1.",
+      "hypotheses": [
+        "z != 0 and z != 1; the derivative is over R, not C.",
+        "P.1 uses B_1 = -1/2 and beta_2 = 1/3: L_3 = Re(Li_3 - a Li_2 + (a^2/3) Li_1)."
+      ],
+      "proofSteps": [
+        "Expand the existing P.1 single-valued definition in weight three. On the principal cut complement set Li_1 = -b - i phi, Li_2 = u + i w, where phi = arg(1-z), and use the classical recursion dLi_3 = Li_2 dz/z and dLi_2 = Li_1 dz/z from P.1/classical-polylogarithm. No higher-weight functional equation or Bloch-group descent is needed.",
+        "By mathlib:Complex.log_re and mathlib:Complex.hasStrictFDerivAt_log_real, locally da[v] = Re(v/z), dtheta[v] = Im(v/z) and db[v] = Re(v/(z-1)). On points outside the slit plane use a rotated local logarithm (its additive branch constant has zero derivative); never apply the baseline log theorem without its slit-plane hypothesis.",
+        "Differentiate Re(Li_3 - a Li_2 + (a^2/3) Li_1). The u da terms cancel. The dtheta coefficient is -(w+a phi) = -D by P.1/bloch-wigner-dilogarithm. The remaining terms are (a b/3) da - (a^2/3) db. This is the n=3 case of Goncharov Proposition 4.1 after converting Lhat_2 = iD; equation (15) supplies the correction term.",
+        "P.1/single-valued-polylogarithm and P.1/branch-change-and-monodromy supply smoothness across the principal cut. Extend the identity to each point of (1,infinity): both the derivative of the smooth L_3 and the displayed continuous one-form are continuous on C minus {0,1}, and equality on the dense cut complement implies equality there. This does not differentiate principal arg across its cut.",
+        "State differentiability together with the equality for all real tangent vectors, so totalisation of mathlib:fderiv cannot make a false derivative statement hold. Promote this item of the P.1 API to this theorem node and cite it in the existing P.6 test suite."
+      ],
+      "acceptance": [
+        "The coefficient is exactly 1/3 and the angular term is -D, after accounting for both factors of i in Goncharov’s convention.",
+        "The only excluded points are 0 and 1; in particular z=2 is covered.",
+        "The formula produces the exact half-point, cut-point and unit-circle identities of trilogarithm-differential-regression-tests.",
+        "This proves only the pointwise weight-three differential; it does not assert the general-weight differential or remove other stages’ source gaps."
+      ],
+      "uses": [
+        {
+          "where": "Polylogarithms:P.1/single-valued-polylogarithm API",
+          "how": "Supplies the previously missing singleValuedPolylog_three_differential without redefining L_n."
+        },
+        {
+          "where": "Polylogarithms:P.6/tests, weight-three check",
+          "how": "Replaces the finite-difference-only evidence by an exact analytic identity."
+        }
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/single-valued-polylogarithm",
+        "Polylogarithms:P.1/branch-change-and-monodromy",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "mathlib:DifferentiableAt",
+        "mathlib:fderiv",
+        "mathlib:Complex.log_re",
+        "mathlib:Complex.hasStrictFDerivAt_log_real"
+      ],
+      "planet": {
+        "name": "Single-valued trilogarithm differential"
+      },
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Differential",
+        "namespace": "TauCeti.Polylog"
+      },
+      "sources": [
+        {
+          "sourceId": "Goncharov.2000.explicit",
+          "locator": "arXiv math/0003086v1, §4 Proposition 4.1, equation (28), printed pp. 17–20; §2 equations (15) and the coefficients on printed p. 3",
+          "match": "Specialise the proved differential equation to n = 3. The source uses Lhat_2 = i D and d i arg = i darg, so their product is -D darg; beta_2 = 1/3 and Lhat_{1,2} = log|z| alpha(1-z,z). This gives exactly the real-valued convention of the imported P.1 object."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "Polylogarithms:P.6/trilogarithm-differential-regression-tests",
+      "parentStageId": "Polylogarithms:P.6",
+      "realises": [
+        "Polylogarithms:P.6"
+      ],
+      "title": "Exact trilogarithm differential checks",
+      "kind": "application",
+      "statement": "The five exact tests listed below are consequences of the real differential theorem, each including differentiability at its test point. They supplement the imported P.6 suite and certify the real-linear derivative, its normalisation and its domain; no numerical differentiation is used as proof.",
+      "hypotheses": [
+        "The L_3 and D conventions and domain are those of the differential theorem."
+      ],
+      "proofSteps": [
+        "At z=1/2, a=b=-log 2, D=0, v/z=2v and v/(z-1)=-2v, giving (4/3)(log 2)^2 Re(v).",
+        "At z=2, a=log 2, b=0, D=0 and v/(z-1)=v, giving -(1/3)(log 2)^2 Re(v). Differentiability comes from the theorem even though z is on the principal polylogarithm cut.",
+        "At z=-1, a=0 and D=0 because D vanishes on the reals; hence the derivative is zero.",
+        "On norm z=1, a=0; v=z has Im(v/z)=0 and v=i z has Im(v/z)=1. Thus the radial derivative vanishes and the angular derivative is -D(z).",
+        "Specialise to z=i: angular direction i*i=-1 and radial direction i. Positivity of D in the upper half-plane, imported from P.1/bloch-wigner-dilogarithm, makes the angular derivative strictly negative."
+      ],
+      "acceptance": [
+        "L_3 is real-differentiable at z = 1/2, and for every v in C, dL_3(1/2)[v] = (4/3)(log 2)^2 Re(v).",
+        "L_3 is real-differentiable at z = 2, and for every v in C, dL_3(2)[v] = -(1/3)(log 2)^2 Re(v). Thus the theorem cannot exclude the whole principal branch cut.",
+        "L_3 is real-differentiable at z = -1, and its real Fréchet derivative is zero.",
+        "For norm z = 1 and z != 1, L_3 is real-differentiable at z; dL_3(z)[z] = 0 and dL_3(z)[i z] = -D(z). These are respectively the radial and positively oriented angular directions.",
+        "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-dilogarithm."
+      ],
+      "tests": [
+        {
+          "name": "trilog_diff_half",
+          "kind": "computation",
+          "statement": "L_3 is real-differentiable at z = 1/2, and for every v in C, dL_3(1/2)[v] = (4/3)(log 2)^2 Re(v)."
+        },
+        {
+          "name": "trilog_diff_on_cut",
+          "kind": "non-example",
+          "statement": "L_3 is real-differentiable at z = 2, and for every v in C, dL_3(2)[v] = -(1/3)(log 2)^2 Re(v). Thus the theorem cannot exclude the whole principal branch cut."
+        },
+        {
+          "name": "trilog_diff_minus_one",
+          "kind": "degenerate",
+          "statement": "L_3 is real-differentiable at z = -1, and its real Fréchet derivative is zero."
+        },
+        {
+          "name": "trilog_diff_unit_circle",
+          "kind": "characterisation",
+          "statement": "For norm z = 1 and z != 1, L_3 is real-differentiable at z; dL_3(z)[z] = 0 and dL_3(z)[i z] = -D(z). These are respectively the radial and positively oriented angular directions."
+        },
+        {
+          "name": "trilog_diff_i_sign",
+          "kind": "non-example",
+          "statement": "L_3 is real-differentiable at i; dL_3(i)[-1] = -D(i) < 0, while dL_3(i)[i] = 0. D(i) > 0 is supplied by P.1/bloch-wigner-dilogarithm."
+        }
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.6/single-valued-trilogarithm-differential",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "mathlib:DifferentiableAt",
+        "mathlib:fderiv"
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Differential",
+        "namespace": "TauCeti.Polylog"
+      },
+      "sources": [
+        {
+          "sourceId": "Goncharov.2000.explicit",
+          "locator": "arXiv math/0003086v1, §4 Proposition 4.1, equation (28), printed pp. 17–20; §2 equations (15) and the coefficients on printed p. 3",
+          "match": "Derived exact specialisations of the n=3 case of Proposition 4.1; these test points are chosen here, not claimed to be examples printed in the source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Shared completed global-unit map, strong Leopoldt statement and defect",
+      "supplier": "IntegralIwasawaTheory:I.2",
+      "disposition": "Import the requested early owner interface. The old P.6/leopoldt-statement node is a consumer adapter, not the owner; its stale use claiming ownership in P.6 is superseded by this boundary."
+    },
+    {
+      "target": "p-adic regulator matrix, rank and totally real determinant",
+      "nodes": [
+        "Polylogarithms:P.6/padic-regulator"
+      ],
+      "disposition": "Reuse the accepted node, its five API items and its four tests; index the columns by all degree(K) embeddings, not merely by places."
+    },
+    {
+      "target": "Leopoldt / regulator equivalence",
+      "nodes": [
+        "Polylogarithms:P.6/leopoldt-equivalence"
+      ],
+      "disposition": "Reuse the accepted equivalence, with the shared statement imported from I.2 and logarithms from D.1; compare the torsion-free completed module and account for p-primary torsion separately."
+    },
+    {
+      "target": "Exact five-term, certified numerical error, real-place cancellation and boundary certification",
+      "nodes": [
+        "Polylogarithms:P.6/tests",
+        "Polylogarithms:P.1/bloch-wigner-five-term",
+        "Polylogarithms:P.2/certified-numerics-error",
+        "Polylogarithms:P.2/weight-two-regulator",
+        "K3BlochGroups:V.6/bloch-element-constructor",
+        "K3BlochGroups:V.6/five-term-certificate"
+      ],
+      "disposition": "Reuse the accepted nodes. The V.6 nodes already supply certificate constructors, so no duplicate certificate definition or new stage request is made."
+    },
+    {
+      "target": "Weight-three pointwise differential and curve current identity",
+      "nodes": [
+        "Polylogarithms:P.6/single-valued-trilogarithm-differential",
+        "Polylogarithms:P.6/trilogarithm-differential-regression-tests",
+        "Polylogarithms:P.5/weight-three-curve-regulator"
+      ],
+      "disposition": "The new differential fills the sole local remaining target. The separate current identity remains supplied by P.5; its source and analytic infrastructure are not replanned here."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "IntegralIwasawaTheory:I.2",
+      "need": "Own the early completed global-to-local unit map, the strong Leopoldt injectivity proposition and defect delta_{K,p}=rank(E_K modulo torsion)-rank of the logarithmic image. Supply the comparison between completed local units and principal-unit logarithms, with prime-to-p projection or powering and p-primary torsion explicit (especially p=2). An ordinary unit does not itself lie canonically in U_v^1. Give the torsion-free rationalised rank formulation and identify it with completed-map injectivity after torsion is checked. Distinguish strong Leopoldt from weak cyclotomic Leopoldt. This interface has no dependency on polylogarithms or Zagier infrastructure.",
+      "neededBy": [
+        "Polylogarithms:P.6/leopoldt-equivalence",
+        "Polylogarithms:P.6/leopoldt-statement"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.1",
+      "need": "Iwasawa logarithm on the algebraic closure of Q_p (or C_p), with the normalisation log_p(p)=0, compatibility with finite extension embeddings and homomorphism on units; its kernel on algebraic local units consists of roots of unity. Supply the finite-extension principal-unit/rationalised rank comparison, tracking its finite torsion kernel rather than assuming integral injectivity. P.6 reuses this analytic function, not a new Coleman logarithm.",
+      "neededBy": [
+        "Polylogarithms:P.6/padic-regulator",
+        "Polylogarithms:P.6/leopoldt-equivalence"
+      ]
+    },
+    {
+      "supplier": "IntegralIwasawaTheory:L4",
+      "need": "The proved abelian strong-Leopoldt case via Baker–Brumer, expressed using I.2’s early shared proposition; use as a special-case test, not as a proof for arbitrary number fields.",
+      "neededBy": [
+        "Polylogarithms:P.6/leopoldt-equivalence"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "Polylogarithms:P.6",
+      "status": "planned",
+      "remaining": [
+        "Bind the inherited P.6 Leopoldt-equivalence adapter to declaration-level nodes for I.2’s completed map, strong proposition and defect, and D.1’s logarithmic comparison when those supplier interfaces are delivered.",
+        "At assembly treat the old P.6/leopoldt-statement as an I.2 import and remove its stale ownership sentence and planet from P.6. Retain the regulator equivalence and tests; add the I.2 -> P.6 edge without a reverse dependency.",
+        "At assembly add the new differential prerequisite to the old P.6/tests node and remove only the weight-three differential clause of its source gap. Preserve the general-weight, higher-Bloch descent and P.5 current/source obligations belonging to their own stages."
+      ]
+    }
+  ],
+  "gaps": [],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "Polylogarithms",
+        "IntegralIwasawaTheory",
+        "AutomorphicPadicLFunctions"
+      ],
+      "detail": "Confirmed RT-AREA-ktheory-2/26: the shared strong-Leopoldt map and defect cannot be owned behind P.4’s Zagier infrastructure; the original P.6 node has an obsolete ownership sentence despite an existing I.2 request.",
+      "proposal": "I.2 owns the completed map, strong proposition and defect. I.2 -> L4, I.2 -> AutomorphicPadicLFunctions:L0 and I.2 -> P.6 supply the three consumers. P.6 keeps padic-regulator, leopoldt-equivalence and polylogarithm tests. The old statement node becomes an imported adapter; its planet belongs at I.2. P.4 is not a mathematical prerequisite of this interface or of the pointwise trilogarithm differential."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0003086v1",
+      "read": "2026-10-06",
+      "sha256": "47a616bada4abeaee1672679593e5b69e6d293b2cf98e08de6b726072f9a69ea",
+      "detail": "Only this preprint was read. A published version was not obtained; the finding is confined to this version."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "Polylogarithms/E22",
+      "source": "Goncharov.2000.explicit",
+      "kind": "misprint",
+      "locator": "arXiv math/0003086v1, §2 item 1, first displayed definition of Lhat_n, printed p. 3 (PDF page 4)",
+      "printed": "log^{n-k}|z|",
+      "correction": "The exponent is k: sum_{k=0}^{n-1} beta_k Li_{n-k}(z) log^k|z|.",
+      "reason": "Equation (33), printed p. 19, uses exponent k. The example Lhat_2=iD immediately below the first display also forces powers 0 and 1 rather than 2 and 1. The page image was checked, so this is not a text-extraction artifact.",
+      "affects": "nothing",
+      "known": "The intended formula is already printed correctly in the same preprint, equation (33); no external corrigendum was established.",
+      "searched": [
+        "arXiv abstract/version record math/0003086 (only v1 located)",
+        "MPIM preprint listing 2000(70)",
+        "Author publication listing and publisher searches for the paper/corrections; published full text not obtained"
+      ]
+    }
+  ],
+  "upstreamStyle": [
+    "Read in full: content/tau-ceti/ConformalMapping/README.md and content/tau-ceti/ArithmeticDirichletSeries/README.md. Their definitions, normalisations, named results and exact acceptance instances guide the reader and prototype."
+  ]
+}
