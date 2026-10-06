@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3649,
+  "stages": 3651,
   "originalStages": 2098,
-  "sourceRefinements": 1551,
+  "sourceRefinements": 1553,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,7 +334,7 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3548,
+  "mathematicalStars": 3550,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
@@ -681,6 +681,12 @@
       "reviewer": "independent-review-REV-HabiroNahmSeries--HB.8"
     },
     {
+      "file": "HabiroNahmSeries--HB.9",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 18,
+      "reviewer": "independent-review-REV-HabiroNahmSeries--HB.9"
+    },
+    {
       "file": "HabiroNahmSeries",
       "roadmap": "HabiroNahmSeries",
       "nodes": 109,
@@ -862,8 +868,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32581328,
-  "htmlSha256": "b70bf4bdfcc2c457e384fdc25bac9f5e03b62cf39ed1e185c7f5055fab0ac4d5",
+  "htmlBytes": 32588069,
+  "htmlSha256": "374bea802e73fcc169b789020ad8fc135bc1b83a0c8b44bf4248f9d94280e92f",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -894,7 +900,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "110860c06929667caa9f5089d38ddc9022aa26f5f888475b357b482546e5cced",
+    "data/roadmap-distances.json": "326c59448268340994d8fa9668f88d8acd5d2f693ee419afcc0ac287c74e34cf",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1064,6 +1070,8 @@
     "data/blueprints/HabiroNahmSeries--HB.5.md": "d25d828a88c3c2105de96e534cf9c6e179f74fe29aab3b91db83d62d8d80831a",
     "data/blueprints/HabiroNahmSeries--HB.8.json": "f27e26504070bd2f274404f77e7f5c960865b4503220880a9b4ead5330b87ad7",
     "data/blueprints/HabiroNahmSeries--HB.8.md": "f5d360773bd8d29ac8921d1456410b35a7cfbeb13fd55a967307c141f0109db5",
+    "data/blueprints/HabiroNahmSeries--HB.9.json": "ac76bceee08834d3103c7cd2b7021ca173e1dc5d1f776d18c40a1e8c7c990917",
+    "data/blueprints/HabiroNahmSeries--HB.9.md": "560e9783554a66b9982bfb460ea2efdbc8b5f8bfd4f4f63b2609763d93284e60",
     "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields--HB.1.json": "be0adb3ecb558ceb825bc7cf30b82ae289ef89e6663700fe9012b67a50416ec5",
