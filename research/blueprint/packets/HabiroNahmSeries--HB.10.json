@@ -1,0 +1,1086 @@
+{
+  "roadmapId": "HabiroNahmSeries",
+  "protocol": "blueprint-v1",
+  "part": "HB.10",
+  "scope": [
+    "HabiroNahmSeries:HB.10"
+  ],
+  "status": "complete",
+  "summary": "This follow-up imports the accepted HB.10 examples and supplies their missing concrete interfaces. It gives reusable quadratic-Gauss Taylor data, exact quartic-coordinate and integral-basis certificates, and a corrected second-root constant for the cubic symmetrisation. The GW all-prime proof has a false auxiliary formula, so full small-prime gluing stays explicit. Étale degree-zero cohomology maps are applied through their owners. Exact quartic torsion, tame-kernel computations, global K3-line supplier gaps, and higher-dimensional comparisons retain precise obligations. Knot-derived matrices remain formal Nahm data, with invariant identification owned by QT.6.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.C",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The constant-series ring homomorphism; not a claim that a constant family glues in a number-field Habiro ring.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient linear map for a one-variable formal power series.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_C",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "coeff n (C a) = if n = 0 then a else 0.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "A ring homomorphism acts coefficientwise on formal power series.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "coeff n (map f phi) = f (coeff n phi).",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.ext",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Equality of all coefficients implies equality of series.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "A root has exact positive order: its m-th power is one and m divides every exponent yielding one.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_two",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant of a Fin 2 matrix is ad minus bc.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.discr_of_matrix_vecMul",
+        "module": "Mathlib/RingTheory/Discriminant.lean",
+        "provides": "An integral change of family multiplies its trace discriminant by the square of the determinant.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RingEquiv.trans",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "Composition of ring equivalences, used to instantiate the supplier comparisons.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RingEquiv.trans_apply",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "Application of a composite ring equivalence is application in the specified order.",
+        "checked": "Statement read in the shared Mathlib source tree at the exact pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:NumberField.discr_eq_of_integralBasis",
+        "module": "TauCeti/NumberTheory/NumberField/Discriminant/OfIntegralBasis.lean",
+        "provides": "The rational trace discriminant of an integral basis equals the field discriminant. Used with the determinant-square change-of-family formula, not to infer an integral basis merely from integrality.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "gswz-v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025, 73 PDF pages",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "read": "2026-10-06",
+      "readSections": [
+        "§§1.4–1.9: coefficient rings, modules and prime restrictions",
+        "§3.3 and §4.1: specialisation and residues",
+        "§§4.2–4.3: cubic and nonabelian quartic examples",
+        "§4.7: quadratic Gauss and Rogers–Ramanujan examples"
+      ]
+    },
+    {
+      "id": "wagner-thesis",
+      "title": "q-Hodge filtrations, Habiro cohomology, and ku",
+      "authors": "Ferdinand Wagner",
+      "edition": "Public author thesis PDF, 230 pages, version fetched 6 October 2026; no date on the title page",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Thesis.pdf",
+      "sha256": "d074047f202ee7e64298801b15327a9a634b6f7b6e4bcd5be7b2fda959ad876c",
+      "read": "2026-10-06",
+      "readSections": [
+        "Part I §2 (printed pp. 27–33), in full",
+        "§3.2 (printed pp. 39–41), in full",
+        "§9.3: homotopical number-field example (screened, not used for a Nahm membership proof)"
+      ]
+    },
+    {
+      "id": "wagner-habiro-2026",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "Author copy dated 14 January 2026, 82 PDF pages",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Habiro.pdf",
+      "sha256": "7c6b0e3106da456baad6c6f416714d6141d7b39e1107affc9d8a5be99bb92075",
+      "read": "2026-10-06",
+      "readSections": [
+        "§2.2, Lemma 2.12 and Corollary 2.13",
+        "§3.2, Corollary 3.13"
+      ]
+    },
+    {
+      "id": "gw-classes-v1",
+      "title": "Explicit classes in Habiro cohomology",
+      "authors": "Stavros Garoufalidis and Campbell Wheeler",
+      "edition": "arXiv:2505.19885v1, 26 May 2025; manuscript dated 21 May 2025, 47 PDF pages",
+      "url": "https://arxiv.org/pdf/2505.19885v1",
+      "sha256": "7e4470b2c038f0cc4663d59739570c116e4c9f10aaad9c3c9c1a81bc938de3e0",
+      "read": "2026-10-06",
+      "readSections": [
+        "§§1.1–1.3: distinction between naive and algebraic Habiro cohomology",
+        "§§1.5–1.6: symmetrisation and push-forward statements",
+        "§§3.1–3.3: proofs of Theorems 1.11, 1.13 and 1.18"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-06",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Thesis.pdf",
+      "read": "2026-10-06",
+      "sha256": "d074047f202ee7e64298801b15327a9a634b6f7b6e4bcd5be7b2fda959ad876c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Habiro.pdf",
+      "read": "2026-10-06",
+      "sha256": "7c6b0e3106da456baad6c6f416714d6141d7b39e1107affc9d8a5be99bb92075"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2505.19885v1",
+      "read": "2026-10-06",
+      "sha256": "7e4470b2c038f0cc4663d59739570c116e4c9f10aaad9c3c9c1a81bc938de3e0"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/stavros/publications/explicit-habiro-cohomology.pdf",
+      "read": "2026-10-06",
+      "sha256": "b054b09d157e0ace3bf35f5b8e21ad26467db64ef37638db49f503dcea53fa27"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNahmSeries:HB.10/rational-gauss-taylor",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "definition",
+      "title": "The rational quadratic-Gauss Taylor family",
+      "statement": "For a positive integer m, define rationalGaussTaylor(m) in Z[[x]] to be the constant power series C(a_m), where a_m = 2 if 4 divides m, a_m = 0 if m is even but 4 does not divide m, and a_m = 1 if m is odd. Its coefficientwise image in R[[x]], for R = Z[1/2], is the rational collection of GSWZ Example 4.4. For every primitive m-th root zeta in C, a_m equals m^-1 times (sum_{k=0}^{m-1} zeta^(k^2)) times (sum_{k=0}^{m-1} zeta^(-k^2)); the family is independent of the choice of primitive root.",
+      "hypotheses": [
+        "m is a positive integer. The Taylor variable is x=q-zeta_m.",
+        "The construction is a constant series at each root, not a single polynomial in q or a Nahm datum over Q."
+      ],
+      "proofSteps": [
+        "Use PowerSeries.C and the three divisibility cases.",
+        "Evaluate the product of the two quadratic sums: orthogonality reduces it to the gcd(m,2) cases, with cancellation in the even-but-not-four-divisible case.",
+        "Transport coefficients by PowerSeries.map. Membership and the obstruction at 2 are proved in rational-gauss-gluing, not baked into this definition."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.C",
+        "mathlib:PowerSeries.coeff_C",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:IsPrimitiveRoot",
+        "HabiroNahmSeries:HB.10/modularity-examples-and-their-lesson"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.7, Example 4.4, (289), printed p. 57",
+          "match": "Specialise the rational example, with the parent correction m congruent to 0 modulo 4."
+        }
+      ],
+      "acceptance": [
+        "The values at m=1,2,4 are 1,0,2.",
+        "All positive-degree coefficients vanish.",
+        "The complex quadratic-sum formula agrees for every primitive root, not just the usual exp(2 pi i/m)."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "GSWZ Example 4.4 and the parent modularity-examples-and-their-lesson",
+          "how": "Provides a literal rational example with no false claim about a rational Nahm solution."
+        },
+        {
+          "where": "rational-cohomology-class and HabiroRings:HR.6",
+          "how": "Its gluing gives a degree-zero cohomology coefficient whose different root components remain visible."
+        }
+      ],
+      "api": [
+        {
+          "name": "rationalGaussTaylor_eq",
+          "role": "characterisation",
+          "statement": "The series is C(2), C(0) or C(1) in the three divisibility cases stated in the definition."
+        },
+        {
+          "name": "rationalGaussTaylor_coeff_zero",
+          "role": "simp",
+          "statement": "Its constant coefficient is the integer a_m."
+        },
+        {
+          "name": "rationalGaussTaylor_coeff_succ",
+          "role": "simp",
+          "statement": "Every coefficient of degree n+1 is zero."
+        },
+        {
+          "name": "rationalGaussTaylor_map",
+          "role": "compatibility",
+          "statement": "For every commutative ring R, PowerSeries.map(Int.castRingHom R) sends the family to C((a_m)_R)."
+        },
+        {
+          "name": "rationalGaussTaylor_gauss_product",
+          "role": "compatibility",
+          "statement": "Under Z to C, the family equals the constant series of the normalised product of the quadratic sums for every primitive m-th root."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rationalGaussTaylor_one",
+          "kind": "computation",
+          "statement": "rationalGaussTaylor(1)=C(1)."
+        },
+        {
+          "name": "rationalGaussTaylor_two",
+          "kind": "computation",
+          "statement": "rationalGaussTaylor(2)=C(0), so the even case is not uniformly 2."
+        },
+        {
+          "name": "rationalGaussTaylor_four",
+          "kind": "computation",
+          "statement": "rationalGaussTaylor(4)=C(2), so it is not the parity indicator."
+        },
+        {
+          "name": "rationalGaussTaylor_positive_degree",
+          "kind": "degenerate",
+          "statement": "The degree-one coefficient at m=4 is zero; m=0 is outside the declared domain."
+        },
+        {
+          "name": "rationalGaussTaylor_complex_four",
+          "kind": "compatibility",
+          "statement": "For zeta=i, the two sums are 2+2i and 2-2i and their product divided by 4 is 2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/Nahm/Examples/Gauss",
+        "namespace": "HabiroNahmExamples"
+      },
+      "planet": {
+        "name": "Quadratic Gauss sum"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/rational-gauss-gluing",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "theorem",
+      "title": "Odd-prime gluing and the obstruction at 2",
+      "statement": "For every odd prime p and positive integer m, rationalGaussTaylor(pm)=rationalGaussTaylor(m). Consequently its image in the coefficient ring Z[1/2] satisfies every GSWZ gluing equation and is an element of H_{Z[1/2]}. The same family does not lie in H_Z: the p=2,m=1 equation would assert 1=0 in Z_2[[x]].",
+      "hypotheses": [
+        "Primitivity and compatibility of the roots are those of GSWZ (7).",
+        "Frobenius on Z_p is the identity. Re-expansion of a constant series is itself."
+      ],
+      "proofSteps": [
+        "Multiplication by an odd integer preserves the 2-adic valuation of m, hence the three cases defining a_m.",
+        "For p odd the GSWZ gluing (13) is exactly equality of these constants. For p=2 the completion of Z[1/2] is zero.",
+        "Over Z, use a_1=1 and a_2=0 to exhibit the failed equation."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/rational-gauss-taylor",
+        "HabiroNumberFields:HB.6/the-gluing-condition"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.7, Example 4.4, (289), p. 57",
+          "match": "The finite-case argument supplies the missing exact local certificate and shows why 2 is inverted."
+        }
+      ],
+      "acceptance": [
+        "Test p=3,m=2 and p=3,m=4: values stay 0 and 2.",
+        "The m=1-to-2 edge is an actual non-example over Z.",
+        "No class in H_Z is inferred from the integrality of each individual component."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/quartic-coordinate-vector",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "definition",
+      "title": "The selected quartic Nahm solution vector",
+      "statement": "For a characteristic-zero field K and u satisfying u^4+u^3+3u^2-3u-1=0, define quarticCoordinates(u) in K^2 by z_0=u and z_1=(-9u^3-6u^2-25u+37)/5. This is the orbit (257) of GSWZ, not the different orbit (258). The polynomial-root hypothesis is an explicit input; the distinguished real embedding is supplied by the parent nonabelian-quartic-example.",
+      "hypotheses": [
+        "K is a characteristic-zero field.",
+        "u is a specified root of the displayed quartic; the polynomial is not silently changed to the S4-orbit polynomial."
+      ],
+      "proofSteps": [
+        "Define the two coordinates by the displayed expressions. Characteristic zero makes 5 invertible.",
+        "Functoriality follows because field maps preserve rational constants and inverses.",
+        "Projection to the first coordinate recovers u, giving extensionality. Correctness as a Nahm solution and non-degeneracy are quartic-coordinate-certificate."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/nonabelian-quartic-example"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.3, (256)–(258), printed p. 51",
+          "match": "Take the coordinate formula of (257) literally; do not combine the two orbits."
+        }
+      ],
+      "acceptance": [
+        "The first coordinate recovers the selected primitive element.",
+        "A formula omitting the denominator 5 fails the second-coordinate test.",
+        "A non-root cannot be used to assert the Nahm equations."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "GSWZ (256)–(263)",
+          "how": "The chosen vector supplies the Bloch symbol sum, the Hessian discriminant and the coefficient field."
+        },
+        {
+          "where": "quartic-module-export",
+          "how": "The exact solution and nonzero discriminant are inputs to the general membership theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "quarticCoordinates_zero",
+          "role": "projection",
+          "statement": "The first coordinate is u."
+        },
+        {
+          "name": "quarticCoordinates_one",
+          "role": "projection",
+          "statement": "The second coordinate is (-9u^3-6u^2-25u+37)/5."
+        },
+        {
+          "name": "quarticCoordinates_ext",
+          "role": "extensionality",
+          "statement": "For two admitted roots u and u-prime, their coordinate vectors agree if and only if u=u-prime."
+        },
+        {
+          "name": "quarticCoordinates_map",
+          "role": "functoriality",
+          "statement": "For any field homomorphism K to L, mapping the two coordinates equals the vector of the image root; this agrees with the ordinary pointwise map K^2 to L^2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quarticCoordinates_first_equation",
+          "kind": "characterisation",
+          "statement": "For every admitted root, 1-z_0=z_0^8 z_1^5."
+        },
+        {
+          "name": "quarticCoordinates_second_equation",
+          "kind": "characterisation",
+          "statement": "For every admitted root, 1-z_1=z_0^5 z_1^4."
+        },
+        {
+          "name": "quarticCoordinates_missing_five",
+          "kind": "non-example",
+          "statement": "The second coordinate is not -9u^3-6u^2-25u+37. The latter is five times the nonzero coordinate."
+        },
+        {
+          "name": "quarticCoordinates_zero_not_root",
+          "kind": "degenerate",
+          "statement": "u=0 over Q fails the root hypothesis because the quartic evaluates to -1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Habiro/Nahm/Examples/Quartic",
+        "namespace": "HabiroNahmExamples"
+      },
+      "planet": {
+        "name": "Nonabelian quartic example"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/quartic-coordinate-certificate",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "theorem",
+      "title": "An exact certificate for the quartic Nahm equations and Hessian",
+      "statement": "For z=quarticCoordinates(u), set v=z_1 and d=(753-505u-124u^2-186u^3)/5. Both Nahm equations 1-u=u^8v^5 and 1-v=u^5v^4 hold. The four elements u,v,1-u,1-v are nonzero, and d is nonzero with inverse (18+45u-44u^2+9u^3)/475. Moreover (1-u)(1-v)((8+u/(1-u))(4+v/(1-v))-25)=d u^8v^4. Thus d is precisely delta for A=((8,5),(5,4)) under GSWZ (36), not the bare determinant of A.",
+      "hypotheses": [
+        "K,u are as in quartic-coordinate-vector.",
+        "The equality is for the GSWZ discriminant, including the factor u^-8 v^-4."
+      ],
+      "proofSteps": [
+        "Reduce the two Nahm-equation numerators modulo u^4+u^3+3u^2-3u-1.",
+        "The quartic excludes u=0 and u=1; the equations then exclude v=0 and v=1.",
+        "Multiply d by the displayed inverse and reduce modulo the quartic to obtain 1.",
+        "Expand the 2 by 2 determinant using Matrix.det_fin_two, multiply by (1-u)(1-v), and reduce the numerator modulo the quartic."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/quartic-coordinate-vector",
+        "mathlib:Matrix.det_fin_two"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.3, (256), (257) and (261)–(262), pp. 51–52",
+          "match": "The exact polynomial-reduction identities certify the hypotheses of the parent membership application."
+        }
+      ],
+      "acceptance": [
+        "The discriminant inverse identity can be verified over the polynomial quotient before choosing an embedding.",
+        "det A=7 is not d.",
+        "There is no appeal to decimal recognition to establish either Nahm equation."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/quartic-integral-basis",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "theorem",
+      "title": "An integral basis for the selected quartic field",
+      "statement": "For F=Q(u) from the parent nonabelian-quartic-example, put e=(u^3-u^2+2)/5. Then (1,u,u^2,e) is an integral basis of O_F. It has trace Gram matrix ((4,-1,-5,6),(-1,-5,17,-4),(-5,17,-1,-15),(6,-4,-15,14)), determinant -475. Thus [O_F:Z[u]]=5 and the quartic polynomial discriminant -11875 is not the field discriminant. The element e satisfies e^2-3e+1=0, and v=-9e-3u^2-5u+11 is integral. The norms of u,v,1-u,1-v are -1,1,1,-1 and the norm of delta is 9025=5^2*19^2.",
+      "hypotheses": [
+        "F has the presentation, degree four and field discriminant -475 supplied by the parent example.",
+        "The coordinates and delta are those of quartic-coordinate-certificate."
+      ],
+      "proofSteps": [
+        "Reduce e^2-3e+1 modulo the quartic. The vectors 1,u,u^2,e are independent because the change from the power basis has determinant 1/5.",
+        "Compute all products in this lattice: u^3=-2+u^2+5e; ue=1+u-u^2-2e; u^4=3+3u-4u^2-5e; u^2e=-u+2u^2-e; e^2=-1+3e. Hence it is an integral order.",
+        "Use field traces from the multiplication matrices to obtain the displayed Gram matrix. Compare its discriminant with the field discriminant using an existing integral basis and Algebra.discr_of_matrix_vecMul. The integral transition determinant has square 1, so is a unit, and the order is O_F.",
+        "Evaluate norms by determinants of multiplication. The powers-basis discriminant differs by the index square 25."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/quartic-coordinate-certificate",
+        "HabiroNahmSeries:HB.10/nonabelian-quartic-example",
+        "mathlib:Algebra.discr_of_matrix_vecMul",
+        "tauceti:NumberField.discr_eq_of_integralBasis"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.3, (257), printed p. 51",
+          "match": "This explicit lattice certificate refines the stated field discriminant; the basis itself is derived here, not quoted from the paper."
+        }
+      ],
+      "acceptance": [
+        "e is integral although its written expression has a denominator 5.",
+        "The trace determinant is -475, whereas the polynomial discriminant is -11875.",
+        "The displayed delta inverse is (18+45u-44u^2+9u^3)/475, consistent with norm 9025."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Quartic integral basis"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/cubic-laurent-symmetrisation",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "theorem",
+      "title": "The cubic symmetrisation as a Gaussian-binomial series",
+      "statement": "In Q(q)[[t]], the GSWZ rank-one A=(3) series F_3(t,q) satisfies F_3(t,q)F_3(t,q^-1)=sum_{k>=0} q^(-k(k+1)) [3k+2 choose k]_q t^k. Every coefficient in t lies in Z[q,q^-1]. The k=1 coefficient is q^-2+q^-1+1+q+q^2. This equality concerns the formal t-series; specialisation t=1 uses algebraic continuation of its cyclotomic Taylor coefficients, not summation of this t-series at 1.",
+      "hypotheses": [
+        "Use the GSWZ normalisation F_3=sum (-1)^n q^(3n(n+1)/2)t^n/(q;q)_n.",
+        "The Gaussian polynomial is the existing QM.0 object, and has nonnegative upper index 3k+2."
+      ],
+      "proofSteps": [
+        "Apply the finite q-binomial theorem, imported from QM.0, to the convolution of the coefficients of F_3(t,q) and F_3(t,q^-1).",
+        "Rewrite (q^-1;q^-1)_l=(-1)^l q^(-l(l+1)/2)(q;q)_l, then collect the total t-degree.",
+        "Specialise Garoufalidis–Wheeler (47) to A=3: both signs become positive and the exponent becomes -k(k+1).",
+        "Use the Gaussian polynomial integrality from QM.0 to get Laurent-integral t-coefficients."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/rank-one-product-identities",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "gw-classes-v1",
+          "locator": "Proposition 1.14, (47), printed p. 11; proof (173), p. 30",
+          "match": "Take the scalar A=3 case of the integral formula, which avoids inverse square roots and the module theorem."
+        }
+      ],
+      "acceptance": [
+        "At q=1 the t coefficient is 5; at q=-1 it is 1.",
+        "At q=-1 the t^2 coefficient is 4, providing the root-expansion counterexample below.",
+        "The formal equality does not justify evaluating t=1 in an infinite t-series."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cubic symmetrisation"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/cubic-root-constant",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "theorem",
+      "title": "The corrected constant term at the second root of unity",
+      "statement": "Write t=T^2 and let z(t) be the formal root z=1+t z^3 with z(0)=1. Put delta(t)=z(t)^-3(3-2z(t)). The q=-1 constant term of the Laurent series in cubic-laurent-symmetrisation is (z(t)^-1+T)/delta(t), not (1+T)/delta(t). Its T-expansion starts 1+T+4T^2+5T^3+21T^4+28T^5. After algebraic specialisation t=1 and z^3-z+1=0, its constant is (z^-1+1)/delta, with delta=-z^2-z-2. More generally q-Lucas gives a finite numerator delta(t)^-1 sum_{l=0}^{m-1} z(t)^(a_l-2) zeta_m^(-l(l+1)) [b_l choose l]_{zeta_m} T^l, where T^m=t, a_l=floor((3l+2)/m), b_l=(3l+2) mod m.",
+      "hypotheses": [
+        "m is positive; 0<=a_l<=2. Gaussian coefficients with b_l<l vanish.",
+        "The general finite numerator needs the requested q-Lucas evaluation from QM.0. The m=2 counterexample is already a direct polynomial evaluation."
+      ],
+      "proofSteps": [
+        "For q=-1, [6h+2 choose 2h]_-1=binom(3h+1,h) and [6h+5 choose 2h+1]_-1=binom(3h+2,h).",
+        "Differentiate the Lagrange relation z=1+t z^3 to obtain sum_h binom(3h+a,h)t^h=z^(a+1)/(3-2z), for a=0,1,2. These give the two terms z^-1/delta and T/delta.",
+        "For a general m apply q-Lucas to k=mh+l and the same three ordinary binomial generating functions; keep the factor z^(a_l-2).",
+        "Specialisation is coefficientwise in the finite algebraic expression. It does not claim full small-prime gluing."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/cubic-laurent-symmetrisation",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "QSeriesPartitionsAndMockModularForms:QM.0",
+        "HabiroNahmSeries:HB.10/cubic-example"
+      ],
+      "sources": [
+        {
+          "sourceId": "gw-classes-v1",
+          "locator": "§3.2, (182), printed p. 31",
+          "match": "The printed numerator is missing algebraic z-factors. Use the corrected scalar calculation, source issue HabiroNahmSeries/E64."
+        }
+      ],
+      "acceptance": [
+        "The T^2 coefficient is 4, not 5.",
+        "For m=1 the finite numerator is 1/delta(t), as required.",
+        "The concrete m=2 specialisation agrees with the root-average residue in GSWZ (220) at t=1."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/cubic-small-prime-criterion",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "application",
+      "title": "The precise small-prime gluing obligation for the cubic example",
+      "statement": "Let R=Z[z,1/23], z^3-z+1=0, and let Psi_{3,mu,nu,z,m}(x) be the parent residue-descendant collection. For mu=nu=0 its m=1 coefficients are (2z^2+3z-9)/23, 0, and (-6477z^2-5311z+4318)/23^4 in degrees 0,1,2. For every pair (mu,nu), if (i) all coefficients of every component lie in R[zeta_m] and (ii) the GSWZ Frobenius re-expansion equation holds in R-hat_p[zeta_pm][[x]] for p=2 and p=3 and every m, then Psi_{3,mu,nu,z} belongs to H_R. At primes other than 2,3,23 use the imported proof over R[1/6]; at 23 the completion is zero. These two missing local inputs are required even for the unshifted collection; finite coefficient checks and the corrected m=2 constant do not prove them. Garoufalidis–Wheeler Theorem 1.13 offers an unshifted route, with its root-expansion proof requiring the repair of (182).",
+      "hypotheses": [
+        "The cubic ring is the full ring of integers with 23 inverted, by the parent cubic-example.",
+        "The residue definition uses the parent corrected q-difference recursions, and has independent integer descendant indices mu,nu.",
+        "No square root of delta or K3 comparison is needed for the symmetrised residue target."
+      ],
+      "proofSteps": [
+        "Use delta^-1=(2z^2+3z-9)/23 and z^-1=1-z^2, so the algebraic specialisation lands in R.",
+        "Import the prime-to-six descendant result and the Frobenius gluing definition. A coefficient in R[1/6] that is integral at both 2 and 3 lies in R.",
+        "Check the two additional local equations at all m, then combine with the already proved prime-to-six equations to satisfy the definition of H_R.",
+        "For the unshifted case repair GW (182) using cubic-root-constant; prove the higher cyclotomic coefficients belong to the localized cubic étale algebra, and justify the p-completed coefficientwise identification. These steps remain the recorded gap.",
+        "For independent shifted descendants supply their own integral recurrences and gluing proof; membership of the unshifted product alone is insufficient."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/cubic-root-constant",
+        "HabiroNahmSeries:HB.10/cubic-example",
+        "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
+        "HabiroNumberFields:HB.6/the-gluing-condition",
+        "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "Theorem 12 and Example 4.1, (231), printed p. 47",
+          "match": "The thesis was now read, but supplies no identified residue-descendant proof. The p>3 limitation in Remark 1.8 remains relevant."
+        },
+        {
+          "sourceId": "gw-classes-v1",
+          "locator": "Theorem 1.13, p. 11; proof pp. 30–31",
+          "match": "A possible independent unshifted route, with the erroneous auxiliary formula scoped in E64; it is not an all-descendant theorem."
+        }
+      ],
+      "acceptance": [
+        "The known rigorous coefficient ring for the imported argument is R[1/6].",
+        "To reduce that ring to R, both p=2 and p=3 equations are checked, including orders divisible by 2 or 3.",
+        "The first-three-coefficient test is retained as a test rather than promoted to a global proof."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "comparison",
+      "title": "The actual degree-zero export of a Nahm symmetrisation",
+      "statement": "Let K be a number field, let Delta contain its ramified primes, and set R=O_K[1/Delta]. Import kappa_R:H_{R/Z} isomorphic to H_R from HR.5 and d_R:qHdg_{R/Z} equivalent to H_{R/Z} from HR.6. Since the étale Habiro–Hodge complex is concentrated in degree zero, eta_R=H^0(d_R)^-1 composed with kappa_R^-1 is a Z[q]-algebra isomorphism H_R to H^0(qHdg_{R/Z}). For every Nahm symmetrisation s whose H_R-membership has actually been supplied, eta_R(s) is its degree-zero cohomology coefficient. The completion square with H_R to R[[q-1]] and qHdg to its (q-1)-completion commutes, and each cyclotomic Taylor component and Frobenius re-expansion is preserved. Constant families of arbitrary elements of R are not used to define an R-algebra structure on H_R.",
+      "hypotheses": [
+        "Use the global Habiro–Hodge descent qHdg, not only the completed q-Hodge complex.",
+        "R is étale over Z after the stated localization; the source comparisons apply to extra inverted primes as supplied by the HR.5 node.",
+        "For the general GSWZ symmetrisation route also require 6|Delta and delta to be a unit in R. Reducing that localization is a separate result."
+      ],
+      "proofSteps": [
+        "Import the number-field ring comparison and the étale degree-zero identification; do not reconstruct either owner theory.",
+        "Compose the two supplier isomorphisms in the displayed order. Apply the result to the supplied element s.",
+        "Their naturality and uniqueness of étale lifts identify every completion and quotient map; the equalizer Taylor projections identify the re-expansion/Frobenius arrows.",
+        "At q=1 the target is R[[q-1]], via completion. No equality with a higher-dimensional cohomology theory follows from this ring map."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+        "HabiroRings:HR.6/the-degree-zero-identification",
+        "HabiroRings:HR.5/the-equaliser-presentation",
+        "HabiroCohomologyFoundations:HQ.5/the-export-to-the-coefficient-roadmap",
+        "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
+        "mathlib:RingEquiv.trans",
+        "mathlib:RingEquiv.trans_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "wagner-thesis",
+          "locator": "Corollary 2.13, printed p. 33; Corollary 3.13, p. 41",
+          "match": "The explicit composite is an application of the coefficient-ring owners, resolving the old blanket no-export-map gap in relative dimension zero."
+        }
+      ],
+      "acceptance": [
+        "The map sends 1 to 1 and is multiplicative.",
+        "All Taylor components agree under the isomorphism, whereas completion at q=1 alone loses other components.",
+        "The coefficient ring is the same R on both sides; no plain uncompleted tensor-product base-change formula is substituted."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/rational-cohomology-class",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "application",
+      "title": "The rational Gauss coefficient in degree-zero Habiro cohomology",
+      "statement": "Take R=Z[1/2] and the element g with Taylor family rationalGaussTaylor. Applying eta_R gives a class g_H in H^0(qHdg_{R/Z}) whose Taylor constants at orders 1,2,4 are respectively 1,0,2 and whose positive-degree coefficients vanish. Its q=1 completion is 1. This identifies a rational coefficient-ring example with an actual degree-zero class and does not assert a rational Nahm solution, a modularity theorem or a higher-degree cohomology class.",
+      "hypotheses": [
+        "The gluing certificate supplies g in H_R before applying eta_R."
+      ],
+      "proofSteps": [
+        "Use rational-gauss-gluing for membership.",
+        "Instantiate etale-nahm-cohomology-export with K=Q and Delta=2.",
+        "Read off the Taylor components from preservation of the equalizer projections."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/rational-gauss-gluing",
+        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "Example 4.4, (289), p. 57",
+          "match": "The source element is transported through the established degree-zero comparison."
+        },
+        {
+          "sourceId": "wagner-thesis",
+          "locator": "Corollary 3.13, p. 41",
+          "match": "The comparison is applied only to the stated étale localization."
+        }
+      ],
+      "acceptance": [
+        "Order 2 retains the zero component after transport.",
+        "The q=1 completion is 1 although the class has distinct other components."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/cubic-cohomology-class",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "application",
+      "title": "The cubic symmetrisation coefficient in degree-zero cohomology",
+      "statement": "For K=Q(z), z^3-z+1=0, set R_6=Z[z,1/138]. The parent descendant theorem gives the unshifted residue element Psi in H_{R_6}. Its degree-zero export eta_{R_6}(Psi) has q=1 Taylor coefficients (2z^2+3z-9)/23, 0 and (-6477z^2-5311z+4318)/23^4. If the two additional local obligations in cubic-small-prime-criterion are supplied, the same construction is defined over R=Z[z,1/23]; the map for R to R_6 takes that class to the class already constructed. The rational expressions for the first coefficients alone do not justify descent of the whole class.",
+      "hypotheses": [
+        "The proven imported localization is 6*23.",
+        "The extension to Delta=23 depends explicitly on the local obligations, not on a K3 or regulator comparison."
+      ],
+      "proofSteps": [
+        "Use the parent cubic presentation and the inverse discriminant identity.",
+        "Apply the proven prime-to-six residue membership over R_6, then eta_{R_6}.",
+        "For the smaller ring apply cubic-small-prime-criterion first; naturality of eta gives the localization square.",
+        "Verify the alternative x^2 coefficient (-59z^2-51z+36)/delta^7 by reduction modulo z^3-z+1."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/cubic-example",
+        "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
+        "HabiroNahmSeries:HB.10/cubic-small-prime-criterion",
+        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "Example 4.1, (231), p. 47",
+          "match": "The three coefficients are exported over the localization warranted by the proof; the smaller coefficient ring is conditional."
+        },
+        {
+          "sourceId": "wagner-thesis",
+          "locator": "Corollaries 2.13 and 3.13, pp. 33, 41",
+          "match": "The ring comparison and degree-zero identification are applied to the explicit cubic localization."
+        }
+      ],
+      "acceptance": [
+        "The linear coefficient is zero.",
+        "The two expressions for the quadratic coefficient agree by an exact polynomial reduction.",
+        "A change of rings to R_6 is not confused with a proof of descent to R."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/quartic-module-export",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "application",
+      "title": "The nonabelian example with a complete excluded-prime ledger",
+      "statement": "For the selected D4 quartic F=Q(u), let k_F=|K2(O_F)|>0, M_F=6*475*k_F, and choose Delta divisible by M_F (and hence by 2,3,5,19). Let R=O_F[1/Delta], with u,v and delta as certified above, and S=R[T]/(delta T^2-1), a finite étale quadratic algebra after 2 is inverted. Assuming the finite étale scalar-change interface requested by HB.9 from HabiroNumberFields HB.7, the parent nonabelian-quartic-example and general module-membership supply the polar-part-removed formal Gaussian collection f in the restricted K3-indexed Habiro module H_{S,xi}|Delta, for xi the specified K3 lift of [u]+[v]. The corresponding two complex regulator values are the evaluations of D(u)+D(v) through the parent embedding interface. The known required prime set is {2,3,5,19} union the prime divisors of k_F; it is not asserted to be exactly {2,3,5,19} until the tame kernel is certified. In the normalization fhat_1(x)=exp(pi^2/(15 log(1+x))) delta^-1/2 (1+a_1x+a_2x^2+...), a_1=(-1284u^3+384u^2-5520u+2047)/(12*25*19^2) and a_2=(-3084024u^3-11262336u^2-1073760u+17201653)/(32*9*25*19^4). The source claim 60xi=0 requires an exact class certificate; no 60th-power ring conclusion is drawn from regulator numerics.",
+      "hypotheses": [
+        "The even diagonal entries 8 and 4 make the symbol sum a Suslin Bloch element; a K3 lift is still specified rather than declared canonical.",
+        "The source normalization and its q-inversion correction are imported from the parent.",
+        "The GSWZ membership statement uses orders coprime to Delta and the inverse square-root algebra S.",
+        "The scalar extension S is not assumed to be a field or to equal R.",
+        "The finite étale coefficient extension and K3 scalar-change interface requested by the imported HB.9/module-membership are supplied by the module owner, HabiroNumberFields HB.7; this inherited input is not silently treated as implemented."
+      ],
+      "proofSteps": [
+        "Use quartic-coordinate-certificate and quartic-integral-basis to certify units, discriminant and the exact field presentation.",
+        "Use the CGZ excluded-integer definition and request the tame-kernel computation to turn the symbolic ledger into a certified finite prime list.",
+        "Import the general GSWZ module-membership theorem with the explicit S, xi and root-order restriction.",
+        "Retain the first two source coefficients with their normalization; the exponential and inverse square root are not discarded from the type.",
+        "Keep the 60-torsion assertion separate: apply the five-term certificate soundness interface only once an exact certificate and the K3 torsion obstruction are supplied."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/quartic-integral-basis",
+        "HabiroNahmSeries:HB.10/nonabelian-quartic-example",
+        "HabiroNahmSeries:HB.9/module-membership",
+        "HabiroNahmSeries:HB.3/suslin-obstruction-of-the-nahm-element",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+        "HabiroNumberFields:HB.1/the-excluded-primes",
+        "K3BlochGroups:V.6/five-term-certificate",
+        "K3BlochGroups:V.6/suslin-lift-fibre",
+        "ArithmeticKTheory:N.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§4.3, (261)–(263), printed p. 52",
+          "match": "The source coefficients and torsion assertion are kept separate from an exact proof of torsion. The field and discriminant certificates fix the membership hypotheses."
+        }
+      ],
+      "acceptance": [
+        "The normal closure has D4 group, not an abelian group and not the S4 group of the second orbit.",
+        "The coefficients a_1,a_2 are those of the displayed normalized factor, not coefficients of an ordinary integral power series after dropping its prefactors.",
+        "The excluded-prime ledger names the K2 input instead of claiming its unknown order.",
+        "A numerical zero of every regulator is not a certificate for the exact order 60."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/picard-and-regulator-export",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "comparison",
+      "title": "The coefficient-line and regulator exports of the explicit examples",
+      "statement": "For a specified K3 class xi and coefficient ring S of quartic-module-export, import the GSWZ global module L_xi=H_{S,xi} and the tensor/addition theorem from HabiroNumberFields HB.7. Conditional on that supplier theorem and a global extension when a chosen series is known only on orders coprime to Delta, HR.6 transports L_xi along the ring comparison to an invertible module over the degree-zero Habiro coefficient ring, yielding xi to [L_xi] in Pic. This is an actual map of coefficient lines supplied by HR.6, not a map from the restricted series to an unrestricted cohomology class. Its q=1 completed line is free, by HR.6, while the full line may retain K3 information. Independently, the embedding-indexed real regulator tuple of the chosen Bloch class is the parent sum of Bloch–Wigner values. No isomorphism between this real tuple and the transported line, or with crystalline or étale cohomology, is supplied by module membership.",
+      "hypotheses": [
+        "The missing tensor-product and nonzero-global-module arguments in HabiroNumberFields/E23 are retained as supplier gaps.",
+        "A series given only in H_{S,xi}|Delta is not made into a global generator by this comparison.",
+        "S is treated componentwise as a finite étale number-field algebra if the quadratic algebra splits."
+      ],
+      "proofSteps": [
+        "Import HR.6/the-transported-regulator and completed-scalar-extension; do not build a second Picard or module interface in HB.10.",
+        "Use the ring isomorphism of etale-nahm-cohomology-export to express the same invertible coefficient module over H^0(qHdg).",
+        "At q=1 use the separate completed-line triviality statement of HR.6, whose unresolved supplier hypotheses remain visible.",
+        "Export the regulator tuple through HB.3/embeddings-and-regulator-evaluations. A comparison with geometric cohomology would require the higher-cohomology-export-obligation."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/quartic-module-export",
+        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export",
+        "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
+        "HabiroRings:HR.6/the-transported-regulator",
+        "HabiroRings:HR.6/completed-scalar-extension",
+        "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "Theorem 2, (25)–(26), pp. 10–11; proof §3.3, p. 43",
+          "match": "The coefficient-line map is imported with the source proof limitations already recorded by HabiroNumberFields/E23."
+        },
+        {
+          "sourceId": "wagner-thesis",
+          "locator": "Corollary 3.13, printed p. 41",
+          "match": "The completed cohomology coefficient object is identified through its owner; no higher cohomology claim is inferred."
+        }
+      ],
+      "acceptance": [
+        "The chosen local series need not generate an invertible module globally.",
+        "Completing the coefficient line at q=1 cannot certify that its global Picard class vanishes.",
+        "A Bloch–Wigner regulator is a real additive invariant with a different target from Pic."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.10/higher-cohomology-export-obligation",
+      "parentStageId": "HabiroNahmSeries:HB.10",
+      "realises": [
+        "HabiroNahmSeries:HB.10"
+      ],
+      "kind": "comparison",
+      "title": "The additional map required for higher-dimensional Habiro cohomology",
+      "statement": "The proved HB.10 export eta_R has target H^0(qHdg_{R/Z}) for the zero-dimensional étale scheme Spec R. For a smooth geometric family X/B, Garoufalidis–Wheeler Definition 1.2 instead defines a Frobenius-glued module H(V), with V=H^n_dR(X/B) modulo torsion, rational Taylor coefficients and positive p-adic convergence radius. Their Theorem 1.18 maps an analytic relative Habiro element f and a Frobenius-invariant relative top form omega to [f omega] in H_naive^n(X/B), with their affine and good-reduction hypotheses. To export such a cycle into the algebraic Habiro cohomology of HQ.5 requires a specified comparison H_naive^n(X/B) to H^n(RGamma_Hab(X/B)), the same base and bad-prime localization, compatible cyclotomic completions, Frobenius and de Rham specialisation, and a proof for the selected input. This map is a requested comparison, not established by the paper or by GSWZ membership. The analogous crystalline, A_inf and étale realizations require the hypothesis-bearing HQ.8 comparison maps separately.",
+      "hypotheses": [
+        "The geometric family X, the form omega and the analytic convergence input are specified additional data; a Nahm matrix and its Bloch class alone do not specify them.",
+        "The naive glued de Rham module is distinguished from Wagner algebraic Habiro cohomology.",
+        "Source Theorem 1.18 concerns an analytic subring and Frobenius-invariant forms; it cannot be applied to every formal Habiro element."
+      ],
+      "proofSteps": [
+        "Read GW Definitions 1.1–1.2 and Theorem 1.18 and keep their domains and targets.",
+        "Apply a push-forward only for a supplied geometric family and invariant top form; import its construction from the cohomology owner rather than define H(V) in HB.10.",
+        "Request the comparison to the HQ.5 algebraic object and the compatible realizations. The current source explicitly says the naive construction is expected to capture features of the other theories.",
+        "Maintain a recorded gap until that comparison is supplied; q-series, field embeddings or K3-indexed line modules alone do not produce it."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export",
+        "HabiroCohomologyFoundations:HQ.5/the-export-to-the-coefficient-roadmap",
+        "HabiroCohomologyFoundations:HQ.6",
+        "HabiroCohomologyFoundations:HQ.8/the-commutation-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "gw-classes-v1",
+          "locator": "Definition 1.2 and (14), printed p. 5; Theorem 1.18, p. 12; proof §3.3, p. 32",
+          "match": "The quoted expectation prevents treating the naive coefficient module as the algebraic theory. The push-forward target and its conditions are recorded exactly."
+        }
+      ],
+      "acceptance": [
+        "A dimension-zero coefficient-ring class passes through eta_R.",
+        "An arbitrary restricted K3-module element lacks the X, omega and comparison needed for the higher-degree target.",
+        "The analytic subring hypothesis is retained rather than inferred from formal coefficients."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "need": "Supply the q-Lucas root evaluation [ma+b choose mc+d]_{zeta_m}=binom(a,c)[b choose d]_{zeta_m} for positive m, 0<=b,d<m, with the Gaussian polynomial conventions already owned by QM.0; use the finite q-binomial theorem to prove it. For the small-prime repair also expose the finite cyclotomic Taylor-jet expansion that reduces the scalar A=3 coefficients to polynomial-in-h weighted binom(3h+a,h). Do not define Gaussian polynomials again in HB.10.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/cubic-root-constant",
+        "HabiroNahmSeries:HB.10/cubic-small-prime-criterion"
+      ]
+    },
+    {
+      "supplier": "ArithmeticKTheory:N.6",
+      "need": "For the D4 quartic F=Q(u), u^4+u^3+3u^2-3u-1=0 and O_F with basis (1,u,u^2,(u^3-u^2+2)/5), supply a certified order and prime factorization of K2(O_F), including its 2-primary part. This specializes N.6 tame-kernel order computations; finiteness alone does not determine the excluded prime set.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/quartic-module-export"
+      ]
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.6",
+      "need": "Supply the geometric comparison, under explicit smoothness, good-prime and convergence assumptions, from the GW Frobenius-glued de Rham module H_naive^n(X/B) to the algebraic Habiro cohomology object of HQ.5, commuting with cyclotomic Taylor maps, coefficient changes, Frobenius and de Rham realization. HQ.8 realizations remain separate. This is an extension in the cohomology roadmap direction, recorded in restructure; no existing blueprint node states this map.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/higher-cohomology-export-obligation"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Cubic gluing at 2 and 3, with every descendant index",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/cubic-small-prime-criterion",
+        "HabiroNahmSeries:HB.10/cubic-cohomology-class"
+      ],
+      "detail": "For R=Z[z,1/23], prove all-component coefficient integrality and the p=2,3 re-expansion equations for every m and every independent pair (mu,nu). The accepted prime-to-six result proves only the localization R[1/6]. GW Theorem 1.13 is a possible unshifted route but its printed (182) fails the explicit m=2 scalar A=3 test (E64). The corrected finite numerator in cubic-root-constant is insufficient for all higher coefficients or shifted descendants. A repair must prove the localized étale coefficient descent and its p-completed compatibility, then address shifts independently."
+    },
+    {
+      "title": "An exact 60-torsion certificate and specified K3 lift",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/quartic-module-export",
+        "HabiroNahmSeries:HB.10/picard-and-regulator-export"
+      ],
+      "detail": "The paper asserts that [u]+[v] is 60-torsion, but no explicit five-term certificate for 60([u]+[v]) was located. Give one in the declared Bloch convention, use K3BlochGroups V.6 soundness, and handle the torsion fibre for the specified integral K3 lift before asserting 60xi=0 in K3(F). Numerical regulator vanishing is insufficient. Membership itself uses a supplied lift and does not need this exact-order claim."
+    },
+    {
+      "title": "The quartic tame kernel and the complete numerical prime list",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/quartic-module-export"
+      ],
+      "detail": "ArithmeticKTheory:N.6 must supply k_F=|K2(O_F)| and its prime divisors. Until then Delta can be specified exactly as 6*475*k_F, but the certified explicit primes are only 2,3,5,19 plus the stated tame-kernel input; the list may not be shortened by guessing k_F."
+    },
+    {
+      "title": "Supplier gaps in K3-indexed coefficient-line interfaces",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/picard-and-regulator-export",
+        "HabiroNahmSeries:HB.10/quartic-module-export"
+      ],
+      "detail": "HabiroNumberFields HB.7/the-ring-case-and-tensor-products records missing arguments for closure under addition, nonzero global modules, and injectivity/surjectivity of the tensor map (source issue HabiroNumberFields/E23). The HR.6 Picard transport and completion-triviality statements inherit that gap. Additionally, GSWZ Theorem 5 gives only restricted-order series membership; a global extension or generator assertion requires an independent proof. The finite étale module scalar-change interface for S=R[T]/(delta T^2-1) is also inherited from the explicit HB.9/module-membership request to HB.7. The algebraic ring S is well defined, but the owner must provide this coefficient-line interface."
+    },
+    {
+      "title": "Naive-to-algebraic geometric cohomology comparison",
+      "neededBy": [
+        "HabiroNahmSeries:HB.10/higher-cohomology-export-obligation"
+      ],
+      "detail": "No source read constructs the requested map from GW H_naive^n(X/B) to HQ.5 algebraic Habiro cohomology, or identifies a general Nahm module element with a geometric cohomology class. Specify X/B and omega, prove convergence and Frobenius compatibility, supply the comparison map through the cohomology owner, and only then compose the selected HQ.8 realization. The proved dimension-zero map eta_R is already available and is not part of this gap."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNahmSeries:HB.10",
+      "status": "planned",
+      "remaining": [
+        "Prove the all-component cubic p=2,3 integrality/gluing inputs, for unshifted and independently shifted descendants, repairing GW (182).",
+        "Supply the quartic exact 60-torsion/K3-lift certificate and the numerical tame-kernel prime list.",
+        "Close the imported HB.7 global-module/tensor-product proof gaps before unconditional Picard transport.",
+        "Supply a geometric naive-to-algebraic cohomology comparison through the proposed cohomology extension; preserve all completion and Frobenius hypotheses."
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "target": "Rational and abelian examples; rational does not mean rational Nahm solution",
+      "nodes": [
+        "HabiroNahmSeries:HB.10/modularity-examples-and-their-lesson",
+        "HabiroNahmSeries:HB.10/figure-eight-example"
+      ],
+      "note": "Retain parent restructure R1: the rational example is the Gauss family over Z[1/2], the abelian Nahm example has Q(sqrt(-3)), and the cubic field is not Q."
+    },
+    {
+      "target": "Nonabelian number-field example and first coefficients",
+      "nodes": [
+        "HabiroNahmSeries:HB.10/nonabelian-quartic-example"
+      ],
+      "note": "The new coordinate and basis certificates refine the presentation. They do not re-plan its asymptotics or identify the second S4 orbit with the selected D4 orbit."
+    },
+    {
+      "target": "Rank-one product and q-difference conventions",
+      "nodes": [
+        "HabiroNahmSeries:HB.10/rank-one-product-identities"
+      ],
+      "note": "Import F_0=(t;q)_infinity^-1 and F_1=(qt;q)_infinity. Gaussian binomials and the finite q-binomial theorem remain QM.0."
+    },
+    {
+      "target": "Formal knot matrices and topological boundary",
+      "nodes": [
+        "HabiroNahmSeries:HB.10/knot-matrices-and-the-topological-boundary",
+        "HabiroNahmSeries:HB.10/figure-eight-example"
+      ],
+      "note": "No topological identification is stated here, so no QT.6-to-HB.10 prerequisite edge is added."
+    },
+    {
+      "target": "Residue descendants and cubic coefficients",
+      "nodes": [
+        "HabiroNahmSeries:HB.10/symmetrisation-and-residue-formula",
+        "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
+        "HabiroNahmSeries:HB.10/cubic-example"
+      ],
+      "note": "The Laurent formula and corrected root constant refine the unshifted cubic symmetrisation; they do not silently strengthen every shifted descendant or the K3-indexed module theorem."
+    }
+  ],
+  "importedSourceIssues": [
+    "HabiroNahmSeries/E44",
+    "HabiroNahmSeries/E48",
+    "HabiroNahmSeries/E49",
+    "HabiroNahmSeries/E50",
+    "HabiroNahmSeries/E51",
+    "HabiroNahmSeries/E53",
+    "HabiroNahmSeries/E55",
+    "HabiroNahmSeries/E61",
+    "HabiroRings/E4",
+    "HabiroRings/E5",
+    "HabiroNumberFields/E23"
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroNahmSeries/E64",
+      "source": "gw-classes-v1",
+      "kind": "error",
+      "locator": "§3.2, equation (182), printed p. 31, arXiv:2505.19885v1; also the author copy dated 21 May 2025 at the same locator",
+      "printed": "f_A^sym(t^{1/m},q) = (1/delta(t)) sum_{l mod m} (-1)^{diag(A-I)l} zeta_m^{-l(A-I)l/2-diag(A-I)l/2} product_j [(Al)_j+A_jj-1 choose l_j]_{zeta_m} t^{l/m} + O(q-zeta_m).",
+      "correction": "For the scalar A=3 case, put a_l=floor((3l+2)/m) and b_l=(3l+2) mod m. The summand requires z(t)^{a_l-2}; its numerator is zeta_m^{-l(l+1)}[b_l choose l]_{zeta_m} T^l z(t)^{a_l-2}, T^m=t. At m=2 this gives (z(t)^-1+T)/delta(t), whereas the printed formula gives (1+T)/delta(t). No general corrected N-dimensional formula is claimed here.",
+      "reason": "From Proposition 1.14 itself, A=3 gives sum_k q^{-k(k+1)}[3k+2 choose k]_q T^k. At q=-1 its T^2 coefficient is [8 choose 2]_{-1}=4. Since 1/delta(T^2)=1+5T^2+28T^4+..., the printed (182) gives coefficient 5. The corrected factor follows from sum_h binom(3h+a,h)t^h=z(t)^{a+1}/(3-2z(t)). The error affects the expansion step in the proof; it is not evidence that Theorem 1.13 is false.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv abstract and submission history, 2026-10-06: v1 only, no linked correction",
+        "Garoufalidis publications page, 2026-10-06: lists this as a 2025 preprint; author PDF retains (182)",
+        "Wheeler author page and title/erratum searches, 2026-10-06: no correction located"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries/E65",
+      "source": "gw-classes-v1",
+      "kind": "misprint",
+      "locator": "§3.1, paragraph after (162), printed p. 28, arXiv:2505.19885v1 and author copy dated 21 May 2025",
+      "printed": "The source presents the following claims as requirements for proving Theorem 1.13:",
+      "correction": "This cross-reference in §3.1 should say Theorem 1.11. The separate symmetrisation Theorem 1.13 is proved in §3.2.",
+      "reason": "The §3.1 heading is Proof of Theorem 1.11, and its two displayed obligations concern f_A from (37), whereas Theorem 1.13 concerns f_A^sym.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv abstract and submission history, 2026-10-06: v1 only, no linked correction",
+        "Garoufalidis publications page, 2026-10-06: lists this as a 2025 preprint; author PDF retains (182)",
+        "Wheeler author page and title/erratum searches, 2026-10-06: no correction located"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "id": "HB10-R1",
+      "proposal": "Retain the accepted parent R1 rescope: the rational example is the Z[1/2] Gauss family, an abelian Nahm example is over Q(sqrt(-3)), and the cubic and D4 quartic fields are separate explicit examples.",
+      "reason": "GSWZ supplies no rational Nahm solution as the stage wording originally suggested. The finite Gauss family is the literal rational coefficient-ring example."
+    },
+    {
+      "id": "HB10-R2",
+      "proposal": "Apply RT-AREA-topology/11: keep HB.10 knot-derived matrices as formal Nahm data. QT.6 owns every identification with knot invariants, Neumann–Zagier topological data, triangulation independence and state-integral comparison. QT.6 must import HB.4 estimates and HB.8 formal Gaussian integration.",
+      "links": [
+        {
+          "source": "HabiroNahmSeries:HB.4",
+          "target": "ArithmeticQuantumTopology:QT.6"
+        },
+        {
+          "source": "HabiroNahmSeries:HB.8",
+          "target": "ArithmeticQuantumTopology:QT.6"
+        }
+      ],
+      "reason": "This packet states no topological identification, so it adds no QT.6-to-HB.10 dependency. All edits to QT.6 stay with that owner; this issue cannot edit its packet."
+    },
+    {
+      "id": "HB10-R3",
+      "proposal": "Extend Habiro cohomology foundations in its own direction as Habiro cohomology foundations, Part II: explicit cycle realizations. It should own the GW Frobenius-glued de Rham carrier, analytic push-forward and its comparison with the HQ.5 algebraic theory; HR.6 continues to own coefficient-ring and complete-module interfaces.",
+      "extends": "HabiroCohomologyFoundations",
+      "reason": "GW Definition 1.2 and Theorem 1.18 provide a separate naive theory and a map into it. HB.10 supplies concrete series and an exact comparison request, without defining a second cohomology theory."
+    }
+  ],
+  "upstreamNotes": [
+    "The pinned Tau Ceti already has the integral-basis discriminant equality. The concrete quartic basis certificate uses it and the Mathlib determinant-square formula rather than planning a second general discriminant theory. No upstream changes are proposed."
+  ]
+}
