@@ -110,7 +110,8 @@
         "StableHomotopyKTheory:H.5:S-delooping",
         "EnhancedDerivedSheaves:E5:abstract/algebra-objects",
         "EnhancedDerivedSheaves:E5:abstract/module-objects",
-        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials"
+        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials",
+        "EnhancedDerivedSheaves:E5:abstract"
       ],
       "sources": [
         {
@@ -226,7 +227,8 @@
         "HabiroRings:HR.2/completeness-on-homotopy-groups",
         "HabiroRings:HR.2/the-derived-nakayama-lemma",
         "HabiroRings:HR.2/the-detection-results",
-        "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products"
+        "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products",
+        "EnhancedDerivedSheaves:E5:abstract"
       ],
       "sources": [
         {
@@ -303,6 +305,26 @@
           "name": "SpectralHabiroCompletion.restrict_HZ",
           "role": "compatibility",
           "statement": "Under Mod_{HZ[q±1]}≃D(Z[q±1]), restriction along R→HZ[q±1] commutes with L_H. The tensor comparison uses the HZ[q±1]-relative tensor followed by completion; restriction to R-modules is only lax monoidal."
+        },
+        {
+          "name": "SpectralHabiroCompletion.map",
+          "role": "functoriality",
+          "statement": "For an R-linear map u:M→N, L_H(u):L_HM→L_HN is the induced map between the reflections."
+        },
+        {
+          "name": "SpectralHabiroCompletion.map_id",
+          "role": "simp",
+          "statement": "L_H(id_M)=id_{L_HM}, with the canonical functor coherence."
+        },
+        {
+          "name": "SpectralHabiroCompletion.map_comp",
+          "role": "functoriality",
+          "statement": "L_H(v∘u)=L_H(v)∘L_H(u), coherently for composable R-linear maps."
+        },
+        {
+          "name": "SpectralHabiroCompletion.unit_naturality",
+          "role": "compatibility",
+          "statement": "L_H(u)∘η_M=η_N∘u for every R-linear u:M→N."
         }
       ],
       "tests": [
@@ -352,10 +374,11 @@
       "statement": "In light solid spectra, regard SH as the condensed factorial limit lim_n R/P_n. Then multiplication SH⊗■_RSH→SH is an equivalence of commutative algebras. Moreover (∏_NS)⊗■SH≃∏_NSH, and shifts of ∏_NSH compactly generate Mod_SH(Sp■). The comparison identifies this SH with the image of the spherical complete unit under the accepted B.7 embedding.",
       "hypotheses": [
         "The proposed light-solid-spectra supplier has proved solidification, the countable product tensor formula and the associated tower and relative-base-change lemmas; these are recorded in gap G-solid.",
-        "Each finite stage R/P_n is equivalent as an S-module to a finite direct sum of d_n=n(n+1)/2 spheres, by monic polynomial division; q is already invertible in that quotient."
+        "Each finite stage R/P_n is the module cofiber of P_n and is equivalent as an S-module to d_n=n(n+1)/2 spheres. Use the monic associate (−1)^nP_n for division; its constant term is a unit, so q is invertible in the quotient. The spectral basis comparison and split tower are proved from the HC.1 polynomial basis, not assumed from the word quotient.",
+        "All generic light-solid input statements remain conditional on gap G-solid; this node does not claim a written proof of that unassigned supplier contract."
       ],
       "proofSteps": [
-        "Use monic polynomial division to give the finite stage its sphere basis and split transition R/P_{n+1}→R/P_n as an S-module map. Obtain a countable-product model of SH from the tower, keeping its R-action.",
+        "Divide by the monic associate (−1)^nP_n to obtain the integral basis 1,q,…,q^(d_n−1). The corresponding map from d_n spheres to the module cofiber R/P_n is an equivalence on every homotopy group: monic division works with coefficients π_kS, since the leading coefficient is a unit. Polynomial representatives give S-linear sections of R/P_{n+1}→R/P_n. Obtain the countable-product model of SH from this split tower, retaining the R-action; the splittings themselves are only S-linear.",
         "Invoke the supplier’s countable-product solid tensor formula and its compatibility with the split finite-free towers to compute SH⊗■SH by the double tower in independent q_1,q_2. This is an absolute solid tensor computation.",
         "Invoke relative base change (derived identification q_1=q_2) and the same tower compatibility to get SH⊗■_RSH≃SH. A pointwise evaluation calculation alone does not justify exchanging relative tensor and the double limit; that supplier obligation remains in G-solid.",
         "Apply the product formula to (∏_NS)⊗■SH. Import the generic compact generator Null■≃∏_NS and the module-category generator theorem; extension of scalars gives ∏_NSH."
@@ -369,7 +392,9 @@
         "HabiroRings:HR.2/spectral-habiro-completion",
         "HabiroRings:HR.2/habiro-complete-solid-spectra",
         "EnhancedDerivedSheaves:E5:abstract/module-objects",
-        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials"
+        "HabiroCyclotomicCompletions:HC.1/the-factorial-polynomials",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "HabiroCyclotomicCompletions:HC.1"
       ],
       "sources": [
         {
@@ -381,7 +406,7 @@
         {
           "sourceId": "Wagner.Thesis.2025",
           "locator": "§5.3, printed p.86 (PDF p.90), paragraph defining Null_R",
-          "excerpt": "defines a compact generator",
+          "excerpt": "is a compact generator of",
           "match": "Supplies the compact generator recollection; the supplier must still prove it."
         }
       ],
@@ -403,16 +428,17 @@
       ],
       "title": "Completed countable free solid modules",
       "kind": "construction",
-      "statement": "For a sequence of countable sets I_n, put F_I=⊕_{n∈N}∏_{i∈I_n}SH in Mod_SH(Sp■), and C_I=L_HF_I. Let W consist of f:N→N tending to infinity: for every k, f(n)≥k for all sufficiently large n. Give W reverse pointwise order: an arrow f→g means f(n)≥g(n) for all n. Define J_r=fib(SH→SH/P_r), equivalently the principal ideal with specified multiplication map P_r:SH→SH, and J_0=SH. Then C_I ≃ colim_{f∈W}∏_n∏_{i∈I_n}J_{f(n)}, with arrows the ideal inclusions. This is an equivalence of complete solid SH-modules, natural in block maps. The ideal notation denotes fibre objects and maps, not an untyped subset of a spectrum.",
+      "statement": "For a sequence of countable sets I_n, put F_I=⊕_{n∈N}∏_{i∈I_n}SH in Mod_SH(Sp■), and C_I=L_HF_I. Let W consist of f:N→N tending to infinity: for every k, f(n)≥k for all sufficiently large n. Give W reverse pointwise order: an arrow f→g means f(n)≥g(n) for all n. Define J_r=fib(SH→SH/P_r), equivalently the principal ideal with specified multiplication map P_r:SH→SH, and J_0=SH. Then C_I ≃ colim_{f∈W}∏_n∏_{i∈I_n}J_{f(n)}, with arrows the ideal inclusions. This is an equivalence of complete solid SH-modules, natural in SH-linear finite-support block maps as specified in the map API. The ideal notation denotes fibre objects and maps, not an untyped subset of a spectrum.",
       "hypotheses": [
         "All I_n are countable, including empty and finite sets.",
-        "Use the light solid supplier’s product/tower and bounded-below realization inputs (G-solid); the integral topology and factorial polynomials remain owned by HC.1."
+        "Use the light solid supplier’s product/tower and bounded-below realization inputs (G-solid); the integral topology and factorial polynomials remain owned by HC.1.",
+        "All generic light-solid input statements remain conditional on gap G-solid; this node does not claim a written proof of that unassigned supplier contract."
       ],
       "proofSteps": [
         "Identify F_I/P_r through the principal cofiber, finite-stage sphere bases and the countable product formula. Its tower completion describes families uniformly tending to zero in the block index, with the same weight bound for all i∈I_n.",
         "For any such uniformly null family, choose a proper weight f with the family landing in ∏_{n,i}J_{f(n)}. Conversely every proper weight is uniformly null modulo each P_r. The supplier must justify this at the spectrum/hypersheaf level, including higher homotopy, not merely on degree-zero point sections.",
         "The reverse order is filtered: min(f,g) is still proper and receives the ideal-inclusion arrows from f and g. Prove the colimit equivalence and naturality under finite-support block maps.",
-        "Identify C_I with the image of the ordinary spectral completion of the corresponding discrete countable free/product blocks where B.7 applies; do not claim that the colimit of ideal objects is already a discrete condensed coproduct."
+        "For singleton or finite blocks, compare C_I with the condensed completion of the discrete ordinary spectral coproduct using B.7 and preservation of finite products by the discrete functor. For genuinely infinite product blocks, keep C_I as a solid construction: B.7 alone does not identify ∏_i e(SH) with e(∏_i SH). Any such identification requires a separate comparison, since the discrete functor need not preserve countable products; it is not an input to the tensor calculation."
       ],
       "acceptance": [
         "For singleton blocks the model is the null-sequence formula used on p.80 of B.8.",
@@ -422,7 +448,9 @@
       "prerequisites": [
         "HabiroRings:HR.2/solid-habiro-unit-idempotence",
         "HabiroRings:HR.2/habiro-complete-solid-spectra",
-        "HabiroCyclotomicCompletions:HC.1/topology-completeness-and-universal-property"
+        "HabiroCyclotomicCompletions:HC.1/topology-completeness-and-universal-property",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "HabiroRings:HR.2/spectral-habiro-completion"
       ],
       "sources": [
         {
@@ -478,6 +506,26 @@
           "name": "CountableSolidHabiroFree.transition",
           "role": "functoriality",
           "statement": "If f≥g pointwise, the profile transition is ∏J_{f(n)}→∏J_{g(n)}; min(f,g) gives a common target."
+        },
+        {
+          "name": "CountableSolidHabiroFree.map",
+          "role": "functoriality",
+          "statement": "For an SH-linear finite-support block map u:F_I→F_J, define C(u)=L_H(u):C_I→C_J. A finite-support block map means each input block map factors through a finite subcoproduct of output blocks."
+        },
+        {
+          "name": "CountableSolidHabiroFree.map_id",
+          "role": "simp",
+          "statement": "C(id_{F_I})=id_{C_I}."
+        },
+        {
+          "name": "CountableSolidHabiroFree.map_comp",
+          "role": "functoriality",
+          "statement": "C(v∘u)=C(v)∘C(u) for composable finite-support block maps, with the reflection coherence."
+        },
+        {
+          "name": "CountableSolidHabiroFree.inclusion_naturality",
+          "role": "compatibility",
+          "statement": "For such u, C(u)∘η_{F_I}∘ι_n=η_{F_J}∘u∘ι_n, where ι_n includes the nth input block."
         }
       ],
       "tests": [
@@ -494,7 +542,7 @@
         {
           "name": "CountableSolidHabiroFree.constant_not_null",
           "kind": "non-example",
-          "statement": "For singleton blocks, the constant family (1,1,…) in ∏_NSH is not in the image of C_I→∏_NSH: modulo P_1=q−1 it is nonzero in infinitely many coordinates."
+          "statement": "For singleton blocks, the constant family (1,1,…) in ∏_NSH is not in the image of C_I→∏_NSH: modulo P_1=1−q (the same ideal as q−1) it is nonzero in infinitely many coordinates."
         },
         {
           "name": "CountableSolidHabiroFree.decaying_family",
@@ -528,7 +576,8 @@
       "hypotheses": [
         "I_m,J_n are countable.",
         "For the final B.8 consequence, M,N have uniform integer lower homotopy bounds (which may differ).",
-        "The generic solid supplier supplies the product tensor and bounded-below reduction; until G-solid is resolved the final consequence is conditional."
+        "The generic solid supplier supplies the product tensor and bounded-below reduction; until G-solid is resolved the final consequence is conditional.",
+        "All generic light-solid input statements remain conditional on gap G-solid; this node does not claim a written proof of that unassigned supplier contract."
       ],
       "proofSteps": [
         "Apply null-family models, colimit preservation of solid tensor and the solid product formula. In singleton notation the tensor is colim_{f,g→∞}∏_{m,n}(P_{f(m)}P_{g(n)})SH. Keep the module structure and the countable blocks.",
@@ -545,19 +594,23 @@
       ],
       "prerequisites": [
         "HabiroRings:HR.2/completed-countable-free-solid-modules",
-        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient"
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "HabiroRings:HR.2/solid-habiro-unit-idempotence",
+        "HabiroRings:HR.2/spectral-habiro-completion",
+        "HabiroRings:HR.2/habiro-complete-solid-spectra"
       ],
       "sources": [
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "Proof of B.8, printed/PDF p.80, final three paragraphs",
-          "excerpt": "q-binomial coefficients are polynomials in Z[q]",
+          "excerpt": "because q-binomial coefficients",
           "match": "Gives product divisibility, proper profiles and the completed double sum."
         },
         {
           "sourceId": "Bosco.2023",
           "locator": "Proposition A.3, printed/PDF pp.92–93",
-          "excerpt": "cohomologically bounded above complexes",
+          "excerpt": "bounded above complexes",
           "match": "Documents the uniformly connective resolution argument only in the algebraic p-adic setting."
         }
       ],
@@ -652,7 +705,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E5:abstract",
-      "need": "Import module-objects and algebra-objects; additionally supply coherent E∞ localization, relative module tensor products and HA 2.2.1.9 for tensor-ideal localizations. This is a requested extension of this generic owner, not a private Habiro module-category model.",
+      "need": "Import module-objects and algebra-objects; additionally supply coherent E∞ localization, relative module tensor products and HA 2.2.1.9 for tensor-ideal localizations. This is a requested extension of this generic owner, not a private Habiro module-category model. Supply the compact-generator extension-of-scalars theorem for module categories used by the solid-unit node; the solid category and its generator remain the separate G-solid input.",
       "neededBy": [
         "HabiroRings:HR.2/spherical-rational-localization",
         "HabiroRings:HR.2/spectral-habiro-completion",
@@ -677,7 +730,7 @@
     },
     {
       "supplier": "HabiroCyclotomicCompletions:HC.1",
-      "need": "Reuse factorial polynomials, mutual cofinality with principal q^m−1-power ideals, static integral completion, and polynomial monic division. Supply finite-free quotient rank deg(P_n)=n(n+1)/2; this is the ordinary polynomial toolkit, not a new spectral definition.",
+      "need": "Reuse factorial polynomials, mutual cofinality with principal q^m−1-power ideals, static integral completion, and polynomial monic division. Supply finite-free quotient rank deg(P_n)=n(n+1)/2; this is the ordinary polynomial toolkit, not a new spectral definition. Normalize P_n by (−1)^n before invoking monic division, and supply the compatible integral quotient bases; HR.2 proves the spectral basis comparison and S-linear tower splitting.",
       "neededBy": [
         "HabiroRings:HR.2/spherical-rational-localization",
         "HabiroRings:HR.2/spectral-habiro-completion",
@@ -714,7 +767,7 @@
         "HabiroRings:HR.2/habiro-complete-solid-spectra",
         "HabiroRings:HR.2/the-solid-comparison-is-bounded-below"
       ],
-      "detail": "Create Artin v-stacks, solid and lisse coefficient categories, Part II: light solid spectra, building on VS2, H.5 and E5. The exact generic contract is: light profinite hypersheaves of spectra; fully faithful symmetric monoidal discrete functor left adjoint to point evaluation; Null and the internal-Hom 1−σ* solidity criterion; discrete spectra solid; limit/colimit closure, accessible solidification and symmetric monoidal coherence; Null■≃∏_NS compact generator; (∏_NS)⊗■(∏_NS)≃∏_{N²}S with functorial maps; split finite-free tower tensor and derived relative-base-change compatibility, not arbitrary tensor/limit commutation; countable limits commuting with ω₁-filtered colimits; compatible t-structure and uniformly bounded-below simplicial resolution/realization comparison sufficient for B.8; the null-family calculation at hypersheaf/spectrum level including higher homotopy. Wagner B.6/B.8 and thesis §§5.1–5.3 state/recollect these, but their full spectral foundations are delegated to lecture recordings; only Bosco’s algebraic p-adic proof was established from a written primary source here. No source theorem read here proves that spectral supplier contract in full. Do not mark HR.2 closed or pretend CondensedMod.IsSolid is this category."
+      "detail": "Create Artin v-stacks, solid and lisse coefficient categories, Part II: light solid spectra, building on VS2, H.5 and E5. The exact generic contract is: light profinite hypersheaves of spectra; fully faithful symmetric monoidal discrete functor left adjoint to point evaluation; Null and the internal-Hom 1−σ* solidity criterion; discrete spectra solid; limit/colimit closure, accessible solidification and symmetric monoidal coherence; Null■≃∏_NS compact generator; (∏_NS)⊗■(∏_NS)≃∏_{N²}S with functorial maps; split finite-free tower tensor and derived relative-base-change compatibility, not arbitrary tensor/limit commutation; countable limits commuting with ω₁-filtered colimits; compatible t-structure and uniformly bounded-below simplicial resolution/realization comparison sufficient for B.8; the null-family calculation at hypersheaf/spectrum level including higher homotopy. Wagner B.6/B.8 and thesis §§5.1–5.3 state/recollect these, but their full spectral foundations are delegated to lecture recordings; only Bosco’s algebraic p-adic proof was established from a written primary source here. No source theorem read here proves that spectral supplier contract in full. Do not mark HR.2 closed or pretend CondensedMod.IsSolid is this category. The discrete-spectrum functor preserves finite products, but a countable product of condensed complete units must not be identified with the condensed completion of an ordinary spectral product without a separate comparison. The countable solid block calculation does not assume that identification."
     },
     {
       "id": "G-signatures",
@@ -777,5 +830,38 @@
       "proposal": "New generic supplier needed; do not bury solidification inside an arithmetic Habiro node."
     }
   ],
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.2",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all five nodes, all source passages and four PDF hashes, three pinned baseline declarations, the reviewed HR.2 audit, nine parent imports and every external supplier. Corrected direct prerequisites, normalized the finite-stage division sign, supplied its spectral basis argument, corrected P_1 in the non-example, restricted the discrete-product comparison to finite blocks, and added eight functorial API items. G-solid and G-signatures remain explicit: acceptance is of a finished planning pass with conditional solid inputs, not closure or formalization. The suggested file contains only three typed arithmetic API signatures and acceptance examples; the spectral/solid ledger is not typechecked. Replaced three excerpts with uninterrupted literal fragments to avoid formula extraction and line-end hyphenation ambiguities. lean-check succeeded at pinned Mathlib with ten expected proof-placeholder warnings; all imports are Mathlib-only.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.2/spherical-rational-localization",
+        "verdict": "corrected",
+        "note": "B.1/B.2 p.77 support the localization, telescope, fibre, homotopy and three tests. Added the E5:abstract prerequisite for the existing localization/relative-tensor extension request; its algebra/module-definition nodes alone do not supply that extension."
+      },
+      {
+        "nodeId": "HabiroRings:HR.2/spectral-habiro-completion",
+        "verdict": "corrected",
+        "note": "B.2–B.5 pp.77–79, corrected parent telescope, and HA 2.2.1.9/7.1.2.13 support the reflection, Ext degree, detection and HZ-relative comparison. Added the requested E5 input as a direct prerequisite and four functorial API items. The unbounded homotopy criterion uses the stated complete/exhaustive two-degree filtration, not the bounded-below solid argument."
+      },
+      {
+        "nodeId": "HabiroRings:HR.2/solid-habiro-unit-idempotence",
+        "verdict": "corrected",
+        "note": "B.8 pp.79–80 and thesis 5.3 support the conditional solid idempotence/generator targets. Normalize by (−1)^nP_n, explain equivalence on π_k via monic division, keep tower splittings S-linear, and add the E5 and HC.1 extension edges. Relative tensor/tower compatibility and light-solid compact generation remain G-solid obligations."
+      },
+      {
+        "nodeId": "HabiroRings:HR.2/completed-countable-free-solid-modules",
+        "verdict": "corrected",
+        "note": "B.8 p.80 and Bosco A.4 p.93 support the conditional uniform block-null-family model. Checked J_0, reverse order, minimum profile, universal mapping property and four discriminating tests; fixed P_1 sign, added completion/E5 edges and four map laws. Restricted the B.7 comparison to finite blocks, since discrete condensation does not preserve arbitrary countable products."
+      },
+      {
+        "nodeId": "HabiroRings:HR.2/countable-solid-habiro-tensor",
+        "verdict": "corrected",
+        "note": "B.8 p.80 states the Gaussian divisibility/profile calculation. Verified the lower-envelope construction and both cofinal containment directions, including properness of max(f(m),g(n)); added direct unit/completion/B.7/E5 inputs. Bosco A.3 is only the bounded-above algebraic p-adic template; the bounded-below spectral resolution/realization remains explicitly conditional on G-solid."
+      }
+    ]
+  }
 }
