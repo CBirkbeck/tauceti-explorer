@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7595 new mistakes confirmed · 1422 awaiting review · 1693 already corrected in print · 127 rejected on review · 16 extractions and packets not yet checked.
+7595 new mistakes confirmed · 1422 awaiting review · 1694 already corrected in print · 127 rejected on review · 16 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -18558,6 +18558,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Teruhisa Koshikawa and Zijian Yao, Logarithmic prismatic cohomology II, arXiv:2306.00364, downloaded revision (`DerivedDeRhamCohomology`), Construction 2.6 and formula (2.1), arXiv:2306.00364v1 printed p.13: corrected in No matching correction identified; scoped to arXiv v1, published text not served.
 - Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026 (`DiamondEtaleCohomology`), arXiv1709.07343v4, proof of Proposition21.16, p.126, leading-term exact sequence and preceding sentence; rendered PDF inspected.: corrected in No correction located in the stated search; no claim about a published version of record..
 - Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026 (`DiamondEtaleCohomology`), arXiv1709.07343v4, Proposition20.17 and proof, p.121: corrected in No correction located in the stated search; scoped to the inspected preprint..
+- Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026 (`DiamondEtaleCohomology`), arXiv1709.07343v4, proof of Lemma 21.17, p.127, first sentence; identical in v1 and v3: corrected in No correction located; scoped to the arXiv versions read..
 - S. Fischler and T. Rivoal, On Siegel's problem for E-functions, arXiv:1910.06817v3 (4 June 2020); fetched 2026-09-24 (`DiophantineApproximationAndTranscendence`), arXiv:1910.06817v3, physical/printed p.2, (1.1) and the Bessel example.: corrected in Corrected in Rivoal’s currently linked author copy, physical p.2..
 - Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24 (`DiophantineApproximationAndTranscendence`), Chapter 7, proof of Theorem 7.8, printed p. 144: corrected in Recorded in the reviewed decomposition data/decompositions/DiophantineApproximationAndTranscendence.json (review of node DT.2/subspace-theorem-and-its-exceptional-subspaces); no published erratum.
 - Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27. (`DiophantineApproximationAndTranscendence`), Author copy p. 28 lower bound in proof of Theorem 2, and p. 33 reference [12]; compare published pp. 242 and 247 (physical pp. 28 and 33).: corrected in Corrected in the published Acta Arithmetica 73 (1995), pp. 242 and 247..
