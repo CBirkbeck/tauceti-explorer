@@ -1,0 +1,3378 @@
+{
+  "roadmapId": "AdicCoefficientsAndComparisons",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "AdicCoefficientsAndComparisons:L0",
+    "AdicCoefficientsAndComparisons:L1",
+    "AdicCoefficientsAndComparisons:L2",
+    "AdicCoefficientsAndComparisons:L3",
+    "AdicCoefficientsAndComparisons:L4",
+    "AdicCoefficientsAndComparisons:L5",
+    "AdicCoefficientsAndComparisons:L6"
+  ],
+  "status": "complete",
+  "summary": "Adic étale coefficients and source-scoped scheme/diamond comparisons, with the shared qcqs approximation and compactification supplier. Every target is planned; enhancement, geometric supplier and local calculation obligations are explicit, so this is not a closed or implemented packet.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.image",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "provides": "Native scheme-theoretic image f.ker.subscheme; use for schematic closure, not a new image definition.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toImage_imageι",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "provides": "Canonical factorisation through the scheme-theoretic image.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.kerAdjunction",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "provides": "Adjunction between closed subschemes and kernel ideals.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "provides": "Native class ker=bottom; schematic density is not merely topological density.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Native proper scheme morphism; composition and base change are provided by instances.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean",
+        "provides": "Native local finite-presentation predicate. Finite presentation also requires quasi-compactness and quasi-separatedness.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.exists_π_app_comp_eq_of_locallyOfFinitePresentation",
+        "module": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
+        "provides": "For a GIVEN limit cone of qcqs schemes with affine transitions, a morphism to an lfp relative target descends to some stage. Does not construct the limit or descend arbitrary relative objects.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+        "provides": "Native small étale site; the comparison functor needs sheaf and enhanced derived layers in addition.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "provides": "Native full subcategory carrier for objects satisfying a predicate, with inherited morphisms.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.spa",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+        "provides": "Native Spa for a topological commutative ring with an explicit plus subring; does not provide the scheme diamond.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.spa_antitone",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+        "provides": "Enlarging the plus subring shrinks Spa; preserves the distinction between (k,k) and (k,k⁺).",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.spa_integralClosure",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+        "provides": "Integral closure of the plus subring does not change Spa; use the characteristic-p convention.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ProEt",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+        "provides": "Native category of weakly étale schemes over X and its topology; not the derived left-completed essential-image theorem.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.exists_hom_hom_comp_eq_comp_of_locallyOfFiniteType",
+        "module": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
+        "provides": "Eventual equality of two relative maps at different stages of a given qc affine-transition limit; the relative target is locally finite type.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AffineSpace",
+        "module": "Mathlib/AlgebraicGeometry/AffineSpace.lean",
+        "provides": "Native affine space as a pullback over Spec Z with arbitrary coordinate index; suggested file uses its affine-line structural map as a nonproper counterexample.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsCofiltered",
+        "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
+        "provides": "Native cofiltered category class includes binary cones, parallel-arrow equalisation and nonemptiness; do not re-plan this class.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.conjugateIsoEquiv",
+        "module": "Mathlib/CategoryTheory/Adjunction/Mates.lean",
+        "provides": "For two adjunctions on the same source/target categories, natural isomorphisms of left adjoints correspond contravariantly to natural isomorphisms of right adjoints. Apply to composite adjunctions for the 27.3 and 27.4 mates.",
+        "checked": "Full statement read at the pinned commit; no formalisation claim."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ECD",
+      "title": "Étale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Author PDF dated 14 April 2026; printed pp. 161–167 for §§26–27",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§26, Definition 26.1, Proposition 26.2, operations and Remark 26.3",
+        "§27, both scheme functors and Propositions 27.1–27.7 with proofs"
+      ],
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1"
+    },
+    {
+      "id": "BS",
+      "title": "The pro-étale topology for schemes",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "Public arXiv PDF 1309.1198 retrieved 6 October 2026; Astérisque 369 (2015) bibliography. Claims concern this retrieved text.",
+      "url": "https://arxiv.org/pdf/1309.1198",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§3.4 Definition 3.4.1, Proposition 3.4.2, Lemmas 3.4.8–9, Definition 3.4.10 and Lemmas 3.4.11–12",
+        "§3.5 Lemma 3.5.7",
+        "§5 Propositions 5.2.6 and 5.3.2 statements and proofs",
+        "§6.8 Proposition 6.8.14"
+      ],
+      "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84"
+    },
+    {
+      "id": "ZAV",
+      "title": "Mod-p Poincaré Duality in p-adic analytic geometry",
+      "authors": "Bogdan Zavyalov",
+      "edition": "arXiv:2111.01830v3, 21 February 2024; §2.1 printed pp. 10–11. Annals 201 (2025) bibliographic route; version of record not read.",
+      "url": "https://arxiv.org/pdf/2111.01830v3",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§2.1, Definition 2.1.1, Remarks 2.1.2–3, Lemma 2.1.4 and Corollary 2.1.5, including proofs"
+      ],
+      "sha256": "a984d973782649972a835b302e20ec91fc9c1abc5e5b43c7eccc5934b9c2c951"
+    },
+    {
+      "id": "BP",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "Boxer author PDF retrieved 6 October 2026, printed p. 7, §2.1.1. Source issues below concern this PDF; the Inventiones 244 (2026) version of record was not read.",
+      "url": "https://www.ma.imperial.ac.uk/~gboxer/higherhidaSiegel.pdf",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§2.1.1, Definition 2.1.2, Remark 2.1.3, strictness, Lemmas 2.1.4–6 and proofs"
+      ],
+      "sha256": "b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee"
+    },
+    {
+      "id": "CES",
+      "title": "Purity for the Brauer group",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "arXiv:1711.06456v4, public text dated 4 December 2018; Duke Math. J. (2019) bibliographic route",
+      "url": "https://arxiv.org/pdf/1711.06456v4",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§4.10, statements and proof of the limit identifications (4.10.5)–(4.10.7)",
+        "§§5.3–5.4, applications of continuity"
+      ],
+      "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709"
+    },
+    {
+      "id": "ABE",
+      "title": "On the Serre conjecture for Artin characters in the geometric case",
+      "authors": "Tomoyuki Abe",
+      "edition": "arXiv:2405.19601v2, 13 June 2025; §1.4 printed pp. 4–5, read directly.",
+      "url": "https://arxiv.org/pdf/2405.19601v2",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§1.4, continuity lemma and proof, printed pp. 4–5"
+      ],
+      "sha256": "56d897a77e1a3ef0455c861d0f5bd5b499f47ea9420fd5fcca0594e794c020a6"
+    },
+    {
+      "id": "DJ",
+      "title": "Smoothness, semi-stability and alterations",
+      "authors": "A. J. de Jong",
+      "edition": "Publications Mathématiques de l’IHÉS 83 (1996), pp. 51–93; Numdam scan, OCR not authoritative for formulas",
+      "url": "https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "§2.20 alteration definition; §2.24 pointed projective cover construction",
+        "Theorems 4.1, 5.8 and 6.5 statements; no assertion that their full proofs were read"
+      ],
+      "sha256": "9e4e7dab2525e9a0fb0820752434c5a168914873b6118f5a967fcccae257ffb7"
+    },
+    {
+      "id": "ST-01ZA",
+      "title": "The Stacks Project, Tag 01ZA",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01ZA",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "6449d5f9c86d461893ca03c9b750807dcb016918a79c99a8aa47d872398f32a8"
+    },
+    {
+      "id": "ST-09YQ",
+      "title": "The Stacks Project, Tag 09YQ",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/09YQ",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "121cadc742b80f62dae86e5427321df0e1bc79903c76a6f4e8054277ac8fb34d"
+    },
+    {
+      "id": "ST-0ESN",
+      "title": "The Stacks Project, Tag 0ESN",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ESN",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "66a6d71d7debb3295adf5dffc3f7a258d1dbe870f0119866eaf56f14beacbfe0"
+    },
+    {
+      "id": "ST-0ATT",
+      "title": "The Stacks Project, Tag 0ATT",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ATT",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "8898b4c9a49316e342ea80eb522f63fa5ac3f7ef79f86c5c9d9cae8618c0d90d"
+    },
+    {
+      "id": "ST-0F41",
+      "title": "The Stacks Project, Tag 0F41",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0F41",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "86e53aa1fa31486597e86d31cbd3bdf70f193bdf537e153793e9eea63f67c99d"
+    },
+    {
+      "id": "ST-095V",
+      "title": "The Stacks Project, Tag 095V",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/095V",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "dd4b065335a8effb84b56d41ba61dbe1abc45cb72e456e067f8c79806151c715"
+    },
+    {
+      "id": "ST-0G41",
+      "title": "The Stacks Project, Tag 0G41",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0G41",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "134a580a5c89f62ca1863c7f13bd19d751768b549edbdaf5c4b954e46fc9fb24"
+    },
+    {
+      "id": "ST-01ZM",
+      "title": "The Stacks Project, Tag 01ZM",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01ZM",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "f24dc66991adbc1a0c758cb5bf409ca15f4fbf78c306608006471fa4a3aa88ce"
+    },
+    {
+      "id": "ST-01ZR",
+      "title": "The Stacks Project, Tag 01ZR",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01ZR",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "6dae72a0f68ff004723759bd2552185270b7a14c32dbca4903906bb270367571"
+    },
+    {
+      "id": "ST-01ZJ",
+      "title": "The Stacks Project, Tag 01ZJ",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01ZJ",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "2a60065cbec562b02883c5da88f1d78ca3b882e92a13886240ed730ce8c98694"
+    },
+    {
+      "id": "ST-01YX",
+      "title": "The Stacks Project, Tag 01YX",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01YX",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "75b31156e1a32581f46ae5a491ac2c43b723232439b93c8674f31a938c7b844b"
+    },
+    {
+      "id": "ST-0EUU",
+      "title": "The Stacks Project, Tag 0EUU",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0EUU",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "dc295aa068728ca11ac8204c03bd7f55c788a570898c65285e7ac38102898718"
+    },
+    {
+      "id": "ST-081F",
+      "title": "The Stacks Project, Tag 081F",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/081F",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "3de17126874c2a028f8a81f18f7a5ae9f6c8b08738fa16c27c57cefc429af789"
+    },
+    {
+      "id": "ST-0ATU",
+      "title": "The Stacks Project, Tag 0ATU",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ATU",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Statement and proof of the tagged result"
+      ],
+      "sha256": "1879e9f76636d90801c2abe3e54eb25f7e226011eef933c028e6fda02b924842"
+    },
+    {
+      "id": "ST-07RN",
+      "title": "The Stacks Project, Tag 07RN",
+      "authors": "The Stacks Project authors",
+      "edition": "Public HTML retrieved 6 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/07RN",
+      "readDate": "2026-10-06",
+      "readSections": [
+        "Lemma 32.5.3 statement and complete finite affine-gluing proof"
+      ],
+      "sha256": "21f91a21622d2a679106a182c47c453410aa9949934031d7664ab80099b07ea5"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Adic étale derived category",
+      "kind": "definition",
+      "statement": "Dét,adic(Y,Λ) is the full enhanced subcategory of D(Yv,Λ) on derived I-complete A whose derived reduction A⊗ΛΛ/I is in the discrete étale subcategory. Derived completeness uses the imported completion functor, not completeness of individual cohomology modules alone. The coefficient unit is the completed constant coefficient object, not an unverified identification with the discrete constant Λ-sheaf.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "Y a small v-stack over characteristic-p perfectoid spaces."
+      ],
+      "proofSteps": [
+        "Use the enhanced sheaf category and the discrete étale essential-image predicate.",
+        "Intersect the derived-complete object property with the étale reduction property; inherit morphisms through the native full subcategory."
+      ],
+      "prerequisites": [
+        "EnhancedDerivedSheaves:E1/enhanced-derived-category",
+        "EnhancedDerivedSheaves:E4/the-imported-completion-interface",
+        "DiamondEtaleCohomology:C2",
+        "mathlib:CategoryTheory.ObjectProperty.FullSubcategory"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Definition 26.1, pp. 161–162",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "No noetherianity of Λ is added.",
+        "I=0 gives the discrete category only in the standing prime-to-p torsion coefficient range."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adic étale derived category"
+      },
+      "api": [
+        {
+          "name": "AdicEtale.ofComplete",
+          "role": "constructor",
+          "statement": "From A, a derived-completeness witness and an étale-reduction witness, construct the corresponding object."
+        },
+        {
+          "name": "AdicEtale.forget",
+          "role": "coercion",
+          "statement": "Fully faithful inclusion into enhanced D(Yv,Λ)."
+        },
+        {
+          "name": "AdicEtale.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership is precisely the conjunction of the two stated object properties."
+        },
+        {
+          "name": "AdicEtale.reduce",
+          "role": "functoriality",
+          "statement": "For n≥1, derived reduction to Λ/Iⁿ lands in the discrete étale category."
+        },
+        {
+          "name": "AdicEtale.ext",
+          "role": "extensionality",
+          "statement": "Two morphisms are equal iff their images in D(Yv,Λ) are equal."
+        },
+        {
+          "name": "AdicEtale.discrete_zeroIdeal",
+          "role": "compatibility",
+          "statement": "For I=0 and Λ killed by an integer prime to p, identify with the supplied discrete category through the same inclusion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicEtale.point",
+          "statement": "At a geometric point with Λ=Zℓ, I=(ℓ), the constant lattice Λ[0] is admitted and reduces to Z/ℓⁿ."
+        },
+        {
+          "name": "AdicEtale.torsion",
+          "statement": "The constant Z/ℓ complex is admitted: derived ℓ-completeness does not mean torsion freeness."
+        },
+        {
+          "name": "AdicEtale.reject_inverted",
+          "statement": "The nonzero constant Qℓ object in ambient D(Yv,Zℓ) is not derived ℓ-complete; derived completion sends it to zero."
+        },
+        {
+          "name": "AdicEtale.empty",
+          "statement": "For Y empty the category has only the zero object up to equivalence."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD §26 operations",
+          "how": "The common carrier for completed operations."
+        },
+        {
+          "where": "L1 and L3",
+          "how": "The target of adic scheme comparison."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Enhanced coefficient reconstruction",
+      "kind": "theorem",
+      "statement": "Reduction induces an equivalence of PRESENTABLE STABLE enhanced categories Dét,adic(Y,Λ) ≃ limₙ Dét(Y,Λ/Iⁿ), with coherent derived base-change identifications at consecutive levels. Its homotopy category is the category in Definition 26.1.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "Y a small v-stack over characteristic-p perfectoid spaces."
+      ],
+      "proofSteps": [
+        "Apply the supplier reconstruction to derived-complete enhanced sheaves.",
+        "Restrict to the full étale-reduction subcategory; higher reductions remain étale by the I-adic filtration.",
+        "Presentability and stability follow from the enhanced limit, not the ordinary inverse limit of homotopy categories."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+        "EnhancedDerivedSheaves:E4/compatible-coefficient-systems",
+        "EnhancedDerivedSheaves:E4/coefficient-system-reconstruction",
+        "DiamondEtaleCohomology:C0"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 26.2, p. 162",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Compatible tower includes higher coherence data.",
+        "No noetherianity hypothesis inserted."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adic coefficient reconstruction"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Completed operations on adic étale objects",
+      "kind": "construction",
+      "statement": "On Dét,adic(Y,Λ), A⊗̂B=CompI(A⊗ᴸΛB) and colimadic Aα=CompI(colimambient Aα). The unit is CompI(Λconstant); internal RHom is the right adjoint of completed tensor. The inclusion generally fails to preserve colimits.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "Y a small v-stack over characteristic-p perfectoid spaces."
+      ],
+      "proofSteps": [
+        "Restrict the completion of ambient tensor and colimits using étale reduction.",
+        "Import enhanced monoidal completion and tensor/Hom adjunction from the generic owners.",
+        "Identify reductions using coefficient reconstruction."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "EnhancedDerivedSheaves:E4/the-imported-completion-interface",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§26 following Proposition 26.2, p. 162",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The tensor is derived and completed.",
+        "Distinguish ordinary coproduct from its completed value."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Completed tensor product"
+      },
+      "api": [
+        {
+          "name": "AdicEtale.tensor",
+          "role": "structure",
+          "statement": "Closed symmetric monoidal completed tensor with unit Λ."
+        },
+        {
+          "name": "AdicEtale.colimit",
+          "role": "universal-property",
+          "statement": "Mapping out of the completed ambient colimit into a complete object satisfies the enhanced colimit universal property."
+        },
+        {
+          "name": "AdicEtale.tensor_reduce",
+          "role": "compatibility",
+          "statement": "Reduction of completed tensor is the derived tensor of reductions over Λ/Iⁿ."
+        },
+        {
+          "name": "AdicEtale.internalHom",
+          "role": "universal-property",
+          "statement": "Map(A⊗̂B,C)≃Map(A,RHom(B,C)) in enhanced mapping spaces."
+        },
+        {
+          "name": "AdicEtale.unit_tensor",
+          "role": "simp",
+          "statement": "CompI(Λconstant)⊗̂A≃A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicEtale.tensor_point",
+          "statement": "For Zℓ at a point, Z/ℓ⊗ᴸZℓ Z/ℓ has a nonzero Tor term in degree −1; it is not ordinary tensor alone."
+        },
+        {
+          "name": "AdicEtale.telescope",
+          "statement": "The completed colimit Zℓ --ℓ→ Zℓ --ℓ→ ... is zero, although its ambient colimit is Qℓ."
+        },
+        {
+          "name": "AdicEtale.empty_colimit",
+          "statement": "The empty completed colimit is zero."
+        },
+        {
+          "name": "AdicEtale.unit",
+          "statement": "Zℓ⊗̂Zℓ≃Zℓ at a point."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 26.3 and 27.1(i)",
+          "how": "Reduction and tensor comparison."
+        },
+        {
+          "where": "Rational coefficients",
+          "how": "The ℓ-telescope test prevents rational coefficients being defined by presentable adic localisation."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Six adic operations",
+      "kind": "construction",
+      "statement": "For arbitrary f:Y′→Y, restriction gives f*, with right adjoint Rf*. For compactifiable f representable in locally spatial diamonds and locally finite dim.trg, coherent levelwise Rf! gives Rf!:Dét,adic(Y′,Λ)→Dét,adic(Y,Λ), with right adjoint f!. Tensor and internal Hom are those of the preceding node. All six operations have the coefficient-change identifications of Remark 26.3.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "Y a small v-stack over characteristic-p perfectoid spaces.",
+        "The support operations require precisely the geometric eligibility conditions just stated."
+      ],
+      "proofSteps": [
+        "Use restriction on the v-site, which preserves limits and reduction.",
+        "Construct support pushforward on the coherent tower of coefficient rings using the six-operation suppliers.",
+        "Pass to the enhanced limit; obtain right adjoints by presentability. Apply the perfect-coefficient-change supplier to right adjoints."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits",
+        "EnhancedDerivedSheaves:E4/perfect-coefficient-change",
+        "DiamondSixOperations:S0",
+        "DiamondSixOperations:S1",
+        "DiamondSixOperations:S3"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§26 operations and Remark 26.3, p. 162",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "All coefficient-change diagrams commute, not only objectwise reductions.",
+        "No f! is attached to a geometrically ineligible map."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Six adic operations"
+      },
+      "api": [
+        {
+          "name": "AdicSix.pullback",
+          "role": "functoriality",
+          "statement": "Coherent f* for all small v-stack maps, identity and composition."
+        },
+        {
+          "name": "AdicSix.pushAdjunction",
+          "role": "universal-property",
+          "statement": "f* ⊣ Rf*."
+        },
+        {
+          "name": "AdicSix.support",
+          "role": "constructor",
+          "statement": "Given geometric eligibility, coherent Rf! specialising to extension by zero for opens and Rf* for proper maps."
+        },
+        {
+          "name": "AdicSix.shriekAdjunction",
+          "role": "universal-property",
+          "statement": "Rf! ⊣ f!."
+        },
+        {
+          "name": "AdicSix.reduce",
+          "role": "compatibility",
+          "statement": "All six operations agree after Λ/Iⁿ reduction with the supplied discrete operations; identify the canonical comparison."
+        },
+        {
+          "name": "AdicSix.baseChange",
+          "role": "compatibility",
+          "statement": "Base-change transformations and projection formulas are inherited by reduction, with their original geometric hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicSix.identity",
+          "statement": "For idY, all four functors and all adjunction units/counits are identity up to the specified coherent equivalence."
+        },
+        {
+          "name": "AdicSix.empty_open",
+          "statement": "Extension by zero from the empty open is the zero functor."
+        },
+        {
+          "name": "AdicSix.open_boundary",
+          "statement": "For j:U↪Y and a geometric point outside U, (j!Λ) has zero stalk; j* direct image need not."
+        },
+        {
+          "name": "AdicSix.proper",
+          "statement": "For a finite proper disjoint union of two geometric points over one, Rf!Λ=Rf*Λ=Λ⊕Λ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.4–27.5",
+          "how": "The operations compared with schemes."
+        },
+        {
+          "where": "Diamond duality consumers",
+          "how": "Adic extension of the torsion formalism."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/reduction-detects-equivalences",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Derived reduction detects equivalences",
+      "kind": "theorem",
+      "statement": "For a map between derived I-complete objects, reduction modulo I is an equivalence iff the map is an equivalence. For exact enhanced Λ-linear operations with the coherent scalar-change data of the E4 supplier, perfect reduction and the filtration of Iⁿ identify all finite-level operations, including right adjoints.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "Y a small v-stack over characteristic-p perfectoid spaces."
+      ],
+      "proofSteps": [
+        "Apply derived Nakayama to the cone using the completion supplier.",
+        "Use a Koszul finite resolution of Λ/I for the regular sequence; use the finite filtration of Λ/Iⁿ to pass to n.",
+        "Apply to cones of the specified natural transformations; exactness alone is not a scalar-change hypothesis."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "EnhancedDerivedSheaves:E4/perfect-coefficient-change",
+        "EnhancedDerivedSheaves:E4/the-imported-completion-interface"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Remark 26.3, p. 162",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Exclude a map between arbitrary noncomplete objects.",
+        "State perfect Λ-linearity and finite-level identification explicitly."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adic reduction principle"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients",
+      "parentStageId": "AdicCoefficientsAndComparisons:L0",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "title": "Rational coefficients from integral lattices",
+      "kind": "construction",
+      "statement": "For ℓ≠p, define the rational lattice category as the scalar localisation Dcons(X,Zℓ)[1/ℓ]: objects are integral constructible complexes, with Hom tensored with Qℓ, and coherent localisation of composition. Over topologically noetherian schemes in BS §6.8 this is equivalent to the supplied constructible Qℓ category. No equivalence with arbitrary Qℓ sheaves on a general v-stack is asserted.",
+      "hypotheses": [
+        "Integral bounded constructible ℓ-adic category supplied for the scheme/site in question.",
+        "The BS comparison uses its topologically noetherian scheme hypotheses."
+      ],
+      "proofSteps": [
+        "Localise morphism complexes of the integral lattice enhancement coherently and take its homotopy category.",
+        "Use BS 6.8.14 for the topologically noetherian scheme comparison.",
+        "For general diamonds record the need for an independent lattice/constructibility theorem; do not invert ℓ by completed colimits."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+        "EnhancedDerivedSheaves:E1/enhanced-derived-category",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS",
+          "locator": "Proposition 6.8.14",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The distinction between rational lattices and all rational sheaves is retained."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rational constructible coefficients"
+      },
+      "api": [
+        {
+          "name": "RationalLattice.localise",
+          "role": "constructor",
+          "statement": "Integral constructible complexes map into the rational lattice category."
+        },
+        {
+          "name": "RationalLattice.hom",
+          "role": "characterisation",
+          "statement": "Hom(A,B)=Homint(A,B)⊗Zℓ Qℓ with localised composition."
+        },
+        {
+          "name": "RationalLattice.invert",
+          "role": "simp",
+          "statement": "Multiplication by ℓ on each localised object is invertible."
+        },
+        {
+          "name": "RationalLattice.universal",
+          "role": "universal-property",
+          "statement": "Λ-linear enhanced functors inverting ℓ factor through the scalar localisation."
+        },
+        {
+          "name": "RationalLattice.schemeComparison",
+          "role": "equivalence",
+          "statement": "Under BS §6.8 hypotheses compare with constructible Qℓ complexes; the integral lattice realises this functor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RationalLattice.point",
+          "statement": "At a geometric point, the localised rank-one lattice has endomorphism ring Qℓ, not zero."
+        },
+        {
+          "name": "RationalLattice.torsion",
+          "statement": "An integral constructible complex killed by a power of ℓ becomes zero."
+        },
+        {
+          "name": "RationalLattice.zero",
+          "statement": "The zero integral complex remains zero."
+        },
+        {
+          "name": "RationalLattice.isogeny",
+          "statement": "Multiplication by ℓ on the rank-one lattice becomes an isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Campaign L0 rational variant",
+          "how": "Clarifies what rational coefficients mean without completed presentable localisation."
+        },
+        {
+          "where": "BS 6.8.14",
+          "how": "Agreement with the closest scheme coefficient category."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+      "parentStageId": "AdicCoefficientsAndComparisons:L1",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L1"
+      ],
+      "title": "Characteristic-p scheme v-sheaf",
+      "kind": "construction",
+      "statement": "For a characteristic-p scheme X, construct X◇ as the v-sheaf of maps from perfectoid S to the adic avatar of X. On Spec R use the discrete pair (R,R⁺), R⁺ the integral closure of Fp in R; glue along scheme opens. It factors through perfection. This construction makes no local finite-type hypothesis.",
+      "hypotheses": [
+        "X arbitrary of characteristic p.",
+        "Universe and smallness conventions of the v-stack supplier."
+      ],
+      "proofSteps": [
+        "Use native Spa with the indicated plus subring, supplied adicification and v-sheafification.",
+        "Glue along scheme open immersions and prove descent.",
+        "Frobenius is invertible on perfectoid test objects, so the functor factors through perfection."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.ValuationSpectrum.spa",
+        "tauceti:TauCeti.ValuationSpectrum.spa_integralClosure",
+        "DiamondsAndVStacks:D6",
+        "PerfectoidSpaces:P1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§27 opening paragraph, p. 163",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Retain integral-closure-of-Fp plus ring, even when R is a field."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Characteristic-p scheme v-sheaf"
+      },
+      "api": [
+        {
+          "name": "SchemeDiamond.charP",
+          "role": "constructor",
+          "statement": "Functor from characteristic-p schemes to small v-sheaves."
+        },
+        {
+          "name": "SchemeDiamond.charP_points",
+          "role": "characterisation",
+          "statement": "On perfectoid S, sections are precisely adic maps S→Xad with the stated plus ring."
+        },
+        {
+          "name": "SchemeDiamond.charP_open",
+          "role": "compatibility",
+          "statement": "Scheme open immersion induces the corresponding open v-sheaf immersion."
+        },
+        {
+          "name": "SchemeDiamond.charP_perfection",
+          "role": "equivalence",
+          "statement": "Xperf◇≃X◇, naturally in X."
+        },
+        {
+          "name": "SchemeDiamond.charP_functor",
+          "role": "functoriality",
+          "statement": "Identity and composition with coherent gluing."
+        },
+        {
+          "name": "SchemeDiamond.charP_spa",
+          "role": "compatibility",
+          "statement": "Affine chart uses native TauCeti.ValuationSpectrum.spa for the discrete pair (R,R⁺)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SchemeDiamond.Fp",
+          "statement": "Spec Fp maps to Spd(Fp,Fp)."
+        },
+        {
+          "name": "SchemeDiamond.plusRing",
+          "statement": "For a perfect field k extending Fp, the chart uses k⁺=integral closure of Fp; it must not silently use k."
+        },
+        {
+          "name": "SchemeDiamond.empty",
+          "statement": "The empty scheme gives the empty v-sheaf."
+        },
+        {
+          "name": "SchemeDiamond.frobenius",
+          "statement": "Frobenius induces an isomorphism on X◇ even if X was not perfect."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.2–27.4",
+          "how": "Comparison for arbitrary characteristic-p schemes and their perfections."
+        },
+        {
+          "where": "L2 geometric limit inputs",
+          "how": "Infinite-variable perfected affine charts."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L1/scheme-adic-category",
+      "parentStageId": "AdicCoefficientsAndComparisons:L1",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L1"
+      ],
+      "title": "Scheme adic étale category",
+      "kind": "definition",
+      "statement": "Dét,adic(X,Λ) is the full enhanced subcategory of D(Xproét,Λ) consisting of derived I-complete A for which A⊗ᴸΛΛ/I belongs to the LEFT-COMPLETED étale essential image D̂(Xét,Λ/I). Equivalently, the reduction has classical étale cohomology sheaves. Replace D̂ by ordinary D only under a verified left-completeness hypothesis.",
+      "hypotheses": [
+        "Λ commutative, I-adically complete; I finitely generated by a regular sequence and containing an integer prime to p.",
+        "X a scheme."
+      ],
+      "proofSteps": [
+        "Use the SF.2 pro-étale export and the enhanced completion supplier.",
+        "Use BS 5.3.2 for the unbounded left-completed image, BS 5.2.6 only for bounded below.",
+        "Form the native full subcategory."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
+        "SchemeAndStackFoundations:SF.2",
+        "EnhancedDerivedSheaves:E4/the-imported-completion-interface",
+        "EnhancedDerivedSheaves:E2/left-completion"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§27 pro-étale paragraph, p. 163",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Ordinary unbounded D is not substituted without finite-dimensionality evidence."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Scheme adic étale category"
+      },
+      "api": [
+        {
+          "name": "SchemeAdic.ofComplete",
+          "role": "constructor",
+          "statement": "Embed a derived-complete pro-étale complex with classical étale reduction cohomology."
+        },
+        {
+          "name": "SchemeAdic.forget",
+          "role": "coercion",
+          "statement": "Fully faithful inclusion into enhanced D(Xproét,Λ)."
+        },
+        {
+          "name": "SchemeAdic.reduce",
+          "role": "functoriality",
+          "statement": "Reduction to Λ/Iⁿ belongs to the left-completed étale category."
+        },
+        {
+          "name": "SchemeAdic.boundedBelow",
+          "role": "compatibility",
+          "statement": "Bounded-below étale complexes agree with their pro-étale pullbacks under BS 5.2.6."
+        },
+        {
+          "name": "SchemeAdic.leftComplete",
+          "role": "equivalence",
+          "statement": "If the étale derived category is left complete, use ordinary étale complexes in the reduction condition."
+        },
+        {
+          "name": "SchemeAdic.ext",
+          "role": "extensionality",
+          "statement": "Equality of morphisms is detected by the pro-étale inclusion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SchemeAdic.geometricPoint",
+          "statement": "At an algebraically closed point with Zℓ, the constant lattice belongs and its reductions are the classical étale constants."
+        },
+        {
+          "name": "SchemeAdic.zeroIdeal",
+          "statement": "For I=0 and prime-to-p torsion Λ, the category is the left-completed étale essential image, not all pro-étale complexes."
+        },
+        {
+          "name": "SchemeAdic.reject_inverted",
+          "statement": "The ambient nonzero Qℓ constant is excluded for Λ=Zℓ,I=(ℓ)."
+        },
+        {
+          "name": "SchemeAdic.empty",
+          "statement": "Over the empty scheme all objects are zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.2",
+          "how": "Correct source for unbounded comparison."
+        },
+        {
+          "where": "RT-AREA-etale/23",
+          "how": "Names the exact missing SF.2 pro-étale export."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+      "parentStageId": "AdicCoefficientsAndComparisons:L1",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L1"
+      ],
+      "title": "Scheme-to-v-sheaf comparison functor",
+      "kind": "construction",
+      "statement": "The natural morphism cX:X◇v→Xét for discrete coefficients, and cX:X◇v→Xproét for adic coefficients, induces derived pullback cX*. In the adic case use completed pullback into Dét,adic(X◇,Λ); its source is the scheme adic category. The same construction for O-schemes uses the mixed-characteristic diamond below.",
+      "hypotheses": [
+        "Discrete coefficient case and regular adic case use their separate source categories."
+      ],
+      "proofSteps": [
+        "Construct the morphism of sites on supplied étale/pro-étale objects.",
+        "Derive the pullback through the enhanced sheaf supplier; complete it for the adic category.",
+        "Check reduction and geometric points, including the mixed-characteristic convention."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+        "AdicCoefficientsAndComparisons:L1/scheme-adic-category",
+        "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+        "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§27, p. 163 and mixed-characteristic paragraph pp. 165–166",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The morphism is from the v-site towards the scheme site."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Scheme comparison pullback"
+      },
+      "api": [
+        {
+          "name": "SchemeComparison.pullback",
+          "role": "constructor",
+          "statement": "Derived cX* on the specified source category."
+        },
+        {
+          "name": "SchemeComparison.reduce",
+          "role": "compatibility",
+          "statement": "cX* commutes with Λ/Iⁿ reduction by the canonical coherent map."
+        },
+        {
+          "name": "SchemeComparison.stalk",
+          "role": "characterisation",
+          "statement": "At a geometric perfectoid point, identify pullback with the corresponding scheme geometric stalk."
+        },
+        {
+          "name": "SchemeComparison.unit",
+          "role": "simp",
+          "statement": "cX* of the coefficient unit is the coefficient unit."
+        },
+        {
+          "name": "SchemeComparison.colimit",
+          "role": "functoriality",
+          "statement": "Preserves the completed enhanced colimits, yielding a right adjoint."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SchemeComparison.point",
+          "statement": "At a geometric point finite torsion constants pull back to the same coefficient complex."
+        },
+        {
+          "name": "SchemeComparison.zero",
+          "statement": "cX*0=0."
+        },
+        {
+          "name": "SchemeComparison.openSupport",
+          "statement": "The pullback of a sheaf extended by zero from a scheme open has zero stalks outside the corresponding diamond open."
+        },
+        {
+          "name": "SchemeComparison.adic",
+          "statement": "The pulled-back Zℓ lattice has reductions Z/ℓⁿ; the operation uses derived completion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.1–27.7",
+          "how": "Canonical functor whose operation comparisons and full faithfulness are tested."
+        },
+        {
+          "where": "EtaleDualityAndPerverseSheaves:EDC.6",
+          "how": "Import the characteristic-p operation comparison from L3."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+      "parentStageId": "AdicCoefficientsAndComparisons:L1",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L1"
+      ],
+      "title": "Mixed-characteristic scheme diamond",
+      "kind": "construction",
+      "statement": "Fix a complete DVR O with perfect residue field k of characteristic p. For X locally of finite type over O, X◇(S) consists of an untilt S♯ over Spa(O,O) and an O-linear locally ringed-space map S♯→X. This gives a diamond over Spd O, naturally in X. For Spec k it gives Spd(k,k), which differs from the characteristic-p convention when k⁺≠k.",
+      "hypotheses": [
+        "O and X as stated; perfectoid tests S have characteristic p."
+      ],
+      "proofSteps": [
+        "Use the untilt supplier over the explicit pair (O,O).",
+        "Form the mapping v-sheaf and check it is a diamond using D6 geometry.",
+        "Glue finite-type affine charts; retain the local finite-type hypothesis for representability."
+      ],
+      "prerequisites": [
+        "DiamondsAndVStacks:D6",
+        "PerfectoidSpaces:P1",
+        "tauceti:TauCeti.ValuationSpectrum.spa"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "§27 mixed-characteristic paragraph, pp. 165–166",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Do not identify its closed fibre with the characteristic-p avatar without changing the plus ring."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Mixed-characteristic scheme diamond"
+      },
+      "api": [
+        {
+          "name": "SchemeDiamond.overDVR",
+          "role": "constructor",
+          "statement": "Functor from locally finite-type O-schemes to diamonds over Spd O."
+        },
+        {
+          "name": "SchemeDiamond.overDVR_points",
+          "role": "characterisation",
+          "statement": "Sections are the untilt/mapping pairs in the statement."
+        },
+        {
+          "name": "SchemeDiamond.overDVR_functor",
+          "role": "functoriality",
+          "statement": "Composition, identity and gluing along opens."
+        },
+        {
+          "name": "SchemeDiamond.overDVR_closedFibre",
+          "role": "compatibility",
+          "statement": "The residue point is Spd(k,k)."
+        },
+        {
+          "name": "SchemeDiamond.overDVR_generic",
+          "role": "compatibility",
+          "statement": "Generic fibre agrees with the analytic generic-fibre diamond where that avatar exists."
+        },
+        {
+          "name": "SchemeDiamond.overDVR_empty",
+          "role": "simp",
+          "statement": "Empty scheme maps to empty diamond."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SchemeDiamond.residue",
+          "statement": "Spec k gives Spd(k,k), retaining k as the plus ring."
+        },
+        {
+          "name": "SchemeDiamond.base",
+          "statement": "Spec O gives Spd(O,O), with structural morphism identity."
+        },
+        {
+          "name": "SchemeDiamond.emptyDVR",
+          "statement": "Empty O-scheme gives empty diamond."
+        },
+        {
+          "name": "SchemeDiamond.nonagreement",
+          "statement": "For perfect k with elements transcendental over Fp, k⁺ is a proper subring: the two residue-point conventions cannot be asserted equal."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.5–27.7",
+          "how": "The mixed-characteristic comparison space."
+        },
+        {
+          "where": "L4 test space",
+          "how": "Base change along its analytic cover."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Nonnoetherian Nagata compactification",
+      "kind": "theorem",
+      "statement": "For separated finite-type f:Y→X with X qcqs, there are a quasi-compact open immersion j:Y→Ybar and proper p:Ybar→X with p∘j=f. This includes finite type not finite presentation. Perfections are handled by transport of the coefficient theory, not by falsely asserting that perfection remains finite type.",
+      "hypotheses": [
+        "Schemes qcqs, f separated finite type."
+      ],
+      "proofSteps": [
+        "Apply L2 noetherian approximation and the finite-type closed-in-finite-presentation factorisation.",
+        "Import noetherian Nagata from SF.2; descend the fp part, compactify there, and base change.",
+        "Take the schematic closure of Y in the base-changed compactification using the native image."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/noetherian-approximation",
+        "AdicCoefficientsAndComparisons:L2/finite-type-fp-factorisation",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.image"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-0F41",
+          "locator": "Theorem 38.33.8, Tag 0F41",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Do not assume the finite-type morphism is finitely presented."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nonnoetherian Nagata compactification"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+      "parentStageId": "AdicCoefficientsAndComparisons:L3",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L3"
+      ],
+      "title": "Characteristic-p full faithfulness",
+      "kind": "theorem",
+      "statement": "For any characteristic-p scheme X and regular adic coefficients as in L0 (or discrete Λ killed by an integer prime to p), cX*:Dét(X,Λ)→Dét(X◇,Λ) is fully faithful, with right adjoint RcX*. The scheme category is left-completed in the unbounded discrete case.",
+      "hypotheses": [
+        "X arbitrary, no finite-type or noetherian hypothesis."
+      ],
+      "proofSteps": [
+        "Use enhanced presentability for the right adjoint; reduce the unit modulo I and use Postnikov limits.",
+        "Étale-local descent, perfection, closed embeddings and finite-coordinate descent reduce to constructible complexes on perfected affine space.",
+        "After C=completed algebraic closure of Fp-bar((t)), use C6 base-change full faithfulness and H5 radius-restriction stabilisation on finite-dimensional balls.",
+        "Use the H5 analytic comparison to identify the canonical map on affine-space cohomology; verify compatibility with the original adjunction unit."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "AdicCoefficientsAndComparisons:L0/reduction-detects-equivalences",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "DiamondEtaleCohomology:C6",
+        "SchemeAndStackFoundations:SF.2",
+        "EnhancedDerivedSheaves:E2/left-completion"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.2 and proof, pp. 163–164",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Prove the NATURAL restriction maps are isomorphisms; abstract equal cardinalities alone are insufficient.",
+        "Remove the integrated 6.1.1 gap only to the exact finite-polydisc supplier scope; do not import all-smooth finiteness as total finiteness."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Characteristic-p full faithfulness"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4",
+      "parentStageId": "AdicCoefficientsAndComparisons:L3",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L3"
+      ],
+      "title": "Characteristic-p proper-support comparison",
+      "kind": "theorem",
+      "statement": "For separated finite-type f:Y→X of qcqs characteristic-p schemes, or the perfection of such a map, f◇ is compactifiable, representable in locally spatial diamonds, and locally finite in dim.trg. The canonical map cX*Rf!→Rf◇!cY* is an equivalence. Its right-adjoint mate is f!RcX*≃RcY*(f◇)!.",
+      "hypotheses": [
+        "Coefficients discrete prime-to-p torsion or regular adic as L0."
+      ],
+      "proofSteps": [
+        "Use the nonnoetherian Nagata factorisation and coherent independence of scheme Rf!.",
+        "Check extension by zero on opens; for proper maps reduce to fp models over noetherian finite-type bases via continuity.",
+        "Apply C6 change of algebraically closed field, scheme proper base change and H5 3.7.2.",
+        "Pass to adic coefficients by reduction and to the right-adjoint identity by mates."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "DiamondsAndVStacks:D6",
+        "DiamondEtaleCohomology:C6",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:CategoryTheory.conjugateIsoEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.4 and proof, p. 165",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Keep the right-adjoint direction; this does not state cY*f!≃(f◇)!cX*.",
+        "Account for colimit and Postnikov reductions with the exact finite-cd supplier."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Characteristic-p proper-support comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+      "parentStageId": "AdicCoefficientsAndComparisons:L4",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L4"
+      ],
+      "title": "Mixed-characteristic proper-support comparison",
+      "kind": "theorem",
+      "statement": "For separated f:Y→X between schemes finite type over a complete DVR O with perfect residue characteristic p, f◇ has the support eligibility of L0 and cX*Rf!≃Rf◇!cY*. Consequently f!RcX*≃RcY*(f◇)!. No full faithfulness on arbitrary nonconstructible mixed-characteristic complexes is asserted.",
+      "hypotheses": [
+        "Finite type over O, not merely local finite type for this global theorem.",
+        "Discrete prime-to-p torsion or regular adic coefficients."
+      ],
+      "proofSteps": [
+        "Factor into an open immersion and proper map; check extension by zero for opens.",
+        "For proper f, use Postnikov limits and finite cohomological dimension to reduce to bounded-below coefficients.",
+        "Pull back to the conservative analytic test space T in the next node; H5 proper comparison identifies the scheme side, and C3/D6 identify the diamond side.",
+        "Descend the canonical comparison, then apply the adic reduction principle and right-adjoint mates."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space",
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "DiamondEtaleCohomology:C3",
+        "DiamondsAndVStacks:D6",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.5 and proof, p. 166",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Map compared is the canonical base-change transformation.",
+        "The analytic test-space cohomological-smoothness obligation is recorded separately."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Mixed-characteristic proper-support comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+      "parentStageId": "AdicCoefficientsAndComparisons:L5",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "title": "Normal-crossing boundary comparison",
+      "kind": "theorem",
+      "statement": "Let X be smooth over a perfect field of residue characteristic p, or a characteristic-zero generic field, D a strict normal-crossing divisor with smooth strata and j:X\\D↪X. For finite prime-to-p coefficients Λ, the canonical comparison for Rj* is an equivalence after passage to the L4 analytic test space. In a strict henselian chart with r boundary parameters, the tame constant-coefficient calculation is the exterior algebra on r Kummer generators Λ(−1) in degree 1; compare generators and residues, not just ranks.",
+      "hypotheses": [
+        "Λ finite killed by n with gcd(n,p)=1; for the characteristic-zero branch the analytic residue characteristic condition still applies.",
+        "General constructible coefficients reduced to constants after finite covers and proper descent."
+      ],
+      "proofSteps": [
+        "Import scheme purity/Kummer local calculations from EDC.3 and analytic boundary calculations from H1.",
+        "Identify cycle classes, twists and restriction maps under c*, then use localisation and the strata filtration.",
+        "Apply proper hypercover descent to the supplied alteration; do not re-prove de Jong geometry in L5."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent",
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "ClassicalAdicEtaleCohomology:H1",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proof of Proposition 27.6, pp. 166–167",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "For one boundary component, the degree-one generator and Tate twist match.",
+        "For two components, verify the cup-product generator and both residue maps.",
+        "The source leaves these calculations unwritten; G-local records the remaining proof."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Normal-crossing boundary comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6",
+      "parentStageId": "AdicCoefficientsAndComparisons:L6",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L6"
+      ],
+      "title": "Constructible direct-image comparison",
+      "kind": "theorem",
+      "statement": "For separated f:Y→X between schemes finite type over O, and a finite ring Λ killed by an integer prime to p, the canonical map cX*Rf*A→Rf◇*cY*A is an equivalence for A in Dᵇc(Yét,Λ). Constructible means bounded with finite locally constant cohomology on a finite constructible stratification.",
+      "hypotheses": [
+        "O complete DVR with perfect residue field.",
+        "No arbitrary unbounded or arbitrary ℓ-adic extension is inferred."
+      ],
+      "proofSteps": [
+        "Nagata factorisation reduces to a proper map and an open immersion; use L4 for the proper part.",
+        "Devissage and proper hypercovers reduce the open part to constant coefficients on a residue or generic-fibre stratum.",
+        "Use the SF.4 field alterations and L5 normal-crossing calculation for the residue and horizontal generic-fibre branches.",
+        "For the remaining generic-fibre inclusion use the strictly semistable induction and the trait calculation below."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+        "AdicCoefficientsAndComparisons:L5/semistable-boundary-induction",
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+        "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.6 and proof, pp. 166–167",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Each reduction acts on the canonical natural map, including Galois actions and twists."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constructible direct-image comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L6/constructible-full-faithfulness-27-7",
+      "parentStageId": "AdicCoefficientsAndComparisons:L6",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L6"
+      ],
+      "title": "Constructible mixed-characteristic full faithfulness",
+      "kind": "theorem",
+      "statement": "For X locally of finite type over O and finite Λ killed by an integer prime to p, the adjunction unit A→RcX*cX*A is an equivalence for A∈Dᵇc(Xét,Λ). Thus cX* is fully faithful on this subcategory. The prime-to-p restriction is explicit even though 27.7 abbreviates its coefficient hypothesis to finite Λ.",
+      "hypotheses": [
+        "Use the mixed-characteristic diamond convention and complete DVR with perfect residue."
+      ],
+      "proofSteps": [
+        "For Spec O, finite-cover devissage reduces to constants and constants supported on the closed fibre; apply the trait calculation and continuous Galois cohomology.",
+        "For finite-type separated affine étale test objects, use L6 27.6 for their structural morphism to Spec O.",
+        "Check the unit on a basis of such neighbourhoods and use étale descent to cover locally finite-type X; no global finite-type hypothesis is smuggled in."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6",
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "ClassicalAdicEtaleCohomology:H0/profinite-g-set-cohomology",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.7 and proof, p. 167",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Local finite type allowed only by the basis/descent argument.",
+        "Prime-to-p finite coefficients are retained; a literal all-finite-rings extension is a gap."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constructible mixed-characteristic full faithfulness"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/affine-transition-limit-existence",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Affine-transition inverse limits",
+      "kind": "theorem",
+      "statement": "Every directed inverse system of schemes with affine transition morphisms has a limit in Schemes; its projections are affine, and restriction to an open in any base stage commutes with the limit. If all stages are qcqs, so is the limit.",
+      "hypotheses": [
+        "Small directed nonempty index set; transitions affine."
+      ],
+      "proofSteps": [
+        "On affine opens of a chosen base stage take Spec of the filtered colimit of coordinate algebras.",
+        "Glue the resulting charts using the uniqueness part of the affine universal property.",
+        "Verify the cone universal property and affine projections; finite affine covers and qc intersections give qcqs."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme.exists_π_app_comp_eq_of_locallyOfFinitePresentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-01YX",
+          "locator": "Lemma 32.2.2, Tag 01YX",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The native factorisation theorem assumes a limit; it is not evidence for existence."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/noetherian-approximation",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Noetherian approximation of qcqs schemes",
+      "kind": "theorem",
+      "statement": "Every qcqs scheme S is a directed inverse limit of schemes Si finite type over Z with affine transitions, with affine projections S→Si. The presentation can be chosen with affine S→Si0; finitely many finite-presentation objects and morphisms descend after increasing the index.",
+      "hypotheses": [
+        "S qcqs; no noetherianity assumed on S."
+      ],
+      "proofSteps": [
+        "Induct by adding one affine open U to an already approximated qc open V; the overlap W=U∩V is qc by quasi-separatedness and descends to quasi-affine Wi.",
+        "Write U=Spec B, R=Γ(W,O), Ri=Γ(Wi,O), and Bi=B×R Ri; choose finite-type subalgebras of Bi retaining the finite principal-open overlap data.",
+        "Glue finite-type affine charts to Vi along Wi and take the directed system of compatible choices. Check affine transitions and the limit by gluing.",
+        "Apply relative-object and eventual-equality descent to any finite fp diagram."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/affine-transition-limit-existence",
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-01ZA",
+          "locator": "Proposition 32.5.4, Tag 01ZA",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "ST-07RN",
+          "locator": "Lemma 32.5.3, Tag 07RN",
+          "match": "Read the actual proof supplying Proposition 32.5.4, including descent of the qc overlap, pullback rings and finite-type subalgebras."
+        }
+      ],
+      "acceptance": [
+        "No finite-type model is required to share the original nonnoetherian coordinate ring."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Finite-presentation objects and diagram descent",
+      "kind": "theorem",
+      "statement": "For a directed affine-transition inverse system of qcqs Si with limit S, the category of finitely presented S-schemes is the filtered categorical colimit of the categories of finitely presented Si-schemes. Objects descend, maps descend, and equality of descended maps holds at a sufficiently large index. Finite diagrams and fp modules descend in the same sense.",
+      "hypotheses": [
+        "Finite presentation includes quasi-compactness and quasi-separatedness."
+      ],
+      "proofSteps": [
+        "Descend affine finitely presented algebras using finitely many generators and relations.",
+        "Glue a finite affine cover; use native morphism factorisation for maps to lfp targets with a given limit cone.",
+        "Descend equalities and finitely many cocycle relations after a common index; apply Tag 01ZR for fp modules."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/affine-transition-limit-existence",
+        "mathlib:AlgebraicGeometry.Scheme.exists_π_app_comp_eq_of_locallyOfFinitePresentation",
+        "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "mathlib:AlgebraicGeometry.Scheme.exists_hom_hom_comp_eq_comp_of_locallyOfFiniteType"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-01ZM",
+          "locator": "Lemma 32.10.1, Tag 01ZM",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "ST-01ZR",
+          "locator": "Lemma 32.10.2, Tag 01ZR",
+          "match": "Finite-presentation module descent and morphism/equality clauses."
+        }
+      ],
+      "acceptance": [
+        "Include the eventual-equality clause, not only existence of models.",
+        "Do not re-plan the native Hom factorisation lemma."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/compactification-property-descent",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Descent of compactification properties",
+      "kind": "theorem",
+      "statement": "In the relative fp descent situation, a descended open immersion becomes an open immersion at some index; a descended finite-type morphism that is proper at the limit becomes proper at some index. Applied to a compactification diagram, both properties and its commuting triangle hold at a common stage.",
+      "hypotheses": [
+        "qcqs bases and affine transitions; relative schemes and the relevant maps initially finitely presented, so the local finite-type/presentation assumptions of Tags 0EUU and 081F hold."
+      ],
+      "proofSteps": [
+        "For the open map, use eventual étaleness and the eventual-isomorphism criterion onto its qc open image.",
+        "For the proper map, descend separatedness and apply Chow approximation, then descend the closed immersion into projective space.",
+        "Increase the common index to make the triangle commute and the open inverse-image equality hold."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-081F",
+          "locator": "Lemma 32.13.1, Tag 081F, with Tag 0EUU for the open map",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "ST-0EUU",
+          "locator": "Lemma 32.8.12, Tag 0EUU",
+          "match": "The source explicitly requires f0 locally finitely presented."
+        }
+      ],
+      "acceptance": [
+        "No descent of arbitrary closed subschemes over a noncoherent base is inferred."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/finite-type-fp-factorisation",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Finite-type factorisation through finite presentation",
+      "kind": "theorem",
+      "statement": "If f:Y→X is finite type, X qcqs, there is a closed immersion Y→Y′ and a finitely presented Y′→X. If f is separated, Y′→X can be chosen separated. This is the missing bridge from finite type to the fp limit machinery.",
+      "hypotheses": [
+        "No finite presentation of f assumed."
+      ],
+      "proofSteps": [
+        "On finitely many affine charts, replace each finite-type algebra by a finitely presented algebra mapping onto it.",
+        "Use the relative factorisation and gluing argument of Stacks 32.9.6, retaining separatedness.",
+        "Apply native closed immersion and properness interfaces in subsequent compactification steps."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-01ZJ",
+          "locator": "Proposition 32.9.6, Tag 01ZJ",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Infinite relation ideals are allowed in the closed immersion."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/compactification",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Scheme compactification",
+      "kind": "definition",
+      "statement": "For a separated finite-type f:Y→X with X qcqs, a compactification is a scheme Ybar, a quasi-compact open immersion j:Y→Ybar, a proper p:Ybar→X and the equality p∘j=f. Density is NOT part of the definition: additional proper components are permitted. It is native Scheme and native proper/open predicates.",
+      "hypotheses": [
+        "X qcqs; f separated finite type."
+      ],
+      "proofSteps": [
+        "Bundle the stated native morphisms and factorisation equality.",
+        "Define schematic density only as the native separate IsSchemeTheoreticallyDominant j property."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.IsProper",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "mathlib:AlgebraicGeometry.AffineSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "BP",
+          "locator": "Definition 2.1.2, p. 7; Stacks Tag 0ATT for the general base",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "ST-0ATT",
+          "locator": "Definition 38.31.1, Tag 0ATT",
+          "match": "General qcqs-base compactification definition, with no density requirement."
+        }
+      ],
+      "acceptance": [
+        "Extra proper boundary components are allowed; tests must distinguish them from the dense refinement."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Scheme compactification"
+      },
+      "api": [
+        {
+          "name": "Compactification.mk",
+          "role": "constructor",
+          "statement": "Bundle the proper morphism and qc open immersion factoring f."
+        },
+        {
+          "name": "Compactification.ambient",
+          "role": "projection",
+          "statement": "The native scheme Ybar."
+        },
+        {
+          "name": "Compactification.open",
+          "role": "projection",
+          "statement": "The native qc open immersion j with its open range."
+        },
+        {
+          "name": "Compactification.properMap",
+          "role": "projection",
+          "statement": "The native proper p, together with p∘j=f."
+        },
+        {
+          "name": "Compactification.iso",
+          "role": "equivalence",
+          "statement": "An ambient isomorphism commuting with j and p transports a compactification."
+        },
+        {
+          "name": "Compactification.image",
+          "role": "compatibility",
+          "statement": "The native scheme-theoretic image of j gives the schematically dense refinement, with native toImage factorisation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Compactification.proper",
+          "statement": "If f is proper, (Y,idY,f) is a compactification."
+        },
+        {
+          "name": "Compactification.empty",
+          "statement": "The empty Y admits (empty,identity,empty→X); it can also embed openly in any proper boundary scheme."
+        },
+        {
+          "name": "Compactification.extraComponent",
+          "statement": "For X a point and Y that point, Y⊔Y proper over X with j the first summand is a compactification whose j is not dominant."
+        },
+        {
+          "name": "Compactification.nonproper",
+          "statement": "The identity open embedding of A¹k with its structural map to Spec k is not a compactification, since the ambient map is not proper."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.4–27.5",
+          "how": "Define scheme proper-support functors on qcqs bases."
+        },
+        {
+          "where": "BP 2.1.5–6 and ZAV 2.1",
+          "how": "Refinements of compactifications."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/fp-compactification",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Finitely presented compactification",
+      "kind": "definition",
+      "statement": "For separated finitely presented f:Y→X, an fp compactification is a compactification with p:Ybar→X locally of finite presentation. Properness already supplies quasi-compactness and quasi-separatedness, hence p is finitely presented.",
+      "hypotheses": [
+        "X qcqs; f separated finitely presented."
+      ],
+      "proofSteps": [
+        "Add the native lfp predicate to the compactification carrier.",
+        "Use native properness to recover the remaining finite-presentation conditions."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification",
+        "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "mathlib:AlgebraicGeometry.AffineSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "ZAV",
+          "locator": "Definition 2.1.1, p. 10",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Finite type alone is not substituted for finite presentation."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finitely presented compactification"
+      },
+      "api": [
+        {
+          "name": "FPCompactification.mk",
+          "role": "constructor",
+          "statement": "Extend a compactification by a native lfp witness for p."
+        },
+        {
+          "name": "FPCompactification.forget",
+          "role": "coercion",
+          "statement": "Forget to the same ordinary compactification; do not change its ambient scheme."
+        },
+        {
+          "name": "FPCompactification.baseChange",
+          "role": "functoriality",
+          "statement": "Arbitrary base change preserves fp compactifications and their open factorisation."
+        },
+        {
+          "name": "FPCompactification.finitePresentation",
+          "role": "characterisation",
+          "statement": "Proper p plus its lfp witness satisfies the native qc, qs and lfp finite-presentation convention."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FPCompactification.proper",
+          "statement": "For a proper finitely presented f, the identity compactification is fp."
+        },
+        {
+          "name": "FPCompactification.empty",
+          "statement": "The empty identity compactification is fp."
+        },
+        {
+          "name": "FPCompactification.basePoint",
+          "statement": "Base change of P¹k compactifying A¹k to a field extension keeps the same open chart and a proper lfp ambient map."
+        },
+        {
+          "name": "FPCompactification.rejectFiniteType",
+          "statement": "Over a noncoherent ring A with a non-finitely-generated ideal J, a proper closed Spec(A/J)→Spec A compactification is not necessarily fp."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ZAV 2.1.4–5",
+          "how": "Limit descent and strict cofilteredness."
+        },
+        {
+          "where": "Scheme upper-shriek extensions",
+          "how": "Use the existing coefficient carrier over general bases."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/compactification-morphism",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Maps and strict maps of compactifications",
+      "kind": "definition",
+      "statement": "A morphism C′→C is an X-map g:Ybar′→Ybar with g∘j′=j. It is strict precisely if the inverse image of j(Y) equals j′(Y), equivalently the open square with the identity of Y is cartesian. Morphisms are not required to be strict in the ambient category.",
+      "hypotheses": [
+        "Two compactifications of the same f."
+      ],
+      "proofSteps": [
+        "Bundle the ambient native morphism and two triangle equalities.",
+        "Use equality of inverse-image opens as the strictness predicate; equivalent cartesian formulation via open immersions."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification"
+      ],
+      "sources": [
+        {
+          "sourceId": "ZAV",
+          "locator": "Definition 2.1.1 and Remark 2.1.3, p. 10",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Keep the direction C′→C: refinements point towards coarser compactifications."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Compactification.Hom.mk",
+          "role": "constructor",
+          "statement": "Bundle g with its two commuting triangles."
+        },
+        {
+          "name": "Compactification.Hom.map",
+          "role": "projection",
+          "statement": "The ambient scheme map g."
+        },
+        {
+          "name": "Compactification.Hom.ext",
+          "role": "extensionality",
+          "statement": "Two bundled morphisms are equal iff their ambient maps are equal."
+        },
+        {
+          "name": "Compactification.Hom.strict_iff",
+          "role": "characterisation",
+          "statement": "Strictness iff inverse image of the target open range equals the source open range."
+        },
+        {
+          "name": "Compactification.Hom.strict_comp",
+          "role": "functoriality",
+          "statement": "Identities and composites of strict morphisms are strict."
+        },
+        {
+          "name": "Compactification.Hom.strict_baseChange",
+          "role": "compatibility",
+          "statement": "Base change preserves strictness, as in ZAV Remark 2.1.3."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Compactification.Hom.identity",
+          "statement": "Every identity is strict."
+        },
+        {
+          "name": "Compactification.Hom.boundary",
+          "statement": "The fold from the extra-component compactification Y⊔Y to Y is a compactification morphism but is not strict."
+        },
+        {
+          "name": "Compactification.Hom.empty",
+          "statement": "Every map between compactifications of empty Y is strict, since both open ranges are empty."
+        },
+        {
+          "name": "Compactification.Hom.baseChange",
+          "statement": "For a strict map, its pullback along any base map has exactly the pulled-back Y as the inverse image of the target open."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ZAV 2.1.5",
+          "how": "Strict cones and strict equalisation."
+        },
+        {
+          "where": "BP 2.1.4–6",
+          "how": "Control boundaries after refinements."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/compactification-category",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Category of compactifications",
+      "kind": "construction",
+      "statement": "Ordinary compactifications of f, with the morphisms just defined, form a category Comp(f); fp compactifications form the full subcategory Compfp(f). Arbitrary base change induces functors on both categories and preserves strict arrows. Dense and bundle-extending compactifications are full subcategories, with cofinality expressed as initiality towards Comp(f).",
+      "hypotheses": [
+        "Fix f:Y→X; use universe choices consistent with native Schemes."
+      ],
+      "proofSteps": [
+        "Compose and take identities on native ambient maps; triangle equations follow by associativity.",
+        "Use full subcategories for fp/dense predicates, retaining all ordinary arrows.",
+        "Define base change by native pullback and prove coherence; no quotient of isomorphism classes replaces the category."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification-morphism",
+        "AdicCoefficientsAndComparisons:L2/fp-compactification",
+        "mathlib:CategoryTheory.ObjectProperty.FullSubcategory"
+      ],
+      "sources": [
+        {
+          "sourceId": "ZAV",
+          "locator": "§2.1 and Lemma 2.1.4, p. 10",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Ordinary category retains parallel arrows for the equaliser test."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Compactification.category",
+          "role": "instance",
+          "statement": "Inherited category with ambient composition."
+        },
+        {
+          "name": "FPCompactification.inclusion",
+          "role": "functoriality",
+          "statement": "Fully faithful inclusion into ordinary compactifications."
+        },
+        {
+          "name": "Compactification.baseChange",
+          "role": "functoriality",
+          "statement": "Base-change functor, coherent for identity and composition."
+        },
+        {
+          "name": "Compactification.isomorphism",
+          "role": "characterisation",
+          "statement": "A compactification arrow is an isomorphism iff its ambient map is an isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Compactification.category_id",
+          "statement": "Composition with the identity preserves the ambient morphism and the bundled map."
+        },
+        {
+          "name": "Compactification.parallelMaps",
+          "statement": "For Y a point, C′=Y⊔Y and C=Y⊔Y, two arrows fixing the first summand and sending the other to different summands remain distinct morphisms."
+        },
+        {
+          "name": "Compactification.category_empty",
+          "statement": "Comp(empty→X) retains proper ambient schemes; it is not the one-object category of empty schemes."
+        },
+        {
+          "name": "Compactification.fpForget",
+          "statement": "Fp inclusion changes neither ambient maps nor their composition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L2 cofilteredness",
+          "how": "Nonemptiness, cones and equalisation are three independent obligations."
+        },
+        {
+          "where": "L2 scheme Rf!",
+          "how": "Coherent independence uses the category, not just pairwise refinements."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/strict-from-dense",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Strictness from a dense source",
+      "kind": "theorem",
+      "statement": "A map C′→C whose source open j′(Y) is topologically dense in Ybar′ is strict. Over nonreduced schemes topological density still suffices for this set/open equality; schematic density is a separate requirement for vector-bundle extension.",
+      "hypotheses": [
+        "Both are compactifications; target proper, hence separated over X."
+      ],
+      "proofSteps": [
+        "Restrict to the inverse image of the target open: it has a section Y→g⁻¹(Y).",
+        "Separatedness makes the section closed; it is also open and topologically dense, so it is all of g⁻¹(Y)."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification-morphism"
+      ],
+      "sources": [
+        {
+          "sourceId": "BP",
+          "locator": "Lemma 2.1.4 and proof, p. 7",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Do not strengthen density gratuitously; do not use this lemma to satisfy Tag 0ESN."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Cofiltered compactifications",
+      "kind": "theorem",
+      "statement": "If f is compactifiable, Comp(f) is cofiltered: it is nonempty, two objects admit a common refinement, and every parallel pair is equalised by a refinement. Dense and schematically dense compactifications form an initial full subcategory; the necessary refinement maps can be strict.",
+      "hypotheses": [
+        "X qcqs and f separated finite type, or simply assume a compactification exists."
+      ],
+      "proofSteps": [
+        "Use the native schematic image of Y in the product of two compactifications for a common refinement.",
+        "For a,b:C′→C, pull back the closed diagonal of separated C over X to obtain a closed equaliser E⊂C′ containing Y openly; E→X is proper.",
+        "Replace by the schematic closure of Y when a strict dense refinement is required.",
+        "Prove initiality using nonemptiness and cofilteredness of the relevant comma categories; binary cones alone do not establish it."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification-category",
+        "AdicCoefficientsAndComparisons:L2/strict-from-dense",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.image",
+        "mathlib:AlgebraicGeometry.Scheme.kerAdjunction",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.toImage_imageι",
+        "mathlib:CategoryTheory.IsCofiltered"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-0ATU",
+          "locator": "Lemma 38.32.1, Tag 0ATU",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Exercise with distinct parallel maps from an extra proper component must be equalised.",
+        "This ordinary equaliser is not asserted fp over a noncoherent base."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/fp-compactification-limit",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Compactifications over inverse limits",
+      "kind": "theorem",
+      "statement": "For a directed inverse system of qcqs Yi with affine transitions and a least base index 0, and separated finitely presented X0→Y0, the natural functor colimᵢ Compfp(X0×Y0 Yi/Yi)→Compfp(X0×Y0 Y/Y) is an equivalence. It sends strict arrows to strict arrows, and a strict arrow at the limit is strict after increasing the index.",
+      "hypotheses": [
+        "Y=lim Yi, all relative objects fp."
+      ],
+      "proofSteps": [
+        "Descend ambient fp schemes and maps using relative diagram descent.",
+        "Descend properness, open immersions and their factorisation identities.",
+        "For strictness descend the equality of the two qc opens, equivalently the open pullback square.",
+        "Use eventual equality for full faithfulness, not a set-level object bijection."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "AdicCoefficientsAndComparisons:L2/compactification-property-descent",
+        "AdicCoefficientsAndComparisons:L2/compactification-category"
+      ],
+      "sources": [
+        {
+          "sourceId": "ZAV",
+          "locator": "Lemma 2.1.4 and proof, pp. 10–11",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Both object and arrow descent, including relations, are required."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/fp-strict-cofiltered",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Strict cofilteredness of fp compactifications",
+      "kind": "theorem",
+      "statement": "For X qcqs and separated finitely presented f:Y→X, Compfp(f) is nonempty; any two objects admit an fp common refinement with strict arrows, and any parallel pair is equalised by a strict arrow from an fp compactification.",
+      "hypotheses": [
+        "No noetherianity of X required."
+      ],
+      "proofSteps": [
+        "Choose a noetherian approximation of X and descend f and the finite diagram of compactifications using the fp limit equivalence.",
+        "At the noetherian stage use Nagata and the full cofilteredness/equaliser proof; closed subschemes of finite-type noetherian ambients are fp.",
+        "Take the schematic closure to obtain strict arrows, then base change and use preservation of strictness."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/noetherian-approximation",
+        "AdicCoefficientsAndComparisons:L2/fp-compactification-limit",
+        "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:CategoryTheory.IsCofiltered"
+      ],
+      "sources": [
+        {
+          "sourceId": "ZAV",
+          "locator": "Corollary 2.1.5 and proof, p. 11",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Avoid using a potentially non-fp equaliser directly over the original noncoherent base."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Strict fp compactification cofilteredness"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/cartier-boundary-cofinal",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Cartier-boundary compactifications",
+      "kind": "theorem",
+      "statement": "Over a noetherian affine base S, for separated finite-type Y→S, compactifications whose complement supports an effective Cartier divisor form an initial full subcategory of Comp(f). Refinements to arbitrary compactifications may be chosen strict. The empty boundary is permitted as the empty effective Cartier divisor.",
+      "hypotheses": [
+        "Noetherian affine S, as in BP §2.1.1."
+      ],
+      "proofSteps": [
+        "Replace the given compactification by the schematic closure of Y.",
+        "Blow up Ybar, not Y, at a coherent ideal defining its boundary; the centre is disjoint from Y.",
+        "Use imported Rees blow-up geometry to make the inverse-image boundary Cartier, and density to make the refinement strict.",
+        "Combine with cofilteredness to prove initiality, not only existence of a dominating object."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+        "AdicCoefficientsAndComparisons:L2/strict-from-dense",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "sources": [
+        {
+          "sourceId": "BP",
+          "locator": "Lemma 2.1.5, p. 7, corrected blow-up ambient",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Blow-up is the identity on Y.",
+        "Does not import flattening through L5, which would make a cycle."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/vector-bundle-extension-cofinal",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Vector-bundle extension compactifications",
+      "kind": "theorem",
+      "statement": "Under BP §2.1.1 hypotheses, for finite locally free F on Y, compactifications to which F extends as finite locally free form an initial full subcategory. Strict refinements exist to each compactification. Rank is locally constant and may differ on different open-and-closed rank pieces.",
+      "hypotheses": [
+        "S noetherian affine; Y finite type separated; F finite locally free, not necessarily constant rank."
+      ],
+      "proofSteps": [
+        "Decompose Y into its finitely many open-and-closed constant-rank pieces; take the disjoint union of their native schematic closures in the given ambient scheme.",
+        "This remains proper and is strict over Y; each piece of Y is now scheme-theoretically dense in its closure.",
+        "Import coherent extension from SF.0; apply Tag 0ESN on each constant-rank closure via a Fitting-ideal blow-up from R09.7a.",
+        "Combine the locally free strict transforms; use cofilteredness, persistence under pullback, and dense strict refinements to prove initiality."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+        "AdicCoefficientsAndComparisons:L2/strict-from-dense",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.image",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "sources": [
+        {
+          "sourceId": "BP",
+          "locator": "Lemma 2.1.6, p. 7, corrected using Stacks Tag 0ESN",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "ST-0ESN",
+          "locator": "Lemma 31.36.3, Tag 0ESN",
+          "match": "Apply only after the schematic-density and constant-rank repair; imports generic blow-ups."
+        },
+        {
+          "sourceId": "ST-0G41",
+          "locator": "Lemma 28.23.5, Tag 0G41",
+          "match": "Extension of a finite-presentation quasi-coherent module; under noetherian hypotheses this is coherent. Supplier SF.0 owns it."
+        }
+      ],
+      "acceptance": [
+        "Test rank one on one connected component and rank two on another.",
+        "Schematic density and constant rank must be checked BEFORE applying Tag 0ESN."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Vector-bundle extension compactifications"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Higher étale cohomology continuity",
+      "kind": "theorem",
+      "statement": "Let Xi be a directed inverse system of qcqs schemes with affine transitions and limit X. For a compatible system of abelian étale sheaves Fi with transition maps, set F=colimᵢ πi⁻¹Fi. Then colimᵢ Hqét(Xi,Fi)≅Hqét(X,F) for every q≥0. A sheaf descended from a fixed stage is a special case. For the system Gm,Xi, the sheaf colimit is Gm,X by its finite-presentation representing scheme; the inverse-image maps πi⁻¹Gm,Xi→Gm,X need NOT be individually isomorphisms.",
+      "hypotheses": [
+        "qcqs stages, affine transitions; sheaf transition maps with their composition law."
+      ],
+      "proofSteps": [
+        "Identify the limit étale site through finitely presented étale objects, eventual equality and descended finite covering families.",
+        "Apply the étale-topos continuity theorem to F=colim πi⁻¹Fi for all q.",
+        "For Gm, descend a unit and its inverse on each fp étale chart; this identifies the SHEAF COLIMIT with Gm,X, not the individual inverse image. Apply the same Hq theorem, as in CES §4.10."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ST-09YQ",
+          "locator": "Theorem 59.51.3, Tag 09YQ; CES §4.10",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        },
+        {
+          "sourceId": "CES",
+          "locator": "§4.10, especially (4.10.5)–(4.10.7), printed pp. 9–11 in the retrieved PDF",
+          "match": "The routed source uses higher étale continuity for Gm and finite coefficient sheaves; it does not provide a substitute H0-only argument."
+        }
+      ],
+      "acceptance": [
+        "Include all q, including q=2 for Gm.",
+        "Do not substitute ordinary ring/global-section continuity."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Continuity of constructible derived Hom",
+      "kind": "theorem",
+      "statement": "For a small filtered affine-transition system of qcqs schemes Xα with limit X and a Noetherian ring Λ, let Fα0∈D−c(Xα0,Λ), Gα0∈D+(Xα0,Λ). Then colimα Hom(Fα,Gα)→Hom(F,G) is an isomorphism, likewise after shifts. The lemma itself imposes no invertibility or noetherianity on the schemes.",
+      "hypotheses": [
+        "Uniform upper bound on F and lower bound on G inherited from the fixed stage."
+      ],
+      "proofSteps": [
+        "Truncate the fixed-stage bounded-above F against bounded-below G and induct on its finite cohomological range.",
+        "For a constructible sheaf F, use an exact sequence K→j!ΛU→F→0 with U→Xα0 qc étale and K constructible; induct on Ext degree.",
+        "For F=j!ΛU, apply adjunction and étale higher-cohomology continuity."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ABE",
+          "locator": "§1.4 continuity lemma proof, pp. 4–5 (unnumbered lemma; Hom is a stronger claim in its proof)",
+          "match": "The Hom statement is proved explicitly for F∈D−c and G∈D+, inside the proof of the unnumbered lemma. No invented numbering (i)/(ii)."
+        }
+      ],
+      "acceptance": [
+        "Record asymmetric D−c and D+ hypotheses, not two arbitrary unbounded complexes."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Continuity of bounded constructible categories",
+      "kind": "theorem",
+      "statement": "For a small filtered affine-transition system of qcqs schemes Xα with limit X and a Noetherian ring Λ, the natural functor 2-colimα Dᵇc(Xα,Λ)→Dᵇc(X,Λ) is an equivalence. Bounded constructible complexes, maps and finite diagrams descend, and equality is eventual. No invertibility assumption is in the lemma; no enhanced unbounded equivalence is asserted.",
+      "hypotheses": [
+        "qcqs schemes, affine transitions, fixed Noetherian Λ with invertibility as in the source."
+      ],
+      "proofSteps": [
+        "Use the preceding Hom theorem for full faithfulness.",
+        "Descend a finite constructible stratification and finite locally constant sheaves using finitely presented étale data.",
+        "Reconstruct bounded complexes by descending extension classes through Hom continuity, then descend finite diagram relations."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ABE",
+          "locator": "§1.4, unnumbered continuity lemma and proof, pp. 4–5",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Check extension classes, not only cohomology sheaves.",
+        "This owns the ABE-25/A11 input requested by GeneralBasesFourier."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constructible category continuity"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Proper-support operations over qcqs schemes",
+      "kind": "construction",
+      "statement": "Extend the EXISTING scheme étale proper-support carrier to separated finite-type maps between qcqs schemes: for a compactification f=p∘j, Rf!=Rp*j!. On the supplied enhanced left-completed torsion category with n invertible, use coherent compactification independence; regular adic coefficients use the enhanced inverse limit. Provide the composition, arbitrary base-change and projection-formula identifications with the classical noetherian formalism. Perfections in characteristic p use universal-homeomorphism invariance.",
+      "hypotheses": [
+        "The noetherian six-operation carrier and proper base-change/finite-cd inputs are supplied by SF.2.",
+        "No new Rf! carrier is defined in parallel with that supplier."
+      ],
+      "proofSteps": [
+        "Use nonnoetherian Nagata and full cofilteredness for compactification choices.",
+        "Descend finite-presentation proper/open diagrams and finite constructible coefficients to noetherian models; extend the imported noetherian proper base-change map by L2 cohomology/constructible continuity. Pass to larger torsion modules and left-completed complexes only with the coefficient/bound proof recorded in G-support. Compare Rp*j! on strict refinements.",
+        "Use coherent enhanced descent over the compactification category, including composition and base-change diagrams.",
+        "Apply L0 reconstruction for adic coefficients and SF.2 invariance for perfections."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+        "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+        "AdicCoefficientsAndComparisons:L2/fp-strict-cofiltered",
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "SchemeAndStackFoundations:SF.2",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proof of Proposition 27.4, p. 165",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The unbounded extension and coherence are separate supplier obligations G-support."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SchemeSupport.extend",
+          "role": "constructor",
+          "statement": "On the supplied category, extend the existing support functor to the stated qcqs maps."
+        },
+        {
+          "name": "SchemeSupport.compactification",
+          "role": "characterisation",
+          "statement": "Rf!≃Rp*j! for each compactification, compatibly with refinements."
+        },
+        {
+          "name": "SchemeSupport.open",
+          "role": "simp",
+          "statement": "For an open j, Rj! is the supplied extension by zero."
+        },
+        {
+          "name": "SchemeSupport.proper",
+          "role": "compatibility",
+          "statement": "For proper f, Rf! agrees with the supplied Rf*."
+        },
+        {
+          "name": "SchemeSupport.compose",
+          "role": "functoriality",
+          "statement": "R(g∘f)!≃Rg!Rf!, with identity and associativity coherence."
+        },
+        {
+          "name": "SchemeSupport.baseChange",
+          "role": "compatibility",
+          "statement": "For a cartesian square the canonical pullback/support exchange is an equivalence with coefficient and scheme hypotheses retained."
+        },
+        {
+          "name": "SchemeSupport.projection",
+          "role": "compatibility",
+          "statement": "Rf!(A⊗f*B)≃Rf!A⊗B in the supplied tensor formalism."
+        },
+        {
+          "name": "SchemeSupport.adic",
+          "role": "compatibility",
+          "statement": "Derived reduction identifies the adic support functor with each finite-level support functor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SchemeSupport.properPoint",
+          "statement": "For a finite two-point scheme over a geometric point, support pushforward equals direct image and sends constants to Λ⊕Λ."
+        },
+        {
+          "name": "SchemeSupport.openBoundary",
+          "statement": "For A¹\\{0}↪A¹, extension by zero has zero stalk at 0."
+        },
+        {
+          "name": "SchemeSupport.empty",
+          "statement": "The empty source induces the zero support functor."
+        },
+        {
+          "name": "SchemeSupport.refinement",
+          "statement": "For two compactifications linked by a strict refinement, the two Rp*j! constructions agree by the canonical proper-base-change map, not an arbitrary isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.4–27.5",
+          "how": "Comparison with diamond Rf! over the correct schematic carrier."
+        },
+        {
+          "where": "ZAV §2.1",
+          "how": "Strict fp compactifications supply general-base upper-shriek choice control; quasi-coherent duality is not re-planned here."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L1/plus-convention-comparison",
+      "parentStageId": "AdicCoefficientsAndComparisons:L1",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L1"
+      ],
+      "title": "Comparison of residue-field conventions",
+      "kind": "theorem",
+      "statement": "For a perfect field k over Fp with k⁺ the integral closure of Fp, the inclusion k⁺⊂k gives a natural map Spd(k,k)→Spd(k,k⁺) between the mixed-characteristic residue avatar and the characteristic-p scheme avatar. In the finite algebraic extension case k=k⁺ it is the identity. It is not asserted to be an isomorphism for general k.",
+      "hypotheses": [
+        "O has residue field k; k perfect."
+      ],
+      "proofSteps": [
+        "Use the identity ring map and the inclusion of plus rings in native Spa.",
+        "Use native spa_antitone and v-sheafification to get the direction.",
+        "For k algebraic over Fp all elements are integral, so the pairs agree."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+        "tauceti:TauCeti.ValuationSpectrum.spa_antitone"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Mixed-characteristic paragraph, pp. 165–166",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "The arrow points from the larger plus ring to the smaller one."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3",
+      "parentStageId": "AdicCoefficientsAndComparisons:L3",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L3"
+      ],
+      "title": "Tensor and pullback compatibility",
+      "kind": "theorem",
+      "statement": "The scheme comparison cX* is symmetric monoidal for the discrete derived tensor and for the adic completed derived tensor. For every characteristic-p scheme map f:Y→X the canonical natural transformation (f◇)*cX*≃cY*f* is an equivalence. The mixed-characteristic version satisfies the same identities in its finite-type/local finite-type construction range.",
+      "hypotheses": [
+        "Use each comparison functor with its specified coefficient carrier; f* exists without support eligibility."
+      ],
+      "proofSteps": [
+        "Compute restriction on the underlying site maps.",
+        "For adic coefficients compare the completed tensor by reduction and use L0 detection.",
+        "Check the identity/composition coherence inherited from morphisms of sites."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits",
+        "AdicCoefficientsAndComparisons:L0/reduction-detects-equivalences"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.1, p. 163, and p. 166 extension",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "This retained integrated ID now realises only 27.1; 27.3 is split into the following declarations."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tensor and pullback comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L3/internal-Hom-right-adjoint",
+      "parentStageId": "AdicCoefficientsAndComparisons:L3",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L3"
+      ],
+      "title": "Internal Hom through the right adjoint",
+      "kind": "theorem",
+      "statement": "For A∈Dét(X,Λ) and B∈Dét(X◇,Λ), RcX* RHom(cX*A,B)≃RHom(A,RcX*B), naturally in both variables. The right adjoint exists for cX* in both comparison constructions; the full-faithfulness theorem is needed only in characteristic p.",
+      "hypotheses": [
+        "Discrete prime-to-p or regular adic coefficient formalism."
+      ],
+      "proofSteps": [
+        "Obtain RcX* by the enhanced adjoint theorem for colimit-preserving cX*.",
+        "Use closed monoidal adjunction and the tensor comparison of 27.1(i).",
+        "Verify the mate on mapping objects, including coherent finite-level reduction."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.3(i), p. 165",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Retain B in the diamond category; do not claim c* commutes with arbitrary internal Hom."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Internal Hom adjoint comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L3/pushforward-right-adjoint",
+      "parentStageId": "AdicCoefficientsAndComparisons:L3",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L3"
+      ],
+      "title": "Direct-image right-adjoint identity",
+      "kind": "theorem",
+      "statement": "For scheme f:Y→X in either comparison range, Rf*RcY*≃RcX*Rf◇*, as the right-adjoint mate of (f◇)*cX*≃cY*f*. This is not the direct-image comparison cX*Rf*≃Rf◇*cY*.",
+      "hypotheses": [
+        "All functors on the specified scheme/diamond categories."
+      ],
+      "proofSteps": [
+        "Form the two composite adjunctions.",
+        "Take right-adjoint mates of the pullback equivalence and use uniqueness of right adjoints."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3",
+        "AdicCoefficientsAndComparisons:L3/internal-Hom-right-adjoint",
+        "mathlib:CategoryTheory.conjugateIsoEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.3(ii), p. 165",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Check types and the direction; no constructibility required for this adjoint identity."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Direct-image adjoint identity"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L4/analytic-test-space",
+      "parentStageId": "AdicCoefficientsAndComparisons:L4",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L4"
+      ],
+      "title": "Analytic test space over a DVR",
+      "kind": "construction",
+      "statement": "For O as in L1, give O[[x]] the (π,x)-adic topology, set T=D(x)⊂Spa(O[[x]],O[[x]]), and use the structural T→Spa(O,O). T is analytic. Its diamond is surjective and ℓ-cohomologically smooth over Spd O for ℓ≠p; hence pullback along T◇ is conservative and remains so after base change. For X locally finite type over O, (X×Spec O T)◇≃X◇×Spd O T◇.",
+      "hypotheses": [
+        "Fix a uniformiser π; completion and topology are part of the construction.",
+        "The source cites 24.4 for cohomological smoothness although its literal base hypothesis is analytic; G-test records this passage."
+      ],
+      "proofSteps": [
+        "Use the native Spa carrier and the supplied formal/analytic geometry to make D(x) an analytic adic space.",
+        "Construct the relative analytification chart and verify the untilt-based fibre-product identification.",
+        "Request the precise S5 extension to this nonanalytic base, including surjectivity and universal conservativity; apply it to the canonical comparison."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+        "tauceti:TauCeti.ValuationSpectrum.spa",
+        "DiamondsAndVStacks:D6",
+        "DiamondSixOperations:S5",
+        "AdicSpacesPartII:R1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proof of Proposition 27.5, p. 166",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Both generic and special branches are covered.",
+        "Do not invoke analytic-base 24.4 on Spa(O,O) without its extension."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Analytic DVR test space"
+      },
+      "api": [
+        {
+          "name": "DVRTestSpace.mk",
+          "role": "constructor",
+          "statement": "Construct T with its (π,x)-adic charts and map to Spa(O,O)."
+        },
+        {
+          "name": "DVRTestSpace.analytic",
+          "role": "characterisation",
+          "statement": "The local rings on D(x) have x invertible as a topologically nilpotent unit, hence the space is analytic."
+        },
+        {
+          "name": "DVRTestSpace.diamondCover",
+          "role": "structure",
+          "statement": "Surjective ℓ-cohomologically smooth T◇→Spd O with the supplier proof, ℓ≠p."
+        },
+        {
+          "name": "DVRTestSpace.conservative",
+          "role": "universal-property",
+          "statement": "After any base change, pullback detects isomorphisms in the specified étale derived category."
+        },
+        {
+          "name": "DVRTestSpace.fibreProduct",
+          "role": "compatibility",
+          "statement": "Identify the diamond of relative analytification with X◇×Spd O T◇, naturally in X."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DVRTestSpace.base",
+          "statement": "For X=Spec O the fibre-product identification returns T◇ itself."
+        },
+        {
+          "name": "DVRTestSpace.special",
+          "statement": "Over a residue perfectoid field choose a nonzero topologically nilpotent value for x; the cover has a point above the special fibre."
+        },
+        {
+          "name": "DVRTestSpace.generic",
+          "statement": "Over a generic untilt field take both π and x topologically nilpotent with x nonzero; a generic-fibre lift exists."
+        },
+        {
+          "name": "DVRTestSpace.zeroExcluded",
+          "statement": "The point with x=0 lies outside T, even though it lies in the ambient formal Spa."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD 27.5 proper comparison",
+          "how": "Conservative pullback reduces both sides to analytic proper base change."
+        },
+        {
+          "where": "ECD 27.6",
+          "how": "Same pullback is used in normal-crossing boundary calculations."
+        }
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent",
+      "parentStageId": "AdicCoefficientsAndComparisons:L5",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "title": "Proper alteration hypercover comparison descent",
+      "kind": "theorem",
+      "statement": "For finite prime-to-p Λ, form a proper hypercover of a finite-type scheme pair by recursively applying the SF.4 alterations to matching objects. The pullback of étale complexes is an enhanced cohomological descent equivalence to cartesian complexes on that proper hypercover. The same descent is compatible with scheme/diamond comparison and detects the comparison on the augmentation. An alteration degree divisible by ℓ is allowed.",
+      "hypotheses": [
+        "Use finite-type noetherian scheme geometry and all proper matching-map conditions; a proper surjection is not asserted to be an étale-site cover."
+      ],
+      "proofSteps": [
+        "Import the source-scoped field/trait alteration theorems from SF.4; refine recursively to form the proper matching maps.",
+        "Use scheme proper cohomological descent from SF.2, not the topological hypercover theorem alone.",
+        "After proper comparison L4, transport the hypercover comparison to the diamond side, then apply E2 enhanced totalisation/descent."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.2",
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+        "EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proof of Proposition 27.6, p. 166, alteration reduction",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Do not invert alteration degree or manufacture a trace splitting.",
+        "Explicit proper-hypercover descent obligation G-proper-descent remains."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Proper alteration descent"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L5/semistable-boundary-induction",
+      "parentStageId": "AdicCoefficientsAndComparisons:L5",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "title": "Strictly semistable boundary induction",
+      "kind": "theorem",
+      "statement": "For a proper strictly semistable O-model after a permitted finite trait extension, the comparison for j:Xη↪X with constant finite prime-to-p coefficients is an equivalence. Use smooth local charts and dimension induction to reduce its cone to finitely many closed-fibre points, then use proper pushforward to the trait.",
+      "hypotheses": [
+        "Strict semistable pair imported from de Jong 6.5 through SF.4; trait extension is finite and residue field remains perfect."
+      ],
+      "proofSteps": [
+        "For smooth strata apply the normal-crossing calculation and compatible smooth pullback.",
+        "Induct on chart dimension; explicitly identify the remaining cone support and finite-point case.",
+        "Proper pushforward is conservative on a complex supported on finitely many closed points: after a finite residue-field cover their stalks appear as a finite direct sum.",
+        "L4 proper comparison reduces the image to the trait open comparison in L6."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+        "SchemeAndStackFoundations:SF.4",
+        "ClassicalAdicEtaleCohomology:H1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proof of Proposition 27.6, p. 167",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Do not assert proper pushforward conservative on all complexes.",
+        "The source only sketches the chart induction; G-local tracks its exact completion."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Semistable comparison induction"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+      "parentStageId": "AdicCoefficientsAndComparisons:L6",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L6"
+      ],
+      "title": "Trait comparison with inertia",
+      "kind": "theorem",
+      "statement": "For j:Spec K↪Spec O, finite prime-to-p Λ and a finite continuous GK-module M, the comparison cO*Rj*M→Rj◇*cK*M is an equivalence. At a geometric closed point sbar its two stalks identify canonically with RΓ(IK,M), IK=Gal(Ksep/Ksh), with the residual Gk action; at geometric generic points both give M. These identifications intertwine the comparison, transition maps and twists.",
+      "hypotheses": [
+        "O complete DVR with perfect k, K its fraction field; use strict henselisation at sbar for Ksh."
+      ],
+      "proofSteps": [
+        "Scheme-side stalk formula uses henselian localisation and continuous Galois cohomology.",
+        "For the diamond side use the analytic punctured-trait/nearby-cycle export with the same inertia action.",
+        "Verify the canonical comparison acts identically on continuous cocycles; glue generic and special stalk identifications."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H0/profinite-g-set-cohomology",
+        "ClassicalAdicEtaleCohomology:H1",
+        "SchemeAndStackFoundations:SF.2",
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proofs of Propositions 27.6–27.7, p. 167",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "Use inertia for the CLOSED stalk, not GK; retain the residual Gk action.",
+        "Record the analytic inertia computation as G-trait until its canonical-map compatibility is proved."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Trait inertia comparison"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons:L2/coefficient-and-unbounded-extension",
+      "parentStageId": "AdicCoefficientsAndComparisons:L2",
+      "realises": [
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "title": "Scheme support coefficient extensions",
+      "kind": "theorem",
+      "statement": "The qcqs support extension admits larger discrete coefficient rings killed by n prime to p, bounded-below and enhanced left-completed unbounded complexes, and regular adic coefficients, compatibly with the original finite noetherian construction. This statement requires a locally uniform finite relative cohomological bound for proper models and coherent perfect scalar change; it does not assume every module over the coefficient ring is finite.",
+      "hypotheses": [
+        "f separated finite type qcqs; coefficient ring killed by n invertible on schemes, or regular adic L0 coefficients.",
+        "Bounds and enhancement are supplier obligations recorded in G-support."
+      ],
+      "proofSteps": [
+        "Extend from finite coefficients using filtered colimits of modules and finite perfect scalar-change arguments; maintain the canonical exchange transformations.",
+        "Use Postnikov truncations with the local relative bounds to construct the left-completed unbounded operation.",
+        "Identify the adic tower operation via regular-sequence reconstruction; transport through perfections by universal-homeomorphism invariance."
+      ],
+      "prerequisites": [
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "EnhancedDerivedSheaves:E2/left-completion",
+        "SchemeAndStackFoundations:SF.2",
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "EnhancedDerivedSheaves:E4/perfect-coefficient-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.4 proof, p. 165, and §§26–27 coefficient reductions",
+          "match": "The cited passage states this result; the proof steps record its precise specialisation and any outstanding obligation."
+        }
+      ],
+      "acceptance": [
+        "This is a required target with an explicit gap for its bound/coherence proof.",
+        "No second scheme support functor is introduced."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DiamondEtaleCohomology:C0",
+      "need": "Repleteness of the v-topos of a small v-stack, with the restrictions under which E4 coefficient reconstruction applies. Supply the actual replete-topos proof, not mere existence of the site.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit"
+      ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C2",
+      "need": "Discrete prime-to-p étale essential-image category inside enhanced v-derived sheaves, stability under finite reductions and restriction. The exact small-v-stack range is needed.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category"
+      ]
+    },
+    {
+      "supplier": "DiamondSixOperations:S0",
+      "need": "Geometric support eligibility, compactifications and coherence for maps representable in locally spatial diamonds with locally finite dim.trg, at all finite coefficient levels.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients"
+      ]
+    },
+    {
+      "supplier": "DiamondSixOperations:S1",
+      "need": "Enhanced support pushforward for the preceding maps: open extension by zero, proper direct image, composition and arbitrary base-change transformations, compatible with coefficient change.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients"
+      ]
+    },
+    {
+      "supplier": "DiamondSixOperations:S3",
+      "need": "Enhanced right adjoints and internal Hom, with coherent Λ-linearity and finite-level scalar-extension identifications. Exactness by itself does not prove Remark 26.3.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients"
+      ]
+    },
+    {
+      "supplier": "DiamondsAndVStacks:D6",
+      "need": "Adic avatar and diamondification on discrete Huber pairs, including scheme gluing, local spatiality, relative analytic fibre products and ECD Lemma 15.6. Supply support-eligibility geometry for finite-type proper/open scheme maps and their perfections.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+        "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4",
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space"
+      ]
+    },
+    {
+      "supplier": "PerfectoidSpaces:P1",
+      "need": "The untilt functor over an explicit plus-ring base, its marking and descent. Characteristic-p maps require Frobenius/perfection invariance, while the O-variant retains (O,O).",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Use the existing native Scheme.ProEt and small étale site. Export Bhatt–Scholze §4 repleteness and Props. 5.2.6 (bounded below) and 5.3.2 (UNBOUNDED LEFT-COMPLETED essential image); add SF.2→L1. Export the existing NOETHERIAN Nagata/étale Rf! carrier, proper base change and relative finite-cohomological bounds for invertible torsion; universal-homeomorphism/perfection invariance, algebraically closed field-extension invariance, constructible étale sheaf descent, proper-hypercover cohomological descent, and the BS 6.8.14 rational lattice comparison in its stated topologically noetherian range. L2 extends that same carrier over qcqs bases.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients",
+        "AdicCoefficientsAndComparisons:L1/scheme-adic-category",
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+        "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+        "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4",
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+        "AdicCoefficientsAndComparisons:L6/constructible-full-faithfulness-27-7",
+        "AdicCoefficientsAndComparisons:L2/compactification-property-descent",
+        "AdicCoefficientsAndComparisons:L2/finite-type-fp-factorisation",
+        "AdicCoefficientsAndComparisons:L2/fp-strict-cofiltered",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent",
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+        "AdicCoefficientsAndComparisons:L2/coefficient-and-unbounded-extension"
+      ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C6",
+      "need": "ECD Theorem 19.5 algebraically closed nonarchimedean base-extension full faithfulness in the exact scheme-avatar geometry of 27.2/27.4; identify the natural map. No analytic comparison is deduced just from smallness.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+        "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4"
+      ]
+    },
+    {
+      "supplier": "DiamondEtaleCohomology:C3",
+      "need": "ECD Proposition 17.6 base change and colimit/boundedness bounds for the diamond-side analytic test-space pullback, keeping the bounded-below or locally finite-cd unbounded restrictions.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "need": "Prime-to-p purity and Kummer local calculation on strict normal-crossing strata, including Λ(−r)[−2r], cup products, residues and functorial cycle classes. L5 compares these with analytic classes rather than owning generic purity.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H1",
+      "need": "Analytic normal-crossing local Rj* and nearby-cycle computations for the exact smooth/strictly semistable charts of ECD 27.6, with inertia and residual Gk action and canonical comparison maps. The punctured-trait export must use RΓ(IK,M) at the closed geometric stalk.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+        "AdicCoefficientsAndComparisons:L5/semistable-boundary-induction",
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Single owner of de Jong 1996 source-scoped alterations: §2.20 proper dominant integral generically finite maps; Thm 4.1 projective regular compactification with strict normal-crossing boundary, generically étale for PERFECT k; Thm 5.8 projective curve fibration for excellent integral X,S with nonempty pure dimension-one fibres and fibrewise dense smooth locus, after alterations a split semistable curve with smooth generic fibre and marked boundary control; Thm 6.5 for the source S-variety over a complete excellent trait with perfect residue, a finite trait extension and alteration to a projective strict semistable pair, including the special fibre in Z. Import blow-up/strict-transform geometry from its owner and the full POINTED stable projective cover from StableReductionPartII:MC.4. The generic alteration proofs must remain free of H1/H5 dependencies. Add SF.4→L5, SF.4→RD.5 and SF.4→PrimeToDegreeAlterations; L5 owns only comparison descent/calculations.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent",
+        "AdicCoefficientsAndComparisons:L5/semistable-boundary-induction"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "need": "Use the single Rees-algebra/blow-up/strict-transform owner. Its characteristic-zero resolution-facing scope must export the ordinary noetherian blow-up statements required here: properness, identity off the centre, inverse-image ideal an invertible Cartier ideal after schematically dense refinement, and Tag 0ESN finite-presentation module strict transform after the r-th Fitting blow-up. These are needed over arbitrary noetherian affine bases, including mixed characteristic; no resolution theorem is assumed.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L2/cartier-boundary-cofinal",
+        "AdicCoefficientsAndComparisons:L2/vector-bundle-extension-cofinal"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Noetherian coherent extension of a finite locally free sheaf from a qc open, in the finite-presentation form of Tag 0G41, after forming the native schematic closure. The extension is not automatically constant rank away from the open.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L2/vector-bundle-extension-cofinal"
+      ]
+    },
+    {
+      "supplier": "DiamondSixOperations:S5",
+      "need": "For T=D(x) in Spa(O[[x]],O[[x]]) with (π,x)-adic topology, prove T◇→Spd O surjective and ℓ-cohomologically smooth, with universal conservativity, despite the NONANALYTIC base Spa(O,O). ECD 27.5 cites 24.4, whose literal statement has analytic source and target; give its valid extension or a direct proof.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:R1",
+      "need": "Formal (π,x)-adic Spa chart and its analytic D(x), with relative scheme analytification over T. Import the established analytic-space carrier rather than turning a set of valuations into an adic space.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space"
+      ]
+    },
+    {
+      "supplier": "StableReductionPartII:MC.4",
+      "need": "The existing MC.4/finite-projective-cover covers only unpointed g≥2. Extend the SAME owner to Mbar_g,n for 2g−2+n>0 (de Jong §2.24 directly uses n≥3, all g): a normal projective scheme over Z finite dominant over the pointed stable stack, carrying its universal stable curve; construct via two distinct prime level covers and their normalisations. Export pointed stable extension after finite surjective base change. MC.2/pointed-dm-theorem already supplies proper pointed moduli, so do not plan that theorem again. SF.4 imports the missing cover for the curve-fibration proof; L5 consumes the resulting alterations.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "AdicCoefficientsAndComparisons/G-enhancement",
+      "title": "Enhanced and geometric carriers unavailable in pinned Lean",
+      "detail": "The native libraries have ordinary DerivedCategory and scheme sites, but not the required enhanced stable/presentable v-sheaf, derived-completion or coherent coefficient-system carriers. E0–E4 declarations read are planning evidence, not implemented APIs. The suggested file gives concrete native Scheme prototypes and an ordinary categorical mate prototype; enhanced signatures, their API lemmas and examples are omitted with a per-name inventory, as Protocol §13 requires when their conditions cannot be stated. A follow-up must replace the inventory with genuine supplied types and elaborate every omitted signature without dummy Prop fields. The P¹ base-field test is represented only by a generic base-change proper/lfp signature; its concrete chart identification needs the projective-space supplier.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+        "AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits",
+        "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
+        "AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients",
+        "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+        "AdicCoefficientsAndComparisons:L1/scheme-adic-category",
+        "AdicCoefficientsAndComparisons:L1/comparison-pullback",
+        "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space",
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "AdicCoefficientsAndComparisons:L2/fp-compactification"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-support",
+      "title": "Qcqs unbounded support and coherent coefficient proof",
+      "detail": "A complete proof must verify the finite relative cohomological bound on the proper/fp models, its local uniformity under base change, exact tensor/scalar-change comparisons for larger torsion coefficients, left-completed Postnikov extension and enhanced coherence of choice-independence. The source sketches these reductions; classical noetherian support cannot simply be asserted on every unbounded complex.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L2/scheme-support-extension",
+        "AdicCoefficientsAndComparisons:L2/coefficient-and-unbounded-extension",
+        "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-local",
+      "title": "Unwritten normal-crossing and semistable calculations",
+      "detail": "ECD 27.6 says the local complexes can be computed and sketches a dimension induction. Supply the explicit Kummer/cycle-class comparison on all strata, twists and residue maps, smooth-chart induction, and proof that the remaining cone is supported on finitely many closed points. The proof cannot be inferred from an isomorphism of abstract cohomology ranks.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/normal-crossing-local-comparison",
+        "AdicCoefficientsAndComparisons:L5/semistable-boundary-induction",
+        "AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-trait",
+      "title": "Canonical punctured-trait inertia computation",
+      "detail": "Identify the analytic/diamond closed stalk with RΓ(IK,M), with residual Gk action, and prove that the natural comparison equals the scheme-side cocycle map. H0 continuous group cohomology alone supplies neither this geometric identification nor its compatibility.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L6/trait-open-comparison",
+        "AdicCoefficientsAndComparisons:L6/constructible-full-faithfulness-27-7"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-test",
+      "title": "Nonanalytic-base passage in the test-space argument",
+      "detail": "Fresh reading confirms ECD 24.4 assumes analytic source and target, whereas Spa(O,O) is nonanalytic. 27.5 asserts the relative test-space smoothness by that citation. The precise extension is requested from S5, with a direct proof as an alternative; it is not treated as an established consequence of 24.4.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L4/analytic-test-space",
+        "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-proper-descent",
+      "title": "Proper descent is not étale hypercover descent",
+      "detail": "A proper alteration is not an étale-site covering map. SF.2 must export geometric proper hypercover cohomological descent for these invertible torsion coefficients, and E2 then supplies the enhanced cartesian totalisation. No division by the alteration degree is allowed.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-rational",
+      "title": "Rational lattice comparison scope",
+      "detail": "The defined scalar-localised integral lattice category exists once its enhancement is supplied. BS 6.8.14 identifies it with constructible rational sheaves on its topologically noetherian schemes. No source read establishes the analogous all-constructible-Qℓ identification for arbitrary small v-stacks; request a separate lattice/constructibility proof before making that assertion.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/G-owners",
+      "title": "Conflicting alteration ownership prescriptions",
+      "detail": "RT-AREA-algebraicgeometry/16 and RT-AREA-etale/21 prescribe opposite owners. Accepted RS-25 keeps source-scoped alterations in SF.4, and Protocol §15 forbids duplicate owners. This packet therefore imports SF.4 and proposes rescoped L5 tasks 4–5. Maintainer decision is required to supersede RS-25 if a new alterations stage is preferred; both prescriptions cannot be applied simultaneously.",
+      "neededBy": [
+        "AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L0",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-enhancement: Enhanced and geometric carriers unavailable in pinned Lean",
+        "AdicCoefficientsAndComparisons/G-rational: Rational lattice comparison scope",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L1",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-enhancement: Enhanced and geometric carriers unavailable in pinned Lean",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L2",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-enhancement: Enhanced and geometric carriers unavailable in pinned Lean",
+        "AdicCoefficientsAndComparisons/G-support: Qcqs unbounded support and coherent coefficient proof",
+        "Resolve precise supplier requests before claiming closure.",
+        "Complete the documented native Lean signature refinements: affine-limit projection/open/qcqs consequences, dense-subcategory initiality and strict binary refinements, base-change coherence/cartesian strictness, and the concrete P¹ chart example."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L3",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-support: Qcqs unbounded support and coherent coefficient proof",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L4",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-enhancement: Enhanced and geometric carriers unavailable in pinned Lean",
+        "AdicCoefficientsAndComparisons/G-test: Nonanalytic-base passage in the test-space argument",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L5",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-local: Unwritten normal-crossing and semistable calculations",
+        "AdicCoefficientsAndComparisons/G-proper-descent: Proper descent is not étale hypercover descent",
+        "AdicCoefficientsAndComparisons/G-owners: Conflicting alteration ownership prescriptions",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    },
+    {
+      "stageId": "AdicCoefficientsAndComparisons:L6",
+      "status": "planned",
+      "remaining": [
+        "AdicCoefficientsAndComparisons/G-local: Unwritten normal-crossing and semistable calculations",
+        "AdicCoefficientsAndComparisons/G-trait: Canonical punctured-trait inertia computation",
+        "Resolve precise supplier requests before claiming closure."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AdicCoefficientsAndComparisons",
+        "SchemeAndStackFoundations",
+        "StableReductionPartII"
+      ],
+      "detail": "RT-AG/16 and RT-etale/21 conflict; the accepted RS-25 retains source-scoped alterations in SF.4.",
+      "proposal": "Keep the unique schematic alteration owner SF.4. Import tasks 1–3 of L5 from SF.4 and narrow L5 to proper comparison descent and local calculations. Add MC.4 pointed projective-cover→SF.4→L5, and SF.4→RD.5 / PrimeToDegreeAlterations. Do not create the competing L5:alterations owner without an explicit superseding restructuring."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "AdicCoefficientsAndComparisons"
+      ],
+      "detail": "L2 has shared purely schematic geometry and continuity, followed by a coefficient extension that needs enhancements; its six planet limit hides useful targets.",
+      "proposal": "Propose L2:approximation (affine limits, noetherian approximation, fp data/properties and finite-type factorisation), L2:compactifications (ordinary/fp categories, full equalisation, fp limit equivalence, Nagata, Cartier and vector-bundle refinements), L2:continuity (higher cohomology, Hom and Dᵇc), and L2:support (the same-carrier coefficient/unbounded extension). Keep current L2 ids until integration. The first three prefixes depend on schematic suppliers only and may supply SF.4, H1/H5 and GeneralBasesFourier without diamond support dependencies."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AdicCoefficientsAndComparisons",
+        "EtaleDualityAndPerverseSheaves",
+        "LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier",
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "RT-etale/15, /17 and /23 require cross-stage imports outside the issue-owned files.",
+      "proposal": "Add SF.2→L1 (BS 5.2.6/5.3.2), L3→EDC.6 (27.1–27.4), and L2:continuity→GeneralBasesFourier for ABE/A10–A11; its A11 is the bounded constructible category continuity node here. H1:valuation-nearby-cycles / H1:valuation-exports→GeneralBasesFourier supplies YZ/A07 and ABE/A14, not L2. L4 and H5 are implied EDC.6 ancestors and need no duplicate theorem. No atlas, supplier packet or brief is edited by this issue."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AdicCoefficientsAndComparisons/E1",
+      "source": "BP",
+      "kind": "gap",
+      "locator": "Lemma 2.1.6, printed p. 7 in the Boxer author PDF, SHA256 b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee",
+      "printed": "The source takes an extension F¯ that is coherent.",
+      "correction": "Before Tag 0ESN, split Y into its finitely many constant-rank open-and-closed pieces and take their schematic closures; apply the Fitting blow-up on each schematically dense constant-rank piece.",
+      "reason": "Tag 0ESN requires both schematic density and constant rank on the open. An arbitrary coherent extension does not ensure these conditions.",
+      "affects": "the proof",
+      "known": "Previously recorded and independently reviewed as PAPER-BOXER-PILLONI-26/E12; independently rechecked in the current hashed author PDF. No published correction established in this run.",
+      "searched": [
+        "Boxer author PDF retrieved 6 October 2026, §2.1.1",
+        "Public web search for Higher Hida theory for Siegel modular forms erratum/corrigendum and author versions",
+        "Existing PAPER-BOXER-PILLONI-26 sourceIssues and reviewed comparison with its earlier public versions (lead, not fresh version-of-record evidence)"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/E2",
+      "source": "BP",
+      "kind": "misprint",
+      "locator": "Lemma 2.1.5, printed p. 7 in the Boxer author PDF, SHA256 b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee",
+      "printed": "The source specifies blowing up X along the ideal I.",
+      "correction": "Blow up the ambient compactification Xbar at its boundary ideal, after taking a dense refinement.",
+      "reason": "The ideal is on Xbar; its restriction to X is the unit ideal, so blowing up X cannot modify its boundary.",
+      "affects": "the proof",
+      "known": "Previously recorded and independently reviewed as PAPER-BOXER-PILLONI-26/E13; independently rechecked in the current hashed author PDF. No published correction established in this run.",
+      "searched": [
+        "Boxer author PDF retrieved 6 October 2026, §2.1.1",
+        "Public web search for Higher Hida theory for Siegel modular forms erratum/corrigendum and author versions",
+        "Existing PAPER-BOXER-PILLONI-26 sourceIssues and reviewed comparison with its earlier public versions (lead, not fresh version-of-record evidence)"
+      ]
+    },
+    {
+      "id": "AdicCoefficientsAndComparisons/E3",
+      "source": "BP",
+      "kind": "gap",
+      "locator": "§2.1.1 paragraph following Definition 2.1.2, printed p. 7 in the Boxer author PDF, SHA256 b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee",
+      "printed": "The source asserts cofilteredness of the category.",
+      "correction": "Prove equalisation of parallel arrows as well as existence of binary common refinements. Use the closed diagonal of the separated target and the closed equaliser containing X.",
+      "reason": "Two distinct arrows on an extra proper boundary component may agree on X, so common refinements alone do not satisfy the third cofilteredness axiom.",
+      "affects": "the proof",
+      "known": "Previously recorded and independently reviewed as PAPER-BOXER-PILLONI-26/E14; independently rechecked in the current hashed author PDF. No published correction established in this run.",
+      "searched": [
+        "Boxer author PDF retrieved 6 October 2026, §2.1.1",
+        "Public web search for Higher Hida theory for Siegel modular forms erratum/corrigendum and author versions",
+        "Existing PAPER-BOXER-PILLONI-26 sourceIssues and reviewed comparison with its earlier public versions (lead, not fresh version-of-record evidence)"
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "where": "AdicSpaces layer 2 links to L1 and L4",
+      "detail": "Existing native Spa is reused with explicit plus rings; an AdicSpaces roadmap is not re-planned. Its links are context, not evidence that scheme diamondification is implemented."
+    }
+  ],
+  "sourceAccess": {
+    "publicVersionsRead": [
+      "ECD current author PDF §§26–27",
+      "BS retrieved public PDF selected completion/pro-étale/rational passages",
+      "ZAV arXiv v3 §2.1",
+      "BP current Boxer author PDF §2.1.1",
+      "CES arXiv v4 §4.10 and its applications",
+      "ABE arXiv v2 §1.4",
+      "DJ Numdam source-scoped statements",
+      "Listed Stacks statements and proofs, including the finite-gluing noetherian approximation proof"
+    ],
+    "notRead": [
+      "Zavyalov Annals version of record",
+      "Boxer–Pilloni Inventiones version of record",
+      "Full Huber book; specific analytic claims use the freshly read H5 supplier statements, with their source-access limitations",
+      "Complete proofs of de Jong alterations: imported SF.4 work, not claimed as read or re-planned here"
+    ]
+  },
+  "suggestedLean": {
+    "scope": "Concrete native Scheme prototypes and ordinary categorical mate prototype; enhanced sheaf/diamond signatures inventoried as unavailable, not elaborated.",
+    "nativeNodes": [
+      "AdicCoefficientsAndComparisons:L2/compactification",
+      "AdicCoefficientsAndComparisons:L2/fp-compactification",
+      "AdicCoefficientsAndComparisons:L2/compactification-morphism",
+      "AdicCoefficientsAndComparisons:L2/compactification-category",
+      "AdicCoefficientsAndComparisons:L2/affine-transition-limit-existence",
+      "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+      "AdicCoefficientsAndComparisons:L2/strict-from-dense",
+      "AdicCoefficientsAndComparisons:L2/compactification-cofiltered",
+      "AdicCoefficientsAndComparisons:L2/fp-strict-cofiltered"
+    ],
+    "limits": [
+      "FPCompactification.basePoint has only a generic base-change proper/lfp example in Lean: the concrete P¹ chart/base-field example awaits the supplied projective-space construction.",
+      "L2 scheme-support API and its tests need the same missing enhancement as L0; no duplicate carrier is introduced.",
+      "Noetherian approximation, fp categorical limit equivalence and Cartier/vector-bundle refinements need the supplier constructions beyond the native scheme signatures shown here.",
+      "All omitted node, API and test names appear in the file inventory with their mathematical statement.",
+      "The native theorem signatures are fragments: affineTransitionLimit states existence but not its affine projections/open restriction/qcqs consequences; compactificationCofiltered and fpStrictCofiltered omit initiality/dense-subcategory and binary strict-refinement signatures. Compactification.baseChange is typed, while its identity/composition coherence and the cartesian reformulation of strictness remain named mathematical obligations in the packet."
+    ]
+  }
+}
