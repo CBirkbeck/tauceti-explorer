@@ -747,6 +747,11 @@ theorem mulEquivSemidirect_mk (a : (ZMod q)ˣ) (b : ZMod q) :
     mulEquivSemidirect (mk a b) = ⟨Multiplicative.ofAdd b, a⟩ := by sorry
 
 theorem isPretransitive (x y : ZMod q) : ∃ g : affineGroup q, g.val x = y := by sorry
+
+-- Sharp two-transitivity is stronger than ordinary transitivity above.
+theorem existsUnique_pair (x₁ x₂ y₁ y₂ : ZMod q)
+    (hx : x₁ ≠ x₂) (hy : y₁ ≠ y₂) :
+    ∃! g : affineGroup q, g.val x₁ = y₁ ∧ g.val x₂ = y₂ := by sorry
 end affineGroup
 
 section MoreCM
@@ -762,7 +767,17 @@ end MoreCM
 end TauCeti.LawrenceVenkatesh
 
 /-
-Signature omission ledger (DESIGN-LV~2).
+Signature omission ledger (DESIGN-LV~2, audited by REV-DESIGN-LV~2).
+LV.0/affine-group: linearPart, ker_linearPart, stabilizer_zero, commutator_eq
+and mulEquivAffineEquiv state partial comparisons. Surjectivity, translation
+and stabilizer group equivalences, index/coset action, derived subgroup equality
+(q ≥ 3), and evaluation/linear-part compatibility remain as specified in the
+packet gap. Ordinary transitivity and sharp two-transitivity have separate signatures.
+
+The omitted LV.3 monodromy and period-map interfaces use backward transport
+on the opposite of Mathlib's fundamental group, with the left deck action by
+prepending loops. The underlying forward local-system representation is on
+the ordinary fundamental group; the image subgroup is the same.
 The following entries are mathematical targets in the packet. They are omitted
 from executable Lean until their named owner interfaces exist. These comments
 are not declarations and do not certify the missing definitions or conditions.
@@ -837,7 +852,7 @@ Omitted: periodVariety, periodVariety.mem_iff, periodVariety.mem_points_iff_free
 MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group
 Betti local-system monodromy, algebraic subgroup closure and its de Rham tensor/algebra normalizer comparison; requires LV-import-01/32 and the actual comparison isomorphisms.
 Gap: Suggested signatures — algebraic-monodromy-group
-Omitted: monodromyRep, algebraicMonodromyGroup, HasFullMonodromy, algebraicMonodromyGroup_le_normalizer, hasFullMonodromy_iff_basepoint, algebraicMonodromyGroup_deRham, HasFullMonodromy.orbit_eq, hasFullMonodromy_legendre, monodromyRep.reviewTest1, monodromyRep.reviewTest2, monodromyRep.reviewTest3
+Omitted: monodromyRep, algebraicMonodromyGroup, HasFullMonodromy, algebraicMonodromyGroup_le_normalizer, hasFullMonodromy_iff_basepoint, algebraicMonodromyGroup_deRham, HasFullMonodromy.orbit_eq, hasFullMonodromy_legendre, monodromyRep.reviewTest1, monodromyRep.reviewTest2, monodromyRep.reviewTest3, monodromyRep.reviewTest4
 
 MordellLawrenceVenkatesh:LV.3/padic-period-map
 Analytic Grassmannian-valued map obtained from the actual Hodge subbundle and horizontal transport, with the E-linear/isotropic and rebase comparisons.
