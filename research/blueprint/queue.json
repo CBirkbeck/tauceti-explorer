@@ -25900,8 +25900,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.7s.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #752"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.7s",
@@ -27385,9 +27386,10 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-PELModuli.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #963"
+   "note": "deliverables arrived from an external worker on issue #963",
+   "finishedAt": "2026-10-06T12:07:45Z"
   },
   {
    "id": "REV-PELModuli",
@@ -28914,8 +28916,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #994"
   },
   {
    "id": "REV-ShimuraVarieties--V8",
@@ -30567,8 +30570,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/REV-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #531"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #531",
+   "finishedAt": "2026-10-06T12:07:47Z"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion",
