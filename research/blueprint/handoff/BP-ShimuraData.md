@@ -1,39 +1,60 @@
-# BP-ShimuraData — first checkpoint: the Deligne torus and Hodge structures (D1)
+# BP-ShimuraData — completed planning pass
 
-Agent: Claude Code, session cc-fb70e5, 2026-09-28. Refs #992. The claim is comment 5874140640, confirmed by the bot. No packet existed before this checkpoint.
+Agent: Codex. Session: codex-pY3oII. Date: 2026-10-06. Refs #992.
+Claim confirmed by the bot at comment 6011952911, responding to claim comment 6011950728. This run takes one job and stops after its pull request. It extends the earlier Claude Code cc-fb70e5 D1 checkpoint (PR #3779) rather than discarding its correct work.
 
-## What this checkpoint supplies
+## Deliverables and coverage
 
-The checkpoint adds 8 D1 nodes on 30 baseline declarations:
+The packet and reader cover exactly ShimuraData:D0–D5, part null. Status is complete as a planning pass. All six stages are planned; **zero stages are closed**. Every implementationStatus is unchecked. There are 115 nodes (17 definitions, 23 constructions, 49 lemmas, 26 theorems), 120 API items, 120 unit tests, 27 planets, 23 verified baseline declarations, 26 exact supplier requests and seven gaps. No layer has more than six planets.
 
-1. The Deligne torus S, as Tau Ceti's Galois-descended torus of the swap lattice ℤ². It is a torus, split by ℂ, and not split over ℝ. It needs an `IsGalois ℝ ℂ` instance, which is supplied here.
-2. Its real and complex points: S(A) = (A ⊗ ℂ)ˣ, S(ℝ) → S(ℂ) is z ↦ (z, z̄), and conjugation acts by (z₁, z₂) ↦ (z̄₂, z̄₁).
-3. The norm, the weight map w(r) = r⁻¹, and the Hodge cocharacter μ (defined over ℂ only). These use a descent functoriality in the lattice, which is constructed here.
-4. The Hodge decomposition of a real representation, with Deligne's sign V^{p,q} = V_{(−p, −q)}. Each weight piece becomes a Tau Ceti `HodgeStructureOn`.
-5. The equivalence between real representations of S and finite sums of pure real Hodge structures, compatible with ⊗, duals and Tate twists.
-6. h(i) = C⁻¹ for Tau Ceti's Weil operator C.
-7. The rational-weight criterion.
-8. The four test objects under one convention: the trivial representation, ℚ(m), H₁(E), and the adjoint of GL₂.
+The suggested file includes every packet declaration, API name and explicit test label. Its standard note and section comments explain that its partial signatures are unproved interfaces. It uses actual pinned comodules, weight spaces, Hodge structures, local systems, schemes, matrices, subgroup actions and AddValuation. Missing conditions are omitted and identified; there are no arbitrary proposition fields or opaque proposition definitions standing in for them.
 
-There are 3 planets, 2 requests and 1 gap. D1 is partial, and D0 and D2–D5 are not read.
+## Ownership and the previous checkpoint
 
-## Requests and gaps
+- Preserve the checkpoint identifiers for the Deligne torus, its points/maps, Hodge pieces, equivalence, Weil sign, rational-weight criterion and trivial test. Accepted RS-31 makes the first three comparison/export nodes; RG2.0a owns their constructions. Split the four old test objects into individual declarations without losing the old trivial-test identifier.
+- Follow RS-23: D5 owns the Hilbert G/G* data, reflex comparisons and trace symplectic embedding; H1 and PEL M5 consume them. G has 2^d components; G* has two. The standard trace representation of unrestricted G is not a rational GSp representation.
+- Follow RS-04: D3 owns conjugacy-class reflex fields; CM.0 supplies CM-type/reflex-type algebra to the D5 torus example. Do not add CM.0→D1/D4 solely for test proofs, since CM.0 already consumes D3. The independently needed CM/non-CM elliptic Hodge-endomorphism comparison is an explicit gap.
+- Real analytic charts are requested from AF.1 and the existing LieGroups roadmap, not from the narrowed AA.0/AA.1. The native LieGroups layer7→D2 dependence is retained.
+- Root data, Iwahori group schemes and integral Bruhat theory are imported from RG/RG2. D3 adds the requested Kostant and flag interfaces; D5 adds datum/Borel/compact-Cartan comparisons.
+- Correct a backward dependency: V0 consumes D5. D5 defines Γ and proves effective freeness conditional on a discrete image; ALS.0 supplies proper action and compact effective stabilizers. V0's arithmeticity, neat-level existence and quotient theorem are downstream. The special GL₂ principal N≥3 calculation requests its rational lattice comparison from AA.3, independently of V0's general theorem.
 
-**Requests:**
+## Routed papers and the handed-on finding
 
-- to ReductiveGroupsPartII RG2.0a, for the identification S ≅ Res_{ℂ/ℝ} G_m;
-- to AdelicAlgebraicGroups AA.1, for real points as Lie groups from D2 on.
+- Masser–Zannier item 4: D1 plans MT and Hodge genericity, with polarization and equality as rational algebraic groups. Weakly special subvarieties and the A_g characterization stay in LogicAndDefinabilityPartII.
+- Boxer–Pilloni: D3 has general left Kostant representatives, root/cone criteria, longest-element involution, integral Bruhat cells, Schubert/opposite closures and the BP21 containment theorem. D5 has all-genus Siegel root convention and Kostant sequences with their geometric meaning. Field-only RG7 is not misused as the integral theorem; RG9 is requested.
+- Calegari–Geraghty: D5 records the corrected CG weight coordinates, four Kostant representatives, Levi-longest and cone reversal, corrected centralizer, U(2), compact Cartan parity and extra exponential-kernel coset, Cayley basis and block action.
+- Pilloni: import RG2.5 lattice/coroot data; D5 records the lower Borel, compact root, corrected rho, coordinate conversion and the I₄ standard h. Do not identify its Borel with CG's upper Borel.
+- BKT and Benoist: D3 defines the common variation and finite-free integral polarized carrier, transversality and tests; the general non-Hermitian period-domain and real-involution extensions stay in Hodge Part II.
+- BCGP: D5 distinguishes rational versus adelic neatness, includes the prime-to-p form, and decomposes Lemma 7.8.3 into eigenvalue, generated-product and cyclotomic-torsion bounds. The product step is needed for the source's definition of neatness and is recorded as E15.
+- RT-AREA-algebraicgeometry/27: the packet now has direct prerequisites and exact requests HodgeStructures H0→D1 and H1→D3. The other named consumers (Selmer L4, boundary C1 and AbelianSchemes A5) are outside this job's four deliverables and remain for their own plans/link work. No upstream roadmap or unrelated link file was edited.
 
-**Gap:** Galois descent of comodules, which the inverse construction of the equivalence needs.
+## Source ledger and findings
 
-## Validation
+Eleven source records carry exact read passages and version records, with PDF hashes where obtained. Deligne's 1979 scan was visually read for pp.251–256 and the axiom passage p.265; it is not represented as machine-extracted text. Milne's 2017 notes supply the primary common definitions, with exact section/page/number locators. Routed author copies/preprints and publisher texts are distinguished. A finding against an author copy is scoped to that copy when the publisher refused its version of record.
 
-- `check_blueprint --index` against the pinned index gives 0 errors and 0 warnings.
-- The intake file check is clean.
-- **The suggested file was not compiled.** The shared machine has no pinned build. It imports Tau Ceti's descended tori, weight spaces and Hodge files.
+Fifteen source issues use corrected statements, have explicit reasons and correction searches, and await independent review. E1–E12 incorporate the relevant existing extraction corrections, rechecked in the cited versions: Levi versus radical, Kostant root criterion/cyclic order, upper cells versus closures, CG torus exponent/Levi-longest/centralizer/unitary notation/kernel/parity, and Pilloni's lower roots/rho and I₄. E13 and E14 flag Milne p.69's missing Lie(GSp) scalar term and inverse-weight sign. E15 flags the missing generated-product proof step in published BCGP Lemma 7.8.3, not a false theorem. No independent-review verdict was copied or invented.
 
-## Resume
+Unread proof leaves are expressly recorded: Wolf 1984 Theorem8.7.9, BL03 I Lemma1, general SGA3 parabolic representability, and foundational MT/CM comparison references. The packet does not cite an unread book as a proof it established. The bibliography's earlier Travaux sign convention and Lan PEL illustrations are contextual, not additional proof coverage claimed here.
 
-1. Finish D1: comodule descent; polarizations and Hodge tensors in representation form.
-2. D0: consume RG2.0a and AA.0–AA.1.
-3. D2: Cartan involutions and Hermitian domains (Milne §§1–2; Deligne 1979 §1.2), then D3–D5.
+## What remains and where to resume
+
+- **Effective comodule descent is requested, not closed**: The pinned torus descent descends the Hopf algebra, not arbitrary representations. R1 must supply its effective comodule descent with real-carrier and scalar-extension uniqueness; no equivalence proof is claimed without it.
+- **Holomorphic flat bundles and connections from local systems**: The pinned fundamental-groupoid local coefficient system supplies monodromy/transport. It does not provide L⊗O_B, holomorphic subbundles, Ω¹, or a flat connection. The variation node plans their use; a general complex analytic bundle/connection supplier is still missing. Required result: local trivializations glue the flat holomorphic bundle, pullback commutes, and filtered derivative is well defined.
+- **Complex analytic quotient input**: Milne Theorem1.21 cites Wolf1984 Theorem8.7.9, not read here. The exact complex quotient/integrability theorem is requested at LieGroups layer4; no proof from real smooth Frobenius is asserted.
+- **Integral flag geometry supplier exceeds field Bruhat theorem**: RG layer7 is over a field. RG layer9 must supply integral parabolic quotients, Schubert flatness and base-change-compatible opposite incidence. BP and BP21 cite [BL03] I Lemma1 for incidence; that proof has not been read. The exact requested incidence theorem is a leaf, not an unproved claim of library coverage.
+- **Reflex parabolic-type descent representability**: Need the representability and descent of the parabolic-type functor requested from R7, with descent compatible with the μ conjugacy class. General SGA3 representability proof has not been read. No E-point, E-rational μ, or E-rational parabolic is inferred.
+- **Mumford–Tate and genericity proof inputs**: Minimality is reduced to noetherian subgroup intersection (R0); reductivity to H1 semisimplicity and R6. CM elliptic and non-CM elliptic characterizations are requested from CM and H1. Masser–Zannier states genericity, not these foundational proofs; the packet does not cite it as proving them. The CM/non-CM elliptic test classification needs an independently proved rational Hodge-endomorphism calculation; it cannot import the entire CM.0 stage into D1 or D4, since CM.0 consumes D3. The exact missing result is: the polarized rational H¹ of a complex elliptic curve has MT a two-dimensional CM torus in the imaginary-quadratic endomorphism case, and GL₂ otherwise.
+- **Suggested signatures omit unavailable conditions explicitly**: Suggested forms use actual pinned Hodge/comodule/local-system/linear/group/scheme carriers. Algebraic S-map base change, rational simple-factor axioms, holomorphic filtration/connection and connected adjoint-type interfaces are not yet available as one library API. Each prototype names the conditions omitted; its signature is a planning interface, not the full final specification. Review must compare with the complete node statements before implementation. The full point-orbit constructors now retain actual product, torus, GL₂, real symplectic-similitude, Hilbert and common-determinant groups. The local eigenvalue prototype is the monic shifted quartic with coefficient valuation ≥1, using existing AddValuation, and the product bound applies to the generated subgroup. Explicit remaining omissions: D0 algebraic point identifications are parameters; D1 real comodule descent and graded categorical equivalence; D2 quotient charts, Cartan/semisimple and integrability geometry; D3 holomorphic bundles, polarization positivity, connections, homogeneous tensor comparison, parabolic/flag schemes, compact-dual dimensions/isotropy, Borel embedding geometry, reflex effective descent, Coxeter and integral Schubert hypotheses; D4 rational group/algebraic map/SV/connected-adjoint interfaces; D5 algebraic/adelic eigenvalue identifications, actual reflex/compact-dual schemes and type classification, and compact Cartan exponential carrier. Auxiliary group/linear calculations in the suggested tests cover expressible parts only; packet test statements remain the complete acceptance requirements.
+
+The complete exact request/consumer list is in the packet and the reader. A follow-up should resolve those supplier/proof interfaces, then strengthen the corresponding suggested statements to the full mathematical specifications. The packet's API and tests are acceptance requirements; a weak linear calculation in the current suggested file is only its expressible part. In particular restore full categorical descent; analytic quotient/integrability; holomorphic filtered flat bundle and integral polarization positivity; homogeneous tensor/change-of-datum comparison; parabolic schemes and isotropic compact dual; reflex effective descent; Coxeter/Schubert hypotheses; rational S-maps/SV1–SV3; connected adjoint type witnesses; and algebraic/adelic comparisons in the explicit examples. Keep each source correction and convention while doing this.
+
+## Validation and compilation
+
+- The full declarations.tsv from the worker baseline was used; both commits in its BASELINE.json match the packet. Each of the 23 citations was additionally read with git show at its exact commit, including defining modules, declaration heads and hypotheses.
+- Packet checker: zero errors and zero warnings against that full index.
+- Source issue and source version checks: zero errors.
+- Packet-to-suggested reconciliation: all 115 declaration names, 120 API names and 120 test labels present; all individual import paths exist at their respective pins.
+- Reader reconciliation, local-path scan, JSON and git diff whitespace checks pass. Only the four authorized deliverables change.
+- **Lean was not compiled.** The only shared build found has Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 but Tau Ceti cf386627e9176a3827c1a5fe804989fd94a4d216, rather than pinned f790474821cf4256814db967cb154e7af3d0c369. WORKERS.md permits elaboration only at an existing build with both exact pins. No Lake build/update/cache, language server or Lean compilation was started. A future exact-pin check must use lean-check and report actual errors separately from sorry warnings.
+
+The scratch source PDFs, extraction texts, scripts and worklist are disposable and removed once the pull request is open. Everything needed to continue is in the deliverables: source URLs, hashes/versions, read locators, exact requests, gaps, corrections and prototype omissions. No scratch path is a dependency of the submitted work.
