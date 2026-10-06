@@ -625,7 +625,7 @@
    "proofSteps": [
     "The restriction maps S_{Σp}(F, W*) → S_{Σp}(F', W*) for F ⊂ F' are compatible, so the colimit is a discrete O[[Γ]]-module, Γ acting through the conjugation action on each H¹(F', W*) (SelmerIwasawaCohomology L2, selmer-functoriality).",
     "X∞ is its Pontryagin dual (SelmerIwasawaCohomology L2, pontryagin-dual) with the stated action; it is a finitely generated Λ-module by x-infinity-finitely-generated.",
-    "For d = 1 and F = K, Pontryagin duality gives X∞/JX∞ = Hom(S_{Σp}(K∞, W*)^{Γ}, D) for the augmentation ideal J, the identity used in Rubin's Lemma VII.4.1."
+    "For F = K, and every d ≥ 1, Pontryagin duality gives X∞/JX∞ = Hom(S_{Σp}(K∞, W*)^{Γ}, D) for the augmentation ideal J, the identity used in Rubin's Lemma VII.4.1."
    ],
    "acceptance": [
     "For K = Q, K∞ = Q∞ and T = Z_p(1), X∞ = 0.",
@@ -717,7 +717,7 @@
     {
      "name": "TauCeti.EulerSystem.Xinf_eq_mazurRubin",
      "role": "compatibility",
-     "statement": "For K = Q and K∞ = Q∞, Shapiro's lemma identifies X∞ with Mazur–Rubin's X∞ = Hom(H¹_{F_Λ*}(Q, T*), Q_p/Z_p) for the canonical Λ-adic Selmer structure of lambda-adic-selmer-structure: at ℓ ≠ p the conditions H¹_f vanish in the colimit because every ℓ ≠ p has infinite decomposition group."
+     "statement": "For K = Q and K∞ = Q∞, Shapiro's lemma identifies X∞ with Mazur–Rubin's X∞ = Hom(H¹_{F_Λ*}(Q, 𝐓*), Q_p/Z_p) for the canonical Λ-adic Selmer structure of lambda-adic-selmer-structure: at ℓ ≠ p the conditions H¹_f vanish in the colimit because every ℓ ≠ p has infinite decomposition group. The identification is semilinear for the involution ι: with G_Q acting on Λ through Ψ and Λ acting on a Pontryagin dual by (λφ)(x) = φ(λx), Mazur–Rubin's X∞ is this X∞ with Λ acting through ι, so its characteristic ideal is ι(char X∞)."
     }
    ],
    "library": {
@@ -987,7 +987,7 @@
     {
      "name": "TauCeti.EulerSystem.lambdaIndex_le_span_iff",
      "role": "compatibility",
-     "statement": "For d = 1 and f ∈ Λ, ind_Λ(x) ⊂ (f) iff f divides Mazur–Rubin's Ind(x) of lambda-adic-ind; so char(B) | ind_Λ(x) iff char(B) | Ind(x)."
+     "statement": "For d = 1 and f ∈ Λ, ind_Λ(x) ⊂ (f) iff f divides Mazur–Rubin's Ind(x) of lambda-adic-ind computed in the same module (across the ι-semilinear Shapiro identification with H¹(Q, 𝐓), apply ι); so char(B) | ind_Λ(x) iff char(B) | Ind(x)."
     },
     {
      "name": "TauCeti.EulerSystem.lambdaIndex_twist",
@@ -1147,7 +1147,7 @@
    ],
    "title": "Twisting Euler systems by characters of infinite order",
    "kind": "construction",
-   "statement": "Let c be an Euler system for (T, 𝒦, N) with K∞ ⊂ 𝒦 admissible, and ρ: Gal(𝒦/K) → O^× a continuous character factoring through a finite extension of K∞ (for instance a character of Γ, possibly of infinite order). Write T ⊗ ρ = T ⊗_O O_ρ, fix a generator ξ_ρ of O_ρ, and let Tw_ρ: Λ → Λ be the O-algebra automorphism induced by γ ↦ ρ(γ)γ. (a) For K ⊂_f L, the cocycle map induces isomorphisms H¹_∞(L, T) ⊗ ρ ≅ H¹_∞(L, T ⊗ ρ) and S_Σ(LK∞, W) ⊗ ρ ≅ S_Σ(LK∞, W ⊗ ρ) for every finite Σ ⊇ Σ_p (Rubin, Proposition VI.2.1). (b) Choose L finite over K with ρ factoring through Gal(LK∞/K) and LK∞/K ramified only at N, ∞ and the conductor of ρ. For K ⊂_f F ⊂ 𝒦 let c^ρ_F be the image of c_{FL,∞} ⊗ ξ_ρ under H¹_∞(FL, T) ⊗ ρ ≅ H¹_∞(FL, T ⊗ ρ) → H¹(FL, T ⊗ ρ) → H¹(F, T ⊗ ρ), the last map being Cor_{FL/F}. Then c^ρ is an Euler system for (T ⊗ ρ, 𝒦, fN), f the finite prime-to-p part of the conductor of ρ, independent of L (Definition VI.3.1, Remark VI.3.2, Theorem VI.3.5).",
+   "statement": "Let c be an Euler system for (T, 𝒦, N) with K∞ ⊂ 𝒦 admissible, and ρ: Gal(𝒦/K) → O^× a continuous character factoring through a finite extension of K∞ (for instance a character of Γ, possibly of infinite order). Write T ⊗ ρ = T ⊗_O O_ρ, fix a generator ξ_ρ of O_ρ, and let Tw_ρ: Λ → Λ be the O-algebra automorphism induced by γ ↦ ρ(γ)γ. (a) For K ⊂_f L, the cocycle map induces isomorphisms H¹_∞(L, T) ⊗ ρ ≅ H¹_∞(L, T ⊗ ρ) and S_Σ(LK∞, W) ⊗ ρ ≅ S_Σ(LK∞, W ⊗ ρ) for every finite Σ ⊇ Σ_p (Rubin, Proposition VI.2.1). (b) Choose L ⊂ 𝒦 finite over K with ρ factoring through Gal(LK∞/K) and LK∞/K ramified only at N, ∞ and the conductor of ρ. For K ⊂_f F ⊂ 𝒦 let c^ρ_F be the image of c_{FL,∞} ⊗ ξ_ρ under H¹_∞(FL, T) ⊗ ρ ≅ H¹_∞(FL, T ⊗ ρ) → H¹(FL, T ⊗ ρ) → H¹(F, T ⊗ ρ), the last map being Cor_{FL/F}. Then c^ρ is an Euler system for (T ⊗ ρ, 𝒦, fN), f the finite prime-to-p part of the conductor of ρ, independent of L (Definition VI.3.1, Remark VI.3.2, Theorem VI.3.5).",
    "hypotheses": [
     "ρ must factor through a finite extension of K∞; if needed one enlarges K∞ to the compositum of all Z_p-extensions of K in 𝒦 (Rubin, Definition VI.3.1).",
     "There is in general no map H¹(L, T) → H¹(L, T ⊗ ρ) (Rubin, Remark VI.2.2): the construction must pass through H¹_∞."
@@ -1348,7 +1348,7 @@
    ],
    "acceptance": [
     "Every error ideal has height ≥ 2, so the errors never affect characteristic ideals.",
-    "For T = Z_p(1) over Q∞ the cokernel in (iii) is finite (the case used in Lemma VII.3.7)."
+    "For T = Z_p, so W* = μ_{p^∞}, the cokernel in (iii) for F = K is finite even though the twist assumption (5) fails for W, because it holds for W* (the case used in the proof of Lemma VII.3.7)."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/restricted-iwasawa-selmer-module",
@@ -1576,12 +1576,12 @@
    ],
    "proofSteps": [
     "X∞ is finitely generated (x-infinity-finitely-generated). Suppose it is not torsion. H¹(Ω∞/K∞, W*) is Λ-torsion (Rubin, Corollary C.2.2 with F = K∞; finiteness and character-type of H¹(Ω/F, W) for p-adic analytic Galois groups, the Appendix C input of ES.4), so by Lemma VII.3.6(iii) some γ_0 ∈ G_{Ω∞} has Ev*(γ_0) ∉ (X∞)_tors; the set J = {γ ∈ τG_{Ω∞} : Ev*(γ) ∉ (X∞)_tors} is nonempty and open, and generates a group containing an open subgroup of G_{Ω∞} (Lemma VII.4.2).",
-    "For γ ∈ J, every F and M, Corollary VII.2.8 gives a_τ Ev~(γ)(κ_{F,M}) Ev*(γ) = 0 with κ_{F,M} = κ_{F,1,M} the image of c_F (ES.3, Lemma IV.4.13). The Ev~(γ)(κ_{F,M}) form an element of lim Λ_{F,M} = Λ, which is torsion-free, so it vanishes; hence Ev(γ)(κ_{F,M}) = 0 for γ in an open subgroup of G_{Ω∞}, and so for all γ ∈ G_{Ω∞}.",
+    "For γ ∈ J, every F and M, Corollary VII.2.8 gives a_τ Ev~(γ)(κ_{F,M}) Ev*(γ) = 0 with κ_{F,M} = κ_{F,1,M} the image of c_F (ES.3, Lemma IV.4.13). The Ev~(γ)(κ_{F,M}) are compatible under restriction and form an element λ_γ of lim Λ_{F,M} = Λ with a_τ λ_γ Ev*(γ) = 0; since Ev*(γ) is not torsion and a_τ ≠ 0, λ_γ = 0. As J generates a group containing an open subgroup of G_{Ω∞}, which has finite index, and Λ is torsion-free, Ev(γ)(κ_{F,M}) = 0 for every γ ∈ G_{Ω∞}, every F and every M.",
     "By Lemma VII.3.6(i), a_τ Ann_Λ(H¹(Ω∞/K∞, W)) kills the image of κ_{F,M} in H¹(K∞, W); by restriction-control-over-the-tower (i), (ii) a fixed integer m kills m·Ann_Λ(H¹(Ω∞/K∞, W))κ_{F,M} for all M, so m·Ann(H¹(Ω∞/K∞, W))c_F is divisible in H¹(F, T), hence 0 (Proposition B.2.4: H¹(F, T) has no nonzero divisible elements).",
     "Controlling H¹(F, T)_tors by Lemma I.2.2(ii), the nonzero ideal Ann_Λ(W^{G_{K∞}})Ann_Λ(H¹(Ω∞/K∞, W)) kills c_{K,∞}, contradicting non-torsion."
    ],
    "acceptance": [
-    "For the cyclotomic-unit Euler system for O_{χ^{-1}}(1) over Q∞ the hypothesis holds and X∞ is torsion.",
+    "For the cyclotomic-unit Euler system for O_{χ^{-1}}(1) over Q∞, χ even, nontrivial and of finite order prime to p (Rubin, Chapter III §2.2), the hypothesis holds and X∞ is torsion.",
     "The zero Euler system does not satisfy the hypothesis, and the theorem says nothing about it."
    ],
    "planet": {
@@ -1678,7 +1678,7 @@
    ],
    "title": "Selmer sequences, Kolyvagin sequences and the inductive step (Rubin, Propositions VII.1.4 and VII.1.6)",
    "kind": "theorem",
-   "statement": "Assume Hyp(K∞, V) and Hyp(K∞/K), c an Euler system for (T, K∞) with c_{K,∞} not Λ-torsion, so X∞ is torsion (weak-leopoldt-from-an-euler-system), and assume after twisting (twisting-invariance-of-iwasawa-theorems) that X∞ ⊗ Λ_F and Λ_F/char(X∞)Λ_F are finite for every F. Fix an injective pseudo-isomorphism ⊕_{i=1}^{r} Λ/f_iΛ → X∞ with f_{i+1} | f_i, so char(X∞) = ∏ f_iΛ. (a) There are z_1, …, z_r ∈ X∞ and ideals g_1 ⊂ … ⊂ g_r of Λ with z_k ∈ Ev*(τG_{Ω∞}), a_τ g_k ⊂ f_kΛ, split exact sequences 0 → Σ_{i<k} Λz_i → Σ_{i≤k} Λz_i → Λ/g_k → 0, and a_τ(X∞/Σ_i Λz_i) pseudo-null (Proposition VII.1.4). (b) With Z∞ = Σ Λz_i, a Selmer sequence of length k is (σ_1, …, σ_k) in τG_{Ω∞} with Ev*(σ_i) − z_i ∈ 𝔐Z∞; for M a power of p, L_{F,M} is the fixed field of the common kernel of S_{Σp}(F, W*_M) restricted to FΩ_M, and a Kolyvagin sequence for F, M is (Q_1, …, Q_k) with Q_i over q_i ∈ R and Fr_{Q_i} = σ_i on L_{F,M}; Ψ(k, F, M) ⊂ Λ_{F,M} is the ideal generated by all ψ(κ_{F,r(π),M}), π of length k, ψ ∈ Hom_Λ(Λ_{F,M}κ_{F,r(π),M}, Λ_{F,M}) (Definition VII.1.5). (c) There is h ∈ Λ prime to char(X∞) and, for every F, a power N_F of p such that h a_τ^5 Ψ(k, F, MN_F)Λ_{F,M} ⊂ f_{k+1}Ψ(k+1, F, M) for every power M ≥ N_F of p and 0 ≤ k < r (Proposition VII.1.6).",
+   "statement": "Assume Hyp(K∞, V) and Hyp(K∞/K), c an Euler system for (T, K∞) with c_{K,∞} not Λ-torsion, so X∞ is torsion (weak-leopoldt-from-an-euler-system), and assume after twisting (twisting-invariance-of-iwasawa-theorems) that X∞ ⊗ Λ_F and Λ_F/char(X∞)Λ_F are finite for every F (Rubin's (1)) and that the twist assumption (5) of restriction-control-over-the-tower holds. Fix an injective pseudo-isomorphism ⊕_{i=1}^{r} Λ/f_iΛ → X∞ with f_{i+1} | f_i, so char(X∞) = ∏ f_iΛ. (a) There are z_1, …, z_r ∈ X∞ and ideals g_1 ⊂ … ⊂ g_r of Λ with z_k ∈ Ev*(τG_{Ω∞}), a_τ g_k ⊂ f_kΛ, split exact sequences 0 → Σ_{i<k} Λz_i → Σ_{i≤k} Λz_i → Λ/g_k → 0, and a_τ(X∞/Σ_i Λz_i) pseudo-null (Proposition VII.1.4). (b) With Z∞ = Σ Λz_i, a Selmer sequence of length k is (σ_1, …, σ_k) in τG_{Ω∞} with Ev*(σ_i) − z_i ∈ 𝔐Z∞; for M a power of p, L_{F,M} is the fixed field of the common kernel of S_{Σp}(F, W*_M) restricted to FΩ_M, and a Kolyvagin sequence for F, M is (Q_1, …, Q_k) with Q_i over q_i ∈ R and Fr_{Q_i} = σ_i on L_{F,M}; Ψ(k, F, M) ⊂ Λ_{F,M} is the ideal generated by all ψ(κ_{F,r(π),M}), π of length k, ψ ∈ Hom_Λ(Λ_{F,M}κ_{F,r(π),M}, Λ_{F,M}) (Definition VII.1.5). (c) There is h ∈ Λ prime to char(X∞) and, for every F, a power N_F of p such that h a_τ^5 Ψ(k, F, MN_F)Λ_{F,M} ⊂ f_{k+1}Ψ(k+1, F, M) for every power M ≥ N_F of p and 0 ≤ k < r (Proposition VII.1.6).",
    "hypotheses": [
     "Kolyvagin sequences exist by the Chebotarev density theorem applied to the finite extensions L_{F,M}/K (EulerSystemsAndKolyvaginSystems ES.1); r(π) ∈ R_{F,M} (Lemma IV.1.3).",
     "In the common special case Hyp(K∞, T), O = Z_p and H¹(Ω∞/K∞, W*) = 0, (a) holds with g_i = f_iΛ and any z_i realising the pseudo-isomorphism (Rubin, §6, first paragraph).",
@@ -1687,7 +1687,7 @@
    "proofSteps": [
     "(a), Proposition VII.5.1: there are Γ_0 ⊂ Γ of finite index, characters χ, χ*: Γ_0 → O^× and an abelian L ⊃ Ω∞ with an action of Z_p[[Γ_0]] on Gal(L/Ω∞) for which Ev and Ev* are Tw_χ-, Tw_{χ*}-semilinear.",
     "Proposition VII.5.2: for X' ⊂ X∞ with pseudo-null quotient there is an ideal A' of height ≥ 2 with A' a_τ Ann_Λ(W^{G_{K∞}})^ι Ann_Λ(H¹(Ω∞/K∞, W))^ι Hom(H¹(F, W_M), D) ⊂ O·Ev((Ev*)^{-1}(X') ∩ G_{Ω∞}); for Γ ≅ Z_p the quotient is finite and the proof is short.",
-    "§6: char(X∞) is prime to Ann_Λ(W^{G_{K∞}}), Ann_Λ(H¹(Ω∞/K∞, W)) and Ann_Λ(H¹(Ω∞/K∞, W*))^ι (Lemma 6.1); Lemmas 6.2–6.3 choose z_k = x_k inside Ev*(τG_{Ω∞}) with the stated divisibilities.",
+    "§6: char(X∞) is relatively prime (the sum of the two ideals has height at least two) to Ann_Λ(W^{G_{K∞}}), Ann_Λ(H¹(Ω∞/K∞, W)) and Ann_Λ(H¹(Ω∞/K∞, W*))^ι (Lemma 6.1, using rank-one-leopoldt-case); Lemma 6.3, applied to X_0 = ΛEv*(τ) + ΛEv*(G_{Ω∞}) with t = Ev*(τ) and B_0 = Ev*(G_{Ω∞}), gives x_1 ∈ t + B_0 and x_2, …, x_r ∈ B_0, and z_1 = x_1, z_i = x_1 + x_i (i ≥ 2) lie in Ev*(τG_{Ω∞}) with the stated divisibilities.",
     "(c), §7: for a Selmer sequence σ, Z_σ = Σ ΛEv*(σ_i) ≅ ⊕ Λ/g_iΛ is a direct summand of Z∞ (Lemma 7.1, by Nakayama); Ann_Λ(X∞/Z∞) kills ker(Z_σ ⊗ Λ_{F,M} → X∞ ⊗ Λ_{F,M}) (Proposition 7.2); Theorems VII.2.6–2.7 compare Ev~_q(κ_{F,rq,M}) with Ev~(Fr_q)(κ_{F,r,M}) (Corollary 7.3, Lemma 7.4, Proposition 7.5, Corollary 7.6); a two-prime Chebotarev choice through Proposition 5.2 gives the divisibility by f_{k+1} up to h a_τ^5 (Proposition 7.7)."
    ],
    "acceptance": [
@@ -1743,6 +1743,7 @@
     "The error a_τ^{5r} is an explicit integer: this is the Iwasawa-theoretic counterpart of ES.4's error-tolerant interface, and it disappears exactly when a_τ = 1, e.g. under Hyp(K∞, T)."
    ],
    "proofSteps": [
+    "Reduction: by twisting-invariance-of-iwasawa-theorems one may twist by a character of Γ so that Rubin's assumptions (1) and (5) hold; this changes neither a_τ (τ ∈ G_{K∞} acts on W ⊗ ρ as on W, and G_{K∞}-stable submodules are unchanged) nor r (Tw_ρ is a ring automorphism of Λ preserving elementary divisors), and Tw_ρ fixes the integer a_τ^{5r}, so the bound for (T ⊗ ρ, c^ρ) gives it for (T, c).",
     "Corollary VII.1.7: for Σ ⊇ Σ_p ∪ {primes where T ramifies} ∪ {∞} and ψ ∈ Hom_Λ(H¹(K_Σ/F, T), Λ_F), h^r a_τ^{5r} ψ(c_F) ∈ char(X∞)Λ_F: iterate Proposition VII.1.6 r times from Ψ(0, F, M') ∋ ψ̄(κ_{F,1,M'}) (κ_{F,1,M'} is the image of c_F, Lemma IV.4.13) to Ψ(r, F, M) ⊂ (∏ f_i)Λ_{F,M}, and let M grow.",
     "Lemma VII.1.8: for G finite abelian, R a principal ideal domain, B a finitely generated R[G]-module without R-torsion and f ∈ R[G] not a zero-divisor, if every ψ(b), ψ ∈ Hom_{R[G]}(B, R[G]), lies in fR[G], then b ∈ fB.",
     "Apply it with B = H¹(K_Σ/F, T)/torsion (finitely generated over Z_p, Proposition B.2.7) and b = h^r a_τ^{5r} c_F; pass to the limit over F, the torsion being killed by Ann_Λ(W^{G_{K∞}}) (Lemma I.2.2(ii)), to get h^r a_τ^{5r} c_{K,∞} ∈ char(X∞)(H¹_∞(K, T)/H¹_∞(K, T)_tors), hence h^r a_τ^{5r} φ(c_{K,∞}) ∈ char(X∞) for every φ.",
@@ -1839,14 +1840,14 @@
    "statement": "Let K∞/K be admissible and c an Euler system for (T, K∞). If V satisfies Hyp(K∞, V) and Hyp(K∞/K), then there is an integer t ≥ 0 such that char(X∞) divides p^t ind_Λ(c).",
    "hypotheses": [
     "t is effective: t can be taken with p^t = a_τ^{5r} up to a unit (Theorem VII.1.9).",
-    "At height-one primes 𝔓 ≠ pΛ this gives length_{Λ_𝔓}((X∞)_𝔓) ≤ ord_𝔓(ind_Λ(c)), the form in which KatoEulerSystems L4 states its imported bound."
+    "At height-one primes 𝔓 ≠ ϖΛ (the only height-one prime containing p) this gives length_{Λ_𝔓}((X∞)_𝔓) ≤ ord_𝔓(ind_Λ(c)), the form in which KatoEulerSystems L4 states its imported bound."
    ],
    "proofSteps": [
     "a_τ is a finite positive integer by Lemma VII.1.3(i); apply characteristic-ideal-bound-with-error and take p^t the p-part of a_τ^{5r} (the prime-to-p part is a unit of Λ)."
    ],
    "acceptance": [
     "With Hyp(K∞, T), t = 0 recovers Theorem II.3.3.",
-    "For T = O² with τ = (1 ϖ^m; 0 1) the theorem applies although Hyp(K∞, T) fails."
+    "For T = O² with τ = (1 ϖ^m; 0 1), V irreducible over G_{K∞} and Hyp(K∞/K), the theorem applies although Hyp(K∞, T) fails."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/characteristic-ideal-bound-with-error",
@@ -1937,7 +1938,7 @@
     "ψ ∘ loc^s is a functional on H¹_∞(K, T), so ind_Λ(c) divides ψ(loc^s(c_{K,∞})); combine with rubin-rational-iwasawa-divisibility (resp. rubin-iwasawa-divisibility) and multiplicativity of characteristic ideals."
    ],
    "acceptance": [
-    "For cyclotomic units this gives char(A∞^χ) | J² char(E∞^χ/C_{∞,χ}) in EulerSystemsCyclotomicMainConjecture L2, before the augmentation factors are removed there.",
+    "Cyclotomic units with the unit condition at p do not satisfy the hypotheses: H¹_{∞,s}(Q_p, T*) ≅ Y∞^χ/U∞^χ is O or 0, hence Λ-torsion, so loc^s(c_{Q,∞}) is torsion. EulerSystemsCyclotomicMainConjecture L2 therefore derives char(A∞^χ) | J² char(E∞^χ/C_{∞,χ}) from rubin-iwasawa-divisibility and iwasawa-poitou-tate-sequence directly (Rubin, proof of Theorem III.2.7), not from this theorem.",
     "If H¹_f = H¹ at p the hypotheses fail (H¹_{∞,s} = 0 makes loc^s(c_{K,∞}) torsion), so the theorem does not apply; Theorems II.3.3–II.3.4 must be used instead."
    ],
    "prerequisites": [
@@ -2094,7 +2095,8 @@
    "hypotheses": [
     "For the canonical structure, every v ∤ p must have infinite decomposition group in K∞/K (true for the cyclotomic Z_p-extension), so that H¹(K_v, 𝐓) = H¹_ur(K_v, 𝐓) and the structure does not depend on Σ (Mazur–Rubin, Lemma 5.3.1(ii)).",
     "The induced structure on a quotient 𝐓/I𝐓 is in general smaller than the full local cohomology: at v = p its defect is H²(K_p, 𝐓)[I].",
-    "Conventions for the character through which G_K acts on Λ vary between sources (Castella et al. print α_𝔓 = Ψ^{-1} mod 𝔓, corrected to Ψ mod 𝔓 in PAPER-CASTELLA-ETAL-22/E29); this node pins the action through Ψ and the Shapiro isomorphism, and each source is read through it."
+    "Conventions for the character through which G_K acts on Λ vary between sources (Castella et al. print α_𝔓 = Ψ^{-1} mod 𝔓, corrected to Ψ mod 𝔓 in PAPER-CASTELLA-ETAL-22/E29); this node pins the action through Ψ and the Shapiro isomorphism, and each source is read through it.",
+    "With G_K acting on Λ through Ψ, the Shapiro isomorphism H¹(K, 𝐓) ≅ lim_n H¹(K_n, T) is semilinear for the involution ι: multiplication by γ ∈ Γ on 𝐓 corresponds to the conjugation action of γ^{-1} on lim_n H¹(K_n, T) (SelmerIwasawaCohomology L3, iwasawa-shapiro: 𝓕_Γ(M)^ι ≅ (M ⊗ R̄)⟨1⟩). Comparisons with Rubin's H¹_∞(K, T), ind_Λ and X∞ in the first part of this layer therefore pass through ι; both sides of every divisibility are transported together, so the theorems agree."
    ],
    "proofSteps": [
     "The local and global Shapiro identifications are SelmerIwasawaCohomology L3 (iwasawa-shapiro, iwasawa-cohomology); for v ∤ p with infinite decomposition group every norm-coherent family is unramified (universal-norms-unramified), which gives Mazur–Rubin's Lemma 5.3.1(ii) and makes (a) independent of Σ.",
@@ -2162,7 +2164,7 @@
     {
      "name": "TauCeti.KolyvaginSystem.lambdaRep_cohomologyEquiv",
      "role": "equivalence",
-     "statement": "H^i(K, 𝐓) ≅ lim_n H^i(K_n, T) and H^i(K_v, 𝐓) ≅ lim_n ⊕_{w|v} H^i(K_{n,w}, T), Λ-linearly."
+     "statement": "H^i(K, 𝐓) ≅ lim_n H^i(K_n, T) and H^i(K_v, 𝐓) ≅ lim_n ⊕_{w|v} H^i(K_{n,w}, T), semilinear for ι: λ ∈ Λ acting on 𝐓 corresponds to ι(λ) acting through the conjugation action of Γ on the limits."
     },
     {
      "name": "TauCeti.KolyvaginSystem.LambdaSelmerStructure",
@@ -2197,7 +2199,7 @@
     {
      "name": "TauCeti.KolyvaginSystem.LambdaSelmerStructure.canonical_X_eq",
      "role": "compatibility",
-     "statement": "For K = Q, K∞ = Q∞ and the canonical structure, X is Rubin's X∞ of restricted-iwasawa-selmer-module."
+     "statement": "For K = Q, K∞ = Q∞ and the canonical structure, X is Rubin's X∞ of restricted-iwasawa-selmer-module with Λ acting through ι (the duals carrying (λφ)(x) = φ(λx)), so char X = ι(char X∞)."
     }
    ],
    "library": {
@@ -2242,7 +2244,7 @@
    ],
    "acceptance": [
     "The zero system is allowed and has κ_1 = 0.",
-    "For T = O(1) ⊗ ρ^{-1}, ρ even of prime-to-p order with ρ(p) ≠ 1, KS‾(T ⊗ Λ, F_can, P) is free of rank one, generated by the cyclotomic-unit system (Büyükboduk, Theorem 3.23 and Proposition 4.1)."
+    "For T = O(1) ⊗ ρ^{-1}, ρ even of prime-to-p order, unramified at p, with ρ(p) ≠ 1, KS‾(T ⊗ Λ, F_can, P) is free of rank one, generated by the cyclotomic-unit system (Büyükboduk, Theorem 3.23 and Proposition 4.1)."
    ],
    "uses": [
     {
@@ -2373,7 +2375,8 @@
    "statement": "Let K = Q, K∞ = Q∞, 𝐓 = T ⊗ Λ with the canonical structure F_Λ, P a set of primes ℓ ≠ p at which T is unramified, and 𝒦 an abelian extension of Q containing the maximal abelian p-extension of Q unramified outside p and P. Suppose (a) T/(Fr_ℓ − 1)T is a cyclic O-module for every ℓ ∈ P, and (b) Fr_ℓ^{p^k} − 1 is injective on T for every ℓ ∈ P and every k ≥ 0. Then there is a canonical homomorphism ES(T, 𝒦, P) → KS‾(𝐓, F_Λ, P) sending c to κ with κ_1 = {c_{Q_n}}_n ∈ lim_n H¹(Q_n, T) = H¹(Q, 𝐓).",
    "hypotheses": [
     "Mazur–Rubin's Euler systems use the factors P_ℓ(Fr_ℓ^{-1}) with P_ℓ(x) = det(1 − Fr_ℓ x | T) (their Definition 3.2.2), not Rubin's P(Fr_q^{-1}|T*; Fr_q^{-1}); ES.2's normalization dictionary transports between them (Mazur–Rubin, Remark 3.2.3; Rubin §IX.6).",
-    "This is the rank-one map over the cyclotomic tower of Q; over other bases and for the anticyclotomic tower the Λ-adic Kolyvagin systems of the applications are constructed by their owners (HeegnerPointEulerSystems HE.8 for Heegner points)."
+    "This is the rank-one map over the cyclotomic tower of Q; over other bases and for the anticyclotomic tower the Λ-adic Kolyvagin systems of the applications are constructed by their owners (HeegnerPointEulerSystems HE.8 for Heegner points).",
+    "Mazur–Rubin state the theorem inside §5.3, whose standing assumptions are (H.0)–(H.4) and P = P_1; their proof (Appendix A, as for Theorem 3.2.4) uses only (a), (b) and the containment of the ray-class tower in 𝒦, so the statement here carries only those."
    ],
    "proofSteps": [
     "For n ∈ N let I'_n ⊂ Λ be the ideal generated by ℓ − 1, P_ℓ(1) and Fr_ℓ − 1 for ℓ | n; then I_n ⊂ I'_n, both have finite index for n > 1, Λ/I'_n ≅ (Z/M_n)[Gal(F_n/Q)] with F_n ⊂ Q∞ fixed by the Fr_ℓ (ℓ | n), and Rubin's derivative class κ_{[F_n,n,M_n]} ∈ H¹(F_n, T/M_n) = H¹(Q, 𝐓/I'_n𝐓) is denoted κ_n (ES.3).",
@@ -2423,7 +2426,7 @@
    ],
    "title": "The exceptional set Σ_Λ of height-one primes",
    "kind": "definition",
-   "statement": "For K = Q, K∞ = Q∞, 𝐓 = T ⊗ Λ and Σ ⊇ {p, ∞, primes where T ramifies}: Σ_Λ = {𝔓 : H²(Q_Σ/Q, 𝐓)[𝔓] is infinite} ∪ {𝔓 : H²(Q_p, 𝐓)[𝔓] is infinite} ∪ {pΛ}, a set of height-one primes of Λ (Mazur–Rubin, Definition 5.3.12). It is finite. For a number field K and a Z_p-extension the same definition with H²(K_Σ/K, 𝐓) and H²(K_v, 𝐓), v | p, is used; for the ordinary structure of Howard the exceptional set is the finite set of his Proposition 2.2.8, defined by the failure of the control bounds.",
+   "statement": "For K = Q, K∞ = Q∞, 𝐓 = T ⊗ Λ and Σ ⊇ {p, ∞, primes where T ramifies}: Σ_Λ = {𝔓 : H²(Q_Σ/Q, 𝐓)[𝔓] is infinite} ∪ {𝔓 : H²(Q_p, 𝐓)[𝔓] is infinite} ∪ {pΛ}, a set of height-one primes of Λ (Mazur–Rubin, Definition 5.3.12, with Λ = Z_p[[Γ]]; for Λ = O[[Γ]] with O ramified over Z_p, pΛ is replaced by the prime ϖΛ). It is finite. For a number field K and a Z_p-extension the same definition with H²(K_Σ/K, 𝐓) and H²(K_v, 𝐓), v | p, is used; for the ordinary structure of Howard the exceptional set is the finite set of his Proposition 2.2.8, defined by the failure of the control bounds.",
    "hypotheses": [
     "Σ_Λ depends only on T and the tower, not on any Kolyvagin system; the blind spot (blind-spot-and-lambda-primitivity) depends on κ.",
     "Finiteness needs H²(Q_Σ/Q, 𝐓) and H²(Q_p, 𝐓) finitely generated over Λ (Mazur–Rubin, Lemma 5.3.4; requested from SelmerIwasawaCohomology L3)."
@@ -2758,7 +2761,7 @@
    ],
    "title": "The blind spot and Λ-primitive Kolyvagin systems",
    "kind": "definition",
-   "statement": "Let κ ∈ KS‾(𝐓, F_Λ, P). The blind spot of κ is the set of ideals I ⊂ Λ such that the image of κ under KS‾(𝐓) → KS(𝐓/I𝐓) → KS‾(𝐓/I𝐓) is zero; equivalently, I is not in the blind spot iff for some k ≥ 1 the image of κ in KS(𝐓/(I, 𝔐^k)𝐓, P ∩ P_j) is nonzero for every j (Mazur–Rubin, Definition 3.1.6). The blind spot of KS‾(𝐓) is the intersection of the blind spots of its elements. κ is Λ-primitive if its blind spot contains no height-one prime of Λ (Definition 5.3.9). It is residually primitive (primitive, Definition 4.5.5, owned by ES.5) if its image in KS(T̄) = KS(𝐓/𝔐𝐓) is nonzero.",
+   "statement": "Let κ ∈ KS‾(𝐓, F_Λ, P). The blind spot of κ is the set of ideals I ⊂ Λ such that the image of κ under KS‾(𝐓) → KS(𝐓/I𝐓) → KS‾(𝐓/I𝐓) is zero; equivalently, I is not in the blind spot iff for some k ≥ 1 the image of κ in KS(𝐓/(I, 𝔐^k)𝐓, P ∩ P_j) is nonzero for every j (Mazur–Rubin, Definition 3.1.6). The blind spot of KS‾(𝐓) is the intersection of the blind spots of its elements. κ is Λ-primitive if its blind spot contains no height-one prime of Λ (Definition 5.3.9). It is residually primitive (primitive, Definition 4.5.5, owned by ES.5) if its image in KS‾(T̄) = KS‾(𝐓/𝔐𝐓) is nonzero, i.e. 𝔐 is not in its blind spot; when χ(T̄) = 1 the map KS(T̄) → KS‾(T̄) is an isomorphism (Mazur–Rubin, Corollary 4.5.3) and this is nonvanishing in KS(T̄).",
    "hypotheses": [
     "Residual primitivity implies Λ-primitivity (residual-primitivity-implies-lambda-primitivity); the two are different conditions and Theorem 5.3.10(iii) needs only Λ-primitivity.",
     "A nonzero κ, even with κ_1 ≠ 0, need not be Λ-primitive."
@@ -2768,7 +2771,7 @@
     "Scaling: the image of λκ in KS‾(𝐓/I𝐓) is λ times that of κ, so if λ ∈ 𝔓 then 𝔓 is in the blind spot of λκ."
    ],
    "acceptance": [
-    "The cyclotomic-unit Λ-adic system with ρ(p) ≠ 1 is Λ-primitive.",
+    "The cyclotomic-unit Λ-adic system for O(1) ⊗ ρ^{-1}, ρ even of prime-to-p order, unramified at p, with ρ(p) ≠ 1, is Λ-primitive (Büyükboduk, Proposition 4.1).",
     "(γ − 1)κ is never Λ-primitive."
    ],
    "uses": [
@@ -2889,7 +2892,7 @@
    ],
    "title": "Residual primitivity implies Λ-primitivity",
    "kind": "lemma",
-   "statement": "If κ ∈ KS‾(𝐓) has nonzero image in KS(𝐓/𝔐𝐓) = KS(T̄), then κ is Λ-primitive.",
+   "statement": "If κ ∈ KS‾(𝐓) has nonzero image in KS‾(𝐓/𝔐𝐓) = KS‾(T̄) (equivalently, when χ(T̄) = 1, in KS(T̄)), then κ is Λ-primitive.",
    "hypotheses": [
     "The converse fails in general: Λ-primitivity concerns only height-one primes, primitivity the maximal ideal (Mazur–Rubin, Definition 5.3.9)."
    ],
@@ -2897,7 +2900,7 @@
     "For every height-one 𝔓 ⊂ 𝔐 the reduction KS‾(𝐓) → KS‾(𝐓/𝔐𝐓) factors as KS‾(𝐓) → KS‾(𝐓/𝔓𝐓) → KS‾(𝐓/𝔐𝐓) (functoriality, lambda-adic-kolyvagin-systems); a nonzero image at the end forces a nonzero image at 𝔓, so 𝔓 is not in the blind spot (Büyükboduk, proof of Proposition 4.1)."
    ],
    "acceptance": [
-    "Applied to the cyclotomic-unit system with ρ(p) ≠ 1, which is primitive by Mazur–Rubin's Remark 6.1.8, it gives Λ-primitivity."
+    "Applied to the cyclotomic-unit system for O(1) ⊗ ρ^{-1}, ρ even of prime-to-p order, unramified at p, with ρ(p) ≠ 1, which is primitive by Mazur–Rubin's Remark 6.1.8, it gives Λ-primitivity."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.8/blind-spot-and-lambda-primitivity",
@@ -2927,7 +2930,7 @@
    "kind": "definition",
    "statement": "For K = Q, K∞ = Q∞ and c ∈ H¹(Q, 𝐓), which is finitely generated and Λ-torsion-free, fix a pseudo-isomorphism ψ: H¹(Q, 𝐓) → Λ^r and write ψ(c) = (a_1, …, a_r); Ind(c) is the principal ideal generated by gcd(a_1, …, a_r), so Ind(0) = 0. For c ≠ 0 this equals char((H¹(Q, 𝐓)/Λc)_tors) (Mazur–Rubin, Definition 5.3.8, with the convention of this packet's source issue E801 at c = 0). For κ ∈ KS‾(𝐓), Ind(κ) = Ind(κ_1).",
    "hypotheses": [
-    "Ind(c) is principal; Rubin's ind_Λ (lambda-index) need not be, but a principal ideal contains ind_Λ(c) iff it contains Ind(c).",
+    "Ind(c) is principal; Rubin's ind_Λ (lambda-index) need not be, but a principal ideal contains ind_Λ(c) iff it contains Ind(c), both computed in the same Λ-module H¹(Q, 𝐓). Transported along the Shapiro identification H¹(Q, 𝐓) ≅ H¹_∞(Q, T), which is ι-semilinear (lambda-adic-selmer-structure), Ind(c_{Q,∞}) is the image under ι of the smallest principal ideal containing Rubin's ind_Λ(c).",
     "There is an ideal B of finite index in Λ with Bc ⊂ Ind(c)H¹(Q, 𝐓) (Mazur–Rubin, after Definition 5.3.8)."
    ],
    "proofSteps": [
@@ -3168,7 +3171,7 @@
    ],
    "title": "The self-dual Λ-adic Kolyvagin bound (Howard, Theorem 2.2.10)",
    "kind": "theorem",
-   "statement": "Let K be imaginary quadratic, K∞/K its anticyclotomic Z_p-extension, Λ = O[[Γ]] with the involution ι, 𝐓 = T ⊗ Λ, 𝐀 = Hom(𝐓, μ_{p^∞}) with the perfect pairing e_Λ: 𝐓 × 𝐀 → μ_{p^∞}, e_Λ(λt, a) = e_Λ(t, λ^ι a), and F_Λ a Λ-adic Selmer structure whose local conditions on 𝐓 and 𝐀 are exact orthogonal complements; X = Hom(H¹_{F_Λ}(K, 𝐀), Q_p/Z_p). Assume: (A) H¹_{F_Λ}(K, 𝐓) is Λ-torsion-free; (B) specialization-control holds for (𝐓, F_Λ) with a finite exceptional set Σ_Λ; (C) for every height-one 𝔓 ≠ pΛ (and the perturbed 𝔔 = (g + p^m)) outside Σ_Λ, the specialized Selmer triple (T_𝔓, F_𝔓, L_s) satisfies Howard's hypotheses H.0–H.5, so that ES.5's self-dual DVR theorem (Howard, Theorem 1.6.1, Proposition 2.1.3) applies; (D) char(X_tors) = char(X_tors)^ι. If for some s there is κ ∈ KS(𝐓, F_Λ, L_s) with κ_1 ≠ 0, then (a) H¹_{F_Λ}(K, 𝐓) is torsion-free of rank one; (b) there is a torsion Λ-module M with char(M) = char(M)^ι and a pseudo-isomorphism X ∼ Λ ⊕ M ⊕ M; (c) char(M) divides char(H¹_{F_Λ}(K, 𝐓)/Λκ_1). For T = T_pE, E/Q ordinary at p with surjective ρ̄_{E,p} and Howard's standing hypotheses on (E, K, p), with the ordinary structure, (A)–(D) hold (Howard, Proposition 2.1.3, Lemma 2.2.7, Proposition 2.2.8, Lemma 2.2.9 and Nekovář's functional equation) and this is Howard's Theorem 2.2.10.",
+   "statement": "Let K be imaginary quadratic, K∞/K its anticyclotomic Z_p-extension, Λ = O[[Γ]] with the involution ι, 𝐓 = T ⊗ Λ, 𝐀 = Hom(𝐓, μ_{p^∞}) with the perfect pairing e_Λ: 𝐓 × 𝐀 → μ_{p^∞}, e_Λ(λt, a) = e_Λ(t, λ^ι a), and F_Λ a Λ-adic Selmer structure whose local conditions on 𝐓 and 𝐀 are exact orthogonal complements; X = Hom(H¹_{F_Λ}(K, 𝐀), Q_p/Z_p). Assume: (A) H¹_{F_Λ}(K, 𝐓) is Λ-torsion-free; (B) specialization-control holds for (𝐓, F_Λ) with a finite exceptional set Σ_Λ; (C) for every height-one 𝔓 ≠ pΛ (and the perturbed 𝔔 = (g + p^m)) outside Σ_Λ, the specialized Selmer triple (T_𝔓, F_𝔓, L_s) satisfies Howard's hypotheses H.0–H.5, so that ES.5's self-dual DVR theorem (Howard, Theorem 1.6.1, Proposition 2.1.3) applies; (D) char(X_tors) = char(X_tors)^ι. If for some s there is κ ∈ KS(𝐓, F_Λ, L_s) with κ_1 ≠ 0, then (a) H¹_{F_Λ}(K, 𝐓) is torsion-free of rank one; (b) there is a torsion Λ-module M with char(M) = char(M)^ι and a pseudo-isomorphism X ∼ Λ ⊕ M ⊕ M; (c) char(M) divides char(H¹_{F_Λ}(K, 𝐓)/Λκ_1). For T = T_pE, E/Q ordinary at p with surjective ρ̄_{E,p} and Howard's standing hypotheses on (E, K, p), with the ordinary structure, (A)–(D) are verified by the consumer HeegnerPointEulerSystems HE.8 (Howard, Proposition 2.1.3, Lemma 2.2.7, Proposition 2.2.8, Lemma 2.2.9, and Nekovář's functional equation char(X_tors) = char(X_tors)^ι), and the theorem then is Howard's Theorem 2.2.10.",
    "hypotheses": [
     "The anticyclotomic tower is not admissible (inert primes split completely), so Rubin's Theorem II.3.3 does not apply; this theorem works directly with Kolyvagin systems.",
     "(c) is a divisibility, with the factor two of the self-dual structure built into X ∼ Λ ⊕ M ⊕ M; it is not a universal formula for every T.",
@@ -3230,10 +3233,10 @@
    ],
    "title": "The error-tolerant self-dual Λ-adic bound (Castella–Grossi–Lee–Skinner, Theorem 3.4.1)",
    "kind": "theorem",
-   "statement": "Generic form: in the setting of self-dual-lambda-adic-kolyvagin-bound, replace (C) by (C'): at the height-one primes 𝔔 ∉ Σ_Λ the finite-level error-tolerant bound of ES.4 holds, length M_𝔔 ≤ length(H¹_{F_𝔔}(K, T_𝔔)/S_𝔔κ^{(𝔔)}_1) + E_𝔔, where for every height-one 𝔓 outside a finite set Σ' the errors E_𝔔 at 𝔔 = (g + p^m) are bounded as m varies. Then H¹_{F_Λ}(K, 𝐓) has rank one, X ∼ Λ ⊕ M ⊕ M with M torsion, and char(M) divides char(H¹_{F_Λ}(K, 𝐓)/Λκ_1) in Λ localized at the primes of Σ'. Instance (Castella–Grossi–Lee–Skinner): E/Q of conductor N, p ∤ 2N good ordinary, K imaginary quadratic with D_K prime to Np and E(K)[p] = 0 (residual irreducibility not assumed), 𝐓 = T_pE ⊗ Λ with the ordinary structure (relaxed away from p on 𝐓), L = L_E, 𝔓_0 = (γ − 1): if κ ∈ KS(𝐓, F_Λ, L_E) has κ_1 ≠ 0, then H¹_{F_Λ}(K, 𝐓) has Λ-rank one and X ∼ Λ ⊕ M ⊕ M with char_Λ(M) | char_Λ(H¹_{F_Λ}(K, 𝐓)/Λκ_1) in Λ[1/p, 1/(γ − 1)] (Theorem 3.4.1); if moreover H¹_F(K, E[p^∞]) has Z_p-corank one, the divisibility holds in Λ[1/p] (Corollary 3.4.2).",
+   "statement": "Generic form: in the setting of self-dual-lambda-adic-kolyvagin-bound, replace (C) and (D) by (C'): at the height-one primes 𝔔 ∉ Σ_Λ the finite-level error-tolerant theorem of ES.4 holds, H¹_{F_𝔔}(K, T_𝔔) free of rank one, H¹_{F_𝔔}(K, A_𝔔) ≅ D_𝔔 ⊕ M_𝔔 ⊕ M_𝔔 with M_𝔔 finite and length M_𝔔 ≤ length(H¹_{F_𝔔}(K, T_𝔔)/S_𝔔κ^{(𝔔)}_1) + E_𝔔, where for every height-one 𝔓 outside a finite set Σ' the errors E_𝔔 at 𝔔 = (g + p^m) are bounded as m varies. Then H¹_{F_Λ}(K, 𝐓) has rank one, X ∼ Λ ⊕ M ⊕ M with M torsion, and char(M) divides char(H¹_{F_Λ}(K, 𝐓)/Λκ_1) after inverting the primes of Σ', i.e. ord_𝔓 char(M) ≤ ord_𝔓 char(H¹_{F_Λ}(K, 𝐓)/Λκ_1) for every height-one 𝔓 ∉ Σ'. Instance (Castella–Grossi–Lee–Skinner): E/Q of conductor N, p ∤ 2N good ordinary, K imaginary quadratic with D_K prime to Np and E(K)[p] = 0 (residual irreducibility not assumed), 𝐓 = T_pE ⊗ Λ with the ordinary structure (relaxed away from p on 𝐓), L = L_E, 𝔓_0 = (γ − 1): if κ ∈ KS(𝐓, F_Λ, L_E) has κ_1 ≠ 0, then H¹_{F_Λ}(K, 𝐓) has Λ-rank one and X ∼ Λ ⊕ M ⊕ M with char_Λ(M) | char_Λ(H¹_{F_Λ}(K, 𝐓)/Λκ_1) in Λ[1/p, 1/(γ − 1)] (Theorem 3.4.1); if moreover H¹_F(K, E[p^∞]) has Z_p-corank one, the divisibility holds in Λ[1/p] (Corollary 3.4.2).",
    "hypotheses": [
     "The finite-level error-tolerant theorem (Castella et al., Theorem 3.2.1, with error E_α depending on C_α, T_pE and rank R) is owned by ES.4; this node owns only its Iwasawa variation.",
-    "Near 𝔓_0 the constant C_α of the specializations is unbounded, hence the localization at γ − 1; Corollary 3.4.2 removes it using control at 𝔓_0, which the source does not prove: the node uses the control statement rank_{Z_p} X/𝔓_0X = corank_{Z_p} H¹_F(K, E[p^∞]) recorded as PAPER-CASTELLA-ETAL-22/E32 (from E(K∞)[p] = 0 and finiteness of the local terms).",
+    "Near 𝔓_0 the constant C_α of the specializations is unbounded, hence the localization at γ − 1; Corollary 3.4.2 removes it using control at 𝔓_0, which the source does not prove: the node uses the control statement rank_{Z_p} X/𝔓_0X = corank_{Z_p} H¹_F(K, E[p^∞]) recorded as PAPER-CASTELLA-ETAL-22/E32 (from E(K∞)[p] = 0 and finiteness of the local terms); this control theorem is requested from SelmerIwasawaCohomology L3, which owns Iwasawa control.",
     "In Z_p-lengths the error at 𝔔 is f_𝔔·E_{α_𝔔}, f_𝔔 the residue degree of S_𝔔 (PAPER-CASTELLA-ETAL-22/E29); the character α_𝔓 is Ψ mod 𝔓 in the convention of lambda-adic-selmer-structure.",
     "Consumers: RankZeroOneBSD BSD.7a uses the instance for the Eisenstein branch with HE.8's Heegner classes; the divisibility away from p is all it provides."
    ],
@@ -3253,7 +3256,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
     "EulerSystemsAndKolyvaginSystems:ES.4",
     "PadicMeasuresIwasawaAlgebras:L4",
-    "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two"
+    "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
+    "SelmerIwasawaCohomology:L3"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/KolyvaginSystems/Lambda",
@@ -3348,6 +3352,13 @@
     "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
     "EulerSystemsAndKolyvaginSystems:ES.8/rank-one-leopoldt-case"
    ]
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L3",
+   "need": "Control at the augmentation ideal for the anticyclotomic ordinary Selmer structure: for E/Q with good ordinary reduction at p ∤ 2N, K imaginary quadratic with D_K prime to Np, E(K)[p] = 0, K∞/K the anticyclotomic Z_p-extension, 𝐓 = T_pE ⊗ Λ with the ordinary condition at p (relaxed away from p on 𝐓, strict on M_E = T_pE ⊗ Λ^∨) and X = H¹_{F_Λ}(K, M_E)^∨: X/(γ − 1)X and the dual of H¹_{F_ord}(K, E[p^∞]) have the same Z_p-rank (kernel and cokernel of the restriction map finite, from E(K∞)[p] = 0 and the local terms). This is the input missing from Castella–Grossi–Lee–Skinner's proof of Corollary 3.4.2 (PAPER-CASTELLA-ETAL-22/E32).",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.8/error-tolerant-self-dual-lambda-adic-bound"
+   ]
   }
  ],
  "coverage": [
@@ -3394,7 +3405,7 @@
     "EulerSystemsAndKolyvaginSystems"
    ],
    "detail": "ES.8 is large enough to read as two stars: Rubin's Iwasawa theory of Euler systems over Z_p^d-extensions, and the Λ-adic Kolyvagin-system theory over Z_p-extensions.",
-   "proposal": "Sub-layers for the atlas: ES.8a 'Rubin's Iwasawa theory of Euler systems' with the nodes admissible-zp-d-extension through unramified-at-split-primes-condition (21 nodes; planets: weak Leopoldt, Rubin's divisibility), and ES.8b 'Λ-adic Kolyvagin systems and specialization' with lambda-adic-selmer-structure through error-tolerant-self-dual-lambda-adic-bound (14 nodes; planets: Λ-adic Kolyvagin system, Λ-primitivity, Mazur–Rubin bound, Howard's bound). ES.8b requires ES.8a only through iwasawa-class-of-an-euler-system and lambda-index."
+   "proposal": "Sub-layers for the atlas: ES.8a 'Rubin's Iwasawa theory of Euler systems' with the nodes admissible-zp-d-extension through unramified-at-split-primes-condition (21 nodes; planets: weak Leopoldt, Rubin's divisibility), and ES.8b 'Λ-adic Kolyvagin systems and specialization' with lambda-adic-selmer-structure through error-tolerant-self-dual-lambda-adic-bound (14 nodes; planets: Λ-adic Kolyvagin system, Λ-primitivity, Mazur–Rubin bound, Howard's bound). ES.8b requires ES.8a only through admissible-zp-d-extension (for the Z_p-extension datum, not admissibility), iwasawa-class-of-an-euler-system and lambda-index."
   }
  ],
  "sourceIssues": [
@@ -3412,7 +3423,12 @@
     "Mazur–Rubin's 2003 authors' version (the text read) for remarks or corrections after the definition",
     "arXiv and the AMS Memoir page for the publisher's text (not accessible; the AMS site returned HTTP 403)",
     "Büyükboduk, arXiv:0706.0377v2, which uses Theorem 5.3.10 only for κ_1 ≠ 0"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.8",
+    "reason": "Checked at Definition 5.3.8, p. 61 of the authors' version (sha256 4cc432d0…): the printed formula Ind(c) = char((H¹(Q, T)/Λc)_tors) is followed by the gcd description, and the proof of Theorem 5.3.10 (p. 66) states 'If κ1 = 0 then Ind(κ) = 0'. Since H¹(Q, T) is Λ-torsion-free (Lemma 5.3.5), the printed formula gives char(0) = Λ at c = 0, so it disagrees with both; for c ≠ 0 the two descriptions agree (the torsion of Λ^r/Λ(b_i) vanishes when gcd(b_i) = 1). The intended meaning is clear from the context, so 'misprint' with no effect on the results is right. The publisher's text was not available to this review either."
+   }
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E802",
@@ -3426,7 +3442,31 @@
    "known": "Corrected in the published version, Annals of Mathematics Studies 147 (2000), proof of Theorem 2.3.8, p. 43 (read on the page image).",
    "searched": [
     "The published text of Rubin's book (wstein.org copy), proof of Theorem 2.3.8, page image read"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.8",
+    "reason": "The 1999 draft (p. 29) prints 'by definition ind_Λ(c) divides φ ◦ loc^s_Σp(c_K,∞)' with φ undefined in the proof; the page image of the published Theorem 2.3.8 (p. 43, PDF page 49 of the wstein.org copy) prints 'ψ ∘ loc^s_Σp(c_K,∞)'. Correctly recorded as a misprint already corrected in print."
+   }
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E803",
+   "source": "rubin-euler-systems-1999",
+   "kind": "misprint",
+   "locator": "Ch. VI §2, proof of Proposition 2.1(ii), p. 91, in the 1999 draft (published: Proposition 6.2.1, p. 122)",
+   "printed": "The source chooses a place w of LK∞ away from p and calls I its decomposition group in G_L. It uses the absence of ramification outside p in K∞/K to assert ρ(I) = 1. For every n, it also describes I as the inertia subgroup at w in G_{L_n}.",
+   "correction": "\"let I denote an inertia group of w in G_L\": the argument needs ρ(I) = 1, which holds for the inertia group because K∞/K is unramified outside p, but fails for a decomposition group, on which ρ is in general nontrivial.",
+   "reason": "The next sentence uses only that ρ is trivial on I and calls I 'also an inertia group' of w in G_{L_n}; the article 'an' also points to the intended word. A decomposition group of w ∤ p in G_L surjects onto the infinite decomposition group of w in Gal(LK∞/L), on which a character ρ of infinite order is nontrivial.",
+   "affects": "nothing",
+   "known": "Corrected in the published version, Annals of Mathematics Studies 147 (2000), proof of Proposition 6.2.1, p. 122 (read on the page image, PDF page 128 of the wstein.org copy): the passage is replaced by an argument through Lemmas B.3.3 and 1.3.5(i) showing that the colimits of the H¹_f(L_{n,w}, ·) at w ∤ p vanish.",
+   "searched": [
+    "The published text of Rubin's book (wstein.org copy), Chapter 6 §2, page image read"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.8",
+    "reason": "Found and checked by this review on the draft page image (p. 91) and the published page image (p. 122)."
+   }
   }
  ],
  "sourceVersions": [
@@ -3467,5 +3507,188 @@
    "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59"
   }
  ],
- "upstreamNotes": []
+ "upstreamNotes": [],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems--ES.8",
+  "date": "2026-10-06",
+  "notes": "Independent target-level review of all 35 nodes against the six sources, re-downloaded and matched to the recorded SHA-256 hashes (Rubin's 1999 draft read in text and on page images; the published book on page images of pp. 43 and 122; Mazur–Rubin 2003 authors' version; Howard arXiv v1; Büyükboduk arXiv v2; Castella–Grossi–Lee–Skinner arXiv v2). All 16 baseline declarations read at Mathlib 082e2d3 and confirmed. All 28 cross-roadmap node prerequisites resolve, and their statements were read. 17 nodes verified, 18 corrected, none added or removed. Main corrections: (1) the cyclotomic-unit application does not satisfy Theorem II.3.8's hypotheses (H¹_{∞,s} is torsion there), so true-selmer-iwasawa-divisibility's acceptance item was wrong; (2) the ι-semilinearity of the Shapiro identification is now recorded in lambda-adic-selmer-structure, lambda-adic-ind, lambda-index and restricted-iwasawa-selmer-module (an API item had claimed it Λ-linear); (3) the CGLS node said 'localized at' for 'after inverting', and its control at (γ − 1) had no owner (new request to SelmerIwasawaCohomology L3); (4) residual primitivity is read in KS‾(T̄); (5) Rubin's twist (5) and the twist reduction are made explicit in kolyvagin-sequence-induction and characteristic-ideal-bound-with-error; (6) several locators, excerpts and examples were corrected. E801 and E802 confirmed; new E803, a draft misprint corrected in print, recorded and confirmed. Red-team finding RT-AREA-iwasawa-1/35 is followed: no node uses ES.6 or ES.7, and the split into ES.8 and ES.8h is proposed in restructure. In the rescope proposal, ES.8b's dependence on ES.8a also passes through admissible-zp-d-extension; the proposal now says so. Suggested Lean file: five signatures that were false as stated were corrected (ind_eq_char, not_isLambdaPrimitive_smul, the free_rank_one_primitive_iff test, mem_exceptionalSet_iff, perturb_quotient_equiv), and two convention comments were added. It elaborates with lean-check at Mathlib 082e2d3; its only warnings are the 41 for unproved declarations. Stage ES.8 remains planned; the packet is a complete pass. The reader document is not a deliverable of this review: the sections generated from the corrected nodes, and the 'Application handoffs' entry listing true-selmer-iwasawa-divisibility among the cyclotomic imports, need regenerating (see the review report).",
+  "checked": [
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
+    "verdict": "verified",
+    "note": "Rubin Definition II.1.1(ii), Remark II.1.2 and the §3 Notation read (draft pp. 21–22, 26). Unramifiedness outside p and the cyclotomic argument are sound; the anticyclotomic non-example (5 inert in Q(√−7), Frobenius squared trivial) checked."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
+    "verdict": "verified",
+    "note": "Hyp(K∞, T), Hyp(K∞, V) and the implication square match draft p. 27 verbatim. The CM non-example (Cartan: eigenvalues u, u⁻¹; off-Cartan with det 1: trace 0) and the induced-representation non-example checked."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/leopoldt-tower-hypothesis",
+    "verdict": "verified",
+    "note": "Verbatim against draft p. 27; its only use is Lemma VII.3.7 through Lemma VII.6.1. The cubic-field non-example checked."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/restricted-iwasawa-selmer-module",
+    "verdict": "corrected",
+    "note": "Definition II.3.1 checked. The coinvariant identity X∞/JX∞ = Hom(S_{Σp}(K∞, W*)^Γ, D) holds for every d (Lemma VII.4.1), not only d = 1; corrected. API Xinf_eq_mazurRubin now states that the identification with Mazur–Rubin's X∞ is semilinear for ι (my Shapiro computation; supplier iwasawa-shapiro)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
+    "verdict": "verified",
+    "note": "Universal-norm remark (p. 22), Definition II.3.1 and §VI.2 checked; unramifiedness through Corollary B.3.4/B.3.5 (= SelmerIwasawaCohomology L3 universal-norms-unramified) confirmed."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-index",
+    "verdict": "corrected",
+    "note": "Definition II.3.1 and the published Theorem 2.3.8 divisibility convention checked; ind_Λ(x) = 0 iff x torsion and the d = 1 coordinate description are right. API lambdaIndex_le_span_iff now says the comparison with Ind is made in one module (across the Shapiro identification apply ι)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/true-iwasawa-selmer-and-singular-quotient",
+    "verdict": "verified",
+    "note": "Remark II.3.6 checked verbatim; torsion-freeness of H¹_s(F_w, T) follows from the saturated definition of H¹_f(F_w, T). The cyclotomic test (Y∞^χ/U∞^χ is O or 0) matches Rubin Proposition III.2.6(ii)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/twisting-by-characters-of-gamma",
+    "verdict": "corrected",
+    "note": "Chapter VI §§2–3 read. L must lie in 𝒦 (Rubin: 'a finite extension of K in 𝒦'); added. The excerpt of Proposition VI.2.1(ii) printed S^Σ; the page image (draft p. 91) shows the strict S_Σ, as in the statement; excerpt corrected. Found the draft misprint E803 in the same proof."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/twisting-invariance-of-iwasawa-theorems",
+    "verdict": "verified",
+    "note": "Theorem VI.4.1 and its proof, Lemma VI.1.2 checked; the published Corollary 6.2.2 (p. 122) states X∞(T ⊗ ρ) ≅ X∞(T) ⊗ ρ explicitly."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
+    "verdict": "corrected",
+    "note": "Definition VII.3.1, Lemmas VII.3.2–3.3 and Proposition VII.3.4 checked against the proof. The second acceptance item cited the wrong case of Lemma VII.3.7: Proposition 3.4(iii) is used there for T = Z_p (W* = μ_{p^∞}), not T = Z_p(1); corrected."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/x-infinity-finitely-generated",
+    "verdict": "verified",
+    "note": "Lemma VII.4.1 and proof checked; topological Nakayama is correctly requested from PadicMeasuresIwasawaAlgebras L5."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-evaluation-maps",
+    "verdict": "verified",
+    "note": "Definitions VII.1.1–1.2, 2.1–2.5, Lemma 1.3, Lemma 2.4, Theorems 2.6–2.7, Corollary 2.8 and Proposition 5.1 checked. The a_τ example computed: W^{τ=1} = D ⊕ D[ϖ^m], index |k|^m."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-an-euler-system",
+    "verdict": "corrected",
+    "note": "Theorem II.3.2 and its proof in §VII.4 checked step by step. The vanishing step was misattributed to torsion-freeness of Λ; it comes from a_τ λ_γ Ev*(γ) = 0 with Ev*(γ) non-torsion; rewritten. The cyclotomic acceptance item now requires χ even, nontrivial, of prime-to-p order (Rubin III §2.2)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rank-one-leopoldt-case",
+    "verdict": "verified",
+    "note": "Lemma VII.3.7 and its proof checked (twist invariance, the Z_p(1) class-field case, the Z_p case through Proposition 3.4(iii) and Corollary I.6.4)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/kolyvagin-sequence-induction",
+    "verdict": "corrected",
+    "note": "Propositions VII.1.4, 1.6, Definition 1.5, §5, Lemmas 6.1–6.3, §7 statements read. The statement now also carries Rubin's twist assumption (5), used through Proposition 3.4 in §§5–7. The proof sketch said z_k = x_k; Rubin takes z_1 = x_1 and z_i = x_1 + x_i, and 'relatively prime' means the sum of ideals has height ≥ 2; corrected."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/characteristic-ideal-bound-with-error",
+    "verdict": "corrected",
+    "note": "Theorem VII.1.9, Corollary 1.7 and Lemma 1.8 checked. Added the missing reduction step: the twist to (1) and (5) changes neither a_τ nor r, so the bound for the twisted system gives it for (T, c)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rubin-iwasawa-divisibility",
+    "verdict": "verified",
+    "note": "Theorem II.3.3 verbatim; deduction from Theorem VII.1.9 and Lemma VII.1.3(ii) at the end of §VII.1. The p = 2 remark matches Rubin after Corollary III.2.4."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rubin-rational-iwasawa-divisibility",
+    "verdict": "corrected",
+    "note": "Theorem II.3.4 verbatim. 'Height-one primes 𝔓 ≠ pΛ' replaced by 𝔓 ≠ ϖΛ (pΛ is not prime when O is ramified); the a_τ example now names the hypotheses it still needs."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-poitou-tate-sequence",
+    "verdict": "verified",
+    "note": "Proposition II.3.7 verbatim; the published proof cites Corollary B.3.5 (page image p. 43), as the node's excerpt says."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/true-selmer-iwasawa-divisibility",
+    "verdict": "corrected",
+    "note": "Theorem 2.3.8 and its proof checked on the published page image (p. 43). The acceptance item claimed this theorem gives the cyclotomic J² bound; but H¹_{∞,s}(Q_p, T*) ≅ Y∞^χ/U∞^χ is torsion there, so its hypothesis fails, and Rubin's proof of Theorem III.2.7 (and ECMC L2) use Theorem II.3.3 with Proposition II.3.7 instead; corrected."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/unramified-at-split-primes-condition",
+    "verdict": "verified",
+    "note": "Chapter IX §2 checked verbatim. I also checked that the ideals A*_v for completely split v | N, which would have height one, are not needed: at such v, F_w = K∞,w and the defect term of Proposition VII.3.4(iii) vanishes. Excluding Proposition II.3.7 is a sound precaution."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
+    "verdict": "corrected",
+    "note": "Mazur–Rubin §5.3 (Lemma 5.3.1, Definition 5.3.2), Howard §2.2 and Castella et al. §3.4 checked. Added the convention fact the node lacked: with G_K acting on Λ through Ψ, Shapiro's isomorphism is ι-semilinear (multiplication by γ corresponds to conjugation by γ⁻¹), as the supplier iwasawa-shapiro records. API lambdaRep_cohomologyEquiv ('Λ-linearly') and canonical_X_eq ('X is Rubin's X∞') corrected accordingly."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
+    "verdict": "corrected",
+    "note": "Definitions 3.1.3, 3.1.6 and Remark 3.1.4 checked. The Büyükboduk acceptance item omitted his assumption that ρ is unramified at p (§4.1.1); added."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/euler-to-lambda-adic-kolyvagin",
+    "verdict": "corrected",
+    "note": "Theorem 5.3.3 and the Appendix A proof checked. Added a hypothesis note: the standing assumptions (H.0)–(H.4), P = P_1 of §5.3 are not used by the proof, so the node rightly omits them."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
+    "verdict": "corrected",
+    "note": "Definition 5.3.12 verbatim (Mazur–Rubin work over Z_p[[Γ]]). Over O[[Γ]] with O ramified pΛ is not prime; the statement now uses ϖΛ there."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
+    "verdict": "verified",
+    "note": "S_𝔓, Corollary 5.3.15 and the Hensel perturbation checked. The (X² − p³) example verified: Λ/𝔓 ≅ Z_p[p√p] ⊊ Z_p[√p], index p. Lean signature perturb_quotient_equiv needed p in the maximal ideal of O (false for p = 1); fixed in the suggested file."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
+    "verdict": "verified",
+    "note": "Lemma 5.3.13, Proposition 5.3.14 (Mazur–Rubin) and Lemma 2.2.7, Proposition 2.2.8 (Howard) checked against the proofs; the (H.3)/Lemma 3.5.2 input confirmed."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/generic-core-rank",
+    "verdict": "verified",
+    "note": "Lemma 5.3.16 and its proof, Definition 5.3.17 and Remark 5.3.18 checked; the two acceptance values are right."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/blind-spot-and-lambda-primitivity",
+    "verdict": "corrected",
+    "note": "Definitions 3.1.6, 5.3.9, 4.5.5 and Lemma 5.3.20 checked. Residual primitivity of a Λ-adic system must be read in KS‾(T̄), the module through which the blind spot is defined (equal to KS(T̄) when χ(T̄) = 1, Corollary 4.5.3); corrected. The cyclotomic acceptance item now has Büyükboduk's full hypotheses."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/residual-primitivity-implies-lambda-primitivity",
+    "verdict": "corrected",
+    "note": "The argument (Büyükboduk, proof of Proposition 4.1) is sound once the residual condition is read in KS‾(T̄); the statement is corrected to that. The acceptance item now has Büyükboduk's hypotheses."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-ind",
+    "verdict": "corrected",
+    "note": "Definition 5.3.8 and the proof of Theorem 5.3.10 checked; the gcd and char descriptions agree for c ≠ 0 (the torsion of Λ^r/Λb is 0 when gcd b = 1). The comparison with ind_Λ now says it is made in one module, and gives the ι rule across the Shapiro identification. The Lean ind_eq_char needed c non-torsion rather than c ≠ 0; fixed."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-lambda-adic-kolyvagin",
+    "verdict": "verified",
+    "note": "Theorem 5.3.6, Corollary 5.3.19 and the proof checked; Remark 5.3.11 covers KS‾."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/mazur-rubin-lambda-adic-main-theorem",
+    "verdict": "verified",
+    "note": "Theorem 5.3.10 verbatim and its proof (properties (i)–(iv) of 𝔓_N, the length comparison, the 𝔓 = pΛ case) checked; E801 handled correctly."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound",
+    "verdict": "corrected",
+    "note": "Theorem 2.2.10 and its proof (Howard pp. 26–28) checked; (A)–(D) are exactly the inputs used. The last sentence asserted the T_pE instance outright; verifying (A)–(D) there (including Nekovář's functional equation) belongs to the consumer HE.8, as the roadmap's HE.8 text says; reworded."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/error-tolerant-self-dual-lambda-adic-bound",
+    "verdict": "corrected",
+    "note": "Theorem 3.4.1, Corollary 3.4.2 and Theorem 3.2.1 (Castella et al.) checked, with E29 and E32. 'In Λ localized at the primes of Σ′' said the opposite of the intended statement; corrected to 'after inverting the primes of Σ′' (the ord_𝔓 inequality for 𝔓 ∉ Σ′). (C′) now includes the finite-level structure H¹(K, A_𝔔) ≅ D ⊕ M_𝔔 ⊕ M_𝔔 that the parity argument needs; (D) is not needed. The control at 𝔓_0 used for Corollary 3.4.2 had no owner; added the prerequisite SelmerIwasawaCohomology:L3 and a request."
+   }
+  ]
+ }
 }
