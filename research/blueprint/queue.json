@@ -28340,9 +28340,10 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #981"
+   "note": "deliverables arrived from an external worker on issue #981",
+   "finishedAt": "2026-10-06T17:29:13Z"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.7",
@@ -28950,7 +28951,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraVarieties--V0",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #490"
   },
   {
    "id": "BP-ShimuraVarieties--V8",
