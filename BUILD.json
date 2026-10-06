@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3566,
+  "stages": 3568,
   "originalStages": 2098,
-  "sourceRefinements": 1468,
+  "sourceRefinements": 1470,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3465,
+  "mathematicalStars": 3467,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1854,
-  "stageEdges": 9518,
+  "stageEdges": 9523,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -585,6 +585,12 @@
       "reviewer": "independent-review-REV-HabiroNahmSeries--HB.3"
     },
     {
+      "file": "HabiroNahmSeries--HB.4",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 13,
+      "reviewer": "independent-review-REV-HabiroNahmSeries--HB.4"
+    },
+    {
       "file": "HabiroNahmSeries",
       "roadmap": "HabiroNahmSeries",
       "nodes": 109,
@@ -694,8 +700,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32321939,
-  "htmlSha256": "82806eeb3144c86d65f59284d2b3d9743ba326f47c5207c5a7a32bc0cc199be0",
+  "htmlBytes": 32329287,
+  "htmlSha256": "c502a6e74428dc58116754aee4c0214cb4d64386f9d01c3832cd2d773f8a425b",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -726,7 +732,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "03a7b3bd8f48f373fbe22e107c432adcd1f7603f1f1ec6cc7a9cdfbb0bdfb88a",
+    "data/roadmap-distances.json": "c69d7ffd7939916ed85a875949326eaa46593e7306da5ef66f1b522ab08cf9f3",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -864,6 +870,8 @@
     "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
     "data/blueprints/HabiroNahmSeries--HB.3.json": "1eb1f858c20df30b49253c9bf0a0cdbad5fd0ed29b579fe8c9ec972f08309918",
     "data/blueprints/HabiroNahmSeries--HB.3.md": "701231796e07ac1ee49a7382a2e83016602beed50ed6b8dfa076fd56d2ffe698",
+    "data/blueprints/HabiroNahmSeries--HB.4.json": "6b3aff0b94aaf5960c298083126e20122a145b94bd070bd5a3ffedce2d74415c",
+    "data/blueprints/HabiroNahmSeries--HB.4.md": "cf7584509c4e7b7dde3d3f601f3cc2efd547b5e8ce8c9072fd89b82e6d4dc384",
     "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
