@@ -22139,7 +22139,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicBundles--B0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicBundles--B0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #355"
   },
   {
    "id": "BP-AutomorphicBundles--B5",
@@ -30527,14 +30528,15 @@
     "REV-RS-10~2"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
    ],
-   "note": "claimed on GitHub issue #1024"
+   "note": "deliverables arrived from an external worker on issue #1024",
+   "finishedAt": "2026-10-06T11:07:39Z"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
