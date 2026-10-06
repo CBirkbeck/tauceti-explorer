@@ -33755,7 +33755,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6486"
   },
   {
    "id": "REV-EllipticRegulators--ER.5",
@@ -34188,8 +34189,9 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields--HB.7",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6448"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6448",
+   "finishedAt": "2026-10-06T04:55:16Z"
   },
   {
    "id": "BP-HabiroRings--HR.1",
