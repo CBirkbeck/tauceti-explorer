@@ -1,0 +1,896 @@
+{
+  "roadmapId": "HabiroNahmSeries",
+  "protocol": "blueprint-v1",
+  "part": "HB.5",
+  "scope": [
+    "HabiroNahmSeries:HB.5"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted parent: obtain the public Zagier survey; extend the cusp valuation bound to every cusp by an elementary block-product majorant; make the fixed number-field extension, integral Bloch lift, actual Dedekind multiplier and rational descent explicit in the proved implication. The parent retains ownership of the endpoints and foundational objects. The HB.4 coefficient-descent proof remains an explicit supplier obligation.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.PosDef",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+        "provides": "Hermitian positive-definite matrices; over the rationals this is symmetry and positivity of the quadratic form.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:Finset.prod_range_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "The finite product on range (n+1) is the product on range n times its last factor.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:Nat.residueClassesEquiv",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For nonzero m, n maps to (n mod m,n/m), with inverse (s,l) mapping to s.val+m*l.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:norm_tsum_le_tsum_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Group/InfiniteSum.lean",
+        "provides": "If the norms are summable, the norm of a sum is at most the sum of the norms.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:norm_image_sub_le_of_norm_deriv_le_segment",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/MeanValue.lean",
+        "provides": "A real differentiable function on [a,b] with derivative norm bounded by C has image difference bounded by C times distance from a.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:tsum_geometric_of_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+        "provides": "For 0≤r<1, the sum of r^k is (1-r)^-1.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:X_pow_sub_C_eq_prod",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/KummerExtension.lean",
+        "provides": "For a primitive n-th root and alpha^n=a, n>0, X^n-C(a) factors as the product of X-C(zeta^i alpha).",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      },
+      {
+        "ref": "mathlib:IsAlgClosed.surjective_domRestrict_of_isAlgebraic",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
+        "provides": "In an algebraic tower E/L/K, every K-algebra embedding L into an algebraically closed field extends to E.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "cgz",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm's Conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis and Don Zagier",
+      "edition": "arXiv:1712.04887v3, 6 April 2021; Section 7 of the version of record was not publicly served by the publisher",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "read": "2026-10-06",
+      "readSections": [
+        "§1.1, Theorem 1.2 and Remark 1.4",
+        "§2.2, Lemma 2.4(b), equation (23)",
+        "§2.3, Proposition 2.5 and Remark 2.6",
+        "§7.1, Theorem 7.1 and Corollary 7.2",
+        "§7.3, Theorem 7.5 and Remarks 7.6–7.7"
+      ]
+    },
+    {
+      "id": "gz",
+      "title": "Asymptotics of Nahm sums at roots of unity",
+      "authors": "Stavros Garoufalidis and Don Zagier",
+      "edition": "Published version, Ramanujan Journal 55 (2021), 219–238, DOI 10.1007/s11139-020-00266-x; pagination and equation numbers below refer to this version",
+      "url": "https://people.mpim-bonn.mpg.de/stavros/publications/printed/asymptotics_of_nahm_sums_at_roots_of_unity.pdf",
+      "sha256": "4b737361b21095a2b476e89002821f8dee37bc12385e1275b1f5422ef14fa4c8",
+      "read": "2026-10-06",
+      "readSections": [
+        "§2, definitions (7)–(11)",
+        "§3, Theorem 3.1, equations (17)–(20), Remark 3.2",
+        "§4.1, grouping product factors by residues",
+        "§4.3, residue splitting (24)–(25) and proof of Theorem 3.1",
+        "§7, equations (50)–(54), Proposition 7.1"
+      ]
+    },
+    {
+      "id": "zagier",
+      "title": "The dilogarithm function",
+      "authors": "Don Zagier",
+      "edition": "Author-hosted published Springer chapter, Frontiers in Number Theory, Physics, and Geometry II, pp. 3–65, DOI 10.1007/978-3-540-30308-4_1",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "read": "2026-10-06",
+      "readSections": [
+        "II.3B, pp. 44–48: distinguished solution, (28) on p. 46, (29) on p. 48",
+        "II.3B(c), p. 45: stronger-converse matrix and the stated computer search",
+        "II.3C, pp. 51–57: asymptotics and the general-rank discussion on p. 56"
+      ]
+    },
+    {
+      "id": "parent",
+      "title": "Accepted blueprint for Nahm series, asymptotics and Habiro integrality",
+      "authors": "BP-HabiroNahmSeries and independent review REV-HabiroNahmSeries",
+      "edition": "Accepted parent packet as checked out on 6 October 2026; 109 nodes",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/HabiroNahmSeries.json",
+      "read": "2026-10-06",
+      "readSections": [
+        "HB.3 Bloch class and regulator conventions",
+        "HB.4 corrected expansion and coefficient-descent gap",
+        "HB.5 all eleven endpoint and proof nodes",
+        "Source issues E14 and E19–E24"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "cgz",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "read": "2026-10-06",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "note": "Publisher page offers a sample and purchase; Section 7 was unavailable there. CGZ findings are scoped to v3, not asserted against unread published Section 7."
+    },
+    {
+      "source": "gz",
+      "kind": "published",
+      "url": "https://people.mpim-bonn.mpg.de/stavros/publications/printed/asymptotics_of_nahm_sums_at_roots_of_unity.pdf",
+      "read": "2026-10-06",
+      "sha256": "4b737361b21095a2b476e89002821f8dee37bc12385e1275b1f5422ef14fa4c8"
+    },
+    {
+      "source": "zagier",
+      "kind": "published",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "read": "2026-10-06",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNahmSeries:HB.5/residue-class-majorant",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "The positive residue-class majorant",
+      "kind": "construction",
+      "statement": "Let r≥0, A∈M_r(Q) be symmetric positive definite, B∈Q^r, C∈Q, m≥1, t>0, Q(n)=n^t A n/2+B^t n+C and P(q,k)=∏_{j=1}^k(1-q^j), using the existing finite q-Pochhammer symbol. Define M_{A,B,C;m}(t)=∑_{n∈N^r} exp(-t Q(n))/∏_i P(exp(-m²t),⌊n_i/m⌋). This absolutely convergent positive real series is equivalently ∑_{s∈{0,…,m-1}^r} exp(-t Q(s)) f_{A,(As+B)/m,0}(i m²t/(2π)). The datum A is unchanged; the shifted linear term and zero constant are essential. This is a construction on the parent analytic Nahm datum, not a new Nahm-sum or q-product definition.",
+      "hypotheses": [
+        "m≥1 and t>0 for convergence and all analytic claims.",
+        "The underlying Nahm sum uses exp(2πiτ Q(n)), not a branch of q raised to a rational power.",
+        "Outside t>0 the prototype uses the usual total real sum; no analytic API is asserted there."
+      ],
+      "proofSteps": [
+        "Use coordinatewise division with remainder, supplied by Nat.residueClassesEquiv, to write n=mℓ+s uniquely.",
+        "Symmetry gives Q(mℓ+s)=m²[ℓ^t Aℓ/2+((As+B)/m)^tℓ]+Q(s). The block denominator becomes ∏_i P(exp(-m²t),ℓ_i).",
+        "Each of the finitely many shifted Nahm sums converges by the parent analytic-series construction. Positive factors permit regrouping; the equality proves convergence and strict positivity without a new convergence theory."
+      ],
+      "acceptance": [
+        "For m=1 the majorant is exactly the original positive imaginary-axis Nahm sum.",
+        "The empty-rank majorant is exp(-Ct), including C≠0.",
+        "At m=2 the base is exp(-4t), not exp(-2t), and every residue shift retains A."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.4/analytic-nahm-sum",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:Matrix.PosDef",
+        "mathlib:Nat.residueClassesEquiv",
+        "mathlib:Finset.prod_range_succ"
+      ],
+      "sources": [
+        {
+          "sourceId": "gz",
+          "locator": "§4.3, equations (24)–(25), pp. 227–228",
+          "match": "Adaptation: the source groups Nahm summands by congruence classes; this new positive majorant discards their phases and uses the block-product estimate. Its exact reindexing identity is proved above, not claimed to be printed in GZ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/CuspBounds",
+        "namespace": "TauCeti.Nahm.HB5"
+      },
+      "uses": [
+        {
+          "where": "HabiroNahmSeries:HB.5/growth-at-all-roots-of-unity",
+          "how": "Bounds the modulus of a root-of-unity sum by finitely many positive sums with the same A and therefore the same exponential rate."
+        },
+        {
+          "where": "HabiroNahmSeries:HB.5/unrestricted-cusp-valuation-bound",
+          "how": "Provides the upper exponential bound needed at even or denominator-dividing cusps."
+        }
+      ],
+      "api": [
+        {
+          "name": "residueMajorant_eq_tsum",
+          "role": "characterisation",
+          "statement": "M_{A,B,C;m}(t)=∑_{n∈N^r} exp(-tQ(n))/∏_i P(exp(-m²t),⌊n_i/m⌋), with the empty product equal to one."
+        },
+        {
+          "name": "residueMajorant_summable",
+          "role": "structure",
+          "statement": "For A symmetric positive definite, m≥1 and t>0, the displayed real summand is summable."
+        },
+        {
+          "name": "residueMajorant_pos",
+          "role": "characterisation",
+          "statement": "For A symmetric positive definite, m≥1 and t>0, M_{A,B,C;m}(t)>0."
+        },
+        {
+          "name": "residueMajorant_quadratic_split",
+          "role": "relation",
+          "statement": "For symmetric A, ℓ∈N^r and s∈{0,…,m-1}^r, Q(mℓ+s)=m²[ℓ^t Aℓ/2+((As+B)/m)^tℓ]+Q(s)."
+        },
+        {
+          "name": "residueMajorant_split",
+          "role": "compatibility",
+          "statement": "For A symmetric positive definite and t>0, M=∑_s exp(-tQ(s)) f_{A,(As+B)/m,0}(i m²t/(2π)); in the prototype each shifted f is written as its literal real series."
+        },
+        {
+          "name": "residueMajorant_order_one",
+          "role": "compatibility",
+          "statement": "M_{A,B,C;1}(t)=f_{A,B,C}(it/(2π)); the right side uses the parent definition, and its literal positive series in the prototype."
+        },
+        {
+          "name": "residueMajorant_rank_zero",
+          "role": "simp",
+          "statement": "For rank zero, M_{∅,∅,C;m}(t)=exp(-Ct)."
+        },
+        {
+          "name": "residueMajorant_shift_constant",
+          "role": "relation",
+          "statement": "M_{A,B,C+u;m}(t)=exp(-ut) M_{A,B,C;m}(t), for u∈Q, A symmetric positive definite and t>0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "majorant_rank_one_even_order",
+          "kind": "computation",
+          "statement": "For A=(2), B=(1), C=11/60, m=2 and t>0, M=e^{-11t/60}∑_{ℓ≥0} e^{-4t(ℓ²+ℓ/2)}/P(e^{-4t},ℓ)+e^{-131t/60}∑_{ℓ≥0} e^{-4t(ℓ²+3ℓ/2)}/P(e^{-4t},ℓ)."
+        },
+        {
+          "name": "majorant_empty_rank",
+          "kind": "degenerate",
+          "statement": "For rank zero, C=7, m=2 and t=log 2, M=1/128."
+        },
+        {
+          "name": "majorant_original_axis",
+          "kind": "compatibility",
+          "statement": "For A=(2), B=(1), C=11/60 and m=1, M=∑_{n≥0} exp[-t(n²+n+11/60)]/P(exp(-t),n), t>0."
+        },
+        {
+          "name": "majorant_constant_shift",
+          "kind": "computation",
+          "statement": "For A=(2), B=(1), m=2 and t>0, M with C=71/60 is exp(-t) times M with C=11/60."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/block-product-lower-bound",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "A uniform lower bound for finite products at roots of unity",
+      "kind": "theorem",
+      "statement": "For every m≥1 there is c_m>0 such that, for every primitive complex m-th root ζ, 0<t≤1 and N≥0, |P(ζ exp(-t),N)|≥c_m P(exp(-m²t),⌊N/m⌋). The constant is uniform in N,t and the finitely many primitive ζ. One may take c_1=c_2=1. This statement needs neither odd m nor coprimality to a Nahm denominator.",
+      "hypotheses": [
+        "P is the existing finite q-Pochhammer product.",
+        "Only positive real t is used; no full asymptotic expansion at the root is asserted."
+      ],
+      "proofSteps": [
+        "Write N=mL+s, 0≤s<m. For the block mk+j, 1≤j≤m, compare exp[-t(mk+j)] with ρ_k=exp[-tm(k+1)].",
+        "For j<m, ζ^j≠1. The positive function |1-ζ^j u| has a positive minimum on 0≤u≤1; its logarithm has bounded derivative there. The mean-value theorem bounds the log difference by C_m m t exp(-mkt). The j=m factors agree exactly.",
+        "The factorization X^m-1=∏_{j=1}^m(X-ζ^j), from X_pow_sub_C_eq_prod, gives ∏_{j=1}^m |1-ζ^jρ_k|=1-exp[-m²t(k+1)]. Sum the log errors: t∑_{k≥0}exp(-mkt)=t/(1-exp(-mt))≤1/(1-exp(-m)) for 0<t≤1, by concavity of 1-exp(-mt).",
+        "The remaining s factors have phases ζ^j≠1 and contribute a fixed positive lower bound. Exponentiate the bounded total error and take the minimum over primitive roots.",
+        "For m=1 equality holds. For m=2, pair (1+e^{-(2k+1)t})(1-e^{-(2k+2)t})≥1-e^{-(4k+4)t}; a leftover odd factor is at least one."
+      ],
+      "acceptance": [
+        "At m=2, N=1, the right-hand product is empty and the left is 1+e^{-t}≥1.",
+        "At m=1 the products agree for every N.",
+        "The proof bounds the total error over all blocks, rather than paying a constant loss per block."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:Finset.prod_range_succ",
+        "mathlib:X_pow_sub_C_eq_prod",
+        "mathlib:norm_image_sub_le_of_norm_deriv_le_segment",
+        "mathlib:tsum_geometric_of_lt_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "gz",
+          "locator": "§4.1, the first display in the proof of Lemma 2.1, p. 225",
+          "match": "New elementary adaptation of the source’s residue grouping of q-product factors. GZ does not state this bound; the proof here supplies it independently and does not extend Theorem 3.1 to forbidden orders."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "suggestedDeclarations": [
+        "rootProduct_lower_bound",
+        "rootProduct_order_one",
+        "rootProduct_order_two"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/growth-at-all-roots-of-unity",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "An exponential upper bound at every root of unity",
+      "kind": "theorem",
+      "statement": "For A symmetric positive definite rational, B,C rational, m≥1 and integers a with gcd(a,m)=1, set Λ=∑_i L_CGZ(X_i)≥0 (strictly positive when r>0) using the parent distinguished solution and complementary Rogers convention. Then |f_{A,B,C}(a/m+it/(2π))|≤c_m^{-r}M_{A,B,C;m}(t) for 0<t≤1, and this is O(exp(Λ/(m²t))) as t→0+. More precisely M=exp(Λ/(m²t))(∑_s K_{A,(As+B)/m}+O(t)), with each K>0. No nonvanishing of the original root expansion is needed.",
+      "hypotheses": [
+        "The function is the holomorphic parent analytic Nahm sum.",
+        "m is arbitrary, including even m and m sharing primes with a strong denominator.",
+        "The asymptotic constant at q=1 is positive for every shifted rational B; Λ depends only on A."
+      ],
+      "proofSteps": [
+        "The complex exponential numerator has modulus exp(-tQ(n)); apply the block-product lower bound in each coordinate.",
+        "Absolute convergence and norm_tsum_le_tsum_norm give the first inequality, using summability of the majorant.",
+        "Use the finite residue-splitting API. Each shifted datum has the same A, and its positive imaginary-axis expansion is the parent expansion-at-one with C=0 and variable m²t.",
+        "The finite weights exp(-tQ(s))=1+O(t) preserve the leading sum of positive constants. This yields the claimed O bound and covers a vanishing original radial series as well."
+      ],
+      "acceptance": [
+        "The bound at m=1 is an equality of positive functions before taking the asymptotic.",
+        "m=2 is covered with c_2=1 even though GZ Theorem 3.1 requires odd orders.",
+        "For A=(2), Λ=π²/15, so the bound at a primitive second root is O(exp(π²/(60t)))."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.5/residue-class-majorant",
+        "HabiroNahmSeries:HB.5/block-product-lower-bound",
+        "HabiroNahmSeries:HB.4/analytic-nahm-sum",
+        "HabiroNahmSeries:HB.5/expansion-at-one",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+        "mathlib:norm_tsum_le_tsum_norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier",
+          "locator": "II.3B, (29), p. 48; II.3C, discussion p. 56",
+          "match": "Supplies the positive real leading constant for each shifted B. The every-order upper bound is the majorant adaptation above, not an extension of the source’s full root expansion."
+        },
+        {
+          "sourceId": "gz",
+          "locator": "§4.3, (24)–(25); §7, proof of Proposition 7.1",
+          "match": "The source’s root growth is used for cusp valuations; the present upper bound fills the missing orders without requiring a full asymptotic series."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Radial asymptotics of Nahm sums"
+      },
+      "suggestedDeclarations": [
+        "nahmRoot_le_majorant",
+        "nahmRoot_exponential_bound"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/unrestricted-cusp-valuation-bound",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "The cusp valuation bound at every cusp, including infinity",
+      "kind": "theorem",
+      "statement": "Let A,B,C be as above and f=f_{A,B,C} be invariant under an arbitrary finite-index Γ≤SL₂(Z). The parent growth argument makes f meromorphic at all cusps. For P∈P¹(Q), define v_P as the least exponent in e(τ) in f∘γ with γ∞=P, so a cusp-width-w expansion with least integer k has v_P=k/w. Then v_P≥C_0(A):=-Λ/(4π²) for every P, v_0=C_0(A), and v_∞=min_{n∈N^r}Q(n)≥C_0(A). Consequently C=Q(0)≥C_0(A). Under Q(n)≥C for every n, v_∞=C. There is no general claim that equality with C_0 is equivalent to B=0.",
+      "hypotheses": [
+        "Γ has finite index; it need not be congruence.",
+        "The valuation is normalized by e(τ), not by the width parameter; its value is rational.",
+        "The distinguished solution and Rogers sign are fixed as in the parent."
+      ],
+      "proofSteps": [
+        "Import the parent finite-principal-part and width argument; holomorphy and invariance alone would not suffice.",
+        "For reduced P=a/c, c>0, put τ=a/c+it/(2π). The inverse transform has imaginary part 2π/(c²t), so the nonzero leading Laurent coefficient gives log|f(τ)|=-4π²v_P/(c²t)+O(1).",
+        "The every-order root bound gives log|f(τ)|≤Λ/(c²t)+O(1). Compare the exponents to obtain v_P≥-Λ/(4π²), with no restriction on c. At zero the positive q=1 leading constant forces equality.",
+        "A positive power of the lower unipotent matrix belongs to Γ by finite index. It sends infinity to a finite cusp; Γ-invariance identifies its valuation with v_∞. The finite-cusp result therefore covers infinity.",
+        "Positive definiteness makes Q coercive on N^r, so its minimum exists. The product denominators have leading coefficient one and nonnegative coefficients; minimal terms cannot cancel, proving v_∞=min Q. Since min Q≤Q(0)=C, deduce C≥C_0. The additional minimum-at-zero hypothesis is needed only for v_∞=C."
+      ],
+      "acceptance": [
+        "Rogers–Ramanujan A=(2), B=0, C=-1/60 has v_0=-1/60 and C_0=-1/60, fixing the sign.",
+        "An even-denominator cusp and the infinity orbit of Γ(M) are included without moving either to an odd good-order cusp.",
+        "For the analytic datum A=(2), B=-3, C=5, the infinity expansion has valuation 3 and leading coefficient 2, not valuation C=5; this checks the minimum convention, without asserting modularity of this datum."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.5/growth-at-all-roots-of-unity",
+        "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
+        "HabiroNahmSeries:HB.5/expansion-at-one",
+        "HabiroNahmSeries:HB.5a/radial-growth-at-a-cusp",
+        "HabiroNahmSeries:HB.5/excluded-primes-and-hypotheses"
+      ],
+      "sources": [
+        {
+          "sourceId": "gz",
+          "locator": "§7, (50)–(54), pp. 233–235, Proposition 7.1",
+          "match": "Corrected sign and completion of the printed restricted proof: parent E23–E24. The all-order upper bound supplies finite cusps, and a finite-index lower-unipotent orbit supplies infinity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cusp valuation bound"
+      },
+      "suggestedDeclarations": [
+        "nahm_cusp_valuation_lower_bound",
+        "nahm_cusp_zero_valuation",
+        "nahm_infinity_valuation"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/fixed-extension-constant-term-lift",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "The constant-term Kummer class over the fixed extension",
+      "kind": "comparison",
+      "statement": "For rational A,B fix a positive integer D clearing the entries of A and B and satisfying the strong-denominator condition for Q(n)=n^t A n/2+B^t n. Let E=F(X_1^{1/D},…,X_r^{1/D},ζ_D), independent of the varying root order n, and let η_E=∑_i[X_i] in B_CGZ(E). Then η_E is an integral Bloch element. For n coprime to 6D M_E, where M_E=6|disc(E)||K₂(O_E)|, the corrected HB.4 expansion has u=Φ_ζ(0)≠0 algebraic with u^n∈E_n=E(ζ), and its Kummer class satisfies [u^n]=R_ζ(η_E)^{-1} in E_n×/(E_n×)^n. This is the constant-term form of Corollary 7.2 over E; it is conditional on the imported HB.4 coefficient-descent and eigenspace statement. It makes no integer-valued-Q assumption and does not reduce B(F)⊗Q modulo n.",
+      "hypotheses": [
+        "A is symmetric positive definite rational; X is its positive distinguished solution.",
+        "D may be enlarged to meet all denominator requirements; E is fixed once A,B are fixed.",
+        "The corrected HB.4 simplified-form-and-the-unit supplies u^n∈E_n, the inverse P_ζ class in the Kummer extension and the χ^{-1} eigenspace. Their proof obligation is recorded separately.",
+        "n coprime to M_E implies n odd, μ_n(E)=1 and the good-order injectivity hypotheses over E."
+      ],
+      "proofSteps": [
+        "Put Y_i=X_i^{1/D}. Since D A_ij are integers, X_i=Y_i^D and 1-X_i=∏_jY_j^{D A_ij}. The boundary ∑X_i∧(1-X_i)=D∑_{i,j}(D A_ij)Y_i∧Y_j cancels by symmetry. Hence ∑[X_i] belongs to the integral Bloch group of E.",
+        "The parent HB.4 corrected constant-term statement is over exactly this fixed radical/cyclotomic extension. Use it with η_E, whose symbols are integral here; do not apply the parent integer-valued-only unit-corollary to the original rationalized class.",
+        "For n prime to 6, CGZ Lemma 2.4(b) and (23) make the class of D_ζ(1) trivial modulo n-th powers. The image of [u^{-n}] in the Kummer quotient is therefore P_ζ(η_E).",
+        "The same imported HB.4 statement puts [u^{-n}] in the χ^{-1} eigenspace. The unique-lift characterization of R_ζ (HabiroNumberFields:HB.2/the-map-R-zeta, Proposition 2.5 and Remark 2.6) identifies this lift with R_ζ(η_E)."
+      ],
+      "acceptance": [
+        "E depends on D,A,B but not on n; using a new radical field for each n would not yield a fixed exceptional integer.",
+        "For integral A, ∑[X_i] already lies in B(F); the finite-extension statement specializes to the usual integral case.",
+        "For n=1 both Kummer classes are trivial. For general n the exponent is n on u and the class is the inverse of R, not R itself."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
+        "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
+        "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
+        "HabiroNumberFields:HB.2/kummer-value-P",
+        "HabiroNumberFields:HB.2/the-map-R-zeta",
+        "HabiroNumberFields:HB.1/the-excluded-primes"
+      ],
+      "sources": [
+        {
+          "sourceId": "cgz",
+          "locator": "§2.2, Lemma 2.4(b), (23), pp. 10–11; §2.3, Proposition 2.5 and Remark 2.6, p. 13",
+          "match": "The uniqueness characterization identifies the Kummer lift. Apply it to E, not to the rationalized original Bloch class."
+        },
+        {
+          "sourceId": "cgz",
+          "locator": "§7.1, (44) and Corollary 7.2, pp. 36–37",
+          "match": "Constant-term adaptation using the parent’s corrected coefficient field and actual multiplier. The parent HB.4 statement supplies the three descent inputs; this node does not assert an independent proof of them."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "suggestedDeclarations": [
+        "nahm_constant_kummer_class"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/bounded-powers-with-the-actual-multiplier",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "Bounded powers with the actual Dedekind multiplier",
+      "kind": "comparison",
+      "statement": "Assume the modularity hypotheses and notation of the parent expansion-at-one. Put λ=Λ/(4π²)∈Q and K=det(Ã)^{-1/2}∏_iX_i^{B_i}(1-X_i)^{-1/2}>0. For γ=(a b;c d)∈Γ, d>0 a good odd order, ζ=e(b/d), μ_b=e(r s(b,d)/2), and ω_d=d^{-r/2}det(Ã)^{-1/2}∏_i(1-X_i)^{1/2}, the corrected expansion constant is u=μ_b^{-1}ω_d^{-1}e(-Cb/d)e(-λc/d)K≠0. For one positive integer s divisible by 24, 2den(B), den(C) and den(λ), u^s∈F_d×⊂E_d× for every such d, with s independent of d. This extends the parent comparison-of-expansions to rational data without absorbing a general Gauss phase into a fixed μ.",
+      "hypotheses": [
+        "The parent meromorphic-at-cusps argument is used before claiming rationality of λ or a uniform complex expansion.",
+        "Use the actual μ_b from the corrected HB.4 theorem. The Gauss factor remains inside Φ.",
+        "Every denominator denotes a positive common denominator; s is independent of γ,d."
+      ],
+      "proofSteps": [
+        "Use ε=dh/(1-ich/(2π)). Matrix algebra gives γ(iε/(2π))=(b+ih/(2π))/d and 1/ε=1/(dh)-ic/(2πd).",
+        "The finite Laurent principal part at cusp zero makes the modular q=1 expansion uniform at this complex ε. Compare it with the corrected HB.4 expansion for f_{A,B,0}, multiplying the latter by e(Cb/d)e^{-Ch/d}. This gives the displayed inverse factors and negative phase; positivity of K gives u≠0.",
+        "K^{2den(B)}∈F× and ω_d²∈F× by their formulas. From the displayed rational definition of the classical Dedekind sum, 12d s(b,d) is an integer: expand the floor term and use ∑_{j=1}^{d-1}j²=d(d-1)(2d-1)/6 and ∑j=d(d-1)/2. Thus μ_b^{24}=e(12r s(b,d))∈Q(ζ_d).",
+        "Since sC and sλ are integers, the two remaining phases raised to s also lie in Q(ζ_d). Multiplication proves u^s∈F_d× with a fixed s; no integral-Q premise or special Rademacher congruence is required."
+      ],
+      "acceptance": [
+        "For A=(2), B=0, C=-1/60 the phase is e(-λc/d), not e(+λc/d), with λ=1/60.",
+        "s can be chosen divisible by 120 for that datum; taking s=120 handles every good d.",
+        "Rational data A=(2/3), B=(1/3) keep their Gauss factor inside Φ and use the actual μ_b; they are not covered by the parent fixed-phase integer-valued normalization."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.5/comparison-of-expansions",
+        "HabiroNahmSeries:HB.5/expansion-at-one",
+        "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
+        "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
+        "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-sum"
+      ],
+      "sources": [
+        {
+          "sourceId": "cgz",
+          "locator": "Proof of Theorem 7.5, p. 40, comparison of (53) and (43)",
+          "match": "Corrected comparison retaining ω and q^C, correcting the sign and using the actual Dedekind multiplier: inherited E19–E22. The elementary integrality computation replaces the fixed-phase argument."
+        },
+        {
+          "sourceId": "zagier",
+          "locator": "II.3B, (28), p. 46 and (29), p. 48",
+          "match": "Supplies the nonzero real leading constant and the exponential remainder under modularity; cusp meromorphy supplies the complex uniformity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "suggestedDeclarations": [
+        "nahm_modular_constant_comparison",
+        "nahm_constant_fixed_power"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge",
+      "parentStageId": "HabiroNahmSeries:HB.5",
+      "realises": [
+        "HabiroNahmSeries:HB.5"
+      ],
+      "title": "From bounded powers over one fixed field to the rational Bloch class",
+      "kind": "theorem",
+      "statement": "Let A,B,C be rational Nahm data, F=Q(X_1,…,X_r), E the fixed extension above, η_E=∑[X_i]∈B_CGZ(E), and ξ_F=[δ∑[X_i]]⊗(1/δ)∈B_CGZ(F)⊗Q as in the parent rational construction. Suppose that for an unbounded set of positive integers n prime to 6D M_E the corrected root constants u_n are nonzero and satisfy u_n^s∈E_n× for one fixed s≥1. With the constant-term Kummer identity above, ξ_F=0. Applied to the modular bounded-power comparison, this supplies the missing rational-data bridge in the parent modularity-implies-torsion endpoint. If A is integral, the original integral ξ_A∈B_CGZ(F) is torsion.",
+      "hypotheses": [
+        "ξ_F is rationalized when A is rational; only the integral η_E is reduced modulo n.",
+        "The set of good orders is unbounded, not merely a single prime or a fixed order.",
+        "E,s,D and M_E are independent of n.",
+        "Use the corrected constant-term Kummer identity, with its explicit HB.4 supplier obligation."
+      ],
+      "proofSteps": [
+        "The fixed-extension comparison gives R_ζ(η_E)=[u_n^n]^{-1}. Since u_n^s∈E_n×, R_ζ(sη_E)=1, so good-order injectivity over E gives sη_E∈nB_CGZ(E).",
+        "Apply the parent torsion-criterion-for-the-cgz-bloch-group: compare CGZ’s group with Suslin’s group through a kernel and cokernel killed by 2, then use finitely generated K₃(E)^ind and torsion-from-unbounded-orders. Do not assert that B_CGZ(E) itself is finitely generated. Conclude η_E is torsion.",
+        "For each embedding σ:F→C, the baseline algebraic embedding-extension theorem supplies an extension τ:E→C. Regulator functoriality gives ∑_iD(σX_i)=∑_iD(τX_i)=0, because η_E is torsion.",
+        "Apply the parent number-field regulator criterion to the rationalized ξ_F; all its embedding regulators vanish, so ξ_F=0. For integral A the same criterion gives torsion of its integral class.",
+        "For the modular application intersect Γ with Γ(6D M_E). Positive powers U^u,T^v of the lower and upper unipotents lie in this intersection. The matrices U^uT^{kv} have d=1+ukv≡1 modulo 6D M_E and b=kv, hence gcd(b,d)=1 and unbounded positive good d. The actual-multiplier comparison supplies u_d^s∈F_d×.",
+        "The introductory endpoint is then the parent map to the uniquely divisible Bloch group of Qbar: torsion maps to zero. This proves only the distinguished-solution implication and uses an arbitrary finite-index Γ."
+      ],
+      "acceptance": [
+        "An assertion about ξ_F modulo n would be invalid: B(F)⊗Q is divisible. Every reduction in this argument is of η_E.",
+        "The field excluded integer is M_E, not merely M_F, after adjoining the fixed radicals.",
+        "The pure group lemma is applied through Suslin’s finitely generated quotient, allowing the CGZ convention’s additional 2-primary ambiguity.",
+        "For integral A the conclusion agrees with the parent integral torsion theorem; for rational A it is stated as zero in the rationalized group."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.5/fixed-extension-constant-term-lift",
+        "HabiroNahmSeries:HB.5/bounded-powers-with-the-actual-multiplier",
+        "HabiroNahmSeries:HB.5/torsion-criterion-for-the-cgz-bloch-group",
+        "HabiroNahmSeries:HB.5/torsion-from-unbounded-orders",
+        "HabiroNahmSeries:HB.5/excluded-primes-and-hypotheses",
+        "HabiroNumberFields:HB.2/R-injectivity-and-image",
+        "HabiroNumberFields:HB.1/the-excluded-primes",
+        "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
+        "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+        "mathlib:IsAlgClosed.surjective_domRestrict_of_isAlgebraic",
+        "HabiroNahmSeries:HB.5/introductory-formulation"
+      ],
+      "sources": [
+        {
+          "sourceId": "cgz",
+          "locator": "Theorem 7.5 and proof, p. 40; Remark 7.6, pp. 40–41",
+          "match": "Refinement of the printed arithmetic argument: use one fixed enlarged field and an integral symbol there, then descend by regulators. The parent owns the endpoint; this node supplies its rational-data bridge."
+        },
+        {
+          "sourceId": "cgz",
+          "locator": "Theorem 1.2 and Remark 1.4, p. 3",
+          "match": "Apply the good-order injectivity and finite exceptional integer to E. The absolute discriminant convention is from the supplier node."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "suggestedDeclarations": [
+        "nahm_rational_bloch_bridge"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "HabiroNahmSeries:HB.4",
+      "need": "Complete the coefficient-descent proof for the already-owned corrected simplified-form-and-the-unit: at a nonzero constant term, over the fixed E=F(X_i^(1/D),ζ_D), prove u^n∈E_n, identify its image as inverse P_ζ(∑[X_i]) (D_ζ(1) trivial at good orders), and prove its χ^{-1} eigenspace. Give the reindexing/root-change cancellation including rational B and the Gauss factor; merely conjugating the formula to ζ^c does not prove this eigenspace statement. Only the constant term is consumed here.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.5/fixed-extension-constant-term-lift",
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ],
+      "existingNodes": [
+        "HabiroNahmSeries:HB.4/kummer-invariance-of-the-expansion",
+        "HabiroNahmSeries:HB.4/galois-equivariance-of-the-expansion",
+        "HabiroNahmSeries:HB.4/simplified-form-and-the-unit"
+      ],
+      "relation": "Import and strengthen the proof of existing owned nodes; do not re-plan HB.4 in HB.5."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNahmSeries:HB.5",
+      "status": "planned",
+      "remaining": [
+        "Supply the HB.4 constant-term coefficient/Kummer/eigenspace proof over the fixed E, with the root-change and rational Gauss-factor bookkeeping specified in the request. The HB.5 arithmetic bridge is planned conditionally on these existing inputs."
+      ],
+      "closedInThisPass": [
+        "The previously unobtained public Zagier survey and exact (28)/(29) locators.",
+        "Every-order root upper bounds and the all-cusp/infinity valuation proof plan, without extending the restricted full asymptotic-series theorem.",
+        "The fixed-extension integral Bloch lift, actual multiplier bounded-power argument and regulator descent, stated with the exact supplier obligation."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "HB.4 constant-term coefficient and eigenspace descent",
+      "neededBy": [
+        "HabiroNahmSeries:HB.5/fixed-extension-constant-term-lift",
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ],
+      "detail": "The accepted parent exports the corrected fixed-extension identities used here, but records its root-change bookkeeping as an unwritten proof. Its Galois-equivariance proof only changes ζ to ζ^c, which by itself does not identify the resulting Kummer class with the χ^{-1} power at the original ζ. This pass gives the exact HB.5 bridge conditional on those imported inputs and sends their proof obligation to HB.4. The real q=1 and unrestricted cusp-majorant branches do not depend on this gap. A reviewer must not regard the new arithmetic bridge as an independent verification of the HB.4 eigenspace statement."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroNahmSeries/E14",
+      "source": "cgz",
+      "kind": "error",
+      "locator": "Theorem 7.1, equation (43), p. 36 (arXiv v3)",
+      "printed": "Theorem 7.1 asserts, for positive n relatively prime to the denominator of A and B and zeta a primitive nth root of unity, that f_{A,B}(zeta e^{-h/n}) = mu omega e^{L(xi_A)/nh}(Phi_zeta(h) + O(h^K)). Its stated parameters satisfy omega^2 in F^x and mu = e(r(n-1)(n-2)/24n).",
+      "correction": "Add 'n odd' (GZ Theorem 3.1 assumes it; CGZ Remark 2.6, used in Corollary 7.2, needs (w_F, n) = 1). With mu fixed the statement holds when Q is integer-valued; in general mu must absorb the phase of the Gauss sum G(Q, a/n) and F must contain its values (and z^{1/d}, as in GZ).",
+      "reason": "For A = (2/3), B = (1/3) (Q = n(n+1)/3), n = 5, zeta = e(1/5), G(Q, 1/5) = e(1/12)/sqrt 3 and the radial constant K (checked numerically to 7 digits) satisfies: Re(K^{10} mu^{-10}) is not algebraic of degree <= 6 over Q (PARI algdep at 660 digits; coefficients of random size), while Re(K^{10} mu^{-10} e(1/6)) is (16-digit coefficients); but omega^2 in F^x and Phi^n in F_n force K^{10} mu^{-10} in F_5 = Q(z, zeta_5), whose real subfield has degree 6. For integer-valued Q the a-dependence of the true phase e(r s(a,n)/2) is absorbable (Rademacher's congruences). For even n and d = 1 the expansion holds numerically (A = (2), n = 2, 4, 6) but no source proves it.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1712.04887 v3 (the version read; v3's acknowledgement records the earlier q^C correction of Theorem 7.1)",
+        "research/errata/REGISTER.md (CGZ entries K3BlochGroups/E12-E14, E27-E29 and HabiroNumberFields/E1-E19 do not concern Section 7)",
+        "published version not examined"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found independently by checkers A and B: GZ Theorem 3.1, which CGZ quote, assumes the order odd, and Corollary 7.2 needs (w_F, n) = 1. Checker A's algdep test (A = (2/3), B = (1/3), n = 5) also shows that μ must absorb the phase of the Gauss sum when Q is not integer-valued.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries"
+    },
+    {
+      "id": "HabiroNahmSeries/E19",
+      "source": "cgz",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 7.5, printed p. 40, the display comparing (53) and (43) (arXiv v3; the same display in v1, Section 8)",
+      "printed": "The source equates mu e^{L(xi_A)/hd} Phi(h) = e^{L(xi_A)/hd} (K e(lambda c/d) + O(h)), and expresses the resulting constant as Phi_zeta(0) = mu^{-1} K e(lambda c/d).",
+      "correction": "The phase is e(-lambda c/d): Phi_zeta(0) = mu^{-1} omega^{-1} e(-C b/d) e(-lambda c/d) K (see also E22).",
+      "reason": "With epsilon = d h/(1 - i c h-bar), 1/epsilon = 1/(d h) - i c/(2 pi d), so e^{L/epsilon} = e^{L/(d h)} e(-lambda c/d) with lambda = L/(4 pi^2). Numerically, for A = 2, B = 0, C = -1/60, gamma = (-59 -60; 60 61) in Gamma(60), h = 0.01: f(e^{-epsilon}) e^{-L/(d h)} = 0.846142786 - 0.087463626 i, K e(-lambda c/d) = 0.846142253 - 0.087464764 i, K e(+lambda c/d) = 0.846142253 + 0.087464764 i.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1712.04887 v1, v2, v3 (v1 has the same display)",
+        "arXiv abstract page comments",
+        "published version Ann. Sci. ENS 56 (2023) 383-426 not accessed"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B with a numerical evaluation at γ = (−59 −60; 60 61) ∈ Γ(60), which matches e(−λc/d) to 6 digits and not e(+λc/d); the sign follows from 1/ε = 1/(dh) − ic/(2πd).",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries"
+    },
+    {
+      "id": "HabiroNahmSeries/E20",
+      "source": "cgz",
+      "kind": "error",
+      "locator": "Proof of Theorem 7.5, printed p. 40, the same display, against Theorem 7.1 (43), printed p. 36",
+      "printed": "mu e^{L(xi_A)/hd} Phi(h) = e^{L(xi_A)/hd} (K e(lambda c/d) + O(h))",
+      "correction": "The left side must be e(C b/d) e^{-C h/d} mu omega e^{L(xi_A)/(hd)} (Phi(h) + O(h^N)): Theorem 7.1 carries the factor omega (omega^2 in F) and, in v3, is stated for f_{A,B}, not f_{A,B,C}, while the left side of the comparison is f_{A,B,C}(e^{-epsilon}).",
+      "reason": "(43) reads f_{A,B}(zeta e^{-h/n}) = mu omega e^{L(xi_A)/nh}(Phi_zeta(h) + O(h^K)); f_{A,B,C}(tau) = e(C tau) f_{A,B}(tau) at tau = (b + i h-bar)/d. The v3 acknowledgement records that Theorem 7.1 was corrected from f_{A,B,C} to f_{A,B}; the proof of 7.5 was not updated, and omega was already missing in v1. Both omitted factors have a bounded power in F_n, so the conclusion stands.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1712.04887 v1 (Theorem 8.1 is for f_{A,B,C} with omega; the comparison omits omega)",
+        "v3 acknowledgements",
+        "published version not accessed"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B: (43) carries ω and, in v3, is stated for f_{A,B}, while the comparison is for f_{A,B,C}; the v3 acknowledgement records the change. Both factors have a bounded power in F_n, so the conclusion stands.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries"
+    },
+    {
+      "id": "HabiroNahmSeries/E21",
+      "source": "cgz",
+      "kind": "gap",
+      "locator": "Proof of Theorem 7.5, printed p. 40, use of (53) at epsilon = dh/(1 - i c h-bar)",
+      "printed": "The proof substitutes epsilon = dh/(1-ic hbar) into f_{A,B,C}(e^{-epsilon}) = ...; it then compares (53) with (43), using their asymptotic expressions.",
+      "correction": "(53) is an expansion as real epsilon -> 0; it is applied at a complex epsilon with arg(epsilon) = arctan(c h-bar) != 0. The step is justified only through modularity: the expansion at the cusp 0 of the S-transform is uniform in Re(-1/tau), hence valid for complex epsilon with Re(1/epsilon) -> infinity (here Re(1/epsilon) = 1/(d h)).",
+      "reason": "The approach to 1 along gamma^{-1} of the vertical ray at b/d is not radial; the source gives no argument for the complex point.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv v1-v3",
+        "Zagier's survey (the source of (53)) not obtained"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B: arg ε = arctan(ch̄) ≠ 0, so the real expansion (53) is applied off the real axis; the uniform expansion at the cusp needs modularity, which the proof does not invoke at that point.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries",
+      "collation": "The public Zagier chapter is now obtained. Its real expansion does not itself justify the complex substitution; the modular Laurent expansion does, as already planned by the parent."
+    },
+    {
+      "id": "HabiroNahmSeries/E22",
+      "source": "cgz",
+      "kind": "gap",
+      "locator": "Section 7.3, printed p. 40: the definition of 'modular' and the rationality of lambda",
+      "printed": "The source calls F_{A,B,C} modular when f(tau)=f_{A,B,C}(e(tau)) remains unchanged under a subgroup of SL(2,Z) having finite index. It then claims that this modularity makes f(-1/tau) unchanged by a suitable power of T.",
+      "correction": "Invariance under T^w alone gives a Laurent expansion in e(tau/w) that may be infinite in both directions; rationality of lambda and the O(e^{-c/epsilon}) error need a finite principal part at the cusp 0. For Nahm sums this follows from non-negativity of the coefficients (|f(x + i y)| <= f(i y)) and f(i y) = e^{O(1/y)}, which bound f|g by exp(C Im tau) at every cusp.",
+      "reason": "A holomorphic function on a punctured disc can behave like t^{-s} with irrational s along a ray and still have an essential singularity (Carleman approximation), so invariance plus the real asymptotic does not force rationality without a growth bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv v1-v3",
+        "GZ Section 7 (same definition of modular function, same omission)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B: invariance under T^w gives a Laurent expansion that may be infinite in both directions; the rationality of λ needs a finite principal part at the cusp 0.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries"
+    },
+    {
+      "id": "HabiroNahmSeries/E23",
+      "source": "gz",
+      "kind": "error",
+      "locator": "Section 7, (51), p. 13 (arXiv v1)",
+      "printed": "The source gives C_0(A) = -L(xi_A)/(2 pi)^2 in (51), using for L the Rogers dilogarithm normalization specified by (8).",
+      "correction": "C_0(A) = L(xi_A)/(2 pi)^2 with L as in (8), i.e. C_0(A) = -Lambda/(2 pi)^2 with Lambda of (7); equivalently -L_CGZ(xi_A)/(4 pi^2).",
+      "reason": "(8) is L(z) = Li_2(z) + (1/2) log z log(1 - z) - pi^2/6 < 0 on (0,1), so the printed C_0 is positive (+1/60 for A = 2), whereas v_0 of q^{-1/60} G(q) is -1/60 (f(e^{-epsilon}) ~ K e^{pi^2/(15 epsilon)}), and the paper's own claims 'equality when P = 0', 'C = C_0(A) iff B = 0' and (55) for (2, 0, -1/60) all require C_0 = -1/60. The proof of Proposition 7.1 ((54) with Theorem 3.1, where f ~ e^{Lambda/(m epsilon)}) also gives -Lambda/(4 pi^2).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1812.07690 v1 (only arXiv version)",
+        "published version Ramanujan J. 55 (2021) 219-238 not accessed"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B: (8) is negative on (0, 1), so the printed C_0 is positive (+1/60 for A = 2), while the paper's own examples and (55) require −1/60.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries",
+      "collation": "Confirmed also in the published GZ version read: (50) at the end of p. 233 and beginning of p. 234 has the same sign. Use C_0=-Λ/(4π²)."
+    },
+    {
+      "id": "HabiroNahmSeries/E24",
+      "source": "gz",
+      "kind": "gap",
+      "locator": "Proposition 7.1, (52), and (55), p. 14 (arXiv v1)",
+      "printed": "Proposition 7.1 claims v_P(F_Q) >= C_0(A) at each P in P^1(Q), provided f_Q(tau) is modular. It includes P = infinity as an instance, asserting v_infinity(f_Q) = min Q(n) >= C_0(A).",
+      "correction": "The proof applies Theorem 3.1 with n = c, which needs c odd and prime to a denominator of Q, and takes c > 0; it proves (52) only for such P = a/c (and P = 0). P = infinity and the other cusps are not covered, so (55) and 'C >= C_0(A)' are unproved.",
+      "reason": "Hypotheses of GZ Theorem 3.1 (p. 5); for Gamma inside Gamma(M) the Gamma-orbit of infinity consists of fractions whose denominators are divisible by M, so invariance cannot move infinity to a good cusp.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1812.07690 v1"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by checker B: the proof applies Theorem 3.1 at the order c, which needs c odd, prime to a denominator and positive; for Γ ⊂ Γ(M) the orbit of ∞ has denominators divisible by M.",
+        "by": "REV-HabiroNahmSeries"
+      },
+      "inheritedFrom": "HabiroNahmSeries.json; accepted REV-HabiroNahmSeries",
+      "collation": "Confirmed also in the published GZ version read: Proposition 7.1 and (51)–(54), p. 234, use Theorem 3.1 which assumes odd coprime order. The present majorant plan repairs all orders and then infinity, without changing the asymptotic-series theorem."
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [],
+  "librarySearch": {
+    "date": "2026-10-06",
+    "audit": "data/library-coverage.json, HabiroNahmSeries:HB.5 (AUDIT-14, not built) and HB.4/HB.5a",
+    "mathlib": "Read statements in the local Mathlib checkout at the exact pinned commit. Searches for Nahm, Bloch, cyclic dilogarithm and q-Pochhammer found no implementation of these objects; general finite products, roots of unity, matrix positivity, infinite-sum bounds and algebraic embedding extension are reused.",
+    "tauceti": "Searched the entire TauCeti source tree at f790474 with case-insensitive Nahm, Bloch, cyclic-dilogarithm and q-Pochhammer patterns. No scoped analytic Nahm series or Bloch endpoint was found. No second clone or library build was made.",
+    "index": "The pinned declaration index supplied by the worker environment is available; check_blueprint.py checks all eight references against it. Statements were also read in the pinned sources."
+  },
+  "targetCoverage": [
+    {
+      "target": "CGZ Theorem 7.5, the distinguished integral class is torsion",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/modularity-implies-torsion"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/fixed-extension-constant-term-lift",
+        "HabiroNahmSeries:HB.5/bounded-powers-with-the-actual-multiplier",
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ],
+      "qualification": "Integral A gives an integral original symbol. For rational A the original class is rationalized and the conclusion is zero, following the parent HB.3 convention."
+    },
+    {
+      "target": "Introductory formulation, the distinguished class vanishes in the Bloch group of Qbar",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/introductory-formulation"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ],
+      "qualification": "Uses the uniquely divisible target imported by the parent; no converse or all-solution statement."
+    },
+    {
+      "target": "Finite-index modular transformations and meromorphic cusp expansions",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5a/supplier-interface",
+        "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp"
+      ],
+      "refinedBy": []
+    },
+    {
+      "target": "q=1 nonzero algebraic constant and uniform modular expansion",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/expansion-at-one"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/bounded-powers-with-the-actual-multiplier"
+      ],
+      "qualification": "Zagier (28) p.46 and (29) p.48 are now obtained; complex uniformity comes from a finite Laurent principal part."
+    },
+    {
+      "target": "Comparison at primitive good roots",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/comparison-of-expansions"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/bounded-powers-with-the-actual-multiplier"
+      ]
+    },
+    {
+      "target": "Divisibility at unbounded orders forces torsion",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/torsion-from-unbounded-orders",
+        "HabiroNahmSeries:HB.5/torsion-criterion-for-the-cgz-bloch-group"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ]
+    },
+    {
+      "target": "Finite exceptional primes and unbounded good denominators",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/excluded-primes-and-hypotheses",
+        "HabiroNumberFields:HB.1/the-excluded-primes"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/rational-bloch-arithmetic-bridge"
+      ],
+      "qualification": "Apply the exceptional integer to the fixed enlarged E; no congruence assumption on Γ."
+    },
+    {
+      "target": "Valuation lower bound at every cusp and infinity",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/valuation-bound-at-every-cusp"
+      ],
+      "refinedBy": [
+        "HabiroNahmSeries:HB.5/residue-class-majorant",
+        "HabiroNahmSeries:HB.5/block-product-lower-bound",
+        "HabiroNahmSeries:HB.5/growth-at-all-roots-of-unity",
+        "HabiroNahmSeries:HB.5/unrestricted-cusp-valuation-bound"
+      ],
+      "qualification": "Parent supplies the restricted proof; the new majorant supplies even and denominator-dividing orders and infinity."
+    },
+    {
+      "target": "Conjectural boundary and weight-zero scope",
+      "providedBy": [
+        "HabiroNahmSeries:HB.5/nahm-conjecture-statement",
+        "HabiroNahmSeries:HB.5/boundaries-of-the-implication"
+      ],
+      "refinedBy": [],
+      "qualification": "The survey’s matrix (8,5;5,4) reports a computer search. This packet does not certify exclusion of every rational B,C from that search or claim a converse."
+    }
+  ],
+  "inheritedPlanets": [
+    {
+      "node": "HabiroNahmSeries:HB.5/nahm-conjecture-statement",
+      "name": "Nahm's conjecture"
+    },
+    {
+      "node": "HabiroNahmSeries:HB.5/modularity-implies-torsion",
+      "name": "Modularity implies Bloch torsion"
+    }
+  ]
+}
