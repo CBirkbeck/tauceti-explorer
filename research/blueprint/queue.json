@@ -24479,8 +24479,9 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #400"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #400",
+   "finishedAt": "2026-10-06T13:39:47Z"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.8",
@@ -25934,7 +25935,8 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.7s",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.7s.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #429"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
