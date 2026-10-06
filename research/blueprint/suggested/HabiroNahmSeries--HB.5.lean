@@ -23,6 +23,10 @@ product estimate without introducing replacement library carriers. The local
 notations are syntax for finite products and the quadratic polynomial, not new
 q-Pochhammer or Nahm-datum declarations. When the suppliers land, use their names.
 
+Independent review corrections to the arithmetic conventions are recorded in
+research/blueprint/reviews/REV-HabiroNahmSeries--HB.5.md and the reviewed packet.
+The original reader needs those corrections at assembly.
+
 The final comments identify signatures that cannot honestly be expressed until
 those carriers exist; no arbitrary proposition is substituted for a missing notion.
 -/
@@ -206,7 +210,12 @@ Signatures omitted because their honest supplier carriers are absent at the base
   normalized cusp valuation v_P is at least -Λ/(4π²), equals that at zero, and is
   min Q(n) at infinity. Requires the parent Laurent-expansion and width carriers.
 
-* nahm_constant_kummer_class: with the integral symbol η_E in the fixed extension E,
+* nahm_constant_kummer_class: take a strong denominator D divisible by 24 and the
+  fixed E = F(X_i^(1/D), ζ_D). Write ν_a = e(r(n-1)(n-2)a/(24n)), the multiplier
+  of published GZ (17), and μ_a = e(r s(a,n)/2). Use the rescaled series
+  Φ_Ded = (ν_a/μ_a) Φ_GZ; its explicit Gauss/product/S formula carries this ratio.
+  The ratio belongs to E_n, so its nth power changes no Kummer class.
+  With the integral symbol η_E in this fixed extension E,
   the corrected nonzero constant u has [u^n]=R_ζ(η_E)^(-1) in E_n×/(E_n×)^n.
   Requires B_CGZ, R_ζ and the corrected HB.4 constant-term object; its coefficient
   and eigenspace inputs are the one explicit packet gap, not fields of a fake record.
@@ -214,15 +223,18 @@ Signatures omitted because their honest supplier carriers are absent at the base
 * nahm_modular_constant_comparison, nahm_constant_fixed_power: u equals
   μ_b^(-1) ω_d^(-1) e(-Cb/d) e(-λc/d) K, and u^s belongs to F_d× for a fixed
   s divisible by 24, 2den(B), den(C), den(λ). Requires the actual expansion objects,
-  Dedekind sum and embedded Nahm number field. Gauss phases remain inside Φ.
+  Dedekind sum and embedded Nahm number field. Φ has the specified multiplier
+  rescaling; Gauss phases remain inside it. The unrescaled GZ series uses ν_b.
 
 * nahm_rational_bloch_bridge: bounded powers for an unbounded set of good n force
   the original rationalized ξ_F to be zero. Only η_E is reduced modulo n; apply
   good-order R injectivity, the parent CGZ/Suslin torsion criterion and extension
-  of embeddings before descending through the regulator criterion.
+  of embeddings before descending through the regulator criterion. Torsion maps
+  to zero by the lower HB.3 algebraically closed target result; the parent
+  introductory-formulation is a consequence, not a proof prerequisite.
 
 The parent named endpoints modularity-implies-torsion and introductory-formulation
-are imported by node ID; they are not redeclared in this follow-up.
+retain ownership of the conclusions; they are not redeclared in this follow-up.
 -/
 
 end TauCeti.Nahm.HB5
