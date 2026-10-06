@@ -26435,7 +26435,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryFiniteLocalFields",
    "prompt": "research/blueprint/prompts/REV-KTheoryFiniteLocalFields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #440"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.1",
@@ -33949,8 +33950,9 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6442"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6442",
+   "finishedAt": "2026-10-06T04:13:55Z"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.3",
