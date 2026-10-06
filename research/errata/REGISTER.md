@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7264 new mistakes confirmed · 1475 awaiting review · 1523 already corrected in print · 115 rejected on review · 20 extractions and packets not yet checked.
+7264 new mistakes confirmed · 1475 awaiting review · 1522 already corrected in print · 116 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -17982,7 +17982,6 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Gerd Faltings, Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern, Inventiones mathematicae 73 (1983), 349-366 (doi:10.1007/BF01388432); public copy read in review: the Göttinger Digitalisierungszentrum scan (PURL http://resolver.sub.uni-goettingen.de/purl?PPN356556735_0073, article LOG_0026), 19 pages with a GDZ cover page, printed pp. 349-366, no text layer (`FaltingsFinitenessAndIsogenyTheorems`), Section 6, proof of Satz 7, p. 365: corrected in Milne, Abelian Varieties (2008), IV Theorems 5.1 and 5.2 (a complete version of Parshin's construction).
 - Gerd Faltings, Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern, Inventiones mathematicae 73 (1983), 349-366 (doi:10.1007/BF01388432); public copy read in review: the Göttinger Digitalisierungszentrum scan (PURL http://resolver.sub.uni-goettingen.de/purl?PPN356556735_0073, article LOG_0026), 19 pages with a GDZ cover page, printed pp. 349-366, no text layer (`FaltingsFinitenessAndIsogenyTheorems`), §4, Satz 2, p. 358 (GDZ scan); used in §5, proof of Satz 3/4, p. 361 ('Nach Satz 2 ist h(A_n)=h(A),'): corrected in Faltings, Erratum, Invent. Math. 75 (1984), 381; Zusatz bei der Korrektur, Invent. Math. 73 (1983), p. 366.
 - Gerd Faltings, Endlichkeitssaetze fuer abelsche Varietaeten ueber Zahlkoerpern, Inventiones mathematicae 73 (1983), 349-366 (doi:10.1007/BF01388432); public copy read in review: the Göttinger Digitalisierungszentrum scan (PURL http://resolver.sub.uni-goettingen.de/purl?PPN356556735_0073, article LOG_0026), 19 pages with a GDZ cover page, printed pp. 349-366, no text layer (`FaltingsFinitenessAndIsogenyTheorems`), §4, proof of Satz 2, p. 359: corrected in Faltings, Erratum, Invent. Math. 75 (1984), 381, parts a) and b).
-- Sources of the blueprint of FarguesFontaineDiamonds (`FarguesFontaineDiamonds`), FS proof of II.1.4, p.50, recorded author-PDF hash; Berkeley author draft March 27 2020, proof of 11.3.1, p.95: corrected in No published correction located in the two read author PDFs; no claim of novelty. A reviewer may find an adequate standard reference and reject this as a source defect while still filling the planning gap..
 - Keith Conrad, L-functions for Gauss and Jacobi sums, Expository handout, the author's PDF (5 pages), read 2026-09-25 (`FiniteFieldsAndCharacterSums`), §4 'Jacobi sums', first display, p. 4 (the author's PDF read on 2026-09-25): corrected in No applicable correction found in the independent bounded author-site search on 2026-10-05; novelty not asserted..
 - Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25 (`FiniteFieldsAndCharacterSums`), Chapter 5, Lemma 5.7(2), printed p. 70 (version of 14 September 2021): corrected in No applicable external correction found in the independent bounded author-domain search; novelty is not asserted..
 - Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25 (`FiniteFieldsAndCharacterSums`), Chapter 3, Theorem 3.1, printed p. 31, with Chapter 4, section 4.2 (Proposition 4.14(2), Theorem 4.17 and the paragraph after it), printed pp. 50-52: corrected in No applicable external correction found in the bounded independent search; novelty not asserted..
@@ -19195,7 +19194,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 
 ## Rejected on review
 
-115 findings were rejected by their reviewers; they are kept in `data/source-issues.json`.
+116 findings were rejected by their reviewers; they are kept in `data/source-issues.json`.
 
 ## Recorded in an older form
 
