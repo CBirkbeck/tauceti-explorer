@@ -50,6 +50,10 @@ lemma cmGaussCoefficient_apply (C : ℕ) [NeZero C] (F : T C → ℂ)
     cmGaussCoefficient C F g gC =
       g * ((∑ x : T C, F x * pairingO C gC x) / (C : ℂ)) := by
   sorry
+lemma cmGaussCoefficient_congr (C : ℕ) [NeZero C] (F G : T C → ℂ)
+    (h : ∀ x, F x = G x) (g : ℂ) (gC : T C) :
+    cmGaussCoefficient C F g gC = cmGaussCoefficient C G g gC := by
+  sorry
 lemma cmGaussCoefficient_zero (C : ℕ) [NeZero C] (g : ℂ) (gC : T C) :
     cmGaussCoefficient C (fun _ => 0) g gC = 0 := by
   sorry
@@ -133,6 +137,15 @@ theorem unitFactorCancellationCertificate (C w : ℕ) (y : ℝ) (Γ A R L : ℂ)
     L = ((Real.pi:ℂ) * Γ / (Complex.I * (y:ℂ)^2 * (C:ℂ)^4)) * R := by
   sorry
 
+-- The opposite-kernel coefficient is Γop = -Γ. Expressing the corrected
+-- theorem with Γop requires a second minus, leaving the actual L-value fixed.
+example (C w : ℕ) (y : ℝ) (Γ Γop A R L : ℂ)
+    (hC : 0 < C) (hw : 0 < w) (hy : 0 < y) (hop : Γop = -Γ)
+    (hreg : A = (w:ℂ) * Γ * R)
+    (hseries : A = (Complex.I * (y:ℂ)^2 * (C:ℂ)^4 / (Real.pi:ℂ)) * (w:ℂ) * L) :
+    L = (-(Real.pi:ℂ) * Γop / (Complex.I * (y:ℂ)^2 * (C:ℂ)^4)) * R := by
+  sorry
+
 -- Finite tables for tests; these are coordinate models of imported χ, not a
 -- second conductor or CM character construction.
 abbrev chi4 (x : T 4) : ℂ :=
@@ -154,7 +167,7 @@ abbrev chi14 (x : T 14) : ℂ :=
 abbrev indicator4 (x : T 4) : ℂ :=
   if x.1.val % 2 = x.2.val % 2 then 0 else 1
 
--- All six tests attached to the new definition, under their packet names.
+-- All seven tests attached to the new definition, under their packet names.
 -- cmGaussCoefficient_Qi_C4
 example : fourierO 4 chi4 (1,1) = 1 + Complex.I ∧
     cmGaussCoefficient 4 chi4 (1-Complex.I) (1,1) = 2 := by
@@ -176,6 +189,9 @@ example : (1-Complex.I) * oppositeFourier 4 chi4 (1,1) = -2 := by
 -- cmGaussCoefficient_imprimitive
 example : fourierO 4 indicator4 (1,1) = 0 ∧
     cmGaussCoefficient 4 indicator4 (1-Complex.I) (1,1) = 0 := by
+  sorry
+-- cmGaussCoefficient_changeGenerator_Qi: f' = i*f, g' = -i*g.
+example : cmGaussCoefficient 4 chi4 (-1-Complex.I) (3,1) = 2 := by
   sorry
 
 -- Imported parent definition tests relevant to the new comparison.
