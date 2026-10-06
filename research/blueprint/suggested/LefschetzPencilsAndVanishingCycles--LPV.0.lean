@@ -4,8 +4,13 @@ Suggested Lean forms for Lefschetz pencils, nearby cycles and vanishing cycles, 
 This file is not the roadmap and is not exhaustive. The roadmap document
 research/blueprint/readmes/LefschetzPencilsAndVanishingCycles--LPV.0.md is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
-signatures. Every planned definition, API item and unit test appears under its packet name.
+signatures. Names and test comments alone do not establish agreement with the packet.
 No implementation is claimed; implementationStatus remains unchecked.
+
+Independent review REV-LefschetzPencilsAndVanishingCycles--LPV.0 requires revision:
+several prototypes below omit hypotheses essential to their conclusions, and some test
+bodies do not express the examples in their comments. See the review report and the
+packet's G-review-* gaps. These forms have not been accepted as sound specifications.
 
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -149,12 +154,13 @@ variable (A : OrientedFibreTopos (ModuleCat Λ) I)
 -- coker(sp) is the degree-zero model of the vanishing object. It is not coker(σ−1).
 def variation (σ : I) : cokernel A.hom.hom ⟶ A.right.V := by sorry
 def quotientInertia (σ : I) : cokernel A.hom.hom ⟶ cokernel A.hom.hom := by sorry
-theorem variation_left (σ : I) : variation A σ ≫ cokernel.π A.hom.hom =
-    quotientInertia A σ - 𝟙 _ := by sorry
-theorem variation_right (σ : I) : cokernel.π A.hom.hom ≫ variation A σ =
+theorem variation_left (σ : I) : cokernel.π A.hom.hom ≫ variation A σ =
     (A.right.ρ σ - 1 : End A.right.V) := by sorry
+theorem variation_right (σ : I) : variation A σ ≫ cokernel.π A.hom.hom =
+    quotientInertia A σ - 𝟙 _ := by sorry
 theorem variation_mul (σ τ : I) : variation A (σ * τ) =
-    variation A σ ≫ A.right.ρ τ + variation A τ := by sorry
+    variation A τ ≫ cokernel.π A.hom.hom ≫ variation A σ +
+      variation A σ + variation A τ := by sorry
 theorem variation_wellDefined (σ : I) :
     A.hom.hom ≫ ((A.right.ρ σ - 1 : End A.right.V)) = 0 := by sorry
 end Gluing
@@ -215,6 +221,10 @@ theorem finiteLog_exp (U : Module.End K V) {d : ℕ} (hd : U ^ d = 0) :
 theorem finiteLog_twisted (N : Module.End K V) (d : ℕ) (hN : N ^ d = 0) (t : K) :
     finiteLog (IsNilpotent.exp (t • N) - 1) d = t • N := by sorry
 
+theorem finiteLog_conj (e : V ≃ₗ[K] V) (U : Module.End K V) (d : ℕ) :
+    finiteLog (e.toLinearMap * U * e.symm.toLinearMap) d =
+      e.toLinearMap * finiteLog U d * e.symm.toLinearMap := by sorry
+
 def monodromyFiltration (N : Module.End K V) (c i : ℤ) : Submodule K V :=
   ⨆ a : ℕ, ⨆ b : ℕ, ⨆ (_ : (a : ℤ) - b = i - c),
     LinearMap.ker (N ^ (a + 1)) ⊓ LinearMap.range (N ^ b)
@@ -232,6 +242,9 @@ theorem monodromyGradedPower_bijective (N : Module.End K V) (hN : IsNilpotent N)
     (c : ℤ) (r : ℕ) : Function.Bijective (monodromyGradedPower N hN c r) := by sorry
 theorem monodromyFiltration_scalar (N : Module.End K V) (c : ℤ) {a : K} (ha : a ≠ 0) :
     monodromyFiltration (a • N) c = monodromyFiltration N c := by sorry
+theorem monodromyFiltration_conj (e : V ≃ₗ[K] V) (N : Module.End K V) (c i : ℤ) :
+    (monodromyFiltration N c i).map e.toLinearMap =
+      monodromyFiltration (e.toLinearMap * N * e.symm.toLinearMap) c i := by sorry
 def gradedN (N : Module.End K V) (hN : IsNilpotent N) (c i : ℤ) :
     Gr (monodromyFiltration N c) i →ₗ[K] Gr (monodromyFiltration N c) (i - 2) := by sorry
 def primitivePart (N : Module.End K V) (hN : IsNilpotent N) (c i : ℤ) :=
@@ -246,6 +259,9 @@ theorem maximalLog_iff (T : V ≃ₗ[K] V) (d : ℕ) (h : (T.toLinearMap - 1) ^ 
     IsMaximallyUnipotent T ↔ IsMaximallyNilpotent (finiteLog (T.toLinearMap - 1) d) := by sorry
 theorem maximalNilpotent_kernel_rank (N : Module.End K V) (h : IsMaximallyNilpotent N) (j : ℕ) :
     Module.finrank K (LinearMap.ker (N ^ j)) = min j (Module.finrank K V) := by sorry
+theorem maximalNilpotent_conj (e : V ≃ₗ[K] V) (N : Module.End K V) :
+    IsMaximallyNilpotent (e.toLinearMap * N * e.symm.toLinearMap) ↔
+      IsMaximallyNilpotent N := by sorry
 end LinearMonodromy
 
 section Trace
@@ -630,6 +646,11 @@ example (m : ℕ) : (-1 : ℤ) * (-1) ^ m = (-1) ^ (m + 1) := by ring
 characterise ±δ for Λ = ℤ/15 (source issue E11 on SGA 7 XV 2.2.6). -/
 example : (4 : ZMod 15) ^ 2 = 1 ∧ (4 : ZMod 15) ≠ 1 ∧ (4 : ZMod 15) ≠ -1 := by decide
 
+/-- A 2-primary lift does not synchronize the signs at distinct odd primes:
+19 has norm one modulo 60 and reduces to the offending 4 modulo 15. -/
+example : (19 : ZMod 60) ^ 2 = 1 ∧ (19 : ZMod 15) = 4 ∧
+    (19 : ZMod 15) ≠ 1 ∧ (19 : ZMod 15) ≠ -1 := by decide
+
 end TauCeti.AlgebraicGeometry.VanishingCycles
 
 namespace TauCeti.AlgebraicGeometry.Quadric
@@ -831,8 +852,13 @@ example {Λ : Type} [Ring Λ] {I : Type} [Group I] (A : OrientedFibreTopos (Modu
 /-- Test `TauCeti.AlgebraicGeometry.VanishingCycles.variation_of_phi_zero`: If Φ(K) = 0 then Var(σ) = 0 and I acts trivially on K_η, by σ = 1 + Var(σ) q. -/
 example {Λ : Type} [Ring Λ] {I : Type} [Group I] (A : OrientedFibreTopos (ModuleCat Λ) I) (h : IsZero (cokernel A.hom.hom)) (g : I) : variation A g = 0 ∧ A.right.ρ g = 1 := by sorry
 
-/-- Test `TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz`: At an ordinary quadratic point in odd relative dimension n = 2m + 1, Var(σ)(a) = (−1)^{m+1} t_ℓ(σ)(a, δ)δ, which is nonzero when t_ℓ(σ) ≠ 0 and δ ≠ 0 (XV 3.3). -/
-example (m : ℕ) (t : ℚ) (B : LinearMap.BilinForm ℚ (Fin 2 → ℚ)) (δ x : Fin 2 → ℚ) : LefschetzPencil.nilpotentOfVector B δ x = B x δ • δ := by sorry
+/-- Test `TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz`:
+the rank-one expression over rational coefficients is nonzero when the tame parameter,
+the pairing and the vanishing vector are all nonzero. Its identification with geometric
+Var still requires the ordinary-degeneration model listed in the packet. -/
+example (m : ℕ) (t : ℚ) (B : LinearMap.BilinForm ℚ (Fin 2 → ℚ))
+    (δ x : Fin 2 → ℚ) (ht : t ≠ 0) (hpair : B x δ ≠ 0) (hδ : δ ≠ 0) :
+    ((-1 : ℚ) ^ (m + 1) * t) • B x δ • δ ≠ 0 := by sorry
 
 /-- Test `TauCeti.AlgebraicGeometry.VanishingCycles.variation_ne_sub_one`: Var(σ) is not σ − 1: it goes from Φ(K)_η to K_η, and σ − 1 on K_η is Var(σ) ∘ q, which vanishes on the image of K_s. -/
 example {Λ : Type} [Ring Λ] {I : Type} [Group I] (A : OrientedFibreTopos (ModuleCat Λ) I) (g : I) : cokernel.π A.hom.hom ≫ variation A g = (A.right.ρ g - 1 : End A.right.V) := by sorry
