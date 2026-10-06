@@ -530,7 +530,9 @@
         "HabiroNumberFields:HB.2/kummer-value-P",
         "HabiroNumberFields:HB.2/the-map-R-zeta",
         "HabiroNumberFields:HB.1/the-excluded-primes",
-        "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-sum"
+        "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-sum",
+        "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
+        "HabiroNahmSeries:HB.4/coefficientwise-kummer-descent-interface"
       ],
       "sources": [
         {
@@ -593,7 +595,9 @@
         "HabiroNahmSeries:HB.5/expansion-at-one",
         "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
         "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
-        "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-sum"
+        "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-sum",
+        "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
+        "HabiroNahmSeries:HB.4/nonzero-unit-series-descent-comparison"
       ],
       "sources": [
         {
@@ -669,7 +673,8 @@
         "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
         "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
         "mathlib:IsAlgClosed.surjective_domRestrict_of_isAlgebraic",
-        "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure"
+        "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure",
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison"
       ],
       "sources": [
         {

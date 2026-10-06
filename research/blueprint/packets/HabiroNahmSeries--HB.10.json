@@ -611,7 +611,9 @@
         "HabiroNahmSeries:HB.10/cubic-example",
         "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
         "HabiroNumberFields:HB.6/the-gluing-condition",
-        "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions"
+        "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
+        "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
       ],
       "sources": [
         {
@@ -742,7 +744,8 @@
         "HabiroNahmSeries:HB.10/cubic-example",
         "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
         "HabiroNahmSeries:HB.10/cubic-small-prime-criterion",
-        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export"
+        "HabiroNahmSeries:HB.10/etale-nahm-cohomology-export",
+        "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract"
       ],
       "sources": [
         {
@@ -798,7 +801,9 @@
         "HabiroNumberFields:HB.1/the-excluded-primes",
         "K3BlochGroups:V.6/five-term-certificate",
         "K3BlochGroups:V.6/suslin-lift-fibre",
-        "ArithmeticKTheory:N.6"
+        "ArithmeticKTheory:N.6",
+        "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+        "HabiroNahmSeries:HB.3/signed-exterior-boundary-obstruction"
       ],
       "sources": [
         {
