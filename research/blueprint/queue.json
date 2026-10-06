@@ -29462,7 +29462,8 @@
    ],
    "avoidAccountOf": "BP-WeilConjectures--WC.0",
    "prompt": "research/blueprint/prompts/REV-WeilConjectures--WC.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #503"
   },
   {
    "id": "BP-WeilConjectures--WC.6",
