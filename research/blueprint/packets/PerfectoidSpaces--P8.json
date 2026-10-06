@@ -2,12 +2,12 @@
  "roadmapId": "PerfectoidSpaces",
  "protocol": "blueprint-v1",
  "part": "P8",
- "status": "partial",
+ "status": "complete",
  "scope": [
   "PerfectoidSpaces:P8",
   "PerfectoidSpaces:P9"
  ],
- "summary": "Perfectoid rings and spaces, the part covering P8 and P9: finite quotients of perfectoid and rigid spaces and closed perfectoidization in towers, and descent along pro-étale Galois towers with coefficients. P8 builds the invariant Huber pair of a finite group action and proves, for groups of any order, that invariants of perfectoid Tate rings are perfectoid (Kedlaya–Liu, by norm estimates and Sylow reduction) and commute with invariant rational localisation (Caraiani–Gulotta–Johansson, by binomial coefficients prime to p and tilting), so that Spa(A^G, A^{+G}) is the categorical quotient and the v-sheaf quotient. It then plans Hansen's quotients under invariant affinoid covers, rigid quotients, and Hansen–Johansson's quotients of analytically separated perfectoid spaces, with good towers and Zariski-closed loci of towers in the form ECD 5.8 makes true. P9 plans the Čech datum of a pro-étale Galois tower, descent of O and O⁺ as actual equalizers over smooth rigid and perfectoid bases and after product with a weight space, full faithfulness on finite locally free modules, the twisted character sheaves with their finite-level identification and rank-one local freeness, the integral effectivity criterion, flat and derived coefficient change and lim¹ vanishing, from Chojecki–Hansen–Johansson and Birkbeck–Heuer–Williams. Thirty-four mistakes found in the sources are recorded, among them a gap in Hansen–Johansson's construction of G-clean neighbourhoods.",
+ "summary": "Target-level planning pass for PerfectoidSpaces P8–P9: finite wild quotients, invariant charts and closed perfectoid loci; continuous torsor equalizers, rational and integral coefficient fixed points, finite-level character comparison, integral matrix effectivity, and flat/derived coefficient change. The inherited analytic proofs are integrated with R0/R3/R5 owners. Both stages are planned, with precise perfectoidization, seminormal, nonproduct-open and general mixed-coefficient gaps; neither stage is claimed closed or formalised.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -93,7 +93,7 @@
     "ref": "mathlib:IsGaloisGroup",
     "kind": "class",
     "module": "Mathlib/RingTheory/IsGaloisGroup/Defs.lean",
-    "provides": "The class of a finite group acting faithfully on B over A with A the invariants; Galois descent itself is not in Mathlib.",
+    "provides": "Faithful group action with scalar commutation and fixed elements in the scalar image. Over rings this alone does not assert that the Galois tensor map is an isomorphism; the node imposes that map separately.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -114,7 +114,7 @@
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
-    "provides": "Faithfully flat modules, the setting of faithfully flat descent (only injectivity and surjectivity descent are in Mathlib).",
+    "provides": "Faithfully flat modules; the module descent theorem is also present as comonadicExtendScalars and imported below.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -368,6 +368,34 @@
     "module": "TauCeti/RingTheory/Valuation/Continuous/TopologicallyNilpotent.lean",
     "provides": "A continuous valuation is < 1 at topologically nilpotent elements; with power-bounded times topologically nilpotent this gives v(ϖx) < 1 on a ring of definition.",
     "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:FixedPoints.subalgebra",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Operations.lean",
+    "provides": "Fixed K-subalgebra for a scalar-commuting action; K-linearity is explicit.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:comonadicExtendScalars",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+    "provides": "Extension of scalars along a faithfully flat ring homomorphism is comonadic; P9 adds the finite-group dictionary, not another general module descent theorem.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+    "provides": "Over a Bezout domain, flatness is equivalent to torsion submodule zero; use for the valuation-domain lattices.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AdicCompletion.map_surjective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+    "provides": "Adic completion of a surjective linear map is surjective without Noetherian or finite hypotheses. map_injective and map_exact in the same file have those restrictions and cannot replace the saturated valuation-lattice proof.",
+    "checked": "statement read at the pinned commit"
    }
   ]
  },
@@ -384,7 +412,14 @@
     "§5.2 Proposition 5.14 and Corollary 5.15 with proofs (pp. 34–35); §5.3 Propositions 5.16–5.19, Theorem 5.20, Corollary 5.21 and Remark 5.22 (pp. 35–39), for the uses of §5.1",
     "Bibliography entries [BS19], [CGJ19], [Han16], [KL15], [Sch15], [Sch17] (TeX source)"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "continuationReads": {
+    "accessed": "2026-10-06",
+    "sections": [
+     "§5.1 Lemmas 5.9–5.10 and proofs (pp. 31–32), reread for the integral perfectoidization contract"
+    ],
+    "byteVersion": "Freshly downloaded arXiv PDF; SHA-256 matches the recorded version. Earlier readSections retain their inherited provenance."
+   }
   },
   {
    "id": "han16",
@@ -422,7 +457,15 @@
     "§3.3: Definition 3.3.1, Theorem 3.3.8, Theorem 3.3.25 and Theorem 3.3.26 with proof (pp. 58–68)",
     "Theorem 8.2.3 statement (p. 162), for BHW Lemma 3.6"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "continuationReads": {
+    "accessed": "2026-10-06",
+    "sections": [
+     "Theorem 3.3.26 and its wild-invariant norm argument (p. 68)",
+     "Theorem 8.2.3 with proof (pp. 162–163)"
+    ],
+    "byteVersion": "Freshly downloaded arXiv PDF; SHA-256 matches the recorded version. Earlier readSections retain their inherited provenance."
+   }
   },
   {
    "id": "kl15",
@@ -476,7 +519,14 @@
    "readSections": [
     "Theorem 1.17 (p. 9); Theorem 7.4 and Remark 7.5 (p. 56); Theorem 10.11 (p. 82)"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "continuationReads": {
+    "accessed": "2026-10-06",
+    "sections": [
+     "Theorem 10.11 with proof and Lemma 10.12 (pp. 81–83)"
+    ],
+    "byteVersion": "Freshly downloaded arXiv PDF; SHA-256 matches the recorded version. Earlier readSections retain their inherited provenance."
+   }
   },
   {
    "id": "chj17",
@@ -491,7 +541,16 @@
     "§4.1–4.2 Lemma 4.1, Propositions 4.3–4.4, Lemma 4.5 (pp. 28–30)",
     "Appendix §§6.1–6.4: Definition 6.3 – Corollary 6.26 with proofs (pp. 46–55)"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "continuationReads": {
+    "accessed": "2026-10-06",
+    "sections": [
+     "Lemma 2.23 with proof (pp. 19–20)",
+     "Paragraph following Proposition 2.27, Theorem 2.28 and Lemma 2.29 with proofs (pp. 21–23)",
+     "Appendix §§6.3, Propositions 6.15–6.16, Lemma 6.19, Theorem 6.20 and Lemma 6.21 with proofs (pp. 51–53)"
+    ],
+    "byteVersion": "Freshly downloaded arXiv PDF; SHA-256 matches the recorded version. Earlier readSections retain their inherited provenance."
+   }
   },
   {
    "id": "bhw21",
@@ -505,7 +564,14 @@
     "§3.2 Definitions 3.14–3.16 (pp. 11–12); §4 Definitions 4.5–4.7, Theorem 4.8 with proof (pp. 15–18)",
     "§6 Definitions 6.1–6.5 and Proposition 6.6 (pp. 26–28)"
    ],
-   "accessed": "2026-09-24"
+   "accessed": "2026-09-24",
+   "continuationReads": {
+    "accessed": "2026-10-06",
+    "sections": [
+     "§3.1 Corollary 3.4 and Lemmas 3.6–3.7, Proposition 3.8 with proofs (pp. 9–11)"
+    ],
+    "byteVersion": "Freshly downloaded arXiv PDF; SHA-256 matches the recorded version. Earlier readSections retain their inherited provenance."
+   }
   },
   {
    "id": "sga1",
@@ -1047,7 +1113,8 @@
     "PerfectoidSpaces:P8/invariant-huber-pair",
     "PerfectoidSpaces:P8/invariant-spectrum-homeomorphism",
     "tauceti:TauCeti.Huber.PairOfDefinition.completionLocObj",
-    "AdicEtaleGeometry:A0"
+    "AdicEtaleGeometry:A0",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "sources": [
     {
@@ -1083,7 +1150,7 @@
     "PerfectoidSpaces:P8/invariant-spectrum-homeomorphism",
     "PerfectoidSpaces:P8/invariants-of-perfectoid-tate-ring",
     "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
-    "AdicSpacesPartII:R3",
+    "AdicSpacesPartII:R3/uniform-spectral-seminorm",
     "mathlib:Choose.choose_pow_mul_pow_mul_modEq_choose_nat",
     "mathlib:PerfectRing"
    ],
@@ -1419,31 +1486,35 @@
    "realises": [
     "PerfectoidSpaces:P8"
    ],
-   "title": "Finite quotients commute with orthonormalisable scalar extension",
+   "title": "Finite quotients commute with topologically orthonormalisable scalar extension",
    "kind": "lemma",
-   "statement": "Let K be a complete nonarchimedean field, (A, A⁺) a complete Tate–Huber pair over (K, K°) with a K-linear action of a finite group G, and L/K a complete extension such that L is orthonormalisable as a Banach K-space (for example L/K finite, or K discretely valued). Then A^G ⊗̂_K L → (A ⊗̂_K L)^G is an isomorphism, and Spa(A ⊗̂_K L)/G = Spa(A^G ⊗̂_K L) with the plus rings given by integral closure; the quotients of the affinoid perfectoid and of the affinoid rigid theorems commute with base change from K to L.",
+   "statement": "Let K be a complete nontrivially valued nonarchimedean field, (A,A⁺) a complete Banach Tate–Huber pair over (K,K°), G a finite group acting continuously and K-linearly preserving A⁺, and L/K a complete extension topologically orthonormalisable as a Banach K-space, meaning that a bounded K-linear isomorphism L ≅ c₀(I,K) with bounded inverse is specified. Put B = A^G, B⁺ = A⁺ ∩ B, C = A ⊗̂_K L and D = B ⊗̂_K L. Then the canonical map D → C^G is a topological algebra isomorphism. For the pair comparison assume C is uniform, and use R0’s plus rings: integral closure of the images of A⁺ ⊗_{K°} L° and B⁺ ⊗_{K°} L° in the algebraic tensors, followed by closure in their completions. Then D⁺ = C⁺ ∩ C^G and |Spa(C,C⁺)|/G ≅ |Spa(D,D⁺)|. In particular, when C is the perfectoid scalar extension of P2, the affinoid quotient theorem shows that the represented quotient commutes with this base change. The same conclusion holds for reduced classical affinoid scalar extensions with maximal plus rings. Perfectoid base change uses P2’s actual fibre-product construction and uniformity comparison; it is not inferred solely from a Banach tensor identity.",
    "hypotheses": [
-    "G acts K-linearly (trivially on L); L orthonormalisable over K."
+    "G acts trivially on L. Topological orthonormalisability is explicit; the original field norm need not admit a unit-norm basis. Any Banach space over a discretely valued K has such a coordinate model, using arbitrary-cardinal residue bases as specified in the R0 request. In particular all complete extensions of a discretely valued K are included, even when the extension norm has more values than |K×|.",
+    "The completed tensor Huber-pair construction and its plus rings are imported from R0. For the plus-ring conclusion C is uniform; this includes the perfectoid and reduced classical affinoid applications. The plus ring is closed up after integral closure, as in R0, not taken to be the algebraic image."
    ],
    "proofSteps": [
-    "An orthonormal basis (e_i) of L identifies A ⊗̂_K L with the Banach space of sequences (a_i) in A tending to 0, G acting coordinatewise.",
-    "Invariant sequences are exactly the sequences in A^G tending to 0, i.e. A^G ⊗̂_K L.",
-    "Plus rings: both are the integral closures of the image of A^{+G} ⊗ L°; the quotient statements then follow from the affinoid quotient theorems applied over L."
+    "Use the topological coordinate formula of R0: C is topologically c₀(I,A), and D is topologically c₀(I,B). G acts coordinatewise; fixed null families are exactly those with all coefficients in B. This proves the actual inclusion-induced topological algebra comparison without dividing by |G|.",
+    "First work in E = A ⊗_K L and D_alg = B ⊗_K L. Flat scalar extension gives E^G = D_alg. Integrality of A⁺ over B⁺ and its preservation by tensor base change identify E⁺ ∩ D_alg with D_alg⁺ by transitivity of integral dependence. Now E⁺ is an open lattice bounded in C because C is uniform, and N = E⁺ ∩ D_alg is saturated in E⁺ over K°. R0’s requested regular-quotient completion interface gives an injective, saturated completion N̂ → E⁺̂ and E⁺̂ ∩ N̂[1/π] = N̂. The ring-level coordinate comparison identifies the rational fixed points with D. Thus C⁺G = closure(N) = D⁺. This completion step is essential: transitivity of algebraic integrality alone does not commute fixed points with closure.",
+    "Apply the invariant-spectrum theorem to (C,C⁺). Under the stated perfectoid or reduced classical affinoid hypotheses, the sheaf quotient theorem identifies the corresponding adic quotient. For perfectoid fibre products invoke P2’s completed/uniform comparison."
    ],
    "acceptance": [
-    "K = ℚ_p and L = ℂ_p (orthonormalisable, Serre): for μ₂ acting on ℚ_p⟨T⟩ by T ↦ −T (p odd), (ℂ_p⟨T⟩)^{μ₂} = ℂ_p⟨T²⟩ = ℚ_p⟨T²⟩ ⊗̂ ℂ_p."
+    "K = ℚ_p and L = ℂ_p (topologically c₀ over ℚ_p by the discrete-base residue-basis argument): for μ₂ acting on ℚ_p⟨T⟩ by T ↦ −T (p odd), (ℂ_p⟨T⟩)^{μ₂} = ℂ_p⟨T²⟩ = ℚ_p⟨T²⟩ ⊗̂ ℂ_p."
    ],
    "prerequisites": [
     "PerfectoidSpaces:P8/invariant-huber-pair",
     "PerfectoidSpaces:P8/affinoid-perfectoid-quotient",
     "PerfectoidSpaces:P8/rational-invariants-affinoid-algebra",
-    "AdicEtaleGeometry:A0"
+    "AdicSpacesPartII:R0/completed-tensor-banach-module",
+    "AdicSpacesPartII:R0/completed-tensor-product",
+    "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+    "AdicSpacesPartII:R0"
    ],
    "sources": [
     {
      "sourceId": "chj17",
-     "locator": "Lemma 2.23, p. 19 (PDF p. 19)",
-     "match": "Lemma (inv1)(2): (A_∞ ⊗̂_{ℚ_p} V)^G = A ⊗̂_{ℚ_p} V for a Banach space V with trivial action, via an orthonormal basis."
+     "locator": "Lemma 2.23(2), pp. 19–20 (PDF pp. 19–20)",
+     "match": "The rational trivial-coefficient statement, proved by orthonormal coordinates. The general-K scalar-extension assertion includes an explicit topological orthonormalisability hypothesis; its plus-ring transfer is the separate saturation argument here."
     },
     {
      "sourceId": "bhw21",
@@ -2169,7 +2240,7 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P8/zariski-closed-embedding",
-    "AdicSpacesPartII:R3",
+    "AdicSpacesPartII:R3/vector-bundle-global-generation",
     "AdicSpacesPartII:R1",
     "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed"
    ],
@@ -2381,7 +2452,8 @@
    "kind": "lemma",
    "statement": "Let (R, R⁺) → (S, S⁺) be a map of Tate–Huber pairs with R a perfectoid Tate ring and R⁺ → S⁺ integral. Then the diamond Spd(S, S⁺) is an affinoid perfectoid space: with ϖ a pseudouniformizer of R⁺, S⁺_perfd the universal integral perfectoid S⁺-algebra, T = ((S⁺_perfd)^∧_ϖ)[1/ϖ] (the ϖ-adic completion is needed: in characteristic p the perfectoidization is the uncompleted perfection) and T⁺ the integral closure of (S⁺_perfd)^∧_ϖ in T, (S, S⁺) → (T, T⁺) induces Hom((T, T⁺), (A, A⁺)) = Hom((S, S⁺), (A, A⁺)) for every perfectoid Tate–Huber pair (A, A⁺), so Spd(S, S⁺) ≅ Spa(T, T⁺).",
    "hypotheses": [
-    "Uses the perfectoidization of integral algebras over perfectoid rings (Bhatt–Scholze Theorem 1.17(1) = Theorem 10.11 in the published numbering; cited by the source as Theorem 1.16(1) of the 2019 preprint), which no atlas layer owns: recorded as a gap."
+    "The needed integral-algebra perfectoidization is BS22 Theorem 10.11 (the p-completion of an integral map) together with the universal property of Corollary 8.14. PAPER-BHATT-SCHOLZE-22 routes it to the proposed PerfectoidQuotientsPartIIIntegralPerfectoidization. No Q5 stage exists and Q4’s semiperfectoid quotient theorem does not supply it: this remains a recorded gap.",
+    "The passage from the integral perfectoid ring to the complete Tate pair, including π-completion in characteristic p and the compatibility with the continuous universal property, is part of that requested interface."
    ],
    "proofSteps": [
     "S⁺ is integral over the integral perfectoid ring R⁺, so S⁺_perfd exists and is discrete and perfectoid with the universal property for maps to integral perfectoid rings.",
@@ -3105,14 +3177,15 @@
    ],
    "title": "Continuous group cohomology of the tower computes pro-étale cohomology almost",
    "kind": "lemma",
-   "statement": "Let U be affinoid in X and U_∞ → U an affinoid perfectoid pro-étale G-tower. For all m and q ≥ 0, H^q(U_proet, O⁺_X/p^m) is almost isomorphic to H^q_cts(G, (O⁺/p^m)(U_∞)), and H^q(U_proet, Ô⁺_X)^a ≅ lim_m H^q_cts(G, O⁺(U_∞)/p^m)^a. In degree 0 the comparison is an equality (function descent); in positive degrees only an almost isomorphism holds in general.",
+   "statement": "Let U be affinoid in X and U_∞ → U an affinoid perfectoid pro-étale G-tower. For all m and q ≥ 0, H^q(U_proet, O⁺_X/p^m) is almost isomorphic to H^q_cts(G, (O⁺/p^m)(U_∞)), and, when R¹lim_m H^(q−1)_cts(G,O⁺(U_∞)/p^m) is almost zero, H^q(U_proet, Ô⁺_X)^a ≅ lim_m H^q_cts(G, O⁺(U_∞)/p^m)^a. For the completed structure sheaf in degree 0, function descent is an actual equality. This does not identify finite-level reduction with invariants of that reduction; in positive degrees only an almost isomorphism holds in general.",
    "hypotheses": [
-    "Almost mathematics over O_C with the ideal of topologically nilpotent elements; U_∞ affinoid perfectoid."
+    "Almost mathematics over O_C with the ideal of topologically nilpotent elements; U_∞ affinoid perfectoid.",
+    "For the completed higher-degree comparison impose the almost Mittag-Leffler/lim¹ hypothesis displayed in the statement; otherwise retain the derived inverse limit and its Milnor lim¹ term."
    ],
    "proofSteps": [
     "The Čech-to-derived (Cartan–Leray) spectral sequence E₂^{pq} = H^p_cts(G, H^q(U_∞, O⁺/p^m)) ⇒ H^{p+q}(U, O⁺/p^m).",
     "H^q(U_∞, O⁺/p^m) is almost zero for q ≥ 1 because U_∞ is affinoid perfectoid (Scholze 2013, Lemma 4.10).",
-    "So the spectral sequence almost degenerates; the inverse system in m has almost vanishing lim¹ on the basis of towers (Lemma 3.18, almost version)."
+    "The spectral sequence gives the finite-m almost comparison. For completion use the derived inverse limit and its Milnor exact sequence; only under the displayed almost lim¹-vanishing hypothesis does it become the stated ordinary inverse limit. Degree-zero completed function descent is proved separately."
    ],
    "acceptance": [
     "For U étale over the torus with its toric tower, CHJ Lemma 6.11(1): H^i_cts(ℤ_p^n, O⁺_X(U)) → H^i(U_proét, Ô⁺_X) is injective with cokernel killed by p, and both sides are nonzero for 1 ≤ i ≤ n: in positive degrees there is no equality, only a comparison up to bounded torsion and almost zero modules."
@@ -3145,18 +3218,21 @@
    ],
    "title": "Invariants of a uniform Banach algebra under a profinite group",
    "kind": "lemma",
-   "statement": "Let A_∞ be a uniform ℚ_p-Banach algebra with an action of a profinite group G by continuous ring automorphisms, and A = A_∞^G. Then A is a closed subalgebra of A_∞, hence a uniform ℚ_p-Banach algebra with the induced norm, and A° = (A_∞°)^G.",
-   "hypotheses": [],
+   "statement": "Let K be a complete nontrivially valued nonarchimedean field, A_∞ a uniform Banach K-algebra, and G a group acting by continuous K-algebra automorphisms. Then A = A_∞^G is a closed Banach K-subalgebra with the induced topology, A° = A_∞° ∩ A = (A_∞°)^G, and A is uniform. Profiniteness and joint continuity of the action may be imposed for tower applications, but are not needed for this conclusion. If the norm on A_∞ is power-multiplicative, its restriction is power-multiplicative; uniformity alone does not say an arbitrary chosen Banach norm is power-multiplicative.",
+   "hypotheses": [
+    "The action fixes K; continuity of each operator suffices for closedness. Use a spectral power-multiplicative norm only when one has been chosen."
+   ],
    "proofSteps": [
-    "A is an intersection of kernels of the continuous maps γ − id, hence closed.",
-    "The induced norm is power-multiplicative on A, and a ∈ A is power-bounded in A iff in A_∞."
+    "A is the intersection of the closed kernels of g − id. Completeness of A follows from completeness of A_∞ and closedness.",
+    "For an invariant a, the powers of a are bounded in the induced norm exactly when they are bounded upstairs. Thus A° = A_∞° ∩ A. The latter is bounded, proving uniformity. A chosen power-multiplicative norm restricts to one on A."
    ],
    "acceptance": [
-    "A_∞ = O(U_∞), A = O(U) in the function-descent theorem."
+    "A_∞ = O(U_∞), A = O(U) in the function-descent theorem.",
+    "A_∞ = K × K with the swapping action: A is the diagonal K and A° is diagonal K°. No averaging, including residue characteristic 2."
    ],
    "prerequisites": [
-    "PerfectoidSpaces:P8/invariant-huber-pair",
-    "mathlib:FixedPoints.subring"
+    "mathlib:FixedPoints.subalgebra",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "sources": [
     {
@@ -3176,7 +3252,9 @@
    "title": "Invariants commute with completed tensor products with a profinite flat module carrying the trivial action",
    "kind": "lemma",
    "statement": "Let A_∞ be a uniform ℚ_p-Banach algebra with a continuous action of a profinite group G, A = A_∞^G, and M a profinite flat ℤ_p-module (e.g. a small ℤ_p-algebra) with the trivial G-action. Then (A_∞ ⊗̂ M)^G = A ⊗̂ M, for the mixed completed tensor product (A_∞° ⊗̂ M)[1/p]; integrally, (A_∞° ⊗̂ M)^G = A° ⊗̂ M.",
-   "hypotheses": [],
+   "hypotheses": [
+    "The action on A_∞ is Q_p-linear and continuous. M carries the trivial action; its product topology and mixed completion are those of R5, rather than the rational projective Banach completion."
+   ],
    "proofSteps": [
     "Choose a pseudobasis (e_i)_{i∈I} of M, so M ≅ ∏_i ℤ_p e_i and X ⊗̂ M ≅ ∏_i X^ for p-adically complete X.",
     "A° ⊗̂ M → A_∞° ⊗̂ M is the inclusion ∏_i A° e_i ⊆ ∏_i A_∞° e_i with G acting coordinatewise, so A ⊗̂ M → A_∞ ⊗̂ M is the inclusion of bounded I-sequences in A into bounded I-sequences in A_∞.",
@@ -3189,7 +3267,9 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P9/closed-invariant-subalgebra",
-    "AdicSpacesPartII:R5"
+    "AdicSpacesPartII:R5/profinite-flat-pseudobasis",
+    "AdicSpacesPartII:R5/mixed-completed-tensor",
+    "AdicSpacesPartII:R5/mixed-completed-tensor-product-formula"
    ],
    "sources": [
     {
@@ -3208,27 +3288,33 @@
    ],
    "title": "Invariants commute with completed tensor products with a Banach space carrying the trivial action",
    "kind": "lemma",
-   "statement": "Let L be a complete nonarchimedean field, A_∞ a uniform Banach L-algebra with a continuous L-linear action of a profinite group G, A = A_∞^G, and V a Banach L-space of countable type (e.g. an affinoid L-algebra) with the trivial G-action. Then (A_∞ ⊗̂_L V)^G = A ⊗̂_L V, and integrally (A_∞° ⊗̂_{L°} V°)^G = A° ⊗̂_{L°} V° for the unit balls. For L = ℚ_p (or any discretely valued L) V is orthonormalisable; in general V has, for each t < 1, a t-orthogonal basis.",
+   "statement": "Let K be a complete nontrivially valued nonarchimedean field, E a Banach K-space with an action of any group G by continuous K-linear automorphisms, F = E^G with the induced norm, and V a Banach K-space with trivial G-action. Assume either (a) V has countable type over K or (b) K is discretely valued, with no cardinality restriction on V. The canonical map J: F ⊗̂_K V → (E ⊗̂_K V)^G, induced by F → E and id_V, is a topological K-linear isomorphism, natural in equivariant bounded maps E → E′ and bounded coefficient maps V → V′. In case (a), J is an isometry for the projective tensor norms. This includes E = A_∞ and F = A_∞^G for the uniform Banach algebra above. The integral comparison is the separate completed-lattice node, not an identification with a rational unit ball.",
    "hypotheses": [
-    "The source states the case L = ℚ_p; the general L is needed for weights over a perfectoid field (BHW), where the source applies the ℚ_p statement without comment (see sourceIssues)."
+    "All tensor products use R0’s separated projective tensor completion. Countable type means a dense subspace of at most countable K-dimension; finite-dimensional and zero V are included.",
+    "CHJ Lemma 2.23(2) states arbitrary Banach Q_p coefficients. The countable-type, general-K clause is an explicit extension using R0’s weighted basis theorem; the unrestricted discretely valued clause is kept for restriction of scalars from a weight field L to L₀."
    ],
    "proofSteps": [
-    "Choose a t-orthogonal basis (e_i) of V (an orthonormal basis if L is discretely valued); then A_∞ ⊗̂_L V is the space of sequences in A_∞ tending to 0, with norm comparable to the sup norm within the factor t, and G acts coordinatewise.",
-    "Invariant null sequences are null sequences in A_∞^G = A, i.e. A ⊗̂_L V."
+    "F is closed since it is the intersection of ker(g − id), and hence is Banach. Fix 0 < t < 1 in case (a). Import R0’s t-orthogonal Schauder basis e_i of V and put w_i = ‖e_i‖ > 0. Define the coordinate model c₀(I,w;B) by sup_i ‖b_i‖w_i < ∞ and tails ‖b_i‖w_i → 0 (outside finite sets); I may be empty, finite or countable. R0’s tensor coordinate interface gives t sup_i ‖b_i‖w_i ≤ ‖Σ b_i ⊗ e_i‖ ≤ sup_i ‖b_i‖w_i. Retain the weights; vectors cannot generally be rescaled to norm exactly 1.",
+    "The action on the completed tensor is coordinatewise because it is so on finite-support tensors and extends continuously. Its fixed points are exactly c₀(I,w;F), with the inherited coefficient norm. Thus the actual inclusion-induced J is bijective, with t‖z‖ ≤ ‖Jz‖ ≤ ‖z‖. Repeating for every t < 1, for the same canonical J and the same tensor norms, proves ‖Jz‖ = ‖z‖.",
+    "In case (b), choose a uniformizer π and a basis of the residue vector space V₀/πV₀ for the norm unit lattice V₀, of arbitrary cardinality. Lift the basis to e_i ∈ V₀. For every nonzero finite combination, |π|max_i|a_i| < ‖Σ a_i e_i‖ ≤ max_i|a_i|: after scaling the maximum coefficient to 1, a nonzero residue combination is outside πV₀. Successive residue expansion yields a unique null family, so V is topologically c₀(I,K). There are finitely many nonzero residues at each precision, even when I is uncountable. This proves the same bijection and topological inverse by coordinates. No isometry or unit-norm basis for the originally specified norm is asserted in this clause.",
+    "Naturality is the equality on elementary tensors of the canonical maps; extend by density. For algebra coefficients the same canonical map respects multiplication by density."
    ],
    "acceptance": [
-    "V = ℚ_p⟨T⟩: (A_∞⟨T⟩)^G = A⟨T⟩.",
-    "V = O(𝒰) for an affinoid weight 𝒰 over a perfectoid field L."
+    "V = K⟨T⟩: fixed points of E⟨T⟩ are F⟨T⟩ coefficientwise.",
+    "V = 0 and G trivial give the zero and identity comparisons. Finite and empty bases must be supported.",
+    "A countable-type affinoid algebra over a nondiscretely valued perfectoid K uses weighted t-bases, with no division by |G|.",
+    "A Banach L-space for a complete extension L/L₀ need not have countable type over L₀. Use the unrestricted discrete L₀ clause, rather than transferring countability across scalar restriction.",
+    "For V = K with rescaled norm c|·|, c outside |K×|, the argument retains w = c; it does not assert an isometric orthonormal basis."
    ],
    "prerequisites": [
-    "PerfectoidSpaces:P9/closed-invariant-subalgebra",
-    "AdicEtaleGeometry:A0"
+    "AdicSpacesPartII:R0/completed-tensor-banach-module",
+    "AdicSpacesPartII:R0/banach-countable-type-orthogonal-basis"
    ],
    "sources": [
     {
      "sourceId": "chj17",
-     "locator": "Lemma 2.23, p. 19 (PDF p. 19)",
-     "match": "Lemma 2.23(2): 'The proof of (2) is similar, using an orthonormal basis instead of a pseudobasis'."
+     "locator": "Lemma 2.23(2), pp. 19–20 (PDF pp. 19–20)",
+     "match": "CHJ’s rational, trivial-coefficient Banach statement; general K is the weighted-coordinate extension proved here, not a quotation from CHJ."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3244,11 +3330,11 @@
    "statement": "Let L₀ ⊇ ℚ_p be a complete discretely valued field with perfect residue field and L ⊇ L₀ a complete extension. Let Y be an affinoid adic space over L₀ that is either a smooth rigid space or a perfectoid space, Γ a profinite group, X ∈ Y_proet an affinoid perfectoid pro-étale Γ-torsor with h: X → Y, and 𝒰 a smooth adic space over L. Put X_𝒰 = X ×_{L₀} 𝒰 and Y_𝒰 = Y ×_{L₀} 𝒰. Then for every affinoid V ⊆ Y, with affinoid perfectoid W = h^{-1}(V), and every affinoid 𝒰′ ⊆ 𝒰: O⁺(W × 𝒰′)^Γ = O⁺(V × 𝒰′) and O(W × 𝒰′)^Γ = O(V × 𝒰′). These product affinoids are not a basis of Y_𝒰; the statement is what the character sheaves need, which are sheaves on Y of O_Y ⊗̂ O(𝒰′)-modules.",
    "hypotheses": [
     "The fibre products exist as sousperfectoid adic spaces (AdicSpacesPartII R5, BHW Corollary 3.4).",
-    "The base Y lives over a discretely valued L₀ so that function descent (Scholze's Corollary 6.19) applies and O(𝒰′) has an orthonormal basis over L₀ (Serre); BHW Lemma 3.7 works over a perfectoid L and asserts the sheaf equality on all of Y_𝒰, reducing to product opens without comment (see sourceIssues)."
+    "Y lives over a discrete L₀ so that the smooth-base function comparison applies. The coefficient O(𝒰′) may have arbitrary Banach dimension over L₀; use the unrestricted discrete-base clause. This node is a product-affinoid statement. The full sheaf statement of BHW Lemma 3.7 is a separate target with its missing general comparison recorded below."
    ],
    "proofSteps": [
     "Fix affinoids V ⊆ Y, W = h^{-1}(V) and 𝒰′ ⊆ 𝒰.",
-    "Rational statement: Y is stably uniform, so O(V × 𝒰′) = O(V) ⊗̂_{L₀} O(𝒰′) and O(W × 𝒰′) = O(W) ⊗̂_{L₀} O(𝒰′). O(𝒰′) is a Banach L₀-space with an orthonormal basis (L₀ discretely valued), so the Banach-space lemma over L₀ gives O(W × 𝒰′)^Γ = O(W)^Γ ⊗̂_{L₀} O(𝒰′) = O(V) ⊗̂_{L₀} O(𝒰′) = O(V × 𝒰′), using function descent (smooth rigid Y over L₀) or descent over a perfectoid base (perfectoid Y).",
+    "Rational statement: Y is stably uniform, so O(V × 𝒰′) = O(V) ⊗̂_{L₀} O(𝒰′) and O(W × 𝒰′) = O(W) ⊗̂_{L₀} O(𝒰′). O(𝒰′) is an arbitrary Banach L₀-space (L₀ discretely valued), so the unrestricted discrete-base Banach-space lemma over L₀ gives O(W × 𝒰′)^Γ = O(W)^Γ ⊗̂_{L₀} O(𝒰′) = O(V) ⊗̂_{L₀} O(𝒰′) = O(V × 𝒰′), using function descent (smooth rigid Y over L₀) or descent over a perfectoid base (perfectoid Y).",
     "Integral statement: f ∈ O⁺(W × 𝒰′)^Γ lies in O(V × 𝒰′) by the rational statement and satisfies |f(y)| ≤ 1 at every point y of W × 𝒰′; since |W × 𝒰′| → |V × 𝒰′| is surjective (a torsor), |f| ≤ 1 at every point of V × 𝒰′, so f ∈ O⁺(V × 𝒰′) (O⁺ is the ring of functions of absolute value ≤ 1 everywhere). The source instead applies CHJ Lemma 2.23(2), a rational statement over ℚ_p, directly to O⁺ and to ⊗̂_L (see sourceIssues)."
    ],
    "acceptance": [
@@ -3263,7 +3349,9 @@
     "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
     "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
     "AdicSpacesPartII:R5/sousperfectoid-rings",
-    "AdicSpacesPartII:R5"
+    "AdicSpacesPartII:R5",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module",
+    "AdicSpacesPartII:R5/affinoid-weight-coefficient-sheaf"
    ],
    "sources": [
     {
@@ -3289,20 +3377,22 @@
    "kind": "theorem",
    "statement": "Let X_∞ → X be a pro-étale G-tower as in the function-descent theorem, and E, F finite locally free O_X-modules (resp. O⁺_X-modules locally free of finite rank). For every affinoid U ⊆ X: E(U) = (E ⊗_{O_X} O_{X_∞})(U_∞)^G, and Hom_X(E, F) = Hom_{O_{X_∞}, G}(h^*E, h^*F) (G-equivariant homomorphisms). So pullback along h is fully faithful on finite locally free modules. It is not essentially surjective: a G-equivariant finite projective O(U_∞)-module need not descend, and degree-zero function descent alone does not classify finite locally free modules; effectivity needs a finite-level trivialisation (finite-level comparison theorem) or, integrally, an integral coboundary.",
    "hypotheses": [
-    "E(U) finite projective over O(U) for U affinoid (Kiehl, AdicSpacesPartII R3)."
+    "E(U) finite projective over O(U) for U affinoid (Kiehl, AdicSpacesPartII R3).",
+    "The integral statement is sheafwise and uses a cover where E and F are actually free over O⁺. Kiehl’s theorem for O-modules does not assert finite projectivity of E(U) over O⁺(U) on every affinoid."
    ],
    "proofSteps": [
-    "E(U) is a direct summand of O(U)^n; invariants commute with finite direct sums and summands, and E ⊗ O_{X_∞} restricted to U_∞ is E(U) ⊗_{O(U)} O(U_∞), with G acting on the second factor; so its invariants are E(U) ⊗ O(U_∞)^G = E(U).",
+    "E(U) is a direct summand of O(U)^n; invariants commute with finite direct sums and summands, and E ⊗ O_{X_∞} restricted to U_∞ is E(U) ⊗_{O(U)} O(U_∞), with G acting on the second factor; so its invariants are E(U) ⊗ O(U_∞)^G = E(U). This direct-summand argument is for O. For O⁺ first restrict to an open cover trivializing E, apply integral function descent coordinatewise there, and glue; no integral Kiehl assertion is used.",
     "Hom_X(E, F) = (E^∨ ⊗ F)(X), and E^∨ ⊗ F is finite locally free; apply the first statement and glue over an affinoid cover.",
     "Non-essential-surjectivity: over the cyclotomic tower of Spa(ℚ_p) with G = ℤ_p^×, the rank-one module ℚ_p^cycl^ with γ acting by χ_cyc(γ)^{-1}γ has invariants 0 (Tate), so it is not the pullback of any ℚ_p-module."
    ],
    "acceptance": [
     "E = O_X: function descent.",
-    "Tate twist non-example as in the last proof step."
+    "Tate twist non-example as in the last proof step.",
+    "A locally free O⁺-module is checked on its integral trivializing cover, not assumed globally projective on each affinoid."
    ],
    "prerequisites": [
     "PerfectoidSpaces:P9/function-descent-along-tower",
-    "AdicSpacesPartII:R3",
+    "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
     "mathlib:Module.Projective.iff_split",
     "mathlib:Module.Finite.exists_comp_eq_id_of_projective"
    ],
@@ -3326,7 +3416,7 @@
    "realises": [
     "PerfectoidSpaces:P9"
    ],
-   "title": "Galois descent of modules along a finite étale Galois ring extension",
+   "title": "Finite-group form of faithfully flat module descent",
    "kind": "lemma",
    "statement": "Let A → B be an injective map of commutative rings with an action of a finite group H on B over A such that B is finite étale over A and B ⊗_A B ≅ ∏_{h∈H} B, b ⊗ b′ ↦ (b·h(b′))_h (a Galois extension with group H). Then B is faithfully flat over A and B^H = A, and M ↦ B ⊗_A M is an equivalence from A-modules to B-modules with a semilinear H-action, with inverse N ↦ N^H: the unit M → (B ⊗_A M)^H, m ↦ 1 ⊗ m, and the counit B ⊗_A N^H → N, b ⊗ n ↦ bn, are isomorphisms. It preserves and reflects finite projectivity and rank. If |H| is invertible in A, N^H is the image of the idempotent e = |H|^{-1} Σ_h h.",
    "hypotheses": [
@@ -3334,8 +3424,8 @@
    ],
    "proofSteps": [
     "B is flat and finite over A, and Spec B → Spec A is surjective because A → B is injective and integral (lying over); so B is faithfully flat. The descent data for A → B are exactly semilinear H-actions via B ⊗_A B ≅ ∏_H B.",
-    "Faithfully flat descent for modules gives the equivalence; the inverse is the equalizer, i.e. H-invariants.",
-    "Finite projectivity and rank descend along faithfully flat maps.",
+    "Import Mathlib’s comonadicExtendScalars for the faithfully flat map A → B. Identify its extension/restriction comonad coalgebras with semilinear H-modules via the displayed Galois tensor isomorphism: the counit is the identity-action equation and coassociativity is the H-action law. The equalizer inverse is N^H, and the comparison counit is b ⊗ n ↦ bn. This group/comonad dictionary and its naturality are the new comparison; ordinary faithfully flat module descent is already in the baseline.",
+    "Import R3’s finite-projective étale descent for finite projectivity and use faithfully flat rank reflection (lying over) with ordinary base-change rank invariance. Do not rebuild general faithfully flat descent.",
     "With |H| invertible, e is an idempotent projecting N onto N^H."
    ],
    "acceptance": [
@@ -3346,7 +3436,9 @@
     "mathlib:Algebra.Etale",
     "mathlib:IsGaloisGroup",
     "tauceti:TauCeti.GaloisDescent.span_invariants_eq_top",
-    "mathlib:Module.Projective"
+    "mathlib:Module.Projective",
+    "mathlib:comonadicExtendScalars",
+    "AdicSpacesPartII:R3/finite-projective-etale-descent"
    ],
    "sources": [
     {
@@ -3532,21 +3624,21 @@
    ],
    "title": "Finite-level identification and local freeness of rank one of character sheaves",
    "kind": "theorem",
-   "statement": "Let ω_c be a twisted character sheaf on X with A a small or affinoid coefficient algebra, and U ⊆ X an affinoid (rational or an affinoid subdomain). Let G_n ⊴ G be the open normal subgroup with U_n = U_∞/G_n and Γ_n = G/G_n the finite quotient. Suppose that c(γ) = (γ^*u/u)·c_n(γ) for a unit u ∈ (O(U_∞) ⊗̂ A)^× and a 1-cocycle c_n of Γ_n with values in (O(U_n) ⊗̂ A)^× (inflated to G). Then f ↦ f·u is an O(U) ⊗̂ A-isomorphism from ω_c(U) onto the c_n-twisted invariants (O(U_n) ⊗̂ A)^{Γ_n, c_n} = {f₀ : c_n(γ)γ^*f₀ = f₀}. This is a direct summand of O(U_n) ⊗̂ A (split by e_n = |Γ_n|^{-1} Σ_{γ∈Γ_n} c_n(γ)γ^*, an idempotent because γ ↦ c_n(γ)γ^* is an action by the cocycle law), it is the Galois descent of the free rank-one module with descent datum c_n, hence finite projective of rank one over O(U) ⊗̂ A, and the formation commutes with restriction to affinoid subdomains V ⊆ U. If X is affinoid and such decompositions exist on a finite affinoid cover, ω_c = Loc(ω_c(X)) is locally projective of rank one and trivial over the finite levels U_n.",
+   "statement": "Let ω_c be a twisted character sheaf on X with A a small or affinoid coefficient algebra, and U ⊆ X an affinoid (rational or an affinoid subdomain). Let G_n ⊴ G be the open normal subgroup with U_n = U_∞/G_n and Γ_n = G/G_n the finite quotient. Suppose that c(γ) = (γ^*u/u)·c_n(γ) for a unit u ∈ (O(U_∞) ⊗̂ A)^× and a 1-cocycle c_n of Γ_n with values in (O(U_n) ⊗̂ A)^× (inflated to G). Then f ↦ f·u is an O(U) ⊗̂ A-isomorphism from ω_c(U) onto the c_n-twisted invariants (O(U_n) ⊗̂ A)^{Γ_n, c_n} = {f₀ : c_n(γ)γ^*f₀ = f₀}. This is a direct summand of O(U_n) ⊗̂ A (split by e_n = |Γ_n|^{-1} Σ_{γ∈Γ_n} c_n(γ)γ^*, an idempotent because γ ↦ c_n(γ)γ^* is an action by the cocycle law), it is the Galois descent of the free rank-one module with descent datum c_n, hence finite projective of rank one over O(U) ⊗̂ A, and the formation commutes with restriction to affinoid subdomains V ⊆ U. If X is affinoid, such decompositions exist on a finite affinoid cover, and the coefficient-sheaf Kiehl comparison is available in the chosen coefficient range, ω_c = Loc(ω_c(X)) is locally projective of rank one and trivial over the finite levels U_n.",
    "hypotheses": [
     "O(U) → O(U_n) finite étale Galois with group Γ_n and O(U_n) finite projective over O(U) (noetherian affinoids).",
     "p is invertible in O(U_n) ⊗̂ A, so e_n exists; this is a rational statement.",
-    "Kiehl's theorem for O_X ⊗̂ A-modules (CHJ Theorem 6.20, discretely valued base) for the global statement."
+    "The global Loc assertion invokes R5/coefficient-sheaf-kiehl only in its established range (small coefficient finite free over Z_p) or R5/affinoid-weight-coefficient-sheaf for affinoid coefficients. For an infinite pseudobasis, the global assertion is conditional on the unresolved R5 globalization input. Local finite projectivity and rank-one descent do not require that globalization."
    ],
    "proofSteps": [
     "For f ∈ ω_c(U), γ^*(fu) = c(γ)^{-1}f·γ^*u = (u/γ^*u)c_n(γ)^{-1}f·γ^*u = c_n(γ)^{-1}(fu), and c_n is trivial on G_n; so fu ∈ (O(U_∞) ⊗̂ A)^{G_n} = O(U_n) ⊗̂ A (weight-space descent for the tower U_∞ → U_n and the invariants lemmas).",
     "For γ ∈ Γ_n the same identity gives the c_n-twisted invariance; conversely f₀ ↦ f₀u^{-1}.",
     "e_n is an idempotent in the twisted group ring; its image is the twisted invariants, a direct summand of the finite projective O(U) ⊗̂ A-module O(U_n) ⊗̂ A.",
     "O(U) ⊗̂ A → O(U_n) ⊗̂ A is Galois with group Γ_n (base change of a finite étale Galois map, CHJ Lemma 6.7), and the twisted action is a Galois descent datum on the free module of rank one; Galois descent gives rank one.",
-    "Restriction to an affinoid subdomain V ⊆ U: O(V) ⊗_{O(U)} O(U_n) = O(V_n) (finite étale base change) and CHJ Lemma 6.7 give O(V) ⊗̂ A ⊗_{O(U) ⊗̂ A} (O(U_n) ⊗̂ A) = O(V_n) ⊗̂ A, matching the idempotents; so ω_c is coherent and Kiehl's theorem gives Loc of global sections."
+    "Restriction to an affinoid subdomain V ⊆ U: O(V) ⊗_{O(U)} O(U_n) = O(V_n) (finite étale base change) and CHJ Lemma 6.7 give O(V) ⊗̂ A ⊗_{O(U) ⊗̂ A} (O(U_n) ⊗̂ A) = O(V_n) ⊗̂ A, matching the idempotents; so restriction of the local descended modules is compatible. Kiehl gives Loc of global sections in the established coefficient range; its general small-coefficient existence assertion remains the supplier gap."
    ],
    "acceptance": [
-    "CHJ Theorem 2.28: ω^†_{𝒰,w} = Loc(ω^†_{𝒰,w}(X_w)), finite projective of rank one, étale locally free, with u = χ_𝒰(t_U^{(n)}) from the unit approximation and c_n = χ_𝒰(j_{U,n})."
+    "CHJ Theorem 2.28: ω^†_{𝒰,w} = Loc(ω^†_{𝒰,w}(X_w)), finite projective of rank one, étale locally free, with u = χ_𝒰(t_U^{(n)}) from the unit approximation and c_n = χ_𝒰(j_{U,n}). This is the source target; its global Loc assertion in the broad small-coefficient range is conditional on the recorded R5 input."
    ],
    "planet": {
     "name": "Local freeness of character sheaves"
@@ -3559,7 +3651,9 @@
     "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module",
     "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
     "AdicSpacesPartII:R5",
-    "AdicSpacesPartII:R3"
+    "AdicSpacesPartII:R5/mixed-tensor-finite-projective-base-change",
+    "AdicSpacesPartII:R5/coefficient-sheaf-kiehl",
+    "AdicSpacesPartII:R5/affinoid-weight-coefficient-sheaf"
    ],
    "sources": [
     {
@@ -3589,7 +3683,9 @@
    "title": "An integral unit eigenfunction trivialises the integral character sheaf",
    "kind": "lemma",
    "statement": "In the situation of the twisted character sheaf with an integral cocycle c valued in (O⁺(X_∞) ⊗̂ A°)^×, suppose that on an open V ⊆ X there is F ∈ (O⁺(V_∞) ⊗̂ A°)^× with γ^*F = c(γ)^{-1}F for all γ ∈ G. Then ω_c⁺|_V = F·(O⁺_V ⊗̂ A°) is free of rank one. This is the effectivity statement for integral descent: without such an F, the integral twisted invariants need not be locally free, even when ω_c is (rational Galois descent uses e_n, which is not integral when p divides |G_n|).",
-   "hypotheses": [],
+   "hypotheses": [
+    "For Banach affinoid coefficients, use the specified bounded open coefficient lattice and the separated π-adic tensor completion, with R5’s integral coefficient sheaf condition. For mixed profinite coefficients, use R5’s product completion. Geometric O⁺ of a product is not silently identified with either lattice tensor."
+   ],
    "proofSteps": [
     "For f ∈ ω_c⁺(W), W ⊆ V, the quotient f/F ∈ O⁺(W_∞) ⊗̂ A° is G-invariant, so it lies in (O⁺(W_∞) ⊗̂ A°)^G = O⁺(W) ⊗̂ A°, by the integral forms of the invariants lemmas and integral function descent O⁺(W_∞)^G = O⁺(W).",
     "Conversely F·g is a section of ω_c⁺ for g ∈ O⁺(W) ⊗̂ A°."
@@ -3599,9 +3695,9 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P9/twisted-character-sheaf",
-    "PerfectoidSpaces:P9/weight-extension-of-function-descent",
+    "PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity",
     "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module",
-    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
+    "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor",
     "PerfectoidSpaces:P9/function-descent-along-tower"
    ],
    "sources": [
@@ -3623,12 +3719,13 @@
    "kind": "lemma",
    "statement": "Let 𝒰 = (A_𝒰, χ_𝒰) be a coefficient algebra and i: A_𝒰 → A_𝒵 a surjection with kernel generated by a regular element x, 𝒵 = (A_𝒵, i ∘ χ_𝒰). With a character sheaf ω_{𝒰} admitting finite-level decompositions as in the comparison theorem over an affinoid X_w (K discretely valued), the sequence 0 → ω_𝒰 --·x--> ω_𝒰 → ω_𝒵 → 0 of sheaves is exact, and so is 0 → H⁰(X_w, ω_𝒰) --·x--> H⁰(X_w, ω_𝒰) → H⁰(X_w, ω_𝒵) → 0.",
    "hypotheses": [
-    "x regular in A_𝒰; A_𝒰 noetherian (small or affinoid); K discretely valued; X_w affinoid so H¹ vanishes."
+    "x regular in A_𝒰; A_𝒰 noetherian (small or affinoid); K discretely valued; X_w affinoid, with the Loc hypothesis below supplying the required H¹-vanishing.",
+    "For mixed small coefficients with an infinite pseudobasis, assume the finite-level coefficient ring is flat over A_𝒰, its quotient comparison is canonical, and ω_𝒰 is Loc of a finite projective module on X_w. These are the explicit R5 inputs, with the broader range recorded as a gap. For affinoid coefficients or small coefficients finite free over Z_p, use the established analytic comparison."
    ],
    "proofSteps": [
-    "Flatness: O(U_n) has an orthonormal basis (e_i)_{i∈I} over the discretely valued base, so A_𝒰 ⊗̂ O(U_n) is c₀(I, A_𝒰), the p-adic completion of the free A_𝒰°-module on I with p inverted; the p-adic completion of a free module over a noetherian ring is flat, so A_𝒰 ⊗̂ O(U_n) is flat over A_𝒰. (The source cites a different lemma for this; see sourceIssues.)",
+    "For rational Banach affinoid coefficients, R0’s discrete-base coordinate description and ordinary noetherian completion flatness give the required coefficient flatness. For the mixed tensor with a small coefficient algebra, use the stated R5 flatness input. In the infinite-pseudobasis case, a mixed product of coefficients is not a rational c₀ tensor: an orthogonal basis for O(U_n) does not identify it with the p-adic completion of a free coefficient module. This argument therefore does not establish the missing mixed flatness input.",
     "Tensor 0 → A_𝒰 → A_𝒰 → A_𝒵 → 0 with the flat A_𝒰 ⊗̂ O(U_n), identify (A_𝒰 ⊗̂ O(U_n)) ⊗_{A_𝒰} A_𝒵 with A_𝒵 ⊗̂ O(U_n) (ideals of the noetherian ring are closed), and apply the idempotent e_n on a basis of small U.",
-    "Global sections: H¹(X_w, ω_𝒰) = 0 by the comparison theorem and Tate acyclicity for Loc of projective modules (CHJ Proposition 6.16)."
+    "For the global sequence use the stated Loc hypothesis, finite-projective acyclicity, and the long exact sequence: H¹(X_w,ω_𝒰) = 0. Affinoidness alone is not a proof of acyclicity for an arbitrary coefficient sheaf."
    ],
    "acceptance": [
     "Specialisation of a family of weights to a single weight κ ∈ 𝒰(ℚ_p) cut out by one equation."
@@ -3636,7 +3733,10 @@
    "prerequisites": [
     "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
     "AdicSpacesPartII:R5",
-    "AdicSpacesPartII:R3"
+    "AdicSpacesPartII:R5/coefficient-sheaf-tate-acyclicity",
+    "AdicSpacesPartII:R5/coefficient-sheaf-kiehl",
+    "AdicSpacesPartII:R5/coefficient-sheaf-loc",
+    "AdicSpacesPartII:R5/affinoid-weight-coefficient-sheaf"
    ],
    "sources": [
     {
@@ -3662,21 +3762,21 @@
    "kind": "lemma",
    "statement": "In the situation of the regular-element lemma, let X be separated and quasicompact, with a finite affinoid cover 𝔘 (whose finite intersections are then affinoid) on which the character sheaf ω_𝒰 admits finite-level decompositions, K discretely valued, and I ⊆ A_𝒰 any ideal with A_𝒰/I again a coefficient algebra. Then the Čech complex C^•(𝔘, ω_𝒰) is a bounded complex of flat A_𝒰-modules, C^•(𝔘, ω_𝒰) ⊗_{A_𝒰} A_𝒰/I ≅ C^•(𝔘, ω_{𝒰/I}), and hence RΓ(X, ω_𝒰) ⊗^L_{A_𝒰} A_𝒰/I ≅ RΓ(X, ω_{𝒰/I}), with the Künneth spectral sequence E₂^{i,j} = Tor_{−i}^{A_𝒰}(H^j(X, ω_𝒰), A_𝒰/I) ⇒ H^{i+j}(X, ω_{𝒰/I}). If A_𝒰/I has projective dimension ≤ 1 over A_𝒰 (for example I = (x) with x regular) it reduces to 0 → H^q(X, ω_𝒰) ⊗ A_𝒰/I → H^q(X, ω_{𝒰/I}) → Tor_1^{A_𝒰}(H^{q+1}(X, ω_𝒰), A_𝒰/I) → 0; for I = (x) the Tor term is H^{q+1}(X, ω_𝒰)[x]. So H⁰(X, ω_𝒰)/I → H⁰(X, ω_{𝒰/I}) is not surjective in general when X is not affinoid.",
    "hypotheses": [
-    "Stated separately from the flat, affinoid case, as the stage requires. The source proves only the regular-element case over an affinoid; this node is the standard derived base change for Čech complexes of flat modules, applied to the inputs that proof establishes."
+    "Stated separately from the flat, affinoid case, as the stage requires. The source proves only the regular-element case over an affinoid; this node is the standard derived base change for Čech complexes of flat modules, applied to the inputs that proof establishes.",
+    "Each finite-level coefficient ring on an intersection is flat over A_𝒰, has the canonical quotient comparison for I, and the sheaf there is Loc of its descended finite projective module. These are established in the affinoid/finite-coefficient range; the general infinite-pseudobasis range imports the unresolved R5 inputs."
    ],
    "proofSteps": [
-    "Each term ω_𝒰(U_{i₀…i_q}) is a direct summand of O(U_{i₀…i_q,n}) ⊗̂ A_𝒰, which is flat over A_𝒰 (the flatness asserted in the proof of CHJ Lemma 2.29; see sourceIssues); so the Čech complex consists of flat modules and computes the derived tensor product.",
-    "Termwise, (O(V_n) ⊗̂ A_𝒰) ⊗_{A_𝒰} A_𝒰/I ≅ O(V_n) ⊗̂ A_𝒰/I (noetherianity, CHJ Lemma 6.13(1): ideals are closed), and the idempotent e_n is compatible, so ω_𝒰(V) ⊗ A_𝒰/I ≅ ω_{𝒰/I}(V).",
+    "Each term ω_𝒰(U_{i₀…i_q}) is a direct summand of O(U_{i₀…i_q,n}) ⊗̂ A_𝒰, which is flat over A_𝒰 (the explicit flatness input above; no rational c₀ formula is assumed for mixed infinite coefficients); so the Čech complex consists of flat modules and computes the derived tensor product.",
+    "Use the assumed canonical quotient comparison (O(V_n) ⊗̂ A_𝒰) ⊗_{A_𝒰} A_𝒰/I ≅ O(V_n) ⊗̂ (A_𝒰/I). The idempotent e_n is compatible, so ω_𝒰(V) ⊗ A_𝒰/I ≅ ω_{𝒰/I}(V). In the broad mixed range, noetherianity and closed ideals alone do not prove this completion/base-change interface.",
     "Čech complexes of Loc of projective modules on finite affinoid covers compute cohomology (CHJ Proposition 6.16); the Künneth spectral sequence for a bounded complex of flat modules gives the rest."
    ],
    "acceptance": [
-    "Reduction modulo an ideal with a nonzero Tor term: on the Tate curve E = 𝔾_m^an/q^ℤ over ℚ_p with A = ℚ_p⟨T⟩, the family ℒ of degree-zero line bundles attached to the character n ↦ (1 + T)^n of ℤ (the same Čech computation, for the ℤ-cover 𝔾_m^an → E) has H⁰(E, ℒ) = 0 and H¹(E, ℒ) ≅ A/(T), so H⁰(E, ℒ/T) = ℚ_p = Tor₁^A(H¹(E, ℒ), A/T) while H⁰(E, ℒ)/T = 0.",
-    "For X affinoid all higher H^q vanish and the regular-element lemma is recovered."
+    "Reduction with a nonzero Tor term: on the Tate curve E = 𝔾_m^an/q^ℤ over ℚ_p, let A = ℚ_p⟨S⟩ and let ℒ be the family of degree-zero line bundles attached to the unit character n ↦ (1 + pS)^n of ℤ. The Čech computation for 𝔾_m^an → E gives H⁰(E,ℒ) = 0 and H¹(E,ℒ) ≅ A/(S). At S = 0, ℒ becomes O_E, so H⁰(E,ℒ/S) = ℚ_p = Tor₁^A(H¹(E,ℒ),A/(S)), while H⁰(E,ℒ)/S = 0. This illustrates the Tor correction; it is not claimed to be a profinite perfectoid torsor."
    ],
    "prerequisites": [
     "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
     "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
-    "AdicSpacesPartII:R3",
+    "AdicSpacesPartII:R5/coefficient-sheaf-tate-acyclicity",
     "AdicSpacesPartII:R5",
     "mathlib:Module.Flat"
    ],
@@ -3709,7 +3809,7 @@
    "proofSteps": [
     "Check on affinoid perfectoid V ∈ X_proet (a basis); V_∞ = V ×_X X_∞ is affinoid perfectoid.",
     "M_i ⊗ Ô⁺_X(V_∞) =^a (ν^*M̃_i ⊗ O⁺_X)(V_∞) by Scholze 2013, Lemma 4.10 (M̃_i trivialises over V_∞).",
-    "Take G-invariants: since V_∞ → V is a G-cover, the étale-sheaf lemma gives (M_i ⊗ Ô⁺(V_∞))^G =^a (ν^*M̃_i ⊗ O⁺)(V).",
+    "The finite local system has a genuine descent datum on the torsor. Apply sheaf Čech descent to ν* M̃_i ⊗ O⁺ (after its almost perfectoid sections comparison), using the diagonal action. This does not apply the trivial-action tensor lemma to a nontrivial representation, or infer exactness of invariants from an almost sectionwise isomorphism.",
     "Inverse limits commute with invariants; the kernels and cokernels of the comparison maps form 𝔪-torsion (almost zero) inverse systems, and lim and lim¹ of 𝔪-torsion systems are 𝔪-torsion; since p ∈ 𝔪, they vanish after inverting p."
    ],
    "acceptance": [
@@ -3720,7 +3820,8 @@
     "PerfectoidSpaces:P9/etale-sheaf-sections-over-galois-tower",
     "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
     "PerfectoidSpaces:P9/cech-descent-datum",
-    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module"
+    "DiamondsAndVStacks:D3",
+    "AdicSpacesPartII:R5/mixed-completed-tensor"
    ],
    "sources": [
     {
@@ -3774,55 +3875,225 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor",
+   "parentStageId": "PerfectoidSpaces:P9",
+   "realises": [
+    "PerfectoidSpaces:P9"
+   ],
+   "title": "Integral fixed points of completed lattice tensors",
+   "kind": "lemma",
+   "statement": "With K,E,F,V,G and the canonical rational comparison J as in the Banach fixed-point node, write O = K°, fix π ∈ O with 0 < |π| < 1, and let E₀ ⊆ E and V₀ ⊆ V be bounded open O-lattices, E₀ stable under G. Put F₀ = E₀ ∩ F. Then the canonical map completion_π(F₀ ⊗_O V₀) → completion_π(E₀ ⊗_O V₀)^G is a topological O-linear isomorphism, natural in maps preserving the specified lattices. In particular for a uniform algebra with its spectral norm E₀ = A_∞° and F₀ = A°, this proves the integral coefficient comparison. No identification of either completed lattice with the unit ball of a projective tensor norm is used.",
+   "hypotheses": [
+    "π need not generate O’s maximal ideal. Completion means the ordinary separated π-adic module completion, with the continuous action extended from E₀ ⊗ V₀.",
+    "Import R0’s saturated-completion and generic-fibre interface requested below. Their proof is included here to specify that interface, but the common constructions are owned by R0."
+   ],
+   "proofSteps": [
+    "E₀/F₀ embeds in the K-space E/F and is torsion free over the valuation domain O. Torsion-free O-modules are flat. With N = F₀ ⊗_O V₀ and M = E₀ ⊗_O V₀, tensoring 0 → F₀ → E₀ → E₀/F₀ → 0 yields 0 → N → M → Q → 0, Q = (E₀/F₀) ⊗_O V₀ torsion free, since both factors are flat. Consequently N ∩ πⁿM = πⁿN for every n.",
+    "For any π-regular O-module T, compatible-family cancellation proves completion_π(T) is π-regular and completion_π(T)/πⁿ ≅ T/πⁿT: representatives whose level n vanishes can be divided at levels n+k, and regularity makes their classes modulo πᵏ independent and compatible. Taking the short exact reductions of N → M → Q gives 0 → N̂ → M̂ → Q̂ → 0. Lift the next Q-component and correct its reduction by a lift from N to construct compatible preimages. Reuse Mathlib AdicCompletion.map_surjective. Do not apply the Noetherian/finite-module map_injective or map_exact to this valuation ring.",
+    "π-regularity of Q̂ gives saturation N̂ ∩ πⁿM̂ = πⁿN̂, hence M̂ ∩ N̂[1/π] = N̂ inside M̂[1/π]. The inclusion N̂ → M̂ is a topological embedding by these same equalities.",
+    "R0’s generic-fibre comparison is canonical: completion_π(A₀ ⊗_O B₀)[1/π] ≅ A ⊗̂_K B for bounded open lattices. For unit balls L = A₀ ⊗ B₀ and r = |π|, z ∈ πⁿL implies ‖z‖projective ≤ rⁿ, while ‖z‖projective < rⁿ⁺¹ implies z ∈ πⁿL, by rescaling each elementary tensor by a power of π. These cofinal estimates, not equality of unit balls, identify the separated completions. General lattices are commensurable with unit balls. The localized completion is complete: a Cauchy sequence has a tail in a translate of a fixed π-power lattice, which is complete.",
+    "A fixed x ∈ M̂ maps, by naturality of the generic-fibre comparison and rational J, into N̂[1/π]. Saturation puts it in N̂. Conversely G fixes the dense image of N pointwise and hence its completion. The topological embedding gives the topological inverse; naturality follows on elementary tensors."
+   ],
+   "acceptance": [
+    "G trivial and V = 0 give the identity and zero maps.",
+    "C₂ swaps E = K² with lattice O²: fixed lattices are diagonal, including residue characteristic 2.",
+    "C₂ acts by the sign on Z₂: invariants are zero but invariants modulo 2 are F₂. The proof must not exchange invariants with reduction.",
+    "For K = Q₂, norms (3/2)|·| and (2/3)|·| on E = V = K give unit lattices 2Z₂ and Z₂. Their completed tensor has image 2Z₂; the rational projective tensor’s unit ball is Z₂. This rejects the unit-ball shortcut while the trivial-group fixed-point comparison remains the identity.",
+    "πO ⊂ O is not saturated: 1 belongs to O ∩ (πO)[1/π] but not to πO. Quotient regularity is essential."
+   ],
+   "prerequisites": [
+    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module",
+    "mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout",
+    "mathlib:AdicCompletion.map_surjective",
+    "AdicSpacesPartII:R0"
+   ],
+   "sources": [
+    {
+     "sourceId": "chj17",
+     "locator": "Lemma 2.23(2), pp. 19–20; rational statement only",
+     "match": "Motivation for rational fixed points. The integral transfer is the explicit saturation argument in this plan, not a theorem quoted from CHJ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer",
+   "parentStageId": "PerfectoidSpaces:P9",
+   "realises": [
+    "PerfectoidSpaces:P9"
+   ],
+   "title": "Sheaf equalizers after smooth coefficient base change",
+   "kind": "theorem",
+   "statement": "Let K be a perfectoid field of mixed characteristic, Y an affinoid smooth rigid or affinoid perfectoid space over K, X → Y an affinoid perfectoid pro-étale profinite Γ-torsor, and 𝒰 a smooth rigid space over a perfectoid extension of K. For h_𝒰: X ×_K 𝒰 → Y ×_K 𝒰, the intended source target is (h_𝒰* O)^Γ = O and (h_𝒰* O⁺)^Γ = O⁺ as sheaves on the whole product. Equivalently the equalities hold on every open of Y ×_K 𝒰, with invariants of sections of its full preimage. The product-affinoid theorem above supplies only part of this target; it does not prove this sheaf equality.",
+   "hypotheses": [
+    "The fibre products are the sousperfectoid spaces supplied by R5. This source target is planned with the recorded general-base and rational-localisation gap; the proof below explicitly identifies the missing input."
+   ],
+   "proofSteps": [
+    "Import R5’s fibre products and sheaves. On product affinoids use rational fixed-point comparison for countable-type coefficients over K (or the discrete-base clause after a justified descent of the base), together with the required general-base function comparison.",
+    "To pass to arbitrary opens one must prove the equalizer on rational affinoid subdomains of product charts, which do form a basis. Their defining functions may mix the two factors. Establishing that fixed points commute with these rational restrictions for this infinite torsor is the missing comparison; BHW’s reduction to products is not such a proof. This step is recorded as a gap, not inferred from finite-group rational localisation.",
+    "Once the rational equalizer is supplied, glue the rational O comparison by the basis sheaf criterion. For O⁺, a descended invariant function has |f| ≤ 1 at every point upstairs; topological surjectivity of the base-changed torsor gives the bound at all points downstairs. This does not identify geometric O⁺ with a completed lattice tensor."
+   ],
+   "acceptance": [
+    "The trivial torsor gives the identity on all opens.",
+    "For a finite étale torsor, ordinary finite étale descent after base change proves the sheaf equalizer.",
+    "On the bidisc, the rational domain |T−S| ≤ |π| is not a product open. Any basis argument must include it."
+   ],
+   "prerequisites": [
+    "PerfectoidSpaces:P9/weight-extension-of-function-descent",
+    "PerfectoidSpaces:P9/function-descent-seminormal-base",
+    "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+    "AdicSpacesPartII:R5/sousperfectoid-rings",
+    "DiamondsAndVStacks:D2"
+   ],
+   "sources": [
+    {
+     "sourceId": "bhw21",
+     "locator": "Lemma 3.7, p. 10 (PDF p. 10)",
+     "match": "The full source target. A proof on product opens does not yet establish it on arbitrary rational subdomains; the gap is retained."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PerfectoidSpaces:P9/function-descent-seminormal-base",
+   "parentStageId": "PerfectoidSpaces:P9",
+   "realises": [
+    "PerfectoidSpaces:P9"
+   ],
+   "title": "Function descent over a seminormal rigid base",
+   "kind": "theorem",
+   "statement": "Let K be a complete nonarchimedean field of mixed characteristic, Y a seminormal rigid analytic space over K, and X_∞ → Y a prescribed pro-étale G-tower with perfectoid limit. Then O_Y = (h* O_X∞)^G and O⁺_Y = (h* O⁺_X∞)^G on analytic opens. The comparison is an actual degree-zero equalizer. Smooth spaces over K are included. This general-base target waits on the precise foundational comparison in the seminormal-base gap.",
+   "hypotheses": [
+    "Seminormality is the rigid-analytic notion of KL II Definition 3.7.1. The needed comparison is KL II Theorem 8.2.3, O_Y ≅ ν_proet* Ô_Y, with its full field range."
+   ],
+   "proofSteps": [
+    "On an affinoid U with affinoid perfectoid preimage, sheaf descent of Ô on the pro-étale torsor identifies its sections with the fixed sections upstairs.",
+    "Apply KL II Theorem 8.2.3 on the base. The full proof requires its toric comparison, perfectoid field extension descent and seminormalization/birational argument; the current smooth discrete-base supplier does not replace those inputs. They remain the explicit gap.",
+    "Use O⁺ as pointwise bounded functions and surjectivity on points to deduce the integral equality; glue over analytic affinoids."
+   ],
+   "acceptance": [
+    "For smooth bases over a discretely valued field with perfect residue field, this specializes to the earlier function-descent node.",
+    "A nonseminormal cusp algebra K⟨t²,t³⟩ must not be substituted for a seminormal base: its seminormalization changes the degree-zero completed structure comparison."
+   ],
+   "prerequisites": [
+    "PerfectoidSpaces:P9/cech-descent-datum",
+    "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations"
+   ],
+   "sources": [
+    {
+     "sourceId": "kl16",
+     "locator": "Theorem 8.2.3 and proof, pp. 162–163 (PDF pp. 162–163)",
+     "match": "The exact missing general-base comparison, not the smooth discretely valued special case."
+    },
+    {
+     "sourceId": "bhw21",
+     "locator": "Lemma 3.6, pp. 9–10",
+     "match": "Rational comparison plus pointwise bounds gives the integral form."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity",
+   "parentStageId": "PerfectoidSpaces:P9",
+   "realises": [
+    "PerfectoidSpaces:P9"
+   ],
+   "title": "Integral effectivity in arbitrary finite rank",
+   "kind": "theorem",
+   "statement": "Let h: X_∞ → X be a prescribed pro-étale G-tower with actual O⁺ function descent. Let N⁺ be a locally free finite-rank O⁺_X∞-module with continuous semilinear G-action. Suppose X has an open cover U_i such that N⁺ on h⁻¹U_i is free of rank r_i and, in a chosen integral frame, its action is v ↦ C_i(g)g(v), with C_i(g) ∈ GL_r_i(O⁺(h⁻¹U_i)) satisfying C_i(gh) = C_i(g)g(C_i(h)). Assume there is P_i ∈ GL_r_i(O⁺(h⁻¹U_i)) with C_i(g)g(P_i) = P_i for all g. Then E⁺ = (h* N⁺)^G is locally free of rank r_i over O⁺_X and the canonical map h⁻¹E⁺ ⊗ O⁺_X∞ → N⁺ is an isomorphism. These comparisons glue and are compatible with morphisms. Conversely, if this map is an isomorphism from a locally free descended E⁺, such invariant integral frames exist after a cover of X. Thus an integral coboundary is the exact local effectivity condition; a rational coboundary alone is insufficient.",
+   "hypotheses": [
+    "P_i and its inverse must both be integral. A continuous semilinear action is additional structure; the matrices are measured in integral frames, not only rational frames.",
+    "The coefficient-sheaf analogue applies whenever the integral coefficient sheaf has the actual fixed-point equalizer and a sheaf condition. Those are supplied separately by R5 and the completed-lattice/profinite-module nodes, not by geometric product O⁺ = a lattice tensor."
+   ],
+   "proofSteps": [
+    "The columns of P_i form a G-invariant integral basis. Writing v = P_i a, invariance of v is equivalent to coordinatewise invariance of a, since g(v) is acted on by C_i(g) and C_i(g)g(P_i) = P_i.",
+    "Actual function descent gives a ∈ O⁺(U_i)^r_i. Thus E⁺|U_i ≅ (O⁺_Ui)^r_i, and extending scalars returns N⁺. On overlaps, transition matrices between the invariant integral frames and their inverses are invariant, so descend to GL_r(O⁺); the cocycle law descends and glues E⁺.",
+    "Equivariant maps have invariant matrices in these bases, so descend uniquely and compose correctly. Conversely a local integral frame of E⁺ pulls back to an invariant integral basis of N⁺, producing P_i. Rank zero and varying local ranks are included."
+   ],
+   "acceptance": [
+    "r = 1 recovers the integral eigenunit theorem; r = 0 gives the zero sheaf.",
+    "A trivial torsor and constant integral identity cocycle give the standard free module.",
+    "For p odd, B = Q_p(√p) over A = Q_p is a finite étale analytic C₂-torsor. The sign-twisted lattice O_B has invariant module √p Z_p, but base change has image √p O_B, a proper sublattice. The rational eigenfunction √p is not an integral unit: rational rank-one descent cannot prove integral effectivity.",
+    "Block diagonal integral coboundaries descend direct sums; invariant transition matrices test gluing across different frames."
+   ],
+   "prerequisites": [
+    "PerfectoidSpaces:P9/function-descent-along-tower",
+    "PerfectoidSpaces:P9/function-descent-over-perfectoid-base",
+    "PerfectoidSpaces:P9/descent-of-finite-locally-free-modules",
+    "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor",
+    "AdicSpacesPartII:R5/coefficient-sheaf-local-equalizer"
+   ],
+   "sources": [
+    {
+     "sourceId": "bhw21",
+     "locator": "Theorem 4.8, proof, p. 18 (PDF p. 18)",
+     "match": "The source uses the rank-one integral eigenunit argument. This node gives its explicit matrix generalization and gluing proof; it does not claim general integral essential surjectivity."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "coverage": [
   {
    "stageId": "PerfectoidSpaces:P8",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Integral-extension lemma (HJ 5.10) and its consumers wait on an owner for BS22 Theorem 1.17(1)/10.11 (gap).",
+    "Install the routed PerfectoidQuotientsPartIIIntegralPerfectoidization supplier and import BS22 Theorem 10.11 with the continuous Tate-pair universal property (recorded gap).",
     "Requests to DiamondsAndVStacks D0, D2–D6, AdicEtaleGeometry A0, AdicSpacesPartII R0, R1, R3 and ClassicalAdicEtaleCohomology H0 are open; the nodes name exactly the statements they import."
    ],
    "note": "Every definition and theorem of Hansen–Johansson §5.1, Hansen 2016, CGJ §2.1 and KL16 3.3.26 is a node, together with the closed-locus perfectoidization of Scholze's torsion II.2 and IV.1.1 in the form ECD 5.8 makes true. The stage text's 'Hansen–Johansson §5's invariant affinoid-cover hypothesis' is Hansen 2016's hypothesis; Hansen–Johansson replace it by analytic separation and prove that an invariant affinoid cover exists a posteriori, which is how this packet meets the completion contract to prove invariant-affinoid-cover existence before applying the quotient theorem. Groups of order divisible by p are included throughout: the invariants theorem (norm estimates and Sylow reduction) and the rational-localisation theorem (binomial coefficients prime to p and tilting) divide by no multiple of p."
   },
   {
    "stageId": "PerfectoidSpaces:P9",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Function descent beyond smooth rigid bases (seminormal bases, Kedlaya–Liu II 8.2.3) has no owner (gap).",
-    "The general-L invariants lemma needs t-orthogonal bases over non-discretely valued fields (gap).",
-    "Requests to AdicSpacesPartII R3, R5, DiamondsAndVStacks D2–D3 and AdicEtaleGeometry A0 are open.",
-    "Integral effectivity is planned in rank one, given an integral eigenfunction (the form the sources use); descent of integral lattices of higher rank is not treated in the sources read."
+    "The general seminormal-base comparison KL II 8.2.3 is an exact foundational gap.",
+    "The full smooth-product sheaf equalizer on nonproduct rational domains remains an explicit gap; product-affinoid equalities and coefficient sheaf conditions are distinguished.",
+    "Import R0’s requested saturated-completion/generic-fibre and discrete arbitrary-cardinal coordinate interface; the proof and tests are specified, not implemented.",
+    "Respect the R5 infinite-pseudobasis globalization/flatness gap in the global character and coefficient-change targets.",
+    "Other exact requests to R3, R5 and DiamondsAndVStacks remain supplier interfaces."
    ],
-   "note": "Planned from CHJ §§2.6, 4.1–4.2 and the appendix, BHW §3.1 and §4, and Scholze's pro-étale lemmas as decomposed in PadicHodgeTheory P8:local-rational. The stage's items appear as: the Čech datum; descent of O and O⁺ as actual equalizers, with the almost comparison in positive degrees stated separately; full faithfulness on finite locally free modules and the counterexample to essential surjectivity; finite-level identification and rank-one local freeness of character sheaves; the integral effectivity criterion; flat, regular and derived nonflat coefficient change; lim¹ vanishing. The completed external product with a weight space and its sheaf property stay with AdicSpacesPartII R5 (RS-05); the general equivariant sheaves for representations stay with OverconvergentAutomorphicForms O1; distributions stay with LocallyAnalyticDistributions."
+   "note": "Planned from CHJ §§2.6, 4.1–4.2 and the appendix, BHW §3.1 and §4, and Scholze's pro-étale lemmas as decomposed in PadicHodgeTheory P8:local-rational. The stage's items appear as: the Čech datum; descent of O and O⁺ as actual equalizers, with the almost comparison in positive degrees stated separately; full faithfulness on finite locally free modules and the counterexample to essential surjectivity; finite-level identification and rank-one local freeness of character sheaves; the integral effectivity criterion; flat, regular and derived nonflat coefficient change; lim¹ vanishing. The completed external product with a weight space and its sheaf property stay with AdicSpacesPartII R5 (RS-05); the general equivariant sheaves for representations stay with OverconvergentAutomorphicForms O1; distributions stay with LocallyAnalyticDistributions. The arbitrary-rank integral matrix-coboundary criterion fills the stage’s effectivity target. The rational countable-type gap is resolved by the R0 basis node, with weighted coordinates; the general source sheaf and coefficient ranges are separately accounted for by nodes ending in recorded gaps."
   }
  ],
  "gaps": [
   {
-   "title": "Perfectoidization of integral algebras (Bhatt–Scholze Theorem 1.17(1) = 10.11) has no atlas owner",
+   "title": "Integral-algebra perfectoidization awaits the routed PerfectoidQuotients Part II",
    "neededBy": [
     "PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair",
     "PerfectoidSpaces:P8/finite-tower-over-perfectoid-tower",
     "PerfectoidSpaces:P8/good-towers-under-finite-maps",
     "PerfectoidSpaces:P8/quotient-of-good-tower"
    ],
-   "detail": "Hansen–Johansson Lemma 5.10 needs, for a perfectoid R and an integral R⁺ → S⁺, the universal integral perfectoid S⁺-algebra S⁺_perfd (BS22 v4 Theorem 1.17(1), proved in Theorem 10.11 with the universal property from Corollary 8.14). PerfectoidQuotients Q4 owns only the semiperfectoid case (Theorem 7.4, Remark 7.5), which covers closed immersions but not finite maps. The paper extraction PAPER-BHATT-SCHOLZE-22 routes Theorem 10.11 to a Part II of PerfectoidQuotients (perfectoidization of integral algebras and almost purity along arbitrary ideals) that is not yet an atlas roadmap. When that roadmap exists, its node for Theorem 10.11 is the prerequisite of the integral-extension lemma."
+   "detail": "Hansen–Johansson Lemma 5.10 needs, for a perfectoid R and an integral R⁺ → S⁺, the universal integral perfectoid S⁺-algebra S⁺_perfd (BS22 v4 Theorem 1.17(1), proved in Theorem 10.11 with the universal property from Corollary 8.14). PerfectoidQuotients Q4 owns only the semiperfectoid case (Theorem 7.4, Remark 7.5), which covers closed immersions but not finite maps. The paper extraction PAPER-BHATT-SCHOLZE-22 routes Theorem 10.11 to a Part II of PerfectoidQuotients (perfectoidization of integral algebras and almost purity along arbitrary ideals) that is not yet an atlas roadmap. When that roadmap exists, its node for Theorem 10.11 is the prerequisite of the integral-extension lemma. Confirmed finding RT-AREA-padic-1/1 called this Q5; the accepted paper route gives the precise Part II name PerfectoidQuotientsPartIIIntegralPerfectoidization. Q5 is not an installed stage. Import its theorem once that roadmap exists; do not route the proof through P8, adic almost purity, or Q4 and create a cycle."
   },
   {
    "title": "Descent of functions along towers over seminormal (non-smooth) rigid bases",
    "neededBy": [
-    "PerfectoidSpaces:P9/function-descent-along-tower",
-    "PerfectoidSpaces:P9/weight-extension-of-function-descent"
+    "PerfectoidSpaces:P9/function-descent-seminormal-base",
+    "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer"
    ],
-   "detail": "Function descent is planned for smooth rigid bases over a complete discretely valued field with perfect residue field, where Scholze's ν_*Ô_X = O_{X_et} (Corollary 6.19, as decomposed in PadicHodgeTheory P8:local-rational) applies; the weight-space extension therefore takes its base over such a field. BHW Lemma 3.6 quotes Kedlaya–Liu II Theorem 8.2.3 (X seminormal if and only if O_X → ν_*Ô_X is an isomorphism) to allow seminormal bases, such as normal minimal compactifications; no atlas layer plans that theorem. The cusps of the anticanonical tower are handled in BHW Proposition 3.8 by q-expansions, which belongs to the Shimura application."
+   "detail": "KL II Theorem 8.2.3 and proof, pp. 162–163, supplies O_Y ≅ ν_proet* Ô_Y for seminormal rigid spaces over arbitrary complete analytic fields of mixed characteristic. Its proof requires the restricted-toric comparison, perfectoid-field scalar descent and seminormalization/birational comparison. The current PadicHodgeTheory P8:local-rational supplier gives the smooth discretely valued special case only. A Part II of that foundational direction is proposed below. P9 plans the application node and leaves this exact input as a gap; it does not reconstruct the foundational theorem."
   },
   {
-   "title": "t-orthogonal bases of Banach spaces of countable type over a non-discretely valued field",
+   "title": "Sheaf equalizer on nonproduct rational opens after smooth base change",
    "neededBy": [
-    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space"
+    "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer"
    ],
-   "detail": "The invariants lemma for (A_∞ ⊗̂_L V)^G over a perfectoid field L (needed for weights over L, BHW Lemma 3.7) uses that a Banach L-space of countable type has a t-orthogonal basis for every t < 1 (van Rooij, Non-Archimedean Functional Analysis; Schikhof). Over discretely valued L an orthonormal basis exists and the source's argument applies; the weight-space extension is planned over such a base, so only the general-L form of the lemma waits on this. Neither the libraries (Mathlib has only Schauder bases of normed spaces) nor an atlas layer provides the non-discrete case."
+   "detail": "BHW Lemma 3.7 states a sheaf equality on the whole smooth product. Product-affinoid equalities do not suffice because products are not a basis. Establish fixed-point compatibility on arbitrary rational affinoid subdomains (with mixed defining functions), or a general sousperfectoid ringed-site descent theorem implying it. R5 owns the product and coefficient sheaf, P9 owns this torsor comparison. The finite-group rational-localisation theorem is not a proof for an infinite Γ."
+  },
+  {
+   "title": "R5 infinite-pseudobasis globalization and coefficient base change",
+   "neededBy": [
+    "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
+    "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
+    "PerfectoidSpaces:P9/derived-coefficient-change"
+   ],
+   "detail": "The current R5/coefficient-sheaf-kiehl node explicitly leaves CHJ Theorem 6.20’s existence assertion open for small coefficients with an infinite pseudobasis, because its proof uses the false Banach-density Lemma 6.19(2). Local finite-level Galois descent survives. Global Loc/acyclicity and the coefficient-flatness/quotient comparisons are imported only in the established range or as explicit hypotheses. The mixed tensor is a product/bounded-family construction; it cannot be replaced by a rational c₀ completion to prove flatness. These general coefficient inputs stay with R5, not a duplicate P9 Kiehl theory."
   }
  ],
  "requests": [
@@ -3881,21 +4152,21 @@
   },
   {
    "supplier": "AdicEtaleGeometry:A0",
-   "need": "Adic spaces as objects of Huber's category V of v-ringed spaces with their structure sheaves, which the categorical quotient is formed in; completed tensor products of complete Huber pairs, with A⟨f/h⟩ = A ⊗̂_{B} B⟨f/h⟩ for a continuous B → A and B⟨f/h⟩ a rational localisation; and completed tensor products of Banach spaces over a nonarchimedean field.",
+   "need": "Adic spaces as objects of Huber’s category V with their complete structure sheaves, for the categorical quotient. General analytic completed tensors are owned by AdicSpacesPartII R0 under RS-05; they are not requested from A0.",
    "neededBy": [
-    "PerfectoidSpaces:P8/categorical-quotient",
-    "PerfectoidSpaces:P8/rational-invariants-order-invertible",
-    "PerfectoidSpaces:P8/quotient-scalar-extension",
-    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space"
+    "PerfectoidSpaces:P8/categorical-quotient"
    ]
   },
   {
    "supplier": "AdicSpacesPartII:R0",
-   "need": "Classical affinoid algebras over a complete nonarchimedean field: noetherianity, finite modules are Banach and closed, a finite algebra over an affinoid algebra is affinoid (BGR 6.3.3/3 in the form cited by Hansen and CHJ); finite morphisms of rigid spaces and their base change.",
+   "need": "Classical affinoid algebras over a complete nonarchimedean field: noetherianity, finite modules are Banach and closed, a finite algebra over an affinoid algebra is affinoid (BGR 6.3.3/3 in the form cited by Hansen and CHJ); finite morphisms of rigid spaces and their base change. Also import completed-tensor-banach-module and banach-countable-type-orthogonal-basis. Extend the coordinate interface to weighted c₀ and arbitrary-cardinal residue bases over a discretely valued field. Supply the general saturated-completion/generic-fibre interface specified in P9/invariants-of-completed-lattice-tensor: quotient torsion-freeness, π-regular completion and its mod-πⁿ comparison, completion exactness for a regular quotient, completed-lattice saturation/localization intersection, and canonical generic-fibre comparison natural on elementary tensors. Use Mathlib AdicCompletion and flatness over valuation domains; map_exact’s Noetherian finite hypotheses are unavailable. Tests include zero lattices, nonsaturated πO ⊂ O, and the rescaled Q₂ unit-ball counterexample. These are proposed helper targets, not fabricated supplier node IDs.",
    "neededBy": [
     "PerfectoidSpaces:P8/invariants-of-affinoid-algebra",
     "PerfectoidSpaces:P8/rigid-finite-quotient",
-    "PerfectoidSpaces:P8/finite-tower-over-perfectoid-tower"
+    "PerfectoidSpaces:P8/finite-tower-over-perfectoid-tower",
+    "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
+    "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor",
+    "PerfectoidSpaces:P8/quotient-scalar-extension"
    ]
   },
   {
@@ -3909,26 +4180,30 @@
   },
   {
    "supplier": "AdicSpacesPartII:R3",
-   "need": "Vector bundles on a sheafy (stably uniform, e.g. affinoid perfectoid) affinoid are finite projective modules and generated by global sections (Kiehl, Kedlaya–Liu); Loc of finite projective modules is acyclic on finite affinoid covers; and for uniform Banach rings the spectral seminorm is the supremum over the spectrum, so a map of uniform rings surjective on spectra is isometric (KL15 Theorem 2.3.10, Remark 2.8.3).",
+   "need": "Vector bundles on a sheafy (stably uniform, e.g. affinoid perfectoid) affinoid are finite projective modules and generated by global sections (Kiehl, Kedlaya–Liu); Loc of finite projective modules is acyclic on finite affinoid covers; and for uniform Banach rings the spectral seminorm is the supremum over the spectrum, so a map of uniform rings surjective on spectra is isometric (KL15 Theorem 2.3.10, Remark 2.8.3). Import finite-projective-etale-descent for the finite-group comparison; ordinary faithfully flat module descent is already comonadic in Mathlib.",
    "neededBy": [
     "PerfectoidSpaces:P8/closed-subvariety-pullback-is-zariski-closed",
     "PerfectoidSpaces:P8/rational-invariants-characteristic-p",
     "PerfectoidSpaces:P9/descent-of-finite-locally-free-modules",
     "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
     "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
-    "PerfectoidSpaces:P9/derived-coefficient-change"
+    "PerfectoidSpaces:P9/derived-coefficient-change",
+    "PerfectoidSpaces:P9/finite-galois-descent-of-modules"
    ]
   },
   {
    "supplier": "AdicSpacesPartII:R5",
-   "need": "The coefficient algebras of families: the mixed completed tensor product V ⊗̂ M = (V° ⊗̂ M)[1/ϖ] for M a profinite flat O_K-module (CHJ Definitions 6.3, 6.6, Proposition 6.4, Corollary 6.5, Lemma 6.7), and the sheaf R = O_X ⊗̂ R on an affinoid rigid X over a discretely valued K with Tate acyclicity, Loc, flatness and Kiehl's theorem (CHJ Lemma 6.13, Propositions 6.15–6.16, Theorem 6.20), in addition to the sousperfectoid products its nodes already plan.",
+   "need": "Import the exact existing nodes profinite-flat-pseudobasis, mixed-completed-tensor, mixed-completed-tensor-product-formula, mixed-tensor-finite-projective-base-change, completed-coefficient-sheaf, coefficient-sheaf-local-equalizer, coefficient-sheaf-loc, coefficient-sheaf-tate-acyclicity, affinoid-weight-coefficient-sheaf and the sousperfectoid product nodes. For coefficient-sheaf-kiehl respect the finite-pseudobasis range: its infinite-pseudobasis existence assertion is explicitly open. The missing general coefficient-flatness, quotient compatibility and globalization inputs are the recorded R5 gap. For the Banach integral tensor application supply the coefficient sheaf condition with the same π-adic lattice completion as R0, rather than identify it with geometric O⁺.",
    "neededBy": [
     "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module",
     "PerfectoidSpaces:P9/twisted-character-sheaf",
     "PerfectoidSpaces:P9/weight-extension-of-function-descent",
     "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
     "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
-    "PerfectoidSpaces:P9/derived-coefficient-change"
+    "PerfectoidSpaces:P9/derived-coefficient-change",
+    "PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity",
+    "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer",
+    "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor"
    ]
   },
   {
@@ -3947,13 +4222,22 @@
   },
   {
    "kind": "note-general-algebra",
-   "title": "Two general facts planned here for want of a foundational owner",
-   "detail": "Conjugacy of the extensions of a valuation along a normal algebraic extension (P8/extensions-of-valuations-are-conjugate) and Galois descent of modules along a finite étale Galois extension of commutative rings (P9/finite-galois-descent-of-modules) are needed here, are not in Mathlib or Tau Ceti (Tau Ceti has the field case of descent and a function-field case of conjugacy), and no atlas layer plans them. They are planned in the generality the sources use. If a commutative-algebra roadmap acquires them, these nodes become imports."
+   "title": "General valuation conjugacy and the finite-group descent dictionary",
+   "detail": "The normal-algebraic valuation conjugacy lemma has no foundational owner and is planned here for its quotient consumer. Finite-group module descent is now a comparison to the pinned comonadicExtendScalars theorem and R3 finite-projective descent; no general faithfully flat descent theory is replanned."
   },
   {
    "kind": "note-owner",
    "title": "Rigid finite quotients are planned in P8",
    "detail": "Finite quotients of rigid spaces (Hansen Theorems 1.3 and 3.4, CHJ §6.4, HJ Theorem 5.3) are used at finite level by the good-tower quotient theorem and have no other owner, so P8 plans them alongside the perfectoid quotients."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PadicHodgeTheory",
+    "PerfectoidSpaces"
+   ],
+   "detail": "The smooth discretely valued pro-étale structure comparison does not supply KL II Theorem 8.2.3 for general seminormal rigid bases.",
+   "proposal": "A Part II of PadicHodgeTheory’s local pro-étale structural direction should own the general Ax–Sen–Tate/seminormal comparison and its prerequisites; P9 imports it for function descent. This proposal creates no stage or prerequisite ID."
   }
  ],
  "sourceIssues": [
