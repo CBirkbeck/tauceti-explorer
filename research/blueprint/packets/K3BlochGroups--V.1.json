@@ -237,8 +237,8 @@
         {
           "sourceId": "Kbook-IV-author",
           "locator": "IV.1, Exercise 1.9, IV.14–15",
-          "excerpt": "Hurewicz",
-          "match": "The hint calls for the first nonzero Hurewicz comparison on the superperfect source."
+          "excerpt": "S and P are perfect groups.",
+          "match": "Exercise 1.9 states the two-connectivity and degree-three comparison for a universal central extension. The proof sketch supplies the intermediate absolute Hurewicz argument from the upstream owner; this exercise has no Hurewicz hint."
         }
       ],
       "implementationStatus": "unchecked",
@@ -392,10 +392,7 @@
       ],
       "refines": [
         "K3BlochGroups:V.1/k3-h3-steinberg"
-      ],
-      "planet": {
-        "name": "Homological model of K₃"
-      }
+      ]
     },
     {
       "id": "K3BlochGroups:V.1/cycle-certificate-evaluator",
@@ -523,10 +520,7 @@
       ],
       "refines": [
         "K3BlochGroups:V.1/bar-cycle-model"
-      ],
-      "planet": {
-        "name": "Bar-cycle model of K₃"
-      }
+      ]
     },
     {
       "id": "K3BlochGroups:V.1/ring-map-comparison-square",
@@ -743,7 +737,7 @@
       ],
       "acceptance": [
         "The degree-one permutation class is sent to [−1] via its determinant, not to the additive integer −1 in a higher K-group.",
-        "In characteristic two the class [−1] in K₁(A) is zero, so the degree-two operation vanishes.",
+        "In characteristic two, factor the external ℤ-scalar pairing through the central prime field 𝔽₂. The image of [-1] in K₁(𝔽₂) is [1]=0, so bilinearity makes the operation zero; no internal K-product on a noncommutative A is assumed.",
         "For a noncommutative A use A×ℤ external coefficients, rather than assuming A has a commutative-ring K-product."
       ],
       "prerequisites": [
@@ -783,7 +777,7 @@
         "Apply hspace-hopf-kernel-refinement to Y_A and identify its π₂,π₃ with K₂(A),K₃(A) using the cover and K.2:plus; identify H₃(Y_A) with H₃(E(A)) using BE⁺ and its plus homology comparison.",
         "Use hopf-minus-one-product-refinement to identify the kernel-generating operation.",
         "Check the displayed Hurewicz map is H₃(St→E)∘c_A by the naturality square of Hurewicz with BSt⁺→BE⁺, the two plus maps and the two bar/singular comparisons. This is why the direction and naturality of c_A are part of the construction.",
-        "Transport exactness and naturality across the comparisons. For characteristic two the scalar image [-1]_A is zero, so h_A is an isomorphism; in general only the quotient assertion is made."
+        "Transport exactness and naturality across the comparisons. In characteristic two, ℤ→A factors through its central prime field 𝔽₂. External-product naturality identifies the ℤ-scalar action with the 𝔽₂ pairing, using A⊗𝔽₂≅A; [-1] maps to [1]=0 in K₁(𝔽₂), so the first map vanishes and h_A is an isomorphism. In general only the quotient assertion is made."
       ],
       "acceptance": [
         "For A of characteristic two, the first map is zero and h_A is an isomorphism.",
@@ -812,10 +806,7 @@
       "implementationStatus": "unchecked",
       "refines": [
         "K3BlochGroups:V.1/k2-to-k3-h3-e"
-      ],
-      "planet": {
-        "name": "Degree-three Hurewicz quotient"
-      }
+      ]
     }
   ],
   "requests": [
@@ -873,7 +864,7 @@
     },
     {
       "supplier": "GeneralAlgebraicKTheory:K.7",
-      "need": "Specialize K.7/biexact-pairings-and-products to the external product K₂(A)×K₁(ℤ)→K₃(A⊗ℤ)≅K₃(A) for associative unital A. Supply compatibility between the plus and spectrum products and the scalar via ℤ→A; in characteristic two its [-1] scalar is zero. This needs neither a commutative A nor a redefinition of products.",
+      "need": "Specialize K.7/biexact-pairings-and-products to the external product K₂(A)×K₁(ℤ)→K₃(A⊗ℤ)≅K₃(A) for associative unital A. Supply compatibility between the plus and spectrum products and change of coefficient ring. In characteristic two, the scalar action factors through the central ℤ→𝔽₂→A: naturality identifies it with K₂(A)×K₁(𝔽₂)→K₃(A⊗𝔽₂)≅K₃(A), where [-1] maps to [1]=0. This needs neither a commutative A nor a redefinition of products.",
       "neededBy": [
         "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
         "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement"
@@ -961,7 +952,7 @@
       "roadmaps": [
         "StableHomotopyKTheory"
       ],
-      "detail": "AlgebraicTopology, Part II: low-degree pointed sphere operations, as an additional early foundation layer of the proposed StableHomotopyKTheory extension of upstream AlgebraicTopology. RS-33 under review already proposes H as that Part II; this proposal is an additive brief, contingent on its final structure, not a change to upstream.",
+      "detail": "AlgebraicTopology, Part II: low-degree pointed sphere operations, as an additional early foundation layer of the StableHomotopyKTheory extension of upstream AlgebraicTopology. RS-33 was accepted by independent-review-REV-RS-33 on 2026-09-29 and retains the existing H stage/node IDs. This proposal is an additive brief within that accepted direction; it neither changes upstream nor treats G1/G2 as already supplied.",
       "proposal": {
         "title": "Algebraic topology of spaces and manifolds, Part II: low-degree pointed sphere operations",
         "owner": "StableHomotopyKTheory (early sphere-operations extension; exact new stage ID assigned by the restructuring/design job)",
@@ -1021,7 +1012,7 @@
       "locator": "Author-hosted standalone Chapter IV, Exercise 1.25, IV.17 (PDF page 17), fetched 2026-10-05",
       "printed": "π3(Y) → π3(X) → H3(X) → 0",
       "correction": "The displayed exact sequence does not follow from X,Y,F simply connected alone. Add H₃(Y;ℤ)=0. Equivalently use the sufficient corrected map formulation: X,Y simply connected CW-type, π₂(f) surjective, H₃(Y)=0. This formulation applies to Y=∨S² in the elementary H-space proof.",
-      "reason": "Take the identity fibration *→S³→S³. All three spaces are simply connected, but the first map π₃(Y)→π₃(X) is the identity of ℤ and the Hurewicz map π₃(X)→H₃(X) is also an isomorphism; their composite is nonzero, so the printed sequence is not even a complex. Under H₃(Y)=0, the mapping-cylinder pair is two-connected and relative Hurewicz plus the homology LES gives the corrected sequence. Parent E1–E30 were screened; none records this issue. This finding awaits independent review.",
+      "reason": "Take the identity fibration *→S³→S³. All three spaces are simply connected, but the first map π₃(Y)→π₃(X) is the identity of ℤ and the Hurewicz map π₃(X)→H₃(X) is also an isomorphism; their composite is nonzero, so the printed sequence is not even a complex. Under H₃(Y)=0, the mapping-cylinder pair is two-connected and relative Hurewicz plus the homology LES gives the corrected sequence. Parent E1–E30 were screened; none records this issue.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -1030,7 +1021,12 @@
         "AMS GSM 145 landing page/download attempt returned 403; published text not obtained.",
         "Web search for Weibel K-book errata Exercise 1.25; no correction found.",
         "Parent packet K3BlochGroups sourceIssues E1–E30, including already-recorded IV.1.19.1 indexing and IV.1.20 notation corrections."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read Exercise 1.25 in the identified standalone Chapter IV (matching SHA-256). The identity fibration *→S³→S³ satisfies the stated simply-connected hypotheses, but the composite of its identity π₃ map with the Hurewicz isomorphism is nonzero. With H₃(Y)=0, the two-connected mapping-cylinder pair and relative Hurewicz/homology LES give the sufficient corrected formulation. Confirmation concerns this author copy, not an unavailable published edition.",
+        "by": "REV-K3BlochGroups--V.1"
+      }
     }
   ],
   "parentPacket": "research/blueprint/packets/K3BlochGroups.json",
@@ -1078,5 +1074,63 @@
       "type": "dependency",
       "reason": "Confirmed RT-AREA-ktheory-1/29: import stable St and its UCE-source superperfection corollary; never replan the recognition theorem here."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K3BlochGroups--V.1",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review by Codex, session codex-SM6L4J: both hashed public source copies, all ten nodes, 21 exact-pinned baseline declarations, 13 API entries, eight construction tests, supplier statements, reviewed audit and RT-AREA-ktheory-1/29 checked. Corrected Exercise 1.9 citation, external characteristic-two scalar explanation and accepted RS-33 provenance; confirmed source issue E31. Removed three duplicate planet markers: the accepted parent contributes four and this follow-up adds only Suslin’s Hurewicz lemma, giving five in V.1. G1–G3 and supplier requests remain honest open boundaries; planned does not mean closed. Suggested file unchanged and elaborated with only warnings for admitted declarations. The report records companion-reader synchronization outside this review’s authorized deliverables.",
+    "checked": [
+      {
+        "nodeId": "K3BlochGroups:V.1/two-connected-hurewicz-input",
+        "verdict": "corrected",
+        "note": "Confirmed superperfection imports and successive degree-two/three Hurewicz applications; replaced an absent Hurewicz quotation and nonexistent hint in Exercise 1.9 by its actual perfect-group phrase."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/cover-and-fibre-interface",
+        "verdict": "verified",
+        "note": "Read Exercises 1.8/1.9 and the H.3 supplier: the actual cover and homotopy-equivalent plus model are distinguished, the fibre is BK₂, and the comparison range is n≥3."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/canonical-comparison-interface",
+        "verdict": "corrected",
+        "note": "Verified the four canonical maps, directions, additive API and three tests. Removed a planet duplicating the inherited k3-h3-steinberg marker."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/cycle-certificate-evaluator",
+        "verdict": "corrected",
+        "note": "Verified the pinned unnormalised differential, cycle projection, finite boundary criterion, eight API items and five tests. Removed the planet duplicating the inherited bar-cycle-model marker."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/ring-map-comparison-square",
+        "verdict": "verified",
+        "note": "Confirmed natural canonical comparison and evaluator squares, chain-level transport of witnesses, and identity/composition conventions; based space naturality remains a supplier request."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/finite-stage-cycle-certificates",
+        "verdict": "verified",
+        "note": "Finite support and eventual equality in the directed group colimit give representatives and later-rank witnesses without injective transition maps or a fixed stable range. The Lean omission of transition data is explicit."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/elementary-cover-hspace",
+        "verdict": "verified",
+        "note": "The existing HSpace and based unique-lift/relative-homotopy carriers support the application; generic cover multiplication is requested from upstream, while ring block sum remains K.2:plus-owned."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+        "verdict": "verified",
+        "note": "Checked the two-connected mapping-cylinder proof with H₃(Y)=0, unordered wedge generators and H-space vanishing. E31 confirmed; G1 honestly records missing generic sphere operations."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+        "verdict": "corrected",
+        "note": "Checked IV.1.12(a),(e), determinant/transposition and external-product conventions; retained G2 for multiplicative BPQ/action compatibility. Clarified characteristic-two vanishing via the central 𝔽₂ scalar pairing."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement",
+        "verdict": "corrected",
+        "note": "Confirmed the actual Hurewicz map via the natural comparison square and noncircular Lean exactness transport. Clarified characteristic-two scalar factorization and removed the planet duplicating the inherited elementary-homology quotient marker."
+      }
+    ]
+  }
 }
