@@ -34162,8 +34162,9 @@
    ],
    "followUpOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6496"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6496",
+   "finishedAt": "2026-10-06T04:32:59Z"
   },
   {
    "id": "REV-HabiroNumberFields--HB.7",
