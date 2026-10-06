@@ -5,9 +5,13 @@ statements suggest Lean forms so that contributors and reviewers converge
 on names and signatures. They claim no implementation.
 
 BP-HabiroNumberFields--HB.2, Codex — codex-in1rju, 2026-10-06.
-implementationStatus = unchecked. NOT COMPILED: no existing shared build
-has both Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
+implementationStatus = unchecked.
+Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+Independent review REV-HabiroNumberFields--HB.2, Codex — codex-5w7FQz:
+full lean-check stops at the missing PowerClassGroup object file.
+The Mathlib-only signatures through kms_oddOrder were checked separately;
+the Tau Ceti power-class example and full file remain unelaborated.
 
 This supplement imports the parent packet's 28 HB.2 declarations by id;
 it does not reproduce their prototypes. The KMS statement writes the
@@ -19,7 +23,7 @@ rather than encoded as proposition-valued fields or assumed maps.
 -/
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-import Mathlib.Data.Complex.Basic
+import Mathlib.Basic.Complex.Basic
 import Mathlib.Data.ZMod.Basic
 import TauCeti.Algebra.Group.PowerClassGroup
 import TauCeti.FieldTheory.GaloisCohomology.Kummer
@@ -122,9 +126,10 @@ theorem kms_oddOrder {K : Type*} [Field K] {n : ℕ}
 -- eta_chern_signed_evaluation: not stated; needs actual finite-coefficient
 -- K-theory, the Bott class with boundary zeta, the early M.8 finite-Chern
 -- prefix and the continuous Kummer identification of ProfiniteCohomology
--- Layer 9. For the standard positive bar/Bott and Kummer conventions,
--- raw Soule evaluates to [zeta^-1]. The independently negated degree-(2,1)
--- Chern map evaluates to [zeta]. Identifying CGZ/GSWZ's fixed map with
+-- Layer 9. For N an odd prime power with the standard positive bar/Bott
+-- and Kummer conventions, raw Soule evaluates to [zeta^-1].
+-- The independently negated degree-(2,1) Chern map evaluates to [zeta].
+-- Identifying CGZ/GSWZ's fixed map with
 -- either one is a separate obligation; no normalization is chosen by eta.
 
 /-- Acceptance for the signed evaluation: classes of a primitive cubic
