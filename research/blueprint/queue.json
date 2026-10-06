@@ -34645,7 +34645,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries--HB.8",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6461"
   },
   {
    "id": "BP-HabiroNahmSeries--HB.9",
