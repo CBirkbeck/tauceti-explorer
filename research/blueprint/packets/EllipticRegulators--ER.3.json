@@ -376,14 +376,14 @@
       ],
       "title": "Relative Steinberg relation on the projective line",
       "kind": "theorem",
-      "statement": "Let f∈C(t)× be regular at 0 and ∞ with f(0)=f(∞)=1. Let K∈C× with K≠1 and g=K−f nonzero. Write div(f)=Σ_j d_j[α_j] and div(g)=Σ_k e_k[β_k], with finite supports in C×. Then Σ_{j,k}d_j e_k D(β_k/α_j)=0. The degree-zero and product-one conditions for f follow from its endpoint normalization. This generic-constant identity is the precise D-input used in the truncation argument; the extension to K=1 and repeated zeros uses the separately recorded continuity obligation, not an assumption that the elliptic relation already holds.",
+      "statement": "Let f∈C(t)× be regular at 0 and ∞ with f(0)=f(∞)=1. Let K∈C× with K≠1 and g=K−f nonzero. Write div(f)=Σ_j d_j[α_j] and div(g)=Σ_k e_k[β_k], with finite supports in C×. Then Σ_{j,k}d_j e_k D(β_k/α_j)=0. The degree-zero and product-one conditions for f follow from its endpoint normalization. This generic-constant identity is the precise D-input used in the truncation argument; this identity already allows repeated zeros and poles through their integer multiplicities. The extension of the elliptic truncation argument to exceptional constants and colliding roots uses the separately recorded continuity obligation, not an assumption that the elliptic relation already holds.",
       "hypotheses": [
         "K≠0,1 and K−f≠0; f and g therefore have no zeros or poles at 0 and ∞.",
         "D is the Bloch–Wigner dilogarithm of Polylogarithms P.1.",
         "The Chow dilogarithm is imported from Polylogarithms P.5 with the corrected real normalization −(2π)⁻¹∫r₂, not the imaginary normalization printed in Goncharov."
       ],
       "proofSteps": [
-        "Put F=f/K, so g/K=1−F. Goncharov Theorem 3.4, incorporated in the imported projective-line Chow formula, makes multiplication by nonzero constants irrelevant.",
+        "If f is constant, the endpoint normalization forces f=1, so div(f)=0 and the sum is zero. Otherwise put F=f/K, so g/K=1−F. Apply the imported P.5/chow-dilogarithm-projective-line formula to see that P₂(f∧g∧t)=P₂(F∧(1−F)∧t): multiplication by a nonzero constant leaves each divisor unchanged. Thus the scalar-invariance step follows from this listed prerequisite, without invoking the unpromoted chowDilog_const API item.",
         "Apply P.5/chow-dilogarithm-steinberg to (1−F)∧F∧t: its value is D(F(0))−D(F(∞))=0, since both endpoint values are 1/K. Reverse the first two wedge entries to get P₂(f∧g∧t)=0.",
         "In P.5/chow-dilogarithm-projective-line, div(t)=[0]−[∞] and r(α,β,0,∞)=α/β for the normalization r(∞,0,1,z)=z. Degenerate terms have Bloch–Wigner value zero. Thus P₂(f∧g∧t)=Σ d_j e_k D(α_j/β_k).",
         "Use P.1/distribution-and-inversion to negate this sum and obtain the diamond argument β_k/α_j. The proof uses no elliptic relation and no conjectural reciprocity homomorphism."
@@ -403,9 +403,9 @@
       "sources": [
         {
           "sourceId": "Goncharov.Arakelov.2004",
-          "locator": "Theorem 3.4, p. 28; Proposition 6.8 and Lemma 6.9, pp. 56–58",
-          "excerpt": "P₂(P¹; f₁,f₂,f₃)",
-          "match": "Specialization of the already planned Chow formula and corrected Steinberg identity with third entry t; Polylogarithms/E11 and E12 supply the normalization corrections."
+          "locator": "Theorem 3.4, p. 28; Proposition 6.8 and Lemma 6.9 with proof, p. 57",
+          "excerpt": "Integrating we get the lemma.",
+          "match": "The ensuing Proposition 6.8 gives the projective-line divisor formula, which already makes scalar multiplication irrelevant. The corrected Lemma 6.9 gives the endpoint Steinberg evaluation; Polylogarithms/E11 and E12 supply the normalization corrections."
         }
       ],
       "implementationStatus": "unchecked",
@@ -479,7 +479,12 @@
         "Zagier’s MPIM publication list and its linked author copy, accessed 2026-10-06; no attached erratum found.",
         "Web searches for the exact title with erratum, correction, and Theorem 1, on 2026-10-06; no correction located.",
         "The DOI-linked author-hosted typeset scan, visually inspected at pp. 616–619."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked Theorem 1 on printed p. 619 and Proposition 2(ii)–(iii) on p. 618 in the identical-hash author-hosted typeset scan. At r=2 their definitions give D₁,₂=2(𝒥+iD). Its η-average is (8π²y²/3)B₃(ξ), whose frequency-one coefficient is −2iy²/π, while the printed theorem gives +2iy²/π. Independently integrated the positive and negative half-line coefficients to verify that the weight-two denominator exponents must also be exchanged. The report gives both exact computations. No claim about other weights or a separately accessed publisher copy is made. Fresh exact-title erratum/correction searches found no correction.",
+        "by": "REV-EllipticRegulators--ER.3"
+      }
     }
   ],
   "sourceVersions": [
@@ -609,5 +614,33 @@
       "content/tau-ceti/ModularForms/README.md"
     ],
     "duplicationCheck": "All fourteen parent ER.3 IDs are reused through imports and targetCoverage. P.1 and P.5 declarations are imported; no general polylogarithm, K₂, complex-uniformisation or Green-kernel theory is defined here."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticRegulators--ER.3",
+    "date": "2026-10-06",
+    "notes": "Codex — codex-KHnHFo independently reviewed the ER.3 follow-up by Codex — codex-XWL8DR (#6484); this session did none of that work. Verified all four new nodes against the three identical-hash public sources, all eleven baseline declarations at Mathlib 082e2d3, the fourteen parent target interfaces and the six Polylogarithms imports. Confirmed sourceIssue E-ER3-1 by visual inspection and exact Fourier calculations. Corrected the relative bridge proof to treat constant f separately and derive scalar invariance from its explicit projective-line prerequisite, and replaced its symbolic formula excerpt by a literal passage with the exact page. Checked eight API items, six tests, all new prototype signatures and the five combined ER.3 planets. No node or baseline citation added or removed. The complete target-level pass is accepted with planned coverage, three honest gaps and one request; neither closure nor implementation is certified. Packet/source-version checks pass; the suggested file elaborates with only warnings for unproved declarations.",
+    "checked": [
+      {
+        "nodeId": "EllipticRegulators:ER.3/weight-two-kronecker-kernel",
+        "verdict": "verified",
+        "note": "Checked the zero extension, oriented character, denominator nonvanishing, norm and all eight API statements. Independently evaluated all six tests; the conjugation and quarter-period sign tests discriminate the competing conventions. Scalar-valued construction needs no quotient universal property."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/complex-fourier-coefficient-calculation",
+        "verdict": "verified",
+        "note": "Re-derived the disc identity, split the orbit into two half-lines, checked the summed integral-norm bound of order h⁻³ and evaluated the Laplace integrals. The Bernoulli mode and zero coefficient have the stated signs. Parent/P.1 imports supply continuity, inversion and the disc formula, not an assumed Kronecker equality."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/complex-fourier-reconstruction",
+        "verdict": "verified",
+        "note": "Read lattice discreteness/rank and r=−3 summability at the pin, justified character integration by the summable norm majorant and checked the two successive circle Fourier-uniqueness steps with normalized Haar measure. The origin value follows by v↦−v. Numerically checked three nonrectangular lattices and rejected the swapped denominator."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/relative-projective-line-chow-bridge",
+        "verdict": "corrected",
+        "note": "Handle constant f=1 before using the nonconstant supplier. Derive scalar invariance directly from P.5’s divisor formula; evaluate the corrected Steinberg current identity at the equal endpoints and then use r(α,β,0,∞)=α/β and inversion. Replaced the formula excerpt by a literal source passage and tightened its page locator. Three non-real rational-function examples independently check the zero sum. Clarified that the projective-line bridge itself permits all multiplicities; the continuity gap belongs to the elliptic truncation proof."
+      }
+    ]
   }
 }
