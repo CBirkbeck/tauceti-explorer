@@ -353,7 +353,9 @@ ShimuraCompactifications:C6/hilbert-q-expansion-injective
 ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent
   hilbert_qExpansion_coefficient_descent — SchemeAndStackFoundations:SF.0
 ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward
-  hilbert_boundary_ideal_pushforward — ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, AdicSpacesPartII:F0/formal-direct-image-comparison
+  hilbert_boundary_ideal_pushforward — ShimuraCompactifications:C0, ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, AdicSpacesPartII:F0/formal-direct-image-comparison
+  Integral B-base proof uses proper flat geometrically connected/reduced boundary fibres
+  and the global-function comparison; the Δ-inverted weight criterion is not its input.
 ShimuraCompactifications:C6/hilbert-ordinary-model-comparison
   hilbert_ordinary_integral_model_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H1, AdicSpacesPartII:F0
 ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison
@@ -365,7 +367,9 @@ ShimuraCompactifications:C6/hilbert-near-ordinary-model
 ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient
   hilbert_ordinary_polarization_quotient — HilbertModularVarietiesAndShimuraCurves:H3, HilbertModularVarietiesAndShimuraCurves:H4, SchemeAndStackFoundations:SF.1
 ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison
-  hilbert_pLevel_boundary_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H3, HilbertModularVarietiesAndShimuraCurves:H4, ShimuraCompactifications:C4, ShimuraCompactifications:C5
+  hilbert_pLevel_boundary_compare — ShimuraCompactifications:C0, ShimuraCompactifications:C3, HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H3, HilbertModularVarietiesAndShimuraCurves:H4, ShimuraCompactifications:C4, ShimuraCompactifications:C5
+  Toroidal maps require compatible fans; finiteness uses pullback fans/finite normalization.
+  Further subdivisions can be proper and nonfinite.
 ShimuraCompactifications:C6/hilbert-integral-differential-interface
   hilbert_integral_differential_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H4, AdicSpacesPartII:F0, AdicSpacesPartII:R3
 ShimuraCompactifications:C6/modular-toroidal-minimal-comparison
