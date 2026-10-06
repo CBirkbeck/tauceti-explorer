@@ -26783,7 +26783,8 @@
    ],
    "avoidAccountOf": "BP-LefschetzPencilsAndVanishingCycles--LPV.7",
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles--LPV.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #446"
   },
   {
    "id": "BP-LocalGaloisDeformationRings",
@@ -28926,9 +28927,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #993"
+   "note": "deliverables arrived from an external worker on issue #993",
+   "finishedAt": "2026-10-06T17:16:31Z"
   },
   {
    "id": "REV-ShimuraVarieties--V0",
