@@ -1,0 +1,702 @@
+{
+  "roadmapId": "ArithmeticKTheory",
+  "protocol": "blueprint-v1",
+  "part": "N.5",
+  "scope": [
+    "ArithmeticKTheory:N.5"
+  ],
+  "status": "complete",
+  "summary": "A target-level follow-up of the accepted N.1 packet. Six new declarations identify the Bockstein and descent maps, compute the natural e-invariant kernel and cokernel, determine the diagonal real-place extension rather than its cardinality, and compare the edge-normalised first étale Chern map on torsion. The seven inherited N.5 declarations keep their original ids and ownership. The stage is planned, not closed: exact supplier contracts and remaining source/ownership gaps are recorded; nothing is formalised.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:CommGroup.primaryComponent",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "The additive primary-component subgroup consists of x with ℓ^a x = 0 for some a; the source definition is the to_additive form of CommGroup.primaryComponent at lines 444–453.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "The cyclic additive group Z/w for w > 0; at modulus zero this is Z, so positivity is retained in the normal-form theorem.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      },
+      {
+        "ref": "mathlib:MonoidHom.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The additive subgroup on elements mapping to zero; read the to_additive definition of MonoidHom.ker at lines 233–243.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      },
+      {
+        "ref": "mathlib:MonoidHom.range",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The additive subgroup image of an additive group homomorphism; read the to_additive definition of MonoidHom.range at lines 63–68.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      },
+      {
+        "ref": "mathlib:ZMod.castHom",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Canonical reduction ZMod n to ZMod m when m divides n; read lines 328–337. Used to state the nonsplitting acceptance example for reduction Z/16 to Z/8.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      },
+      {
+        "ref": "mathlib:ZMod.addOrderOf_one",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "addOrderOf (1 : ZMod w) = w, with no hidden nonzero-modulus hypothesis; read lines 121–123.",
+        "checked": "Statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; additive generated names additionally checked by Lean elaboration where used."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft, 29 August 2013; page references are printed draft pages, with combined PDF pages explicitly distinguished.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "accessed": "2026-10-06",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "readSections": [
+        "IV.2.1–2.8.2: coefficients, UCT, Bott elements, exceptional product moduli",
+        "V.6.8–6.8.1: Soulé localisation proof",
+        "VI.1.1–1.7.1: rigidity, Harris–Segal input, Suslin torsion and equivariance",
+        "VI.2–VI.3.1.2: W, e, Harris–Segal and the real torsion map",
+        "VI.8.1–8.4: cd-two odd torsion",
+        "VI.9.1–9.5: real-place coefficient sequences and the odd integral table"
+      ]
+    },
+    {
+      "id": "Weibel.HandbookI5.2005",
+      "title": "Algebraic K-Theory of Rings of Integers in Local and Global Fields",
+      "authors": "Charles A. Weibel",
+      "edition": "Handbook of K-theory, chapter I.5 (2005), published author copy; printed pp. 139–190.",
+      "url": "https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf",
+      "accessed": "2026-10-06",
+      "sha256": "6c6368a61982eca8b05a44d521088c61d9c890a02454766a0ff5a6c1c6c831fe",
+      "readSections": [
+        "§5.3, pp. 147–149: e-invariant and Harris–Segal",
+        "§5.4, pp. 153–154: first étale Chern normalisation",
+        "§5.7, pp. 167–169: primary torsion",
+        "§5.8, pp. 171–174: real two-primary calculation and Theorem 1"
+      ]
+    },
+    {
+      "id": "RognesWeibel.2000",
+      "title": "Two-primary algebraic K-theory of rings of integers in number fields",
+      "authors": "John Rognes and Charles A. Weibel; appendix by Manfred Kolster",
+      "edition": "Journal of the American Mathematical Society 13 (2000), 1–54, author-hosted published PDF.",
+      "url": "https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf",
+      "accessed": "2026-10-06",
+      "sha256": "9d770c079313ccc26f29da641d301269edf12985f122fd107ab201f086e8f446",
+      "readSections": [
+        "§1, pp. 6–8: coefficient descent and e-invariant factorisation",
+        "Theorem 5.6 and its proof, pp. 28–29: real-place coefficient output",
+        "Theorems 6.7 and 6.9 and their proofs, pp. 31–34: extension and ring/field comparison"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "Primary torsion through coefficients and localisation",
+      "kind": "comparison",
+      "statement": "Let F be a number field, S a finite set of finite places, ℓ a prime, j ≥ 2, O = O_{F,S} and R = O[1/ℓ]. The coefficient Bockstein is a natural isomorphism β_R : K_{2j}(R; Q_ℓ/Z_ℓ) → K_{2j−1}(R){ℓ}. Localisation identifies K_{2j−1}(O){ℓ}, K_{2j−1}(R){ℓ} and K_{2j−1}(F){ℓ}; these identifications commute with coefficient maps, enlarging S and pullback along embeddings of number fields (using compatible sets of inverted places). The Bockstein here has degree −1; it is not a tensor-product definition of coefficient K-theory.",
+      "hypotheses": [
+        "S is finite; j ≥ 2; ℓ is prime.",
+        "K_{2j}(R) is finite by the inherited finiteness-and-rank theorem."
+      ],
+      "proofSteps": [
+        "Use the Q_ℓ/Z_ℓ universal coefficient sequence 0 → K_{2j}(R) ⊗ Q_ℓ/Z_ℓ → K_{2j}(R; Q_ℓ/Z_ℓ) → K_{2j−1}(R){ℓ} → 0 from H.6. A finite group tensors to zero with a divisible group, so the Bockstein is an isomorphism. Finiteness is asserted for R, not for K_{2j}(F).",
+        "Transport along the inherited N.5/soule-theorem, applied to O and R, to identify the three odd-degree primary subgroups. Alternatively, localisation at the places over ℓ uses L.1/quillen-k-groups: both neighbouring positive-degree residue groups have order prime to ℓ.",
+        "Naturality of the coefficient cofiber and the localisation maps gives the commutative squares for S ⊆ S′ and for field embeddings. Use the baseline primary-component subgroup rather than inventing a torsion carrier."
+      ],
+      "acceptance": [
+        "For j = 2 this compares K_4(R; Q_ℓ/Z_ℓ) with the ℓ-primary subgroup of K_3(R), not with K_4(R) ⊗ Q_ℓ/Z_ℓ.",
+        "The statement applies at ℓ = 2 even when F has real places: the real correction enters descent, not this Bockstein.",
+        "It does not imply finiteness of any positive even K-group of F."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+        "StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence",
+        "StableHomotopyKTheory:H.6",
+        "mathlib:CommGroup.primaryComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.2.5 and Exercise IV.2.6, printed pp. 280, 284; VI.8.2 proof, printed p. 513 (combined PDF pp. 288, 292, 521)",
+          "match": "The coefficient exact sequence and its use on a ring of ℓ-integers; use the corrected residue ring recorded in ArithmeticKTheory/E17."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "primaryBockstein_localisation"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "The e-invariant is the descent edge",
+      "kind": "comparison",
+      "statement": "With F,S,R,ℓ,j as in primary-bockstein-localisation, choose the same Bott-normalised, G_F-equivariant Suslin identification K_{2j−1}(F^s){ℓ} ≅ Q_ℓ/Z_ℓ(j) as in the inherited e-invariant. The degree-zero descent edge ε_R : K_{2j}(R; Q_ℓ/Z_ℓ) → H^0_et(R; Q_ℓ/Z_ℓ(j)) = W_j(F){ℓ} satisfies ε_R = e_{F,ℓ} ∘ loc ∘ β_R. At odd ℓ, and also at ℓ = 2 when F is totally imaginary, ε_R and hence e_{F,ℓ} are isomorphisms. This identifies the maps, not just the orders of their groups. At ℓ = 2 with real places the equality still holds, while the edge can have kernel or cokernel.",
+      "hypotheses": [
+        "j ≥ 2; R inverts ℓ.",
+        "Use one coherent Suslin/Bott coefficient convention on the separable closure and on the descent edge.",
+        "The assertion that the edge is an isomorphism is restricted to odd ℓ or totally imaginary F."
+      ],
+      "proofSteps": [
+        "Over F^s, Suslin gives K_{2j}(F^s; Q_ℓ/Z_ℓ) ≅ Q_ℓ/Z_ℓ(j), and its Bockstein identifies it with the primary torsion in K_{2j−1}(F^s); even integral K-groups of F^s are uniquely divisible.",
+        "The descent edge is restriction to the geometric point followed by G_F-invariants. The natural Bockstein square with R → F → F^s therefore identifies it with the inherited e-invariant composed with β_R. For ℓ = 2 this factorisation is explicitly stated after Rognes–Weibel Example 1.6.",
+        "In the cohomological-dimension-two cases, import from M.7 the Q_ℓ/Z_ℓ descent calculation, including H^2(R; Q_ℓ/Z_ℓ(j+1)) = 0 for j ≥ 2. Only H^0 remains in total degree 2j, so the edge is an isomorphism. Natural maps between descent spectral sequences give compatibility with S and field embeddings."
+      ],
+      "acceptance": [
+        "For a totally imaginary exceptional field such as Q(√−7), the dyadic edge is still an isomorphism; exceptional cyclotomic image alone does not create a real-place kernel.",
+        "For Q and j = 2, e_{Q,2} is surjective with nonzero kernel; replacing the equality of maps by an isomorphism without the cohomological-dimension hypothesis fails.",
+        "Changing the Suslin trivialisation changes both sides coherently; no unrelated generator of W_j is declared canonical."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/e-invariant",
+        "ArithmeticKTheory:N.4/the-w-invariant",
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "RognesWeibel.2000",
+          "locator": "§1, paragraph following Example 1.6, printed p. 8",
+          "match": "Explicit factorisation through the Bockstein and restriction to an algebraic closure, at ℓ = 2."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "VI.1.6–1.7.1, printed pp. 467–468; VI.8.2–8.3, printed pp. 513–514 (PDF pp. 475–476, 521–522)",
+          "match": "Suslin equivariance and the cohomological-dimension-two descent argument for each prime."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "eInvariant_eq_descentEdge"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "Normal form of a diagonal elementary two-group extension",
+      "kind": "theorem",
+      "statement": "Let w,r be positive integers with 2 | w and r ≥ 1, and E an abelian group in a short exact sequence 0 → (Z/2)^r --ι→ E --p→ Z/w → 0. Suppose that a lift x of 1 ∈ Z/w satisfies w x = ι(1,…,1). Then x has order 2w, E ≅ Z/(2w) ⊕ (Z/2)^{r−1}, and p has no additive section. The lift relation is independent of the choice of x because w annihilates the kernel. The equivalence is an existence statement, depending on a basis of the kernel; it is not an equivalence of the sequence with a split extension.",
+      "hypotheses": [
+        "w > 0; r > 0; 2 divides w.",
+        "ι is injective, p is surjective and ker p = im ι.",
+        "p(x) = 1 and w x = ι of the nonzero diagonal vector."
+      ],
+      "proofSteps": [
+        "Fix a coordinate v₀ of (Z/2)^r, possible since r > 0, and write d = (1,…,1). The subgroup C of vectors whose v₀-coordinate is zero is a complement to the diagonal: a = a(v₀)d + (a − a(v₀)d). Reindex the remaining coordinates to identify C with (Z/2)^{r−1}; no finite-dimensional basis theorem is needed.",
+        "Surjectivity of p and exactness show that x and ι(C) generate E: subtract an integer multiple of x to enter ker p, then eliminate the diagonal component using w x = ι(d). If m x + ι(c) = 0 with c in C, applying p gives w | m. Write m = qw; injectivity of ι gives q d + c = 0. Its v₀-coordinate forces q even, and then c = 0. Thus precisely the relations 2w x = 0 and 2c = 0 remain.",
+        "This presentation gives E ≅ Z/(2w) ⊕ C and order(x) = 2w. For another lift y, exactness gives y − x in im ι; since w is even, w(y − x) = 0. Hence every lift has the same nonzero w-multiple, whereas a section would give a lift killed by w."
+      ],
+      "acceptance": [
+        "w = 8, r = 1 gives a cyclic group of order 16 and no section to its quotient of order 8.",
+        "w = 8, r = 2 gives Z/16 ⊕ Z/2; it is not Z/8 ⊕ (Z/2)^2, whose exponent is 8.",
+        "Dropping r > 0 or the nonzero diagonal relation allows a split extension; these hypotheses must remain visible."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod",
+        "mathlib:MonoidHom.ker",
+        "mathlib:MonoidHom.range",
+        "mathlib:ZMod.addOrderOf_one",
+        "mathlib:ZMod.castHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "RognesWeibel.2000",
+          "locator": "Proof of Theorem 6.7, final paragraph, printed p. 33",
+          "match": "The source observes the common abstract isomorphism type; the presented relation identifies the particular diagonal class detected at every real place."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "diagonalExtension_normalForm"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.5/real-e-invariant-extension",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "The real-place extension of the e-invariant",
+      "kind": "theorem",
+      "statement": "Let F be a number field with real-place set V, r_1 = |V| > 0, and n = 8k+3 ≥ 3, j = 4k+2. Write T = K_n(F)_tors and W = W_j(F), cyclic of even order w = w_j(F). There is a natural short exact sequence 0 → (Z/2)^V --ι→ T --e→ W → 0. Under the identification of each kernel coordinate with the unique nonzero element of Z/2, the pushout along the coordinate projection (Z/2)^V → Z/2 at any v ∈ V is the pullback, along W ↪ Q/Z(j) at v, of 0 → Z/2 → K_n(ℝ)_tors → Q/Z(j) → 0; its last map is multiplication by 2 in compatible Suslin trivialisations. Consequently, after choosing W ≅ Z/w and lifting 1 to x, one has w x = ι(1,…,1). The extension class is the diagonal vector in Ext^1_Z(Z/w,(Z/2)^V) ≅ (Z/2)^V. Thus T ≅ Z/(2w) ⊕ (Z/2)^{r_1−1}, with e surjective and no section. The sequence and its real-place coordinates are natural; the cyclic generator and abstract direct sum are not chosen naturally.",
+      "hypotheses": [
+        "F is a number field; n = 8k+3 with k ≥ 0; r_1 > 0.",
+        "S-integer versions use the inherited odd-degree localisation isomorphism.",
+        "The Ext coordinate description uses a chosen cyclic generator of W; all generator choices give the same mod-two vector."
+      ],
+      "proofSteps": [
+        "Use the Bockstein-localisation comparison and M.7’s real descent filtration in degree 8k+4. Its two associated graded groups are H^2(F; Q_2/Z_2(j+1)) ≅ (Z/2)^V and H^0(F; Q_2/Z_2(j)) = W{2}, with kernel identified by restriction to real places. The previous comparison identifies its quotient map with e_{F,2}.",
+        "Import Suslin’s real torsion map from M.7: in degree 8k+3 the map K_n(ℝ)_tors → K_n(ℂ)_tors is multiplication by 2 on Q/Z. The map of descent filtrations to every real place identifies the corresponding pushout with its pullback over W{2}. Each coordinate extension is nontrivial, so a lift of a cyclic generator has w_2-multiple equal to the diagonal kernel vector.",
+        "For each odd prime, the e-invariant is an isomorphism by e-invariant-descent-edge. Adjoin these cyclic odd-primary factors. Since w/w_2 is odd, the full extension has the same diagonal mod-two class and the same lift relation with w.",
+        "Apply diagonal-extension-normal-form to determine the group and nonsplitting. For F ↪ E, restriction takes a kernel coordinate at a real place of F to every real place of E above it; coordinates which become complex vanish. This follows from the natural real-place restriction square. For fixed F, enlargement of S leaves the sequence identified with the field sequence."
+      ],
+      "acceptance": [
+        "For F = Q, j = 2 and the inherited w_2(Q) = 24 (weight subscript 2, full order), e has target Z/24, kernel Z/2 and domain Z/48; the certified K_3 example is owned by N.8.",
+        "When r_1 = 2 and w = 8, the diagonal class gives Z/16 ⊕ Z/2; the split group of the same order has smaller exponent.",
+        "Restriction to a totally imaginary extension kills the real-place kernel, consistently with the dyadic isomorphism there."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+        "ArithmeticKTheory:N.4/the-w-invariant",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.4/two-primary-w-invariant",
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "RognesWeibel.2000",
+          "locator": "Theorem 6.7, printed pp. 32–33 (final proof paragraph p. 33); Theorem 6.9, pp. 33–34",
+          "match": "Real-place maps identify the extension, not merely its cardinality; the all-coordinate diagonal statement follows by applying the proof to every real embedding."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "VI.3.1 and Table 3.1.1, printed p. 475; VI.9.4 proof, printed pp. 519–520 (PDF pp. 483, 527–528)",
+          "match": "Real-to-complex torsion map and the nontrivial extension detected at each real place."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "real_eInvariant_diagonalExtension"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Real-place torsion extension"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "The kernel and cokernel of the odd e-invariant",
+      "kind": "theorem",
+      "statement": "For a number field F, j ≥ 2, n = 2j−1 and finite S, let e : K_n(O_{F,S})_tors → W_j(F) be the inherited map transported to F. If F is totally imaginary then e is an isomorphism. If F has r_1 > 0 real places, its kernel and cokernel are respectively (0,0) for n ≡ 1 mod 8; ((Z/2)^{r_1},0) for n ≡ 3 mod 8; (0,Z/2) for n ≡ 5 mod 8; and (0,0) for n ≡ 7 mod 8. In degree 3 mod 8 the sequence has the diagonal class of real-e-invariant-extension. In degree 5 mod 8, e is injective with image the odd-primary subgroup of W_j(F); here j is odd and |W_j(F){2}| = 2. These are assertions about the actual e-map, natural under enlargement of S and field embeddings, rather than chosen direct-sum isomorphisms.",
+      "hypotheses": [
+        "F number field; S finite; j ≥ 2.",
+        "Use the residue class of n, not that of j, to index the four rows."
+      ],
+      "proofSteps": [
+        "At every odd prime, and at 2 for a totally imaginary field, use e-invariant-descent-edge; kernel and cokernel vanish primarywise.",
+        "For a real field use M.7’s even-degree Q_2/Z_2 coefficient filtration: degrees 8a, 8a+2, 8a+4, 8a+6 give W_{4a}{2}, W_{4a+1}{2} = Z/2, the real-place extension over W_{4a+2}{2}, and zero respectively. Index by n+1 = 2j, excluding degree zero.",
+        "Identify the edge with e via the comparison. Degree 8a+4 is real-e-invariant-extension; degree 8a+6 has zero source and target W_{4a+3}{2} = Z/2 by N.4. In the other two rows the edge is an isomorphism.",
+        "Reassemble primary components of the finite torsion groups. Combine this map-level table with the inherited finiteness/rank result to recover the inherited two integral structure theorems, without adding duplicate declarations or choosing natural free bases."
+      ],
+      "acceptance": [
+        "Real n = 3 has kernel (Z/2)^{r_1}; stating only that e is noninjective loses the required coordinates and extension class.",
+        "Real n = 5 has no dyadic torsion although W_3(F){2} is nonzero: its cokernel is Z/2.",
+        "The n ≡ 1 row begins at n = 9 in this scope; it makes no assertion about K_1 of S-integers."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.4/two-primary-w-invariant",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "VI.9.4–9.5, printed pp. 519–521 (PDF pp. 527–529); VI.2.6, printed p. 474 (PDF p. 482)",
+          "match": "Even coefficient rows and the integral mod-eight consequences, retaining the maps and correcting the two-primary w convention in ArithmeticKTheory/E20."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "eInvariant_kernel_cokernel"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Odd e-invariant kernel and cokernel"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
+      "parentStageId": "ArithmeticKTheory:N.5",
+      "realises": [
+        "ArithmeticKTheory:N.5"
+      ],
+      "title": "The first étale edge Chern map on torsion",
+      "kind": "comparison",
+      "statement": "Let F,S,R,ℓ,j be as in primary-bockstein-localisation. Let c_edge : K_{2j−1}(R)^∧_ℓ → H^1_et(R; Z_ℓ(j)) be the first étale Chern map normalised as the ordinary-to-étale K-theory comparison followed by its degree-one edge (the Dwyer–Friedlander normalisation). Let δ : H^0_et(R; Q_ℓ/Z_ℓ(j)) → H^1_et(R; Z_ℓ(j)) be the connecting map of 0 → Z_ℓ(j) → Q_ℓ(j) → Q_ℓ/Z_ℓ(j) → 0. Then δ identifies W_j(F){ℓ} with the finite torsion subgroup of H^1_et(R; Z_ℓ(j)), and on K_{2j−1}(R){ℓ} one has c_edge = δ ∘ e_{F,ℓ} ∘ loc. In particular c_edge has the same torsion kernel as e, and its cokernel into cohomological torsion agrees with the preceding kernel/cokernel table. This does not identify unnormalised higher Chern classes with e: their factorial/sign conventions require the separate M.8 comparison.",
+      "hypotheses": [
+        "j ≥ 2; R inverts ℓ; S finite.",
+        "c_edge is edge-normalised and uses the same coefficient/Bockstein sign as e-invariant-descent-edge.",
+        "Completion is the K-spectrum ℓ-adic passage; its odd group agrees with ordinary ℓ-adic completion here by finite generation and the H.6 Milnor/UCT interface."
+      ],
+      "proofSteps": [
+        "By N.4/finiteness-of-the-w-invariant, W_j(F){ℓ} is finite for j ≥ 2. A nonzero invariant vector in the one-dimensional Q_ℓ(j) would force the j-th cyclotomic character to be trivial, making all of Q_ℓ/Z_ℓ(j) invariant and contradicting that finiteness. Thus H^0(R; Q_ℓ(j)) = H^0(R; Z_ℓ(j)) = 0, also at ℓ = 2. The coefficient long exact sequence embeds W_j(F){ℓ} into H^1(R; Z_ℓ(j)) and identifies it with the kernel of passage to Q_ℓ cohomology. Finite generation and rationalisation of this H^1 are supplied by M.2; that kernel is its finite torsion subgroup.",
+        "Use the natural coefficient triangles on K-theory and étale cohomology and the comparison supplied by M.7. On the even Q_ℓ/Z_ℓ group, its H^0 edge is ε_R. The connecting square therefore gives c_edge ∘ β_R = δ ∘ ε_R. Apply e-invariant-descent-edge and invert β_R.",
+        "For completion, the finite coefficient inverse systems are finite (Mittag–Leffler), and the inverse limit of the bounded finite even-group torsion term with multiplication-by-ℓ transitions is zero. H.6 then identifies the odd completed homotopy group with the completion of the finitely generated odd group, preserving its ℓ-primary torsion.",
+        "Restrict the formula to torsion and use e-invariant-kernel-cokernel. Naturality of both triangles proves compatibility with S and pullback. The formula contains no assertion about injectivity of a rational or syntomic regulator."
+      ],
+      "acceptance": [
+        "At ℓ = 2, for a real field and n ≡ 3 mod 8, the first edge Chern map has kernel (Z/2)^{r_1}; the real defect does not disappear by renaming the comparison.",
+        "At ℓ = 2 and n ≡ 5 mod 8, its image on dyadic torsion is zero but H^1(R; Z_2(j))_tors ≅ Z/2.",
+        "At odd ℓ the torsion restriction is an isomorphism onto cohomological torsion. An unqualified classical Chern class is not used as a replacement."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
+        "KTheoryFiniteLocalFields:L.1/completed-k-theory",
+        "MotivicEtaleKTheory:M.2",
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.HandbookI5.2005",
+          "locator": "§5.4, printed pp. 153–154; §5.7, Theorem 73, printed pp. 167–169",
+          "match": "The first étale Chern class is defined by the comparison followed by the étale spectral-sequence edge; coefficient compatibility is an explicit supplier interface."
+        },
+        {
+          "sourceId": "RognesWeibel.2000",
+          "locator": "§1, paragraph after Example 1.6, printed p. 8",
+          "match": "The degree-zero coefficient edge factors through torsion; the connecting-square formula is its coefficient-compatible degree-one consequence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Odd",
+        "namespace": "TauCeti.ArithmeticKTheory",
+        "declaration": "etaleEdge_eInvariant_torsion"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "imports": [
+    {
+      "packet": "ArithmeticKTheory--N.1.json",
+      "nodeIds": [
+        "ArithmeticKTheory:N.5/totally-imaginary-integral-structure",
+        "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
+        "ArithmeticKTheory:N.5/e-invariant",
+        "ArithmeticKTheory:N.5/harris-segal-summand",
+        "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two"
+      ],
+      "role": "Accepted declarations retained verbatim by reference; this follow-up supplements their missing map/extension proof interfaces and does not recreate their nodes."
+    }
+  ],
+  "inheritedRefinements": [
+    {
+      "nodeId": "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
+      "detail": "The inherited finite-coefficient ownership gap now resolves to the existing L.1/k-theory-mod-m, mod-m-products, bott-element, browder-mod-l-ring, quillen-k-groups and finite-field-galois-descent and finite-field-transfer-formulas nodes (all unchecked supplier plans). For the product argument work first at a multiple M of m whose prime-power factors avoid 2,3,4,8. Reduction on positive odd finite-field coefficient groups is onto because integral positive even groups vanish. Pass to F(ζ_M), use Bott powers and coefficient-localisation module compatibility, then the surjective residue transfers and reduction M → m. Do not infer an associative general-ring product at the exceptional moduli merely from m not congruent to 2 mod 4.",
+      "supplierNodes": [
+        "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+        "KTheoryFiniteLocalFields:L.1/mod-m-products",
+        "KTheoryFiniteLocalFields:L.1/bott-element",
+        "KTheoryFiniteLocalFields:L.1/browder-mod-l-ring",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "KTheoryFiniteLocalFields:L.1/finite-field-galois-descent",
+        "KTheoryFiniteLocalFields:L.1/finite-field-transfer-formulas"
+      ]
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
+      "detail": "New e-invariant-descent-edge supplies the missing agreement with e. edge-normalised-chern-torsion fixes the precise Chern convention, while agreement with the full M.8 higher-class family remains an inherited request; it is not silently discharged. The new nodes do not import the late full M.8 stage."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "StableHomotopyKTheory:H.6",
+      "need": "Extend the existing mod-l-homotopy-and-bockstein-sequence node to Q_ℓ/Z_ℓ = colim Z/ℓ^a with inclusion transitions: natural UCT 0 → K_d(R) ⊗ Q_ℓ/Z_ℓ → K_d(R; Q_ℓ/Z_ℓ) → K_{d−1}(R){ℓ} → 0 and its degree-minus-one Bockstein. Include compatibility with localisation and with the existing l-adic-completion-milnor-sequence node; no tensor-only definition of coefficient K-theory.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "Name the general characteristic-zero separable-closure Suslin interface K_{2j}(F^s; Q_ℓ/Z_ℓ) ≅ Q_ℓ/Z_ℓ(j), its Bockstein to odd torsion, and Aut(F^s)-equivariance, with coherent Bott normalisation (K-book VI.1.4, VI.1.6–1.7.1). The existing L.2/separable-closure-l-torsion node is only for a nonarchimedean local field at ℓ unequal to residue characteristic, and cannot substitute for arbitrary number-field Galois action.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/e-invariant"
+      ],
+      "proposedNodeId": "MotivicEtaleKTheory:M.7/suslin-separable-closure-torsion"
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "For j ≥ 2 and R = O_{F,S}[1/ℓ], supply natural Q_ℓ/Z_ℓ descent and H^2(R; Q_ℓ/Z_ℓ(j+1)) = 0 at odd ℓ or totally imaginary F at 2, yielding the degree-2j H^0 edge isomorphism. Supply the ordinary-to-étale comparison coefficient triangles and their edge/connecting square, so that the edge-normalised first Chern map has c_edge ∘ β = δ ∘ ε; this early comparison is separate from the full M.8 regulator/Chern family.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "Plan the named theorem suslin-real-finite-coefficient-comparison: for n ≥ 1 and m ≥ 2, K_n(ℝ; Z/m) → π_n(BO; Z/m) is an isomorphism (K-book VI.3.1). Include the real-to-complex torsion maps in Table 3.1.1, especially multiplication by 2 in degree 8k+3. This node must precede the named real-place-dyadic-descent-output: the natural Q_2/Z_2 filtration in degree 8k+4 has kernel H^2(F; Q_2/Z_2(4k+3)) ≅ (Z/2)^{real places}, quotient W_{4k+2}(F){2}, and maps to every real place identifying each coordinate extension with the multiplication-by-2 real extension. Supply all four positive even coefficient rows, the α^m real-place restrictions and the approximation input of VI.9.3; table orders alone do not suffice.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "ArithmeticKTheory:N.5/the-real-case-modulo-eight"
+      ],
+      "proposedNodeIds": [
+        "MotivicEtaleKTheory:M.7/suslin-real-finite-coefficient-comparison",
+        "MotivicEtaleKTheory:M.7/real-place-dyadic-descent-output"
+      ],
+      "finding": "RT-AREA-ktheory-1/3"
+    },
+    {
+      "supplier": "RefinedTraceMethods:RT.4:topological",
+      "need": "Requested scope extension, supplying M.7/suslin-real-finite-coefficient-comparison: real topological K-theory KO and BO, connective real theory, real Bott periodicity and π_n(BO) for n ≥ 1, plus coefficient Bocksteins and the real-to-complex map (degree 8k+4 integral multiplication by 2). The present stage covers complex ku/KU only; it does not yet supply this contract. Propose an early real-topological-k-theory node beside its complex nodes, with H.5:spectra and UPSTREAM:Topological-vector-bundles as foundations. This is not Tau Ceti Clifford-algebra periodicity.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/suslin-real-finite-coefficient-comparison"
+      ],
+      "proposedNodeId": "RefinedTraceMethods:RT.4:topological/real-topological-k-theory",
+      "finding": "RT-AREA-ktheory-1/3"
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.2",
+      "need": "Continuous étale coefficient sequence for Z_ℓ(j), Q_ℓ(j), Q_ℓ/Z_ℓ(j), natural connecting maps, finite generation of H^1_et(O_{F,S}[1/ℓ]; Z_ℓ(j)) for j ≥ 2, and identification of its rationalisation with Q_ℓ cohomology. These give H^1 torsion ≅ H^0(Q_ℓ/Z_ℓ(j)) once the positive-weight invariant groups over Z_ℓ and Q_ℓ vanish.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.8",
+      "need": "Inherited request only: compare the full family of étale higher Chern classes with M.7’s edge-normalised first Chern map, stating the exact factorial/sign factors and coefficient compatibility. The new arithmetic formula is for the edge normalisation, not an unqualified classical higher Chern class. Resolve the inherited late-stage dependency cycle described in restructure before using full M.8 as an implementation prerequisite of the older cd-two node.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two"
+      ]
+    },
+    {
+      "supplier": "KTheoryFiniteLocalFields:L.1",
+      "need": "Inherited Harris–Segal input: name and prove the finite-field monomial/wreath-product theorem used by K-book VI.1.5–1.5.2 (Harris–Segal 1975, Theorem 3.1), giving surjectivity on ℓ-primary odd K-groups and the cyclic summand of Z[ζ_m] detected at a residue field. Read the original §3; it has not been read for this packet. Finite-field orders and the Bott-element node alone do not prove this summand.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/harris-segal-summand"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.7",
+      "need": "Refine the existing biexact-pairings-and-products and abelian localisation interfaces with finite-coefficient localisation boundary linearity and transfer projection formula, at safe enlarged moduli M, compatible with reduction M → m. The accepted Soulé proof uses these at the Bott-power/transfer step, not merely the existence of integral products.",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/soule-mod-l-surjectivity"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Real topological supplier scope and the named Suslin comparison",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel"
+      ],
+      "detail": "The RT.4:topological stage is presently complex only. The precise proposed real KO/BO node and M.7 Suslin node are requests, not existing or reserved nodes. Their proof chains must be planned by those owners before the real descent interface can close."
+    },
+    {
+      "title": "Coefficient and edge compatibility still depend on open supplier contracts",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+      ],
+      "detail": "H.6 has finite coefficients but no explicit Q_ℓ/Z_ℓ colimit theorem in its existing node. M.7 has no packet node for the general Suslin equivariance, real filtered comparison or edge/connecting compatibility. M.2 must provide the specified continuous cohomology finiteness and rationalisation. The six declarations are planned from these exact requests, not established here."
+    },
+    {
+      "title": "Harris–Segal original proof remains unread",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/harris-segal-summand"
+      ],
+      "detail": "K-book VI.1.5 quotes Harris–Segal Theorem 3.1; no freely readable original §3 was obtained. The request preserves the finite-field/wreath-product ownership rather than using the abstract odd structure table to claim a chosen detected summand."
+    },
+    {
+      "title": "Inherited Chern-family cycle needs an owner correction",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two"
+      ],
+      "detail": "The inherited chain N.5 → M.8 → BorelRegulators:R.7 → Polylogarithms:P.2 → K3BlochGroups:V.3 → V.2 → N.5 is unresolved outside this job. The V.2 rank node requires only Borel rank and finite generation, so its N.5 dependency should be removed, as proposed in the accepted N.1 packet. The six new nodes add no full M.8 prerequisite; the complete union is not claimed closed or globally acyclic until this inherited cycle is repaired."
+    },
+    {
+      "title": "Safe product and coefficient-localisation interface in the inherited Soulé proof",
+      "neededBy": [
+        "ArithmeticKTheory:N.5/soule-mod-l-surjectivity"
+      ],
+      "detail": "Existing L.1 nodes now name the coefficient, Bott and transfer objects. Their unreviewed mod-m-products node contains an overbroad clause about general m after replacement. Use only its safe-prime-power statement at a multiple M with each primary factor outside {2,3,4,8}, then reduce the residue target to m; the coefficient localisation boundary/projection-formula contract remains requested from K.7. No new source error is inferred merely from the stronger proof guard."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticKTheory:N.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge the H.6 Q_ℓ/Z_ℓ coefficient and K.7 finite-coefficient localisation contracts supplementing the accepted Soulé proof.",
+        "Plan the named general and real Suslin nodes in M.7 and its real-place filtered output; add the real KO/BO scope extension at RT.4:topological.",
+        "Discharge the M.2 continuous cohomology and M.7 edge/connecting compatibility contracts; compare raw higher Chern normalisations in M.8 without the inherited cycle.",
+        "Read Harris–Segal §3 and supply its finite-field/wreath-product theorem at L.1.",
+        "Apply the V.5 arithmetic ownership correction and the V.2 rank-cycle correction in the owning packets; retain N.8 as the owner of certified examples."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "RefinedTraceMethods",
+        "MotivicEtaleKTheory"
+      ],
+      "detail": "RT-AREA-ktheory-1/3: complex ku/KU and Clifford periodicity do not provide the real BO comparison needed for M.7’s real descent.",
+      "proposal": "Add an early real topological K-theory node beside RT.4:topological’s complex theory; M.7 owns suslin-real-finite-coefficient-comparison and real-place-dyadic-descent-output and imports that node. N.5 imports the latter output, without constructing topological K-theory."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticKTheory",
+        "K3BlochGroups"
+      ],
+      "detail": "RT-AREA-ktheory-2/22: V.5 duplicates K_3(Z), K_3(Q), K_3(Q(i)) and lacks arithmetic/rank prerequisites.",
+      "proposal": "Keep group structure/localisation at N.5 and certified examples at N.8; add N.5 → V.5 and N.8 → V.5. V.5 imports these groups and retains its decomposable Milnor image and indecomposable quotient. It does not re-prove the group calculations. These atlas-stage edges are acyclic after the separately recorded V.2 rank correction."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "K3BlochGroups",
+        "MotivicEtaleKTheory",
+        "ArithmeticKTheory"
+      ],
+      "detail": "Inherited late M.8 Chern dependency runs back to N.5 through V.2/k3-rank-borel.",
+      "proposal": "For V.2/k3-rank-borel import BorelRegulators:R.3 and the existing arithmetic finite-generation node directly, removing N.5 and the broad N.3:ranks dependency that sends the full chain back through M.8. Keep M.7’s early edge-normalised comparison separate from M.8’s full regulator/Chern family. Do not edit those owning packets in this job."
+    }
+  ],
+  "inheritedSourceIssues": [
+    "ArithmeticKTheory/E6",
+    "ArithmeticKTheory/E10",
+    "ArithmeticKTheory/E13",
+    "ArithmeticKTheory/E15",
+    "ArithmeticKTheory/E17",
+    "ArithmeticKTheory/E20",
+    "KTheoryFiniteLocalFields/E3",
+    "KTheoryFiniteLocalFields/E4",
+    "KTheoryFiniteLocalFields/E10"
+  ],
+  "sourceIssues": [],
+  "targetCoverage": [
+    {
+      "target": "Odd ring/field localisation",
+      "providedBy": [
+        "ArithmeticKTheory:N.5/soule-theorem",
+        "ArithmeticKTheory:N.5/soule-mod-l-surjectivity"
+      ],
+      "supplement": "inheritedRefinements and exact supplier requests"
+    },
+    {
+      "target": "Totally imaginary and real integral structure",
+      "providedBy": [
+        "ArithmeticKTheory:N.5/totally-imaginary-integral-structure",
+        "ArithmeticKTheory:N.5/the-real-case-modulo-eight"
+      ],
+      "supplement": [
+        "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel"
+      ]
+    },
+    {
+      "target": "Natural e/Chern maps, kernels and extension classes",
+      "providedBy": [
+        "ArithmeticKTheory:N.5/e-invariant",
+        "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+      ],
+      "supplement": "M.8 full-class normalisation remains an inherited request"
+    },
+    {
+      "target": "Harris–Segal detected summand",
+      "providedBy": [
+        "ArithmeticKTheory:N.5/harris-segal-summand"
+      ],
+      "supplement": "Original proof gap retained and routed to L.1"
+    }
+  ],
+  "suggestedLean": {
+    "compiled": true,
+    "scope": "Only the algebraic diagonal-extension theorem (including independence of the chosen lift) and three acceptance examples can be stated with the pinned Mathlib carriers. The two-coordinate example explicitly specialises the diagonal normal form and contrasts the split group of the same cardinality. The five arithmetic comparison/theorem signatures are explicitly omitted until genuine higher K-theory, coefficients, descent, Tate-twist and étale cohomology carriers/maps exist. No proposition-valued surrogate records are introduced."
+  },
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.5",
+    "date": "2026-10-06",
+    "notes": "Independent review by Codex session codex-aqqeHF of BP-ArithmeticKTheory--N.5 (author session codex-mDuyQK). Checked all six new nodes, the seven retained N.5 imports, all six pinned baseline statements, the three hashed public source versions, supplier statements, inherited corrections, both confirmed red-team findings, target coverage, API/test ownership, Lean signatures and the six-planet union. Corrected locators, direct prerequisites and the group-theory proof/signature. Accepted as a complete target-level planning pass with planned coverage, nine requests and five explicit gaps, not closed or formalised. The inherited global dependency cycle and Harris–Segal original-proof boundary remain recorded. See REV-ArithmeticKTheory--N.5.md for the full findings and validation.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "verdict": "corrected",
+        "note": "UCT and localisation are valid for finite S and j ≥ 2, including real dyadic fields. Corrected Exercise IV.2.6 from printed p. 283/PDF p. 291 to printed p. 284/PDF p. 292; the finiteness input concerns R, not F."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "verdict": "verified",
+        "note": "Rognes–Weibel p. 8 explicitly factors the coefficient edge through Bockstein and restriction; K-book VI.1.7.1 supplies equivariance. Isomorphism is confined to odd primes or totally imaginary fields at two; the exact M.7 interfaces remain requests."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+        "verdict": "corrected",
+        "note": "Verified the elementary presentation and nonsplitting. Replaced the unlisted basis-choice step by an explicit coordinate complement; added lift independence to the Lean conclusion and made the existing two-coordinate acceptance example state the actual normal form."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "verdict": "corrected",
+        "note": "Rognes–Weibel’s map of extensions applies at every real embedding, giving each nonzero coordinate and hence the diagonal class. Clarified coordinate projection, corrected the Theorem 6.7 page range, and added the direct N.4 finiteness prerequisite. Real KO/BO and Suslin suppliers remain honestly open."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "verdict": "corrected",
+        "note": "Verified all four positive even coefficient rows against K-book VI.9.4–9.5 and the edge factorisation. Replaced the exceptionality definition with the direct two-primary W formula and added W finiteness for primary reassembly."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
+        "verdict": "corrected",
+        "note": "Verified the edge normalisation in Handbook §5.4 and the coefficient connecting-square argument conditional on the precise M.2/M.7 requests. Replaced an odd-prime-only cyclotomic prerequisite by all-prime W finiteness, rewrote invariant vanishing accordingly, and added direct arithmetic finite generation for completion."
+      }
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3593,
+  "stages": 3595,
   "originalStages": 2098,
-  "sourceRefinements": 1495,
+  "sourceRefinements": 1497,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3492,
+  "mathematicalStars": 3494,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1858,
-  "stageEdges": 9565,
+  "stageEdges": 9569,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -391,6 +391,12 @@
       "roadmap": "ArithmeticKTheory",
       "nodes": 5,
       "reviewer": "independent-review-REV-ArithmeticKTheory--N.2"
+    },
+    {
+      "file": "ArithmeticKTheory--N.5",
+      "roadmap": "ArithmeticKTheory",
+      "nodes": 6,
+      "reviewer": "independent-review-REV-ArithmeticKTheory--N.5"
     },
     {
       "file": "ArithmeticKTheory--N.7",
@@ -754,8 +760,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32402080,
-  "htmlSha256": "551425993a31e342d3612bae758935547c99dbb90f9d3aa023f980290b71d48c",
+  "htmlBytes": 32408372,
+  "htmlSha256": "e9382ef8c322b7117cb49bdf8afd41cc150d5bb67960708d62f577bd34a01bfe",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -786,7 +792,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "aa4db8d37fc326e61ce629f8f60f76442c59be620fa22b73ebb08ef3ed4a37d6",
+    "data/roadmap-distances.json": "29b9127ce93fa145d0e45171e33501325ffcf52624bb7ae43517565df185f724",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -860,6 +866,8 @@
     "data/blueprints/ArithmeticKTheory--N.1.md": "edda1f3cc5d29b969cb72bd343840816730703bcb47bd5448350acac97295a9f",
     "data/blueprints/ArithmeticKTheory--N.2.json": "d3070d69d979ec11af0f46b0429d24e1f8ac1ea704f725aa99d0842ea758a540",
     "data/blueprints/ArithmeticKTheory--N.2.md": "d1a6dfdca62e65ccaae49d1d5eb2234b2828e1640377402a841c93bfbb968d83",
+    "data/blueprints/ArithmeticKTheory--N.5.json": "c81c99e5f2d023c2bb4b5209f7c33648215a0043eb615b4a2f34b2a516074094",
+    "data/blueprints/ArithmeticKTheory--N.5.md": "60c9c703947c064badfc6ad1eb4d9d522db1012f335f2d1e2c04476230479893",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
     "data/blueprints/ArithmeticStatistics.json": "cdb8a395a9e31c558652bced177cbf833d4b6935341ba92418830a7c9e3a91aa",
