@@ -22719,9 +22719,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #692"
+   "note": "deliverables arrived from an external worker on issue #692",
+   "finishedAt": "2026-10-06T15:20:53Z"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H0",
@@ -27593,8 +27594,9 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeRegulators--D.1",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators--D.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #462"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #462",
+   "finishedAt": "2026-10-06T15:20:54Z"
   },
   {
    "id": "BP-PadicHodgeRegulators--L3",
@@ -56195,7 +56197,8 @@
     "REV-FIX-RT-BP-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5721"
   },
   {
    "id": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
