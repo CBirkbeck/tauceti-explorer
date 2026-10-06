@@ -1,0 +1,19 @@
+# Handoff: REV-PadicHodgeRegulators--D.1
+
+Issue #462; Codex session codex-sKVOSa; 2026-10-06. **Complete independent review, verdict needs_changes.** This is a finished review deliverable, not a checkpoint of an unfinished review. No second job was claimed.
+
+The packet has individual checks for all 68 nodes: 35 verified, 26 corrected, seven unverifiable. All 20 original baseline statements were read at their pinned commits; 19 remain, with Algebra.FormallyUnramified removed because it does not detect arithmetic ramification. All 17 source issues were reviewed: 16 confirmed, E103 rejected. Published/accepted source comparisons and public URLs/hashes are committed in the packet; the primary Besser source and CC99 public URL were located. See [the review report](../reviews/REV-PadicHodgeRegulators--D.1.md) for the complete corrections, source-version boundaries, baseline support limits, supplier checks and per-node record.
+
+Clear errors were corrected in place: semilocal tests, scalar-extension injectivity, syntomic cone field/sign, residue-spanning domain and count, integral lattice proof, admissible-symbol domain, upstream ownership, finite-versus-rational duality and Kummer interfaces, and curve target/bad-reduction overclaims. D.5 and the packet are partial, with precise remaining targets. No new nodes, implementation claims or promotions were made.
+
+Resume a revision at these seven unverifiable contracts:
+
+1. L1/local-duality-of-conditions: close de Rham H_f descent without the dimension/duality cycle; supply rational local duality/Euler results for every finite K/Q_p. The finite unramified ℓ≠p clause is now restricted correctly.
+2. D.2/log-syntomic-complex, fontaine-messing-kato-period-map, small-twist-comparison and syntomic-exponential: assign stable early CohomologyComparisons Part II producer IDs and provide the directed integral period morphism and divided/undivided normalization. The accepted red-team verification rejected D.2 ownership of the generic package; CP.4's later rational proper B_st theorem does not supply the required early integral/open interface.
+3. D.5/curve-weight-two-target and curve-etale-comparison: give the modified-q-Frobenius-to-rigid model comparison, actual raw boundary, transported K-structure and normalized exponential map. AC's Q_p footnote does not establish the general unramified K assertion.
+
+Keep D.5 partial until family specialization and the full semistable symbol formula are sourced and planned. Regenerate research/blueprint/readmes/PadicHodgeRegulators--D.1.md from the revised packet: this reader was read but is outside the review's editable deliverables and still contains earlier mathematical/ownership claims. Other explicit inherited gaps and the non-special-symbol conjecture may remain open honestly.
+
+Validation: check_blueprint.py reports 0 errors and 0 warnings. The suggested file elaborates with lean-check against pinned Mathlib 082e2d3, with 25 sorry warnings only. Four concrete finite-polylogarithm examples are proved. Other native declarations are unproved signatures; all supplier-dependent mathematical comments are explicitly UNELABORATED and are not verified by compilation. Tau Ceti's pinned statements were read but its modules are absent from the shared Mathlib-only build. Future revisions should replace comments with typed signatures/examples as genuine supplier carriers become available, following the protocol's permission to omit conditions that cannot yet be stated honestly. No language server or library build/update/cache command was used. JSON coverage/name/source-issue/source-version invariants and diff whitespace checks pass.
+
+All information needed by the next worker is in the committed packet, suggested file and report; no handoff depends on scratch files. The PR references #462; the orchestrator handles intake and creates the next revision job.
