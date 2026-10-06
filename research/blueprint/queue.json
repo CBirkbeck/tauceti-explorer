@@ -22783,7 +22783,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H4",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #368"
   },
   {
    "id": "BP-ClassicalSerreModularity--R26.1",
@@ -24451,11 +24452,12 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #723"
+   "note": "deliverables arrived from an external worker on issue #723",
+   "finishedAt": "2026-10-06T12:49:49Z"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -28176,7 +28178,8 @@
    ],
    "avoidAccountOf": "BP-PrismaticCohomology--PR.0",
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #475"
   },
   {
    "id": "BP-PrismaticCohomology--PR.8",
