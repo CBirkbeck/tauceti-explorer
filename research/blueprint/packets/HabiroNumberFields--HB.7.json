@@ -16,84 +16,112 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Coefficientwise ring map; family pullback uses it componentwise.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:PowerSeries.coeff_one_mul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "The coefficient of X in a product is a₀b₁+a₁b₀, including the cross terms needed in the split norm test.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:PowerSeries.exp",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
         "provides": "Formal exp X over a rational algebra; exp of a zero-constant series is its substitution.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:PowerSeries.log",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Log.lean",
         "provides": "Formal log(1+X) over a rational algebra, constant coefficient zero and linear coefficient one.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:PowerSeries.subst",
-        "kind": "theorem",
+        "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
         "provides": "Substitution when the inner constant coefficient is nilpotent; here every formal logarithm substituted has constant zero.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Module.Invertible.left",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "An actual linear equivalence M tensor N to R implies M invertible; it does not turn a merely bilinear multiplication map into an equivalence.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:CommRing.Pic.mk",
         "kind": "def",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Class of a module already equipped with Module.Invertible; uses the existing Picard group.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:CommRing.Pic.mk_tensor",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Pic.mk of a tensor product is the product of Pic.mk classes, for invertible modules.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:CommRing.Pic.mapAlgebra",
         "kind": "def",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Existing Picard pullback A tensor_R M; the Habiro scalar-extension theorem must identify this with the requested indexed module.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Algebra.norm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "Determinant norm, a multiplicative map. Use only on the finite free rational/local coefficient algebras here; on a module without a finite basis the implementation defaults to one.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_of_equiv_equiv",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Basic.lean",
         "provides": "Norm commutes with simultaneous ring equivalences respecting the algebra map; supplies the Frobenius/norm square.",
-        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
       },
       {
         "ref": "mathlib:CommRing.Pic.mk_self",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "The class of the ring module is the identity Picard class; the unit step of the character construction.",
-        "checked": "Exact statement Pic.mk R R = 1 read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, PicardGroup.lean, on 2026-10-06."
+        "checked": "Exact statement Pic.mk R R = 1 read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, PicardGroup.lean, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_eq_mk_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "For invertible R-modules M,N, Pic.mk R M = Pic.mk R N iff Nonempty (M ≃ₗ[R] N). Transports the actual tensor/unit/scalar linear equivalences to class equalities.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_norm",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+        "provides": "For a scalar tower of rings A/S/R, R and S commutative, with S free over R and A free over S, norm R (norm S a) = norm R a. Apply here only to finite free full coefficient algebras.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "For R commutative, S a ring and a free R-algebra, norm R (algebraMap R S x) = x ^ Module.finrank R S. The application has finite positive rank [E:F]; no infinite-rank fallback is used.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Basic.lean",
+        "provides": "For a nontrivial ring S finite and free over the commutative base R, norm R (0 : S) = 0. Positive extension rank, rather than a nonzero K₃ degree, is the relevant hypothesis.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
       }
     ]
   },
@@ -119,7 +147,7 @@
       "sha256": "d074047f202ee7e64298801b15327a9a634b6f7b6e4bcd5be7b2fda959ad876c",
       "accessed": "2026-10-06",
       "readSections": [
-        "Introduction §1.5, pp.12-13, citing the GSWZ Picard map; §2.2, pp.30-32, proof end of Theorem 2.9, Lemma 2.12 and Corollary 2.13; search for GSWZ/Picard references. The equalizer description is of the ring, not an effective descent theorem for Definition 1.4 modules."
+        "Introduction §1.5, printed pp.2-3 (PDF pp.6-7), citing the GSWZ Picard map; §2.2, printed pp.30-33 (PDF pp.34-37), proof end of Theorem 2.9, Lemma 2.12 and Corollary 2.13; search for GSWZ/Picard references. The equalizer describes the ring, not effective descent for Definition 1.4 modules. The false irreducibility sentence on printed p.32 is the already confirmed HabiroRings/E5; use the full finite étale residue algebra."
       ]
     },
     {
@@ -164,7 +192,7 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The branch q^{m/2}=exp(m log(q/ζ_m)/2) has value 1 at ζ_m."
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -203,15 +231,23 @@
       "tests": [
         {
           "name": "halfShiftLinearCoeff_minus_one",
-          "statement": "Over ℚ, z=−1 and r=1 give 1/48."
+          "statement": "Over ℚ, z=−1 and r=1 give 1/48.",
+          "kind": "computation"
         },
         {
           "name": "halfShiftLinearCoeff_two",
-          "statement": "Over ℚ, z=2 and r=1 give 1/12; detects the sign."
+          "statement": "Over ℚ, z=2 and r=1 give 1/12; detects the sign.",
+          "kind": "computation"
         },
         {
           "name": "halfShiftLinearCoeff_level",
-          "statement": "Over ℚ, z=−1 and r=2 give 1/96; detects failure to rescale x/r."
+          "statement": "Over ℚ, z=−1 and r=2 give 1/96; detects failure to rescale x/r.",
+          "kind": "computation"
+        },
+        {
+          "name": "halfShiftLinearCoeff_even_root",
+          "kind": "computation",
+          "statement": "Over ℚ, z=−1 and r=ζ₂=−1 give −1/48. This checks the sign of x/r at an even root order, under the constant-one formal half-power branch."
         }
       ]
     },
@@ -223,11 +259,11 @@
       ],
       "title": "First jet of the explicit local sections",
       "kind": "theorem",
-      "statement": "For p>3 unramified, m≥1 prime to p and ζ≠1 of order prime to p in a factor of K_p, let h=log(1+x/ζ_m) and choose q^{m/2}=exp(mh/2). The normalized factor U_{ζ,m}=Ψ_{[ζ],p,m}/ε_m([ζ])^{1/m} has constant coefficient 1 and linear coefficient halfShiftLinearCoeff(ζ,ζ_m). Its logarithm is Σ_{k≥2} B_k(1/2)m^{k−2}Li_{2−k}(ζ)h^{k−1}/k!. This statement concerns the formal factor for each allowed ζ; notation [ζ] does not assert that the raw symbol is a Bloch class.",
+      "statement": "For p>3 unramified, m≥1 prime to p and ζ≠1 of order prime to p in a factor of K_p, let h=log(1+x/ζ_m) and interpret the half power in (207) as the formal square root of q^m with constant 1, exp(mh/2). The normalized factor U_{ζ,m}=Ψ_{[ζ],p,m}/ε_m([ζ])^{1/m} has constant coefficient 1 and linear coefficient halfShiftLinearCoeff(ζ,ζ_m). Its logarithm is Σ_{k≥2} B_k(1/2)m^{k−2}Li_{2−k}(ζ)h^{k−1}/k!. This statement concerns the formal factor for each allowed ζ; notation [ζ] does not assert that the raw symbol is a Bloch class.",
       "hypotheses": [
         "The constant Kummer root is chosen as in HB.2; division by it normalises the section.",
         "The infinite Pochhammer logarithm means the regularized formal asymptotic expansion (47), not a convergent infinite product at a p-adic root of unity.",
-        "The branch at q^m=1 has half power equal to 1."
+        "The branch at q^m=1 has half power equal to 1: (q/ζ_m)^{m/2}=exp(mh/2). This is not an identification with the ordinary monomial q^{m/2} at even m, whose constant can be −1."
       ],
       "proofSteps": [
         "Apply −Σ ζ^ℓ exp(mhℓ/2)/(ℓ(1−exp(mhℓ))) from (46), interpreted by the shifted generating function (60).",
@@ -238,7 +274,8 @@
       "acceptance": [
         "The branch, minus sign, 24, factor ζ_m^{-1}, and cancellation of m are explicit.",
         "No p-adic integrality of Li₂ is used for this finite jet.",
-        "The same normalized unit for m=1, ζ=−1 is 1+x/48+O(x²)."
+        "The same normalized unit for m=1, ζ=−1 is 1+x/48+O(x²).",
+        "For m=2, ζ_m=−1 and ζ=−1, the branch-one unit has coefficient −1/48. The ordinary monomial q gives input −ζ=1 at the expansion point, so it is not this normalized formal factor."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.7/followup-half-shift-coefficient",
@@ -251,7 +288,7 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The branch q^{m/2}=exp(m log(q/ζ_m)/2) has value 1 at ζ_m."
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         }
       ],
       "implementationStatus": "unchecked"
@@ -294,11 +331,11 @@
         {
           "sourceId": "GSWZ.HB7.v2",
           "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
-          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The branch q^{m/2}=exp(m log(q/ζ_m)/2) has value 1 at ζ_m."
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
         },
         {
           "sourceId": "GSWZ.HB7.v2",
-          "locator": "Lemma 3.4, Corollary 3.5 and (195), pp.39-40; Theorem 10, p.42",
+          "locator": "Lemma 3.4, Corollary 3.5 and (195), pp.39-41; Theorem 10, p.42",
           "match": "The corrected shape is what Dwork requires. This node adds the coefficient calculation; it does not silently reprove all of Proposition 2.2."
         }
       ],
@@ -403,7 +440,7 @@
       ],
       "proofSteps": [
         "Apply Module.Invertible.left to H_{R,ξ}⊗H_{R,−ξ}≃H_R; use CommRing.Pic.mk.",
-        "Use Pic.mk_tensor and the actual tensor equivalence to prove addition; the zero case is Pic.mk_self.",
+        "Use Pic.mk_eq_mk_iff to transport the actual tensor and unit linear equivalences to class equalities; then Pic.mk_tensor proves addition and Pic.mk_self proves the zero case.",
         "Iterate multiplication for powers, with the zero-fold tensor H_R; prove independence of parenthesization by equality on pure tensors.",
         "Prove unit/associativity/symmetry diagrams by associativity and commutativity of the ambient family multiplication."
       ],
@@ -416,7 +453,8 @@
         "mathlib:Module.Invertible.left",
         "mathlib:CommRing.Pic.mk",
         "mathlib:CommRing.Pic.mk_tensor",
-        "mathlib:CommRing.Pic.mk_self"
+        "mathlib:CommRing.Pic.mk_self",
+        "mathlib:CommRing.Pic.mk_eq_mk_iff"
       ],
       "sources": [
         {
@@ -476,15 +514,18 @@
       "tests": [
         {
           "name": "k3PicardMap_zero_test",
-          "statement": "ξ=0 gives the free rank-one ring module and the zero of Additive(Pic)."
+          "statement": "ξ=0 gives the free rank-one ring module and the zero of Additive(Pic).",
+          "kind": "degenerate"
         },
         {
           "name": "k3PicardMap_inverse_test",
-          "statement": "The classes of ξ and −ξ add to zero."
+          "statement": "The classes of ξ and −ξ add to zero.",
+          "kind": "compatibility"
         },
         {
           "name": "k3PicardMap_power_test",
-          "statement": "The value at ξ is the actual Mathlib Pic.mk class; when this class is nontrivial the character value is nonzero. The n=2 tensor square has the class of 2ξ, and n=0 gives the unit."
+          "statement": "The value at ξ is the actual Mathlib Pic.mk class; when this class is nontrivial the character value is nonzero. The n=2 tensor square has the class of 2ξ, and n=0 gives the unit.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -519,7 +560,7 @@
         "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
         "HabiroNumberFields:HB.6/the-gluing-condition",
         "HabiroNumberFields:HB.2/the-exported-interface",
-        "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
+        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
         "PadicHodgeRegulators:D.1",
         "PadicHodgeRegulators:D.4",
         "MotivicEtaleKTheory:M.8",
@@ -558,6 +599,26 @@
           "name": "HabiroModule.baseChange_smul",
           "role": "structure",
           "statement": "baseChange(a f)=baseChangeRing(a) baseChange(f)."
+        },
+        {
+          "name": "HabiroModule.baseChange_zero",
+          "role": "simp",
+          "statement": "In each degree, baseChange(0)=0."
+        },
+        {
+          "name": "HabiroModule.baseChange_add",
+          "role": "simp",
+          "statement": "For f,g of the same degree ξ, baseChange(f+g)=baseChange(f)+baseChange(g) in degree res ξ."
+        },
+        {
+          "name": "HabiroModule.baseChange_mul",
+          "role": "compatibility",
+          "statement": "For f of degree ξ and g of degree η, baseChange(fg)=baseChange(f)baseChange(g) in degree res(ξ+η)=res ξ+res η, with the canonical torsor identifications."
+        },
+        {
+          "name": "HabiroModule.baseChange_ext",
+          "role": "extensionality",
+          "statement": "Two semilinear comparison maps with the same coefficient ring map and torsor identifications are equal if their induced rational cyclotomic component maps agree at every root order."
         }
       ],
       "uses": [
@@ -573,15 +634,18 @@
       "tests": [
         {
           "name": "baseChange_identity",
-          "statement": "For F=E, ι=id, fixed Δ, every component and section is unchanged."
+          "statement": "For F=E, ι=id, fixed Δ, every component and section is unchanged.",
+          "kind": "degenerate"
         },
         {
           "name": "baseChange_zero_index",
-          "statement": "ξ=0 agrees with the coefficient ring map H_R→H_S and maps 1 to 1."
+          "statement": "ξ=0 agrees with the coefficient ring map H_R→H_S and maps 1 to 1.",
+          "kind": "compatibility"
         },
         {
           "name": "baseChange_all_factors",
-          "statement": "For ℚ→ℚ(i), Δ divisible by 6·4 and p=5, the local map is Z_5→Z_5×Z_5, a↦(a,a); both factors are kept."
+          "statement": "For ℚ→ℚ(i), Δ divisible by 6·4 and p=5, the local map is Z_5→Z_5×Z_5, a↦(a,a); both factors are kept.",
+          "kind": "computation"
         }
       ]
     },
@@ -602,7 +666,7 @@
         "Compare on the p-adic lines: scalar pullback of an invertible section stays invertible, so it generates the target local line.",
         "Compare on all rational cyclotomic Kummer lines using finite-Chern naturality.",
         "Apply effective-descent base-change compatibility and conservative chart detection to the canonical tensor map; do not use completion alone as a faithfulness argument.",
-        "The Picard statement is the existing Mathlib mapAlgebra applied to this actual equivalence."
+        "Use the Module.Invertible instances established by followup-picard-character. Apply Mathlib Pic.mapAlgebra to these classes and Pic.mk_eq_mk_iff to the actual scalar linear equivalence."
       ],
       "acceptance": [
         "The tensor is over H_R and the target degree is res ξ.",
@@ -612,7 +676,9 @@
       "prerequisites": [
         "HabiroNumberFields:HB.7/followup-field-pullback",
         "HabiroNumberFields:HB.7/followup-effective-global-descent",
-        "mathlib:CommRing.Pic.mapAlgebra"
+        "mathlib:CommRing.Pic.mapAlgebra",
+        "HabiroNumberFields:HB.7/followup-picard-character",
+        "mathlib:CommRing.Pic.mk_eq_mk_iff"
       ],
       "sources": [
         {
@@ -683,6 +749,11 @@
           "name": "HabiroModule.galois_smul",
           "role": "structure",
           "statement": "σ(a f)=σ(a)σ(f)."
+        },
+        {
+          "name": "HabiroModule.galois_section_mul",
+          "role": "compatibility",
+          "statement": "σ(fg)=σ(f)σ(g), in degree σ_*(ξ+η)=σ_*ξ+σ_*η; this is section multiplication, whereas galois_mul expresses automorphism composition."
         }
       ],
       "uses": [
@@ -694,15 +765,18 @@
       "tests": [
         {
           "name": "galois_identity",
-          "statement": "Identity is identity on every degree and every coefficient."
+          "statement": "Identity is identity on every degree and every coefficient.",
+          "kind": "degenerate"
         },
         {
           "name": "galois_complex_conjugation",
-          "statement": "For F=ℚ(i), conjugation squares to identity; on rational-family scalar i it sends i to −i while leaving ζ_m fixed."
+          "statement": "For F=ℚ(i), conjugation squares to identity; on rational-family scalar i it sends i to −i while leaving ζ_m fixed.",
+          "kind": "computation"
         },
         {
           "name": "galois_changed_index",
-          "statement": "A class with σ_*ξ≠ξ is sent to the distinct degree σ_*ξ; no endomorphism of H_{R,ξ} is asserted."
+          "statement": "A class with σ_*ξ≠ξ is sent to the distinct degree σ_*ξ; no endomorphism of H_{R,ξ} is asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -776,11 +850,11 @@
         "First norm the rational Kummer line at each m, using finite-Chern transfer/norm compatibility.",
         "The local-norm-defect theorem gives the corrected local-section condition; extend uniquely to all roots. For general elements use the local line expression a·s and the ring norm of a.",
         "Norm commutes with γ* and τ, so norm of (24) lies in the corresponding localised restricted H_R ring. Prove ring-family norm membership by commuting with the Frobenius gluing.",
-        "Prove tower and product laws by determinant norm transitivity; prove the restriction/transfer degree law on fields using the imported K-theory projection formula.",
+        "Use Algebra.norm_norm for tower transitivity and multiplicativity of Algebra.norm for product laws, on finite free full coefficient algebras. Use Algebra.norm_algebraMap for N(baseChange f)=f^{[E:F]}; the imported K-theory projection formula gives tr(res ξ)=[E:F]ξ.",
         "Global membership and torsor coherence still require the named supplier inputs and effective descent, recorded explicitly."
       ],
       "acceptance": [
-        "Identity extension gives identity, and zero section has zero norm in positive degree.",
+        "Identity extension gives identity, and zero section has zero norm when the finite coefficient extension has positive rank [E:F], including K₃ degree zero.",
         "A split degree-two local test distinguishes norm of series from coefficientwise scalar norm.",
         "Do not assert a linear transfer on modules or a global generator; no line-norm isomorphism on Picard groups is claimed without a finite-locally-free ring map and its determinant-line theory."
       ],
@@ -793,7 +867,10 @@
         "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
         "MotivicEtaleKTheory:M.8",
         "PadicHodgeRegulators:D.4",
-        "mathlib:Algebra.norm"
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_norm",
+        "mathlib:Algebra.norm_algebraMap",
+        "mathlib:Algebra.norm_zero"
       ],
       "sources": [
         {
@@ -833,6 +910,16 @@
           "name": "HabiroModule.norm_eval",
           "role": "projection",
           "statement": "Evaluation commutes with the full cyclotomic coefficient/torsor norm whenever the evaluation is integral, in particular (m,Δ)=1."
+        },
+        {
+          "name": "HabiroModule.norm_zero",
+          "role": "simp",
+          "statement": "N(0)=0 in degree tr ξ for every ξ, because [E:F] is positive; this is not a claim that norm is additive."
+        },
+        {
+          "name": "HabiroModule.norm_expandAt",
+          "role": "projection",
+          "statement": "At every root order, expandAt(N f) is the determinant norm of the whole power-series expansion of f over the full finite coefficient algebra, with its canonical Kummer torsor norm. This is not the scalar norm applied separately to each coefficient."
         }
       ],
       "uses": [
@@ -848,15 +935,23 @@
       "tests": [
         {
           "name": "norm_identity",
-          "statement": "Degree-one identity extension gives N(f)=f in every degree."
+          "statement": "Degree-one identity extension gives N(f)=f in every degree.",
+          "kind": "degenerate"
         },
         {
           "name": "norm_res_degree_two",
-          "statement": "For a quadratic extension and a pulled-back section, N(res f)=f², with degree tr(res ξ)=2ξ."
+          "statement": "For a quadratic extension and a pulled-back section, N(res f)=f², with degree tr(res ξ)=2ξ.",
+          "kind": "compatibility"
         },
         {
           "name": "norm_split_cross_term",
-          "statement": "In a split degree-two local algebra, (1+a x,1+b x) has norm 1+(a+b)x+ab x²; coefficientwise norm would incorrectly give constant 1 and linear ab."
+          "statement": "In a split degree-two local algebra, (1+a x,1+b x) has norm 1+(a+b)x+ab x²; coefficientwise norm would incorrectly give constant 1 and linear ab.",
+          "kind": "computation"
+        },
+        {
+          "name": "norm_zero_test",
+          "kind": "degenerate",
+          "statement": "In the finite free nontrivial coefficient algebra, the norm of zero is zero, including the section of K₃ degree zero. A no-finite-basis norm that defaults to one fails this test."
         }
       ]
     }
@@ -964,6 +1059,11 @@
       "id": "HabiroNumberFields/E26",
       "packet": "HabiroNumberFields.json",
       "disposition": "Unproved global abelian generator claim, not used."
+    },
+    {
+      "id": "HabiroRings/E5",
+      "packet": "HabiroRings.json",
+      "disposition": "Independently confirmed the same false irreducibility sentence in Wagner.Thesis.HB7, Lemma 2.12 proof, printed p.32/PDF p.36, and the 14 January 2026 author copy q-Habiro.pdf, p.18. For m=3, ℓ=7, Φ₃=(q−2)(q−4) mod 7. Use the full finite étale residue algebra, not a chosen field factor. Refer to the existing reviewed finding rather than duplicate it; no HB.7 node invokes this ring proof as an indexed-module descent theorem."
     }
   ],
   "sourceSearch": {
@@ -974,9 +1074,12 @@
       "Scholze papers page: Habiro preprint linked; the listed erratum belongs to a different paper",
       "Wagner thesis introduction and §2.2 ring equalizer",
       "Bouis-Gazda 2602.21894v1 introduction: first Chern/weight-one, not a K₃-module tensor descent theorem",
-      "Repository inherited sourceIssues and public title+erratum/tensor-proof searches"
+      "Repository inherited sourceIssues and public title+erratum/tensor-proof searches",
+      "Independent review: https://ferdinand-wagner.github.io/ and its current thesis link, checked 2026-10-06; no separate erratum listed.",
+      "Independent review: arXiv:2510.04782 listing (v2 latest) and https://ferdinand-wagner.github.io/papers/q-Habiro.pdf, dated 14 January 2026, Lemma 2.12 proof p.18; the false irreducibility sentence persists.",
+      "Independent review: HabiroRings.json, confirmed source issue HabiroRings/E5 and its full-algebra correction; do not create a second finding."
     ],
-    "result": "No replacement proof or published correction found at the relevant locators; no new source issue is asserted. Inherited verified issues are referenced rather than duplicated."
+    "result": "No replacement indexed-line descent proof or published correction found in the passages/searches recorded. The supporting thesis repeats the already confirmed HabiroRings/E5; its full-algebra correction is referenced. No new source issue is asserted; inherited verified issues are not duplicated."
   },
   "planetPolicy": {
     "inherited": [
@@ -1000,5 +1103,68 @@
     "new": [],
     "reason": "Retain the four accepted HB.7 planets without duplicate nodes or a second planet for the same Theorem 2. Assembly retains those IDs and replaces their open proof contracts with these refinements; total remains four."
   },
-  "suggestedPolicy": "The standalone suggested file instantiates the rational coefficient API and the conditional Picard character against existing Mathlib. Actual indexed Habiro modules, Coleman functions and transfer torsors are unavailable at the pins; their exact signatures, API names and tests are recorded as expressly omitted declarations with the missing imported objects named, following PROTOCOL §13. Generic power-series consequences and split-norm tests are elaborated without substituting arbitrary sets or Prop-valued theorem fields for those objects."
+  "suggestedPolicy": "The standalone suggested file instantiates the rational coefficient API and the conditional Picard character against existing Mathlib. Actual indexed Habiro modules, Coleman functions and transfer torsors are unavailable at the pins; their exact signatures, API names and tests are recorded as expressly omitted declarations with the missing imported objects named, following PROTOCOL §13. Generic power-series consequences and split-norm tests are elaborated without substituting arbitrary sets or Prop-valued theorem fields for those objects.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.7",
+    "date": "2026-10-06",
+    "notes": "Independently checked all 11 nodes, source locators/excerpts, 16 pinned Mathlib declarations, supplier statements, audit, APIs/tests, standalone suggested file and four inherited planets. Corrected source pagination, formal half-power convention, wrong K-theory functor dependency, Picard prerequisites, norm citations/APIs and test kinds. Reconfirmed inherited HabiroRings/E5 in the supporting thesis without duplicating it. RT-AREA-ktheory-2/15 is handled by direct D.1 edges and the reader document. Complete is a finished target-level planning pass; HB.7 stays planned, not closed, with 3 honest gaps and 4 requests. Every declaration remains unchecked; neither global descent nor arithmetic naturality is claimed proved.",
+    "checked": [
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-half-shift-coefficient",
+        "verdict": "corrected",
+        "note": "Recomputed B₂(1/2)=−1/12 and the rational function, map/scale/sign cases; added all test kinds and the even-root coefficient test; made the formal half-power branch convention explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+        "verdict": "corrected",
+        "note": "Checked (46),(47),(60),(207) against v2. The k=0 pole cancels, B₁(1/2)=0 and exponentiation preserves the coefficient −ζ/(24ζ_m(1−ζ)). Clarified the branch-one formal square root and the even-m distinction; the higher analytic defect remains an imported gap."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+        "verdict": "corrected",
+        "note": "Checked reduction of nontrivial prime-to-p roots, unit denominators for p>3 and finite weighted products on every factor. Fixed (195) page range to 39–41; D.3 valid-presentation and higher-defect inputs remain explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "verdict": "verified",
+        "note": "The stated additive closure, finite projectivity, actual chart base changes and conservativity are correctly retained as G-global-descent. Neither GSWZ §3.3 nor the supporting ring equalizer is treated as a proof. No global generator is assumed."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "verdict": "verified",
+        "note": "Conditional on actual descent/base-change and conservative charts, the multiplication map is an isomorphism locally and hence globally. The inverse certificate is a finite sum of products, not a unit section. G-global-descent remains open."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-picard-character",
+        "verdict": "corrected",
+        "note": "Confirmed existing Module.Invertible and Picard APIs. Added mk_eq_mk_iff for transporting linear equivalences; the unit/tensor character, inverses and powers are conditional on tensor bijectivity. Added all test kinds."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-field-pullback",
+        "verdict": "corrected",
+        "note": "Read suppliers and replaced the exact-category K.1 elementary-properties citation by the actual K.2 ring-functor node. Added zero/addition, graded multiplication and componentwise uniqueness APIs plus test kinds. Common Δ, root-coordinate convention and all completion factors are correct; arithmetic naturality remains a gap."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-scalar-equivalence",
+        "verdict": "corrected",
+        "note": "Added the Picard-character prerequisite supplying invertibility and mk_eq_mk_iff for the class comparison. The tensor is over H_R, uses actual chart base changes, and is conditional on descent/naturality; no nonexistent R-algebra structure is assumed."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-galois-action",
+        "verdict": "corrected",
+        "note": "Checked the semilinear changed-degree action from coefficient pullback. Added section-multiplication compatibility separately from group composition and supplied test kinds. σ fixes abstract ζ_m and may permute completions."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "verdict": "verified",
+        "note": "Confirmed norm/Frobenius square against the exact baseline theorem. Finite free determinant base change and the constant-one formal log/trace proof support the target; branch, torsor, integral trace and regulator comparisons remain precisely requested inputs. Full algebras and p/x are retained."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-transfer-norm",
+        "verdict": "corrected",
+        "note": "Added existing norm transitivity, scalar norm and zero citations, plus whole-expansion/zero APIs and a zero test. Clarified positive extension rank versus K₃ degree. Transfer changes the grade additively but sections map multiplicatively; no linear transfer or unproved global line norm is claimed."
+      }
+    ]
+  }
 }
