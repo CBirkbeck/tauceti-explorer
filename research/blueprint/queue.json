@@ -23543,8 +23543,9 @@
    ],
    "avoidAccountOf": "BP-DerivedDeRhamCohomology",
    "prompt": "research/blueprint/prompts/REV-DerivedDeRhamCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #385"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #385",
+   "finishedAt": "2026-10-06T17:42:16Z"
   },
   {
    "id": "BP-DiamondEtaleCohomology--C0",
@@ -25009,8 +25010,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #734"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
@@ -26783,8 +26785,9 @@
    ],
    "avoidAccountOf": "BP-LefschetzPencilsAndVanishingCycles--LPV.7",
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles--LPV.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #446"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #446",
+   "finishedAt": "2026-10-06T17:42:19Z"
   },
   {
    "id": "BP-LocalGaloisDeformationRings",
@@ -28363,7 +28366,8 @@
    ],
    "avoidAccountOf": "BP-RankZeroOneBSD--BSD.7",
    "prompt": "research/blueprint/prompts/REV-RankZeroOneBSD--BSD.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #478"
   },
   {
    "id": "BP-ReductiveGroupsPartII",
