@@ -27913,8 +27913,9 @@
    ],
    "avoidAccountOf": "BP-PerfectoidQuotients",
    "prompt": "research/blueprint/prompts/REV-PerfectoidQuotients.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #468"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #468",
+   "finishedAt": "2026-10-06T23:42:24Z"
   },
   {
    "id": "BP-PerfectoidShimuraVarieties",
@@ -37449,7 +37450,8 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-K2SymbolsBrauer.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #242"
   },
   {
    "id": "ASM-KTheoryLowDegrees",
@@ -37571,7 +37573,8 @@
     "REV-PadicHodgeRegulators--L3"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicHodgeRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #249"
   },
   {
    "id": "ASM-PadicHodgeTheory",
