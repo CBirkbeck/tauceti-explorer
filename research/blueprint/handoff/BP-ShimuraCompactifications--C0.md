@@ -1,86 +1,105 @@
 # Handoff: BP-ShimuraCompactifications--C0
 
-## Identity and submission
+Issue [#990](https://github.com/CBirkbeck/tauceti-explorer/issues/990). Agent: Codex. Session: `codex-ewf5qv`. Branch: `codex-ewf5qv-shimura-compactifications`. Claim [6026533375](https://github.com/CBirkbeck/tauceti-explorer/issues/990#issuecomment-6026533375) was confirmed by bot comment [6026535422](https://github.com/CBirkbeck/tauceti-explorer/issues/990#issuecomment-6026535422); the issue was re-read after confirmation. This run handles this job alone.
 
-Issue #990. Agent: ChatGPT Pro (GPT-6 Astra Pro). Session: `cgpt-20260926-qseries-a91f`.
-Branch: `cgpt-20260926-qseries-a91f-c0-integral-charts`.
-Claim comment 5849266978; bot confirmation 5849267984. The claimed issue was re-read before work.
+The four authorized deliverables are the [packet](../packets/ShimuraCompactifications--C0.json), [reader](../readmes/ShimuraCompactifications--C0.md), [suggested file](../suggested/ShimuraCompactifications--C0.lean) and this handoff. This submission continues merged checkpoint #3092, preserves its seventeen node IDs and correct algebra/boundary arguments, and completes the target-level pass for the exact eight-stage scope. It uses `Refs #990`.
 
-Continuation of merged checkpoint #2959. Preserve the five C5 node IDs and their target assertions and hypotheses. This submission adds twelve C0 nodes and changes only the four authorized packet, reader, suggested-file and handoff paths. It is a **partial checkpoint**, using `Refs #990`, not a request to close the issue.
+## Planning completion and counts
+
+The packet is **complete**, under PROTOCOL §0's stopping rule: every stage in scope has its targets planned, with prerequisite chains ending in pinned libraries, external nodes, requested supplier stages or explicitly recorded gaps. Completion does not mean the roadmap is closed or implemented.
+
+- **89 nodes:** 21 constructions, 8 lemmas, 51 theorems, 2 comparisons, 5 definitions and 2 applications.
+- **95 API items; 89 definition/construction unit tests; 34 planets.**
+- **14 freshly checked baseline declarations; 35 supplier requests; 18 gaps.**
+- **18 routed-paper contracts** map to exact realizing nodes.
+- Every node has `implementationStatus: unchecked`.
+- C0, C1, C2, C2.general, C3, C3.general, C4 and C5 are each **planned** and **open**. Zero stages are closed. C6 is outside this submission.
+
+The reader specifies all 89 declarations and their hypotheses, proof routes, APIs, tests, consumers, direct prerequisites, source matches and acceptance properties. Its stage narratives fix the mathematical conventions and dependency order. The packet remains the machine-readable contract; the reader and suggested-file ledger use exactly its declaration/API/test names.
 
 ## Mathematical advance
 
-The previous C5 argument needed ordinary integral relative toric coordinates. This continuation supplies a declaration-level construction route rather than importing a complex chart as an arithmetic theorem.
+The accepted RS-32 retitling and ownership boundary are applied: **Analytic toric geometry, Part II: arithmetic toroidal compactifications** extends the unchanged AnalyticToricGeometry anchor. Common lattice/cone/dual-monoid and finite complex constructions are imported. C0 owns the single uniform finite-fan toric scheme over every commutative coefficient ring, including non-Noetherian valuation rings. The Binda–Kato–Vezzani nonarchimedean Part II imports this scheme and owns formal completion, adic generic fibre and perfectoid additions. This resolves the proposed ownership in RT-AREA-algebraicgeometry/34 without editing that other packet.
 
-Seven coefficient-algebra nodes use existing Mathlib carriers: the face projection; its coefficient formula; its actual inclusion section; its kernel as the off-face monomial ideal; the specified quotient equivalence; coefficient-map naturality; and extension of the kernel ideal under arbitrary coefficient change. The projection's underlying additive map is the existing coefficient restriction. The first isomorphism theorem, degree inclusion, coefficient maps and degree-equivalence algebra map are reused, not replanned.
+C0 now covers arithmetic-admissible systems, compatible common refinements, smooth projective refinements, arbitrary-ring charts and relative support properness. Infinite cone sets with finite arithmetic orbits remain distinct from the finite Fan carrier. Local finiteness is on the open positivity domain. Necessity of the support properness criterion requires a nonempty base; its sufficient direction allows the empty base.
 
-Five relative nodes give the actual torsor subalgebra/relative embedding, ordinary face open immersions, integral regular coordinates, scheme-theoretic relative strata and coordinate boundary intersections/exact opens. Their multiplication and transition units are explicit. For a right torsor section change t_beta=t_alpha g, the weight-m coordinates change by m(g)^(-1). Spec Sym(L) is the total space of L dual when L denotes the weight-one function line.
+C1 constructs the extra mixed boundary datum, its native mixed Hodge instance, torus/abelian-torsor tower, cusp labels, effective arithmetic stabilizers and incidence. HodgeStructures L2 and the existing MixedHodgeStructure/graded carrier are imported. Early mixed group/stabilizer inputs precede C0 arithmetic fans; cusp/cone labels consume the fans afterwards.
 
-The ideal and quotient retain nilpotent coefficients and commute with arbitrary coefficient-ring change; extension of an ideal is not confused with contraction. The complementary boundary monomial acts injectively on its exponent basis over every base ring. This strengthens the local density input to universal schematic density, without claiming that an arbitrary total-space dense open is fiberwise dense.
+C2 and C2.general plan the actual partial analytic charts, separation/gluing, normality/density, compactness/properness, normal crossings, algebraization, minimal boundary map and canonical descent. The actual nilpotent-preserving analytification repair node is imported, with its unfinished carrier integration recorded. Special mixed canonical models remain a precise supplier requirement. A pure Shimura datum is not assumed to have a universal abelian scheme; algebraic-space and scheme conclusions are distinguished.
 
-The first three C5 proof routes now name the relevant C0 nodes. The actual ordinary chart/label and neat branch-separation inputs remain required. The generic C0 construction depends on SF.0/SF.1, **not C4**, avoiding a C0–C4 cycle. The existing foundations → early C5 → B5 and early/late C5 export disciplines remain unchanged.
+C3 and C3.general plan refinement/level/datum maps, ordered Hecke spans, choice comparison, degree-zero and higher structure-sheaf comparisons, the derived boundary-ideal statement and coherent/ordinary comparisons. The toric blowup regression retains the distinction between pulled-back equation u²v and reduced-boundary equation uv. The Klingen correspondence uses the corrected first projection and level-p^(n+1) subgroup formula; acyclicity retains its boundary-factorization proof gap.
 
-## Counts and prototype boundary
+C4 plans fibrewise semi-abelian schemes, constructible characters, Poincaré extension classification, relative polarized degeneration data, Mumford quotient/effectivity, universal formal degeneration, Hom/endomorphism extension, level comparison, quasi-finite flat extended kernels, Tate/logarithmic Kodaira–Spencer comparisons and the full semi-abelian Tate sequence. The full Tate limit uses multiplication transition maps and Chinese remainders for its primewise product; prime powers are not claimed cofinal in the full divisibility index.
 
-- **17 nodes:** 3 constructions, 8 lemmas, 4 theorems, 2 comparisons.
-- **15 API items; 12 definition/construction tests; 4 planets.**
-- **10 baseline declarations; 8 supplier requests; 8 explicit gaps.**
-- Exact eight-stage scope; zero stages closed; every node remains `unchecked`.
-- Reader: approximately 5,000 words.
+C5 plans good algebraic models, the actual étale relation/quotient/family, formal completion and valuative properness before the retained five neat-boundary results and their B5 export. It also covers non-neat descent, logarithmic Kodaira–Spencer, Hodge semiampleness, graded finite generation, minimal compactification/ampleness, quasi-projectivity, higher-level normalization, normalized coefficient/Koecher statements, ordinary/formal extension, Hilbert–Siegel codimension, prime-Q level groups/generator covers, the genus-two canonical bundle and good-boundary cohomological exports.
 
-The suggested file has native signatures for all seven new coefficient-algebra nodes and the ten API entries of its two algebra constructions. It contains their **eight algebra examples**, plus the **three preserved baseline specialization examples**. The two trivial face-condition helpers retain explicit mathematical statements.
+The prime-Q cover requires the source's **finite flat group extension** of the open subgroup. The text does not assert a closed inclusion of that extension into the boundary semi-abelian identity component. That stronger assertion would conflict with boundary torsion rank loss. Its generic subgroup identification is retained, and the Isom cover uses the extended group alone.
 
-The five relative geometric signatures and their five API entries/four tests, and the five original C5 signatures, remain explicitly unstated. They need real pinned-compatible geometric carriers. No proposition-valued geometric stand-in or arbitrary scheme storing a desired conclusion has been introduced.
+## Lean outcome and signature boundary
 
-**The Lean file was not compiled.** No Lean or Lake executable was found in the local environment. New bodies are planning placeholders, not implementations. The quotient-equality criterion explicitly binds its face hypothesis; otherwise Lean's section-variable omission could accidentally remove that necessary premise.
+**The full suggested file did not elaborate.** A fresh `lean-check` invocation stopped at the missing object file for `TauCeti.Geometry.Toric.Algebraic.Fan.Basic`. The shared build's Mathlib checkout is the required pin, but its Tau Ceti checkout is `cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than `f790474821cf4256814db967cb154e7af3d0c369`, and the necessary Tau Ceti object files are absent. No library build, cache fetch, update or language server ran.
 
-## Evidence and source versions
+A Mathlib-only subset **elaborated successfully, exit 0, with 28 warnings, all declaration-uses-placeholder warnings and no errors**. It consists of the seven coefficient-algebra signatures, their ten API signatures/eight examples, two explicit face-condition helpers, native Spec/contravariant coefficient-map helpers and the two-coordinate blowup examples. The Tau Ceti imports, three Tau Ceti specialization examples and their unused monoid-object scope were excluded. An initial subset check caught differing universe levels in the new scheme-map helper; its ring and degree types now explicitly share a universe. The successful check is for those exact corrected signatures, not for the full file or any completed proof.
 
-Pins are unchanged:
+The full file preserves the three pinned-source baseline specialization examples. Its omission ledger records **every other declaration and every remaining API/test name with its mathematical statement**. These are comments, not elaborated signatures. Actual scheme/space/torsor/analytic/formal and coefficient carriers are still required. This is gap 1 and an open refinement of every stage. No missing geometric condition is replaced by an opaque proposition or an object containing the desired conclusion.
 
-- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+## Checks performed
 
-Seven fresh baseline records were verified by reading the actual pinned source:
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ShimuraCompactifications--C0.json --json`: **zero errors and zero warnings**, with all fourteen baseline references resolved at the recorded pins.
+- `git diff --check`: passed.
+- The local submission file check, exact scope/coverage check, declaration/API/test name reconciliation, preservation of all seventeen checkpoint IDs, routed-contract references, local prerequisite DAG, source-version/hash consistency and restriction to the four authorized paths are checked before submission.
+- `lean-check` outcomes are exactly those above. The preceding worker's finite polynomial regressions are provenance, not newly run tests. No application code changed, so no application test suite was run.
 
-1. `MonoidAlgebra.comapDomain`, its coefficient definition and additive laws, in `Mathlib/Algebra/MonoidAlgebra/MapDomain.lean`, blob `faf6cfb353a298df796c5c685cf9d8e9b3aa34a6`.
-2. `AddMonoidAlgebra.lift` and `AddMonoidAlgebra.lift_single`, explicit additive namespace, in `Mathlib/Algebra/MonoidAlgebra/Basic.lean`, blob `f2b04d2dc72870f52e1bb6d43192cdae72a1aafa`.
-3. `MonoidAlgebra.mapDomainAlgHom` and `MonoidAlgebra.domCongr`, including their source-generated additive forms and monomial formulas, in the same Basic file.
-4. `MonoidAlgebra.mapRingHom`, its monomial/coefficient formulas and composition, in the same MapDomain file.
-5. `Ideal.quotientKerAlgEquivOfRightInverse`, including its enclosing Ring/Algebra hypotheses and kernel lift, in `Mathlib/RingTheory/Ideal/Quotient/Operations.lean`, blob `225f9102da25667f06fe021abc4fb895669d0880`.
+The old checkpoint's workaround for upstream stage IDs is removed: the current checker distinguishes those atlas stages from baseline declarations. The four ordinary toric supplier edges have been restored, with their requests retained. This packet's local declaration graph is checked; no global atlas acyclicity is asserted. Coarse-stage C0/C1 and C5/B5 arrows, and the local R11.3 verbal reverse dependency, are explicitly recorded as structure/ownership repairs.
 
-The original three Tau Ceti baseline records are preserved as preceding-checkpoint provenance, not reported as new compilations. The MonoidAlgebra records explicitly describe the `to_additive` source-generated operations used by the native additive prototype. The exact source reads support those translations; index validation is separate from elaboration.
+The Swarm submission check must be observed on this PR's current head, with any failures repaired on the same branch. Earlier PR checks are not evidence for this submission.
 
-The accepted RS-32 and AUDIT-10 boundaries are retained. Default-branch code searches were leads only. In particular a modern `TauCeti/Geometry/Toric/Algebraic/FaceLocalization.lean` hit returned 404 at the pinned commit. That is not an exhaustive absence certificate. The finite-complex construction remains the unchanged anchor's work regardless of that path result.
+## Source evidence
 
-New source reading: Lan's author-hosted thesis revision of **14 March 2021**, `https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf`, §§6.1.1–6.1.2 in parsed text, plus selected recognition/approximation context in §§6.3.1–6.3.2. The current continuation successfully inspected the image of printed p. 503. Image requests for printed pp. 443–445 and 504 failed. The prior checkpoint's inspected pp. 503, 519–523 and 539 remain its provenance. No PDF bytes/hash, visual check of the failed pages, or publisher-edition comparison is claimed.
+The packet records URLs, exact inspected passages, edition boundaries and SHA-256 values for fourteen PDFs read on 6 October 2026:
 
-The author errata were revisited in parsed form for the approximation, finite-type/etaleness, stack and label conditions. Stacks normal-crossings/Stein readings remain the prior checkpoint's evidence. The source-generalities gap distinguishes Lan's relative-open cone notation from the closed-cone carrier, split tori from possibly nonsmooth multiplicative-type groups, and relative quotient strata from reduction after arbitrary base change. No new version-of-record error allegation is made.
+1. Lan's author-hosted thesis revision dated 14 March 2021: relative character charts; selected degeneration/effectivity passages; good-model/quotient and completion proofs; properness/boundary; coherent comparison; minimal compactification and Hodge positivity.
+2. Lan's author errata for the approximation, étaleness and label conditions.
+3. Lan 2017: fan polarizations; normalization Theorem 6.1 and its beginning; formally canonical coefficient Definition 8.5; Koecher Theorem 8.7 and its stated exceptions.
+4. Pink's author-hosted dissertation: mixed datum/boundary tower, arithmetic cone systems and reduction/quotient arguments, compatible projective refinements and algebraization/canonical descent through the explicitly listed portions of §12.
+5. Bijakowski–Pilloni–Stroh: publisher PDF §§5.1–5.2, normalized coefficient and Koecher targets.
+6. Boxer–Pilloni: the inspected author PDF's coherent/refinement setting and Lemma 4.2.2 Hom extension; publisher edition not collated.
+7. Pilloni's 17 June 2019 author copy: subdivision, ordinary extension and corrected Klingen correspondence; Duke version not collated.
+8. Pilloni 2012: publisher PDF §4.1.2 cyclic level-group extension and generator cover.
+9. Calegari–Geraghty: author-hosted typeset §§5.2–5.3 and appendix comparison passages, with publisher-page offset retained.
+10. BCGP 2021: arXiv v3 §8.2, genus-two Hilbert–Siegel codimension and formal extension.
+11. BCGP 2025: arXiv v1 Theorem 1.8.29 and beginning of proof, including its Lan–Stroh comparison dependency.
+12. Yuan: arXiv v4, 30 April 2024, text dated 1 May; §3.4 minimal Siegel Hodge ampleness. The requested author-hosted copy refused connection, and the 2026 publisher version was not collated.
+13. Farb–Kisin–Wolfson: arXiv v2 §3.2 character-line compactification of torus torsors; its cohomological/essential-dimension consumer stays with its owner.
+14. Bresciani: open-access Inventiones PDF, Lemma 8 proof, full semi-abelian Tate extension used by the generalized Jacobian consumer.
 
-## Checks actually performed
+The two Stacks source records retain preceding-checkpoint normal-crossings and algebraic-space Stein provenance. The reader's source appendix and packet `readSections` are the precise inspection boundary. No complete-book, whole-paper or publisher-wide verification is claimed.
 
-Local JSON round-trip, required fields, exact scope, retained C5 IDs, implementation/status safeguards, source and prerequisite resolution against the named available interfaces, internal dependency acyclicity, API/test name reconciliation, and forbidden-path/text checks passed. These are independent local checks, **not** the complete repository validator or full-atlas cycle check.
+Five reviewed source corrections are applied by finding ID: Pilloni E40/E109, Boxer–Pilloni E67, BPS E14 and Calegari–Geraghty E165. One new unreviewed source finding records Pink's author-copy Definition 2.1(v) filtration misprint, with a rendered-page inspection, pure-datum countercheck and correction search. It is scoped to the hashed author copy, not an uninspected publisher edition. An independent reviewer must check it.
 
-An exact finite-support polynomial regression checked two four-element input supports, one in N² and one in N × Z. Each support has all 256 coefficient assignments over Z/4. All 65,536 ordered pairs per support passed multiplication and addition compatibility: **131,072 multiplication pairs in total**, with no truncation of the product degrees. All 512 input polynomials passed naturality for the nonflat map Z/4 → Z/2. Each restriction had 16 images with 16 preimages per image. The selected-support kernel was checked against its off-face coefficient span over Z/4 and Z/2.
+## Exact follow-up contracts
 
-The tests also reject projection to the even submonoid, check retention of the nonzero nilpotent 2, and retain a negative Laurent exponent. These are finite regression cases, not a proof for all supports, a PEL test, geometric descent or Lean verification. The reader contains the general mathematical arguments.
+The independent review comes first. Each stage is planned, so PROTOCOL §0 permits this complete packet to stop without adding lemma-level nodes. Follow-ups refine the eighteen named gaps and supplier APIs, rather than claiming that the geometric signatures or proofs already exist:
 
-No local checkout-based repository suite or pinned Lean compilation ran. The raw-network route was unavailable. The current-head browser submission and blueprint CI must be observed and recorded on the PR; the successes of #2949/#2959 are not borrowed.
+1. Type the omitted geometric declarations/APIs/examples on actual supplier carriers, then elaborate the full file at both required pins.
+2. Integrate the nilpotent-preserving analytic carrier and actual chart extension.
+3. Supply the AMRT arithmetic-reduction/controlled-neighbourhood proof leaves.
+4. Supply the special mixed canonical boundary models and dense-special-point descent of Pink 12.13–12.17.
+5. Prove the integral toric subdivision Čech vanishing and coefficient/cohomology comparisons.
+6. Supply the relatively complete model, cubical/theta and relative effectivity construction leaves.
+7. Repair the R11.3 local supplier's verbal dependence on early C4 before importing it as an independent local carrier.
+8. Supply the original Faltings–Chai character/Hom, quasi-finite flat kernel and finite-flat cyclic level-group extension proofs, respecting their different boundary conclusions.
+9. Finish the corrected good algebraic-model approximation/versality proof.
+10. Prove non-neat branch and geometric-component descent in the actual model.
+11. Supply theta generation, finite section algebra, B5 constant terms and coarse Hodge Q-line descent.
+12. Prove the normalized chart/completion comparison; keep parahoric moduli-model identification in its separate owner.
+13. Supply the exact integral coefficient and Koecher positivity proof, including Definition 8.5 and Theorem 8.7 restrictions.
+14. Verify special-fibre/formal Hartogs hypotheses and the finite-thickening ordinary comparison.
+15. Factor the corrected Klingen first projection on actual boundary charts and prove its acyclicity.
+16. Supply the Lan–Stroh nearby-cycle/open comparison and duality through the étale cohomology owner.
+17. Collate uninspected publisher versions and inspect the supporting original proof leaves named by each gap.
+18. Supply exactness/topology and full-versus-primewise interfaces for the semi-abelian Tate sequence from A4/R02.1.
 
-## Exact continuation boundary
+All thirty-five supplier contracts and their exact consuming nodes are in the packet and reader. Main owners are SF.0–SF.3, Abelian A2–A5, AutomorphicBundles B3–B5, the toric/Hodge/reductive anchors, V8, the analytic/formal/adic owners, PEL M1/M2, ModularCurves R13.1–R13.3, R11.3 and the Galois/cohomology owners. Requests remain open; none was sent as a separate issue or message. RT-AREA-algebraicgeometry/3 and /27 outgoing owner links outside these four deliverables are recorded for the link-map maintainer.
 
-First implement or identify the generic SF.0/SF.1 relative-Spec and split-torus grading/descent interfaces and the anchor's intrinsic dual-monoid/supporting-character lemmas. The C0 code should use their actual carriers, not a new cone, fan, torsor or arbitrary graded algebra.
-
-For the PEL model itself continue Lan 6.3.2.1–6.3.2.6: approximate and descend the actual degenerating family with its discrete data, preserve the distinction between the natural completed-base embedding and the family-induced one, and retain the precise logarithmic Kodaira–Spencer/finite-differential hypotheses. Then decompose the actual relation, effective quotient, universal family, formal comparison and properness in 6.3.3. The partial source reading here is not that proof decomposition.
-
-Non-neat transport remains separate. Keep the proper-coherent-cohomology/Stein detector in SF.2 and the early/late C5 split. Complete the ten geometric node signatures and four geometric definition tests against genuine interfaces, then the remaining arithmetic fan/refinement, C2/C3, degeneration, positivity/minimal, higher-level and height targets listed in coverage. C6 is untouched.
-
-## PR 3092: initial CI failure and dependency-encoding repair
-
-Run `36269079228`, job `108479449304`, checked head `aab33b5b36a11ead31fbcc687c3d23d1daaa10c2` through merge ref `1551b5a5a34ac8e8f4cc1b4d2a21986fcd4306d9`. The allowed-file check reported four files and zero problems. All ten baseline declarations resolved in the pinned index. The blueprint validator nevertheless reported **four errors**, all for the same upstream stage ID, and zero warnings. This initial run was not successful.
-
-The resolver tests `BASE_REF` before membership in the atlas stage set. Consequently `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier` is wrongly classified as a library declaration in the prerequisites of relative-torus-embedding, relative-face-open, relative-regular-coordinates and relative-stratum-quotient. The existing `BP-SerreWeightAndLevelOptimisation.md` handoff documents exactly this collision and a request-plus-gap representation.
-
-The repair follows that precedent without deleting the mathematical dependency: the exact supplier remains in `requests`, is also preserved verbatim in each consuming node's `unresolvedPrerequisites`, and has its own explicit graph-encoding gap. Those four strings are omitted only from the checker-resolved `prerequisites` lists. The top-level anchor and its ownership, source interfaces, node statements and proofs are unchanged. This representation is intentionally partial: readers and integrations must read requests and unresolved prerequisites together with the resolved graph. Restore the four ordinary stage edges after the maintainer repairs the resolver. No fabricated baseline names, alternate atlas IDs, checker edits or other unauthorized files are introduced.
-
-The packet now has **eight gaps**; every other count is unchanged. This new gap is a tooling/representation boundary, not new missing mathematics. Revised-head CI is recorded in the PR conversation after observation, and is not inferred from the initial failed run.
+No continuation depends on disposable scratch files. Source URLs/hashes, mathematical statements, proof boundaries, supplier contracts and compilation outcomes are all preserved in these deliverables.
