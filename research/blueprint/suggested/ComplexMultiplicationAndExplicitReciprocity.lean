@@ -252,17 +252,36 @@ lemma reflexOrder_image {T Q : Type*} [CommRing T] [CommRing Q]
     (f : T →+* Q) (x : Q) : x ∈ reflexOrder f ↔ ∃ y, f y = x := by sorry
 lemma reflexOrder_fractionAlgebra {T Q : Type*} [CommRing T] [CommRing Q]
     (f : T →+* Q) (hf : Function.Surjective f) : reflexOrder f = ⊤ := by sorry
-/-- GAP CM0-order-discriminant: the generic order trace-discriminant carrier
-is needed. Preserve the square-index relation rather than claiming maximality. -/
-lemma reflexOrder_discriminant (dOrder dField index : ℤ)
-    (hindex : dOrder = index ^ 2 * dField) : dOrder = dField * index ^ 2 := by sorry
-/-- Test TauCeti.CM.CMType.test_reflex_order_quadratic. -/
-example : reflexOrder (RingHom.id ℤ) = ⊤ := by sorry
+/-- GAP GN11: dPhi is the relative discriminant ideal over the reflex integers
+of the finite order image, using GN11's trace pairing. Its identification is an
+omitted supplier condition. It is distinct from the absolute Z-discriminant of O.
+In the quadratic case E*=E, the selected tensor factor contains O_E via a⊗1. -/
+lemma reflexOrder_discriminant
+    (O : Subring (NumberField.RingOfIntegers gaussianField))
+    (f : NumberField.RingOfIntegers gaussianField ⊗[ℤ] O →+*
+      NumberField.RingOfIntegers gaussianField)
+    (hleft : ∀ a, f (a ⊗ₜ[ℤ] (1 : O)) = a)
+    (dPhi : Ideal (NumberField.RingOfIntegers gaussianField)) :
+    reflexOrder f = ⊤ ∧ dPhi = 1 := by sorry
+/-- Test TauCeti.CM.CMType.test_reflex_order_quadratic: use the actual tensor
+factor rather than an unrelated identity map on Z. -/
+example (O : Subring (NumberField.RingOfIntegers gaussianField))
+    (f : NumberField.RingOfIntegers gaussianField ⊗[ℤ] O →+*
+      NumberField.RingOfIntegers gaussianField)
+    (hleft : ∀ a, f (a ⊗ₜ[ℤ] (1 : O)) = a) : reflexOrder f = ⊤ := by sorry
 /-- Test TauCeti.CM.CMType.test_reflex_order_image. -/
 example {T Q : Type*} [CommRing T] [CommRing Q] (f : T →+* Q) (a b : T) :
     f a * f b ∈ reflexOrder f := by sorry
-/-- Test TauCeti.CM.CMType.test_order_discriminant. -/
-example : (-36 : ℤ) = 3 ^ 2 * (-4) ∧ (-36 : ℤ) ≠ -4 := by sorry
+/-- Test TauCeti.CM.CMType.test_order_discriminant: O=Z+3Zi has absolute
+discriminant -36, but its quadratic reflex image is O_E and dPhi is the unit
+relative ideal. GAP GN11: identify O with this order and dPhi with its relative
+trace discriminant; these missing conditions are not truth flags. -/
+example (O : Subring (NumberField.RingOfIntegers gaussianField))
+    (f : NumberField.RingOfIntegers gaussianField ⊗[ℤ] O →+*
+      NumberField.RingOfIntegers gaussianField)
+    (hleft : ∀ a, f (a ⊗ₜ[ℤ] (1 : O)) = a)
+    (dPhi : Ideal (NumberField.RingOfIntegers gaussianField)) :
+    reflexOrder f = ⊤ ∧ dPhi = 1 := by sorry
 
 end CMType
 
@@ -603,6 +622,8 @@ and matrix fragments below pin inverses and factors rather than reimplementing
 any supplier. -/
 theorem ideleTorsionDictionary (norm : ℂˣ) (x : ℂ) :
     (norm : ℂ) * ((norm⁻¹ : ℂˣ) : ℂ) * x = x := by sorry
+/-- For alpha(f*x)=sigma(x), alpha scales the rational pairing by
+chi_cyc/(f*conj(f)); chi_cyc alone scales the natural Galois map. -/
 theorem polarizationReciprocityDictionary (xi : ℂ) (f : ℂˣ) (cyclotomic : ℚˣ) :
     (xi * (cyclotomic : ℚ) / ((f : ℂ) * conj (f : ℂ))) *
       ((f : ℂ) * conj (f : ℂ)) = xi * (cyclotomic : ℚ) := by sorry
@@ -1102,33 +1123,35 @@ structure OrdinaryEndomorphismCertificate (p q : ℕ) (t DK : ℤ) where
   DK_negative : DK < 0
   fundamental : (DK % 4 = 1 ∧ Squarefree DK.natAbs) ∨
     ∃ d : ℤ, DK = 4 * d ∧ (d % 4 = 2 ∨ d % 4 = 3) ∧ Squarefree d.natAbs
-  outside : Finset ℕ
-  outside_exact : ∀ r : ℕ, r ∈ outside ↔ r.Prime ∧ r ∣ v / u
-  inside : Finset ℕ
-  inside_exact : ∀ r : ℕ, r ∈ inside ↔ r.Prime ∧ r ∣ u
-  outsideRelations : outside → List (ℕ × ℤ)
-  insideRelations : inside → List (ℕ × ℤ)
-  outsideCountClaimed : outside → ℕ
-  outsideCountComparison : outside → ℕ
-  outsideCountCurve : outside → ℕ
-  insideCountClaimed : inside → ℕ
-  insideCountComparison : inside → ℕ
-  insideCountCurve : inside → ℕ
-  outsideValid : ∀ r, outsideCountComparison r < outsideCountClaimed r
-  outsideVerified : ∀ r, outsideCountComparison r < outsideCountCurve r
-  insideValid : ∀ r, insideCountClaimed r < insideCountComparison r
-  insideVerified : ∀ r, insideCountCurve r < insideCountComparison r
+  primePowers : Finset (ℕ × ℕ)
+  primePowers_exact : ∀ r k : ℕ,
+    (r, k) ∈ primePowers ↔ r.Prime ∧ 3 < r ∧ 0 < k ∧ r ^ k ∣ v
+  relations : primePowers → List (ℕ × ℕ)
+  countD1 : primePowers → ℕ
+  countD2 : primePowers → ℕ
+  countCurve : primePowers → ℕ
+  relationValid : ∀ rk, countD2 rk < countD1 rk
+  powerVerified : ∀ rk, countCurve rk < countD1 rk ↔ rk.val.1 ^ rk.val.2 ∣ u
+  /- GAP CN3: these must be the independently computed isogeny-climbing
+  valuations, not free claims. Relation separation is guaranteed only for r>3. -/
+  valuationTwo : ℕ
+  valuationThree : ℕ
+  twoVerified : u.factorization 2 = valuationTwo
+  threeVerified : u.factorization 3 = valuationThree
 
 namespace OrdinaryEndomorphismCertificate
 variable {p q : ℕ} {t DK : ℤ} (cert : OrdinaryEndomorphismCertificate p q t DK)
 lemma trace : t ^ 2 - 4 * q = (cert.v : ℤ) ^ 2 * DK := by sorry
 lemma conductor_divides : cert.u ∣ cert.v := by sorry
-/-- Every conductor prime is covered by one of the two explicit separating
-relation families. GAP CN3/GN11: the raw relation/count arrays must be outputs of
-actual certified class-group and curve computations. -/
+/-- Cover every prime power r^k|v with r>3, and certify valuations at 2 and 3
+by isogeny climbing. For each pair let j=nu_r(v)-k+1,
+D1=(v/r^j)^2 DK and D2=r^(2k) DK (Endo v2 Corollary 4).
+GAP CN3/GN11: arrays must be the actual signed relation counts in these orders
+and on the curve; exponent signs are enumerated by the count routine. -/
 lemma valid_relations :
-    (∀ r : cert.outside, cert.outsideCountComparison r < cert.outsideCountClaimed r) ∧
-    (∀ r : cert.inside, cert.insideCountClaimed r < cert.insideCountComparison r) := by sorry
+    (∀ rk : cert.primePowers, cert.countD2 rk < cert.countD1 rk) ∧
+    cert.u.factorization 2 = cert.valuationTwo ∧
+    cert.u.factorization 3 = cert.valuationThree := by sorry
 /-- GAP CM5-End-verify: full verifier evaluates trace/factorization, relation
 validity and curve counts. This native partial verifier has the record-return shape but omits the
 relation/curve computation adapters and their input data. Its unproved body
@@ -1140,8 +1163,16 @@ example (h : cert.v = 1) : cert.u = 1 := by sorry
 /-- Test TauCeti.CM.OrdinaryEndomorphismCertificate.test_supersingular. -/
 example (h : (p : ℤ) ∣ t) : ¬ Nonempty (OrdinaryEndomorphismCertificate p q t DK) := by sorry
 /-- Test TauCeti.CM.OrdinaryEndomorphismCertificate.test_forged_relation. -/
-example (countSmall countLarge : ℕ) (h : countSmall ≤ countLarge) :
-    ¬ countSmall > countLarge := by sorry
+example (rk : cert.primePowers) (h : cert.countD1 rk ≤ cert.countD2 rk) :
+    False := by sorry
+/-- Test TauCeti.CM.OrdinaryEndomorphismCertificate.test_prime_powers:
+v=25,u=5 requires two different tests, accepting 5|u and rejecting 25|u.
+A prime-only certificate cannot distinguish these conductor valuations. -/
+example (hv : cert.v = 25) (hu : cert.u = 5) :
+    ∃ rk1 rk2 : cert.primePowers,
+      rk1.val = (5, 1) ∧ rk2.val = (5, 2) ∧
+      cert.countCurve rk1 < cert.countD1 rk1 ∧
+      ¬ cert.countCurve rk2 < cert.countD1 rk2 := by sorry
 end OrdinaryEndomorphismCertificate
 
 /-- GAP CM5-End-soundness: the full relation-list verifier is equivalent to
