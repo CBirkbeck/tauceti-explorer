@@ -393,6 +393,10 @@ the pins because their mathematical carriers are imported planning nodes.
   S^(m)[1/Δ][[x]] and satisfies the HB.6 coefficient-Frobenius root gluing on
   all components. The family is identified using unpowered_product_unique;
   integrality and the faithful coefficient model are separate recorded gaps.
+  The imported all-root-order symmetrization and torsion-power corollaries also
+  need the separate Corollary 1.11 extension argument recorded in
+  G-all-order-gluing; membership restricted to orders prime to Δ does not
+  supply that argument.
 
 * followup-kummer-orientation-contract / gaussian_constant_kummer_comparison:
   Match the full corrected U_m(1) with the fixed ε_m=c_ζ², including the inverse

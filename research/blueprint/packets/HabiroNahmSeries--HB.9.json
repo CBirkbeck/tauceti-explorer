@@ -364,7 +364,8 @@
         "HabiroNahmSeries:HB.9/followup-gaussian-first-jet",
         "HabiroNahmSeries:HB.9/specialisation-at-one",
         "HabiroNahmSeries:HB.8/fgi-collection",
-        "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity"
+        "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
+        "HabiroNahmSeries:HB.8"
       ],
       "sources": [
         {
@@ -408,7 +409,7 @@
         {
           "sourceId": "GSWZ.HB9.v2",
           "locator": "§3.3, proof of Theorem 5, corrected (212), p.43",
-          "match": "General-rank extension of the corrected rank-one product, importing the existing F_A. E47 fixes t^γ and the shift factors."
+          "match": "General-rank extension of the powered repair proposed in inherited E47, importing the existing F_A. This is a diagnostic family; the source product (212) is unpowered and its covariance is repaired separately below."
         }
       ],
       "implementationStatus": "unchecked",
@@ -442,7 +443,7 @@
       "uses": [
         {
           "where": "GSWZ Theorem 5 product gluing",
-          "how": "Combines γ expansions at q^γ and the inverse-root expansion into a volume-cancelled product."
+          "how": "Tests the powered repair of E47: its universal volume is V(t^γ)−V(t), so use the unpowered product for the gluing proof. At t=1 its common arguments agree with that product."
         },
         {
           "where": "HB.10 descendants",
@@ -549,7 +550,7 @@
       "sources": [
         {
           "sourceId": "GSWZ.HB9.v2",
-          "locator": "§3.3, paragraph following (213), p.43",
+          "locator": "§3.3, paragraph following (213), p.44",
           "match": "Own complete general-rank induction replacing the source rank-one uniqueness paragraph."
         }
       ],
@@ -586,7 +587,12 @@
         "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness",
         "HabiroNahmSeries:HB.9/followup-saturation-transfer",
         "HabiroNumberFields:HB.6/the-gluing-condition",
-        "HabiroNahmSeries:HB.8/identification-theorem"
+        "HabiroNahmSeries:HB.8/identification-theorem",
+        "HabiroNahmSeries:HB.9/followup-unpowered-auxiliary-product",
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+        "HabiroNahmSeries:HB.9/followup-regularisation-jet",
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8"
       ],
       "sources": [
         {
@@ -749,7 +755,8 @@
         "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
         "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
         "HabiroNumberFields:HB.2/kummer-value-P",
-        "HabiroNumberFields:HB.2/the-exported-interface"
+        "HabiroNumberFields:HB.2/the-exported-interface",
+        "HabiroNumberFields:HB.2"
       ],
       "sources": [
         {
@@ -795,7 +802,15 @@
         "HabiroNumberFields:HB.7/invertible-local-sections",
         "HabiroNumberFields:HB.7/the-global-module",
         "HabiroNumberFields:HB.7/followup-field-pullback",
-        "HabiroNumberFields:HB.7/followup-effective-global-descent"
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroRings:HR.1/the-etale-frobenius-lift",
+        "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
+        "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "HabiroNumberFields:HB.7",
+        "PadicHodgeRegulators:D.3"
       ],
       "sources": [
         {
@@ -835,7 +850,9 @@
         "HabiroNahmSeries:HB.9/descendants-by-specialisation",
         "HabiroNahmSeries:HB.9/specialisation-at-one",
         "HabiroNahmSeries:HB.9/followup-modified-potential-formula",
-        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "HabiroNahmSeries:HB.8/ring-S-and-its-level-m-variants"
       ],
       "sources": [
         {
@@ -1003,7 +1020,7 @@
       "sources": [
         {
           "sourceId": "GSWZ.HB9.v2",
-          "locator": "§3.3 paragraph after (213), p.43",
+          "locator": "§3.3 paragraph after (213), p.44",
           "match": "Own corrected uniqueness proof for the q^γ covariance; q^(γα_j)−1 replaces q^α_j−1."
         }
       ],
@@ -1033,7 +1050,7 @@
         "HabiroNahmSeries:HB.9/constant-terms-of-the-series",
         "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring"
       ],
-      "use": "Retain all 17 accepted target/construction IDs; this part refines their open proof contracts rather than restating targets under new IDs."
+      "use": "Retain all 17 accepted target/construction IDs; this part refines their open proof contracts rather than restating targets under new IDs. Import these as owned target/construction IDs with the limitations and inherited-source-issue dispositions of this follow-up. The full-ring single-branch embedding, powered-family universal integrality, and unrestricted-root corollaries are not imported as established proofs."
     },
     {
       "packet": "HabiroNumberFields--HB.7.json",
@@ -1112,7 +1129,8 @@
         "G-all-order-gluing: Integral all-order auxiliary products and indexed-module descent",
         "G-descendant-transport: All-order q-dependent descendant transport",
         "D.1/D.3/D.4 regulator suppliers and HB.2/HB.7 extension contracts.",
-        "The converse to torsion powers retains nonvanishing of constants at infinitely many permitted prime orders; no unconditional equivalence is claimed."
+        "The converse to torsion powers retains nonvanishing of constants at infinitely many permitted prime orders; no unconditional equivalence is claimed.",
+        "Imported all-root-order symmetrization and torsion powers require the separate Corollary 1.11 extension argument recorded in G-all-order-gluing; restricted membership does not prove it."
       ]
     }
   ],
@@ -1152,9 +1170,13 @@
       "neededBy": [
         "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
         "HabiroNahmSeries:HB.9/followup-etale-module-contract",
-        "HabiroNahmSeries:HB.9/module-membership"
+        "HabiroNahmSeries:HB.9/module-membership",
+        "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
+        "HabiroNahmSeries:HB.9/verifying-the-defining-conditions",
+        "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
+        "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring"
       ],
-      "detail": "Both powered and unpowered general-rank systems and uniqueness are specified. Only the unpowered product has universal volume cancellation. Prove its all-order integral Gaussian coefficients, full coefficient-Frobenius root reexpansion and Kummer descent over S^(m)[1/Δ] using faithful coefficient transfer. Supply actual HB.7 effective descent for the full quadratic étale algebra; local-span arguments allow a zero sum. The accepted base powered-family universal integrality statement is not a usable proof."
+      "detail": "Both powered and unpowered general-rank systems and uniqueness are specified. Only the unpowered product has universal volume cancellation. Prove its all-order integral Gaussian coefficients, full coefficient-Frobenius root reexpansion and Kummer descent over S^(m)[1/Δ] using faithful coefficient transfer. Supply actual HB.7 effective descent for the full quadratic étale algebra; local-span arguments allow a zero sum. The accepted base powered-family universal integrality statement is not a usable proof. The local first-jet argument and Theorem 5 cover root orders coprime to Δ. The imported all-root-order statements of Corollary 1.11 additionally require the source’s γ=1 product argument and the five-term/cyclic-dilogarithm identity for torsion constants, with their bad-order integrality and coefficient-gluing hypotheses checked. Restricted membership alone does not imply these unrestricted corollaries; retain their target IDs with this extension obligation."
     },
     {
       "id": "G-descendant-transport",
@@ -1235,13 +1257,18 @@
         "Garoufalidis publications page and Zagier preprint link: listed as preprint",
         "Public title + erratum/correction + regularised Pochhammer searches, 6 October 2026",
         "Repository HabiroNahmSeries sourceIssues E1–E63 and research/errata register: E64/E65 not already recorded"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read (59), (114), (118) in the byte-identified v2 and author PDF. Distribution of Li₂ over the m roots gives Li₂(Z exp(mw))/(m²h); its linear and quadratic terms have denominators mh and 2h. The B₁ term is −B₁(s)log(1−y), so its subtraction has the positive sign. At m=1 the printed quadratic term changes the Hessian and the constant sign fails normalization.",
+        "by": "REV-HabiroNahmSeries--HB.9"
+      }
     },
     {
       "id": "HabiroNahmSeries/E65",
       "source": "GSWZ.HB9.v2",
       "kind": "error",
-      "locator": "Definition 2.11, (118), p.30, arXiv:2412.04241v2; compare formal integral (112), p.28, and expansion (242), p.49",
+      "locator": "Definition 2.11, (118), p.30, arXiv:2412.04241v2; compare formal integral (112), p.29, and expansion (242), p.49",
       "printed": "⟨exp((kᵗA+diag(A)/2)(w+(1/m)log z)) ∏_j ψ_(k_j,z_j^(1/m),ζ_m)(w_j,x)⟩_Λ",
       "correction": "After correcting ψ as in E64, include the Euler-denominator factor exp(Nh/24), h=log(1+x/ζ_m), in the normalized Gaussian expression. The missing h-coefficient is N/24.",
       "reason": "The inverse Euler denominator (q;q)_∞^(−N) in (112) has regular factor exp(Nh/24); q^(1/24)(q;q)_∞ is the Dedekind eta normalization. An independent exact rational calculation at A=(3),m=1 gives the corrected-ψ first coefficient minus the coefficient in (242), using the inherited E41 correction exp(V/log(1+x)), equal identically to −1/24 after t=(z−1)z^(−3),δ=(3−2z)z^(−3). Adding 1/24 restores agreement. At t=0 the omission leaves a nonzero normalized first coefficient although F_A(0,q)=1. This is the same Euler-denominator mechanism already recorded for GZ in inherited E2, now in the separate GSWZ definition.",
@@ -1254,7 +1281,12 @@
         "Garoufalidis publications page and Zagier preprint link: listed as preprint",
         "Public title + erratum/correction + regularised Pochhammer searches, 6 October 2026",
         "Repository HabiroNahmSeries sourceIssues E1–E63 and research/errata register: E64/E65 not already recorded"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read (112), (118) and (242) in v2 and checked the author copy. The inverse Euler denominator contributes exp(Nh/24). Independently expanded the corrected regularization at m=1 and proved exactly over Q(z), with t=(z−1)/z³ and δ=(3−2z)/z³, that its Gaussian first jet plus 1/24 equals the coefficient displayed in (242) under inherited E41. This confirms the omitted scalar factor, conditional on the E64 correction.",
+        "by": "REV-HabiroNahmSeries--HB.9"
+      }
     }
   ],
   "sourceVersions": [
@@ -1269,7 +1301,8 @@
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Habiro.pdf",
       "read": "2026-10-06",
-      "note": "Opened the author PDF and checked the relevant (114)/(118) displays; the same subtraction and omitted factor occur. The pinned arXiv PDF supplies the byte-identified primary source."
+      "note": "Opened the author PDF and checked the relevant (114)/(118) displays; the same subtraction and omitted factor occur. The pinned arXiv PDF supplies the byte-identified primary source.",
+      "sha256": "9c01791a695e46c041514f75c61188b3a2bfb7bf09f6fae40805b9cc8d246423"
     },
     {
       "kind": "preprint",
@@ -1414,5 +1447,103 @@
     "session": "codex-gEEAjx",
     "issue": 6510,
     "date": "2026-10-06"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNahmSeries--HB.9",
+    "date": "2026-10-06",
+    "notes": "Independent review by Codex session codex-HyViHv of all 18 local nodes, 17 imported HB.9 IDs, 19 source excerpts, 11 pinned Mathlib declarations, the reviewed audit and cited suppliers. Corrected powered-product use, page locators and direct dependencies; delimited imported all-root-order corollaries as additional obligations in G-all-order-gluing. Independently confirmed E64/E65, the exact A=(3) first coefficient, Wick contractions and 1440 product-system coefficient equalities. Accepted as a complete planning pass with five honest open gaps and six supplier requests; no theorem is claimed implemented or proof-closed. The Mathlib-only suggested file elaborates with only proof-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-saturation-transfer",
+        "verdict": "verified",
+        "note": "Verified first-power divisibility implies every power by cancellation of ι(p) in the domain. Reduction injectivity is a sufficient extra hypothesis, not inferred from étaleness."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-branch-loss",
+        "verdict": "verified",
+        "note": "Verified A=5,p=5 gives T²=z⁴ and distinct factors T=±z². T−z² vanishes only on the normalized branch. The algebraic counterexample refutes the proposed transfer proof, not Theorem 4."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-regularisation-jet",
+        "verdict": "verified",
+        "note": "Verified all five residual vertices by root distribution and the Bernoulli expansion (59); independently confirmed E64 and its Gaussian-weight interpretation."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-gaussian-first-jet",
+        "verdict": "verified",
+        "note": "Verified every contraction coefficient, including 9+6 cubic pairings and the cubic-linear term, by independent Wick enumeration. All five tests and the map/subring APIs agree with the Lean polynomial."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "verdict": "corrected",
+        "note": "Verified the corrected first-jet formula and unit/adjugate argument on every local factor; exact A=(3) comparison confirms N/24. Added the requested corrected HB.8 input directly; its all-order identification remains G-HB8-identification."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-auxiliary-product",
+        "verdict": "corrected",
+        "note": "Corrected the contradictory volume-cancellation use and identified the powered construction as a diagnostic repair. Rescale-before-expand, the five APIs and all five tests are sound."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-product-system",
+        "verdict": "verified",
+        "note": "Verified all parameter powers and coordinate exponents from (33), independently checking degree-four coefficients for coupled rank-two matrices, including negative entries/shifts."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-product-uniqueness",
+        "verdict": "corrected",
+        "note": "Corrected the uniqueness-paragraph locator and excerpt to p.44. The arbitrary-rank total-degree induction and non-root-of-unity cancellation are valid, including empty coordinate type."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "verdict": "corrected",
+        "note": "Added the direct construction, system and corrected Gaussian inputs. This is a conditional unpowered contract: volume cancellation/uniqueness do not prove integrality. The full coefficient and all-order gluing gaps remain explicit."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-coleman-potential-sign",
+        "verdict": "verified",
+        "note": "Verified the positive sign by substituting the Coleman reflection identity and Nahm logarithms. The typed Lean lemma is an honest algebraic implication; actual Coleman functions stay imported."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-modified-potential-formula",
+        "verdict": "verified",
+        "note": "Verified the Taylor signs and p-powers by expanding φ(z)=z^p exp(pη). Legendre’s bound proves p-divisibility and convergence for p>3; the full-ring formula needs no logarithm on arbitrary units."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "verdict": "verified",
+        "note": "Verified the good-disc hypotheses against the four precise Coleman L2 suppliers. Reversing the Taylor calculation yields the stated regulator defect without evaluating the formal t-series at 1; D.1/D.4 remain requested."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+        "verdict": "corrected",
+        "note": "Added the requested HB.2 signed extension directly. Checked the m-th-power comparison with CGZ (7),(8),(20),(21). The full finite-Chern orientation is honestly G-kummer-orientation, not fixed by the p-adic sign."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+        "verdict": "corrected",
+        "note": "Added the exact Frobenius, first-jet, regulator, orientation and gluing inputs, plus requested HB.7/D.3 extensions. Checked the quadratic algebra may split; field pullback alone does not cover it. Effective descent remains open."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract",
+        "verdict": "corrected",
+        "note": "Added the deformed Nahm and coefficient-algebra suppliers directly. Verified t=q^(mν), the positive inverse-Hessian derivative, and all three acceptance computations. All-order transport remains recorded."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-unpowered-auxiliary-product",
+        "verdict": "verified",
+        "note": "Verified the original common-t product, q^γ covariance, four APIs and three tests; its construction reuses Mathlib rescale. This is the volume-cancelling family used by the gluing contract."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+        "verdict": "verified",
+        "note": "Verified each recurrence and ν−γe_j covariance directly from the source arguments, with independent exact degree-four coefficient checks."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness",
+        "verdict": "corrected",
+        "note": "Corrected the paragraph locator and excerpt to p.44. The total-degree proof is valid with multiplier q^(γα_j)−1 and γ≥1; uniqueness is kept separate from integral existence."
+      }
+    ]
   }
 }
