@@ -12,11 +12,15 @@ where the actual suppliers do not yet provide the types or maps. In particular:
   Jacobian, Picard/Gysin comparison and continuous Tate-module Kummer map;
 * character-sum-comparison, positive-conductor-stabilization and positive-tail-corestriction
   need the actual coefficient cohomology maps, restriction and corestriction;
-* differential-evaluation needs crystalline/de Rham realization and elliptic logarithms;
+* differential-evaluation needs crystalline/de Rham realization and elliptic logarithms,
+  including the ramified-conductor base-change comparisons requested by the review;
 * ordinary-p-old-family needs Hida moments, local regulator descent and global control;
 * weight-two-reciprocity, automorphic-reciprocity-export and corrected-bsd-input-export
   need the source-qualified regulators, completed unramified rings and period/twist maps.
 No opaque arithmetic types or conclusion-bearing fields replace these missing interfaces.
+The review report records the corrections to the companion reader: GH.5 owns the
+higher-weight leading-class unit, GH.6 owns non-torsion, and the existing HE.8
+comparison retains E(K)[p]=0. The BSD export imports native higher-weight suppliers.
 The namespace below records only algebraic components and diagnostic examples. Named
 components are labelled by the packet targets they support; they are not assertions of
 arithmetic realization. Every proof is deliberately a placeholder.
@@ -306,6 +310,29 @@ lemma positive_trace_normalization
       (alpha ^ (n + 1))⁻¹ • (x₁ - alpha⁻¹ • res₁ x₀) := by
   sorry
 end PositiveTrace
+
+section SquaredDifferential
+variable {F : Type*} [Field F]
+
+/-- Component of differential-evaluation: solving log = c * AJ before squaring
+uses two inverse powers of c. This algebra does not prove local realization or
+base change of the arithmetic logarithm at a ramified conductor field. -/
+lemma differential_squared_transport (AJ log c : F) (hc : c ≠ 0)
+    (h : log = c * AJ) : AJ ^ 2 = c⁻¹ ^ 2 * log ^ 2 := by
+  sorry
+
+-- The comparison scalar 3 contributes 1/9 to a squared logarithm formula.
+example : (3 : ℚ)⁻¹ ^ 2 * 6 ^ 2 = 2 ^ 2 := by
+  sorry
+
+-- A single inverse power gives the wrong value.
+example : (3 : ℚ)⁻¹ * 6 ^ 2 ≠ 2 ^ 2 := by
+  sorry
+
+-- Nonzero c is required: a zero logarithm loses the Abel--Jacobi value.
+example : (1 : ℚ) ^ 2 ≠ (0 : ℚ)⁻¹ ^ 2 * 0 ^ 2 := by
+  sorry
+end SquaredDifferential
 
 section ReciprocityTransport
 variable {R S M N : Type*} [CommRing R] [CommRing S]
