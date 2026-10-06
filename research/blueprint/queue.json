@@ -23708,7 +23708,8 @@
    ],
    "avoidAccountOf": "BP-DiamondSixOperations",
    "prompt": "research/blueprint/prompts/REV-DiamondSixOperations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #388"
   },
   {
    "id": "BP-DiamondsAndVStacks",
