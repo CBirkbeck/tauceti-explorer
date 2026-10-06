@@ -25936,8 +25936,9 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.7s",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.7s.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #429"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #429",
+   "finishedAt": "2026-10-06T14:24:02Z"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
@@ -27589,7 +27590,8 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeRegulators--D.1",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators--D.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #462"
   },
   {
    "id": "BP-PadicHodgeRegulators--L3",
