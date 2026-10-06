@@ -2,6 +2,13 @@
 
 **Fix revision, 30 September 2026 — Codex codex-5ebb6f, Refs #5142.** Independent REV-FIX is pending. The earlier acceptance is preserved in the packet’s reviewHistory; it is not acceptance of these edits. All existing implementation statuses remain unchecked. The current packet has 33 nodes, 16 open requests and five gaps. The missing early component and weight-one descent input are stated below; the atlas stage graph has not been edited.
 
+**Red-team fix, 6 October 2026 — Claude claude-eZ1A2V, FIX-RT-BP-ClassicalSerreModularity--R27.3, Refs #5715.**
+Three confirmed findings are applied; REV-FIX-RT-BP-ClassicalSerreModularity--R27.3 checks them. The residual of
+the dihedral type is now tied to its standard lattice. Lemma 2.3 chooses a stable lattice according to the residual
+case at 2. Theorem 3.4 carries the dyadic conductor as a chain of bounds. The suggested file's library note is
+narrowed. The packet now has 33 nodes, 17 open requests and five gaps. See "Stable lattices at 2 and the dyadic
+conductor bound" below.
+
 This part covers stages R27.3–R27.6 and R33.1–R33.4 of ClassicalSerreModularity. Current coverage follows the packet:
 
 | Stage | Coverage |
@@ -81,6 +88,12 @@ finite-flat weight-two export.
 - **`theorem-3-4-raising-levels-and-the-chebotarev-choice`** (carried id; planet "Raising levels (KW Theorem 3.4)").
   (D_r) implies modularity for 2^{r+1} ∤ N(ρ̄), with k(ρ̄) = 2 when p = 2 and r = 0. The weight condition is needed
   because the weight-4 lift of Theorem 5.1(2) is Steinberg at 2.
+  - The bound 2^{r+1} ∤ N(ρ̄′_s) comes from a chain of inequalities, not an equality with N(ρ̄). Let A be the
+    dyadic exponent of the first system. Then v₂(N(ρ̄′_s)) ≤ (exponent of the second system) =
+    v₂(N(ρ̄_{p′})) ≤ A ≤ r.
+  - A = v₂(N(ρ̄)) for odd p. A = 0 for p = 2 and k(ρ̄) = 2. A = 1 for p = 2 and k(ρ̄) = 4, where r ≥ 1.
+  - The inputs are R24.6/residual-members (iii) for the reductions, minimality at 2 of the Theorem 5.1(4) lift,
+    and the Weil–Deligne conductor of ArithmeticGaloisRepresentations R01.3, which is requested.
 - **`strong-form-by-minimal-lifts`** (planet "Weight and level from minimal lifts"). A modular ρ̄ with p odd, or with p = 2
   and k(ρ̄) = 2, arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))):
   - Dihedral images, including ρ̄ induced from ℚ(i), go through Lemma 6.2(i) (Wiese at p = 2).
@@ -130,13 +143,19 @@ finite-flat weight-two export.
 ## Layer R33.2: good-dihedral auxiliary ramification
 
 - **`dihedral-local-type-at-n`** (construction). κ of order q on G_{ℚ_{N²}}, of niveau 2, and τ_N = Ind κ.
-  - *API:* `levelTwoCharacter`, `levelTwoCharacter_orderOf`, `dihedralType`, `dihedralType_irreducible`,
-    `dihedralType_residual`.
+  - The standard lattice is L_std = Ind 𝒪(κ), with basis e₁ = 1 ⊗ 1 and e₂ = s ⊗ 1. On it σ acts by
+    diag(κ(σ), κ(σ)^N) and the Frobenius lift s by (0 1; 1 0), because κ(s²) = κ(Art(N)) = 1.
+  - Its reduction is 1 ⊕ η. That statement is about L_std only: other stable lattices have the same
+    semisimplification but can reduce to a non-split extension.
+  - *API:* `levelTwoCharacter`, `levelTwoCharacter_orderOf`, `levelTwoCharacter_artin`, `dihedralType`,
+    `dihedralType_irreducible`, `dihedralType.standardLattice`, `dihedralType_standardLattice_residual`,
+    `dihedralType_residual_semisimplification`.
   - *Tests:*
     - |𝔽₂₅^×| = 24 ≠ 25 (source issue E4);
     - q = 7, N = 13 has level 2;
     - q = 3, N = 7 is a non-example;
-    - the residual trace at Frob_N is 0.
+    - the residual trace at Frob_N is 0 on L_std;
+    - `residual_depends_on_lattice`: at (q, N) = (3, 2) the lattice L₁ reduces to a non-split module.
 - **`dp-lift-existence-and-good-dihedral-insertion`** (carried id, construction; planet "Paso 2: the good-dihedral
   prime N"). q splits in K, so Lemma 1.15 applies over 𝔽_q.
   - *API:* `GoodDihedralInsertion` with `system`, `type_at_N`, `congruences`, `modular_iff`.
@@ -154,12 +173,23 @@ finite-flat weight-two export.
 
 - **`dp-dyadic-transition-and-the-order-three-type`** (carried id, construction; planet "Lemma 2.3: the order-three type
   at 2").
-  - *API:* `orderThreeCharacter`, `orderThreeType`, `orderThreeType_reduction`, `typeChangeAtTwo`.
+  - The lattice in ρ̃₂ = Ind χ′ is chosen by the residual case at 2. If ρ̄₃ is unramified at 2, use the standard
+    lattice L₀. If it is ramified, use L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂. Then ρ̃₂|_{I₂} is compatible with ρ̄₃ in DP's sense.
+  - The lift exists by Theorem 1.9(4). It also exists by KW I Theorem 5.1(4) at (p, q) = (3, 2), whose hypotheses
+    the node checks.
+  - *API:* `orderThreeCharacter`, `orderThreeType`, `orderThreeType.standardLattice`,
+    `orderThreeType.adaptedLattice`, `orderThreeType_standardLattice_reduction`,
+    `orderThreeType_adaptedLattice_reduction`, `orderThreeType_exists_lattice_reduction_iso`,
+    `orderThreeType_isCompatible`, `typeChangeAtTwo`.
   - *Tests:*
     - 𝔽₄^× has order 3 and 𝔽₂^× order 1;
     - e = 3 is odd;
     - the Steinberg type is a non-example;
-    - the lemma needs the system unramified at 3.
+    - the lemma needs the system unramified at 3;
+    - `standard_lattice_relations`, `adapted_lattice_change_of_basis` and `adapted_lattice_nonsplit`: the
+      lattice identities, checked exactly over ℤ[ζ] and modulo π;
+    - `standard_lattice_nonexample`: L₀ fails when ρ̄₃ is ramified at 2;
+    - `split_case_standard_lattice`: L₀ serves when ρ̄₃ is unramified at 2.
 - **`remark-6-weight-two-after-type-change`.** KW I's odd-ramification-index argument. DP's own sentence gives no
   contradiction (source issue E6).
 - **`paso-4-removing-two`** (planet "Paso 4: removing 2 from the level"). Steinberg lift, type change at 3, then a
@@ -252,3 +282,97 @@ Lemma 8.2 now uses R01.3’s continuous, absolutely irreducible, odd residual re
 The proposed R27.1:good-dihedral component is not a live stage. The node’s stable ID and current parent are retained. Its gap records the remaining maintainer work: move Definition 2.1 and Lemma 6.3 from the other CSM part; remove R26.6 → R27.1 and repoint the RS-06 prefix consumers. This packet cannot claim removal of the stage-level level-one ancestor. Good-dihedral-prime-insertion is the later application of the R24.3 prescribed lift; it remains separate from the early finite-image/Chebotarev package. The level-one input R26.6 → R27.3 for W₁ is retained.
 
 The stable dp-lift-existence-and-good-dihedral-insertion node is only Paso 2. R24.3 already appears among its prerequisites and remains the sole owner of the general lift-existence theorem. The new explicit Paso 1 prerequisite supplies the weight-two system. At a split coefficient prime q outside its ramification set, Fontaine–Laffaille gives residual weight 2; this selects the crystalline clause in DP Theorem 1.9(4). Residual weight q + 1 would select a Steinberg clause instead. Keep Lemma 1.15’s prime-field rationality, the N-congruences, the local inertial type and the correction that the decomposition-group image is infinite but projectively dihedral. No general cases (1)–(4) are reproved in this node.
+
+## Stable lattices at 2 and the dyadic conductor bound
+
+This section records the red-team fix FIX-RT-BP-ClassicalSerreModularity--R27.3. It changes no theorem statement.
+It makes two arguments precise: the choice of an integral lattice in Lemma 2.3, and the propagation of the dyadic
+conductor in Theorem 3.4.
+
+### The reduction of an induced type depends on the lattice
+
+`R33.2/dihedral-local-type-at-n` builds τ_N = Ind κ. Its standard lattice is L_std = Ind 𝒪(κ), with basis
+e₁ = 1 ⊗ 1 and e₂ = s ⊗ 1 for a Frobenius lift s.
+
+- A tame generator σ acts by diag(κ(σ), κ(σ)^N).
+- s acts by (0 1; 1 0). Here κ(s²) = κ(Art(N)) for every Frobenius lift: the transfer sends s to s² = Art(Nu)
+  with u ∈ ℤ_N^×, and κ is trivial on ℤ_N^× because q ∤ N − 1. So the normalisation κ(Art(N)) = 1 gives κ(s²) = 1.
+- The reduction of L_std is 1 ⊕ η, unramified with trace 0 at Frobenius (API
+  `dihedralType_standardLattice_residual`).
+
+Every stable lattice has semisimplified reduction 1 ⊕ η (`dihedralType_residual_semisimplification`). The
+reduction itself is not determined, and Paso 2 needs only the split one: ρ̄ is unramified at N there, so L_std
+realises ρ̄|_{I_N}.
+
+### Lemma 2.3: which lattice realises ρ̄₃ at 2
+
+Put 𝒪 = ℤ₃[ζ] with ζ² + ζ + 1 = 0, and π = ζ − 1. Let ρ̃₂ = Ind χ′, where χ′ has order 3 and niveau 2 and is
+normalised by χ′(Art(2)) = 1. DP's Theorem 1.9(4) prescribes an inertial type τ at 2 only when τ is *compatible*
+with ρ̄₃ (DP p. 6). Compatible means some 𝒪-lattice stable under τ reduces to ρ̄₃|_{I₂}.
+
+**The residual cases.** The system is Steinberg at 2 up to an unramified twist γ̃. So ρ̄₃(Frob₂) has eigenvalues
+γ(Frob₂)·{−1, 1}, since χ̄₃(Frob₂) = 2 = −1, and ρ̄₃(I₂) is unipotent. Inertia then acts through its unique quotient
+of order 3. There are two cases.
+
+- *Split:* ρ̄₃ is unramified at 2, and ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1).
+- *Non-split:* ρ̄₃(σ) = (1 b; 0 1) with b ≠ 0. The tame relation Frob σ Frob⁻¹ = σ² forces the Frobenius
+  eigenvalues to be −β and β, with −β on the inertia-invariant line. After conjugation,
+  ρ̄₃|_{D₂} ≅ β ⊗ (Frob₂ ↦ diag(−1, 1), σ ↦ (1 1; 0 1)).
+
+**Two lattices.**
+
+| Lattice | σ | Frob₂ | Reduction mod π |
+|---|---|---|---|
+| L₀ = 𝒪e₁ ⊕ 𝒪e₂ | D₀ = diag(ζ, ζ²) | F₀ = (0 1; 1 0) | σ ↦ 1; Frob with eigenvalues ±1: split |
+| L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂ | D₁ = (ζ 0; ζ ζ²) | F₁ = (1 π; 0 −1) | σ ↦ (1 0; 1 1), Frob ↦ diag(1, −1): non-split |
+
+The change of basis P = (1 0; 1 π) satisfies D₀P = PD₁ and F₀P = PF₁. Both pairs satisfy D³ = F² = 1 and
+FDF⁻¹ = D². The suggested file checks all of this exactly over ℤ[ζ]. In the basis (f₂, f₁), the reduction of L₁
+is the non-split module above. So, after twisting by an unramified lift of γ:
+
+- L₀ realises the split case;
+- L₁ realises the non-split case;
+- L₀ cannot realise the non-split case, because its reduction has two-dimensional inertia invariants
+  (`standard_lattice_nonexample`).
+
+This is `orderThreeType_exists_lattice_reduction_iso`, and the compatibility is `orderThreeType_isCompatible`. DP's
+sentence that the two representations "have the same reduction" on I₂ holds for this choice of lattice. No source
+erratum is asserted.
+
+**The lift.** Theorem 1.9(4) then applies, through R24.3/modern-prescribed-type-lifts. So does KW I Theorem 5.1(4)
+at (p, q) = (3, 2), through R24.3/theorem-5-1-part-4-level-two-type-at-q. Its hypotheses hold:
+
+- ρ̄₃ is of S-type with k(ρ̄₃) = 2;
+- ρ̄₃|_{ℚ(µ₃)} is absolutely irreducible, because the image of ρ̄₃ is non-solvable;
+- ρ̄₃|_{D₂} is (χ̄₃ ∗; 0 1) up to unramified twist;
+- 3 | 2 + 1, and χ′|_{I₂} = ω_{2,2} has level 2 and order 3;
+- there is no parity condition, because p is odd.
+
+Its local input at 2 is the level-two condition of LocalGaloisDeformationRings R08.6/export-away-from-p (b). The
+matrices of L₀ and L₁ are explicit lifts of that condition: they satisfy ρ(F)ρ(σ)ρ(F)⁻¹ = ρ(σ)².
+
+### Theorem 3.4: the dyadic conductor is bounded, not preserved
+
+Let A be the dyadic conductor exponent of the first system (ρ_λ) of Theorem 5.1(2). It is the exponent of the
+Weil–Deligne parameter r₂ that all members at λ ∤ 2 share.
+
+| Case | A | Why A ≤ r |
+|---|---|---|
+| p odd | v₂(N(ρ̄)) | ρ_p is minimal at 2, and 2^{r+1} ∤ N(ρ̄) |
+| p = 2, k(ρ̄) = 2 | 0 | inertial parameter (1 ⊕ 1, 0) |
+| p = 2, k(ρ̄) = 4 | 1 | parameter (id, N ≠ 0): 2 − dim ker N = 1; the theorem excludes r = 0 |
+
+The chain is v₂(N(ρ̄′_s)) ≤ a₂(ρ′_λ) = v₂(N(ρ̄_{p′})) ≤ A ≤ r.
+
+- The two inequalities say that reduction at a coefficient prime other than 2 cannot increase the conductor
+  (R24.6/residual-members (iii), from R01.3).
+- The equality is minimality at 2 of the Theorem 5.1(4) lift of ρ̄_{p′}. That lift is minimal at every prime other
+  than p′ and q, and q ≡ 1 mod 8.
+
+Minimality refers to the intermediate ρ̄_{p′}, not to ρ̄, and either reduction may lower the exponent. Lowering
+happens: ρ̄_{E,5} of the curve 11a1 is unramified at 11, although E has multiplicative reduction there. So no
+equality with v₂(N(ρ̄)) is claimed.
+
+In the boundary case p = 2, k(ρ̄) = 4, r = 1, the original exponent is 0, A = 1, and the chain gives exactly the
+bound ≤ 1 that (D₁) needs. The monodromy term of the conductor is requested from ArithmeticGaloisRepresentations
+R01.3.
