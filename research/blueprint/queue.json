@@ -25544,7 +25544,8 @@
    ],
    "avoidAccountOf": "BP-GrossZagierAndArithmeticHeights--GZ.8",
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #422"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.1",
@@ -29380,9 +29381,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeightsInEtaleCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1004"
+   "note": "deliverables arrived from an external worker on issue #1004",
+   "finishedAt": "2026-10-06T09:23:30Z"
   },
   {
    "id": "REV-WeightsInEtaleCohomology",
