@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3705,
+  "stages": 3703,
   "originalStages": 2098,
-  "sourceRefinements": 1607,
+  "sourceRefinements": 1605,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -24,13 +24,6 @@
       "nodes": 14,
       "review": "accepted",
       "deferredLinks": 2
-    },
-    {
-      "roadmap": "AlgebraicModularFormsAndSerreWeights",
-      "status": "partial",
-      "nodes": 24,
-      "review": "accepted",
-      "deferredLinks": 0
     },
     {
       "roadmap": "AnalyticNumberTheory",
@@ -334,14 +327,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3604,
+  "mathematicalStars": 3602,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1867,
-  "stageEdges": 9766,
+  "roadmapEdges": 1871,
+  "stageEdges": 9780,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -367,6 +360,12 @@
       "roadmap": "AdicSpacesPartII",
       "nodes": 537,
       "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
+    },
+    {
+      "file": "AlgebraicModularFormsAndSerreWeights",
+      "roadmap": "AlgebraicModularFormsAndSerreWeights",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-AlgebraicModularFormsAndSerreWeights"
     },
     {
       "file": "AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -886,8 +885,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32632583,
-  "htmlSha256": "7cefeab5618f8c8da85dd3efc53f8fd6ad65a2dcc73ee85842dfc0612039352d",
+  "htmlBytes": 32297768,
+  "htmlSha256": "b874dbd770135394e2d13ed839358373668e18dde8b88650ee71996b26b977ee",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -918,7 +917,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "6fad978e967f81b08d84613057a1e20f02587cd0e8d7a7420aa6ef0dffc1d360",
+    "data/roadmap-distances.json": "fa2f8eb5ed39460259ec6f20f3e6dbd3790fc6fa9b1d399e0551942feb4da7e9",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -984,6 +983,8 @@
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
     "data/blueprints/AdicSpacesPartII.md": "8a1f3c92f73b34c23b252cf127b24ebd4567784d77c9e64b9a4a67f83091d442",
+    "data/blueprints/AlgebraicModularFormsAndSerreWeights.json": "05aacbad70b7694696338b31d6d8cd66a0aaed979cc9993e76735091dd44f5d6",
+    "data/blueprints/AlgebraicModularFormsAndSerreWeights.md": "d4594f745eb309a9707de5543016b1ee670e33153a3e0f61e5edd3fe7f803249",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json": "312f9e3e2b0e30340b328ed1d8f31513a84cebc0083e45416fe5f1c47bdc106b",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md": "db9bd77ccd3372293d1713997157d8a32d5157cb575fa00e3e68144e43ca8fce",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "b352c47493d33e2d8334c6617d2f64d4ae43c0fc2a50031fb692f0f81231b868",
