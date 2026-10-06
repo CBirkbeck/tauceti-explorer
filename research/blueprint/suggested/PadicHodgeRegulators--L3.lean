@@ -680,7 +680,7 @@ At phi=1 two lifts differing by a constant have the same boundary; no unique inv
 /-
 PadicHodgeRegulators:L3/big-exponential
 Proposed declaration contract: bigExponential (V,h) : ker Delta_h → H_E ⊗[Lambda_E] H_Iw^1(Q_p,V)/V^(H_Qp); unquotiented only under the recorded no-E(h) hypothesis.
-For admissible f in ker Delta_h choose a psi-one lift y with (1-phi)y=f and define Omega_(V,h)(f)=nabla_(h-1)...nabla_0(y), with nabla_i=t partial-i. Its value is well-defined in D_rig^+(V)^(psi=1)/V^(H_Qp). If D_cris(V)^(phi=p^(-h))=0 (in particular no E(h) subrepresentation), the unquotiented value is well-defined. Map to H_E tensor_Lambda H^1_Iw using the established comparison.
+For admissible f in ker Delta_h choose a psi-one lift y with (1-phi)y=f and define Omega_(V,h)(f)=nabla_(h-1)...nabla_0(y), with nabla_i=t partial-i. Its value is well-defined in D_rig^+(V)^(psi=1)/V^(H_Qp). The eigencondition D_cris(V)^(phi=p^(-h))=0 suffices for an unquotiented value (Definition II.12). More generally, absence of an E(h) subrepresentation suffices by Remark II.14, after using Theorem II.13 to identify the remaining lift ambiguity with invariants. Map to H_E tensor_Lambda H^1_Iw using the established comparison.
 Hypotheses: p is odd; E/Q_p is finite; G=Delta times Gamma_1; HT(E(1))=+1; roots zeta_(p^n), Tate bases e_j and a generator gamma are fixed compatibly. V crystalline; h>=1 with Fil^(-h) full; the source is ker Delta_h, not an arbitrary period vector.
 Proposed lemma bigExponential_lift: Every valid lift gives the stated differential product in the quotient.
 Proposed lemma bigExponential_linear: Omega_(V,h) is H_E-linear in the specified Mellin convention.
@@ -939,11 +939,11 @@ At k=-1, partial composed with the operator is identity on psi-zero; no inverse 
 /-
 PadicHodgeRegulators:L4/derham-regulator
 Proposed declaration contract: deRhamRegulator (D de Rham, z in N_rig(D)^(psi=1)) : rigid analytic section U_D → D_dR(D).
-For z in Delta^(psi=1), define Lambda_(D,z)(eta kappa)=G(eta)^(-1) sum_(a in (Z/p^m)^times) eta(a) sigma_a [phi^(-m) kappa(partial)(1-phi)z]_0, for m sufficiently large and the admitted high-conductor ball. The constant term is taken in E_m tensor D_dR(D) after localization; the sum descends to D_dR(D). These definitions glue to a rigid analytic D_dR(D)-valued function on U_D. For positive-weight D and z in D^(psi=1), use its actual inclusion in Delta; an Iwasawa version is through the proved PG.5/L2 map.
-Hypotheses: D is de Rham; use the actual Delta, localization embeddings, q coordinates and Gauss periods G(eta)=sum eta(a) zeta_(p^c)^a. On each ball retain the threshold needed for its analytic powers.
+For z in Delta^(psi=1) and primitive finite eta of conductor exactly p^m with m>m(Delta), define Lambda_(D,z)(eta kappa)=G(eta)^(-1) sum_(a in (Z/p^m)^times) eta(a) sigma_a [phi^(-m) kappa(partial)(1-phi)z]_0, on its admitted high-conductor ball; the exponent m is the conductor exponent of eta, not a freely enlargeable localization index. The constant term is taken in E_m tensor D_dR(D) after localization at that conductor; the sum descends to D_dR(D). These definitions glue to a rigid analytic D_dR(D)-valued function on U_D. For positive-weight D and z in D^(psi=1), use its actual inclusion in Delta; an Iwasawa version is through the proved PG.5/L2 map.
+Hypotheses: D is de Rham; use the actual Delta, localization embeddings, q coordinates and Gauss periods G(eta)=sum eta(a) zeta_(p^c)^a. On each ball retain the threshold needed for its analytic powers. Keep phi^(-m), the residue sum modulo p^m and G(eta) at the same primitive conductor. A larger coefficient field may receive this fixed expression; it does not replace m in the formula.
 Proposed lemma deRhamRegulator_formula: Its value on an admitted ball is the displayed localized constant-term Gauss sum.
 Proposed lemma deRhamRegulator_linear: It is E-linear in z; the Gamma action induces the source character-equivariance convention.
-Proposed lemma deRhamRegulator_descent: Its finite-level expression descends to D_dR(D) and is independent of a larger localization level.
+Proposed lemma deRhamRegulator_descent: The conductor-m expression descends to D_dR(D). Embedding it in a larger coefficient field preserves its value while phi^(-m), the residue modulus and G(eta) remain at cond(eta)=p^m.
 Proposed lemma deRhamRegulator_restrict: Two admitted thresholds give equal functions on their common domain.
 Proposed example -- TEST derham_zero
 The zero psi-one vector gives the zero analytic function.
@@ -951,6 +951,8 @@ Proposed example -- TEST derham_phi_fixed
 A psi-one vector fixed by phi is killed by 1-phi and gives zero.
 Proposed example -- TEST derham_period_normalization
 Replacing G(eta) by G(eta)^-1 would multiply the expression by G(eta)^2; the stated denominator is essential.
+Proposed example -- TEST derham_conductor_level
+In the Gauss-sum model at p=5, let eta be the quadratic character of conductor 5. For primitive compatible roots zeta_5=zeta_25^5, sum_(a mod 5, 5 not dividing a) eta(a) zeta_5^a=G(eta) is nonzero, whereas sum_(a mod 25, 5 not dividing a) eta(a) zeta_25^a=0. Thus the normalized conductor-5 value is 1 and the imprimitive modulus-25 replacement is 0.
 -/
 
 /-
