@@ -22717,9 +22717,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #692"
+   "note": "claimed on GitHub issue #692"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H0",
@@ -28268,9 +28268,10 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #980"
+   "note": "deliverables arrived from an external worker on issue #980",
+   "finishedAt": "2026-10-06T14:13:36Z"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.0",
@@ -28966,8 +28967,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraVarieties--V8",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #491",
+   "finishedAt": "2026-10-06T14:13:38Z"
   },
   {
    "id": "BP-SmallRamificationAndAbelianVarietyBaseCases",
