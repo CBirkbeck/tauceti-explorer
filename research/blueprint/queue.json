@@ -33255,8 +33255,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.5",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6428",
+   "finishedAt": "2026-10-06T02:24:28Z"
   },
   {
    "id": "BP-ArithmeticKTheory--N.6",
@@ -33637,7 +33638,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6484"
   },
   {
    "id": "REV-EllipticRegulators--ER.3",
