@@ -279,6 +279,21 @@ def ofCycle (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
     (z : groupHomology.cycles (barRep G) 3)
     (h : ψ (groupHomology.π (barRep G) 3 z) = β) : BarLiftCertificate ψ β := ⟨z, h⟩
 
+def ofChain (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (z : (Fin 3 → G) →₀ ℤ)
+    (hz : (groupHomology.inhomogeneousChains (barRep G)).d 3 2 z = 0)
+    (h : ψ (groupHomology.π (barRep G) 3
+      (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz)) = β) : BarLiftCertificate ψ β :=
+  ofCycle ψ β (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz) h
+
+lemma ofChain_chain (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
+    (z : (Fin 3 → G) →₀ ℤ)
+    (hz : (groupHomology.inhomogeneousChains (barRep G)).d 3 2 z = 0)
+    (h : ψ (groupHomology.π (barRep G) 3
+      (groupHomology.cyclesMk 3 2 ((ComplexShape.down ℕ).next_eq' (by decide)) z hz)) = β) :
+    chain ψ β (ofChain ψ β z hz h) = z := by
+  sorry
+
 lemma ext (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B)
     (c d : BarLiftCertificate ψ β) :
     (c = d ↔ c.val = d.val) ∧ (c = d ↔ chain ψ β c = chain ψ β d) := by
@@ -349,6 +364,13 @@ example [Subsingleton G] (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) :
     ∃ c : BarLiftCertificate ψ 0,
       BarLiftCertificate.chain ψ 0 c = Finsupp.single (fun _ : Fin 3 => (1 : G)) 1 ∧
       BarLiftCertificate.chain ψ 0 c ≠ 0 ∧ BarLiftCertificate.homology ψ 0 c = 0 := by
+  sorry
+
+-- BarLiftCertificate_reject_noncycle
+example (ψ : groupHomology (barRep G) 3 →ₗ[ℤ] B) (β : B) (g : G) (hg : g ≠ 1) :
+    ∀ c : BarLiftCertificate ψ β,
+      BarLiftCertificate.chain ψ β c ≠
+        Finsupp.single (fun i : Fin 3 => if i = 0 then g else 1) 1 := by
   sorry
 end BarLifts
 
