@@ -29405,7 +29405,8 @@
    ],
    "avoidAccountOf": "BP-WeightsInEtaleCohomology",
    "prompt": "research/blueprint/prompts/REV-WeightsInEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #502"
   },
   {
    "id": "BP-WeilConjectures--WC.0",
