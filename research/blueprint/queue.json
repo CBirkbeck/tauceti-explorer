@@ -23512,9 +23512,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-DerivedDeRhamCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #708"
+   "note": "claimed on GitHub issue #708"
   },
   {
    "id": "REV-DerivedDeRhamCohomology",
@@ -26916,8 +26916,9 @@
    ],
    "avoidAccountOf": "BP-MetaplecticAutomorphicForms--MP.8",
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #449"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #449",
+   "finishedAt": "2026-10-06T14:05:31Z"
   },
   {
    "id": "BP-ModularCurvesPartII--R12.1",
