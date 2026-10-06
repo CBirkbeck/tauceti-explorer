@@ -31800,8 +31800,9 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.2",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6402"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6402",
+   "finishedAt": "2026-10-06T00:45:50Z"
   },
   {
    "id": "BP-Polylogarithms--P.3",
@@ -33106,7 +33107,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6425"
   },
   {
    "id": "BP-ArithmeticKTheory--N.3",
@@ -33129,8 +33131,9 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6474"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6474",
+   "finishedAt": "2026-10-06T00:45:55Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.3",
@@ -33195,7 +33198,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.3-finite-generation",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3-finite-generation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6427"
   },
   {
    "id": "BP-ArithmeticKTheory--N.5",
@@ -33478,7 +33482,8 @@
    ],
    "followUpOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory--E.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6481"
   },
   {
    "id": "REV-EllipticKTheory--E.6",
@@ -33955,8 +33960,9 @@
    ],
    "followUpOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6493"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6493",
+   "finishedAt": "2026-10-06T00:45:56Z"
   },
   {
    "id": "REV-HabiroNumberFields--HB.1",
@@ -34485,7 +34491,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6508"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.5",
