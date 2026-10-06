@@ -100,7 +100,8 @@ way to close that gap if Skalba's paper stays unobtainable, and is recorded here
 3. **Readers synchronised.**
    - N.7: its nine N.7-stage sections still showed superseded text, such as Iwasawa's criterion without the cyclotomic
      tower and Bernoulli formulas without the k ↦ 2k re-indexing. They were regenerated from the packet in the format of
-     its N.8 sections. The renderer reproduces all eleven N.8 sections exactly.
+     its N.8 sections; the same renderer reproduces the eleven N.8 sections exactly, up to a section separator. Its
+     IntegralIwasawaTheory L3 request also had an older paraphrase and now carries the packet's text.
    - N.1: `rank-filtration` lacked review correction C1 (m ≥ 1 for the strata; Q₀ equivalent to the terminal category).
      It was regenerated in the reader's field format, which reproduces the other N.1 sections.
    - All seven readers now contain every node statement, hypothesis, proof step, acceptance item, API and test
@@ -125,7 +126,12 @@ way to close that gap if Skalba's paper stays unobtainable, and is recorded here
    - **Name coverage.** In five files, 123 packet API and test names had no occurrence on main: 95 in T.1, 15 in N.7,
      7 in N.1, 4 in K3BlochGroups, 2 in T.3. Each is now listed with its packet statement in a closing comment block, so
      that file and packet agree on names as section 13 asks.
-5. **Review objects.** The branch had moved the last independent verdicts of K.1, K.6 and T.1 into `reviewHistory`, set
+5. **Coverage entries of K.1 and K.6.** The branch had replaced each stage's descriptive note with a node count and
+   dropped two genuine `remaining` items. Main's notes are restored, each followed by a sentence naming the nodes this
+   round adds there and any proposed new parents. The two items are restored: the unapplied K.3:cofinality stage, and
+   the realisation theorem still requested from StableHomotopyKTheory H.2. K.2:low-degree-comparisons, whose nodes this
+   round leaves unchanged, is back to main's `source_decomposed`.
+6. **Review objects.** The branch had moved the last independent verdicts of K.1, K.6 and T.1 into `reviewHistory`, set
    `review` to `pending`, and added a nonstandard `revision` key. Main's convention is that the fixer leaves `review` to
    the next reviewer, so all three are restored to main's `review` and `reviewHistory`.
 

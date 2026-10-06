@@ -1652,7 +1652,12 @@ may therefore not supply its bounds.
 
 ## Requests to other roadmaps
 
-- `IntegralIwasawaTheory:L3` — The single predicate Vandiver(l), its defining class-number condition for ℚ(μ_l)^+, and transport to the pinned intrinsic maximal real cyclotomic subfield. No L3 Lean module/declaration is published yet; the suggested file records the exact import contract. Needed by `ArithmeticKTheory:N.7/vandiver-separation`. N.7 retains the odd-character comparison and conditional K-theory consequences.
+- `IntegralIwasawaTheory:L3` — Supply the single Vandiver(l) predicate for primes l, with its
+  defining equivalence l not dividing the class number of Q(mu_l)^+, and transport along a
+  rational cyclotomic-field isomorphism to NumberField.maximalRealSubfield (CyclotomicField l
+  Q). Its Lean module/declaration is not yet published; N.7 records the import contract, not a
+  second definition. The odd-character equivalence and conditional K-theory consequences remain
+  in N.7. Needed by `ArithmeticKTheory:N.7/vandiver-separation`.
 - `K2SymbolsBrauer:T.5` — The tame kernel and its exact sequences (T.5/unramified-subgroup,
   T.5/tame-kernel-sequence, T.5/relative-s-integer-sequence), the real sign symbol
   (T.5/real-sign-symbol), and the computations K₂(ℤ) ≅ ℤ/2 with generator {−1, −1}

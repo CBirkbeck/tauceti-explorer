@@ -5437,7 +5437,7 @@
       "remaining": [
         "Independent review of this revision."
       ],
-      "note": "6 nodes with current parent GeneralAlgebraicKTheory:K.1; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Six nodes. The Q-construction on the pinned TauCeti.ExactStructure, with composition proved from the pinned base-change lemmas and no use of Quillen's axiom (c), whose cokernel-hypothesis form (Bühler 2.16) is recorded; the universal property, assembled from the factorisation and the functor of Weibel's Proposition 6.2; the small-model transport with the universe discipline of ExactK0 E : Type w; the identification of π₁ of the Q-construction with the pinned ExactK0 through ExactK0.lift of the two-edge loops and the covering classification, commutativity being proved before lifting; the K-groups K_n = π_n ΩBQ = π_(n+1) BQ, generic in exact categories; and the generic elementary properties (opposites, finite direct sums, filtered colimits of exact categories). Every ring form moved to the ring model of K.2:plus. FIX-RT-AREA-ktheory-1 (findings 19 and 21) revised ownership, carriers, indexing and imports; the earlier accepted review covers the earlier text only."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2",
@@ -5445,7 +5445,7 @@
       "remaining": [
         "Independent review of this revision."
       ],
-      "note": "1 nodes with current parent GeneralAlgebraicKTheory:K.2; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "One node of its own, the non-example that the product description of the K-theory space holds only after a choice of component representatives, is not a splitting of infinite-loop spaces, and uses translations that are not natural. The ring functor that the earlier text aggregated here is the early ring-model node K.2/functorial-K-theory-of-a-ring, which keeps its id but has parent K.2:plus (finding 19), so that K.5 can import it without the late low-degree comparison."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2:plus",
@@ -5453,23 +5453,22 @@
       "remaining": [
         "Independent review of this revision."
       ],
-      "note": "11 nodes with current parent GeneralAlgebraicKTheory:K.2:plus; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Five nodes. The exact scalar-extension functor on the pinned finitely generated projectives along arbitrary unital, possibly noncommutative ring maps, built on KTheoryLowDegrees Z.1's ExtendScalars and made exact by the pinned split-structure theorem, with no flatness hypothesis; the single early ring-model node, owning K(R) as a functor on rings with its degree-zero group RingK0, finite products, filtered colimits through the idempotent-matrix model and opposite rings; the extension category EA of Q-type morphisms with its fibration, now distinguished from the exact category of conflations; the plus-equals-Q theorem with its ring corollary; and cofinality of free modules proved through group-completion cofinality (H.4) rather than the late exact-category cofinality. The pinned carriers are imported, never re-planned (findings 19 and 21). FIX-RT-AREA-ktheory-1~2 adds 6 nodes here: monoidal products in the extension fibres; cartesian lifts of Q-morphisms in the extension category; contractibility of the localised extension-action category; the localised extension category fibres over Q; contractibility of the extension category and its localisation; early absolute K0/K1 comparison for rings."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
-      "status": "partial",
-      "remaining": [
-        "Independent review of this revision."
-      ],
-      "note": "2 nodes with current parent GeneralAlgebraicKTheory:K.2:low-degree-comparisons; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Two nodes, and deliberately no more. AUDIT-28 records that every target of this layer is owned elsewhere: the first K-group by KTheoryLowDegrees U.6, the second by K2SymbolsBrauer T.1:plus, the third by K3BlochGroups V.4 and Matsumoto's presentation by K2SymbolsBrauer T.2:symbols. So the layer is a register: one node states the combination of the three identifications with the plus comparison and names the owner of each, and one node states the distinction the stage text makes, that the general identifications are unconditional for their ring class while Matsumoto's presentation is a theorem about fields. Each owner is filed as a request. Planning any of the four here would duplicate another roadmap, which the protocol forbids; the structural proposal asks that the stage text say so."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.3",
       "status": "partial",
       "remaining": [
-        "Independent review of this revision."
+        "Independent review of this revision.",
+        "The general cofinality node needs the proposed late stage K.3:cofinality after K.4; until the maintainer creates it the node keeps parent K.3 and records proposedParentStageId."
       ],
-      "note": "26 nodes with current parent GeneralAlgebraicKTheory:K.3; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Eight nodes. Early K.3 rests only on K.1, StableHomotopyKTheory H.1–H.2 and the pinned exact-category API: the 3×3 lemma and the exact category of conflations E(A) that the stage text names, additivity through the Extension Theorem and Theorem A, resolution with transfers and the projection formula and the degree-zero comparison with Tau Ceti's resolutionEquiv, dévissage, and Quillen's localisation theorem for a Serre subcategory of an abelian category with its boundary sign. The general cofinality theorem with the degree-zero correction keeps its id but needs the late K.4 fibration theorem and the S-versus-Q comparison, so it belongs to a proposed late K.3:cofinality (finding 20); its route through Waldhausen cofinality carries the author's saturation correction. FIX-RT-AREA-ktheory-1~2 adds 18 nodes here: isomorphic quotient objects compute localization comma categories; models of a quotient object with kernel functor; the kernel functor on epimorphic models is an equivalence on realisation; epimorphic models compute all localization models; filtered models compute the quotient-isomorphism fibre; weak equivalences detected by a Grothendieck quotient; the class-weak S-construction realizes the quotient group; cofinality with non-functorial factorizations; relative triples for an additive functor; the stable automorphism boundary of a cofinal additive functor; the classical five-term sequence of an additive functor; base change of a finite field transfer through an Artin algebra; compute the first localization boundary by kernel and cokernel; the DVR boundary is the normalized valuation; transport the right product action through the localization boundary; contract both comma categories in one-step resolution; resolution dimensions and successive exact subcategories; the actual two intersection functors in dévissage. Proposed new parents (restructure entries; not applied): cofinality-degree-zero-correction → GeneralAlgebraicKTheory:K.3:cofinality; grothendieck-class-weak-equivalences → GeneralAlgebraicKTheory:K.3:cofinality; grothendieck-class-fibre-nerve → GeneralAlgebraicKTheory:K.3:cofinality; cofinality-with-factorizations → GeneralAlgebraicKTheory:K.3:cofinality."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.4",
@@ -5477,15 +5476,16 @@
       "remaining": [
         "Independent review of this revision."
       ],
-      "note": "14 nodes with current parent GeneralAlgebraicKTheory:K.4; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Three nodes, the late part of the layer: the fibration theorem with all four of its hypotheses named and the source's caveat that the sequence stops because the map of Grothendieck groups is not onto; the approximation theorem with the source's own counterexample; and Gillet–Waldhausen, with the closure hypothesis, the repaired statement and the warning about chain homotopy equivalences. Waldhausen additivity and the relative S-fibration with its deloopings moved to K.4:construction (finding 4), so this layer no longer claims 'the delooping theorem'. FIX-RT-AREA-ktheory-1~2 adds 11 nodes here: trivial cofibrations compute the weak-equivalence nerve; relative S identifies the change-of-equivalences bicategory; approximation lifts filtered objects; iterated mapping cylinders of a simplex diagram; the cylinder boundary is a cofibration; approximation comma categories are contractible; factor a finite diagram without a cylinder; contract the approximation comma categories; approximation without a functorial cylinder; acyclic cofibrations have the weak-equivalence nerve; fibration without a functorial cylinder."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.4:construction",
       "status": "partial",
       "remaining": [
-        "Independent review of this revision."
+        "Independent review of this revision.",
+        "The realisation theorem for levelwise fibration sequences is requested from StableHomotopyKTheory:H.2 (finding 15); the relative S-fibration node checks its hypotheses."
       ],
-      "note": "14 nodes with current parent GeneralAlgebraicKTheory:K.4:construction; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Six nodes. Waldhausen categories with the three extra axioms kept outside the definition; the S-construction with its latching condition, its second term identified with the category of cofibration sequences (for exact categories the pinned category of conflations); the K-theory space and the iterated S-construction; the comparison with the Q-construction, which needs neither additivity nor the delooping and so stays in this early part; Waldhausen additivity; and the relative S-construction fibration with the iterated deloopings, whose realisation step names the H.2 theorem it needs and verifies its hypotheses. StableHomotopyKTheory H.5:S-delooping assembles the spectrum from these maps; generic smash products are H.5:spectra's and K-theory pairings K.7's (finding 4). FIX-RT-AREA-ktheory-1~2 adds 8 nodes here: isomorphic exact functors induce homotopies on object S; the simplex fibres in Waldhausen additivity; the pushout contraction of an additivity fibre; additivity for object simplicial S-constructions; edgewise S-diagrams and composable Q-spans; non-functorial Waldhausen factorizations; cofibrant diagrams on a finite poset; swallowing a second weak-map nerve direction."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.5",
@@ -5494,7 +5494,7 @@
         "Independent review of this revision.",
         "The excision criteria are quoted, not proved"
       ],
-      "note": "9 nodes with current parent GeneralAlgebraicKTheory:K.5; aggregate children and proposed parent changes are recorded individually. All source proof and implementation boundaries are listed below."
+      "note": "Six nodes. Relative K-theory as the homotopy fibre of the ring model's map, for possibly noncommutative rings and two-sided ideals, with its long exact sequence and abelian structure, and the Waldhausen version; the identification of the low relative groups of a pair with the classical ones is KTheoryLowDegrees U.6's and is not asserted here. The distinction from support K-theory; the unitisation; excision with its failure; and, for finding 18, Milnor's K₁–K₀ Mayer–Vietoris sequence for a Milnor square, assembled from KTheoryLowDegrees Z.1's Milnor patching, boundary and three exactness positions together with the fourth position proved here, with its pullback and surjectivity hypotheses and no higher excision asserted. Bass's continuation into negative degrees is K.6's. FIX-RT-AREA-ktheory-1~2 adds 3 nodes here: relative projective triples are components of the K-fibre; ideal K-zero through the augmented-ring patching square; excision for components of relative K-theory."
     }
   ],
   "gaps": [
