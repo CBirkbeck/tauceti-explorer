@@ -1,0 +1,11 @@
+# Handoff: REV-RankZeroOneBSD--BSD.7
+
+Completed by Codex, codex-k9WVwB, 2026-10-06, issue #478. This is a finished independent review, not a checkpoint. The packet is accepted after corrections: 97 nodes, 77 verified, 18 corrected and two added; all 25 exact-pin baseline declarations retained; eight source issues independently confirmed. Four stages remain planned and seven gaps remain explicit, as permitted for a complete target-level pass.
+
+The review report records every correction, source URLs/receipts, baseline conventions, checks and orchestrator routing. The two additions are `BSD.7a/ky-imprimitive-residual-comparison` and `BSD.7a/ky-finite-euler-factor-comparison`, marked with this review’s `addedBy`. Supplier corrections distinguish ordinary L2/integral-period L1 from critical-slope L3, Néron component R11.2 from Picard R11.4, BK L4 from ordinary L2, and general Iwasawa algebra from Ferrero–Washington. Local Coleman maps and actual global KLZ reciprocity are separate requests.
+
+Validation: packet checker 0 errors/0 warnings; final suggested file elaborated through `lean-check` at the pinned shared build with exit 0 and only 85 `sorry` warnings. Local graph, target inventory, review coverage and suggested names checked. Independent exact rational fixture replay passed; no rank/saturation/Sha/analytic-interval proof is claimed.
+
+What remains for other jobs: synchronize the reader (outside this issue’s allowed deliverables); coordinate the elliptic-unit owner with HE.7s and verify its four primary inputs; refine integral Wüthrich/KLZ/Heegner/duality and KY broad-cyclotomic lattice interfaces; resolve KY IMC1 ring ambiguity; replay actual analytic and finite arithmetic certificates including every exceptional prime. Resume from the packet’s seven gaps and four coverage `remaining` lists, with the review report’s final routing list. The original reader already represents RT-AREA-iwasawa-1/5 honestly but needs the new corrections synchronized.
+
+No promotion, manual merge/issue closure, supplier edits or atlas edits were performed. Source receipts and per-node evidence are retained in the packet/report; no scratch file is needed by the next worker. This run claims no second job.
