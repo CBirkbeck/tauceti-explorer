@@ -18,35 +18,84 @@ import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.FieldTheory.Galois.Abelian
 import Mathlib.RingTheory.Localization.Away.Basic
-import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
-import TauCeti.NumberTheory.ArithmeticDirichletSeries.EulerProduct.Data
-import TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers
 
 /-!
-# Birch–Tate and arithmetic special values — suggested declarations (first checkpoint)
+# Birch–Tate and arithmetic special values — target-level suggested signatures
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
-and signatures. All proposed results are unproved prototypes at the pinned baseline
-(Mathlib 082e2d3, Tau Ceti f790474); the file has not been compiled.
+and signatures. All packet implementation statuses are unchecked.
 
-Layers covered: B.1 (the formula), B.2 (sign and equivalent forms), B.3 (ℚ and ℚ(√5)),
-B.4 (the odd-primary theorem), B.5 (totally real abelian fields, with the 2-primary part),
-B.6 (every totally real field, through Kurihara's theorem), B.7 (S-integers and Euler factors),
-B.8 (the Lichtenbaum statements and their odd part in even weight).
+Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+The native signatures and arithmetic regression examples below elaborate at pinned
+Mathlib. Higher signatures are explicit comments: their actual K/cohomology,
+Iwasawa and motivic objects have not landed. No replacement carriers are defined.
+The three existing Tau Ceti modules cited below lack shared .olean files here;
+their source declarations were read at the pinned commit, without building them.
 
-Three objects are imported from other roadmaps and are not planned here. Until their owners
-land they appear below as placeholders named after the owners' planned declarations:
+Existing source imports for the quadratic and finite Euler-product adapters:
+  import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
+  import TauCeti.NumberTheory.ArithmeticDirichletSeries.EulerProduct.Data
+  import TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers
 
-* `dedekindZetaCont F`, `completedDedekindZetaCont F` — the continued and completed Dedekind
-  zeta function (AutomorphicLFunctionsAndLocalFactors AL.1, requested);
-* `K2 R` — classical `K₂` of a ring (K2SymbolsBrauer T.1/k2-definition);
-* `wInvariant i F` — `w_i(F) = #H⁰(F, ℚ/ℤ(i))` (ArithmeticKTheory N.4/the-w-invariant).
-
-The facts about them used below (continuation, functional equation, finiteness, `K₂(ℤ)`,
-the tame-kernel sequence, `w₂(ℚ) = 24`) are proved by those owners.
+Continued/completed ζ: BorelRegulators R.5/completed-zeta-conventions.
+Classical K₂ and tame sequences: K2SymbolsBrauer T.1/T.5.
+W_n and positivity: ArithmeticKTheory N.4; even K finiteness: N.3:ranks.
+Integral H¹/H² and regulator lattice: MotivicEtaleKTheory M.8 and PS.3.
+Old/new comparison and finite κ² descent: IntegralIwasawaTheory I.10 (RS-16).
+The B.6 all-prime declarations inside the comment are proof targets subject
+to the exact I.10 gap, not unconditional results checked by this file.
 -/
 
+noncomputable section
+open Complex
+open scoped Real
+namespace TauCeti.BirchTate
+
+/-- B.2/gamma-factor-values: the real archimedean factor is regular at −1. -/
+theorem gammaℝ_neg_one : Gammaℝ (-1) = -2 * π ∧ Gammaℝ 2 = 1 / π := by sorry
+
+/-- B.2/positive-rational-from-valuations: positivity excludes the lost sign. -/
+theorem rat_eq_iff_forall_padicValRat_eq {q r : ℚ} (hq : 0 < q) (hr : 0 < r) :
+    q = r ↔ ∀ p : ℕ, p.Prime → padicValRat p q = padicValRat p r := by sorry
+
+example : ¬ ((-1 : ℚ) = 1) ∧ ∀ p : ℕ, p.Prime → padicValRat p (-1) = padicValRat p 1 := by sorry
+
+-- B.4: a residue factor above ℓ is an ℓ-adic unit.
+example (ℓ f : ℕ) (hℓ : 2 ≤ ℓ) (hf : 1 ≤ f) : ¬ ℓ ∣ ℓ ^ f - 1 := by
+  intro h
+  have h1 : ℓ ∣ ℓ ^ f := dvd_pow_self ℓ (by omega)
+  have h2 : 1 ≤ ℓ ^ f := Nat.one_le_pow _ _ (by omega)
+  have : ℓ ∣ ℓ ^ f - (ℓ ^ f - 1) := Nat.dvd_sub h1 h
+  rw [Nat.sub_sub_self h2] at this
+  exact absurd (Nat.le_of_dvd one_pos this) (by omega)
+
+-- B.3: the independent numerical inputs agree, and the wrong twist fails.
+example : (-1 : ℚ) / 12 = -2 / 24 ∧ (1 : ℚ) / 30 = 4 / 120 ∧
+    (-1 : ℚ) / 12 ≠ -2 / 2 := by norm_num
+
+-- B.7: removing two primes restores the negative sign; the empty product is 1.
+example : (-1 : ℚ) / 12 * (1-2) * (1-3) = -1 / 6 ∧
+    (2 : ℕ) * (2-1) * (3-1) = 4 := by norm_num
+
+-- B.8: keep the real-place factor 2 in both even-weight examples.
+example : (2 : ℚ) / 48 ≠ 1 / 12 ∧ (2 : ℚ) * 2 / 48 = 1 / 12 ∧
+    (2 : ℚ) / 24 = 1 / 12 ∧ (2 : ℚ) * 1 / 240 = 1 / 120 := by norm_num
+
+-- B.5/B.6: the pole term with u=5 and the tower valuation factorization.
+example : (1 / 12 : ℚ) * (1 / 5 - 5) = -2 / 5 := by norm_num
+example (k : ℕ) (ε : ℤ) :
+    1 - (1 + 2 ^ (k+1) * ε) ^ 2 = -(2 ^ (k+2)) * ε * (1 + 2 ^ k * ε) := by ring
+
+end TauCeti.BirchTate
+
+/-
+PROPOSED SIGNATURES ON UNAVAILABLE SUPPLIER OBJECTS — NOT ELABORATED
+
+The following is a comment, including its nested documentation comments.
+Use the actual objects and hypotheses specified in the reader and requests.
+The supplied names are desired interfaces; no owner object is stubbed out here.
 noncomputable section
 
 open NumberField NumberField.InfinitePlace Complex IsDedekindDomain
@@ -56,44 +105,17 @@ universe u
 
 namespace TauCeti.BirchTate
 
-/-! ## Imported objects (placeholders; owned elsewhere) -/
+/-! ## Supplier interfaces (names only; no substitute definitions) -/
 
-/-- AL.1 (requested): the Dedekind zeta function continued to `ℂ ∖ {1}`. -/
-def dedekindZetaCont (F : Type*) [Field F] [NumberField F] : ℂ → ℂ := sorry
+/-- BorelRegulators R.5/completed-zeta-conventions (requested): the Dedekind zeta function continued to `ℂ ∖ {1}`. -/
 
-/-- AL.1 (requested): the completed zeta function
+/-- BorelRegulators R.5/completed-zeta-conventions (requested): the completed zeta function
 `Λ_F(s) = |d_F|^{s/2} Γ_ℝ(s)^{r₁} Γ_ℂ(s)^{r₂} ζ_F(s)`, holomorphic on `ℂ ∖ {0, 1}`. -/
-def completedDedekindZetaCont (F : Type*) [Field F] [NumberField F] : ℂ → ℂ := sorry
 
 /-- K2SymbolsBrauer T.1/k2-definition: classical `K₂` of a ring. -/
-def K2 (R : Type u) [CommRing R] : Type u := sorry
 
 /-- ArithmeticKTheory N.4/the-w-invariant: `w_i(F) = #H⁰(F, ℚ/ℤ(i))`. -/
-def wInvariant (i : ℤ) (F : Type*) [Field F] : ℕ := sorry
 
-section Imported
-variable (F : Type*) [Field F] [NumberField F]
-
-/-- AL.1: agreement with Mathlib's L-series on `Re s > 1`. -/
-theorem dedekindZetaCont_eq (s : ℂ) (hs : 1 < s.re) :
-    dedekindZetaCont F s = dedekindZeta F s := by sorry
-
-/-- AL.1: the functional equation of the completed function. -/
-theorem completedDedekindZetaCont_one_sub (s : ℂ) :
-    completedDedekindZetaCont F (1 - s) = completedDedekindZetaCont F s := by sorry
-
-/-- AL.1: the completed function on `Re s > 1`. -/
-theorem completedDedekindZetaCont_eq (s : ℂ) (hs : 1 < s.re) :
-    completedDedekindZetaCont F s = (|discr F| : ℂ) ^ (s / 2) * Gammaℝ s ^ nrRealPlaces F *
-      Gammaℂ s ^ nrComplexPlaces F * dedekindZetaCont F s := by sorry
-
-/-- ArithmeticKTheory N.3/finiteness-and-ranks-combined: `K₂(𝓞_F)` is finite. -/
-theorem finite_K2_ringOfIntegers : Finite (K2 (𝓞 F)) := by sorry
-
-/-- ArithmeticKTheory N.4/finiteness-of-the-w-invariant: `w₂(F) ≥ 1`. -/
-theorem wInvariant_two_pos : 0 < wInvariant 2 F := by sorry
-
-end Imported
 
 /-! ## B.1 The Birch–Tate formula -/
 
@@ -119,38 +141,41 @@ theorem BirchTateFormula.w2_mul_zeta_eq_intCast {F : Type*} [Field F] [NumberFie
       (((-1 : ℤ) ^ Module.finrank ℚ F * Nat.card (K2 (𝓞 F)) : ℤ) : ℂ) := by sorry
 
 /-- Unit test: the formula for `ℚ` from its three values. -/
-theorem birchTateFormula_rat_of_values (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
+-- TauCeti.BirchTate.birchTateFormula_rat_of_values
+example (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
     (hK : Nat.card (K2 (𝓞 ℚ)) = 2) (hw : wInvariant 2 ℚ = 24) : BirchTateFormula ℚ := by sorry
 
 /-- Unit test: the twist matters; `w₁(ℚ) = 2` in place of `w₂(ℚ)` fails. -/
-theorem not_birchTateFormula_rat_twist_one (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
+-- TauCeti.BirchTate.not_birchTateFormula_rat_twist_one
+example (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
     (hK : Nat.card (K2 (𝓞 ℚ)) = 2) (hw : wInvariant 1 ℚ = 2) :
     dedekindZetaCont ℚ (-1) ≠
       (-1 : ℂ) ^ Module.finrank ℚ ℚ * (Nat.card (K2 (𝓞 ℚ)) : ℂ) / (wInvariant 1 ℚ : ℂ) := by
   sorry
 
 /-- Unit test: the sign matters. -/
-theorem not_birchTateFormula_rat_unsigned (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
+-- TauCeti.BirchTate.not_birchTateFormula_rat_unsigned
+example (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
     (hK : Nat.card (K2 (𝓞 ℚ)) = 2) (hw : wInvariant 2 ℚ = 24) :
     dedekindZetaCont ℚ (-1) ≠ (Nat.card (K2 (𝓞 ℚ)) : ℂ) / (wInvariant 2 ℚ : ℂ) := by sorry
 
 /-- Unit test: `K₂` of the field `ℚ` is infinite, so `Nat.card` is `0`; the ring of integers
 is required. -/
-theorem not_birchTateFormula_rat_field (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
+-- TauCeti.BirchTate.not_birchTateFormula_rat_field
+example (hζ : dedekindZetaCont ℚ (-1) = -1 / 12)
     (hinf : Infinite (K2 ℚ)) (hw : wInvariant 2 ℚ = 24) :
     dedekindZetaCont ℚ (-1) ≠
       (-1 : ℂ) ^ Module.finrank ℚ ℚ * (Nat.card (K2 ℚ) : ℂ) / (wInvariant 2 ℚ : ℂ) := by sorry
 
 /-- Unit test: a vanishing zeta value (a field with a complex place, e.g. `ℚ(i)`) fails. -/
-theorem not_birchTateFormula_of_zeta_eq_zero (hζ : dedekindZetaCont F (-1) = 0) :
+-- TauCeti.BirchTate.not_birchTateFormula_of_zeta_eq_zero
+example (hζ : dedekindZetaCont F (-1) = 0) :
     ¬ BirchTateFormula F := by sorry
 
 end Formula
 
 /-! ## B.2 Sign, rationality and equivalent formulations -/
 
-/-- B.2/gamma-factor-values. -/
-theorem gammaℝ_neg_one : Gammaℝ (-1) = -2 * π ∧ Gammaℝ 2 = 1 / π := by sorry
 
 /-- B.2/dedekind-zeta-real-positive. -/
 theorem one_le_dedekindZeta_ofReal (F : Type*) [Field F] [NumberField F] {σ : ℝ} (hσ : 1 < σ) :
@@ -183,8 +208,7 @@ theorem birchTateFormula_iff_abs [IsTotallyReal F] :
     BirchTateFormula F ↔
       ‖dedekindZetaCont F (-1)‖ = (Nat.card (K2 (𝓞 F)) : ℝ) / wInvariant 2 F := by sorry
 
-/-- B.2/birch-tate-iff-valuations: given the rational value (rationality is requested from
-AutomorphicPadicLFunctions L3). -/
+/-- B.2/birch-tate-iff-valuations: given the rational value (rationality is B.2/zeta-minus-one-rationality). -/
 theorem birchTateFormula_iff_padicValRat [IsTotallyReal F] (q : ℚ)
     (hq : dedekindZetaCont F (-1) = q) :
     BirchTateFormula F ↔ ∀ ℓ : ℕ, ℓ.Prime →
@@ -193,9 +217,6 @@ theorem birchTateFormula_iff_padicValRat [IsTotallyReal F] (q : ℚ)
 
 end Sign
 
-/-- B.2/positive-rational-from-valuations. -/
-theorem rat_eq_iff_forall_padicValRat_eq {q r : ℚ} (hq : 0 < q) (hr : 0 < r) :
-    q = r ↔ ∀ p : ℕ, p.Prime → padicValRat p q = padicValRat p r := by sorry
 
 example : ¬ ((-1 : ℚ) = 1) ∧ ∀ p : ℕ, p.Prime → padicValRat p (-1) = padicValRat p 1 := by
   sorry
@@ -243,7 +264,7 @@ theorem dedekindZeta_sqrtFive_neg_one :
 /-- B.3/sqrt-five-w2. -/
 theorem wInvariant_two_sqrtFive : wInvariant 2 K = 120 := by sorry
 
-/-- B.3/sqrt-five-birch-tate-check, from the certified order requested from T.5. -/
+/-- B.3/sqrt-five-birch-tate-check, from the certified order requested from ArithmeticKTheory N.8. -/
 theorem birchTateFormula_sqrtFive (hK : Nat.card (K2 (𝓞 K)) = 4) : BirchTateFormula K := by sorry
 
 end SqrtFive
@@ -280,18 +301,22 @@ theorem sModifiedZeta_neg_one (S : Finset (HeightOneSpectrum (𝓞 F))) :
 example : sModifiedZeta ℚ ∅ (-1) = -1 / 12 := by sorry
 
 /-- Unit tests at `2` and `3` over `ℚ` (the heights-one primes `(2)` and `(3)` of `𝓞 ℚ`). -/
-theorem sModifiedZeta_rat_two_neg_one (v : HeightOneSpectrum (𝓞 ℚ))
+-- TauCeti.BirchTate.sModifiedZeta_rat_two_neg_one
+example (v : HeightOneSpectrum (𝓞 ℚ))
     (hv : Ideal.absNorm v.asIdeal = 2) : sModifiedZeta ℚ {v} (-1) = 1 / 12 := by sorry
 
-theorem sModifiedZeta_rat_three_neg_one (v : HeightOneSpectrum (𝓞 ℚ))
+-- TauCeti.BirchTate.sModifiedZeta_rat_three_neg_one
+example (v : HeightOneSpectrum (𝓞 ℚ))
     (hv : Ideal.absNorm v.asIdeal = 3) :
     sModifiedZeta ℚ {v} (-1) = 1 / 6 ∧ dedekindZetaCont ℚ (-1) / (1 - 3) ≠ 1 / 6 := by sorry
 
-theorem sModifiedZeta_rat_eq_LSeries (v : HeightOneSpectrum (𝓞 ℚ))
+-- TauCeti.BirchTate.sModifiedZeta_rat_eq_LSeries
+example (v : HeightOneSpectrum (𝓞 ℚ))
     (hv : Ideal.absNorm v.asIdeal = 2) (s : ℂ) (hs : 1 < s.re) :
     sModifiedZeta ℚ {v} s = (1 - 2 ^ (-s)) * riemannZeta s := by sorry
 
-theorem sModifiedZeta_empty_eq (s : ℂ) : sModifiedZeta F ∅ s = dedekindZetaCont F s := by sorry
+-- TauCeti.BirchTate.sModifiedZeta_empty_eq
+example (s : ℂ) : sModifiedZeta F ∅ s = dedekindZetaCont F s := by sorry
 
 /-- B.7/k2-order-of-s-integers. -/
 theorem natCard_K2_sInteger (S : Finset (HeightOneSpectrum (𝓞 F))) :
@@ -310,10 +335,8 @@ end SIntegers
 /-! ## B.4 The odd-primary theorem (Wiles; Kolster, Park City notes, Theorem 3.3) -/
 
 /-- `H²_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))`, a finite group (ArithmeticKTheory N.6). -/
-def etaleH2 (F : Type*) [Field F] [NumberField F] (ℓ : ℕ) : Type := sorry
 
 /-- `H¹_ét(𝓞_F[1/ℓ], ℤ_ℓ(2))` (ArithmeticKTheory N.6). -/
-def etaleH1 (F : Type*) [Field F] [NumberField F] (ℓ : ℕ) : Type := sorry
 
 section OddPrimary
 variable (F : Type*) [Field F] [NumberField F] (ℓ : ℕ)
@@ -360,27 +383,22 @@ example : (120 : ℚ) * (1 / 30) = 4 := by norm_num
 
 /-! ## B.8 Lichtenbaum formulas (Kolster, Park City notes, Conjectures 3.6–3.7, Theorem 3.3) -/
 
-/-- `H²(𝓞_F, ℤ(n)) = ∏_p H²_ét(𝓞_F[1/p], ℤ_p(n))`, a finite group (ArithmeticKTheory N.6). -/
-def etaleH2Model (F : Type*) [Field F] [NumberField F] (n : ℕ) : Type := sorry
+/-- The actual integral arithmetic H² supplied by M.8/PS.3, finite for n ≥ 2.
+Its primewise comparison with finite étale H² is a supplier theorem. -/
 
 /-- `h_n(F) = #H²(𝓞_F, ℤ(n))`. -/
-def hInvariant (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := Nat.card (etaleH2Model F n)
+def hInvariant (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := Nat.card (MotivicEtaleKTheory.integralH2 F n)
 
-/-- `H¹(𝓞_F, ℤ(n))`, with `H¹ ⊗ ℤ_p ≅ H¹_ét(𝓞_F[1/p], ℤ_p(n))`. -/
-def etaleH1Model (F : Type*) [Field F] [NumberField F] (n : ℕ) : Type := sorry
+/-- M.8/PS.3 supply actual integral H¹, its lattice and primewise comparisons;
+M.7 supplies the real-place corrections at 2. -/
 
 /-- BorelRegulators R.5: the leading coefficient `ζ*_F(1 − n)`. -/
-def zetaLeadingCoeff (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℝ := sorry
 
 /-- BorelRegulators R.4: Borel's regulator covolume `R_n^B(F)` (`= 1` in rank zero). -/
-def borelRegulator (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℝ := sorry
 
 /-- The ratio `ζ*_F(1 − n)/R_n^B(F)`, rational by Borel's theorem (R.5). -/
-def borelRatio (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℚ := sorry
 
 /-- `#K_i(𝓞_F)` and `#K_i(𝓞_F)_tors` for the higher K-groups (ArithmeticKTheory N.3, N.5). -/
-def cardK (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := sorry
-def cardKTorsion (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := sorry
 
 /-- B.8/lichtenbaum-formula-statements: Conjecture 3.6 away from 2. -/
 def LichtenbaumFormulaOddPart (F : Type*) [Field F] [NumberField F] (n : ℕ) : Prop :=
@@ -388,13 +406,11 @@ def LichtenbaumFormulaOddPart (F : Type*) [Field F] [NumberField F] (n : ℕ) : 
     padicValRat ℓ (borelRatio F n) =
       (padicValNat ℓ (cardK F (2 * n - 2)) : ℤ) - padicValNat ℓ (cardKTorsion F (2 * n - 1))
 
-/-- The ℤ-rank and torsion order of `H¹(𝓞_F, ℤ(n))`. -/
-def etaleH1ModelRank (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := sorry
-def etaleH1ModelTorsionCard (F : Type*) [Field F] [NumberField F] (n : ℕ) : ℕ := sorry
+/-- Rank and torsion of the actual M.8/PS.3 integral H¹ lattice; imported, not reconstructed here. -/
 
-/-- B.8/lichtenbaum-formula-statements: Conjecture 3.7 (motivic), with `R_n^M` from BorelRegulators. -/
-def MotivicLichtenbaumFormula (F : Type*) [Field F] [NumberField F] (n : ℕ) (motivicRegulator : ℝ) : Prop :=
-  |zetaLeadingCoeff F n| = (hInvariant F n : ℝ) / etaleH1ModelTorsionCard F n * motivicRegulator
+/-- B.8/lichtenbaum-formula-statements: Conjecture 3.7 (motivic), with the fixed integral `R_n^M` from M.8/PS.3. -/
+def MotivicLichtenbaumFormula (F : Type*) [Field F] [NumberField F] (n : ℕ) : Prop :=
+  |zetaLeadingCoeff F n| = (hInvariant F n : ℝ) / etaleH1ModelTorsionCard F n * PeriodsAndSpecialValues.motivicRegulator F n
 
 section Lichtenbaum
 variable (F : Type*) [Field F] [NumberField F]
@@ -429,16 +445,24 @@ theorem lichtenbaumFormulaOddPart_two_iff [IsTotallyReal F] (q : ℚ) (hq : dede
 end Lichtenbaum
 
 /-- Unit tests for B.8 (values from Tate, Lee–Szczarba and N.4). -/
-theorem hInvariant_two_rat (h : Nat.card (K2 (𝓞 ℚ)) = 2) : hInvariant ℚ 2 = 2 := by sorry
-theorem rank_etaleH1Model_rat_two : etaleH1ModelRank ℚ 2 = 0 := by sorry
-theorem card_torsion_etaleH1Model_rat_two (hw : wInvariant 2 ℚ = 24) :
+-- TauCeti.BirchTate.hInvariant_two_rat
+example (h : Nat.card (K2 (𝓞 ℚ)) = 2) : hInvariant ℚ 2 = 2 := by sorry
+-- TauCeti.BirchTate.rank_etaleH1Model_rat_two
+example : etaleH1ModelRank ℚ 2 = 0 := by sorry
+-- TauCeti.BirchTate.card_torsion_etaleH1Model_rat_two
+example (hw : wInvariant 2 ℚ = 24) :
     etaleH1ModelTorsionCard ℚ 2 = 24 ∧ etaleH1ModelTorsionCard ℚ 2 ≠ 48 := by sorry
-theorem lichtenbaumFormulaOddPart_rat_two (hK2 : cardK ℚ 2 = 2) (hK3 : cardKTorsion ℚ 3 = 48)
+-- TauCeti.BirchTate.lichtenbaumFormulaOddPart_rat_two
+example (hK2 : cardK ℚ 2 = 2) (hK3 : cardKTorsion ℚ 3 = 48)
     (hr : borelRatio ℚ 2 = -1 / 12) : LichtenbaumFormulaOddPart ℚ 2 := by sorry
-theorem not_lichtenbaum_rat_two_at_two : (2 : ℚ) / 48 ≠ |(-1 : ℚ) / 12| := by sorry
-theorem motivicLichtenbaumFormula_rat_two (hz : zetaLeadingCoeff ℚ 2 = -1 / 12) (hh : hInvariant ℚ 2 = 2)
-    (ht : etaleH1ModelTorsionCard ℚ 2 = 24) : MotivicLichtenbaumFormula ℚ 2 1 := by sorry
-theorem lichtenbaumFormulaOddPart_rat_four (hK7 : cardKTorsion ℚ 7 = 240) (hr : borelRatio ℚ 4 = 1 / 120)
+-- TauCeti.BirchTate.not_lichtenbaum_rat_two_at_two
+example : (2 : ℚ) / 48 ≠ |(-1 : ℚ) / 12| := by sorry
+-- TauCeti.BirchTate.motivicLichtenbaumFormula_rat_two
+example (hz : zetaLeadingCoeff ℚ 2 = -1 / 12) (hh : hInvariant ℚ 2 = 2)
+    (ht : etaleH1ModelTorsionCard ℚ 2 = 24)
+    (hR : PeriodsAndSpecialValues.motivicRegulator ℚ 2 = 1) : MotivicLichtenbaumFormula ℚ 2 := by sorry
+-- TauCeti.BirchTate.lichtenbaumFormulaOddPart_rat_four
+example (hK7 : cardKTorsion ℚ 7 = 240) (hr : borelRatio ℚ 4 = 1 / 120)
     (h : LichtenbaumFormulaOddPart ℚ 4) (ℓ : ℕ) (hℓ : ℓ.Prime) (h2 : ℓ ≠ 2) :
     padicValNat ℓ (cardK ℚ 6) = 0 := by sorry
 
@@ -456,27 +480,21 @@ variable (F : Type*) [Field F] [NumberField F]
 
 /-- B.5/federer-main-conjecture: the pair `(e, u)` of Kolster's tower. Here `F₀ = F(√−1)`,
 `e = max {a | ζ_{2^a} ∈ F₀}`, `F_n = F(ζ_{2^{n+e}})`, and `γ₀(ζ) = ζ^u` on `μ_{2^∞}`. -/
-def kolsterTower (F : Type*) [Field F] [NumberField F] : ℕ × ℤ_[2] := sorry
 
 /-- The Pontryagin dual `Ǎ_∞⁻` of `A_∞⁻ = lim→ ker(A₂(F_n) → A₂(F_n⁺))` (IntegralIwasawaTheory I.2). -/
-def minusClassModule (F : Type*) [Field F] [NumberField F] : Type := sorry
 
 /-- `f_F`: the characteristic power series of `Ǎ_∞⁻` over `ℤ₂⟦T⟧`, `T = γ₀ − 1`. -/
-def minusCharSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
 
 /-- `G_F` with `L₂(χ₀, s) = G_F(u^s − 1)/(u^s − u)` (AutomorphicPadicLFunctions L3). -/
-def twoAdicZetaSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
 
 /-- Federer's main conjecture at 2 (Kolster, Conjecture 3). -/
-def FedererMainConjecture (F : Type*) [Field F] [NumberField F] : Prop :=
+def FedererMainConjecture (F : Type*) [Field F] [NumberField F] [IsTotallyReal F] : Prop :=
   Ideal.span {twoAdicZetaSeries F} =
     Ideal.span {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * minusCharSeries F}
 
 /-- `(𝒯 ⊗_{ℤ₂} A_∞⁻)^Γ`, a finite group. -/
-def twistedMinusInvariants (F : Type*) [Field F] [NumberField F] : Type := sorry
 
 /-- Evaluation `g ↦ g(u⁻¹ − 1)`, convergent because `u⁻¹ − 1 ∈ 4ℤ₂`. -/
-def kolsterEval (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] →+* ℤ_[2] := sorry
 
 /-- B.5/tame-kernel-two-part-via-iwasawa (Kolster, Theorem 1), in valuation form. -/
 theorem card_K2_two_part_eq [IsTotallyReal F] :
@@ -511,16 +529,19 @@ theorem birchTateFormula_of_isAbelianGalois [IsTotallyReal F] [IsAbelianGalois �
 end TwoPrimary
 
 /-- Unit test: for `ℚ`, `v₂(G(u⁻¹ − 1)) = 1 = [ℚ:ℚ]`; with `u = 5`, `(1/12)(1/5 − 5) = −2/5`. -/
-theorem twoAdicZetaSeries_rat_valuation :
+-- TauCeti.BirchTate.twoAdicZetaSeries_rat_valuation
+example :
     (kolsterEval ℚ (twoAdicZetaSeries ℚ)).valuation = 1 := by sorry
 
 /-- Unit test: for `ℚ(√2)`, `v₂(G(u⁻¹ − 1)) = 2 = [F:ℚ]`, from `ζ_F(−1) = 1/12` and `e = 3`. -/
-theorem twoAdicZetaSeries_sqrtTwo_valuation (F : Type*) [Field F] [NumberField F]
+-- TauCeti.BirchTate.twoAdicZetaSeries_sqrtTwo_valuation
+example (F : Type*) [Field F] [NumberField F] [IsTotallyReal F]
     (hF : Module.finrank ℚ F = 2) (h2 : ∃ x : F, x ^ 2 = 2) :
     (kolsterEval F (twoAdicZetaSeries F)).valuation = 2 := by sorry
 
 /-- Unit test: without the factor `2^{[F:ℚ]}` the conjecture fails for `ℚ`: `(G_ℚ) = (2) ≠ (1) = (f_ℚ)`. -/
-theorem not_federerMainConjecture_unnormalised_rat :
+-- TauCeti.BirchTate.not_federerMainConjecture_unnormalised_rat
+example :
     Ideal.span {twoAdicZetaSeries ℚ} ≠ Ideal.span {minusCharSeries ℚ} := by sorry
 
 /-- B.5, checked arithmetic: `1 − u² = −2^{e+1}·ε·(1 + 2^{e−1}ε)` for `u = 1 + 2^e ε` (here `e = k + 1`),
@@ -544,13 +565,10 @@ example (x u : ℚ) : (x - u) * (-x - u) = -(x ^ 2 - u ^ 2) := by ring
 /-! ## B.6 Every totally real field (Kurihara's Theorem 4.1 at `p = 2`) -/
 
 /-- Kurihara's pseudo-measure `g = g_{F_∞/F,S}`, through `(γ − 1)g ∈ ℤ₂⟦T⟧` (IntegralIwasawaTheory I.9). -/
-def kuriharaSeriesTimesAugmentation (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
 
 /-- The automorphism `ι_u` of `ℤ₂⟦T⟧`, `T ↦ u(1 + T)⁻¹ − 1`. -/
-def twistInverse (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] ≃+* PowerSeries ℤ_[2] := sorry
 
 /-- The characteristic power series of `ι_u·X_{F_∞,S}` (IntegralIwasawaTheory I.9–I.10). -/
-def twistedSRamifiedCharSeries (F : Type*) [Field F] [NumberField F] : PowerSeries ℤ_[2] := sorry
 
 section AllTotallyReal
 variable (F : Type*) [Field F] [NumberField F]
@@ -583,3 +601,134 @@ valuation `1 = [ℚ:ℚ]`. -/
 example : (1 - 2 : ℚ) * (-1 / 12) = 1 / 12 ∧ ((1 : ℚ) / 5 - 5) * (1 / 12) = -2 / 5 := by norm_num
 
 end TauCeti.BirchTate
+
+
+/-! Remaining target-level signatures. Every object below is the named supplier's
+actual object. Qualified names indicate the requested supplier API, which must land
+before these signatures can be enabled. This block does not create those objects. -/
+namespace TauCeti.BirchTate
+variable (F : Type*) [Field F] [NumberField F]
+
+-- B.2/zeta-minus-one-rationality
+theorem exists_rat_dedekindZeta_neg_one [IsTotallyReal F] :
+    ∃! q : ℚ, q ≠ 0 ∧ dedekindZetaCont F (-1) = (q : ℂ) := by sorry
+
+-- B.2/independent-denominator-integrality: exact L3 annihilator-integrality import.
+theorem wInvariant_two_mul_zeta_neg_one_integral [IsTotallyReal F] (q : ℚ)
+    (hq : dedekindZetaCont F (-1) = (q : ℂ)) :
+    ∃ z : ℤ, (wInvariant 2 F : ℚ) * q = (z : ℚ) := by sorry
+
+theorem federerMainConjecture_iff_associated [IsTotallyReal F] :
+    FedererMainConjecture F ↔ Associated (twoAdicZetaSeries F)
+      ((2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * minusCharSeries F) := by sorry
+
+theorem federerMainConjecture_mul_unit [IsTotallyReal F]
+    (ε : (PowerSeries ℤ_[2])ˣ) :
+    (Ideal.span {twoAdicZetaSeries F} = Ideal.span
+      {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * ((ε : PowerSeries ℤ_[2]) * minusCharSeries F)})
+        ↔ FedererMainConjecture F := by sorry
+
+-- Apply to I.2's coordinate isomorphism γ' = γ^c; the pole-factor correction
+-- is a unit and is absorbed by federerMainConjecture_mul_unit.
+theorem federerMainConjecture_change_generator [IsTotallyReal F]
+    (φ : PowerSeries ℤ_[2] ≃+* PowerSeries ℤ_[2]) :
+    (Ideal.span {φ (twoAdicZetaSeries F)} = Ideal.span
+      {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * φ (minusCharSeries F)})
+        ↔ FedererMainConjecture F := by sorry
+
+theorem padicValNat_hInvariant (n : ℕ) (hn : 2 ≤ n) (ℓ : ℕ) [Fact ℓ.Prime] :
+    padicValNat ℓ (hInvariant F n) =
+      padicValNat ℓ (Nat.card (MotivicEtaleKTheory.arithmeticEtaleH2 F ℓ n)) := by sorry
+
+-- TauCeti.BirchTate.lichtenbaum_complex_place_requires_leading_term
+example (h : 0 < nrComplexPlaces F) :
+    dedekindZetaCont F (-1) = 0 ∧ zetaLeadingCoeff F 2 ≠ 0 ∧ 0 < borelRegulator F 2 := by sorry
+
+-- B.7/enlarging-s. The K₂ order part is natCard_K2_sInteger at S and T,
+-- with cancellation, and the canonical inclusions compose for S ⊆ T ⊆ U.
+theorem sModifiedZeta_enlarge (S T : Finset (HeightOneSpectrum (𝓞 F)))
+    (hST : S ⊆ T) (s : ℂ) :
+    sModifiedZeta F T s = sModifiedZeta F S s *
+      ∏ v ∈ T \ S, (1 - (Ideal.absNorm v.asIdeal : ℂ) ^ (-s)) ∧
+    Nat.card (K2 ((T : Set (HeightOneSpectrum (𝓞 F))).integer F)) =
+      Nat.card (K2 ((S : Set (HeightOneSpectrum (𝓞 F))).integer F)) *
+        ∏ v ∈ T \ S, (Ideal.absNorm v.asIdeal - 1) := by sorry
+
+-- B.7/localisation-comparison-naturality: the requested M.3 arithmetic Chern
+-- map and M.7 corrected map at real places, with their coefficient/residue maps.
+-- The full natural transformation, including boundary squares, is authoritative
+-- in the reader. This displayed square is its degree-two inclusion component.
+theorem chern_localisation_square (ℓ : ℕ) [Fact ℓ.Prime]
+    (S T : Finset (HeightOneSpectrum (𝓞 F))) (hST : S ⊆ T)
+    (hS : ArithmeticKTheory.primesAbove F ℓ ⊆ S) :
+    (MotivicEtaleKTheory.chernTwo F ℓ T).comp (ArithmeticKTheory.k2Inclusion F ℓ hST) =
+      (MotivicEtaleKTheory.etaleRestriction F ℓ hST).comp (MotivicEtaleKTheory.chernTwo F ℓ S) := by sorry
+
+-- B.8/real-place-two-correction: n is even; both K groups are finite here.
+theorem padicValRat_higher_two_correction [IsTotallyReal F] (n : ℕ)
+    (hn : 2 ≤ n) (he : Even n) :
+    (padicValNat 2 (Nat.card (MotivicEtaleKTheory.arithmeticEtaleH2 F 2 n)) : ℤ) -
+      padicValNat 2 (Nat.card (MotivicEtaleKTheory.arithmeticEtaleH1 F 2 n)) =
+    nrRealPlaces F + (padicValNat 2 (cardK F (2*n-2)) : ℤ) -
+      padicValNat 2 (cardKTorsion F (2*n-1)) := by sorry
+
+-- B.8/higher-values-real-abelian: Appendix A.1–A.3, not a modern weight-two extrapolation.
+theorem higherLichtenbaum_of_isAbelianGalois [IsTotallyReal F] [IsAbelianGalois ℚ F]
+    (k : ℕ) (hk : 1 ≤ k) :
+    dedekindZetaCont F (1 - (2*k : ℂ)) =
+      (-1 : ℂ) ^ (k * nrRealPlaces F) * (2 : ℂ) ^ nrRealPlaces F *
+        (cardK F (4*k-2) : ℂ) / (cardKTorsion F (4*k-1) : ℂ) := by sorry
+
+-- B.8/integral-equivariant-tate-statement. This is the explicit input record
+-- requested from PS.4/PS.5, not a new object defined by this file. It carries
+-- n ≥ 2, the actual projective structure, Coherence and analytic/order inputs.
+-- D.motive is h⁰(Spec L)(1−n), and D.integralOrder is ℤ[Gal(L/E)].
+def tateMotive_etnc_statement (E L : Type*) [Field E] [NumberField E]
+    [Field L] [NumberField L] [Algebra E L] [IsGalois E L] (n : ℕ)
+    (D : PeriodsAndSpecialValues.TateETNCData E L n) : Prop :=
+  PeriodsAndSpecialValues.ETNC D.motive D.integralOrder D.projectiveStructure
+    D.coherence D.analyticInput
+
+theorem tateMotive_etnc_statement_iff_class_zero (E L : Type*)
+    [Field E] [NumberField E] [Field L] [NumberField L] [Algebra E L] [IsGalois E L]
+    (n : ℕ) (D : PeriodsAndSpecialValues.TateETNCData E L n) :
+    tateMotive_etnc_statement E L n D ↔
+      PeriodsAndSpecialValues.tateOmega D = 0 := by sorry
+
+-- Rationality is a separate hypothesis; the local class includes the
+-- reduced-norm correction of Burns–Flach Conjecture 6.
+theorem tateMotive_etnc_statement_iff_local (E L : Type*)
+    [Field E] [NumberField E] [Field L] [NumberField L] [Algebra E L] [IsGalois E L]
+    (n : ℕ) (D : PeriodsAndSpecialValues.TateETNCData E L n)
+    (hr : PeriodsAndSpecialValues.TateETNCRationality D) :
+    tateMotive_etnc_statement E L n D ↔
+      ∀ p : ℕ, p.Prime → PeriodsAndSpecialValues.localTateOmega D p = 0 := by sorry
+
+-- D and D' refer to the same fixed Tate motive and rational comparisons;
+-- they may have different projective structures. Burns–Flach Lemmas 5–6
+-- supply the finite-quotient trivialization and gluing. Each record includes
+-- Coherence; no arbitrary integral section is declared lattice invariant.
+theorem tateMotive_etnc_statement_lattice_invariant (E L : Type*)
+    [Field E] [NumberField E] [Field L] [NumberField L] [Algebra E L] [IsGalois E L]
+    (n : ℕ) (D D' : PeriodsAndSpecialValues.TateETNCData E L n)
+    (hcomp : PeriodsAndSpecialValues.SameTateRationalData D D') :
+    tateMotive_etnc_statement E L n D ↔
+      tateMotive_etnc_statement E L n D' := by sorry
+
+-- TauCeti.BirchTate.tateMotive_etnc_trivial_group_weight_two
+-- The scalar image is a necessary check; it is not a converse to the integral statement.
+example : (2 : ℚ) / 24 = 1 / 12 ∧ (2 : ℚ) * 2 / 48 = 1 / 12 := by sorry
+
+-- TauCeti.BirchTate.tateMotive_etnc_complex_leading_term
+example (h : nrComplexPlaces F = 1) :
+    dedekindZetaCont F (-1) = 0 ∧ zetaLeadingCoeff F 2 ≠ 0 := by sorry
+
+-- TauCeti.BirchTate.tateMotive_etnc_integral_index
+-- The owner supplies the actual relative-K class of multiplication by 2 on ℤ.
+example : GeneralAlgebraicKTheory.relativeClassOfMultiplication (2 : ℤ) ≠ 0 ∧
+    GeneralAlgebraicKTheory.localValuationOfRelativeClass 2
+      (GeneralAlgebraicKTheory.relativeClassOfMultiplication (2 : ℤ)) = 1 := by sorry
+
+end TauCeti.BirchTate
+
+-/
