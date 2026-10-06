@@ -860,6 +860,17 @@
     "data/blueprints/HabiroNumberFields--HB.1.md"
    ]
   },
+  "research/blueprint/packets/HabiroNumberFields--HB.7.json": {
+   "promotedAt": "2026-10-06T04:55:25Z",
+   "review": "16b53ba32f5c233e",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroNumberFields--HB.7",
+   "sha256": "8a9b4ff22ad077431658afb0e9198b92fda762d406c35d93d3b1738e3e7a8147",
+   "to": [
+    "data/blueprints/HabiroNumberFields--HB.7.json",
+    "data/blueprints/HabiroNumberFields--HB.7.md"
+   ]
+  },
   "research/blueprint/packets/HabiroNumberFields.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "f3c354b80886c99c",

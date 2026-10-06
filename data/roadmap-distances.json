@@ -3033,12 +3033,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 74,
-     "missingDeclarations": 74,
+     "declarations": 85,
+     "missingDeclarations": 85,
      "depth": 17,
      "layersCovered": 4,
      "layers": 4,
-     "sourcePages": 60
+     "sourcePages": 72
     }
    },
    "measurement": 6.5,
