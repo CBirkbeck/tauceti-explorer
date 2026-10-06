@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-05T15:05:35Z",
- "exported_at": "2026-10-05T15:05:35Z",
+ "cutoff": "2026-10-05T22:12:35Z",
+ "exported_at": "2026-10-05T22:12:35Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 138,
-  "recent": 5969,
-  "total": 11038,
+  "open": 170,
+  "recent": 6022,
+  "total": 11121,
   "unattributed": {
-   "no_label": 1233,
+   "no_label": 1259,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,18 +28,18 @@
    1080,
    1649,
    2267,
-   179
+   262
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "3873e204ce5da38e92832c7ea2370920d6e7c693",
+ "roadmap_head": "6b8260db8e870e94a0a6238ce7e163221cdb7351",
  "rows": [
   {
    "activity": {
     "last": "2026-10-05T10:18:32Z",
-    "open": 1,
-    "recent": 166,
+    "open": 2,
+    "recent": 163,
     "since_report": 1,
     "total": 414,
     "weekly": [
@@ -64,6 +64,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "noetherianity of K⟨X₁,…,Xₙ⟩ for n ≥ 2 (BGR 5.2.6), strong noetherianness of complete rank-one fields, the ℚ_p⟨T₁,…,Tₙ⟩ example",
@@ -182,6 +183,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -282,6 +284,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 10": "nonsingular Weierstrass model and Prop. 6.1.3, plane curves, general Kummer data, the Artin-Schreier genus formula",
@@ -397,11 +400,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T10:19:10Z",
-    "open": 1,
-    "recent": 82,
-    "since_report": 1,
-    "total": 82,
+    "last": "2026-10-05T17:11:54Z",
+    "open": 2,
+    "recent": 83,
+    "since_report": 2,
+    "total": 83,
     "weekly": [
      0,
      0,
@@ -418,12 +421,13 @@
      18,
      22,
      39,
-     1
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Stage 2": "an orientation-pinned sphere generator, so the connecting map for (D^n, S^(n-1)) has a fixed sign",
@@ -519,11 +523,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:59:06Z",
-    "open": 2,
-    "recent": 56,
-    "since_report": 3,
-    "total": 56,
+    "last": "2026-10-05T17:19:52Z",
+    "open": 3,
+    "recent": 57,
+    "since_report": 4,
+    "total": 57,
     "weekly": [
      0,
      0,
@@ -540,12 +544,13 @@
      8,
      16,
      28,
-     4
+     5
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "L0A": "strong symmetric monoidal pullback along a general morphism, with identity and composition coherence",
@@ -636,7 +641,7 @@
   {
    "activity": {
     "last": "2026-10-04T19:02:02Z",
-    "open": 1,
+    "open": 4,
     "recent": 75,
     "since_report": 0,
     "total": 75,
@@ -662,6 +667,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the global torus action on the fan scheme; the product-fan scheme as the fibre product over Spec C",
@@ -756,11 +762,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:04:23Z",
+    "last": "2026-10-05T18:31:33Z",
     "open": 1,
-    "recent": 94,
-    "since_report": 0,
-    "total": 122,
+    "recent": 95,
+    "since_report": 2,
+    "total": 124,
     "weekly": [
      0,
      0,
@@ -777,12 +783,13 @@
      27,
      32,
      11,
-     0
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -877,7 +884,7 @@
   {
    "activity": {
     "last": "2026-10-05T13:12:05Z",
-    "open": 1,
+    "open": 2,
     "recent": 97,
     "since_report": 3,
     "total": 97,
@@ -903,6 +910,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "0.8: the passport equality for cyclicTriple 4 and its relabeling",
@@ -1026,7 +1034,7 @@
   {
    "activity": {
     "last": "2026-10-01T20:54:52Z",
-    "open": 1,
+    "open": 2,
     "recent": 75,
     "since_report": 2,
     "total": 157,
@@ -1052,6 +1060,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "L5": "isomorphisms to pinned points for B in rank 3 or more, D, 2D, 3D4, E6, 2E6, E7, E8, F4, G2, Ree G2, Ree F4 and Tits; needs reductive groups Layer 9"
@@ -1166,6 +1175,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -1271,11 +1281,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:04:15Z",
-    "open": 3,
-    "recent": 228,
-    "since_report": 9,
-    "total": 230,
+    "last": "2026-10-05T17:49:00Z",
+    "open": 10,
+    "recent": 230,
+    "since_report": 2,
+    "total": 232,
     "weekly": [
      0,
      0,
@@ -1292,18 +1302,19 @@
      23,
      84,
      104,
-     7
+     9
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the Tate-Nakayama tensor-product generalization of the cup-product criterion",
-     "Layer 5": "perfectness of local Tate duality and the Euler-characteristic formulas",
-     "Layer 6": "quadratic tests against localSymbol, H3 vanishing, cd and scd of G_K equal 2",
-     "Layer 7": "norm functoriality artinMap_norm, naturality in K, geometricArtinMap, conductors",
+     "Layer 5": "tateDualityPairing_perfect_mixed in the named form and the Euler-characteristic formulas",
+     "Layer 6": "H3 vanishing for the units of a separable closure, cd and scd of G_K equal 2",
+     "Layer 7": "geometricArtinMap and the local conductors",
      "Layer 8": "local abelian existence, uniqueness, localClassField, the correspondences, injectivity of artinMap"
     },
     "source": "marker"
@@ -1389,43 +1400,43 @@
     "frontier": [
      {
       "name": "Local abelian existence",
-      "text": "— show that every open finite-index subgroup of `Kˣ` is the norm group of a finite abelian extension: for `K/ℚ_p` via Kummer theory, and in general for prime-to-`p` index. Uniqueness, `localClassField`, both correspondences and injectivity of `artinMap` then follow. The README lists local duality as a prerequisite."
+      "text": "— show that every open finite-index subgroup of `Kˣ` is the norm group of a finite abelian extension. Uniqueness, `localClassField`, both correspondences and injectivity of `artinMap` follow. Duality, the README's stated prerequisite, is now available on the explicit model."
      },
      {
-      "name": "Perfectness of local Tate duality",
-      "text": "— prove `tateDualityPairing_perfect_mixed` and the Euler characteristic. The [dévissage through coinduced modules](https://taucetiproject.github.io/TauCeti/docs/TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Duality/OpenSubgroup.html#TauCeti.ContCohomology.dualityMap2_bijective_discreteCoind_of_bijective) is in place, and the `(1,1)` pairing on `μₙ` is already identified with the local symbol."
-     },
-     {
-      "name": "Norm functoriality of the absolute map",
-      "text": "— prove `artinMap_norm`, `Art_K(N_{L/K} x)` as the image of `Art_L(x)`. The [layer transport from `E` to `K`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/NumberTheory/ClassFieldTheory/Formation/Map.html#TauCeti.ClassFieldTheory.localFormationLayerEquiv) and `invMap_brRes` are the inputs. Naturality in `K`, `geometricArtinMap` and conductors are also needed to close Layer 7."
+      "name": "Duality in the README's form, then the Euler characteristic",
+      "text": "— restate the bijections as `tateDualityPairing_perfect_mixed` for the named evaluation pairing. Then prove `eulerCharacteristic_mixed` and `eulerCharacteristic_finrank_fp`, which close Layer 5."
      },
      {
       "name": "Cohomological dimension of `G_K`",
-      "text": "— prove `H³(G_K, (Kˢ)ˣ) = 0` from `tateIso`, then `cd_ℓ = scd_ℓ = 2` for `K/ℚ_p`. The `scd` bound also needs perfect duality. The quadratic test `localArtinMap_quadratic_eq_hilbertSymbol` is the other open item in Layer 6."
+      "text": "— prove `H³(G_K, (Kˢ)ˣ) = 0` from `tateIso`, then `cd_ℓ G_K = 2` for `K/ℚ_p`. The `scd` bound uses the `(2,0)` case of duality at `ℤ/ℓᵐ`, which is now within reach. This closes Layer 6."
+     },
+     {
+      "name": "Geometric Artin map and conductors",
+      "text": "— define `geometricArtinMap` as the precomposition with inversion, then the conductor minima `conductorExponent`, `conductorIdeal` and `characterConductorExp`. These are the last items of Layer 7."
      },
      {
       "name": "Tate–Nakayama",
       "text": "— the tensor-product generalization of the cup-product criterion, the last item in Layer 0."
      }
     ],
-    "glance": "The abstract theory, Layers 1–4, is done. Local reciprocity is proved, both for finite extensions and for the absolute Artin map, but local existence, local duality and the cohomological dimension of `G_K` have not landed. The Weil group and everything global have not begun.",
+    "glance": "The abstract theory, Layers 1–4, is done. Local reciprocity is proved for finite extensions and for the absolute Artin map, which is now functorial for norms and isomorphisms. Tate local duality holds for finite modules of order prime to the characteristic. Local existence, the Euler characteristic, the cohomological dimension of `G_K`, the Weil group and everything global have not landed.",
     "inherited": false,
     "path": "TauCetiRoadmap/ClassFieldTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/ClassFieldTheory/PROGRESS.md",
-    "report_sha": "b8fa849973e2a4a147c3f91394356919f2219c3cf2141530257e581234b73652",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "e69a585342ef3a46d0f1967349e6b82cd1a7bec91c4899774918c662c851ef7b",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "class field theory",
    "topic": "Number theory"
   },
   {
    "activity": {
-    "last": "2026-10-05T13:23:03Z",
-    "open": 2,
-    "recent": 117,
-    "since_report": 6,
-    "total": 209,
+    "last": "2026-10-05T18:19:44Z",
+    "open": 3,
+    "recent": 120,
+    "since_report": 9,
+    "total": 212,
     "weekly": [
      21,
      5,
@@ -1442,12 +1453,13 @@
      21,
      19,
      65,
-     7
+     10
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Lane ALG": "structure theorem for finitely generated bigraded F[U]-modules; filtered chain complexes",
@@ -1531,11 +1543,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:01:13Z",
-    "open": 2,
-    "recent": 90,
-    "since_report": 3,
-    "total": 269,
+    "last": "2026-10-05T18:21:55Z",
+    "open": 1,
+    "recent": 91,
+    "since_report": 4,
+    "total": 270,
     "weekly": [
      0,
      8,
@@ -1552,12 +1564,13 @@
      21,
      30,
      27,
-     3
+     4
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "L6": "ends at infinity with parallel sides or several vertices at infinity, and a general univalence criterion for the converse beyond convex, small-turning or certified data"
@@ -1641,11 +1654,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T05:39:18Z",
+    "last": "2026-10-05T18:45:14Z",
     "open": 0,
-    "recent": 84,
-    "since_report": 1,
-    "total": 106,
+    "recent": 85,
+    "since_report": 2,
+    "total": 107,
     "weekly": [
      0,
      0,
@@ -1662,12 +1675,13 @@
      19,
      25,
      32,
-     1
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "brace operations and their instantiation along composable paths in a graded quiver",
@@ -1781,7 +1795,7 @@
    "activity": {
     "last": "2026-10-04T13:53:47Z",
     "open": 0,
-    "recent": 74,
+    "recent": 73,
     "since_report": 0,
     "total": 110,
     "weekly": [
@@ -1806,6 +1820,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -1911,11 +1926,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:31:59Z",
-    "open": 5,
-    "recent": 185,
-    "since_report": 3,
-    "total": 450,
+    "last": "2026-10-05T18:44:08Z",
+    "open": 2,
+    "recent": 184,
+    "since_report": 6,
+    "total": 453,
     "weekly": [
      0,
      0,
@@ -1932,12 +1947,13 @@
      24,
      36,
      48,
-     2
+     5
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0.5": "descent of Vélu coefficients for Galois-stable subgroups; base-change compatibility of isogeny degree and duals",
@@ -2081,6 +2097,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -2163,7 +2180,7 @@
   {
    "activity": {
     "last": "2026-10-05T11:31:59Z",
-    "open": 0,
+    "open": 2,
     "recent": 92,
     "since_report": 4,
     "total": 92,
@@ -2189,6 +2206,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 2": "Gauss-Bonnet with ideal vertices, Poincare polygon theorem, finite-sided Dirichlet polygons, presentations, triangle groups",
@@ -2280,11 +2298,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:33:35Z",
-    "open": 7,
-    "recent": 163,
-    "since_report": 20,
-    "total": 239,
+    "last": "2026-10-05T17:48:23Z",
+    "open": 6,
+    "recent": 167,
+    "since_report": 1,
+    "total": 243,
     "weekly": [
      11,
      5,
@@ -2301,23 +2319,24 @@
      24,
      19,
      80,
-     19
+     23
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 1": "collars of manifold boundaries from Brown's theorem, tubular-neighbourhood existence, gluing along boundary pieces, handles and connected sum",
+     "Layer 1": "collars of manifold boundaries, tubular neighbourhoods beyond Euclidean space, gluing along boundary pieces, handles and connected sum",
      "Layer 10": "the Euler class of an oriented plane bundle in H^2, the pairing with surfaces, and the Euler-class bound",
      "Layer 11": "the reconciliation: polyhedra of combinatorial manifolds are PL manifolds for layer 1's PLGroupoid, and Whitehead's converse",
-     "Layer 2": "Brown's bicollaring of a locally flat sphere in S^n, which needs Jordan-Brouwer separation, and local flatness of general PL embeddings",
-     "Layer 4": "Alexander module invariance under Reidemeister II and III, Reidemeister and Markov theorems, polygonal knots to diagrams, HOMFLY",
-     "Layer 5": "the knot complement with torus boundary, Dehn filling along a slope, and the unknot surgery identities",
+     "Layer 2": "local flatness of general PL embeddings",
+     "Layer 4": "Alexander invariance under the arc-circle clasp, Reidemeister and Markov theorems, polygonal knots to diagrams, HOMFLY",
+     "Layer 5": "the knot exterior as a manifold with torus boundary, Dehn filling along a slope, and the unknot surgery identities",
      "Layer 6": "the concordance group, the cobordism category, Seifert matrices of actual knots, the tau import and mutation",
-     "Layer 7": "a proof of Mostow invariance giving metric-independent hyperbolic volume, and the Weeks manifold",
-     "Layer 8": "the canonical JSJ decomposition with existence and uniqueness, and maximal isometry groups of the eight models"
+     "Layer 7": "a proof of Mostow invariance of hyperbolic volume, and the Weeks manifold with its minimal-volume statement",
+     "Layer 8": "maximal isometry groups of the eight model geometries"
     },
     "source": "marker"
    },
@@ -2390,44 +2409,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Alexander invariance under the second and third moves",
-      "text": ": the Alexander module is invariant under the first Reidemeister move and under relabelling. The other two moves would give the diagram Alexander polynomial, to compare with Burau and Seifert."
+      "name": "The arc–circle clasp for the Alexander module",
+      "text": ": only this form of the second move is missing. Its crossing weights are already computed. With it, the elementary ideals become invariants of Reidemeister classes."
+     },
+     {
+      "name": "Free cancellation on braid closures",
+      "text": ": free cancellation is shown only to preserve the writhe. A Reidemeister-equivalence proof would make Markov-equivalent braids have equivalent closures, and so tie the Jones trace to the diagram Jones polynomial."
+     },
+     {
+      "name": "Knot complement and Dehn filling",
+      "text": ": the solid torus neighbourhood exists. Next, its exterior must become a compact manifold with torus boundary. Filling then needs layer 1's gluing."
+     },
+     {
+      "name": "HOMFLY",
+      "text": ": the Jimbo weighted trace has the skein relation and conjugation invariance. Invariance under Markov stabilization is still missing."
      },
      {
       "name": "Reidemeister's theorem",
-      "text": ": polygonal knots now have Δ-moves and [combinatorial equivalence](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Geometry/Polygon/DeltaMove.html#TauCeti.SimplePolygon.CombinatoriallyEquivalent), but no projection to PD codes. Until there is one, the Jones polynomial is an invariant of diagrams up to moves, not yet of knots."
-     },
-     {
-      "name": "Brown's theorem for spheres",
-      "text": ": a locally flat `(n−1)`-sphere in `Sⁿ` should be bicollared. The bicollaring theorem needs the two complementary sides from Jordan–Brouwer separation. The first homological step toward that is the [acyclicity of the complement of a cube in a sphere](https://taucetiproject.github.io/TauCeti/docs/TauCeti/AlgebraicTopology/Singular/CubeComplement.html#TauCeti.isZero_reducedSingularHomologyFunctor_sphere_compl_range_cube)."
-     },
-     {
-      "name": "Collars of manifold boundaries, and gluing",
-      "text": ": Brown's collaring theorem still has to be applied to the boundary of a compact manifold. Gluing is needed for handles, connected sum, Dehn filling, the concordance group and Heegaard splittings."
-     },
-     {
-      "name": "Metric-independent hyperbolic volume",
-      "text": ": [Mostow rigidity](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Geometry/Manifold/Riemannian/Hyperbolic/Mostow.html#TauCeti.MostowRigidity) is stated but not proved. The volume of a manifold, as opposed to that of a metric, still has to be derived from it, and the Weeks manifold still has to be constructed."
+      "text": ": polygonal knots have Δ-moves and combinatorial equivalence, but there is no projection to PD codes. Until there is, the diagram invariants are not invariants of knots."
      }
     ],
-    "glance": "Layer 3 is done: `Diff(M)` of a compact manifold is a topological group, and the Smale and Watanabe statements are written, though neither is proved. Every other layer except 9 is partial. Knot theory (layer 4) is the deepest of them, and layer 8 has opened with the eight geometries and a statement of geometrization. Layer 9 has not begun.",
+    "glance": "Layer 3 is done: `Diff(M)` is a topological group, and the Smale and Watanabe statements are written. Every other layer except 9 is partial. Knot theory and locally flat embeddings are furthest along. Jordan–Brouwer separation now closes Brown's theorem for spheres, and the JSJ theorem, Freedman's slice theorem and a hyperbolic volume are stated. Layer 9 has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/GeometricTopology/STATUS.md",
     "progress_path": "TauCetiRoadmap/GeometricTopology/PROGRESS.md",
-    "report_sha": "24615a8d8edd33f2488d5c88f1c6a99a7e6a9ad431c0f595f7669e6b44177ae4",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "93a86177d036a7975f620e34cb1a4e106919f1666d3204bd726a1cc629d618fb",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "geometric topology and the solved Kirby-list problems",
    "topic": "Geometry and topology"
   },
   {
    "activity": {
-    "last": "2026-10-05T13:19:44Z",
-    "open": 2,
-    "recent": 102,
-    "since_report": 4,
-    "total": 105,
+    "last": "2026-10-05T17:35:26Z",
+    "open": 0,
+    "recent": 104,
+    "since_report": 6,
+    "total": 107,
     "weekly": [
      0,
      0,
@@ -2444,12 +2463,13 @@
      12,
      41,
      37,
-     4
+     6
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "functoriality of normalized absolute values at finite places under finite extensions",
@@ -2562,11 +2582,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T10:56:03Z",
-    "open": 1,
-    "recent": 41,
-    "since_report": 6,
-    "total": 41,
+    "last": "2026-10-05T18:59:58Z",
+    "open": 0,
+    "recent": 43,
+    "since_report": 8,
+    "total": 43,
     "weekly": [
      0,
      0,
@@ -2583,12 +2603,13 @@
      15,
      11,
      10,
-     1
+     3
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 2": "local classification in global notation at finite places (2.3)",
@@ -2695,11 +2716,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:07:53Z",
+    "last": "2026-10-05T17:46:46Z",
     "open": 1,
-    "recent": 79,
-    "since_report": 3,
-    "total": 114,
+    "recent": 80,
+    "since_report": 4,
+    "total": 115,
     "weekly": [
      0,
      0,
@@ -2716,12 +2737,13 @@
      19,
      20,
      32,
-     3
+     4
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 3": "converse linear-resolution criterion and Cartan/Poincare-series reformulation; a shift-compatible graded horseshoe",
@@ -2813,7 +2835,7 @@
   {
    "activity": {
     "last": "2026-10-05T13:38:52Z",
-    "open": 1,
+    "open": 2,
     "recent": 86,
     "since_report": 4,
     "total": 206,
@@ -2839,6 +2861,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Lane F0": "Fredholm property and index of the strip operator d/ds + A(s) with invertible asymptotics",
@@ -2958,6 +2981,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -3029,8 +3053,8 @@
    "activity": {
     "last": "2026-10-04T16:26:52Z",
     "open": 0,
-    "recent": 67,
-    "since_report": 8,
+    "recent": 66,
+    "since_report": 0,
     "total": 96,
     "weekly": [
      0,
@@ -3054,6 +3078,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -3099,20 +3124,20 @@
     "frontier": [
      {
       "name": "Nothing remains on this roadmap.",
-      "text": "Every milestone in the README is proved and the Riemannian source tree contains no `sorry`. Further work belongs downstream, starting with the constant-curvature model spaces, which can now consume isometry transport."
+      "text": "Every milestone in the README is proved. Further work belongs downstream, starting with the constant-curvature model spaces, which can now consume isometry transport."
      },
      {
       "name": "Metric isometries",
       "text": "— the README deliberately leaves out the Myers–Steenrod theorem, that a distance-preserving bijection is a smooth Riemannian isometry. Transport for a bare metric `IsometryEquiv` would need it as a separate milestone."
      }
     ],
-    "glance": "Every layer is done. The Hopf–Rinow theorem and do Carmo's compactness corollary sit on a complete geodesic, exponential-map and normal-neighbourhood theory. The variational characterization of geodesics and transport along smooth Riemannian isometries, the last two open pieces, are now proved.",
+    "glance": "Every layer is done. The Hopf–Rinow theorem and do Carmo's compactness corollary rest on a complete theory of geodesics, the exponential map and normal neighbourhoods. The variational characterization of geodesics now holds at every smoothness level `C^n` with `2 ≤ n ≤ ∞`.",
     "inherited": false,
     "path": "TauCetiRoadmap/HopfRinow/STATUS.md",
     "progress_path": "TauCetiRoadmap/HopfRinow/PROGRESS.md",
-    "report_sha": "1c51518855f4bf52ae449e333de2ccc6d6f8e4fa8cfeae005f3cd154fac86abf",
-    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
-    "ts": "2026-10-02T05:38:42Z"
+    "report_sha": "34f64f6fa910b4ae43e51a3a6782d56df900a9c323fd8c90684e541d83bf4abf",
+    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
+    "ts": "2026-10-05T01:07:53Z"
    },
    "title": "geodesics, the exponential map, and the Hopf–Rinow theorem",
    "topic": "Geometry and topology"
@@ -3120,7 +3145,7 @@
   {
    "activity": {
     "last": "2026-10-05T11:49:00Z",
-    "open": 1,
+    "open": 3,
     "recent": 46,
     "since_report": 1,
     "total": 104,
@@ -3146,6 +3171,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the levels of the root-lattice examples in 0G",
@@ -3255,11 +3281,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:47:54Z",
-    "open": 5,
-    "recent": 85,
-    "since_report": 1,
-    "total": 163,
+    "last": "2026-10-05T15:30:31Z",
+    "open": 6,
+    "recent": 86,
+    "since_report": 2,
+    "total": 164,
     "weekly": [
      11,
      9,
@@ -3276,12 +3302,13 @@
      18,
      28,
      31,
-     1
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer B": "finiteness of coherent cohomology on proper schemes, Cech comparison, Serre duality via the relative dualizing sheaf",
@@ -3369,11 +3396,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T13:09:51Z",
-    "open": 2,
-    "recent": 118,
-    "since_report": 0,
-    "total": 118,
+    "last": "2026-10-05T19:17:13Z",
+    "open": 1,
+    "recent": 121,
+    "since_report": 3,
+    "total": 121,
     "weekly": [
      0,
      0,
@@ -3390,12 +3417,13 @@
      19,
      33,
      60,
-     0
+     3
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the worked Q_2(sqrt 2) values; a named totally ramified integral basis",
@@ -3478,11 +3506,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T10:20:26Z",
-    "open": 1,
-    "recent": 57,
-    "since_report": 3,
-    "total": 57,
+    "last": "2026-10-05T19:12:13Z",
+    "open": 4,
+    "recent": 60,
+    "since_report": 6,
+    "total": 60,
     "weekly": [
      0,
      0,
@@ -3499,12 +3527,13 @@
      0,
      1,
      55,
-     1
+     4
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "named surjectivity of the Q_p cyclotomic character and the index bound range_localCyclotomicCharacter_le_ratPadic",
@@ -3608,11 +3637,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:35:04Z",
-    "open": 1,
-    "recent": 6,
-    "since_report": 1,
-    "total": 6,
+    "last": "2026-10-05T15:52:22Z",
+    "open": 2,
+    "recent": 7,
+    "since_report": 2,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -3629,12 +3658,13 @@
      0,
      0,
      5,
-     1
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "0B fppf quotients, exactness, killed-by-rank; 0C torsors and free quotients; 0A divisor theorems; 0D-0G",
@@ -3739,11 +3769,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:47:53Z",
-    "open": 1,
-    "recent": 224,
-    "since_report": 4,
-    "total": 511,
+    "last": "2026-10-05T15:41:58Z",
+    "open": 2,
+    "recent": 221,
+    "since_report": 5,
+    "total": 512,
     "weekly": [
      0,
      0,
@@ -3760,12 +3790,13 @@
      53,
      48,
      37,
-     4
+     5
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "Eisenstein spanning, the cusp–Eisenstein decomposition, and the q-expansion of j",
@@ -3915,6 +3946,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -3978,7 +4010,7 @@
    "activity": {
     "last": "2026-10-04T18:02:22Z",
     "open": 0,
-    "recent": 125,
+    "recent": 124,
     "since_report": 0,
     "total": 132,
     "weekly": [
@@ -4003,6 +4035,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -4111,6 +4144,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Part B": "optional: show that each exponential e^{-pt} spans an extreme ray of the completely monotone cone"
@@ -4197,6 +4231,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 12": "Polish-support radius identity, CAT(0) uniqueness, and all Wasserstein barycenter items 3-8",
@@ -4330,11 +4365,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:56:56Z",
-    "open": 3,
-    "recent": 77,
-    "since_report": 3,
-    "total": 77,
+    "last": "2026-10-05T15:17:47Z",
+    "open": 4,
+    "recent": 78,
+    "since_report": 4,
+    "total": 78,
     "weekly": [
      0,
      0,
@@ -4351,12 +4386,13 @@
      0,
      33,
      41,
-     3
+     4
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 1": "1F over a general field: dimension four split and nonsplit readings of C0, and the symplectic group in dimension five",
@@ -4434,11 +4470,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:22:25Z",
-    "open": 2,
-    "recent": 104,
-    "since_report": 4,
-    "total": 197,
+    "last": "2026-10-05T19:22:27Z",
+    "open": 3,
+    "recent": 106,
+    "since_report": 7,
+    "total": 200,
     "weekly": [
      13,
      13,
@@ -4455,12 +4491,13 @@
      18,
      34,
      36,
-     5
+     8
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Lane A": "trace and extension for Lipschitz boundary, the p = n embedding, Meyers-Serrin at higher order on a domain, W^{1,2} into H^{1,2} on the whole space",
@@ -4551,7 +4588,7 @@
     "last": "2026-10-03T04:45:54Z",
     "open": 0,
     "recent": 18,
-    "since_report": 7,
+    "since_report": 0,
     "total": 18,
     "weekly": [
      0,
@@ -4575,9 +4612,9 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 3": "the permutation symmetries of 3.4: IsPeripheralPermAut, its subgroup, permData for r at least 2, and the rank-two swap and rotation",
      "Layer 5": "not a target here; it belongs to the arithmetic successor of BelyiMaps"
     },
     "source": "marker"
@@ -4619,24 +4656,32 @@
     "done",
     "done",
     "done",
-    "partial",
+    "done",
     "done",
     "untouched"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Permutation symmetries (Layer 3.4)",
-      "text": "— the predicate `IsPeripheralPermAut` and the subgroup it defines. Still to do: uniqueness of the permutation and exponent for `r ≥ 2`, the homomorphism `permData`, the stated rank-one failure, and the rank-two swap and rotation. Everything it needs is in place."
+      "name": "The arithmetic route (Layer 5)",
+      "text": "— a Galois homomorphism into the peripheral automorphisms, with the Grothendieck–Teichmüller relations. The README assigns this to the arithmetic successor of BelyiMaps, not to this roadmap."
+     },
+     {
+      "name": "A section over all of `ℤ_pˣ`",
+      "text": "— explicitly not a milestone. Over the torsion units, a section would need peripheral automorphisms of finite order that are compatible with the principal-unit section. Nothing here addresses that compatibility."
+     },
+     {
+      "name": "Generation by the explicit elements",
+      "text": "— the README says that the swap, rotation, reflection and inner automorphisms generate the image of the mapping class group of the thrice-punctured sphere. That claim is not a milestone, and it is not proved here."
      }
     ],
-    "glance": "The summit is reached. The peripheral product identity and the peripheral-power theorem are proved for every `p`-adic unit, the group of peripheral automorphisms has its exponent character, closedness and principal-unit section, and the dyadic instance is stated in consumer shape. The one piece of the roadmap not yet begun is the permutation symmetries of Layer 3.4.",
+    "glance": "The roadmap is complete. The peripheral product identity and the peripheral-power theorem hold for every `p`-adic unit. The group of peripheral automorphisms has its exponent character, closedness, explicit elements of exponent `-1`, permutation symmetries and principal-unit section. The dyadic instance is stated in the shape its consumer needs. Only Layer 5 is left, and it is by design not built here.",
     "inherited": false,
     "path": "TauCetiRoadmap/PeripheralActions/STATUS.md",
     "progress_path": "TauCetiRoadmap/PeripheralActions/PROGRESS.md",
-    "report_sha": "3940904b1daf529762103e20d41855ebd58d49fd75627422511976c57c860c08",
-    "to_sha": "d449639f1b74653bfd5b329b4dfbde888857888d",
-    "ts": "2026-10-02T05:38:42Z"
+    "report_sha": "af54fefcd5f1c186cdf058a71932c409170a6f0f40191c39ca79d48dbf174249",
+    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
+    "ts": "2026-10-05T01:07:53Z"
    },
    "title": "peripheral actions on free pro-`p` groups",
    "topic": "Unsorted"
@@ -4670,6 +4715,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -4748,7 +4794,7 @@
   {
    "activity": {
     "last": "2026-10-05T04:53:47Z",
-    "open": 0,
+    "open": 1,
     "recent": 31,
     "since_report": 1,
     "total": 31,
@@ -4774,6 +4820,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 2": "the outer action E/N to ContinuousOut N of an extension, with continuity of E to ContinuousAut N for topologically finitely generated profinite N"
@@ -4833,11 +4880,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:44:46Z",
-    "open": 3,
-    "recent": 144,
-    "since_report": 4,
-    "total": 179,
+    "last": "2026-10-05T17:37:00Z",
+    "open": 8,
+    "recent": 145,
+    "since_report": 5,
+    "total": 180,
     "weekly": [
      0,
      0,
@@ -4854,12 +4901,13 @@
      17,
      51,
      65,
-     4
+     5
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "closure of discrete modules under finite products, subgroups and quotients, as the README lists them",
@@ -4987,8 +5035,8 @@
   {
    "activity": {
     "last": "2026-10-04T21:11:16Z",
-    "open": 0,
-    "recent": 248,
+    "open": 1,
+    "recent": 247,
     "since_report": 0,
     "total": 254,
     "weekly": [
@@ -5013,6 +5061,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -5111,7 +5160,7 @@
   {
    "activity": {
     "last": "2026-10-05T10:17:05Z",
-    "open": 1,
+    "open": 4,
     "recent": 117,
     "since_report": 1,
     "total": 118,
@@ -5137,6 +5186,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the comparison of diagonal chains with Serre's contiguous orthogonal bases (Serre IV Thm 5)",
@@ -5244,11 +5294,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:37:17Z",
-    "open": 7,
-    "recent": 74,
-    "since_report": 16,
-    "total": 74,
+    "last": "2026-10-05T17:10:01Z",
+    "open": 3,
+    "recent": 79,
+    "since_report": 2,
+    "total": 79,
     "weekly": [
      0,
      0,
@@ -5265,18 +5315,20 @@
      0,
      5,
      53,
-     16
+     21
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 3": "uniform coefficient-sign descriptions of the ith real root and its sectors",
+     "Layer 3": "apply the uniform root-locus descriptions to the shared roots of an active subfamily",
      "Layer 5": "semialgebraicity of stack parts over semialgebraic bases; integerProjection and integer delineability",
-     "Layer 6": "existence of adapted CADs, projection closure, Tarski-Seidenberg, quantifier elimination",
-     "Layer 7": "analytic submanifolds, several-variable Cauchy integral, extension, root coverings, Puiseux with parameters, McCallum projection"
+     "Layer 6": "existence of adapted CADs, hence unconditional projection closure, Tarski-Seidenberg and quantifier elimination",
+     "Layer 7": "Puiseux over the full polydisc and nonmonic form, local discriminant theorem, recursive McCallum correctness",
+     "Layer 8": "uniform parameterized identity, analytic Lazard lifting theorem, CAD existence by Lazard projection"
     },
     "source": "marker"
    },
@@ -5327,49 +5379,49 @@
     "partial",
     "partial",
     "partial",
-    "untouched"
+    "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Uniform root descriptions",
-      "text": "— quantifier-free coefficient-sign descriptions of the graph of the `i`th real root and the regions between roots, on sets with a fixed root count. These make delineated stacks over semialgebraic bases semialgebraic."
+      "name": "Semialgebraic stacks",
+      "text": "— apply the root-locus descriptions to the product of the active subfamily, so that delineated stacks over semialgebraic bases are semialgebraic."
      },
      {
       "name": "CAD existence",
-      "text": "— induct on dimension, applying Collins delineability to a CAD adapted to the projection. Doing so requires the semialgebraic stacks above."
+      "text": "— induct on dimension through Collins delineability and semialgebraic stacks. This gives projection closure and so makes quantifier elimination and the image APIs unconditional."
      },
      {
-      "name": "Tarski–Seidenberg and quantifier elimination",
-      "text": "— project unions of cells of an adapted CAD, then eliminate quantifiers through the existing formula translation."
+      "name": "Puiseux with parameters",
+      "text": "— extend the punctured splitting across `y = 0` using the Riemann extension theorem and root bounds, with discriminant `y^a·u`, and then the nonmonic version."
      },
      {
-      "name": "The integer projection",
-      "text": "— `integerProjection` and its transport to `ℝ`, for `integer_delineability`."
+      "name": "McCallum's theorem",
+      "text": "— the local discriminant theorem on analytic submanifolds, then recursive order-invariance under well-orientedness using the delineating set."
      },
      {
-      "name": "McCallum's analytic toolkit",
-      "text": "— analytic submanifolds, the several-variable Cauchy integral and extension theorem, root coverings and the parameterized Puiseux theorem. These come before the local discriminant theorem and McCallum projection."
+      "name": "Lazard lifting",
+      "text": "— the uniform parameterized identity along monomial curves, analytic Lazard delineability, and CAD existence without well-orientedness."
      }
     ],
-    "glance": "Layers 1, 2 and 4 are done: real closures, Sturm–Tarski with every endpoint form, the Cauchy index, signed subresultants, and real roots in continuous families. Collins delineability, the main theorem of Layer 5, is proved, and CADs are defined. Sign determination, CAD existence and quantifier elimination are partial. The analytic toolkit of Layer 7 has begun, and Lazard's projection (Layer 8) has not.",
+    "glance": "Layers 1, 2 and 4 are done, Collins delineability is proved, and CADs are defined. Quantifier elimination is proved conditionally on projection closure, which still needs the existence of adapted CADs. The analytic toolkit for McCallum's projection is well advanced, and Lazard's valuation-based layer has begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/RealAlgebraicGeometry/STATUS.md",
     "progress_path": "TauCetiRoadmap/RealAlgebraicGeometry/PROGRESS.md",
-    "report_sha": "1591cfad660e63bb233ba6c802ab6584c4fe0c151b99acb63a9864549456907f",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "9b024475ed1cf7fac102fd90d761c9c65ba27b837c7e1febcb2335f0f199ef67",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "Real algebraic geometry: sign determination and cylindrical decomposition",
    "topic": "Unsorted"
   },
   {
    "activity": {
-    "last": "2026-10-05T12:56:56Z",
-    "open": 5,
-    "recent": 360,
-    "since_report": 16,
-    "total": 1089,
+    "last": "2026-10-05T18:02:47Z",
+    "open": 7,
+    "recent": 361,
+    "since_report": 3,
+    "total": 1094,
     "weekly": [
      19,
      4,
@@ -5386,15 +5438,16 @@
      73,
      69,
      132,
-     14
+     19
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 3": "kernel of G to G/N equals N; representability of G/H for general H; affineness of G/H for reductive H",
+     "Layer 3": "representability of G/H for general closed H; affineness of G/H for reductive H; identifying G/N with the fppf quotient sheaf",
      "Layer 5": "general maximality theorem for the unipotent radical",
      "Layer 6": "characteristic-zero equivalence with linear reductivity and simply connected covers",
      "Layer 7": "conjugacy of Borels and maximal tori beyond GLn and SLn; root datum of an arbitrary reductive group; N(T)/T as Weyl group",
@@ -5462,44 +5515,44 @@
    "status": {
     "frontier": [
      {
-      "name": "The kernel of `G → G ⧸ N`.",
-      "text": "Over a field, with `G` geometrically reduced, the projection is faithfully flat. It remains to show its kernel is exactly `N`, so that `G ⧸ N` represents the fppf quotient. Results on how rational points permute the weight spaces of `N` begin the usual argument."
-     },
-     {
       "name": "Representable quotients `G/H`.",
-      "text": "Chevalley's theorem is in place and the fppf quotient sheaf exists. What remains is representing it by a scheme, via the orbit of the stabilized line, and showing it is affine when `H` is reductive."
+      "text": "Chevalley's theorem, the fppf quotient sheaf and the [local closedness of constructible orbits](https://taucetiproject.github.io/TauCeti/docs/TauCeti/Topology/Algebra/MulAction/Orbit.html#TauCeti.isLocallyClosed_orbit_of_isConstructible) are in place. What remains is to represent the sheaf by the orbit of the stabilized line, and to show it is affine when `H` is reductive. For normal `N`, the affine `G ⧸ N` should also be identified with the fppf sheaf as an explicit statement."
      },
      {
       "name": "Conjugacy of Borels and root data in general.",
-      "text": "Conjugacy is known for `GLₙ` and `SLₙ` only. A general version is needed to extract the root datum of an arbitrary reductive group. The normalizer of a torus now acts on its characters through a finite group, but identifying `N(T)/T` with the Weyl group is still open."
+      "text": "Conjugacy is known for `GLₙ` and `SLₙ` only and must be generalized to extract the root datum of an arbitrary reductive group. The normalizer of a torus acts on its characters through a finite group, but identifying `N(T)/T` with the Weyl group is still open."
      },
      {
       "name": "The unipotent radical.",
-      "text": "It remains to prove that the connected normal smooth unipotent subgroup is maximal in general. The present criteria only recognise it."
+      "text": "It remains to prove that the connected normal smooth unipotent subgroup is maximal in general."
+     },
+     {
+      "name": "Reductive versus linearly reductive in characteristic zero.",
+      "text": "Linear reductivity and exact invariants exist, and the Lie algebra now controls subrepresentations of connected groups. The equivalence itself is missing."
      },
      {
       "name": "Reductivity of the remaining carriers, and the pinned isomorphism theorem.",
       "text": "The spin, tripled `D₄` and `E₆` carriers have trivial unipotent radical when reduced. Each still needs to be identified with the smooth connected subgroup its root subgroups generate. The existence half of the pinned isomorphism theorem and a uniform construction from root data are also missing."
      }
     ],
-    "glance": "Four layers are done: the three-way group-scheme dictionary, representations as comodules, the Lie algebra, and tori with Jordan decomposition. Subgroups and quotients, the unipotent radical, reductivity, structure theory and the explicit pinned carriers are partial. Classification has not begun.",
+    "glance": "Four layers are done: the three-way group-scheme dictionary, representations as comodules, the Lie algebra, and tori with Jordan decomposition. Subgroups and quotients, the unipotent radical, reductivity, structure theory and the explicit pinned carriers are partial, and classification has not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ReductiveGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/ReductiveGroups/PROGRESS.md",
-    "report_sha": "fdc4a46ab7957947148c50f89fd98d1603e990f5b27dd12ccb76331be6eb883a",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "22362e4faa0b57cdb0324d55c4c8e245b23a62d25b002c3db4d0c9f4ce69ddcf",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "reductive algebraic groups",
    "topic": "Algebra and representation theory"
   },
   {
    "activity": {
-    "last": "2026-10-05T12:35:40Z",
+    "last": "2026-10-05T18:58:29Z",
     "open": 43,
-    "recent": 553,
-    "since_report": 22,
-    "total": 1282,
+    "recent": 556,
+    "since_report": 5,
+    "total": 1289,
     "weekly": [
      0,
      0,
@@ -5516,12 +5569,13 @@
      62,
      150,
      247,
-     18
+     25
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "no-layers",
     "remaining": {},
     "source": null
@@ -5542,33 +5596,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "Representation theory",
    "topic": "Algebra and representation theory"
@@ -5578,6 +5632,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 2": "the weighted PBW truncation ideal for nilpotent L and its nilpotent finite-dimensional quotient representation"
@@ -5644,33 +5699,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
    "topic": "Algebra and representation theory"
@@ -5680,10 +5735,11 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 6": "prove the assembled algorithm succeeds at a large enough Dixon prime, which needs the coefficient bound",
-     "Layer 9": "the GL2(F3) table of order 48; its degrees and class sizes are proved"
+     "Layer 6": "the coefficient bound placing central coefficients in the residue window, so the solver provably succeeds at a large enough Dixon prime",
+     "Layer 8": "Frobenius's theorem: the kernel is a normal complement"
     },
     "source": "marker"
    },
@@ -5742,38 +5798,38 @@
     "partial",
     "done",
     "partial",
-    "partial"
+    "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "character theory of finite groups, and computing character tables",
    "topic": "Algebra and representation theory"
@@ -5783,6 +5839,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 4": "characters equal Schur polynomials for all partitions, not only one-row and one-column shapes, and the Laurent twist",
@@ -5839,33 +5896,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "finite-dimensional representations of the classical groups",
    "topic": "Algebra and representation theory"
@@ -5875,6 +5932,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -5927,33 +5985,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "representations of compact groups and the Peter-Weyl theorem",
    "topic": "Algebra and representation theory"
@@ -5963,6 +6021,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -6027,33 +6086,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "induction, restriction, and Mackey theory for finite groups",
    "topic": "Algebra and representation theory"
@@ -6063,6 +6122,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 4": "integral subgroups of Lie subalgebras, Lie's third theorem and the equivalence of categories"
@@ -6129,33 +6189,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "Lie groups and the Lie algebra correspondence",
    "topic": "Algebra and representation theory"
@@ -6165,9 +6225,10 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 7": "the Harish-Chandra isomorphism and the dot-orbit theorem for central characters",
+     "Layer 7": "the rho-shifted Harish-Chandra isomorphism onto dot-invariants and the dot-orbit theorem for central characters",
      "Layer 8": "identify Der(O) with split g2 and prove Killing-simplicity; then f4 and the E-series"
     },
     "source": "marker"
@@ -6232,33 +6293,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
    "topic": "Algebra and representation theory"
@@ -6268,10 +6329,10 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 2": "the G0 statements: trivial composition factors, l-groups, and permutation classes along an l-power quotient",
-     "Layer 3": "the reduction functor, the lattice defect and its additivity",
+     "Layer 3": "lattices with isomorphic rationalizations have the same reduction class, in every characteristic",
      "Layer 4": "Steps 2-4 in characteristic l and the export; Artin's identity in G0 holds in characteristic zero"
     },
     "source": "marker"
@@ -6307,42 +6368,42 @@
    "readme_sha": "1c57e2e522c66e5505e3376ba5e5216ce31f9d55b3617553f1c830f4ccda18c8",
    "retired": null,
    "states": [
+    "done",
     "partial",
-    "partial",
-    "partial",
+    "done",
     "partial",
     "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "induction theorems in Grothendieck groups of modular representations",
    "topic": "Algebra and representation theory"
@@ -6352,9 +6413,10 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 5": "Gabriel's theorem for quivers containing a pair of opposite arrows",
+     "Layer 3": "Gabriel's presentation theorem: every finite-dimensional algebra is Morita equivalent to some kQ/I",
      "Layer 6": "existence of almost-split sequences and the AR quiver of a representation-finite algebra"
     },
     "source": "marker"
@@ -6401,39 +6463,39 @@
     "done",
     "partial",
     "done",
-    "partial",
+    "done",
     "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "quiver representations, path algebras, and Gabriel's theorem",
    "topic": "Algebra and representation theory"
@@ -6443,6 +6505,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -6491,33 +6554,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "root systems, Weyl groups, and the Cartan-Killing classification",
    "topic": "Algebra and representation theory"
@@ -6527,9 +6590,10 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 7": "assemble RSK from the Schensted row-insertion bijection, and the Frobenius characteristic",
+     "Layer 7": "assemble RSK from the Schensted row-insertion bijection",
      "Layer 8": "the Schur-functor decomposition of tensor powers"
     },
     "source": "marker"
@@ -6594,33 +6658,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "representations of the symmetric group, Specht modules, and Schur-Weyl duality",
    "topic": "Algebra and representation theory"
@@ -6630,6 +6694,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -6686,33 +6751,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "semisimple algebras, Artin-Wedderburn, and the structure of their modules",
    "topic": "Algebra and representation theory"
@@ -6722,6 +6787,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 5": "stating S as L(omega_l) in type B, and the type-D half-spin modules as L(omega_l) and L(omega_(l-1))"
@@ -6793,33 +6859,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Gabriel's theorem in full",
-      "text": ": remove the hypothesis that no two vertices carry opposite arrows. The rest of the dichotomy is proved."
+      "name": "The Harish-Chandra isomorphism",
+      "text": ": the projection is in. What remains: compose it with the `ρ`-shift, prove its range is the dot-invariants, then derive the dot-orbit theorem."
      },
      {
-      "name": "The `GL₂(𝔽₃)` table",
-      "text": ": the character degrees and the class equation of the group of order 48 are proved. What remains is to specialise the assembled `GL₂(𝔽_q)` table to it."
-     },
-     {
-      "name": "`G₂ = Der 𝕆`",
-      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then build `F₄` from the Albert algebra, whose trace-zero part is already a faithful `Der` module, and go on to the E-series."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": the matrix form of Ado, the Frobenius theorem, involutivity of left-invariant distributions of subalgebras, and the universal cover as a Lie group are all in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
+      "name": "The Dixon algorithm always succeeds",
+      "text": ": completeness is proved whenever the central coefficients lie in the solver's residue window. The coefficient bound putting them there at a large enough prime is what remains."
      },
      {
       "name": "The modular Artin theorem",
-      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. The reduction modulo `ℓ` and Steps 2–4 in characteristic `ℓ` are still to do."
+      "text": ": Artin's identity holds in `G₀(k[G])` only in characteristic zero. Characteristic `ℓ` needs equal reduction classes for lattices with isomorphic rationalizations, which can now be built on the lattice defect, and then Steps 2–4."
+     },
+     {
+      "name": "`G₂ = Der 𝕆`",
+      "text": ": upgrade the surjection from split `g₂` to an isomorphism and prove Killing-simplicity. Then `F₄` and the E-series."
+     },
+     {
+      "name": "Lie's third theorem",
+      "text": ": the matrix form of Ado, the Frobenius theorem and the universal cover are in place. Integral subgroups and the integration of a subalgebra of `𝔤𝔩ₙ(ℝ)` remain."
      }
     ],
-    "glance": "Root systems, semisimple algebras and compact groups are complete. Ado–Iwasawa now holds over every field, Gabriel's theorem is proved for quivers without a pair of opposite arrows, and the induction–restriction roadmap is done apart from its Mackey layer. The executable character-table algorithm, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
+    "glance": "Root systems, semisimple algebras and compact groups are complete. Gabriel's theorem is now proved in full, Ado–Iwasawa holds over every field, and the induction–restriction roadmap is done apart from its Mackey layer. The character-table algorithm, the Harish-Chandra isomorphism, the exceptional Lie algebras, Schur–Weyl duality, the classical-group characters and the modular Artin theorem are genuinely partial. Triality has not begun, and neither have the Lie-group layers from maximal tori onward.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "e2c27daf821d6cbb6dc201de59ce20b4fec70cdb91cdb9012601e2ee16b3df67",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "fea25176252d035936485ac919aac6ca6a4cec7304e26290b1b313d2a8fe1295",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
    "topic": "Algebra and representation theory"
@@ -6853,6 +6919,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -6922,11 +6989,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T12:22:25Z",
+    "last": "2026-10-05T17:12:16Z",
     "open": 1,
-    "recent": 72,
-    "since_report": 1,
-    "total": 72,
+    "recent": 73,
+    "since_report": 2,
+    "total": 73,
     "weekly": [
      0,
      0,
@@ -6943,12 +7010,13 @@
      20,
      21,
      30,
-     1
+     2
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 1": "idempotent-completion comparison; triangle compatibility of the opposite comparison",
@@ -7050,11 +7118,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T04:17:47Z",
-    "open": 5,
-    "recent": 76,
-    "since_report": 1,
-    "total": 76,
+    "last": "2026-10-05T16:34:19Z",
+    "open": 3,
+    "recent": 78,
+    "since_report": 3,
+    "total": 78,
     "weekly": [
      0,
      0,
@@ -7071,12 +7139,13 @@
      20,
      24,
      23,
-     1
+     3
     ]
    },
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the module operations behind conductors and normalization exact sequences",
@@ -7190,7 +7259,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 109,
+    "recent": 107,
     "since_report": 0,
     "total": 180,
     "weekly": [
@@ -7215,6 +7284,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -7289,8 +7359,8 @@
   {
    "activity": {
     "last": "2026-10-05T13:00:00Z",
-    "open": 0,
-    "recent": 83,
+    "open": 3,
+    "recent": 82,
     "since_report": 1,
     "total": 111,
     "weekly": [
@@ -7315,6 +7385,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 3": "inverse quantum Cartan comparison with preprojective Hilbert series",
@@ -7418,7 +7489,7 @@
     "last": "2026-10-04T02:02:45Z",
     "open": 0,
     "recent": 9,
-    "since_report": 1,
+    "since_report": 0,
     "total": 143,
     "weekly": [
      0,
@@ -7442,6 +7513,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 4": "only extensions beyond the pinned scope: accumulation-free singular sets and locally straight essential singularities"
@@ -7508,9 +7580,9 @@
     "inherited": false,
     "path": "Completed/ContourIntegration/STATUS.md",
     "progress_path": "Completed/ContourIntegration/PROGRESS.md",
-    "report_sha": "9ae260ba7f6deb00e0c79bb205b486c1bee0e8e5d19bf7f7dae4ef56dd18cdb9",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "3d1ec7dc152ee50d96bf32bf301d74fd5d66adce482d89005b06bfd88c062258",
+    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
+    "ts": "2026-10-05T01:07:53Z"
    },
    "title": "contour integration and the Hungerbühler–Wasem generalized residue theorem",
    "topic": "Analysis"
@@ -7544,6 +7616,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "hand-read"
@@ -7614,7 +7687,7 @@
   {
    "activity": {
     "last": "2026-10-05T11:49:00Z",
-    "open": 1,
+    "open": 3,
     "recent": 46,
     "since_report": 17,
     "total": 104,
@@ -7640,6 +7713,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 4": "the bilinear comparison A_{L_H} = H-perp/H for integral but odd overlattices, and its componentwise form over orthogonal sums"
@@ -7742,6 +7816,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -7810,7 +7885,7 @@
     "last": "2026-10-04T15:17:44Z",
     "open": 3,
     "recent": 25,
-    "since_report": 1,
+    "since_report": 0,
     "total": 121,
     "weekly": [
      14,
@@ -7834,6 +7909,7 @@
    "assessment": {
     "detail": null,
     "notes": {},
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -7878,7 +7954,7 @@
    "status": {
     "frontier": [
      {
-      "name": "Higher homotopy of spheres and `RPⁿ`.",
+      "name": "Higher homotopy of spheres, `RPⁿ` and lens spaces.",
       "text": "The covering isomorphism gives `π_k(RPⁿ) ≅ π_k(Sⁿ)` for `k ≥ 2`, but nothing here computes `π_n(Sⁿ)`; that needs a degree or Hurewicz argument, and neither appears here."
      },
      {
@@ -7894,9 +7970,9 @@
     "inherited": false,
     "path": "Completed/UniversalCovers/STATUS.md",
     "progress_path": "Completed/UniversalCovers/PROGRESS.md",
-    "report_sha": "aec82a95433b799a7d6f2a16fdd74c7edd378e1a2c684587596dccdcf413aa8a",
-    "to_sha": "0d3161a2e5e92314bf045690e177580179a2f8d9",
-    "ts": "2026-09-30T18:26:01Z"
+    "report_sha": "5889c46b1b57f4deb54abe95b07529a572b52bf2cc51ad289fb674489021e14a",
+    "to_sha": "1bf0a2e93c256ec1a113675c35726a869fd4d86d",
+    "ts": "2026-10-05T07:14:19Z"
    },
    "title": "universal covers",
    "topic": "Geometry and topology"

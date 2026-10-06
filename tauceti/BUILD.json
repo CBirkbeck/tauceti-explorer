@@ -60,6 +60,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2"
     },
     {
+      "file": "AlgebraicModuliForArithmeticGeometry--A0-extension",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "nodes": 476,
+      "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+    },
+    {
       "file": "AnabelianGeometryAndNonabelianChabauty",
       "roadmap": "AnabelianGeometryAndNonabelianChabauty",
       "nodes": 363,
@@ -100,6 +106,18 @@
       "roadmap": "ClassicalSerreModularity",
       "nodes": 8,
       "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5"
+    },
+    {
+      "file": "ColemanIntegration",
+      "roadmap": "ColemanIntegration",
+      "nodes": 177,
+      "reviewer": "independent-review-REV-ColemanIntegration"
+    },
+    {
+      "file": "ColemanPowerSeries",
+      "roadmap": "ColemanPowerSeries",
+      "nodes": 300,
+      "reviewer": "independent-review-REV-ColemanPowerSeries"
     },
     {
       "file": "ComputationalNumberTheory",
@@ -174,6 +192,12 @@
       "reviewer": "independent-review-REV-DESIGN-EllipticLegendreCharacterInterfaces"
     },
     {
+      "file": "EllipticRegulators--ER.2",
+      "roadmap": "EllipticRegulators",
+      "nodes": 5,
+      "reviewer": "independent-review-REV-EllipticRegulators--ER.2"
+    },
+    {
       "file": "EllipticRegulators",
       "roadmap": "EllipticRegulators",
       "nodes": 75,
@@ -184,6 +208,12 @@
       "roadmap": "ErdosProgressionPowers",
       "nodes": 49,
       "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers"
+    },
+    {
+      "file": "FiniteFieldsAndCharacterSums--FF.3",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "nodes": 8,
+      "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.3"
     },
     {
       "file": "FiniteFieldsAndCharacterSums",
@@ -222,10 +252,34 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "HabiroCyclotomicCompletions--HC.4",
+      "roadmap": "HabiroCyclotomicCompletions",
+      "nodes": 59,
+      "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.4"
+    },
+    {
+      "file": "HabiroCyclotomicCompletions--HC.6",
+      "roadmap": "HabiroCyclotomicCompletions",
+      "nodes": 0,
+      "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.6"
+    },
+    {
       "file": "HabiroCyclotomicCompletions",
       "roadmap": "HabiroCyclotomicCompletions",
       "nodes": 48,
       "reviewer": "independent-review-REV-HabiroCyclotomicCompletions"
+    },
+    {
+      "file": "HabiroNahmSeries--HB.3",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 7,
+      "reviewer": "independent-review-REV-HabiroNahmSeries--HB.3"
+    },
+    {
+      "file": "HabiroNahmSeries--HB.4",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 13,
+      "reviewer": "independent-review-REV-HabiroNahmSeries--HB.4"
     },
     {
       "file": "HabiroNahmSeries",
@@ -238,6 +292,12 @@
       "roadmap": "HabiroNumberFields",
       "nodes": 67,
       "reviewer": "independent-review-REV-HabiroNumberFields"
+    },
+    {
+      "file": "HabiroRings--HR.3",
+      "roadmap": "HabiroRings",
+      "nodes": 7,
+      "reviewer": "independent-review-REV-HabiroRings--HR.3"
     },
     {
       "file": "HabiroRings",
@@ -264,6 +324,30 @@
       "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3"
     },
     {
+      "file": "K3BlochGroups--V.1",
+      "roadmap": "K3BlochGroups",
+      "nodes": 10,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.1"
+    },
+    {
+      "file": "K3BlochGroups--V.2",
+      "roadmap": "K3BlochGroups",
+      "nodes": 8,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.2"
+    },
+    {
+      "file": "K3BlochGroups--V.3",
+      "roadmap": "K3BlochGroups",
+      "nodes": 17,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.3"
+    },
+    {
+      "file": "K3BlochGroups--V.5",
+      "roadmap": "K3BlochGroups",
+      "nodes": 18,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.5"
+    },
+    {
       "file": "K3BlochGroups",
       "roadmap": "K3BlochGroups",
       "nodes": 101,
@@ -274,6 +358,12 @@
       "roadmap": "NeronModelsAndSemistableAbelianVarieties",
       "nodes": 78,
       "reviewer": "independent-review-REV-NeronModelsAndSemistableAbelianVarieties"
+    },
+    {
+      "file": "Polylogarithms--P.2",
+      "roadmap": "Polylogarithms",
+      "nodes": 14,
+      "reviewer": "independent-review-REV-Polylogarithms--P.2"
     },
     {
       "file": "Polylogarithms",
@@ -307,8 +397,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 11911730,
-  "htmlSha256": "7d888236650f7d8410ba692c4a8c7ffede080cfb9d22567a437c60201d37fd8e",
+  "htmlBytes": 11911992,
+  "htmlSha256": "b5f2c7c7aa99e6f68b309b349623d61b7ba6ad490dba4e0a5dc4cfb6c7a0c9b6",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -327,7 +417,7 @@
     "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "97c455d876603c904d116918e45e9ac7f62d1704f08ed0fc2273152e333835c7",
+    "data/tauceti-progress.json": "0df3acc3317260623aa5489aa055dc52a3c79733b59e086257364d1b383de8d2",
     "data/tauceti-new-roadmaps.json": "3e835f30fa5a79a1c330723f39fe01accce0879dfa8d5cfa65397c16fe2e9f18",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -339,7 +429,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "6869d44f913e2b33c01f344b267485103098464b3e728f7bef9d9c5fa6656862",
+    "data/roadmap-distances.json": "8d6c9872dc9d67d861c524ee6633b690a343ea7263ac42e1e8f3c972ba0717ec",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -405,6 +495,8 @@
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
     "data/blueprints/AdicSpacesPartII.md": "8a1f3c92f73b34c23b252cf127b24ebd4567784d77c9e64b9a4a67f83091d442",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json": "312f9e3e2b0e30340b328ed1d8f31513a84cebc0083e45416fe5f1c47bdc106b",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md": "db9bd77ccd3372293d1713997157d8a32d5157cb575fa00e3e68144e43ca8fce",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "b352c47493d33e2d8334c6617d2f64d4ae43c0fc2a50031fb692f0f81231b868",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md": "3ad5c0ff93d99a8b77fc00fc69720fdd0656fa43ca400863591beaf868a886b1",
     "data/blueprints/ArithmeticKTheory--N.1.json": "7a7063a34016e59e2e0b88f4dfcff26acba90e8159feb9613cf33f3c06e71683",
@@ -419,6 +511,10 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
+    "data/blueprints/ColemanIntegration.json": "7365c824bd2e583603741ca94647250a4b41365a776b822aa58e196bfbe1eba5",
+    "data/blueprints/ColemanIntegration.md": "9c291cb68cac3f1b3894e7d5c3837a6997e8816c01a8071ef7762c24c9fd6996",
+    "data/blueprints/ColemanPowerSeries.json": "62c7cb25dace9158df52a3041e77b11a32914a2c47d46656e9c10a89d1349f95",
+    "data/blueprints/ColemanPowerSeries.md": "ba93bf962523bef62b927ccc72058264f7f384dcdd608bf4536d530688893a24",
     "data/blueprints/ComputationalNumberTheory.json": "fd533475b2e0a67edfad753092d8da33c4ace30b85a34202da6ceac517506a73",
     "data/blueprints/ComputationalNumberTheory.md": "e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129",
     "data/blueprints/ConformalMappingPartII.json": "14d52fe162118fb2d04f31304a43d60f8b882ac4d85332d633d0d258ee1744a3",
@@ -443,10 +539,14 @@
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticLegendreCharacterInterfaces.json": "4a3591b375a27e47f3920fad9b1ae659c2337d904ed73428139460a71256a84b",
     "data/blueprints/EllipticLegendreCharacterInterfaces.md": "803b59a7ed03a8b9a222e8d6411e22ad528060717913d2de0d021cf47629ffb6",
+    "data/blueprints/EllipticRegulators--ER.2.json": "c7fc473f0fcb76efd258c8d9e4cd453fdeb577ccc08964685e6e2d40b4a833db",
+    "data/blueprints/EllipticRegulators--ER.2.md": "72432d2ad876bfce54756940f24734088051e9a8269db27bfc5fdcb3a95530e0",
     "data/blueprints/EllipticRegulators.json": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
     "data/blueprints/ErdosProgressionPowers.json": "59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c",
     "data/blueprints/ErdosProgressionPowers.md": "59f7e5945a0743b3d8cf5c7cc1aa85b7572673182a92ff5ca91ffc3c076689f5",
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.json": "94f566d91d4c124fa1c14e45699779e27e950502bb9aac27194dd0afb995e8f7",
+    "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
@@ -459,12 +559,22 @@
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md": "1234aa3f09946c388578081fe64b6f03e4f617df8bc79dbce4ac41f6c5bef30b",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.4.json": "53d6ae5a158df492465829c0d271cfaeb00df95f5efccf1bbddd156cada22cf3",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.4.md": "7227244352ade7dc45b72262eac56435104c2c9470fdd56a536c8b6f8595369e",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.json": "82131cad84d4f13959b9d7b8a38b1ccb605967a60eb47f54804df51245e2a946",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.md": "9eff109528364e4cb5acf8707f70394d169049699cee5995fbe23689fdad03d4",
     "data/blueprints/HabiroCyclotomicCompletions.json": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
     "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
+    "data/blueprints/HabiroNahmSeries--HB.3.json": "1eb1f858c20df30b49253c9bf0a0cdbad5fd0ed29b579fe8c9ec972f08309918",
+    "data/blueprints/HabiroNahmSeries--HB.3.md": "701231796e07ac1ee49a7382a2e83016602beed50ed6b8dfa076fd56d2ffe698",
+    "data/blueprints/HabiroNahmSeries--HB.4.json": "6b3aff0b94aaf5960c298083126e20122a145b94bd070bd5a3ffedce2d74415c",
+    "data/blueprints/HabiroNahmSeries--HB.4.md": "cf7584509c4e7b7dde3d3f601f3cc2efd547b5e8ce8c9072fd89b82e6d4dc384",
     "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
+    "data/blueprints/HabiroRings--HR.3.json": "e723d2b2060a9a9cb2951d0104c67aa163c3aef5d1aa91b32f9b9011c231c3af",
+    "data/blueprints/HabiroRings--HR.3.md": "1e4bc5881a504972c411728510bbf2f6f58124826d28aaaefdaa5a40d5e9b64b",
     "data/blueprints/HabiroRings.json": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
@@ -473,10 +583,20 @@
     "data/blueprints/JacobianChallengePartII.md": "630fa6d551abfef4d0e916d091f7c82fd89e93f3db947ff3747dc84de0bf821c",
     "data/blueprints/K2SymbolsBrauer--T.3.json": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
+    "data/blueprints/K3BlochGroups--V.1.json": "9fc56bde8d09206bf6df4f2f681b6364e910b5d7f5f15b7d8e5a32272c741635",
+    "data/blueprints/K3BlochGroups--V.1.md": "550010f3c72338376f3e465e6f2dd3d7774afd25a3d3aa75e22834be5f25bdf5",
+    "data/blueprints/K3BlochGroups--V.2.json": "237a7e744c05fcb5b3a20c26c9ed46938ab9bd0608f28dc68d53a4f84819efcf",
+    "data/blueprints/K3BlochGroups--V.2.md": "69e5d9a1117d150c734117fd58fe3453e6d8a8ac5833cee819c3e58fb7073b47",
+    "data/blueprints/K3BlochGroups--V.3.json": "0f36159529d71d2ef3575835f799af6b4c6f864187a1b46f7f39a8966d307e79",
+    "data/blueprints/K3BlochGroups--V.3.md": "1af1cdffd17617f7da3501f86f0775d65fd2fc703cfe480502d6ea057c8d30ea",
+    "data/blueprints/K3BlochGroups--V.5.json": "9c3ba37f9798e5f101b4870ef4d62c61d2fd073051629ad81ba751377a06fa90",
+    "data/blueprints/K3BlochGroups--V.5.md": "8987e6c98c0c8872db75245b2171034be82256bd357e00eb36d429024ecd2736",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
+    "data/blueprints/Polylogarithms--P.2.json": "e5553f574b76c7e941f29e9cfa10f2f25eca3110a614cddb000ee9cf218cfade",
+    "data/blueprints/Polylogarithms--P.2.md": "1fdb9ee0959d937faf4831258d01184512b14bdfab11519644a8f8837c626c59",
     "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/ProbabilisticAndMetricNumberTheory.json": "c281a61e13ec7f433532aa0ecef0848a7951f3cb467e8a815b482b492f0412ab",
@@ -589,13 +709,13 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-05T15:05:35Z",
+    "exportedAt": "2026-10-05T22:12:35Z",
     "roadmaps": 69,
     "unplaced": 0,
     "layers": {
-      "done": 286,
-      "partial": 223,
-      "untouched": 70,
+      "done": 291,
+      "partial": 219,
+      "untouched": 69,
       "unassessed": 0,
       "total": 579
     },
