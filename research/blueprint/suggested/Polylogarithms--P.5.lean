@@ -370,15 +370,15 @@ Signature omitted — CycleCurrent.whole_space: For c=0, δX=(2πi)^(-d)[X]raw=[
 Absent carrier: analytic cycle carrier with dimensions/multiplicities and global current integration; C0 analytic-space and R09.7 algebraic resolution interfaces.
 
 Polylogarithms:P.5/current-resolution
-Declaration currentResolution: On a second countable smooth manifold the inclusion of smooth forms into currents is a quasi-isomorphism of de Rham sheaf complexes. On a complex manifold the same inclusion is a quasi-isomorphism for each Dolbeault complex, compatibly with type and conjugation. Consequently the smooth and current Dolbeault models of real Deligne theory agree after the M.8 comparison is supplied.
+Declaration currentResolution: On a second countable smooth oriented manifold the inclusion of smooth forms into currents is a quasi-isomorphism of de Rham sheaf complexes. On a complex manifold the same inclusion is a quasi-isomorphism for each Dolbeault complex, compatibly with type and conjugation. Consequently the smooth and current Dolbeault models of real Deligne theory agree after the M.8 comparison is supplied.
 Signature omitted; precise absent carrier: global de Rham/Dolbeault sheaf complexes of forms and currents, their cohomology and inclusion.
 
 Polylogarithms:P.5/poincare-lelong
-Declaration poincareLelong: For a nonzero meromorphic function f on a complex manifold, log|f| is locally L1 and (i/π)∂bar∂[log|f|]=[div f]raw. Define dd^c=(i/π)∂bar∂; this is equivalently bar∂∂[log|f|]=πi[div f]raw. On a complex curve d[darg f]=2π[div f]raw. The BFT degree-one Deligne differential is -2∂bar∂, hence d_D[-log|f|]=-δdiv f with its dimension/twist normalisation.
+Declaration poincareLelong: For a meromorphic function f on a complex manifold which does not vanish identically on any connected component, log|f| is locally L1 and (i/π)∂bar∂[log|f|]=[div f]raw. Define dd^c=(i/π)∂bar∂; this is equivalently bar∂∂[log|f|]=πi[div f]raw. On a complex curve d[darg f]=2π[div f]raw. The BFT degree-one Deligne differential is -2∂bar∂, hence d_D[-log|f|]=-δdiv f with its dimension/twist normalisation.
 Signature omitted; precise absent carrier: meromorphic functions/divisors on a complex manifold and typed global ∂,bar∂ current operators; only the scalar chart Laplacian is prototyped.
 
 Polylogarithms:P.5/admissible-chow-locus
-Declaration AdmissibleChowLocus: Given P^N over C, finitely many specified simplex faces L_I and a general-position hyperplane H, let U_(c,e) be the open locus in the requested degree-e, codimension-c Chow parameter space whose cycles meet every L_I properly and are not contained in H where the coordinate-ratio construction requires this. The analytic parameter space Z^c is the disjoint union over e≥0 of these finite-dimensional loci. Its incidence cycle has a proper projection to the parameter space. Face intersection maps and vertex projection maps exist only on the loci where they preserve the prescribed dimensions; their target degree is recorded.
+Declaration AdmissibleChowLocus: Given P^N over C, finitely many specified simplex faces L_I and a general-position hyperplane H, let U_(c,e) be the open locus in the requested degree-e, codimension-c Chow parameter space whose cycles meet every L_I properly and have no irreducible component contained in H where the coordinate-ratio construction requires this (the zero cycle satisfies this condition vacuously). The analytic parameter space Z^c is the disjoint union over e≥0 of these finite-dimensional loci. Its incidence cycle has a proper projection to the parameter space. Face intersection maps and vertex projection maps exist only on the loci where they preserve the prescribed dimensions; their target degree is recorded.
 Signature omitted; precise absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
 Signature omitted — AdmissibleChowLocus.points: Complex points represent effective cycles of the fixed degree with all required proper face intersections.
 Absent carrier: R09.2 Part II Chow parameter/incidence cycle carrier, admissible face loci and their cycle maps.
@@ -582,7 +582,7 @@ Signature omitted — BFTAuxiliary.point_top: For X a point and p=m=0, the top s
 Absent carrier: early M.8 support cones/purity, M.4 normalized cube support diagram and top cohomology classes; only the genuine graded additive-group simple and β are prototyped.
 
 Polylogarithms:P.5/integration-comparison
-Declaration WangIntegration: For DA^(r,-m), define φ(α)=πX*[α•Wm] in Deligne degree r-m. The product has ordinary degree r+m-1 before projection and uses the M.8 fixed Deligne product. On the infinity-face normalised DA complex this lands in smooth τ≤2p D(X,p), is a cochain map and a quasi-inverse of the base inclusion τD(X,p)→DA(X,p)_0.
+Declaration WangIntegration: For DA^(r,-m), define φ(α)=πX*[α•Wm] in Deligne degree r-m. The product uses the M.8 fixed Deligne product and has ordinary degree r+m-1 before projection, except at m=0,r=2p, where the top Deligne cochain is an ordinary degree-2p form and W0=1 preserves that degree. On the infinity-face normalised DA complex this lands in smooth τ≤2p D(X,p), is a cochain map and a quasi-inverse of the base inclusion τD(X,p)→DA(X,p)_0.
 Signature omitted; precise absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
 Signature omitted — WangIntegration.apply: φ(α)=πX*[α•Wm].
 Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
@@ -596,7 +596,7 @@ Signature omitted — WangIntegration.base_test: φ at m=0 has current evaluatio
 Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
 Signature omitted — WangIntegration.zero: φ(0)=0 in every bidegree.
 Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
-Signature omitted — WangIntegration.degree: An input of bidegree (r,-m) has output Deligne degree r-m, not r+m.
+Signature omitted — WangIntegration.degree: An input of bidegree (r,-m) has output Deligne degree r-m, not r+m. At m=0,r=2p (in particular p=1,r=2), W0 preserves the ordinary top degree 2p, rather than the lower-degree formula 2p-1.
 Absent carrier: logarithmic Deligne forms, the fixed Deligne product, current integration and the normalized auxiliary complex.
 
 Polylogarithms:P.5/green-wang-product
@@ -620,6 +620,10 @@ Prototyped chart/coefficient/graded statement — RegulatorComparison.middle_sig
 Polylogarithms:P.5/cubical-beilinson
 Declaration cubicalBeilinson: For smooth projective complex X and p,n≥0, Pc:CH_c^p(X,n)→H_D^(2p-n)(X,R(p)) agrees with the Burgos–Feliu support regulator. After the M.6 rational Chern character K_n(X)_Q≅⊕pCH^p(X,n)_Q and the M.8 universal Chern normalisation, its direct sum is Beilinson’s regulator. This does not redefine the universal Chern classes in P.5.
 Signature omitted; precise absent carrier: M.4 higher Chow homology, M.6 rational K/Chern character and early M.8 universal regulator.
+
+Local analytic-cycle closedness still needs the recorded El Mir positive-current/
+pluripolar extension interface; Poincaré–Lelong needs the normal-current support
+theorem with its order-zero hypotheses. These are not supplied by the scalar chart model.
 
 The fixed auxiliary coordinate order is (support,cycle,base); the finite
 RegulatorComparison.apply helper accepts its inputs in term order (cycle,Green,base).

@@ -16,91 +16,91 @@
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "Smooth maps with compact support contained in an open subset of a real normed space, equipped with the LF topology.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:TestFunction.ext",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "Pointwise equality implies equality of bundled test functions.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:TestFunction.continuous_iff_continuous_comp",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "A linear map into a locally convex space is continuous exactly when every fixed-compact restriction is continuous; includes algebra/scalar-tower hypotheses.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Distribution",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Continuous real-linear dual of real test functions on an open normed-space subset, with values in a topological real module.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Distribution.delta",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Evaluation distribution, including zero outside the open set.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Distribution.lineDerivCLM",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Distribution derivative is minus precomposition with the test-function derivative; the order constraint is enforced.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Distribution.ofFun",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Locally integrable functions give distributions by integral of test function times function; without local integrability the construction is zero.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:ExteriorAlgebra",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "Exterior algebra of a module over a commutative ring, via the zero quadratic form.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:ExteriorAlgebra.ι_sq_zero",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "The square of a degree-one generator is zero.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:ExteriorAlgebra.ι_add_mul_swap",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "Products of degree-one generators anticommute.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:CochainComplex.mappingCone",
         "kind": "declaration",
         "module": "Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean",
         "provides": "Homotopy cofiber of a morphism of integer-indexed cochain complexes in a preadditive category with the required binary biproducts.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.exp_add",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Complex/Exponential.lean",
         "provides": "The complex exponential of a sum is the product of the exponentials.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-06; only the stated chart/algebra interface is used. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:IsZLattice",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "provides": "A discrete Z-submodule spans the ambient normed real vector space; discreteness is a separate typeclass assumption. The two-generator positive-area lattice must be shown to satisfy these native conditions.",
-        "checked": "Definition and its discrete-topology hypothesis read at the recorded Mathlib pin on 2026-10-06."
+        "checked": "Definition and its discrete-topology hypothesis read at the recorded Mathlib pin on 2026-10-06. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Multipliable",
@@ -108,21 +108,21 @@
         "generatedAlias": "Summable (by to_additive; missing from the static declaration index)",
         "module": "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
         "provides": "Its generated additive declaration Summable asserts existence of an unordered HasSum in a topological additive monoid. For complex terms absolute summability yields summability and licenses index rearrangement.",
-        "checked": "Multipliable definition and its to_additive generation of Summable f := exists a, HasSum f a read at the recorded Mathlib pin on 2026-10-06."
+        "checked": "Multipliable definition and its to_additive generation of Summable f := exists a, HasSum f a read at the recorded Mathlib pin on 2026-10-06. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:ExteriorAlgebra.map",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "A linear map of modules induces an algebra homomorphism on exterior algebras; used by the coefficient-level Wang pullback signature.",
-        "checked": "Definition and map_apply_ι read at the recorded pin on 2026-10-06."
+        "checked": "Definition and map_apply_ι read at the recorded pin on 2026-10-06. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       },
       {
         "ref": "mathlib:Fin.append",
         "kind": "definition",
         "module": "Mathlib/Data/Fin/Tuple/Basic.lean",
         "provides": "Ordered concatenation of a Fin m tuple and a Fin n tuple into Fin(m+n), via Fin.addCases.",
-        "checked": "Definition and append_left/right read at the recorded pin on 2026-10-06."
+        "checked": "Definition and append_left/right read at the recorded pin on 2026-10-06. Independently re-read at the exact pin by REV-Polylogarithms--P.5 on 2026-10-06."
       }
     ]
   },
@@ -132,7 +132,7 @@
       "title": "Polylogarithms, regulators, and Arakelov motivic complexes",
       "authors": "A. B. Goncharov",
       "edition": "JAMS 18 (2005), 1–60; published PDF",
-      "url": "https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
+      "url": "https://ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
       "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be",
       "read": "2026-10-06",
       "readSections": [
@@ -440,7 +440,7 @@
       ],
       "proofSteps": [
         "Local finite ramified projections bound the mass near the singular locus (Demailly III Lemma 2.6).",
-        "Extend across the singular locus; closedness follows by the local extension argument of III Theorem 2.7.",
+        "Use positivity and the locally complete pluripolar singular locus to apply El Mir’s finite-mass extension theorem (Demailly III Theorem 2.3, pp. 139–140), as in III Theorem 2.7. The positive-current/pluripolar extension interface is an explicit unresolved P.5 input in the analytic-foundations gap; mere local integrability does not prove closedness.",
         "For a resolution use change of variables away from a measure-zero analytic subset and proper pushforward."
       ],
       "acceptance": [
@@ -457,6 +457,12 @@
           "locator": "Chapter III §2.B, Lemma 2.6 and Theorem 2.7, p. 140",
           "excerpt": "finite mass",
           "match": "Convergence and closedness of integration currents."
+        },
+        {
+          "sourceId": "DEM",
+          "locator": "Chapter III §2.A, Theorem 2.3 (El Mir), pp. 139–140",
+          "excerpt": "closed positive current",
+          "match": "Finite mass and complete pluripolarity are the non-routine extension inputs to the cited proof of Theorem 2.7."
         }
       ],
       "implementationStatus": "unchecked",
@@ -527,7 +533,7 @@
       ],
       "title": "Smooth forms and current cohomology",
       "kind": "theorem",
-      "statement": "On a second countable smooth manifold the inclusion of smooth forms into currents is a quasi-isomorphism of de Rham sheaf complexes. On a complex manifold the same inclusion is a quasi-isomorphism for each Dolbeault complex, compatibly with type and conjugation. Consequently the smooth and current Dolbeault models of real Deligne theory agree after the M.8 comparison is supplied.",
+      "statement": "On a second countable smooth oriented manifold the inclusion of smooth forms into currents is a quasi-isomorphism of de Rham sheaf complexes. On a complex manifold the same inclusion is a quasi-isomorphism for each Dolbeault complex, compatibly with type and conjugation. Consequently the smooth and current Dolbeault models of real Deligne theory agree after the M.8 comparison is supplied.",
       "hypotheses": [
         "The hypotheses and conventions in the statement are part of the declaration."
       ],
@@ -570,14 +576,14 @@
       ],
       "title": "Poincaré–Lelong formula",
       "kind": "theorem",
-      "statement": "For a nonzero meromorphic function f on a complex manifold, log|f| is locally L1 and (i/π)∂bar∂[log|f|]=[div f]raw. Define dd^c=(i/π)∂bar∂; this is equivalently bar∂∂[log|f|]=πi[div f]raw. On a complex curve d[darg f]=2π[div f]raw. The BFT degree-one Deligne differential is -2∂bar∂, hence d_D[-log|f|]=-δdiv f with its dimension/twist normalisation.",
+      "statement": "For a meromorphic function f on a complex manifold which does not vanish identically on any connected component, log|f| is locally L1 and (i/π)∂bar∂[log|f|]=[div f]raw. Define dd^c=(i/π)∂bar∂; this is equivalently bar∂∂[log|f|]=πi[div f]raw. On a complex curve d[darg f]=2π[div f]raw. The BFT degree-one Deligne differential is -2∂bar∂, hence d_D[-log|f|]=-δdiv f with its dimension/twist normalisation.",
       "hypotheses": [
         "The hypotheses and conventions in the statement are part of the declaration."
       ],
       "proofSteps": [
         "Prove the one-variable logarithm identity on a punctured disk by Stokes and the positive circle integral 2π.",
         "Factor f at regular divisor points; units contribute no divisor current.",
-        "Extend across codimension at least two by the current support theorem used in Demailly III §2.C; apply linearity for meromorphic f."
+        "Extend across codimension at least two using Demailly III Theorem 2.10 and Corollary 2.11 for normal currents (order-zero current and derivative), after establishing the required order-zero property; apply linearity for meromorphic f. The missing local support/normality interface is recorded in the analytic-foundations gap."
       ],
       "acceptance": [
         "dd^c log|z|=δ0 and dd^c(-log|z|)+δ0=0.",
@@ -593,6 +599,12 @@
           "locator": "Chapter III §2.C, Theorem 2.15, pp. 143–144",
           "excerpt": "meromorphic",
           "match": "The local integrability and divisor identity with i/π."
+        },
+        {
+          "sourceId": "DEM",
+          "locator": "Chapter III §2.C, Theorem 2.10 and Corollary 2.11, p. 141",
+          "excerpt": "normal current",
+          "match": "The singular-locus extension uses the normal-current support theorem with its dimension and order-zero hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -617,7 +629,7 @@
       ],
       "title": "Admissible cycle parameter spaces",
       "kind": "construction",
-      "statement": "Given P^N over C, finitely many specified simplex faces L_I and a general-position hyperplane H, let U_(c,e) be the open locus in the requested degree-e, codimension-c Chow parameter space whose cycles meet every L_I properly and are not contained in H where the coordinate-ratio construction requires this. The analytic parameter space Z^c is the disjoint union over e≥0 of these finite-dimensional loci. Its incidence cycle has a proper projection to the parameter space. Face intersection maps and vertex projection maps exist only on the loci where they preserve the prescribed dimensions; their target degree is recorded.",
+      "statement": "Given P^N over C, finitely many specified simplex faces L_I and a general-position hyperplane H, let U_(c,e) be the open locus in the requested degree-e, codimension-c Chow parameter space whose cycles meet every L_I properly and have no irreducible component contained in H where the coordinate-ratio construction requires this (the zero cycle satisfies this condition vacuously). The analytic parameter space Z^c is the disjoint union over e≥0 of these finite-dimensional loci. Its incidence cycle has a proper projection to the parameter space. Face intersection maps and vertex projection maps exist only on the loci where they preserve the prescribed dimensions; their target degree is recorded.",
       "hypotheses": [
         "The hypotheses and conventions in the statement are part of the declaration."
       ],
@@ -1050,8 +1062,8 @@
       "sources": [
         {
           "sourceId": "BFT",
-          "locator": "Section 6.4, equations (6.13)–(6.14), p. 20",
-          "excerpt": "cubical-simplicial",
+          "locator": "Section 6.4, equation (6.14), p. 20, and Lemma 6.16 and its proof, p. 21",
+          "excerpt": "morphism",
           "match": "The mixed form, its two face ranges and boundary signs."
         }
       ],
@@ -1140,7 +1152,7 @@
       "sources": [
         {
           "sourceId": "BFT",
-          "locator": "Section 6.4, equation (6.15), Proposition 6.16 and Lemma 6.17, pp. 20–21",
+          "locator": "Section 6.4, equation (6.15), Lemmas 6.16 and 6.17, pp. 20–21",
           "excerpt": "morphism",
           "match": "The common chain map and its two restrictions."
         }
@@ -1319,7 +1331,7 @@
       "sources": [
         {
           "sourceId": "NEK",
-          "locator": "Section 7.3 equation (7.3.2), Section 7.4 equation (7.4.1), p. 23",
+          "locator": "Section 7.3 equation (7.3.2) and Section 7.4 equation (7.4.1), p. 23; Section 7.5, p. 24",
           "excerpt": "multiplicative",
           "match": "The unit logarithm and cup-product representative."
         },
@@ -1403,7 +1415,7 @@
       "proofSteps": [
         "Import the P.3 map and its unresolved construction proof without duplicating it.",
         "Apply D96 Theorem 2.1 only over a number field; its residue fields are finite extensions of F.",
-        "Use the M.8 universal regulator comparison and number-field Borel injectivity to obtain the residue compatibility of D96 §3.7; request the exact input rather than extending it to all fields."
+        "Use the requested early M.8 universal regulator comparison and the existing BorelRegulators:R.4/regulator-real-isomorphism, which already includes K3(F) through localization. Its real isomorphism implies rational injectivity for number fields, yielding D96 §3.7’s residue argument; do not extend it to arbitrary fields."
       ],
       "acceptance": [
         "The proof does not show injectivity of a Borel regulator for arbitrary residue fields.",
@@ -1418,7 +1430,7 @@
       "sources": [
         {
           "sourceId": "D96",
-          "locator": "Theorem 2.1, pp. 5–6; Section 3.7, pp. 22–23",
+          "locator": "Theorem 2.1 and preceding curve complex, pp. 6–7; Section 3.7, pp. 22–23",
           "excerpt": "number",
           "match": "The arithmetic-field hypothesis is essential to the injectivity argument."
         }
@@ -1613,7 +1625,7 @@
       "sources": [
         {
           "sourceId": "D96",
-          "locator": "Theorem 3.3 and proof, equations (25)–(28), pp. 20–21",
+          "locator": "Theorem 3.3 and proof, equations (26)–(28), pp. 20–21",
           "excerpt": "constant",
           "match": "The source leaves c3 unspecified; -4/3 is derived here in the parent ρ2 convention."
         }
@@ -1906,7 +1918,7 @@
       "sources": [
         {
           "sourceId": "BFT",
-          "locator": "Definition 5.10 and Theorem 5.13, pp. 11–13",
+          "locator": "Equation (5.10), Remark 5.12 and Theorem 5.13, pp. 11–13",
           "excerpt": "equal",
           "match": "BFT absorbs the sign (-1)^m into its r convention."
         }
@@ -2161,7 +2173,7 @@
       ],
       "title": "Integration against Wang forms",
       "kind": "construction",
-      "statement": "For DA^(r,-m), define φ(α)=πX*[α•Wm] in Deligne degree r-m. The product has ordinary degree r+m-1 before projection and uses the M.8 fixed Deligne product. On the infinity-face normalised DA complex this lands in smooth τ≤2p D(X,p), is a cochain map and a quasi-inverse of the base inclusion τD(X,p)→DA(X,p)_0.",
+      "statement": "For DA^(r,-m), define φ(α)=πX*[α•Wm] in Deligne degree r-m. The product uses the M.8 fixed Deligne product and has ordinary degree r+m-1 before projection, except at m=0,r=2p, where the top Deligne cochain is an ordinary degree-2p form and W0=1 preserves that degree. On the infinity-face normalised DA complex this lands in smooth τ≤2p D(X,p), is a cochain map and a quasi-inverse of the base inclusion τD(X,p)→DA(X,p)_0.",
       "hypotheses": [
         "The hypotheses and conventions in the statement are part of the declaration."
       ],
@@ -2227,7 +2239,7 @@
         {
           "name": "WangIntegration.degree",
           "kind": "characterisation",
-          "statement": "An input of bidegree (r,-m) has output Deligne degree r-m, not r+m."
+          "statement": "An input of bidegree (r,-m) has output Deligne degree r-m, not r+m. At m=0,r=2p (in particular p=1,r=2), W0 preserves the ordinary top degree 2p, rather than the lower-degree formula 2p-1."
         }
       ],
       "uses": [
@@ -2309,7 +2321,7 @@
       "proofSteps": [
         "Define each summand with the same Tate twists and target grading.",
         "Substitute the auxiliary differential and the two Green product identities; all support and face terms cancel.",
-        "Restrict to the first and third summands to obtain the commuting square. β and φ induce isomorphisms, so the square compares the regulators on homology."
+        "Restrict to the second (cycle) and third (base) summands in the fixed (support,cycle,base) order to obtain the commuting square. β and φ induce isomorphisms, so the square compares the regulators on homology."
       ],
       "acceptance": [
         "The correction term is negative."
@@ -2505,13 +2517,6 @@
       ]
     },
     {
-      "supplier": "BorelRegulators:R.4",
-      "need": "Export the j=2 number-field regulator injectivity on K3(F)_Q used in D96 Theorem 2.1, transporting the existing regulator-real-isomorphism from O_F to F through localization and the rational vanishing of positive even K-groups of finite residue fields. This is a number-field statement and does not require the exact late R.7 factor-two normalization.",
-      "neededBy": [
-        "Polylogarithms:P.5/weight-three-motivic-comparison"
-      ]
-    },
-    {
       "supplier": "ComplexComparisonPartII:C0",
       "need": "Import the existing analytification node with its tracked PR196 analytic-space gap. Supply the analytic closed-subspace and dimension interfaces, finite local ramified projection/mass estimates for pure analytic sets, and holomorphic charts needed for Demailly III §2.B–C. These are analytic-space foundations, not another construction of currents or Chow parameter spaces. No accepted PR196 stage id is invented.",
       "neededBy": [
@@ -2527,7 +2532,7 @@
       "status": "planned",
       "remaining": [
         "Early M.8 supplier not yet split: All general Deligne carriers, support operations and universal-regulator inputs terminate at the exact request to M.8 above. Confirmed RT-AREA-ktheory-2/7 and /24 require an accepted early archimedean prefix before a dependency id can be used. Do not promote the request into an edge from the entire unsplit M.8.",
-        "Global smooth analytic and torus Fourier interface: Mathlib scalar test functions/distributions are chart objects. The early C5 Part II interface requested here must supply global differential forms and integration before global current operations, and distributional Fourier coefficients before the elliptic formula. Existing proper de Rham–Betti nodes are a near miss, not a replacement. Analytic subsets and finite local projections also rest on C0/repair-analytification and its tracked, unintegrated PR196 carrier; the eighth request names this exact boundary.",
+        "Global smooth analytic and torus Fourier interface: Mathlib scalar test functions/distributions are chart objects. The early C5 Part II interface requested here must supply global differential forms and integration before global current operations, and distributional Fourier coefficients before the elliptic formula. Existing proper de Rham–Betti nodes are a near miss, not a replacement. Analytic subsets and finite local projections also rest on C0/repair-analytification and its tracked, unintegrated PR196 carrier; the C0 request names this exact boundary. Also missing in P.5’s local current foundations are positive-current and locally complete pluripolar carriers with El Mir’s finite-mass extension theorem (Demailly III 2.3, pp. 139–140), and the normal-current support/dimension theorem (III 2.10–2.11, p. 141) with the order-zero hypotheses needed by Poincaré–Lelong. These are current-theory inputs owned by P.5, not assertions that C0 or R09.7 supplies arbitrary analytic resolution or current extension.",
         "Chow incidence carrier and singular-family Radon operation: R09.2 Part II must construct the requested parameter spaces. The parent Radon transform also needs a resolved, locally integrable pull–push through singular incidence families; a generic incidence projection need not be a submersion, so the arbitrary-current pullback API cannot justify this step. Provide a family-specific resolved-form construction and its independence proof.",
         "Top-two Gersten/Bloch graph comparison: The graph map and moving argument are specified by the M.4 request; an actual node proving isomorphism on CH^p(X,1) as well as ordinary CH^p is absent. S.4 divisor lengths, Gersten resolution and Bloch formula do not establish this stronger comparison by themselves.",
         "Inherited polylogarithmic complex transfers: The accepted parent gap remains: no source read constructs full B(F,3) complex transfers. Λ³ of a field norm composed with restriction scales by degree cubed; it is not the desired degree-one transfer. D96’s K4 transfer is not a construction of this missing chain map.",
@@ -2572,7 +2577,7 @@
         "Polylogarithms:P.5/poincare-lelong",
         "Polylogarithms:P.5/admissible-chow-locus"
       ],
-      "detail": "Mathlib scalar test functions/distributions are chart objects. The early C5 Part II interface requested here must supply global differential forms and integration before global current operations, and distributional Fourier coefficients before the elliptic formula. Existing proper de Rham–Betti nodes are a near miss, not a replacement. Analytic subsets and finite local projections also rest on C0/repair-analytification and its tracked, unintegrated PR196 carrier; the eighth request names this exact boundary."
+      "detail": "Mathlib scalar test functions/distributions are chart objects. The early C5 Part II interface requested here must supply global differential forms and integration before global current operations, and distributional Fourier coefficients before the elliptic formula. Existing proper de Rham–Betti nodes are a near miss, not a replacement. Analytic subsets and finite local projections also rest on C0/repair-analytification and its tracked, unintegrated PR196 carrier; the C0 request names this exact boundary. Also missing in P.5’s local current foundations are positive-current and locally complete pluripolar carriers with El Mir’s finite-mass extension theorem (Demailly III 2.3, pp. 139–140), and the normal-current support/dimension theorem (III 2.10–2.11, p. 141) with the order-zero hypotheses needed by Poincaré–Lelong. These are current-theory inputs owned by P.5, not assertions that C0 or R09.7 supplies arbitrary analytic resolution or current extension."
     },
     {
       "title": "Chow incidence carrier and singular-family Radon operation",
@@ -2632,7 +2637,7 @@
   ],
   "sourceIssues": [
     {
-      "id": "Polylogarithms/E22",
+      "id": "Polylogarithms/E25",
       "source": "BFT",
       "kind": "misprint",
       "locator": "arXiv:0909.5296v1, equation (6.15), printed p.20; published PDF unavailable (HTTP 403)",
@@ -2645,10 +2650,15 @@
         "arXiv abstract/version list and v1; attempted v2 returns 404, 2026-10-06",
         "Oxford IMRN article/DOI 10.1093/imrn/rnq066 and publisher PDF request, 2026-10-06",
         "Author/public search for Burgos Feliu Takeda rnq066 corrigendum or erratum, 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the inspected arXiv v1 equation (6.15), printed p. 20: the target omits n. The form has degree n+m-1 and the projection removes both factors, giving Deligne degree 2p-n-m; the cubical axis m=0 also forces the correction. No claim is made about the unread publisher text.",
+        "by": "REV-Polylogarithms--P.5"
+      }
     },
     {
-      "id": "Polylogarithms/E23",
+      "id": "Polylogarithms/E26",
       "source": "D96",
       "kind": "error",
       "locator": "arXiv:alg-geom/9512016v2, Theorem 3.4 and equation (31), pp.21–22; version of record not obtained",
@@ -2661,10 +2671,15 @@
         "arXiv abstract/version history, v2 and its appendix correction, 2026-10-06",
         "MPIM 96-6 original January 1996 scan, introductory normalization and theorem lead, 2026-10-06",
         "Springer DOI 10.1007/BF02362333 publisher PDF request, served access page; searches for author/journal corrigendum, 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the arXiv v2 page image, printed p. 21: ordinary positive complex integration gives dz∧dbarz=-2i dx∧dy, so no nonzero holomorphic form can satisfy the displayed real-one integral. The packet uses positive area and derives its scalar; the analytic comparison and journal collation remain open. This verdict applies only to the inspected preprint.",
+        "by": "REV-Polylogarithms--P.5"
+      }
     },
     {
-      "id": "Polylogarithms/E24",
+      "id": "Polylogarithms/E27",
       "source": "G05",
       "kind": "misprint",
       "locator": "Published JAMS 18 (2005), p.21, prose immediately following equation (38)",
@@ -2677,10 +2692,15 @@
         "Published AMS PDF p.21 and adjacent Proposition 2.14, 2026-10-06",
         "arXiv:math/0207036v3 corresponding equation (36), 2026-10-06",
         "AMS article record and searches for Goncharov Arakelov motivic complexes erratum/corrigendum, 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published JAMS PDF p. 21: equation (38) itself specifies codim(Y)=n-1 and a codimension-n cycle, contradicting the prose which calls both loci divisors. The degree-one case has Y=X. This is a dimension-label misprint.",
+        "by": "REV-Polylogarithms--P.5"
+      }
     },
     {
-      "id": "Polylogarithms/E25",
+      "id": "Polylogarithms/E28",
       "source": "BFT",
       "kind": "misprint",
       "locator": "arXiv:0909.5296v1, §4 equation (4.8) and following cycle map, printed p.8, compared with Theorem 6.10 p.18; inspected the PDF image, not only extracted text",
@@ -2693,14 +2713,39 @@
         "arXiv v1 §4.8 and Theorem 6.10 with PDF-image check, 2026-10-06",
         "Oxford IMRN DOI 10.1093/imrn/rnq066; publisher PDF blocked, 2026-10-06",
         "Author/public search for a Burgos Feliu Takeda correction; arXiv version list, 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the arXiv v1 page image p. 8. With support-first cochain order and the printed differential, the support degree must be q+1; g1 has degree zero. The cycle class belongs to the second Hp coordinate. The packet’s corrected grading and inclusion agree with those types. No publisher-text verdict is inferred.",
+        "by": "REV-Polylogarithms--P.5"
+      }
+    },
+    {
+      "id": "Polylogarithms/E29",
+      "source": "D96",
+      "kind": "misprint",
+      "locator": "arXiv:alg-geom/9512016v2, Theorem 3.4, equation (29), printed p. 21",
+      "printed": "fi, gi ∈ C(E)*; (1−fi)∧fi∧gi ∈ Λ³ Q(E)*",
+      "correction": "For the theorem over C, the relation is in Λ³ C(E)* (or Λ³(C(E)*⊗Q) for rational symbol combinations).",
+      "reason": "An arbitrary elliptic curve over C in this theorem is not supplied with a Q-model, and arbitrary complex rational functions are not elements of Q(E)* even when such a model exists. The preceding Theorem 3.3 and the proof use C(E); Q(E) belongs to the earlier arithmetic theorem.",
+      "affects": "nothing",
+      "known": "new in the inspected preprint; publisher version not read",
+      "searched": [
+        "arXiv version list and the inspected v2 PDF; v1 was withdrawn",
+        "Publisher-access limitation recorded in sourceVersions; no claim that the journal retains this misprint"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently observed in the Theorem 3.4 page image. Replacing Q(E) by C(E) makes the general-complex-curve hypothesis and the displayed symbol relation well typed; this verdict is scoped to arXiv v2.",
+        "by": "REV-Polylogarithms--P.5"
+      }
     }
   ],
   "sourceVersions": [
     {
       "sourceId": "G05",
       "kind": "published",
-      "url": "https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
+      "url": "https://ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
       "read": "2026-10-06",
       "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be",
       "citation": "JAMS 18 (2005), 1–60; published PDF"
@@ -3026,7 +3071,7 @@
         "Polylogarithms:P.5/current-resolution",
         "Polylogarithms:P.5/poincare-lelong"
       ],
-      "terminates": "Mathlib chart baseline plus early C5 and R09.7 requests."
+      "terminates": "Mathlib chart baseline, early C5/C0 and R09.7 requests, and the explicitly recorded P.5 El Mir/normal-current-support foundation gap."
     },
     {
       "target": "Chow varieties",
@@ -3130,5 +3175,178 @@
       ],
       "terminates": "Parent declarations imported unchanged with transfer, sign and integral rigidity gaps retained. General reciprocity remains a conjecture."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-Polylogarithms--P.5",
+    "date": "2026-10-06",
+    "notes": "Independent complete pass: all 33 nodes, 16 pinned Mathlib baseline declarations, 63 API entries, 42 tests, six planets, 30 parent imports, seven retained supplier requests and both confirmed red-team findings checked. Corrected 12 nodes, removed the redundant Borel request, and made El Mir/normal-current support inputs explicit within the existing analytic gap. Updated the G05 source URL to the accessible published-PDF hostname. Five version-scoped source issues confirmed, including added preprint coefficient-field misprint E29; P.5 findings renumbered E25–E29 to avoid the accepted P.2 E22–E24. Coverage remains planned with nine precise gaps; this accepts the plan, not completion of its proofs. Suggested Lean elaborates with only intentional proof-hole warnings. The reader document is outside review deliverables; the report lists the corresponding synchronization work.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.5/compact-test-forms",
+        "verdict": "verified",
+        "note": "Demailly fixed-compact seminorms and LF topology checked; Mathlib chart test functions and the C5 global-form request have distinct roles."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/manifold-currents",
+        "verdict": "verified",
+        "note": "Checked complementary-degree duality, d sign, local L1 embedding and admissible operations. Tests exclude products of arbitrary currents."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/analytic-cycle-current",
+        "verdict": "corrected",
+        "note": "Named the exact El Mir positivity/pluripolar/finite-mass extension input and recorded its missing P.5 foundation; algebraic resolution remains confined to R09.7."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/current-resolution",
+        "verdict": "corrected",
+        "note": "Added the orientation required by the preceding current carrier; verified local de Rham and Dolbeault source arguments."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/poincare-lelong",
+        "verdict": "corrected",
+        "note": "Restored nonvanishing on every connected component and recorded the normal-current support theorem with its order-zero hypotheses; i/pi and bar-partial-first signs checked."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/admissible-chow-locus",
+        "verdict": "corrected",
+        "note": "Made the H condition componentwise and vacuous for the zero cycle; Chow and singular-incidence inputs remain explicit requests/gaps."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/logarithmic-green-forms",
+        "verdict": "verified",
+        "note": "Checked support class, basic representative and quotient: the complement equation alone is insufficient, as its point test demonstrates."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/logarithmic-current-estimate",
+        "verdict": "verified",
+        "note": "Checked strict degree bounds in Burgos Corollary3.8 and borderline Green residue. No unrestricted singular-form/current quasi-isomorphism is inferred."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/green-current-comparison",
+        "verdict": "verified",
+        "note": "Checked Burgos affine translation-space isomorphism and codimension-preserving cycle pullbacks, without arbitrary current pullback."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/green-presentation",
+        "verdict": "verified",
+        "note": "Checked G05 published equation38, raw dd^c convention, codimension-p-1 principal loci and three quotient/curvature tests."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/gersten-green-assembly",
+        "verdict": "verified",
+        "note": "Checked G05 Proposition2.14 requires the final two Gersten cohomology degrees. S.4 supplies ordinary CH only; M.4 graph comparison remains a precise gap."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/mixed-wang-forms",
+        "verdict": "corrected",
+        "note": "Corrected the source locator/excerpt to equation6.14 and Lemma6.16 for the two boundary signs; ordered concatenation and axis tests verified."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/mixed-regulator",
+        "verdict": "corrected",
+        "note": "Corrected Proposition6.16 to Lemma6.16; checked degree2p-n-m, coordinate change, restrictions and the mixed face sign."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/simplicial-cubical-comparison",
+        "verdict": "verified",
+        "note": "Both mixed inclusions and comparison diagrams read. Their M.4 contract remains separate from the parent raw-model conversion gap."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/beilinson-comparison-assembly",
+        "verdict": "verified",
+        "note": "Checked projective smooth-complex hypotheses, higher Chern composition and exact BFT6.18 route. General reciprocity is not used as a theorem."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/curve-symbol-chern-comparison",
+        "verdict": "corrected",
+        "note": "Added Nekovar7.5 p24 for the explicit representative; checked unit cup product, Schneider ch=-c and the Chern product sign against accepted ER.2."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/weight-three-relation-descent",
+        "verdict": "verified",
+        "note": "Checked G00 relation-descent argument, Lhat2=iD and reversed alpha; lower-weight boundary and functional equations give descent."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/weight-three-motivic-comparison",
+        "verdict": "corrected",
+        "note": "Corrected Theorem2.1 locator and removed a redundant R.4 request: its supplier already states localization to F. Rational injectivity is restricted to number fields; inherited P.3 gap retained."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/generalized-elliptic-trilogarithm",
+        "verdict": "verified",
+        "note": "Checked the n=3 two-index kernel, positive area convention, three characters, conjugate numerator, excluded zeros, finite divisors and scale exponent."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/elliptic-trilogarithm-summability",
+        "verdict": "verified",
+        "note": "Independently checked dyadic maximum/minimum-shell estimate, uniform unit character norm and absolute convergence. Source only defines the series; proof remains planned."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/weight-three-pairing",
+        "verdict": "corrected",
+        "note": "Corrected equation range26-28; independently derived -4/3 for parent rho and +4/3 for reversed r3, with both one-form types and no cycle condition."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/elliptic-fourier-comparison",
+        "verdict": "verified",
+        "note": "Independently derived iA^3/(4pi^2) convolution scalar in the stated character convention; constant cancellation uses the symbol cycle. Regularization and published collation remain explicit gaps."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/bft-current-dictionary",
+        "verdict": "verified",
+        "note": "Checked BFT dimension/twist normalization, test/form wedge order and top -2partial-barpartial differential; raw-parent dictionary is still conditional."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/wang-forms",
+        "verdict": "verified",
+        "note": "Checked full unaveraged permutation polynomial, (-2)^m/(2m!) normalization, T0 and T1/T2 tests; concrete exterior-algebra prototype faithfully represents coefficients."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/wang-differential",
+        "verdict": "verified",
+        "note": "Checked recursive formula and right-nested Deligne product; no strict associativity assumption replaces the needed product homotopy."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/r-wang-comparison",
+        "verdict": "corrected",
+        "note": "Corrected Definition5.10 to equation5.10 and included Remark5.12; source sign convention and T1/T2/T3 comparisons checked."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/wang-boundary-currents",
+        "verdict": "verified",
+        "note": "Checked residue-first convention, current differential, cubic zero/infinity signs, simplex signs and ratio-one vanishing in source."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/cubical-regulator",
+        "verdict": "verified",
+        "note": "Checked closure/resolution construction and admissibility rather than arbitrary current multiplication. Degree-zero and unit-log tests pin normalization."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/bft-auxiliary-complex",
+        "verdict": "verified",
+        "note": "Checked corrected support q+1 grading and cycle-second inclusion against actual cochain-map types; prototype square-zero and beta signs agree."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/integration-comparison",
+        "verdict": "corrected",
+        "note": "Corrected ordinary-degree exception m=0,r=2p and strengthened degree test; base inclusion/quasi-inverse and smooth landing retain their explicit support normalization."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/green-wang-product",
+        "verdict": "verified",
+        "note": "Checked top and lower-degree formulas including negative top face term and (-1)^(r-1) lower term; local residues and admissible resolved products are specified."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/regulator-homotopy",
+        "verdict": "corrected",
+        "note": "Corrected commuting-square proof to cycle-second and base-third in fixed order; negative Green term and restricted helper tests match."
+      },
+      {
+        "nodeId": "Polylogarithms:P.5/cubical-beilinson",
+        "verdict": "verified",
+        "note": "Checked BFT6.11 plus4.7: support comparison precedes the M.8 universal-regulator input; Chern convention is supplied by M.6."
+      }
+    ]
+  }
 }
