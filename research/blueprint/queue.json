@@ -23656,8 +23656,9 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology--C8",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology--C8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #387"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #387",
+   "finishedAt": "2026-10-06T22:50:34Z"
   },
   {
    "id": "BP-DiamondSixOperations",
@@ -36781,7 +36782,8 @@
     "REV-AutomorphicBundles--B5"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicBundles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #215"
   },
   {
    "id": "ASM-AutomorphicCongruences",
