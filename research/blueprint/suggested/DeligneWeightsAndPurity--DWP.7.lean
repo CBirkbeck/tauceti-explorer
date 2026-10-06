@@ -2,8 +2,9 @@
 Suggested Lean prototypes for the roadmap "Deligne weights, purity and the Weil bounds"
 (DeligneWeightsAndPurity), part DWP.7 (stages DWP.7, DWP.8 and DWP.9).
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/DeligneWeightsAndPurity--DWP.7.md` is definitive. The statements
+This file is not the roadmap and is not exhaustive. The reviewed packet
+`research/blueprint/packets/DeligneWeightsAndPurity--DWP.7.json` records the current statements;
+the reader document needs the corrections listed in the independent review report. The statements
 below suggest Lean forms so that contributors and reviewers converge on names and signatures.
 Every proof is `sorry`; nothing here is claimed to be formalised (implementationStatus =
 unchecked). Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Tau Ceti
@@ -63,9 +64,11 @@ DWP.8 (namespace TauCeti.Weights):
   weightFiltration_point, weightFiltration_strict_example;
   isGeometricallySemisimple_iff_restrict_open, isGeometricallySemisimple_baseExtension,
   IsGeometricallySemisimple.subquotient, IsGeometricallySemisimple.dual,
-  maximalGeometricallySemisimpleSubsheaf, isGeometricallySemisimple_iff_reductive (sheaf level);
+  maximalGeometricallySemisimpleSubsheaf, isGeometricallySemisimple_iff_reductive,
+  geometricMonodromyGroup_conjugate (sheaf level);
   ArithmeticModel, PotentiallyHas, PotentiallyHas.mono, ArithmeticModel.restrict,
-  PotentiallyHas.pullback, PotentiallyHas.directSum, potentially_baseChange_algClosed and the
+  PotentiallyHas.pullback, PotentiallyHas.directSum, PotentiallyHas.of_iso,
+  potentially_baseChange_algClosed and the
   tests potentiallyPure_const_smooth, potentially_of_finite_field, not_potentiallyPure_kummer,
   potentially_zero;
   and every DWP.8 theorem node.
@@ -207,7 +210,8 @@ theorem newtonCouple_galois (v : AddValuation K (WithTop ℚ)) (τ : K ≃+* K) 
     newtonCouple (v.comap (τ : K →+* K)) q n α = newtonCouple v q n (τ α) := by
   sorry
 
-theorem newtonCouple_mul (v : AddValuation K (WithTop ℚ)) (q : K) (n m : ℤ) (α β : K) :
+theorem newtonCouple_mul (v : AddValuation K (WithTop ℚ)) {q : K} (hq : q ≠ 0)
+    (n m : ℤ) (α β : K) :
     newtonCouple v q (n + m) (α * β) = newtonCouple v q n α + newtonCouple v q m β := by
   sorry
 
@@ -251,6 +255,13 @@ example {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (q : K) (hq : v
     newtonCouple v q (-2) q⁻¹ = (((-1 : ℚ) : WithTop ℚ), ((-1 : ℚ) : WithTop ℚ)) := by
   sorry
 
+/-- Test `newtonCouple_zero_base`: the multiplication formula fails for a zero base and
+integer weights `1` and `−1`. This catches the missing `q ≠ 0` hypothesis. -/
+example {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) :
+    newtonCouple v 0 (1 + (-1)) (1 * 1) ≠
+      newtonCouple v 0 1 1 + newtonCouple v 0 (-1) 1 := by
+  sorry
+
 /-! ## Geometric semisimplicity (`DeligneWeightsAndPurity:DWP.8/geometric-semisimplicity`)
 
 A lisse sheaf on a normal connected `X₀` over `𝔽_q` is a representation `ρ` of the Weil group
@@ -270,11 +281,20 @@ def geometricMonodromyGroup (ρ : Representation E W V) (G : Subgroup W) :
     Submonoid (V →ₗ[E] V) :=
   MonoidHom.mrange (ρ.comp G.subtype)
 
-/-- Clifford: a semisimple representation restricts semisimply to a normal subgroup, so
-arithmetic semisimplicity implies geometric semisimplicity. -/
+/-- A finite-dimensional semisimple representation restricts semisimply to a normal subgroup.
+The irreducible case already exists at the Tau Ceti pin as
+`TauCeti.Representation.isSemisimpleRepresentation_comp_subtype` in
+`TauCeti/RepresentationTheory/Induction/Clifford/Basic.lean`; apply it to each irreducible summand.
+This Mathlib-only file gives the wrapper's signature, without redeveloping Clifford theory. -/
 theorem IsGeometricallySemisimple.of_isSemisimple [FiniteDimensional E V] (ρ : Representation E W V)
     (G : Subgroup W) [G.Normal] (h : IsSemisimpleModule (MonoidAlgebra E W) ρ.asModule) :
     IsGeometricallySemisimple ρ G := by
+  sorry
+
+/-- Membership in the image submonoid; each represented endomorphism is invertible. -/
+theorem mem_geometricMonodromyGroup (ρ : Representation E W V) (G : Subgroup W)
+    (a : V →ₗ[E] V) :
+    a ∈ geometricMonodromyGroup ρ G ↔ ∃ g : G, ρ g = a := by
   sorry
 
 end GeometricSemisimplicity
