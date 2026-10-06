@@ -22742,7 +22742,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #367"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H4",
@@ -27993,8 +27994,9 @@
    ],
    "avoidAccountOf": "BP-PerfectoidSpaces--P8",
    "prompt": "research/blueprint/prompts/REV-PerfectoidSpaces--P8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #471"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #471",
+   "finishedAt": "2026-10-06T15:33:05Z"
   },
   {
    "id": "BP-PhiGammaModulesAndIwasawaCohomology",
