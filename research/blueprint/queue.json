@@ -27923,8 +27923,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidShimuraVarieties.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #972"
   },
   {
    "id": "REV-PerfectoidShimuraVarieties",
@@ -62743,8 +62744,9 @@
     "REV-FIX-RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5541"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5541",
+   "finishedAt": "2026-10-06T22:00:27Z"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1~2",
