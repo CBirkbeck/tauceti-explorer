@@ -25157,7 +25157,8 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R32.3",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #413"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory--K.1",
