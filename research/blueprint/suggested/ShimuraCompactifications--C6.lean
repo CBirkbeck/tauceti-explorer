@@ -3,27 +3,22 @@ This file is not the roadmap and is not exhaustive. The roadmap document is defi
 These statements suggest Lean forms so contributors and reviewers converge on names and
 signatures. Every new proof is a placeholder; no implementation is claimed.
 
-C6: the arithmetic coefficient argument for Koecher's principle, using the existing
-number-field positivity and unit theory. Functions F → R below are coefficient families,
-NOT a replacement for a completed toric ring or a Hilbert modular variety.
-The actual cusp chart, formal descent, and global geometric theorem have no honest
-signature against the current suppliers; the packet records this gap explicitly.
-
+C6 uses native number fields, unit groups and integral trace duals.
+The shared build lacks the TotallyPositive object file. Strict total positivity is
+therefore written as its real-embedding condition, exactly equivalent to the pinned
+NumberField.isTotallyPositive_iff under IsTotallyReal, without defining a new predicate. A coefficient family
+is not a completed series ring or a Hilbert modular variety. Geometric signatures whose
+supplier carriers do not yet exist are omitted, as required by PROTOCOL section 13.
+The per-node ledger below and the packet gap identify each omission.
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-
-The final UniformizationPrototype section is a partial-checkpoint supplement, not yet
-integrated into packet nodes or the definitive roadmap document. Its mathematical proofs,
-source scope, baseline reuse and integration boundary are recorded in the handoff.
-This revision has NOT been compiled; the previous checkpoint's compilation does not
-certify the additional import, signatures or examples below.
 -/
 
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 import Mathlib.Analysis.SpecificLimits.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.DedekindDomain.Different
-import TauCeti.NumberTheory.NumberField.TotallyPositive
 
 open NumberField NumberField.InfinitePlace
 open scoped BigOperators
@@ -43,7 +38,7 @@ theorem finiteIndex_unit_contracts_away
 
 /-- C6/negative-cusp-exponent. Zero must be excluded. -/
 theorem exists_negative_embedding (ξ : F) (hξ : ξ ≠ 0)
-    (hpos : ¬ NumberField.IsTotallyPositive ξ) :
+    (hpos : ¬ (∀ w : InfinitePlace F, 0 < embedding_of_isReal (IsTotallyReal.isReal w) ξ)) :
     ∃ w : InfinitePlace F, embedding_of_isReal (IsTotallyReal.isReal w) ξ < 0 := by
   sorry
 
@@ -51,7 +46,7 @@ theorem exists_negative_embedding (ξ : F) (hξ : ξ ≠ 0)
 theorem negative_trace_orbit_unbounded
     (U : Subgroup (𝓞 F)ˣ) [U.FiniteIndex]
     (hd : 1 < Fintype.card (InfinitePlace F))
-    (ξ : F) (hξ : ξ ≠ 0) (hpos : ¬ NumberField.IsTotallyPositive ξ)
+    (ξ : F) (hξ : ξ ≠ 0) (hpos : ¬ (∀ w : InfinitePlace F, 0 < embedding_of_isReal (IsTotallyReal.isReal w) ξ))
     (y : InfinitePlace F → ℝ) (hy : ∀ w, 0 < y w) :
     ∀ B : ℝ, ∃ u : U,
       (∑ w : InfinitePlace F,
@@ -81,12 +76,12 @@ theorem bounded_cusp_support_is_positive
     (hbound : ∃ B : ℝ, ∀ ξ : F, a ξ ≠ 0 →
       B ≤ ∑ w : InfinitePlace F,
         embedding_of_isReal (IsTotallyReal.isReal w) ξ * y w) :
-    ∀ ξ : F, a ξ ≠ 0 → ξ = 0 ∨ NumberField.IsTotallyPositive ξ := by
+    ∀ ξ : F, a ξ ≠ 0 → ξ = 0 ∨ (∀ w : InfinitePlace F, 0 < embedding_of_isReal (IsTotallyReal.isReal w) ξ) := by
   sorry
 
 /-- C6/positive-exponents-on-charts. Boundary ray generators are nonzero. -/
 theorem positive_exponent_pairs_pos
-    (ξ : F) (hξ : NumberField.IsTotallyPositive ξ)
+    (ξ : F) (hξ : (∀ w : InfinitePlace F, 0 < embedding_of_isReal (IsTotallyReal.isReal w) ξ))
     (v : InfinitePlace F → ℝ) (hv : ∀ w, 0 ≤ v w) (hv0 : v ≠ 0) :
     0 < ∑ w : InfinitePlace F,
       embedding_of_isReal (IsTotallyReal.isReal w) ξ * v w := by
@@ -135,7 +130,7 @@ example (ξ : F) : (∑ w : InfinitePlace F,
 
 -- C6/bounded-cusp-support: the constant series is allowed, including nonzero constants.
 example [DecidableEq F] (ξ : F) (h : (if ξ = 0 then (1 : ℤ) else 0) ≠ 0) :
-    ξ = 0 ∨ NumberField.IsTotallyPositive ξ := by
+    ξ = 0 ∨ (∀ w : InfinitePlace F, 0 < embedding_of_isReal (IsTotallyReal.isReal w) ξ) := by
   sorry
 
 -- C6/bounded-cusp-support: a single positive coefficient has nonnegative pairing.
@@ -147,23 +142,6 @@ example (y : InfinitePlace F → ℝ) (hy : ∀ w, 0 < y w) :
 end TauCeti.HilbertCusp
 
 -- Generated additive baseline statement: checked because the text-only index omits it.
-#check Finset.sum_pos_iff_of_nonneg
-#check NumberField.Units.dirichletUnitTheorem.exists_unit
-#check Units.mul_right_eq_zero
-
-/-!
-## Uniformization-phase checkpoint
-
-Source: Dimitrov, Proposition 4.1(ii), author copy printed p. 537; the Fourier
-law after equation (5), printed p. 546. The native objects below are existing
-Z-submodules, their existing Mathlib trace duals, and existing unit groups.
-No Hilbert cusp, completed series ring, weight line or geometric action is defined here.
-
-These four names are provisional supporting prototypes, not new packet node IDs.
-Before integration, reuse the exact H1/H3 trace-dual and cusp-quotient interfaces and
-any existing general consequence instead of creating a second foundation.
-The handoff proves the mathematical claims and lists what is not yet supplied.
--/
 
 namespace TauCeti.HilbertCusp.UniformizationPrototype
 
@@ -210,41 +188,190 @@ theorem phase_additive_in_character
     ζ ^ msum = ζ ^ mξ * ζ ^ mη := by
   sorry
 
-/- Source-shaped acceptance examples; these are still placeholder proofs. -/
-
--- The factor n is necessary to obtain an integer exponent.
-example : (3 : ℚ) * Algebra.trace ℚ ℚ ((1 / 3 : ℚ) * 1) = 1 := by
+/-- C6/uniformization-phase-character. Additive notation wraps the existing unit group. -/
+noncomputable def tracePhase
+    (A B : Submodule ℤ K) (n : ℕ)
+    (hn : ∀ ξ : K, ξ ∈ B → n • ξ ∈ A)
+    (ζ : Sˣ) (hζ : ζ ^ (n : ℤ) = 1)
+    (x : K) (hx : x ∈ Submodule.traceDual ℤ ℚ A) :
+    B →+ Additive Sˣ := by
   sorry
 
--- An n that does not annihilate B/A need not clear the denominator.
-example : ¬ ∃ m : ℤ,
-    (m : ℚ) = (2 : ℚ) * Algebra.trace ℚ ℚ ((1 / 3 : ℚ) * 1) := by
+variable (A B : Submodule ℤ K) (n : ℕ)
+variable (hn : ∀ ξ : K, ξ ∈ B → n • ξ ∈ A)
+variable (ζ : Sˣ) (hζ : ζ ^ (n : ℤ) = 1)
+variable (x : K) (hx : x ∈ Submodule.traceDual ℤ ℚ A)
+
+/-- Evaluation using the integral trace witness. -/
+theorem tracePhase_apply (ξ : B) (m : ℤ)
+    (hm : (m : ℚ) = (n : ℚ) * Algebra.trace ℚ K ((ξ : K) * x)) :
+    (tracePhase A B n hn ζ hζ x hx ξ).toMul = ζ ^ m := by
   sorry
 
--- Modding out by A-dual instead of B-dual can change the phase:
--- A=Z, B=(1/4)Z, ξ=1/4, x=0, x'=1, ζ=2 modulo 5.
-example : (2 : ZMod 5) ^ (0 : ℕ) ≠ (2 : ZMod 5) ^ (1 : ℕ) := by
+/-- The zero exponent has phase one. -/
+theorem tracePhase_zero :
+    (tracePhase A B n hn ζ hζ x hx 0).toMul = 1 := by
   sorry
 
--- The fourth-root relation holds without primitive order four.
-example : (3 : ZMod 8) ^ (4 : ℕ) = 1 ∧ (3 : ZMod 8) ^ (2 : ℕ) = 1 := by
+/-- The native AddMonoidHom laws express multiplication of phases. -/
+theorem tracePhase_add (ξ η : B) :
+    (tracePhase A B n hn ζ hζ x hx (ξ + η)).toMul =
+      (tracePhase A B n hn ζ hζ x hx ξ).toMul *
+        (tracePhase A B n hn ζ hζ x hx η).toMul := by
   sorry
 
--- Negative exponents belong in the unit group, not in truncated natural powers.
-example (ζ : (ZMod 4)ˣ) (hζ : (ζ : ZMod 4) = 3) :
-    ζ ^ (-1 : ℤ) = ζ := by
+/-- Quotient by B-dual, retaining admissibility of both representatives. -/
+theorem tracePhase_lift (x' : K)
+    (hx' : x' ∈ Submodule.traceDual ℤ ℚ A)
+    (hshift : x' - x ∈ Submodule.traceDual ℤ ℚ B) :
+    tracePhase A B n hn ζ hζ x' hx' = tracePhase A B n hn ζ hζ x hx := by
   sorry
 
--- The zero character has phase one over any coefficient ring.
-example (ζ : Sˣ) : ζ ^ (0 : ℤ) = 1 := by
+/-- No primitive-root assumption is built into the construction. -/
+theorem tracePhase_trivial_root (h1 : (1 : Sˣ) ^ (n : ℤ) = 1) (ξ : B) :
+    (tracePhase A B n hn 1 h1 x hx ξ).toMul = 1 := by
   sorry
 
--- A nonzero module coefficient survives a phase over a nonreduced ring.
-example : ((3 : ZMod 4) * 2, (3 : ZMod 4) * 0) = (2, 0) ∧
-    ((2 : ZMod 4), (0 : ZMod 4)) ≠ (0, 0) := by
+/-- Arbitrary coefficient maps preserve the phase character. -/
+theorem tracePhase_map {S' : Type*} [CommRing S'] (f : S →+* S')
+    (hfζ : (Units.map f.toMonoidHom ζ) ^ (n : ℤ) = 1) (ξ : B) :
+    (tracePhase A B n hn (Units.map f.toMonoidHom ζ) hfζ x hx ξ).toMul =
+      Units.map f.toMonoidHom ((tracePhase A B n hn ζ hζ x hx ξ).toMul) := by
+  sorry
+
+/- Five discriminating construction tests, named by comments because Lean examples
+   are anonymous. Their objects are native Z-submodules and unit groups. -/
+
+-- UniformizationPrototype.phase_third_denominator
+example (ζ : Sˣ) (hζ : ζ ^ (3 : ℤ) = 1)
+    (hn : ∀ ξ : ℚ, ξ ∈ Submodule.span ℤ {(1 / 3 : ℚ)} →
+      (3 : ℕ) • ξ ∈ Submodule.span ℤ {(1 : ℚ)})
+    (hx : (1 : ℚ) ∈ Submodule.traceDual ℤ ℚ (Submodule.span ℤ {(1 : ℚ)}))
+    (hξ : (1 / 3 : ℚ) ∈ Submodule.span ℤ {(1 / 3 : ℚ)}) :
+    (tracePhase (Submodule.span ℤ {(1 : ℚ)})
+      (Submodule.span ℤ {(1 / 3 : ℚ)}) 3 hn ζ hζ 1 hx ⟨1 / 3, hξ⟩).toMul = ζ := by
+  sorry
+
+-- UniformizationPrototype.phase_zero_character
+example : (tracePhase A B n hn ζ hζ x hx 0).toMul = 1 := by
+  sorry
+
+-- UniformizationPrototype.phase_dual_shift
+example (ζ : Sˣ) (hζ : ζ ^ (3 : ℤ) = 1)
+    (hn : ∀ ξ : ℚ, ξ ∈ Submodule.span ℤ {(1 / 3 : ℚ)} →
+      (3 : ℕ) • ξ ∈ Submodule.span ℤ {(1 : ℚ)})
+    (hx : (1 : ℚ) ∈ Submodule.traceDual ℤ ℚ (Submodule.span ℤ {(1 : ℚ)}))
+    (hx' : (4 : ℚ) ∈ Submodule.traceDual ℤ ℚ (Submodule.span ℤ {(1 : ℚ)})) :
+    tracePhase (Submodule.span ℤ {(1 : ℚ)}) (Submodule.span ℤ {(1 / 3 : ℚ)})
+      3 hn ζ hζ 1 hx =
+    tracePhase (Submodule.span ℤ {(1 : ℚ)}) (Submodule.span ℤ {(1 / 3 : ℚ)})
+      3 hn ζ hζ 4 hx' := by
+  sorry
+
+-- UniformizationPrototype.phase_wrong_dual
+example (ζ : (ZMod 5)ˣ) (hζ : ζ ^ (4 : ℤ) = 1) (hζval : (ζ : ZMod 5) = 2)
+    (hn : ∀ ξ : ℚ, ξ ∈ Submodule.span ℤ {(1 / 4 : ℚ)} →
+      (4 : ℕ) • ξ ∈ Submodule.span ℤ {(1 : ℚ)})
+    (hx : (0 : ℚ) ∈ Submodule.traceDual ℤ ℚ (Submodule.span ℤ {(1 : ℚ)}))
+    (hx' : (1 : ℚ) ∈ Submodule.traceDual ℤ ℚ (Submodule.span ℤ {(1 : ℚ)}))
+    (hξ : (1 / 4 : ℚ) ∈ Submodule.span ℤ {(1 / 4 : ℚ)}) :
+    (tracePhase (Submodule.span ℤ {(1 : ℚ)}) (Submodule.span ℤ {(1 / 4 : ℚ)})
+      4 hn ζ hζ 0 hx ⟨1 / 4, hξ⟩).toMul ≠
+    (tracePhase (Submodule.span ℤ {(1 : ℚ)}) (Submodule.span ℤ {(1 / 4 : ℚ)})
+      4 hn ζ hζ 1 hx' ⟨1 / 4, hξ⟩).toMul := by
+  sorry
+
+-- UniformizationPrototype.phase_nonprimitive
+example (ζ : (ZMod 8)ˣ) (hζ : ζ ^ (4 : ℤ) = 1) (hζval : (ζ : ZMod 8) = 3)
+    (A B : Submodule ℤ K)
+    (hn : ∀ ξ : K, ξ ∈ B → (4 : ℕ) • ξ ∈ A)
+    (x : K) (hx : x ∈ Submodule.traceDual ℤ ℚ A)
+    (ξ : B) (m : ℤ) (hm : (m : ℚ) = 4 * Algebra.trace ℚ K ((ξ : K) * x)) :
+    (tracePhase A B 4 hn ζ hζ x hx ξ).toMul = ζ ^ m ∧ ζ ^ (2 : ℤ) = 1 := by
   sorry
 
 end TauCeti.HilbertCusp.UniformizationPrototype
 
--- This is the existing baseline trace-dual membership API, not a new definition.
-#check Submodule.mem_traceDual
+/-
+Geometric signature omission ledger (packet gap: Geometric supplier interfaces and
+suggested signatures). Each name has its full mathematical statement in the roadmap
+and packet. The absent types are supplied by the listed stages, not by Prop fields.
+ShimuraCompactifications:C6/meromorphic-cusp-support-bound
+  meromorphic_cusp_support_bound — ShimuraCompactifications:C0/relative-regular-coordinates, ShimuraCompactifications:C0/relative-boundary-coordinates, ShimuraCompactifications:C4, AdicSpacesPartII:F0, HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/hilbert-cusp-positive-support
+  hilbert_cusp_support_positive — HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H3, ShimuraCompactifications:C0, ShimuraCompactifications:C4, ShimuraCompactifications:C5
+ShimuraCompactifications:C6/arithmetic-koecher
+  arithmetic_koecher — AdicSpacesPartII:F0, ShimuraCompactifications:C0/relative-boundary-coordinates, ShimuraCompactifications:C4, ShimuraCompactifications:C5, HilbertModularVarietiesAndShimuraCurves:H3, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.0
+ShimuraCompactifications:C6/hilbert-boundary-constant
+  hilbert_cuspidal_iff_constant_zero — ShimuraCompactifications:C0/relative-boundary-coordinates, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.1
+ShimuraCompactifications:C6/cusp-lattice-comparison
+  hilbert_cusp_lattice_compare — HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/admissible-fan-specialization
+  hilbert_admissible_fan_compare — ShimuraCompactifications:C0, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/uniformized-level-chart
+  hilbert_uniformized_level_chart — ShimuraCompactifications:C4, HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/hilbert-toroidal-model
+  hilbert_toroidal_model_exists — ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.1, NeronModelsAndSemistableAbelianVarieties:R11.3
+ShimuraCompactifications:C6/toroidal-polarization-quotient
+  hilbert_toroidal_polarization_quotient — HilbertModularVarietiesAndShimuraCurves:H3, SchemeAndStackFoundations:SF.1
+ShimuraCompactifications:C6/hilbert-boundary-formal-comparison
+  hilbert_boundary_formal_compare — ShimuraCompactifications:C0, HilbertModularVarietiesAndShimuraCurves:H3, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-boundary-etale-charts
+  hilbert_boundary_etale_toric — ShimuraCompactifications:C0, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-regular-refinement
+  hilbert_regular_refinement_smooth — ShimuraCompactifications:C0, ShimuraCompactifications:C3, HilbertModularVarietiesAndShimuraCurves:H1
+ShimuraCompactifications:C6/hilbert-semiabelian-extension
+  hilbert_semiabelian_extension — ShimuraCompactifications:C4, SchemeAndStackFoundations:SF.1, NeronModelsAndSemistableAbelianVarieties:R11.3, NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation
+ShimuraCompactifications:C6/hilbert-conormal-comparison
+  hilbert_conormal_compare — ShimuraCompactifications:C4, HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/hilbert-toroidal-proper
+  hilbert_toroidal_proper — ShimuraCompactifications:C4, ShimuraCompactifications:C5, NeronModelsAndSemistableAbelianVarieties:R11.3, NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension
+ShimuraCompactifications:C6/hilbert-hodge-semiampleness
+  hilbert_hodge_semiample — ShimuraCompactifications:C5
+ShimuraCompactifications:C6/hilbert-minimal-contraction
+  hilbert_minimal_contraction — ShimuraCompactifications:C5
+ShimuraCompactifications:C6/hilbert-minimal-finite-generation
+  hilbert_minimal_sectionRing_finite — ShimuraCompactifications:C5
+ShimuraCompactifications:C6/hilbert-minimal-normal-projective
+  hilbert_minimal_normal_projective — ShimuraCompactifications:C5, SchemeAndStackFoundations:SF.0
+ShimuraCompactifications:C6/minimal-polarization-quotient
+  hilbert_minimal_polarization_quotient — ShimuraCompactifications:C5, HilbertModularVarietiesAndShimuraCurves:H3, SchemeAndStackFoundations:SF.1
+ShimuraCompactifications:C6/hilbert-minimal-cusps
+  hilbert_minimal_cusps — ShimuraCompactifications:C5, HilbertModularVarietiesAndShimuraCurves:H3, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres
+  hilbert_minimal_boundary_fibres — ShimuraCompactifications:C5
+ShimuraCompactifications:C6/hilbert-minimal-formal-comparison
+  hilbert_minimal_formal_compare — AdicSpacesPartII:F0, HilbertModularVarietiesAndShimuraCurves:H3, AdicSpacesPartII:F0/completion-of-morphism, AdicSpacesPartII:F0/theorem-on-formal-functions
+ShimuraCompactifications:C6/hilbert-minimal-weight-extension
+  hilbert_minimal_weight_extension — ShimuraCompactifications:C5, HilbertModularVarietiesAndShimuraCurves:H3, SchemeAndStackFoundations:SF.0
+ShimuraCompactifications:C6/hilbert-q-expansion-comparison
+  hilbert_qExpansion_compare — HilbertModularVarietiesAndShimuraCurves:H3, ShimuraCompactifications:C0, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-q-expansion-module-injective
+  hilbert_qExpansion_module_injective — HilbertModularVarietiesAndShimuraCurves:H1, SchemeAndStackFoundations:SF.0, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-q-expansion-injective
+  hilbert_qExpansion_injective — ShimuraCompactifications:C6/hilbert-q-expansion-module-injective
+ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent
+  hilbert_qExpansion_coefficient_descent — SchemeAndStackFoundations:SF.0
+ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward
+  hilbert_boundary_ideal_pushforward — ShimuraCompactifications:C5, AdicSpacesPartII:F0, SchemeAndStackFoundations:SF.0, AdicSpacesPartII:F0/formal-direct-image-comparison
+ShimuraCompactifications:C6/hilbert-ordinary-model-comparison
+  hilbert_ordinary_integral_model_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H1, AdicSpacesPartII:F0
+ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison
+  hilbert_hasse_boundary_compare — HilbertModularVarietiesAndShimuraCurves:H2, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2, HodgeTateAndCanonicalSubgroups:T0, HilbertModularVarietiesAndShimuraCurves:H3
+ShimuraCompactifications:C6/hilbert-boundary-ordinary
+  hilbert_boundary_ordinary — HodgeTateAndCanonicalSubgroups:T0, HilbertModularVarietiesAndShimuraCurves:H2, SchemeAndStackFoundations:SF.1
+ShimuraCompactifications:C6/hilbert-near-ordinary-model
+  hilbert_nearOrdinary_model_compare — HilbertModularVarietiesAndShimuraCurves:H2, AdicSpacesPartII:F0, AdicSpacesPartII:R2, AdicSpacesPartII:R3
+ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient
+  hilbert_ordinary_polarization_quotient — HilbertModularVarietiesAndShimuraCurves:H3, HilbertModularVarietiesAndShimuraCurves:H4, SchemeAndStackFoundations:SF.1
+ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison
+  hilbert_pLevel_boundary_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H3, HilbertModularVarietiesAndShimuraCurves:H4, ShimuraCompactifications:C4, ShimuraCompactifications:C5
+ShimuraCompactifications:C6/hilbert-integral-differential-interface
+  hilbert_integral_differential_compare — HilbertModularVarietiesAndShimuraCurves:H2, HilbertModularVarietiesAndShimuraCurves:H4, AdicSpacesPartII:F0, AdicSpacesPartII:R3
+ShimuraCompactifications:C6/modular-toroidal-minimal-comparison
+  modular_toroidal_minimal_compare — HilbertModularVarietiesAndShimuraCurves:H1, HilbertModularVarietiesAndShimuraCurves:H4, ShimuraCompactifications:C4, ShimuraCompactifications:C5, ModularCurvesPartII:R13.4a, SchemeAndStackFoundations:SF.0
+ShimuraCompactifications:C6/modular-formal-cusp-comparison
+  modular_formal_cusp_compare — ShimuraCompactifications:C4, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b, AdicSpacesPartII:F0, AdicSpacesPartII:R2, AdicSpacesPartII:R3
+ShimuraCompactifications:C6/prime-diamond-pr81-comparison
+  modular_primeDiamond_PR81_compare — ModularCurvesPartII:R13.4a, tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering
+-/

@@ -1,179 +1,70 @@
 # BP-ShimuraCompactifications--C6
 
-## Continuation checkpoint — 27 September 2026
+Agent: Codex — `codex-7UxuNV`. Refs #991. Target-level completion, 6 October 2026.
 
-Agent: ChatGPT — `gpt-20260927-b8d41e`. Refs #991. Continues the merged checkpoint from PR #3126.
+**Status: complete.** The sole stage in scope, `ShimuraCompactifications:C6`, is **planned**, with an explicit remaining list; it is not closed. This replaces the earlier partial handoff and continues its twelve packet identifiers. It claims no implementation or independent-review verdict. The protocol ends this target-level pass when every target has a declaration whose chains end in pinned baseline results, other owners’ nodes/requests or recorded gaps. It does not require inventing missing geometric carriers to elaborate their signatures.
 
-**Status: partial.** This continuation supplies the mathematical trace-dual proof behind the root-of-unity change-of-uniformization factor, together with four source-facing native Lean prototypes and seven acceptance examples. It does not construct a Hilbert cusp, prove the stabilizer congruences, or close the geometric descent inputs.
+The packet has **52 nodes: 13 lemmas, 23 theorems, 15 comparisons and one construction**. The construction has six API items and five discriminating tests. There are six planets, thirteen cited baseline declarations, nineteen supplier requests and four gaps. Every node is unchecked. The reader specifies every declaration, proof route, inputs and acceptance properties. The suggested file supplies thirteen native packet declarations, six construction API lemmas, five construction examples and seven arithmetic acceptance examples. Its per-node omission ledger covers all thirty-nine geometric declarations for which the pinned baseline lacks the actual supplier types.
 
-Only this handoff and the suggested Lean file change. The packet and definitive reader remain unchanged: 12 nodes (8 lemmas, 4 theorems), no definitions/constructions or definition API items, 3 planets, 11 cited baseline declarations, 11 requests, 4 gaps. The four additional names live in `TauCeti.HilbertCusp.UniformizationPrototype`; they are not new packet IDs, reserved names, or claims that new general foundations are missing. Integration must first decide which consequences belong to the existing H1/H3 or C0 interfaces, and update the packet and reader together. The existing eight arithmetic declarations and seven examples are retained; the suggested file now contains twelve theorem signatures, fourteen examples and four baseline checks.
+## What this pass establishes
 
-**Lean compilation: not run for this revision. Full packet validator: not run.** The previous worker's compilation and validator results below are historical, not verification of the changed suggested file. A standard-library exact-arithmetic scratch program passed the checks recorded below. No implementation or independent-review verdict is claimed.
+Every C6 target in the stage description is covered:
 
-### Inputs checked in this continuation
+- The actual Hilbert cusp lattice and trace/different convention, locally finite arithmetic fan, level uniformization and root-of-unity phase are identified with H1/H3/C0/C4 data. The four earlier trace-dual prototypes are integrated into the packet, with a native phase-character construction, API and tests. A scalar Fourier family is not presented as a moduli space or a completed series ring.
+- The fine toroidal model, polarization quotient, formal and étale boundary charts, regular refinements, semiabelian extension, conormal comparison and properness are separate declarations. Good-prime smoothness is distinguished from normal models at discriminant primes.
+- All six assertions of Dimitrov Theorem 8.6 are covered by declarations for the determinant Hodge contraction, finite generation, normal projectivity, minimal polarization quotient, cusp fields/stabilizers, boundary fibres/completions and parallel-weight criterion. The minimal action is allowed to have stabilizers; the free toroidal action is not imported there.
+- The existing arithmetic Koecher chain and scheme-theoretic boundary criterion are retained. Arbitrary coefficients use finite-presentation/qcqs section descent, without assuming that completion commutes with arbitrary tensor products. A nilpotent constant term remains a nonzero boundary section. The boundary divisor uses the union ideal, not the intersection of its geometric-point conditions. The minimal/toroidal cusp-ideal comparison states a pushforward, not equality of pulled-back ideals.
+- Q-expansion comparison, module-valued detection, fixed-weight injectivity and coefficient descent are specified. Reading the cited companion proof strengthens descent from faithfully flat maps to every **inclusion** of coefficient algebras. The proof uses quotient coefficient modules and the flat model/invertible line, not flatness of the larger algebra. The arbitrary-module argument uses a directed union of finitely generated submodules, whose coefficient maps are injective, rather than an invalid colimit assertion for all formal series.
+- Ordinary and near-ordinary compactified models, Hasse boundary comparison, polarization quotient, finite added p-level boundary maps and the natural differential interface to T3–T5 are covered. The scope includes p=2 and primes ramified in F on H2’s proved model; no automatic smooth wild-level integral model is claimed. The natural conormal is not T5’s modified integral lattice.
+- The F=Q generic-fibre normal compactification and Tate-cusp comparisons consume R13.4a/R13.4b. PR81 Layer 10 is restricted to prime N≥5 diamond quotients. Full/composite levels retain their separate owner. No degree-one Koecher statement is deduced.
 
-Read the live issue and comments, the previous handoff, the packet's arithmetic statements and requests, and the suggested file. Read the accepted C6 audit row in `AUDIT-10.result.json` and `REV-AUDIT-10.md`; the aggregate `data/library-coverage.json` reader returned empty content, so equality with that aggregate was not freshly checked. Read the RS-32 ownership explanation: the toric anchor, H1/H3 objects and C4 relative charts remain suppliers. No boundary or planet is changed.
+The six planets are Arithmetic Koecher principle, Hilbert boundary-ideal criterion, Hilbert toroidal compactification, Universal semiabelian extension, Hilbert minimal compactification and Ordinary Hilbert boundary.
 
-Read Dimitrov's author-hosted copy at https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf, especially Proposition 4.1(ii), physical page 13 / printed p. 537, and the formula after (5), physical page 22 / printed p. 546. The relevant page counts here are one-based; the browser PDF page indices were 12 and 21. The PDF text was retrieved, but the screenshot attempt failed, so this is not a claim of fresh visual collation. The arXiv PDF fetch also failed in this continuation. The author copy is not promoted to a verified version of record. No new source error is alleged.
+## Ownership and reviewed inputs
 
-Read the exact pinned Mathlib source of `Submodule.traceDual`, `Submodule.mem_traceDual`, and the nearby trace-dual comparison statements in `Mathlib/RingTheory/DedekindDomain/Different.lean` at `082e2d37e8b0463410cdb532e111cd43d5a66174`. Also read the pinned Tau Ceti `RingTheory/DedekindDomain/Different/Basic.lean` at `f790474821cf4256814db967cb154e7af3d0c369`, including its fractional-ideal/submodule coercion bridge. These are existing carriers and membership results, not proposed new definitions. The membership statement uses the image of the integer algebra map in Q, exactly the integral trace condition below. No fresh whole-library absence audit is claimed.
+Accepted RS-32 and its accepted review determine the Part II title and toric anchor. C0 owns the arithmetic extension of toric geometry; R11.3 owns local Raynaud uniformization and C4 its relative application. H1–H4 keep moduli, cusp/stabilizer, local-model and level carriers. This pass neither edits nor re-plans upstream roadmaps.
 
-## Uniformization-phase proof supplement
+The confirmed finding **RT-AREA-padic-1/26** is handled explicitly: the generic BT₁ invariant Ha=det(V*), LF and the BT₁ Hodge–Tate sequence are requested from **R07.2**. H2 builds the Hilbert Hasse ideal from that imported invariant. **T0 supplies only the semiabelian boundary extension**, consumed by C6. No duplicate generic Hasse definition is introduced. The existing R07.2 perfect-field description is not claimed to provide the entire requested interface already. This job’s file scope does not authorize editing the global owners list or other briefs.
 
-### 1. Existing objects and the actual source specialization
+The accepted C6 library audit and its review, aggregate coverage row, stage record, RS-32 and every C6 link-map entry were read. AnalyticToricGeometry and AdicSpaces upstream documents were read in full for conventions and density. Thirteen baseline declarations were checked by reading their exact statements at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Existing trace dual and positivity definitions are reused. No fresh whole-library absence certification is claimed beyond the reviewed audit and focused source searches.
 
-Let K be a number field, let A and B be Z-submodules of K, and suppose
+Where exact owner nodes exist, the packet uses them: C0’s coordinate and boundary nodes, R11.3’s finite-separable-semistable-extension and positive-residue-characteristic rigid-uniformisation, and F0’s completion-of-morphism, theorem-on-formal-functions and formal-direct-image-comparison. The broader R11.3 request records the additional valuation/characteristic cases the existing rigid node does not cover. C6 exports the conormal comparison to B3 and q-expansion geometry to H5/B4. Those downstream stages are not prerequisites of C6.
 
-    A ⊆ B,       n B ⊆ A,       n >= 1.
+## Checks
 
-Write I^vee for the existing trace-dual submodule:
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ShimuraCompactifications--C6.json`: **zero errors and warnings**, with the counts above.
+- Packet source-issue validation and source-version validation through the checker’s library helpers: **pass**. The standalone `check_errata.py` command expects an `errata-v1` job, not a blueprint packet; it is not used as a packet-format check.
+- `lean-check research/blueprint/suggested/ShimuraCompactifications--C6.lean`: **exit 0; 31 warnings, all declaration uses of the prescribed proof placeholder; no errors or other Lean warnings**. Memory was above the required threshold. No library builds, cache fetches or language servers were started.
+- `git diff --check`: **pass**. Only the three named deliverables and this handoff change. All definition/API/test names agree with the packet; Lean examples carry their packet names in comments because examples are anonymous.
 
-    I^vee = {x in K : Tr_(K/Q)(x a) is an integer for every a in I}.
+The shared build has exactly the pinned Mathlib. Its Tau Ceti TotallyPositive object file is unavailable, so the suggested file uses the equivalent signed-real-embedding condition under the native IsTotallyReal class, rather than importing an unbuilt module or defining a replacement predicate. The pinned Tau Ceti predicate’s statement was checked separately. Thus the compile result verifies the native suggested signatures at the pinned Mathlib, not compilation of missing Tau Ceti geometric modules. Elaboration of placeholders verifies types, not mathematical proofs.
 
-This is mathematical notation for Mathlib's `Submodule.traceDual Z Q`, not a replacement definition. Inclusion reverses: B^vee ⊆ A^vee, by applying the defining condition to elements of A. No projectivity, choice of basis, perfectness of the pairing, or total reality is required for the elementary statements that follow.
+## Sources and findings
 
-For Dimitrov Proposition 4.1(ii), use the underlying Z-submodules of the actual fractional ideals
+Source URLs, hashes, access dates and exact reading scopes are in the packet:
 
-    A = a b,       B = a b',       X = B,
+- [Dimitrov author copy](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf): the entire 27-page copy, printed pp. 525–551, read and its main C6 locators rechecked. The prior preprint record is retained as historical input, not a fresh preprint reading.
+- [Dimitrov–Tilouine companion author copy](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad16-DiTi.pdf): §7 opening geometry and weight extension, Koecher, Definition 7.2, Proposition 7.3 and its complete proof, Remark 7.4, printed pp. 584–586. This displayed q-expansion presentation is explicitly for nonramified cusps; Dimitrov §8 supplies the general phase-bearing presentation. The entire companion was not read.
+- [Birkbeck–Heuer–Williams published paper](https://www.numdam.org/item/10.5802/aif.3560.pdf): the notation, elliptic comparison, Hilbert moduli/ordinary boundary, differential lattice and finite/mixed-level polarization passages recorded in the packet. Numerical canonical subgroup, perfectoid-limit and analytic-weight results are imported at their owners.
+- The [BCGP25 routed passage](https://arxiv.org/abs/2502.20645), Theorem 1.8.29 proof, physical pp. 17–18, was checked: its smooth normal-crossing toroidal input is for Siegel threefolds and belongs to C2–C5. It creates no additional Hilbert C6 or duplicate cohomology target. The other added sources routed only to C3–C5 do not enlarge C6.
 
-where n is the exponent of b'/b. Multiplying n b' ⊆ b by a gives n B ⊆ A. An element of an ideal product is a finite sum of products, so the latter inclusion follows term by term; it is not an additional finiteness assertion. The source's trace-dual convention is f* = f^(-1) d^(-1), and a change of uniformization is a class in A^vee/B^vee. Identifying these objects with the H1/H3 cusp data remains a supplier comparison, not a new cusp structure whose fields assume the desired conclusions.
+Rapoport, Chai, Faltings–Chai, Mumford/Raynaud, Moret-Bailly and Lan’s generic foundations are imported through explicit supplier contracts; no independent full reading of those works is claimed. R13.4a/R13.4b are roadmap contracts, not independently read primary modular-curve constructions. Publisher full-text collation remains unavailable/unverified; author copies are not promoted to versions of record.
 
-Let R be a commutative ring and let zeta be a unit with zeta^n = 1. The geometric source chooses an appropriate primitive cyclotomic root on its coefficient cover. Primitivity is unnecessary for the elementary lift-independence proof, and may be lost after a coefficient-ring map.
+Three unreviewed source records remain:
 
-### 2. Integral exponent — prototype `trace_exponent_integral`
+1. **E-C6-1:** require a nonzero exponent in the negative-trace step of the Koecher proof. The theorem retains zero/constant exponents.
+2. **E-C6-2:** the companion proof explains the zero **coefficient submodule** interpretation. The earlier checkpoint’s proposed replacement by R=C is withdrawn. The retained finding concerns the wording “zero ring”, whose unital-ring specialization is vacuous.
+3. **E-C6-3:** the companion’s assertion that both section and full-series modules commute with filtered colimits fails for coefficient modules of increasing finite rank. The packet includes the diagonal-series counterexample and the directed-union repair. The theorem remains the planned result. Searches of arXiv version metadata, authors’ publication lists and public errata queries found no correction; this is scoped to the accessed author copy and needs independent review.
 
-**Statement.** If xi belongs to B and x belongs to A^vee, there is a unique integer m(xi,x) satisfying
+## Precise follow-up
 
-    m(xi,x) = n Tr_(K/Q)(xi x)
+No stage is closed. The nineteen requests are grouped as follows: C0/C3/C4/C5 for arithmetic toric, degeneration, refinement and integral section-ring geometry; H1/H2/H3/H4 for actual moduli/cusp/local-model/level interfaces; F0/R2/R3 for formal completion/detection and adic comparison; SF.0/SF.1 for density, coefficient exactness, coherent pushforward and descent; R11.3 for the additional polarized uniformization cases; R07.2/T0 for generic Hasse and its boundary extension; R13.4a/R13.4b and existing PR81 Layer 10 for modular-curve comparison. Each request lists its precise need and consuming node IDs in the packet.
 
-as an equality in Q.
+The four recorded gaps are:
 
-**Proof.** Since n xi belongs to A, the defining condition on x says that Tr(x(n xi)) is in the image of Z in Q. By Q-linearity of trace and commutativity of K this trace equals n Tr(xi x). This supplies the integer witness. Injectivity of Z -> Q supplies uniqueness. The native prototype states existence; uniqueness is the existing injectivity consequence, not another proposed carrier.
+1. Supply the genuine geometric carriers and requested interfaces, then replace all thirty-nine omissions with signatures against those owners’ objects. Preserve the existing twelve IDs and the integrated phase API; do not create a second moduli/fan/Hasse carrier.
+2. A noninjective-map image formulation of the broader wording in Proposition 8.5(ii) is not specified. The inclusion theorem is planned without flatness and does not need that extension.
+3. Prove the allowed integral wild-level normalization/local-model comparison at H2/H4/C5 before extending the BHW generic added-p-level comparison integrally.
+4. Collate all three source records against the versions of record and obtain independent review, especially the zero-module interpretation and directed-union repair.
 
-The prototype needs only the stated inclusion n B ⊆ A, not A ⊆ B. It also remains true for n=0. The full quotient interpretation, rather than this supporting implication, uses the positive exponent and A ⊆ B.
-
-### 3. Changing the lift — prototype `trace_exponents_congruent`
-
-**Statement.** If xi belongs to B and x' - x belongs to B^vee, and m,m' are integer witnesses for the two displayed trace expressions, then
-
-    m' = m + n k
-
-for some integer k.
-
-**Proof.** Membership of x'-x in B^vee gives an integer k with Tr(xi(x'-x))=k. Linearity gives, in Q,
-
-    m' - m = n Tr(xi(x'-x)) = n k.
-
-Injectivity of the integer inclusion gives the asserted equality in Z. When x is in A^vee, the inclusion B^vee ⊆ A^vee also shows that x' is in A^vee, so section 2 supplies both witnesses. The native statement separates existence of the witnesses from their congruence, avoiding a hidden choice function or an unproved quotient construction.
-
-The quotient is by **B^vee**, not by A^vee. For K=Q, A=Z, B=(1/4)Z, take xi=1/4 and x=0, x'=1. The difference lies in A^vee=Z but not in B^vee=4Z. The integer exponents are 0 and 1, and the phases for zeta=2 in Z/5 differ. Thus using the larger equivalence relation would be false.
-
-### 4. Independence of the cyclotomic phase — prototype `phase_independent_of_lift`
-
-**Statement.** Under section 3 and zeta^n=1,
-
-    zeta^m' = zeta^m
-
-in R^times.
-
-**Proof.** Write m'=m+n k. The integer-power laws in the existing unit group give
-
-    zeta^(m+n k) = zeta^m (zeta^n)^k = zeta^m.
-
-Integer, not truncated natural, powers are needed because trace exponents and k may be negative. No cancellation by a coefficient, reducedness, domain assumption, or nontriviality of R is used. In the zero ring the unit group is trivial and the identity is still meaningful.
-
-Consequently the rule
-
-    chi_[x](xi) = zeta^(m(xi,x))
-
-is well-defined on x in A^vee/B^vee. This is a mathematical description of the intended character, not a new bundled character definition in this checkpoint.
-
-### 5. Character law — prototype `phase_additive_in_character`
-
-**Statement.** For integer witnesses m_xi, m_eta and m_sum of n times the three corresponding traces,
-
-    zeta^m_sum = zeta^m_xi zeta^m_eta,
-
-where the sum witness uses xi+eta and the same x.
-
-**Proof.** Trace linearity and distributivity give m_sum=m_xi+m_eta after using injectivity of Z -> Q. The integer-power addition law gives the result. This implication does not need the root relation zeta^n=1; that relation is needed for quotient independence, not for the additive character law with specified witnesses.
-
-Likewise chi_[x+y](xi)=chi_[x](xi)chi_[y](xi), chi_[0](xi)=1, chi_[x](0)=1, and chi_[-x](xi)=chi_[x](xi)^(-1). The proof in the x variable is the same trace-additivity calculation. If a belongs to A, then Tr(a x) is an integer, so chi_[x](xi+a)=chi_[x](xi). Thus the phase also factors through B/A in the character variable. This establishes a bilinear multiplicative pairing
-
-    (B/A) x (A^vee/B^vee) -> R^times.
-
-It makes no claim that this pairing is perfect or that the chosen coefficient ring contains distinct values for all characters. In particular, the unramified case B=A has trivial phase, and n=1 forces zeta=1.
-
-### 6. Consequences for coefficients and charts
-
-For any R-module L, multiplication by chi_[x](xi) is an automorphism of L, with inverse multiplication by its reciprocal. Hence
-
-    chi_[x](xi) * v = 0  iff  v = 0.
-
-This statement does not require L to be free, flat or faithful. In particular, it applies to the actual invertible coefficient module a(kappa) without a global choice of basis. It strengthens the explanation of why changing uniformization preserves Fourier support: it is not necessary to identify the coefficient line globally with R. At xi=0 the phase is one, so this change of uniformization does not alter the constant coefficient.
-
-For an already supplied character monoid P ⊆ B, the character law sends q^xi to chi_[x](xi)q^xi and defines an R-algebra automorphism of R[P]. Its inverse uses -x. One checks multiplication on monomials and then on finite sums. It preserves every specified monomial ideal, since each monomial generator is multiplied by a unit. Consequently it preserves every power of such an ideal I and induces compatible inverse automorphisms of R[P]/I^r. Taking the inverse limit extends it to the I-adic completion, with an inverse induced by -x. This argument does not interchange a completion with a tensor product.
-
-In regular boundary coordinates it preserves the boundary product ideal (t), t=x_1 ... x_r, and extends to its localization because t maps to a unit times t. Thus a finite-pole expression stays a finite-pole expression. The same argument works for the appropriate Laurent polynomial factors. This is conditional algebra on C0's actual chart ring and ideal; it is not a construction of the formal Hilbert chart, a geometric quotient, or an algebraic-space action. If the phase character or completed monoid-algebra automorphism already occurs in C0/H3, consume that declaration rather than publishing it again.
-
-Base change preserves the root relation and the phase formulas by mapping units and integer powers. It does **not** preserve nonzero coefficients under an arbitrary ring map: for example 2 in Z/4 becomes zero in Z/2. Therefore this phase calculation proves neither coefficient descent in Proposition 8.5(ii) nor the geometric q-expansion injectivity theorem. Both retain their existing formal-geometric inputs.
-
-### 7. What is still missing before packet integration
-
-The four prototypes use existing native objects and make four explicit supporting claims; they are not a verified missing-declaration inventory. Compare them with the exact H1/H3 supplier nodes, retain only genuinely new source-specific consequences, and then record those as atomic packet nodes with baseline and source locators. The mathematical dependency chain is trace-dual membership plus trace linearity -> integral exponents and lift congruence -> phase independence; trace linearity plus integer powers -> the character law.
-
-Next identify the source's A=ab and B=ab' with the supplied cusp lattices, construct the actual class of a change of level uniformization, and match the character action with the map of semiabelian charts in Proposition 4.1. The monomial calculation alone does not prove that moduli map comparison. For the full stabilizer law following (5), prove the class of u xi*_(u,epsilon), its representative-independence and the relevant composition convention from the actual stabilizer extension. Do not guess the order of an action from a pullback formula, or silently omit the weight multiplier epsilon^(kappa/2)u^kappa.
-
-After that, connect the existing coefficient-support argument to this genuine unit-valued action and to the completed-coordinate/finite-pole suppliers. The four geometric packet nodes, non-Noetherian extension, ordinary/Hasse comparisons, and modular-curve comparisons remain open exactly as in the previous checkpoint. No sourceIssue, request count, stage status or planet is changed here.
-
-## Exact checks performed in this continuation
-
-A Python standard-library scratch program used rational arithmetic in Q(sqrt(2)), representing a+b sqrt(2) as a pair of Fractions. For A=Z[sqrt(2)], its trace dual is generated by 1/2 and sqrt(2)/4; B=(1/n)A has dual n A^vee. With n=1,...,8 and coefficients in -2,...,2, it checked:
-
-- 5,000 integral exponent identities n Tr(xi x)=a s+b t;
-- 45,000 lift congruences m'-m=n(a p+b q), with p,q in -1,0,1;
-- 5,000 additive exponent identities;
-- 13,566 phase-lift identities for integer exponents -8,...,8 and shifts -3,...,3;
-- 318,206 preservation-of-nonzero checks on two-coordinate modules over Z/r for r in {1,4,5,8,9,12,25}, using every unit satisfying the tested root relation;
-- 10 boundary/nonexample checks, including the missing denominator factor, a nonannihilating n, the wrong trace-dual quotient, negative powers, a nonprimitive root, a nonunit killing a coefficient, zero character, n=1 and the zero ring.
-
-All passed. These are finite checks, not proofs of the general statements; the proofs are given above. The scratch program was not installed as a repository test. Seven representative cases are expressed as placeholder examples in the suggested Lean file. No Lean executable was available in the local environment, and neither the new examples nor the changed import graph were compiled. The source check of `Submodule.mem_traceDual` is not a substitute for elaboration.
-
-## Historical checkpoint — Codex, PR #3126
-
-The following is the previous handoff, retained as historical context. Its successful compilation and validator results refer to that revision only.
-
-Agent: Codex — codex-hjdg0j. Refs #991. First checkpoint; status partial.
-
-### Work completed
-
-Applied accepted RS-32 title and toric base. Read the C6 audit, campaign, atlas and every C6 link-map entry; preserved H1–H4 ownership, R11.3→C4 handoff and C6→B3/H5 direction. Read AnalyticToricGeometry in full and verified the previously read GrothendieckEulerForms and JacobianChallenge upstream documents unchanged. Searched both pinned source trees for existing Hilbert/Koecher/positivity/unit declarations.
-
-Twelve nodes: eight lemmas and four theorems; zero definitions/constructions, zero API items and zero definition unit tests; three planets; eleven pinned baseline declarations; eleven precise requests; four gaps. Eight arithmetic signatures and seven acceptance examples are present in the suggested file, plus three baseline declaration checks. The four geometric targets retain explicit missing suppliers and signatures. No layer is closed and no implementation is claimed.
-
-The coefficient proof uses Mathlib’s existing contracting unit, then takes a positive power into the finite-index cusp subgroup. A nonpositive nonzero exponent has a negative conjugate; its square-unit orbit has trace tending to negative infinity against a positive dual vector. Unit-valued coefficient transport contradicts a finite pole bound. Zero exponents and coefficient annihilators are handled separately.
-
-### Precise resumption
-
-- Decompose the actual Hilbert cusp data, stabilizer congruences, change-of-uniformization root-of-unity action and their APIs/tests, importing the H1/H3/H4 objects. No such construction is represented by the coefficient function used in the native prototype.
-- Close the C0 completed-coordinate and F0 finite-pole/formal-detection requests, then replace the four geometric statement omissions in the suggested file by genuine signatures for the actual supplied objects. The coefficient proof does not itself construct a compactification.
-- Construct and compare the toroidal/minimal ordinary-neighborhood models, semiabelian extensions, refinements and G*/G polarization quotients; separate free toroidal actions from possibly stabilizing minimal-boundary actions. Read and decompose the cited Rapoport, Chai, Faltings–Chai, Lan, and Birkbeck–Heuer–Williams inputs to the required hypotheses.
-- Treat arbitrary primes, including discriminant primes and p=2, using H2’s actual ordinary locus and Hasse ideals; establish the T3–T5 interfaces. The source’s ramified level cusps are not ramified-base integral models.
-- Prove the F=Q toroidal/minimal comparison using ModularCurvesPartII:R13.4a/R13.4b. PR81 Layer 10 supplies only prime N≥5 and diamond quotients H≤(Z/N)×/{±1}; full and composite levels require their owning modular-curve stages. No degree-one Koecher theorem is inferred.
-- Decompose the remaining read source material, including Theorem 7.2 quotient construction, 7.6 semiabelian extension, 7.7 properness, Proposition 8.5(i)/(ii) q-expansion and coefficient descent, and the six assertions of Theorem 8.6 with their generic owners. The source inventory below distinguishes these from the selected twelve nodes.
-- Verify the geometric theorem over non-Noetherian coefficient algebras if the full generality of Dimitrov’s statement is required; establish any limit or base-change arguments explicitly.
-- Collate the two source misprints against the publisher edition and obtain independent review; the available typeset author copy alone is not represented as a verified version of record.
-
-Keep all twelve identifiers. Start with the C0 completed-coordinate/F0 formal-detection interfaces and the H3 cusp stabilizer/weight-line calculation, then supply genuine geometric signatures. For the rest of C6 follow the source inventory; the unbuilt ordinary/Hasse and F=Q comparisons have not been silently replaced by the Koecher slice.
-
-### Sources
-
-Read all 28 pages of Dimitrov arXiv v3 in batches of at most three; rendered p. 24. Read author-copy physical pp. 1,22–24 and rendered printed p. 547. URLs, hashes, scope and two unreviewed misprints are in the packet. Publisher page returned HTTP 405. The bibliography’s Rapoport, Chai, Faltings–Chai, Lan, Mumford/Raynaud originals and the Birkbeck–Heuer–Williams ordinary/Hasse inputs are not independently decomposed here. The source inventory identifies the specific missing passages/results.
-
-### Checks
-
-Pinned Lean 4.34.0-rc2 compiled the named suggested file: exit 0, no errors, fifteen warnings, all from placeholder proofs. Eight named arithmetic signatures, seven acceptance examples and three baseline checks elaborated. All 8,482 reachable Mathlib import sources were byte-verified at the pin; the three reachable Tau Ceti modules were built afresh against those sources. Suggested-file SHA-256: 49e890e4ee35a31cb83551e94f8f7ff85360b97d3d4082597437394f28126a4a.
-
-Indexed check_blueprint.py against the unmodified shared index: zero errors and zero warnings. The first CI run failed because that index omits the generated additive Finset.sum_pos_iff_of_nonneg. Its exact signature was checked by pinned Lean; the packet now cites the indexed generating declaration Finset.one_lt_prod_iff_of_one_le and explicitly records its to_additive consequence. The suggested file and its successful compilation are unchanged. No repository index or checker was edited.
-
-Read-only intake.py check-files: four allowed deliverables, zero problems. Internal node graph is acyclic. Full snapshot comparison and fresh-main input/claim guards run before publication. These checks do not discharge the four geometric supplier gaps or prove the proposed theorems.
+This is the final authorized planning pass for this run. The next action is independent review and, after acceptance, owner-interface follow-up. No second issue is claimed.
