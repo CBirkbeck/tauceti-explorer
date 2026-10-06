@@ -31920,8 +31920,9 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6390"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6390",
+   "finishedAt": "2026-10-06T03:23:11Z"
   },
   {
    "id": "REV-Polylogarithms--P.5",
@@ -33890,8 +33891,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.8",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6441"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6441",
+   "finishedAt": "2026-10-06T03:23:12Z"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.1-2",
@@ -33914,7 +33916,8 @@
    ],
    "followUpOf": "BP-HabiroCohomologyFoundations--HQ.1",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6490"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.1-2",
@@ -34325,7 +34328,8 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6500"
   },
   {
    "id": "REV-HabiroRings--HR.4",
