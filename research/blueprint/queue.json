@@ -31667,7 +31667,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.4",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6399"
   },
   {
    "id": "BP-K3BlochGroups--V.5",
@@ -33537,8 +33538,9 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6482"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6482",
+   "finishedAt": "2026-10-06T01:46:56Z"
   },
   {
    "id": "REV-EllipticRegulators--ER.1",
