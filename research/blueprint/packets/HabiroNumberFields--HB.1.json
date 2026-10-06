@@ -16,196 +16,217 @@
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "The weighted real logarithm of a unit, with one infinite-place coordinate omitted. This is not itself a Galois representation because the omitted place is chosen.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.sum_logEmbedding_component",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
-        "provides": "The missing coordinate is the negative sum of the retained coordinates.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "provides": "The sum of retained weighted coordinates equals −mult(w₀)·log|u|_{w₀}; this reconstructs the omitted weighted coordinate.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.logEmbeddingEquiv",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "An integral linear equivalence from units modulo torsion, with Additive tag, onto the logarithmic lattice.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "The logarithmic lattice spans the real logSpace. Used to recover the full hyperplane, rather than to reprove Dirichlet.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.torsion",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
-        "provides": "The finite cyclic torsion subgroup of integral units; its elements have absolute value one at every infinite place.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "provides": "The subgroup CommGroup.torsion of integral units, with the accompanying Finite and IsCyclic instances in this module for number fields. The absolute-value characterization is cited separately as mem_torsion.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.sum_mult_mul_log",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
         "provides": "The sum of weighted logarithms over all infinite places is zero for every integral unit.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.mult",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "Weight one at real places and two at complex places.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "The number r₂ of complex infinite places of a number field.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.smul_apply",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
         "provides": "The Galois action is (σ•w)(x)=w(σ⁻¹(x)); this fixes the inverse in the logarithmic permutation action.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.orbitRelEquiv",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
         "provides": "For a Galois extension, the Galois orbits of infinite places correspond to infinite places of the base.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.IsUnramified.stabilizer_eq_bot",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
         "provides": "The stabilizer of an unramified infinite place is trivial; this applies over a complex base place.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.ComplexEmbedding.IsConj.coe_stabilizer_mk",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
         "provides": "A conjugation automorphism identifies the stabilizer of an infinite place with the set consisting of one and that automorphism.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.mapRingHom",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "Restriction of a field homomorphism to its integer rings, with the value formula. Units.map gives the natural action on units.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
         "provides": "A rational prime not dividing the discriminant is unramified in the number field, with the actual Algebra.IsUnramifiedIn carrier.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean",
         "provides": "For p prime, Φ_{p^(k+1)}(X+1) over the integers is Eisenstein at (p).",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot.autToPow",
         "kind": "def",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "The modular cyclotomic character of automorphisms, taking σ to the unit exponent by which it sends the specified primitive root.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot.autToPow_injective",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
         "provides": "Faithfulness of the root-exponent character in an actual cyclotomic extension, not in an arbitrary ambient extension.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A monoid homomorphism into linear endomorphisms. Used directly in the exact-map eigenclass signature.",
-        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node."
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; generality and conventions compared with the consuming node. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "tauceti:IsDedekindDomain.selmerGroup.fromSUnitLift_injective",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
         "provides": "O_Sˣ/n injects into K(S, n).",
-        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification."
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
         "provides": "A Selmer class with trivial n-th-root ideal class is an S-unit class (exactness in the middle).",
-        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification."
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "tauceti:IsDedekindDomain.selmerGroup.range_toClassGroup",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
         "provides": "The image in the S-class group is its n-torsion.",
-        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification."
+        "checked": "Statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-06. These provide the algebraic S-unit/Selmer/class-group exact sequence; they do not provide an étale-cohomology identification. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:Ideal.ramificationIdx",
         "kind": "def",
         "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
         "provides": "The ramification index of a prime P relative to a base ring, using length after localization; the actual carrier in the cyclotomic prime signature.",
-        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06."
+        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:Ideal.inertiaDeg",
         "kind": "def",
         "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
         "provides": "The inertia degree of P relative to a base ring, using residue fields; the actual carrier in the cyclotomic prime signature.",
-        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06."
+        "checked": "Statement read at the pinned Mathlib commit on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.instZLattice_unitLattice",
         "kind": "instance",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "The logarithmic unit subgroup is a discrete full real lattice; this supplies the hypothesis for scalar-extending a lattice basis.",
-        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06."
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.unitLattice_rank",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "Its integral rank equals Units.rank, the real dimension of the omitted-coordinate logSpace.",
-        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06."
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:Module.Basis.ofZLatticeBasis",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "provides": "An integral basis of an IsZLattice is a basis of the ambient real space. Used for injectivity as well as surjectivity of the real tensor logarithmic map.",
-        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06."
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
         "kind": "instance",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "The ordinary integer-ring ideal class group of a number field is finite.",
-        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06."
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       },
       {
         "ref": "tauceti:IsDedekindDomain.finite_integer_classGroup",
         "kind": "instance",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
         "provides": "For a Dedekind fraction field, the class group of any ring of S-integers is finite when the ordinary class group is finite, via the surjective extension homomorphism.",
-        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06."
+        "checked": "Statement and hypotheses read in the pinned source on 2026-10-06. Independently re-read at the recorded pin for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.mem_torsion",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "A unit is in torsion if and only if its absolute value is one at every infinite place; this kills its full logarithm.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.exists_isConj_of_isRamified",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean",
+        "provides": "For a Galois extension, a ramified complex embedding admits a conjugation automorphism. Combined with coe_stabilizer_mk, this supplies the actual two-element real-place stabilizer.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.basisModTorsion",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "An integral Basis (Fin (Units.rank L)) of Additive ((𝓞 L)ˣ ⧸ torsion L). In particular the quotient is free of finite rank, so its p-torsion is zero.",
+        "checked": "Statement, namespace and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-HabiroNumberFields--HB.1 on 2026-10-06."
       }
     ]
   },
@@ -477,7 +498,7 @@
         "tauceti:IsDedekindDomain.selmerGroup.fromSUnitLift_injective",
         "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
         "tauceti:IsDedekindDomain.selmerGroup.range_toClassGroup",
-        "MotivicEtaleKTheory:M.3",
+        "MotivicEtaleKTheory:M.1",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
       "sources": [
@@ -503,7 +524,7 @@
       "realises": [
         "HabiroNumberFields:HB.1"
       ],
-      "title": "The odd-character multiplicity of cyclotomic units",
+      "title": "Odd-character multiplicity of ordinary units",
       "kind": "theorem",
       "declarationName": "TauCeti.HabiroNumberFields.oddCharacter_unitMultiplicity",
       "statement": "Let L/F be a finite Galois extension of number fields, L totally complex, and η:G→ℂˣ a nontrivial one-dimensional character. Suppose η(c_w)=−1 for the nonidentity stabilizer element c_w at every infinite place w of L over a real place of F. For the natural action on U_L=(𝓞 L)ˣ and trivial action on ℂ, dim_ℂ(ℂ⊗_ℤ Additive(U_L))^η=r₂(F). In particular this gives the required rank for L=F(ζ_p), p odd, and the inverse Teichmüller character after embedding its finite roots of unity in ℂ. It uses no assertion about the disjointness of the Galois closure of F.",
@@ -516,7 +537,7 @@
         "Start with Mathlib logEmbeddingEquiv and unitLattice_span_eq_top. Restore the omitted coordinate by sum_logEmbedding_component, obtaining the full weighted logarithm in H={f:S_∞(L)→ℝ | Σ_w f(w)=0}. The baseline instZLattice_unitLattice and Module.Basis.ofZLatticeBasis make an integral lattice basis a real basis; equivalently unitLattice_rank equals the real dimension. Therefore tensoring the integral unit quotient with ℝ gives an isomorphism onto H, rather than merely a surjection. Finite torsion disappears under tensoring.",
         "Check equivariance on each coordinate: λ(σu)(w)=mult(w)log|σu|_w=λ(u)(σ⁻¹•w). Multiplicity is unchanged by an automorphism. Thus the logarithmic isomorphism is equivariant for the actual baseline action even though logEmbedding with its omitted place is not.",
         "Complexify. The permutation module on infinite places is H_ℂ plus the constant line; the sum map splits equivariantly in characteristic zero. A nontrivial η has zero component in that line. Do not apply this splitting over ℤ/n when |G| is noninvertible.",
-        "Use orbitRelEquiv to decompose places by base infinite places. On a transitive orbit G/G_w, an η-eigenfunction is determined by one value; it has one free parameter exactly when η is trivial on G_w, and otherwise it is zero. Over a complex base place, IsUnramified.stabilizer_eq_bot gives G_w=1. Over a real place, the IsConj stabilizer formula gives G_w={1,c_w}, and oddness gives zero. There are precisely r₂(F) complex base places.",
+        "Use orbitRelEquiv to decompose places by base infinite places. On a transitive orbit G/G_w, an η-eigenfunction is determined by one value; it has one free parameter exactly when η is trivial on G_w, and otherwise it is zero. Over a complex base place, IsUnramified.stabilizer_eq_bot gives G_w=1. Over a real place, exists_isConj_of_isRamified supplies c_w, and the IsConj stabilizer formula gives G_w={1,c_w}, and oddness gives zero. There are precisely r₂(F) complex base places.",
         "For L=F(ζ_p) with p∤disc(F), cyclotomic-prime-valuation-action gives full G=(ℤ/p)ˣ. Its inverse Teichmüller lift is nontrivial and has value −1 on every real-place conjugation. Use the integral lattice comparison, not a chosen isomorphism ℂ≃ℚ_p, for the p-adic rank application."
       ],
       "acceptance": [
@@ -541,7 +562,10 @@
         "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
         "mathlib:NumberField.Units.instZLattice_unitLattice",
         "mathlib:NumberField.Units.unitLattice_rank",
-        "mathlib:Module.Basis.ofZLatticeBasis"
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "mathlib:NumberField.Units.mem_torsion",
+        "mathlib:NumberField.InfinitePlace.exists_isConj_of_isRamified"
       ],
       "sources": [
         {
@@ -566,7 +590,7 @@
         "HabiroNumberFields:HB.1/equivariant-unit-rank"
       ],
       "planet": {
-        "name": "Cyclotomic unit character theorem"
+        "name": "Odd-character unit multiplicity"
       }
     },
     {
@@ -585,7 +609,7 @@
         "The complex multiplicity computation alone does not justify reduction modulo p."
       ],
       "proofSteps": [
-        "Dirichlet gives the free finite-rank integral quotient U/T. Tensor its exact sequence with ℤ/p: its p-torsion vanishes, giving 0→T/T^p→U/U^p→(U/T)/p→0.",
+        "The pinned basisModTorsion gives the free finite-rank integral quotient U/T. Tensor its exact sequence with ℤ/p: its p-torsion vanishes, giving 0→T/T^p→U/U^p→(U/T)/p→0.",
         "Since |G|=p−1 is invertible in ℤ_p and ℤ/p, the inverse-Teichmüller idempotent is defined and exact on these modules. Promote only this legitimate projector specialization of the parent, never one for p^m with m>1.",
         "The characteristic-zero character multiplicity of the integral representation U/T is computed by odd-cyclotomic-unit-multiplicity. Its matrices have integral traces. Evaluate the character idempotent in the field of (p−1)-st roots of unity and then in ℤ_p; trace, and hence the rank of the idempotent summand, is r₂(F). As a direct summand of a finite free ℤ_p-module it is free, and reduction has the same dimension.",
         "The local degree statement for m=1 and m=2 shows L cannot contain ζ_{p²}; otherwise its p-adic completion of degree p−1 would contain a subextension of degree p(p−1). Thus the p-primary part of T is μ_p. It carries χ, so its inverse-character part contributes precisely when χ²=1. Full G gives p=3.",
@@ -602,7 +626,8 @@
         "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
         "mathlib:NumberField.Units.torsion",
         "mathlib:NumberField.Units.logEmbeddingEquiv",
-        "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three"
+        "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+        "mathlib:NumberField.Units.basisModTorsion"
       ],
       "sources": [
         {
@@ -633,14 +658,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-      "need": "The completion product/decomposition dictionary: [L:F] is the sum of [L_𝔓:F_𝔭] over 𝔓|𝔭, and local e and f agree with the global indices. Thus a completed factor of degree φ(p^m), together with the global upper bound φ(p^m), gives the unique prime over each 𝔭.",
+      "need": "For the canonical completion algebras, supply the global/local e and f identifications (Layer 5.5), including the consequence that p∤disc(F) makes F_𝔭/ℚ_p unramified. Use the semilocal completion product (Layer 5.3): [L:F]=Σ_{𝔓|𝔭}[L_𝔓:F_𝔭]. A completed factor of degree φ(p^m), with global degree at most φ(p^m), then gives the unique prime above each 𝔭. All local scalar structures are the canonical ones from Layer 5.2.",
       "neededBy": [
         "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action"
       ]
     },
     {
-      "supplier": "MotivicEtaleKTheory:M.3",
-      "need": "G-equivariance and middle exactness of the étale Kummer sequence at A=𝓞 L[1/p]: 0→Aˣ/n→H¹_ét(A,μ_n)→Pic(A)[n]→0, with restriction to H¹(L,μ_n). Match it to the existing algebraic S-unit/Selmer sequence. No K₂-étale comparison alone substitutes for Keune.",
+      "supplier": "MotivicEtaleKTheory:M.1",
+      "need": "At the M.1 realization/Kummer-localization interface, supply the G-equivariant étale Kummer sequence at A=𝓞 L[1/p], with n=p^m invertible in A: 0→Aˣ/n→H¹_ét(A,μ_n)→Pic(A)[n]→0. Identify its unit inclusion, connecting map and restriction to H¹(L,μ_n) with the existing algebraic S-unit/Selmer sequence and the field Galois Kummer map. M.3 is the degree-two K₂ comparison and does not supply this weight-one sequence; it also does not substitute for Keune.",
       "neededBy": [
         "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
       ]
@@ -930,7 +955,12 @@
         "Accepted parent sourceIssues E1",
         "Published author-hosted CGZ PDF, §3.1",
         "arXiv:1712.04887v3"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered published p.401 as well as arXiv v3: the target is the m-th Tate twist, so ζ must map to ζ⊗m. The adjacent k^(m−1) root-change law independently determines that exponent.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
     },
     {
       "id": "HabiroNumberFields/E2",
@@ -947,7 +977,12 @@
         "Published CGZ §§2.6 and 3.5",
         "arXiv:1712.04887v3",
         "Garoufalidis publication list and arXiv abstract page searched for a correction on 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.403 and arXiv v3. Proposition 2.12(b) explicitly needs χ≠χ⁻¹. At F=ℚ,p=3 the unit quotient μ₆/μ₆³ has order 3 and inverse character χ, while r₂=0; the imported K₃(ℚ)/3 also has order 3. Add the μ₃ dimension on both sides, retaining the square-free isomorphism.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
     },
     {
       "id": "HabiroNumberFields/E6",
@@ -964,7 +999,12 @@
         "Published CGZ §2.6",
         "arXiv:1712.04887v3",
         "Garoufalidis publication list and arXiv abstract page searched for a correction on 2026-10-06"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.399 and arXiv v3. For F=ℚ(∛2), n=3, F∩ℚ(ζ₃)=ℚ but its Galois closure is F(ζ₃) with group S₃ of order 6; the proposed Γ×G has order 12. The direct relative logarithmic action proves the needed multiplicity without this product.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
     },
     {
       "id": "HabiroNumberFields/E7",
@@ -980,7 +1020,12 @@
         "Accepted parent E7",
         "Published CGZ §3.1",
         "arXiv:1712.04887v3"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.400 and arXiv v3. Sah supplies annihilators χ(g)^m−1 and only a necessary condition. For F=ℚ,n=3,m=2, H¹(C₂,ℤ/3(2))=0 since 2 is invertible modulo 3, although a²−1=0 modulo 3 for every unit a. This disproves the printed converse even with full χ image; replacing the actual image by all unit residues needs separate justification.",
+        "by": "REV-HabiroNumberFields--HB.1"
+      }
     }
   ],
   "sourceVersions": [
@@ -1045,5 +1090,48 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.1",
+    "date": "2026-10-06",
+    "notes": "All seven nodes, all 31 baseline declarations (28 inherited and three added), all four sourceIssues, inherited target/API/test interfaces, HB.1 audit and RT-AREA-ktheory-2/14,17,18 checked. Corrected a missing rank dependency, explicit Mathlib proof inputs, the Kummer supplier request, canonical completion wording and the ordinary-unit planet name. Target-level planning is accepted with coverage planned; the two recorded supplier gaps and parent assembly tasks remain. The suggested file checks four signatures only, with three unavailable arithmetic interfaces retained as honest mathematical contract comments. See the independent report for the out-of-scope reader synchronization and validation results.",
+    "checked": [
+      {
+        "nodeId": "HabiroNumberFields:HB.1/finite-endomorphism-obstruction-criterion",
+        "verdict": "verified",
+        "note": "Primary decomposition proves the needed vanishing implication, including n=0; cyclic generator relations match twisted coinvariants. Finiteness is essential."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/keune-picard-eigen-obstruction",
+        "verdict": "verified",
+        "note": "The finite target K₂/n vanishes and the preceding criterion passes from Pic/n coinvariants to Pic[n] eigenvectors. Verified conditional on the explicitly source-gapped N.6 injection, not an independently verified Keune theorem."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/cyclotomic-prime-valuation-action",
+        "verdict": "corrected",
+        "note": "Verified via the pinned Eisenstein theorem and the actual local/global suppliers. Made the canonical completion structure and unramifiedness translation explicit in the Layer 5 request."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/injective-exact-map-eigenclass-lift",
+        "verdict": "verified",
+        "note": "Middle exactness and injectivity give the unique eigenclass lift over any commutative ring and any group, without averaging or right exactness of eigenspaces."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift",
+        "verdict": "corrected",
+        "note": "Verified the two lifts using Pic[n] and the valuation image D/n, including p-power orders. Corrected the weight-one Kummer interface request from degree-two M.3 to M.1; the Keune and early-Chern gaps remain explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity",
+        "verdict": "corrected",
+        "note": "Verified the full weighted logarithm, integral-lattice scalar extension, natural inverse place action and orbit character count. Added the cyclotomic specialization and conjugation-existence/torsion inputs; named the theorem and planet for ordinary units."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence",
+        "verdict": "corrected",
+        "note": "Verified legitimate p−1 projectors, integral-to-residual ranks and μ₃ correction. Added the existing integral quotient basis as the explicit freeness input; no new unit or K₃ construction is planned."
+      }
+    ]
+  }
 }

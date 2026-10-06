@@ -84,6 +84,10 @@ theorem cyclotomic_primePrimes_fixed
   sorry
 
 /-! Node `odd-cyclotomic-unit-multiplicity`.
+This is the ordinary integral unit group, not the distinguished subgroup
+usually called cyclotomic units. The proof uses the pinned conjugation-existence
+theorem at real base places; its cyclotomic specialization also uses
+`cyclotomic-prime-valuation-action`.
 The statement is the exact application of the logarithmic argument that HB.1
 needs. It also covers the trivial extension of a totally imaginary field:
 the nontrivial-character hypothesis then has no instances. The action on units
@@ -132,6 +136,8 @@ Node `ordinary-unit-eigenclass-lift`:
 Under the hypotheses of the Picard-obstruction contract, every χ⁻¹-eigenclass
 in H¹_ét(𝓞 L[1/p],μ_n) has a unique preimage in
 ((𝓞 L)ˣ/((𝓞 L)ˣ)^n)^{χ⁻¹} under Kummer followed by inclusion.
+The étale Kummer/localization compatibility is requested at M.1's realization
+interface, alongside the field Kummer supplier; M.3 is the K₂ comparison.
 Use the injective exact-map lemma twice: first for Kummer, then for
 0→U/n→U_p/n→D/n→0, where D is the image of the integer valuation map.
 Do not replace D/n by (ℤ/n)^{S_p} without checking saturation of D.
@@ -149,6 +155,8 @@ p=3 and 0 for p≥5; hence the middle dimension is r₂(F)+[p=3].
 Use the integral logarithmic lattice, the inverse Teichmüller character, and
 the projector only for |G|=p−1. The complex finrank statement above alone
 does not determine a mod-p eigenspace without this integral comparison.
+The pinned `NumberField.Units.basisModTorsion` supplies the finite free
+integral quotient, whose p-torsion vanishes in the tensor exact sequence.
 -/
 
 end TauCeti.HabiroNumberFields
