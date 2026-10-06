@@ -1,119 +1,197 @@
 # Handoff: BP-AutomorphicBundles--B0
 
-ChatGPT Pro — `gpt-20260927-c8f42a`, 27 September 2026. Refs #680. Claim comment 5857172459; winning bot reply 5857173608. The issue was reread after confirmation. **Partial prototype-and-document checkpoint; no geometric stage is closed.**
+Codex — `codex-zI7WN2`, 6 October 2026. Refs #680. Winning claim comment
+[6013998429](https://github.com/CBirkbeck/tauceti-explorer/issues/680#issuecomment-6013998429)
+was confirmed by the claim bot; the issue was reread before work began.
+This replaces the September checkpoint with a **complete target-level pass**
+under PROTOCOL §0. All eight scoped stages are planned; none is closed.
+Every implementation status remains unchecked.
 
-## Deliverables and counts
+## Deliverables and coverage
 
-Added the suggested Lean file and a matching mathematical document for the B4 left/right convention slice, together with this handoff. The prototype constructs a value of Mathlib's existing `SlashAction` from a normalized linear-automorphism cocycle; its actual map is explicit. It does not introduce a second slash-action carrier or a postulated geometric bundle.
+The packet, reader document and suggested file agree on the following targets.
+The three reviewed legacy IDs are preserved and refined, including the canonical
+extension ID whose subcanonical construction now has its own node. B5, the
+integrated decomposition, campaign files, ownership data and other packets were
+not edited.
 
-There are **five declaration-sized proposals: one construction and four lemma leaves**, plus three further API lemmas. The construction's **five API entries** include two of those four promoted leaves, so they must not be double-counted as new nodes. There are **eight typed acceptance examples**. Five private helper definitions supply concrete coefficients and counterexamples, not new roadmap objects. Ten explicit baseline checks name declarations whose statements were read at the pin.
+| Stage | Nodes | Coverage | Exact open boundary |
+| --- | ---: | --- | --- |
+| B0 | 9 | planned | Generic torsor/associated-bundle supplier; central quotient and representation interfaces; ineffective arithmetic centre; typed geometric carriers |
+| B1 | 10 | planned | Absolute-Hodge CM proof, tensor frames and generic interfaces; period torsor and continuous effective descent; typed signatures |
+| B1.general | 6 | planned | Corrected second-jet injection and adjoint/rank-one reduction; normalized period-torsor conjugation and effective descent; typed signatures |
+| B2 | 9 | planned | Associated-bundle and full-group local-system/connection interfaces; representation conventions; Siegel analytic/solid comparison; AG integral CM tower; typed signatures |
+| B2.general | 3 | planned | General full-group realization descent and rational Betti weight condition; typed signatures |
+| B3 | 10 | planned | Canonical chart construction/gluing, logarithmic boundary comparison and rational descent; coherent section foundations; typed signatures |
+| B3.general | 3 | planned | General-data canonical extension without an unspecified universal abelian family; regular singularity and functoriality; typed signatures |
+| B4 | 18 | planned | Local analytic growth and proper coherent section foundations; actual group/weight descent and explicit coefficients; rational Hodge–Tate/VB Tate normalization; typed signatures |
 
-**No JSON packet was written.** Registered packet nodes, API records, definition-test records, planets and supplier requests are therefore all zero in this checkpoint. The accepted integrated decomposition is unchanged: its three aggregate nodes are not replaced by these five proposals. The part remains incomplete, and the deliverable must not be marked ready for independent blueprint review.
+Counts: **68 nodes** (21 constructions, 24 theorems, 15 comparisons, four
+definitions, four lemmas), **82 API entries**, **80 unit-test records**, **27
+planets**, **23 baseline declarations**, **12 gaps**, **31 supplier requests**.
+There are 153 internal node prerequisite edges, 56 stage edges, 14 existing
+blueprint-node edges and 27 baseline edges. API entries promoted to theorem
+nodes are not additional API objects. All construction/definition nodes have at
+least three discriminating tests. Every stage has a precise nonempty remaining
+list; no gap or request was treated as discharged.
 
-Scope remains exactly `AutomorphicBundles:B0`, `B1`, `B1.general`, `B2`, `B2.general`, `B3`, `B3.general`, and `B4`. No B5 file was changed.
+## Checks executed
 
-## Mathematical content
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicBundles--B0.json`
+  passed against the supplied pinned declaration index: **zero errors and zero
+  warnings**. The pinned statements were read, rather than inferred from the
+  index. The generated `SlashAction.slash_mul` field is covered by its indexed
+  parent class; Lean also checked the field itself.
+- `lean-check research/blueprint/suggested/AutomorphicBundles--B0.lean` passed:
+  **exit zero, only declaration-uses-placeholder warnings**. Memory was checked
+  before compilation and exceeded 20 GB available. The shared build has the
+  exact Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`. Its Tau Ceti
+  checkout differs from the programme pin, so the prototype deliberately imports
+  only individual Mathlib modules, not Tau Ceti modules. No Tau Ceti elaboration
+  at a different commit is claimed. The programme Tau Ceti pin remains
+  `f790474821cf4256814db967cb154e7af3d0c369` and its source was accessed at that
+  commit for the roadmap/interface audit.
+- All 12 downloaded PDFs matched the fresh SHA-256 receipts recorded in the
+  packet. All 100 short node excerpts occur literally after whitespace
+  normalization in the downloaded text. This is an excerpt-presence check, not
+  a proof that each source entails its proposed target. Locators and matches
+  state where an item is a deduction or only a specialization.
+- Every node, API and test name occurs in both the document and suggested file.
+  This includes the prose inventory; name presence does not imply a typed
+  geometric signature exists.
+- A conservative stage dependency audit combined the atlas stage edges with the
+  packet's direct dependencies. No scoped stage had a reachable return path.
+  The packet validator separately checked its node dependencies. This does not
+  certify unimplemented future supplier additions or all unrelated atlas graphs.
+- The inherited exact GL2(F3) sanity program was rerun. Across the representation
+  factor and point-dependent frame factor, all 41,472 left-cocycle checks,
+  41,472 inverse-base checks and 373,248 pointwise slash-composition checks passed.
+  It detected 14,904 failures of the unshifted cocycle and 222,912 failures each
+  of the wrong inverse order and the operator without inverses. These finite
+  families test the convention, not arbitrary coefficients or the Lean proofs.
+- Submission file validation and whitespace checks are recorded in the pull
+  request. Only the four authorized deliverables are included.
 
-The proposed adapter takes J(k,g,x) in the existing linear-automorphism group, with J(k,1,x)=1 and J(k,gh,x)=J(k,g,hx) J(k,h,x), and sets T(k,g)f(x)=J(k,g,x) inverse applied to f(gx). Inverting the cocycle gives the correct right slash law T(k,gh)=T(k,h) composed with T(k,g). The prototype fixes Mathlib's reverse `LinearEquiv.trans` argument convention explicitly.
+### Precisely what elaborated
 
-The four leaves expose evaluation, invariance versus the original transformation law, the coefficient law for the distinct right base action x·g=g⁻¹x, and scalar cancellation when deriving a cocycle from a nonzero section value. The latter prevents the claim that the zero section forces a cocycle.
+The executable slice retains the checkpoint's actual SlashAction constructor,
+evaluation/invariance/scalar/equality API, inverse-base cocycle and nonzero-section
+cancellation guard, eight examples and five private concrete helpers. It adds a
+functional normalized automorphy-factor structure with its gauge-change API,
+arithmetic Hilbert weights with actual integer parity equations and determinant
+exponents, and global sections of a supplied `Scheme.Modules` coefficient.
+There are 13 typed examples in total. Their proofs are placeholders and remain
+unproved.
 
-The tests cover trivial and point-dependent coefficients, the zero function, two noncommuting rational shears, the inverse factor, the actual SL₂(ℤ) Mathlib slash comparison, a normalized nonzero C₂ factor which transforms zero but is not a cocycle, and the semilinear boundary for full GL₂(ℝ). The final comparison is deliberately not asserted to come from the ℂ-linear adapter when determinants are negative.
+The file **does not elaborate** canonical Shimura torsors, compact-dual
+coefficients, boundary extensions, general local-system carriers, the geometric
+form spaces with all their identifying conditions, or their 80 planned test
+signatures. The precise named contracts are comments and the packet has an
+explicit typed-signature gap. The functional factor omits holomorphy; the supplied
+section type omits unavailable Shimura/canonical-extension conditions. No fake
+proposition carriers, invented axioms or arbitrary geometric surrogates substitute
+for those missing interfaces. A follow-up must turn the contracts into actual
+signatures on the supplier carriers before any geometric closure claim.
 
-This is functional algebra. It does not prove descent of a bundle, construction of the canonical torsor, local freeness on a coarse quotient, holomorphy, growth at cusps, or any geometric comparison. Generic associated bundles remain the designated supplier's responsibility.
+## Supplier contracts and structural action
 
-## Checks actually executed
+The packet's 31 `requests` give exact statements and `neededBy` node IDs. They
+are recorded requests, not edits to other roadmaps or messages to their workers.
 
-**Lean compilation: not run.** All new theorem/test proof placeholders remain unproved, including the proof fields needed by the explicit adapter. The signatures have been checked against the cited source declarations by reading, but this is not an elaboration result. No implementation claim is made.
+- AlgebraicModuliForArithmeticGeometry R09.5 supplies finite/tame coarse
+  descent. Its R09.3 fpqc quasicoherent descent node is imported directly;
+  local-freeness descent still needs the stronger interface. Neither alone
+  constructs representable principal/associated bundles or removes an infinite
+  ineffective arithmetic centre.
+- AbelianSchemesAndArithmeticModuli A4 supplies degree-one family realizations
+  and comparisons; PELModuli M0/M3/M5 supplies the actual PEL family,
+  eigensummands and coefficient constructions. A4 is not cited as proving
+  absolute Hodge cycles.
+- ShimuraVarieties V3–V8 and V8.general supply actual level maps, CM reciprocity,
+  canonical models, abelian/general reduction and coefficient towers.
+  ShimuraData D3's compact dual, filtration parabolic, reflex-field flag form,
+  Borel embedding and homogeneous variation nodes are imported directly.
+- ShimuraCompactifications C1–C6, C2.general and C3.general supply actual
+  minimal/toroidal models, cusp charts, semi-abelian degeneration, good-base
+  PEL integral input and fan maps. They do not automatically prove canonical
+  coefficient extension or the logarithmic dictionary.
+- ComplexComparisonPartII C0/C2 supplies analytification and proper GAGA;
+  AlgebraicModularFormsAndSerreWeights R15.1 supplies geometric GL2 forms.
+  HilbertModularVarietiesAndShimuraCurves H0–H4 supplies the actual Hilbert
+  groups, family and finite polarization-unit quotient.
+- Upstream ClassicalGroups layers 2/3 supplies complex classical Schur and
+  highest-weight results. General nonsplit rational groups, coefficient-field
+  descent and integral Schur sheaves are explicitly beyond that input.
+- The B5 request records the exact BCGP GSp4 four-term Hodge–Tate decomposition
+  and its cuspidal version as a downstream consumer. Its `neededBy` list is
+  empty: it is not a prerequisite of B1–B3. T2/T6 likewise consume these
+  coefficients and were not reversed into early prerequisites.
 
-**Blueprint validator: not run locally.** There is no new JSON packet to validate. No fresh declaration-index or global dependency-graph validation is claimed. The Swarm intake check is not a Lean compiler; passing intake for these three files must not be reported as verification of a packet or of the example proofs.
+The structural proposal assigns a genuinely missing associated-bundle extension
+stage to the reductive-group direction. ReductiveGroupsPartII RG2.0–RG2.5 has
+no covering principal-torsor/contracted-product stage. No stage ID was invented.
+The maintainer must assign the actual scope; AutomorphicBundles keeps its
+Shimura-specific coefficients, canonical models and boundary comparisons.
+The current packet does not duplicate this generic construction privately.
 
-**Finite sanity checks: passed.** For G=GL₂(𝔽₃), X=𝔽₃², the two families tested were J(g,x)=g and J(g,x)=u(gx)u(x)⁻¹, with u(a,b)=[[1,a],[0,1]] [[1,0],[b,1]]. All 48 group elements, 9 base points, every ordered pair g,h, and every one of the 9 possible function values at ghx were enumerated. Counts across the two families:
+## Source and audit evidence
 
-- 41,472 left cocycle checks;
-- 41,472 inverse-base/right-cocycle checks;
-- 373,248 pointwise slash-composition checks;
-- 14,904 detected failures of the unshifted cocycle variant;
-- 222,912 detected failures of the wrong inverse-factor order;
-- 222,912 detected failures of the operator variant omitting inverses.
+WORKERS, both protocols, UPSTREAM_GUIDE and BROWSER_AGENTS were followed.
+The complete campaign document, accepted integrated decomposition, library-audit
+entries for all eight stages, relevant accepted RS-02/RS-14/RS-32 entries,
+matching atlas links, reserved IDs and supplier statements were read. The two
+upstream model documents read in full were ReductiveGroups and HodgeStructures.
+The routed AG, CS and BCGP source items are individually accounted for under
+`routedSourceCoverage`.
 
-The three displayed rational shear values and the normalized C₂ counterexample were checked separately with exact arithmetic. These are sanity checks for selected concrete families, not a proof for all cocycles or an execution of the Lean examples. The GL₂(𝔽₃) checks are reproduced by the following standalone Python code; no third-party package is needed.
+The packet records exact public URLs, accessed editions, fresh digests and
+read sections for all 12 sources:
 
-```python
-from itertools import product
+- Milne, corrected 2018 author revision of *Canonical models of (mixed) Shimura
+  varieties and automorphic vector bundles*: III §§1–8, pp.52–64, and V §6,
+  pp.90–91. The connected-bundles author copy: Proposition 3.9, Theorem 3.10,
+  Corollary 3.11 and §§7/9, pp.18–20, 29–31, 33–34.
+- Lan's public introduction: §4.2.7, pp.49–50, with visual confirmation of the
+  actual p.49 cocycle; §5.3, pp.63–64.
+- Andreatta–Goren–Howard–Madapusi Pera, Annals version of record: §§3.3–3.5,
+  pp.418–422. Caraiani–Scholze, Annals version of record: §§2.2–2.3,
+  pp.666–671.
+- BCGP, arXiv 2502.20645v1: §§3.2.13–19, pp.44–45; §4.5, pp.72–74 and
+  77–78; §§4.8.1–2, pp.101–102. The copy is explicitly a preprint, not
+  a claimed journal collation.
+- HLTT author manuscript: introduction pp.2–4, §3.4.1 pp.109–110 and
+  Appendix B.8 pp.270–271. Harris localization author copy: §1.4, pp.10–11.
+- Harris's course notes 4fibres and 8logarithmique were read in full;
+  7torique pp.1–4 and the start of p.5 were read. Findings are scoped to those
+  notes, not to the published Harris–Phong or toroidal theorems.
+- Deligne, revised author copy of *Hodge cycles on abelian varieties*:
+  Main Theorem 2.11 and Principle B, pp.19–21; Proposition 3.1 and Remark
+  3.2, pp.22–23; Proposition 6.1 and its completed proof, pp.41–42.
 
-p = 3
-one = (1, 0, 0, 1)
+Source proof work still missing is precise: Deligne's intermediate CM argument
+in §§3–5 was not decomposed; Harris's corrected 1985 second-jet proof was not
+freshly read; the full Deligne–Harris canonical/logarithmic boundary proof was
+not decomposed; BCGP's cited RC22 Theorem 4.2.1 remains a rationality comparison
+input requiring its own reading. These are recorded refinements, not proofs
+silently supplied by references to variety-level models.
 
-def mul(a, b):
-    return ((a[0]*b[0]+a[1]*b[2])%p, (a[0]*b[1]+a[1]*b[3])%p,
-            (a[2]*b[0]+a[3]*b[2])%p, (a[2]*b[1]+a[3]*b[3])%p)
+Five `sourceIssues` record the known Lan omitted shift and four course-note
+findings (the excluded logarithmic exponent, mixed rapid/slow resolution,
+missing Cauchy–Green boundary term and arbitrary-cone orthant claim).
+Their reasons, corrections, versions and correction searches are recorded.
+[Harris's annotated errata](https://www.math.columbia.edu/~harris/website/content/12-errata-publications-list-links-here/errata.pdf)
+was consulted for the historical jet, continuity and Dolbeault issues. The new
+course-copy findings have no independent verdict from this worker and await
+review. No source text or PDF is included in the repository.
 
-def inv(a):
-    d = pow((a[0]*a[3]-a[1]*a[2])%p, -1, p)
-    return tuple(d*z%p for z in (a[3], -a[1], -a[2], a[0]))
+## Follow-up work
 
-def act(a, x):
-    return ((a[0]*x[0]+a[1]*x[1])%p, (a[2]*x[0]+a[3]*x[1])%p)
-
-G = [a for a in product(range(p), repeat=4) if (a[0]*a[3]-a[1]*a[2])%p]
-X = list(product(range(p), repeat=2))
-
-def u(x):
-    return mul((1,x[0],0,1), (1,0,x[1],1))
-
-def frame(g, x):
-    return mul(u(act(g,x)), inv(u(x)))
-
-def representation(g, x):
-    return g
-
-counts = [0] * 6
-for J in (frame, representation):
-    assert all(J(one,x) == one for x in X)
-    for g,h,x in product(G,G,X):
-        gh = mul(g,h)
-        assert J(gh,x) == mul(J(g,act(h,x)), J(h,x))
-        counts[0] += 1
-        assert J(inv(gh),x) == mul(J(inv(h),act(inv(g),x)), J(inv(g),x))
-        counts[1] += 1
-        counts[3] += J(gh,x) != mul(J(g,x), J(h,x))
-        for v in X:
-            left = act(inv(J(gh,x)),v)
-            assert left == act(inv(J(h,x)), act(inv(J(g,act(h,x))),v))
-            counts[2] += 1
-            counts[4] += left != act(inv(J(g,act(h,x))), act(inv(J(h,x)),v))
-            counts[5] += act(J(gh,x),v) != act(J(h,x),act(J(g,act(h,x)),v))
-assert len(G) == 48 and len(X) == 9
-assert counts == [41472, 41472, 373248, 14904, 222912, 222912]
-print(counts)
-```
-
-## Evidence and source status
-
-The campaign document was read in full. Its blob was `88a62acba868ce0fe7c09ccd2bd6dd9fe7983176`. The accepted integrated decomposition at blob `701f577f1d4f99bd425b8d2493ce6c6ffb716990` was read for its three targets, coverage and review; some of the long aggregate-node text was truncated by the reader. It remains an input requiring complete rereading when the packet is assembled.
-
-The relevant AUDIT-13 entries were read from `research/blueprint/audit/AUDIT-13.result.json`, blob `3d64f2dd7d5dcdb228f3db06088b7f79f1b3163e`. The accepted review in `research/blueprint/reviews/REV-AUDIT-13.md` was also read, including its corrections of the slash-action and private-declaration citations. The whole large `data/library-coverage.json` was not downloaded or searched locally. No complete sweep of every atlas link or reserved identifier is claimed; those checks remain required before packet integration and ownership requests.
-
-At the pinned Mathlib commit, actual definitions and proofs were read in:
-
-- `Mathlib/NumberTheory/ModularForms/SlashActions.lean`, lines 1–210, blob `3c085f78c1b970786e5f3f922ec4673bcf35a026`;
-- `Mathlib/Algebra/Module/Equiv/Defs.lean`, lines 270–575, blob `14a412f258926e23c5df61bea11e0afc254aaa83`;
-- `Mathlib/Algebra/Module/Equiv/Basic.lean`, lines 1–130, blob `9c54387d3cbce50725b34efe18e010eee528c846`.
-
-The ten named baseline checks are `SlashAction`, `SlashAction.slash_mul`, `ModularForm.SL_slash_apply`, `ModularForm.slash_action_eq'_iff`, `ModularForm.smul_slash`, `LinearEquiv.trans`, `LinearEquiv.trans_symm`, `LinearEquiv.symm_apply_eq`, `LinearEquiv.automorphismGroup`, and `LinearEquiv.applyDistribMulAction`. No new Tau Ceti baseline declaration is claimed; Tau Ceti's pin is retained as the programme baseline.
-
-Lan's *An Example-Based Introduction to Shimura Varieties*, §4.2.7, printed pp. 49–50, was read from https://www.kwlan.org/articles/intro-sh-ex.pdf on 27 September 2026, including successful visual inspection of both page images. The omitted shifted argument in the printed cocycle is the existing reviewed finding, not a newly discovered error. The general vector-valued adapter and the section-cancellation guard are explicit deductions from the convention and existing algebraic operations.
-
-No fresh SHA-256 of the downloaded source was computed. The legacy digest in the integrated decomposition is historical evidence, not a fresh verification by this worker. Milne 1990, Harris's extension constructions, Deligne's connection theorem and the HLTT source were not freshly read in this checkpoint. Thus the roadmap's full source coverage is not achieved. Introductory, convention and interface sections of the upstream ModularForms and ModularCurves roadmaps were read for carrier and dependency discipline, not their entire mathematical developments.
-
-## Exact continuation
-
-1. Compile the suggested file at the pins, without replacing actual coefficient maps by opaque assumptions. Repair any elaboration errors. The three individual modules cited above are the source receipts; current documentation is not a substitute for the pin.
-2. Read the remaining complete integrated nodes and prepare the JSON packet with the exact eight-stage scope and part B0. Preserve and refine the legacy IDs `AutomorphicBundles:B4/automorphy-factor-cocycle-and-growth-conditions`, `AutomorphicBundles:B3/canonical-and-subcanonical-extensions`, and `AutomorphicBundles:B2/automorphic-vector-bundles-from-representations-of-the-centralizer`. Do not discard their growth, geometric weight or extension content because the new prototype treats only action algebra.
-3. Register the five declaration-sized proposals with the exact hypotheses, API, tests and proof outlines in the document. Check the reserved IDs, all relevant atlas links and neighboring packets before assigning final new suffixes or recording suppliers. The existing scalar cocycle, scalar slash law and analytic form carriers stay baseline citations, never new nodes.
-4. Obtain and decompose the geometric source constructions for B0–B3 and the three general-data interfaces. Use the associated-bundle supplier rather than rebuilding it. Make the coefficient field, ineffective central subgroup, Hodge versus opposite-Hodge–Tate parabolic, and locally-free versus coherent distinctions explicit. No geometric stage may be called closed by reference to C1–L4.
-5. Finish B4's actual geometric/analytic form comparisons, including holomorphy, growth, cusp conditions and the GL₂, Hilbert, Siegel and unitary tests. Retain the linear-versus-semilinear boundary of the current prototype.
-6. Synchronize packet, document and prototype; run the complete packet validator, declaration checks and dependency checks. Register appropriate named planets only with the actual packet. No gap or request has been silently discharged here.
-
-This checkpoint changes only the two issue deliverables and this handoff. It leaves the packet, integrated decomposition, B5 work, queue and ownership data untouched.
+The pass stops because all eight target stages are planned, as required by
+PROTOCOL §0, rather than because the time limit was reached. Independent review
+must assess the mathematical statements, ownership, source findings and the
+explicit limitation of the suggested file. Each accepted open stage needs a
+follow-up that resolves its listed requests/gaps, decomposes the named missing
+proofs at the required granularity, and replaces its geometric contract comments
+with actual typed API/test signatures. The current packet is complete as a
+planning pass and remains open as mathematics and interface refinement. There is
+no next job claimed by this session and no scratch file needed to resume it.
