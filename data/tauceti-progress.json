@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-05T22:12:35Z",
- "exported_at": "2026-10-05T22:12:35Z",
+ "cutoff": "2026-10-06T06:42:15Z",
+ "exported_at": "2026-10-06T06:42:15Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 170,
-  "recent": 6022,
-  "total": 11121,
+  "open": 182,
+  "recent": 6047,
+  "total": 11185,
   "unattributed": {
-   "no_label": 1259,
+   "no_label": 1267,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    1080,
    1649,
    2267,
-   262
+   326
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "6b8260db8e870e94a0a6238ce7e163221cdb7351",
+ "roadmap_head": "ee48eb9172dc8f82869213393a9973cd637675a0",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-05T10:18:32Z",
+    "last": "2026-10-06T01:13:46Z",
     "open": 2,
-    "recent": 163,
-    "since_report": 1,
-    "total": 414,
+    "recent": 161,
+    "since_report": 2,
+    "total": 415,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      19,
      42,
      61,
-     1
+     2
     ]
    },
    "assessment": {
@@ -257,11 +257,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T16:23:42Z",
+    "last": "2026-10-05T23:15:38Z",
     "open": 1,
-    "recent": 106,
-    "since_report": 0,
-    "total": 160,
+    "recent": 107,
+    "since_report": 1,
+    "total": 161,
     "weekly": [
      0,
      0,
@@ -278,7 +278,7 @@
      22,
      25,
      48,
-     0
+     1
     ]
    },
    "assessment": {
@@ -401,7 +401,7 @@
   {
    "activity": {
     "last": "2026-10-05T17:11:54Z",
-    "open": 2,
+    "open": 3,
     "recent": 83,
     "since_report": 2,
     "total": 83,
@@ -524,7 +524,7 @@
   {
    "activity": {
     "last": "2026-10-05T17:19:52Z",
-    "open": 3,
+    "open": 4,
     "recent": 57,
     "since_report": 4,
     "total": 57,
@@ -641,7 +641,7 @@
   {
    "activity": {
     "last": "2026-10-04T19:02:02Z",
-    "open": 4,
+    "open": 3,
     "recent": 75,
     "since_report": 0,
     "total": 75,
@@ -762,11 +762,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:31:33Z",
+    "last": "2026-10-05T23:45:50Z",
     "open": 1,
-    "recent": 95,
-    "since_report": 2,
-    "total": 124,
+    "recent": 96,
+    "since_report": 3,
+    "total": 125,
     "weekly": [
      0,
      0,
@@ -783,7 +783,7 @@
      27,
      32,
      11,
-     2
+     3
     ]
    },
    "assessment": {
@@ -883,11 +883,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:12:05Z",
+    "last": "2026-10-06T00:47:58Z",
     "open": 2,
-    "recent": 97,
-    "since_report": 3,
-    "total": 97,
+    "recent": 98,
+    "since_report": 4,
+    "total": 98,
     "weekly": [
      0,
      0,
@@ -904,7 +904,7 @@
      24,
      18,
      47,
-     3
+     4
     ]
    },
    "assessment": {
@@ -1033,11 +1033,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-01T20:54:52Z",
+    "last": "2026-10-05T23:21:56Z",
     "open": 2,
-    "recent": 75,
-    "since_report": 2,
-    "total": 157,
+    "recent": 76,
+    "since_report": 3,
+    "total": 158,
     "weekly": [
      0,
      0,
@@ -1054,7 +1054,7 @@
      32,
      19,
      13,
-     0
+     1
     ]
    },
    "assessment": {
@@ -1150,7 +1150,7 @@
    "activity": {
     "last": "2026-10-05T09:28:43Z",
     "open": 0,
-    "recent": 85,
+    "recent": 84,
     "since_report": 3,
     "total": 98,
     "weekly": [
@@ -1281,11 +1281,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:49:00Z",
-    "open": 10,
-    "recent": 230,
-    "since_report": 2,
-    "total": 232,
+    "last": "2026-10-06T01:06:35Z",
+    "open": 6,
+    "recent": 238,
+    "since_report": 10,
+    "total": 240,
     "weekly": [
      0,
      0,
@@ -1302,7 +1302,7 @@
      23,
      84,
      104,
-     9
+     17
     ]
    },
    "assessment": {
@@ -1432,11 +1432,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:19:44Z",
-    "open": 3,
-    "recent": 120,
-    "since_report": 9,
-    "total": 212,
+    "last": "2026-10-06T00:52:43Z",
+    "open": 2,
+    "recent": 121,
+    "since_report": 10,
+    "total": 213,
     "weekly": [
      21,
      5,
@@ -1453,7 +1453,7 @@
      21,
      19,
      65,
-     10
+     11
     ]
    },
    "assessment": {
@@ -1544,7 +1544,7 @@
   {
    "activity": {
     "last": "2026-10-05T18:21:55Z",
-    "open": 1,
+    "open": 2,
     "recent": 91,
     "since_report": 4,
     "total": 270,
@@ -1655,8 +1655,8 @@
   {
    "activity": {
     "last": "2026-10-05T18:45:14Z",
-    "open": 0,
-    "recent": 85,
+    "open": 1,
+    "recent": 84,
     "since_report": 2,
     "total": 107,
     "weekly": [
@@ -1795,7 +1795,7 @@
    "activity": {
     "last": "2026-10-04T13:53:47Z",
     "open": 0,
-    "recent": 73,
+    "recent": 72,
     "since_report": 0,
     "total": 110,
     "weekly": [
@@ -1926,11 +1926,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:44:08Z",
-    "open": 2,
-    "recent": 184,
-    "since_report": 6,
-    "total": 453,
+    "last": "2026-10-05T23:47:49Z",
+    "open": 1,
+    "recent": 178,
+    "since_report": 7,
+    "total": 454,
     "weekly": [
      0,
      0,
@@ -1947,7 +1947,7 @@
      24,
      36,
      48,
-     5
+     6
     ]
    },
    "assessment": {
@@ -2071,7 +2071,7 @@
   {
    "activity": {
     "last": "2026-10-03T04:25:32Z",
-    "open": 0,
+    "open": 1,
     "recent": 85,
     "since_report": 0,
     "total": 297,
@@ -2179,11 +2179,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:31:59Z",
-    "open": 2,
-    "recent": 92,
-    "since_report": 4,
-    "total": 92,
+    "last": "2026-10-05T23:02:20Z",
+    "open": 0,
+    "recent": 93,
+    "since_report": 5,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -2200,7 +2200,7 @@
      16,
      24,
      46,
-     4
+     5
     ]
    },
    "assessment": {
@@ -2298,11 +2298,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:48:23Z",
+    "last": "2026-10-06T01:58:16Z",
     "open": 6,
-    "recent": 167,
-    "since_report": 1,
-    "total": 243,
+    "recent": 169,
+    "since_report": 4,
+    "total": 246,
     "weekly": [
      11,
      5,
@@ -2319,7 +2319,7 @@
      24,
      19,
      80,
-     23
+     26
     ]
    },
    "assessment": {
@@ -2585,7 +2585,7 @@
     "last": "2026-10-05T18:59:58Z",
     "open": 0,
     "recent": 43,
-    "since_report": 8,
+    "since_report": 2,
     "total": 43,
     "weekly": [
      0,
@@ -2612,12 +2612,11 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 2": "local classification in global notation at finite places (2.3)",
-     "Layer 3": "globalInvariants Q and its admissibility (3.3), which needs the value of the Hilbert product formula",
+     "Layer 3": "the product condition of 3.3, which needs the value of the Hilbert product formula",
      "Layer 4": "global square theorem (4.2), quadratic Hasse norm adapter (4.3), value of the localized product formula and sign prescription (4.4)",
      "Layer 5": "binary and ternary cases of 5.1 (need 4.2 and 4.3), then Hasse-Minkowski isotropy (5.5) with its counterexamples",
      "Layer 6": "scalar and form representation (6.1, 6.2) and Hasse-Minkowski isometry (6.3), after 5.5",
-     "Layer 7": "existence with prescribed local behavior (O'Meara 72:1), realization of admissible systems and uniqueness (7.2 to 7.4)",
+     "Layer 7": "O'Meara 72:1 itself (7.2), needing sign prescription and 6.2; realization of admissible systems (7.3) and uniqueness (7.4)",
      "Layer 8": "complete invariant theorem, global Witt kernel, Witt injectivity and the SO kernel corollary",
      "Layer 9": "examples 9.1 to 9.3: the obstruction at 3, the explicit isometry check, and existence over Q(sqrt 5)"
     },
@@ -2671,7 +2670,7 @@
    "states": [
     "done",
     "done",
-    "partial",
+    "done",
     "partial",
     "partial",
     "partial",
@@ -2683,33 +2682,33 @@
    "status": {
     "frontier": [
      {
+      "name": "The value of the Hilbert product formula (4.4)",
+      "text": "— `∏_v (a, b)_v = 1` over all places. Finite support is proved, and `hilbertSymbol_eq_cohomological` is in the library. Class Field Theory's `hilbertProductFormula` is not in the library source. With it, 3.3 follows immediately from the admissibility criterion already proved."
+     },
+     {
       "name": "Binary and ternary Hasse–Minkowski",
-      "text": "— the binary case needs the global square theorem (4.2), and the ternary case needs the quadratic Hasse norm adapter (4.3). These rest on Class Field Theory's norm index `card_ideleClassNormQuotient` and Hasse norm theorem `isGlobalNorm_iff_isLocalNormEverywhere`, which are not in the library source. With both cases, 5.5 is an induction over pieces that are already proved."
-     },
-     {
-      "name": "Invariants of a global form are admissible (3.3)",
-      "text": "— every condition except the product one is now available. The product condition needs the value of the localized Hilbert product formula, through `hilbertProductFormula` and `hilbertSymbol_eq_cohomological`, neither yet supplied."
-     },
-     {
-      "name": "Local classification in global notation (2.3)",
-      "text": "— at a finite place, two localizations are isometric exactly when their rank, localized discriminant and finite Hasse sign agree. This is a transport of the supplier's local classification, and nothing blocks it."
+      "text": "— the binary case needs the global square theorem (4.2), and the ternary case needs the quadratic Hasse norm adapter (4.3). Both rest on Class Field Theory's norm index `card_ideleClassNormQuotient` and its Hasse norm theorem, which are not in the library source. With both, 5.5 is an induction over proved pieces."
      },
      {
       "name": "Hilbert sign prescription (4.4)",
-      "text": "— the inputs for the unprescribed form are in place: a unit negative at every real place, odd valuation forcing a local nonsquare, and the real symbol of global units. The existence half needs the norm index."
+      "text": "— the character `φ_b` and its index-two kernel are done. What remains is the identification `ker φ_b = Kˣ · N(𝕀_E)`, which needs the product formula, the local-norm property of idele norms and the norm index."
      },
      {
       "name": "Existence with prescribed local behavior (7.2)",
-      "text": "— O'Meara 72:1. It needs sign prescription and form representation (6.2), so it comes after Hasse–Minkowski."
+      "text": "— the steps that use only local classification are proved. The theorem still needs sign prescription to choose `α` and form representation (6.2) to embed `P'` in `P ⊥ W`, so it comes after Hasse–Minkowski."
+     },
+     {
+      "name": "Hasse–Minkowski isometry (6.3)",
+      "text": "— its local half is the criterion by invariants; it waits on 5.5 through 6.1 and 6.2."
      }
     ],
-    "glance": "The local layers are nearly complete. Layers 0 and 1 are done, the finite-place Hasse sign exists with its finite support, and the admissible-invariant carrier and the local realization of admissible systems are in place. Hasse–Minkowski isotropy is proved in the quaternary case and in the rank-at-least-five induction step, each assuming the lower ranks, but the binary and ternary cases are missing. Representation, isometry and classification (Layers 6 and 8) have not begun.",
+    "glance": "The local layers are done. Layers 0 to 2 are complete, and local equivalence of two global forms is now characterized by their invariants. Hasse–Minkowski isotropy is proved in the quaternary case and in the rank-at-least-five induction step, each assuming the lower ranks. The binary and ternary cases are missing, and so is every theorem that needs the value of the Hilbert product formula or the norm index. Representation, isometry and global classification (Layers 6 and 8) have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/GlobalQuadraticForms/STATUS.md",
     "progress_path": "TauCetiRoadmap/GlobalQuadraticForms/PROGRESS.md",
-    "report_sha": "9d50e67091f8d9c5ac7afe07e3f93c29d7a4f68b853e6332927f8a17b94e764e",
-    "to_sha": "8a32441b6e9708f9d6aeb9de8d3b11a35b9ee6ce",
-    "ts": "2026-10-01T19:24:41Z"
+    "report_sha": "b96e282883935612d6e991c6c21d62fb0680493d0a10ba7857b639d25f9e262a",
+    "to_sha": "047d72b597816eaf08efb3455c9dd82b176aced3",
+    "ts": "2026-10-05T16:09:36Z"
    },
    "title": "global quadratic forms over number fields",
    "topic": "Number theory"
@@ -2717,7 +2716,7 @@
   {
    "activity": {
     "last": "2026-10-05T17:46:46Z",
-    "open": 1,
+    "open": 4,
     "recent": 80,
     "since_report": 4,
     "total": 115,
@@ -2834,11 +2833,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:38:52Z",
-    "open": 2,
-    "recent": 86,
-    "since_report": 4,
-    "total": 206,
+    "last": "2026-10-06T01:10:46Z",
+    "open": 4,
+    "recent": 87,
+    "since_report": 5,
+    "total": 207,
     "weekly": [
      11,
      9,
@@ -2855,7 +2854,7 @@
      11,
      33,
      31,
-     4
+     5
     ]
    },
    "assessment": {
@@ -3144,11 +3143,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:49:00Z",
-    "open": 3,
-    "recent": 46,
-    "since_report": 1,
-    "total": 104,
+    "last": "2026-10-06T01:46:04Z",
+    "open": 2,
+    "recent": 48,
+    "since_report": 3,
+    "total": 106,
     "weekly": [
      0,
      0,
@@ -3165,7 +3164,7 @@
      1,
      0,
      40,
-     1
+     3
     ]
    },
    "assessment": {
@@ -3282,7 +3281,7 @@
   {
    "activity": {
     "last": "2026-10-05T15:30:31Z",
-    "open": 6,
+    "open": 5,
     "recent": 86,
     "since_report": 2,
     "total": 164,
@@ -3421,9 +3420,9 @@
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the worked Q_2(sqrt 2) values; a named totally ramified integral basis",
@@ -3445,9 +3444,9 @@
    "layer_lines": [
     59,
     267,
-    559,
-    703,
-    1130
+    561,
+    705,
+    1132
    ],
    "layers": [
     "Layer 0: local fields and their finite extensions",
@@ -3461,7 +3460,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/LocalFieldsRamification/README.md",
-   "readme_sha": "71341ee291c83402a632980bb8fce9bd196641c27e5589a77c36005b3bc49833",
+   "readme_sha": "11ef4db9479369bd6cfb3362939cb8971909bd2af78d097d68aa21c0bd3f4197",
    "retired": null,
    "states": [
     "partial",
@@ -3506,11 +3505,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T19:12:13Z",
-    "open": 4,
-    "recent": 60,
-    "since_report": 6,
-    "total": 60,
+    "last": "2026-10-06T00:14:43Z",
+    "open": 3,
+    "recent": 62,
+    "since_report": 8,
+    "total": 62,
     "weekly": [
      0,
      0,
@@ -3527,7 +3526,7 @@
      0,
      1,
      55,
-     4
+     6
     ]
    },
    "assessment": {
@@ -3637,11 +3636,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T15:52:22Z",
+    "last": "2026-10-06T00:43:01Z",
     "open": 2,
-    "recent": 7,
-    "since_report": 2,
-    "total": 7,
+    "recent": 9,
+    "since_report": 4,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -3658,7 +3657,7 @@
      0,
      0,
      5,
-     2
+     4
     ]
    },
    "assessment": {
@@ -3769,11 +3768,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T15:41:58Z",
+    "last": "2026-10-06T01:15:05Z",
     "open": 2,
-    "recent": 221,
-    "since_report": 5,
-    "total": 512,
+    "recent": 216,
+    "since_report": 6,
+    "total": 513,
     "weekly": [
      0,
      0,
@@ -3790,7 +3789,7 @@
      53,
      48,
      37,
-     5
+     6
     ]
    },
    "assessment": {
@@ -3921,7 +3920,7 @@
    "activity": {
     "last": "2026-10-03T22:45:13Z",
     "open": 0,
-    "recent": 61,
+    "recent": 59,
     "since_report": 0,
     "total": 210,
     "weekly": [
@@ -4119,7 +4118,7 @@
    "activity": {
     "last": "2026-10-05T09:16:13Z",
     "open": 3,
-    "recent": 66,
+    "recent": 64,
     "since_report": 2,
     "total": 185,
     "weekly": [
@@ -4205,8 +4204,8 @@
   {
    "activity": {
     "last": "2026-10-05T01:18:42Z",
-    "open": 0,
-    "recent": 73,
+    "open": 4,
+    "recent": 70,
     "since_report": 1,
     "total": 105,
     "weekly": [
@@ -4365,11 +4364,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T15:17:47Z",
-    "open": 4,
-    "recent": 78,
-    "since_report": 4,
-    "total": 78,
+    "last": "2026-10-06T00:02:10Z",
+    "open": 3,
+    "recent": 80,
+    "since_report": 6,
+    "total": 80,
     "weekly": [
      0,
      0,
@@ -4386,7 +4385,7 @@
      0,
      33,
      41,
-     4
+     6
     ]
    },
    "assessment": {
@@ -4470,11 +4469,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T19:22:27Z",
-    "open": 3,
-    "recent": 106,
-    "since_report": 7,
-    "total": 200,
+    "last": "2026-10-05T23:11:05Z",
+    "open": 4,
+    "recent": 107,
+    "since_report": 8,
+    "total": 201,
     "weekly": [
      13,
      13,
@@ -4491,7 +4490,7 @@
      18,
      34,
      36,
-     8
+     9
     ]
    },
    "assessment": {
@@ -4689,8 +4688,8 @@
   {
    "activity": {
     "last": "2026-10-05T13:27:19Z",
-    "open": 0,
-    "recent": 89,
+    "open": 2,
+    "recent": 88,
     "since_report": 2,
     "total": 95,
     "weekly": [
@@ -4793,11 +4792,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T04:53:47Z",
-    "open": 1,
-    "recent": 31,
-    "since_report": 1,
-    "total": 31,
+    "last": "2026-10-06T02:00:48Z",
+    "open": 0,
+    "recent": 32,
+    "since_report": 2,
+    "total": 32,
     "weekly": [
      0,
      0,
@@ -4814,13 +4813,13 @@
      0,
      0,
      30,
-     1
+     2
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 2": "the outer action E/N to ContinuousOut N of an extension, with continuity of E to ContinuousAut N for topologically finitely generated profinite N"
@@ -4852,7 +4851,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ProfiniteArithmetic/README.md",
-   "readme_sha": "40b35091ae14fe4526f5a9a9af67374955e9e77cf838dc3d6738cab947c2bbc0",
+   "readme_sha": "78297dc32e458b1d43b924959623efc38e4d0e7219a95eed3752efd7ef9e3d6e",
    "retired": null,
    "states": [
     "done",
@@ -4880,11 +4879,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:37:00Z",
-    "open": 8,
-    "recent": 145,
-    "since_report": 5,
-    "total": 180,
+    "last": "2026-10-06T01:48:00Z",
+    "open": 5,
+    "recent": 149,
+    "since_report": 10,
+    "total": 185,
     "weekly": [
      0,
      0,
@@ -4901,7 +4900,7 @@
      17,
      51,
      65,
-     5
+     10
     ]
    },
    "assessment": {
@@ -5034,11 +5033,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T21:11:16Z",
+    "last": "2026-10-06T01:32:42Z",
     "open": 1,
-    "recent": 247,
-    "since_report": 0,
-    "total": 254,
+    "recent": 248,
+    "since_report": 1,
+    "total": 255,
     "weekly": [
      0,
      0,
@@ -5055,7 +5054,7 @@
      16,
      96,
      125,
-     0
+     1
     ]
    },
    "assessment": {
@@ -5159,11 +5158,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T10:17:05Z",
-    "open": 4,
-    "recent": 117,
-    "since_report": 1,
-    "total": 118,
+    "last": "2026-10-06T00:54:55Z",
+    "open": 1,
+    "recent": 119,
+    "since_report": 3,
+    "total": 120,
     "weekly": [
      0,
      0,
@@ -5180,7 +5179,7 @@
      18,
      40,
      50,
-     1
+     3
     ]
    },
    "assessment": {
@@ -5294,11 +5293,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:10:01Z",
-    "open": 3,
-    "recent": 79,
-    "since_report": 2,
-    "total": 79,
+    "last": "2026-10-06T01:01:03Z",
+    "open": 4,
+    "recent": 80,
+    "since_report": 3,
+    "total": 80,
     "weekly": [
      0,
      0,
@@ -5315,7 +5314,7 @@
      0,
      5,
      53,
-     21
+     22
     ]
    },
    "assessment": {
@@ -5417,11 +5416,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:02:47Z",
-    "open": 7,
-    "recent": 361,
-    "since_report": 3,
-    "total": 1094,
+    "last": "2026-10-06T01:43:56Z",
+    "open": 16,
+    "recent": 364,
+    "since_report": 8,
+    "total": 1099,
     "weekly": [
      19,
      4,
@@ -5438,7 +5437,7 @@
      73,
      69,
      132,
-     19
+     24
     ]
    },
    "assessment": {
@@ -5548,11 +5547,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:58:29Z",
+    "last": "2026-10-06T01:54:02Z",
     "open": 43,
-    "recent": 556,
-    "since_report": 5,
-    "total": 1289,
+    "recent": 561,
+    "since_report": 11,
+    "total": 1295,
     "weekly": [
      0,
      0,
@@ -5569,7 +5568,7 @@
      62,
      150,
      247,
-     25
+     31
     ]
    },
    "assessment": {
@@ -6989,11 +6988,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:12:16Z",
+    "last": "2026-10-06T00:56:24Z",
     "open": 1,
-    "recent": 73,
-    "since_report": 2,
-    "total": 73,
+    "recent": 74,
+    "since_report": 3,
+    "total": 74,
     "weekly": [
      0,
      0,
@@ -7010,7 +7009,7 @@
      20,
      21,
      30,
-     2
+     3
     ]
    },
    "assessment": {
@@ -7118,11 +7117,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T16:34:19Z",
-    "open": 3,
-    "recent": 78,
-    "since_report": 3,
-    "total": 78,
+    "last": "2026-10-06T01:48:54Z",
+    "open": 2,
+    "recent": 80,
+    "since_report": 5,
+    "total": 80,
     "weekly": [
      0,
      0,
@@ -7139,7 +7138,7 @@
      20,
      24,
      23,
-     3
+     5
     ]
    },
    "assessment": {
@@ -7259,7 +7258,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 107,
+    "recent": 105,
     "since_report": 0,
     "total": 180,
     "weekly": [
@@ -7358,11 +7357,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T13:00:00Z",
-    "open": 3,
-    "recent": 82,
-    "since_report": 1,
-    "total": 111,
+    "last": "2026-10-05T23:15:38Z",
+    "open": 1,
+    "recent": 84,
+    "since_report": 3,
+    "total": 113,
     "weekly": [
      0,
      0,
@@ -7379,7 +7378,7 @@
      22,
      20,
      33,
-     1
+     3
     ]
    },
    "assessment": {
@@ -7686,11 +7685,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T11:49:00Z",
-    "open": 3,
-    "recent": 46,
-    "since_report": 17,
-    "total": 104,
+    "last": "2026-10-06T01:46:04Z",
+    "open": 2,
+    "recent": 48,
+    "since_report": 19,
+    "total": 106,
     "weekly": [
      0,
      0,
@@ -7707,7 +7706,7 @@
      1,
      0,
      40,
-     1
+     3
     ]
    },
    "assessment": {
@@ -7790,7 +7789,7 @@
   {
    "activity": {
     "last": "2026-10-01T16:02:37Z",
-    "open": 0,
+    "open": 1,
     "recent": 2,
     "since_report": 0,
     "total": 58,
