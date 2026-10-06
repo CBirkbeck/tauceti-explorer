@@ -15,43 +15,49 @@
         "ref": "mathlib:ZMod",
         "module": "Mathlib/Data/ZMod/Defs.lean",
         "provides": "The coefficient ring F₂ and numerical residue computations.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "mathlib:Algebra.norm",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "The determinant norm as a multiplicative homomorphism; Units.map gives the existing local norm map.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "mathlib:FiniteField.unitsMap_norm_surjective",
         "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
         "provides": "The norm on the entire unit group of a finite extension of finite fields is onto; it is not a theorem on a chosen root subgroup.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "mathlib:FiniteField.algebraMap_norm_eq_pow",
         "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
         "provides": "Norm as the power (|K′|−1)/(|K|−1) after embedding into K′.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "tauceti:TauCeti.unitFiltration",
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "provides": "Units congruent to one modulo the i-th power of the maximal ideal, as a subgroup of Kˣ.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "tauceti:TauCeti.unitFiltration_zero",
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "provides": "The depth-zero subgroup equals the valuation subring unit group.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
       },
       {
         "ref": "tauceti:TauCeti.unitFiltration_one",
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "provides": "The depth-one subgroup equals the principal unit group.",
-        "checked": "Statement read in the supplied source tree at the pinned commits."
+        "checked": "Independently read the declaration and its assumptions at the stated pinned commit on 2026-10-06 (REV-ArithmeticKTheory--N.6); name and needed convention confirmed."
+      },
+      {
+        "ref": "mathlib:groupHomology.indIso",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Shapiro.lean",
+        "provides": "Shapiro isomorphism H_n(G,Ind_H^G A)≅H_n(H,A) for a subgroup H, a representation A over a commutative ring and every natural degree n; the semilocal H₁ sum uses this existing carrier.",
+        "checked": "Independently read the definition at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; hypotheses [CommRing k], [Group G], [DecidableEq G], H≤G, A:Rep k H. No finite-group or flatness hypothesis is added."
       }
     ]
   },
@@ -239,7 +245,7 @@
       "kind": "construction",
       "statement": "For nonnegative integers r,s,t,j,n define evenTwoRank(r,s,t,j,n) by r+s+t−1 if n≡2 mod 8, j+s+t−1 if n≡4 or 6 mod 8, and s+t−1 if n≡0 mod 8. It is a numerical function, with value zero on odd residues as a totalisation convention; no K-theoretic meaning is assigned at odd n or n=0. The arithmetic application requires n>0, n even, r=r₁>0, S containing the dyadic primes, t the ordinary class-group two-rank and j the Selmer signature defect.",
       "hypotheses": [
-        "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
+        "r,s,t,j,n are arbitrary nonnegative integers; subtraction is natural subtraction. The separate arithmetic theorem assumes n>0 even, r=r₁>0, S containing all dyadic primes and the specified class/signature invariants."
       ],
       "proofSteps": [
         "Read the four branches of Corollary VI.9.9.",
@@ -254,7 +260,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "Corollary VI.9.9, book p. 523, PDF p. 531",
+          "locator": "Corollary VI.9.9, book p. 522, PDF p. 530",
           "excerpt": "r₁+s+t−1",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
@@ -356,7 +362,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "Corollary VI.9.9 and its proof, book p. 523, PDF p. 531",
+          "locator": "Corollary VI.9.9 and its proof, book pp. 522–523, PDF pp. 530–531",
           "excerpt": "r₁+s+t−1",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
@@ -562,7 +568,7 @@
       ],
       "acceptance": [
         "For i=1 the map agrees with the full norm-residue symbol of L.7.",
-        "Over Q₂ the degree-four finite quotient has order 8, whereas the degree-two quotient has order 2."
+        "Over Q₂ the degree-four full finite quotient has order 24: its dyadic primary part has order 8 and its odd part has order 3. The degree-two full quotient has order 2."
       ],
       "prerequisites": [
         "KTheoryFiniteLocalFields:L.7/completion-map",
@@ -578,6 +584,12 @@
           "locator": "Dwyer–Friedlander maps preceding Definition 0.2, preprint p. 2",
           "excerpt": "λᵥ",
           "match": "The statement and the indicated proof, with conventions specified in this node."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "VI.2.3(c), Example VI.2.3.1 and Proposition VI.7.3, book pp. 471, 509, PDF pp. 479, 517",
+          "excerpt": "times a power of p",
+          "match": "The full local quotient has order w_i(E), including its residue-field prime-to-p factor. For Q₂ and i=2 this is 3·8=24."
         }
       ],
       "library": {
@@ -606,6 +618,21 @@
           "name": "TauCeti.ArithmeticKTheory.N6.localSymbolFamily_degree_two",
           "role": "compatibility",
           "statement": "At i=1 this is the full Hilbert-symbol map after Matsumoto’s identification."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.localSymbolFamily_map_zero",
+          "role": "simp",
+          "statement": "The joint additive symbol map sends zero to zero in the product of local targets."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.localSymbolFamily_map_add",
+          "role": "simp",
+          "statement": "The joint symbol of x+y is the sum of the joint symbols of x and y."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.localSymbolFamily_ext",
+          "role": "extensionality",
+          "statement": "Two joint symbol maps are equal exactly when all their component homomorphisms are equal."
         }
       ],
       "tests": [
@@ -623,6 +650,11 @@
           "name": "TauCeti.ArithmeticKTheory.N6.localSymbols_unramified_residue",
           "kind": "compatibility",
           "statement": "Away from ℓ, the ℓ-primary finite component is the Soulé boundary followed by the finite-field identification."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.localSymbols_dyadic_degree_four",
+          "kind": "computation",
+          "statement": "For F_v=Q₂ and i=2, |D_i(F_v)|=24 and |D_i(F_v){2}|=8; for i=1 the full order is 2. A quotient keeping only the dyadic component fails this test."
         }
       ],
       "uses": [
@@ -702,6 +734,21 @@
           "name": "TauCeti.ArithmeticKTheory.N6.symbolWildKernel_degree_two",
           "role": "compatibility",
           "statement": "WK₂^sym(F)=WK₂^raw(F)."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.symbolWildKernel_lift",
+          "role": "universal-property",
+          "statement": "If f:C→K_{2i}(F) is an additive homomorphism and every local symbol of f(c) vanishes, f has a unique additive lift to WK^sym whose composite with the subgroup inclusion is f."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.symbolWildKernel_lift_coe",
+          "role": "simp",
+          "statement": "The subgroup inclusion composed with symbolWildKernel_lift is the given f, elementwise."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.symbolWildKernel_lift_unique",
+          "role": "universal-property",
+          "statement": "Any additive lift whose composite with the subgroup inclusion is f equals symbolWildKernel_lift."
         }
       ],
       "tests": [
@@ -876,14 +923,17 @@
         "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
       ],
       "proofSteps": [
-        "Specialise the existing strict Selmer local-condition construction, using actual cohomology restriction maps.",
-        "Take continuous coefficients only after proving the limit identification; use the unramified degree-two residue diagrams to compare S."
+        "Specialise the exact module-generic selmer-data and selmer-kernel nodes in degree two, with all local conditions zero and the actual cohomology restriction maps.",
+        "Apply R02.3/h1-finite and the local finite-cohomology hypotheses to remove the lim¹ terms in R02.1/tate-inverse-limit. The inverse limit preserves kernels; only then identify the continuous kernel. Use the unramified degree-two residue diagrams to compare S."
       ],
       "acceptance": [
         "The archimedean factor vanishes for ℓ odd; the dyadic real term depends on twist parity."
       ],
       "prerequisites": [
-        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L2/selmer-data",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/selmer-functoriality",
+        "ArithmeticGaloisDuality:R02.3/h1-finite",
         "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
         "ArithmeticGaloisDuality:R02.4/poitou-tate",
         "MotivicEtaleKTheory:M.2"
@@ -922,6 +972,11 @@
           "name": "TauCeti.ArithmeticKTheory.N6.cohomologicalWildKernel_selmer",
           "role": "compatibility",
           "statement": "It is the L2 strict Selmer kernel in degree two for the twist Z_ℓ(i+1)."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.cohomologicalWildKernel_functoriality",
+          "role": "functoriality",
+          "statement": "A morphism of the global and local degree-two coefficient cohomology modules commuting with all localisation maps sends the strict kernel into the strict kernel; the induced maps respect identities and composition, by the imported selmer-functoriality node."
         }
       ],
       "tests": [
@@ -960,10 +1015,10 @@
       ],
       "title": "Symbol and cohomological wild-kernel comparison",
       "kind": "comparison",
-      "statement": "For every odd prime ℓ, and for ℓ=2 when F is totally imaginary or i mod 4≠2, the arithmetic comparison induces WK^sym_{2i}(F){ℓ}≅Sha²_{i,ℓ}(F). For ℓ=2, F real and i≡2 mod 4, it instead induces an exact sequence 0→C_{F,i}→WK^sym{2}→Sha²_{i,2}(F)→0, where C_{F,i} is the kernel of K_{2i}(O_S){2}→H²_et(O_S,Z₂(i+1)) and has order 2^ρ as in the parent integral table. The map and kernel must be retained.",
+      "statement": "For every odd prime ℓ, and for ℓ=2 when F is totally imaginary or i mod 4≠2, the arithmetic comparison induces WK^sym_{2i}(F){ℓ}≅Sha²_{i,ℓ}(F). For ℓ=2, F real and i≡2 mod 4, it instead induces an exact sequence 0→C_{F,i}→WK^sym{2}→Sha²_{i,2}(F)→0, where C_{F,i} is the kernel of K_{2i}(O_S){2}→H²_et(O_S,Z₂(i+1)) and has order 2^ρ as in the parent integral table. The map and kernel must be retained. Here S contains all primes above 2.",
       "hypotheses": [
         "F is a number field; i ≥ 1; S is finite whenever O_S occurs.",
-        "Use the corrected cokernel convention for j in E-N6-2; the preprint’s kernel wording after (8.2) is a misprint."
+        "In each dyadic S-integer comparison, S contains every finite prime above 2, so 1/2 is a unit in O_{F,S}. The signature defect j is the cokernel dimension of real restriction; the author preprint already uses this convention after (8.2)."
       ],
       "proofSteps": [
         "Compare the primary Moore and continuous Poitou–Tate sequences using the same local comparison maps.",
@@ -1006,7 +1061,7 @@
       "kind": "definition",
       "statement": "A number field F is special if it is exceptional in the parent N.4 sense and for every dyadic prime v there is a 2-primary root of unity ζ, in compatible algebraic closures, with ζ+ζ⁻¹∈F_v but ζ+ζ⁻¹∉F. Equivalently the maximal dyadic roots of F_v(√−1) properly exceed those of F(√−1). The witnesses may depend on v. Exceptionality alone is insufficient.",
       "hypotheses": [
-        "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
+        "F is a number field. The definition has no degree parameter; the decomposition characterisation separately assumes odd i≥1 and sufficiently large dyadic m."
       ],
       "proofSteps": [
         "Use the exceptional predicate and compatible cyclotomic/root embeddings from N.4 and I.1.",
@@ -1047,12 +1102,17 @@
         {
           "name": "TauCeti.ArithmeticKTheory.N6.specialAtTwo_iff_decomposition",
           "role": "characterisation",
-          "statement": "For all sufficiently large 2-power m and odd i, special is equivalent to every dyadic decomposition subgroup being proper in Gal(F(μ_m^{⊗i})/F)."
+          "statement": "Assume F is exceptional. For odd i and every sufficiently large 2-power m (so the splitting extension is nontrivial), F is special iff every dyadic decomposition subgroup is proper in Gal(F(μ_m^{⊗i})/F)."
         },
         {
           "name": "TauCeti.ArithmeticKTheory.N6.specialAtTwo_transport",
           "role": "functoriality",
           "statement": "The predicate is preserved and reflected by a number-field isomorphism."
+        },
+        {
+          "name": "TauCeti.ArithmeticKTheory.N6.specialAtTwo_iff",
+          "role": "constructor",
+          "statement": "F is special iff F is exceptional and, at each dyadic place, a compatible 2-primary root witness has ζ+ζ⁻¹ in the completion but outside F; witnesses are allowed to vary with the place."
         }
       ],
       "tests": [
@@ -1102,7 +1162,7 @@
       ],
       "proofSteps": [
         "Read the cyclotomic decomposition groups using the local-root criterion.",
-        "Import the faithful cyclic-module homology calculation of §§3.2,3.6,3.7 from the general cohomology supplier.",
+        "Use the existing finite-group Tate/homology carriers and subgroup maps from ClassFieldTheory Layer 0 and Mathlib’s groupHomology.indIso for Shapiro. Evaluate the faithful cyclotomic-module calculations of §§3.2,3.6,3.7 in this arithmetic application.",
         "Apply Shapiro to the semilocal sum; each proper subgroup gives zero on H₁, while an equal subgroup gives a split identity summand."
       ],
       "acceptance": [
@@ -1111,7 +1171,9 @@
       "prerequisites": [
         "ArithmeticKTheory:N.6/special-number-fields",
         "IntegralIwasawaTheory:I.1",
-        "MotivicEtaleKTheory:M.2"
+        "MotivicEtaleKTheory:M.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+        "mathlib:groupHomology.indIso"
       ],
       "sources": [
         {
@@ -1138,10 +1200,10 @@
       "kind": "application",
       "statement": "Let k=F_q, m=2^ν≥4 with q odd and i≥1, E=k(μ_m^{⊗i}), G cyclic generated by Frobenius acting on M=μ_m^{⊗i} as multiplication by q^i. The norm M_G→M^G is an isomorphism exactly when q^i≢−1 mod m; when q^i≡−1 it is zero and the invariant target has order two. For odd prime powers m the norm on this faithful cyclic module is always onto. This tests a norm on a root-twist module, not surjectivity of Eˣ→kˣ.",
       "hypotheses": [
-        "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
+        "k is a finite field of odd cardinality q; i≥1; m=2^ν≥4 in the dyadic test. For the odd-primary assertion m is an odd prime power coprime to q and the cyclic action is faithful on Z/m."
       ],
       "proofSteps": [
-        "Import the cyclic resolution norm calculation for a faithful action on Z/m; compute Frobenius by q^i.",
+        "Use the existing cyclic resolution/norm and periodicity interface of ClassFieldTheory Layer 0. Evaluate it on the faithful module Z/m with Frobenius action q^i, as in §3; no new finite-group cohomology theory is defined here.",
         "When the action is inversion, 1+Frobenius=0 and the invariant group is Z/2. Otherwise the cyclic-module norm is an isomorphism, as in Lemma 3.2.",
         "Compare with Mathlib’s full finite-field unit norm; its surjectivity does not imply surjectivity on the root-twist subgroup."
       ],
@@ -1152,7 +1214,8 @@
       "prerequisites": [
         "mathlib:FiniteField.unitsMap_norm_surjective",
         "mathlib:FiniteField.algebraMap_norm_eq_pow",
-        "MotivicEtaleKTheory:M.2"
+        "MotivicEtaleKTheory:M.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers"
       ],
       "sources": [
         {
@@ -1224,25 +1287,29 @@
       ],
       "title": "Cyclotomic class-group descent diagrams",
       "kind": "comparison",
-      "statement": "Let m be a prime power, E=F(μ_m^{⊗i}), G=Gal(E/F), and T contain the primes above m. Over totally imaginary E, where the twist is trivial and m≠2, the Kummer/Brauer sequence is 0→Pic(O_{E,T})⊗μ_m^{⊗i}→H²(O_{E,T},μ_m^{⊗(i+1)})→M⁰→0, where M⁰ is the kernel of the sum of the local invariant targets to the global target. Its coinvariant long exact sequence has segment H₁(G,M⁰)→(Pic(O_{E,T})(i)/m)_G→H²(O_{F,S},μ_m^{⊗(i+1)})→M⁰_G→0 when the H² descent hypothesis holds. For real fields use Pic⁺ and totally positive H²₊ instead, as in §§6.8–6.9, and retain the comparison to ordinary H².",
+      "statement": "Let m be a prime power, E=F(μ_m^{⊗i}), G=Gal(E/F), and S be finite containing the primes dividing m and ramified primes of E/F. Set T to the places of E above S (thus S=T/G). Over totally imaginary E, where the twist is trivial and m≠2, the Kummer/Brauer sequence is 0→Pic(O_{E,T})⊗μ_m^{⊗i}→H²(O_{E,T},μ_m^{⊗(i+1)})→M⁰→0, where M⁰ is the kernel of the sum of the local invariant targets to the global target. Its coinvariant long exact sequence has segment H₁(G,M⁰)→(Pic(O_{E,T})(i)/m)_G→H²(O_{F,S},μ_m^{⊗(i+1)})→M⁰_G→0 when the H² descent hypothesis holds. For real fields use Pic⁺ and totally positive H²₊ instead, as in §§6.8–6.9, and retain the comparison to ordinary H².",
       "hypotheses": [
-        "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
+        "F is a number field; i ≥ 1; S is finite whenever O_S occurs.",
+        "Choose S as a finite set of finite places of F containing all primes dividing m and any ramified primes of E/F. Let T be exactly the set of places of E over S, so T is G-stable and S=T/G. For the totally positive dyadic variant take m=2^ν>2."
       ],
       "proofSteps": [
         "Use M.2’s Kummer/Brauer and totally positive variants on actual twisted coefficient modules.",
         "Use top-degree corestriction descent, with its cd≤2 or positive-cohomology hypothesis, and the long exact sequence for coinvariants.",
-        "Evaluate H₁(G,M⁰) with the faithful cyclotomic action and decomposition-group formulas; do not replace coinvariants by invariants without the norm theorem."
+        "Apply the imported finite-group homology interface and Mathlib’s groupHomology.indIso, then evaluate H₁(G,M⁰) with the faithful cyclotomic action and decomposition-group formulas. Do not replace coinvariants by invariants without the norm theorem."
       ],
       "acceptance": [
         "The ordinary H² coinvariant descent fails for real fields with odd i; positive H²₊ corrects it.",
-        "The paper’s unit-sign defect in §6.6 is a separate invariant from the parent j=u−t used in VI.9.9."
+        "The paper’s unit-sign defect in §6.6 is a separate invariant from the parent j=u−t used in VI.9.9.",
+        "The coinvariant descent uses the matching rings O_{E,T} and O_{F,S}; an arbitrary T containing the primes above m is insufficient without T being the full inverse image of S."
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.2",
         "IntegralIwasawaTheory:I.1",
         "IntegralIwasawaTheory:I.2",
         "ArithmeticGaloisDuality:R02.4/poitou-tate",
-        "ArithmeticKTheory:N.6/special-dyadic-decomposition"
+        "ArithmeticKTheory:N.6/special-dyadic-decomposition",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+        "mathlib:groupHomology.indIso"
       ],
       "sources": [
         {
@@ -1437,10 +1504,10 @@
       ],
       "title": "Hidden real K-classes are divisible",
       "kind": "theorem",
-      "statement": "For F with real places and i≡2 mod 4, the kernel C_{F,i} of K_{2i}(O_S){2}→H²_et(O_S,Z₂(i+1)), of order 2^ρ, lies in div K_{2i}(F). In particular the image of K⁽M⁾₄(F) in K₄(F) is divisible in the ambient field group. No claim is made that the finite subgroup C itself is a divisible group.",
+      "statement": "For F with real places and i≡2 mod 4, the kernel C_{F,i} of K_{2i}(O_S){2}→H²_et(O_S,Z₂(i+1)), of order 2^ρ, lies in div K_{2i}(F). In particular the image of K⁽M⁾₄(F) in K₄(F) is divisible in the ambient field group. No claim is made that the finite subgroup C itself is a divisible group. Here S contains all primes above 2.",
       "hypotheses": [
         "F is a number field; i ≥ 1; S is finite whenever O_S occurs.",
-        "Use the corrected cokernel convention for j in E-N6-2; the preprint’s kernel wording after (8.2) is a misprint."
+        "In each dyadic S-integer comparison, S contains every finite prime above 2, so 1/2 is a unit in O_{F,S}. The signature defect j is the cokernel dimension of real restriction; the author preprint already uses this convention after (8.2)."
       ],
       "proofSteps": [
         "Use M.7’s motivic spectral edge sequence (8.3). After the cyclotomic extension E the relevant d₂ is onto, so the H⁴ edge classes vanish modulo each sufficiently large 2-power.",
@@ -1552,8 +1619,14 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.8.2, book p. 413, PDF p. 421; VI.7.3 and Warning VI.7.5, book pp. 509–510, PDF pp. 517–518",
+          "excerpt": "I do not know any example",
+          "match": "The higher local divisible part may have p-primary torsion (Warning VI.7.5); torsion of a global class does not by itself imply vanishing in that part."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Moore’s Theorem III.6.2.4, book p. 233, PDF p. 241",
           "excerpt": "uniquely divisible",
-          "match": "The statement and the indicated proof, with conventions specified in this node."
+          "match": "The separate degree-two torsion-free local kernel input."
         }
       ],
       "library": {
@@ -1571,7 +1644,7 @@
       ],
       "title": "Arithmetic evidence for finite-order certificates",
       "kind": "application",
-      "statement": "Instantiate the parent order-certificate and certificate-driven-computation nodes using the arithmetic cohomology tables, exact local maps and class-group data above. A finite presentation supplies a proved surjection P→K_{2i}(O_S), while the cohomological and local computations supply an independently proved lower bound. Their matching cardinalities certify an isomorphism. Two-rank data certify only the number of two-primary factors; full order requires the complete H² data and, for real n≡4 mod 8, ρ and the actual extension. A wild-kernel certificate uses the symbol maps and the Moore exact sequence; a higher raw-kernel certificate requires G1.",
+      "statement": "Instantiate the parent order-certificate and certificate-driven-computation nodes using the arithmetic cohomology tables, exact local maps and class-group data above. A finite presentation supplies a proved surjection P→K_{2i}(O_S), while the cohomological and local computations supply an independently proved lower bound. Their matching cardinalities certify an isomorphism. Two-rank data certify only the number of two-primary factors; full order requires the complete H² cardinality and, for real n≡4 mod 8, ρ. The extension determines the group structure, while exactness already gives its cardinality as 2^ρ·|H²|. A wild-kernel certificate uses the symbol maps and the Moore exact sequence; a higher raw-kernel certificate requires G1.",
       "hypotheses": [
         "F is a number field; i ≥ 1; S is finite whenever O_S occurs."
       ],
@@ -1595,7 +1668,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "VI.9.9–9.11, book pp. 523–525, PDF pp. 531–533",
+          "locator": "VI.9.9–9.11, book pp. 522–525, PDF pp. 530–533",
           "excerpt": "j≤ρ<r₁",
           "match": "The statement and the indicated proof, with conventions specified in this node."
         }
@@ -1612,11 +1685,13 @@
     {
       "stageId": "ArithmeticKTheory:N.6",
       "status": "planned",
-      "note": "Every inherited remaining target is realised, using the accepted parent nodes for existing targets. New nodes distinguish numerical ranks, symbol kernels, full completion kernels and real corrections. All prerequisite chains terminate in read baseline declarations, imported nodes, precise supplier requests or G1/G2.",
+      "note": "All four inherited remaining target groups have target-level nodes, using the accepted parent for existing targets. Mathematical prerequisite chains end in read baseline declarations, exact supplier nodes, scoped requests or G1/G2. The independent review leaves mathematical coverage planned but requires revision of the definitive reader and the incomplete actual Lean signatures/tests before acceptance.",
       "remaining": [
         "G1: prove the extra vanishing in the divisible local parts needed to equate higher raw and symbol wild kernels, or correct the parent higher raw-kernel assertion to the symbol statement.",
         "G2: repair the cyclotomic localisation proof used in §§4.5,6.11 with a compatible prime-selection argument or an independently verified exact comparison. Collate E1 with the version of record.",
-        "Discharge the named supplier requests and replace missing-carrier mathematical signatures in Suggested with declarations on the supplied actual K/cohomology carriers."
+        "Discharge the named supplier requests and replace missing-carrier mathematical signatures in Suggested with declarations on the supplied actual K/cohomology carriers.",
+        "REV-ArithmeticKTheory--N.6: synchronise the definitive reader with the corrected packet, particularly rejecting E-N6-2, the full/dyadic local quotient distinction, the exceptional-field hypothesis, dyadic inversion, S/T descent and rank/order conventions. The reader is outside this review issue’s deliverable paths.",
+        "REV-ArithmeticKTheory--N.6: provide actual suggested declarations/API/examples on genuine supplier carriers where possible; the signature comments for positiveEvenK, cohomologicalWildKernel, SpecialAtTwo and the arithmetic specialisations do not satisfy the full declaration coverage of PROTOCOL §13. Record any unexpressible condition precisely and omit it honestly."
       ]
     }
   ],
@@ -1646,7 +1721,7 @@
   "requests": [
     {
       "supplier": "MotivicEtaleKTheory:M.2",
-      "need": "Map-level Kummer/Brauer sequences and real restriction for O_S; distinct modified H̃ and totally positive H₊ cohomology (§6.2); continuous Poitou–Tate limits; top-degree corestriction/coinvariants under the cd≤2 or positive hypothesis; faithful cyclic-module homology/norm and decomposition-group calculations of §§2–3; corrected cyclotomic ring-to-field localisation (§§4.5,6.11), with G2 explicitly unresolved.",
+      "need": "Map-level Kummer/Brauer sequences and real restriction for O_S; distinct modified H̃ and totally positive H₊ cohomology (§6.2); continuous Poitou–Tate limits; top-degree corestriction/coinvariants under the cd≤2 or positive hypothesis; corrected cyclotomic ring-to-field localisation (§§4.5,6.11), with G2 explicitly unresolved.",
       "neededBy": [
         "ArithmeticKTheory:N.6/arithmetic-mod-two-dimensions",
         "ArithmeticKTheory:N.6/modified-mod-two-dimensions",
@@ -1684,13 +1759,6 @@
       ]
     },
     {
-      "supplier": "SelmerIwasawaCohomology:L2",
-      "need": "Strict local-condition kernel and functorial change-of-local-condition maps on the actual degree-two twist cohomology, used as the carrier for Sha²; not a second generic Selmer definition.",
-      "neededBy": [
-        "ArithmeticKTheory:N.6/cohomological-wild-kernel"
-      ]
-    },
-    {
       "supplier": "IntegralIwasawaTheory:I.1",
       "need": "Compatible cyclotomic splitting fields F(μ_m^{⊗i}), actions, dyadic decomposition groups and transfer/norm maps at finite levels; compatible root embeddings for the special predicate.",
       "neededBy": [
@@ -1713,6 +1781,15 @@
       "neededBy": [
         "ArithmeticKTheory:N.6/hilbert-local-norm-certification"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+      "need": "Consume the existing generic finite-group Tate/homology carriers, norm resolution, subgroup restriction/corestriction maps, and cyclic periodicity of Layer 0. N.6 evaluates the faithful cyclotomic modules in Weibel §§2–3 against this interface; the arithmetic norm/homology calculations are not assigned to M.2 and no new cohomology carrier is planned.",
+      "neededBy": [
+        "ArithmeticKTheory:N.6/special-dyadic-decomposition",
+        "ArithmeticKTheory:N.6/twisted-residue-norm-test",
+        "ArithmeticKTheory:N.6/cyclotomic-class-group-descent"
+      ]
     }
   ],
   "restructure": [],
@@ -1730,8 +1807,14 @@
       "searched": [
         "Publisher DOI 10.1016/j.jpaa.2005.03.018: 403 on 2026-10-06.",
         "Author archive and search for title plus corrigendum/Lemma 4.4: no correction located.",
-        "Author K-book page and errata link (errata PDF returned 404)."
-      ]
+        "Author K-book page and errata link (errata PDF returned 404).",
+        "Independent review 2026-10-06: author archive and title/Lemma 4.4/correction searches found no verified correction; DOI returned redirect HTML and the final ScienceDirect article returned 403. Published text not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read rendered preprint p.12: Lemma 4.4 quantifies over every m and every unit residue class. The Q(i),m=4,a=3 counterexample disproves that unrestricted statement. This verdict is confined to the hashed author preprint; it neither disproves Theorem A nor asserts an error in the inaccessible publication.",
+        "by": "REV-ArithmeticKTheory--N.6"
+      }
     },
     {
       "id": "ArithmeticKTheory/E-N6-2",
@@ -1742,12 +1825,165 @@
       "correction": "The signature defect j is the dimension of the cokernel of real restriction H¹(O_S,Z/2)→(Z/2)^{r₁}, as defined in K-book VI.9.6.1 and imported from the parent signature-defect node.",
       "reason": "For F=Q and O_S=Z[1/2], H¹ has dimension two and the real restriction is onto. Its kernel has dimension one and its cokernel has dimension zero. The printed definition together with j≤ρ<r₁ would force 1≤ρ<1. The corrected cokernel gives j=ρ=0.",
       "affects": "a stated result",
-      "known": "new; scoped to the preprint, no published correction verified",
+      "known": "rejected by independent review; the hashed author preprint already prints the cokernel",
       "searched": [
         "Publisher DOI: 403 on 2026-10-06; version of record not collated.",
         "Author archive and title/corrigendum/signature searches: no verified correction located.",
         "Author K-book VI.9.6.1 states the cokernel convention; errata link returned 404."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rendered author preprint p.20, immediately after (8.2), already defines j as the dimension of the cokernel. The alleged printed phrase “the kernel” is absent there. The rational-field calculation distinguishes kernel from cokernel but does not show a misprint in this source. The original allegation is retained only as the finding under review.",
+        "by": "REV-ArithmeticKTheory--N.6"
+      }
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.6",
+    "date": "2026-10-06",
+    "notes": "Independently checked all 28 mathematical nodes, all seven original pinned baseline declarations and the added existing Shapiro isomorphism, supplier statements/audit, all 22 rendered preprint pages and cited K-book passages. Clear mathematical, locator, source-verdict, API and supplier corrections are recorded in the review report. G1/G2 are honest mathematical gaps and do not themselves prevent acceptance. Acceptance is withheld because the definitive reader still asserts the rejected E-N6-2 misprint and disagrees with corrected statements, and most actual Lean declarations/API/examples remain mathematical comments rather than the signatures required by §13. The review job is complete; a revision should address the listed file/interface inconsistencies.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.6/arithmetic-mod-two-dimensions",
+        "verdict": "verified",
+        "note": "VI.9.6 checked; S counts inverted finite primes, and j is the Selmer-squareclass signature cokernel, not solely the unit-sign defect."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/modified-mod-two-dimensions",
+        "verdict": "verified",
+        "note": "VI.9.6.3 checked; ordinary, modified restriction kernels and totally positive cohomology are distinct."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/mod-two-coefficient-orders",
+        "verdict": "verified",
+        "note": "All eight VI.9.7 orders checked; extensions need not be F₂ vector spaces."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-two-rank-function",
+        "verdict": "corrected",
+        "note": "Corrected VI.9.9 statement locator. Numerical natural subtraction/odd totalisation is separate from the positive even arithmetic theorem."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-two-ranks-from-arithmetic",
+        "verdict": "corrected",
+        "note": "Corrected statement/proof pagination; universal coefficients and the imported odd ranks give all four branches."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/finite-coefficient-divisibility-kernel",
+        "verdict": "verified",
+        "note": "V.6.8.2 checked: m is an annihilator of the finite embedded even group, not an arbitrary prime."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/stabilisation-of-primary-kernels",
+        "verdict": "verified",
+        "note": "Finite descending kernels stabilise; no effective exponent bound follows merely from their finiteness."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/positive-even-k-subgroup",
+        "verdict": "verified",
+        "note": "Definition 0.2 notation checked, including i≡1 mod4 real symbols and the three discriminating mathematical tests. Actual arithmetic signatures remain a §13 revision."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/local-symbol-family",
+        "verdict": "corrected",
+        "note": "Corrected Q₂ full degree-four quotient from 8 to 24, retained primary order 8, added a detecting test/source and map/equality API."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/symbol-wild-kernel",
+        "verdict": "corrected",
+        "note": "Definition 0.2 and tests checked; added kernel lift/evaluation/uniqueness API on the genuine generic maps. Arithmetic instantiation still needs supplier carriers."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/global-moore-sequence",
+        "verdict": "verified",
+        "note": "Lemma 0.3 exact maps, positive middle group, finite support and dual target checked; real/inverse-limit supplier conditions retained."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/primary-s-integer-moore-sequence",
+        "verdict": "verified",
+        "note": "Corollary 0.4 checked; only primes over ℓ may be inverted without changing the ℓ-primary even group, using the read L.6/L.7 and finite-field outputs."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/orders-of-symbol-wild-kernels",
+        "verdict": "verified",
+        "note": "Corollary 0.4 order identity checked, including the real factor only at ℓ=2,i≡1 mod4."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cohomological-wild-kernel",
+        "verdict": "corrected",
+        "note": "Replaced coarse L2 request by exact selmer-data/kernel/functoriality suppliers, added H¹ finiteness for the limit and the functorial API. Real continuous/finite twist tests checked."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/symbol-cohomological-comparison",
+        "verdict": "corrected",
+        "note": "§8 map and invisible C kernel checked; added required dyadic inversion and removed the false misprint hypothesis."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/special-number-fields",
+        "verdict": "corrected",
+        "note": "Definition 5.2 and all four field tests checked. Restored exceptionality in the decomposition API and added the witness constructor; actual Lean predicate/API/tests still require revision."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/special-dyadic-decomposition",
+        "verdict": "corrected",
+        "note": "Remark 5.2.1/Lemma5.4/Corollary3.7 checked; routed generic homology machinery to the read upstream supplier, preserving the arithmetic evaluation here. Shapiro is already Mathlib groupHomology.indIso and was independently read at the pin."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/twisted-residue-norm-test",
+        "verdict": "corrected",
+        "note": "§3 norm inversion exception checked, distinct from full-unit norm surjectivity; routed the generic cyclic machinery to its read upstream owner."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/hilbert-local-norm-certification",
+        "verdict": "verified",
+        "note": "III.6.2.3–4 and the exact local reciprocity norm-kernel supplier checked; determinant norm/unit filtrations are imported, higher twisted symbols kept separate."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cyclotomic-class-group-descent",
+        "verdict": "corrected",
+        "note": "Pinned matching S/T and unramified descent hypotheses, retained the real positive sequence; corrected the generic homology supplier scope. Shapiro is already Mathlib groupHomology.indIso and was independently read at the pin."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cyclotomic-divisible-image",
+        "verdict": "verified",
+        "note": "§§4.5/4.6/6.11/7.5 checked as target-level architecture conditional on G2 in the exceptional odd dyadic branch. Confirmed E1 does not refute this target."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/imaginary-nonexceptional-comparison",
+        "verdict": "verified",
+        "note": "§4.7/5.5(1) checked. Exceptional nonspecial odd twists also depend on the honestly recorded G2 through the image node."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/imaginary-special-obstruction",
+        "verdict": "verified",
+        "note": "§5.5(2) and Example5.6 checked; special odd twist has quotient exactly Z/2, with no general splitting asserted; G2 retained."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/real-motivic-obstruction",
+        "verdict": "verified",
+        "note": "Theorem B/§7.6–7.8 checked on the motivic/continuous carriers, with ordinary versus positive real terms and G2 preserved."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/hidden-real-k-classes-are-divisible",
+        "verdict": "corrected",
+        "note": "§8.4–8.7 edge/transfer architecture checked; added dyadic inversion and removed the false misprint hypothesis. Divisibility is in the ambient group."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/weibel-symbol-divisibility-theorem",
+        "verdict": "verified",
+        "note": "Theorem A case assembly checked for the symbol kernel, including the invisible real classes; proof gap G2 explicitly retained rather than assumed."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/raw-and-symbol-kernel-boundary",
+        "verdict": "corrected",
+        "note": "Separated the source for the uniquely divisible degree-two kernel from Warning VI.7.5; higher equality still requires exactly G1."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/arithmetic-evidence-for-certificates",
+        "verdict": "corrected",
+        "note": "Corrected VI.9.9 pagination and separated cardinality from extension structure: rho fixes the multiplicative order factor; identifying the abstract group requires extension data."
+      }
+    ]
+  }
 }
