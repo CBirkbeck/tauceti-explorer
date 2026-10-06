@@ -1,6 +1,6 @@
 # Étale cohomology of diamonds: dimension and compact objects
 
-This is the C8–C9 part of the roadmap. It is a partial blueprint: the statements and dependency graph below distinguish read source arguments, existing library carriers, supplier contracts, and the proof inputs that remain unclosed. Nothing here is claimed to be formalized. The companion packet is authoritative for declaration identifiers and outstanding requests; the suggested file supplies the signatures that can currently be stated against the pinned carriers.
+This is the C8–C9 part of the roadmap. It is a complete target-level planning pass with both stages planned: the statements and dependency graph below distinguish read source arguments, existing library carriers, supplier contracts, and the proof inputs that remain unclosed. Nothing here is claimed to be formalized. The companion packet is authoritative for declaration identifiers and outstanding requests; the suggested file supplies the signatures that can currently be stated against the pinned carriers.
 
 The programme begins with topological dimension and two field invariants, then proves degree-zero direct image before using it in either the spatial cohomological bound or compact generation. C8 supplies dimension to DiamondSixOperations S0–S1. C9 supplies compact objects to S4 and S6; applications must establish its bounds. The canonical-compactification estimate of S1 and compact generation for Bun_G or solid sheaves are separate results owned by their consumers.
 
@@ -8,11 +8,11 @@ The programme begins with topological dimension and two field invariants, then p
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The existing `topologicalKrullDim` takes values in `WithBot ENat`, including minus infinity for empty spaces and plus infinity for unbounded finite chain lengths. On sober spaces the existing order isomorphism between irreducible closed subsets and points relates it to ECD’s specialization chains. We do not define a second generic Krull dimension.
 
-Field degrees take values in `ENat`; pointwise suprema take values in `WithBot ENat`. Algebraic transcendence degree is the cardinal-valued `Algebra.trdeg`. Topological transcendence degree measures a dense intermediate field and must not be replaced by that algebraic invariant of the completed field itself. Its modified version takes a minimum over further complete algebraically closed extensions; the minimum and the subsequent point/presentation suprema are different operations. Question 21.4 is not an available general monotonicity theorem. The finite-degree result noted in v4 is an explicit remaining source task.
+Field degrees take values in `ENat`; pointwise suprema take values in `WithBot ENat`. Algebraic transcendence degree is the cardinal-valued `Algebra.trdeg`. Topological transcendence degree measures a dense intermediate field and must not be replaced by that algebraic invariant of the completed field itself. Its modified version takes a minimum over further complete algebraically closed extensions; the minimum and the subsequent point/presentation suprema are different operations. Question 21.4 is not an available general monotonicity theorem. The finite intermediate-degree monotonicity theorem and equality with the modified invariant in that case are separate nodes. Temkin’s independent and generating degrees are distinguished; the imported primitive perturbation proof remains an explicit source boundary.
 
 Diamond sites, the actual diamond carrier, continuous profinite modules, constructibility and enhanced derived categories are imported. The pinned `continuousCohomology` already supplies the canonical TopRep-to-TopModuleCat carrier; its existence alone does not supply all-degree comparison, Hochschild–Serre or cohomological dimension. All coefficients in the general compactness statements are commutative rings, following this roadmap’s enhanced coefficient convention. Prime-to-p restrictions occur in the geometric point bound, not by fiat in the conditional compactness theorem.
 
-The generated coverage file has no C8/C9 records. The scoped AUDIT-36 records and the separate accepted REV-AUDIT-36 report were read and checked against direct searches. No diamond dimension, topological transcendence degree, quasi-augmented space or diamond compact-object theorem was found in either pinned source tree. Source statements for the baseline citations below were read; the suggested file was not compiled.
+The generated coverage file has no C8/C9 records. The scoped AUDIT-36 records and the separate accepted REV-AUDIT-36 report were read and checked against direct searches. No diamond dimension, topological transcendence degree, quasi-augmented space or diamond compact-object theorem was found in either pinned source tree. Source statements for the baseline citations below were read. The suggested file elaborates against the pinned Mathlib with only proof-placeholder warnings. It represents 14 nodes and explicitly inventories 49 omitted signatures, including their API and tests, whose owning supplier types are required. Elaboration establishes typing, not proofs; neither stage is closed.
 
 ## Proof order and acceptance contracts
 
@@ -24,6 +24,16 @@ The generated coverage file has no C8/C9 records. The scoped AUDIT-36 records an
 6. For compactness, transfer one common bound to every qc separated étale test object, prove left completeness and coproduct compatibility, then prove generation and both directions of the compact-object characterization.
 
 Acceptance must include the empty dimension convention, a strictly totally disconnected space, a local bound that is not globally uniform, and rejection of a compactness application to a nonspatial diamond or without the required bound. A spectral-constructible stratification is required: an arbitrary point/complement partition of a closed disc is insufficient. A nonmaximal valuation plus ring is retained in 21.16; passing to a rank-one base is a proof step, not a change to the public hypotheses.
+
+## Target coverage and source boundaries
+
+The C8 target chain is fibre dimension → dense-field degree → modified degree → analytic/diamond dimension and local finiteness. The point-presentation, direct-image and wild/residue/tame chains then feed the spatial bound, using the separate quasi-augmented spectral-space descent chain. The topological field-test comparison covers Remark 21.8’s v-stack dimension convention. Caraiani–Scholze’s partially proper dimension and fibre-additivity results form a separate analytic chain; their valuative supplier extension has a Part II proposal. Fargues–Scholze Problem I.11.1 remains a question about Zariski closed perfectoid balls, with PerfectoidSpaces:P4 supplying the subspaces.
+
+The C9 target chain begins with bounded filtered compactness, transfers a single finite cohomological bound to all qc separated étale tests, and derives left completeness, the ordinary/enhanced comparison, coproduct compatibility, detection and generation. Both implications of compact iff perfect-constructible have separate nodes. The finite-field specialization recovers bounded constructible complexes. The dimension-bound application supplies a concrete geometric hypothesis implying the uniform bound d+e; every further application must prove its own hypotheses.
+
+ECD Question 21.4 asks for general monotonicity of the unmodified generating degree. The finite theorem assumes finiteness of the intermediate degree; no inference supplies the infinite case. FS Problem I.11.1 asks for well-behaved dimension and agreement of the three invariants on Zariski closed perfectoid balls. Neither question appears as a theorem or prerequisite.
+
+The suggested modified degree uses genuine complete algebraically closed valued-extension data. Its universe cutoff needs a finite-witness size comparison before it models the unrestricted source minimum. The specialization-chain signature uses the original specialization relation on the existing constructible-topology carrier, with x₀ the generalizing vertex. Its first-vertex projection fails to commute with face zero: ordinary augmented hypercover descent does not supply the required quasi-augmentation theorem.
 
 ## C8. Dimension and cohomological bounds
 
@@ -69,10 +79,10 @@ API:
 
 Unit tests:
 
-- `fibreDimension_empty`: A map with empty domain has fibreDimension bottom.
-- `fibreDimension_identity`: The identity on any nonempty topological space has fibreDimension zero.
-- `fibreDimension_toPoint`: For f:X→PUnit, fibreDimension(f)=topologicalKrullDim X.
-- `fibreDimension_emptyTarget`: The unique function from the empty space to itself has fibreDimension bottom, despite being an identity.
+- `fibreDimension_empty` (degenerate): A map with empty domain has fibreDimension bottom.
+- `fibreDimension_identity` (computation): The identity on any nonempty topological space has fibreDimension zero.
+- `fibreDimension_toPoint` (compatibility): For f:X→PUnit, fibreDimension(f)=topologicalKrullDim X.
+- `fibreDimension_emptyTarget` (degenerate): The unique function from the empty space to itself has fibreDimension bottom, despite being an identity.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -105,10 +115,10 @@ API:
 
 Unit tests:
 
-- `topologicalTrdeg_self_test`: For any field K with any topology, the identity extension has value zero.
-- `topologicalTrdeg_dense_algebraic`: If the image of an algebraic intermediate extension A/K is dense in L, the value is zero, even when L/K is not algebraic.
-- `topologicalTrdeg_discrete_one`: If L has the discrete topology and Algebra.trdeg K L=1, then topologicalTrdeg(K,L)=1.
-- `topologicalTrdeg_discrete_infinite`: For discrete L with infinite algebraic transcendence degree, the value is infinity, not zero.
+- `topologicalTrdeg_self_test` (computation): For any field K with any topology, the identity extension has value zero.
+- `topologicalTrdeg_dense_algebraic` (degenerate): If the image of an algebraic intermediate extension A/K is dense in L, the value is zero, even when L/K is not algebraic.
+- `topologicalTrdeg_discrete_one` (compatibility): If L has the discrete topology and Algebra.trdeg K L=1, then topologicalTrdeg(K,L)=1.
+- `topologicalTrdeg_discrete_infinite` (non-example): For discrete L with infinite algebraic transcendence degree, the value is infinity, not zero.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -122,14 +132,15 @@ For complete algebraically closed nonarchimedean fields K⊆L and n natural, top
 
 Proof or construction:
 
-1. From a dense intermediate field choose a transcendence basis of size at most n and pad it; use algebraicity and density.
-2. The converse is the Krasner comparison referenced after21.2. Its full valued-field approximation argument is a recorded proof gap; the equivalence is not treated as a baseline fact.
+1. For a dense intermediate A/K of transcendence degree at most n, choose a finite transcendence basis and pad its tuple. Any closed algebraically closed intermediate field containing the tuple contains every element algebraic over it, hence A, hence L.
+2. Conversely let the tuple have the stated minimality property. The relative algebraic closure of K(tuple) in L is algebraically closed. Its closure is a complete algebraically closed subfield by the characteristic-independent coefficient/root approximation in Conrad §2. Minimality makes that closure L, so the relative algebraic closure is a dense intermediate field of degree at most n.
+3. For the approximation step, approximate a monic polynomial by same-degree monic polynomials over the dense algebraically closed subfield. Their roots are uniformly bounded. In a finite splitting extension of the complete field, select a subsequence approaching one of the finitely many roots; completeness returns its limit to the original field. The valued finite-extension norm input is retained in the completion gap.
 
 Dependencies: `DiamondEtaleCohomology:C8/topological-trdeg`.
 
 Acceptance: The case n=0 is compatible with a complete algebraically closed base. Complete and algebraically closed are both retained.
 
-Source: ECD, After Definition21.2 and proof of Lemma21.3, p.122.
+Source: ECD, After Definition21.2 and proof of Lemma21.3, p.122; CONRAD, Theorem 1.1 and §2, pp.1–3.
 
 ### Topological transcendence degree in a tower
 
@@ -192,10 +203,10 @@ API:
 
 Unit tests:
 
-- `modifiedTopologicalTrdeg_identity`: The identity extension has value zero.
-- `modifiedTopologicalTrdeg_zeroWitness`: Any further extension E with topologicalTrdeg(K,E)=0 forces modifiedTopologicalTrdeg(K,L)=0.
-- `modifiedTopologicalTrdeg_noFiniteWitness`: If every further extension has infinite topologicalTrdeg over K, the modified invariant is infinity.
-- `modifiedTopologicalTrdeg_vsOriginal`: When every further extension E satisfies topologicalTrdeg(K,L)≤topologicalTrdeg(K,E), the modified and original invariants agree; this monotonicity is an explicit hypothesis, not an unconditional theorem.
+- `modifiedTopologicalTrdeg_identity` (computation): The identity extension has value zero.
+- `modifiedTopologicalTrdeg_zeroWitness` (degenerate): Any further extension E with topologicalTrdeg(K,E)=0 forces modifiedTopologicalTrdeg(K,L)=0.
+- `modifiedTopologicalTrdeg_noFiniteWitness` (non-example): If every further extension has infinite topologicalTrdeg over K, the modified invariant is infinity.
+- `modifiedTopologicalTrdeg_vsOriginal` (compatibility): When every further extension E satisfies topologicalTrdeg(K,L)≤topologicalTrdeg(K,E), the modified and original invariants agree; this monotonicity is an explicit hypothesis, not an unconditional theorem.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -246,9 +257,7 @@ Proof or construction:
 1. Use the stalkwise valued residue fields of upstream AdicSpaces Layer3, then completion and algebraic closure.
 2. Take the pointwise supremum; compare choices through common complete algebraically closed extensions using modified-trdeg-base-change. Choice independence still needs the precise valued embedding argument recorded in the gap list.
 
-Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`.
 
 Uses:
 
@@ -264,9 +273,9 @@ API:
 
 Unit tests:
 
-- `analyticDimTrg_empty_test`: Empty analytic source gives bottom.
-- `analyticDimTrg_identity_point`: The identity of a nonempty algebraically closed field spectrum has dimension zero.
-- `analyticDimTrg_field_test`: A compatible extension C⊆D of complete algebraically closed fields gives the field invariant on Spa(D,O_D)→Spa(C,O_C).
+- `analyticDimTrg_empty_test` (degenerate): Empty analytic source gives bottom.
+- `analyticDimTrg_identity_point` (computation): The identity of a nonempty algebraically closed field spectrum has dimension zero.
+- `analyticDimTrg_field_test` (compatibility): A compatible extension C⊆D of complete algebraically closed fields gives the field invariant on Spa(D,O_D)→Spa(C,O_C).
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -300,7 +309,7 @@ Proof or construction:
 1. Use D4–D5 field-point and quasi-pro-étale presentations.
 2. Compare two representatives in a common pullback using modified-trdeg-base-change; the precise comparison and cutoff independence are recorded proof gaps. Take the point supremum, then the test-object supremum for v-stacks.
 
-Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `DiamondsAndVStacks:D5/relative-representability`.
+Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `DiamondsAndVStacks:D5/relative-representability`, `DiamondsAndVStacks:D5`.
 
 Uses:
 
@@ -318,10 +327,10 @@ API:
 
 Unit tests:
 
-- `diamondDimTrg_empty_test`: Empty source gives bottom.
-- `diamondDimTrg_identity_point`: The identity of Spa(C,O_C) has value zero.
-- `diamondDimTrg_field_test`: Spa(D,O_D)→Spa(C,O_C) gives modifiedTopologicalTrdeg(C,D).
-- `diamondDimTrg_bottom`: Nonempty source has value at least zero, never bottom.
+- `diamondDimTrg_empty_test` (degenerate): Empty source gives bottom.
+- `diamondDimTrg_identity_point` (computation): The identity of Spa(C,O_C) has value zero.
+- `diamondDimTrg_field_test` (compatibility): Spa(D,O_D)→Spa(C,O_C) gives modifiedTopologicalTrdeg(C,D).
+- `diamondDimTrg_bottom` (non-example): Nonempty source has value at least zero, never bottom.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -387,9 +396,9 @@ API:
 
 Unit tests:
 
-- `locallyFiniteDimTrg_empty`: Empty source satisfies the predicate.
-- `locallyFiniteDimTrg_identity_test`: The identity has bound zero.
-- `locallyFiniteDimTrg_localNotUniform`: A disjoint union of maps of finite but unbounded component dimensions is locally finite without a uniform global finite bound.
+- `locallyFiniteDimTrg_empty` (degenerate): Empty source satisfies the predicate.
+- `locallyFiniteDimTrg_identity_test` (computation): The identity has bound zero.
+- `locallyFiniteDimTrg_localNotUniform` (non-example): A disjoint union of maps of finite but unbounded component dimensions is locally finite without a uniform global finite bound.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -457,7 +466,7 @@ Proof or construction:
 1. Choose a quasi-pro-étale field-point surjection. Its relation is quasicompact by quasiseparatedness and is affinoid pro-étale by D1 Lemma7.19, hence Spa(C,O_C)×S for profinite S.
 2. The relation composition, identity and inversion give S a continuous group structure; the second projection gives the faithful field action. Descend the equivalence-relation quotient.
 
-Dependencies: `DiamondsAndVStacks:D5/universally-open-presentation`, `DiamondsAndVStacks:D1/pro-etale-maps-over-std-base`, `DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products`.
+Dependencies: `DiamondsAndVStacks:D5/universally-open-presentation`, `DiamondsAndVStacks:D1/pro-etale-maps-over-std-base`, `DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products`, `DiamondsAndVStacks:D5`.
 
 Acceptance: Use the sheaf quotient of an equivalence relation; an arbitrary stack quotient is not a substitute.
 
@@ -491,9 +500,7 @@ Proof or construction:
 1. Étale abelian sheaves on the algebraically closed field point are abelian groups.
 2. Descent over Spa(C,O_C)×G is a continuous action on that discrete group; the cocycle condition is the action law. Identify invariant sections.
 
-Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C0`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C0`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -510,9 +517,7 @@ Proof or construction:
 1. The acyclic field cover and Cartan–Leray yield continuous cochains.
 2. Use the upstream all-degree comparison to the canonical homogeneous-cochain carrier. Check degree zero against invariants and naturality against coefficient maps.
 
-Dependencies: `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/strictly-disconnected-acyclic`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `mathlib:continuousCohomology`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/strictly-disconnected-acyclic`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `mathlib:continuousCohomology`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -529,9 +534,7 @@ Proof or construction:
 1. Use the maximal-point subdiamond and point-quotient.
 2. Apply point-quotient-unique and the supplier’s invariance of cohomological dimension under continuous group isomorphism.
 
-Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C8/point-quotient-unique`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondsAndVStacks:D5/injection-and-finite-etale-permanence`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C8/point-quotient-unique`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondsAndVStacks:D5/injection-and-finite-etale-permanence`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
 
 Uses:
 
@@ -546,9 +549,9 @@ API:
 
 Unit tests:
 
-- `pointCd_closedField`: The algebraically closed field point Spa(C,O_C) has value zero.
-- `pointCd_presentation_test`: For every faithful quotient presentation the value is the upstream cd_ℓ of its profinite group.
-- `pointCd_unbounded`: Nonzero ℓ-primary torsion cohomology in arbitrarily high degrees forces infinite pointCd.
+- `pointCd_closedField` (computation): The algebraically closed field point Spa(C,O_C) has value zero.
+- `pointCd_presentation_test` (compatibility): For every faithful quotient presentation the value is the upstream cd_ℓ of its profinite group.
+- `pointCd_unbounded` (non-example): Nonzero ℓ-primary torsion cohomology in arbitrarily high degrees forces infinite pointCd.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -565,7 +568,7 @@ Proof or construction:
 1. The relation is affinoid pro-étale. Its fibre at the unique lift of y is the space of sections over Spa(C,C_y+).
 2. Unique generalization induces injective continuous maps of these profinite groups; compact-to-Hausdorff makes the image closed.
 
-Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondsAndVStacks:D1/pro-etale-maps-over-std-base`, `DiamondsAndVStacks:D5/universally-open-presentation`.
+Dependencies: `DiamondEtaleCohomology:C8/point-quotient`, `DiamondsAndVStacks:D1/pro-etale-maps-over-std-base`, `DiamondsAndVStacks:D5/universally-open-presentation`, `DiamondsAndVStacks:D5`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -582,9 +585,7 @@ Proof or construction:
 1. After pullback to Spa(C,C+) the sheaf is supported at the closed point, hence is an abelian group.
 2. Descent is precisely the G_s action. Apply Cartan–Leray to identify cohomology, with the same canonical carrier comparison used in point-cohomology.
 
-Dependencies: `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -601,9 +602,7 @@ Proof or construction:
 1. Identify cohomology through closed-point-cohomology.
 2. Use specialization-stabilizers and the upstream closed-subgroup inequality cd_ℓ(G_s)≤cd_ℓ(G_η).
 
-Dependencies: `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/point-cd`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/point-cd`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
 
 Acceptance: The statement assumes spatiality and the local underlying space; no arbitrary point-support assertion is substituted.
 
@@ -620,9 +619,7 @@ Proof or construction:
 1. Instantiate the shared all-degree continuous Hochschild–Serre sequence E2^(a,b)=H^a(Q,H^b(N,M))⇒H^(a+b)(G,M).
 2. For finite bounds the E2 terms vanish outside the rectangle a≤cd_ℓ(Q), b≤cd_ℓ(N); use convergence to deduce vanishing above the sum. Infinite bounds are automatic.
 
-Dependencies: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
 
 Acceptance: Identify the edge maps with canonical restriction/inflation, rather than invoking only a five-term sequence.
 
@@ -640,9 +637,7 @@ Proof or construction:
 2. Using profinite Sylow, reduce a non-pro-p factor to a pro-ℓ cyclic group for ℓ≠p.
 3. If γ(x)≠x, choose y with the size of γ(x)/x−1. The residue of (g(x)/x−1)/y is a nonzero continuous homomorphism to the additive residue field. Triviality on leading terms proves its additivity. A pro-ℓ group has no nontrivial continuous map to this discrete p-torsion group, a contradiction.
 
-Dependencies: .
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.
 
 Acceptance: Both pointwise factorial-power convergence and the leading-term action hypothesis are retained.
 
@@ -659,9 +654,7 @@ Proof or construction:
 1. Each element of P satisfies the factorial-power convergence hypothesis by continuity of the action from a profinite group.
 2. Apply wild-automorphism to its procyclic closure. Every finite quotient of P has only p-power-order elements, hence is a p-group; use the upstream finite-quotient criterion.
 
-Dependencies: `DiamondEtaleCohomology:C8/wild-automorphism`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/wild-automorphism`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`, `tauceti:TauCeti.IsProP`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -678,9 +671,7 @@ Proof or construction:
 1. Finite-quotient averaging and the all-degree coefficient-colimit comparison give H^b(P,M)=0 for b>0 and discrete ℓ-primary torsion M.
 2. Hochschild–Serre collapses to H^a(G,M)=H^a(G/P,M^P). This yields one inequality; inflate each G/P module to get the reverse.
 
-Dependencies: `DiamondEtaleCohomology:C8/extension-cd-bound`, `ArithmeticGaloisDuality:R02.1`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/extension-cd-bound`, `ArithmeticGaloisDuality:R02.1`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -715,9 +706,7 @@ Proof or construction:
 1. For finite transcendence degree this requires the geometric field cohomological-dimension theorem, its finite-generation reduction and continuity over subfields. ECD invokes the result without supplying these proofs.
 2. The exact field-theoretic proof is an explicit gap owned by C8; no local-field cd=2 theorem or fixed finite coefficient case is substituted.
 
-Dependencies: .
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
 
 Acceptance: Algebraic extensions of the algebraically closed base give zero; retain ℓ≠p and the all-discrete-torsion scope.
 
@@ -752,9 +741,7 @@ Proof or construction:
 1. Use the tame-character-embedding as a closed embedding.
 2. Compute the ℓ-cohomological bound for compact subgroups of the prime-to-p adele vector group using ℤ_ℓ^r lattices and the prime-to-ℓ factor, then apply the upstream closed-subgroup bound. The lattice cohomology calculation is an explicit unfinished proof input.
 
-Dependencies: `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/extension-cd-bound`.
-
-Unresolved upstream dependencies: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`. These remain requested graph leaves; see the serialization gap.
+Dependencies: `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -768,9 +755,9 @@ For complete algebraically closed nonarchimedean C⊆C′, with residue fields k
 
 Proof or construction:
 
-1. For a finite dense intermediate field apply the valuation transcendence inequality cited as Bourbaki VI.10.3 Corollary1.
-2. Prove residue transcendence degree and rationalized value group are unchanged by completion and monotone under further valued extensions.
-3. Apply the inequality to every further complete algebraically closed extension and take the modified infimum. The Bourbaki proof and comparison lemmas have not been independently read or decomposed.
+1. For a finite set of algebraically independent residue classes and rationally independent value classes modulo the base value group, choose lifts a_i and b_j. A nonzero polynomial in their combined lifts groups by b-monomials. Each nonzero coefficient polynomial in the a_i has value in the base group: scale its coefficients to maximal norm one and use residue independence to prevent cancellation. Distinct b-monomials have distinct values modulo the base group, so the resulting sum cannot cancel. The lifts are algebraically independent.
+2. Take suprema of finite residue and rational-rank witnesses to obtain the valuation transcendence inequality for each dense intermediate field. Density preserves residue field and value group, since approximating x with error smaller than |x| preserves its value and its leading residue.
+3. Algebraic extensions change residue fields algebraically and value groups only by torsion; completion is immediate in rank one. Thus pass through completed algebraic closures and then further valued extensions, where the two ranks only increase. Apply the finite bound to every witness and take the modified infimum. The detailed rank and topology comparisons are recorded for refinement; the cited Bourbaki proof was not accessible.
 
 Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `mathlib:Algebra.trdeg`.
 
@@ -800,14 +787,15 @@ Source: ECD, Proposition21.16, pp.126–127.
 
 Declaration `DiamondEtaleCohomology:C8/specialization-chain-space` (construction).
 
-For spectral X, form sp_n(X) consisting of tuples (x0,…,xn) with x0 specializing to x1 through xn, allowing repetitions, with topology induced from the product constructible topology. Deleting and repeating entries give a simplicial topological space. The projection γ_n to x0 has values in X with its original topology; γ_0 is the quasi-augmentation, not an ordinary simplicial augmentation commuting with every face.
+For spectral X, form sp_n(X) from tuples (x0,…,xn) for which xi generalizes xj when i≤j, allowing repetitions, with the subspace topology from the product constructible topology. Deleting and repeating coordinates gives a simplicial topological space. The projection γ_n to x0 takes values in the original topology; γ_0 is the quasi-augmentation and the projections are not an ordinary simplicial augmentation. This chain orientation matches KST; reversing chains preserves the dimension convention of ECD21.1.
 
 Proof or construction:
 
-1. Use the constructible-topology supplier and the specialization relation to form each subspace.
-2. Restriction of coordinate deletions and repetitions defines continuous structure maps; the simplicial identities follow from the coordinate identities. The generic simplicial-space infrastructure is imported from E2.
+1. Use Mathlib’s constructible-topology synonym and simplicial-object carrier. Form the specialization-chain subtype of the finite product. Specialization is measured in the original topology, not the Hausdorff patch topology.
+2. Coordinate restriction along a monotone ordinal map preserves chains and is continuous; coordinate identities prove the functor laws. For spectral X, the specialization relation is patch-closed, so each chain space is profinite using the D0 patch-space theorem.
+3. The first-vertex projection is continuous to the original topology. It changes under the face deleting x0, which is why a quasi-augmentation rather than a Cartesian hypercover is required.
 
-Dependencies: `DiamondsAndVStacks:D0/constructible-topology-profinite`, `EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent`.
+Dependencies: `mathlib:WithConstructibleTopology`, `mathlib:CategoryTheory.SimplicialObject`, `DiamondsAndVStacks:D0/constructible-topology-profinite`.
 
 Uses:
 
@@ -819,18 +807,18 @@ API:
 - `specializationChainSpace_zero` (compatibility): The degree-zero space is X with its constructible topology.
 - `specializationChainSpace_face` (projection): The ith face deletes the ith entry.
 - `specializationChainSpace_degeneracy` (constructor): The ith degeneracy repeats the ith entry.
-- `specializationChainSpace_nondegenerate` (characterisation): A chain is nondegenerate iff its entries are pairwise distinct.
+- `specializationChainSpace_nondegenerate` (characterisation): For a T0 space and a positive-degree chain, absence of an elementary degeneracy preimage is equivalent to pairwise distinct vertices; degree-zero chains are all nondegenerate.
 
 Unit tests:
 
-- `specializationChainSpace_empty`: All degrees are empty for empty X.
-- `specializationChainSpace_point`: For a one-point space there is exactly one simplex in every degree and no nondegenerate positive-dimensional simplex.
-- `specializationChainSpace_discrete`: For a two-point discrete space every chain is constant; there is no nondegenerate edge.
-- `specializationChainSpace_twoPointChain`: For a two-point spectral chain there is exactly one nondegenerate edge, whereas no nondegenerate simplex exists in degree2.
+- `specializationChainSpace_empty` (degenerate): All degrees are empty for empty X.
+- `specializationChainSpace_point` (computation): For a one-point space there is exactly one simplex in every degree and no nondegenerate positive-dimensional simplex.
+- `specializationChainSpace_discrete` (non-example): For a two-point discrete space every chain is constant; there is no nondegenerate edge.
+- `specializationChainSpace_twoPointChain` (computation): For a two-point spectral chain there is exactly one nondegenerate edge, whereas no nondegenerate simplex exists in degree2.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
-Source: KST, Lemma6.6, first proof paragraph, p.24.
+Source: KST, Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7.
 
 ### Cohomology from the quasi-augmented chain space
 
@@ -844,11 +832,11 @@ Proof or construction:
 2. Prove Scheiderer cohomological descent (Remark2.5 and Theorem4.1), then identify the normalization as in Proposition4.7.
 3. These are precise unclosed proof tasks: only the application in KST Lemma6.6 has been read, not Scheiderer’s proofs.
 
-Dependencies: `DiamondEtaleCohomology:C8/specialization-chain-space`, `EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent`.
+Dependencies: `DiamondEtaleCohomology:C8/specialization-chain-space`, `EnhancedDerivedSheaves:E2`.
 
 Acceptance: Do not replace the quasi-augmentation by an ordinary augmentation; the first-vertex coefficient map must be constructed.
 
-Source: KST, Lemma6.6, proof citing Scheiderer Remark2.5, Theorem4.1 and Proposition4.7, p.24.
+Source: KST, Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7.
 
 ### Spectral-space cohomological dimension
 
@@ -865,7 +853,7 @@ Dependencies: `DiamondEtaleCohomology:C8/specialization-dimension`, `DiamondEtal
 
 Acceptance: A nonempty zero-dimensional spectral space has no positive cohomology. The Stacks0A3G proof is corroboration, not a replacement for the required quasi-augmented proof.
 
-Source: ECD, Proposition21.11, proof citing Scheiderer Corollary4.6, p.125; KST, Lemma6.6 and its normalization argument, p.24.
+Source: KST, Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7.
 
 ### Dimension drop at the boundary of an open stratum
 
@@ -895,7 +883,7 @@ Proof or construction:
 1. Use filtered-colimit compatibility to reduce to bounded-exponent and constructible coefficients, and dévissage to ℓ-torsion.
 2. Use the C7 constructible filtration and the exact extension-by-zero quotient to preserve vanishing on U. Reduce through finite extensions to a single stratum.
 
-Dependencies: `DiamondEtaleCohomology:C7`, `DiamondEtaleCohomology:C3`, `DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites`.
+Dependencies: `DiamondEtaleCohomology:C7`, `DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites`, `DiamondEtaleCohomology:C5`.
 
 Acceptance: The stratification is spectral-constructible. An arbitrary point/complement decomposition of a closed disc does not qualify.
 
@@ -988,9 +976,62 @@ Acceptance: Retain every stated hypothesis; verify each proof step against its n
 
 Source: CS17, Proposition4.2.21 and proof, p.712.
 
-## C9. Compact generation in the correct scope
+### Finite topological transcendence degree is monotone
 
-One integer bounds cohomology for every coefficient sheaf, and the same integer must pass to every qc separated étale test object. The resulting left completeness is Postnikov completion. Étale coreflection, a right adjoint, is not a substitute. For general coefficients the compact objects are perfect-constructible; over F_ℓ they are exactly bounded complexes with constructible cohomology.
+Declaration `DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity` (theorem).
+
+For complete algebraically closed nonarchimedean fields K⊆L⊆M, if topologicalTrdeg(K,L) is finite then topologicalTrdeg(K,L)≤topologicalTrdeg(K,M).
+
+Hypotheses: All field inclusions preserve the given nonarchimedean valuations..
+
+Proof or construction:
+
+1. If the ambient degree is infinite there is nothing to prove. For finite degrees, identify ECD’s dense-field invariant with Temkin’s generating degree using finite-topological-generators.
+2. Temkin Theorem 3.2.3 identifies the finite generating degree with the independent degree, whose monotonicity is Lemma 2.2.2. The perturbation argument of Theorem 3.2.1 prevents the generating degree from falling below that independent degree.
+
+Dependencies: `DiamondEtaleCohomology:C8/finite-topological-generators`.
+
+Acceptance: Retain the stated finite bound and check the degenerate identity case.
+
+Source: ECD, Paragraph immediately after Question 21.4, p.123; TEMKIN, Lemma 2.2.2; Theorems 3.2.1 and 3.2.3, pp.6–8.
+
+### The modified and original finite degrees agree
+
+Declaration `DiamondEtaleCohomology:C8/modified-trdeg-finite-equality` (theorem).
+
+For a complete algebraically closed nonarchimedean extension K⊆L with finite topologicalTrdeg(K,L), modifiedTopologicalTrdeg(K,L)=topologicalTrdeg(K,L).
+
+Hypotheses: All field inclusions preserve the given nonarchimedean valuations..
+
+Proof or construction:
+
+1. The identity further extension gives the upper bound. Every further extension E has degree at least the finite degree of L by topological-trdeg-finite-monotonicity.
+2. Take the infimum over those extensions for the lower bound. This does not assert equality when the original degree is infinite.
+
+Dependencies: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity`.
+
+Acceptance: Retain the stated finite bound and check the degenerate identity case.
+
+Source: ECD, Finite-degree paragraph and modified invariant before Definition 21.5, p.123.
+
+### Topological fibre dimension can be tested on field points
+
+Declaration `DiamondEtaleCohomology:C8/topological-dimension-field-tests` (theorem).
+
+For f:Y′→Y representable in locally spatial diamonds, define its topological fibre dimension as the supremum of fibreDimension(f×Y X) over locally spatial diamond tests X→Y. The same supremum is obtained by restricting to X=Spa(C,C+) for complete algebraically closed perfectoid fields C and open bounded valuation subrings C+.
+
+Proof or construction:
+
+1. Use the geometric field-point/localization presentations of D5 to represent each fibre of a locally spatial diamond test.
+2. The fibre topology and its specialization chains are preserved by this point presentation; take the two suprema. The presentation and universe comparisons are imported through an exact D5 request.
+
+Dependencies: `DiamondEtaleCohomology:C8/fibre-dimension`, `DiamondsAndVStacks:D5`.
+
+Acceptance: For a diamond target the identity test recovers its ordinary fibre dimension. Empty source has bottom; every plus ring allowed by the statement is retained.
+
+Source: ECD, Remark 21.8, second paragraph, p.123.
+
+## C9. Compact objects under uniform bounds
 
 ### Constructible sheaves and bounded filtered colimits
 
@@ -1087,10 +1128,10 @@ Under the same hypotheses, j!Λ is compact for every quasicompact separated éta
 
 Proof or construction:
 
-1. C3 adjunction identifies derived Hom(j!Λ,−) with RΓ(U,−).
+1. C5 étale adjunction identifies derived Hom(j!Λ,−) with RΓ(U,−).
 2. Apply global-sections-coproducts. Exactness identifies the triangulated coproduct criterion with the enhanced compactness criterion supplied by E3.
 
-Dependencies: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C3`, `EnhancedDerivedSheaves:E3`.
+Dependencies: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `EnhancedDerivedSheaves:E3`, `DiamondEtaleCohomology:C5`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -1156,11 +1197,11 @@ Under the same bounded-cohomological-dimension hypotheses, j!L is compact when j
 
 Proof or construction:
 
-1. C3 identifies derived Hom(j!L,−) with RΓ(U,L^∨⊗^L_Λ j*−).
+1. C5 adjunction and C3 tensor/Hom identify derived Hom(j!L,−) with RΓ(U,L^∨⊗^L_Λ j*−).
 2. Perfect local systems are dualizable and tensoring with L^∨ preserves coproducts by E1/C7.
 3. Apply global-sections-coproducts.
 
-Dependencies: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C3`, `DiamondEtaleCohomology:C7`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+Dependencies: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C7`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `DiamondEtaleCohomology:C5`, `DiamondEtaleCohomology:C3`.
 
 Acceptance: Retain every stated hypothesis; verify each proof step against its named input.
 
@@ -1178,7 +1219,7 @@ Proof or construction:
 2. Resolve L|Z by the two-term extension-by-zero triangle for U minus Z. Its open immersion is quasicompact because Z is constructible closed.
 3. Reduce to perfect-local-system-compact and use stability under finite triangles.
 
-Dependencies: `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C7`, `DiamondEtaleCohomology:C3`.
+Dependencies: `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C7`, `DiamondEtaleCohomology:C5`.
 
 Acceptance: An arbitrary closed Z without constructibility does not justify the quasicompact complement step.
 
@@ -1217,117 +1258,79 @@ Acceptance: The field-coefficient equivalence must not be exported unchanged to 
 
 Source: ECD, Proposition20.10, p.117.
 
-## Sources and ownership
+### Compact generation from finite dimension bounds
 
-- [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), arXiv:1709.07343v4, 14 April 2026. Read: §21, printed pp.122–127, complete; §20, Propositions20.9–20.10 and20.17, statements and proofs; 20.16 proof ending; §22.1–22.6 as consumer context.
-- [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Annals of Mathematics186 (2017),649–766. Read: §4.2, Propositions4.2.19 and4.2.21, Remark4.2.20, printed pp.711–712.
-- [On pro-cdh descent on derived schemes](https://www.lcv.ne.jp/~smaki/articles/Derived-pro-cdh.pdf), Author-hosted manuscript, accessed 26 September2026. Read: Lemma6.6 and proof, p.24. This describes the specialization-chain argument but imports Scheiderer Remark2.5 and Theorem4.1; those imported proofs have not been read.
-- [The Stacks Project](https://stacks.math.columbia.edu/), Online version accessed26 September2026. Read: Tags0A3G and0719, full statements and proofs. Tag0A3G uses a different argument from the required quasi-augmented route; Tag0719 is stated for ringed spaces, so a site-level supplier is still required.
+Declaration `DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds` (application).
 
-Accepted RS-05 assigns all-degree Hochschild–Serre to R02.1 and discrete/compact convergence to R02.2. The current stage headings describe those in the opposite order. Requests follow the binding RS-05 assignment and explicitly name the required statements; no private C8 spectral sequence is constructed.
+Let Y be a spatial diamond over Spa(C,C+), C complete algebraically closed perfectoid of characteristic p. Let ℓ≠p be prime and d,e natural with dim |Y|≤d and diamondDimTrg(Y→Spa(C,C+))≤e. Then one bound d+e works for all ℓ-torsion étale sheaves on Y and every qc separated étale test U→Y. Consequently D_et(Y,F_ℓ) is left-complete and compactly generated, with compact objects precisely the bounded constructible complexes.
 
-Only PAPER-CARAIANI-SCHOLZE-17/69 has a source route to these stages in the snapshot. The Binda–Kato–Vezzani and Liu–Wang occurrences are library-search hits, not additional source routes.
+Proof or construction:
 
-Generated library-coverage has no C8/C9 entries. The scoped AUDIT-36 records and the separate accepted REV-AUDIT-36 report were read, followed by direct pinned-source searches. The older audit’s absent inline review is not treated as an absence of independent review.
+1. Apply point-cd-geometric-bound at every maximal point, then spatial-cohomological-bound with empty U to get d+e.
+2. Apply uniform-test-bound to retain that same N on every qc separated étale object, then the C9 comparison, generation and compact-object characterization.
 
-C7 filtration20.8/20.16 uses the point-quotient and specialization-stabilizer constructions described in21.9/21.15. Those named C8 nodes have no C7 dependency and are exported early; C7 must import them at declaration granularity, rather than depend on the complete C8 cohomological-bound stage.
+Dependencies: `DiamondEtaleCohomology:C8/point-cd-geometric-bound`, `DiamondEtaleCohomology:C8/spatial-cohomological-bound`, `DiamondEtaleCohomology:C9/uniform-test-bound`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/finite-field-compact-objects`.
 
-## Unclosed prerequisites
+Acceptance: Spa(C,O_C) has d=e=0 and recovers perfect complexes over F_ℓ. A union of components with unbounded dimensions fails the uniform-bound hypotheses.
 
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`: Discrete continuous module dictionary, including invariants, morphisms and exactness, on the canonical TopRep carrier. The equivalence of diamond sheaves with this category is proved in C8.
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`: All-degree cohomology of discrete profinite modules on continuousCohomology, its comparison with the continuous Čech/cochain model, finite-quotient and coefficient filtered-colimits, coefficient naturality and dimension shifting.
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`: ENat-valued cd_ℓ on all discrete ℓ-primary torsion modules, its vanishing characterization, invariance under continuous group isomorphism, and monotonicity for closed subgroups.
-- `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`: Existence of pro-ℓ Sylow subgroups and their use inside a procyclic profinite group; retain the continuous subgroup topology.
-- `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`: The finite-quotient characterization of pro-p and its closed-subgroup/quotient stability; exclude continuous homomorphisms from a pro-ℓ group to discrete p-torsion groups for distinct primes.
-- `ArithmeticGaloisDuality:R02.1`: As assigned by accepted RS-05, supply the all-degree continuous Hochschild–Serre sequence for a closed normal profinite subgroup and discrete torsion coefficients, converging to the canonical upstream carrier, with edge maps.
-- `ArithmeticGaloisDuality:R02.2`: As assigned by accepted RS-05, supply the discrete/compact coefficient comparison and the convergence/edge-map compatibility needed when specializing Hochschild–Serre to discrete ℓ-primary torsion modules. No compact-coefficient limit interchange without its convergence hypotheses.
-- `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`: The actual adic carrier, local stalks, residue-field valuations and valuation-compatible maps. Completing and algebraically closing those fields, with compatible embeddings, remains a separate C8 proof obligation.
-- `AdicEtaleGeometry:A2`: Comparison with the valuative partial-properness criterion of CS17 Remark4.2.20 and rank-one generalizations. CS17 allows general analytic partially proper adic spaces, beyond the supplier’s explicit noetherian scope; the extension of the geometric supplier is recorded in restructure and remains unresolved.
-- `DiamondsAndVStacks:D5`: Localization of a spatial diamond at a point, its chain of generalizations, the field-point presentation, and continuity of sheaf cohomology for these localizations. Existing D5 packet nodes give presentations/permanence but not this precise local-cohomology contract.
-- `EnhancedDerivedSheaves:E2`: For a coherent site whose generating basis has one finite bound N for cohomology of all module sheaves, prove Postnikov left completeness and the uniform truncation estimate used to show derived global sections commutes with arbitrary coproducts. Supply the site-level form of Stacks0719; the ringed-space statement alone is insufficient.
-- `EnhancedDerivedSheaves:E3`: In the relevant stable presentable category, compact generators detecting zero generate; compact objects are the retract-closed finite stable closure of those generators. Identify preservation of coproducts by exact derived Hom with the enhanced compactness criterion, and retain size/cutoff comparisons.
-- `DiamondEtaleCohomology:C0`: Coherent étale sites with enough points, bounded comparisons and continuity at localizations, plus size bounds for a skeleton of qc separated étale test objects.
-- `DiamondEtaleCohomology:C1`: Corollary16.10 in the quasi-pro-étale case, with the actual base-change transformation on all abelian étale sheaves used to prove21.13/21.14.
-- `DiamondEtaleCohomology:C2`: The canonical14.15 identification of D_et with Postnikov left completion, with enhancement and cutoff compatibility.
-- `DiamondEtaleCohomology:C3`: Exact étale extension by zero, its adjunction and support triangles, derived tensor/internal Hom and the precise étale comparison maps.
-- `DiamondEtaleCohomology:C7`: Spectral-constructible and perfect-constructible definitions; constructible approximation and20.8/20.16 filtrations; stability under finite triangles/retracts; dualizability of perfect local systems; over F_ℓ the bounded-constructible equivalence. Prove full faithfulness in20.15 before20.16 and essential surjectivity. Its filtration proof uses point quotients and specialization stabilizers; import the named C8 point-quotient and specialization-stabilizers nodes, whose prerequisites do not include C7, rather than the entire C8 stage. This avoids a stage-level cycle.
+Source: ECD, Propositions 21.11 and 21.16 combined with 20.10, pp.117,124,126.
 
-## Remaining proof work
+## Owning suppliers
 
-### Krasner comparison and finite topological generators
+Accepted RS-05 assigns the all-degree Hochschild–Serre sequence to R02.1 and coefficient/convergence compatibility to R02.2, although the current descriptive headings reverse them. The requests specify the mathematical contracts and follow that binding assignment. C5 owns étale extension by zero; C3 owns tensor and internal Hom. C7 imports the early point-quotient and specialization-stabilizer nodes at declaration granularity to avoid a cycle through all of C8.
 
-Read and split the complete proof behind ECD21.2’s comparison with Huber1.8.2. Establish the equivalence between a dense finite-transcendence subfield and finite generation as a complete algebraically closed field, including approximation of algebraic elements; a source assertion is not a closed proof.
+- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`: Discrete continuous module dictionary, including invariants, morphisms and exactness, on the canonical TopRep carrier. The equivalence of diamond sheaves with this category is proved in C8. Consumers: `DiamondEtaleCohomology:C8/point-sheaf-equivalence`.
+- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`: All-degree cohomology of discrete profinite modules on continuousCohomology, its comparison with the continuous Čech/cochain model, finite-quotient and coefficient filtered-colimits, coefficient naturality and dimension shifting. Consumers: `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`, `DiamondEtaleCohomology:C8/residue-cd-bound`.
+- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`: ENat-valued cd_ℓ on all discrete ℓ-primary torsion modules, its vanishing characterization, invariance under continuous group isomorphism, and monotonicity for closed subgroups. Consumers: `DiamondEtaleCohomology:C8/point-cd`, `DiamondEtaleCohomology:C8/closed-point-bound`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-cd-bound`.
+- `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`: Existence of pro-ℓ Sylow subgroups and their use inside a procyclic profinite group; retain the continuous subgroup topology. Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`.
+- `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`: The finite-quotient characterization of pro-p and its closed-subgroup/quotient stability; exclude continuous homomorphisms from a pro-ℓ group to discrete p-torsion groups for distinct primes. Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/wild-kernel-pro-p`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`.
+- `ArithmeticGaloisDuality:R02.1`: As assigned by accepted RS-05, supply the all-degree continuous Hochschild–Serre sequence for a closed normal profinite subgroup and discrete torsion coefficients, converging to the canonical upstream carrier, with edge maps. Consumers: `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`.
+- `ArithmeticGaloisDuality:R02.2`: As assigned by accepted RS-05, supply the discrete/compact coefficient comparison and the convergence/edge-map compatibility needed when specializing Hochschild–Serre to discrete ℓ-primary torsion modules. No compact-coefficient limit interchange without its convergence hypotheses. Consumers: `DiamondEtaleCohomology:C8/extension-cd-bound`.
+- `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`: The actual adic carrier, local stalks, residue-field valuations and valuation-compatible maps. Completing and algebraically closing those fields, with compatible embeddings, remains a separate C8 proof obligation. Consumers: `DiamondEtaleCohomology:C8/analytic-dim-trg`.
+- `AdicEtaleGeometry:A2`: Comparison with the valuative partial-properness criterion of CS17 Remark4.2.20 and rank-one generalizations. CS17 allows general analytic partially proper adic spaces, beyond the supplier’s explicit noetherian scope; the extension of the geometric supplier is recorded in restructure and remains unresolved. Consumers: `DiamondEtaleCohomology:C8/partially-proper-closure-dimension`, `DiamondEtaleCohomology:C8/partially-proper-dimension`, `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`.
+- `DiamondsAndVStacks:D5`: Localization of a spatial diamond at a point, its chain of generalizations, the field-point presentation, and continuity of sheaf cohomology for these localizations. Existing D5 packet nodes give presentations/permanence but not this precise local-cohomology contract. Consumers: `DiamondEtaleCohomology:C8/local-stalk-bound`.
+- `EnhancedDerivedSheaves:E2`: For a coherent site whose generating basis has one finite bound N for cohomology of all module sheaves, prove Postnikov left completeness and the uniform truncation estimate used to show derived global sections commutes with arbitrary coproducts. Supply the site-level form of Stacks0719; the ringed-space statement alone is insufficient. Supply generic cosimplicial section complexes, normalization and comparison with sheaf cohomology once C8 proves its quasi-augmented descent theorem. An ordinary Cartesian hypercover theorem does not establish that theorem. Consumers: `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C8/chain-cohomology-comparison`.
+- `EnhancedDerivedSheaves:E3`: In the relevant stable presentable category, compact generators detecting zero generate; compact objects are the retract-closed finite stable closure of those generators. Identify preservation of coproducts by exact derived Hom with the enhanced compactness criterion, and retain size/cutoff comparisons. Consumers: `DiamondEtaleCohomology:C9/etale-constant-compact`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`.
+- `DiamondEtaleCohomology:C0`: Coherent étale sites with enough points, bounded comparisons and continuity at localizations, plus size bounds for a skeleton of qc separated étale test objects. Consumers: `DiamondEtaleCohomology:C8/strictly-disconnected-acyclic`, `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/local-stalk-bound`, `DiamondEtaleCohomology:C9/bounded-filtered-compactness`, `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C9/compact-generators`.
+- `DiamondEtaleCohomology:C1`: Corollary16.10 in the quasi-pro-étale case, with the actual base-change transformation on all abelian étale sheaves used to prove21.13/21.14. Consumers: `DiamondEtaleCohomology:C8/qpetale-direct-image`.
+- `DiamondEtaleCohomology:C2`: The canonical14.15 identification of D_et with Postnikov left completion, with enhancement and cutoff compatibility. Consumers: `DiamondEtaleCohomology:C9/ordinary-derived-comparison`.
+- `DiamondEtaleCohomology:C3`: Derived tensor/internal Hom and their comparison maps, used with the separate C5 étale extension-by-zero adjunction. Consumers: `DiamondEtaleCohomology:C9/perfect-local-system-compact`.
+- `DiamondEtaleCohomology:C7`: Spectral-constructible and perfect-constructible definitions; constructible approximation and20.8/20.16 filtrations; stability under finite triangles/retracts; dualizability of perfect local systems; over F_ℓ the bounded-constructible equivalence. Prove full faithfulness in20.15 before20.16 and essential surjectivity. Its filtration proof uses point quotients and specialization stabilizers; import the named C8 point-quotient and specialization-stabilizers nodes, whose prerequisites do not include C7, rather than the entire C8 stage. This avoids a stage-level cycle. Consumers: `DiamondEtaleCohomology:C8/constructible-support-reduction`, `DiamondEtaleCohomology:C9/bounded-filtered-compactness`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`, `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C9/perfect-constructible-implies-compact`, `DiamondEtaleCohomology:C9/finite-field-compact-objects`.
+- `DiamondEtaleCohomology:C5`: Exact étale extension by zero of 19.1, its pullback adjunction, open-support triangle and base-change comparison. This is available before general proper pushforward or Rf!. Consumers: `DiamondEtaleCohomology:C8/constructible-support-reduction`, `DiamondEtaleCohomology:C9/etale-constant-compact`, `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C9/perfect-constructible-implies-compact`.
+- `DiamondsAndVStacks:D5`: Quasi-pro-étale algebraically closed field-point presentations through a given diamond point; localization and preservation of fibre specialization chains. Supply the field-point evaluation in Remark 21.8 and the one-point/local presentation used in 21.9/21.15. The general universally-open presentation node does not alone specify this exact contract. Consumers: `DiamondEtaleCohomology:C8/diamond-dim-trg`, `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/topological-dimension-field-tests`.
 
-Consumers: `DiamondEtaleCohomology:C8/finite-topological-generators`.
+## Refinements needed for closure
 
-### Universe bounds, valued amalgamation and point choices
+- **Characteristic-independent completion and finite extension norms.** Conrad’s complete coefficient/root approximation proof has been read and supplies a characteristic-independent route for the closure of an algebraically closed subfield. The pinned IsAlgClosed.of_denseRange requires CharZero and cannot be cited in characteristic p. Spell out the norm on a finite splitting extension and its compatibility with the original complete rank-one valuation before formalizing the adapted argument.
+- **Universe bounds, valued amalgamation and point choices.** Prove finite extension-witness size reduction using the read D0 completion-cardinality bound; construct compatible complete algebraically closed valued amalgams for the two modified21.3 inequalities; prove independence of completed residue-field closures and of quasi-pro-étale point representatives; prove cutoff independence for representable v-stack tests. Split these into individual lemmas before closure. No universal monotonicity answer to Question21.4 is assumed.
+- **Huber valuative dimension and completion lemmas.** Read Huber1.8.5(i), prove the chain/rational-value-group estimate, and separately prove the completion/algebraic-closure comparisons and their compatibility with maps on the existing adic carrier. General analytic completed residue fields must be constructed from the upstream stalkwise fields; A0 tensor products do not supply them.
+- **Temkin primitive perturbation source boundary.** Temkin §§2–3 and ECD’s finite-degree paragraph were read. Finite intermediate-degree monotonicity and finite modified/original equality are explicit nodes. The proof of Temkin Lemma 3.1.6 imports Temkin 2010 Lemma 6.3.2; its primitive-field perturbation proof has not been read. Refine that precise input before claiming source closure; retain the distinction between independent and generating degree for infinite extensions.
+- **Wild, residue and tame proof interiors.** In21.17 justify the topology and compactness of the procyclic closure and split the leading-term residue homomorphism computation. For21.16 prove the infinite-Galois identification, the transcendence-degree bound on residue-field Galois cohomology, the tame character topology and finite-adele identification, and the cohomological bound on its compact lattices. These are owned field/Kummer arguments, not supplied by a bare five-term sequence or discrete local-field inertia.
+- **Valuation rank and completion comparisons.** The polynomial leading-term proof is now explicit in valuation-transcendence-bound. Refine residue independence, rational value-group independence, cardinal-to-ENat conversion, algebraic-extension torsion and completion immediacy. Bourbaki VI.10.3 Corollary 1 has not been read; no claim of an independently closed library proof is made.
+- **Scheiderer quasi-augmented descent proof.** The1992 article, DOI10.1016/0022-4049(92)90062-K, was located on its open-archive publisher page, but the PDF endpoint returned403. The author bibliography has no PDF link. Read §§2–4, especially Remark2.5, Theorem4.1 and Corollary4.6. Construct the quasi-augmentation adjunction and prove descent with the precise hypotheses; then separate normalization into a named lemma. KST Lemma6.6 supplies the specialization-chain and normalized-support argument only. Stacks0A3G proves the desired bound by another method and does not close this required source route.
+- **CS17 valuation-space comparison in general analytic scope.** Read and prove the Zariski–Riemann description of a rank-one closure and its transcendence-degree dimension formula, and establish the supplier’s partial-properness criterion beyond noetherian analytic spaces. The generic algebraic tower equality is already in the pinned library; only its ENat/infinite-rank conversion and geometric application are new.
+- **Finite-window and generation interfaces.** The detailed site-level left-completion and coproduct proof, compact-generator criterion and retract characterization remain open requests to E2/E3. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf.
+- **Suggested signatures remain incomplete.** The suggested file states all signatures/API/tests representable with the pinned topology and normed-field carriers, including the modified invariant with genuine extension data. Analytic, diamond, site and enhanced-category declarations need the absent owning supplier types; these conditions are omitted under PROTOCOL §13, with a per-node inventory. Group cohomological dimension and the tame character/value-group topology likewise need their imported interfaces. No arbitrary proposition field or assumed theorem package fills these omissions.
 
-Prove finite extension-witness size reduction using the read D0 completion-cardinality bound; construct compatible complete algebraically closed valued amalgams for the two modified21.3 inequalities; prove independence of completed residue-field closures and of quasi-pro-étale point representatives; prove cutoff independence for representable v-stack tests. Split these into individual lemmas before closure. No universal monotonicity answer to Question21.4 is assumed.
+## Atlas planets
 
-Consumers: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-tower`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `DiamondEtaleCohomology:C8/analytic-dim-trg`, `DiamondEtaleCohomology:C8/diamond-dim-trg`.
+- DiamondEtaleCohomology:C8: **Topological transcendence degree**, `DiamondEtaleCohomology:C8/topological-trdeg`.
+- DiamondEtaleCohomology:C8: **Modified topological transcendence degree**, `DiamondEtaleCohomology:C8/modified-topological-trdeg`.
+- DiamondEtaleCohomology:C8: **Geometric transcendence dimension**, `DiamondEtaleCohomology:C8/diamond-dim-trg`.
+- DiamondEtaleCohomology:C8: **Maximal-point cohomological dimension**, `DiamondEtaleCohomology:C8/point-cd-geometric-bound`.
+- DiamondEtaleCohomology:C8: **Spectral-space cohomological dimension**, `DiamondEtaleCohomology:C8/spectral-cohomological-bound`.
+- DiamondEtaleCohomology:C8: **Cohomological dimension of a spatial diamond**, `DiamondEtaleCohomology:C8/spatial-cohomological-bound`.
+- DiamondEtaleCohomology:C9: **Compact generators**, `DiamondEtaleCohomology:C9/compact-generators`.
+- DiamondEtaleCohomology:C9: **Compact étale complexes**, `DiamondEtaleCohomology:C9/compact-iff-perfect-constructible`.
 
-### Huber valuative dimension and completion lemmas
+## Sources and corrections
 
-Read Huber1.8.5(i), prove the chain/rational-value-group estimate, and separately prove the completion/algebraic-closure comparisons and their compatibility with maps on the existing adic carrier. General analytic completed residue fields must be constructed from the upstream stalkwise fields; A0 tensor products do not supply them.
+- Peter Scholze, [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), arXiv:1709.07343v4, 14 April 2026. Read 6 October 2026: §21, printed pp.122–127, complete; §20 Propositions 20.9, 20.10 and 20.17 statements and proofs; 20.16 proof ending; Convention 22.1 and 22.2–22.3 as consumer context.
+- Ana Caraiani and Peter Scholze, [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Annals of Mathematics186 (2017),649–766. Read 6 October 2026: §4.2, Propositions4.2.19 and4.2.21, Remark4.2.20, printed pp.711–712.
+- Shane Kelly, Shuji Saito and Georg Tamme, [On pro-cdh descent on derived schemes](https://www.lcv.ne.jp/~smaki/articles/Derived-pro-cdh.pdf), Author-hosted manuscript, downloaded 6 October 2026. Read 6 October 2026: Lemma6.6 and proof, p.24. This describes the specialization-chain argument but imports Scheiderer Remark2.5 and Theorem4.1; those imported proofs have not been read.
+- The Stacks Project Authors, [The Stacks Project](https://stacks.math.columbia.edu/), Online version accessed 6 October 2026. Read 6 October 2026: Tags0A3G and0719, full statements and proofs. Tag0A3G uses a different argument from the required quasi-augmented route; Tag0719 is stated for ringed spaces, so a site-level supplier is still required.
+- Michael Temkin, [Topological transcendence degree](https://arxiv.org/pdf/1610.09162v2), arXiv:1610.09162v2; published J. Algebra 568 (2021), 35–60. Read 6 October 2026: §2.1–2.2: independent versus generating degrees; §3.1–3.2: perturbations, Theorems 3.2.1 and 3.2.3 and their proofs. Lemma 3.1.6 imports Temkin 2010 Lemma 6.3.2; that earlier proof is an explicit source boundary.
+- Brian Conrad, [Completion of algebraic closure](https://math.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf), Stanford Math 248A handout, author-hosted text. Read 6 October 2026: Entire handout: Theorem 1.1 and §2 coefficient/root approximation proof; the argument works in arbitrary characteristic.
+- Laurent Fargues and Peter Scholze, [Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4), arXiv:2102.13459v4. Read 6 October 2026: §I.11, introductory dimension discussion and Problem I.11.1, printed pp.41–42. This is a problem, not an equality theorem.
 
-Consumers: `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `DiamondEtaleCohomology:C8/analytic-dim-trg`.
-
-### Temkin finite-degree paragraph and remaining dimension API
-
-ECD v4 adds the finite-degree answer to Question21.4 using Temkin2021 Theorem3.2.3 and Lemma2.2.2. The public author copy was located but not read in full. Extract that restricted theorem and recursively check its proof; do not claim the general question resolved. Add named open-locality/supremum lemmas and the precise analytic-to-diamond comparison in the domain where the source proves it.
-
-Consumers: `DiamondEtaleCohomology:C8/topological-trdeg`, `DiamondEtaleCohomology:C8/diamond-dim-trg`, `DiamondEtaleCohomology:C8/locally-finite-dim-trg`.
-
-### Wild, residue and tame proof interiors
-
-In21.17 justify the topology and compactness of the procyclic closure and split the leading-term residue homomorphism computation. For21.16 prove the infinite-Galois identification, the transcendence-degree bound on residue-field Galois cohomology, the tame character topology and finite-adele identification, and the cohomological bound on its compact lattices. These are owned field/Kummer arguments, not supplied by a bare five-term sequence or discrete local-field inertia.
-
-Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/residue-galois-identification`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/tame-cd-bound`.
-
-### Bourbaki valuation inequality
-
-Read and decompose Bourbaki Commutative Algebra VI.10.3 Corollary1 or an exact public replacement; prove the residue/value-group inequality and invariance of residue transcendence and rational value groups under completion, with monotonicity under further extensions. ECD’s invocation has been read; the cited proof has not.
-
-Consumers: `DiamondEtaleCohomology:C8/valuation-transcendence-bound`.
-
-### Scheiderer quasi-augmented descent proof
-
-The1992 article, DOI10.1016/0022-4049(92)90062-K, was located on its open-archive publisher page, but the PDF endpoint returned403. The author bibliography has no PDF link. Read §§2–4, especially Remark2.5, Theorem4.1 and Corollary4.6. Construct the quasi-augmentation adjunction and prove descent with the precise hypotheses; then separate normalization into a named lemma. KST Lemma6.6 supplies the specialization-chain and normalized-support argument only. Stacks0A3G proves the desired bound by another method and does not close this required source route.
-
-Consumers: `DiamondEtaleCohomology:C8/specialization-chain-space`, `DiamondEtaleCohomology:C8/chain-cohomology-comparison`, `DiamondEtaleCohomology:C8/spectral-cohomological-bound`.
-
-### CS17 valuation-space comparison in general analytic scope
-
-Read and prove the Zariski–Riemann description of a rank-one closure and its transcendence-degree dimension formula, and establish the supplier’s partial-properness criterion beyond noetherian analytic spaces. The generic algebraic tower equality is already in the pinned library; only its ENat/infinite-rank conversion and geometric application are new.
-
-Consumers: `DiamondEtaleCohomology:C8/partially-proper-closure-dimension`, `DiamondEtaleCohomology:C8/partially-proper-dimension`, `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`.
-
-### Finite-window and generation interfaces
-
-The detailed site-level left-completion and coproduct proof, compact-generator criterion and retract characterization remain open requests to E2/E3. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf.
-
-Consumers: `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`.
-
-### Upstream-stage prerequisite serialization
-
-The unmodified checker matches every tauceti: string as a compiled baseline declaration before checking atlas stage IDs. It therefore rejects the actual upstream TauCetiRoadmap stage references. This partial checkpoint preserves all 17 affected edges in unresolvedUpstreamEdges, in each node’s unresolvedUpstreamPrerequisites, and in exact requests with neededBy; they are explicit unresolved graph leaves, not baseline declarations. Restore these to prerequisites when the checker distinguishes upstream stage IDs. No graph closure or fully conforming prerequisite serialization is claimed.
-
-Consumers: `DiamondEtaleCohomology:C8/analytic-dim-trg`, `DiamondEtaleCohomology:C8/closed-point-bound`, `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/point-cd`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-cd-bound`, `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/wild-kernel-pro-p`.
-
-### Suggested signatures remain incomplete
-
-The suggested file contains complete proposed signatures only for the specialization-dimension comparison, fibreDimension and topologicalTrdeg with their API and tests. The other declarations need unconstructed diamond/enhanced/cohomological-dimension types or the unclosed valued-field interfaces. Their conditions are not replaced by arbitrary predicates or assumed theorem records. Complete these signatures after the mathematical and supplier gaps are resolved, then compile at the recorded pins.
-
-Consumers: `DiamondEtaleCohomology:C8/finite-topological-generators`, `DiamondEtaleCohomology:C8/topological-trdeg-tower`, `DiamondEtaleCohomology:C8/topological-trdeg-base-change`, `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-tower`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `DiamondEtaleCohomology:C8/analytic-dim-trg`, `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `DiamondEtaleCohomology:C8/diamond-dim-trg`, `DiamondEtaleCohomology:C8/diamond-dim-base-change`, `DiamondEtaleCohomology:C8/diamond-dim-composition`, `DiamondEtaleCohomology:C8/locally-finite-dim-trg`, `DiamondEtaleCohomology:C8/strictly-disconnected-acyclic`, `DiamondEtaleCohomology:C8/qpetale-direct-image`, `DiamondEtaleCohomology:C8/injection-direct-image`, `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C8/point-quotient-unique`, `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondEtaleCohomology:C8/point-cd`, `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/closed-point-bound`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/wild-kernel-pro-p`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`, `DiamondEtaleCohomology:C8/residue-galois-identification`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/tame-cd-bound`, `DiamondEtaleCohomology:C8/valuation-transcendence-bound`, `DiamondEtaleCohomology:C8/point-cd-geometric-bound`, `DiamondEtaleCohomology:C8/specialization-chain-space`, `DiamondEtaleCohomology:C8/chain-cohomology-comparison`, `DiamondEtaleCohomology:C8/spectral-cohomological-bound`, `DiamondEtaleCohomology:C8/boundary-dimension-drop`, `DiamondEtaleCohomology:C8/constructible-support-reduction`, `DiamondEtaleCohomology:C8/local-stalk-bound`, `DiamondEtaleCohomology:C8/spatial-cohomological-bound`, `DiamondEtaleCohomology:C8/partially-proper-closure-dimension`, `DiamondEtaleCohomology:C8/partially-proper-dimension`, `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`, `DiamondEtaleCohomology:C9/bounded-filtered-compactness`, `DiamondEtaleCohomology:C9/uniform-test-bound`, `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/ordinary-derived-comparison`, `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C9/etale-constant-compact`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`, `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C9/perfect-constructible-implies-compact`, `DiamondEtaleCohomology:C9/compact-iff-perfect-constructible`, `DiamondEtaleCohomology:C9/finite-field-compact-objects`.
-
-## Source corrections
-
-- arXiv1709.07343v4, proof of Proposition21.16, p.126, leading-term exact sequence and preceding sentence; rendered PDF inspected.: Use C′×/(1+C′°°), as in the leading-term quotient defined earlier in the same proof. C′′ is not introduced, and 1+C′′× is not the principal-unit subgroup. The residue/value-group exact sequence has principal units of C′ as denominator. No correction located in the stated search; no claim about a published version of record.
-- arXiv1709.07343v4, Proposition20.17 and proof, p.121: The target is Y, the spatial diamond in the proposition. X has no definition in the proposition; all the categories, coefficient bounds and the preceding transfer argument are over Y. No correction located in the stated search; scoped to the inspected preprint.
-
-## Planets and validation
-
-- C8: Topological transcendence degree, Modified topological transcendence degree, Geometric transcendence dimension, Maximal-point cohomological dimension, Spectral-space cohomological dimension, Cohomological dimension of a spatial diamond.
-- C9: Compact generators, Compact étale complexes.
-
-This checkpoint has 59 declarations, 33 API items and 29 unit-test specifications. The tests are planned signatures, not executed implementation tests. Structural validation and publication guards are recorded in the handoff. There are no closed stages.
+The packet records two source issues scoped to the read ECD v4: the leading-term denominator in 21.16 must be the principal-unit subgroup, and the generator map j in 20.17 has target Y. Their corrected statements are used here. No collation with a published version of record or published correction is asserted.
