@@ -31736,7 +31736,8 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6386"
   },
   {
    "id": "REV-K3BlochGroups--V.6",
@@ -33227,7 +33228,8 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6476"
   },
   {
    "id": "REV-ArithmeticKTheory--N.5",
@@ -34532,8 +34534,9 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries--HB.5",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6460"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6460",
+   "finishedAt": "2026-10-06T01:38:20Z"
   },
   {
    "id": "BP-HabiroNahmSeries--HB.8",
