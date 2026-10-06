@@ -13,7 +13,7 @@
     "GlobalGaloisDeformations:R04.6"
   ],
   "status": "partial",
-  "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data. Checkpoint 7 plans G8 (4 nodes: ACC+'s variable-determinant problems, representability and framing, the presentation over local rings, and the comparison with fixed determinant) and G7 (7 nodes: CHT08's polarized problems, their representability, tangent/obstruction and presentations, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image and presentation). FIX-RT-AREA-langlands-1~2 adds one shared R04.5 selection lemma (66 nodes total), reuses it in G7 and the odd-p branch, and records explicit G7/G8 contracts for PA.3/PA.4. Historical independent review remains historical; these amendments require REV-FIX-RT-AREA-langlands-1~2. FIX-RT-BP-GlobalGaloisDeformations (#5719, 2 October 2026) repairs the local coefficient hypotheses of the native normalization/trace prototypes, specifies Gee's scalar-sensitive shifted mapping fibre and propagates the existing E3 correction to the reader, and separates Gee's whole-adjoint detector from KW's constituent detector. All 66 stable IDs, the area-fix selector and PA.3/PA.4 contracts remain. Missing supplier constructions stay explicit open requests; no proof closure or formalization is claimed.",
+  "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data. Checkpoint 7 plans G8 (4 nodes: ACC+'s variable-determinant problems, representability and framing, the presentation over local rings, and the comparison with fixed determinant) and G7 (7 nodes: CHT08's polarized problems, their representability, tangent/obstruction and presentations, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image and presentation). FIX-RT-AREA-langlands-1~2 adds one shared R04.5 selection lemma (66 nodes total), reuses it in G7 and the odd-p branch, and records explicit G7/G8 contracts for PA.3/PA.4. Historical independent review remains historical; these amendments require REV-FIX-RT-AREA-langlands-1~2. FIX-RT-BP-GlobalGaloisDeformations (#5719, 2 October 2026) repairs the local coefficient hypotheses of the native normalization/trace prototypes, specifies Gee's scalar-sensitive shifted mapping fibre and propagates the existing E3 correction to the reader, and separates Gee's whole-adjoint detector from KW's constituent detector. All 66 stable IDs, the area-fix selector and PA.3/PA.4 contracts remain. Missing supplier constructions stay explicit open requests; no proof closure or formalization is claimed. FIX-RT-AREA-langlands-2~3 (Claude claude-c9TlsS, 6 October 2026): the determinant comparison is divided between its layers, the determinant map and its non-injectivity in R04.1 and the isomorphism for absolutely irreducible ρ̄ in R04.2 (one new node, 67 in all), so that no R04.1 declaration rests on R04.2; the earlier area-2 fixes (/15, /22, /37) are unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1075,27 +1075,27 @@
       "realises": [
         "GlobalGaloisDeformations:R04.1"
       ],
-      "title": "Representation deformations versus determinant deformations",
+      "title": "The determinant map from representation deformations to determinant deformations",
       "kind": "theorem",
-      "statement": "ρ ↦ det ∘ ρ (the determinant of the A-linear extension A[G] → M_n(A)) induces a natural transformation Def_ρ̄ → Def_{det∘ρ̄}. If ρ̄ is absolutely irreducible it is an isomorphism of functors. In general it is not injective.",
+      "statement": "ρ ↦ det ∘ ρ (the determinant of the A-linear extension A[G] → M_n(A), a multiplicative polynomial law homogeneous of degree n) induces a natural transformation δ : Def_ρ̄ → Def_{det∘ρ̄} of functors on Art_𝒪, compatible with change of coefficients and with restriction to a closed subgroup. It is not injective in general: for ρ̄ a non-split extension of χ₂ by χ₁ with dim Ext¹(χ₂, χ₁) > 1 there is a deformation to 𝔽[ε] with the determinant of the constant deformation that is not strictly equivalent to it. That δ is an isomorphism when ρ̄ is absolutely irreducible is the separate theorem R04.2/determinant-comparison-isomorphism, which needs Carayol's theorem of R04.2; nothing in R04.1 uses it.",
       "hypotheses": [
-        "The isomorphism uses Chenevier's Theorem 2.22 (a determinant over a henselian local ring with split absolutely irreducible residue is det∘ρ for a unique-up-to-conjugation ρ) together with Carayol's lemma."
+        "G is a profinite group, ρ̄ : G → GL_n(𝔽) continuous, and determinants are Chenevier's (IntegralHeckeAndGaloisDeterminants IHG.0); no irreducibility hypothesis is made in this node.",
+        "R04.1's stated target is only that the determinant deformation functor is separate and 'not automatically equivalent to representation deformations'; this node supplies the map and the non-equivalence, and the equivalence under absolute irreducibility is a result of R04.2."
       ],
       "proofSteps": [
-        "Well defined: det(aρa^{-1}) = det ρ as polynomial laws.",
-        "Surjectivity for absolutely irreducible ρ̄: for A Artinian (hence henselian), a determinant D lifting det∘ρ̄ with split absolutely irreducible residue is det∘ρ_D for some representation ρ_D : A[G] → M_n(A) (Chenevier Theorem 2.22(i)); ρ_D reduces to a conjugate of ρ̄, and conjugating gives a lift.",
-        "Injectivity for absolutely irreducible ρ̄: equal determinants give equal traces, and Carayol's lemma (carayol-trace-theorem) gives strict conjugacy.",
-        "Non-injectivity in general: for ρ̄ a non-split extension of χ₂ by χ₁ with dim Ext¹(χ₂, χ₁) > 1 there are non-isomorphic deformations with the same traces (Kisin Exercise 3), hence the same determinant."
+        "Well defined on strict equivalence classes: det(aρa^{-1}) = det ρ as polynomial laws, for a ∈ ker(GL_n(A) → GL_n(𝔽)).",
+        "Continuity: the coefficients of the characteristic polynomial of ρ(g) are continuous in g, which is Chenevier's continuity of the determinant (§2.30).",
+        "Naturality in A and compatibility with restriction: base change of polynomial laws commutes with composition with ρ.",
+        "Non-injectivity: write ρ̄ = (χ₁ b; 0 χ₂) with b not a coboundary, and take e whose class in Ext¹(χ₂, χ₁) is not in the line 𝔽·[b], possible because the dimension exceeds 1. The deformation ρ_e = (χ₁ b + εe; 0 χ₂) has the characteristic polynomials, hence the determinant, of the constant deformation ρ̄ ⊗ 𝔽[ε]. It is not strictly equivalent to it: conjugating the constant deformation by 1 + εA, A = (a b₀; c₀ d), adds ε((a − d)b + b₀(χ₂ − χ₁)) to the upper right entry and forces c₀ = 0, so the classes reached are exactly those of 𝔽·[b] (Kisin, Lecture 1, Exercise 3)."
       ],
       "acceptance": [
         "For n = 1 the transformation is the identity.",
-        "For ρ̄ absolutely irreducible, the universal rings agree: R_ρ̄ ≅ the determinant deformation ring.",
-        "For ρ̄ = 1 ⊕ 1 the transformation forgets the extension data and is not injective on 𝔽[ε]-points."
+        "For ρ̄ = 1 ⊕ 1 the transformation forgets the extension data and is not injective on 𝔽[ε]-points.",
+        "Two classes e, e′ outside 𝔽·[b] with e − e′ ∈ 𝔽·[b] give strictly equivalent deformations; the non-injectivity is measured in Ext¹(χ₂, χ₁)/𝔽·[b]."
       ],
       "prerequisites": [
         "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
         "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
-        "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
         "IntegralHeckeAndGaloisDeterminants:IHG.0"
       ],
       "library": {
@@ -1104,16 +1104,16 @@
       },
       "sources": [
         {
-          "sourceId": "CHENEVIER-2014",
-          "locator": "§3.1, Example 3.4, p. 42",
-          "excerpt": "If we assume that ¯ρ is absolutely irreducible and (say) deﬁned over k, then F is canonically isomorphic with the usual deformation functor of ¯ρ deﬁned by Mazur in [M], by Theorem 2.22.",
-          "match": "The comparison under absolute irreducibility."
-        },
-        {
           "sourceId": "KISIN-LECTURES",
           "locator": "Lecture 1, (1.5) Exercise 3, p. 4",
           "excerpt": "Give an example where VF is not absolutely irreducible and there exist non-isomorphic deformations VA, V′A ∈ DVF(A) with the same traces.",
           "match": "The failure of injectivity in general."
+        },
+        {
+          "sourceId": "CHENEVIER-2014",
+          "locator": "§3.1, Example 3.4, p. 42",
+          "excerpt": "If we assume that ¯ρ is absolutely irreducible and (say) deﬁned over k, then F is canonically isomorphic with the usual deformation functor of ¯ρ deﬁned by Mazur in [M], by Theorem 2.22.",
+          "match": "Chenevier's functor F of determinant deformations and its comparison with Mazur's functor; the map ρ ↦ det∘ρ underlies the comparison, and the isomorphism this sentence asserts is the node R04.2/determinant-comparison-isomorphism."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1623,6 +1623,50 @@
       "planet": {
         "name": "Carayol's theorem"
       }
+    },
+    {
+      "id": "GlobalGaloisDeformations:R04.2/determinant-comparison-isomorphism",
+      "parentStageId": "GlobalGaloisDeformations:R04.2",
+      "realises": [
+        "GlobalGaloisDeformations:R04.2"
+      ],
+      "title": "For absolutely irreducible ρ̄ the determinant map is an isomorphism of deformation functors",
+      "kind": "theorem",
+      "statement": "Let ρ̄ : G → GL_n(𝔽) be absolutely irreducible. Then δ : Def_ρ̄ → Def_{det∘ρ̄} (R04.1/determinant-comparison) is an isomorphism of functors on Art_𝒪, and on C_𝒪 by passage to the limit. Consequently, when Def_ρ̄ is represented by R_ρ̄ (R04.2/universal-deformation-ring), the determinant deformation functor is represented by the same ring, with universal determinant det ∘ ρ^univ.",
+      "hypotheses": [
+        "Absolute irreducibility of ρ̄ is used twice: the residual determinant det∘ρ̄ is then split and absolutely irreducible in Chenevier's sense, and Carayol's theorem applies.",
+        "Surjectivity uses Chenevier's Theorem 2.22(i): over a henselian local ring, a determinant whose residual determinant is split and absolutely irreducible is det∘ρ for a representation ρ into M_n, unique up to conjugation. An Artinian local ring is henselian. The theorem is imported from IntegralHeckeAndGaloisDeterminants IHG.0.",
+        "The statement is for the functors of R04.1 (strict equivalence); no fixed-determinant condition in the sense of R04.1/fixed-determinant-functors is involved."
+      ],
+      "proofSteps": [
+        "Surjectivity: for A ∈ Art_𝒪 and a continuous determinant D lifting det∘ρ̄, Chenevier's Theorem 2.22(i) gives ρ_D : A[G] → M_n(A) with det∘ρ_D = D; its reduction is a representation over 𝔽 with determinant det∘ρ̄, hence conjugate to ρ̄ by the uniqueness part of the same theorem over 𝔽, and conjugating ρ_D by a lift of the conjugating matrix gives a lift of ρ̄. Continuity: ρ_D(A[G]) = M_n(A) by Burnside and Nakayama, so there are g_1, …, g_{n²} ∈ G with ρ_D(g_i) a basis of M_n(A), and ρ_D(g) is determined through the perfect trace pairing by the functions g ↦ tr ρ_D(g g_i), which are coefficients of the continuous determinant.",
+        "Injectivity: two lifts with the same determinant have the same traces, and R04.2/carayol-trace-theorem (2) makes them strictly equivalent.",
+        "The representing rings agree by Yoneda; the limit to C_𝒪 is formal."
+      ],
+      "acceptance": [
+        "For ρ̄ absolutely irreducible, the universal rings agree: R_ρ̄ represents Def_{det∘ρ̄}.",
+        "For ρ̄ = χ₁ ⊕ χ₂ the statement does not apply, and R04.1/determinant-comparison gives the failure of injectivity.",
+        "n = 1: every ρ̄ is absolutely irreducible, a determinant is a character, and δ is the identity."
+      ],
+      "prerequisites": [
+        "GlobalGaloisDeformations:R04.1/determinant-comparison",
+        "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+        "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisDeformation/Determinants",
+        "namespace": "TauCeti.GaloisDeformation"
+      },
+      "sources": [
+        {
+          "sourceId": "CHENEVIER-2014",
+          "locator": "§3.1, Example 3.4, p. 42",
+          "excerpt": "If we assume that ¯ρ is absolutely irreducible and (say) deﬁned over k, then F is canonically isomorphic with the usual deformation functor of ¯ρ deﬁned by Mazur in [M], by Theorem 2.22.",
+          "match": "The comparison under absolute irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
@@ -4844,7 +4888,8 @@
       "need": "Chenevier's determinants (multiplicative polynomial laws of degree n on A[G]), continuity, base change, characteristic polynomials, and Theorem 2.22 (a determinant over a henselian local ring with split absolutely irreducible residue is det∘ρ).",
       "neededBy": [
         "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
-        "GlobalGaloisDeformations:R04.1/determinant-comparison"
+        "GlobalGaloisDeformations:R04.1/determinant-comparison",
+        "GlobalGaloisDeformations:R04.2/determinant-comparison-isomorphism"
       ],
       "status": "open",
       "note": "IHG.0 owns polynomial laws and determinants."
@@ -4996,17 +5041,15 @@
   "coverage": [
     {
       "stageId": "GlobalGaloisDeformations:R04.1",
-      "status": "partial",
-      "remaining": [
-        "Whole-stage promotion of the determinant comparison needs a layer split"
-      ],
-      "notes": "RS-08 keeps for R04.1: framed and strict unframed functors over Artinian coefficient rings with continuity, determinant-fixed variants and change of coefficients; the identification of the equivalence relation with strict conjugacy and well-defined restriction; the separate determinant deformation functor not assumed equivalent. All planned; coefficient categories and determinants are imported (requests). Stage coarsening creates a pre-existing R04.2 → R04.1 back-edge through determinant-comparison; retain the concrete proof graph but do not certify its stage promotion."
+      "status": "source_decomposed",
+      "remaining": [],
+      "notes": "RS-08 keeps for R04.1: framed and strict unframed functors over Artinian coefficient rings with continuity, determinant-fixed variants and change of coefficients; the identification of the equivalence relation with strict conjugacy and well-defined restriction; the separate determinant deformation functor not assumed equivalent. All planned; coefficient categories and determinants are imported (requests). The determinant map and its non-injectivity are R04.1/determinant-comparison; the isomorphism for absolutely irreducible ρ̄, which uses Carayol's theorem, is R04.2/determinant-comparison-isomorphism, so no R04.1 node has a prerequisite in R04.2."
     },
     {
       "stageId": "GlobalGaloisDeformations:R04.2",
       "status": "source_decomposed",
       "remaining": [],
-      "notes": "RS-08 keeps for R04.2: Φ_p for G_{F,S}, universal framed rings, unframed rings under Schur/absolute irreducibility, the universal continuous representation over the inverse-limit ring, the framed-to-unframed comparison with n² − 1 variables, changes of determinant and residual coefficient field. All planned; Schlessinger (R03.2) and global finiteness (R02.3) are imported."
+      "notes": "RS-08 keeps for R04.2: Φ_p for G_{F,S}, universal framed rings, unframed rings under Schur/absolute irreducibility, the universal continuous representation over the inverse-limit ring, the framed-to-unframed comparison with n² − 1 variables, changes of determinant and residual coefficient field. All planned; Schlessinger (R03.2) and global finiteness (R02.3) are imported. The isomorphism of the determinant map for absolutely irreducible ρ̄ (Chenevier's Theorem 2.22(i) with Carayol's theorem) is planned here as determinant-comparison-isomorphism."
     },
     {
       "stageId": "GlobalGaloisDeformations:R04.3",
@@ -5045,15 +5088,7 @@
       "notes": "Planned in 4 nodes, within RS-08's keeps: ACC+ Definition 6.2.2 (variable determinant, Λ = ⊗̂Λ_v), Theorem 6.2.3 and Lemma 6.2.4 (n²|T| − 1 framing variables), the presentation of Proposition 6.2.24 over the local rings with ad ρ̄ coefficients, and the comparison with the fixed-determinant problem of R04.3 as separate statements: the quotient map always, and the product decomposition with 𝒪⟦G_{F,S}^{ab}(p)⟧ only for p ∤ n and twist-stable local problems, formally smooth exactly when that group is torsion-free. The local problems of ACC+ §6.2.5 (ordinary, Fontaine–Laffaille, level raising) are LocalGaloisDeformationRings'."
     }
   ],
-  "gaps": [
-    {
-      "title": "Whole-stage promotion of the determinant comparison needs a layer split",
-      "neededBy": [
-        "GlobalGaloisDeformations:R04.1/determinant-comparison"
-      ],
-      "detail": "The concrete node graph is acyclic, but this R04.1 node imports R04.2/carayol-trace-theorem, inducing R04.2 → R04.1 against the existing R04.1 → R04.2 stage edge. This predates this fix. Resolve the declaration ownership/layer split before certifying or promoting the whole-stage closure; no mathematical cycle or false theorem is alleged. The present fix preserves both stable declarations and reports the exact obstruction for independent review."
-    }
-  ],
+  "gaps": [],
   "sourceIssues": [
     {
       "id": "GlobalGaloisDeformations/E1",
@@ -5135,7 +5170,7 @@
       "note": "Fresh selected-passage check for FIX-RT-AREA-langlands-2~2; no new whole-paper reading claimed."
     },
     {
-      "kind": "selective fix rereading",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2202.05818v2",
       "citation": "GEE-MLT-2022 exact version already recorded",
       "read": "2026-10-02",
@@ -5144,10 +5179,10 @@
       "readSections": [
         "§3.1–3.9, physical12–13; §3.18–3.24 including the exact complex and E3, physical15–18; Proposition5.10 full proof, physical38–39."
       ],
-      "note": "Reading for #5719 only; no new full-source extraction or independent review."
+      "note": "Reading for #5719 only; no new full-source extraction or independent review. Recorded by its reader as a selective re-reading for that fix."
     },
     {
-      "kind": "selective fix rereading",
+      "kind": "author copy",
       "url": "https://people.math.harvard.edu/~kisin/notes/notes.pdf",
       "citation": "KISIN-LECTURES exact version already recorded",
       "read": "2026-10-02",
@@ -5156,10 +5191,10 @@
       "readSections": [
         "Lecture1 all four pages, including Artinian-local coefficient category and Theorem1.4.1 proof."
       ],
-      "note": "Reading for #5719 only; no new full-source extraction or independent review."
+      "note": "Reading for #5719 only; no new full-source extraction or independent review. Recorded by its reader as a selective re-reading for that fix."
     },
     {
-      "kind": "selective fix rereading",
+      "kind": "author copy",
       "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
       "citation": "KW2-2009 exact version already recorded",
       "read": "2026-10-02",
@@ -5168,7 +5203,7 @@
       "readSections": [
         "Lemmas5.2–5.4 and Proposition5.5, physical/printed47–48; bibliography[58]–[59], physical/printed97."
       ],
-      "note": "Reading for #5719 only; no new full-source extraction or independent review."
+      "note": "Reading for #5719 only; no new full-source extraction or independent review. Recorded by its reader as a selective re-reading for that fix."
     }
   ],
   "reviewHistory": [
