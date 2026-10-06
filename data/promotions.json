@@ -394,6 +394,17 @@
     "data/blueprints/ArithmeticStatistics.md"
    ]
   },
+  "research/blueprint/packets/AutomorphicBundles--B0.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "d0b55e116ed57f54",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-AutomorphicBundles--B0",
+   "sha256": "b06d0a0fc2b406a71ec0e7fb649fd7ab8f8cb6e9f7ef2a3d1938cfa675b6a85e",
+   "to": [
+    "data/blueprints/AutomorphicBundles--B0.json",
+    "data/blueprints/AutomorphicBundles--B0.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cee58cf39ff3ce8a",
@@ -492,6 +503,17 @@
    "to": [
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md"
+   ]
+  },
+  "research/blueprint/packets/DeligneWeightsAndPurity--DWP.7.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "5aff6f72a6059d91",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.7",
+   "sha256": "6cfde71a1c71c36ed5063e937131fd4a3db302c7a9adf980b980286795e53140",
+   "to": [
+    "data/blueprints/DeligneWeightsAndPurity--DWP.7.json",
+    "data/blueprints/DeligneWeightsAndPurity--DWP.7.md"
    ]
   },
   "research/blueprint/packets/DirichletPadicLFunctions--L0.json": {
@@ -605,6 +627,18 @@
     "data/blueprints/roadmaps/EllipticLegendreCharacterInterfaces.json"
    ]
   },
+  "research/blueprint/packets/EllipticModularityEffectiveComparisons.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "954adbd6341f46bf",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons",
+   "sha256": "9d3d75b56c30719c8b28ee60e4d1b054a1ceb5517a18ee894c35a7c4d34fce90",
+   "to": [
+    "data/blueprints/EllipticModularityEffectiveComparisons.json",
+    "data/blueprints/EllipticModularityEffectiveComparisons.md",
+    "data/blueprints/roadmaps/EllipticModularityEffectiveComparisons.json"
+   ]
+  },
   "research/blueprint/packets/EllipticRegulators--ER.1.json": {
    "promotedAt": "2026-10-06T02:13:18Z",
    "review": "d98d420e6a0ff1b0",
@@ -703,6 +737,17 @@
     "data/blueprints/ErdosProgressionPowers.json",
     "data/blueprints/ErdosProgressionPowers.md",
     "data/blueprints/roadmaps/ErdosProgressionPowers.json"
+   ]
+  },
+  "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "cd1bf6414245d376",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems--ES.8",
+   "sha256": "fe57ae86860876725ead4acaf63481f29d8a0e1484c51782ea37a3414de1a115",
+   "to": [
+    "data/blueprints/EulerSystemsAndKolyvaginSystems--ES.8.json",
+    "data/blueprints/EulerSystemsAndKolyvaginSystems--ES.8.md"
    ]
   },
   "research/blueprint/packets/FarguesFontaineDiamonds.json": {
@@ -1159,6 +1204,18 @@
     "data/blueprints/K3BlochGroups.md"
    ]
   },
+  "research/blueprint/packets/MordellLawrenceVenkatesh.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "d6f0d2ebe3b2c311",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-DESIGN-LV~2",
+   "sha256": "a9fdcac3320533c99d3bef90a631d698d65ae6bc66de1722f40ead00361eb2df",
+   "to": [
+    "data/blueprints/MordellLawrenceVenkatesh.json",
+    "data/blueprints/MordellLawrenceVenkatesh.md",
+    "data/blueprints/roadmaps/MordellLawrenceVenkatesh.json"
+   ]
+  },
   "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json": {
    "promotedAt": "2026-10-05T02:04:11Z",
    "review": "f87636458b1a2046",
@@ -1168,6 +1225,17 @@
    "to": [
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md"
+   ]
+  },
+  "research/blueprint/packets/PadicHodgeRegulators--L3.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "1037d6c04a27ea8c",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-PadicHodgeRegulators--L3",
+   "sha256": "505bfd2c0cbc830506f8d5b89c0094bf45d6f29a7c154584ed6b137e824ea621",
+   "to": [
+    "data/blueprints/PadicHodgeRegulators--L3.json",
+    "data/blueprints/PadicHodgeRegulators--L3.md"
    ]
   },
   "research/blueprint/packets/Polylogarithms--P.2.json": {
@@ -1259,6 +1327,17 @@
     "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json"
    ]
   },
+  "research/blueprint/packets/ShimuraCompactifications--C6.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "039b9bcb62ae0b60",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-ShimuraCompactifications--C6",
+   "sha256": "4cad5c1ace26e278658852934c7cca826527447bd16689f77900b56c9f0c7dcc",
+   "to": [
+    "data/blueprints/ShimuraCompactifications--C6.json",
+    "data/blueprints/ShimuraCompactifications--C6.md"
+   ]
+  },
   "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "e009cbb50f6abb6c",
@@ -1268,6 +1347,28 @@
    "to": [
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md"
+   ]
+  },
+  "research/blueprint/packets/WeilConjectures--WC.0.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "efbd6bb721653d64",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-WeilConjectures--WC.0",
+   "sha256": "da3e9d659a312c9b2be8036f3eeffd6787078011f0bfd380e5a5d89d41bf4b28",
+   "to": [
+    "data/blueprints/WeilConjectures--WC.0.json",
+    "data/blueprints/WeilConjectures--WC.0.md"
+   ]
+  },
+  "research/blueprint/packets/WeilConjectures--WC.6.json": {
+   "promotedAt": "2026-10-06T13:40:04Z",
+   "review": "a6470060d7b34edb",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-WeilConjectures--WC.6",
+   "sha256": "f80ee79356e739af2dbf7193aef531227cb7ff8cbdb4b647a0732f02b44c3822",
+   "to": [
+    "data/blueprints/WeilConjectures--WC.6.json",
+    "data/blueprints/WeilConjectures--WC.6.md"
    ]
   },
   "research/blueprint/restructure/RS-01.result.json": {
