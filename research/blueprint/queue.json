@@ -21485,7 +21485,8 @@
    ],
    "avoidAccountOf": "BP-AdelicAlgebraicGroups",
    "prompt": "research/blueprint/prompts/REV-AdelicAlgebraicGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #341"
   },
   {
    "id": "BP-AdicCoefficientsAndComparisons",
@@ -28825,8 +28826,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraData",
    "prompt": "research/blueprint/prompts/REV-ShimuraData.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #489"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #489",
+   "finishedAt": "2026-10-06T10:33:27Z"
   },
   {
    "id": "BP-ShimuraVarieties--V0",
