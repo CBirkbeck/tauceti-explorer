@@ -31738,8 +31738,9 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6386"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6386",
+   "finishedAt": "2026-10-06T02:10:08Z"
   },
   {
    "id": "REV-K3BlochGroups--V.6",
@@ -33252,7 +33253,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.5",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6428"
   },
   {
    "id": "BP-ArithmeticKTheory--N.6",
@@ -33847,7 +33849,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6489"
   },
   {
    "id": "REV-EllipticRegulators--ER.8",
@@ -33933,8 +33936,9 @@
    ],
    "followUpOf": "BP-HabiroCohomologyFoundations--HQ.1",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6491",
+   "finishedAt": "2026-10-06T02:10:10Z"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.3",
