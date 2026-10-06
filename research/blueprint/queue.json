@@ -29075,9 +29075,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #998"
+   "note": "deliverables arrived from an external worker on issue #998",
+   "finishedAt": "2026-10-06T06:36:58Z"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -31999,7 +32000,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.6",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6406"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
@@ -35875,8 +35877,9 @@
     "BP-HeegnerPointEulerSystems--HE.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6454"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6454",
+   "finishedAt": "2026-10-06T06:37:00Z"
   },
   {
    "kind": "blueprint",
