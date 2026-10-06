@@ -85,7 +85,7 @@
       "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
       "accessed": "2026-10-06",
       "readSections": [
-        "IV.2.5 and Exercise IV.2.6 (finite and divisible coefficients)",
+        "IV.2.3.1–2.5 and Exercise IV.2.6 (spectrum, finite and divisible coefficients)",
         "IV.6.9, pp.58–59 (affine-curve finite generation)"
       ]
     },
@@ -98,9 +98,9 @@
       "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
       "accessed": "2026-10-06",
       "readSections": [
-        "V.1.5 and V.1.5.1, p.5 (projective bundles)",
-        "V.3.3.2 and V.3.11–3.12, pp.20,29–30 (transfer/projection)",
-        "V.6.12–6.12.1, pp.45–46 (curve localization/reciprocity)"
+        "V.1.5 and V.1.5.1, pp.4–5 (projective bundles)",
+        "V.3.3.2 and V.3.11–3.12, pp.21,29–30 (transfer/projection)",
+        "V.6.12–6.12.1, p.48 (curve localization/reciprocity)"
       ]
     },
     {
@@ -165,8 +165,8 @@
       "sources": [
         {
           "sourceId": "Kbook.V",
-          "locator": "V.3.3.2 and V.3.11, chapter pp.20,29",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "locator": "V.3.3.2 and V.3.11, chapter pp.21,29",
+          "match": "V.3.11 constructs the proper perfect transfer; V.3.3.2 identifies finite affine transfer with restriction of scalars. Nonzero elliptic isogenies satisfy these hypotheses through E.1; the actual maps are imported from S.2."
         }
       ],
       "implementationStatus": "unchecked"
@@ -207,7 +207,7 @@
         {
           "sourceId": "Kbook.V",
           "locator": "V.3.12, chapter pp.29–30; accepted parent E.5 determinant calculation",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "V.3.12, with finite flat dimension, gives f_*(x·f*y)=f_*(x)·y in higher K. Apply x=1 and the accepted parent determinant theorem, then E.2 rank–Pic multiplication; integral degree multiplication needs trivial determinant."
         },
         {
           "sourceId": "accepted-parent",
@@ -241,7 +241,9 @@
       "prerequisites": [
         "SchemeKTheoryOperations:S.5/projective-line-k-theory",
         "EllipticKTheory:E.5/the-projective-line-and-the-projective-bundle-theorem",
-        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "EllipticKTheory:E.5/positive-odd-elliptic-k-groups",
+        "EllipticKTheory:E.5/positive-even-elliptic-k-groups"
       ],
       "acceptance": [
         "[O]=(1,0), [O(-1)]=(0,1), and [O_∞]=(1,-1) in the imported basis.",
@@ -251,8 +253,8 @@
       "sources": [
         {
           "sourceId": "Kbook.V",
-          "locator": "V.1.5 and V.1.5.1, chapter p.5",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "locator": "V.1.5 and V.1.5.1, chapter p.4 (proof continues on p.5)",
+          "match": "V.1.5 uses the O(−i) basis. The rank-two trivial bundle gives the imported S.5 O,O(−1) decomposition; the inverse and line-sheaf formulas are S.5 specializations, and L.1 supplies the finite-field summands."
         }
       ],
       "implementationStatus": "unchecked"
@@ -286,7 +288,10 @@
         "K2SymbolsBrauer:T.5",
         "K2SymbolsBrauer:T.4",
         "MotivicEtaleKTheory:M.5d",
-        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "EllipticKTheory:E.4/the-coniveau-spectral-sequence-of-a-curve",
+        "EllipticKTheory:E.4/K1-and-SK1-of-a-curve",
+        "EllipticKTheory:E.4/rational-base-point-splitting"
       ],
       "acceptance": [
         "The low-degree proof explicitly covers n=1 and n=2 instead of applying higher Milnor vanishing there.",
@@ -297,7 +302,7 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6 opening and Theorem VI.6.1, chapter p.37; IV.6.9; VI.4.7",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.1 supplies the elliptic specialization. Its proof requires affine finite generation, higher Milnor vanishing and Geisser–Levine plus all-degree localization; the faulty attribution of K₂ tame-kernel finiteness to III.7.2(a) is handled by the separate T.5 request and accepted parent E1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -332,7 +337,8 @@
         "MotivicEtaleKTheory:M.6",
         "MotivicEtaleKTheory:M.7",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "StableHomotopyKTheory:H.6"
       ],
       "acceptance": [
         "K₁(Ebar) is two copies of kbar× with arithmetic Frobenius q.",
@@ -343,7 +349,12 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.3–6.4, chapter p.38; VI.4.6.1",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.4 displays the integral Galois modules and the divisible-coefficient table separately. For genus one J=E; the coefficient group in degree 2i−1 has twist i−1, whereas integral K₂ᵢ has twist i. Use the geometric curve in both tables, as corrected by E17."
+        },
+        {
+          "sourceId": "Kbook.IV",
+          "locator": "IV.2.3.1–2.5, chapter pp.19–20; Exercise IV.2.6, p.23",
+          "match": "The spectrum formulation supplies universal coefficients beyond the unstable range m≥3. Exercise IV.2.6 takes the divisible-coefficient limit. Applied to the actual scheme K-spectrum, this is the natural degree shift requested from H.6; it does not assert a natural splitting."
         }
       ],
       "implementationStatus": "unchecked"
@@ -383,7 +394,7 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.5–6.6, chapter p.39, with accepted parent sourceIssue E5",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.6 compares divisible cohomology, integral cohomology shifted by one and geometric invariants only for twist ≥2. Preserve that range, and replace VI.6.5’s blanket rational-invariants justification with continuous Hochschild–Serre and the invertibility of Frobenius−1 in these twists."
         }
       ],
       "implementationStatus": "unchecked"
@@ -412,7 +423,10 @@
         "EllipticKTheory:E.5/geometric-elliptic-k-modules",
         "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
         "MotivicEtaleKTheory:M.6",
-        "MotivicEtaleKTheory:M.7"
+        "MotivicEtaleKTheory:M.7",
+        "EllipticKTheory:E.4/K1-and-SK1-of-a-curve",
+        "EllipticKTheory:E.4/rational-base-point-splitting",
+        "StableHomotopyKTheory:H.6"
       ],
       "acceptance": [
         "The n=1 map identifies both copies of k× inside the two geometric root-of-unity copies.",
@@ -423,7 +437,12 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7 and proof, chapter pp.39–40",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.7 identifies the actual base-change map K_n(X)→K_n(X̄)^G as an isomorphism for n>0. Its proof computes the degree-(n+1) divisible-coefficient group, so the H.6 coefficient shift and M.6/M.7 comparison compatibility are direct inputs; K₁ is treated separately."
+        },
+        {
+          "sourceId": "Kbook.IV",
+          "locator": "IV.2.3.1–2.5, chapter pp.19–20; Exercise IV.2.6, p.23",
+          "match": "The spectrum formulation supplies universal coefficients beyond the unstable range m≥3. Exercise IV.2.6 takes the divisible-coefficient limit. Applied to the actual scheme K-spectrum, this is the natural degree shift requested from H.6; it does not assert a natural splitting."
         }
       ],
       "implementationStatus": "unchecked"
@@ -458,13 +477,14 @@
       "acceptance": [
         "All five named discriminating tests are instantiated on the existing point type in the suggested file.",
         "The curve is required nonsingular in finite-cardinality theorems; the construction itself also makes sense on the existing nonsingular-point group.",
-        "The i=0 input is available to test the convention but is not identified with positive even K₀."
+        "The i=0 input is available to test the convention but is not identified with positive even K₀.",
+        "The subgroup inherits the existing additive structure and inclusion homomorphism. Extensionality reduces to equality of membership predicates; the universal property for maps into a subgroup is the standard restriction property. The field-isomorphism API includes its underlying-point compatibility, rather than only an unspecified abstract equivalence."
       ],
       "sources": [
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.4 and VI.6.7, chapter pp.38–40; VI.1.7 convention",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.4–6.7 give the even integral term J(X̄)[1/p](i)^G. With the elliptic origin J=E, arithmetic q-power on points makes its fixed-point condition q^iπ(P)=P. The prime-to-p restriction and twist are essential; the subgroup is a new specialization on the existing point group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -472,7 +492,7 @@
         {
           "name": "EllipticK.twistedFrobeniusKernel",
           "role": "constructor",
-          "statement": "The additive subgroup of geometric points P killed by some positive m coprime to p and satisfying q^iπ(P)=P; inheritance of AddCommGroup is through AddSubgroup, not a second group law."
+          "statement": "The additive subgroup of points over any field extension L/k P killed by some positive m coprime to p and satisfying q^iπ(P)=P; inheritance of AddCommGroup is through AddSubgroup, not a second group law."
         },
         {
           "name": "EllipticK.mem_twistedFrobeniusKernel",
@@ -492,7 +512,7 @@
         {
           "name": "EllipticK.map_twistedFrobeniusKernel",
           "role": "functoriality",
-          "statement": "A k-algebra homomorphism between field extensions sends B_i(E,L) into B_i(E,M); for an isomorphism it induces an additive equivalence. This is the existing point map and commutation of q-power with field maps."
+          "statement": "A k-algebra homomorphism between field extensions sends B_i(E,L) into B_i(E,M), via the existing point map commuting with q-power. Its field-isomorphism clause EllipticK.equiv_twistedFrobeniusKernel gives an additive equivalence with that point map as its underlying function. Identity and composition follow by restriction of the existing point-map laws."
         },
         {
           "name": "EllipticK.p_torsion_not_mem_twistedFrobeniusKernel",
@@ -503,27 +523,27 @@
       "tests": [
         {
           "name": "EllipticK.test_twistedKernel_origin",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "O belongs to B_i for every i≥0, including i=0."
         },
         {
           "name": "EllipticK.test_twistedKernel_rational_two_torsion",
-          "kind": "example",
+          "kind": "computation",
           "statement": "On E/F₃ given by y²=x³−x, the nonzero rational point (0,0), of order two, belongs to B₁ since q−1=2."
         },
         {
           "name": "EllipticK.test_twistedKernel_excludes_characteristic_torsion",
-          "kind": "counterexample",
+          "kind": "non-example",
           "statement": "On E/F₂ given by y²+xy=x³+1, the rational nonzero point (0,1) has order two and is excluded from B₀, although it is fixed by Frobenius."
         },
         {
           "name": "EllipticK.test_twistedKernel_F2_card_five",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For E/F₂: y²+y=x³+x+1, #B₁=5, whereas #B₀=1. Omitting the first twist gives the wrong group."
         },
         {
           "name": "EllipticK.test_twistedKernel_F2_trace_sign",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For E/F₂: y²+y=x³+x, #E(F₂)=5, a=−2 and #B₁=13, in contrast to the previous curve’s a=2 and order five."
         }
       ],
@@ -577,7 +597,7 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7, chapter pp.39–40; VI.6 opening for K₁",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "The displayed equation immediately following this excerpt on VI p.39 is K₂ᵢ₋₁(X̄)^G ≅ Z/(q^i−1) ⊕ Z/(q^i−1). VI.6.7 identifies these invariants with the finite-curve groups. The cyclic generators are not canonical; K₁ agrees with the two unit-group summands on p.37."
         }
       ],
       "implementationStatus": "unchecked",
@@ -620,7 +640,7 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.4–6.7, chapter pp.38–40; cokernel form derived by the lattice exact sequence",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "The displayed term on VI p.39 is J(X̄)[1/p](i)^G; VI.6.7 descends it to K₂ᵢ(X). For an elliptic curve this is B_i. The Tate-lattice cokernel is an additional derived presentation, from 0→TℓE→VℓE→E[ℓ∞]→0 with 1−q^iπ invertible on VℓE, not a claim stated in Weibel."
         }
       ],
       "implementationStatus": "unchecked"
@@ -663,7 +683,7 @@
         {
           "sourceId": "Kbook.VI",
           "locator": "VI.6.7, chapter pp.39–40, with the elliptic Frobenius degree calculation imported from upstream",
-          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+          "match": "VI.6.7 supplies the finite groups whose orders are computed here. The determinant 1−a_q q^i+q^(2i+1), its equality with the separable-isogeny degree and positivity use the upstream elliptic quadratic-degree/Hasse inputs, rather than a new K-book theorem or an invariant-factor inference."
         }
       ],
       "implementationStatus": "unchecked"
@@ -779,6 +799,15 @@
       "neededBy": [
         "EllipticKTheory:E.5/isogeny-rank-determinant-action"
       ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.6",
+      "need": "Export the spectrum-cofiber universal-coefficient sequence 0→K_n(X)⊗Z/ℓ^r→K_n(X;Z/ℓ^r)→K_(n−1)(X)[ℓ^r]→0 for the actual scheme K-spectrum, in every degree used here. Specify the cofiber transition maps induced by Z/ℓ^r→Z/ℓ^(r+1), x↦ℓx. After filtered colimit, give 0→K_n(X)⊗Qℓ/Zℓ→K_n(X;Qℓ/Zℓ)→K_(n−1)(X)[ℓ∞]→0, natural for scheme base change and Galois action. No noncanonical splitting is needed. This supplies the degree shift in VI.6.4 and VI.6.7; the finite-field ring interface of L.1 is insufficient for schemes.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/finite-elliptic-k-descent"
+      ],
+      "route": "Import the existing general spectrum-coefficient owner; specialize its spectrum theorem, rather than creating a second coefficient theory in E.5."
     }
   ],
   "coverage": [
@@ -787,8 +816,8 @@
       "status": "planned",
       "remaining": [
         "Discharge the recorded global function-field finite-generation/Milnor/tame-kernel and Geisser–Levine supplier extensions.",
-        "Discharge the coefficient spectral sequence, continuous cohomology, curve trace/Kummer and upstream Tate/isogeny comparison requests.",
-        "Instantiate the commented higher-K/cohomology/Tate signatures when the actual supplier objects exist; all current declarations remain unchecked."
+        "Discharge the general spectrum universal-coefficient/colimit, curve spectral-sequence, continuous cohomology, curve trace/Kummer and upstream Tate/isogeny comparison requests.",
+        "Instantiate the commented higher-K/cohomology/Tate signatures when the actual supplier objects exist. The current point signatures elaborate with admitted proofs; no node is implemented."
       ]
     }
   ],
@@ -802,7 +831,7 @@
     },
     {
       "title": "Geisser–Levine and coefficient descent interfaces are missing at the pins",
-      "detail": "M.5d must supply the Quillen comparison, and M.6/M.7 must supply the actual curve spectral sequence/comparison with degree ranges, edge splittings and limit compatibilities. A list of cohomology groups is not a construction of the spectral sequence. The elliptic computation is conditional on these requests.",
+      "detail": "M.5d must supply the Quillen comparison, and M.6/M.7 must supply the actual curve spectral sequence/comparison with degree ranges, edge splittings and limit compatibilities. A list of cohomology groups is not a construction of the spectral sequence. The elliptic computation is conditional on these requests. H.6 must provide the scheme-spectrum universal-coefficient sequence, compatible coefficient transition maps and divisible-coefficient colimit; the ring-only L.1 interface does not fill this gap.",
       "neededBy": [
         "EllipticKTheory:E.5/harder-elliptic-input-closure",
         "EllipticKTheory:E.5/geometric-elliptic-k-modules",
@@ -835,7 +864,12 @@
         "Author K-book page and its current chapter VI copy, accessed 2026-10-06.",
         "Author errata URL Kbook/Kbook.errata.pdf returned HTTP 404 on 2026-10-06; the search cache exposed only a partial listing.",
         "Existing accepted parent sourceIssues E1–E16 (E6 separately records the missing bar in the proof edge-map source)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the rendered author-hosted VI p.38 and its extracted text: the sentence prints X without a bar, while both tables and the universal-coefficient proof concern X̄. At X=P¹/F₂ and n=2, K₁(X)=0 but K₂(X̄;Qℓ/Zℓ)≅(Qℓ/Zℓ)² for odd ℓ, so the literal sentence fails. This confirms only the recorded author-copy misprint; no claim of novelty or published-volume collation is made.",
+        "by": "REV-EllipticKTheory--E.5"
+      }
     }
   ],
   "sourceVersions": [
@@ -908,5 +942,68 @@
       "detail": "R01.1 needs an explicit finite-field continuous-cohomology contract; the discrete torsion statement does not justify rational ℓ-adic Hochschild–Serre.",
       "proposal": "Add “Arithmetic Galois representations and conductors, Part II: continuous finite-field cohomology”, with ArithmeticGaloisRepresentations as its first prerequisite. Place the procyclic continuous cohomology and coefficient-compatible Hochschild–Serre interfaces in an R01.1 extension. E.5 specializes them using the existing curve trace/Kummer and elliptic Weil inputs. Upstream Tau Ceti layers are imported unchanged."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticKTheory--E.5",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 11 nodes, 7 declarations at both pinned commits, all source locators, 6 API entries and 5 tests, and 4 planets; checked accepted RS-18 scope, library audit and confirmed RT-AREA-ktheory-2/1. Corrected non-evidentiary excerpts and V chapter pagination, missing direct dependencies, the scheme-spectrum coefficient supplier, and test categories. Confirmed author-copy sourceIssue E17. The point-level suggested signatures elaborate with only admitted-proof warnings; supplier-dependent K/cohomology/Tate signatures remain explicitly omitted. Accepted as a complete target-level planning pass with E.5 planned, not closed; 15 precise requests and 3 honest gaps remain.",
+    "checked": [
+      {
+        "nodeId": "EllipticKTheory:E.5/elliptic-operation-comparisons",
+        "verdict": "corrected",
+        "note": "Verified nonzero-isogeny finite-flat hypotheses and S.2 affine comparison; replaced locator-only excerpt with the actual perfect-transfer hypothesis. Corrected V.3.3.2 pagination to p.21."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/isogeny-rank-determinant-action",
+        "verdict": "corrected",
+        "note": "Verified E.2 product (d,0,P_f)·(r,e,P)=(dr,de,dP+rP_f), the iff on K₀, and the separable/odd-m/degree-two parent clauses. Replaced source excerpts with projection-formula and determinant text."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/projective-line-finite-field-comparison",
+        "verdict": "corrected",
+        "note": "Verified O,O(−1) basis, inverse and O(m)/point classes against S.5. Added direct odd/even elliptic dependencies for the contrasting computation and replaced excerpt. Corrected V.1.5/V.1.5.1 pagination to p.4."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/harder-elliptic-input-closure",
+        "verdict": "corrected",
+        "note": "Verified all n≥1 with separate n=1, n=2 and n≥3 branches; added direct all-degree coniveau and K₁/origin suppliers. Confirmed the strengthened function-field requests and replaced excerpt."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "verdict": "corrected",
+        "note": "Verified integral and divisible-coefficient tables, equivariance and the i−1 coefficient twist. Added H.6 universal-coefficient dependency/request and IV source. Confirmed E17 and replaced excerpt."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
+        "verdict": "corrected",
+        "note": "Verified twist≥2, continuous Hochschild–Serre and rational Frobenius−1 invertibility, including the trivial-action H¹ counterexample. Replaced excerpt; parent E5 remains respected."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/finite-elliptic-k-descent",
+        "verdict": "corrected",
+        "note": "Verified the actual base-change isomorphism for n>0, coefficient degree n+1 and separate K₁ treatment. Added H.6 and direct K₁/origin prerequisites, and IV source; replaced excerpt."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/twisted-frobenius-kernel",
+        "verdict": "corrected",
+        "note": "Verified arithmetic q-power, prime-to-p annihilator, i≥0 and inherited subgroup API. Corrected test kinds, clarified the extension-field constructor and supplied the map-isomorphism clause as a genuine point-compatible equivalence signature. All five discriminating tests are mathematically correct."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/positive-odd-elliptic-k-groups",
+        "verdict": "corrected",
+        "note": "Verified the two cyclic summands and noncanonical generators, including K₁≅k×²; replaced excerpt with the odd-degree discussion."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/positive-even-elliptic-k-groups",
+        "verdict": "corrected",
+        "note": "Verified B_i and the twisted Tate-lattice cokernel using invertibility on Vℓ; no lattice-invariants substitution. Replaced excerpt and distinguished the derived presentation from Weibel’s statement."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.5/elliptic-k-group-orders",
+        "verdict": "corrected",
+        "note": "Verified even determinant, separable degree, finiteness, positivity, prime-to-p order and numerical examples; odd order is the square. Replaced excerpt and identified the upstream degree calculation explicitly."
+      }
+    ]
+  }
 }
