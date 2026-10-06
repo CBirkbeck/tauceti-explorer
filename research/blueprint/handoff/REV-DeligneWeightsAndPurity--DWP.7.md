@@ -1,0 +1,13 @@
+**Job REV-DeligneWeightsAndPurity--DWP.7 completed.**
+
+Issue #383; Codex session `codex-dp1avM`; branch `codex-dp1avM-review-deligne-dwp7`; 6 October 2026. The independently reviewed packet is accepted: all 52 nodes have verdicts, 36 verified and 16 corrected. No nodes were added. There are 96 API items, 50 tests, 14 planets, 12 confirmed baseline declarations and 19 precise supplier requests. DWP.7–DWP.9 are planned, none closed. No further review work remains.
+
+The full correction record and validation are in `research/blueprint/reviews/REV-DeligneWeightsAndPurity--DWP.7.md`; individual verdicts are in the packet. The integrality proof's source-access gap is resolved from the original SGA 7 XXI §5 scan on Katz's public Princeton page, recorded with its URL, edition and hash in the packet. Five existing atlas source findings now have independently confirmed `sourceIssues` entries. The pinned Tau Ceti Clifford theorem is imported rather than planned again. The suggested Lean file elaborated at the Mathlib pin, with 33 `sorry` warnings only; no sheaf carriers are simulated.
+
+Validation commands: `python3 scripts/check_blueprint.py research/blueprint/packets/DeligneWeightsAndPurity--DWP.7.json` and `lean-check research/blueprint/suggested/DeligneWeightsAndPurity--DWP.7.lean`. The source-issue/source-version validation and whitespace checks also pass. All repository edits are the three issue deliverables plus this required handoff.
+
+The orchestrator must synchronise `research/blueprint/readmes/DeligneWeightsAndPurity--DWP.7.md` from the corrected packet. That reader was not authorised for editing by this review issue. In particular update its unavailable-SGA claim, curve example/descent, derived localisation cone, exceptional-inverse-image formula, potential-property hypotheses, and Lefschetz proof passages. The report gives the complete list. The suggested file's header identifies the reviewed packet as the current statement record.
+
+The four coverage refinements and 19 supplier requests are ordinary downstream planning work, not an unfinished review. Retain the existing RS-17 ownership notes for the WC.6 adapter and LPV.7 fixed-part proof. The new scope clarifications route general boundary-trait inertia to LPV.1 and the characteristic-zero reductive-closure interface to Tau Ceti ReductiveGroups layer 6. Replace supplier-stage references with precise nodes as those packets become available. Do not re-plan the upstream roadmaps.
+
+Scratch contains only disposable downloads and review logs, and is removed after submission. All evidence needed for later work is in the packet, report and this handoff; no local paths or scratch files are needed to resume. This run claims no second job.
