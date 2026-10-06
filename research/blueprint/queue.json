@@ -24370,9 +24370,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #721"
+   "note": "deliverables arrived from an external worker on issue #721",
+   "finishedAt": "2026-10-06T18:46:02Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -28167,7 +28168,8 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R24.3",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #474"
   },
   {
    "id": "BP-PrismaticCohomology--PR.0",
