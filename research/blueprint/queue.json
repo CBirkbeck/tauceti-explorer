@@ -24494,11 +24494,12 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #724"
+   "note": "deliverables arrived from an external worker on issue #724",
+   "finishedAt": "2026-10-06T12:26:13Z"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems--ES.8",
