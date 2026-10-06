@@ -90,6 +90,12 @@
         "checked": "Declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
       },
       {
+        "ref": "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+        "provides": "For I finitely generated and every n, I^n acting on the completion has image equal to the kernel of evaluation at n. With eval_surjective, this identifies the completed ring modulo the extended I^n with the original quotient. No change of completion ideal or noetherian hypothesis is needed.",
+        "checked": "Declaration and hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroRings--HR.4."
+      },
+      {
         "ref": "mathlib:AdicCompletion.liftAlgHom",
         "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
         "provides": "A compatible family of algebra maps into ideal-power quotients gives an algebra map into their completion.",
@@ -197,7 +203,7 @@
       "proofSteps": [
         "Use the existing commutative-ring, algebra, étale and tensor-product types; package an algebra object and its reduction equivalence.",
         "Define reduction of morphisms by scalar extension and conjugation by the markings. Tensor-product identity and composition give the functor laws.",
-        "The unit deformation has E=B; the split deformation has E=B×B and its canonical reduction; localization uses the existing étale localization theorem."
+        "The unit deformation has E=B; localization uses the existing étale localization theorem. For the split deformation use B[x]/(x²−x)≅B×B via evaluation at 0 and 1, with inverse (a,b)↦a+(b−a)x. Its one-variable Jacobian 2x−1 has square 1 in the quotient, so the existing dimension-zero submersive-presentation criterion gives étaleness, including the zero ring. Base change supplies its canonical product marking."
       ],
       "acceptance": [
         "The identity marking on B/I gives the unit deformation with carrier B.",
@@ -209,7 +215,9 @@
         "mathlib:Algebra.Etale.baseChange",
         "mathlib:Algebra.Etale.of_isLocalizationAway",
         "mathlib:Algebra.TensorProduct.map",
-        "mathlib:Algebra.TensorProduct.quotientTensorEquiv"
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv",
+        "mathlib:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero",
+        "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension"
       ],
       "sources": [
         {
@@ -400,7 +408,7 @@
       ],
       "proofSteps": [
         "Reuse AdicCompletion for IE⊂E and its compatible quotient families. The image of a finitely generated ideal is finitely generated.",
-        "Apply AdicCompletion.isAdicComplete. Its kernel-of-evaluation theorem and surjectivity identify W/IW with E/IE, followed by the given marking. Apply the same finite-generated-ideal quotient argument at I^n to obtain W/I^nW≅E/I^nE.",
+        "Apply AdicCompletion.isAdicComplete. The kernel-of-evaluation-at-one theorem and eval_surjective identify W/IW with E/IE, followed by the given marking. For every n, apply AdicCompletion.pow_smul_top_eq_ker_eval to IE and eval_surjective at n: the extended (IE)^n equals the evaluation kernel, so W/I^nW≅E/I^nE. This uses the original completion directly, rather than changing its defining ideal to I^n.",
         "Compose the tensor/quotient comparison with ε; the canonical completion map reduces to ε. Base change of the existing étale E gives étaleness at each nilpotent level.",
         "Use the separate map-equivalence lemma to assemble functorial maps and unique marked comparisons; do not treat a selected quotient-object lift as canonical before completion."
       ],
@@ -416,6 +424,7 @@
         "mathlib:AdicCompletion.isAdicComplete",
         "mathlib:AdicCompletion.eval_surjective",
         "mathlib:AdicCompletion.ker_evalOneₐ_eq_map",
+        "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
         "mathlib:Algebra.TensorProduct.quotientTensorEquiv",
         "mathlib:Algebra.Etale.baseChange",
         "mathlib:MvPowerSeries.toAdicCompletionAlgEquiv"
@@ -519,7 +528,7 @@
         {
           "name": "CompletedEtaleLift.test_nilpotent",
           "kind": "characterisation",
-          "statement": "If I is nilpotent, E→W is an equivalence. Each quotient family is eventually constant."
+          "statement": "If I is nilpotent, the canonical completion map E→W is bijective, hence an algebra equivalence. Each quotient family is eventually constant; finite generation is not needed for this test."
         },
         {
           "name": "CompletedEtaleLift.test_split_swap",
@@ -529,7 +538,7 @@
         {
           "name": "CompletedEtaleLift.test_localisation_series",
           "kind": "computation",
-          "statement": "For B=ℤ[t], I=(t), L the étale localization at 2, W≅ℤ[1/2][[t]]. Completion admits ∑_n t^n/2^n; replacing W by ℤ[[t]][1/2] would wrongly exclude it."
+          "statement": "For B=ℤ[t], I=(t), L the étale localization at 2, W≅ℤ[1/2][[t]], intertwining the B-structure with polynomial evaluation at the power-series variable. Completion admits ∑_n t^n/2^n; replacing W by ℤ[[t]][1/2] would wrongly exclude it."
         }
       ],
       "planet": {
@@ -570,7 +579,8 @@
         "mathlib:Algebra.FormallyUnramified.ext_of_iInf",
         "mathlib:AdicCompletion.liftAlgHom",
         "mathlib:AdicCompletion.ofAlgEquiv",
-        "HabiroRings:HR.4/nilpotent-deformation-rigidity"
+        "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "mathlib:Algebra.TensorProduct.quotientTensorEquiv"
       ],
       "sources": [
         {
@@ -642,7 +652,7 @@
         "The Frobenius input is the HR.1 linearized map over ψ^p on p-completions, reducing to relative Frobenius on R/p. No global Frobenius lift on R is assumed."
       ],
       "proofSteps": [
-        "By QW.4, D is étale over B/(f), and its derived base change along the cyclotomic quotient is T_d[q]/Φ_d. Since f and Φ_d are monic, and T_d is flat over A, the principal regular deformation theorem identifies the Φ_d-completed W with E_d, respecting the relative ghost marking.",
+        "By QW.4, D is étale over B/(f), and its derived base change along the cyclotomic quotient is T_d[q]/Φ_d. Since f and Φ_d are monic, and T_d is flat over A, the principal regular deformation theorem identifies the Φ_d-completed W with E_d, respecting the relative ghost marking. Here T_d is étale over A by base change of R and is flat by Algebra.Smooth.flat; polynomial base change gives the étale B-algebras used at the finite overlap levels.",
         "For pd|m, use the relative ghost/Frobenius square reduced modulo p, whose bottom map is relative Frobenius. Étaleness makes that relative Frobenius an isomorphism. The radicals of (p,Φ_d) and (p,Φ_pd) coincide by the imported cyclotomic arithmetic. HR.1 supplies its linearized p-complete lift.",
         "Reduce the two maps on the overlap through powers of J=(p,Φ_d) (or its radical-equivalent presentation). Nilpotent étale rigidity makes the prescribed lifts unique at every finite level; DD.1 identifies the overlap completion with this tower in the regular two-generator situation. The static-algebra embedding makes the marked map fibre contractible, giving the canonical edge path and its higher coherence.",
         "Apply the actual HR.3 coherent diagram and reconstruction, using its prime-edge mapping-space theorem. The local comparisons induce W→H and are equivalences at every cyclotomic vertex, hence the comparison is an equivalence by the finite localization contract. Naturality follows from equality in the marked fibres, retained as paths in the section mapping space."
@@ -669,7 +679,10 @@
         "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
         "DerivedDeRhamCohomology:DD.1",
         "EnhancedDerivedSheaves:E1",
-        "EnhancedDerivedSheaves:E5:abstract"
+        "EnhancedDerivedSheaves:E5:abstract",
+        "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "mathlib:Algebra.Etale.baseChange",
+        "mathlib:Algebra.Smooth.flat"
       ],
       "sources": [
         {
@@ -760,7 +773,7 @@
       "id": "HabiroRings/E15",
       "source": "Wagner.qWitt.2024",
       "kind": "misprint",
-      "locator": "Lemma 2.50 proof, printed p.34, arXiv:2410.23078v5; author copy 14 January 2026 p.34",
+      "locator": "Lemma 2.50 proof, printed p.34, arXiv:2410.23078v5; author copy 14 January 2026 p.33",
       "printed": "The source asserts W_m(R′) ≅ coker(M′ ⊕ N′ → W_m(R′)[q]) and specifies W_{m/d}(R)[q] as the object to equip.",
       "correction": "The left side of the first expression is qW_m(R′). The module carrying the F_{m/d}-action is W_d(R)[q].",
       "reason": "Definition 2.10 gives the q-Witt quotient, not W_m. For m=3 and R′=ℤ, the cokernel qW_3(ℤ)≅ℤ[q]/(q³−1) has additive rank three, while W_3(ℤ), a ghost lattice in ℤ², has additive rank two. The displayed summands and the explicitly displayed codomain of F_{m/d} are W_d, not W_{m/d}.",
@@ -771,7 +784,12 @@
         "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
         "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
         "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v5 p.34 and the author copy p.33: the displayed cokernel is the q-Witt quotient, not the ordinary Witt ring, and the F_{m/d} target is W_d. The m=3, R′=ℤ rank comparison distinguishes the first expressions; the module summands distinguish the second. Corrected the author-copy page locator.",
+        "by": "REV-HabiroRings--HR.4"
+      }
     },
     {
       "id": "HabiroRings/E16",
@@ -788,7 +806,12 @@
         "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
         "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
         "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Remark 2.49 p.33 of both copies. The introductory étaleness input must be ordinary Witt étaleness. F_p lowers divisors of p^α to divisors of p^(α−1), so both lower labels must have exponent α−1; the α=1 case has lower rings R and R′.",
+        "by": "REV-HabiroRings--HR.4"
+      }
     },
     {
       "id": "HabiroRings/E17",
@@ -805,7 +828,12 @@
         "https://ferdinand-wagner.github.io/: paper entry and author copy q-Witt.pdf dated 14 January 2026; no correction linked. The same local expressions remain on pp.33–34.",
         "Public searches for the title plus erratum/corrigendum/correction on 2026-10-06 found no correction.",
         "All existing packet sourceIssues were searched: parent E12 concerns Proposition 2.48, while HR.1 E13/E14 concern Hesselholt; these three findings are distinct."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Corollary 2.51 p.34 of both copies. Including d=m introduces the identity Verschiebung V_1, making the displayed cokernel zero. At m=1, A=R=ℤ the ghost is the identity of ℤ; only the proper-divisor indexing gives the correct cokernel.",
+        "by": "REV-HabiroRings--HR.4"
+      }
     }
   ],
   "imports": [
@@ -956,12 +984,55 @@
     }
   ],
   "checks": {
-    "librarySearch": "Reviewed AUDIT-17 HR.4 before planning; read the nineteen named Mathlib declarations at 082e2d3; searched pinned Tau Ceti f790474 for étale lifting and Witt-related declarations, finding no object-deformation or big/q-Witt supplier. Shared Mathlib is at the exact pin. Shared Tau Ceti HEAD differs; only Mathlib modules are used for elaboration, and pinned Tau Ceti source was inspected with git show.",
+    "librarySearch": "Reviewed AUDIT-17 HR.4 before planning; read the twenty named Mathlib declarations at 082e2d3; searched pinned Tau Ceti f790474 for étale lifting and Witt-related declarations, finding no object-deformation or big/q-Witt supplier. Shared Mathlib is at the exact pin. Shared Tau Ceti HEAD differs; only Mathlib modules are used for elaboration, and pinned Tau Ceti source was inspected with git show.",
     "upstreamModels": [
       "content/tau-ceti/AdicSpaces/README.md (whole document)",
       "content/tau-ceti/Multiquadratic/README.md (whole document)"
     ],
     "currentWorkSearch": "Mathlib PR #41086, head a010cae47a32f30dafa2e9d241e4befab9e512a5, gives HenselianLocalRing/residue-field étale lifting; it is not a pinned or generic nilpotent/complete object-lifting supplier. Public Zulip getting-started view exposed only the login/shell; the repository mirror of upstream guidance was read. No claim of inspecting restricted messages.",
-    "lean": "lean-check of the suggested file: exit 0, 33 expected proof-placeholder warnings and no errors. It checks the ordinary carriers, 24 API items, object/rigidity signatures and seven test signatures; two enhanced targets remain explicitly untyped mathematical specifications."
+    "lean": "Independent review: lean-check of the revised suggested file, exit 0, 32 expected proof-placeholder warnings, no errors or other warnings. Uses only Mathlib modules at the exact pin; checks actual reduction formulas, 24 API items, object/rigidity signatures and seven strengthened test signatures. The two enhanced targets remain explicit mathematical omissions pending actual supplier carriers."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.4",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all seven support nodes, twelve parent HR.4 imports, reader, supplier contracts, AUDIT-17 and accepted RS-10/RT-AREA-etale/27. Confirmed all nineteen original pinned baseline citations and added the all-power completion kernel theorem. Clarified the split Jacobian proof and direct quotient/nilpotent/flat/base-change dependencies. Suggested reduction maps now use the actual marking formulas; the nilpotent test checks the canonical unit, and the series equivalence respects the polynomial base. Confirmed E15–E17 and corrected E15’s author-copy page. Checker: zero errors and warnings. Revised Lean: exit 0, 32 expected proof-placeholder warnings only. Complete pass, HR.4 planned, not closed; two gaps and four exact supplier requests remain honest.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.4/marked-etale-deformation",
+        "verdict": "corrected",
+        "note": "Stacks 0ALI motivates the marked fibre of reduction. Actual carrier/Algebra.Etale and reduction marking are used, without module-finiteness. Made reduceMap the conjugated base-change map and exposed the routine split Jacobian presentation with direct existing prerequisites. Ten API items and three discriminating tests match."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/etale-quotient-lift",
+        "verdict": "verified",
+        "note": "Stacks 04D1 proves object existence for arbitrary quotient ideals. The pinned dimension-zero presentation theorem supplies a square Jacobian; adjoining its inverse gives determinant Δ². Reduction recovers the chosen marking. No nilpotence or uniqueness is asserted."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/nilpotent-deformation-rigidity",
+        "verdict": "verified",
+        "note": "Uses the nilpotent specialization of Stacks 0ALI. Pinned formally smooth existence and formally unramified uniqueness apply to IE′, with quotient/tensor transport. Lifting inverse maps gives the unique marked isomorphism. The nonnilpotent counterexample is sound."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/completed-etale-deformation",
+        "verdict": "corrected",
+        "note": "Reuses actual AdicCompletion. Added the existing all-power kernel theorem, avoiding an implicit change of completion ideal. Finite generation is exactly the ordinary completeness/quotient hypothesis. Fourteen API items and four tests match; strengthened canonical nilpotent-unit and polynomial-compatible series tests. No flatness over the completed base is claimed."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/completed-deformation-map-equivalence",
+        "verdict": "corrected",
+        "note": "Pinned complete-target existence and separated-target uniqueness lift E→C; all-power quotients, liftAlgHom and ofAlgEquiv extend to W→C. Every B-algebra map preserves ideal powers, so quotient uniqueness applies. Added the direct quotient/tensor prerequisite and fixed homEquiv.toFun to the actual marked reduction."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/complete-principal-deformation-universality",
+        "verdict": "verified",
+        "note": "The stated nonzerodivisor and actual derived quotient are essential. Regular principal quotient towers and surjective transitions make W and any marked derived-complete C static and regular; ordinary map rigidity and derived Nakayama give the comparison. Discrete static algebra mapping spaces give a contractible marked fibre. Exact DD.1/E1/E5 refinements and the untyped enhanced signature are explicit gaps."
+      },
+      {
+        "nodeId": "HabiroRings:HR.4/cyclotomic-ghost-lift-coherence",
+        "verdict": "corrected",
+        "note": "Checked Wagner Theorem 2.9, q-Witt Corollary 2.51, and accepted HR.1/HR.3 imports. Monic cyclotomic factors and étale flatness justify principal and regular two-generator comparisons. Added direct nilpotent-rigidity, base-change and flatness prerequisites. Unique marked overlap lifts supply actual edge paths; HR.3 reconstruction supplies equivalence and naturality. The m=6 case has four edges, with no extra cycle equation; enhanced and QW inputs remain recorded obligations."
+      }
+    ]
   }
 }
