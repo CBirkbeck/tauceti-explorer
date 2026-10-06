@@ -28588,8 +28588,9 @@
    ],
    "avoidAccountOf": "BP-RelativeFarguesFontaine--RF4",
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #483"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #483",
+   "finishedAt": "2026-10-06T15:39:28Z"
   },
   {
    "id": "BP-SchemeKTheoryOperations",
@@ -29409,9 +29410,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #1003"
+   "note": "claimed on GitHub issue #1003"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB3",
