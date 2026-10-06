@@ -31667,8 +31667,9 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.4",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6399"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6399",
+   "finishedAt": "2026-10-06T02:18:38Z"
   },
   {
    "id": "BP-K3BlochGroups--V.5",
@@ -31760,7 +31761,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups--V.6",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups--V.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6401"
   },
   {
    "id": "BP-Polylogarithms--P.2",
@@ -33959,7 +33961,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.3",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6443"
   },
   {
    "id": "BP-HabiroNumberFields--HB.1",
