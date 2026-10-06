@@ -22185,7 +22185,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicBundles--B5",
    "prompt": "research/blueprint/prompts/REV-AutomorphicBundles--B5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #356"
   },
   {
    "id": "BP-AutomorphicCongruences--L0",
@@ -27964,9 +27965,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #974"
+   "note": "deliverables arrived from an external worker on issue #974",
+   "finishedAt": "2026-10-06T14:29:20Z"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
