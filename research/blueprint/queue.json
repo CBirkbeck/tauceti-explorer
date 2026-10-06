@@ -24796,8 +24796,9 @@
    ],
    "avoidAccountOf": "BP-FarguesFontaineDiamonds",
    "prompt": "research/blueprint/prompts/REV-FarguesFontaineDiamonds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #407"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #407",
+   "finishedAt": "2026-10-06T07:59:44Z"
   },
   {
    "id": "BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -28793,9 +28794,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ShimuraData.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #992"
+   "note": "claimed on GitHub issue #992"
   },
   {
    "id": "REV-ShimuraData",
@@ -66659,7 +66660,8 @@
    "avoidAccountOf": "DESIGN-EllipticModularityEffectiveComparisons",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticModularityEffectiveComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1722"
   },
   {
    "id": "DESIGN-EllipticLegendreCharacterInterfaces",
