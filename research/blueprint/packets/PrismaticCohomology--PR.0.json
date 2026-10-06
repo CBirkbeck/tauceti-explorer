@@ -12,7 +12,7 @@
   "PrismaticCohomology:PR.6",
   "PrismaticCohomology:PR.7"
  ],
- "status": "complete",
+ "status": "partial",
  "summary": "A plan of layers PR.0 to PR.7 of prismatic cohomology after Bhatt–Scholze, Bhatt–Lurie, Bhatt–Morrow–Scholze and Anschütz–Le Bras. PR.0 keeps its lemma-level δ-ring prefix (the δ/Frobenius/Witt dictionary, localization, classical completion, δ-stabilization) and adds, at target level, free δ-rings, the Witt adjunction, animated δ-rings, perfect δ-rings, distinguished elements, prisms with their four standard examples, rigidity, bounded and perfect prisms, the equivalence with perfectoid rings, PD envelopes as δ-envelopes and prismatic envelopes. PR.1 to PR.7 are planned at target level: the relative prismatic site with the Hodge–Tate, crystalline and de Rham comparisons; derived prismatic cohomology, the quasiregular semiperfectoid calculation and quasisyntomic descent; Nygaard filtrations, divided Frobenius and Breuil–Kisin twists; the étale comparison for all p-adic formal schemes over a perfectoid ring and the syntomic complexes; absolute prismatic cohomology and the Cartier–Witt stack; q-crystalline cohomology and the comparisons with q-de Rham cohomology and AΩ; prismatic F-crystals and crystalline lattices. Every definition and construction carries its uses, an API outline and unit tests; what other roadmaps own is requested from them, and what no layer of the atlas plans yet is recorded as a gap.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1564,7 +1564,7 @@
     }
    ],
    "planet": {
-    "name": "Delta-rings"
+    "name": "δ-rings"
    },
    "library": {
     "module": "TauCeti/RingTheory/Delta/Basic",
@@ -4781,7 +4781,7 @@
    "proofSteps": [
     "(1) The map W_2(R) → R × R, (x, y) ↦ (x, x^p + p·y), is a ring homomorphism by the coordinate formulas (PR.0/witt2-add-coordinate, PR.0/witt2-mul-coordinate); it is injective because p is a nonzerodivisor of R, and its image is the set of pairs (a, b) with b ≡ a^p modulo p.",
     "(2) Both W_2 (whose underlying set-valued functor is R ↦ R × R) and R ↦ R ×_{R/p} R, restricted to polynomial rings over Z, extend to sifted-colimit-preserving functors on animated rings; a finitely generated polynomial ring is p-torsion-free, so (1) identifies the two functors there, and the identification extends (EnhancedDerivedSheaves:E5:animation/universal-property-of-animation). The extension of R ↦ R/p is B ↦ B ⊗^L_Z F_p (BS22 Remark 2.5: \"Passing to simplicial resolutions\").",
-    "The last sentence: limits commute with the pullback, and the totalisation/realisation is taken levelwise in the three other corners."
+    "The last sentence: regard the square as a pullback square of E_∞-rings; on underlying spectra a pullback square is preserved by limits and by colimits, and the totalisation and the realisation are computed levelwise in the three other corners. Discreteness of colim lim B^• is what identifies the result with W_2 of a ring."
    ],
    "prerequisites": [
     "PrismaticCohomology:PR.0/witt2-add-coordinate",
@@ -4792,7 +4792,7 @@
     "mathlib:TruncatedWittVector"
    ],
    "acceptance": [
-    "R = Z: W_2(Z) ≅ {(a, b) ∈ Z × Z : b ≡ a^p mod p}; the pair (p, 0) is not in the image for p odd or even, since 0 ≢ p^p is false: 0 ≡ p^p, so (p, 0) is the image of (p, −p^{p−1}).",
+    "R = Z: W_2(Z) ≅ {(a, b) ∈ Z × Z : b ≡ a^p mod p}; the pair (p, 0) is the image of the Witt vector (p, −p^{p−1}), and (1, 0) is not in the image.",
     "R = F_p (not p-torsion-free): the underived square fails, W_2(F_p) = Z/p² is not F_p ×_{F_p} F_p = F_p; the derived square holds with F_p ⊗^L_Z F_p in the corner."
    ],
    "sources": [
@@ -22478,7 +22478,7 @@
   },
   {
    "supplier": "DerivedDeRhamCohomology:DD.1",
-   "need": "Derived I-completeness and derived I-completion of modules and animated rings for a finitely generated ideal; that I lies in the Jacobson radical of a derived I-complete ring; I-complete (faithful) flatness and its residue-field criterion; the bounded-torsion criterion (BMS2 Lemma 4.7: a p-completely flat complex over a ring with bounded p^∞-torsion is discrete with bounded torsion); completed faithfully flat descent; Elkik algebraization of I-completely étale algebras and van der Kallen's theorem on W_2 of étale maps (BS22 Lemma 2.18); agreement of derived and classical completion under bounded torsion.",
+   "need": "Derived I-completeness and derived I-completion of modules and animated rings for a finitely generated ideal; that I lies in the Jacobson radical of a derived I-complete ring; I-complete (faithful) flatness, with the criterion that M is I-completely flat over an animated ring A if and only if M ⊗^L_A π_0(A)/I is discrete and flat over π_0(A)/I; the bounded-torsion criterion (BMS2 Lemma 4.7: a p-completely flat complex over a ring with bounded p^∞-torsion is discrete with bounded torsion); completed faithfully flat descent; Elkik algebraization of I-completely étale algebras and van der Kallen's theorem on W_2 of étale maps (BS22 Lemma 2.18); agreement of derived and classical completion under bounded torsion.",
    "neededBy": [
     "PrismaticCohomology:PR.0/prism",
     "PrismaticCohomology:PR.0/prism-category",
@@ -22504,7 +22504,7 @@
   },
   {
    "supplier": "DerivedDeRhamCohomology:DD.0",
-   "need": "For A = W(k) with k a perfect F_p-algebra the p-completed cotangent complex of A over Z_p vanishes; consequently for every derived p-complete ring B and ideal J ⊂ B with B/J derived p-complete, Hom(A,B) → Hom(A,B/J) → Hom(A,B/(J,p)) are bijections (Bhatt–Scholze Lemma 4.8, proof).",
+   "need": "For A = W(k) with k a perfect F_p-algebra the p-completed cotangent complex of A over Z_p vanishes; consequently for every ring B and finitely generated ideal J ⊂ B with B derived (p, J)-complete (for instance (B, J) a prism) and B/J derived p-complete, Hom(A,B) → Hom(A,B/J) → Hom(A,B/(J,p)) are bijections (Bhatt–Scholze Lemma 4.8, proof).",
    "neededBy": [
     "PrismaticCohomology:PR.1/perfect-prism-initial"
    ]
@@ -22827,7 +22827,7 @@
   },
   {
    "supplier": "DerivedDeRhamCohomology:DD.0",
-   "need": "The cotangent complex L_{S/R} and its p-completion; surjectivity on H^{−1} for a surjection of quasiregular semiperfectoid algebras (Bhatt–Scholze Lemma 14.5); wedge powers ∧^j L and their connectivity.",
+   "need": "The cotangent complex L_{S/R} and its p-completion; for a perfectoid ring R′, an ideal I generated by elements x_t with compatible p-power roots and S′ = (R′[X_t^{1/p^∞}]/(X_t))^∧ → S = R′/I, X_t^{1/p^k} ↦ x_t^{1/p^k}: the map of p-completed cotangent complexes over R′ is surjective on H^{−1} (the free module on the X_t maps onto (I/I²)^∧); this is the hypothesis under which Bhatt–Scholze Lemma 14.5 is applied; wedge powers ∧^j L and their connectivity.",
    "neededBy": [
     "PrismaticCohomology:PR.4/tate-twist-discreteness",
     "PrismaticCohomology:PR.4/syntomic-connectivity"
@@ -23363,7 +23363,9 @@
     "Lemma-level refinement of the target-level nodes added in this pass (free δ-rings, perfect δ-rings, distinguished elements, prisms, perfect prisms and perfectoid rings, PD and prismatic envelopes), in the style of the fifty-four lemma-level nodes that precede them.",
     "unbounded-torsion-example: prove that f is a nonzerodivisor of R, which the source asserts without proof.",
     "delta-ring-category: a self-contained proof of Joyal's theorem that W is right adjoint to the forgetful functor, which the source cites.",
-    "BS22 Remark 2.5 (derived Frobenius lifts give δ-structures) and Remark 3.11 (perfectoid covers of regular local rings) are not planned: no target of the stage needs them."
+    "BS22 Remark 2.5 (derived Frobenius lifts give δ-structures) and Remark 3.11 (perfectoid covers of regular local rings) are not planned: no target of the stage needs them.",
+    "BS22 Example 2.6, last two sentences: δ lowers the p-adic valuation by one on non-units of Z_(p), so δ^n(p^n) is a unit, and no nonzero δ-ring has p^n = 0. Only n = 1 is planned (second half of integer-cast-delta); delta-completion-unique-fg and delta-shifted-quotient rely on the general case in remarks.",
+    "BS22 Corollary 2.12 (Frobenius is fpqc-locally surjective) occurs only as a proof step of free-delta-ring, and that step uses delta-ring-category, which depends on free-delta-ring; state it as its own lemma after delta-ring-category."
    ]
   },
   {
@@ -23372,7 +23374,8 @@
    "remaining": [
     "Global (non-affine) forms are stated in the nodes but the Lean section states the affine forms only; the sheaf-level statements on X_ét wait for the étale site of a p-adic formal scheme (requests to SF.2 and SF.4).",
     "Lemma-level refinement of the proofs of Theorem 5.2 (the compatibility of the two comparison maps for a general PD ideal, left to the reader in the source) and of Lemma 5.4.",
-    "The gap on p-torsion-freeness over a general p-torsion-free bounded prism (PR.1/p-torsion-free-h0-syntomic)."
+    "The gap on p-torsion-freeness over a general p-torsion-free bounded prism (PR.1/p-torsion-free-h0-syntomic).",
+    "Hyperdescent, a target of the stage text, is stated by no node: it follows from prismatic-structure-sheaf (3) (B ↦ O(B) = RΓ(B, O) is a hypercomplete sheaf) and is to be stated there or in cech-alexander-computes-cohomology."
    ]
   },
   {
@@ -23396,12 +23399,14 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.4",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "Bhatt–Mathew Theorem 1.8 (for p-torsion-free F-smooth schemes Z/p^n(i)_X → τ^{≤i}Rj_*μ_{p^n}^{⊗i} is an isomorphism in degrees < i and injective in degree i with image generated by symbols), the integral comparison beyond smooth formal schemes over O_C; it is quoted in PR.4/syntomic-not-generic-fibre-etale and needs the F-smoothness theory of Bhatt–Mathew Sections 3–5.",
     "The Fontaine–Messing (Hodge-filtered crystalline) form of the syntomic triangle in mixed characteristic and its comparison with Z_p(n) up to bounded torsion, see upstreamNotes and restructure.",
     "Bhatt–Lurie Variant 8.5.5 and Corollary 8.5.7 (purity) and the relative first Chern class (Variant 8.4.17), consumers of PR.4/syntomic-cohomology-schemes.",
-    "The second route for the last step of Theorem 9.1 (products of absolutely integrally closed valuation rings of rank ≤ 1), which the source leaves as an exercise."
+    "The second route for the last step of Theorem 9.1 (products of absolutely integrally closed valuation rings of rank ≤ 1), which the source leaves as an exercise.",
+    "The target of the stage text \"For general bases use the specified perfected-site or scalar-extension version and prove it; do not copy the perfect-prism formula unchanged\" has no node: no PR.4 node states an étale comparison over a non-perfect base prism. Plan it (the perfection of the base prism and the perfect prismatic site of BS22 §8.1, or the Laurent F-crystal form of PR.7/laurent-f-crystals-local-systems), or record with the maintainer that the target is withdrawn.",
+    "Bhatt–Lurie Theorem 7.1.1 (the logarithm sequence 0 → (1+J)^× → Fil^1_N A_crys(R) → A_crys(R) → 0) and Theorem 7.3.5 (crystalline first Chern class), on the way to Theorem 7.5.6, appear only inside syntomic-low-weights; left and middle exactness, the long part of the proof, has no outline."
    ]
   },
   {
@@ -23412,7 +23417,9 @@
     "Bhatt–Lurie §3.9 (Sen theory: the Galois-representation interpretation of the Sen operator) is not planned here; it belongs with PR.7 or PadicHodgeTheory.",
     "Bhatt–Lurie §4.9 (the integral diffracted Hodge complex over Z) is not planned; only its p-completed form enters absolute-hodge-tate-cohomology.",
     "The proof of Lemma 5.6.14 and the computations inside Proposition 3.6.18 and Lemma 3.6.19 are recorded as proof steps from their statements; a lemma-level pass must read them line by line.",
-    "Globalisation of the Nygaard filtration and of the Frobenius to formal schemes is stated through limits over points; the sheaf-theoretic form on a non-affine qcqs formal scheme depends on the recorded gap."
+    "Globalisation of the Nygaard filtration and of the Frobenius to formal schemes is stated through limits over points; the sheaf-theoretic form on a non-affine qcqs formal scheme depends on the recorded gap.",
+    "Bhatt–Lurie Remark 5.7.10 (the Frobenius on the Nygaard completion; Fil^•_N Δ̂_R{n} as a sifted-colimit-preserving Beilinson connective cover), which PR.4 consumes, and Variant 4.2.10 (derived descent of the conjugate filtration along R → R ⊗^L F_p^{⊗(•+1)}), used for Proposition 5.5.24, are stated in no node.",
+    "The stage text names Breuil–Kisin twists and syntomic packages and Bhatt–Lurie §§7–9; after RT-AREA-padic-2/28 the twists are owned by PR.3 and the syntomic complexes by PR.4, and Bhatt–Lurie §§7.1–7.3, 7.5–7.6 and 9 are planned only as far as PR.4 uses them. PR.5/transversal-prism-coproducts restates parts (3)–(5) of PR.3/transversal-approximation (Bhatt–Lurie Propositions 2.4.5, 2.4.9, Corollaries 2.4.7, 2.4.8, 2.4.10): keep one of the two."
    ]
   },
   {
@@ -23421,7 +23428,8 @@
    "remaining": [
     "The ringed q-crystalline site of a non-affine smooth formal scheme (BS22 Remark 16.15 (2)), which the source does not develop; the Zariski-sheaf globalisation of Remark 16.15 (1) is planned in q-crystalline-crystalline-comparison.",
     "A lemma-level decomposition of the proofs of q-pd-envelope (BS22 Lemma 16.10), q-de-rham-comparison (Theorem 16.22) and comparison-uniqueness (Lemma 18.3), whose steps are recorded in proofSteps.",
-    "An explicit description of the q-PD envelope of (D⟨X⟩, (q−1, X)) by q-divided powers X^n/[n]_q!, which BS22 §16 does not state."
+    "An explicit description of the q-PD envelope of (D⟨X⟩, (q−1, X)) by q-divided powers X^n/[n]_q!, which BS22 §16 does not state.",
+    "The target \"Prove the q-Poincaré lemma\" is realised only as step 3 of q-de-rham-comparison; state it as a node. Joyal's operations δ_n with their identity and the fact that the free δ-ring is polynomial on the δ_n(x) (BS22 Remarks 2.13–2.14), used in the proof of Lemma 18.3, are the statement of no node."
    ]
   },
   {
@@ -25647,5 +25655,1403 @@
   "PAPER-BHATT-MORROW-SCHOLZE-19/012": "PrismaticCohomology:PR.4/syntomic-complex (the definition of Z_p(n) as a fibre and the divided Frobenius over a perfectoid base; the TC filtration and spectral sequence stay with RefinedTraceMethods:RT.6)",
   "PAPER-BHATT-MORROW-SCHOLZE-19/013": "PrismaticCohomology:PR.4/log-de-rham-witt-comparison",
   "PAPER-BHATT-MORROW-SCHOLZE-19/014": "PrismaticCohomology:PR.4/nearby-cycles-comparison"
+ },
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-PrismaticCohomology--PR.0",
+  "date": "2026-10-06",
+  "notes": "Independent review of all 277 nodes of the packet against the TeX sources of the arXiv versions it cites (hashes equal to the packet's), of its 132 library citations at the pinned commits, of its requests, gaps, coverage, source issues and of the ten red-team findings handed to it; one node was added. Verdicts: 113 verified, 135 corrected, 1 added, 29 with an open point (marked unverifiable; the note says what is open). Not accepted, for two reasons. (1) The suggested Lean file elaborates (0 errors; its only warnings are those of the proof placeholders) but its placeholders are not used honestly: at least 21 theorems quantify over structures of unconstrained 'imported data' or over arbitrary functors and objects (for example Crystalline.comparison, DeRham.comparison, prismaticCohomology_baseChange, conjGr_iso_cotangentPowers, leta_frobenius_factorisation, etaleComparison_affine, the four theorems over `structure Imported`, ainfOmega_comparison), so they assert false statements; others omit the completeness that the structure Prism does not record; the report lists them with line numbers. The Lean sections of PR.3, PR.4 and PR.7 were read only for such statements. (2) 29 nodes keep an open point of medium weight that needs the author's decision: missing API items that recorded consumers use, statements that refer to objects constructed later (PR.5), the multiplicativity and naturality of the q-de Rham and AΩ comparisons (PR.6), and requests whose supplier does not state the need. Corrected in place, among others: the derived crystalline comparison (PR.2) identified derived crystalline cohomology over W(k) with the p-completed derived de Rham complex over W(k), which is false already for S = k, and two requests asked suppliers for the false statement; the flat topology on prisms is generated by finite jointly faithfully flat families, not by single maps; morphisms of framed q-PD data must be injective on coordinates; formula (9.3) for Z_p(n) of a perfectoid ring holds only for generators adapted to a trivialisation of the twist; Pic(R)^∧[−2] ≃ Z_p(1)(R) holds for perfectoid R and fails for R = F_p(t); d need not be a nonzerodivisor of colim_φ A; the ring of Anschütz–Le Bras Example A.4 needs the x_{i,j} to span a square-zero ideal; three requests asked for false statements; one stage (PR.4) is partial, not planned, because a target of its text has no node. Library: all 132 citations confirmed at Mathlib 082e2d3 (none is a Tau Ceti declaration); two declarations added (Ideal.smul_top_eq_map, Ideal.map_pow); none removed. Sources: every one of the 519 excerpts now occurs verbatim in the TeX source at its locator (27 excerpts that were the single glyph δ and 27 one-word excerpts were replaced). Source issues: 44 of the 45 recorded entries confirmed (E37 and E41 in the version of record), E33 rejected; 35 mistakes the packet missed were added as E81–E115, among them four in stated results of Bhatt–Scholze (Lemma 3.9, formula (9.3), Lemma 9.6) and of Anschütz–Le Bras (Example A.4), each re-derived by the lead reviewer. The reader document is not a deliverable of this review and was not edited; the report lists where it must follow the packet. Checks after the corrections: scripts/check_blueprint.py with the pinned index, 0 errors and 0 warnings; the suggested file elaborates in the shared build at the pinned Mathlib with no error and no warning other than those of the proof placeholders. The packet status is corrected from complete to partial: with PR.4 partial and 278 nodes the pass is not a finished pass under the node budget (PROTOCOL.md section 0).",
+  "checked": [
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-addition-correction",
+    "verdict": "corrected",
+    "note": "Compared with prisms.tex ll. 473-477 (section opening: the expression (x^p+y^p-(x+y)^p)/p in Z[x,y] 'can be evaluated in any ring') and Definition 2.1 (ll. 484-488). Recomputed: p*C_p = -sum_{0<i<p} binom(p,i) x^i y^(p-i) = x^p+y^p-(x+y)^p; C_2=-xy; C_3=-xy(x+y); C_p(x,0)=0; symmetry by i->p-i. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/correction-identity",
+    "verdict": "corrected",
+    "note": "Recomputed from add_pow (sum over range(p+1), endpoint terms x^p and y^p) and exact divisibility of binom(p,i) for 0<i<p; the identity p*C_p(x,y)=x^p+y^p-(x+y)^p holds in every commutative ring. Both library prerequisites read at the pin. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+    "verdict": "corrected",
+    "note": "Definition 2.1 (prisms.tex ll. 484-488) read: delta(0)=delta(1)=0, the product rule x^p d(y)+y^p d(x)+p d(x)d(y) and the addition rule with the integral polynomial; the node states exactly these (generalised from Z_(p)-algebras, l. 473, to all commutative rings, which it says). API items delta_neg and delta_two recomputed (0=d(x)+d(-x)+C_p(x,-x); d(1+1)=C_p(1,1)); Corrected in place (3 changes: planet, sources, tests)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/ordinary-frobenius-lift",
+    "verdict": "corrected",
+    "note": "Remark 2.2 (prisms.tex l. 493: 'a ring homomorphism that lifts Frobenius on R/p') read; the node's subtype of RingHom with the pointwise congruence f(x)=x^p+p*y is that notion, and the three tests are true (id on Z, id on F_p, x->x^2 is not additive on Z). Corrected in place (3 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/associated-frobenius",
+    "verdict": "corrected",
+    "note": "Remark 2.2 (l. 493) read. Recomputed: phi(x+y)=(x+y)^p+p(d x+d y+C_p)=phi(x)+phi(y) by the correction identity, and phi(xy)=(x^p+p d x)(y^p+p d y); phi(1)=1, phi(0)=0. Tests true (phi(2)=2 for the canonical structure on Z at p=2). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/torsionfree-frobenius-equivalence",
+    "verdict": "corrected",
+    "note": "Remark 2.2 (l. 493: 'if R is a p-torsionfree ring, then any lift ... comes from a unique delta-structure on R, given by the formula delta(x)=(phi(x)-x^p)/p') read; the node keeps exactly this hypothesis (injectivity of multiplication by p). The four axioms follow after multiplying by p, as the steps say (zero and one: p*d(0)=f(0)=0, p*d(1)=f(1)-1=0). Tests true. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/frobenius-morphism-reflection",
+    "verdict": "corrected",
+    "note": "Authored consequence of Remark 2.2 and Definition 2.1: f(phi(x))-phi(f(x)) = p*(f(d x)-d(f x)), so the two compatibilities agree when p is injective on the target only. Correct; the counterexample in the acceptance line is the identity between two square-zero structures. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/integer-delta",
+    "verdict": "corrected",
+    "note": "Example 2.6 (prisms.tex l. 524) gives delta(x)=(x-x^p)/p on Z_(p); the node restricts it to Z and says so. Recomputed: D_2(-1)=-1, D_3(2)=-2, D_p(p)=1-p^(p-1), D_p(-1)=0 for odd p. FiniteField.pow_card read at the pin (GroupWithZero K, Fintype K: a^card K = a; ZMod.pow_card in the same file, l. 588, is the direct form x^p = x). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/integer-cast-delta",
+    "verdict": "corrected",
+    "note": "Authored strengthening of Example 2.6 (l. 524): delta of an integer scalar is forced by the addition law alone. The induction is sound (delta(n+1)=delta(n)+C_p(n,1), run in both directions) and the corollary is right: if p=0 in R then 0=delta(0)=delta(p)=1-p^(p-1)=1. Corrected in place (2 changes: prerequisites, sources). Suggested file: The statement has two parts; the second ('a nonzero ring of characteristic p has no delta structure') has no declaration in the suggested file, which states only delta_intCast."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-stable-quotient",
+    "verdict": "corrected",
+    "note": "Lemma 2.9 (prisms.tex ll. 541-547) read with its proof: 'I is stable under delta if and only if there exists a (necessarily unique) delta-structure on A/I compatible with the one on A'; the proof is the additivity formula, as in step 1 (C_p(a,i) lies in I because every monomial contains i). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/square-zero-correction",
+    "verdict": "corrected",
+    "note": "Authored computation. Recomputed: dC_p/dX = X^(p-1)-(X+Y)^(p-1), dC_p/dY = Y^(p-1)-(X+Y)^(p-1) in Z[X,Y], and a polynomial evaluated on (a,b),(c,d) in B+M has second coordinate dP/dX(a,c) b + dP/dY(a,c) d; this gives the stated formula, and -cbar*b-abar*d at p=2. Checked numerically for p=2,3,5,7 on Z+F_p*eps. Corrected in place (2 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/square-zero-delta-family",
+    "verdict": "corrected",
+    "note": "Authored example. All four axioms recomputed by hand for delta_lambda(a,b)=(delta_B(a),(lambda-abar^(p-1)) b): the addition law reduces to (lambda-(abar+cbar)^(p-1))(b+d) by the previous node; the product law uses snd(x^p)=p*abar^(p-1) b=0, abar^p=abar and gives (lambda-(abar cbar)^(p-1))(abar d+cbar b) on both sides; phi(a,b)=(phi_B(a),0). Corrected in place (2 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/frobenius-forgetful-not-injective",
+    "verdict": "corrected",
+    "note": "Authored witness for the limit of Remark 2.2/2.3 (ll. 493, 496: the converse 'holds true if B is p-torsionfree'). delta_lambda(eps)=lambda*eps separates the structures and both Frobenius maps are (a,b)->(phi_B(a),0); with B=Z the ring Z+F_p*eps has characteristic zero. inr_injective read at the pin. Correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-add-coordinate",
+    "verdict": "corrected",
+    "note": "Remark 2.4 (prisms.tex ll. 501-502) defines W_2 by (x,y)+(x',y')=(x+x', y+y'+(x^p+x'^p-(x+x')^p)/p). Checked against Mathlib's conventions: wittPolynomial_one is C p * X 1 + X 0 ^ p (WittPolynomial.lean l. Corrected in place (2 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-mul-coordinate",
+    "verdict": "corrected",
+    "note": "Remark 2.4 (l. 502): (x,y)(x',y')=(xx', x^p y'+x'^p y+p y y'). From multiplicativity of w_1: (x_0 y_0)^p + p (xy)_1 = (x_0^p+p x_1)(y_0^p+p y_1), so (xy)_1 = x_0^p y_1 + y_0^p x_1 + p x_1 y_1 after cancelling p in the universal ring. Agrees with the source and with Mathlib's conventions. Corrected in place (2 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-witt-section-equivalence",
+    "verdict": "corrected",
+    "note": "Remark 2.4 (l. 503): 'specifying a delta-structure on R is the same as specifying a ring map w: R -> W_2(R) such that epsilon∘w = id: the correspondence attaches the map w(x)=(x,delta(x))'. The node is this statement on TruncatedWittVector p 2 R; with the two coordinate formulas the four axioms are equivalent to w being a ring map (zero and one are (0,0) and (1,0)). Corrected in place (3 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/correction-map-naturality",
+    "verdict": "corrected",
+    "note": "Immediate from the definition (a ring map preserves integer casts, powers, products and finite sums). Correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-coefficient-map",
+    "verdict": "corrected",
+    "note": "Authored adapter (Mathlib has WittVector.map but no map on TruncatedWittVector: checked in Truncated.lean and the declaration index). The coordinatewise map is a ring homomorphism by the two coordinate formulas and naturality of C_p, as the steps say. Tests true: (0,1) in W_2(F_2) has ghost coordinates 0 and 0^2+2*1=0. The locator Lemma 2.15 (l. 602) is the consumer; Corrected in place (1 change: sources). Minor, left for the revision: API item witt2Map_truncate (compatibility of the length-two coefficient map with WittVector.map and truncate) is recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-coefficient-map-coeff",
+    "verdict": "corrected",
+    "note": "Projection of the previous construction; statement and Lean form (j : Fin 2) agree. Nothing to change. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-unit-criterion",
+    "verdict": "corrected",
+    "note": "Authored. Recomputed both directions: w_0 and w_1 : W_2(R) -> R are multiplicative (w_1 by the product coordinate: (a c)^p + p(a^p d + c^p b + p b d) = (a^p+p b)(c^p+p d)), so a unit has a and a^p+p b units; conversely with g=a^p+p b the vector (a^-1, -b a^-p g^-1) has product (1, g*(-b a^-p g^-1) + a^-p b) = (1,0). Checked numerically over Q. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt-section-coordinates",
+    "verdict": "corrected",
+    "note": "Promotion of the API item wittSectionEquiv_apply; agrees with Remark 2.4 (l. 503: w(x)=(x,delta(x))). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization",
+    "verdict": "corrected",
+    "note": "Lemma 2.15 (prisms.tex ll. 602-610) read with its proof (which goes through free delta-rings). The node's W_2 argument is a different, self-contained proof and is correct: a -> (i(a), i(delta a)) sends s to a vector whose coordinates a=i(s) and a^p+p b = i(phi(s)) are units, so IsLocalization.lift applies; the first projection of the lift is the identity by ringHom_ext. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/localized-delta-on-base",
+    "verdict": "corrected",
+    "note": "Follows from lift_eq and the coordinate formula for the section; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-unique",
+    "verdict": "corrected",
+    "note": "Two compatible structures give two ring maps B -> W_2(B) that agree on i(A) in both coordinates, hence everywhere by IsLocalization.ringHom_ext (read at the pin: target any Semiring). Correct, and it does not use p-torsion-freeness; the source asserts uniqueness in Lemma 2.15 (l. 604). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-criterion",
+    "verdict": "corrected",
+    "note": "Authored sharpening of Lemma 2.15. Necessity recomputed: for a compatible extension phi_B(i(s)) = i(s)^p + p i(delta s) = i(phi_A(s)) and phi_B is a ring map, so it is a unit. algebraMap_isUnit_iff read at the pin (Defs.lean l. 189: IsUnit (algebraMap R S x) ↔ ∃ m ∈ M, x ∣ m, no domain hypothesis). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-universal",
+    "verdict": "corrected",
+    "note": "Second half of Lemma 2.15 (l. 604: 'initial amongst all delta-A-algebras B such that each element of S is invertible in B'). The comparison of witt2Map(g)∘w_e and w_C∘g on i(A) and ringHom_ext is correct and needs no torsion hypothesis on C. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-fraction",
+    "verdict": "corrected",
+    "note": "Recomputed: from i(s) z = i(a) the product rule gives i(delta a) = (i(s)^p + p i(delta s)) delta(z) + z^p i(delta s) = i(phi s) delta(z) + z^p i(delta s); multiplying by i(s)^p gives the stated identity. Checked numerically over Q for p=2,3,5; delta_2(1/3)=1/9; for phi(X)=X^p+p, delta(1/X) = -1/(X^p (X^p+p)). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-phi-stable",
+    "verdict": "corrected",
+    "note": "Lemma 2.15 (ll. 602-605): 'Let S ⊂ A be a multiplicative subset such that phi(S) ⊂ S. Then S^{-1}A admits a unique delta-structure compatible with the map A -> S^{-1}A. Moreover, the map A -> S^{-1}A is initial amongst all delta-A-algebras B such that each element of S is invertible in B.' The node states both parts with the same hypothesis; Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-adic-correction",
+    "verdict": "corrected",
+    "note": "Every monomial of C_p(x,y) contains y^(p-i) with p-i ≥ 1; correct for any ideal, no hypothesis on p. Used in the proof of Lemma 2.17 (prisms.tex ll. 629-632: 'delta(x+I^m)-delta(x) ⊂ delta(I^m)+I^m'). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-adic-power-loss",
+    "verdict": "corrected",
+    "note": "Lemma 2.17 (ll. 618-638) proves delta(I^{2^{n+1}}) ⊂ I^{2^n} via delta(J_1J_2) ⊂ J_1+J_2+p delta(J_1)delta(J_2)A. The node's sharper bound delta(I^{n+1}) ⊂ I^n was recomputed: for a in I^{n+1}, b in I the three terms of delta(ab) lie in I^{p(n+1)}, I^{p+n}, I*I^n, all inside I^{n+1}; for sums the correction lies in I^{n+2}. Finite generation is indeed not used. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-adic-congruence",
+    "verdict": "corrected",
+    "note": "delta(y+h)-delta(y) = delta(h)+C_p(y,h) with h in I^{n+1}: first term in I^n, second in I^{n+1}. This is the continuity statement of Lemma 2.17 (l. 620: 'for each n there is some m such that ... delta(x+I^m) ⊂ delta(x)+I^n') with m=n+1. Correct; the example 0, 2 at p=2 shows the shift is needed. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-shifted-quotient",
+    "verdict": "corrected",
+    "note": "Well defined by the congruence bound. Tests true: on Z with I=(2), q_1(2 mod 4) = -1 mod 2, q_1(1 mod 4) = 0, so q_1 is not additive; q_0 lands in A/I^0 = 0. Lean signature A ⧸ I^(n+1) → A ⧸ I^n agrees. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-shifted-quotient-mk",
+    "verdict": "corrected",
+    "note": "Defining equation of the previous node; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-shifted-quotient-transition",
+    "verdict": "corrected",
+    "note": "Both sides send [a] to [delta a] modulo I^m. Ideal.Quotient.factorPow read at the pin (PowTransition.lean l. 146: {m n} (le : n ≤ m) : R ⧸ I^m →+* R ⧸ I^n); the Lean statement applies it in that direction on both sides. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-classical-completion",
+    "verdict": "corrected",
+    "note": "Second half of Lemma 2.17 (l. 622) without finite generation. Checked: lifts a_n of the (n+1)st coordinates satisfy a_m-a_n in I^{m+1} for m ≤ n, so (delta(a_n)) is an adic Cauchy sequence in Mathlib's sense (f m ≡ f n mod I^m for m ≤ n); evalₐ_mk gives the coordinate formula; the four axioms hold coordinatewise because evalₐ is a ring map and C_p is natural. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-completion-coordinate",
+    "verdict": "corrected",
+    "note": "evalₐ_mk (Algebra.lean l. 166) and the defining equation; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-completion-base",
+    "verdict": "corrected",
+    "note": "evalₐ_of (l. 153: evalₐ I n (of I R x) = Ideal.Quotient.mk _ x) and algebraMap_apply (l. 117) read at the pin; the computation is correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-completion-congruence",
+    "verdict": "corrected",
+    "note": "Immediate from the coordinate formula; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-completion-unique-fg",
+    "verdict": "corrected",
+    "note": "Lemma 2.17 (prisms.tex ll. 618-623): 'I ⊂ A a finitely generated ideal containing p ... the classical I-adic completion of A acquires a unique delta-structure compatible with the one on A'; the source's uniqueness argument (l. 627) is that any delta-structure on the completion is continuous 'by the same result applied to' it. Corrected in place (3 changes: prerequisites, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/frobenius-image-unit-jacobson",
+    "verdict": "corrected",
+    "note": "Remark 2.16 (prisms.tex l. 613): 'In a delta-ring A with p in the Jacobson radical rad(A), the formula phi(f)=f^p+p delta(f) shows that if f is a unit, so is phi(f).' The node's image version (for any ring map f: A -> B with p in rad(B), f(phi x) is a unit iff f(x) is) is what the remark's next sentence actually needs, and is correct in both directions: unit + radical element i… Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-unit-jacobson",
+    "verdict": "corrected",
+    "note": "Specialisation of the unit criterion: when a is a unit and p is in the radical, a^p+p b = a^p(1+p b a^-p) is a unit. Correct; (1,1) over Z at p=2 shows the hypothesis is needed. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-localization-jacobson",
+    "verdict": "corrected",
+    "note": "Part of Remark 2.16 (l. 613): a localization B of A with p in rad(B) satisfies the image-unit condition automatically, so the delta-structure extends uniquely. Correct; the node rightly does not claim to construct the p-localization (S^{-1}A)_(p) itself (that is delta-radical-localization in the second half of the layer). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/integer-frobenius-identity",
+    "verdict": "corrected",
+    "note": "Promotion of intDelta_frobenius; p*D(a) = a - a^p gives phi = id. Correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/p-local-integer-delta",
+    "verdict": "corrected",
+    "note": "Example 2.6 (prisms.tex l. 524): 'The identity map on the p-torsionfree ring Z_(p) is its unique endomorphism and lifts the Frobenius modulo p, so Z_(p) carries a unique delta-structure given by delta(x)=(x-x^p)/p.' The construction by localizing intDelta at the complement of (p) is correct (phi_Z = id, so the image-unit condition is map_units), and phi = id on Z_(p) by ringHom… Corrected in place (1 change: sources). Minor, left for the revision: API item intAtPrime_unique (every δ-structure on Z_(p) equals the constructed one; the source says \"unique\") is recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/p-local-integer-delta-base",
+    "verdict": "corrected",
+    "note": "Specialisation of localize_algebraMap; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/p-local-integer-initial",
+    "verdict": "corrected",
+    "note": "Example 2.6 (l. 524): 'In fact, this is the initial object in the category of delta-rings (as we work with Z_(p)-algebras).' The node states initiality among delta-rings in which integers prime to p are units, i.e. Z_(p)-algebras, which is the source's hypothesis made explicit. Proof correct: Int.castRingHom commutes with delta by the cast lemma, then localization_universal; Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-span-stability",
+    "verdict": "corrected",
+    "note": "Authored lemma behind Example 2.10 (l. 550). Span induction recomputed: for a sum the correction lies in J because one summand does; for a multiple, delta(ax) = a^p delta(x) + x^p delta(a) + p delta(a) delta(x) has all three terms in J. The excerpt 'additivity formula' is verbatim in the proof of Lemma 2.9 (l. 546). span_induction read at the pin (dependent form). Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-ideal-closure",
+    "verdict": "corrected",
+    "note": "Example 2.10 (prisms.tex l. 550): 'J is the delta-stabilization of I, i.e., the ideal generated by ∪_n delta^n(I)'. The node's definition is this, with delta^0 = id. API true (monotone and idempotent by minimality); tests true: C_d(0)=0; C_d((p)) contains p and delta(p)=1-p^(p-1), hence 1; on Z at p=2 it contains -1. The excerpt is verbatim at l. 550. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-ideal-closure-stable",
+    "verdict": "corrected",
+    "note": "delta of a generator delta^n(a) is the generator delta^(n+1)(a); with delta-span-stability the closure is stable. Correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-ideal-closure-minimal",
+    "verdict": "corrected",
+    "note": "Induction on the number of iterations inside a stable J, then Ideal.span_le (read at the pin). Correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-kernel-stability",
+    "verdict": "corrected",
+    "note": "f(delta x) = delta(f x) = delta(0) = 0. Correct; the 'if' direction of Lemma 2.9 (l. 546) in the form used by the universal property. Excerpt 'compatible' is verbatim at l. 542. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-universal-quotient",
+    "verdict": "corrected",
+    "note": "Example 2.10 (l. 550): 'the universal delta-A-algebra B with IB=0 is given by B=A/J'. Construction by Lemma 2.9 on the closure; API and tests true (I=0: the quotient map is bijective; I=(p): the quotient is the zero ring). Excerpt 'universal' is verbatim at l. 550. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-universal-quotient-projection",
+    "verdict": "corrected",
+    "note": "Defining compatibility of the previous node; correct. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-universal-quotient-lift",
+    "verdict": "corrected",
+    "note": "Universal property of Example 2.10: the kernel of a delta-map is stable, so it contains the closure of I; Ideal.Quotient.lift, lift_mk, mk_surjective and ringHom_ext read at the pin. Correct, with uniqueness from surjectivity of the projection. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/free-delta-ring",
+    "verdict": "verified",
+    "note": "Read Lemma 2.11 and Corollary 2.12 with proofs (prisms.tex ll. 553-580). Statement, universal property, faithful flatness over Z (fibrewise criterion still applies over Z), the excerpt, both acceptance computations (delta(x^2)=2x^2x_1+2x_1^2 for p=2; delta(2)=-1) and the four tests are correct. One closure defect. Minor, left for the revision: STEP4 proves Corollary 2.12, which is not in the STATEMENT, and it uses delta-ring-category (pushouts computed on underlying rings), which is not a prerequisite and canno…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-ring-category",
+    "verdict": "unverifiable",
+    "note": "Read Remarks 2.7 and 2.13 (ll. 527-530, 582-591). Statement, excerpt, steps (Joyal's theorem is a recorded gap), acceptance examples and the four tests are correct (ghost components of w_Z(n) are n; first Witt coordinate of w_Z(2) is delta(2)=-1 for p=2). Corrected in place (1 change: api). Open: The API calls wittUnit 'the δ-map w_A' and the statement asserts an adjunction, but no API item says that wittUnit commutes with δ and none states the universal property; consumers (Remark 2.22, PR.5/cartier-witt-divisor) need both. Minor, left for the revision: The second USE is wrong twice: the composite of Remark 2.22 starts with the Frobenius (s = can∘w∘φ); without φ the image of d in W(A/d) is V(δ(d),…), not p times a unit."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/animated-delta-rings",
+    "verdict": "corrected",
+    "note": "Read the passages cited (Remark 2.37 l. 880, Corollary 2.39 ll. 904-917, Corollary 2.44, proof of Proposition 3.13 l. 1199). The source has no definition; the node's definition and the preservation of colimits are standard. Excerpt verbatim. Three defects in statement/steps. Corrected in place (3 changes: prerequisites, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-radical-localization",
+    "verdict": "verified",
+    "note": "Read Remark 2.16 (l. 613). Statement and steps agree; the comparison (S^{-1}A)_(p) = (T^{-1}A)_(p) needs only the formula φ(s)=s^p+pδ(s) pushed into B, as in STEP1. The V(p,I) variant holds because φ(I) ⊂ (p,I). The Lean submonoid radicalSaturation does localize A to (T^{-1}A)_(p) (checked by hand). Tests true;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/witt2-derived-pullback-square",
+    "verdict": "added",
+    "note": "Added by this review: the pullback square for W_2 of a simplicial commutative ring (BS22 Remark 2.5), which the proof of PR.2/derived-agrees-with-site (BS22 Lemma 7.7 (1)) uses and which no node, request or gap supplied."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/delta-etale-extension",
+    "verdict": "verified",
+    "note": "Read Lemma 2.18 and its proof (ll. 640-658). Statement, hypotheses (I finitely generated, p ∈ I; a power of p for the completion), excerpt and steps agree with the source. The request to DD.1 for Elkik and van der Kallen is questioned under 'requests'. No Lean statement (needs DD.1)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/distinguished-element",
+    "verdict": "corrected",
+    "note": "Read Definition 2.19, Example 2.20, Example 2.21 (ll. 663-689). Definition and the four examples agree; δ(p)=1-p^{p-1}, δ(p^2)=p-p^{2p-1}, all four tests true. Corrected in place (1 change: sources). Minor, left for the revision: All tests live in Z_(p), where 'δ(d) is a unit' and 'd = p·unit' coincide, so they do not separate the definition from that wrong one."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+    "verdict": "corrected",
+    "note": "Read Lemmas 2.23 and 2.24 with proofs (ll. 700-718). Statement, hypotheses, steps, excerpt and the Lean statements agree. Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+    "verdict": "verified",
+    "note": "Read Lemma 2.25 (ll. 720-729) and Lemma 3.1 (ll. 989-1005) with proofs. (a) and (b)(1)-(3) are the printed statements with the same hypotheses (d,p ∈ rad; I locally principal, p,I ⊂ rad). The completed version of the source's sketch in STEP1 is correct; the localization along V(p,d,δ(d)) is covered by delta-radical-localization. Both acceptance examples true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/p-torsion-freeness-criteria",
+    "verdict": "corrected",
+    "note": "Read Lemma 2.28 with proof and Remark 2.29 (ll. 744-767). Statement and both examples correct (φ(x-1)=0 on Z_p[x]/(x^p-1); φ(a+bx)=a+pbx injective on Z_p[x]/(x^2)). Corrected in place (1 change: hypotheses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/perfect-delta-rings",
+    "verdict": "unverifiable",
+    "note": "Read Definition 2.26, Remark 2.27, Corollary 2.31 with proof (ll. 734-787). Statement and excerpt agree; acceptance examples true. Mathlib has W(k) p-torsion-free, W(k)/p ≃ k and p-adic completeness for perfect k in WittVector/Complete.lean, as STEP2 says. Open: a prerequisite/request to DerivedDeRhamCohomology is missing for the deformation-theoretic step (uniqueness of deformations of perfect F_p-algebras); add the request"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/rank-one-elements",
+    "verdict": "corrected",
+    "note": "Read Lemma 2.32 with proof and the remark after it (ll. 789-798). Statement, steps, both acceptance examples and the Lean statement are correct. Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/distinguished-in-perfect-delta-rings",
+    "verdict": "verified",
+    "note": "Read Lemmas 2.33 and 2.34 with proofs (ll. 801-827). Both statements with the printed hypotheses (perfect p-complete; p-torsion-free, p-adically separated, A/p reduced). Steps reproduce the proofs; δ(p^2 f) ∈ pA checked. Acceptance examples true. Lean statement of 2.34(1) carries all three hypotheses."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/free-delta-pd-envelope",
+    "verdict": "verified",
+    "note": "Read Lemmas 2.35, 2.36, Remark 2.37 with proofs (ll. 838-881). Statements agree; register entry E3 (D_(x)(Z_(p)) for D_(x)(Z_(p){x})) is at l. 880. Recomputed δ(z^p/p) and the p=2 acceptance identity δ(x^2/2)=x^4/8+x^2δ(x)+δ(x)^2; coefficient identity ((pi)!/i!)(p^{n-i}/(n-i)!) correct. No Lean statement."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/pd-envelope-as-delta-envelope",
+    "verdict": "verified",
+    "note": "Read Lemma 2.38, Corollary 2.39, Remark 2.40, Warning 2.41 (ll. 883-926). The four statements agree with the source; δ_1(x/p) and δ_2(x/p) recomputed; register E9 misprints are at ll. 895 and 916. Excerpt verbatim. Minor, left for the revision: (1) is about Koszul-regular sequences and Koszul complexes Kos(B/p; f_i^{n_i}) of ordinary rings;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/complete-regular-sequence",
+    "verdict": "corrected",
+    "note": "Read the paragraph before Definition 2.42, the definition and the sentence after it (ll. 931-946). Definition agrees; both acceptance examples and the four tests are true; the API predicate is a discrete shadow, honestly described, and its three API statements are true (base change uses the flatness for every k). Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/pd-envelope-complete-flatness",
+    "verdict": "verified",
+    "note": "Read Lemma 2.43, the sentence after it, Corollary 2.44 with proofs (ll. 948-977). Both statements agree, including x_i^p in (1) versus x_i in (2) and flatness over A. STEP2 paraphrases the source's reduction (push out along ψ: x_i ↦ φ(y_i), perturb φ(y_i) to y_i^p, apply Lemma 2.43 with Lemma 2.36/Corollary 2.39)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/prism",
+    "verdict": "unverifiable",
+    "note": "Read Definition 3.2(1) and Definition 1.1 (ll. 1007-1011, 133). The three conditions agree (Cartier divisor = invertible ideal; derived (p,I)-complete; p ∈ I + φ(I)A). Acceptance examples and the four tests are true (zero ring: exactly one prism; (Z_p,(p^2)) fails because every ring endomorphism of Z_p is the identity). Corrected in place (1 change: prerequisites). Open: 'φ(I)A is principal, generated by a distinguished element' is Lemma 3.6, the later node prism-frobenius-ideal-principal, which depends on prism; it is listed here as a consequence in the statement and as API item Prism.exists_distinguished_generator_map, but nothing in this node proves it. Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/prism-category",
+    "verdict": "verified",
+    "note": "Read Definition 3.2(2)-(3) and Definition 1.4 (ll. 1012-1021, 170). Definitions agree (bounded = A/I has bounded p^∞-torsion; flat maps are (p,I)-completely flat). Acceptance examples true (p ∉ ([p]_q) checked). Tests true though close to tautologies. Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/crystalline-prism",
+    "verdict": "verified",
+    "note": "Read Example 3.3 (l. 1026). Statement, converse, steps and tests are correct. Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/ainf-prism",
+    "verdict": "unverifiable",
+    "note": "Read Example 2.20(3), Theorem 3.10 and its proof (ll. 679, 1127-1143) and BMS1 Definition 3.5, Lemmas 3.9-3.10, Remark 3.11 (integralpadicHodge.tex ll. 1000-1078). The conclusion (perfect prism, generator distinguished nonzerodivisor) agrees. Four defects. Corrected in place (3 changes: acceptance, hypotheses, statement). Open: a request to PerfectoidQuotients:Q0:integral-algebra for the principal kernel of θ with a generator of unit first Teichmüller coefficient (BMS1 Remark 3.11) is missing"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/breuil-kisin-prism",
+    "verdict": "verified",
+    "note": "Read Example 2.20(4) (l. 681) and Example 1.3. Statement (with the perfect residue field made explicit, register E8), steps and tests are correct; δ(u-p) ≡ δ(-p) mod u checked. Minor, left for the revision: API item recommended Suggested file: The constructor's hypotheses do not exclude E = 1: the polynomial 1 is monic and satisfies Mathlib's IsEisensteinAt at (p) (leading coefficient 1 ∉ (p); the condition on lower coefficients is empty; coeff 0 = 1 ∉ (p)^2)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/q-de-rham-prism",
+    "verdict": "verified",
+    "note": "Read Example 2.20(2) and Notation 16.1 (ll. 677, 3374). Statement, steps, both acceptance computations (δ(1+q) = -q for p=2; φ([p]_q) ≡ p mod [p]_q) and the four tests are correct; (q-1) is correctly excluded. Minor: unlike breuilKisin there is no API item stating that the prism is bounded and orientable."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/universal-oriented-prism",
+    "verdict": "unverifiable",
+    "note": "Read Examples 2.21 and 3.4 (ll. 685-689, 1029-1033). Statement agrees with the source ((p,d) regular, Frobenius of A/p d-completely flat, universal among oriented prisms). Steps correct once the (p,d)-completion is read as the derived one (equal to the classical one because (p,d) is regular in A_0); that needs DD.1, reached only through the prerequisite prism. Corrected in place (1 change: statement). Open: API items recommended for the universal property of the universal oriented prism"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+    "verdict": "verified",
+    "note": "Read Lemma 3.5 with proof (ll. 1044-1054) and Proposition 1.5. Both halves agree (I ⊗_A B ≅ J; converse with B derived (p,I)-complete and B[I]=0). Steps follow the proof. The Lean statement Hom.map_I_eq assumes p and J in rad(B) only; this suffices (checked: Lemma 2.25 applied in the localization of B)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/prism-frobenius-ideal-principal",
+    "verdict": "verified",
+    "note": "Read Lemma 3.6 with proof (ll. 1058-1069). Statement agrees; the identity p(1 − yδ(d)) = d^p(x+y) and the reduction to the p-completed perfection checked. The misprint 'Proposition 3.1' for Lemma 3.1 is register entry E7."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+    "verdict": "corrected",
+    "note": "Read Lemma 3.7 with proof (ll. 1073-1101). Statement (1)-(4) agrees, with derived (p,I)-completeness of M and B restored (register E10; without it M = A[1/p] is a counterexample). Flatness is over A, completeness and boundedness as printed. No Lean statement. Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/perfect-prism-properties",
+    "verdict": "corrected",
+    "note": "Read Lemma 3.8 with proof (ll. 1105-1116). Statement agrees (with the refinement (A/I)[p^∞]=(A/I)[p] from Lemma 2.34). Lean statements carry the needed hypotheses, including p-adic separatedness. Corrected in place (1 change: proofSteps). Minor, left for the revision: STEP2 applies Lemma 2.34 without its hypothesis that A is p-adically separated; this holds (derived p-complete and p-torsion-free gives classically p-complete, DD.1) but …"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/prism-perfection",
+    "verdict": "corrected",
+    "note": "Read Lemma 3.9 with proof (ll. 1119-1125). The node copies the printed statement. The assertion that d is a nonzerodivisor of A_perf is false in general (counterexample below; it is a mistake of the source, see missedSourceIssues); the rest (p a nonzerodivisor, (A_perf/d)[p^∞]=(A_perf/d)[p], agreement of completions, universal perfect prism) is true and I re-proved it. Corrected in place (2 changes: proofSteps, statement). Minor, left for the revision: test recommended: ι(d) can be a zero divisor of A_perf (the counterexample to the printed Lemma 3.9)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+    "verdict": "corrected",
+    "note": "Read Theorem 3.10 with proof (ll. 1127-1143). Statement agrees (perfectoid in the sense of BMS1 §3; functors R ↦ (A_inf(R), ker θ), (A,I) ↦ A/I). Acceptance examples true (Z_p is not perfectoid). No Lean statement although the node is a planet. Corrected in place (2 changes: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/perfectoid-tor-independence",
+    "verdict": "verified",
+    "note": "Read the proof of Lemma 10.3 (ll. 2411-2416). The statement is the one proved there (D = B ⊗̂^L_A C discrete and perfect, (D, ID) a perfect prism, D/ID = S ⊗̂^L_R T); excerpt verbatim at l. 2415. One step is silent in node and source: after reduction mod p one still completes d-adically; this is harmless because a perfect F_p-algebra has E[d^∞] = E[d]."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+    "verdict": "corrected",
+    "note": "Read Proposition 3.13 with proof and Example 3.14 (ll. 1174-1213). Statement agrees: bounded base prism, B (p,I)-completely flat over A, sequence (p,I)-completely regular relative to A, C flat over A (not over B), base change along arbitrary maps of bounded prisms, (3) for (p,I)-completely flat B → B'. Tests true (δ(x/2) = x^2/8 ∉ Z[x/2]; φ(d)δ(z) = δ(x) − z^pδ(d)). Corrected in place (3 changes: acceptance, api, proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/prismatic-envelope-rank-one-presentation",
+    "verdict": "corrected",
+    "note": "Read Anschütz-Le Bras Lemma 4.9.4, the sentence after it and the proof (prismatic_dieudonne_111022.tex ll. 5032-5087). Statement agrees. The relations φ(z_n) = d^{p^{n+1}} z_{n+1} and z_n^p = φ^{n+1}(d) z_{n+1} recomputed; acceptance examples true (δ(x/p) = (p^{p-1} − 1) z_1). Corrected in place (2 changes: prerequisites, proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/transversal-prism-regular-sequences",
+    "verdict": "verified",
+    "note": "Read Anschütz-Le Bras Lemma 2.1.7 and its proof (prismatic_dieudonne_111022.tex ll. 531-541). Statement agrees. The node's direct proof is correct: u_{m+1} = φ^m(δ(e)) + p^{p-1}u_m^p is a unit because p ∈ rad(A); (e,p) regular from (p,e) regular plus p-adic separatedness; both orders follow."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.0/unbounded-torsion-example",
+    "verdict": "corrected",
+    "note": "Read Anschütz-Le Bras Appendix A, last example (prismatic_dieudonne_111022.tex ll. 6362-6384). The torsion computations and the node's nonvanishing map to T ⊕ εT are correct, and the Lean tests on the uncompleted model are true. But two assertions copied from the source are false for the ring as defined, and one needs J closed. Corrected in place (7 changes: acceptance, api, proofSteps, statement, uses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+    "verdict": "unverifiable",
+    "note": "Read Corollary 3.12 and proof (prisms.tex l. 1163-1172), Lemma 3.7 (l. 1073-1101), ALB Remark 3.1.2/Prop 3.1.3 (l. 688-698). Pushout, Cech-nerve limit statement, acyclicity and all four tests agree with the source. The formalised topology (single-map covers only) is too coarse and breaks node prismatic-to-etale-morphism; the Lean section is inconsistent. Corrected in place (2 changes: api, statement). Open: a test separating the flat topology from the single-cover topology is recommended (the projections of a product of two bounded prisms cover; the empty sieve covers the zero prism) Suggested file: IsFlatCover is defined (not placeholder) as '(reductionMap f).FaithfullyFlat', dropping the Tor-vanishing of complete flatness."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/relative-prismatic-site",
+    "verdict": "corrected",
+    "note": "Read Definition 1.6 (l. 183-194), Definition 4.1 (l. 1255-1262), Remark 4.3 (l. 1277-1282), Notation 4.16 (l. 1413-1417), ALB Definition 3.1.1 (l. 683-686). Objects, direction of morphisms, sheaves, slice description, functoriality and the four tests agree with the source. The topology inherits the defect of prismatic-structure-sheaf. Corrected in place (1 change: statement). Minor, left for the revision: RelativePrism.forget is described both as forgetting g and f and as the category-of-elements projection, which forgets only f"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/prismatic-to-etale-morphism",
+    "verdict": "corrected",
+    "note": "Read Construction 4.4 (l. 1285-1294) and Lemma 2.18's use there. Statement, the formula for nu_* and the acceptance examples agree with the source, but cocontinuity is false for the topology fixed in prismatic-structure-sheaf, and STEP1 does not prove it. Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/relative-prismatic-cohomology",
+    "verdict": "corrected",
+    "note": "Read Construction 4.9 first paragraph (l. 1336-1341), Notation 4.16 (l. 1415), Theorem 1.8 opening (l. 203-207), ALB Definition 3.1.5 (l. 712-720). Definition, functorialities and the four tests are right. One proof step depends on a later node that depends on this one. Corrected in place (1 change: proofSteps). Minor, left for the revision: API item for the multiplication of Δ_{R/A} is missing (HodgeTate.cup needs it)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/hodge-tate-cohomology",
+    "verdict": "verified",
+    "note": "Read Construction 4.9 (l. 1338-1347), Theorem 1.8 (2) (l. 219), ALB l. 717-723. Definition, the formula Δ̄ = Δ ⊗^L A/I, the twists M{i} (no Frobenius twist) and the triangle are as printed; the four tests and three acceptance examples are true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/change-of-topology",
+    "verdict": "verified",
+    "note": "Read Remark 4.5 (l. 1296-1304). The node is the remark; its proof via acyclicity of O on objects is sound. (The étale/Nisnevich/Zariski covers are families; this is consistent only with the finite-family flat topology, see prismatic-structure-sheaf.)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/cech-alexander-complex",
+    "verdict": "verified",
+    "note": "Read Constructions 4.17-4.18, Remark 4.19 (l. 1420-1447), Proposition 3.13 and Example 3.14 (l. 1174-1213), the commented-out corollary (l. 1217-1240), ALB Remark 3.1.8 (l. 750). Statement, weak initiality, coproducts, the functorial choice and the base-change-compatible model agree with the source; Suggested file: weaklyInitial_hom_nonempty / cechAlexander_computes assume surjectivity of the UNCOMPLETED polynomial algebra (MvPolynomial.aeval g)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/cech-alexander-computes-cohomology",
+    "verdict": "corrected",
+    "note": "Read Construction 4.18 with its footnote (l. 1432-1436) and the siftedness sentence in the proof of Theorem 5.2 (l. 1525). The theorem and its proof (Čech descent for a weakly final object, acyclicity on objects, siftedness) agree with the source. Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/frobenius-on-prismatic-cohomology",
+    "verdict": "corrected",
+    "note": "Read Theorem 1.8 opening (l. 207), Definition 1.6 (3) (l. 190), ALB l. 715. Construction, semilinearity, linearisation and the three tests are right. Corrected in place (1 change: hypotheses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/base-change-finite-tor-amplitude",
+    "verdict": "verified",
+    "note": "Read Lemma 4.20, its proof and Lemma 4.22 with proof (l. 1451-1494). Statement, the termwise claim for every map of bounded prisms and the role of the Tor-amplitude hypothesis are as printed. Suggested file: prismaticCohomology_baseChange takes the completed base change functor as an ARBITRARY functor argument, so it asserts F(Δ_{R/A}) ≅ Δ_{R'/B} for every functor F: trivially false (take F = 0)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/etale-localization",
+    "verdict": "verified",
+    "note": "Read Lemma 4.21 and proof (l. 1466-1475). Statement (for Δ̄ only, p-completed tensor over R), the left adjoint F and the use of Lemma 4.22 are as printed. Suggested file: etaleLocalization quantifies over an arbitrary functor cbc and asserts cbc(Δ̄_R) ≅ Δ̄_S: trivially false."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/bockstein-differential",
+    "verdict": "verified",
+    "note": "Read Construction 4.9 (l. 1342-1348). Triangle, β_I, the dg-algebra structure, η^0, η^1 are as printed; β∘β=0, the Leibniz rule and the completed universal property are requested from DD.1/DD.2 with precise statements (I checked the universal property of the completed de Rham complex as requested: it holds since the completed Ω^1 is generated by the dg)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma",
+    "verdict": "corrected",
+    "note": "Read Lemma 5.4 and its proof (l. 1553-1604). Statement and the four proof steps follow the source; the index set S in the first decomposition is the corrected one (E11). Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/crystalline-comparison",
+    "verdict": "corrected",
+    "note": "Read Notation 5.1, Theorem 5.2, Remark 5.3 and the whole proof (l. 1503-1548), Theorem 1.8 (1), Example 1.9 (1), ALB l. 735-744. Hypotheses (crystalline prism, PD ideal I ∋ p, R smooth over A/I), the twist R^{(1)} on the prismatic side, the E_∞ and Frobenius compatibility and the three acceptance examples agree with the source. Corrected in place (1 change: prerequisites). Suggested file: Crystalline.comparison takes an arbitrary functor phiPullback and an arbitrary object crys and asserts phiPullback(Δ_{R/A}) ≅ crys: trivially false."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/crystalline-comparison-syntomic",
+    "verdict": "verified",
+    "note": "Read ALB Remark 3.1.8 (2) (l. 750). The node states the remark for site cohomology and does not assert the descent extension. I checked the packet's own reduction for J ≠ (p): a relative global complete intersection lifts along A/p → A/J with unchanged fibres, hence stays flat (Stacks 00SW), so the lift exists Zariski-locally."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/hodge-tate-comparison-char-p",
+    "verdict": "corrected",
+    "note": "Read §5 introduction (l. 1501), Corollary 5.5 and proof (l. 1606-1616), Construction 4.9/Lemma 4.10 (l. 1350-1360), Proposition 6.2 proof (l. 1674). The order of logic for p=2 is sound and acyclic: (1) follows because H^*(Δ̄_S) ≅ H^*(Ω^•_R) ≅ Ω^*_S as graded rings and Ω^* is strictly graded-commutative; Proposition 6.2 then needs only η^0, η^1 of the affine line. Corrected in place (1 change: prerequisites). Minor, left for the revision: the request to DD.3 should pin C^{-1}(d(x⊗1)) = [x^{p−1}dx] in n variables, which the cited node states in one variable only"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/crystallization-of-oriented-prism",
+    "verdict": "verified",
+    "note": "Read Construction 6.1 (l. 1642-1662), Example 3.4 (l. 1029-1033). The node replaces 'the Frobenius on A/p is flat' by flatness of A/(p,d) → A/(p,d^p), which is what Example 3.4 ('d-completely flat') gives and what the factorisation (l. 1647) uses; (a)-(e) are as printed."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/hodge-tate-affine-line",
+    "verdict": "corrected",
+    "note": "Read Proposition 6.2 and proof (l. 1664-1682), Lemma 4.10 (l. 1350-1356). Statement and the five reductions follow the source; the consequence (Lemma 4.10) is by functoriality as printed. Corrected in place (2 changes: prerequisites, sources). Suggested file: affineLine asserts Function.Bijective (eta1 P R) with eta1 defined on Mathlib's UNCOMPLETED KaehlerDifferential P.bar R, while the packet's Ω^1 is p-completed. In mixed characteristic the statement is false."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/hodge-tate-comparison-map",
+    "verdict": "verified",
+    "note": "Read Construction 4.9 and Lemma 4.10 (l. 1348-1361), ALB l. 722-733 with footnote. Uniqueness, the formula on f_0 df_1∧…∧df_i, O_X-linearity, functoriality and the dependence only on the algebra object are as printed; for p odd β(f)²=0 follows from graded commutativity since 2 is invertible on p-complete modules. Tests true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/hodge-tate-comparison",
+    "verdict": "corrected",
+    "note": "Read Theorem 4.11 (l. 1365-1370), Theorem 6.3 and proof (l. 1686-1699), Theorem 1.8 (2) (l. 215-219). Statement (bounded prism, X smooth, twist {−i}, no Frobenius twist, affine form) agrees with the source. Corrected in place (2 changes: prerequisites, sources). Suggested file: comparison_bijective is false as stated for two reasons: (a) the source of comparisonMap is the exterior power of the uncompleted KaehlerDifferential (see hodge-tate-affine-line);"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/prismatic-base-change",
+    "verdict": "corrected",
+    "note": "Read Corollary 4.12 and proof (l. 1374-1383), Theorem 1.8 (1),(5) (l. 209-237), Remark 5.3 (l. 1510-1514), Example 1.9 (2) (l. 261). Sheaf statement, affine statement, the quasi-compact quasi-separated hypothesis for global sections (E13, which I confirm) and the φ_A-twisted crystalline consequence are right. Corrected in place (2 changes: acceptance, sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/de-rham-comparison",
+    "verdict": "corrected",
+    "note": "Read the paragraph before Theorem 6.4, the theorem and its proof (l. 1701-1721), Theorem 1.8 (3) (l. 221-225). The hypothesis 'W(A/I) is p-torsion-free' is the printed hypothesis of Theorem 6.4, not an addition (l. 1705), with the two printed examples; the general statement is correctly left to PR.3. Corrected in place (1 change: sources). Suggested file: DeRham.comparison quantifies over an arbitrary functor phiReduction and an arbitrary object deRham: trivially false."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/proper-smooth-perfectness",
+    "verdict": "verified",
+    "note": "Read the last sentence of Theorem 1.8 (l. 246). Proof outline (Hodge–Tate filtration, coherent perfectness requested from DD.5, lifting perfectness along the I-adically complete A, base change) is sound; A classically (p,I)-complete implies I-adically complete."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/p-torsion-free-h0-syntomic",
+    "verdict": "corrected",
+    "note": "Read ALB Lemma 5.1.6 with footnote and proof (l. 5207-5218) and its use (l. 5244-5258), BS Proposition 3.13 (1), BMS2 Lemma 4.7 (bms2.tex l. 709-717). The formula B[p] ≅ lim_n B ⊗_A (A/I^n)[p] is correct ((B/I^n)[p] = B/I^n ⊗ (A/I^n)[p] by BMS2 4.7 and left exactness of lim). The gap is real (E14 confirmed) and honestly recorded; I could not decide the general case either. Corrected in place (1 change: hypotheses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/perfect-prism-initial",
+    "verdict": "corrected",
+    "note": "Read Remark 4.7, Lemma 4.8, its proof and the sentence after it (l. 1313-1328). Statement (any prism (B,J), unique lift, failure of the converse) and the three acceptance examples are right (u ↦ [p^♭] for different p^♭ are distinct maps of prisms over the same Z_p → O_C). Corrected in place (1 change: proofSteps). Suggested file: perfectPrism_hom_existsUnique has no completeness hypothesis although the structure Prism does not record derived completeness; it is false as stated."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/acceptance-computations",
+    "verdict": "verified",
+    "note": "Recomputed the four examples. (1),(2) follow from the Hodge–Tate comparison and étale localisation. (3): de Rham complex of Z_p⟨X⟩, reduction has H^0 = F_p[X^p], H^1 = F_p[X^p]·X^{p−1}dX, β_p(X) = [X^{p−1}dX]: correct. (4): j ∈ F_{p²}∖F_p gives R̃^{(1)} with invariant j^p ≠ j, not isomorphic to R̃ (an isomorphism of the affine curves extends to the elliptic curves);"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-prismatic-cohomology",
+    "verdict": "unverifiable",
+    "note": "Read against prisms.tex l. 1776-1792 (Construction 7.6) and ALB l. 757-762 (Definition 3.1.9); statement, hypotheses, excerpts and the five tests agree with the source (tests recomputed; the non-pi_0 test follows from node derived-input-higher-homotopy). Issues are in the API, one test and the Lean section. Open: API items for the structure map R → Δ̄_{R/A}, for the characterisation by geometric realisations, and for the relation between hodgeTate of a constant simplicial algebra and the shared carrier are missing Minor, left for the revision: test pr2_derived_frobenius_natural_id cannot fail (both sides are φ_R once map_id holds); replace it by the value of φ on R = A/I Suggested file: No statement of the PR.2 Lean section carries `P.IsBounded`, the standing hypothesis of every PR.2 node ('Fix a bounded prism'); the PR.1 section of the same file does (`hb : P.IsBounded`)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/conjugate-filtration",
+    "verdict": "unverifiable",
+    "note": "Read against prisms.tex l. 1780 and ALB l. 766-770 (Proposition 3.1.10); definition by Kan extension of τ^{≤i}, exhaustiveness, multiplicativity, Fil_0 = R agree. The four tests were recomputed (for R = (A/I)/(f) the cofibre of Fil_i → Δ̄ is a nonzero p-completely flat module containing gr_{i+1} ≅ R) and are true for bounded prisms. Corrected in place (1 change: statement). Open: API items for functoriality in R, for the cofibre sequence Fil_{i−1} → Fil_i → gr_i and for multiplicativity of the conjugate filtration are missing; consumers use all three"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-hodge-tate-comparison",
+    "verdict": "corrected",
+    "note": "Graded pieces (∧^i L_{R/(A/I)}){−i}[−i]^∧ agree with prisms.tex l. 1780 and ALB l. 769 (twist, shift, completion checked); consequences (a)-(c) rechecked with BMS2 Lemmas 4.4-4.7 (bms2.tex l. 670-721) and are true. The Lean statement of the theorem is false as written. Corrected in place (1 change: proofSteps). Suggested file: `conjGr_iso_cotangentPowers` is universally quantified over `L : CotangentPowers P R`, a structure whose only field is an arbitrary function `wedge : ℕ → DerivedCategory (ModuleCat R)`."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/first-conjugate-piece-cotangent",
+    "verdict": "verified",
+    "note": "Read ALB l. 786-857 (Proposition 3.2.1 and proof) and prisms.tex l. 1391-1405 (Remark 4.14, Proposition 4.15): statement, twist/shift, the bounded-torsion hypothesis on X, the three acceptance examples (recomputed: J/J²{−1} for R = A/(I, f)) and both excerpts agree. The added compatibility of triangles follows from functoriality of truncation in the smooth case."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/conjugate-splitting-and-lifting",
+    "verdict": "verified",
+    "note": "Read ALB l. 859-878 (Proposition 3.2.2, Corollary 3.2.3) and prisms.tex l. 1385-1392: statement and the reduction modulo p^n agree; the node's STEP3 supplies the compatibility of lifts that the source passes over. The input from Illusie is requested from DD.0, whose stage text does not name obstruction theory of schemes (see requests)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-prismatic-etale-descent",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1783 (Construction 7.6 (2)) and ALB l. 774-782 (Proposition 3.1.11): parts (1)-(3), the bounded-torsion hypothesis of v4 and both excerpts agree; the proof by etale base change of completed cotangent powers and complete flat descent closes with DD.0, DD.1."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-prismatic-base-change",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1785-1789 (Construction 7.6 (4)) and l. 1374-1383 (Corollary 4.12): statement, the identity R ⊗^L_A B = R ⊗^L_{A/I} B/J (B is I-torsion-free), completion (p, J) and the excerpt agree; acceptance examples are instances."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/kunneth-formula",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1790 (Construction 7.6 (5)) and ALB l. 1309-1327 (Proposition 3.5.1 with proof): statement, completions on the two sides, proof route (HTT 5.5.8.15, initial object, binary coproducts through Hodge-Tate) and both excerpts agree."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/kunneth-formula-formal-schemes",
+    "verdict": "verified",
+    "note": "Read ALB l. 1329-1336 (Corollary 3.5.2): qcqs and p-completely smooth hypotheses agree; the excerpt is the sentence introducing the corollary. The projection formula for qcqs formal schemes is requested from DD.5 (covered only loosely by 'completed base change', see requests)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/comparison-to-prisms",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1822-1830 (proof of Lemma 7.7 (3)), l. 1981-1988 and ALB l. 1056-1073: construction, the use of all prisms (bounded or not) and the three excerpts agree. One test does not test the object, and a recorded use states the chain of ALB in the wrong order. Corrected in place (1 change: uses). Minor, left for the revision: test pr2_to_site_not_iso does not involve toSite or toPrism; replace it by the value of ev on R = A/I"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-agrees-with-site",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1796-1831 (Lemma 7.7 with proof): parts (b)(1)-(3), weak initiality (not initiality) and the excerpts agree; idempotent completeness of the category of prisms under R was checked by hand. STEP2 uses an input that is not a prerequisite and that the packet declares unused. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/idempotent-retract-initial-object",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1833-1841 (Lemma 7.8 with proof): statement and proof agree; the added sentence (X initial iff e = id) and both toy examples were checked. Mathlib has IsIdempotentComplete, Under and IsInitial as used by the Lean statement (l. 2843)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1843-1847 (Example 7.9): Koszul-regularity on A/I, bounded torsion of R, the reduction to the universal case and the retraction argument agree; acceptance examples recomputed (F_p[x]/(x^p), O_C/p, ranks binom(r+i−1, i)). Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-input-higher-homotopy",
+    "verdict": "corrected",
+    "note": "Recomputed: L_{R/(A/I)} ≃ R[1], gr_i ≃ R{−i}, π_1(R) = A/I injects into H^{−1}(Δ̄) because the cofibre of Fil_0 → Δ̄ lies in D^{[−1,0]}; (3) and (4) follow from Kunneth and the initial object (A, I). All four parts are true. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/qrsp-prism",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1854-1868 (Proposition 7.10 with proof), ALB l. 1087-1103 (Proposition 3.4.1) and bms2.tex l. 934-937 (Lemma 4.25): hypotheses (any perfectoid R → S; boundedness from BMS2 Lemma 4.7; initial among all prisms, with the registered correction E5) and the reduction to regular quotients agree. Corrected in place (2 changes: proofSteps, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/qrsp-char-p-acrys",
+    "verdict": "corrected",
+    "note": "Read ALB l. 1170-1208 (Lemma 3.4.2, Remark 3.4.3) and bms2.tex l. 2184-2264 (Proposition 8.12, Theorem 8.14). Conclusions (1)-(3) are what ALB state and the explicit cases were recomputed. The planned proof route is wrong: it passes through an object that is not A_crys(S) and misquotes BMS2. Corrected in place (6 changes: proofSteps, sources, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/regular-semiperfectoid-example",
+    "verdict": "corrected",
+    "note": "Recomputed against prisms.tex l. 1861-1867 and ALB l. 1199-1208: T is p-completely free over R on the monomials with exponents in [0,1)^r, X_i − f_i is a regular sequence of R_∞, (4) and (5) (PD envelope of (X^{1/p}); (ξ) = (p) in Δ_{O_C/p}; φ(Δ_S) = A_crys) are true. One clause of (2) is false. Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/singular-qrsp-example",
+    "verdict": "verified",
+    "note": "Recomputed: B = R⟨x,y⟩/(xy) is p-completely free over R; x^{1/p}y^{1/p} is a nonzero nilpotent of S; S^1 is a quotient by a regular sequence of length 3; for i ≥ 2 the complex ∧^iL_{B/R}[−i] is the Koszul complex of (y, x) on B with H^0 = 0, H^1 ≅ R, H^2 = R. Excerpts found at prisms.tex l. 1893 and bms2.tex l. 987."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1873-1889 (Proposition 7.11 with proof) and ALB l. 976-985: bounded prism, the relative reading of 'quasisyntomic A/I-algebra' (the proof uses p-complete flatness of A/I → R), relative semiperfectness of S/p and consequences (1), (2) agree. One acceptance example is false. Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/quasisyntomic-descent",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1784 (Construction 7.6 (3)), bms2.tex l. 772-776 (Remark 4.9), l. 969-1016 (Lemmas 4.28, 4.30, Proposition 4.31), l. 1026-1038 (Variant 4.33, Lemma 4.34) and l. 1246-1250 (Example 5.12). Part (2) is the source's statement on the larger category QSyn_{A/I};"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/derived-crystalline-comparison",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1507 ff. (Theorem 5.2), ALB l. 735-751 (Theorem 3.1.7, Remark 3.1.8) and bms2.tex l. 2184-2264. The first isomorphism (base change along φ_A) is right. The second is false as stated, because the object named dR^∧_{S/A} is not the Kan extension of crystalline cohomology. Corrected in place (10 changes: acceptance, hypotheses, prerequisites, proofSteps, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/perfection-of-prismatic-cohomology",
+    "verdict": "unverifiable",
+    "note": "Read prisms.tex l. 1942-1965 (Notation 8.1, Definition 8.2, Example 8.3): definition, completion, dependence on the base (stated relative to a fixed perfect prism) and both excerpts agree. The four tests were recomputed over (W(k), (p)) with S = k[x] (Frobenius kills H^1 = Ω^1, so S_perfd = k[x^{1/p^∞}]) and are true. Open: API items for functoriality of the perfection and of perfectoidization in S, and for S_perfd ≅ Δ_{S/A,perf} ⊗^L_A A/I, are missing"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/perfection-comparison",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 1962-1965 (Example 8.3), l. 1981-1988 and l. 1307-1310 (Remark 4.6): (1)-(5) agree; the node keeps the crystalline base in (4) and records the reduction to (Z_p, (p)) as the Proposition 8.5 gap. Acceptance F_p[x]/(x²) ↦ F_p recomputed. That RΓ of the perfect prismatic site is the limit over the category needs only acyclicity of O on each object."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/perfectoidization-coconnective",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 1971-1979 (Lemma 8.4 with proof) and l. 813-827 (Lemma 2.34): statement and the additional assertions are those of the proof; the P^0 input is a recorded gap. No arc-descent is used. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/perfection-descendable",
+    "verdict": "corrected",
+    "note": "Read prisms.tex l. 2024-2049 (Lemma 8.6 with proof) and l. 1700-1721 (Theorem 6.4): statement, the reduction to n = 1, the fibre computation and the consequence quoted from the proof of Proposition 8.5 (l. 2007) agree. The correction of the source (E21) is right. No arc-descent is used. Corrected in place (2 changes: prerequisites, proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/perfectoidization-symmetric-monoidal",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 2157-2165 (Proposition 8.13 with proof): the node states the result relative to a fixed perfect prism and explains the source's choice of a perfectoid ring mapping to S_3; the proof uses only Construction 7.6 (5), sequential colimits and reduction modulo I. No arc-descent and no use of Proposition 8.5."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/connective-perfectoidization-perfectoid",
+    "verdict": "verified",
+    "note": "Read prisms.tex l. 2169-2176 (Corollary 8.14 with proof): hypotheses and proof agree, relative to a fixed perfect prism, with independence of the base deduced from the universal property. The acceptance example O_C⟨x⟩ was checked (invariants of O_C⟨t^{1/p^∞}⟩ under Z_p(1) are O_C⟨t⟩, and t is not a p-th power in (O_C/p)[t]); F_p[x^{1/p^∞}]/(x) ↦ F_p recomputed."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/finite-projective-modules-p-complete",
+    "verdict": "corrected",
+    "note": "Read ALB l. 6304-6315 and bms2.tex l. 757-770 (Corollary 4.8): statement and proof agree; both excerpts found; Mathlib has Module.Projective, Module.Finite, Module.FaithfullyFlat, IsAdicComplete. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/finite-projective-descent-prisms",
+    "verdict": "corrected",
+    "note": "Read ALB l. 6330-6360: statement and proof agree, with the corrected definition of a faithfully flat map of prisms (E23); the passage from (p, I)-completeness to I-adic completeness and the flatness of A/I^n → B/I^nB were checked. Corrected in place (1 change: sources)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-filtration-qrsp",
+    "verdict": "corrected",
+    "note": "Read against BS22 Definition 12.1 and the warning after it (prisms.tex ll. 2626-2635), Theorem 1.14 (l. 313-339) and ALB23 l. 1210-1214. Statement, API and all five tests are true (the non-example was recomputed: the degree-p coefficient of any element of (Fil^1)^p lies in (p, q^{1/p}-1), a proper open ideal of A). Two small corrections. Corrected in place (2 changes: proofSteps, sources). Minor, left for the revision: A characterisation of the intersection is missing; nygaard-completion (ker c = ∩ Fil^i) and nygaard-completeness (1) consume it."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-key-case",
+    "verdict": "corrected",
+    "note": "Read against BS22 §12.2 (prisms.tex ll. 2681-2804). Parts (a)-(e) agree with Lemmas 12.4-12.7; the Frobenius formula, the exponent max(n-⌊i⌋,0), the range i < p(n+1) and Δ_S/Fil^1 were recomputed. One acceptance example is false as written. Corrected in place (3 changes: acceptance, prerequisites, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-regular-semiperfectoid",
+    "verdict": "corrected",
+    "note": "Read against BS22 Proposition 12.8 and its proof (ll. 2811-2843) and the formula in the proof of Lemma 14.4 (l. 3063). Properties (1)-(4), the statement (5) and the three acceptance examples agree (the S(2) exponent max(n-⌊i_1⌋-⌊i_2⌋,0) was recomputed). The proof outline has one missing reduction, inherited from the source. Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-filtration",
+    "verdict": "verified",
+    "note": "Read against BS22 §§12.4-12.5 (ll. 2866-2902). The totalisation definition, the corrected target τ^{≤i}Δ̄{i} of Proposition 12.10 (register E23; correct: totalising gr^i ≅ Fil_i Δ̄ gives the canonical truncation of Hodge-Tate cohomology), the semilinearity ((φ_A)_* on the target) and the four tests are right."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-graded-pieces",
+    "verdict": "verified",
+    "note": "Read against BS22 Theorem 12.2, §12.5 and Proposition 12.11 (ll. 2645-2653, 2899-2918) and ALB23 Theorem 3.4.4 (l. 1216-1228). Twist ({i} = I^i/I^{i+1}), semilinearity, base (conjugate filtration relative to R), independence of R and the corrected degrees [0,1] (register E24) are right. The mathematics is verified; the issue is in the suggested Lean file. Suggested file: The two Lean theorems of this node are quantified over an arbitrary structure QrspData (fields D, prism, toBar, conj are unconstrained data), so they are false as stated, not merely missing a hypothesis: for S = D = ℤ_p, prism (ℤ_…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/divided-frobenius",
+    "verdict": "unverifiable",
+    "note": "Read against BS22 Theorem 12.2, Proposition 12.10, BL22 Remark 2.5.9 (apc.tex ll. 1576-1581) and BMS2 Theorem 7.2 (4), Lemma 7.22 (bms2.tex ll. 1687-1690, 1942-1957). Parts (a)-(d), the unit rule u^{-i}, and the five tests are true. One API item is missing. Open: part (d), the divided Frobenius on the derived Nygaard filtration over a perfectoid base, has no API item although PR.4 consumes it (dividedFrobeniusDerived)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/transversal-prism",
+    "verdict": "corrected",
+    "note": "Read against BL22 §§2.1-2.2 (apc.tex ll. 1012-1252) and Remark 2.4.4. Parts (1)-(6), the hypotheses and the four tests agree (I_r = ([p^r]_q) recomputed). Source issue E31 is confirmed. Minor corrections only. Corrected in place (1 change: uses). Minor, left for the revision: API item recommended | a source locator needs correcting (two candidate passages)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/transversal-approximation",
+    "verdict": "verified",
+    "note": "Read against BL22 Proposition 2.1.10 and §2.4 (apc.tex ll. 1090-1136, 1353-1518). Parts (1)-(5) carry the source's hypotheses (transversal/bounded, A ≠ 0 for faithful flatness); E32 is confirmed. Note for the lead: PR.5/transversal-prism-coproducts restates parts (3)-(5) of this node with the same locators and excerpt (see redTeam)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/breuil-kisin-twist-transversal",
+    "verdict": "unverifiable",
+    "note": "Read against BL22 Construction 2.2.11, Proposition 2.2.12, Remark 2.2.13, Construction 2.2.14 (apc.tex ll. 1254-1294). Definition (limit along the canonical maps divided by p), A{1}/I_rA{1} ≅ I_r/I_r², the Frobenius with target I^{-1} ⊗ A{1} and the explicit formula on compatible systems are right; the four tests are true ([p^{r+1}]_q − p[p^r]_q ∈ I_r² recomputed). Corrected in place (1 change: uses). Open: parts (2) and (3) (the Frobenius of A{1} through the projections π_r) have no API item; PR.3/breuil-kisin-twist-examples computes with them Minor, left for the revision: STEP1 uses 'the criterion for invertibility modulo p^n' (a p-complete p-torsion-free module that is invertible modulo every p^n is invertible);"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/breuil-kisin-twist",
+    "verdict": "unverifiable",
+    "note": "Read against BL22 Proposition 2.5.1 to Remark 2.5.9 (apc.tex ll. 1530-1581) and BS22 Theorem 1.8 (2) (l. 219). Colimit definition, invertibility, base change, β : A{1}/IA{1} ≅ I/I², freeness iff I principal, φ_{A{n}} : A{n} → I^{-n} ⊗ A{n} all agree; the added descent statement is correct. Tests true (the non-example: φ(ve) = e forces φ(v) = pv with v a unit, so p is a unit). Open: the Frobenius φ_{A{n}} for all n ∈ Z and its base-change compatibility have no API item (twistPowFrobeniusMap); PR.4 consumes them"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/breuil-kisin-twist-examples",
+    "verdict": "corrected",
+    "note": "Read against BL22 §2.6 (apc.tex ll. 1709-1758). e_A by the classes of [p^r]_q, φ(e_A) = [p]_q^{-1} e_A, e_B/p over crystalline prisms, the rule u ↦ φ(v)v^{-1}u and the dependence of e_B on f (checked with q ↦ q^a on the q-de Rham prism) are right. The hypothesis citing source issue E33 should go: E33 is not a mistake of the source. Corrected in place (1 change: hypotheses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/large-quasisyntomic-algebra",
+    "verdict": "verified",
+    "note": "Read against BS22 Definition 15.1 and the surrounding text (ll. 3198-3203), BL22 proof of Proposition 5.1.1 (ll. 6107-6112) and BMS2 Lemmas 4.7, 4.28. The definition, the equivalence with the Bhatt-Lurie form, the vanishing of Ω^1 modulo p, the basis property and the four tests (Ā[X] not large unless p is a unit: differentiate) are right."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/relative-nygaard-large-quasisyntomic",
+    "verdict": "corrected",
+    "note": "Read against BS22 Theorem 15.2 and its proof (ll. 3205-3240). Bounded prism, S large quasisyntomic, filtration on the Frobenius twist Δ^{(1)}, injection of gr^i onto Fil_i^conj Δ̄{i}, base change: all as in the source. Acceptance examples true. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/relative-nygaard-filtration",
+    "verdict": "unverifiable",
+    "note": "Read against BS22 §15.1 (ll. 3194-3269) and BL22 Proposition 5.1.1, Remarks 5.1.2-5.1.10, Lemma 5.1.7 (apc.tex ll. 6004-6222). The three-step construction, the characterisation, multiplicativity, v, change of prism, R = Ā and the perfect-prism comparison agree; E34 is confirmed; the test Fil^1_N A = (q−1) for the q-de Rham prism was recomputed. Corrected in place (3 changes: acceptance, hypotheses, proofSteps). Open: the filtered Frobenius Fil^•(φ) and the map v : I ⊗ Fil^i → Fil^{i+1} have no API item, although five nodes consume them"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/relative-nygaard-graded-pieces",
+    "verdict": "verified",
+    "note": "Read against BL22 Remarks 5.1.2, 5.1.3, 5.1.5, 5.1.6 (apc.tex ll. 6031-6072), BS22 Theorem 15.3 (second display) and Remark 15.6 with Proposition 4.15 (l. 1397: L_{X/A} ≃ (τ^{≤1}Δ̄){1}[1]). Twists {n}, {n−m}, the A-linearity, and the corrected shift gr^1 ≅ L_{R/A}[−1] (register E26) are right."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/leta-frobenius-factorisation",
+    "verdict": "corrected",
+    "note": "Read against BS22 Theorem 15.3 and proof (ll. 3248-3288), BL22 Corollaries 5.2.11, 5.2.14, BMS2 Proposition 5.8 with proof (bms2.tex ll. 1189-1209), BMS1 Lemmas 6.4, 6.10, Proposition 6.12. Hypotheses (bounded prism, R p-completely smooth), the factorisation, the isomorphism φ̃, the filtration I^iK ∩ η_IK and lim Fil^i = 0 agree. Corrected in place (4 changes: prerequisites). Suggested file: The named theorems of the layer are quantified over an arbitrary structure `Inputs` whose fields (Leta, letaToSelf, reduction, deRham, conjTwist, hodgeFil, tensorI, unfold) are unconstrained data."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/de-rham-comparison-general",
+    "verdict": "verified",
+    "note": "Read against BS22 Corollary 15.4 (ll. 3292-3299), Theorem 6.4's hypothesis as quoted in PR.1, BL22 Proposition 5.2.5 (apc.tex ll. 6295-6311) and BMS1 Proposition 6.12, Lemma 6.13. Bounded prism with no hypothesis on W(A/I), Frobenius-twisted reduction, Ω_X on the right (register E1): right."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/image-of-frobenius",
+    "verdict": "verified",
+    "note": "Read against BS22 Corollary 15.5 (ll. 3303-3323), Theorem 1.8 (6) (l. 239-243) and BMS1 Lemma 6.9 (ll. 2315-2344). The packet is right and the source's display is wrong: V_i is a map τ^{≤i}Δ ⊗ I^{⊗i} → τ^{≤i}Δ^{(1)}, so on H^i it goes H^i_Δ(X/A) ⊗ I^{⊗i} → H^i(Δ^{(1)}), as in Theorem 1.8 (6) ('V_i : H^i_Δ(X/A) → H^i(φ_A^*RΓ_Δ(X/A))'); l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-hodge-comparison",
+    "verdict": "corrected",
+    "note": "Read against BL22 Construction 5.2.1 to Corollary 5.2.15 (apc.tex ll. 6229-6437). Parts (1)-(4) agree, including the shift [−n] (E35 confirmed) and the range n ≥ d. Two small points. Corrected in place (1 change: hypotheses). Minor, left for the revision: STEP3 uses de-rham-comparison-general (3) to get the isomorphism in filtration degrees ≤ 0, but that node gives some isomorphism A/I ⊗ φ_A^*Δ ≅ dR (the composite of φ̃ mo…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-completion",
+    "verdict": "unverifiable",
+    "note": "Read against BS22 Theorem 13.1 and Lemma 13.2, BL22 §5 introduction and Definition 5.8.5 (apc.tex ll. 5973-5978, 7743-7757), BMS2 Lemma 5.2 (2). Parts (a)-(d) are correct (φ̂ : B̂ → B exists because φ(Fil^n) ⊂ d^nB and B is d-adically complete; φ̂(Fil^i B̂) ⊂ d^iB). Tests true. Open: part (b), the divided Frobenius on the Nygaard completion, has no API item although PR.4 needs it"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-completeness",
+    "verdict": "verified",
+    "note": "Read against BL22 Corollaries 5.2.9-5.2.11, 5.2.15, Example 5.8.1, Remark 5.8.4 (apc.tex ll. 6379-6437, 7684-7727). Parts (1)-(6) agree; the Milnor sequence, the perfectoid case (Fil^i = (e^i), e-adic completeness) and the corrected Fil^n = I^{n−d} ⊗ Fil^d (E36 confirmed) are right."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-frobenius-colimit",
+    "verdict": "verified",
+    "note": "Read against BL22 Corollaries 5.2.15, 5.2.16 with proof (apc.tex ll. 6427-6461) and BS22 the paragraph after Proposition 15.7 (ll. 3352-3360). Parts (1)-(3) agree; (2) for p-completely smooth R of dimension ≤ d was rederived (Fil^d ⊗^L A/I ≅ gr^d_N by Corollary 5.2.15, then gr^d(φ) is an isomorphism)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-incomplete-example",
+    "verdict": "verified",
+    "note": "Read against BL22 Example 5.8.1, Proposition 5.3.6 (apc.tex ll. 7684-7693, 6553-6559) and ALB23 Remark 3.4.3 (l. 1199-1208). Recomputed: Δ_{S_0} is the PD envelope of (Y), Y = [X]^{1/p}; v_p(⌊pi⌋!/⌊i⌋!) = ⌊i⌋ gives Fil^n = ⊕ p^{max(n−⌊i⌋,0)}; Δ/Fil^n = ⊕_{⌊i⌋<n} Z/p^{n−⌊i⌋}; the description of Δ̂ and exp(Y) ∈ Δ̂ ∖ Δ; gr^n free of rank n+1 over S_0. All true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/nygaard-filtration-in-coordinates",
+    "verdict": "unverifiable",
+    "note": "Read against BMS2 Propositions 8.5, 8.7, 9.10 and Remark 9.11 (bms2.tex ll. 2062-2113, 2689-2716). The criterion is the packet's own; it was checked: gr^iN = ⊕_{n≤i}(M^n/d)[−n] with zero differential, the map on H^n(gr^i) is x ↦ φ_M(x)/d′^n, and the connective-cover criterion (BL22 Remark A.4.11) applies; Open: instance (i) is stated for every smooth k-algebra with a lift, but the only prerequisite is the Cartier isomorphism for polynomial algebras (DD.3/polynomial-cartier-map); request the smooth case from DD.3 or restrict the instance"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.3/bms2-comparison",
+    "verdict": "corrected",
+    "note": "Read against BS22 Theorem 13.1, Lemma 13.2 and their proofs (ll. 2939-2999) and Proposition 15.7. Parts (1)-(4) agree with the source and the node states no trace-theoretic result; no prerequisite lies in RefinedTraceMethods. The product rule for δ and the one-variable generators were rechecked. Corrected in place (1 change: statement). Minor, left for the revision: STEP3 extends δ to the Nygaard completion 'as in PR.0/delta-classical-completion'. That node constructs δ on the I-adic completion for an ideal I containing p; | STEP2 uses the generators of the one-variable key case, which nygaard-key-case gives only over Z_p[ζ_{p^∞}]^∧;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/frobenius-fixed-points",
+    "verdict": "verified",
+    "note": "Read against BS22 Lemma 9.2 (prisms.tex l. 2200-2208) and BL22 Example 8.1.3 (apc.tex l. 10516-10523). Definition, exact sequences, all four tests and four acceptance examples recomputed and true; both excerpts found verbatim. Two API items that consumers use are missing and one Lean statement is vacuous. Minor, left for the revision: The API has no distinguished triangle M^{phi=1} -> M -> M and no statement of the short exact sequences 0 -> coker(phi-1 | H^{i-1}) -> H^i(M^{phi=1}) -> ker(phi-1 | H^i) … Suggested file: reduce_fixedPoints is vacuous: it asserts only the existence of a map r with p^n·r = 0, which r = 0 satisfies; the packet's API item says (M/p^n)^{φ=1} ≃ M^{φ=1} ⊗^L Z/p^n."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/fixed-points-completed-colimits",
+    "verdict": "verified",
+    "note": "Statement and hypotheses equal BS22 Lemma 9.2 as printed (prisms.tex l. 2200-2203: F_p-algebra B, arbitrary t, pairs with M derived t-complete, both functors commute with colimits); proof steps follow l. 2204-2208. Acceptance examples recomputed: F_p[[t]] with Frobenius has fixed points F_p ⊕ F_p[−1]; N = F_p[t,1/t] shows completeness is needed."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/perfectoid-artin-schreier-witt",
+    "verdict": "verified",
+    "note": "Read against the 'first approach' in the proof of BS22 Theorem 9.1 (prisms.tex l. 2228-2236); excerpt verbatim at l. 2228. W(S^♭)[1/d]/p^n = W_n(S^♭[1/d]) checked (d ≡ [a_0] mod p, p nilpotent, S^♭ perfect). The three acceptance examples are true. Not checked: whether Huber's Corollary 3.2.2 covers perfectoid (non-noetherian) Tate rings as the source asserts; see requests. Minor, left for the revision: The statement uses the Frobenius F on W_n(S^♭[1/d]); Mathlib's WittVector.frobenius is defined on 𝕎 R only and Mathlib/RingTheory/WittVector/Truncated.lean has no Frobeni…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/etale-comparison",
+    "verdict": "verified",
+    "note": "Statement equals BS22 Theorem 9.1 as printed (prisms.tex l. 2186-2196): perfectoid R with perfect prism (A,(d)), any p-adic formal scheme X over R, Rμ_*Z/p^n ≃ (Δ_{X/A}[1/d]/p^n)^{φ=1}, affine form with Spec(S[1/p]), each n ≥ 0; both excerpts verbatim (l. 2198, l. 2184). Proof steps 1-4 follow l. 2210-2238. Suggested file: etaleComparison_affine is a false statement. AffineComparisonDatum has four unrelated fields (two arbitrary objects of D(Z/p^n), two arbitrary Frobenius modules);"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/etale-comparison-coefficients",
+    "verdict": "verified",
+    "note": "Not a printed statement; checked that it follows. The squares in n follow from the uniqueness at prisms.tex l. 2226 (excerpt verbatim); (3) is fib commuting with R lim. I checked the one non-obvious claim c_n ⊗^L_{Z/p^n} Z/p^{n−1} = c_{n−1}: it holds without finite cohomological dimension because RΓ(Y, Z/p^n) = (R lim_m RΓ(Y, Z/p^m)) ⊗^L_Z Z/p^n (the Tor_1 terms of Z/p^m ⊗^L Z/…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/etale-comparison-without-inverting-d",
+    "verdict": "verified",
+    "note": "Statement equals BS22 Remark 9.3 (prisms.tex l. 2241-2246), which the source leaves to the reader; the supplied route through BL22 Theorem 8.1.9 (apc.tex l. 10569-10596) and Proposition 4.4.12 (l. 4786-4791, perfect prism, animated A/I-algebra) is sound. Acceptance examples true. The Lean statement is false. Suggested file: etaleComparison_integral asserts X.etaleIntegral ≅ fixedPoints X.prismatic for arbitrary unrelated data (same defect as etaleComparison_affine)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/etale-comparison-smooth",
+    "verdict": "corrected",
+    "note": "Read against BS22 Theorem 1.8(4) (prisms.tex l. 227-231): perfect A, smooth X, generic fibre as a (pre-)adic space, isomorphism of commutative algebras in D(Z/p^n); excerpt verbatim. The derivation from Theorem 9.1 is right. Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/perfectoid-etale-cohomological-dimension",
+    "verdict": "verified",
+    "note": "Statement equals BS22 Theorem 11.1 (prisms.tex l. 2594-2599) including the warning on the adic spectrum; excerpt verbatim at l. 2599. Proof steps follow l. 2601-2608; the two cited inputs resolve to Theorem 10.11 (label PerfdDiscrete, l. 2533) and Theorem 7.4 (label PerfectoidificationSurj), as the node says. Both are covered (gap;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-complex",
+    "verdict": "unverifiable",
+    "note": "Definition read against BMS2 §7.4 (bms2.tex l. 1863), Theorem 1.12(5) and Remark 1.14 (l. 313-339), BS22 §14 (prisms.tex l. 3007-3009) and (9.3) (l. 2250-2255), BL22 Example 7.4.3 (apc.tex l. 9312-9319). The node says correctly that BMS2/BS use the Nygaard-completed complex and records the sign conventions; excerpts verbatim. One clause, taken from BS22, is false. Corrected in place (2 changes: proofSteps, statement). Open: No API item gives the multiplicative structure ⊕_n Z_p(n): the pairings Z_p(m) ⊗ Z_p(n) → Z_p(m+n) and the unit. Consumers need it: PR.4/tate-twist-perfectoid ('the multiplication Z_p(1)^{⊗̂n} → Z_p(n)'), PR.4/syntomic-etale-comparison ('graded commutative ring objects', multiplication by log_Δ(ε)), PR.4/tate-twists-acceptance-e…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-cohomology-formal-schemes",
+    "verdict": "corrected",
+    "note": "Read against BL22 §7.4 (apc.tex l. 9286-9471): Construction 7.4.1, Warning 7.4.2, Propositions 7.4.6-7.4.8, 7.4.10 (n ≥ 0), Corollary 7.4.11, Variant 7.4.12. Every clause (a)-(e) and the globalisation match; the node says the definition uses the non-completed absolute filtration and that 7.4.6 gives agreement with the completed one. Tests and acceptance examples are true. Corrected in place (1 change: sources). Suggested file: syntomicCohomology_completion is stated under the hypotheses that the completion maps are isomorphisms, where it is syntomicMap_isIso again;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/prismatic-logarithm",
+    "verdict": "corrected",
+    "note": "Read against BL22 Propositions 2.3.1, 2.3.3, Construction 2.3.2 (apc.tex l. 1304-1342), 2.5.10-2.5.19 (l. 1592-1707), 2.6.1 (l. 1715-1729), Corollary 2.6.12 (l. 1862-1881), 2.7.1-2.7.5 (l. 1891-1964). Statement, API and the four tests are correct (δ(1+[p]_q) ≠ 0 and the failure of u^p − 1 ∈ I_2 for u = 1 + [p]_q recomputed). The Lean section contains a false theorem; Corrected in place (5 changes: prerequisites, proofSteps, statement). Suggested file: prismaticLog_mod is false as stated, and prismaticLog_frobenius forces log_Δ = 0. Both quantify over an ARBITRARY A-module T and an ARBITRARY additive map (red : T →+ I/I², φT : T →+ T) in place of the twist A{1}, its reduction an…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-low-weights",
+    "verdict": "corrected",
+    "note": "Parts (1)-(3) equal BL22 Corollary 7.4.9 (apc.tex l. 9416-9431), Proposition 8.1.8, Theorem 8.1.9, Corollary 8.1.10 (l. 10562-10613), Proposition 7.5.2 and Theorem 7.5.6 (l. 9490-9502, 9622-9626); excerpts verbatim. Part (4), copied from BS22 Lemma 9.6, is false for general quasisyntomic rings, and the proof of (3) uses two results of BL22 §7.2 that nothing supplies. Corrected in place (3 changes: prerequisites, proofSteps, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/divided-frobenius-contraction",
+    "verdict": "corrected",
+    "note": "Statement equals BMS2 Lemma 7.22 (bms2.tex l. 1942-1958): perfectoid field C of characteristic 0, p-torsion-free quasisyntomic O_C-algebra, m ≥ (pi+1)/(p−1); the refinement φ_i(N^{≥m}/p) ⊂ N^{≥m+1}/p is in the printed proof. Bounds in the acceptance examples recomputed. The added consequence for the non-completed complex is true but does not follow from the step given. Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-filtered-colimits",
+    "verdict": "verified",
+    "note": "Statement equals BMS2 Proposition 7.21 (bms2.tex l. 1915-1918); the planned proof is the printed 'direct proof' (l. 1926-1939: r = 1, C = Q_p^cycl, descent to O_C-algebras, Lemma 7.22, left Kan extension for torsion); excerpts verbatim (l. 1920; apc.tex l. 9383). No K-theoretic input is used."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/tate-twist-perfectoid",
+    "verdict": "verified",
+    "note": "Statement equals BS22 Theorem 9.4 (prisms.tex l. 2257-2263) for n ≥ 1 and n = 0, with (∗) from l. 2284; the proof steps follow l. 2266-2306 (I rechecked that multiplication by μ^{−n} turns φ/d^n − 1 into φ − 1 and that d^{n/p}μ^{−n} = μ^{−n/p} modulo p). Acceptance examples true. The Lean statement is false. Suggested file: tateTwist_perfectoid asserts that the syntomic complex of perfectoidDatum P d n is isomorphic to X.etaleTwisted for EVERY X : TateTwistDatum p, a structure whose only field is an arbitrary object of D(Z_p);"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/picard-perfectoid-uniquely-divisible",
+    "verdict": "corrected",
+    "note": "Statement equals BS22 Corollary 9.7 (prisms.tex l. 2356-2358) plus what its proof shows (b and d are isomorphisms, l. 2365); the proof steps follow l. 2360-2369; excerpt verbatim at l. 2360. I checked that 'd is injective on cohomology' holds (the cofibre of the completed truncation map lies in D^{≥1}). The statement is true; Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/tate-twist-discreteness",
+    "verdict": "corrected",
+    "note": "Statement equals BS22 Theorem 14.1 (prisms.tex l. 3011-3014: 'For each n ≥ 0, the sheaf Z_p(n) is discrete and p-torsionfree'), Lemma 14.4 (l. 3037-3040) and Lemma 14.5 (l. 3113-3116) with their exact hypotheses; the proof steps follow l. 3153-3174 and l. 3041-3109 (I rechecked the graded description and the convergent inverse of φ_n − 1 on total integral degree ≥ n+1). Corrected in place (3 changes: prerequisites, proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-connectivity",
+    "verdict": "verified",
+    "note": "Parts (2)-(4) equal AMMN22 Theorem 5.1 (Beilinson-revised-arXivstyle.tex l. 2308-2321), Theorem 5.2 (l. 2327-2332, henselian pair with R and R/I p-complete) and Corollary 5.43 (l. 3629-3640, p-complete R, w-strictly local); (1) is BL22 Proposition 7.4.8; (5) is as quoted by BM23 (syntomic-etale-final.tex l. 293-296, l. 2158-2163). Excerpts verbatim."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/log-forms-divided-frobenius",
+    "verdict": "verified",
+    "note": "Statement equals BMS2 Definition 8.1 and Proposition 8.4 (bms2.tex l. 1976-1991, 2041-2055): perfect field k, smooth X, exactness in each degree on the pro-étale site, WΩ^i_log = R lim. Recomputed (φ_i − 1)∘p^{i−1−n}V = 1 − p^{i−1−n}V for n < i; the boundary case is n = i − 1 (printed 'i = n − 1', l. 2051, already in the register). Acceptance examples true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/acrys-divided-frobenius-surjective",
+    "verdict": "verified",
+    "note": "Statement equals BMS2 Lemma 8.19 (bms2.tex l. 2410-2415): (1) pointwise for i > 0, (2) as sheaves for i ≥ 0; proof steps follow l. 2417-2450, including Fil^conj_{j−1} + Fil^{pj}_pd = everything with j = i and pi ≥ i+1. Excerpt verbatim at l. 2413. Acceptance examples recomputed (S perfect: p^i y ↦ F(y) − p^i y is bijective)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-complex-char-p",
+    "verdict": "corrected",
+    "note": "Read against BMS2 Proposition 8.20 and its proof (bms2.tex l. 2453-2476) and BL22 Example 7.4.4 (apc.tex l. 9321-9331); excerpts verbatim. The correction for i = 0 is right (source issue E41). The α/β argument of STEP3 is the printed one. One prerequisite is wrong. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/log-de-rham-witt-comparison",
+    "verdict": "unverifiable",
+    "note": "Statement equals BMS2 Corollary 8.21 (bms2.tex l. 2480-2484) and Theorem 1.15(1) (l. 354-357): A smooth over a perfect field k, λ : qSyn_A^op → X_proét, all i ≥ 0. Excerpts verbatim (l. 2490; BM23 l. 167). The rerouting through the Nygaard-filtered de Rham–Witt complex agrees with BL22 Proposition 5.3.8 (apc.tex l. 6620-6623). Open: STEP4 deduces WΩ^i_log/p^r = W_rΩ^i_log from 'surjective transition maps and p-torsion-free limit'. That gives a surjection WΩ^i_log/p^r → W_rΩ^i_log; injectivity needs ker(W_{r+s}Ω^i_log → W_rΩ^i_log) = p^r W_{r+s}Ω^i_log, the exact sequence 0 → W_sΩ^i_log → W_{r+s}Ω^i_log → W_rΩ^i_log → 0 of Colliot-Thélène–Sansuc–Soulé (Torsi…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-truncation-ainf",
+    "verdict": "corrected",
+    "note": "Statement equals BMS2 Proposition 10.5 and the computation before it (bms2.tex l. 2805-2851): framing, AΩ_A = q-Ω^•, N^{≥i} = ξ^{max(i−•,0)}q-Ω^•, φ(d_q log T_a) = ξ̃ d_q log T_a, φ_i = ξ̃^{−i}φ, inverse −Σ ξ̃_r^{j−i}φ^r for j > i, Artin–Schreier for j = i. Excerpt verbatim at l. 2847. Acceptance examples true. The coordinate input is cited from the wrong owner. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/ainf-artin-schreier-condition",
+    "verdict": "corrected",
+    "note": "Setting, condition (As) and the claim equal bms2.tex l. 2863-2871 (Remark 10.6) with the standing notation of §9 (l. 2519-2521: perfectoid C ⊃ μ_{p^∞}, μ = [ε] − 1, ξ = μ/φ^{−1}(μ)). The corrected exponent is right: ξ^iφ^{−1}(μ^j g) = ξ^{i−j}μ^jφ^{−1}(g), so the printed 'μ^{i−j}' (l. 2871) should be ξ^{i−j}. Excerpt verbatim. Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/leta-frobenius-fixed-points",
+    "verdict": "verified",
+    "note": "Statements equal the two lemmas at bms2.tex l. 2874-2880 (Lemma 10.7: i ≥ 0, j ≥ 1, the three parts with the stated cases ℓ = 0 and ℓ > 0) and l. 2890-2895 (Lemma 10.8); proofs follow l. 2882-2886 and l. 2897-2901. Both excerpts verbatim (l. 2888, l. 2883)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/nearby-cycles-comparison",
+    "verdict": "verified",
+    "note": "Statement equals BMS2 Theorem 10.1 (bms2.tex l. 2785-2790: smooth formal scheme over Spf O_C, ψ : X_ét → 𝔛_ét, Z/p^n(i) ≃ τ^{≤i}Rψ_*Z/p^n(i) on 𝔛_ét, compatible in n), Theorem 1.15(2) for the hypothesis on C (l. 358) and Remark 10.3 for the pro-étale form and flatness (l. 2796-2798); the assembly follows l. 2903-2923. Excerpts verbatim. ξ^iφ^{−1}(μ^i) = μ^i checked."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-etale-comparison",
+    "verdict": "unverifiable",
+    "note": "(1) equals BL22 Theorem 8.3.1 (apc.tex l. 10669-10678), (2) Proposition 8.3.7 (l. 10760-10768), (3) Proposition 8.3.3 with Lemma 8.3.2 and Example 8.3.4 (l. 10685-10746), (4) Theorem 8.5.1 exactly: animated Z[ζ_{p^∞}]-algebra R, the map (⊕_n RΓ_syn(Spec R, Z_p(n)))[1/ε] → ⊕_n RΓ(Spec R[1/p], Z_p(n)) becomes an isomorphism after p-completion (l. 11127-11132); Open: part (4) is stated for RΓ_syn(Spec R, −) of an arbitrary animated Z[ζ_{p^∞}]-algebra, an object defined in PR.4/syntomic-cohomology-schemes, which has this node as a prerequisite; state (4) here for p-complete R (the case the proof treats) and move the general form to that node"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-cohomology-schemes",
+    "verdict": "verified",
+    "note": "Definition and properties (a)-(g) equal BL22 Construction 8.4.1, Remarks 8.4.2 and 8.4.4, Proposition 8.4.6, Variant 8.4.7, Proposition 8.4.10, Corollary 8.4.11, Warning 8.4.12, Propositions 8.4.13 and 8.4.14 (apc.tex l. 10850-11070); excerpts verbatim (l. 10848, l. 11016; BM23 l. 148). Tests and acceptance examples true ((Z_p^×)^∧[−1] recomputed;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/syntomic-not-generic-fibre-etale",
+    "verdict": "verified",
+    "note": "A warning node; each instance checked. (1) H^1 of RΓ_ét(Spec Q_p, Z_p(1)) is lim Q_p^×/p^k and Q_p^×/Z_p^× = Z, so the cokernel is Z_p. (2) the target vanishes for F_p-algebras and t = log[ε] gives t^n ≠ 0 in A_crys^{φ=p^n}. (3) is BMS2 Theorem 10.1. (4) is BM23 Theorem 1.8 as printed (syntomic-etale-final.tex l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.4/tate-twists-acceptance-examples",
+    "verdict": "verified",
+    "note": "Recomputed. With q = [ε^{1/p}], d = [p]_q = ([ε] − 1)/([ε^{1/p}] − 1) generates ker θ, μ = q − 1 satisfies φ(μ) = dμ and μ = φ^{−1}(d)(q^{1/p} − 1) ∈ φ^{−1}(d)A_inf; the kernel of φ/d^n − 1 is Z_p·μ^n because (A_inf[1/μ])^{φ=1} = Z_p. This d is adapted to the twist (BL22 Remark 2.6.2), so the two-term formula applies here."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-prismatic-site",
+    "verdict": "unverifiable",
+    "note": "Read FCRYS Def. 2.3, Rem. 2.4, Ex. 2.5–2.6 (PrismaticCrystals.tex ll. 226–256), BL22 Def. 4.4.27/Rem. 4.4.28 (apc.tex ll. 4908–4928), BS22 Rem. 4.7/Lemma 4.8 (prisms.tex ll. 1313–1328). Statement, hypotheses, excerpts and locators agree with the sources; the issues are a missing prerequisite, missing API and Lean statements that are false without completeness. Corrected in place (1 change: prerequisites). Open: No functoriality of the site in X and no category structure on the triples. PR.7/prismatic-crystal's API item Crystal.pullback says 'for D = Y_Δ → C = X_Δ this is g^*', and the comparison map ξ of absolute-site-comparison is 'restriction along u'; both need the functor Y_Δ → X_Δ of a map Y → X. Minor, left for the revision: Direction of morphisms is inconsistent. The statement defines X_Δ as the OPPOSITE of the category of triples, in which (A, I, id) is final; Suggested file: Three Lean statements are false as written because `Prism` (l. 951) omits derived (p, I)-completeness and no completeness hypothesis is added: `existsUnique_hom_of_perfect` (l. 4729), the example pr5_site_perfect_initial (l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/generalized-cartier-divisor",
+    "verdict": "verified",
+    "note": "Read BL22 Def. 3.1.1, Rem. 3.1.2–3.1.3 and the paragraph after (apc.tex ll. 2057–2083). Statement, tests (recomputed), acceptance and excerpt agree. One library relation is missing. Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/cartier-witt-divisor",
+    "verdict": "verified",
+    "note": "Read BL22 Def. 3.1.4, Rem. 3.1.5, Constr. 3.2.1, Rem. 3.2.2 (apc.tex ll. 2086–2172). Recomputed: δ(x)_0 = x_1 from w_1(x) = x_0^p + p x_1; p = (p, 1 − p^{p−1}, …); x with x_0 a unit is a unit when p is nilpotent (kernel V^n R of W_{n+1} → W_n has square V^n(p^n R)); the coordinate form of (a), (b) and the principalised criterion f_0 nilpotent, f_1 unit. All tests true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/cartier-witt-stack",
+    "verdict": "unverifiable",
+    "note": "Read BL22 Rem. 3.1.6–3.1.7, Warning 3.1.8 (ll. 2108–2141). Direction corrected as in E53; μ and its factorisation agree. Recomputed the tests: WCart(F_p) (and WCart(k), k perfect) is one point (W, p·) with trivial automorphisms; (1+[ε])V(1) = V(1) over the dual numbers; WCart(0) is a point. Open: STEP2 of cartier-witt-stack uses the principalisation statement of the next node (wcart-quotient-presentation), which has this node as a prerequisite; move \"every Cartier–Witt divisor is principal Zariski-locally on Spec R\" into PR.5/cartier-witt-divisor and cite it from both"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/wcart-quotient-presentation",
+    "verdict": "verified",
+    "note": "Read BL22 Constr. 3.2.1, Rem. 3.2.2, Prop. 3.2.3 with proof (ll. 2149–2185). Statement agrees (Zariski quotient; morphisms f → g are units u with g = uf). W^× = Spec Z[a_i][w_n^{-1}] is flat over Z and not of finite type (checked). Minor, left for the revision: The third acceptance item is bookkeeping about a red-team finding, not a property or instance of the theorem."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/transversal-prism-coproducts",
+    "verdict": "corrected",
+    "note": "Read BL22 Def. 2.1.1–2.1.3, Rem. 2.1.4, §2.4 complete (ll. 1012–1136, 1353–1523). (1)–(5) agree with Props 2.4.1, 2.4.5, 2.4.9 and Cors 2.4.7, 2.4.8, 2.4.10, hypotheses included; acceptance true. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/prism-point-of-wcart",
+    "verdict": "corrected",
+    "note": "Read BL22 Constr. 3.2.4, Ex. 3.2.5–3.2.6, Rem. 3.2.7 (ll. 2190–2220). Statement, functoriality and special cases agree; φ(a_0) = a_0^p + p a_1 checked. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/wcart-fibre-products-of-prisms",
+    "verdict": "verified",
+    "note": "Read BL22 Prop. 3.2.8 with proof, Cor. 3.2.9, 3.2.10, Notation 3.3.9 (ll. 2222–2280, 2346–2350). (1)–(3) agree, with the roles (A bounded, B transversal); the corrections of E56 are right. Acceptance true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-wcart",
+    "verdict": "verified",
+    "note": "Read BL22 Def. 3.3.1, Ex. 3.3.3–3.3.4, the paragraph before Prop. 3.3.5, Cor. 3.3.11 (ll. 2286–2317, 2380–2387). Statement agrees; tests true (I ≇ O because the Sen operators on the fibres are 1 and 0)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/prismatic-crystals-on-wcart",
+    "verdict": "verified",
+    "note": "Read BL22 Prop. 3.3.5 with proof, Warning 3.3.6, Rem. 3.3.7, Ex. 3.3.8, Lemma 3.3.10 (ll. 2319–2372) and FCRYS Prop. 2.7 (ll. 259–274). Statement and proof outline agree; Perf statement follows from FCRYS 2.7 for X = Spf Z_p."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/divided-power-multiplicative-group",
+    "verdict": "corrected",
+    "note": "Read BL22 Rem. 3.4.6, Prop. 3.4.7, Cor. 3.4.8, Notation 3.4.9, Rem. 3.4.10, Lemma 3.4.11 with proof, Variant 3.4.12 (ll. 2498–2588). Statement agrees; G_m^♯(Z_p) = 1 + pZ_p recomputed for all p including 2; comultiplication formula checked. Corrected in place (3 changes: acceptance, hypotheses, prerequisites). Minor, left for the revision: pr5_gmsharp_fp_trivial is true, but for p = 2 it does not separate G_m^♯ from G_m: G_m(F_2) also has one element, so the stated conclusion 'so β is not an isomorphism' do…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/hodge-tate-divisor",
+    "verdict": "verified",
+    "note": "Read BL22 Def. 3.4.1, Rem. 3.4.2, Ex. 3.4.3, Constr. 3.4.4, Rem. 3.4.5, Thm 3.4.13 with proof, Rem. 3.4.14, Ex. 3.4.15, Cor. 3.4.16 (ll. 2444–2496, 2590–2645). Statement agrees; tests true (p = V(1) in characteristic p; uV(1) = V(F(u)); W^×[F](F_p) = 1)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/sen-operator",
+    "verdict": "verified",
+    "note": "Read BL22 Def. 3.5.1, Ex. 3.5.2, Rem. 3.5.3, Constr. 3.5.4, Rem. 3.5.5, Ex. 3.5.6, Notation 3.5.7, Ex. 3.5.9 (ll. 2669–2757). Statement and signs agree (Θ = +n on O{n}, t∂/∂t on the regular representation); F([ε]) = [ε^p] = 0."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/sen-operator-classification",
+    "verdict": "verified",
+    "note": "Read BL22 Thm 3.5.8 with proof and Props 3.5.10–3.5.16 (ll. 2732–2894). Statement agrees. Recomputed: t∂/∂t on Σ c_n (t−1)^n/n! is (c_n) ↦ (c_{n+1} + n c_n), surjective with kernel the constants; RΓ(WCart^HT, O{n}) = (Z_p/n)[−1] for n ≠ 0; (Z_p, Θ = 1/2) satisfies (b)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/wcart-frobenius",
+    "verdict": "verified",
+    "note": "Read BL22 Constr. 3.6.1, Rem. 3.6.2–3.6.5, Prop. 3.6.6 with proof, Rem. 3.6.14 (ll. 2945–3008, 3086–3096). Statement agrees. Recomputed F(x)_0 = x_0^p + p x_1, F(x)_1 ≡ x_1^p mod p, F(V(1)) = p, F(1 + [ε]) = 1."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/frobenius-pullback-square",
+    "verdict": "corrected",
+    "note": "Read BL22 Thm 3.6.7, Rem. 3.6.8, Cor. 3.6.9, Warning 3.6.11, Lemmas 3.6.15–3.6.19, Prop. 3.6.18, Rem. 3.6.20 and the proof (ll. 3014–3342). Statement (for E on WCart, as in E52) and outline agree. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/relative-site-comparison",
+    "verdict": "corrected",
+    "note": "Read BL22 §4.1 (Def. 4.1.1–Rem. 4.1.20), §4.2, §4.3 complete (ll. 3971–4669). (1)–(4) agree with Cor. 4.1.14–4.1.15, Props 4.2.5, 4.2.8, Cor. 4.2.9, Prop. 4.3.4, Thm 4.3.6, Cor. 4.3.14, Ex. 4.3.15, with (∗), (∗⁺) as printed. The prerequisites point at special cases and the outline hides a loop of the source. Corrected in place (4 changes: prerequisites). Minor, left for the revision: 'Corrected misprint: in Notation 4.3.1 the fibre product … is over Spec(Ā)' is not a correction: Spec(Ā) → Spec(A) is a closed immersion, so the fibre products over Spec(… | BL22 Def. 4.1.1 does not require the objects (B, IB) of the relative site to be bounded; PR.1/relative-prismatic-site (BS22) does."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-prismatic-cohomology",
+    "verdict": "corrected",
+    "note": "Read BL22 Constr. 4.4.1, Rem. 4.4.2–4.4.5, Variant 4.4.6, Rem. 4.4.7, Constr. 4.4.10, Rem. 4.4.11, Constr. 4.4.19, Ex. 4.4.20, 4.4.23 (ll. 4675–4729, 4765–4778, 4852–4880). Statement agrees, with E54 corrected. Tests recomputed: H_Δ(Z) = O, H_Δ(0) = 0, Δ_{F_p} = Z_p, ρ_A^*H_Δ(F_p) = A{p/I}^∧; a transversal Ā is flat over Z. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-relative-comparison",
+    "verdict": "corrected",
+    "note": "Read BL22 the paragraph before Prop. 4.4.8, Prop. 4.4.8 with proof, Cor. 4.4.9, Prop. 4.4.12, Ex. 4.4.13, Rem. 4.4.21 (ll. 4731–4807, 4864–4870). (1)–(3) agree; isomorphisms only for perfect prisms, as stated. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-prismatic-descent",
+    "verdict": "verified",
+    "note": "Read BL22 Props 4.4.14, 4.4.15, Rem. 4.4.16, Cors 4.4.17, 4.4.18, Rem. 4.4.22, Prop. 4.4.25, Cor. 4.4.26, Prop. 4.4.32 and the sentence before Ex. 4.5.9 (ll. 4809–4848, 4872–4903, 4976–4989, 5081). (1)–(6) and the non-commutation with filtered colimits agree; acceptance true (Δ_R = 0 if p is invertible, by (4))."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-site-comparison",
+    "verdict": "corrected",
+    "note": "Read BL22 the construction of ξ, Ex. 4.4.29, Thm 4.4.30, Prop. 4.4.31, proof (ll. 4930–4994). Statement and hypotheses agree. Corrected in place (2 changes: prerequisites, statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-hodge-tate-cohomology",
+    "verdict": "verified",
+    "note": "Read BL22 §4.5 complete and Constr. 4.7.1, Notation 4.7.2, Rem. 4.7.3–4.7.5, Ex. 4.7.6 (ll. 4996–5106, 5389–5441). Statement agrees, including the signs (Θ = −n on gr_n^conj; Δ̄_R{n} = fib(Θ + n)) and the shift corrected in E58. Tests recomputed: Δ̄_Z = Z_p ⊕ Z_p[−1], Δ̄_Z{n} = (Z_p/n)[−1], Ω̂^DHod_Z = Z_p. Not in the node, and needed by absolute-nygaard-perfect-prism: Rem."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-crystalline-comparison",
+    "verdict": "unverifiable",
+    "note": "Read BL22 §4.6 complete (ll. 5117–5361). Theorem and supplements (1)–(4) agree with Thm 4.6.1, Warning 4.6.2, Rem. 4.6.5–4.6.6, Cor. 4.6.7, Ex. 4.6.9, Cor. 4.6.15; hypotheses (quasisyntomic F_p-scheme) as printed. Open: the characterising square uses \"the Frobenius φ\" of RΓ_Δ(X) before PR.5/absolute-frobenius constructs it; say that φ is the relative Frobenius over (Z_p,(p)) transported by RΓ_Δ(X) ≅ RΓ_Δ(X/Z_p), and add PR.1/frobenius-on-prismatic-cohomology as a prerequisite Suggested file: `theorem crystalline_comparison (X : Imported p) (R : Type) … : Nonempty (prismaticComplex p R ≅ X.crystalline R)` (research/blueprint/suggested/PrismaticCohomology--PR.0.lean l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-de-rham-comparison",
+    "verdict": "unverifiable",
+    "note": "Read BL22 §5.4 complete (ll. 6706–6916). (1), (2), (4), (5) agree with Prop. 5.4.8, Thm 5.4.2, Cor. 5.4.14, Rem. 5.4.15, Rem. 5.4.3; hypotheses as printed (any animated ring; (5) flat over Z_p with regular Noetherian special fibre). Acceptance true (Ex. 5.4.11). Corrected in place (1 change: hypotheses). Open: part (3) states an identity involving the absolute Frobenius, which PR.5/absolute-frobenius constructs later and which depends on this node; move the identity to PR.5/absolute-frobenius Suggested file: `theorem deRhamPullback_prismaticSheaf (X : Imported p) (R : Type) …` (l. 4912) and `theorem deRham_comparison (X : Imported p) (R : Type) … (hR …)` (l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-nygaard-filtration",
+    "verdict": "unverifiable",
+    "note": "Read BL22 Notation 5.5.1, Rem. 5.5.2, Constr. 5.5.3, Notation 5.5.4, Rem. 5.5.5–5.5.8, Cor. 5.5.14, Rem. 5.5.15, Notation 5.5.23, Def. 5.8.5 (ll. 6923–7026, 7089–7103, 7182–7188, 7679–7757). (a)–(i) agree, E54 corrected. Tests recomputed: gr^m_N Δ_{F_p} = F_p; gr^0_N Δ_Z = Z_p; gr^m_N Δ_Z = fib(m : Z_p → Z_p) = (Z_p/m)[−1], so gr^1_N Δ_Z = 0. Corrected in place (3 changes: prerequisites, statement). Open: No API for what the recorded uses need: the Nygaard-completed complexes of (i) (USE: 'PR.4: Z_p(n)(R) is the fibre of φ{n} − 1 on Fil^n_N Δ̂_R{n}'; RT.6), the multiplication of (f), the class e^n of (g), and functoriality in R."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-nygaard-graded-pieces",
+    "verdict": "corrected",
+    "note": "Read BL22 Prop. 5.5.12 with proof, Ex. 5.5.13, Cor. 5.5.18, Props 5.5.19, 5.5.20, Cors 5.5.21, 5.5.22, Prop. 5.5.24, Cors 5.5.25–5.5.26, Ex. 5.8.1, Prop. 5.8.2, Lemma 5.8.3 (ll. 7058–7087, 7131–7229, 7684–7738). (1)–(4) agree with the hypotheses printed. Acceptance recomputed: gr^m_N Δ_{W(k)} = (W(k)/m)[−1] for m ≥ 1. Corrected in place (1 change: prerequisites). Minor, left for the revision: Derived descent for Fil^m_N (Prop. 5.5.24) reduces to Fil_d^conj Ω̂^DHod_R ≅ Tot Fil_d^conj Ω̂^DHod_{R ⊗^L F_p^{⊗•+1}}, i.e. Suggested file: `theorem nygaardGr_iso_cotangentPower (X : Imported p) (R : Type) [CommRing R] (m : ℕ) (hm : m < p) : Nonempty (nygaardGr p R 0 m ≅ (X.cotangentPower R m)⟦(-(m : ℤ))⟧)` (l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-nygaard-perfect-prism",
+    "verdict": "verified",
+    "note": "Read BL22 §5.3 (Prop. 5.3.1, Notation 5.3.2, Rem. 5.3.3–5.3.5, Props 5.3.6, 5.3.8), §5.6 complete with the proofs of Thm 5.6.2, Prop. 5.6.8 and Lemma 5.6.14 (ll. 6464–6663, 7272–7526). (1)–(3) agree with the hypotheses printed; index m − n as in Cor. 5.6.3."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/absolute-frobenius",
+    "verdict": "unverifiable",
+    "note": "Read BL22 §5.7 complete (ll. 7530–7676). (a)–(e) agree with Constr. 5.7.1, Rem. 5.7.2–5.7.3, Ex. 5.7.4, Notation 5.7.5, Ex. 5.7.6–5.7.7, Rem. 5.7.8, Prop. 5.7.9, with the index • − n (E51; recomputed: Fil^m(Φ) ⊗ F^*O{n} lands in I^{m−n} H{n}). Tests true: φ = id on Δ_{F_p} = Z_p; cofib(φ on Δ_{Z_p}) = Z_p[−1]; φ{n} is an isomorphism on Δ_{Z_p} for n > 0 (d = 0). Corrected in place (2 changes: prerequisites). Open: BL22 Remark 5.7.10 is missing: Fil^•(φ{n}) factors uniquely through the Nygaard completion, giving φ̂{n} : Fil^n_N Δ̂_R{n} → Δ̂_R{n}, and R ↦ Fil^•_N Δ̂_R{n} is the sifted-colimit-preserving functor to filtration-complete objects that on polynomial Z-algebras is the Beilinson connective cover of Δ_R^{[•−n]}{n}."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-divided-power-operation",
+    "verdict": "verified",
+    "note": "Read Notation 16.1 and Remark 16.6 (prisms.tex ll. 3373-3379, 3441-3448). Recomputed facts (i)-(viii): phi(q-1)=(q-1)[p]_q; delta([p]_q)=1 mod [p]_q (p*delta([p]_q)=[p]_{q^p}-[p]_q^p = p mod [p]_q; for p=2 delta(1+q)=-q); gamma(x+y), gamma(fx); N(Z_p[[q-1]])=(q-1); gamma(p)=p^{p-1}; p not in N. All tests true; excerpts verbatim."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-pd-pair",
+    "verdict": "verified",
+    "note": "Compared with Definition 16.2 and the paragraph after it (ll. 3386-3397) condition by condition: derived (p,[p]_q)-complete delta-pair over (A,(q-1)); (1) phi(I) in [p]_q D and gamma(I) in I; (2) bounded prism; (3) D/(q-1) p-torsion-free of finite complete Tor-amplitude. All five tests true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/delta-pd-pairs",
+    "verdict": "verified",
+    "note": "Remarks 16.3, 16.4 and Example 16.9 (3) (ll. 3399-3411, 3489). The correction 'in I' of Example 16.9 (3) is right: for D the p-completed PD polynomial algebra on t, t*gamma_n(t)=(n+1)gamma_{n+1}(t), so gamma_p(t) is not in tD while every element of tD has divided powers in D. uniformBell k p is a p-adic unit, so Mathlib's dpow_comp gives the composition rule used."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-pd-homological-properties",
+    "verdict": "corrected",
+    "note": "Lemma 16.5 and proof (ll. 3413-3437). (1)-(3) as printed; (4) restated for a not necessarily complete ideal, which is what the printed proof proves (E63, confirmed); the proof of (5) is closed. Corrected in place (1 change: acceptance). Minor, left for the revision: Part (5) adds 'D′ derived (p,[p]_q)-complete', which the printed statement omits, without saying so (the printed proof uses it)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/smallest-largest-q-pd-ideals",
+    "verdict": "verified",
+    "note": "Lemma 16.7, Corollary 16.8, Example 16.9 (1) (ll. 3452-3483). Redid the direct argument for (a): delta([p]_q z)=phi([p]_q)delta(z)+z^p delta([p]_q) and phi(z)-phi(delta f)=(1-delta([p]_q))phi(z)-delta(z)[p]_q^p, in [p]_q D; valid in every delta-ring with delta(q)=0. Acceptance examples (N(A)=(q-1), N(Z_p)=pZ_p, N(A_inf)=(xi)) true."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/ainf-q-pd-pair",
+    "verdict": "verified",
+    "note": "Example 16.9 (2) and Notation 17.1 (ll. 3485-3487, 3640-3642). q-1=(q^{1/p}-1)xi, theta(xi)=0, gamma(xi)=1-delta(xi), [p]_q=phi(xi) generates ker(theta-tilde): all as in the source. BMS1 ll. 3352, 3267 give the same generality (perfectoid field with all p-power roots of 1)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-pd-envelope",
+    "verdict": "unverifiable",
+    "note": "Lemma 16.10 (1)-(2) and proof (ll. 3493-3515); Corollary 2.44, Lemma 2.43, Corollary 2.39 read (ll. 904-977). Statement agrees with the source plus 'P derived complete' (needed: for P=A[x,y], J=(q-1,x), P/J=Z_p[y] is not p-complete) and the extension (3) (E64). Corrected in place (1 change: acceptance). Open: the universal property of the q-PD envelope is incomplete in the API: the lift must be stated to commute with δ, to carry K into K′ and to match q (envelopeLift_isDeltaHom, envelopeLift_map_I, envelopePair_q) Suggested file: The Lean declarations envelope, envelopePair, envelopeQuotientEquiv are stated for an arbitrary D-algebra P with any delta-structure and any sequence x (completeness, flatness, regularity and even 'D → P is a delta-map' are left o…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-pd-envelope-base-change",
+    "verdict": "corrected",
+    "note": "Lemma 16.10 (3) and Lemma 16.11 (ll. 3504, 3517-3523); Proposition 3.13 (ll. 1174-1199) for (d). (a)-(d) agree with the source and with the first step of its proof. Corrected in place (1 change: acceptance)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-crystalline-site",
+    "verdict": "verified",
+    "note": "Definition 16.12 (ll. 3529-3534): objects (E,J) over (D,I) with a D/I-map R → E/J, opposite category, indiscrete topology, O(E,J)=E, qΩ_{R/D} with φ_D-semilinear Frobenius; all as in the source ('δ-B-algebras' corrected, registered). Tests true (H^0 of the q-de Rham complex of Z_p<T> is D). Minor, left for the revision: The statement says qΩ_{R/D} is a commutative algebra object, functorial in R and in the base pair;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-crystalline-cech-alexander",
+    "verdict": "verified",
+    "note": "Construction 16.13 and Remark 16.16 (ll. 3538-3565) read; (1)-(5) agree, with 'ind-smooth' added in (5) (needed for framed algebras with infinitely many coordinates) and the comparison map made explicit. Acceptance example D<T_0,T_1>{φ(T_1−T_0)/[p]_q}^ correct."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-crystalline-crystalline-comparison",
+    "verdict": "verified",
+    "note": "Theorem 16.14 and Remark 16.15 (1) (ll. 3544-3561): statement and proof steps agree with the source; acceptance examples are instances. Only the Lean statement is wrong. Suggested file: The Lean theorem qCrystalline_crystalline_comparison is false as stated: it quantifies over an arbitrary 'imported' structure CrystallineInput (any functor baseChange and any object crystalline) and asserts baseChange(qΩ) ≅ crysta…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-pd-thickening-invariance",
+    "verdict": "verified",
+    "note": "Theorem 16.17 and proof (ll. 3568-3574). The functor (E,K) ↦ (E,K_I) and the comparison of Čech–Alexander complexes are as in the source; step 1 correctly uses the corrected Lemma 16.5 (4). (Lean: the hypotheses that ψ is D/J-linear and identifies R with the base change are left out although statable; not checked further.)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-crystalline-prismatic-comparison",
+    "verdict": "verified",
+    "note": "Theorem 16.18 and proof (ll. 3576-3584), Theorem 5.2 and its proof (ll. 1503-1548). Twist R^{(1)}=R ⊗_{D/I,φ_D} D/[p]_q, direction Δ_{R^{(1)}/D} → qΩ_{R/D}, prism (D,([p]_q)): as in the source. Step 5 rests on step 5 of PR.1/crystalline-comparison, which states the canonical construction; E66 confirmed. Acceptance examples correct (Z_p → Z_p[ζ_p]; A_inf: φ^*Δ)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/framed-q-pd-datum",
+    "verdict": "unverifiable",
+    "note": "Construction 16.19 and the opening of Construction 16.20 (ll. 3590-3605). E65 confirmed (the p-complete localisation D[X,1/(X−1)]^ has no automorphism X ↦ qX). The statement assigns γ_s, ∇_{q,s}, Leibniz and the framed complex to QW.6. Tests recomputed: γ′(X)=qX+(q−1). Corrected in place (2 changes: hypotheses, statement). Open: FramedAlgebra restates the QW.6-owned interface (γ_s, ∇_{q,s}, their relations and two tests) instead of extending the imported structure; the node's own addition \"(q−1)X_s is a nonzerodivisor\" has no API item (RT-AREA-etale/28 is only partly carried into the API)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/gamma-extension-to-q-pd-envelope",
+    "verdict": "verified",
+    "note": "Lemma 16.21 and the text after it (ll. 3606-3616). φ(γ_s f)=φ(f)+[p]_q(q−1)X_s^p φ(g) checked; acceptance example γ(z)=q^p z, ∇_q(z)=X^{p−1} for z=X^p/[p]_q correct. (γ_s(J) ⊂ J because q−1 ∈ J, so the universal property of the envelope applies directly.)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/framed-q-de-rham-complex",
+    "verdict": "corrected",
+    "note": "Construction 16.20 (ll. 3603-3619). (a), (c), (d), (e) checked: ∇_{q,s}∘φ=[p]_q X_s^{p−1} φ∘∇_{q,s} (test: [pn]_q=[p]_q[n]_{q^p}); toric form is η_{q−1} of Kos(γ_s−1) (BMS1 Lemma 7.9, l. 2724). Tests recomputed: ∇′(X²)=∇(X²)+(q−1); twisted Leibniz; q=1 specialisation. Corrected in place (1 change: statement). Suggested file: FramedDatum.Hom has onCoord : S → S′ with no injectivity, and qDeRhamMap takes any such morphism."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-de-rham-comparison",
+    "verdict": "unverifiable",
+    "note": "Theorem 16.22 and proof (ll. 3621-3630). The statement agrees with the source; naturality and Frobenius are additions that the bicomplex gives for coordinate-injective maps. Two repairs are needed in the proof outline and one acceptance example is not an instance. Corrected in place (2 changes: acceptance, proofSteps). Open: multiplicativity of the comparison of Theorem 16.22 (an isomorphism of E_1-algebras in the toric case) is used by PR.6/ainf-omega-comparison-map and PR.6/ainf-omega-comparison but is not stated; state it or record a gap (the source asserts it in Remark 17.3 without proof)"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/change-of-framing",
+    "verdict": "verified",
+    "note": "Derived from Construction 16.20, the proof of Theorem 16.22 and Example 1.9 (4) (l. 283). The maps P → P ⊗̂ P′ ← P′ are injective on coordinates, so the functoriality used is valid. Acceptance: ∇^{T+1}(T²)−∇^T(T²)=q−1 recomputed; the δ-structure on the product datum has δ(T_0)=δ(T_1+1)=0."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/q-de-rham-prismatic-comparison-zp",
+    "verdict": "verified",
+    "note": "Example 1.9 (4) (ll. 275-283): R^{(1)}=R ⊗ Z_p[ζ_p], prism (Z_p[[q−1]],([p]_q)), qΩ_R^□ ≅ RΓ_Δ(Spf R^{(1)}/A). Acceptance recomputed: [n]_ζ is a unit for p∤n and 0 for p|n, so H^0=Z_p[ζ_p]<T^p>, H^1=Z_p[ζ_p]<T^p>T^{p−1}dT."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/ainf-omega-comparison-map",
+    "verdict": "unverifiable",
+    "note": "Proof of Theorem 17.2 (ll. 3658-3711) and BMS1 Theorem 9.4, Lemma 9.6, §12.2 (ll. 3323-3413, 4804-4977). The construction of μ_0 by the universal property and its equivariance are as in the source; A_inf(R_{Σ,∞}) is a q-PD pair by Lemma 16.5 (5) since R_{Σ,∞} is O_C-flat. Test identity (q−1)y=(σ−1)([p]_{q′}y) correct. Corrected in place (1 change: statement). Open: naturality of the comparison map in R holds for maps injective on the chosen units; for maps identifying two units the termwise map of Koszul complexes is not a map of complexes. State the restriction or index charts by finite families of units"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/hodge-tate-comparison-criterion",
+    "verdict": "verified",
+    "note": "Lemma 17.4 and proof (ll. 3747-3758). (a), (b) as printed; (c) is what the printed proof uses (only that H^*(α/d) is a graded ring map commuting with the Bockstein and with η). AI.1/bockstein-differential exists in the AInfCohomology packet."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/ainf-omega-comparison",
+    "verdict": "verified",
+    "note": "Theorem 17.2, Remark 17.3 and the last part of the proof (ll. 3646-3656, 3732-3741). Twist checked: AΩ_R ≃ qΩ_{R/A} ≃ Δ_{R^{(1)}/A} = φ_A^*Δ_{R/A}, Δ_{R/A} relative to (A_inf,(ξ)); θ([n]_q)=n, θ̃([n]_q)=[n]_{ζ_p}; torus counterexample to the untwisted statement correct. E67 confirmed; step 3 is an outline of the omitted check. Suggested file: The Lean theorems ainfOmega_comparison and ainfOmega_prismatic_comparison are false as stated: they quantify over an arbitrary AOmegaData (any object AΩ with any map called frobenius)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/theta-theta-tilde-square",
+    "verdict": "verified",
+    "note": "Footnote of the proof of Theorem 17.2 (l. 3736), Example 1.9 (2) (l. 261), BMS1 §9 introduction and Theorem 9.2 (i) (ll. 3260-3283). θ̃∘φ_A=θ, so (φ_A^*Δ) ⊗_{θ̃} O_C = Δ̄_{R/A} and (φ_A^*Δ) ⊗_θ O_C is the de Rham corner (BS22 Corollary 15.4 via PR.3). Torus: H^0 = R resp. O_C; H^1 of the de Rham corner ⊕ O_C/n. Correct."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/comparison-uniqueness",
+    "verdict": "corrected",
+    "note": "Notation 18.1, Theorem 18.2, Lemma 18.3 and proofs (ll. 3765-3805). Statement, absence of a Frobenius condition, rsPerfd_R, and the three properties of K agree with the source; the corrected Joyal identity is the registered E29; E68 confirmed. Corrected in place (1 change: prerequisites)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/nygaard-filtration-q-de-rham-coordinates",
+    "verdict": "corrected",
+    "note": "BMS2 Remark 9.11 (bms2.tex ll. 2699-2716) and PR.3/nygaard-filtration-in-coordinates. Statement (1)-(4) agrees with the remark and with BMS1 Definition 9.5 (q=[ε]; the misprint q=[ε]−1 is at l. 2703). Torus computation of H^n(M/ξ̃) correct. One proof step states a false identity and one acceptance example is false. Corrected in place (2 changes: acceptance, proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/prismatic-crystal",
+    "verdict": "corrected",
+    "note": "Read against the display opening §4 (PrismaticCrystals.tex l. 476-477), Notation 2.1 (l. 199-205), Definition 2.3 (l. 226-229) and Proposition 2.7 (l. 259-274); the definition, pullback, base change and all four tests are correct (A/I is projective only if I = eA with e idempotent, and I invertible forces e = 1). One hypothesis line is false as justified. Corrected in place (1 change: hypotheses). Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/crystal-descent",
+    "verdict": "verified",
+    "note": "Read Theorem 2.2 and the remark after it (l. 210-221), Proposition 2.7 with proof (l. 259-274) and Example 2.8 (l. 276-280). Parts (1)-(2) are the proposition, (3) is the Čech form of Example 2.8 with the existence of the nerve made a hypothesis; the Drinfeld–Mathew input is correctly requested (SF.1 does not name it). Nothing to change."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison",
+    "verdict": "verified",
+    "note": "Read Definition 2.9 (l. 285-290), Propositions 2.13 and 2.14 with proofs (l. 306-340). Statement, the universal property Hom_R(S, A/I) = Hom(Δ_S, (A,I)) (l. 329-330), the use of BS22 Proposition 7.11 (l. 331) and the two arguments for independence of S (l. 337-339) all match."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/f-crystal-over-prism",
+    "verdict": "verified",
+    "note": "Read Definition 4.1 (l. 482-487), Example 4.3 (l. 494-496) and the formula of Example 4.10 (l. 542). The definition, effectivity, the base-change characterisation of φ_M and the four tests are correct (units c·E^n; the zero map; Localization.Away). Minor, left for the revision: API item recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/prismatic-f-crystal",
+    "verdict": "verified",
+    "note": "Read Definition 4.1 (l. 482-487), Remark 4.2 (l. 489-491), Example 4.5 (l. 504-513: φ^*O_Δ{1} ≅ I_Δ^{-1} O_Δ{1}) and the footnote to Theorem 1.2 (l. 133). Statement and twist direction are right: O_Δ{-1} effective, O_Δ{1} not; over O_C, A_inf{1} = μ^{-1}A_inf with φ(μ^{-1}) = ξ̃^{-1}μ^{-1}. Tests true; one of them is a tautology. Minor, left for the revision: test recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/laurent-f-crystal",
+    "verdict": "verified",
+    "note": "Read l. 357 (Frobenius on A[1/I]^∧_p), Definition 3.2 (l. 360-367), Remark 3.3 (l. 370-372), Example 4.4 (l. 499-501) and Remark 3.9 (l. 444-458). Statement, hypotheses, acceptance lines and the mathematical content of the four tests are right (p·φ has linearisation multiplication by p). Two Lean statements do not say what the packet says. Suggested file: The Lean test pr7_laurent_char_p_zero is false as stated. The Lean structure Prism (l. 951-959) records neither derived (p, I)-completeness nor I ≠ A, so 'p ∈ I' does not give I = (p). | SiteData.Olaurent, toLaurent and laurentFrob (l. 6006-6010) are free data: nothing says Olaurent c is LaurentRing p (Oinv c), nor that laurentFrob extends φ."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/artin-schreier-riemann-hilbert",
+    "verdict": "corrected",
+    "note": "Read Proposition 3.4 with proof (l. 377-391) and Proposition 3.6 with proof (l. 403-411). Both statements and the planned proofs match the source (finite étale descent and Artin–Schreier; Fitting ideals and Krull; BS22 Lemma 9.2; Gabber–Ramero 5.4.54). Two prerequisite defects. Corrected in place (1 change: prerequisites). Minor, left for the revision: Step 4 applies PerfectoidSpaces:P3/henselian-finite-etale-approximation to (R_perf, t), but part (a) of that node assumes t is a non-zero-divisor;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/laurent-f-crystals-local-systems",
+    "verdict": "verified",
+    "note": "Read Notation 3.1 (l. 353-355), Example 3.5 (l. 393-398), Corollaries 3.7 and 3.8 with proofs (l. 418-442), Remarks 3.9-3.11 (l. 444-469), Remark 6.3 (l. 745-754). Parts (1)-(5) match; 'limit over perfect prisms' is right because perfection is left adjoint to the inclusion of perfect prisms, hence initial. X bounded and the pro-étale definition of D^{(b)}_lisse are as printed."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/etale-realization",
+    "verdict": "verified",
+    "note": "Read Construction 4.8 (l. 527-532), Example 4.9 (l. 535-537), Example 4.10 (l. 539-546). The construction, the split 'every X' / 'bounded X' (source issue E72), T(O_Δ{i}) = Z_p(i) and the acceptance lines are right; Suggested file: etaleRealization_eval (l. 6185-6187) and the test pr7_etale_real_char_p_zero (l. 6194-6195) cannot both hold for every SiteData, because Olaurent is unconstrained (see node laurent-f-crystal)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/crystalline-realization",
+    "verdict": "corrected",
+    "note": "Read Example 4.7 (l. 521-524) and Construction 4.12 (l. 558-567). Parts (1)-(3) match; the Lean lemma ideal_eq_span_p_of_mem is true (localise at maximal ideals, then BS22 Lemma 2.24 with p distinguished); the twist on a crystalline prism is p^{-1}φ in the canonical trivialisation (φ^*A{1} = I^{-1}A{1}, I = (p)); Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/f-crystals-over-qrsp",
+    "verdict": "verified",
+    "note": "Read Example 2.5 (l. 236-238), Example 4.10 (l. 539-546) and Lemma 4.11 with proof (l. 548-556). (1)-(3) match, with 'final object' as in source issue E71; the transversality argument (Δ̄_R p-completely faithfully flat over p-torsion-free R, BS22 Proposition 7.10) and the derived-Nakayama step are right; R = O_C/p is a correct failure example."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/breuil-kisin-and-ainf-covers",
+    "verdict": "corrected",
+    "note": "Read Example 2.6 (l. 240-256), Notation 5.1 (l. 576-586), Example 6.1 (l. 701-703), Notation 7.1 (l. 1009-1012), Construction 7.13 (l. 1229-1242), Example 7.8 (l. 1124-1129). (1)-(5) match; the plan rightly proves the covering property through the A_inf-prism and avoids the unjustified 'flat cover' (source issue E79; BS22 Proposition 3.13(1) at prisms.tex l. Corrected in place (1 change: statement). Suggested file: OKData (l. 6260-6288) is a structure of unconstrained data (any group G, any objects bk, ainf, any type RepCrys, any functors rational n), and the theorems and tests are stated for every D : OKData p."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/bkf-modules-comparison",
+    "verdict": "verified",
+    "note": "Read Theorem 5.2 and the construction after it (l. 593-602). Checked the BMS1 numbers in integralpadicHodge.tex: Lemma 4.26 (l. 1854, M[1/μ] = T ⊗ A_inf[1/μ]), Theorem 4.28, Remark 4.29 (l. 1921, the elementary full faithfulness), Lemma 4.6 (l. 1547, bundles on the punctured spectrum), Lemma 3.23 (l. 1256). Statement and the two acceptance computations (A_inf;"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/crystalline-representation-of-f-crystal",
+    "verdict": "verified",
+    "note": "Read Proposition 5.3 with proof (l. 606-627), Remark 5.4 (l. 630-635), Construction 5.5 (l. 639-650). (1)-(3) match; D_crys(T(O_Δ{1})[1/p]) = (K_0, p^{-1}φ) is the covariant D_crys of Q_p(1), and F = D_dR(V) ⊗_K B_dR^+ (not Fil^0) is what Construction 5.5 uses."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/etale-realization-fully-faithful",
+    "verdict": "verified",
+    "note": "Read the proof of full faithfulness of Theorem 5.6 (l. 667-671), Construction 5.5 (l. 639-650) and Remark 5.7 (l. 674-681). The four steps are the source's; the second proof is correctly attributed."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/period-sheaves-qrsp",
+    "verdict": "verified",
+    "note": "Read Construction 6.2 with its footnote (l. 711-742), Construction 6.4 (l. 757-761), Lemma 6.7 with proof (l. 806-824). The five sheaves, the maps and φ̃ match; I rechecked φ(d)/p = p^{p-1}(d/p)^p + δ(d), the maps Δ⟨φ^{n+1}(I)/p⟩ → Δ⟨φ^n(I)/p⟩, the Koszul computation of Lemma 6.7, and the non-example: for A = Z_p[[u]], d = u - p, A⟨d/p⟩ = Z_p⟨w⟩ with w = u/p and φ(w) = p^{p-1}w…"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/filtered-phi-module-to-crystal",
+    "verdict": "unverifiable",
+    "note": "Read Construction 6.5 (l. 768-789) and Remark 6.6 (l. 794-802). Steps (a)-(d) match. I recomputed the twist example: for D = (K_0, p^{-1}φ) with the jump at -1, Fil^0(D_K ⊗ B_dR) = D ⊗ I·B_dR^+, so M_3 = I·M_2 and φ(d e) = (φ(d)/(p d))·d e with φ(d)/p a unit of Δ⟨I/p⟩: φ^*M_3 ≅ I^{-1} ⊗ M_3, the twist {1}. Open: the API of filtered-phi-module-to-crystal lacks the Frobenius of M(D) Minor, left for the revision: test recommended"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/tate-twist-analytic-continuation",
+    "verdict": "corrected",
+    "note": "Read Proposition 6.8 with proof and footnote (l. 833-882), the introduction (l. 135-143), AMMN Theorem 6.17 with proof and 6.18-6.21 (Beilinson-revised-arXivstyle.tex l. 4079-4262; qSyn_{Z_p} is p-torsion-free quasisyntomic, l. 2420; τ_{[2i-1,2i]} of Corollary 3.9, l. 4118-4131), Bhatt–Lurie Proposition 5.5.12 (apc.tex l. Corrected in place (1 change: hypotheses)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/descent-data-boundedness",
+    "verdict": "verified",
+    "note": "Read Lemma 6.9 with proof (l. 887-934) and Proposition 6.10 with proof (l. 938-966). (A1)-(A3) and (B) match, including the completions in the rational localisations (l. 920). Rechecked (q_1-1)^p ≡ p(q_1-1)v mod (q_2-1), φ(I) ⊂ pΔ_R⟨(q_1-1)^p/p⟩, and the acceptance computation φ(c) = c·[p]_{q_2}/[p]_{q_1} for the twist. Printed slips in the proof (M′ for M at l."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/weakly-admissible-extension-over-ainf",
+    "verdict": "verified",
+    "note": "Read the second paragraph of the proof of essential surjectivity (l. 978-980) with its footnotes. (1)-(3) and the chain 'trivial over ℛ ⇒ extends to ℛ^int ⇒ glue ⇒ Berkeley Theorem 14.2.1' are the source's; Minor, left for the revision: 'The extension M′ is unique up to its modification along {p = 0}; M′[1/p] is determined.' The source claims existence only, no step of the plan proves uniqueness, and it …"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/crystalline-lattice-to-f-crystal",
+    "verdict": "verified",
+    "note": "Read the proof of essential surjectivity (l. 975-998). Steps 1-4 are the source's four paragraphs; the misprint p_1^* for p_2^* (E73) and the unproved almost isomorphism (E78, recorded gap) are handled. The gap is real and precisely stated: the source has only 'But we know that Δ_{R,perf} ≃^a RΓ(Spf(R)_η, A_inf(O^+)) ≃^a Cont(G_K, Δ_{O_C})' (l. Suggested file: latticeFCrystal_unique (and the test pr7_lattice_twist) assert morphisms f, g with g ∘ f = id only; the API says 'is isomorphic to 𝔐(L)'. A one-sided inverse is a retract, not an isomorphism."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/crystalline-lattices-theorem",
+    "verdict": "verified",
+    "note": "Read Theorem 5.6 (l. 656-661), Theorem 1.2 (l. 123-131), the abstract (l. 94) and the opening of §5 (l. 574). The statement is the source's: K complete discretely valued of mixed characteristic with perfect residue field, finite free Z_p-lattices in crystalline representations, no restriction on Hodge–Tate weights; Suggested file: OKData.realization_isCrystalline (l. 6464-6465) is false as stated: it quantifies over every OKData, in which RepCrys is an arbitrary type."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/etale-realization-over-breuil-kisin-prism",
+    "verdict": "corrected",
+    "note": "Read Theorem 7.2 and the outline after it (l. 1022-1029), Lemmas 7.3-7.7 with proofs (l. 1035-1117), Example 7.8 (l. 1124-1129), the proof of Theorem 7.2 (l. 1135-1147) and of Corollary 7.10 (l. 1201-1205). (1)-(3) and the five steps match; the points x_n for n < 0 are as corrected in E74 (I_r vanishes at x_0, …, x_{1-r} only); Corrected in place (1 change: proofSteps)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/breuil-kisin-evaluation",
+    "verdict": "verified",
+    "note": "Read Theorem 7.9 with the remark before the proof and the proof (l. 1155-1186), Corollary 7.10 (l. 1191-1205), Remark 7.12 (l. 1216-1221), Theorems 1.3-1.4 (l. 151-170). (1)-(4) match: D_𝔖 is the inverse of T followed by evaluation, full faithfulness is proved rationally through 𝒟 and Fontaine's D_crys and integrally through the forgetful functor, restriction to G_{K_∞} is the …"
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/kisin-functor-comparison",
+    "verdict": "corrected",
+    "note": "Read Remark 7.11 (l. 1207-1213), §1.2 (l. 148-176) and the R07.4 packet nodes bk-coefficient-rings, kisin-modules, kummer-etale-phi-modules, phi-n-nabla-modules, weakly-admissible-slope-zero, kisin-crystalline-embedding, kisin-etale-full-faithfulness, finite-height-lattices, semistable-finite-height, crystalline-restriction-full-faithfulness (all exist and state what is cited).… Corrected in place (1 change: statement)."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.7/mod-p-full-faithfulness-fails",
+    "verdict": "verified",
+    "note": "Read Remark 5.8 (l. 683-689) and the footnote to Theorem 1.2 (l. 133). The example E = O_Δ{p-1}/p over Spf(Z_p), T(E) = Z/p(p-1) ≅ Z/p, E ≅ I_Δ^{-1}/p through O_Δ{p}/p ≅ φ^*O_Δ{1}/p, and the Sen-weight argument are as printed; p = 2 is a correct instance. The non-claim about torsion and derived coefficients is recorded."
+   }
+  ]
  }
 }
