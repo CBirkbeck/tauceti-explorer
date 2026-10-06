@@ -22317,9 +22317,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #684"
+   "note": "deliverables arrived from an external worker on issue #684",
+   "finishedAt": "2026-10-06T16:25:05Z"
   },
   {
    "id": "REV-AutomorphicFormsOnReductiveGroups",
@@ -54964,7 +54965,8 @@
     "REV-FIX-RT-BP-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5713"
   },
   {
    "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7~2",
