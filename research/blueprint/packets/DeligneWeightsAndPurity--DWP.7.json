@@ -3993,7 +3993,7 @@
  ],
  "sourceIssues": [
   {
-   "id": "DeligneWeightsAndPurity/E1",
+   "id": "DeligneWeightsAndPurity/E2",
    "kind": "misprint",
    "locator": "Introduction, Théorème 1 (3.3.1), p. 138, lines 1-2 of the statement (published text, Numdam scan)",
    "printed": "sur X",
@@ -4013,7 +4013,7 @@
    "source": "deligne-weil-ii"
   },
   {
-   "id": "DeligneWeightsAndPurity/E2",
+   "id": "DeligneWeightsAndPurity/E3",
    "kind": "misprint",
    "locator": "§3, proof of Corollaire (3.3.5), p. 206, lines 2–3 of the proof (published text, Numdam scan)",
    "printed": "H_c^{2N−i}(X, ℱ)(N)",
@@ -4033,7 +4033,7 @@
    "source": "deligne-weil-ii"
   },
   {
-   "id": "DeligneWeightsAndPurity/E3",
+   "id": "DeligneWeightsAndPurity/E4",
    "kind": "error",
    "locator": "§3, Variante (3.4.9), p. 210 (published text, Numdam scan)",
    "printed": "et que tout faisceau pur est géométriquement semi-simple.",
@@ -4053,7 +4053,7 @@
    "source": "deligne-weil-ii"
   },
   {
-   "id": "DeligneWeightsAndPurity/E4",
+   "id": "DeligneWeightsAndPurity/E5",
    "kind": "misprint",
    "locator": "§6, proof of Variante (6.2.3), p. 247 (published text, Numdam scan)",
    "printed": "E₁^{pq} = R^pf_!ℋ^qK",
@@ -4073,7 +4073,7 @@
    "source": "deligne-weil-ii"
   },
   {
-   "id": "DeligneWeightsAndPurity/E5",
+   "id": "DeligneWeightsAndPurity/E6",
    "kind": "error",
    "locator": "arXiv:2206.07759v2 (17 Oct 2023), proof of Proposition 4.2, display (3), p. 7",
    "printed": "E_1^{j,k} = ⊕_{|E(G)|=j} H^k(M̃_G)",
