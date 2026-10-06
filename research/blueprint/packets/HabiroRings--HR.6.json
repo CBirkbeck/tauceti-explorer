@@ -195,9 +195,9 @@
     },
     {
       "id": "Wagner.qWitt.v5",
-      "title": "The q-de Rham–Witt complex",
+      "title": "q-Witt vectors and q-Hodge complexes",
       "authors": "Ferdinand Wagner",
-      "edition": "arXiv:2410.23078v5, 6 October 2025",
+      "edition": "arXiv:2410.23078v5, 6 October 2025; PDF dated 7 October 2025",
       "url": "https://arxiv.org/pdf/2410.23078v5",
       "sha256": "c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01",
       "accessed": "2026-10-06",
@@ -229,7 +229,7 @@
       "kind": "construction",
       "statement": "Let F be a number field, Δ>0 with 6|disc F| dividing Δ, R=O_F[1/Δ], H=H_{R/Z}, κ:H≅H_R the Taylor-compatible ring comparison, M_ξ=κ*H_{R,ξ}, and v=constantCoeff∘c:H→R for c:H→R[[X]], X=q−1. Under HB.7 effective global descent and its tensor bijectivity, order-one evaluation gives e_ξ:R⊗_{H,v}M_ξ→R, e_ξ(r⊗f)=r f_1(0). Construct the unique R-linear equivalence t_ξ with underlying map e_ξ. The order-one Kummer torsor is canonically trivial, so the value lies in R without a root choice. This trivializes the fibre, not M_ξ over H. The typed ordinary prototype OrderOneFibre.trivialization accepts an actual invertible H-module M, its evaluation map e on R⊗_H M, and a preimage of 1; the HB.7 finite inverse-tensor certificate supplies that preimage in this application.",
       "hypotheses": [
-        "HB.7 supplies actual additive modules and their invertibility, conditional on its G-global-descent; it is not inferred from local rank one alone.",
+        "HB.7 supplies actual additive modules and their invertibility, conditional on its G-global-descent and inherited corrected integral linear-jet contract (HabiroNumberFields/E24); it is not inferred from local rank one or the uncorrected printed Definition 1.3 alone.",
         "HB.7 supplies the semilinear constant evaluation and its compatibility with multiplication; this small additional API is requested from its sole owner.",
         "No R-algebra structure on H is assumed. The algebra H→R in the tensor product is v."
       ],
@@ -237,7 +237,8 @@
         "Use GSWZ Definition 1.4 and Proposition 1.5(f) at m=1: ε_1 has a canonical trivial torsor and f_1(0) belongs to R. Addition and scalar multiplication of the actual sections give the v-semilinear evaluation; request this API from HB.7.",
         "HB.7/followup-tensor-bijectivity yields finitely many f_i∈M_ξ and g_i∈M_{−ξ} with Σ f_i g_i=1. Evaluating constants yields Σ f_i(0) g_i(0)=1. Thus z=Σ g_i(0)⊗f_i belongs to the fibre and e_ξ(z)=1. No individual f_i is asserted to be a unit section.",
         "Since e_ξ(r z)=r, e_ξ is surjective. Ordinary scalar extension preserves Module.Invertible. Apply Module.Invertible.bijective_of_surjective between this fibre and R, then promote e_ξ to a linear equivalence. Its underlying map determines it uniquely.",
-        "The inverse image t_ξ^{-1}(1) is independent of the inverse certificate. Tensor multiplication of fibres intertwines their evaluations and t_{ξ+η}; this follows by pure tensors and the supplied multiplication API."
+        "The inverse image t_ξ^{-1}(1) is independent of the inverse certificate. Tensor multiplication of fibres intertwines their evaluations and t_{ξ+η}; this follows by pure tensors and the supplied multiplication API.",
+        "The naturality API is the routine equality t′(u(x))=e′(u(x))=f(e(x))=f(t(x)) once HB.7 supplies u and evaluation compatibility. It introduces no additional arithmetic assertion or target-level lemma."
       ],
       "prerequisites": [
         "HabiroRings:HR.6/the-transported-regulator",
@@ -259,12 +260,12 @@
       "sources": [
         {
           "sourceId": "GSWZ.v2",
-          "locator": "Definition 1.4, printed pp.9–10; Proposition 1.5(f), printed p.11",
+          "locator": "Definition 1.4, printed p.10; Proposition 1.5(f), printed p.11",
           "match": "The m=1 specialization is the integral order-one evaluation. Its module/tensor interpretation is conditional on the explicitly imported HB.7 descent contract."
         },
         {
           "sourceId": "GSWZ.v2",
-          "locator": "Theorem 2, (25), printed p.10; §3.3, printed pp.43–44",
+          "locator": "Theorem 2, (25), printed p.10; its proof in §3.3, printed p.43",
           "match": "Supplies the inverse tensor pairing as refined by the accepted HB.7 follow-up; the source proof alone does not establish effective global descent."
         }
       ],
@@ -313,6 +314,11 @@
           "name": "OrderOneFibre.rescale",
           "role": "compatibility",
           "statement": "If evaluation is multiplied by a unit u of R, its normalized fibre equivalence is u times t."
+        },
+        {
+          "name": "OrderOneFibre.naturality",
+          "role": "functoriality",
+          "statement": "For a ring homomorphism f:R→S and an f-semilinear map u between the actual fibres, if e′(u(x))=f(e(x)) for every x, then t′(u(x))=f(t(x)). This preserves the normalization under HB.7 supported field pullback; it does not assert existence of u or arithmetic naturality."
         }
       ],
       "tests": [
@@ -476,7 +482,7 @@
   "imports": [
     {
       "node": "HabiroRings:HR.6/the-degree-zero-identification",
-      "disposition": "Retain its full étale E∞ ring comparison, all cyclotomic specializations, q−1 completion and functoriality. The HR.4 follow-up now plans complete principal deformation universality, conditional on its exact enhanced suppliers. Use Theorem 3.11(b), as corrected by inherited E6."
+      "disposition": "Retain its full étale E∞ ring comparison, all cyclotomic specializations, q−1 completion and functoriality. The HR.4 follow-up now plans complete principal deformation universality, conditional on its exact enhanced suppliers. Use Theorem 3.11(b), as corrected by inherited E6. For the derived-to-underived forms step, use HabiroCohomologyFoundations:HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras (Corollary 3.31), with its shifts. The parent cites HQ.4/hodge-against-nygaard here, but that node is the Nygaard pullback lemma used inside the comparison proof, not the comparison itself. This disposition corrects the retained target’s supplier contract without redefining either theorem."
     },
     {
       "node": "HabiroRings:HR.6/completed-scalar-extension",
@@ -624,5 +630,28 @@
     "retainedParentNodesNotDuplicated": true,
     "reason": "Two new interface planets, within the six-per-layer limit. Parent targets are imported rather than recreated as extra planet nodes."
   },
-  "suggestedPolicy": "All five API names and four named tests of the new construction occur in the suggested file. Actual imported Habiro/K₃ and enhanced signatures are explicitly omitted with exact mathematical types under PROTOCOL §13; the ordinary fibre construction and completion theorem are typed against actual Mathlib modules. The supported arithmetic comparison has a typed formal Picard-square prototype and an exact actual-signature omission. Successful elaboration checks signatures, not proofs or missing carriers."
+  "suggestedPolicy": "All six API names and four named tests of the new construction occur in the suggested file. Actual imported Habiro/K₃ and enhanced signatures are explicitly omitted with exact mathematical types under PROTOCOL §13; the ordinary fibre construction and completion theorem are typed against actual Mathlib modules. The supported arithmetic comparison has a typed formal Picard-square prototype and an exact actual-signature omission. Successful elaboration checks signatures, not proofs or missing carriers.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.6",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all three new nodes and five retained HR.6 contracts. All 22 Mathlib baseline declarations were checked at 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti was searched at f790474821cf4256814db967cb154e7af3d0c369. Verified all four public PDF hashes and the cited source passages. Corrected the v5 q-Witt bibliography and exact GSWZ locators, made the inherited corrected local-section hypothesis explicit, added evaluation-compatible semilinear naturality to the fibre API/signature, and corrected the retained degree-zero contract’s HQ.4 comparison supplier. No node or baseline citation was removed or added. Completion follows from the actual first fibre, ordinary Nakayama and invertible-module bijectivity; the arithmetic scalar square retains HB.7 descent/naturality hypotheses. The four named gaps and single HB.7 request remain. HR.6 is planned, not closed; no nontrivial regulator witness or formalization is claimed. Suggested signatures elaborate at the pinned Mathlib with intentional proof-hole warnings only.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.6/followup-order-one-fibre",
+        "verdict": "corrected",
+        "note": "Verified order-one integrality (Proposition 1.5(f)), canonical μ₁ torsor, finite inverse-tensor certificate conditional on HB.7, and base-change invertibility. Tightened the exact source locators and inherited corrected-local-input hypothesis; added the routine normalized semilinear naturality API with a matching typed signature. Four tests discriminate evaluation normalization and the necessary preimage of 1."
+      },
+      {
+        "nodeId": "HabiroRings:HR.6/followup-completed-regulator-triviality",
+        "verdict": "verified",
+        "note": "The B/(X) fibre identification and Nakayama proof use the exact 22-declaration baseline with no local/noetherian hypothesis. Freeness of the completed line is conditional on HB.7; units 1+X show full trivializations are not canonical. Wagner’s introductory assertion is motivation, not a supplied proof or a nonzero Picard witness."
+      },
+      {
+        "nodeId": "HabiroRings:HR.6/followup-regulator-scalar-square",
+        "verdict": "verified",
+        "note": "Read the exact HB.7 common-Δ field pullback and actual scalar-equivalence contracts and HR.5 Taylor-compatible ring comparison. Ordinary tensors are over H, and Picard identity/composition are existing declarations. The formal typed square does not establish arithmetic naturality; abstract roots and X remain fixed."
+      }
+    ]
+  }
 }
