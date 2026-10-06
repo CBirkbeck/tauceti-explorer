@@ -1,8 +1,8 @@
 {
   "roadmaps": 231,
-  "stages": 3885,
+  "stages": 3897,
   "originalStages": 2116,
-  "sourceRefinements": 1769,
+  "sourceRefinements": 1781,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -313,14 +313,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3784,
+  "mathematicalStars": 3796,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1941,
-  "stageEdges": 10283,
+  "roadmapEdges": 1944,
+  "stageEdges": 10307,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -840,6 +840,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1"
     },
     {
+      "file": "LefschetzPencilsAndVanishingCycles--LPV.7",
+      "roadmap": "LefschetzPencilsAndVanishingCycles",
+      "nodes": 36,
+      "reviewer": "independent-review-REV-LefschetzPencilsAndVanishingCycles--LPV.7"
+    },
+    {
       "file": "MordellLawrenceVenkatesh",
       "roadmap": "MordellLawrenceVenkatesh",
       "nodes": 146,
@@ -937,8 +943,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 33620829,
-  "htmlSha256": "11ace467fe3df4f2644471816396bb1f2d9bb98da5c3847705b24d0b5e1a22b0",
+  "htmlBytes": 33661786,
+  "htmlSha256": "9df32382e3c89eb2d1a9601c50946a0e6e315f92942f36590b57635a0382a240",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -970,7 +976,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "8387167a2065ee94cd080f5ec2712bb1bbedd5e5aad8501be4b0ecb5b5395d07",
+    "data/roadmap-distances.json": "f693792931bfd9774744e52ea9d749d9abda48aa9813a47a1eec28fd5d7ede19",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1200,6 +1206,8 @@
     "data/blueprints/K3BlochGroups--V.6.md": "e98ab4c661a0423bedf01aec9d836bd867cd230bb57a9301b3e76e9b6f34b4ec",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
+    "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json": "8e8f17198cf6a46062ac51a506d5ff5bf7593de105d361b5bb298deb07c3c98d",
+    "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/MordellLawrenceVenkatesh.json": "a9fdcac3320533c99d3bef90a631d698d65ae6bc66de1722f40ead00361eb2df",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
