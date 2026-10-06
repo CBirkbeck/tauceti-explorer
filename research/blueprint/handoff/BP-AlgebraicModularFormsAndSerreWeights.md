@@ -1,103 +1,113 @@
-# BP-AlgebraicModularFormsAndSerreWeights — checkpoint 3 (R15.1–R15.3)
+# BP-AlgebraicModularFormsAndSerreWeights — completed target-level planning pass
 
-Issue #671. Agent: Claude Code, session cc-fb70e5 (re-claimed after checkpoint 2, #3871). Date: 29 September 2026. **Status: partial.** The packet now has 38 nodes and 13 planets, and every stage has its reviewed decomposition nodes in the packet.
+Issue: #671. Agent: Codex. Session: `codex-f7ZoAh`. Branch: `codex-f7ZoAh-algebraic-modular-forms`. Date: 6 October 2026. The bot confirmed this session’s claim before any edits. This submission completes the planning pass under blueprint PROTOCOL §0; it is not an implementation or a source-closure claim.
 
-## What checkpoint 3 did
+## Result and scope
 
-- **Carried the 11 reviewed nodes of R15.1–R15.3** with their identifiers, and added explicit prerequisites, uses, API and unit tests for the five constructions:
-  - R15.1: the Hodge bundle ω on M̄_n with the Tate-curve normalisation; levels 1 and 2 by descent.
-  - R15.2: the q-expansion principle; the strong principle; base change and the weight-one boundary; Katz's integral Hecke operators.
-  - R15.3: the Hasse invariant; A = E_{p−1} with the p = 2, 3 liftings; θ and the filtration; Tate's θ-cycles; reduction to weight ≤ p + 1.
-- **New `R15.2/generation-of-the-integral-hecke-algebra`** (DDT Lemma 4.1). This answers AutomorphicGaloisRepresentations' R15.2 request. Its sources, Diamond–Im and Wiles, are not read.
-- **Requests** to ModularCurvesPartII R12.5, R13.2, R13.3 and R14.1.
-- **Gaps:** "Geometric and local stages not reconstructed" is removed. A gap records that Katz's OCR text leaves the displayed formulas to the decomposition review.
-- Inherited text containing the words the checker bans was reworded. A Katz excerpt was trimmed to a shorter verbatim substring.
+The packet has **63 nodes**: 6 definitions, 14 constructions, 16 theorems, 9 lemmas, 12 comparisons and 6 applications. Its 20 definitions/constructions carry **67 API items and 61 named tests**. There are **21 planets, 8 checked baseline declarations, 9 gaps and 26 supplier requests**. All six stages are **planned**, none is **closed**, and every implementation status is **unchecked**. Stop refinement here, as §0 requires once all stages are planned. Independent review should evaluate this complete packet; accepted open stages become follow-up jobs.
 
-## Checks run
+The accepted RS-06 boundary, including `independent-review-REV-FIX-RT-RS-06`, supplies the title and upstream ModularForms base. The stable roadmap ID and all 38 inherited packet node IDs are retained. The previously absent reviewed R15.5 modular-form application is restored under its reserved identifier. Only the issue’s packet, reader, suggested file and this handoff change.
 
-- Katz 1973 was re-downloaded and its SHA-256 matches the record. Every carried excerpt's best match is on its stated page. Theorem 1.12.1 was checked on the page image.
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- The new Lean checks (Eisenstein-series congruences behind A = E_{p−1}, and θΔ mod 5) import Mathlib only. They were compiled as a separate file against Mathlib 082e2d3, exit code 0. The suggested file as a whole imports a Tau Ceti module and was not compiled.
+R15.1 owns section spaces, cusp twists, coefficient maps, the all-integer-weight analytic comparison and the proof of logarithmic Kodaira–Spencer. The moduli stack/Hodge line and canonical logarithmic de Rham connection are imports. R15.2 owns the integral/geometric comparison and coherent Hecke action with arbitrary coefficient modules; analytic Hecke algebras and their lattices remain upstream. R15.3 specializes the imported general Hasse invariant and derives the characteristic-p form operations. R15.4 defines the extension-sensitive classical weight, rather than a weight chosen by modularity. R15.5’s algebraic lifting proof has no dependency on R15.4 or Galois attachment. R15.6 states residual modularity and the classical target; it does not prove Serre’s conjecture or optimize a witness.
 
-## What remains
+## Routed obligations and corrected ownership
 
-- **R15.1:** GAGA and the analytic comparison.
-- **R15.2:** finite generation over a noetherian base; the diamond operators; Katz 1.10 and 4.4.1.
-- **R15.3:** Katz's LNM 601 construction of θ; the θ-cycle source; the Igusa curve.
-- **R15.4:** the Fontaine–Laffaille comparison and the dyadic level-2 case (checkpoint 2). Note that Edixhoven §6 proves Fontaine's theorem for modular forms geometrically, not through Fontaine–Laffaille theory.
-- **R15.5:** the modular-form application.
+- **CG18:** R15.2 now constructs the auxiliary curve map `curve-fricke-map`, with w_x²=⟨x⟩ and π₂=π₁∘w_x. Its distinct Hodge operator squares to xⁿ⟨x⟩, for integer n and i=0,1. The latter generality follows from the sheaf construction. The coefficient-module T_x/U_y/diamond action and cuspidal long exact sequence are planned explicitly. The existing ModularCurvesPartII root-dependent curve map is imported; the induced Hodge operator W_ζ is constructed here in R15.3, then used in the twisted Serre-duality comparison. Its K/O relative-duality input is requested precisely from SF.3, with SF.2 proper adjunction/trace as finer imports. CG18’s confirmed E21/E22 are retained as local source cautions E2/E3; the plan uses the corrected scalar and separates the H⁰ printed definition from its derived H¹ extension.
+- **CG20:** the GL₂ model of Lemma8.14 joins the weight-one torsion T_p node. T_p=U+⟨p⟩V retains the second term. The doubling maps into one high weight are φ and φT_p−U_highφ, not unmatched maps from weights1 and p. The genus-two theory belongs elsewhere.
+- **CDT25:** the all-prime bounded-denominator application imports the analytic theorem/lattice and records its level-prime geometric comparison gap. The parameter q=e^{πiτ} has Δ starting with q². Katz’s model with level inverted does not alone settle primes dividing the level.
+- **Pan:** R15.1 now has the actual Kodaira–Spencer construction/proof, retaining (det D)⁻¹ before the elliptic trivialization and the isogeny degree factor. De Rham/Gauss–Manin inputs remain A4/B3 imports. No overconvergent or infinite-level analytic forms are added here.
+- **Bad-dihedral application:** the reserved R15.4 node keeps p≥3, S-type and 2≤k≤p+1. R01.4 supplies the quadratic image identification; the niveau branches give p=2k−1 or p=2k−3. Ribet’s original cited input remains a source gap.
+- **RT-AREA-padic-1/26:** the elliptic Hasse construction explicitly imports general BT₁ det(V*) from **R07.2**, and proves compatibility with Frobenius on H¹(O). This adds the required R07.2→R15.3 prerequisite/request. General Hasse/LF/Hodge–Tate sequence ownership stays at R07.2; T0’s boundary extension is not duplicated. The other briefs and owners registry are outside this issue’s permitted deliverables and are left untouched for their owners/orchestration. Fontaine–Laffaille, separately, is requested from **R07.3**, not R07.2.
+- **Residual descent:** R01.5 owns finite-field descent and lattice independence. The early R19 residual construction imports it directly; it need not import late R15.6. A witness keeps the coefficient field, chosen place, stable lattice and actual residual semisimplification comparison. Different places are not identified without a transported residue embedding.
 
----
+## Coverage and exact follow-up leaves
 
-# BP-AlgebraicModularFormsAndSerreWeights — checkpoint 2 (R15.4 and R15.6)
+- **R15.1 — planned**: Supply the imported stack/logarithmic carriers and express their full suggested signatures; verify the projective GAGA descent interface.
+- **R15.2 — planned**: Close level-prime integral lattice/denominator comparison and the character-projector/cusp H¹ reduction criteria.
+- **R15.3 — planned**: Read Gross’s torsion-coefficient operator, Jochnowitz’s cycle proof and the exceptional low-level source; finish imported Igusa monodromy interfaces.
+- **R15.4 — planned**: Verify the Fontaine–Laffaille rank-two extension comparison, dyadic niveau2 descent and Ribet’s bad-dihedral input.
+- **R15.5 — planned**: Close the existing algebra API integration gap and the exact character/level Katz shift-to-reduction criterion.
+- **R15.6 — planned**: Complete the requested attached-representation/finite-field witness carriers and the Katz shift criterion used in the equivalence.
 
-Issue #671. Agent: Claude Code, session cc-fb70e5 (claim comment 5882015906, confirmed by the bot). Date: 29 September 2026. **Status: partial.** Checkpoint 1 (ChatGPT Pro, below) is unchanged.
+The complete gap register, with consuming nodes, is authoritative in the packet and reader. Resume by closing these precise leaves, rather than rebuilding the definitions:
 
-## What checkpoint 2 did
+- **Pinned algebraic API integration**: Exact baseline names and hypothesis checks remain for finite/free operator subalgebras, finite generic fibers of finite domain algebras, lying over in integral closure, nonzero-prime localization of a Dedekind domain, the flat tensor-inclusion theorem, finite-free endomorphism base change, and integral-coordinate clearing/reassociation. These are explicit existing-library search obligations, not permission to duplicate their mathematics. The displayed proof is not claimed closed at the baseline.
 
-- **Carried the eight reviewed R15.4 nodes and the three reviewed R15.6 nodes** from the integrated decomposition, keeping their identifiers. Each now has explicit prerequisites and uses, and the four definitions have API and unit tests. Five planets were added (the tame Serre weight, the weight-two criterion, the dyadic weights, mod p forms, and S-type).
-- **Linked the finite-flat statements** to their owners in FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1/R07.5: the fundamental characters, peu/très ramifiée, Raynaud, the Kummer extensions, the Galois-side weight-two criterion and the dyadic dichotomy. The R15.4 nodes keep only the recipe. The overlap is recorded as a gap for the orchestrator.
-- **New `R15.4/dyadic-weight-two-or-four`.** At p = 2, k ∈ {2, 4}, and k = 4 exactly in the wild très ramifiée case (Serre 2.6); finiteness in the wild and unramified cases. The level-2 tame case of "k = 2 iff finite" is a gap and is requested from R07.5.
-- **New `R15.6/s-type-arises-from-and-modular`.** Khare–Wintenberger's S-type, "arises from", "modular" and "arises from S_{k(ρ̄)}(Γ₁(N(ρ̄)))", with their invariance under the coefficient field. This answers the ClassicalSerreModularity R15.6 requests. Their equivalence with Serre's mod p formulation is not claimed.
-- **Source issue E1 (known).** Serre 1987, 2.4, Remarque (1), p. 186, says m = 1 or 2 in the très ramifiée case. At p = 2, m = 3 also occurs (Edixhoven, Proposition 8.5). The weight is unaffected.
-- **Requests:** ArithmeticGaloisRepresentations R01.1, R01.2 and R01.3, and FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5.
+- **The level-2 tame case of the dyadic weight dichotomy**: Verified: Serre 2.6 gives k ∈ {2, 4} with k = 4 exactly in the wild très ramifiée case; Edixhoven Proposition 8.2 (valid at p = 2) gives finite ⇔ peu ramifiée in the wild case; unramified representations are finite. Not verified: that a ρ₂ whose tame characters are the fundamental characters of level 2 is finite over ℤ₂. Raynaud Theorem 3.4.3 gives a prolongation over the strict henselisation, but at e = p − 1 uniqueness can fail (Proposition 3.3.2(3)), so its descent to ℤ₂ needs an argument that no source read writes out. Khare–Wintenberger state the dichotomy without proof. Next action: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5 (request), or a Breuil–Kisin argument at p = 2.
 
-## Checks run
+- **Geometric and stack carriers at the pinned libraries**: The pinned libraries supply schemes, module presheaves and sections but not this compactified elliptic moduli stack, its Hodge tensor powers or logarithmic connection. The exact supplier requests are prerequisite leaves. Suggested signatures use real section modules for expressible fragments; missing moduli/connection conditions are omitted explicitly, never encoded as arbitrary Prop fields. Complete geometry signatures need the supplied carriers.
 
-- The sources were re-downloaded and their SHA-256 hashes match the decomposition's records: Serre 1987, Edixhoven (DVI), Raynaud 1974 and Deligne–Serre. The KW I hash matches the ClassicalSerreModularity copy.
-- The 33 carried excerpts and the 4 new ones were compared with the text. Edixhoven's text was extracted from the DVI with a small script that renders Greek letters as '?'. The excerpts match exactly (19) or up to OCR and rendering, and their pages agree with the locators.
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- The suggested file imports a Tau Ceti module, so it cannot be compiled without a Tau Ceti build, and none was run. The new recipe checks import Mathlib only. They were compiled as a separate file against Mathlib 082e2d3, exit code 0.
+- **All-prime bounded-denominator comparison**: CDT25 Lemma4.2.2 explicitly invokes Shimura Theorem3.52. That original theorem has not been read here. The analytic all-prime theorem is an upstream import, and the level-prime geometric lattice/model comparison is not supplied by Katz’s ℤ[1/N] smooth curve alone. Verify the owned lattice theorem and the integral level-prime comparison before closing this application.
 
-## What remains (R15.4, R15.6)
+- **Gross torsion weight-one operator**: CG18 invokes Gross1990 §4/Proposition4.1 for T_p over O/varpi^m. CG18/CG20 and Katz77 were read, but Gross’s original coefficient-general construction has not been read. Supply its exact base/level hypotheses and a proof of preservation of geometric sections; the formal U+⟨p⟩V equation is not that proof.
 
-- The Fontaine–Laffaille comparison, requested by ClassicalSerreModularity R27.3.
-- Non-finiteness of a très ramifiée ρ̄ over extensions of odd ramification index.
-- The level-2 tame case at p = 2.
-- Nodes for Serre 2.7 and 2.9.
-- Edixhoven §6 and Raynaud §§1–2 are unread.
-- R15.1–R15.3 and the R15.5 application: see checkpoint 1's worklist below.
+- **General theta-cycle proof and small-level reduction**: Edixhoven3.2–3.4 and §7 are read and specify the arbitrary-prime tables and reduction argument. Its citation [13] §7 (Jochnowitz, theta-cycle classification) and Serre Astérisque24–25 Theorem3 for N=1,p=2,3 have not been read. The displayed tables remain explicit targets; close the cited proof inputs or give the indicated finite supersingular computation.
 
----
+- **Ribet input to normalized bad-dihedral application**: Retain the routed source boundary from ClassicalSerreModularity: Ribet, Images of semistable Galois representations, Proposition2.2 has not been read. DP Lemma1.14 supplies the fuller niveau proof and KW6.2(ii) the conclusion, but the cited original input and the supplier’s image identification still need independent verification. No claim of source closure is made.
 
-# BP-AlgebraicModularFormsAndSerreWeights — partial checkpoint
+- **Character lattice and Katz shift-to-reduction image**: The fine-level Katz holomorphic base-change theorem does not automatically handle cusp twists, low-level stabilizer invariants or a character projector whose order is not a unit. Establish the H¹-torsion criterion in the exact requested character/level setting and provide a Hasse-power shift landing in that reduction image for the Katz-modularity equivalence. Same-weight lifting is stated only for an actual reduction eigenvector.
 
-Issue: #671. Agent/model: ChatGPT Pro / GPT-6 Astra Pro. Session and branch: `cgpt-20260926-serre-a7d4`. Date: 26 September 2026.
+- **Fontaine–Laffaille convention and classification**: The supplier’s contravariant U_S functor and simple-object theorem give χ^r for positive filtration degree r (HT(χ_cyc)=+1). The extension-sensitive rank-two classification, including the ordered stable line in the wild branch and the r=1 finite-flat/peu assertion, is requested rather than inferred from Edixhoven’s geometric modular-form proof. Reconcile coefficient embeddings and the residual functor convention before closure.
 
-## State and integration boundary
+## Supplier requests
 
-The bot confirmed this session's claim on #671 (claim comment 5848784663; confirmation 5848785718). This submission is a **partial checkpoint**, not a completed six-stage blueprint and not ready for wholesale promotion over the reviewed decomposition. No stage is marked closed. Only the four issue deliverables are changed.
+Use finer supplier node IDs already listed in prerequisites whenever their statements suffice. The following 26 requests cover inputs for which no matching finer node was established; they do not transfer ownership:
 
-The accepted RS-06 title and base are used. The existing main node ID `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma` is retained. Twelve additional nodes expand its proof and tests. The remaining reviewed nodes, especially `R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`, are not discarded: they remain continuation inputs. Do not interpret their absence from this partial packet as a deletion request.
+- **tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields**: Reuse finite integral Hecke theory and the separately justified weight-one 8W lattice. Proposition 2.7 is not Lemme 6.11; the requested lattice is input, not an assertion of arbitrary Katz lifting.
+- **tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor**: After lifting the specified eigenvalue family, supply the exact newform/oldform and normalization result with its level, character and bad-prime data. A good-prime eigenvector is not automatically a normalized full eigenform at the same level.
+- **ArithmeticGaloisRepresentations:R01.2**: Tame inertia I_t of ℚ_p, its identification with lim F_{p^n}^×, the fundamental characters of levels 1 and 2 and the conjugation action u ↦ u^p of a Frobenius lift (Serre 1987, 2.1).
+- **ArithmeticGaloisRepresentations:R01.3**: The prime-to-p Artin conductor N(ρ̄) of a residual representation, n(l, ρ̄) = dim V/V^{G_0} + b(V) (Serre 1987, (1.2.1)–(1.2.2)).
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5**: Finiteness at 2 of ρ₂ : G_{ℚ₂} → GL₂(F̄₂) whose tame characters are the fundamental characters of level 2: the descent to ℤ₂ of Raynaud's prolongation over ℤ₂^nr (Theorem 3.4.3), where uniqueness may fail because e = p − 1 = 1.
+- **ModularCurvesPartII:R13.3**: The Tate curve Tate(q^n) over Z[1/n, ζ_n]((q)) with its canonical differential and level structures, as the formal neighbourhood of each cusp. Supply the full reduced cusp divisor with its Cartier ideal and Tate vanishing-order interpretation.
+- **ModularCurvesPartII:R12.5**: Supply the elliptic Hodge line on the compactified moduli stack and its analytic automorphy/Tate trivialization; Kodaira–Spencer is proved in R15.1/logarithmic-kodaira-spencer.
+- **ModularCurvesPartII:R14.1**: The Hecke correspondences T_l on M_n via the l + 1 subgroups of order l, with the level structure π(α_n) (Katz 1.11.0).
+- **ModularCurvesPartII:R13.4a**: Proper rigidifying covers, effective descent of sections and the coherent finiteness/base-change interface on the integral compactified stack; no coarse-space descent in all weights.
+- **ComplexComparisonPartII:C2**: Projective coherent GAGA for all integer Hodge powers and cusp twists, compatible with finite group action and descent.
+- **tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus**: Analytic modular forms, character spaces and automorphy factor for each integer weight; the geometric comparison identifies its actual carrier.
+- **AbelianSchemesAndArithmeticModuli:A4**: Universal elliptic relative de Rham bundle, Hodge filtration, Gauss–Manin connection and cup product with base-change and isogeny functoriality.
+- **AutomorphicBundles:B3**: Canonical logarithmic extension of the elliptic de Rham bundle and connection at modular cusps; R15.1 owns the Kodaira–Spencer proof.
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2**: General BT₁ Hasse invariant det(V*) and its compatibility with dual Frobenius, with the determinant-line conventions fixed.
+- **ModularCurvesPartII:R13.5**: Ordinary Igusa cover/tower, tautological Hodge differential and full unit-group monodromy modulo p^m, including p=2 and3.
+- **ModularCurvesPartII:R14.1**: Auxiliary compactified moduli curve, degeneracy projections and extended quotient-isogeny Hodge maps; U_y correspondences at y|Q. The auxiliary curve map w_x and its square are constructed in R15.2, not requested from this supplier.
+- **ArithmeticGaloisRepresentations:R01.4**: S-type image and bad-dihedral identification: cyclotomic restriction reducible iff restriction to ℚ(√p*) reducible, p*=(-1)^((p−1)/2)p, with the induced-dihedral structure and projective inertia facts.
+- **ArithmeticGaloisRepresentations:R01.5**: Finite-field semisimplification, stable-lattice independence/Brauer–Nesbitt and realizability over the field of characteristic-polynomial coefficients, without a dependency on late R15.6 definitions.
+- **AutomorphicGaloisRepresentations:R19.1**: The remaining coefficient-place transport and stable-lattice/residual semisimplification interface for the attached representations. The characteristic-zero weight≥2 and weight-one attachments and the reduction-eigenform residual representation are finer node imports. Do not import late R15.6 as a prerequisite of the early residual construction.
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5**: The extension-sensitive finite-flat/local inertia cases consumed by the R15.4 comparison and the finite torsion model of good semistable elliptic curves; the Fontaine–Laffaille functor/classification itself is imported from R07.3.
+- **tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1**: Relative Frobenius, dual isogeny Verschiebung and their action on invariant differentials; the geometric form operation is the R15.3 specialization.
+- **tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv**: Tate curve torsion exact sequence and Kummer class q_E, including the unramified quadratic twist for nonsplit multiplicative reduction.
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3**: Rank-two extension-sensitive inertia classification for residual Fontaine–Laffaille weights {0,r}, 1≤r≤p−2, including the r=1 finite/peu assertion, using the existing contravariant U_S functor and positive-weight inertia dictionary. The functor and simple-object dictionary are finer node imports, not new constructions.
+- **tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas**: Reuse Layer10C’s analytic automorphy line, all-integer-weight section-space interpretation and stabilizer/cusp conventions; the algebraic/analytic GAGA bridge alone is owned by R15.1.
+- **ModularCurvesPartII:R13.4b**: The compactified quotient/contraction interface for auxiliary Γ₀(x) level and universal isogeny differentials, including cusp charts and compatibility with the Δ quotient; CG18 cites Conrad Proposition4.4.3, not read here. This supplies the extension input, not the new w_x construction.
+- **SchemeAndStackFoundations:SF.3**: Relative coherent Serre duality for a smooth proper curve over a DVR, with the K/O duality H¹(L^∨⊗Ω⊗K/O)≅Hom_O(H⁰(L),K/O) under the finite-free/base-change hypotheses of the fine modular curve, and functoriality for finite-flat isogeny correspondences. SF.2 proper adjunction and trace provide the general input; field-only Serre duality does not by itself supply this torsion-coefficient specialization.
 
-## What was supplied
+## Sources and baseline checked
 
-The R15.5 algebraic core is split into an invariant-line lemma, an actual algebra-homomorphism construction with API, the horizontal prime and dominating-DVR character lift, a nilpotent-ideal lemma, localization descent, faithful occurrence of a character, generic-action faithfulness, denominator clearing and the retained main theorem. The normalization argument uses the existing separability-free Tau Ceti integral-closure theorem. The proof explicitly descends the localized annihilated vector and checks faithfulness of the **scalar-extended** operator algebra.
+The reviewed six-stage library audit, integrated decomposition, stage extract, the issue’s routed paper items, all link-map entries mentioning this roadmap, and the accepted RS-06 revision were reconciled. Upstream reading included ModularForms’ conventions, integral Hecke/coefficient-field and weight-one interfaces, its analytic automorphy-line comparison, and EllipticCurves’ finite-field and local/Tate interfaces. Source versions, original URLs, access dates and hashes are in the packet. Inherited reviewer reading records remain attributed as such.
 
-Three regression examples reject false strengthenings: lifting a prescribed residual vector, avoiding a necessary ramified extension, and omitting faithfulness. In particular, equal-characteristic-two inseparability is not silently excluded. The suggested file states the construction, all API/test items, theorem interfaces and the regression equations using existing carriers rather than unspecified predicates.
+Original passages used in this pass:
 
-Counts: **13 nodes** (8 lemmas, 1 construction, 1 theorem, 3 applications); **3 API items; 3 construction unit tests; 2 planets; 8 pinned baseline declarations; 4 gaps; 3 requests**. All implementation statuses are unchecked.
+- Katz1973: geometric forms/descent/q-expansion/base change/Hecke/Hasse in §§1.4–1.12 and 2.0–2.1; ordinary weight congruences and the strong principle in §§4.2–4.4; Appendix A1.3.17–18, printed p.169, for Kodaira–Spencer.
+- Katz1977: §§I–IV, theta construction, extension, filtration and low-weight kernel calculation.
+- Edixhoven1992: author DVI §§2–4 and §§7–8, including the full theta tables, supersingular weight reduction, w_ζ, KS isogeny compatibility and finite⇔peu for all primes. The DVI extraction loses some formula glyphs; short prose quotations restore word spacing, while formulas are stated mathematically and cross-checked with the other sources. No damaged display is claimed as a literal quotation.
+- Serre1987: §§1–3 for the conductor/character, complete local case recipe, exceptional weights, elliptic torsion and classical target. Raynaud1974 §§3.2–3.4 supplies the uniqueness/prolongation boundaries.
+- Deligne–Serre1974: Proposition2.7 and §§6.7–6.13, distinguishing the integral lattice, weight shift and eigenvalue-lifting lemma. The lemma lifts eigenvalues after a finite fraction-field extension; it does not lift a prescribed vector or assert module-finiteness of the dominating DVR.
+- CG18 §3.2.3, duality after Lemma3.7 and the torsion doubling in the proof of Theorem3.11; CG20 proof of Lemma8.14; CDT25 introduction and Lemma4.2.2; Pan’s preprint §4.1.2; Khare–Wintenberger’s S-type definitions and §6.2(ii); Dieulefait–Pacetti Definition1.12/Lemmas1.13–1.14; DDT Lemma4.1.
 
-## Checks actually run
+Unread cited originals remain explicit gaps or supplier boundaries: Shimura3.52, Gross1990 §4, Jochnowitz’s general theta-cycle proof, Serre Astérisque24–25 Theorem3 for N=1,p=2,3, Ribet Proposition2.2, the exact Fontaine–Laffaille classification/convention, Conrad Proposition4.4.3 and the general proper/GAGA/duality inputs requested from their owners. DDT’s analytic proof inputs Diamond–Im/Wiles remain with upstream ModularForms. No unrestricted source-closure claim is made.
 
-Local Python checks passed for JSON syntax; six-stage scope and coverage; unique IDs; prerequisite resolution within the displayed packet/baseline list; acyclicity; required node/source fields; nonempty acceptance lists; API/test correspondence with suggested declarations; planet constraints; and absence of Lean proof text or private paths in the packet/document. These are local structural checks, not the repository-wide checker or its declaration index.
+The eight baseline declaration statements were read at **Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174** and **Tau Ceti f790474821cf4256814db967cb154e7af3d0c369**. They are Algebra.adjoin_le, Algebra.HasGoingDown.of_flat, Ideal.exists_ideal_le_liesOver_of_le, TauCeti.integralClosure.isDedekindDomain, IsArtinianRing.isNilpotent_jacobson_bot, IsArtinianRing.localization_artinian, Module.mem_support_iff_of_finite and TensorProduct.AlgebraTensorModule.map_tmul. Their precise uses and limits are recorded individually. Additional algebra API identifications stay a gap.
 
-SymPy checked the symbolic identities for the two matrices. Exhaustive small-domain tests covered **5,324 integer parameter tuples** and **2,620 tuples over the prime fields of orders 2, 3, 5 and 7**. A further reduction checked the eigenvector identity in the quadratic quotient over F_2(t). These are regression computations, not a replacement for the uniform proofs, and the quotient calculation does not itself prove irreducibility.
+## Suggested file and validation
 
-**The suggested Lean file was not compiled.** No Lean/Lake installation or repository checkout was available. Direct source downloads failed DNS resolution; source reading and submission used the connected GitHub tools. The repository-wide `scripts/check_blueprint.py` and pinned declaration-index check must run in pull-request CI. Check the PR's actual CI result; this handoff does not pre-claim a pass.
+**The suggested Lean file was not compiled in this session.** The shared build has the pinned Mathlib commit but Tau Ceti cf386627e9176a3827c1a5fe804989fd94a4d216 rather than the required f790474 commit; no existing exact two-pin build was found. WORKERS forbids elaborating against a mismatched build or setting up another project. No language server, Lake build/update/cache operation, or Lean compilation was started.
 
-## Sources and inputs read
+The suggested file extends the inherited algebraic core with real module-presheaf sections, Scheme morphisms, linear maps, power series, classified arithmetic tables, fields/DVRs and rank-two representations. All API names and named test examples occur. Missing geometric/Galois/coefficient-place conditions are explicitly omitted beside their signatures, as PROTOCOL §13 requires; they are never replaced with arbitrary proposition fields. Some tests show only their expressible algebraic or arithmetic fragment. They do not certify the full geometric test. The data-only witness becomes a modularity certificate only after the listed attachment and semisimplification conditions are inserted. Every import and dependent signature still needs full elaboration at the exact pins.
 
-The actual published Numdam scan of Deligne–Serre, *Formes modulaires de poids 1* (1974), printed p. 522, sections 6.8–6.11: the lemma, proof and warning were inspected in the page image. The source URL and reading date are in the packet. No new error is alleged in this checked passage; the empty source-issues list does not certify unread parts of the bibliography.
+Validation performed for this submission:
 
-Repository inputs: WORKERS, blueprint PROTOCOL, BROWSER_AGENTS, UPSTREAM_GUIDE and expansion PROTOCOL; this roadmap's atlas extract and document; the reviewed decomposition's relevant R15.4–R15.6 nodes and source/gap register; the RS-06 proposal/report and accepted REV-RS-06 review; relevant portions of the scoped AUDIT-13 report; ModularForms conventions and Layers 8/8W/8G; the EllipticCurves roadmap's carrier/ownership discussion. The eight listed baseline statements were read at the exact pinned commits, not inferred from current-branch search hits.
+- Repository packet checker with the configured declaration index: **0 errors, 0 warnings**.
+- JSON syntax; all inherited node IDs retained; six planned coverage records; definition/construction API/test minimums and names; proposed names matched to declaration namespaces; named tests followed by examples; internal prerequisite acyclicity; external finer-node existence; supplier request edges; planet kinds/counts/lengths.
+- Original file hashes and short literal source excerpts compared with extracted text (whitespace restoration for DVI); packet statements/API/tests checked against their reader entries; exact import paths checked in the pinned sources; no local paths or proof text in packet/reader; only the four allowed deliverables changed; whitespace/diff checks.
+- Finite arithmetic/series checks of the executable local recipe, all-prime small theta-cycle table lengths, and U/V/Hecke coefficient identities. These calculations check transcriptions and signature fragments; they are not formal proofs or Lean elaboration.
 
-The aggregate `data/library-coverage.json` exceeded the file-reader limit. Its full review-state reconciliation and every applicable link-map entry were not completed. The scoped audit was used as a lead, and the claimed baseline declarations were independently read at the pins. This limitation is an explicit packet gap.
-
-## Exact continuation worklist
-
-1. Finish baseline/API reconciliation for the displayed proof: finite/free operator subalgebras; the finite generic field of a finite domain algebra; lying over; localization of a Dedekind domain at a nonzero prime; flat tensor inclusions; finite-free endomorphism base change; coordinate clearing; scalar-extension reassociation. Prefer existing declarations, not new nodes duplicating those theories. Elaborate the suggested file at the pins and correct its instance/import details before claiming validation.
-2. Refine the existing R15.5 application node while preserving its identifier or recording explicit child refinements. Supply the actual finite free integral modular-form module and a reduction-image witness. State the precise operator family, the coefficient/prime maps, controlled weight/level/character, and the newform/normalization conclusion. Separate the weight shift and R19 Galois attachment. DS 6.9 and 6.10 are on printed page 522. Do not infer arbitrary Katz weight-one lifting from the algebraic lemma or from ModularForms 8W.
-3. Resolve the three packet requests: R15.2's module and reduction-image comparison; ModularForms Layer 8/8W's exact integral input; Layer 4's full-eigenform/newform and normalization interface. Proposition 2.7 and Lemme 6.11 are different results. The algebraic R15.5 proof has no prerequisite on R15.4.
-4. Reconstruct R15.1–R15.4 and R15.6 from their reviewed source nodes under RS-06, retaining IDs or recording explicit refinement. The document and coverage records specify the Hodge/descent, all-cusp, characteristic-p, extension-sensitive weight, dyadic and residual-modularity obligations. Read the still-required Katz, Serre, Edixhoven and Raynaud passages; nothing here certifies their full proof coverage.
-5. Reconcile the full reviewed library audit and link maps, prune unused broad stage edges, and check integration against the complete world. Keep the packet partial until the mathematical and baseline gaps really close. A successful schema check is not a claim that they have closed.
+Review the pull request’s actual Swarm submission result. After acceptance, the open-stage follow-up must first supply the imported carriers, verify the unread inputs and algebra API names, and elaborate the entire suggested file at the exact pins. No scratch artifacts are required to continue: original public source URLs, hashes, locators, proof plans, gaps and requests persist in the deliverables.
