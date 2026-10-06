@@ -1,0 +1,1680 @@
+{
+  "roadmapId": "WeilConjectures",
+  "protocol": "blueprint-v1",
+  "part": "WC.6",
+  "scope": [
+    "WeilConjectures:WC.6",
+    "WeilConjectures:WC.7"
+  ],
+  "status": "complete",
+  "summary": "Target-level continuation of the checkpoint: smooth-proper integral factors, signed duality and rational-homology-manifold assembly, mixed L-divisor weights and the routed smooth-proper DM-stack purity application; zeta-facing geometric comparisons and examples including genuine elliptic/genus-two instances and Schroer cycle/surface counts. Generic cohomology, weights, factor extraction, finite-field crystalline comparison and surface constructions stay at their accepted owners. Both stages are planned, with precise carrier, pending-route and proof gaps; neither is claimed closed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.charpolyRev",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "For a finite square matrix over a commutative ring, det(1-X M), the convention used for all displayed degree factors. This is not an etale cohomology construction.",
+        "checked": "Definition and surrounding ring/index hypotheses read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Matrix.eval_charpolyRev",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "Evaluation of det(1-X M) at zero is one, including the empty matrix.",
+        "checked": "Statement read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Matrix.coeff_charpolyRev_eq_neg_trace",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "The coefficient of X in det(1-X M) is minus the trace.",
+        "checked": "Statement read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RatFunc",
+        "kind": "structure",
+        "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
+        "provides": "The existing rational-function carrier, wrapping the fraction ring of the polynomial ring. No parallel zeta carrier is introduced.",
+        "checked": "Structure and documented algebraMap inclusion read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+        "provides": "The existing pro-etale sheaf of continuous Z_ell-valued maps for a scheme and prime ell. The SF.2 integration must compare with it, not rebuild it.",
+        "checked": "Whole module and actual definition read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+        "provides": "Existing integral pro-etale cohomology as an additive group, with an empty-scheme subsingleton instance. This is a real existing carrier, but not by itself the finite-dimensional Q_ell representation with Frobenius and compact support needed here.",
+        "checked": "Whole module, universe, coefficient and instance scope read at the exact pin, 2026-09-26. Re-read at these same pins on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "Existing five-coefficient Weierstrass equation over a ring; used for y^2=x^3-x over F_5, without a new elliptic-curve carrier.",
+        "checked": "Definition, ring hypotheses and surrounding formulas read at Mathlib 082e2d3, 2026-10-06."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "Existing discriminant -b_2^2 b_8-8 b_4^3-27 b_6^2+9 b_2 b_4 b_6; the chosen example has 64=4 in F_5.",
+        "checked": "Definition, ring hypotheses and surrounding formulas read at Mathlib 082e2d3, 2026-10-06."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Equation",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+        "provides": "Existing affine membership predicate obtained by evaluating the bivariate Weierstrass polynomial. It does not yet supply the proper scheme/cohomology comparison needed by this application.",
+        "checked": "Definition, ring hypotheses and surrounding formulas read at Mathlib 082e2d3, 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "deligne-weil-i",
+      "title": "La conjecture de Weil. I",
+      "authors": "Pierre Deligne",
+      "edition": "Publications Mathematiques de l'IHES 43 (1974), 273-307",
+      "url": "https://numdam.org/item/PMIHES_1974__43__273_0.pdf",
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "1.1-1.14.3, printed 273-279: point counts, rational descent, 1.7 implies 1.6 with its proof, and sheaf L-functions. The projective purity proof is an imported DWP result, not reverified here.",
+        "2026-10-06: freshly re-read 1.5.4 and the full 1.7 implies 1.6 proof, printed 276-277; fresh download has the recorded hash.",
+        "2026-10-06: 1.2-1.5.4 and all of 2.1-2.6, printed 274-276 and 280-282, freshly read for the Tate orientation, equivariant perfect pairing, q^d reciprocity and sign.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 1.3-1.15 including the proof of 1.7 implies 1.6, printed 274-279; 2.3-2.6, printed 281-282. The projective-purity proof remains at DWP. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "deligne-weil-ii",
+      "title": "La conjecture de Weil. II",
+      "authors": "Pierre Deligne",
+      "edition": "Publications Mathematiques de l'IHES 52 (1980), 137-252",
+      "url": "https://numdam.org/item/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "3.3.1-3.3.11, statements and proofs, printed 203-207; rendered printed 206 to read the valuation diagram. The heavy inputs 1.8.4 and 3.2.3 remain DWP supplier proof obligations, not closed in this packet.",
+        "2026-10-06: freshly read 3.3.2-3.3.11, printed 204-207; full displayed homology-manifold condition, not an inference from a theorem name. Fresh download has the recorded hash.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 3.3.2-3.3.11, printed 204-207, including the rendered valuation diagram on printed p.206. Heavy preceding weight-theory inputs remain supplier obligations. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "sga4half-rapport",
+      "title": "Cohomologie etale: Rapport sur la formule des traces",
+      "authors": "Pierre Deligne",
+      "edition": "SGA 4 1/2, Lecture Notes in Mathematics 569 (1977), author-hosted scan",
+      "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+      "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Rapport 2.11 and 3.1-3.7, including the proof deriving 3.1 from 3.2, determinant/trace Proposition 3.3, cyclic-block Corollary 3.4, finite-etale Remark 3.5 and compactification 3.6. The geometric proof of 3.2 in section 4 is imported, not read here. In 3.1 use T=t^f for q=p^f.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Rapport 2.11 and 3.1-3.7, including determinant/logarithmic-derivative and cyclic-block proofs. The geometric proof of 3.2 remains at the supplier. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "kedlaya-isocrystals",
+      "title": "Notes on isocrystals",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "arXiv:1606.01321v6",
+      "url": "https://arxiv.org/pdf/1606.01321v6",
+      "sha256": "7fa7ab3126dcb5b25a77b97b5d7930983e2305fbfebc71b2e5f92697e6cab886",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "8.1-8.8 and 9.1-9.7, printed 20-22: actual cohomology, Ogus comparison statement, finite-field coefficients and trace conventions; 10.1-10.3 and its cited-proof boundary, printed 27. The Ogus original proof was not read.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 8.1-8.8, 9.1-9.7, and 10.1-10.3 with the cited-proof boundary. The cited Ogus original proof was not read. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "kedlaya-weil-preprint",
+      "title": "Fourier transforms and p-adic Weil II",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "arXiv:math/0210149v3; distinct from the published paper",
+      "url": "https://arxiv.org/pdf/math/0210149v3",
+      "sha256": "b678f13ceb5b0d0b528e927a20187e344f2fd40552819a5d528f7d52ab3f1599",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "6.6, printed 50-52: theorem 6.6.2 and its proof, remark 6.6.3, and the Weil-conjecture consequences. Collated with published section 5.3.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 6.6.2 proof and 6.6(a)-(c), printed 50-52, collated against published 5.3. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "kedlaya-weil-published",
+      "title": "Fourier transforms and p-adic Weil II",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9084E895C148851EC7422B716B2F6E65/S0010437X06002338a.pdf/fourier-transforms-and-dollarpdollar-adic-weil-ii.pdf",
+      "sha256": "482b4e20d0b950a67444ef835ef11971645cf5e9ea62bdf081a2449e71a34529",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "5.3, printed 1445-1446: Proposition 5.3.1, Theorem 5.3.2 and its whole proof, Remark 5.3.3 and consequences (a)-(c). Earlier geometric/Fourier proof inputs remain RD supplier obligations.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Section 5.3, printed 1445-1446, including the full 5.3.2 proof and consequences (a)-(c). Earlier Fourier/geometric inputs remain supplier obligations. Fresh PDF bytes differ from the historical receipt; historical hash retained in sourceVersions. The reviewed printed passages are unchanged."
+      ]
+    },
+    {
+      "id": "bfp24",
+      "title": "Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+      "authors": "Jonas Bergstrom, Carel Faber, Sam Payne",
+      "edition": "arXiv:2206.07759v2, 17 October 2023; Annals 199 (2024), 1323-1365 is the bibliographic version of record, not collated here",
+      "url": "https://arxiv.org/pdf/2206.07759v2",
+      "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction and Proposition 3.1 with its proof, pp.1-6; Proposition 4.2 proof, p.7, for the purity/invariant-cohomology uses. The stack purity assertion is a prerequisite used there, not a separately proved general theorem in this paper. Other sections belong to the separately routed WC.1-WC.5 and moduli jobs.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Proposition 3.1 and its proof, p.6; Proposition 4.2 proof, p.7. These consume stack purity; the published Annals text was not collated. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "schroer23",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schroer",
+      "edition": "arXiv:2004.07025v3, 9 August 2022; published Annals 197 (2023), 1-63 not collated here",
+      "url": "https://arxiv.org/pdf/2004.07025v3",
+      "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "All of section 7, printed 19-21: definitions, Tate/Frobenius conventions, Proposition 7.1 and proof, Corollaries 7.2 and 7.3 with their proofs. The surrounding surface classification is imported from the paper routes, not reverified.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: All of section 7, printed 19-21, including Proposition 7.1 and Corollaries 7.2-7.3 proofs. The published Annals text was not collated. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "vdbe05-v3",
+      "title": "Algebraic stacks whose number of points over finite fields is a polynomial",
+      "authors": "Theo van den Bogaart, Bas Edixhoven",
+      "edition": "arXiv:math/0505178v3, 1 November 2008; distinct from the 2005 publication",
+      "url": "https://arxiv.org/pdf/math/0505178v3",
+      "sha256": "46559f0499ac0c96192bcee9ec11f1d4933bff2285c6d29e97e008f8a8442b3b",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction, Theorem 2.1 and section 3 through Lemma 3.2 and Proposition 3.3, pp.1-5. Lemma 3.2 is explicitly over characteristic zero; the finite-characteristic comparison needed here is recorded as a supplier gap, not claimed to follow from its written hypotheses.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Section 3, especially Lemma 3.2 and its proof on printed p.5 and its characteristic-zero hypothesis. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "pr196-trace",
+      "title": "Grothendieck-Lefschetz and cohomological L-functions",
+      "authors": "Tau Ceti Project",
+      "edition": "PR196 TraceFormula README at commit 4bd72379658126cbe9be935656396f0c9dac4de0",
+      "url": "https://raw.githubusercontent.com/TauCetiProject/TauCetiRoadmap/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/TraceFormula/README.md",
+      "sha256": "1ab2e7b8462e70f1609d09a7207ff1ad03027023ebe5f3644af59b7a14ac970f",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Layers 11-15, worked examples, design notes and scope boundaries read at the pinned PR head. This is a supplier specification, not a formalized library result.",
+        "Introduction, conventions and dependency map; layers 4-15, worked examples, design and scope. Layers 0-3 are unchanged upstream inputs, not re-planned. In particular layers 7,8,12,13,15 construct the finite-etale, curve, projective-space and compact-support examples independently of RH.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Introduction/conventions, supplier/source map, Layers 7-15 and worked acceptance examples at the pinned PR head. This is an upstream plan, not formalization. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "upstream-algebraic-curves",
+      "title": "Algebraic function fields and curves",
+      "authors": "Tau Ceti Project",
+      "edition": "Merged AlgebraicCurves README at commit fa4d0309ae1d68d274091a647f7cd7fe80608205",
+      "url": "https://raw.githubusercontent.com/TauCetiProject/TauCetiRoadmap/fa4d0309ae1d68d274091a647f7cd7fe80608205/TauCetiRoadmap/AlgebraicCurves/README.md",
+      "sha256": "8696d432a66c7a374619fc5ccb139248c0a1cf41bf7cba6d55a6af2f1fb1a7a5",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Layers 7 (different and Hurwitz), 10 (Artin-Schreier reduced representatives, ramification, genus and model classes), and 12A-12E (normalization, projective model, places/points dictionary and cohomological genus comparison). An upstream specification, not an implemented library result."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+      "parentStageId": "WeilConjectures:WC.6",
+      "realises": [
+        "WeilConjectures:WC.6"
+      ],
+      "title": "Integral degree factors for smooth proper schemes",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.exists_unique_integral_degree_factors_of_smooth_proper",
+      "statement": "Let q=p^f, f>=1, and let X_0 be a smooth proper finite-type scheme over F_q, of dimension at most d. For every i there is a unique polynomial P_i in Z[T] such that, for every prime ell different from p, its coefficient image in Q_ell[T] equals det(1-T F_q | H^i(X_0 x Fbar_q,Q_ell)), with geometric Frobenius convention. In particular this same normalized integral factor is independent of ell. Use the actual cohomology and Frobenius constructed by the suppliers, not an assumed realization with the conclusion as a field. Projectivity, geometric connectedness, and semisimplicity are not hypotheses. For i>2d and for the empty scheme the polynomial is 1.",
+      "hypotheses": [
+        "The scheme is smooth AND proper over the finite field; coefficients are constant Q_ell, ell!=p. A general mixed sheaf does not satisfy this conclusion."
+      ],
+      "proofSteps": [
+        "SF.2 integrates the PR196 finite-dimensional cohomology, proper comparison H_c^i=H^i, coherent F_q, and the all-power determinant formula for the arithmetically defined Z(X_0,T). WC.1 supplies the normalized rational function with integral power-series expansion.",
+        "Import the purity portion of DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11: each degree i has algebraic eigenvalues pure of weight i for every complex conjugate. This uses smooth proper, not projective, hypotheses. Do not reprove direct-image bounds or duality in WC.6.",
+        "Apply the requested general algebraic extraction theorem in WC.3 to this degreewise pure realization of the common rational zeta function. It yields integral normalized factors with multiplicities. Its proof uses different absolute values to prevent cancellation and Galois stability of each weight multiset. The currently integrated WC.3 node is only stated for projective X; that exact statement alone does not discharge this application.",
+        "Uniqueness follows from injectivity of Z into any Q_ell. In zero degrees and for the empty scheme the determinant of the zero-dimensional endomorphism is 1. In a chosen finite basis use the existing charpolyRev, whose value at zero is 1."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.1",
+        "WeilConjectures:WC.3",
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+        "mathlib:Matrix.charpolyRev",
+        "mathlib:Matrix.eval_charpolyRev"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Corollary 3.3.9 and its proof, printed 207",
+          "excerpt": "propre et lisse",
+          "match": "Supplies nonprojective purity; the proof explicitly invokes the same factor-descent argument as Weil I."
+        },
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "Proof of 1.7 implies 1.6, printed 276-277",
+          "excerpt": "à coefficients rationnels",
+          "match": "The algebraic factor extraction belongs to WC.3 and is applied here, not copied as a second proof."
+        }
+      ],
+      "acceptance": [
+        "Projective space: P_(2j)=1-q^j T for 0<=j<=d, odd-degree factors 1; agreement with the independently constructed PR196 hyperplane-class computation.",
+        "For Spec F_(q^m), P_0=1-T^m, not (1-T)^m; degree above zero is trivial. Connected over F_q is not geometrically connected.",
+        "Empty scheme: every P_i=1 and Z=1. This tests normalized degree-zero conventions.",
+        "Import a genuine smooth proper nonprojective test variety from DWP.10; do not certify this acceptance using only projective spaces or an assumed cohomology package. Its construction remains an explicit gap."
+      ],
+      "planet": {
+        "name": "Proper smooth Weil factors"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+      "parentStageId": "WeilConjectures:WC.6",
+      "realises": [
+        "WeilConjectures:WC.6"
+      ],
+      "title": "Weights of reciprocal zeros and poles of a mixed L-function",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.reciprocal_divisor_weight_le",
+      "statement": "Let X_0 be separated finite type over F_q of dimension at most d, let ell!=p, and let F_0 be a constructible Qbar_ell-sheaf descending to a finite extension E of Q_ell, mixed of integral weights <=n in the all-complex-conjugates sense. Use the arithmetic closed-point Euler product L(X_0,F_0,T) and its rational realization in E(T). If beta!=0 is a zero or pole of the REDUCED rational function over Qbar_ell, then alpha=beta^(-1) is algebraic over Q and has an integral weight w<=n+2d: every complex conjugate of alpha has absolute value q^(w/2). No assertion is made that individual cohomological factors lie in Z[T], are independent of ell, or have weight exactly their cohomological degree.",
+      "hypotheses": [
+        "Use compactly supported cohomology for the determinant formula; no smoothness or properness is assumed. Mixedness here is integral, algebraic mixedness, not merely a chosen real iota-weight."
+      ],
+      "proofSteps": [
+        "The SF.2 integration of PR196 TraceFormula 14 identifies the closed-point Euler product with the alternating product of det(1-T F_q | H_c^i(X,F)), for 0<=i<=2d, after finite coefficient descent and extension to Qbar_ell. Finiteness and vanishing outside these degrees belong to that supplier, not to a new WC object.",
+        "A zero or pole surviving reduction must be a root of at least one of these finite factors. Cancellation can remove roots but cannot introduce new ones. The reciprocal alpha is therefore an eigenvalue of Frobenius on some H_c^i.",
+        "Import DWP.7/cohomological-bounds-3-3-2-3-3-6, specifically Weil II 3.3.4, to obtain an integer weight w<=n+i. Since i<=2d, w<=n+2d. This does not identify the cohomological degree of a root surviving cancellation."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "DeligneWeightsAndPurity:DWP.7/weights-mixed-sheaves-definitions",
+        "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
+        "mathlib:Matrix.charpolyRev",
+        "mathlib:RatFunc"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "Corollary 3.3.4, printed 206",
+          "excerpt": "mixte de poids",
+          "match": "The degreewise compact-support upper bound supplies the surviving divisor weights."
+        },
+        {
+          "sourceId": "sga4half-rapport",
+          "locator": "Rapport 3.1-3.4 and 3.6",
+          "excerpt": "formule des traces",
+          "match": "The Euler-product/determinant identity is an imported theorem; 3.6 explains compact support."
+        }
+      ],
+      "acceptance": [
+        "For G_m with the constant sheaf, L=(1-T)/(1-qT); reciprocal zero 1 has weight 0 and reciprocal pole q has weight 2. H_c^1 has weight 0, not degree 1.",
+        "On Spec F_q, a rank-one sheaf with Frobenius scalar q^(-1) has L=(1-q^(-1)T)^(-1), weight -2. Its factor need not lie in Z[T].",
+        "The zero sheaf and the empty scheme have L=1 and empty divisor; there is no invented weight or root.",
+        "Tate twist (1) gives L(F(1),T)=L(F,T/q), not L(F,qT). Test the scalar q against scalar 1 on a point."
+      ],
+      "planet": {
+        "name": "Mixed L-functions"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.6/smooth-proper-functional-equation",
+      "parentStageId": "WeilConjectures:WC.6",
+      "realises": [
+        "WeilConjectures:WC.6"
+      ],
+      "title": "Signed functional equation for smooth proper schemes",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.functional_equation_of_smooth_proper",
+      "statement": "Let X_0/F_q be smooth proper of pure dimension d, ell!=p, and let P_i be its canonical integral degree factors. Put b_i=deg P_i, chi=sum_i (-1)^i b_i and Delta=product_i det(F_q|H^i)^((-1)^i). Then Delta is the same nonzero rational number for every ell, Delta^2=q^(d chi), and Z(X_0,1/(q^d T))=(-1)^chi Delta T^chi Z(X_0,T) in Q(T), using integer powers for possibly negative chi. No projectivity, geometric connectedness or Frobenius semisimplicity is required.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the actual Frobenius-equivariant perfect pairing H^i x H^(2d-i)(d)->Q_ell from EDC.2:pairings. EDC.8 gives reciprocal factors with q^d scaling and the determinant relation.",
+        "Apply the requested WC.2 signed determinant-product functional equation, not a second proof of generic reciprocal linear algebra. Proper comparison identifies the compact-support determinant product with Z.",
+        "Each det(F_i)=(-1)^b_i times the top coefficient of P_i, so the alternating product Delta descends to Q and is independent of ell. The duality determinant identity gives its square. Retain the actual Delta rather than choosing an unjustified positive square root."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.2",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "2.3-2.6, printed 281-282, with 1.5.4",
+          "excerpt": "dualité parfaite",
+          "match": "The perfect equivariant pairing, q^d reciprocal eigenvalues and zeta functional equation are explicit. WC.2 refines the sign to the actual determinant Delta before WC.6 applies it."
+        }
+      ],
+      "acceptance": [
+        "P^2: chi=3, Delta=q^3, so the multiplier is -q^3 T^3.",
+        "A genus-two curve: chi=-2, Delta=q^(-1), so the multiplier is q^(-1)T^(-2).",
+        "Finite etale schemes retain determinant signs of Frobenius permutations; no geometric-connectedness shortcut."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Smooth proper functional equation"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+      "parentStageId": "WeilConjectures:WC.6",
+      "realises": [
+        "WeilConjectures:WC.6"
+      ],
+      "title": "Weil factors for proper rational homology manifolds",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.weil_factors_of_dualizing_constant",
+      "statement": "Let X_0/F_q be proper finite type of pure dimension d, ell!=p. Suppose its actual dualizing object has a Frobenius-equivariant isomorphism a^! Q_ell = Q_ell(d)[2d], where a:X_0->Spec F_q, for each ell under consideration. Then its constant cohomology is pure of weight i; applying WC.1 and the generic WC.3 extraction gives canonical normalized P_i in Z[T], independent of ell, and the signed functional equation with the actual duality determinant Delta and integer Euler exponent chi. The isomorphism is a geometric hypothesis, not an assumed purity or RH conclusion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "DWP.7 imports Weil II 3.3.11: the lower-weight argument requires precisely the stated dualizing identification; proper upper weights and that lower bound meet at i.",
+        "Use WC.1/SF.2 arithmetic rationality and the same generic WC.3 extraction as the smooth-proper theorem; smoothness is not needed by that algebraic extraction.",
+        "EDC.1:biduality supplies duality for this actual complex. Apply EDC.8 and WC.2 with the Frobenius normalization specified over the base, not just an isomorphism over the algebraic closure."
+      ],
+      "prerequisites": [
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.1",
+        "WeilConjectures:WC.3",
+        "WeilConjectures:WC.2",
+        "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "3.3.11, printed 207",
+          "excerpt": "rational homology",
+          "match": "The explicit dualizing-complex condition replaces smoothness, and the source gives etale-local finite quotients as examples."
+        }
+      ],
+      "acceptance": [
+        "A smooth pure-dimensional scheme recovers the previous two consumer results via EDC smooth purity.",
+        "A proper scheme etale-locally a finite quotient of a smooth d-dimensional scheme qualifies only after the geometric dualizing export is proved.",
+        "A general proper singular scheme is not admitted merely by its properness."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rational homology manifolds"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks",
+      "parentStageId": "WeilConjectures:WC.6",
+      "realises": [
+        "WeilConjectures:WC.6"
+      ],
+      "title": "Purity for smooth proper Deligne-Mumford stacks",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.pure_cohomology_of_smooth_proper_dm_stack",
+      "statement": "Let X/F_q be a smooth proper finite-type Deligne-Mumford stack and ell!=p. For every i, the genuine finite-dimensional H^i(X_Fbarq,Q_ell) with geometric Frobenius is pure of weight i in the all-complex-conjugates sense. No global quotient presentation and no condition ell not dividing stabilizer orders is imposed for these characteristic-zero coefficients. This is a purity application only; weighted stack counts, stack zeta rationality and stack duality remain the routed stacks Part II exports.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the actual stack cohomology carrier, proper coarse algebraic space C and Frobenius-equivariant H^i(C,Q_ell)->H^i(X,Q_ell) isomorphism from the proposed EDC stacks Part II. Its proof needs Rpi_*Q_ell=Q_ell with exact finite-group invariants and etale-local presentations.",
+        "Import the quotient-chart dualizing calculation and the algebraic-space extension of the Weil II 3.3.11 weight argument. Apply proper rational-homology-manifold purity to C, component by dimension if necessary, and transport along the comparison.",
+        "For an actual global quotient [Y/G] with Y smooth proper, compare with H^i(Y,Q_ell)^G; this is a check on the general result, not a hypothesis restricting all DM stacks. Van den Bogaart-Edixhoven Lemma 3.2 as written proves only characteristic-zero comparison, so it leaves the finite-field export open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.1",
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+        "EtaleDualityAndPerverseSheaves:EDC.1:biduality"
+      ],
+      "sources": [
+        {
+          "sourceId": "bfp24",
+          "locator": "Proof of Proposition 3.1, p.6; Proposition 4.2 proof, p.7",
+          "excerpt": "smooth and proper",
+          "match": "The point-count/cohomology argument consumes DM purity; it does not supply the missing general stack formalism."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "3.3.11, printed 207",
+          "excerpt": "groupe fini",
+          "match": "Coarse quotient charts motivate the dualizing calculation; the extension from schemes to algebraic spaces is a recorded input."
+        },
+        {
+          "sourceId": "vdbe05-v3",
+          "locator": "Section 3, Lemma 3.2 and its proof, printed p.5 (characteristic zero)",
+          "excerpt": "characteristic zero",
+          "match": "The written coarse comparison has a narrower base than the desired finite-field application; it cannot be used without an additional theorem."
+        }
+      ],
+      "acceptance": [
+        "For a scheme regarded as a DM stack, recover DWP.7 smooth proper purity.",
+        "For [Y/G] smooth proper with finite G, invariants of a pure representation stay pure, even when ell divides |G|.",
+        "A smooth nonproper stack is not admitted by this theorem; a coarse space need not be a scheme."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Deligne-Mumford stack purity"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/projective-space-degree-factors",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Projective-space factors and all-extension counts",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.degree_factors_projective_space",
+      "statement": "For n>=0 and q=p^f, the canonical integral degree factors of P^n/F_q are P_(2j)=1-q^j T for 0<=j<=n and P_i=1 otherwise. They agree with the independently constructed PR196 hyperplane-class cohomology and give Z=product_(j=0)^n(1-q^j T)^(-1) and #P^n(F_(q^r))=sum_(j=0)^n q^(jr) for every r>=1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import PR196 TraceFormula 12 projective-space cohomology, hyperplane generator, Tate twist and Frobenius scalar q^j through SF.2. This calculation is not derived from the RH theorem being tested.",
+        "Use uniqueness of the WC.6 canonical factor to identify its integral image with 1-q^j T. The upstream arithmetic count and determinant formula agree for every power."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layer 12 projective-space computation; Layers 13 and worked examples",
+          "excerpt": "hyperplane",
+          "match": "Identifies actual cohomology generators and arithmetic zeta, so the missing item here is their agreement with canonical Weil factors."
+        }
+      ],
+      "acceptance": [
+        "n=0: Z=1/(1-T) and all counts are 1.",
+        "P^1/F_4: factors 1-T and 1-4T; counts 5 and 17 over F_4,F_16, rather than 3 and 5.",
+        "P^2/F_2: degrees 0,2,4 have scalars 1,2,4, and the first counts are 7 and 21."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Projective space"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/finite-etale-permutation-factors",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Finite etale Frobenius orbit factors",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.degree_factor_finite_etale_orbits",
+      "statement": "Let X_0/F_q be finite etale, with geometric point set decomposing into Frobenius orbits of lengths m_1,...,m_s. Then canonical P_0=product_a (1-T^(m_a)), P_i=1 for i>0, and #X_0(F_(q^r))=sum_(a:m_a divides r) m_a. In particular Spec F_(q^m) has factor 1-T^m and count m if m divides r and 0 otherwise.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use PR196 TraceFormula 7 permutation cohomology on the finite geometric point set. In each cyclic block det(1-TF)=1-T^m and Tr(F^r) counts fixed points.",
+        "Identify the factor with WC.6 by uniqueness, including the empty union. This is a compatibility consumer of the existing permutation construction."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layer 7 and finite-etale worked examples",
+          "excerpt": "permutation",
+          "match": "The orbit calculation belongs to the supplier; this comparison fixes the canonical integral factor and all-power arithmetic interpretation."
+        }
+      ],
+      "acceptance": [
+        "m=2: P_0=1-T^2, N_1=0,N_2=2,N_3=0,N_4=2.",
+        "A split pair instead has P_0=(1-T)^2 and N_r=2 always.",
+        "Empty finite etale scheme: product=1 and N_r=0.",
+        "For Spec F_(q^2), Z=(1-T^2)^(-1) has simple poles at T=1 and T=-1; the split pair instead has a double pole at T=1. Pole multiplicities use reduced factors."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite etale schemes"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/kunneth-product-agreement",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Zeta factors of products via Kunneth",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.degree_factors_product_of_smooth_proper",
+      "statement": "For smooth proper X_0,Y_0/F_q and each n, the coefficient image of the canonical factor P_n(X_0 x Y_0,T) is product_(i+j=n) det(1-T(F_i tensor G_j) | H^i(X) tensor H^j(Y)). This agrees with # (X_0 x Y_0)(F_(q^r))=#X_0(F_(q^r)) #Y_0(F_(q^r)) for every r. For P^1 x P^1 the factors are P_0=1-T, P_2=(1-qT)^2, P_4=1-q^2T, all odd factors 1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the actual Frobenius-equivariant Kunneth isomorphism from SF.2/PR196, and direct-sum determinant compatibility on the finite-dimensional spaces.",
+        "Apply canonical factor uniqueness and the all-power trace formula. Tensor-product traces multiply, with the two alternating degree signs yielding the product of point counts. This is not multiplication of the two zeta rational functions."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layer 11 products/Kunneth compatibility; Layer 12 compact-support Kunneth and Layer 13 determinant formula",
+          "excerpt": "Künneth",
+          "match": "The supplier gives geometric tensor compatibility; its consumer computes degree factors and all-power counts."
+        }
+      ],
+      "acceptance": [
+        "P^1 x P^1: N_r=(1+q^r)^2, not 2+2q^r.",
+        "q=2: N_1=9,N_2=25.",
+        "Multiplying Z(P^1,T) by itself omits the degree-four factor and fails these counts."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Kunneth formula"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Curve degree factors and recurrence",
+      "kind": "comparison",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.degree_one_factor_curve",
+      "statement": "For a smooth proper geometrically connected curve C_0/F_q of genus g, identify the canonical P_1 with det(1-TF | H^1_et(C_Fbarq,Q_ell)) and the Frobenius polynomial provided by PR196 curve/Jacobian realization. Then P_0=1-T, P_2=1-qT, deg P_1=2g, P_1(T)=q^g T^(2g)P_1(1/(qT)), and N_r=1+q^r-Tr(F^r|H^1) for every r>=1. WC.5 supplies the all-power recurrence of these traces and pole orders; no semisimplicity assumption is used.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import PR196 TraceFormula 8 and 15 genuine smooth-projective-curve/Jacobian cohomology. Over a finite field, the smooth proper curve is projective; this bridge belongs to the curve supplier.",
+        "Use WC.6 purity/integral uniqueness and duality, and the requested WC.5 Newton/recurrence interface to interpret all powers, not only r=1."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layers 8 and 15, curve test",
+          "excerpt": "curves",
+          "match": "Independent curve cohomology supplies dimensions and the factor before the weight conclusion is used."
+        }
+      ],
+      "acceptance": [
+        "Genus zero gives P_1=1 and N_r=1+q^r.",
+        "Genus one gives P_1=1-aT+qT^2 and recurrence S_r=aS_(r-1)-qS_(r-2), S_0=2,S_1=a.",
+        "A trace at r=1 alone does not determine a higher-genus factor.",
+        "For q>1 a geometrically connected smooth proper curve has simple poles at T=1 and T=q^(-1); pure weight-one numerator roots cannot cancel either extreme-degree factor."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/elliptic-curve-over-f5",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "The curve y squared equals x cubed minus x over F5",
+      "kind": "application",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.zeta_weierstrass_five",
+      "statement": "Let E_0/F_5 be the smooth proper Weierstrass curve with a_1=a_2=a_3=a_6=0,a_4=-1, so y^2=x^3-x and Delta=64!=0 mod 5. On the actual scheme, #E_0(F_5)=8, canonical P_1=1+2T+5T^2, and Z(E_0,T)=(1+2T+5T^2)/((1-T)(1-5T)). The trace recurrence has S_0=2,S_1=-2,S_r=-2S_(r-1)-5S_(r-2); in particular #E_0(F_25)=32.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Instantiate the existing Mathlib WeierstrassCurve, discriminant and affine Equation. Use the supplier bridge from this nonsingular equation plus the point at infinity to its actual smooth proper genus-one scheme.",
+        "For x=0,1,2,3,4 the affine y-fiber sizes are 1,1,2,2,1. Add the unique point at infinity to get 8.",
+        "Apply the curve comparison: a=5+1-8=-2 and determinant q=5 give P_1. All-extension recurrence gives S_2=-6 and N_2=32; independent enumeration in F_5[u]/(u^2-3) confirms the arithmetic number."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.Affine.Equation",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layers 8 and 15, specialize the elliptic-curve case",
+          "excerpt": "Frobenius",
+          "match": "The curve trace and determinant justify this explicit computed application; the concrete enumeration is given in the proof sketch."
+        }
+      ],
+      "acceptance": [
+        "Delta=4 in F_5; the singular curve y^2=x^3 is not substituted.",
+        "The 8-point enumeration fixes a=-2, not +2.",
+        "N_2=32 tests the same Frobenius squared; it cannot be certified by the first trace alone."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/genus-two-negative-euler-example",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "A genus-two Artin-Schreier curve over F2",
+      "kind": "application",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.zeta_artin_schreier_genus_two",
+      "statement": "Let C_0/F_2 be the smooth projective model of the function field F_2(x,y), y^2+y=x^5, constructed by the existing curve dictionary. It is geometrically connected of genus 2 with one F_2-rational point at infinity. Its canonical factor is P_1=1+4T^4 and Z(C_0,T)=(1+4T^4)/((1-T)(1-2T)). Counts over F_2,F_4,F_8,F_16 are 3,5,9,33. Here chi=-2 and Z(C_0,1/(2T))=(1/2)T^(-2)Z(C_0,T).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the function-field supplier Artin-Schreier ramification calculation: x^5 has a single reduced pole of order 5, not divisible by 2; the degree-two extension is separable and nontrivial, with different exponent 6 at infinity, unramified elsewhere. Riemann-Hurwitz gives 2g-2=2(-2)+6=2. The curve dictionary supplies the smooth projective model over the perfect finite field and identifies its points with places.",
+        "The affine y-derivative is 1. Enumerating y^2+y=x^5 over F_2 and F_4 gives 2 and 4 affine points; infinity gives N_1=3,N_2=5. Thus S_1=S_2=0. Newton identities and the degree-four reciprocal relation from the curve comparison force P_1=1+4T^4.",
+        "The all-power recurrence yields S_3=0,S_4=-16 and counts 9,33; independent field enumeration confirms them. Apply the WC.6 signed functional equation with g=2 rather than assuming a nonnegative Euler exponent."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "FunctionFieldArithmetic:FA.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layer 15 curve factors, combined with the Artin-Schreier supplier contract",
+          "excerpt": "curve",
+          "match": "The supplied curve factor and trace statements prove the zeta assertion after the explicitly requested geometric-model/genus computation; these are not assumed fields of a cohomology structure."
+        },
+        {
+          "sourceId": "upstream-algebraic-curves",
+          "locator": "Layer 10 Artin-Schreier covers (reduced local invariant, different and genus); Layer 7 Hurwitz; Layer 12B-12E model/places/genus dictionary",
+          "excerpt": "reduced local invariant",
+          "match": "The unchanged owner specifies the reduced-pole characteristic-p calculus and actual normalized projective model. WC.7 specializes its exports through FA.3 instead of defining a second ramification or curve-model theory."
+        }
+      ],
+      "acceptance": [
+        "Pole order 5 is prime to characteristic; the unreduced formula for a pole of even order is not used.",
+        "Actual N_1=3,N_2=5 distinguish this realization from a formal reciprocal polynomial.",
+        "The T^(-2) multiplier and N_4=33 discriminate an unsigned or natural-power functional equation."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/projective-plane-functional-equation-sign",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "The sign for the projective plane",
+      "kind": "application",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.functional_equation_projective_plane",
+      "statement": "For P^2/F_q the arithmetic zeta function satisfies Z(P^2,1/(q^2T))=-q^3 T^3 Z(P^2,T). It is the specialization of the smooth-proper functional equation with chi=3 and Delta=q^3 on the independently realized factors 1-T,1-qT,1-q^2T.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the projective-space comparison and the signed smooth-proper theorem. Compute the alternating determinant from the even degrees 0,2,4 as 1*q*q^2=q^3.",
+        "Check the same identity by substitution in the normalized rational function, using the transcendental T to avoid denominator-zero issues."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "mathlib:RatFunc"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-i",
+          "locator": "2.6, printed 281-282; specialize the projective-space factors",
+          "excerpt": "équation fonctionnelle",
+          "match": "The explicit sign is an application of duality to the actual even-degree example, not a new generic functional-equation proof."
+        }
+      ],
+      "acceptance": [
+        "q=2: multiplier -8T^3.",
+        "The coefficient sign is negative because chi=3.",
+        "T is invertible in Q(T); a pointwise identity at T=0 would be ill-typed."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "The multiplicative group and compact support",
+      "kind": "comparison",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.l_function_multiplicative_group",
+      "statement": "For G_m/F_q with constant Q_ell coefficients the actual compact-support factors are P_1,c=1-T and P_2,c=1-qT, other factors 1, and L=Z=(1-T)/(1-qT), with N_r=q^r-1. The reciprocal zero 1 has weight 0, and the reciprocal pole q has weight 2. This agrees with the DWP.10 ordinary/compact example and PR196 localization computation; H_c^1 has weight 0 despite degree 1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use PR196 TraceFormula 12 localization for P^1, A^1 and the missing point to construct compact cohomology; compare its Frobenius normalization with DWP.10.",
+        "Apply the mixed-divisor theorem and upstream all-power trace. Ordinary H^0 has scalar 1 and H^1 has scalar q, so substituting ordinary cohomology into the compact-support determinant formula gives the inverse rational function and wrong counts."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "SchemeAndStackFoundations:SF.2",
+        "DeligneWeightsAndPurity:DWP.10",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layer 12 localization and worked G_m test",
+          "excerpt": "localization",
+          "match": "Independent compact-support calculation tests the mixed divisor conclusion, as distinct from the supplier weight-facing assertion."
+        }
+      ],
+      "acceptance": [
+        "q=2: L=(1-T)/(1-2T), counts 1 and 3.",
+        "Tate twist (1) changes T to T/q, hence shifts both weights by -2.",
+        "The reduced divisor removes canceled equal factors; it does not retain a spurious root."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Scalar Frobenius from base-field cycle classes",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.frobenius_scalar_of_surjective_base_cycle_map",
+      "statement": "Let X_0/F_q be smooth proper and j>=0, ell!=p. If the base-field cycle map CH^j(X_0) tensor Q_ell -> H^(2j)(X_Fbarq,Q_ell(j)) is surjective, then geometric Frobenius acts as identity on this twisted cohomology, and as q^j times identity on untwisted H^(2j). Surjectivity from geometric cycles alone is insufficient.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import EDC.3 cycle map, base-change and Galois-equivariance on the actual Chow group modulo rational equivalence. Every class of a cycle defined over F_q is fixed by geometric Frobenius in the twisted target.",
+        "Surjectivity forces the endomorphism to be identity on the target. The EDC/PR196 Tate twist has Frobenius q^(-j), so untwisting gives q^j. This proves scalar action, stronger than merely finding eigenvalues; no RH-to-semisimplicity inference is made."
+      ],
+      "prerequisites": [
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Section 7, Tate-twist discussion p.20 and Proposition 7.1 proof p.21",
+          "excerpt": "homothety",
+          "match": "The source proves the scalar action by base-defined cycle classes and explicitly records f_(i,j)=f_i tensor q^(-j)."
+        }
+      ],
+      "acceptance": [
+        "Hyperplanes on P^n give scalar q^j.",
+        "Spec F_(q^2) has geometric degree-zero cycles spanning cohomology but a nontrivial Frobenius permutation; the base-field map cannot be surjective.",
+        "A rank-zero target is admitted; surjectivity is then automatic and the factor is 1."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Zeta product from algebraic cycles",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.zeta_of_surjective_base_cycles",
+      "statement": "Let X_0/F_q be smooth proper geometrically connected of dimension d, ell!=p. Assume H^(2j+1)(X_Fbarq,Q_ell)=0 for every j, and each base-field map CH^j(X_0) tensor Q_ell -> H^(2j)(X_Fbarq,Q_ell(j)) is surjective. Then Z(X_0,T)=product_(j=0)^d (1-q^j T)^(-b_(2j)), where b_(2j)=dim H^(2j). These are the canonical integral degree factors from WC.6, and their ranks are ell-independent.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the scalar-Frobenius application in each even degree, yielding det(1-TF)=(1-q^j T)^b_(2j); the odd factors are 1.",
+        "Use proper compact-support comparison and WC.1 trace determinant identity for the arithmetic zeta; use WC.6 uniqueness to identify the canonical factors and their degrees."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Proposition 7.1 and proof, printed 20-21",
+          "excerpt": "surjective",
+          "match": "Precisely its base-defined cycle hypothesis and odd vanishing produce the product. Geometric connectedness specifies the b_0=1 used in its nonemptiness conclusion."
+        }
+      ],
+      "acceptance": [
+        "P^2 gives three simple denominator factors.",
+        "P^1 x P^1 gives exponent two at 1-qT.",
+        "Odd vanishing cannot be dropped: an elliptic curve has a degree-one numerator."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Zeta functions from algebraic cycles"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Counts over every extension from cycle classes",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.count_extension_of_surjective_base_cycles",
+      "statement": "Under the hypotheses of zeta_of_surjective_base_cycles, for every r>=1, #X_0(F_(q^r))=sum_(j=0)^d b_(2j) q^(jr). In particular #X_0(F_q)>=1 since b_0=1. The same base-field cycles determine all powers of the same Frobenius.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the scalar endomorphisms already proved before taking eigenvalues. Their rth powers are scalar q^(jr) with traces b_(2j)q^(jr).",
+        "Apply the all-power arithmetic trace formula. Equivalently use the formal logarithmic derivative of the established zeta product and compare every coefficient, not only the coefficient of T."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Proposition 7.1 point-count conclusion and proof, printed 20-21",
+          "excerpt": "linear terms",
+          "match": "The printed conclusion treats r=1; the recorded derivation applies its scalar-action proof to every power, a source-qualified extension rather than a claim that the source states all r."
+        }
+      ],
+      "acceptance": [
+        "r=1 recovers the printed formula.",
+        "P^1 x P^1: N_2=(1+q^2)^2.",
+        "At r=0 the trace dimension is not asserted to count points over an undefined F_(q^0)."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Surface counts with constant numerical Picard group",
+      "kind": "application",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.count_surface_of_constant_num",
+      "statement": "Let X_0/F_q be smooth proper geometrically connected of dimension 2. Assume b_1=0, b_2=rho(X_Fbarq), and the numerical Picard local system Num_(X_0/F_q) is constant. Then its canonical factors are P_0=1-T, P_2=(1-qT)^b_2,P_4=1-q^2T, odd factors 1; hence for all r>=1, #X_0(F_(q^r))=1+b_2 q^r+q^(2r). The count at r=1 is over F_q, including nonprime q.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the surface-specific numerical-cycle/cohomology comparison: Num(X_Fbarq) tensor Q_ell injects into H^2(X_Fbarq,Q_ell(1)); b_2=rho makes it an isomorphism. Constancy and finite-field descent give surjectivity from base-defined rational divisor classes. This comparison is not a general equality of numerical and homological equivalence and remains an explicit pending-owner gap.",
+        "Poincare duality gives b_3=0 from b_1=0 and b_4=b_0=1. Degree-zero and top-degree cycle classes span after rational coefficients (a positive-degree closed point suffices). Apply the cycle zeta product and all-extension count theorem."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Corollary 7.2 and proof, printed 21",
+          "excerpt": "local system",
+          "match": "The corrected field is F_q and the duality deduction is b_3=0. The Num-to-cycle/cohomology passage is imported rather than silently axiomatized."
+        }
+      ],
+      "acceptance": [
+        "q=4,b_2=10: N_1=57, not 25.",
+        "Without constant Num, Frobenius may permute divisor classes and trace need not be rho.",
+        "b_2=rho is an assumption here, not a consequence of smooth proper purity."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "WeilConjectures:WC.7/twenty-five-point-surfaces",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Twenty-five points on the surface examples over F2",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.count_enriques_or_rational_genus_one",
+      "statement": "Let X_0/F_q be either an Enriques surface or a smooth projective geometrically rational surface with a relatively minimal genus-one fibration X_0->P^1. Assume its numerical Picard local system is constant. Then #X_0(F_(q^r))=1+10q^r+q^(2r) for every r>=1, and Z=1/((1-T)(1-qT)^10(1-q^2T)). In particular #X_0(F_2)=25 and #X_0(F_4)=57. Relatively minimal genus-one and geometric rationality are both retained in the second case.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import from the paper-routed surface owners the hypotheses b_1=0 and b_2=rho=10, together with the genuine Enriques/geometrically-rational definitions. For the rational genus-one case the source uses K^2=0 and a sequence of nine blowups of P^2; those invariants and birational constructions are not rebuilt in WC.7.",
+        "Apply the surface-count consumer and substitute q=2. The arbitrary-r formula is derived from the preceding all-power theorem, extending the source single-count conclusion."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Corollary 7.3 and proof, printed 21",
+          "excerpt": "25",
+          "match": "The printed geometric hypotheses give the ten-dimensional middle cohomology. The pending paper routes own these surface classes and their invariant computation."
+        }
+      ],
+      "acceptance": [
+        "q=2,r=1:1+20+4=25; r=2:1+40+16=57.",
+        "Blowing up one extra point changes b_2 and the count; it is not a relatively minimal instance.",
+        "The theorem does not assert that every Enriques surface has constant Num."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Twenty-five point surfaces"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Maximal count and constant Picard group for rational surfaces",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.constant_picard_iff_maximal_count_rational_surface",
+      "statement": "Let X_0/F_q be a smooth projective geometrically rational surface (dimension two), with rho=rank Pic(X_Fbarq). Then its etale Picard local system is constant if and only if #X_0(F_q)=1+rho q+q^2. The associated Frobenius action on the finite-rank free Picard group has finite order. This criterion is for rational surfaces; it is not an assertion about arbitrary Picard schemes with nonzero Pic^0 or torsion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the rational-surface Picard/free-lattice and H^2(1) comparison from the pending numerical-Picard/surface owners; b_1=b_3=0 and b_0=b_4=1. The all-power trace formula gives N_1=1+q Tr(F|Pic tensor Q_ell)+q^2.",
+        "A continuous action of the procyclic finite-field Galois group on a discrete finite-rank lattice has finite image, so F has finite order. Its characteristic-zero eigenvalues are roots of unity and it is semisimple for this specific reason.",
+        "Trace rho is maximal: after a complex embedding every eigenvalue has real part <=1, equality of the sum forces every eigenvalue 1; finite-order semisimplicity forces F=1. Conversely constant Picard gives the maximal count by the scalar action. Finite-rank lattice faithfulness passes identity over Q_ell back to the lattice."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer23",
+          "locator": "Section 7, Corollary 7.2, printed 21; derived converse recorded as paper item /241",
+          "excerpt": "constant",
+          "match": "This is the extraction review supplement, not a printed iff proposition. The proof adds the finite-order lattice/maximal-trace argument to the surface trace formula."
+        }
+      ],
+      "acceptance": [
+        "A split rational surface satisfies the maximal count.",
+        "For a quadric with exchanged rulings, rho=2 and trace=0, so N_1=1+q^2 rather than (q+1)^2.",
+        "Purity alone does not imply semisimplicity; the finite-order lattice hypothesis is essential to the converse."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constant Picard group criterion"
+      }
+    },
+    {
+      "id": "WeilConjectures:WC.7/geometric-weil-assembly",
+      "parentStageId": "WeilConjectures:WC.7",
+      "realises": [
+        "WeilConjectures:WC.7"
+      ],
+      "title": "Assembled Weil conclusions on actual smooth proper geometry",
+      "kind": "theorem",
+      "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.weil_conclusions_of_smooth_proper",
+      "statement": "For an actual smooth proper geometrically connected X_0/F_q of pure dimension d, the arithmetic zeta series equals a normalized rational function in Q(T), equals product_i P_i(T)^((-1)^(i+1)) for the canonical P_i in Z[T], and each reciprocal root alpha of P_i satisfies |sigma(alpha)|=q^(i/2) for every complex embedding. The factors are ell-independent and Z has the signed functional equation with Delta and integer chi above; for every r>=1, #X_0(F_(q^r))=sum_i(-1)^i Tr(F_q^r|H^i). Each assertion has a separate supplier/consumer API. Betti comparison is exported only for an actual smooth proper lifting/comparison family satisfying WC.4, not claimed for every finite-field scheme. The mixed-sheaf API remains the separate reciprocal-divisor upper bound, not an integral-factor assertion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Combine WC.1 arithmetic rationality/trace, the smooth-proper integral factor consumer, DWP.7 all-conjugates purity, the signed functional equation and WC.5 all-power trace/recurrence. No new cohomology package or assumption equal to RH is introduced.",
+        "For a supplied WC.4 smooth proper specialization to characteristic zero and a chosen complex comparison fiber, transport dimensions to singular Betti numbers; an arbitrary finite-field scheme need not have such a lifting.",
+        "Use the concrete comparison/application nodes as mathematical acceptance, including nonprime fields, permutation components, products, signed and negative Euler tests. DWP.10 remains responsible for actual nonprojective/Jordan/Tate realizations. Bookkeeping of source receipts and closure has no declaration."
+      ],
+      "prerequisites": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+        "SchemeAndStackFoundations:SF.2",
+        "WeilConjectures:WC.1",
+        "WeilConjectures:WC.4",
+        "WeilConjectures:WC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "3.3.9 and 3.3.11, printed 207",
+          "excerpt": "entiers",
+          "match": "Extends the constant-coefficient proper conclusions; the theorem is an application of the independently owned rationality, duality and weights inputs."
+        },
+        {
+          "sourceId": "pr196-trace",
+          "locator": "Layers 13-15 and scope boundary",
+          "excerpt": "rationality",
+          "match": "Arithmetic zeta and all-power cohomological trace are supplied upstream. RH and Betti comparison are distinct exports with their own hypotheses."
+        }
+      ],
+      "acceptance": [
+        "Each stated finite-field conclusion uses a genuine scheme and the constructed cohomology.",
+        "The Betti API requires a genuine family; it does not choose a lift for an arbitrary X_0.",
+        "G_m uses the separate mixed theorem; it does not acquire smooth-proper integral pure-degree factors."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "WeilConjectures:WC.3",
+      "need": "Refine the stable integrated integral-factors-and-ell-independence-from-purity node to export the RS-17 generic algebraic lemma: from a normalized rational Z with integral expansion and finite degreewise factors of pairwise distinct all-conjugates pure weights, retain multiplicities and obtain unique integral factors independent of the realization. Do not require that the realization arise from a projective scheme. The current exact node is projective-only; keep its ID and separate the generic statement from the projective application.",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.1",
+      "need": "Normalized rational descent of the arithmetic zeta series, with integral expansion, for separated finite-type F_q schemes; exact agreement with PR196 TraceFormula 13. Supply the finite-dimensional determinant realization for all powers without building a second zeta definition.",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Integrate PR196 TraceFormula 11-15 and EllAdicRealization: actual constructible E-adic sheaves for finite E/Q_ell, finite-dimensional compact-support cohomology vanishing above 2 dim X, coherent geometric q-Frobenius and coefficient extension, proper H_c=H comparison, and the determinant formula for the same closed-point Euler-product L-function. Confirm finite coefficient descent into the DWP mixed-sheaf carrier, and agreement of constant coefficients with the existing pro-etale ellAdicSheaf and EllAdicCohomology after the requisite coefficient and classical-etale comparisons. Import upstream constructions, do not replan them or the existing integral cohomology carrier. No suitable SF.2 blueprint node exists in the inspected snapshot. Also export exact agreement with PR196 TraceFormula 7,8,12,15 finite-etale permutation, curve/Jacobian, projective-space, localization and Frobenius-equivariant Kunneth examples. No existing SF.2 node has these exact statements. Integrate the existing WeierstrassCurve/affine Equation into the actual smooth proper elliptic scheme without a rival equation carrier.",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.7/finite-etale-permutation-factors",
+        "WeilConjectures:WC.7/kunneth-product-agreement",
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "WeilConjectures:WC.7/elliptic-curve-over-f5",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.2",
+      "need": "Export the signed determinant-product functional equation on genuine finite-dimensional graded Frobenius cohomology with equivariant Poincare pairings, tracking Delta, Delta^2=q^(d chi), (-1)^chi and integer powers T^chi, independently of projectivity. The integrated WC.2 trace-of-correspondence node is not this export.",
+      "neededBy": [
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+      "need": "On actual smooth separated finite-type schemes over F_q, export perfect Frobenius-equivariant H_c^i x H^(2d-i)(d)->Q_ell, proper comparison and the q^d untwisted similitude. Include curve/surface extreme-degree and odd-degree dimensions with component hypotheses. The inspected EDC packet only supplies a curve-specific pairing node, not this general export.",
+      "neededBy": [
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "need": "Export the degreewise reciprocal polynomials with q^d scaling, full determinant multiplier including middle degree/Koszul sign, and determinant square relation, for the pairings used above. Do not create a zeta object or require smooth projectivity.",
+      "neededBy": [
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+      "need": "Export Verdier duality on the actual constructible adic derived category and the Frobenius-equivariant duality consequence when a^!Q_ell=Q_ell(d)[2d] over F_q. Its extension to algebraic spaces and DM stacks belongs to the proposed stacks Part II and is recorded separately as a gap.",
+      "neededBy": [
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Export proper coarse algebraic spaces and etale-local finite-quotient charts for finite-type separated DM stacks over F_q with the precise stabilizer hypotheses. This request is for the geometric carrier/coarse construction only; stack cohomology and duality belong to the paper-routed EDC stacks Part II.",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "need": "Export the actual CH^j cycle map modulo rational equivalence, base-field-to-geometric-base-change and geometric-Frobenius equivariance in Q_ell(j), with the Tate normalization q^(-j). For divisor applications supply its intersection-pairing compatibility, but do not assume general equality of numerical and homological equivalence.",
+      "neededBy": [
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Supply the surface intersection/Hodge-index inputs needed by the numerical-divisor-to-H^2(1) comparison, with projectivity where its theorem requires it; the numerical Picard local system and descent themselves remain the pending NumericalPicardAndContractionDescent route. Do not apply a projective Hodge-index theorem to an arbitrary proper surface without its separate justification.",
+      "neededBy": [
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard"
+      ]
+    },
+    {
+      "supplier": "FunctionFieldArithmetic:FA.3",
+      "need": "For the existing F_2(x,y), y^2+y=x^5 model, export degree two/separability/nontriviality from its odd reduced pole, the unique rational place over infinity, no finite ramification and different exponent 6, and Riemann-Hurwitz genus 2. Reuse AlgebraicCurves Layer 10 Artin-Schreier covers and reduced local invariants over perfect residue fields, together with Layer 7 different/Hurwitz theory, rather than proving a second ramification theory here.",
+      "neededBy": [
+        "WeilConjectures:WC.7/genus-two-negative-euler-example"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.5",
+      "need": "Export all-positive-power trace/point-count identities, Newton identities and the characteristic-polynomial recurrence with multiplicities, plus exact rational pole orders from the reduced factorization. Specialize to curves including P_1=1-aT+qT^2, S_0=2,S_1=a, and degree-four reciprocal numerators; no one-trace or semisimple shortcut.",
+      "neededBy": [
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.7/kunneth-product-agreement",
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "WeilConjectures:WC.4",
+      "need": "Export equality of etale cohomology dimensions with singular Betti numbers for an actual smooth proper specialization/comparison family, naming its base trait, invertible ell, geometric fibers and characteristic-zero complex embedding. Do not infer that every finite-field scheme lifts.",
+      "neededBy": [
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "DeligneWeightsAndPurity:DWP.10",
+      "need": "Provide actual smooth proper nonprojective, Jordan-block, Tate-twist and ordinary-versus-compact-support examples with the DWP.7 Frobenius normalization, so the zeta-facing assertions in the WC.7 acceptance matrix compare the same objects. This request does not transfer or duplicate their cohomology constructions. Supply an actual smooth proper nonprojective scheme with verified hypotheses and normalization; matrix-only tests are insufficient. The zeta comparisons are distinct consumers.",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "need": "Consume the unchanged Layer 12 normalization-of-P^1 model and point/place dictionary for the existing F_2(x,y), y^2+y=x^5 Artin-Schreier extension. In this perfect-base separably-generated instance export the actual smooth projective geometrically connected model and its genus comparison, without re-planning the Tau Ceti construction. This records required availability of its existing interface, not a request to change upstream.",
+      "neededBy": [
+        "WeilConjectures:WC.7/genus-two-negative-euler-example"
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "node": "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+      "use": "Rational comparison for smooth proper X only; torsion is removed. Ogus with coefficients is recorded there with an unread-original-proof gap."
+    },
+    {
+      "node": "PadicDifferentialEquationsAndRigidCohomology:RD.7/frobenius-compatibility-of-comparison",
+      "use": "Match linear q-Frobenius to phi^f. On the Tate line phi(ae)=p sigma(a)e, not the linear map p when f>1."
+    },
+    {
+      "node": "PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-proper",
+      "use": "Compare the RD determinant factor with the coefficient image of the unique integral P_i above. Equality follows by the supplier comparison and uniqueness; no duplicate WC comparison theorem is planned."
+    },
+    {
+      "node": "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11",
+      "use": "Import valuation triangles, real-iota qualifications and the dualizing-complex extension. Correct the stale WC pair to (v(alpha),v(q^w/alpha)), with v(q)=1, sum w."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "WeilConjectures:WC.6",
+      "status": "planned",
+      "remaining": [
+        "Replace the WC.1/WC.3/SF.2 and EDC stage requests by exact exported nodes, on actual adic carriers.",
+        "Receive finite-field coarse-space/stack and algebraic-space weight exports from the routed stacks Part II; recheck quotient hypotheses and Frobenius equivariance.",
+        "Close imported RD/DWP original-proof obligations at their owners, and state the geometric signatures on their actual carriers."
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "status": "planned",
+      "remaining": [
+        "Receive actual PR196/SF.2 curve, Weierstrass-scheme, Kunneth and all-power recurrence bridges and the DWP.10 nonprojective/Jordan/Tate test exports.",
+        "Receive the routed numerical Picard and surface invariant/descent inputs, then replace those recorded gaps by exact nodes.",
+        "Recheck the complete supplier graph and run the geometric acceptance matrix on constructed objects; algebraic Suggested checks alone are not geometric certification."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Actual geometric carriers and suggested signatures",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks",
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.7/finite-etale-permutation-factors",
+        "WeilConjectures:WC.7/kunneth-product-agreement",
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "WeilConjectures:WC.7/elliptic-curve-over-f5",
+        "WeilConjectures:WC.7/genus-two-negative-euler-example",
+        "WeilConjectures:WC.7/projective-plane-functional-equation-sign",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "WeilConjectures:WC.7/twenty-five-point-surfaces",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ],
+      "detail": "Pinned matrices, RatFunc, WeierstrassCurve and integral pro-etale cohomology are real existing carriers, but the requested rational adic cohomology, Frobenius, mixed sheaf, cycle-map and scheme/elliptic comparisons are not supplied at the pins. Geometric signatures are omitted in Suggested, explicitly listed there; convention and equation tests use existing carriers. No structure with the desired theorem as proposition fields is introduced. Resolve the requests at their owners before formal signatures can use them."
+    },
+    {
+      "title": "Finite-field DM stack and algebraic-space exports",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks"
+      ],
+      "detail": "PAPER-BERGSTROM-FABER-PAYNE-24 route 7 proposes EtaleDualityAndPerverseSheavesPartIIStacks, but no atlas stage IDs or blueprint for it exist in this snapshot. It must supply actual stack cohomology, Rpi_*Q_ell=Q_ell over F_q, Frobenius/coefficient compatibility, quotient-chart dualizing normalization and the algebraic-space extension of Weil II 3.3.11. SF.1 supplies geometry only. The written vdBE v3 Lemma 3.2 is characteristic zero, so finite-field comparison is not closed by that citation. Use the future exact stage/node ID when created; do not invent an invalid prerequisite now."
+    },
+    {
+      "title": "Numerical Picard and surface realization inputs",
+      "neededBy": [
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "WeilConjectures:WC.7/twenty-five-point-surfaces",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion"
+      ],
+      "detail": "PAPER-SCHROER-23 routes NumericalPicardAndContractionDescent, EnriquesSurfacesAndIntegralNonexistence and GenusOneFibrationsAndRationalEllipticSurfaces have no stage definitions in this snapshot. Require base-defined divisor descent up to nonzero integer multiples over finite fields, the surface-specific Num tensor Q_ell -> H^2(1) injection and b_2=rho isomorphism, projective hypotheses or a justified extension for merely proper surfaces, Enriques/rational-genus-one b_1=0,b_2=rho=10, and rational-surface Pic^0=0/free Picard/H^2 comparison with finite-order Galois action. These geometric/lattice constructions stay at those owners, not in WC.7."
+    },
+    {
+      "title": "Supplier proof and example closure",
+      "neededBy": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.7/genus-two-negative-euler-example",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ],
+      "detail": "The exact generic WC.3 extraction, EDC/WC.2 general signed pairing interface, upstream curve-model/cohomology bridge and DWP.10 nonprojective example remain requested. RD.7 rational rigid-crystalline comparisons retain their owner-recorded original-proof/coefficient gaps; DWP.7 retains its heavy weight-theory source obligations. Imports count as planned ends, not proofs closed by this packet. Verify actual instances and the combined declaration graph when the exports arrive."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "WeilConjectures"
+      ],
+      "stages": [
+        "WeilConjectures:WC.7"
+      ],
+      "proposal": "Retain the mathematical WC.7 scope required by accepted RS-17 and the issue-added Schroer source. Remove only process/bookkeeping wording from its display; it has no process declarations. The reviewed audit process verdict cannot erase its explicitly retained zeta comparisons or newly routed mathematical applications.",
+      "detail": "This supersedes the checkpoint suggestion to move all WC.7 mathematics away. Accepted RS-17 narrows, rather than drops, WC.7 and explicitly retains its examples; the new source routing adds theorem-level mathematical consumers. Existing generic example constructions remain PR196/DWP.10 imports."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "WeilConjectures/EWC6-1",
+      "source": "deligne-weil-ii",
+      "kind": "misprint",
+      "locator": "Proof of 3.3.5, printed 206, published 1980 scan",
+      "printed": "D'apres (3.3.3)",
+      "correction": "Use the upper-weight assertion of 3.3.4 (or 3.3.1), not the integrality refinement 3.3.3.",
+      "reason": "The argument applies compact-support upper weights to the dual sheaf. That dual is not assumed integral; integrality is not needed for the desired lower-weight conclusion by duality.",
+      "affects": "nothing",
+      "known": "Already recorded in the integrated WeightsInEtaleCohomology source-gap discussion; no published correction located in the searches below.",
+      "searched": [
+        "Numdam journal record for Weil II, opened 2026-09-26",
+        "Web search Deligne Weil II errata 3.3.5 and the published source mirror, 2026-09-26",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read published Weil II p.206: the proof of 3.3.5 literally refers to 3.3.3 while using upper weights for the dual. The dual need not be integral; 3.3.4 (or the general 3.3.1) supplies the bound. This is a reference misprint, not a failure of the lower-weight theorem.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-2",
+      "source": "kedlaya-weil-published",
+      "kind": "error",
+      "locator": "Section 5.3 consequence (b), printed 1446; also preprint v3 6.6(b), p.52",
+      "printed": "P2n-i(t) = ct^j Pi(t^-1)",
+      "correction": "P_(2n-i)(T)=c T^(b_i) P_i(q^(-n)T^(-1)), where c=(-1)^(b_i) q^(n b_i)/det(F|H^i) and b_i=dim H^i.",
+      "reason": "Duality pairs alpha with q^n/alpha. For P^1 the canonical factors are 1-T and 1-qT: no monomial multiplier of 1-T^(-1) gives 1-qT for q>1. The missing scaling survives into the published paper.",
+      "affects": "a stated result",
+      "known": "Preprint finding already recorded as PadicDifferentialEquationsAndRigidCohomology/E63; this checkpoint collates it against the version of record, not a new discovery claim.",
+      "searched": [
+        "Published Cambridge PDF, printed 1446, downloaded and read 2026-09-26",
+        "Kedlaya papers page and web search Fourier transforms p-adic Weil II errata, 2026-09-26; no correction found",
+        "RD packet E63, read 2026-09-26",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason.",
+        "Kedlaya papers page https://kskedlaya.org/papers/ checked 2026-10-06: the Fourier transforms entry links journal/arXiv versions and describes abbreviation, with no erratum link on that entry."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Collated preprint v3 p.52 with the freshly fetched published p.1446: both display the unscaled reciprocal argument. P^1 gives a direct counterexample. Equivariant duality requires q^-n T^-1 with the stated determinant multiplier. The published fresh-byte receipt is in sourceVersions.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-3",
+      "source": "kedlaya-weil-published",
+      "kind": "gap",
+      "locator": "Section 5.3 proof of consequence (a), printed 1446; preprint v3 p.52",
+      "printed": "Part (a) follows from the Lefschetz trace formula",
+      "correction": "Trace and finiteness first give factors over K. Add rational descent and normalized integral rational-series factorization for the existential rationality statement. To identify the actual smooth-proper degree factors as integral, also use all-conjugates purity and degree separation.",
+      "reason": "An alternating determinant product alone does not determine or prove integrality of its individual factors. Even equal nonintegral numerator and denominator factors can cancel to 1. WC.3 owns the missing algebraic extraction; no general mixed-factor integrality is inferred.",
+      "affects": "the proof",
+      "known": "Already recorded against the preprint as PadicDifferentialEquationsAndRigidCohomology/E64; the same proof shortcut is present in the published version.",
+      "searched": [
+        "Published Cambridge PDF 5.3, printed 1446, read 2026-09-26",
+        "Kedlaya papers page and errata web search, 2026-09-26; no correction found",
+        "RD packet E64 and Deligne Weil I 1.7 implies 1.6",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason.",
+        "Kedlaya papers page https://kskedlaya.org/papers/ checked 2026-10-06: the Fourier transforms entry links journal/arXiv versions and describes abbreviation, with no erratum link on that entry."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read both versions of consequence (a): trace/finiteness gives an alternating product but does not prove integrality of its degree factors. Equal nonintegral factors can cancel to one. Rational-series descent/Fatou closes existential integral rationality; all-conjugates purity and separation are additionally needed for canonical smooth-proper factors. Confirmed as an omitted proof argument, not a disproof of existential rationality.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-4",
+      "source": "kedlaya-weil-preprint",
+      "kind": "misprint",
+      "locator": "Last paragraph of proof of 6.6.2, preprint v3 p.51; corrected in published 5.3.2, printed 1446",
+      "printed": "H^i_rig(X/K, f*E^vee)",
+      "correction": "Use H^i_rig(X/K,E) in the injection into H^(i-1)_rig(W/K,F_1) and the concluding lower bound.",
+      "reason": "F_1 is the cokernel of the vertical connection on E. The published proof states exactly the corrected injection and conclusion.",
+      "affects": "nothing",
+      "known": "Corrected in the published Compositio 142 (2006) proof of Theorem 5.3.2, p.1446; this resolves the version question for RD packet E62.",
+      "searched": [
+        "arXiv v3 6.6.2 and Cambridge version of record 5.3.2, both read 2026-09-26",
+        "RD packet E62",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Collated preprint v3 p.51 and published p.1446: the erroneous f_*E^vee coefficient in the final injection/conclusion is replaced by E in the published proof. Confirmed for the preprint and already corrected in the version of record.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-S10",
+      "source": "schroer23",
+      "kind": "error",
+      "locator": "Section 7, p. 20 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+      "printed": "The characteristic polynomials of f_{i,j} have coefficients from ℚ, and the eigenvalues α ∈ ℚ^alg are algebraic integers, of length |α| = q^{i/2−j} in all complex embeddings.",
+      "correction": "Untwisted eigenvalues are algebraic integers; after twist j they are scaled by q^(-j), so for j>0 integrality is not guaranteed.",
+      "reason": "The point with Q_ell(1) has scalar q^(-1), which is not an algebraic integer. This packet keeps algebraic weights distinct from integrality.",
+      "affects": "a stated result",
+      "known": "PAPER-SCHROER-23/E10; not a new discovery claim. Published persistence was not checked by this worker.",
+      "searched": [
+        "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E10, read 2026-10-06.",
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 section 7 p.20. The universal integrality assertion includes positive Tate twists; the point with Q_ell(1) has eigenvalue q^-1 and refutes it. Confirmed for this preprint only; no assertion that it persists in the uncollated published Annals text.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-S11",
+      "source": "schroer23",
+      "kind": "misprint",
+      "locator": "Corollary 7.2 and its proof, p. 21 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+      "printed": "If the local system Num_{X/k} is constant, we have Card X(F_p) = 1 + b₂q + q².",
+      "correction": "Replace F_p by F_q in Corollary 7.2 and its count.",
+      "reason": "q=p^f can be nonprime; q=4 gives 57 in the ten-dimensional example, while its F_2 count is 25.",
+      "affects": "nothing",
+      "known": "PAPER-SCHROER-23/E11; not a new discovery claim. Published persistence was not checked by this worker.",
+      "searched": [
+        "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E11, read 2026-10-06.",
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 Corollary 7.2 p.21 and its proof. Setup is F_q, q=p^f, while the count prints F_p; the correct field is F_q. A q=4 specialization distinguishes them. Confirmed for the read preprint, not extrapolated to uncollated publication.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    },
+    {
+      "id": "WeilConjectures/EWC6-S35",
+      "source": "schroer23",
+      "kind": "misprint",
+      "locator": "proof of Corollary 7.2, p. 21 (arXiv v3 = author version of 19 July 2022)",
+      "printed": "We have b₀=1, and with Poincaré Duality get b₄=1 and b₁=0.",
+      "correction": "In Corollary 7.2 proof, Poincare duality gives b_3=0 from the assumed b_1=0.",
+      "reason": "Repeating b_1=0 misses the odd-degree-3 vanishing used by Proposition 7.1.",
+      "affects": "nothing",
+      "known": "PAPER-SCHROER-23/E35; not a new discovery claim. Published persistence was not checked by this worker.",
+      "searched": [
+        "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E35, read 2026-10-06.",
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 Corollary 7.2 proof p.21. Poincare duality must supply b_3=0 from the assumed b_1=0; the printed repeated b_1=0 does not record the required degree-three vanishing. Confirmed as a misprint for the read preprint only.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://numdam.org/item/PMIHES_1980__52__137_0.pdf",
+      "read": "2026-09-26",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0210149v3",
+      "read": "2026-09-26",
+      "sha256": "b678f13ceb5b0d0b528e927a20187e344f2fd40552819a5d528f7d52ab3f1599"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9084E895C148851EC7422B716B2F6E65/S0010437X06002338a.pdf/fourier-transforms-and-dollarpdollar-adic-weil-ii.pdf",
+      "read": "2026-09-26",
+      "sha256": "5fb0b647f89a06156fadfdeb353048ff5c8f0f9170d9181b4b65c7dc5bf2cc46"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2206.07759v2",
+      "read": "2026-10-06",
+      "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2004.07025v3",
+      "read": "2026-10-06",
+      "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0505178v3",
+      "read": "2026-10-06",
+      "sha256": "46559f0499ac0c96192bcee9ec11f1d4933bff2285c6d29e97e008f8a8442b3b"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9084E895C148851EC7422B716B2F6E65/S0010437X06002338a.pdf/fourier-transforms-and-dollarpdollar-adic-weil-ii.pdf",
+      "read": "2026-10-06",
+      "sha256": "482b4e20d0b950a67444ef835ef11971645cf5e9ea62bdf081a2449e71a34529"
+    }
+  ],
+  "targetCoverage": [
+    {
+      "stageId": "WeilConjectures:WC.6",
+      "target": "Proper smooth purity and assembled conclusions",
+      "nodes": [
+        "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "WeilConjectures:WC.6/smooth-proper-functional-equation"
+      ],
+      "imports": [
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.6",
+      "target": "Separated finite-type mixed sheaf compact-support weights",
+      "nodes": [
+        "WeilConjectures:WC.6/mixed-l-function-divisor-weights"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.6",
+      "target": "Finite-field crystalline interface, q=p^f iteration and valuations",
+      "imports": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/frobenius-compatibility-of-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-proper",
+        "DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11"
+      ],
+      "note": "Exact RD.7 comparison nodes own this theorem; do not duplicate them. The reader specifies the consumer coefficient images, phi^f and valuation tests."
+    },
+    {
+      "stageId": "WeilConjectures:WC.6",
+      "target": "Dualizing-complex and routed DM-stack extension",
+      "nodes": [
+        "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "target": "Projective spaces, permutations, curves, elliptic curves and products",
+      "nodes": [
+        "WeilConjectures:WC.7/projective-space-degree-factors",
+        "WeilConjectures:WC.7/finite-etale-permutation-factors",
+        "WeilConjectures:WC.7/kunneth-product-agreement",
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "WeilConjectures:WC.7/elliptic-curve-over-f5"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "target": "Sign, negative Euler characteristic and nonprime q",
+      "nodes": [
+        "WeilConjectures:WC.7/projective-plane-functional-equation-sign",
+        "WeilConjectures:WC.7/genus-two-negative-euler-example",
+        "WeilConjectures:WC.7/projective-space-degree-factors"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "target": "All-power recurrence/poles and weight-facing comparisons",
+      "nodes": [
+        "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ],
+      "note": "DWP.10 owns Jordan, Tate and actual nonprojective constructions; WC.5 owns general recurrence/pole API."
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "target": "Routed Schroer /77,/78,/79,/80,/235,/241",
+      "nodes": [
+        "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "WeilConjectures:WC.7/twenty-five-point-surfaces",
+        "WeilConjectures:WC.7/rational-surface-picard-count-criterion"
+      ]
+    },
+    {
+      "stageId": "WeilConjectures:WC.7",
+      "target": "Separate APIs and actual geometric final theorem",
+      "nodes": [
+        "WeilConjectures:WC.7/geometric-weil-assembly"
+      ],
+      "note": "Bookkeeping is prose only; Betti comparison retains genuine lifting-family hypotheses."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-WeilConjectures--WC.6",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 20 nodes, all nine exact-pin Mathlib baseline declarations, four imported endpoints, fifteen requests, source locators/excerpts, seven source issues, the reviewed library audit, accepted RS-17 scope and the reader/suggested file. Corrected the explicit surface hypothesis, upstream Artin-Schreier owner request and two supplier locators; added one immutable upstream source receipt and fresh published-PDF receipt. Verified independent finite-field counts. Both stages remain planned, not closed, with four honest gaps and twenty omitted geometric signatures. All nodes justified as planning targets; no implementation or original supplier-proof closure is claimed. Suggested file elaborates on the exact pinned Mathlib with only eighteen expected proof-placeholder warnings. See the independent report for limitations.",
+    "checked": [
+      {
+        "nodeId": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.9 and the Weil I 1.7-to-1.6 descent proof. Properness, smoothness, all-conjugates purity, empty factors and multiplicities are correct without projectivity. The generic WC.3 export is requested rather than assumed supplied by its projective-only integrated node."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.4 and Rapport 3.1-3.6. Compact-support degree i gives weight at most n+i, hence n+2d for surviving reduced-divisor roots. Algebraicity/all embeddings and cancellation are retained; there is no false integral mixed-factor claim."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "verdict": "verified",
+        "note": "Read Weil I 2.3-2.6. The equivariant pairing gives reciprocal eigenvalues q^d/alpha. Reversing det(1-TF) yields (-1)^chi Delta T^chi and Delta^2=q^(d chi), including negative integer Euler powers and rational nonzero Delta. General signed pairing/determinant exports remain precise requests."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.11 and its duality argument. The genuine Frobenius-equivariant a!Q_ell=Q_ell(d)[2d] condition is explicit; it supplies the lower bound opposite to compact-support upper weights. No purity assumption or proposition-field replacement is smuggled into the statement."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks",
+        "verdict": "corrected",
+        "note": "Read BFP v2 Proposition 3.1 proof and Proposition 4.2 proof, and vdBE v3 Lemma 3.2. BFP consumes purity; vdBE writes characteristic zero. The finite-field coarse pushforward, quotient dualizing normalization and algebraic-space extension are therefore honestly open supplier contracts, not results obtained by applying that lemma outside its scope. Tightened its locator to printed p.5."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/projective-space-degree-factors",
+        "verdict": "verified",
+        "note": "Read PR196 TraceFormula Layer 12 and Layer 13. Hyperplane/Kummer generators give even factors 1-q^j T, agreeing with the canonical WC factors; odd factors are one. The independent point-count sum and nonprime q tests fix the Tate orientation."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/finite-etale-permutation-factors",
+        "verdict": "verified",
+        "note": "Read PR196 TraceFormula Layer 7 and Rapport 3.4-3.5. A Frobenius orbit of length m gives 1-T^m and m fixed points exactly when m divides r; disjoint orbits give the stated products and all-power counts."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/kunneth-product-agreement",
+        "verdict": "corrected",
+        "note": "The tensor-product degree decomposition and multiplicities are correct. PR196 Layer 11 expressly supplies products/Kunneth; Layer 12 specializes compact-support Kunneth and Layer 13 supplies the determinant formula. Corrected the locator to include the general Layer 11 contract. The P^1 times P^1 factors pass and zeta functions are not multiplied."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "verdict": "verified",
+        "note": "Read PR196 Layers 8 and 15 and Weil I duality. Actual Jacobian H^1, degree 2g, extremal factors and q^g T^(2g) reciprocity agree. All-power Newton/trace recurrence remains at WC.5; no new curve or Jacobian carrier is introduced."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/elliptic-curve-over-f5",
+        "verdict": "verified",
+        "note": "Confirmed the pinned Weierstrass coefficients, discriminant and affine Equation carrier. Independently enumerated seven affine F_5 points and thirty-one affine F_25 points, giving projective counts 8 and 32 using the separately supplied infinity point. Trace -2, determinant 5 and squared trace -6 have the correct signs; the scheme/cohomology bridge stays requested."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/genus-two-negative-euler-example",
+        "verdict": "corrected",
+        "note": "Independently counted 2,4,8,32 affine points over F_2,F_4,F_8,F_16. The reduced odd pole five yields different exponent six and genus two through the upstream contracts. Read AlgebraicCurves Layers 7,10,12; corrected the FA.3 request to use Layer 10 for the Artin-Schreier local invariant and Layer 7 for Hurwitz, and added that source receipt. Reciprocity/first two traces force 1+4T^4 and chi=-2 gives Delta=1/2. Model and infinity-point assertions remain imports."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/projective-plane-functional-equation-sign",
+        "verdict": "verified",
+        "note": "Weil I 2.6 and projective-space factors give chi=3, Delta=q^3 and negative multiplier -q^3 T^3. Direct rational-function substitution confirms the sign, including q=2."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "verdict": "verified",
+        "note": "Read PR196 Layer 12 localization and the DWP.10 supplier scope. H_c^1 has scalar one and H_c^2 scalar q, giving (1-T)/(1-qT); the ordinary quotient is its inverse. Twist (1) scales by q^-1 and weight -2, without integrality or automatic semisimplicity claims."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "verdict": "verified",
+        "note": "Read Schroer v3 section 7 and Proposition 7.1 proof. Frobenius fixes base-defined cycle classes in H^(2j)(j); surjectivity makes the actual twisted endomorphism identity and untwisting gives q^j. Geometric cycle surjectivity alone fails, as the finite-etale permutation counterexample shows."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Proposition 7.1 and proof. Smooth proper geometry, odd vanishing and surjective base-cycle maps imply the stated even scalar factors and zeta product. Geometric connectedness fixes b_0=1; ell independence uses WC.6 rather than a conjectural numerical/homological identification."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "verdict": "verified",
+        "note": "The printed Proposition 7.1 gives r=1. Its proof supplies scalar Frobenius, so taking its r-th power and the all-power trace formula rigorously gives the stated extension for every r>=1. The extrapolation is explicitly marked as a derivation rather than a printed theorem."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Corollary 7.2. The F_q count and b_3=b_1=0 repair the two source misprints. The Num/H^2 injection, divisor descent and b_2=rho surjectivity are surface-specific supplier obligations; the proper/projective Hodge-index scope mismatch is recorded as a gap, not silently resolved."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/twenty-five-point-surfaces",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Corollary 7.3 and proof. The two stated surface classes need b_1=0 and b_2=rho=10 from their owners, not as consequences of purity. Given those imports, all-power counts 1+10q^r+q^(2r) give 25 and 57 at q=2,r=1,2."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+        "verdict": "corrected",
+        "note": "Made surface (dimension two) explicit in the leading hypothesis. The rational-surface free Picard lattice, H^2(1) comparison and finite-order Galois action are owner-recorded inputs. Finite order gives semisimplicity; maximal complex trace forces identity and faithful tensoring returns identity on the lattice. This is a proved derived supplement, not a printed iff proposition or a general purity-to-semisimplicity claim."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/geometric-weil-assembly",
+        "verdict": "verified",
+        "note": "Checked each component against WC.1/WC.3 requests, WC.6 nodes, RD.7 imports and the actual-family WC.4 request. The smooth proper finite-field theorem assembles canonical integral factors, all-conjugates weights, signed integer-power functional equation and all-power counts. Betti comparison retains genuine comparison-family hypotheses; mixed L-functions remain a separate API."
+      }
+    ]
+  }
+}
