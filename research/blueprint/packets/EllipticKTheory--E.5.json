@@ -1,0 +1,924 @@
+{
+  "roadmapId": "EllipticKTheory",
+  "protocol": "blueprint-v1",
+  "part": "E.5",
+  "scope": [
+    "EllipticKTheory:E.5"
+  ],
+  "status": "complete",
+  "summary": "Target-level E.5 continuation of the accepted parent: elliptic specialisation of scheme operations, the determinant obstruction to isogeny degree multiplication, the imported projective-line basis and comparison, and finite-field elliptic K-groups via Harder, explicit producer requests, Galois modules, twisted Frobenius kernels and orders. Every target is planned; producer extensions and missing pinned interfaces remain explicit gaps, so this is not a closed packet.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point",
+        "kind": "inductive",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "Nonsingular Weierstrass points, including infinity; over a field the existing AddCommGroup instance is used.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point.map",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "The additive homomorphism on base-changed points along an algebra homomorphism of field extensions.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:FiniteField.frobeniusAlgHom",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "For a finite base field k and a k-algebra L, the k-algebra endomorphism x ↦ x^(#k).",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:AddSubgroup.torsionBy",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "Existing n-torsion subgroup, the kernel of multiplication by n; used for the exclusion test.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+        "provides": "The nonzero function-field isogeny, not a scheme map or a point endomorphism.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny.degree",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+        "provides": "Degree via the finite function-field extension; comparison with finite-flat rank comes from parent E.1.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny.frobeniusIsogeny",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+        "provides": "The q-power Frobenius isogeny on a Weierstrass curve over a finite field; no new public Frobenius is defined here.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.III",
+      "title": "The K-book: An Introduction to Algebraic K-theory, Chapter III",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted individual chapter of the 2013 book; chapter pagination; accessed 2026-10-06",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "III.2.5.1 (SK1 of function-field S-integers)",
+        "III.7.2(a) (higher Milnor vanishing)"
+      ]
+    },
+    {
+      "id": "Kbook.IV",
+      "title": "The K-book: An Introduction to Algebraic K-theory, Chapter IV",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted individual chapter of the 2013 book; chapter pagination; accessed 2026-10-06",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "IV.2.5 and Exercise IV.2.6 (finite and divisible coefficients)",
+        "IV.6.9, pp.58–59 (affine-curve finite generation)"
+      ]
+    },
+    {
+      "id": "Kbook.V",
+      "title": "The K-book: An Introduction to Algebraic K-theory, Chapter V",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted individual chapter of the 2013 book; chapter pagination; accessed 2026-10-06",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "V.1.5 and V.1.5.1, p.5 (projective bundles)",
+        "V.3.3.2 and V.3.11–3.12, pp.20,29–30 (transfer/projection)",
+        "V.6.12–6.12.1, pp.45–46 (curve localization/reciprocity)"
+      ]
+    },
+    {
+      "id": "Kbook.VI",
+      "title": "The K-book: An Introduction to Algebraic K-theory, Chapter VI",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted individual chapter of the 2013 book; chapter pagination; accessed 2026-10-06",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "VI.1.7 (twist notation)",
+        "VI.4.6.1–4.7, pp.19–20 (curve coefficients and Geisser–Levine)",
+        "VI.6.1–6.7, pp.37–40 (Harder, geometric groups, descent)"
+      ]
+    },
+    {
+      "id": "accepted-parent",
+      "title": "Accepted EllipticKTheory blueprint and confirmed corrections",
+      "authors": "Tau Ceti Atlas blueprint workers and independent reviewer REV-EllipticKTheory",
+      "edition": "Accepted parent plus FIX-RT-AREA-ktheory-2~2, repository commit 7d18c897153c3927a2e450ed3a556140816d3812",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/7d18c897153c3927a2e450ed3a556140816d3812/research/blueprint/packets/EllipticKTheory.json",
+      "sha256": "f4b570ae6723513ea0b41ff6ce677f95714e664365c66b6ea3a50c4f20aa9e41",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "All E.5 nodes and requests; E.1–E.3 producer interfaces; confirmed sourceIssues E1–E6; accepted RS-18 boundary"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticKTheory:E.5/elliptic-operation-comparisons",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Scheme operations on an elliptic isogeny",
+      "kind": "comparison",
+      "statement": "For elliptic curves E′ and E over a field and a nonzero isogeny f:E′→E, use the scheme morphism supplied by E.1. It is finite flat of rank deg(f), hence proper and perfect. Its K-pullback is induced by Lf* and its K-pushforward by Rf*. On affine restrictions Spec B→Spec A, finite locally free B/A identifies Rf* with restriction of scalars on perfect complexes and agrees with the classical finite-flat transfer in every nonnegative degree. These maps agree with the existing function-field isogeny under the parent comparisons; a zero group homomorphism is not a finite isogeny.",
+      "hypotheses": [
+        "A field k; nonsingular pointed genus-one curves and a nonzero k-isogeny.",
+        "The actual scheme K-theory and affine comparison exported by S.2, not a new K-functor."
+      ],
+      "proofSteps": [
+        "Import parent E.1/isogenies-as-scheme-morphisms and regularity. A finite dominant morphism between regular curves is flat; its function-field degree is its locally free rank.",
+        "Apply S.2 pullback, proper perfect pushforward and affine-pushforward-is-transfer to f and to each finite affine restriction. The exact restriction-of-scalars functor is the comparison, including on higher groups.",
+        "Specialise the S.2 functor and base-change coherences; do not reconstruct the generic operations."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.1/isogenies-as-scheme-morphisms",
+        "EllipticKTheory:E.1/regular-in-the-divisor-api-form",
+        "SchemeKTheoryOperations:S.2/k-theory-pullback",
+        "SchemeKTheoryOperations:S.2/k-theory-proper-pushforward",
+        "SchemeKTheoryOperations:S.2/affine-pushforward-is-transfer",
+        "tauceti:TauCeti.Isogeny.degree"
+      ],
+      "acceptance": [
+        "The identity isogeny gives identity maps in all degrees.",
+        "The affine restriction of a separable or inseparable isogeny gives the same transfer as restriction of scalars.",
+        "Exclude the constant-at-origin map from the finite-flat assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.V",
+          "locator": "V.3.3.2 and V.3.11, chapter pp.20,29",
+          "excerpt": "3.11.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/isogeny-rank-determinant-action",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "The determinant obstruction to degree multiplication",
+      "kind": "theorem",
+      "statement": "For the preceding f of degree d and all n≥0, f_*f*(y)=[f_*O_E′]·y. Write L_f=det(f_*O_E′)∈Pic⁰(E) and P_f∈E(k) for its point coordinate. In K₀(E)≅Z⊕Z⊕E(k), [f_*O_E′]=(d,0,P_f), so f_*f*(r,e,P)=(dr,de,dP+rP_f). Equality f_*f*=d on K₀ is equivalent to L_f≅O_E; this condition then implies degree multiplication on every K_n. For separable f, L_f²≅O_E and the equality holds after tensoring with Q. For multiplication [m], m odd and char(k)∤m, L_[m]≅O_E and [m]_*[m]*=m² integrally. A separable degree-two isogeny in characteristic different from two has nontrivial L_f and fails the integral K₀ equality.",
+      "hypotheses": [
+        "Nonzero isogeny of elliptic curves over k; rational origins fixed.",
+        "The separable, odd-m and degree-two clauses have exactly the extra hypotheses stated."
+      ],
+      "proofSteps": [
+        "Import S.2/projection-formula and the parent determinant calculation. Euler characteristic is zero for the structure sheaf of both genus-one curves; finite pushforward and Riemann–Roch give deg(L_f)=0.",
+        "Use the parent square-zero rank–Pic ring product to compute multiplication by (d,0,P_f). Testing y=[O_E]=(1,0,O) proves the necessity of P_f=O, while trivial determinant proves sufficiency in all degrees.",
+        "The parent trace pairing proves det² trivial for a finite étale isogeny. For odd [m], pullback trivialises [m]_*O and [m]* acts by m on Pic⁰, so m-torsion and 2-torsion force triviality; the needed Pic⁰ pullback statement is an explicit upstream request.",
+        "For separable degree two, half-trace splits f_*O=O⊕L. Connectedness gives H⁰(L)=0, so L is not O. This rules out replacing rank by a K₀ equality."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/elliptic-operation-comparisons",
+        "SchemeKTheoryOperations:S.2/projection-formula",
+        "EllipticKTheory:E.5/class-of-the-pushed-forward-structure-sheaf",
+        "EllipticKTheory:E.2/ring-structure-of-K0-of-a-curve",
+        "EllipticKTheory:E.2/K0-of-an-elliptic-curve",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals"
+      ],
+      "acceptance": [
+        "Evaluate on [O_E]: the point component is P_f, which detects a nontrivial determinant.",
+        "For [3] in characteristic different from three, the action is multiplication by nine.",
+        "For a separable degree-two quotient in characteristic different from two, (1,0,O) maps to (2,0,P_f) with P_f≠O."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.V",
+          "locator": "V.3.12, chapter pp.29–30; accepted parent E.5 determinant calculation",
+          "excerpt": "3.12.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        },
+        {
+          "sourceId": "accepted-parent",
+          "locator": "E.5/class-of-the-pushed-forward-structure-sheaf and E.5/projection-formula-and-isogenies, corrected by REV-EllipticKTheory",
+          "excerpt": "class-of-the-pushed-forward-structure-sheaf",
+          "match": "Import the determinant, trace-pairing, odd multiplication-map and separable degree-two clauses; the new comparison expresses their action in the accepted E.2 coordinates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Isogeny projection formula"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.5/projective-line-finite-field-comparison",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "The projective-line basis and the finite elliptic contrast",
+      "kind": "application",
+      "statement": "For P¹_k with π:P¹_k→Spec k and infinity section σ, the imported projective-bundle isomorphism sends (a,b) to π*a+[O(-1)]·π*b in every K_n. Its inverse is (π_*x,σ*x−π_*x). In K₀ its coordinates are (χ(x),rk(x)−χ(x)); [O(m)]=(m+1,-m) and [O_∞]=(1,-1). Over k=F_q, positive even K_n(P¹)=0 and K_{2i−1}(P¹)≅(Z/(q^i−1))². The same odd abstract groups occur for an elliptic curve, but its even groups are the twisted elliptic torsion computed below; do not transfer the P¹ even vanishing to E.",
+      "hypotheses": [
+        "A field k; the O,O(-1) convention supplied by S.5.",
+        "i≥1 for the positive finite-field degrees."
+      ],
+      "proofSteps": [
+        "Import S.5/projective-line-k-theory, including its explicit inverse and O(m) formulas, and the parent E.5 projective-line application.",
+        "Apply KTheoryFiniteLocalFields L.1/quillen-k-groups degree by degree. No second projective-bundle theorem or low-degree K-construction is made here.",
+        "Use the finite elliptic formulas below for the comparison; the example over F₂ has elliptic K₂ of order five while P¹ has K₂=0."
+      ],
+      "prerequisites": [
+        "SchemeKTheoryOperations:S.5/projective-line-k-theory",
+        "EllipticKTheory:E.5/the-projective-line-and-the-projective-bundle-theorem",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+      ],
+      "acceptance": [
+        "[O]=(1,0), [O(-1)]=(0,1), and [O_∞]=(1,-1) in the imported basis.",
+        "For F₂, K₁(P¹)=0 and K₃(P¹)≅(Z/3)².",
+        "For F₂, K₂(P¹)=0, unlike the elliptic example."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.V",
+          "locator": "V.1.5 and V.1.5.1, chapter p.5",
+          "excerpt": "1.5.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/harder-elliptic-input-closure",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Harder finiteness for a finite-field elliptic curve",
+      "kind": "theorem",
+      "statement": "If E is an elliptic curve over k=F_q of characteristic p, then K_n(E) is finite of order coprime to p for every n≥1. This is the elliptic specialisation of Harder, with explicit imports of global function-field finite generation, higher Milnor vanishing, finite prime-to-p tame kernel, and the Geisser–Levine Milnor-to-Quillen comparison. None is replaced by a number-field theorem or by Bloch–Gabber–Kato alone.",
+      "hypotheses": [
+        "E smooth projective geometrically integral of genus one with origin over a finite field.",
+        "n≥1."
+      ],
+      "proofSteps": [
+        "For n=1 use localization, vanishing SK₁ for the affine complement of the rational origin, and the exact normed tame reciprocity sequence, not merely vanishing of the normed composite. This gives the finite prime-to-p group k×⊕k×.",
+        "For n=2 parent E.3/integral-injectivity identifies K₂(E) with the tame kernel. Import its finiteness and absence of p-primary torsion from the function-field extension requested of T.5. The source’s citation III.7.2(a) does not prove this case.",
+        "For n≥3, Bass–Tate gives K_n^M(k(E))=0. Geisser–Levine supplies uniquely p-divisible kernel and cokernel of the natural comparison, so multiplication by p is bijective on K_n(k(E)) and K_{n+1}(k(E)).",
+        "Use the five-term localization segment K_{n+1}(k(E))→⊕_x K_n(k(x))→K_n(E)→K_n(k(E))→⊕_x K_{n−1}(k(x)). Multiplication by p is bijective on the four exterior terms by the field comparison and finite-field calculation. The five lemma gives bijectivity on K_n(E). Retain the first term; an unqualified four-term argument does not establish injectivity.",
+        "Import finite generation for an affine complement E minus {O} from Quillen/GQ82, then use localization with the single finite residue field to get finite generation for E. A finitely generated abelian group on which multiplication by p is bijective has rank zero and no p-primary subgroup."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.1/geometrically-integral-curve",
+        "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
+        "EllipticKTheory:E.3/integral-injectivity-over-a-finite-field",
+        "ArithmeticKTheory:N.3:finite-generation",
+        "K2SymbolsBrauer:T.2:graded-map",
+        "K2SymbolsBrauer:T.5",
+        "K2SymbolsBrauer:T.4",
+        "MotivicEtaleKTheory:M.5d",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+      ],
+      "acceptance": [
+        "The low-degree proof explicitly covers n=1 and n=2 instead of applying higher Milnor vanishing there.",
+        "Every closed residue field is finite, including non-rational points.",
+        "The conclusion is stronger than finite generation and is restricted to curves; it does not assume the general Parshin conjecture."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6 opening and Theorem VI.6.1, chapter p.37; IV.6.9; VI.4.7",
+          "excerpt": "6.1.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Harder finiteness"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Geometric elliptic K-groups as Galois modules",
+      "kind": "theorem",
+      "statement": "Put Ebar=E×_k kbar and G=Gal(kbar/k). For i≥1, K_{2i−1}(Ebar)≅D(i)⊕D(i) and K_{2i}(Ebar)≅E(kbar)[prime-to-p torsion](i), equivariantly for G, where D=⊕_{ℓ≠p}Q_ℓ/Z_ℓ and D(i) has arithmetic Frobenius q^i. The point torsion already has arithmetic Frobenius π, so its additional twist has action q^iπ. For ℓ≠p the divisible-coefficient groups are K_{2i}(Ebar;Q_ℓ/Z_ℓ)≅(Q_ℓ/Z_ℓ(i))² and K_{2i−1}(Ebar;Q_ℓ/Z_ℓ)≅E(kbar)[ℓ∞](i−1). These finite/divisible-coefficient groups are distinguished from integral K_n and from a completion.",
+      "hypotheses": [
+        "E/k elliptic over finite k; i≥1; ℓ prime different from p.",
+        "A choice of geometric closure; G-equivariant maps and splittings are part of the assertion."
+      ],
+      "proofSteps": [
+        "Write Ebar as the inverse limit of finite-base extensions and use filtered-colimit compatibility of K-theory. Harder makes every positive geometric K-group torsion with no p-primary part.",
+        "Use the imported universal-coefficient sequence and the M.6/M.7 coefficient spectral sequence/comparison. For a geometric curve only cohomological degrees zero, one and two survive.",
+        "Import the curve Kummer/Jacobian identification H¹(Ebar,Q_ℓ/Z_ℓ(j))≅E(kbar)[ℓ∞](j−1) and the normalized trace H²(Ebar,Q_ℓ/Z_ℓ(j))≅Q_ℓ/Z_ℓ(j−1). The origin identifies E with its Jacobian.",
+        "Prove degeneration and split the two even coefficient terms by the field e-invariant/structure-map summand. A two-piece associated graded does not by itself determine the group or its G-action. Apply universal coefficients to shift coefficient degree to integral degree.",
+        "Translate the source’s μ(i) into Q_ℓ/Z_ℓ(i); μ already denotes the roots-of-unity group as an underlying divisible torsion group. Do not add one extra twist. Correct the missing bar in the sentence preceding the source’s coefficient table."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure",
+        "EllipticKTheory:E.2/picard-decomposition-and-the-point-group",
+        "KTheoryFiniteLocalFields:L.1/algebraic-closure-k-groups",
+        "MotivicEtaleKTheory:M.6",
+        "MotivicEtaleKTheory:M.7",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
+      ],
+      "acceptance": [
+        "K₁(Ebar) is two copies of kbar× with arithmetic Frobenius q.",
+        "K₂(Ebar) is geometric prime-to-p elliptic torsion with the additional first twist.",
+        "The coefficient group in degree 2i−1 uses twist i−1, while integral degree 2i uses twist i."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.3–6.4, chapter p.38; VI.4.6.1",
+          "excerpt": "6.4.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Twisted cohomology descent for the elliptic curve",
+      "kind": "theorem",
+      "statement": "For E/F_q, ℓ≠p and j≥2, the natural maps give H^r_et(E,Q_ℓ/Z_ℓ(j))≅H^r_et(Ebar,Q_ℓ/Z_ℓ(j))^G≅H^{r+1}_et(E,Z_ℓ(j)) for r≥0, and these groups vanish for r≥3. The geometric H⁰,H¹,H² groups are Q_ℓ/Z_ℓ(j), E(kbar)[ℓ∞](j−1), and Q_ℓ/Z_ℓ(j−1). Arithmetic Frobenius on the corresponding rational spaces has eigenvalues q^j, q^(j−1)α and q^(j−1)β, and q^(j−1), where αβ=q and |α|=|β|=sqrt(q). Thus F−1 is invertible rationally and surjective on each divisible torsion group. Do not assert absolute rational cohomology equals geometric invariants for twists zero or one.",
+      "hypotheses": [
+        "E/F_q elliptic; ℓ prime, ℓ≠p; j≥2.",
+        "Use continuous ℓ-adic cohomology and the arithmetic Frobenius action on the actual Galois representations."
+      ],
+      "proofSteps": [
+        "Import geometric curve cohomology with normalized trace/Kummer and the H¹/Tate duality of Weights R34.2; the elliptic characteristic polynomial and Hasse bound determine α,β. Arithmetic cohomology eigenvalues are inverse to geometric ones: H¹ untwisted has eigenvalues 1/α,1/β, equivalently α/q,β/q as a multiset. After twist j these are q^(j−1)α,q^(j−1)β.",
+        "For j≥2 none of the rational eigenvalues is one. F−1 is invertible on the rational spaces, so it is surjective on their divisible quotients.",
+        "Use the procyclic continuous Galois cohomology sequence 0→M^G→M→M→H¹(G,M)→0 and cd_ℓ(G)=1 in Hochschild–Serre. The H¹ terms vanish for these divisible geometric groups, giving the stated invariants.",
+        "The rational absolute cohomology vanishes in this range; the derived coefficient triangle Z_ℓ(j)→Q_ℓ(j)→Q_ℓ/Z_ℓ(j) gives the degree shift. Preserve the restriction j≥2 from VI.6.6. Parent sourceIssue E5 corrects the preceding false argument about rational Galois cohomology."
+      ],
+      "prerequisites": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "acceptance": [
+        "At j=0, H¹(Spec F_q,Q_ℓ)=Q_ℓ; this rejects an unrestricted invariants identity.",
+        "H¹(Ebar,Q_ℓ/Z_ℓ(j)) carries elliptic torsion twist j−1.",
+        "For j=2 all three rational Frobenius-minus-one operators are invertible."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.5–6.6, chapter p.39, with accepted parent sourceIssue E5",
+          "excerpt": "6.6.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/finite-elliptic-k-descent",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Descent of positive elliptic K-groups",
+      "kind": "theorem",
+      "statement": "For every n>0 the base-change map K_n(E)→K_n(Ebar)^G is an isomorphism. This is an elliptic calculation proved through the finite/divisible-coefficient comparison and Harder finiteness, not a claim of unrestricted integral Galois descent for scheme K-theory.",
+      "hypotheses": [
+        "E elliptic over a finite field; n>0.",
+        "All coefficient comparisons and filtrations carry their Galois/base-change compatibility."
+      ],
+      "proofSteps": [
+        "By Harder, compute K_n(E) one prime ℓ≠p at a time as K_{n+1}(E;Q_ℓ/Z_ℓ) via universal coefficients.",
+        "The curve motivic/coefficient spectral sequence, together with the previous cohomology descent node in weights j≥2, identifies the geometric base-change map with invariants and has no surviving differentials. Retain the e-invariant splitting for the two odd integral summands.",
+        "Handle n=1 separately with the exact tame reciprocity/SK₁ sequence and the origin section. This covers the weight-one boundary without applying VI.6.6 outside its range.",
+        "Assemble the primary parts using finite support. The resulting map is precisely the base-change map of the imported K-theory, not an arbitrary additive equivalence."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure",
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
+        "MotivicEtaleKTheory:M.6",
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "acceptance": [
+        "The n=1 map identifies both copies of k× inside the two geometric root-of-unity copies.",
+        "There is no assertion that K₀(E) is finite.",
+        "Base change to F_{q^r} replaces the generator σ by σ^r."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.7 and proof, chapter pp.39–40",
+          "excerpt": "6.7.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/twisted-frobenius-kernel",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "The twisted Frobenius kernel on elliptic torsion",
+      "kind": "construction",
+      "statement": "For a finite field k of characteristic p and size q, a Weierstrass elliptic curve E/k and any field extension L/k, define B_i(E,L)⊆E(L), i≥0, as the points P killed by a positive integer prime to p and satisfying q^iπ(P)=P. Here π on points is the existing base-change point map of x↦x^q, agreeing with the upstream Frobenius isogeny; it is not named geometric Frobenius. For L=kbar this is the G-fixed subgroup of the additional i-th twist of prime-to-p elliptic torsion. No Tate module, K-functor, scheme model or general torsion theory is defined a second time.",
+      "hypotheses": [
+        "Finite field k, char(k)=p; elliptic Weierstrass equation; field extension L/k; i≥0."
+      ],
+      "proofSteps": [
+        "Use Mathlib’s Point, its existing additive group and Point.map(FiniteField.frobeniusAlgHom k L). Form the additive subgroup directly from the displayed two conditions.",
+        "Closure under addition uses a product of coprime annihilators; closure under negation uses the same annihilator. The Frobenius equality is preserved because π is additive.",
+        "Derive the membership, rational-point and field-map API without unfolding any new point or group construction. For exclusion of p-torsion use Bézout on p and the prime-to-p annihilator.",
+        "For kbar use the upstream Tate-twist convention and the arithmetic Galois generator; only invariants are formed in this stage."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Affine.Point",
+        "mathlib:WeierstrassCurve.Affine.Point.map",
+        "mathlib:FiniteField.frobeniusAlgHom",
+        "mathlib:AddSubgroup.torsionBy",
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      ],
+      "acceptance": [
+        "All five named discriminating tests are instantiated on the existing point type in the suggested file.",
+        "The curve is required nonsingular in finite-cardinality theorems; the construction itself also makes sense on the existing nonsingular-point group.",
+        "The i=0 input is available to test the convention but is not identified with positive even K₀."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.4 and VI.6.7, chapter pp.38–40; VI.1.7 convention",
+          "excerpt": "6.4.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "EllipticK.twistedFrobeniusKernel",
+          "role": "constructor",
+          "statement": "The additive subgroup of geometric points P killed by some positive m coprime to p and satisfying q^iπ(P)=P; inheritance of AddCommGroup is through AddSubgroup, not a second group law."
+        },
+        {
+          "name": "EllipticK.mem_twistedFrobeniusKernel",
+          "role": "characterisation",
+          "statement": "Membership is exactly (∃m>0, gcd(m,p)=1 and mP=O) and q^iπ(P)=P."
+        },
+        {
+          "name": "EllipticK.zero_mem_twistedFrobeniusKernel",
+          "role": "simp",
+          "statement": "The origin lies in the subgroup, witnessed by m=1."
+        },
+        {
+          "name": "EllipticK.baseChange_mem_twistedFrobeniusKernel",
+          "role": "compatibility",
+          "statement": "For a k-rational P killed by a positive integer coprime to p, its image in E(L) lies in B_i iff q^iP=P, equivalently (q^i−1)P=O."
+        },
+        {
+          "name": "EllipticK.map_twistedFrobeniusKernel",
+          "role": "functoriality",
+          "statement": "A k-algebra homomorphism between field extensions sends B_i(E,L) into B_i(E,M); for an isomorphism it induces an additive equivalence. This is the existing point map and commutation of q-power with field maps."
+        },
+        {
+          "name": "EllipticK.p_torsion_not_mem_twistedFrobeniusKernel",
+          "role": "characterisation",
+          "statement": "If pP=O and P lies in B_i, then P=O; coprime annihilators eliminate the entire p-primary component."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EllipticK.test_twistedKernel_origin",
+          "kind": "example",
+          "statement": "O belongs to B_i for every i≥0, including i=0."
+        },
+        {
+          "name": "EllipticK.test_twistedKernel_rational_two_torsion",
+          "kind": "example",
+          "statement": "On E/F₃ given by y²=x³−x, the nonzero rational point (0,0), of order two, belongs to B₁ since q−1=2."
+        },
+        {
+          "name": "EllipticK.test_twistedKernel_excludes_characteristic_torsion",
+          "kind": "counterexample",
+          "statement": "On E/F₂ given by y²+xy=x³+1, the rational nonzero point (0,1) has order two and is excluded from B₀, although it is fixed by Frobenius."
+        },
+        {
+          "name": "EllipticK.test_twistedKernel_F2_card_five",
+          "kind": "example",
+          "statement": "For E/F₂: y²+y=x³+x+1, #B₁=5, whereas #B₀=1. Omitting the first twist gives the wrong group."
+        },
+        {
+          "name": "EllipticK.test_twistedKernel_F2_trace_sign",
+          "kind": "example",
+          "statement": "For E/F₂: y²+y=x³+x, #E(F₂)=5, a=−2 and #B₁=13, in contrast to the previous curve’s a=2 and order five."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Weibel VI.6.4 and VI.6.7",
+          "how": "Makes the even-degree fixed-point term into an explicit elliptic point subgroup with the additional twist."
+        },
+        {
+          "where": "E.5 even-group/cardinality computations and finite-field examples",
+          "how": "Supports primary decomposition, the Tate-lattice cokernel and numerical checks that distinguish the twist and trace sign."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/KTheory/FiniteField",
+        "namespace": "TauCeti.EllipticK"
+      },
+      "planet": {
+        "name": "Twisted Frobenius kernel"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.5/positive-odd-elliptic-k-groups",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Odd elliptic K-groups over a finite field",
+      "kind": "theorem",
+      "statement": "For i≥1, K_{2i−1}(E)≅K_{2i−1}(F_q)⊕K_{2i−1}(F_q)≅(Z/(q^i−1))² as abelian groups. In degree one use the unit group itself: K₁(E)≅F_q×⊕F_q×, equivalently two copies of Additive(F_q×). Generators for cyclic coordinates are noncanonical. One summand is split by the structure morphism and origin; the other is identified through the normalized geometric coefficient/trace and e-invariant calculation.",
+      "hypotheses": [
+        "E/F_q elliptic; i≥1.",
+        "Finite-field group identifications are additive; no chosen primitive root or ring decomposition is asserted."
+      ],
+      "proofSteps": [
+        "Apply positive K-descent and the equivariant geometric odd decomposition. Arithmetic Frobenius is q^i on each D(i).",
+        "The fixed subgroup of Q_ℓ/Z_ℓ(i) is the kernel of q^i−1 and is cyclic of order ℓ^vℓ(q^i−1). Assemble finitely many primes and import Quillen’s finite-field result.",
+        "For i=1 retain the multiplicative units notation or its Additive wrapper and the rational-origin splitting; for higher i do not invent canonical cyclic generators."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/finite-elliptic-k-descent",
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+      ],
+      "acceptance": [
+        "For q=2, K₁(E)=0 and K₃(E)≅(Z/3)² for every elliptic E/F₂.",
+        "For q=3, K₁(E)≅(Z/2)², independent of #E(F₃).",
+        "The group is an additive direct sum of two copies, not E(F_q) or a statement about K₀."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.7, chapter pp.39–40; VI.6 opening for K₁",
+          "excerpt": "6.7.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-field elliptic K-groups"
+      }
+    },
+    {
+      "id": "EllipticKTheory:E.5/positive-even-elliptic-k-groups",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Even elliptic K-groups and the Tate-lattice cokernel",
+      "kind": "theorem",
+      "statement": "For i≥1, K_{2i}(E)≅B_i(E,kbar)≅⊕_{ℓ≠p}ker(1−q^iπ:E(kbar)[ℓ∞]→E(kbar)[ℓ∞]). Each primary term is canonically identified, through T_ℓE⊂V_ℓE and V_ℓE/T_ℓE≅E(kbar)[ℓ∞], with coker(1−q^iπ:T_ℓE→T_ℓE). The operator is invertible on V_ℓE. Only finitely many primes contribute; use a direct sum, not an infinite product. This is a finite prime-to-p group, generally nonzero; the full group depends on the integral Frobenius operator, not only on its characteristic polynomial.",
+      "hypotheses": [
+        "E/F_q elliptic; i≥1; prime ℓ≠p for each lattice.",
+        "T_ℓE and its continuous Frobenius action are imported from EllipticCurves Layer 2."
+      ],
+      "proofSteps": [
+        "Apply K-descent to the even geometric term and identify the extra i-th twist with the equation q^iπP=P defining B_i.",
+        "Use the primary decomposition of prime-to-p elliptic torsion and the upstream rank-two Tate module. The roots of 1−q^iπ are nonzero because |q^iα|=q^(i+1/2)>1, and similarly for β.",
+        "Apply the snake lemma to T_ℓE→V_ℓE→V_ℓE/T_ℓE with vertical map 1−q^iπ. Its middle map is bijective, giving a canonical cokernel-to-kernel isomorphism. An invariant lattice kernel is zero here and would not give the desired group.",
+        "The characteristic polynomial gives determinant D_i=1−a_qq^i+q^(2i+1), a nonzero integer congruent to one modulo p. The primary cokernel is zero away from the finitely many primes dividing D_i; its detailed invariant factors require the integral lattice action."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/finite-elliptic-k-descent",
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/twisted-frobenius-kernel",
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
+      ],
+      "acceptance": [
+        "For i=1 the operator is 1−qπ, not 1−π and not 1−q²π.",
+        "A rational point need not belong: even groups are not the rational point group.",
+        "Record the natural isomorphism to the Tate cokernel before choosing any basis or invariant factors."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.4–6.7, chapter pp.38–40; cokernel form derived by the lattice exact sequence",
+          "excerpt": "6.7.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EllipticKTheory:E.5/elliptic-k-group-orders",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Orders of finite-field elliptic K-groups",
+      "kind": "theorem",
+      "statement": "Let a_q=q+1−#E(F_q). For i≥1, #K_{2i−1}(E)=(q^i−1)² and #K_{2i}(E)=D_i=1−a_qq^i+q^(2i+1). D_i is positive and coprime to p. Equivalently D_i=deg(1−[q^i]π). The map 1−[q^i]π is separable, and its geometric point kernel equals B_i. A cardinality does not specify the invariant factors of the even K-group.",
+      "hypotheses": [
+        "E/F_q elliptic; i≥1.",
+        "Frobenius and degree refer to the existing elliptic isogeny theory with its point/scheme comparison."
+      ],
+      "proofSteps": [
+        "The odd order is immediate from the odd group theorem. For even degrees, import the upstream quadratic degree form and π²−[a_q]π+[q]=0 to compute deg(1−[q^i]π)=D_i.",
+        "The Hasse bound gives D_i=(1−q^iα)(1−q^iβ)>0. As q is divisible by p, D_i≡1 mod p; the differential of 1−[q^i]π is the identity, so the map is separable.",
+        "The geometric kernel of this isogeny has D_i points by the upstream separable-degree/kernel theorem. Its order is prime to p, so it is exactly B_i; combine with the even K-group equivalence. This also proves the determinant/index order without a second general theory of lattice indices.",
+        "Compute finite examples from the Weierstrass equations and point counts. For y²+y=x³+x+1 over F₂, #E=1 and a=2: K₁=0, #K₂=5, K₃≅(Z/3)², #K₄=25. For y²+y=x³+x over F₂, #E=5 and a=−2: #K₂=13. For y²=x³−x over F₃, #E=4 and a=0: #K₂=28."
+      ],
+      "prerequisites": [
+        "EllipticKTheory:E.5/positive-odd-elliptic-k-groups",
+        "EllipticKTheory:E.5/positive-even-elliptic-k-groups",
+        "EllipticKTheory:E.5/twisted-frobenius-kernel",
+        "EllipticKTheory:E.1/isogenies-as-scheme-morphisms",
+        "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+        "tauceti:TauCeti.Isogeny.frobeniusIsogeny",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "acceptance": [
+        "The two F₂ examples distinguish the sign of a_q and reject an untwisted rational-points formula.",
+        "D_i≡1 mod p independently checks the characteristic-primary exclusion.",
+        "Do not infer K₄≅Z/25 from its order 25."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI",
+          "locator": "VI.6.7, chapter pp.39–40, with the elliptic Frobenius degree calculation imported from upstream",
+          "excerpt": "6.7.",
+          "match": "Specialisation to the pointed genus-one curve, with the stated conventions and imported producer interfaces."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ArithmeticKTheory:N.3:finite-generation",
+      "need": "Extend the general Quillen arithmetic finiteness owner to global function-field S-integers: for smooth affine U/F_q, all K_n(U) are finitely generated (Quillen/GQ82, K-book IV.6.9). Export the proper smooth finite-curve consequence using localization at a nonempty finite complement. The existing N.3-finite-generation packet plans number-field rings only; its nodes do not supply these statements.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ],
+      "route": "Supplier extension requested, not an established node."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.2:graded-map",
+      "need": "Export the natural graded Milnor-to-Quillen map from products, using the actual Milnor functor of T.2:symbols and preserving field functoriality. The degree-two Matsumoto isomorphism alone does not supply the higher-degree map used by Geisser–Levine. Global function-field Bass–Tate vanishing is requested from the T.5 extension, not proved here or reassigned to the presentation stage.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ],
+      "route": "Import the existing graded-map owner; no suitable blueprint node exists yet."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.5",
+      "need": "Extend the general arithmetic tame-kernel owner to global function fields F=F_q(X): (a) Bass–Tate K_n^M(F)=0 for n≥3 (III.7.2(a)); (b) ker[K₂(F)→⊕_x k(x)×] is finite of order prime to p for X smooth projective geometrically integral. Export the actual theorem/proof input for n=2 separately: III.7.2(a) does not supply tame-kernel finiteness. Current T.5 is a number-field stage. The natural graded comparison is imported from T.2:graded-map.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ],
+      "route": "Supplier scope extension requires its own blueprint work; accepted parent sourceIssue E1 applies."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.4",
+      "need": "In addition to Weil reciprocity as vanishing of a composite, export the global function-field exact reciprocity sequence K₂(F_q(X))→⊕_x k(x)×→F_q×→0, or an equivalent proof from affine SK₁=0 and the rational-origin localization for elliptic X. The normed map is the actual finite-field transfer. The norm condition alone is insufficient.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ],
+      "route": "Strengthened reciprocity input; parent sourceIssue E2."
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.5d",
+      "need": "Export Geisser–Levine in characteristic p for every field F and n≥0: K_n^M(F)/p^r≅K_n(F;Z/p^r), K_n(F) has no p-torsion, and the kernel/cokernel of the natural map K_n^M(F)→K_n(F) are uniquely p-divisible, compatibly with products and field maps. The current M.5d packet supplies log differentials/Bloch–Gabber–Kato, not this Quillen comparison (K-book VI.4.7).",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.6",
+      "need": "For smooth curves over finite fields and their algebraic closures, export the convergent finite/divisible-coefficient motivic K spectral sequence, its filtered-colimit, base-change, Galois and edge-map compatibility, and the split field/e-invariant summand. State ranges sufficient for positive integral groups after the universal-coefficient degree shift.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/finite-elliptic-k-descent"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "Export ordinary-to-étale/coefficient comparison in the curve ranges used in VI.4.6.1 and VI.6.4–6.7, including ℓ=2 when ℓ≠p, continuous-coefficient limits and the specified low-degree treatment. This request does not assign curve Kummer/duality or the Weil bound to M.7.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/finite-elliptic-k-descent"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+      "need": "Export the geometric smooth proper curve coefficient calculation H⁰=Q_ℓ/Z_ℓ(j), H¹=J(kbar)[ℓ∞](j−1) via Kummer/Jacobian duality, H²=Q_ℓ/Z_ℓ(j−1) via normalized trace, and vanishing above two. Retain Galois equivariance and compatibility of integral/rational/divisible coefficients; the elliptic origin identifies J with E. This refines the existing curve trace scope and imports its Jacobian inputs.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+      "need": "Export the compatible geometric perfect pairings and derived Z_ℓ/Q_ℓ/Q_ℓ/Z_ℓ coefficient triangles used in the curve calculation, preserving the top-degree twist and continuous-coefficient conventions.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.1",
+      "need": "Export for Gal(F_qbar/F_q) the continuous procyclic cohomology sequence with F−1, cd_ℓ=1, and Hochschild–Serre for finite/integral/rational/divisible ℓ-adic coefficients. In particular H¹(G,Q_ℓ)=Q_ℓ for the trivial action; do not apply a discrete torsion-cohomology assertion to rational continuous representations.",
+      "neededBy": [
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent"
+      ],
+      "route": "Finite-field cohomology specialisation/extension of the general Galois-representation supplier."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Import prime-to-characteristic elliptic torsion, T_ℓE free of rank two, V_ℓE/T_ℓE≅E(kbar)[ℓ∞], the twist convention and equivariant isogeny/point action. These are upstream inputs; do not construct a new Tate module or Weil pairing here.",
+      "neededBy": [
+        "EllipticKTheory:E.5/twisted-frobenius-kernel",
+        "EllipticKTheory:E.5/positive-even-elliptic-k-groups"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "need": "Import the hom-group/degree quadratic form, degree and geometric kernel for separable isogenies, and the comparison of the Frobenius isogeny’s point action with Mathlib’s q-power point map. The pinned function-field Isogeny alone has no general point-map or scheme-model interface.",
+      "neededBy": [
+        "EllipticKTheory:E.5/twisted-frobenius-kernel",
+        "EllipticKTheory:E.5/elliptic-k-group-orders"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "need": "Import the Hasse bound, a_q=q+1−#E(F_q), π²−[a_q]π+[q]=0 and the resulting deg(1−[q^i]π) calculation from the existing quadratic degree theory. Fix arithmetic Frobenius on points; geometric Frobenius on H¹ has the same polynomial through duality.",
+      "neededBy": [
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
+        "EllipticKTheory:E.5/elliptic-k-group-orders"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "need": "Import the Picard-dual additivity/theorem-of-the-square package and its multiplication-map consequence [m]*=[m] on Pic⁰(E), compatible with base change. This supplies the missing direct prerequisite of the inherited odd-[m] determinant calculation; the scheme Picard theory remains upstream.",
+      "neededBy": [
+        "EllipticKTheory:E.5/isogeny-rank-determinant-action"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticKTheory:E.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge the recorded global function-field finite-generation/Milnor/tame-kernel and Geisser–Levine supplier extensions.",
+        "Discharge the coefficient spectral sequence, continuous cohomology, curve trace/Kummer and upstream Tate/isogeny comparison requests.",
+        "Instantiate the commented higher-K/cohomology/Tate signatures when the actual supplier objects exist; all current declarations remain unchecked."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Global function-field producer extensions remain unplanned",
+      "detail": "N.3 finite generation and the T.5 extension for higher Milnor vanishing and the finite prime-to-p tame kernel need the precise contracts requested here. Neither the number-field packets nor nonexistent IDs mentioned by the parent fix count as supplied declarations. T.2:graded-map supplies the comparison map, not the vanishing theorem. The general results remain owned by their general suppliers.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
+      ]
+    },
+    {
+      "title": "Geisser–Levine and coefficient descent interfaces are missing at the pins",
+      "detail": "M.5d must supply the Quillen comparison, and M.6/M.7 must supply the actual curve spectral sequence/comparison with degree ranges, edge splittings and limit compatibilities. A list of cohomology groups is not a construction of the spectral sequence. The elliptic computation is conditional on these requests.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-elliptic-input-closure",
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/finite-elliptic-k-descent"
+      ]
+    },
+    {
+      "title": "Geometric/continuous cohomology and upstream Tate interfaces are requested",
+      "detail": "The curve Kummer/trace calculation, continuous finite-field Hochschild–Serre and Tate-lattice/isogeny point comparisons have exact owners and requests, but are not library declarations at the pins. Missing supplier types are left as explicit omissions in the suggested Lean file; no conclusion-bearing substitute is introduced.",
+      "neededBy": [
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/elliptic-cohomology-frobenius-descent",
+        "EllipticKTheory:E.5/positive-even-elliptic-k-groups",
+        "EllipticKTheory:E.5/elliptic-k-group-orders"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticKTheory/E17",
+      "source": "Kbook.VI",
+      "kind": "misprint",
+      "locator": "Author-hosted Chapter VI PDF, Theorem 6.4, chapter p.38: sentence immediately before the divisible-coefficient table",
+      "printed": "K_{n−1}(X)",
+      "correction": "Use K_{n−1}(Xbar), the geometric curve, in the comparison with K_n(Xbar;Q_ℓ/Z_ℓ). The preceding displayed integral theorem and the proof’s universal-coefficient argument are both geometric.",
+      "reason": "At n=2 and X=P¹/F₂, integral K₁(X)=0 while K₂(Xbar;Q_ℓ/Z_ℓ) has two nonzero divisible summands for any odd ℓ. The missing bar therefore cannot be read literally. The chapter page was checked as a raster as well as extracted text.",
+      "affects": "nothing",
+      "known": "No correction found; scoped to the author-hosted chapter copy, not independently collated with the published volume.",
+      "searched": [
+        "Author K-book page and its current chapter VI copy, accessed 2026-10-06.",
+        "Author errata URL Kbook/Kbook.errata.pdf returned HTTP 404 on 2026-10-06; the search cache exposed only a partial listing.",
+        "Existing accepted parent sourceIssues E1–E16 (E6 separately records the missing bar in the proof edge-map source)."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "read": "2026-10-06",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "citation": "Author-hosted individual Chapter VI; no assertion that this is a collation of the printed AMS volume."
+    }
+  ],
+  "continues": {
+    "packet": "research/blueprint/packets/EllipticKTheory.json",
+    "review": "REV-EllipticKTheory",
+    "inheritedNodes": [
+      "EllipticKTheory:E.5/pullback-and-pushforward",
+      "EllipticKTheory:E.5/projection-formula-and-isogenies",
+      "EllipticKTheory:E.5/class-of-the-pushed-forward-structure-sheaf",
+      "EllipticKTheory:E.5/the-projective-line-and-the-projective-bundle-theorem",
+      "EllipticKTheory:E.5/an-elliptic-curve-over-a-finite-field",
+      "EllipticKTheory:E.5/harder-finiteness"
+    ],
+    "confirmedSourceCorrections": [
+      "EllipticKTheory/E1",
+      "EllipticKTheory/E2",
+      "EllipticKTheory/E5",
+      "EllipticKTheory/E6"
+    ]
+  },
+  "upstreamNotes": [
+    "No changes to Tau Ceti roadmaps or scheme/Tate definitions are proposed. Upstream supplier requests import the existing layers and expose their required comparison contracts."
+  ],
+  "planetSelection": {
+    "note": "Assembly should retain this part’s four landmarks and the parent projective-bundle landmark; generic pullback/pushforward live in S.2. The stage-wide assembled selection must remain at most six."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticKTheory",
+        "EllipticKTheory"
+      ],
+      "detail": "N.3:finite-generation and its current packet are restricted to number fields; Harder requires Quillen/GQ82 for global function-field S-integers.",
+      "proposal": "Keep the number-field work. Add “K-theory of number fields and S-integers, Part II: global function-field S-integers”, with ArithmeticKTheory as its first prerequisite. Place the requested affine finite-generation theorem and its proper-curve localization consequence in an N.3 sibling/extension at the foundational owner; E.5 imports them and retains only the elliptic Harder specialization. No new node ID is asserted before that supplier is planned."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "K2SymbolsBrauer",
+        "EllipticKTheory"
+      ],
+      "detail": "The T.5 arithmetic brief is number-field-only; III.7.2(a) gives higher Milnor vanishing and cannot prove the function-field K₂ tame-kernel theorem. T.4 presently states reciprocity as vanishing.",
+      "proposal": "Add “Explicit K₂: symbols, residues and reciprocity, Part II: global function-field vanishing and tame kernels”, with K2SymbolsBrauer as its first prerequisite. Extend T.5 to the two separate Bass–Tate contracts and T.4 to exact global normed reciprocity/affine SK₁. Import the Milnor functor and natural graded comparison from T.2:symbols and T.2:graded-map. E.5 imports these general results and owns their elliptic application; do not create a second Milnor theory."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MotivicEtaleKTheory",
+        "EllipticKTheory"
+      ],
+      "detail": "M.5d’s current blueprint covers logarithmic differentials/Bloch–Gabber–Kato, without the characteristic-p Quillen comparison required by Harder.",
+      "proposal": "Add “Motivic and étale methods for arithmetic K-theory, Part II: characteristic-p Quillen comparison”, with MotivicEtaleKTheory as its first prerequisite. Put the requested full Geisser–Levine theorem in an M.5d sibling/extension, reusing its existing Milnor/logarithmic inputs. Keep curve spectral-sequence and ordinary-to-étale comparison in their current M.6/M.7 owners. E.5 contains no general Geisser–Levine node."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticGaloisRepresentations",
+        "EllipticKTheory"
+      ],
+      "detail": "R01.1 needs an explicit finite-field continuous-cohomology contract; the discrete torsion statement does not justify rational ℓ-adic Hochschild–Serre.",
+      "proposal": "Add “Arithmetic Galois representations and conductors, Part II: continuous finite-field cohomology”, with ArithmeticGaloisRepresentations as its first prerequisite. Place the procyclic continuous cohomology and coefficient-compatible Hochschild–Serre interfaces in an R01.1 extension. E.5 specializes them using the existing curve trace/Kummer and elliptic Weil inputs. Upstream Tau Ceti layers are imported unchanged."
+    }
+  ]
+}
