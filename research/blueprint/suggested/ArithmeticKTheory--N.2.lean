@@ -136,10 +136,12 @@ example (x : ℤ) : ∀ q : Fin 2,
 
 -- ramifiedResiduePullback.test_inert: e=1, even when residue degree is 2.
 -- Rank extension k → k' is the identity ℤ → ℤ; multiplication by 2 is wrong.
-example : ramifiedResiduePullback (P := Unit) (Q := fun _ => Unit)
-    (G := fun _ => ℤ) (H := fun _ => ℤ) (fun _ _ => 1)
-    (fun _ _ => AddMonoidHom.id ℤ)
-    (DirectSum.of (fun _ : Unit => ℤ) () 3) ⟨(),()⟩ ≠ 6 := by sorry
+example :
+    let y := ramifiedResiduePullback (P := Unit) (Q := fun _ => Unit)
+      (G := fun _ => ℤ) (H := fun _ => ℤ) (fun _ _ => 1)
+      (fun _ _ => AddMonoidHom.id ℤ)
+      (DirectSum.of (fun _ : Unit => ℤ) () 3) ⟨(),()⟩
+    y = 3 ∧ y ≠ 6 := by sorry
 
 -- ramifiedResiduePullback.test_units: e=3, identity residue extension of F_5.
 -- Additive.ofMul changes notation, so 3 • [2] is [2^3]=[3].
