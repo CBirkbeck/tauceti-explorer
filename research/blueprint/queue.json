@@ -33666,8 +33666,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.3",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6436"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6436",
+   "finishedAt": "2026-10-06T03:04:53Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.4",
@@ -33887,7 +33888,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.8",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6441"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.1-2",
