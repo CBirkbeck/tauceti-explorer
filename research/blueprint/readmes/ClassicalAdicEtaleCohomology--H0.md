@@ -4,6 +4,41 @@
 layers H4–H5 (constructibility in curve families and annuli, algebraic–analytic comparison and finiteness) are
 the other part of the roadmap.*
 
+## Coverage of this planning pass
+
+The packet is complete as a 300-node planning pass under PROTOCOL §0. Five stages are planned and three
+remain partial, with their missing targets listed below. No stage is closed. Definitions and constructions
+have 550 API items and 274 unit tests; there are 40 planets, 170 cited baseline declarations, 40 proof/source
+gaps and 37 supplier requests. Every implementation status remains unchecked.
+
+The additions cover arbitrary-preadic ℤ_p/ℚ_p local systems and analytic monodromy, the perfectoid limit
+comparison of Česnavičius §4.10, semistable formal p-torsion nearby cycles and the non-quasi-compact
+Bloch–Kato–Hyodo filtration of CDN §2.1.1, and arbitrary-dimensional traces with prime-to-residue duality.
+The integral trace export is exactly the classical input of Guo–Reinecke 7.16/7.17; its prismatic
+construction and Zavyalov’s mod-p duality are supplied by their respective roadmaps.
+
+The arbitrary-preadic local-system category uses affinoid descent before sheafiness. This does not extend
+the existing cohomology statements to all non-sheafy rings. The adic–Berkovich trace comparison uses rigid
+spaces over Spa(K,O_K); the older statements over a general higher-rank C⁺ retain their own hypotheses.
+In mixed characteristic, finite p-power coefficients are allowed for the smooth trace; classical
+Poincaré duality requires coefficients invertible in O_K.
+
+| Stage | Coverage | Remaining targets or refinements |
+|---|---|---|
+| H0 | planned | Refine the arbitrary-preadic and analytic-monodromy carrier imports with the SF.2/R0/R1/A1/D0 suppliers; no missing H0 target statement is hidden by this refinement. |
+| H1:henselian | planned | Apply the proposed perfectoid-limit suffix and refine its P5/H0/L2 interfaces without adding a P5 dependency to early affine or Noetherian comparisons. |
+| H1:formal-adic-comparison | planned | Assign and read the proposed algebraic semistable p-torsion BKH supplier, including the étale-local ramification endpoint; refine the completion transport and generic mate-coherence imports. |
+| H1:valuation-nearby-cycles | partial | Hub96 4.2.4 for a non-dominant Cartesian change of valuation base: the stage states the dominant case (valuative-base-change-for-nearby-cycles); the only public route (Orgogozo's modification theorem) uses de Jong alterations owned by AdicCoefficientsAndComparisons L5, which consumes this stage.; Proofs available only in Hub96 §4.2 (4.2.1–4.2.3 exact forms, the Gauss-valuation induction, 4.2.10 beyond the tame quotient, the 4.2.5 curve case) are gaps. |
+| H1:valuation-exports | partial | The finite-boundary alternative of Hub96 4.2.8–4.2.9 has no public statement and no node.; The exact hypotheses of Hub96 4.2.6–4.2.7 are not public; the nodes state publicly supported forms, and their correspondence with Huber's numbering is unverified. |
+| H1 | planned | No missing target statement; recorded proof gaps and supplier requests remain. |
+| H2 | planned | No missing target statement; recorded proof gaps and supplier requests remain. |
+| H3 | partial | The trace isomorphism and Poincaré duality for curves over Spa(C, C⁺) with C⁺ ≠ O_C and without local smooth models (Hub96 7.2.2, 7.5.3, plus-ring case) — the case ECD's proof of Theorem 24.1 uses — are not realised; the stage proves the O_C case and the case with local smooth models.; Proper base change for non-algebraizable proper adic spaces (Hub96 4.4.3), and the general higher-rank-point/compactifiable cohomological-dimension assertions (5.3.11, 5.5.8), remain beyond the old formal-model/ball cases and the new partially proper rigid 2d bound.; Gluing and properness of the universal compactification (Hub96 5.1.5, 5.1.6, 5.1.14) and the Huber–Berkovich comparison (§8.3) are gaps.; Close the explicitly requested integral inverse-limit trace proof and relative tensor/Hom/base-change coherence; read the Huber proofs imported by Zavyalov A.15/A.18 and 5.3.2. |
+
+The new source sections below supplement the earlier layer descriptions. The packet is authoritative
+for the current prerequisite lists and planet choices. It proposes an isolated
+H1:henselian:perfectoid-limit suffix; all of its nodes retain the current henselian parent until the
+proposal is accepted. H0 retains ownership of the general tilde-limit and coherent-site continuity.
+
 ## Purpose
 
 *Étale cohomology of diamonds* proves its six-functor formalism by reduction to classical statements about the
@@ -22,7 +57,7 @@ their diamond applications:
 - **invariance** under extension of an algebraically closed complete field (H2), in the form ECD Lemma 16.3
   uses, and geometric connectedness under base extension;
 - **proper-support direct images** in Huber's classical scope and the **trace and Poincaré duality** for smooth
-  curves (H3).
+  curves (H3), with arbitrary-dimensional rigid traces and prime-to-residue proper duality.
 
 ## Layers and their order
 
@@ -39,14 +74,14 @@ H1, H2, EtaleDualityAndPerverseSheaves EDC.2 → H3
 
 | Layer | Title | What it builds |
 |---|---|---|
-| H0 | Classical étale sheaves, stalks, and direct image | module sheaves, derived images, local systems, constructibility, supports, stalks, pseudo-adic sites, tilde-limits and continuity |
-| H1:henselian | Henselian pairs and approximation | henselian f-adic rings, affinoid and pro-special henselisations, Huber's §3.2 comparisons |
-| H1:formal-adic-comparison | Formal completion and the actual comparison map | the specialisation morphism, pseudo-adic supports, stalk formulas, i*Rj_* ≅ Rb_*a*, microbial bases, RΨ |
+| H0 | Classical étale sheaves, stalks, and direct image | analytic sheaf instances, integral and rational preadic local systems, analytic monodromy, supports, stalks, pseudo-adic sites, tilde-limits and continuity |
+| H1:henselian | Henselian pairs and approximation | henselian f-adic rings, affinoid and pro-special henselisations, Huber's §3.2 comparisons, isolated perfectoid-limit specialization |
+| H1:formal-adic-comparison | Formal completion and the actual comparison map | specialization, pseudo-adic supports, stalk formulas, completion comparison and its naturality, formal RΨ, semistable p-torsion BKH filtration |
 | H1:valuation-nearby-cycles | Arbitrary valuation bases, not just traits | nearby cycles over valuation bases, base change prime to the residue characteristic, constructibility |
 | H1:valuation-exports | Interfaces for analytic invariance and support | support triangles, invariance for surjective valuation maps, finiteness |
 | H1 | Formal models, specialization, and nearby-cycle comparison | the umbrella: comparisons of the sub-stages with each other and with LPV |
 | H2 | Invariance under extension of an algebraically closed valued field | Huber 4.1.1(c) in ECD 16.3's form, geometric connectedness |
-| H3 | Proper support, traces and Poincaré duality for curves | Rf_!, base change, dimension bound, curve trace and duality |
+| H3 | Proper support, traces and Poincaré duality for curves | Rf_!, base change, dimension bounds, curve duality, arbitrary-dimensional rigid trace, prime-to-residue proper duality, integral trace export |
 
 ## Prerequisites
 
@@ -162,7 +197,7 @@ category and no second notion of geometric point.
 
 ### H0.1 Étale and pro-étale sheaves of modules
 
-`ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules` (construction, planet *Étale sheaves of modules*). For X as in
+`ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules` (construction). For X as in
 Convention 1 and a ring Λ, `Sh(X_ét, Λ)` is a Grothendieck abelian category with enough injectives, equivalent to `SheafOfModules`
 over the constant sheaf `Λ_X`. It carries sections `Γ(U, −)` (left exact), constant sheaves `M_X` with `Hom(M_X, F) = Hom_Λ(M, F(X))`
 and `M_X(U) = LC(|U|, M)`, direct images `g_*` with `(g_*F)(U) = F(U ×_X X′)` and exact inverse images `g^{-1}` (base change is
@@ -188,7 +223,7 @@ Supporting lemmas:
 
 ### H0.2 Derived categories and derived direct images
 
-`ClassicalAdicEtaleCohomology:H0/derived-direct-image` (construction, planet *Derived direct image*). `D⁺(X_ét, Λ)`,
+`ClassicalAdicEtaleCohomology:H0/derived-direct-image` (construction). `D⁺(X_ét, Λ)`,
 `RΓ(U, −) := Γ(U, −).rightDerivedFunctorPlus`, `H^n(U, F) = R^nΓ(U, −)(F)` (Mathlib `Functor.rightDerived`, computed by any injective
 resolution), `Rg_* := (g_*).rightDerivedFunctorPlus`, `R^q g_*`, and `Rν_*`, `Rf_proét,*` on the pro-étale sites. Normalisations:
 `H⁰(U, F) = F(U)`; `H^n(X, F) ≅ Ext^n(Λ_X, F)` (Mathlib `Abelian.Ext`), which for Λ = ℤ is Mathlib's `Sheaf.H F n`;
@@ -2315,7 +2350,7 @@ and strictly henselian (Stacks 0DCQ, 0DCS).
 - ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles: quadruples, `RΨ`, `bc`, 4.2.4, 4.2.5,
   the Milnor-tube stalk formula and the amplitude bound.
 - ClassicalAdicEtaleCohomology:H1:formal-adic-comparison: 3.5.11, 3.5.13, 3.5.16, pairs
-  `d(X, L)`; the base-change naturality of 3.5.13/3.5.16 is a gap.
+  `d(X, L)`; base-change naturality is planned by completion-comparison-base-change-naturality, with the generic D0 mate-coherence proof requested.
 - ClassicalAdicEtaleCohomology:H0: points of `Spa(C, C^+)`, extension by zero, derived direct image.
 - UPSTREAM:ECD:SCH_BC, UPSTREAM:ECD:SCH_SHEAVES: proper base change, separably closed field
   invariance, finiteness over separably closed fields, cohomology with supports, topological
@@ -2465,7 +2500,2315 @@ With A as above, X → S locally of finite type, X̂ the completion of X along X
    LPV.1's monodromy operator is transported, not reconstructed. Tests: `analyticVariation_test_smooth_trivial`,
    `analyticVariation_test_cocycle`.
 
-#### Sources
+#### Added source interfaces
+
+These declarations retain the current eight-stage scope. General log algebra is imported from CR.5,
+general category-valued descent from D0, scheme local systems from SF.2, and preadic/Berkovich geometry
+from R0/R1/A1. The analytic covering category and analytic fundamental group are owned here, rather
+than routed to the scheme Galois category of IG.0. A rational system can have noncompact monodromy
+and no global integral lattice despite having local integral lattices.
+
+The perfectoid comparison visibly passes through Spec(R_j^h[1/p]), while its analytic stages are
+Spa(R_j[1/p],R_j). The common-ideal completed-colimit site theorem is the hypothesis allowing H0
+continuity; the topological clause of a tilde-limit alone does not imply it.
+
+For the formal BKH theorem, the special fibre has its canonical log structure. The U/V filtration
+is defined from mod-p² log symbols, and its associated graded is stated in additive étale sheaves.
+The strict bound 0<m<pe/(p−1) and the distinction p|m versus p∤m are essential. The cutoff includes
+an integral endpoint in the étale sheaf sense. The proof imports the algebraic BKH theorem and uses
+canonical completion-symbol maps to glue over an arbitrary semistable chart covering.
+
+For the trace, A.15 compares proper-support images only for θ^* of Berkovich complexes, and A.18
+identifies Berkovich sheaves with overconvergent adic sheaves. Neither is used to assert duality for
+arbitrary non-overconvergent adic complexes. The relative duality exports impose properness and finite
+local-coefficient hypotheses, and record their tensor/Hom and base-change coherence obligations.
+
+### H0: source additions
+
+#### Integral local systems on arbitrary preadic spaces
+
+`ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems` (definition)
+
+Fix a prime p and a preadic space X in the sense of Kedlaya–Liu §8.1. For every preadic affinoid covering U_i = Spã(A_i,A_i⁺), take descent data for finite-free ℤ_p-local systems on Spec(A_i): compatible inverse systems T_n of finite locally free ℤ/pⁿ-sheaves, with T_{n+1}/pⁿ ≅ T_n, and transition isomorphisms on affinoid coverings of U_i∩U_j satisfying the triple-overlap cocycle. The category PreadicSpace.ZpLocalSystem(X) consists of these data modulo common refinement, with morphisms descended on common refinements. It is the category of Definition 8.4.3, without a sheafiness or strong-noetherianness assumption on X. On a locally strongly sheafy analytic space it agrees with the finite-free part of H0/torsion-local-systems; a finitely generated ℤ_p-sheaf with p-torsion is not an integral lattice in this category.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R0`, `DiamondsAndVStacks:D0`, `ClassicalAdicEtaleCohomology:H0/torsion-local-systems`.
+
+Proof outline:
+
+1. Import the scheme integral-local-system category and its effective étale descent from SF.2.
+2. Use the preadic affinoid basis and intersections supplied by R0; take descent categories and identify refinements using D0 stack descent.
+3. On the sheafy subcategory use the finite-étale equivalence at every coefficient level, then retain the compatible transition maps.
+
+API:
+
+- `PreadicSpace.ZpLocalSystem` (structure): The refinement-invariant category described above.
+- `PreadicSpace.ZpLocalSystem.ofDescent` (constructor): Integral descent data on an affinoid cover give a local system.
+- `PreadicSpace.ZpLocalSystem.restrict` (functoriality): Restriction to a preadic open or an affinoid refinement preserves the inverse system and cocycle.
+- `PreadicSpace.ZpLocalSystem.pullback` (functoriality): Pullback along a preadic morphism, with canonical identity and composition isomorphisms.
+- `PreadicSpace.ZpLocalSystem.modPow` (projection): T ↦ T_n is finite locally free over ℤ/pⁿ and T_{n+1}/pⁿ ≅ T_n.
+- `PreadicSpace.ZpLocalSystem.equivLisse` (compatibility): On strongly sheafy analytic X, equivalence with finite-free lisse ℤ_p-systems in H0.
+
+Unit tests:
+
+- `preadicZp_constant` (computation): The trivial system of rank r has T_n = (ℤ/pⁿ)^r on every affinoid and identity overlap maps.
+- `preadicZp_empty` (degenerate): On the empty preadic space the category has one object and one morphism.
+- `preadicZp_lisse` (compatibility): The mod-pⁿ projection on a strongly sheafy analytic X agrees with the corresponding H0 finite-free lisse sheaf.
+- `preadicZp_torsion` (non-example): The constant ℤ/p-system is not a rank-one ℤ_p-local system: its next level does not give a free ℤ/p²-lattice.
+
+Uses: Kedlaya–Liu §8.4; PadicHodgeTheory:P8:local-rational: Rational local systems and integral lattices are the input to period-sheaf coefficients, before any period comparison..
+
+Acceptance: Fix a prime p and a preadic space X in the sense of Kedlaya–Liu §8.1. For every preadic affinoid covering U_i = Spã(A_i,A_i⁺), take descent data for finite-free ℤ_p-local systems on Spec(A_i): compatible inverse systems T_n of finite locally free ℤ/pⁿ-sheaves, with T_{n+1}/pⁿ ≅ T_n, and transition isomorphisms on affinoid coverings of U_i∩U_j satisfying the triple-overlap cocycle. The category PreadicSpace.ZpLocalSystem(X) consists of these data modulo common refinement, with morphisms descended on common refinements. It is the category of Definition 8.4.3, without a sheafiness or strong-noetherianness assumption on X. On a locally strongly sheafy analytic space it agrees with the finite-free part of H0/torsion-local-systems; a finitely generated ℤ_p-sheaf with p-torsion is not an integral lattice in this category.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Definition 8.4.3, pp. 167–168; Definition 1.4.1, p. 20.
+
+#### The isogeny category of integral local systems
+
+`ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems` (construction)
+
+For a prime p and preadic X, PreadicSpace.IsogenyZpLocalSystem(X) has the same objects as ZpLocalSystem(X) and Hom(T,T′) = Hom_Zp(T,T′) ⊗_ℤp ℚ_p, with bilinear composition, identity 1⊗id, tensor products and internal Hom induced from integral systems. This is rationalization of a category; it is not its stackification. A rational transition isomorphism and its inverse become integral after multiplication by some powers of p on every quasi-compact overlap where the underlying Hom has descended. The subsequent QpLocalSystem category is obtained by descent, and need not have a global integral lattice.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `SchemeAndStackFoundations:SF.2`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Rationalize integral morphism modules and their bilinear composition.
+2. Use the scheme isogeny category of KL §1.4 on every affinoid and transport its pullbacks.
+3. Retain the fully faithful embedding in its stackification rather than asserting effective descent for all covers.
+
+API:
+
+- `PreadicSpace.IsogenyZpLocalSystem` (structure): Integral objects with ℚ_p-rationalized morphisms.
+- `PreadicSpace.IsogenyZpLocalSystem.rationalize` (constructor): The tensor functor T ↦ T⊗ℚ_p.
+- `PreadicSpace.IsogenyZpLocalSystem.hom` (data): Hom is the scalar extension of the integral Hom module, with bilinear composition.
+- `PreadicSpace.IsogenyZpLocalSystem.pullback` (functoriality): Rationalization commutes with preadic pullback.
+- `PreadicSpace.IsogenyZpLocalSystem.toQp` (compatibility): The canonical fully faithful functor to QpLocalSystem(X).
+
+Unit tests:
+
+- `isogenyZp_rankOne` (computation): The endomorphisms of the trivial rank-one system on a connected geometric point are ℚ_p.
+- `isogenyZp_mulP` (characterisation): Multiplication by p becomes invertible, with inverse p⁻¹, although it is not an integral isomorphism.
+- `isogenyZp_zero` (degenerate): The zero system remains zero after rationalization.
+- `isogenyZp_notStackification` (non-example): A rational local system with noncompact monodromy on a Tate curve is outside the image of global integral rationalization.
+
+Uses: Kedlaya–Liu §8.4; PadicHodgeTheory:P8:local-rational: Rational local systems and integral lattices are the input to period-sheaf coefficients, before any period comparison..
+
+Acceptance: For a prime p and preadic X, PreadicSpace.IsogenyZpLocalSystem(X) has the same objects as ZpLocalSystem(X) and Hom(T,T′) = Hom_Zp(T,T′) ⊗_ℤp ℚ_p, with bilinear composition, identity 1⊗id, tensor products and internal Hom induced from integral systems. This is rationalization of a category; it is not its stackification. A rational transition isomorphism and its inverse become integral after multiplication by some powers of p on every quasi-compact overlap where the underlying Hom has descended. The subsequent QpLocalSystem category is obtained by descent, and need not have a global integral lattice.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §4, p. 103, paragraph before Definition 4.1.
+
+#### Rational local systems by affinoid descent
+
+`ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems` (definition); planet **Rational local systems**
+
+For a prime p and arbitrary preadic X, PreadicSpace.QpLocalSystem(X) is the category of descent data for scheme étale ℚ_p-local systems V_i on Spec(A_i), over preadic affinoid coverings Spã(A_i,A_i⁺), with restriction isomorphisms on affinoid coverings of intersections, cocycle on triple intersections, and identification under common refinements. Scheme ℚ_p-local systems here mean the étale stackification of the isogeny ℤ_p-local-system category, not arbitrary sheaves of discrete ℚ_p-vector spaces. Tensor product, dual, internal Hom and pullback are obtained by descent. Definition 8.4.3 applies to non-sheafy preadic spaces; comparison with sheaves on A1 sites is restricted to genuine strongly sheafy adic spaces. On affinoid spaces over an analytic field, compare with de Jong’s rational local systems through H0/analytic-rational-representation-equivalence.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems`, `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R0`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Import scheme ℚ_p-local systems as an étale stack, including refinement equivalences, from SF.2.
+2. Apply KL Definition 8.4.3 to the affinoid basis of a preadic space.
+3. Glue morphisms and tensor structures on common refinements; the restriction functors inherit identity and composition coherence.
+
+API:
+
+- `PreadicSpace.QpLocalSystem` (structure): The category of rational local systems by affinoid descent.
+- `PreadicSpace.QpLocalSystem.ofDescent` (constructor): Objects and cocycles on an affinoid cover define a rational local system.
+- `PreadicSpace.QpLocalSystem.refine` (equivalence): Common refinement induces an equivalence of the descent presentations.
+- `PreadicSpace.QpLocalSystem.pullback` (functoriality): Pullback preserves tensor products and duals, with coherent identity and composition maps.
+- `PreadicSpace.QpLocalSystem.rank` (projection): The finite rank is locally constant, determined by the affinoid scheme local systems.
+- `PreadicSpace.QpLocalSystem.rationalize` (constructor): An integral local system gives a rational local system by scalar extension.
+- `PreadicSpace.QpLocalSystem.homDescent` (extensionality): Morphisms are equal if their restrictions agree on a covering.
+
+Unit tests:
+
+- `preadicQp_field` (compatibility): On Spã(K,K⁺) for a complete field, the category agrees with continuous finite-dimensional ℚ_p-representations of Gal(K^sep/K).
+- `preadicQp_zero` (degenerate): Rank zero is the zero object, preserved by every pullback.
+- `preadicQp_refinement` (characterisation): Refining every affinoid of a trivial rank-one descent datum gives an isomorphic object with identity transitions.
+- `preadicQp_noncompact` (non-example): The rank-one rational local system on a Tate curve with generator acting by p has no global integral lattice.
+
+Uses: Kedlaya–Liu §8.4; PadicHodgeTheory:P8:local-rational: Rational local systems and integral lattices are the input to period-sheaf coefficients, before any period comparison..
+
+Acceptance: For a prime p and arbitrary preadic X, PreadicSpace.QpLocalSystem(X) is the category of descent data for scheme étale ℚ_p-local systems V_i on Spec(A_i), over preadic affinoid coverings Spã(A_i,A_i⁺), with restriction isomorphisms on affinoid coverings of intersections, cocycle on triple intersections, and identification under common refinements. Scheme ℚ_p-local systems here mean the étale stackification of the isogeny ℤ_p-local-system category, not arbitrary sheaves of discrete ℚ_p-vector spaces. Tensor product, dual, internal Hom and pullback are obtained by descent. Definition 8.4.3 applies to non-sheafy preadic spaces; comparison with sheaves on A1 sites is restricted to genuine strongly sheafy adic spaces. On affinoid spaces over an analytic field, compare with de Jong’s rational local systems through H0/analytic-rational-representation-equivalence.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Definition 8.4.3, p. 168.
+
+#### A finite étale factor near an analytic point
+
+`ClassicalAdicEtaleCohomology:H0/etale-cover-finite-factor-near-analytic-point` (lemma)
+
+Let (A,A⁺) be an adic Banach ring and Spec(A′)→Spec(A) a surjective étale morphism. For every α∈M(A) there is a rational localization (A,A⁺)→(B,B⁺) encircling α for which A′⊗_A B decomposes as a finite product of rings, with at least one factor faithfully finite étale over B. Encircling is the neighborhood notion of KL §2.4; replacing it by an arbitrary rational subset containing α loses the neighborhood assertion. The algebra A′⊗_A B is the algebraic base change of the scheme cover, not an unspecified completion.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R0`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Choose a prime of A′ over the support prime of α and extend the norm to its residue field.
+2. Apply the local Jacobian criterion and KL 2.4.17 to obtain a rational neighborhood on which the étale component has an invertible Jacobian.
+3. Separate the component and use the point lying above α to retain a faithfully finite étale factor, as in KL 8.4.1.
+
+Acceptance: For a faithfully finite étale A′/A, choose the identity localization and the whole A′ as the factor. A non-surjective open immersion need not supply a faithful factor near a point outside its image.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Lemma 8.4.1 and proof, p. 167.
+
+#### A scheme rational local system acquires a local lattice
+
+`ClassicalAdicEtaleCohomology:H0/scheme-rational-local-lattice` (lemma)
+
+Let (A,A⁺) be an adic Banach ring, V a scheme étale ℚ_p-local system on Spec(A), and α∈M(A). There is a rational localization (A,A⁺)→(B,B⁺) encircling α such that V|_Spec(B) is isomorphic to T⊗ℚ_p for an integral ℤ_p-local system T on Spec(B).
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/etale-cover-finite-factor-near-analytic-point`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems`.
+
+Proof outline:
+
+1. Present V étale-locally by isogeny integral systems using scheme stackification.
+2. Apply the finite-factor lemma near α.
+3. Apply effective descent of isogeny local systems along a faithfully finite étale ring map (KL Lemma 1.4.8), imported from SF.2.
+
+Acceptance: Let (A,A⁺) be an adic Banach ring, V a scheme étale ℚ_p-local system on Spec(A), and α∈M(A). There is a rational localization (A,A⁺)→(B,B⁺) encircling α such that V|_Spec(B) is isomorphic to T⊗ℚ_p for an integral ℤ_p-local system T on Spec(B).
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Lemma 8.4.2 and proof, p. 167.
+
+#### Adic and étale presentations of preadic local systems
+
+`ClassicalAdicEtaleCohomology:H0/preadic-local-system-etale-descent` (comparison)
+
+The integral and rational local-system categories of KL Definition 8.4.3 are unchanged if preadic étale covering families replace the adic open covering families in the descent presentation. The comparison functors preserve pullback, rank, tensor product and dual; on strongly sheafy spaces they agree with the corresponding local-system categories on A1’s ordinary étale site. The assertion extends the local-system categories, not every torsion cohomology theorem of H0, to arbitrary preadic spaces.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/etale-cover-finite-factor-near-analytic-point`, `AdicEtaleGeometry:A1`, `SchemeAndStackFoundations:SF.2`.
+
+Proof outline:
+
+1. Use local factorization of preadic étale maps into a rational localization and a finite étale map, supplied by A1.
+2. Descend integral systems along finite étale maps and rational systems along their stack descent.
+3. Compare on common refinements to construct inverse equivalences, as KL Remark 8.4.4.
+
+Acceptance: The integral and rational local-system categories of KL Definition 8.4.3 are unchanged if preadic étale covering families replace the adic open covering families in the descent presentation. The comparison functors preserve pullback, rank, tensor product and dual; on strongly sheafy spaces they agree with the corresponding local-system categories on A1’s ordinary étale site. The assertion extends the local-system categories, not every torsion cohomology theorem of H0, to arbitrary preadic spaces.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 8.4.4, p. 168.
+
+#### Bounded lattices in an integral local system
+
+`ClassicalAdicEtaleCohomology:H0/bounded-lattices-in-preadic-local-systems` (construction)
+
+For an integral ℤ_p-local system T on a preadic X and m≥0, define L_m(T)(Y) to be isomorphism classes of pairs (T′,ι), with T′ integral on Y and ι:T_Y⊗ℚ_p ≅ T′⊗ℚ_p satisfying p^mι∈Hom(T_Y,T′) and p^mι⁻¹∈Hom(T′,T_Y). It is represented by a finite étale preadic X-space. At a geometric point it is the finite set of lattices between p^m T_x and p^(−m)T_x; the two inequalities are both required. It has an inclusion relation represented by a finite étale subspace of L_m(T)×_X L_m(T) and a canonical operation taking the sum of finitely many bounded lattices. These are the analytic transports of KL Remark 1.4.7, used in Proposition 8.4.6.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems`, `SchemeAndStackFoundations:SF.2`, `AdicEtaleGeometry:A1`, `mathlib:Submodule`, `mathlib:Padic`, `mathlib:PadicInt`.
+
+Proof outline:
+
+1. Import the finite étale bounded-lattice scheme L_m(T), its inclusion relation and finite sums from SF.2 (KL Remark 1.4.7).
+2. Apply the finite-étale algebra/space correspondence of A1 on each affinoid.
+3. Glue along overlaps; base change of the finite mod-p-power lattice data gives representability without a sheafiness assumption on X.
+
+API:
+
+- `PreadicSpace.BoundedLattice` (structure): The moduli functor with bounds on ι and ι⁻¹.
+- `PreadicSpace.BoundedLattice.finiteEtale` (structure): L_m(T) is finite étale over X.
+- `PreadicSpace.BoundedLattice.pullback` (functoriality): L_m(T_Y) ≅ L_m(T)×_X Y.
+- `PreadicSpace.BoundedLattice.inclusion` (relation): The finite étale relation detects whether the rationally identified lattices are included.
+- `PreadicSpace.BoundedLattice.sup` (constructor): Finite lattice sums are canonical and compatible with base change.
+- `PreadicSpace.BoundedLattice.FiberCore` (structure): For submodules T,T′ of a ℚ_p-vector space with compatible ℤ_p scalar restriction, the geometric-fibre core is the conjunction p^mT⊆T′ and p^mT′⊆T. It records both bounds, without asserting finite freeness or representability.
+- `PreadicSpace.BoundedLattice.FiberCore.zero_iff` (characterisation): At m=0 the two-sided bound is equivalent to T=T′.
+- `PreadicSpace.BoundedLattice.FiberCore.refl` (constructor): Every submodule is two-sided bounded relative to itself at every nonnegative m.
+- `PreadicSpace.BoundedLattice.FiberCore.symm` (relation): The two-sided bound is symmetric in T,T′.
+- `PreadicSpace.BoundedLattice.FiberCore.trans` (relation): Bounds m and n compose to a bound m+n.
+- `PreadicSpace.BoundedLattice.FiberCore.mono` (relation): Increasing m preserves the two-sided bound.
+
+Unit tests:
+
+- `boundedLattice_zeroBound` (computation): L_0(T) has one point on each geometric fibre: the original lattice.
+- `boundedLattice_zeroRank` (degenerate): For T=0, L_m(T) is the terminal X-space for every m.
+- `boundedLattice_rankOne` (computation): For trivial rank one over a geometric point, L_m has 2m+1 points, the lattices p^aℤ_p with −m≤a≤m.
+- `boundedLattice_oneSided` (non-example): The condition p^mι integral alone admits arbitrarily large lattices; it does not define the finite L_m.
+- `boundedLatticeCore_zero` (computation): At bound zero the two-sided core identifies T and T′.
+- `boundedLatticeCore_zeroRank` (degenerate): The zero submodule is two-sided bounded with itself at every m.
+- `boundedLatticeCore_composition` (compatibility): Two successive bounds add, so a bound m and a bound n give m+n.
+
+Uses: Kedlaya–Liu §8.4; PadicHodgeTheory:P8:local-rational: Rational local systems and integral lattices are the input to period-sheaf coefficients, before any period comparison..
+
+Acceptance: For an integral ℤ_p-local system T on a preadic X and m≥0, define L_m(T)(Y) to be isomorphism classes of pairs (T′,ι), with T′ integral on Y and ι:T_Y⊗ℚ_p ≅ T′⊗ℚ_p satisfying p^mι∈Hom(T_Y,T′) and p^mι⁻¹∈Hom(T′,T_Y). It is represented by a finite étale preadic X-space. At a geometric point it is the finite set of lattices between p^m T_x and p^(−m)T_x; the two inequalities are both required. It has an inclusion relation represented by a finite étale subspace of L_m(T)×_X L_m(T) and a canonical operation taking the sum of finitely many bounded lattices. These are the analytic transports of KL Remark 1.4.7, used in Proposition 8.4.6.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Proof of Proposition 8.4.6, p. 168; Remark 1.4.7, pp. 21–22.
+
+#### Local integral lattices for preadic rational systems
+
+`ClassicalAdicEtaleCohomology:H0/preadic-rational-local-lattice` (theorem)
+
+For an adic Banach ring (A,A⁺), a rational local system V on Spã(A,A⁺), and α∈M(A), there is a rational localization (A,A⁺)→(B,B⁺) encircling α such that V|_Spã(B,B⁺) is an isogeny ℤ_p-local system. No global lattice and no strong-sheafiness assumption is asserted.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/bounded-lattices-in-preadic-local-systems`, `ClassicalAdicEtaleCohomology:H0/scheme-rational-local-lattice`, `ClassicalAdicEtaleCohomology:H0/etale-cover-finite-factor-near-analytic-point`, `SchemeAndStackFoundations:SF.2`, `AdicEtaleGeometry:A1`, `ClassicalAdicEtaleCohomology:H0/analytic-bounded-lattice-finite-quotient`.
+
+Proof outline:
+
+1. Represent bounded changes of lattice by L_m(T) using the previous construction and KL 8.2.17(a).
+2. Use henselian finite étale approximation (KL 1.2.8 and 2.4.17) to find a rational neighborhood and faithfully finite étale cover carrying a lattice with descent datum.
+3. Use KL 1.4.8 to descend the lattice up to isogeny.
+
+Acceptance: A constant ℚ_p-system has its constant integral lattice on the identity neighborhood. A noncompact global monodromy example still has local lattices.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Proposition 8.4.6 and proof, p. 168.
+
+#### Rational descent by isogeny lattices on a strong cover
+
+`ClassicalAdicEtaleCohomology:H0/preadic-rational-isogeny-descent` (theorem)
+
+Every rational local system on Spã(A,A⁺), for an adic Banach ring (A,A⁺), admits a descent presentation by isogeny ℤ_p-local systems on a strong rational covering family. Strong has KL’s affinoid meaning: the rational subsets encircle and cover M(A), with the corresponding preadic covering. Compactness yields a finite such family. Transition maps are rational isomorphisms satisfying the cocycle; they are not required to preserve the chosen integral lattices.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-lattice`, `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems`, `AdicSpacesPartII:R0`.
+
+Proof outline:
+
+1. Choose the neighborhoods of Proposition 8.4.6 for all points of M(A).
+2. Take a finite strong covering by compactness.
+3. Restrict V’s descent isomorphisms to intersections; the cocycle is inherited.
+
+Acceptance: Every rational local system on Spã(A,A⁺), for an adic Banach ring (A,A⁺), admits a descent presentation by isogeny ℤ_p-local systems on a strong rational covering family. Strong has KL’s affinoid meaning: the rational subsets encircle and cover M(A), with the corresponding preadic covering. Compactness yields a finite such family. Transition maps are rational isomorphisms satisfying the cocycle; they are not required to preserve the chosen integral lattices.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Corollary 8.4.7 and proof, p. 168.
+
+#### Integral local systems agree on Spec and preadic Spa
+
+`ClassicalAdicEtaleCohomology:H0/integral-spec-preadic-equivalence` (comparison)
+
+For every adic Banach ring (A,A⁺), the natural tensor functor ℤ_p-Loc(Spec A)→ZpLocalSystem(Spã(A,A⁺)) is an equivalence, and induces an equivalence on the isogeny categories. Its mod-pⁿ functors are the finite-étale algebra/space comparisons of A1. This does not assert an equivalence of the full étale topoi or an equivalence of their rational stackifications.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-isogeny-local-systems`, `SchemeAndStackFoundations:SF.2`, `AdicEtaleGeometry:A1`, `AdicSpacesPartII:R0`.
+
+Proof outline:
+
+1. Integral local systems are determined by compatible finite étale covers at every coefficient level (KL Remark 1.4.3).
+2. Apply effective rational-localization descent of finite étale algebras (KL Theorem 2.6.9), requested from R0/A1.
+3. Glue the compatible coefficient transitions, then rationalize morphisms.
+
+Acceptance: For every adic Banach ring (A,A⁺), the natural tensor functor ℤ_p-Loc(Spec A)→ZpLocalSystem(Spã(A,A⁺)) is an equivalence, and induces an equivalence on the isogeny categories. Its mod-pⁿ functors are the finite-étale algebra/space comparisons of A1. This does not assert an equivalence of the full étale topoi or an equivalence of their rational stackifications.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 8.4.5, p. 168.
+
+#### Rational Spec–Spa comparison is fully faithful
+
+`ClassicalAdicEtaleCohomology:H0/rational-spec-preadic-full-faithfulness` (comparison)
+
+For an adic Banach ring (A,A⁺), the natural tensor functor ℚ_p-Loc(Spec A)→QpLocalSystem(Spã(A,A⁺)) is fully faithful. It need not be essentially surjective, even for reduced affinoid algebras over an analytic field. When A is normal noetherian, source objects admit a global ℤ_p-lattice, whereas the analytic category can contain continuous representations of de Jong’s non-profinite analytic fundamental group with noncompact image. The latter are outside the source image.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-rational-isogeny-descent`, `ClassicalAdicEtaleCohomology:H0/integral-spec-preadic-equivalence`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence`.
+
+Proof outline:
+
+1. Use local isogeny lattice presentations on a finite strong rational cover.
+2. Descend rational Hom by integral descent after multiplying by one common p-power.
+3. For failure of essential surjectivity combine the normal-noetherian scheme global-lattice criterion with de Jong’s analytic representation description, as KL Remark 8.4.8.
+
+Acceptance: For an adic Banach ring (A,A⁺), the natural tensor functor ℚ_p-Loc(Spec A)→QpLocalSystem(Spã(A,A⁺)) is fully faithful. It need not be essentially surjective, even for reduced affinoid algebras over an analytic field. When A is normal noetherian, source objects admit a global ℤ_p-lattice, whereas the analytic category can contain continuous representations of de Jong’s non-profinite analytic fundamental group with noncompact image. The latter are outside the source image.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 8.4.8, pp. 168–169.
+
+#### Extensions of scheme isogeny systems descend from Spa
+
+`ClassicalAdicEtaleCohomology:H0/rational-extensions-descend-to-spec` (theorem)
+
+Let (A,A⁺) be an adic Banach ring and V_i=T_i⊗ℚ_p, i=1,2, isogeny integral local systems on Spec A. Every short exact sequence 0→V_1→V→V_2→0 in QpLocalSystem(Spã(A,A⁺)) is the pullback of an extension of isogeny ℤ_p-local systems on Spec A. This extension closure does not imply that every analytic rational local system has a global lattice.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-isogeny-descent`, `ClassicalAdicEtaleCohomology:H0/integral-spec-preadic-equivalence`, `ClassicalAdicEtaleCohomology:H0/rational-spec-preadic-full-faithfulness`, `SchemeAndStackFoundations:SF.2`.
+
+Proof outline:
+
+1. On a finite strong rational cover, write the extension classes in Ext(T_2,T_1)⊗ℚ_p.
+2. Rescale T_1 by a common power of p to make the classes integral and then to kill their overlap differences over B_i⊗̂_A B_j.
+3. Glue integral extensions on Spa and apply the integral Spec–Spa equivalence (KL Remark 8.4.9).
+
+Acceptance: Let (A,A⁺) be an adic Banach ring and V_i=T_i⊗ℚ_p, i=1,2, isogeny integral local systems on Spec A. Every short exact sequence 0→V_1→V→V_2→0 in QpLocalSystem(Spã(A,A⁺)) is the pullback of an extension of isogeny ℤ_p-local systems on Spec A. This extension closure does not imply that every analytic rational local system has a global lattice.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 8.4.9 and proof, p. 169.
+
+#### De Jong étale covering spaces
+
+`ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces` (definition)
+
+For a k-analytic Berkovich space X, an analytic étale covering map f:Y→X means that every x∈X has an ordinary open neighborhood U such that f⁻¹(U) is a disjoint union of spaces finite étale over U. A topological covering is the case where these finite étale pieces are isomorphisms. Cov_X is the category of these maps over X, including the empty map; it is not the category of all étale maps and is not silently enlarged to arbitrary disjoint unions. On Hausdorff strictly k-analytic spaces, transport this definition to the corresponding taut adic spaces via R1’s equivalence. For rigid affinoids use wide affinoid neighborhoods encircling analytic points, as de Jong §5.
+
+Prerequisites: `AdicSpacesPartII:R1`, `AdicEtaleGeometry:A1`, `SchemeAndStackFoundations:SF.2`.
+
+Proof outline:
+
+1. Use R1’s Berkovich carrier and finite-étale comparison.
+2. Define the local finite-étale condition on ordinary open neighborhoods.
+3. Transport the rigid version along the equivalence, retaining its neighborhood qualification.
+
+API:
+
+- `AdicSpace.AnalyticEtaleCover` (structure): The local disjoint-finite-étale condition and its category.
+- `AdicSpace.AnalyticEtaleCover.ofFiniteEtale` (constructor): Every finite étale map is an analytic covering.
+- `AdicSpace.AnalyticEtaleCover.ofTopological` (constructor): A topological covering with its canonical analytic structure is an analytic covering.
+- `AdicSpace.AnalyticEtaleCover.pullback` (functoriality): Coverings are stable under arbitrary analytic base change.
+- `AdicSpace.AnalyticEtaleCover.finiteCoproduct` (structure): Finite coproducts, including the empty covering, stay in Cov_X.
+- `AdicSpace.AnalyticEtaleCover.berkovichEquiv` (compatibility): Agreement with de Jong Definition 2.1 on Hausdorff strictly analytic spaces.
+
+Unit tests:
+
+- `analyticCover_identity` (degenerate): The identity and empty map are covering spaces.
+- `analyticCover_finite` (compatibility): A finite étale covering has the same fibres as A1’s finite étale space.
+- `analyticCover_open` (non-example): The open immersion of a nonempty proper open subset of connected X is not an analytic covering: its image is not a union of connected components.
+
+Uses: de Jong Theorems 2.10 and 4.2; KL Definition 8.4.3 and Remark 8.4.8: The covering category defines the analytic fibre functor and allows noncompact rational monodromy..
+
+Acceptance: For a k-analytic Berkovich space X, an analytic étale covering map f:Y→X means that every x∈X has an ordinary open neighborhood U such that f⁻¹(U) is a disjoint union of spaces finite étale over U. A topological covering is the case where these finite étale pieces are isomorphisms. Cov_X is the category of these maps over X, including the empty map; it is not the category of all étale maps and is not silently enlarged to arbitrary disjoint unions. On Hausdorff strictly k-analytic spaces, transport this definition to the corresponding taut adic spaces via R1’s equivalence. For rigid affinoids use wide affinoid neighborhoods encircling analytic points, as de Jong §5.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Definition 2.1, p. 91; §5, p. 106.
+
+#### Étale descent and quotients for analytic coverings
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-descent-and-quotients` (theorem)
+
+A sheaf of sets on X_ét is representable by a de Jong covering iff it is so after an étale covering of X. If Y→X is such a covering and R⊆Y×_X Y is an equivalence relation that is a union of connected components, then the quotient étale sheaf Y/R is representable by a de Jong covering. Coverings are separated and stable under base change; their images are unions of connected components. The quotient assertion retains the connected-component condition on R.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `SchemeAndStackFoundations:SF.2`, `DiamondsAndVStacks:D0`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-separatedness`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-base-change`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-image-components`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-componentwise-quotient`.
+
+Proof outline:
+
+1. Étale-locally reduce to a finite Galois covering of a neighborhood.
+2. A finite group preserves finite unions of the covering components, so scheme finite-étale descent constructs the local quotients.
+3. Glue the local representing spaces; use the same local finite-étale reduction for R, as de Jong Lemmas 2.2–2.4.
+
+Acceptance: A sheaf of sets on X_ét is representable by a de Jong covering iff it is so after an étale covering of X. If Y→X is such a covering and R⊆Y×_X Y is an equivalence relation that is a union of connected components, then the quotient étale sheaf Y/R is representable by a de Jong covering. Coverings are separated and stable under base change; their images are unions of connected components. The quotient assertion retains the connected-component condition on R.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Lemmas 2.2–2.4 with proofs, pp. 92–93.
+
+#### The fibre functor on analytic coverings
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-functor` (construction)
+
+For a geometric point x:M(K)→X with K algebraically closed complete, define F_x:Cov_X→Set by F_x(Y)=Y×_X M(K), viewed as its discrete set of K-points. Morphisms act by the induced maps on fibres. The functor preserves finite fibre products and existing disjoint unions. Its restrictions to finite étale and topological coverings define the algebraic and topological fibre functors. The same fibre functor on the corresponding taut adic space uses Spa(K,O_K); it agrees with A1’s geometric stalk on a represented covering.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `AdicEtaleGeometry:A1`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Use the splitting of finite étale spaces over an algebraically closed field on each local component.
+2. Take the resulting discrete fibre and induced maps.
+3. Identify the represented sheaf stalk with this fibre through A1 and R1.
+
+API:
+
+- `AdicSpace.AnalyticCoverFiber` (constructor): The fibre functor F_x on Cov_X.
+- `AdicSpace.AnalyticCoverFiber.map` (functoriality): Maps of coverings induce fibre maps respecting identity and composition.
+- `AdicSpace.AnalyticCoverFiber.pullback` (compatibility): A pointed analytic map identifies the fibre of a pulled-back covering.
+- `AdicSpace.AnalyticCoverFiber.stalk` (equivalence): F_x(Y) is the A1 geometric stalk of the represented covering sheaf.
+
+Unit tests:
+
+- `analyticFiber_identity` (computation): The identity covering has a singleton fibre.
+- `analyticFiber_empty` (degenerate): The empty covering has the empty fibre.
+- `analyticFiber_field` (compatibility): For X=M(k) and Y=M(L), L/k finite separable, the fibre is Hom_k(L,K).
+
+Uses: de Jong §2, definition of π₁ and Theorems 2.9–2.10: Automorphisms and paths of this fibre functor give analytic monodromy..
+
+Acceptance: For a geometric point x:M(K)→X with K algebraically closed complete, define F_x:Cov_X→Set by F_x(Y)=Y×_X M(K), viewed as its discrete set of K-points. Morphisms act by the induced maps on fibres. The functor preserves finite fibre products and existing disjoint unions. Its restrictions to finite étale and topological coverings define the algebraic and topological fibre functors. The same fibre functor on the corresponding taut adic space uses Spa(K,O_K); it agrees with A1’s geometric stalk on a represented covering.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, pp. 93–94, definition of F_x.
+
+#### De Jong analytic étale fundamental group
+
+`ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group` (definition); planet **Analytic fundamental group**
+
+For a connected k-analytic space X with geometric point x, define π₁^an(X,x)=Aut(F_x), where F_x is the fibre functor on de Jong covering spaces. Give it the topology whose identity neighborhoods are stabilizers H(Y,y) of y∈F_x(Y), Y∈Cov_X; finite intersections and conjugates again occur. This topological group need not be profinite. Restriction to finite étale coverings gives a continuous map to the profinite algebraic fundamental group π₁^alg; restriction to topological coverings gives the topological covering group. On taut strictly analytic adic spaces this is the transported analytic group. Scheme IG.0 is not a supplier for this definition.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-functor`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-descent-and-quotients`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Define automorphisms of the fibre functor and point stabilizers.
+2. Finite fibre products and the identity γH(Y,y)γ⁻¹=H(Y,γy) give a subgroup neighborhood basis.
+3. Use restriction of natural automorphisms for the algebraic and topological comparison maps.
+
+API:
+
+- `AdicSpace.AnalyticEtaleFundamentalGroup` (structure): Aut(F_x) with the stabilizer topology.
+- `AdicSpace.AnalyticEtaleFundamentalGroup.action` (data): The continuous action on every discrete covering fibre.
+- `AdicSpace.AnalyticEtaleFundamentalGroup.stabilizerBasis` (characterisation): H(Y,y) is a neighborhood basis at the identity.
+- `AdicSpace.AnalyticEtaleFundamentalGroup.map` (functoriality): Pointed analytic maps give continuous homomorphisms with identity and composition laws.
+- `AdicSpace.AnalyticEtaleFundamentalGroup.toAlgebraic` (compatibility): Restriction to finite coverings is the algebraic profinite comparison.
+- `AdicSpace.AnalyticEtaleFundamentalGroup.toTopological` (compatibility): Restriction to topological coverings is the topological comparison.
+
+Unit tests:
+
+- `analyticPi_field` (compatibility): For X=M(k), π₁^an is Gal(k^sep/k) with its profinite topology.
+- `analyticPi_geometricPoint` (degenerate): For X=M(C), C algebraically closed, π₁^an is trivial.
+- `analyticPi_nonProfinite` (non-example): For a Tate elliptic curve the topological quotient is ℤ; π₁^an cannot be replaced by its profinite finite-cover quotient.
+
+Uses: KL Remark 8.4.8; de Jong Theorem 4.2: Continuous finite-dimensional ℚ_p-representations need not have compact image..
+
+Acceptance: For a connected k-analytic space X with geometric point x, define π₁^an(X,x)=Aut(F_x), where F_x is the fibre functor on de Jong covering spaces. Give it the topology whose identity neighborhoods are stabilizers H(Y,y) of y∈F_x(Y), Y∈Cov_X; finite intersections and conjugates again occur. This topological group need not be profinite. Restriction to finite étale coverings gives a continuous map to the profinite algebraic fundamental group π₁^alg; restriction to topological coverings gives the topological covering group. On taut strictly analytic adic spaces this is the transported analytic group. Scheme IG.0 is not a supplier for this definition.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, definition of π₁ and topology, p. 94.
+
+#### Prodiscreteness of the analytic fundamental group
+
+`ClassicalAdicEtaleCohomology:H0/analytic-fundamental-group-prodiscreteness` (theorem)
+
+For π=π₁^an(X,x), the natural map π→lim_H π/H, over the point-stabilizer neighborhood system with quotient maps, is a homeomorphism of spaces. Thus π is Hausdorff and prodiscrete in de Jong’s sense. The stabilizers need not be normal and this formula is not a presentation as an inverse limit of finite groups.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-functor`, `mathlib:TopCat.limitCone`.
+
+Proof outline:
+
+1. A compatible system of cosets acts consistently on each covering fibre.
+2. The resulting permutations commute with all covering morphisms and hence define an element of Aut(F_x).
+3. Stabilizer neighborhoods identify the topology (de Jong Lemma 2.7).
+
+Acceptance: For π=π₁^an(X,x), the natural map π→lim_H π/H, over the point-stabilizer neighborhood system with quotient maps, is a homeomorphism of spaces. Thus π is Hausdorff and prodiscrete in de Jong’s sense. The stabilizers need not be normal and this formula is not a presentation as an inverse limit of finite groups.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Lemma 2.7 and proof, p. 94.
+
+#### Paths between analytic fibre functors
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-paths` (theorem)
+
+For a connected k-analytic Berkovich X and any geometric points x,x′, there exists a natural isomorphism F_x≅F_x′ on de Jong covering spaces. A choice induces a continuous isomorphism of analytic fundamental groups, unique up to inner conjugation; no canonical path is asserted.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-functor`, `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-descent-and-quotients`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Reduce to connected affinoid neighborhoods and use arcwise connectedness supplied by R1’s Berkovich geometry.
+2. For each finite open covering along an arc, compose paths in finite étale Galois categories on successive overlaps.
+3. The possible compositions form nonempty compact sets compatible under refinement; their inverse limit supplies the natural isomorphism (de Jong Theorem 2.9).
+
+Acceptance: For a connected k-analytic Berkovich X and any geometric points x,x′, there exists a natural isomorphism F_x≅F_x′ on de Jong covering spaces. A choice induces a continuous isomorphism of analytic fundamental groups, unique up to inner conjugation; no canonical path is asserted.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Theorem 2.9, p. 95; proof pp. 97–98.
+
+#### Duality for analytic coverings and continuous actions
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-duality` (theorem)
+
+For connected X with geometric point x, F_x:Cov_X→π₁^an(X,x)-Set is fully faithful and every transitive continuous discrete action occurs. The category of arbitrary disjoint unions of objects of Cov_X is equivalent to all continuous discrete π₁^an-sets. The original Cov_X itself is not asserted equivalent to all such sets: arbitrary disjoint unions need not satisfy the uniform local covering condition. Restriction to finite étale covers is an equivalence with finite continuous π₁^alg-sets.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-paths`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-descent-and-quotients`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-equivariant-morphisms`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-open-stabilizer-realization`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-disjoint-union-enlargement`.
+
+Proof outline:
+
+1. Paths identify connected components of a covering with group orbits on its fibre.
+2. Morphisms are recovered from componentwise graphs in fibre products, giving full faithfulness.
+3. For an open stabilizer construct the desired transitive orbit by quotienting a covering by a union of components, then take formal disjoint unions (de Jong Theorem 2.10(i)).
+
+Acceptance: The regular action of the discrete deck group of a connected topological Galois cover recovers that cover. Finite covering fibres agree with the ordinary finite-étale Galois category.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Theorem 2.10(i) and proof, pp. 95–96.
+
+#### The algebraic profinite quotient of analytic monodromy
+
+`ClassicalAdicEtaleCohomology:H0/analytic-fundamental-group-profinite-quotient` (theorem)
+
+The algebraic group π₁^alg(X,x) is profinite. Every continuous homomorphism π₁^an(X,x)→G to a profinite group factors uniquely through π₁^alg(X,x), and the canonical maps to π₁^alg and π₁^top have dense image. Surjectivity to π₁^alg is not asserted in general. A continuous representation on a finite-free ℤ_p-module factors through this quotient, since GL_r(ℤ_p) is profinite; a representation on ℚ_p may have noncompact image and need not do so.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-duality`, `SchemeAndStackFoundations:SF.2`, `ArithmeticGaloisDuality:R02.1`.
+
+Proof outline:
+
+1. Use finite covering duality for each finite quotient of G and pass to the profinite limit.
+2. The fully faithful inclusions of finite and topological covering categories give density (de Jong Theorem 2.10(iii)–(iv)).
+3. Apply the universal property to GL_r(ℤ_p), importing its profinite structure from R02.1.
+
+Acceptance: The algebraic group π₁^alg(X,x) is profinite. Every continuous homomorphism π₁^an(X,x)→G to a profinite group factors uniquely through π₁^alg(X,x), and the canonical maps to π₁^alg and π₁^top have dense image. Surjectivity to π₁^alg is not asserted in general. A continuous representation on a finite-free ℤ_p-module factors through this quotient, since GL_r(ℤ_p) is profinite; a representation on ℚ_p may have noncompact image and need not do so.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Theorem 2.10(iii)–(iv), pp. 95–96; Remark 2.11(i), p. 96.
+
+#### Analytic rational local systems and continuous representations
+
+`ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence` (comparison)
+
+For a connected k-analytic space X and geometric point x, the geometric fibre functor is a ℚ_p-linear tensor equivalence between de Jong’s étale ℚ_p-local systems (the stackification of integral systems after rationalizing morphisms) and continuous finite-dimensional ℚ_p-representations of π₁^an(X,x). On Hausdorff strictly analytic spaces this identifies KL Definition 8.4.3 with de Jong Definition 4.1. Integral rationalizations correspond exactly to representations admitting a π₁^an-stable ℤ_p-lattice; representations with noncompact image have none. The group is the analytic covering group, not the scheme group of Spec A.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-duality`, `ClassicalAdicEtaleCohomology:H0/analytic-fundamental-group-profinite-quotient`, `AdicSpacesPartII:R1`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H0/analytic-rational-lattice-cover`.
+
+Proof outline:
+
+1. The sheaf of lattices of a rational local system is represented locally by disjoint finite étale covers, hence globally by a de Jong covering by Lemma 2.3.
+2. Its fibre and the fibres of the universal integral system recover a continuous vector-space action.
+3. Conversely a continuous action acts on the discrete lattice set; choose an orbit and the associated covering, build its stable integral system, and descend its rationalization (de Jong Theorem 4.2).
+
+Acceptance: For a connected k-analytic space X and geometric point x, the geometric fibre functor is a ℚ_p-linear tensor equivalence between de Jong’s étale ℚ_p-local systems (the stackification of integral systems after rationalizing morphisms) and continuous finite-dimensional ℚ_p-representations of π₁^an(X,x). On Hausdorff strictly analytic spaces this identifies KL Definition 8.4.3 with de Jong Definition 4.1. Integral rationalizations correspond exactly to representations admitting a π₁^an-stable ℤ_p-lattice; representations with noncompact image have none. The group is the analytic covering group, not the scheme group of Spec A.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Definition 4.1 and Theorem 4.2 with proof, pp. 103–105.
+
+#### Open local integral lattices in the analytic setting
+
+`ClassicalAdicEtaleCohomology:H0/analytic-rational-open-lattices` (theorem)
+
+Every rational local system on a k-analytic Berkovich space has a presentation by integral lattices on ordinary open neighborhoods with rational overlap isomorphisms. At a point x, the compact absolute Galois group of H(x) stabilizes a lattice in the fibre; the lattice covering then has a point with H(y)=H(x), producing a local section. On affinoids this agrees with the encircling rational-neighborhood assertion of KL Proposition 8.4.6 through the Berkovich/preadic comparison.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-descent-and-quotients`, `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-lattice`, `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Use compactness of the pointwise Galois action to choose a stable lattice.
+2. Apply the locally finite-étale structure of the lattice covering to obtain a section on an ordinary neighborhood.
+3. Refine by wide affinoid neighborhoods to compare with KL (de Jong Corollary 4.4).
+
+Acceptance: Every rational local system on a k-analytic Berkovich space has a presentation by integral lattices on ordinary open neighborhoods with rational overlap isomorphisms. At a point x, the compact absolute Galois group of H(x) stabilizes a lattice in the fibre; the lattice covering then has a point with H(y)=H(x), producing a local section. On affinoids this agrees with the encircling rational-neighborhood assertion of KL Proposition 8.4.6 through the Berkovich/preadic comparison.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Corollary 4.4 and proof, p. 105.
+
+#### Noncompact rational monodromy
+
+`ClassicalAdicEtaleCohomology:H0/rational-monodromy-without-global-lattice` (application)
+
+Let E_q be a Tate elliptic curve over an algebraically closed complete nonarchimedean field of characteristic zero, with 0<|q|<1. The topological covering G_m^an→E_q has deck group q^ℤ≅ℤ. Compose π₁^an(E_q,x)→π₁^top(E_q,x)≅ℤ with a↦p^a∈ℚ_p×. The resulting rank-one rational local system has local integral lattices but no global integral lattice: p^ℤ is noncompact and multiplication by p cannot stabilize a nonzero finite-free ℤ_p-lattice of rank one. This is a discriminating example for rational stackification. The reduced-affinoid failure of rational Spec–Spa equivalence is the separate assertion of KL Remark 8.4.8, not a claim that E_q is affinoid.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence`, `ClassicalAdicEtaleCohomology:H0/analytic-rational-open-lattices`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ArithmeticGaloisDuality:R02.1`, `ClassicalAdicEtaleCohomology:H0/analytic-topological-covering-equivalence`.
+
+Proof outline:
+
+1. Import Tate uniformization and its topological covering from the analytic geometry supplier R1.
+2. Use de Jong’s representation equivalence for the rank-one action.
+3. A lattice p^bℤ_p is carried to p^(b+1)ℤ_p, so cannot be invariant under the generator.
+
+Acceptance: The noncompact system still has the local lattices of Proposition 8.4.6. On a geometric point every continuous Galois representation has a stable integral lattice.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 8.4.8, p. 169.
+
+#### Strict and full Berkovich étale topoi
+
+`ClassicalAdicEtaleCohomology:H0/berkovich-strict-etale-site-comparison` (comparison)
+
+For a Hausdorff strictly K-analytic Berkovich space Z, its strict étale site consists of étale Y→Z with Y strictly K-analytic, and jointly surjective families. The inclusion into the full Berkovich étale site induces an equivalence of topoi, as in Zavyalov A.13–A.14. This is an instance of the general basis/site comparison supplied by A1/D0, requested with this precise Berkovich carrier; it does not redefine the general sheaf category.
+
+Prerequisites: `AdicEtaleGeometry:A1`, `DiamondsAndVStacks:D0`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Import the strict Berkovich étale category and coverings from the geometry/site supplier.
+2. Use the local strictness/basis comparison to identify the full and strict topoi.
+3. Transport sheaves, stalks and derived cohomology along this equivalence.
+
+Acceptance: For a Hausdorff strictly K-analytic Berkovich space Z, its strict étale site consists of étale Y→Z with Y strictly K-analytic, and jointly surjective families. The inclusion into the full Berkovich étale site induces an equivalence of topoi, as in Zavyalov A.13–A.14. This is an instance of the general basis/site comparison supplied by A1/D0, requested with this precise Berkovich carrier; it does not redefine the general sheaf category.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The adic–Berkovich morphism of étale topoi
+
+`ClassicalAdicEtaleCohomology:H0/taut-adic-berkovich-site-morphism` (construction)
+
+For taut rigid X over Spa(K,O_K), θ_X:X_et→u(X)_et,s is induced by the functor sending a strict Berkovich étale Y→u(X) to s₀(Y)→X. The functor is well-defined because s₀ sends étale maps to partially proper étale adic maps. Denote its exact inverse image by θ_X^*. For f:X→Y between taut rigid spaces the square of θ_X,θ_Y,f,u(f) commutes, with the canonical pullback identification θ_X^*u(f)^*≅f^*θ_Y^*.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/berkovich-strict-etale-site-comparison`, `AdicEtaleGeometry:A1`, `DiamondsAndVStacks:D0`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`.
+
+Proof outline:
+
+1. Use the imported taut/strict geometry equivalence and its effect on étale maps.
+2. Apply the site-to-topos construction to the covering- and finite-limit-preserving functor.
+3. Compare the two composite site functors to obtain the naturality square and exact inverse image.
+
+API:
+
+- `AdicBerkovichToposMorphism` (structure): The morphism θ_X with its inducing site functor.
+- `AdicBerkovichToposMorphism.etaleObject` (constructor): Send Y→u(X) to s₀(Y)→X.
+- `AdicBerkovichToposMorphism.pullback` (projection): The exact inverse-image functor θ_X^* on abelian sheaves.
+- `AdicBerkovichToposMorphism.naturality` (functoriality): θ_X^*u(f)^*≅f^*θ_Y^*.
+- `AdicBerkovichToposMorphism.stalkMaximal` (compatibility): At a maximal geometric point, θ_X^* has the corresponding Berkovich stalk.
+- `AdicBerkovichToposMorphism.constant` (simp): θ_X^* preserves constant coefficient sheaves and their Tate twists.
+
+Unit tests:
+
+- `theta_constant` (computation): θ_X^*ℤ/n is the constant ℤ/n sheaf on X.
+- `theta_identity` (compatibility): For f=id the naturality identification is the identity coherence map.
+- `theta_field` (computation): For X=Spa(K,O_K) the comparison retains the continuous Galois action on the geometric stalk.
+
+Uses: Zavyalov Theorem A.15 and §5.3: Pulls the Berkovich proper-support trace to classical adic sheaves..
+
+Acceptance: For taut rigid X over Spa(K,O_K), θ_X:X_et→u(X)_et,s is induced by the functor sending a strict Berkovich étale Y→u(X) to s₀(Y)→X. The functor is well-defined because s₀ sends étale maps to partially proper étale adic maps. Denote its exact inverse image by θ_X^*. For f:X→Y between taut rigid spaces the square of θ_X,θ_Y,f,u(f) commutes, with the canonical pullback identification θ_X^*u(f)^*≅f^*θ_Y^*.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Overconvergent étale sheaves
+
+`ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves` (definition)
+
+For an analytic adic space X an abelian étale sheaf F is overconvergent when every specialization η₁→η₂ of geometric points induces an isomorphism F_{η₂}→F_{η₁}. Ab_ov(X_et) is the full subcategory of such sheaves. The quantifier includes geometric points with higher-rank plus rings and their specialization maps; it is not only a condition on closed points or on a chosen rank-one subspace.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Use A1 geometric-point specialization maps and H0 stalk functors.
+2. Define the specialization-isomorphism property and the full subcategory.
+3. Prove invariance under sheaf isomorphism and restriction.
+
+API:
+
+- `OverconvergentEtaleSheaf` (structure): The full subcategory Ab_ov(X_et).
+- `OverconvergentEtaleSheaf.specializationIso` (projection): The stalk isomorphism for every geometric specialization.
+- `OverconvergentEtaleSheaf.ofStalkIsos` (constructor): Construct the overconvergence property from the full family of specialization isomorphisms.
+- `OverconvergentEtaleSheaf.restrict` (functoriality): Restriction preserves all specialization isomorphisms.
+- `OverconvergentEtaleSheaf.isoInvariant` (relation): Overconvergence is invariant under sheaf isomorphism.
+
+Unit tests:
+
+- `overconvergent_constant` (computation): A constant abelian sheaf is overconvergent.
+- `overconvergent_empty` (degenerate): The condition is vacuous on the empty space.
+- `overconvergent_higherRank` (compatibility): The definition tests specializations with a higher-rank plus ring, rather than silently dropping them.
+
+Uses: Zavyalov A.18–A.19 and proof of Theorem 5.3.3: Identifies the essential image of θ^* and allows trace maps to be checked on maximal stalks..
+
+Acceptance: For an analytic adic space X an abelian étale sheaf F is overconvergent when every specialization η₁→η₂ of geometric points induces an isomorphism F_{η₂}→F_{η₁}. Ab_ov(X_et) is the full subcategory of such sheaves. The quantifier includes geometric points with higher-rank plus rings and their specialization maps; it is not only a condition on closed points or on a chosen rank-one subspace.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Berkovich sheaves equal overconvergent adic sheaves
+
+`ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence` (comparison)
+
+For a taut rigid K-space X, θ_X^*:Ab(u(X)_et,s)→Ab(X_et) is fully faithful with essential image exactly Ab_ov(X_et), hence induces an equivalence with that full subcategory. It does not assert an equivalence between all adic étale sheaves and Berkovich sheaves. This is Zavyalov Lemma A.18, importing Huber 8.3.5.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/taut-adic-berkovich-site-morphism`, `ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves`, `AdicSpacesPartII:R1`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Use the specialization description of θ_X^* to land in Ab_ov.
+2. Import the Huber 8.3.5 descent/essential-image theorem with its exact overconvergence condition.
+3. Restrict the fully faithful inverse-image functor to its essential image.
+
+Acceptance: For a taut rigid K-space X, θ_X^*:Ab(u(X)_et,s)→Ab(X_et) is fully faithful with essential image exactly Ab_ov(X_et), hence induces an equivalence with that full subcategory. It does not assert an equivalence between all adic étale sheaves and Berkovich sheaves. This is Zavyalov Lemma A.18, importing Huber 8.3.5.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Maximal stalks detect maps of overconvergent sheaves
+
+`ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks` (lemma)
+
+On a taut rigid X, equality of two morphisms between overconvergent abelian sheaves can be checked at geometric points over maximal points of X. A morphism between them is an isomorphism if and only if those maximal geometric stalk maps are isomorphisms. Every geometric point specializes along its unique maximal generalization and overconvergence transports the stalk test; this does not say that an arbitrary unrelated family of stalk maps extends to a sheaf morphism.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves`, `ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence`, `AdicSpacesPartII:R0`, `ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs`.
+
+Proof outline:
+
+1. Import maximal generalization of points in the rigid locally spectral carrier.
+2. Use overconvergence to transport both maps to the maximal stalk.
+3. Apply the enough-points criterion on the full adic étale topos.
+
+Acceptance: On a taut rigid X, equality of two morphisms between overconvergent abelian sheaves can be checked at geometric points over maximal points of X. A morphism between them is an isomorphism if and only if those maximal geometric stalk maps are isomorphisms. Every geometric point specializes along its unique maximal generalization and overconvergence transports the stalk test; this does not say that an arbitrary unrelated family of stalk maps extends to a sheaf morphism.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Pullback preserves overconvergent sheaves
+
+`ClassicalAdicEtaleCohomology:H0/overconvergent-pullback-preservation` (lemma)
+
+For a morphism of analytic adic spaces f:X→Y, f^* sends overconvergent abelian sheaves to overconvergent sheaves: each specialization of geometric points of X maps to a specialization over Y and the corresponding stalk map is the pullback of the original isomorphism. On taut rigid spaces this agrees with the θ-naturality identification whenever the Berkovich realization is available.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves`, `ClassicalAdicEtaleCohomology:H0/taut-adic-berkovich-site-morphism`, `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`.
+
+Proof outline:
+
+1. Use the stalk formula for inverse image under a geometric morphism.
+2. Transport specialization along f and use the defining stalk isomorphisms.
+3. Compare with θ-naturality on the taut rigid subcategory.
+
+Acceptance: For a morphism of analytic adic spaces f:X→Y, f^* sends overconvergent abelian sheaves to overconvergent sheaves: each specialization of geometric points of X maps to a specialization over Y and the corresponding stalk map is the pullback of the original isomorphism. On taut rigid spaces this agrees with the θ-naturality identification whenever the Berkovich realization is available.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Analytic covering maps are separated
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-separatedness` (lemma)
+
+A de Jong étale covering Y→X is separated. On an ordinary neighbourhood where it is a disjoint union of finite étale spaces, each diagonal is closed and the disjoint-component diagonal is closed; separatedness then descends over the open covering of X.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Reduce to the local disjoint finite-étale presentation.
+2. Check the diagonal on each pair of components and use the local criterion for separatedness.
+
+Acceptance: A de Jong étale covering Y→X is separated. On an ordinary neighbourhood where it is a disjoint union of finite étale spaces, each diagonal is closed and the disjoint-component diagonal is closed; separatedness then descends over the open covering of X.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Base change of analytic coverings
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-base-change` (lemma)
+
+For an arbitrary analytic map X′→X and a de Jong covering Y→X, Y×_X X′→X′ is again a covering. Pull back the ordinary neighbourhoods and their disjoint finite-étale presentations; base change of each finite étale piece is finite étale.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `AdicEtaleGeometry:A1`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Pull back a neighbourhood presentation around the image of a point of X′.
+2. Use finite-étale base change on every piece; their disjoint union is the full preimage.
+
+Acceptance: For an arbitrary analytic map X′→X and a de Jong covering Y→X, Y×_X X′→X′ is again a covering. Pull back the ordinary neighbourhoods and their disjoint finite-étale presentations; base change of each finite étale piece is finite étale.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Images of analytic coverings are unions of components
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-image-components` (lemma)
+
+The image of a de Jong covering Y→X is a union of connected components of X. In particular, on connected X any nonempty covering is surjective. This follows from the locally constant image condition of finite étale pieces, with the uniform ordinary neighbourhood in the covering definition.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `AdicSpacesPartII:R1`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. On a connected small neighbourhood each nonempty finite étale component is surjective.
+2. The image and its complement are locally open; propagate along connected components.
+
+Acceptance: The image of a de Jong covering Y→X is a union of connected components of X. In particular, on connected X any nonempty covering is surjective. This follows from the locally constant image condition of finite étale pieces, with the uniform ordinary neighbourhood in the covering definition.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Representability of analytic coverings is étale local
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent` (theorem)
+
+An étale sheaf on X_et is represented by a de Jong covering if and only if its pullback to each member of an étale covering of X is so. Effective descent retains a single ordinary neighbourhood on which all fibres are a disjoint union of finite étale pieces; arbitrary sheaf representability alone would not prove this covering condition.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `SchemeAndStackFoundations:SF.2`, `DiamondsAndVStacks:D0`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Reduce the descent map locally to a finite étale Galois covering.
+2. For each component take its finite orbit under the finite descent group.
+3. Descend those finite étale unions and glue them over ordinary neighbourhoods, as de Jong Lemma 2.3.
+
+Acceptance: An étale sheaf on X_et is represented by a de Jong covering if and only if its pullback to each member of an étale covering of X is so. Effective descent retains a single ordinary neighbourhood on which all fibres are a disjoint union of finite étale pieces; arbitrary sheaf representability alone would not prove this covering condition.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Componentwise equivalence-relation quotients of coverings
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-componentwise-quotient` (theorem)
+
+For a de Jong covering Y→X and an equivalence relation R which is a union of connected components of Y×_X Y, the étale quotient sheaf Y/R is represented by a de Jong covering. Locally reduce to finite étale pieces and quotient by the descended relation; the component condition is essential to that reduction.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-base-change`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent`, `SchemeAndStackFoundations:SF.2`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. After finite étale base change split the local finite pieces.
+2. The componentwise relation descends to a relation on the discrete pieces.
+3. Construct their quotients and apply effective étale descent, as de Jong Lemma 2.4.
+
+Acceptance: For a de Jong covering Y→X and an equivalence relation R which is a union of connected components of Y×_X Y, the étale quotient sheaf Y/R is represented by a de Jong covering. Locally reduce to finite étale pieces and quotient by the descended relation; the component condition is essential to that reduction.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### A covering morphism is determined by one fibre
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-faithfulness` (lemma)
+
+For connected X and a geometric base point x, two maps between de Jong coverings agreeing on F_x agree everywhere. Use paths F_x≅F_z at every geometric point z, natural in covering maps, then the enough-points criterion for the represented étale sheaves.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-functor`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-paths`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Transport equality along a chosen covering path to each geometric point.
+2. Apply equality detection on the étale sheaf of covering morphisms.
+
+Acceptance: For connected X and a geometric base point x, two maps between de Jong coverings agreeing on F_x agree everywhere. Use paths F_x≅F_z at every geometric point z, natural in covering maps, then the enough-points criterion for the represented étale sheaves.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Connected coverings and fibre orbits
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-connected-orbits` (lemma)
+
+For connected X, the fibres of connected components of a de Jong covering are exactly the π₁^an-orbits in F_x(Y). Connected coverings therefore have transitive fibre action, and their geometric points all lie above X. This is the connected-component/orbit step in the proof of de Jong 2.10.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-paths`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-image-components`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-base-change`.
+
+Proof outline:
+
+1. Use path transport to identify the points over different base points in a connected covering component.
+2. Use fibre-functor automorphisms to identify the orbit over the fixed base point.
+3. Apply the component image lemma for surjectivity.
+
+Acceptance: For connected X, the fibres of connected components of a de Jong covering are exactly the π₁^an-orbits in F_x(Y). Connected coverings therefore have transitive fibre action, and their geometric points all lie above X. This is the connected-component/orbit step in the proof of de Jong 2.10.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Realization of a transitive open-stabilizer action
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-open-stabilizer-realization` (theorem)
+
+For π=π₁^an(X,x) and an open subgroup H⊆π, the continuous transitive discrete action π/H is represented by a connected de Jong covering. Choose a pointed covering whose stabilizer is contained in H and quotient by the union of fibre-product components corresponding to H; the quotient is representable by the componentwise quotient theorem.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-fundamental-group`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-connected-orbits`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-componentwise-quotient`.
+
+Proof outline:
+
+1. Use the stabilizer neighbourhood basis to find the chosen pointed covering.
+2. Translate the H-orbit equivalence relation to a union of connected components of its fibre product.
+3. Take the represented quotient and identify its fibre with π/H.
+
+Acceptance: For π=π₁^an(X,x) and an open subgroup H⊆π, the continuous transitive discrete action π/H is represented by a connected de Jong covering. Choose a pointed covering whose stabilizer is contained in H and quotient by the union of fibre-product components corresponding to H; the quotient is representable by the componentwise quotient theorem.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Equivariant fibre maps come from covering morphisms
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-equivariant-morphisms` (theorem)
+
+For connected X and de Jong coverings Y,Z, every π₁^an-equivariant map F_x(Y)→F_x(Z) is induced by a unique analytic covering map Y→Z over X. Its graph is a union of components of Y×_X Z; projection to Y is an isomorphism by the fibre criterion and path transport.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-covering-fiber-faithfulness`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-connected-orbits`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-base-change`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-componentwise-quotient`.
+
+Proof outline:
+
+1. Build the graph as the corresponding union of fibre-product components.
+2. Show its projection to Y is bijective on every fibre by paths.
+3. Use local finite-étale presentations to turn the fibrewise bijection into an isomorphism.
+
+Acceptance: For connected X and de Jong coverings Y,Z, every π₁^an-equivariant map F_x(Y)→F_x(Z) is induced by a unique analytic covering map Y→Z over X. Its graph is a union of components of Y×_X Z; projection to Y is an isomorphism by the fibre criterion and path transport.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Disjoint-union enlargement of the covering category
+
+`ClassicalAdicEtaleCohomology:H0/analytic-covering-disjoint-union-enlargement` (comparison)
+
+The category of arbitrary analytic disjoint unions of objects of Cov_X, with maps over X, is equivalent via F_x to all continuous discrete π₁^an-sets: decompose an action into transitive orbits, realize each orbit, and take their disjoint union in analytic spaces. Such a union need not be an object of Cov_X because one uniform ordinary neighbourhood may fail for its infinitely many components.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-covering-open-stabilizer-realization`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-equivariant-morphisms`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Decompose a discrete continuous action into open-stabilizer orbits.
+2. Realize each orbit and take the analytic disjoint union.
+3. Use full faithfulness componentwise; retain the distinction from Cov_X itself.
+
+Acceptance: The category of arbitrary analytic disjoint unions of objects of Cov_X, with maps over X, is equivalent via F_x to all continuous discrete π₁^an-sets: decompose an action into transitive orbits, realize each orbit, and take their disjoint union in analytic spaces. Such a union need not be an object of Cov_X because one uniform ordinary neighbourhood may fail for its infinitely many components.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### The analytic covering of integral lattices
+
+`ClassicalAdicEtaleCohomology:H0/analytic-rational-lattice-cover` (construction)
+
+For an étale ℚ_p-local system V on a k-analytic X, let Lat(V) be the étale sheaf whose sections are finite-free integral ℤ_p-lattices in V, with inclusion after rationalization equal to V. It is represented by a de Jong covering: locally choose an integral presentation T, and express its lattice sheaf as the disjoint union of finite étale bounded-lattice strata. Étale-local representability then gives a global analytic covering. This construction allows Lat(V) to lack a global section.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/preadic-rational-local-systems`, `ClassicalAdicEtaleCohomology:H0/bounded-lattices-in-preadic-local-systems`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent`, `SchemeAndStackFoundations:SF.2`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Use local integral presentations of the rational system.
+2. Decompose lattices into strata lying between p^mT and p^(−m)T, using finite-level integral lattices.
+3. Apply effective descent for analytic coverings.
+
+API:
+
+- `AnalyticRationalLatticeCover` (structure): The represented covering Lat(V)→X.
+- `AnalyticRationalLatticeCover.fiber` (projection): At x its points are ℤ_p-lattices in the rational fibre V_x.
+- `AnalyticRationalLatticeCover.boundedStratum` (constructor): The locally finite étale stratum determined by a chosen integral presentation and finite two-sided bounds.
+- `AnalyticRationalLatticeCover.universalLattice` (data): The tautological integral system on Lat(V) rationalizes to the pullback of V.
+- `AnalyticRationalLatticeCover.pullback` (functoriality): Lat(f^*V)≅Lat(V)×_X X′.
+- `AnalyticRationalLatticeCover.section` (characterisation): Global sections correspond to global integral lattices in V.
+
+Unit tests:
+
+- `latticeCover_rankZero` (degenerate): For V=0 the lattice cover is X with its unique zero lattice.
+- `latticeCover_rankOnePoint` (computation): For trivial rank-one V at a geometric point, the lattice set is {p^aℤ_p | a∈ℤ}.
+- `latticeCover_noncompact` (non-example): The Tate-curve p^ℤ monodromy system has no section of its lattice cover.
+
+Uses: de Jong Theorem 4.2 and Corollary 4.4: The tautological lattice proves the representation equivalence and ordinary-open local lattices..
+
+Acceptance: For an étale ℚ_p-local system V on a k-analytic X, let Lat(V) be the étale sheaf whose sections are finite-free integral ℤ_p-lattices in V, with inclusion after rationalization equal to V. It is represented by a de Jong covering: locally choose an integral presentation T, and express its lattice sheaf as the disjoint union of finite étale bounded-lattice strata. Étale-local representability then gives a global analytic covering. This construction allows Lat(V) to lack a global section.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Proof of Theorem 4.2, pp. 103–104.
+
+#### A monodromy orbit of lattices is a connected cover
+
+`ClassicalAdicEtaleCohomology:H0/analytic-lattice-orbit-cover` (lemma)
+
+For connected X, a lattice L⊂V_x has an open stabilizer under a continuous π₁^an-action. Its orbit in Lat(V)_x corresponds to a connected de Jong covering carrying the universal stable lattice, whose rationalization is the pulled-back V. The orbit can be infinite; the stabilizer need not have finite index.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-rational-lattice-cover`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-open-stabilizer-realization`, `ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence`.
+
+Proof outline:
+
+1. Use continuity of the rational action and openness of GL(L) in GL(V_x).
+2. Realize the discrete lattice orbit by the open-stabilizer covering.
+3. Restrict the tautological integral system from Lat(V).
+
+Acceptance: For connected X, a lattice L⊂V_x has an open stabilizer under a continuous π₁^an-action. Its orbit in Lat(V)_x corresponds to a connected de Jong covering carrying the universal stable lattice, whose rationalization is the pulled-back V. The orbit can be infinite; the stabilizer need not have finite index.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §2, Lemmas 2.2–2.7 and Theorem 2.10; §4, proof of Theorem 4.2.
+
+#### Global integral lattices and compact monodromy
+
+`ClassicalAdicEtaleCohomology:H0/analytic-global-lattice-monodromy-criterion` (theorem)
+
+For connected analytic X and a finite-dimensional continuous ℚ_p-local system V, a global integral ℤ_p-lattice exists if and only if the image of π₁^an in GL(V_x) is relatively compact (equivalently its closure is compact). A stable lattice places the image in GL_r(ℤ_p); conversely a compact closure stabilizes a lattice by the general p-adic linear-algebra input. This criterion is for analytic local systems, and does not force all rational monodromy to be compact.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-rational-representation-equivalence`, `ClassicalAdicEtaleCohomology:H0/analytic-rational-lattice-cover`, `ClassicalAdicEtaleCohomology:H0/analytic-fundamental-group-profinite-quotient`, `ArithmeticGaloisDuality:R02.1`.
+
+Proof outline:
+
+1. A global lattice gives a section of Lat(V) and a stable fibre lattice.
+2. Apply the compact-image stable-lattice lemma from the linear representation supplier.
+3. Use the representation equivalence to descend the stable lattice to X.
+
+Acceptance: For connected analytic X and a finite-dimensional continuous ℚ_p-local system V, a global integral ℤ_p-lattice exists if and only if the image of π₁^an in GL(V_x) is relatively compact (equivalently its closure is compact). A stable lattice places the image in GL_r(ℤ_p); conversely a compact closure stabilizes a lattice by the general p-adic linear-algebra input. This criterion is for analytic local systems, and does not force all rational monodromy to be compact.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), §4, proof of Theorem 4.2 and Corollary 4.4, pp. 104–105.
+
+#### Bounded lattice strata are controlled by finite quotients
+
+`ClassicalAdicEtaleCohomology:H0/analytic-bounded-lattice-finite-quotient` (lemma)
+
+For an integral system T and m≥0, a lattice T′ with p^mT⊆T′⊆p^(−m)T is determined by the submodule T′/p^mT of the finite locally free quotient p^(−m)T/p^mT. The freeness and lattice conditions select a finite locally constant subset of the finite submodule set. Thus the two-sided bounded-lattice stratum is finite étale locally and globally represented by the corresponding finite étale preadic space.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/bounded-lattices-in-preadic-local-systems`, `ClassicalAdicEtaleCohomology:H0/preadic-integral-local-systems`, `SchemeAndStackFoundations:SF.2`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Recover T′ as the preimage of its quotient submodule.
+2. Check lattice/freeness after an integral trivializing cover.
+3. Use the finite-étale algebra/space correspondence and integral descent.
+
+Acceptance: For an integral system T and m≥0, a lattice T′ with p^mT⊆T′⊆p^(−m)T is determined by the submodule T′/p^mT of the finite locally free quotient p^(−m)T/p^mT. The freeness and lattice conditions select a finite locally constant subset of the finite submodule set. Thus the two-sided bounded-lattice stratum is finite étale locally and globally represented by the corresponding finite étale preadic space.
+
+Sources: [KedlayaLiu-RelativeFoundations-2015](https://arxiv.org/abs/1301.0792), Remark 1.4.7 and proof of Proposition 8.4.6.
+
+#### Analytic and underlying topological coverings
+
+`ClassicalAdicEtaleCohomology:H0/analytic-topological-covering-equivalence` (comparison)
+
+The category of topological analytic covering spaces of a k-analytic X is equivalent to the category of topological covering spaces of |X|. A topological covering T→|X| defines the étale sheaf U↦Hom_|X|(|U|,T); étale-local covering representability equips T with its unique analytic covering structure. Thus π₁^top depends only on (|X|,x), as required by the Tate-curve monodromy example.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/analytic-etale-covering-spaces`, `ClassicalAdicEtaleCohomology:H0/analytic-covering-effective-etale-descent`, `AdicSpacesPartII:R1`, `AdicEtaleGeometry:A1`.
+
+Proof outline:
+
+1. Construct the sheaf of continuous lifts to the underlying covering.
+2. Apply de Jong Lemma 2.3 locally, then glue the represented analytic covering.
+3. Check that taking underlying spaces and this construction are inverse.
+
+Acceptance: The category of topological analytic covering spaces of a k-analytic X is equivalent to the category of topological covering spaces of |X|. A topological covering T→|X| defines the étale sheaf U↦Hom_|X|(|U|,T); étale-local covering representability equips T with its unique analytic covering structure. Thus π₁^top depends only on (|X|,x), as required by the Tate-curve monodromy example.
+
+Sources: [deJong-AnalyticFundamentalGroups-1995](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf), Lemma 2.6 and proof, p. 93.
+
+### H1:henselian: source additions
+
+#### Noetherian models of an integral perfectoid ring
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-noetherian-approximation` (construction)
+
+Let R be a p-torsion-free integral perfectoid ℤ_p-algebra with R = (R[1/p])°, and put X = Spa(R[1/p],R). Choose the filtered system of finite-type ℤ_p-subalgebras R_j of R, enlarged to their integral closures in R_j[1/p]. Write R_j^h for the henselization along p. The inclusions R_j → R extend uniquely to R_j^h → R, and R = colim_j R_j^h as rings. The adic system X_j = Spa(R_j[1/p],R_j) has common ideal of definition (p); its completed colimit presents X. This is approximation data, not a claim that R is Noetherian or that X is an ordinary categorical inverse limit.
+
+Prerequisites: `PerfectoidSpaces:P5`, `AdicSpacesPartII:R0`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H1:henselian/henselian-f-adic-rings-and-henselization`.
+
+Proof outline:
+
+1. Use finite-type subalgebras and Noetherian normalization to obtain integrally closed finite stages.
+2. Completeness makes (R,pR) henselian, so the finite-stage henselizations map into R.
+3. Every element of R already belongs to a finite-type subalgebra; compatibility gives the asserted filtered colimit. Keep the completion and analytic topology as additional data.
+
+API:
+
+- `PerfectoidHuberApproximation` (structure): The filtered rings R_j, their henselizations, common p-adic ideal, transition maps and maps into R.
+- `PerfectoidHuberApproximation.henselianMap` (constructor): The unique extension R_j^h → R of R_j → R.
+- `PerfectoidHuberApproximation.ringColimit` (universal-property): R ≅ colim R_j^h as rings.
+- `PerfectoidHuberApproximation.adicStage` (projection): X_j = Spa(R_j[1/p],R_j) with its f-adic topology.
+- `PerfectoidHuberApproximation.refine` (functoriality): Finite collections of elements and finite-presentation equations descend after a common refinement.
+
+Unit tests:
+
+- `perfectoidApprox_elements` (computation): A finite tuple in R is contained in one finite stage.
+- `perfectoidApprox_henselization` (compatibility): R_j → R factors through R_j^h, and the two factorizations coincide on refinement.
+- `perfectoidApprox_notNoetherian` (non-example): For R = ℤ_p[p^{1/p^∞}] completed, the construction does not supply a Noetherian instance on R.
+
+Uses: Česnavičius §4.10; RT-AREA-etale/26: Supplies the finite Noetherian inputs without importing all of P5 into the henselian-comparison layer..
+
+Acceptance: Let R be a p-torsion-free integral perfectoid ℤ_p-algebra with R = (R[1/p])°, and put X = Spa(R[1/p],R). Choose the filtered system of finite-type ℤ_p-subalgebras R_j of R, enlarged to their integral closures in R_j[1/p]. Write R_j^h for the henselization along p. The inclusions R_j → R extend uniquely to R_j^h → R, and R = colim_j R_j^h as rings. The adic system X_j = Spa(R_j[1/p],R_j) has common ideal of definition (p); its completed colimit presents X. This is approximation data, not a claim that R is Noetherian or that X is an ordinary categorical inverse limit.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### The perfectoid model system is a tilde-limit
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-tilde-limit` (lemma)
+
+For the model system in perfectoid-noetherian-approximation, X = Spa(R[1/p],R) satisfies X ∼ lim_j X_j: its underlying topological space is the inverse limit of |X_j|, rational subsets are pulled back from a finite stage, and the colimit of finite-stage rings of sections has dense image on rational affinoids. These are the separate topological and density clauses of HuberTildeLimit; no universal mapping property of an ordinary inverse limit is asserted.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-noetherian-approximation`, `ClassicalAdicEtaleCohomology:H0/huber-tilde-limit`, `PerfectoidSpaces:P5`, `AdicSpacesPartII:R0`.
+
+Proof outline:
+
+1. Apply the perfectoid completed-colimit presentation to valuations and rational inequalities.
+2. Descend finitely many rational inequalities to one stage.
+3. Use the common p-adic ideal and completion to prove density on each descended rational subset.
+
+Acceptance: For the model system in perfectoid-noetherian-approximation, X = Spa(R[1/p],R) satisfies X ∼ lim_j X_j: its underlying topological space is the inverse limit of |X_j|, rational subsets are pulled back from a finite stage, and the colimit of finite-stage rings of sections has dense image on rational affinoids. These are the separate topological and density clauses of HuberTildeLimit; no universal mapping property of an ordinary inverse limit is asserted.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Étale-site descent for the perfectoid model system
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-etale-site-continuity` (comparison)
+
+For the system X ∼ lim_j X_j above, qcqs étale X-spaces, their morphisms, finite fibre products and finite covering families descend to some X_j and two descended data agree after a further stage. Thus the qcqs étale site of X is the filtered 2-colimit of the qcqs étale sites of X_j. This assertion uses the perfectoid completed-colimit theorem; it is not inferred from the topological part of a tilde-limit alone.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-tilde-limit`, `PerfectoidSpaces:P5`, `AdicEtaleGeometry:A1`, `ClassicalAdicEtaleCohomology:H0/etale-topos-of-tilde-limit`.
+
+Proof outline:
+
+1. Invoke P5 finite-étale descent on rational affinoids of the completed colimit.
+2. Use standard étale presentations and A1 rational refinements to cover qcqs étale objects by finitely many such charts.
+3. Descend the finite gluing diagrams and covering conditions; refine until their equalities hold.
+
+Acceptance: For the system X ∼ lim_j X_j above, qcqs étale X-spaces, their morphisms, finite fibre products and finite covering families descend to some X_j and two descended data agree after a further stage. Thus the qcqs étale site of X is the filtered 2-colimit of the qcqs étale sites of X_j. This assertion uses the perfectoid completed-colimit theorem; it is not inferred from the topological part of a tilde-limit alone.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Finite hypercover data descend through the model system
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-hypercover-continuity` (lemma)
+
+For a finite locally constant abelian sheaf G_j on X_j and G its pullback to X, every finite truncation of a qcqs étale hypercover of X together with the coefficient cocycle needed to compute a fixed H^q(X,G) descends to a subsequent X_k. Coboundaries and identifications descend after another refinement. Consequently colim_{k≥j} H^q(X_k,G_k) ≅ H^q(X,G) for every q≥0. This is continuity of cohomology, not commutation with an inverse limit of coefficient groups.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-etale-site-continuity`, `DiamondsAndVStacks:D0`, `ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity`.
+
+Proof outline:
+
+1. Use coherent-site hypercover cohomology imported from D0.
+2. Only finitely many levels and finite diagrams occur for a fixed degree and cocycle; descend them using the 2-colimit site.
+3. Descend the additional data witnessing equality of cocycles to obtain both injectivity and surjectivity.
+
+Acceptance: For a finite locally constant abelian sheaf G_j on X_j and G its pullback to X, every finite truncation of a qcqs étale hypercover of X together with the coefficient cocycle needed to compute a fixed H^q(X,G) descends to a subsequent X_k. Coboundaries and identifications descend after another refinement. Consequently colim_{k≥j} H^q(X_k,G_k) ≅ H^q(X,G) for every q≥0. This is continuity of cohomology, not commutation with an inverse limit of coefficient groups.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Scheme continuity on generic henselizations
+
+`ClassicalAdicEtaleCohomology:H1:henselian/generic-henselization-scheme-continuity` (lemma)
+
+With R = colim_j R_j^h and a finite étale commutative p-primary group scheme G over R[1/p], G descends to G_j over R_j^h[1/p] for some j, and colim_{k≥j} H^q(Spec(R_k^h[1/p]),G_k) ≅ H^q(Spec(R[1/p]),G) for all q≥0. The finite generic schemes here are Spec(R_k^h[1/p]), not Spec(R_k[1/p]).
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-noetherian-approximation`, `AdicCoefficientsAndComparisons:L2`, `SchemeAndStackFoundations:SF.2`.
+
+Proof outline:
+
+1. Descend the finite-presentation Hopf algebra and the finite étale condition.
+2. Apply L2 affine scheme cohomology continuity to the localized filtered colimit of henselizations.
+
+Acceptance: With R = colim_j R_j^h and a finite étale commutative p-primary group scheme G over R[1/p], G descends to G_j over R_j^h[1/p] for some j, and colim_{k≥j} H^q(Spec(R_k^h[1/p]),G_k) ≅ H^q(Spec(R[1/p]),G) for all q≥0. The finite generic schemes here are Spec(R_k^h[1/p]), not Spec(R_k[1/p]).
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Huber comparison at each Noetherian generic stage
+
+`ClassicalAdicEtaleCohomology:H1:henselian/noetherian-henselized-generic-comparison` (comparison)
+
+For each Noetherian p-adic model R_j as above and every finite locally constant abelian sheaf G_j on Spec(R_j^h[1/p]), H^q(Spec(R_j^h[1/p]),G_j) ≅ H^q(Spa(R_j[1/p],R_j),G_j^an) canonically for q≥0. The analytic pullback is the one defined by Huber 3.2.9 and henselization invariance. The ambient Noetherian hypotheses are checked only at R_j; neither R nor R[1/p] is put into that theorem.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-noetherian-approximation`, `ClassicalAdicEtaleCohomology:H1:henselian/sheaf-comparison-3-2-9`.
+
+Proof outline:
+
+1. Apply the exact Noetherian specialization identified in Česnavičius (4.10.5).
+2. Check compatibility of its sheaf pullback with the generic henselization and with refinement.
+
+Acceptance: For each Noetherian p-adic model R_j as above and every finite locally constant abelian sheaf G_j on Spec(R_j^h[1/p]), H^q(Spec(R_j^h[1/p]),G_j) ≅ H^q(Spa(R_j[1/p],R_j),G_j^an) canonically for q≥0. The analytic pullback is the one defined by Huber 3.2.9 and henselization invariance. The ambient Noetherian hypotheses are checked only at R_j; neither R nor R[1/p] is put into that theorem.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Finite-stage comparison commutes with refinement
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-finite-stage-comparison-naturality` (lemma)
+
+For j≤k the Noetherian generic comparison gives a commutative square between H^q(Spec(R_j^h[1/p]),G_j) → H^q(Spec(R_k^h[1/p]),G_k) and H^q(X_j,G_j^an) → H^q(X_k,G_k^an). The identifications also commute with coefficient morphisms and the connecting maps of short exact coefficient sequences.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/noetherian-henselized-generic-comparison`, `ClassicalAdicEtaleCohomology:H0/derived-direct-image`.
+
+Proof outline:
+
+1. Construct comparison through the morphisms of étale topoi, rather than choosing abstract isomorphisms of groups.
+2. Use functoriality of pullback and of derived global sections to compare both routes.
+
+Acceptance: For j≤k the Noetherian generic comparison gives a commutative square between H^q(Spec(R_j^h[1/p]),G_j) → H^q(Spec(R_k^h[1/p]),G_k) and H^q(X_j,G_j^an) → H^q(X_k,G_k^an). The identifications also commute with coefficient morphisms and the connecting maps of short exact coefficient sequences.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Perfectoid limit of Huber’s Noetherian comparison
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-henselized-generic-comparison` (theorem)
+
+Let R be p-torsion-free integral perfectoid with R=(R[1/p])°, and let G be a finite étale commutative group scheme of p-power order over R[1/p]. For every q≥0 the canonical pullback induces H^q_et(Spec(R[1/p]),G) ≅ H^q_et(Spa(R[1/p],R),G^an). The proof is the colimit of comparisons for Spec(R_j^h[1/p]) and Spa(R_j[1/p],R_j), using coherent-site continuity on the analytic side and L2 scheme continuity on the other side. No blanket Noetherian comparison is applied at the perfectoid limit.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/generic-henselization-scheme-continuity`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-hypercover-continuity`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-finite-stage-comparison-naturality`.
+
+Proof outline:
+
+1. Descend G to a generic henselized finite stage.
+2. Take the filtered colimit of the natural finite-stage comparison squares.
+3. Identify the left colimit by scheme continuity and the right colimit by perfectoid étale-site/hypercover continuity.
+
+Acceptance: All degrees q≥0 and all finite commutative p-primary G, including nonconstant G, are retained. The proof visibly passes through R_j^h[1/p]; replacing it with R_j[1/p] is rejected. The only perfectoid input is the isolated completed-colimit/site descent interface.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### The same limit comparison in characteristic p
+
+`ClassicalAdicEtaleCohomology:H1:henselian/equal-characteristic-perfectoid-comparison` (theorem)
+
+For the tilt R^♭ and a chosen pseudouniformizer ϖ^♭, apply the same approximation and henselization argument to finite-type 𝔽_p[ϖ^♭]-models. For finite étale commutative p-primary G^♭ over R^♭[1/ϖ^♭], H^q(Spec(R^♭[1/ϖ^♭]),G^♭) ≅ H^q(Spa(R^♭[1/ϖ^♭],R^♭),G^{♭,an}) for all q≥0. Finite stages are henselized along ϖ^♭ and only then localized.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-henselized-generic-comparison`, `PerfectoidSpaces:P5`, `AdicCoefficientsAndComparisons:L2`.
+
+Proof outline:
+
+1. Repeat the finite-stage construction over 𝔽_p[ϖ^♭] with its common ideal (ϖ^♭).
+2. Use the identical Noetherian comparison and coherent-site colimit argument; no mixed-characteristic assertion enters this repetition.
+
+Acceptance: For the tilt R^♭ and a chosen pseudouniformizer ϖ^♭, apply the same approximation and henselization argument to finite-type 𝔽_p[ϖ^♭]-models. For finite étale commutative p-primary G^♭ over R^♭[1/ϖ^♭], H^q(Spec(R^♭[1/ϖ^♭]),G^♭) ≅ H^q(Spa(R^♭[1/ϖ^♭],R^♭),G^{♭,an}) for all q≥0. Finite stages are henselized along ϖ^♭ and only then localized.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Scheme cohomology comparison across tilting
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-scheme-cohomology-tilt-export` (application)
+
+Under the hypotheses of the preceding mixed- and equal-characteristic comparisons, let G^♭ correspond to G under P5’s finite-étale tilting equivalence. Their cohomology groups H^q(Spec(R[1/p]),G) and H^q(Spec(R^♭[1/ϖ^♭]),G^♭) are canonically identified for q≥0 by passing to the two analytic étale sites and their tilting equivalence. This export is the cohomology step used in Česnavičius 4.10; it does not assert Brauer purity or vanishing of all such cohomology.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-henselized-generic-comparison`, `ClassicalAdicEtaleCohomology:H1:henselian/equal-characteristic-perfectoid-comparison`, `PerfectoidSpaces:P5`.
+
+Proof outline:
+
+1. Use the mixed-characteristic analytic comparison.
+2. Apply the P5 étale-topos equivalence induced by tilting.
+3. Invert the equal-characteristic analytic comparison.
+
+Acceptance: Under the hypotheses of the preceding mixed- and equal-characteristic comparisons, let G^♭ correspond to G under P5’s finite-étale tilting equivalence. Their cohomology groups H^q(Spec(R[1/p]),G) and H^q(Spec(R^♭[1/ϖ^♭]),G^♭) are canonically identified for q≥0 by passing to the two analytic étale sites and their tilting equivalence. This export is the cohomology step used in Česnavičius 4.10; it does not assert Brauer purity or vanishing of all such cohomology.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### The perfectoid comparison is independent of its models
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-comparison-model-independence` (lemma)
+
+The canonical comparison H^q(Spec(R[1/p]),G)→H^q(Spa(R[1/p],R),G^an) obtained through finite Noetherian henselized models is independent of the cofinal model system and the stage where G descends. A common refinement compares any two finite data and the natural finite-stage squares agree. Thus the proof gives the canonical pullback comparison rather than a choice-dependent isomorphism.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-henselized-generic-comparison`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-finite-stage-comparison-naturality`, `ClassicalAdicEtaleCohomology:H1:henselian/generic-henselization-scheme-continuity`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-hypercover-continuity`.
+
+Proof outline:
+
+1. Take a common cofinal filtered enlargement of the two model systems.
+2. Use finite-presentation descent of G and naturality of the finite-stage comparisons.
+3. Pass to colimits and identify both composites with pullback.
+
+Acceptance: The canonical comparison H^q(Spec(R[1/p]),G)→H^q(Spa(R[1/p],R),G^an) obtained through finite Noetherian henselized models is independent of the cofinal model system and the stage where G descends. A common refinement compares any two finite data and the natural finite-stage squares agree. Thus the proof gives the canonical pullback comparison rather than a choice-dependent isomorphism.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+#### Coefficient compatibility of the perfectoid comparison
+
+`ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-comparison-coefficient-exactness` (lemma)
+
+The perfectoid generic scheme/adic cohomology comparison is natural in finite étale commutative p-primary G and commutes with the long exact sequences of short exact coefficient sequences. Both sides use the same descended finite-stage morphisms, while filtered colimits of abelian groups are exact. This coefficient compatibility concerns finite torsion groups and makes no inverse-limit ℤ_p assertion.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-comparison-model-independence`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-finite-stage-comparison-naturality`, `ClassicalAdicEtaleCohomology:H1:henselian/perfectoid-model-hypercover-continuity`, `ClassicalAdicEtaleCohomology:H1:henselian/generic-henselization-scheme-continuity`.
+
+Proof outline:
+
+1. Descend a finite coefficient sequence and its maps to a common henselized stage.
+2. Use naturality and connecting-map compatibility of the finite-stage comparison.
+3. Pass to exact filtered colimits.
+
+Acceptance: The perfectoid generic scheme/adic cohomology comparison is natural in finite étale commutative p-primary G and commutes with the long exact sequences of short exact coefficient sequences. Both sides use the same descended finite-stage morphisms, while filtered colimits of abelian groups are exact. This coefficient compatibility concerns finite torsion groups and makes no inverse-limit ℤ_p assertion.
+
+Sources: [Cesnavicius-BrauerPurity-2019](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf), §4.10, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+### H1:formal-adic-comparison: source additions
+
+#### Canonical logarithmic structure of a semistable formal model
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-canonical-log-comparison` (comparison)
+
+Let K be a finite extension of ℚ_p, ϖ a uniformizer and k its residue field. Let 𝔛 be a semistable formal O_K-scheme, or a base change of such a scheme from the integers of a subfield, with no quasi-compactness assumption. Import its canonical divisorial log structure M from CR.5. On étale formal opens U, M(U) consists of sections of O_𝔛(U) invertible on U_K; its groupification is identified with O(U_K)× as in CDN §2.1.1. The reduced special fibre Y carries the induced log structure relative to the log point (k,ℕ→k,1↦0). This node identifies the formal analytic carrier with the imported log carrier; it does not define log schemes again.
+
+Prerequisites: `CrystallineCohomology:CR.5`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/etale-site-of-type-S-formal-scheme`.
+
+Proof outline:
+
+1. Import semistable charts, the divisorial log structure, groupification and base-change compatibility from CR.5/R1.
+2. Apply the semistable canonical-log identification used by CDN, citing Berkovich 1996 Theorem 2.3.1 as an explicit supplier interface.
+3. Restrict the log structure to the special fibre and retain its map to the log point.
+
+Acceptance: The generic-unit identification is sheafwise and compatible with étale formal restriction. The statement permits an infinite union of semistable charts.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Nearby-cycle sheaves on a semistable formal model
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-nearby-cycle-sheaves` (construction)
+
+For 𝔛 as above, n≥1 and integer j, define R^iΨ_𝔛(ℤ/pⁿ(j)) on Y_et as the sheaf associated to U_0 ↦ H^i_et(U_K,ℤ/pⁿ(j)), where U→𝔛 ranges over étale formal schemes. This is the i-th derived functor of Berkovich’s nearby-cycle functor (denoted Θ in his Proposition 4.1). The formal and classical adic realizations are compared using the specialization and completion comparisons of this stage. These sheaves are nearby cycles; the vanishing-cycle cone is a separate object.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-canonical-log-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/higher-direct-images-of-lambda`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycles-comparison`, `ClassicalAdicEtaleCohomology:H0/tate-twists`.
+
+Proof outline:
+
+1. Use the equivalence of the formal étale site and the special-fibre site.
+2. Sheafify the generic-fibre cohomology presheaf; identify it with the derived nearby-cycle construction.
+3. Use the existing specialization/completion comparison to identify the classical adic realization, retaining its transport obligation.
+
+API:
+
+- `SemistableFormalNearbyCycles` (structure): The derived nearby-cycle sheaves R^iΨ_𝔛 ℤ/pⁿ(j) on Y_et.
+- `SemistableFormalNearbyCycles.ofGenericCohomology` (constructor): Sheafification of generic-fibre cohomology on étale formal opens.
+- `SemistableFormalNearbyCycles.restrict` (functoriality): Compatible with étale formal restriction and special-fibre restriction.
+- `SemistableFormalNearbyCycles.coefficientMap` (functoriality): Reduction ℤ/pⁿ⁺¹(j)→ℤ/pⁿ(j) induces the corresponding nearby-cycle morphism.
+- `SemistableFormalNearbyCycles.cup` (data): R^aΨ ℤ/pⁿ(j) ⊗ R^bΨ ℤ/pⁿ(l) → R^{a+b}Ψ ℤ/pⁿ(j+l).
+- `SemistableFormalNearbyCycles.adicComparison` (compatibility): The specialization/completion comparison identifies this object with the classical adic realization.
+
+Unit tests:
+
+- `formalNearby_degreeZero` (computation): At degree zero, the sheaf is the sheafification of sections on U_K.
+- `formalNearby_restriction` (compatibility): Computing on an étale formal U before or after restricting gives canonically the same sheaf.
+- `formalNearby_notVanishing` (non-example): For a smooth model the degree-zero constant nearby sheaf is nonzero, whereas the corresponding vanishing-cycle cone has zero stalks.
+
+Uses: CDN Theorem 2.4; H1 umbrella: The sheaves carry p-torsion Kummer symbols and the formal Bloch–Kato–Hyodo filtration..
+
+Acceptance: For 𝔛 as above, n≥1 and integer j, define R^iΨ_𝔛(ℤ/pⁿ(j)) on Y_et as the sheaf associated to U_0 ↦ H^i_et(U_K,ℤ/pⁿ(j)), where U→𝔛 ranges over étale formal schemes. This is the i-th derived functor of Berkovich’s nearby-cycle functor (denoted Θ in his Proposition 4.1). The formal and classical adic realizations are compared using the specialization and completion comparisons of this stage. These sheaves are nearby cycles; the vanishing-cycle cone is a separate object.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Kummer symbols in formal nearby cycles
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycle-kummer-symbol` (construction)
+
+For n≥1 the Kummer boundary on U_K induces a sheaf morphism i^*M^gp → R¹Ψ ℤ/pⁿ(1). Its q-fold cup product, q≥0, defines sym_q : i^*(M^gp)^{⊗q} → R^qΨ ℤ/pⁿ(q), with tensor power over ℤ and sym_0 the unit. Write {a_1,…,a_q} for its value. The maps are multiplicative in each unit, compatible with étale restriction and coefficient reduction, and graded commutative in the cohomology factors. This node constructs symbols without presupposing that they generate all nearby cycles.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-nearby-cycle-sheaves`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-canonical-log-comparison`, `ClassicalAdicEtaleCohomology:H0/kummer-sequence`.
+
+Proof outline:
+
+1. Use p invertible on the generic fibre to apply the finite-level Kummer sequence.
+2. Replace generic units by the canonical formal log groupification.
+3. Cup the degree-one boundaries and sheafify; naturality of Kummer gives restriction and reduction compatibility.
+
+API:
+
+- `FormalNearbySymbol` (structure): The morphisms sym_q for all n≥1 and q≥0.
+- `FormalNearbySymbol.unitBoundary` (constructor): The degree-one Kummer boundary of a section of i^*M^gp.
+- `FormalNearbySymbol.symbol` (constructor): The q-fold cup-product symbol.
+- `FormalNearbySymbol.multilinear` (relation): Multiplication in a slot becomes addition of symbols.
+- `FormalNearbySymbol.restrict` (functoriality): Symbols commute with étale formal restriction.
+- `FormalNearbySymbol.reduce` (compatibility): Coefficient reduction sends a pⁿ⁺¹-symbol to the corresponding pⁿ-symbol.
+
+Unit tests:
+
+- `formalSymbol_one` (computation): A symbol with a slot equal to 1 is zero in positive degree.
+- `formalSymbol_pthPower` (computation): At level p, a slot which is a p-th power gives a zero symbol.
+- `formalSymbol_degreeZero` (degenerate): The empty symbol is the unit in R⁰Ψℤ/pⁿ.
+- `formalSymbol_reduction` (compatibility): The degree-one boundary commutes with reduction from p² to p.
+
+Uses: CDN §2.1.1, Theorem 2.4: Principal units and uniformizer symbols define U/V and its maps to logarithmic differentials..
+
+Acceptance: For n≥1 the Kummer boundary on U_K induces a sheaf morphism i^*M^gp → R¹Ψ ℤ/pⁿ(1). Its q-fold cup product, q≥0, defines sym_q : i^*(M^gp)^{⊗q} → R^qΨ ℤ/pⁿ(q), with tensor power over ℤ and sym_0 the unit. Write {a_1,…,a_q} for its value. The maps are multiplicative in each unit, compatible with étale restriction and coefficient reduction, and graded commutative in the cohomology factors. This node constructs symbols without presupposing that they generate all nearby cycles.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Symbols factor through the mod-p-squared log model
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-symbols-mod-p-squared` (lemma)
+
+Put (𝔛₂,M₂)=(𝔛,M) modulo p². The mod-p nearby-cycle symbols used in CDN §2.1.1 factor through i^*(M₂^gp)^{⊗q}; changing a lift by a section congruent to 1 modulo p² does not change its mod-p Kummer class. This supplies the actual domain of the U/V filtration, without replacing the whole generic fibre by its special fibre.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycle-kummer-symbol`, `CrystallineCohomology:CR.5`.
+
+Proof outline:
+
+1. Use the p-adic root/Hensel argument locally on generic fibres for units congruent to 1 modulo p².
+2. Pass to cup symbols and the reduced log groupification.
+
+Acceptance: Put (𝔛₂,M₂)=(𝔛,M) modulo p². The mod-p nearby-cycle symbols used in CDN §2.1.1 factor through i^*(M₂^gp)^{⊗q}; changing a lift by a section congruent to 1 modulo p² does not change its mod-p Kummer class. This supplies the actual domain of the U/V filtration, without replacing the whole generic fibre by its special fibre.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### The formal Bloch–Kato–Hyodo filtration
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bloch-kato-hyodo-filtration` (definition); planet **Bloch–Kato–Hyodo filtration**
+
+Fix q≥0 and put A=M₂^gp on the special étale site. Define U⁰=A^{⊗q}. For q=0 put U^{m+1}=V^m=0 for m≥0. For q=1 put V⁰=(1+ϖO_𝔛₂)·ϖ^ℤ, U^m=1+ϖ^mO_𝔛₂ for m≥1, and V^m=U^{m+1} for m≥1. For q≥2 let U^m be the image of U^m(A)⊗A^{⊗(q−1)}; let V^m be the sum of U^{m+1} and the image of U^m(A)⊗A^{⊗(q−2)}⊗ϖ^ℤ. Apply sym_q to define image subsheaves U^m,V^m of R^qΨℤ/p(q), giving …⊂U²⊂V¹⊂U¹⊂V⁰⊂U⁰. Tensor powers, sums and images are sheaf operations, not pointwise quotients of presheaves.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-symbols-mod-p-squared`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycle-kummer-symbol`, `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`.
+
+Proof outline:
+
+1. Construct principal-unit and uniformizer subsheaves on the mod-p² log model.
+2. Use the degree-dependent tensor formulas, including the independent q=0 and q=1 cases.
+3. Take sheaf images under sym_q and prove the displayed inclusions locally.
+
+API:
+
+- `FormalBKHFiltration` (structure): The U/V filtration on symbol tensors and on their nearby-cycle images.
+- `FormalBKHFiltration.principalUnits` (constructor): The subsheaf 1+ϖ^mO_𝔛₂ for m≥1.
+- `FormalBKHFiltration.U` (projection): The m-th principal-unit image subsheaf.
+- `FormalBKHFiltration.V` (projection): The uniformizer-symbol subsheaf plus U^{m+1}, with the q=1 special convention.
+- `FormalBKHFiltration.interleaving` (relation): U^{m+1}⊂V^m⊂U^m.
+- `FormalBKHFiltration.restrict` (functoriality): The filtration and image subsheaves commute with étale restriction.
+- `FormalBKHFiltration.graded` (constructor): Sheaf quotients U^m/V^m and V^m/U^{m+1}.
+
+Unit tests:
+
+- `formalBKH_degreeZero` (degenerate): For q=0 all positive unit levels and all V-levels are zero.
+- `formalBKH_degreeOne` (computation): For q=1 and m≥1, V^m/U^{m+1}=0 by definition.
+- `formalBKH_uniformizer` (computation): The uniformizer symbol belongs to V⁰ in degree one.
+- `formalBKH_image` (non-example): The symbol-tensor filtration is not asserted injective into nearby cycles; the latter filtration consists of images.
+
+Uses: CDN Theorem 2.4; local calculations in Drinfeld cohomology: Its associated graded is expressed by log differential sheaves, including both p-divisibility cases..
+
+Acceptance: Fix q≥0 and put A=M₂^gp on the special étale site. Define U⁰=A^{⊗q}. For q=0 put U^{m+1}=V^m=0 for m≥0. For q=1 put V⁰=(1+ϖO_𝔛₂)·ϖ^ℤ, U^m=1+ϖ^mO_𝔛₂ for m≥1, and V^m=U^{m+1} for m≥1. For q≥2 let U^m be the image of U^m(A)⊗A^{⊗(q−1)}; let V^m be the sum of U^{m+1} and the image of U^m(A)⊗A^{⊗(q−2)}⊗ϖ^ℤ. Apply sym_q to define image subsheaves U^m,V^m of R^qΨℤ/p(q), giving …⊂U²⊂V¹⊂U¹⊂V⁰⊂U⁰. Tensor powers, sums and images are sheaf operations, not pointwise quotients of presheaves.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Log differential sheaves used by the formal filtration
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface` (comparison)
+
+Import Ω^q_{Y/k}, its differential d, B^q=im(d:Ω^{q−1}→Ω^q), Z^q=ker(d:Ω^q→Ω^{q+1}), and the additive logarithmic subsheaf Ω^q_log generated by wedges of dlog sections of M_Y from CR.5. Use Ω^r=B^r=Z^r=Ω^r_log=0 for r<0. The formal BKH comparison is with sheaf quotients Ω/B and Ω/Z; Ω_log is an additive subsheaf and is not asserted to be an O_Y-submodule.
+
+Prerequisites: `CrystallineCohomology:CR.5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-canonical-log-comparison`.
+
+Proof outline:
+
+1. Transport CR.5 log differentials to the canonical special-fibre log carrier.
+2. Use sheaf images and kernels for B and Z, and additive generation for Ω_log.
+3. Fix negative-degree conventions before stating q=0 and q=1 graded pieces.
+
+Acceptance: Import Ω^q_{Y/k}, its differential d, B^q=im(d:Ω^{q−1}→Ω^q), Z^q=ker(d:Ω^q→Ω^{q+1}), and the additive logarithmic subsheaf Ω^q_log generated by wedges of dlog sections of M_Y from CR.5. Use Ω^r=B^r=Z^r=Ω^r_log=0 for r<0. The formal BKH comparison is with sheaf quotients Ω/B and Ω/Z; Ω_log is an additive subsheaf and is not asserted to be an O_Y-submodule.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Local algebraization of semistable formal charts
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-local-algebraization` (lemma)
+
+Étale locally on 𝔛, a semistable formal chart is the completion of a semistable O_K-scheme T, with the same reduced special fibre Y and the same induced canonical log structure modulo p². The charts may be chosen independently on an infinite covering; no global algebraization or global finite covering is needed.
+
+Prerequisites: `AdicSpacesPartII:R1`, `CrystallineCohomology:CR.5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-canonical-log-comparison`.
+
+Proof outline:
+
+1. Use the semistable standard chart and its algebraic counterpart.
+2. Descend the étale chart morphism to an algebraic étale neighbourhood using the formal geometry supplier.
+3. Compare completion, special fibre and log reductions on each chart.
+
+Acceptance: Étale locally on 𝔛, a semistable formal chart is the completion of a semistable O_K-scheme T, with the same reduced special fibre Y and the same induced canonical log structure modulo p². The charts may be chosen independently on an infinite covering; no global algebraization or global finite covering is needed.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Completion comparison respects Kummer symbols
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-symbol-comparison` (comparison)
+
+On a chart 𝔛=Ť with j:T_K→T and i:Y→T, the natural completion morphism i^*R^qj_*ℤ/p(q) → R^qΨ_𝔛ℤ/p(q) is an isomorphism. It commutes with Kummer symbols from the common log model modulo p², and with restriction to smaller charts. This is CDN (2.5), using Berkovich 1994 Theorem 5.1; its classical adic realization uses this stage’s completion comparison, with the remaining transport proof recorded separately.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-local-algebraization`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycle-kummer-symbol`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13`.
+
+Proof outline:
+
+1. Use the natural completion comparison, not an abstract cohomology isomorphism.
+2. Apply naturality of the Kummer boundary and cup product to the common units.
+3. Sheafify the resulting commuting symbol square.
+
+Acceptance: On a chart 𝔛=Ť with j:T_K→T and i:Y→T, the natural completion morphism i^*R^qj_*ℤ/p(q) → R^qΨ_𝔛ℤ/p(q) is an isomorphism. It commutes with Kummer symbols from the common log model modulo p², and with restriction to smaller charts. This is CDN (2.5), using Berkovich 1994 Theorem 5.1; its classical adic realization uses this stage’s completion comparison, with the remaining transport proof recorded separately.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Completion carries the algebraic U/V filtration to the formal one
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison` (lemma)
+
+Under the completion comparison on a local algebraized chart, the algebraic principal-unit and uniformizer symbol images U^m,V^m are identified with the formal U^m,V^m for every m and q. The identification uses the common mod-p² log reduction and thus identifies each associated graded sheaf and its differential-symbol morphism.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-symbol-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bloch-kato-hyodo-filtration`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`.
+
+Proof outline:
+
+1. Compare principal-unit and uniformizer subsheaves on the shared log reduction.
+2. Take images in the natural symbol square; use the nearby-cycle isomorphism.
+3. Pass to sheaf quotients and retain the induced maps on generators.
+
+Acceptance: Under the completion comparison on a local algebraized chart, the algebraic principal-unit and uniformizer symbol images U^m,V^m are identified with the formal U^m,V^m for every m and q. The identification uses the common mod-p² log reduction and thus identifies each associated graded sheaf and its differential-symbol morphism.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### The zero-level BKH graded pieces
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-graded-pieces` (theorem)
+
+For every q≥0, U⁰/V⁰ ≅ Ω^q_{Y/k,log} and V⁰/U¹ ≅ Ω^{q−1}_{Y/k,log}. The first sends {a₁,…,a_q} to ∧dlog(a_i); the second sends {a₁,…,a_{q−1},ϖ} to ∧dlog(a_i). These are isomorphisms of additive étale sheaves, with negative-degree terms zero. In particular the q=0 first piece is the constant ℤ/p logarithmic degree-zero sheaf.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `CrystallineCohomology:CR.5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-symbol-maps`.
+
+Proof outline:
+
+1. Import the algebraic BKH zero-level theorem on each semistable chart from the proposed supplier recorded in the gap.
+2. Use the commuting symbol diagram and completion comparison to obtain the formal isomorphisms.
+3. Glue the canonical generator maps on overlaps.
+
+Acceptance: For every q≥0, U⁰/V⁰ ≅ Ω^q_{Y/k,log} and V⁰/U¹ ≅ Ω^{q−1}_{Y/k,log}. The first sends {a₁,…,a_q} to ∧dlog(a_i); the second sends {a₁,…,a_{q−1},ϖ} to ∧dlog(a_i). These are isomorphisms of additive étale sheaves, with negative-degree terms zero. In particular the q=0 first piece is the constant ℤ/p logarithmic degree-zero sheaf.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### BKH graded pieces at indices prime to p
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-prime-to-p-graded-pieces` (theorem)
+
+Let e=v_K(p), q≥0 and m be an integer with 0<m<pe/(p−1) and p∤m. Then U^m/V^m ≅ Ω^{q−1}_{Y/k}/B^{q−1}_{Y/k} and V^m/U^{m+1} ≅ Ω^{q−2}_{Y/k}/Z^{q−2}_{Y/k}. The first sends {1+ϖ^m x,a₁,…,a_{q−1}} to x̄∧dlog(a_i); the second sends {1+ϖ^m x,a₁,…,a_{q−2},ϖ} to x̄∧dlog(a_i). Bounds are strict and quotients are additive sheaf quotients.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `CrystallineCohomology:CR.5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-positive-symbol-maps`.
+
+Proof outline:
+
+1. Import the algebraic BKH theorem at p∤m under its strict ramification bound.
+2. Transport its generator maps through the common mod-p² symbols.
+3. Glue locally computed isomorphisms.
+
+Acceptance: For q=1 the second quotient is zero, consistent with V^m=U^{m+1}. The first denominator is B, not Z, when p∤m.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### BKH graded pieces at indices divisible by p
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-p-divisible-graded-pieces` (theorem)
+
+For q≥0 and 0<m<pe/(p−1) with p|m, U^m/V^m ≅ Ω^{q−1}_{Y/k}/Z^{q−1}_{Y/k}, and V^m/U^{m+1} ≅ Ω^{q−2}_{Y/k}/Z^{q−2}_{Y/k}, via the same principal-unit and uniformizer symbol formulas as in the prime-to-p case. The first denominator changes from exact forms B to closed forms Z.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `CrystallineCohomology:CR.5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-positive-symbol-maps`.
+
+Proof outline:
+
+1. Import the algebraic BKH p-divisible-index theorem with its changed denominator.
+2. Transport the generator maps and kernels through the completion comparison.
+3. Glue the resulting sheaf isomorphisms.
+
+Acceptance: The formula distinguishes p|m from p∤m rather than applying a uniform B-denominator. For q=0 both displayed negative-degree quotients vanish.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### The BKH ramification cutoff
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-ramification-cutoff` (theorem)
+
+For integer m≥pe/(p−1), U^m(R^qΨ_𝔛ℤ/p(q))=0 for every q≥0, in the étale sheaf sense, as stated in CDN Theorem 2.4(4). At an integral endpoint m=pe/(p−1), this is an étale-local assertion, not a claim that every principal unit over the original non-separably-closed residue field is already a p-th power. The endpoint is part of the imported algebraic BKH input and must be checked with its étale-local residue-field convention.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `CrystallineCohomology:CR.5`.
+
+Proof outline:
+
+1. Use the algebraic cutoff theorem, including its endpoint convention, on each algebraized chart.
+2. Transfer the zero image under completion and symbols.
+3. Use locality of a zero sheaf.
+
+Acceptance: For integer m≥pe/(p−1), U^m(R^qΨ_𝔛ℤ/p(q))=0 for every q≥0, in the étale sheaf sense, as stated in CDN Theorem 2.4(4). At an integral endpoint m=pe/(p−1), this is an étale-local assertion, not a claim that every principal unit over the original non-separably-closed residue field is already a p-th power. The endpoint is part of the imported algebraic BKH input and must be checked with its étale-local residue-field convention.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### BKH graded descriptions on non-quasi-compact formal schemes
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-non-quasi-compact-descent` (theorem)
+
+The four graded-description and cutoff statements hold on any semistable 𝔛 allowed above, including non-quasi-compact 𝔛. The isomorphisms are defined by the displayed symbols and logarithmic differential maps, so they agree on pairwise overlaps of any semistable étale chart covering. An isomorphism or vanishing of étale sheaves can be checked locally; no cohomology continuity over an infinite union is used here.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-prime-to-p-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-p-divisible-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-ramification-cutoff`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-nearby-cycle-sheaves`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-etale-restriction`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-chart-independence`.
+
+Proof outline:
+
+1. Use the canonical formulas to identify both restrictions on an overlap.
+2. Glue the morphisms of sheaves over the full chart covering.
+3. Check kernels and cokernels locally to establish isomorphism, and check U^m locally for the cutoff.
+
+Acceptance: The four graded-description and cutoff statements hold on any semistable 𝔛 allowed above, including non-quasi-compact 𝔛. The isomorphisms are defined by the displayed symbols and logarithmic differential maps, so they agree on pairwise overlaps of any semistable étale chart covering. An isomorphism or vanishing of étale sheaves can be checked locally; no cohomology continuity over an infinite union is used here.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Zero-level logarithmic symbol maps
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-symbol-maps` (construction)
+
+Construct the additive maps U⁰/V⁰→Ω^q_log and V⁰/U¹→Ω^{q−1}_log using {a₁,…,a_q}↦∧dlog(a_i) and {a₁,…,a_{q−1},ϖ}↦∧dlog(a_i). They are defined on nearby-cycle image quotients by the algebraic BKH relations transported under completion, not merely on formal symbol tensors.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `CrystallineCohomology:CR.5`.
+
+Proof outline:
+
+1. Use the algebraic symbol relations to kill the kernels and the relevant V/U subgroups.
+2. Transport through the common log reduction and completion.
+3. Glue the canonical maps on semistable charts.
+
+API:
+
+- `FormalBKHZeroSymbolMaps` (structure): The two zero-level maps on nearby-cycle image quotients.
+- `FormalBKHZeroSymbolMaps.unit` (projection): The map U⁰/V⁰→Ω^q_log.
+- `FormalBKHZeroSymbolMaps.uniformizer` (projection): The map V⁰/U¹→Ω^{q−1}_log.
+- `FormalBKHZeroSymbolMaps.restrict` (functoriality): Both maps commute with étale chart restriction.
+
+Unit tests:
+
+- `bkhZero_emptyWedge` (computation): For q=0 the empty wedge is the degree-zero unit.
+- `bkhZero_oneUnit` (computation): A symbol with a unit 1 maps to zero in positive degree.
+- `bkhZero_uniformizer` (computation): In degree one the uniformizer symbol maps to 1 in Ω⁰_log.
+
+Uses: CDN Theorem 2.4(1): Supplies actual canonical morphisms whose isomorphism is proved by the zero-level theorem..
+
+Acceptance: Construct the additive maps U⁰/V⁰→Ω^q_log and V⁰/U¹→Ω^{q−1}_log using {a₁,…,a_q}↦∧dlog(a_i) and {a₁,…,a_{q−1},ϖ}↦∧dlog(a_i). They are defined on nearby-cycle image quotients by the algebraic BKH relations transported under completion, not merely on formal symbol tensors.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Positive-level differential symbol maps
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-positive-symbol-maps` (construction)
+
+For 0<m<pe/(p−1), map the principal-unit generator {1+ϖ^m x,a₁,…} to x̄∧dlog(a_i), and the generator ending in ϖ to the corresponding wedge one degree lower. On U^m/V^m the target is Ω^{q−1}/B^{q−1} if p∤m and Ω^{q−1}/Z^{q−1} if p|m; on V^m/U^{m+1} it is Ω^{q−2}/Z^{q−2} in both cases. Use the imported algebraic relations to make these maps independent of the symbol presentation and lifts.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `CrystallineCohomology:CR.5`.
+
+Proof outline:
+
+1. Verify lift independence using the mod-p² model and the algebraic BKH relations.
+2. Use the p-divisibility-specific differential quotient to kill the appropriate kernel.
+3. Transfer and glue the quotient maps.
+
+API:
+
+- `FormalBKHPositiveSymbolMaps` (structure): The two positive-level quotient maps with their p-divisibility-specific targets.
+- `FormalBKHPositiveSymbolMaps.principal` (projection): The U^m/V^m map on principal-unit generators.
+- `FormalBKHPositiveSymbolMaps.uniformizer` (projection): The V^m/U^{m+1} map on uniformizer-ending generators.
+- `FormalBKHPositiveSymbolMaps.liftIndependent` (relation): The maps depend only on the quotient symbol, not on chosen lifts.
+- `FormalBKHPositiveSymbolMaps.restrict` (functoriality): Compatibility with étale chart restriction.
+
+Unit tests:
+
+- `bkhPositive_zeroCoefficient` (computation): A principal-unit generator with x̄=0 maps to zero.
+- `bkhPositive_degreeOne` (degenerate): At q=1 the second map has zero source and negative-degree target.
+- `bkhPositive_divisibility` (compatibility): The first target switches from Ω/B to Ω/Z precisely when p divides m.
+
+Uses: CDN Theorem 2.4(2)–(3): Makes the generator formulas actual well-defined sheaf morphisms before their bijectivity is asserted..
+
+Acceptance: For 0<m<pe/(p−1), map the principal-unit generator {1+ϖ^m x,a₁,…} to x̄∧dlog(a_i), and the generator ending in ϖ to the corresponding wedge one degree lower. On U^m/V^m the target is Ω^{q−1}/B^{q−1} if p∤m and Ω^{q−1}/Z^{q−1} if p|m; on V^m/U^{m+1} it is Ω^{q−2}/Z^{q−2} in both cases. Use the imported algebraic relations to make these maps independent of the symbol presentation and lifts.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Étale locality of the formal symbol filtration
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-etale-restriction` (lemma)
+
+For an étale formal map 𝔘→𝔛, pulling back M₂, nearby cycles and their symbol images carries U^m,V^m to the corresponding filtration on 𝔘. The canonical differential-symbol quotient maps also pull back. This is the locality used to pass from algebraizable charts to a non-quasi-compact semistable model.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bloch-kato-hyodo-filtration`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-symbol-maps`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-positive-symbol-maps`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-formal-nearby-cycle-sheaves`, `CrystallineCohomology:CR.5`.
+
+Proof outline:
+
+1. Use the étale pullback of the common log model and nearby-cycle presheaves.
+2. Exact inverse image preserves images, sums and quotient sheaves.
+3. Check the symbol and dlog formulas on generators.
+
+Acceptance: For an étale formal map 𝔘→𝔛, pulling back M₂, nearby cycles and their symbol images carries U^m,V^m to the corresponding filtration on 𝔘. The canonical differential-symbol quotient maps also pull back. This is the locality used to pass from algebraizable charts to a non-quasi-compact semistable model.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Degree-zero BKH acceptance case
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-degree-zero` (application)
+
+For q=0, the mod-p nearby-cycle unit sheaf is ℤ/p, U⁰/V⁰≅Ω⁰_log=ℤ/p, and all other U/V pieces vanish by the degree-zero definition. The first symbol map sends the empty symbol to 1. This case tests the tensor-zero and negative-degree conventions of the full theorem.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bloch-kato-hyodo-filtration`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-symbol-maps`.
+
+Proof outline:
+
+1. Apply the independent q=0 filtration definition.
+2. Identify the empty Kummer symbol and empty dlog wedge with the unit.
+
+Acceptance: For q=0, the mod-p nearby-cycle unit sheaf is ℤ/p, U⁰/V⁰≅Ω⁰_log=ℤ/p, and all other U/V pieces vanish by the degree-zero definition. The first symbol map sends the empty symbol to 1. This case tests the tensor-zero and negative-degree conventions of the full theorem.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Degree-one BKH acceptance case
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-degree-one` (application)
+
+For q=1 and positive m, V^m/U^{m+1}=0. The first quotient is O_Y/B⁰=O_Y when p∤m and O_Y/Z⁰ when p|m, since B⁰=0 and Z⁰=ker(d:O_Y→Ω¹). At level zero, the uniformizer symbol gives V⁰/U¹≅Ω⁰_log. This simultaneously tests the q=1 filtration convention and the distinction between B and Z.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-prime-to-p-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-p-divisible-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-log-differential-interface`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bloch-kato-hyodo-filtration`.
+
+Proof outline:
+
+1. Specialize the degree formulas using negative-degree zero terms.
+2. Use the imported log differential definitions of B⁰ and Z⁰.
+
+Acceptance: For q=1 and positive m, V^m/U^{m+1}=0. The first quotient is O_Y/B⁰=O_Y when p∤m and O_Y/Z⁰ when p|m, since B⁰=0 and Z⁰=ker(d:O_Y→Ω¹). At level zero, the uniformizer symbol gives V⁰/U¹≅Ω⁰_log. This simultaneously tests the q=1 filtration convention and the distinction between B and Z.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### The integer cutoff in the formal filtration
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-integer-cutoff` (application)
+
+For integer indices, the vanishing theorem says U^m=0 for m≥ceil(pe/(p−1)); the positive graded formulas are used only for integers strictly below pe/(p−1). If the threshold is integral, its endpoint is excluded from both positive formulas and included in the vanishing theorem. This arithmetic restatement preserves the étale-local endpoint convention.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-ramification-cutoff`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-prime-to-p-graded-pieces`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-p-divisible-graded-pieces`.
+
+Proof outline:
+
+1. Translate the real/rational strict bound into the integer-indexed filtration.
+2. Separate the integral endpoint from the positive-index formulas.
+
+Acceptance: For integer indices, the vanishing theorem says U^m=0 for m≥ceil(pe/(p−1)); the positive graded formulas are used only for integers strictly below pe/(p−1). If the threshold is integral, its endpoint is excluded from both positive formulas and included in the vanishing theorem. This arithmetic restatement preserves the étale-local endpoint convention.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Independence of the algebraizing chart
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-chart-independence` (lemma)
+
+Two local algebraizations of a semistable formal model induce the same BKH differential-symbol morphisms on their overlap. Both are the canonical map on the common mod-p² log symbols; after a common étale refinement their maps agree on generators, hence on the nearby-cycle image quotients. No chosen global algebraization enters the resulting formal theorem.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-symbol-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/semistable-algebraic-formal-filtration-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-zero-symbol-maps`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-positive-symbol-maps`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-etale-restriction`.
+
+Proof outline:
+
+1. Pass to a common semistable étale refinement.
+2. Compare the canonical Kummer and dlog maps on the common log reduction.
+3. Use surjectivity from symbol tensors onto the image quotients to conclude equality.
+
+Acceptance: Two local algebraizations of a semistable formal model induce the same BKH differential-symbol morphisms on their overlap. Both are the canonical map on the common mod-p² log symbols; after a common étale refinement their maps agree on generators, hence on the nearby-cycle image quotients. No chosen global algebraization enters the resulting formal theorem.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+#### Base-change naturality of the completion comparison
+
+`ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/completion-comparison-base-change-naturality` (lemma)
+
+For a morphism of completion data (X,Y)→(X′,Y′) of 3.5.12 taking the closed subscheme Y into Y′, the square formed by the canonical pullback/base-change transformations and the comparison i^*R⁺j_*K→R⁺b_*a^*K commutes, starting from any bounded-below torsion K on the target generic site and its pullback on the source. The comparison is natural both in K and in the morphism of completion data. Base-change arrows here are the canonical transformations; they are not asserted to be isomorphisms for every map. The same statement restricts to microbial valuation bases and support subsets in 3.5.16.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/completion-comparison-map-3-5-13-i`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/valuation-ring-base-3-5-16`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Write the comparison as the mate of the commuting square of inverse-image/site functors used in its construction.
+2. Import D0’s coherence of units, counits and base-change mates under composition of squares.
+3. Apply that coherence to the square of completion data and then restrict to the microbial support.
+
+Acceptance: The square uses canonical base-change maps even when those maps are not invertible. The actual comparison map is preserved; an abstract group isomorphism is insufficient.
+
+Sources: [Huber-EtaleCohomology-1996](https://link.springer.com/book/10.1007/978-3-663-09991-8), 3.5.12–3.5.13(i), 3.5.16.
+
+### H1: source additions
+
+#### Semistable formal nearby cycles and BKH compatibility
+
+`ClassicalAdicEtaleCohomology:H1/semistable-formal-bkh-export` (comparison)
+
+H1 re-exports the semistable formal nearby-cycle sheaves, Kummer symbols and non-quasi-compact BKH theorem from H1:formal-adic-comparison. At coefficients prime to p it also uses the existing LPV.0 trait comparison. The p-torsion BKH export is the formal nearby-cycle theorem above and does not assert that LPV.0 already owns p-torsion log nearby cycles or that they are the vanishing-cycle cone.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-bkh-non-quasi-compact-descent`, `ClassicalAdicEtaleCohomology:H1/nearby-versus-vanishing-cycles`.
+
+Proof outline:
+
+1. Re-export the formal substage nodes by their actual identifiers.
+2. Keep the coefficient hypotheses of the LPV comparison distinct from the p-torsion symbol theorem.
+
+Acceptance: H1 re-exports the semistable formal nearby-cycle sheaves, Kummer symbols and non-quasi-compact BKH theorem from H1:formal-adic-comparison. At coefficients prime to p it also uses the existing LPV.0 trait comparison. The p-torsion BKH export is the formal nearby-cycle theorem above and does not assert that LPV.0 already owns p-torsion log nearby cycles or that they are the vanishing-cycle cone.
+
+Sources: [ColmezDospinescuNiziol-DrinfeldFactorisation-2023](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf), §2.1.1, pp. 22–24, Theorem 2.4 and proof.
+
+### H3: source additions
+
+#### Taut rigid spaces and their Berkovich realization
+
+`ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface` (comparison)
+
+For a complete nontrivially rank-one valued field K and a taut rigid K-space X over Spa(K,O_K), import the equivalence with Hausdorff strictly K-analytic Berkovich spaces and write u(X)=X_max for its maximal Hausdorff quotient. For partially proper f, u(f) is boundaryless; for proper f it is proper; étale f gives a quasi-étale u(f), smooth f gives a quasi-smooth u(f), and adding partial properness makes these étale and smooth respectively. These are the precise geometry interfaces of Zavyalov A.6–A.11, supplied by R0/R1 rather than a second construction here.
+
+Prerequisites: `AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H3/taut-spaces-and-morphisms`, `ClassicalAdicEtaleCohomology:H3/berkovich-taut-comparison`.
+
+Proof outline:
+
+1. Import the maximal Hausdorff quotient and the taut/Hausdorff equivalence.
+2. Import the boundaryless comparison via reductions of analytic germs, and the proper comparison via formal models.
+3. For étale/smooth maps combine quasi-étale/quasi-smooth with boundarylessness.
+
+Acceptance: The plus ring is O_K; this interface does not cover arbitrary higher-rank C⁺. The smooth and étale conclusions retain partial properness.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Proper-support direct images preserve overconvergence
+
+`ClassicalAdicEtaleCohomology:H3/overconvergent-proper-support-preservation` (theorem)
+
+For a partially proper morphism f of rigid K-spaces and overconvergent abelian F, every R^if_!F is overconvergent. In particular R^{2d}f_!Λ(d) and Λ_Y are overconvergent, permitting the maximal-stalk test in the trace construction. For partially proper étale f, f_! restricts to the overconvergent categories and remains left adjoint to f^* there.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves`, `ClassicalAdicEtaleCohomology:H0/overconvergent-pullback-preservation`, `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`.
+
+Proof outline:
+
+1. Use Huber 8.2.4 as explicitly cited in Zavyalov §5.3/A.19; its proof remains a recorded source gap.
+2. In the étale case restrict the existing (f_!,f^*) adjunction to the preserved full subcategories.
+
+Acceptance: For a partially proper morphism f of rigid K-spaces and overconvergent abelian F, every R^if_!F is overconvergent. In particular R^{2d}f_!Λ(d) and Λ_Y are overconvergent, permitting the maximal-stalk test in the trace construction. For partially proper étale f, f_! restricts to the overconvergent categories and remains left adjoint to f^* there.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Adic–Berkovich comparison with proper support
+
+`ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison` (comparison)
+
+For a partially proper f:X→Y between taut rigid K-spaces and F∈D⁺(u(X)_et,s,ℤ), there is a natural isomorphism α_f(F):Rf_!θ_X^*F ≅ θ_Y^*Ru(f)_!F. This is Zavyalov Theorem A.15, importing Huber 8.3.6. Its domain is a complex of Berkovich sheaves and its adic inverse image; the statement does not cover an arbitrary non-overconvergent complex on X.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface`, `ClassicalAdicEtaleCohomology:H0/taut-adic-berkovich-site-morphism`, `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Use boundarylessness of u(f) supplied by the geometry comparison.
+2. Construct the natural support comparison on the sites and import Huber 8.3.6 for its isomorphism.
+3. Pass to D⁺ using exact θ^* and the compatible derived proper-support functors.
+
+Acceptance: The morphism is natural in F and in the partially proper map, with source and target written in the stated direction. Arbitrary plus rings C⁺≠O_C and arbitrary adic sheaves are not silently included.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Comparison preserves the étale trace counit
+
+`ClassicalAdicEtaleCohomology:H3/berkovich-etale-counit-comparison` (lemma)
+
+For partially proper étale f:X→Y between taut rigid spaces and G∈Ab(u(Y)_et,s), the diagram comparing θ_Y^*(u(f)_!u(f)^*G→G) with f_!f^*θ_Y^*G→θ_Y^*G commutes via α_f(u(f)^*G) and θ-naturality. This is Zavyalov A.19, and fixes the degree-zero normalization used by the general trace.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence`, `ClassicalAdicEtaleCohomology:H0/overconvergent-pullback-preservation`, `ClassicalAdicEtaleCohomology:H3/overconvergent-proper-support-preservation`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-proper-and-etale-cases`.
+
+Proof outline:
+
+1. Both f^* and f_! preserve overconvergence.
+2. Use the equivalences with Berkovich sheaves to identify the restricted adjunctions.
+3. Uniqueness of the adjunction counit gives the commutative diagram.
+
+Acceptance: For partially proper étale f:X→Y between taut rigid spaces and G∈Ab(u(Y)_et,s), the diagram comparing θ_Y^*(u(f)_!u(f)^*G→G) with f_!f^*θ_Y^*G→θ_Y^*G commutes via α_f(u(f)^*G) and θ-naturality. This is Zavyalov A.19, and fixes the degree-zero normalization used by the general trace.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Relative pure dimension for the trace
+
+`ClassicalAdicEtaleCohomology:H3/relative-pure-dimension-interface` (comparison)
+
+Import dimension of a locally spectral space as the supremum of lengths of strict specialization chains, pure dimension d as dimension d on every nonempty open, and dim(f)=sup_y dim(f⁻¹(y)) from R0/R1. A morphism has relative pure dimension d when every nonempty fibre has pure dimension d. Smooth partially proper rigid morphisms of relative pure dimensions d,e compose in dimension d+e. These are geometry data, not a new cohomological definition; empty fibres do not become a surjectivity hypothesis.
+
+Prerequisites: `AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface`.
+
+Proof outline:
+
+1. Identify the geometry supplier’s dimensions with Zavyalov Definition 5.3.1.
+2. Import smooth fibre dimension and its composition rule.
+3. Record the empty-fibre convention separately from the subsequent nonempty-fibre condition.
+
+Acceptance: Import dimension of a locally spectral space as the supremum of lengths of strict specialization chains, pure dimension d as dimension d on every nonempty open, and dim(f)=sup_y dim(f⁻¹(y)) from R0/R1. A morphism has relative pure dimension d when every nonempty fibre has pure dimension d. Smooth partially proper rigid morphisms of relative pure dimensions d,e compose in dimension d+e. These are geometry data, not a new cohomological definition; empty fibres do not become a surjectivity hypothesis.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The 2d proper-support bound for rigid morphisms
+
+`ClassicalAdicEtaleCohomology:H3/partially-proper-relative-dimension-vanishing` (theorem)
+
+For a partially proper morphism f of rigid K-spaces of relative pure dimension d and any abelian Λ=ℤ/n-sheaf F, R^if_!F=0 for i>2d. This is Zavyalov Lemma 5.3.2, whose proof cites Huber 5.3.11 and 1.8.7. It is the dimensional bound required by the trace’s top-degree Leray isomorphism, and is recorded separately from the packet’s more restricted relative-ball and general compactifiable-map bounds.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/relative-pure-dimension-interface`, `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`.
+
+Proof outline:
+
+1. Apply Huber’s fibre cohomological-dimension bound and the relative dimension comparison cited in the public lemma.
+2. Test the vanishing on geometric stalks; retain those two Huber proof inputs as gaps.
+
+Acceptance: For a partially proper morphism f of rigid K-spaces of relative pure dimension d and any abelian Λ=ℤ/n-sheaf F, R^if_!F=0 for i>2d. This is Zavyalov Lemma 5.3.2, whose proof cites Huber 5.3.11 and 1.8.7. It is the dimensional bound required by the trace’s top-degree Leray isomorphism, and is recorded separately from the packet’s more restricted relative-ball and general compactifiable-map bounds.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Top-degree Leray composition
+
+`ClassicalAdicEtaleCohomology:H3/top-degree-proper-support-composition` (lemma)
+
+For smooth partially proper taut rigid f:X→Y and g:Y→Z of relative pure dimensions d,e, Leray and the 2d/2e bounds give a canonical isomorphism R^{2(d+e)}(g∘f)_!Λ(d+e) ≅ R^{2e}g_!(R^{2d}f_!Λ(d))(e). For α:R^{2d}f_!Λ(d)→Λ and β:R^{2e}g_!Λ(e)→Λ, define β⊙α by this isomorphism followed by R^{2e}g_!(α)(e) and β. This specifies the meaning of trace compatibility with composition.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/partially-proper-relative-dimension-vanishing`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-composition`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-projection-formula`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Form the proper-support Leray spectral sequence of the composite.
+2. All terms except (2e,2d) in total top degree vanish by the relative bounds.
+3. Use the projection formula for the twist and compose the resulting top-degree maps.
+
+Acceptance: For smooth partially proper taut rigid f:X→Y and g:Y→Z of relative pure dimensions d,e, Leray and the 2d/2e bounds give a canonical isomorphism R^{2(d+e)}(g∘f)_!Λ(d+e) ≅ R^{2e}g_!(R^{2d}f_!Λ(d))(e). For α:R^{2d}f_!Λ(d)→Λ and β:R^{2e}g_!Λ(e)→Λ, define β⊙α by this isomorphism followed by R^{2e}g_!(α)(e) and β. This specifies the meaning of trace compatibility with composition.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The Berkovich smooth trace interface
+
+`ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface` (comparison)
+
+For boundaryless smooth u(f):u(X)→u(Y) of pure relative dimension d, import Berkovich 1993 Theorem 7.2.1’s trace R^{2d}u(f)_!Λ(d)→Λ, with geometric-fibre/base-change compatibility, top-degree composition, dimension-zero étale counit and surjectivity for nonempty fibres. Work with n invertible in K so the Tate twist is defined; in mixed characteristic p, n=p^r is allowed here. The prime-to-residue hypothesis is imposed on Poincaré duality, not on this trace interface.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface`, `ClassicalAdicEtaleCohomology:H0/berkovich-strict-etale-site-comparison`, `ClassicalAdicEtaleCohomology:H3/top-degree-proper-support-composition`, `ClassicalAdicEtaleCohomology:H0/tate-twists`.
+
+Proof outline:
+
+1. Apply the strict/full Berkovich topos comparison to Theorem 7.2.1.
+2. Retain its degree-zero and composition normalization before transferring to adic spaces.
+3. Keep the coefficient hypotheses separate from the stronger duality hypothesis.
+
+Acceptance: For boundaryless smooth u(f):u(X)→u(Y) of pure relative dimension d, import Berkovich 1993 Theorem 7.2.1’s trace R^{2d}u(f)_!Λ(d)→Λ, with geometric-fibre/base-change compatibility, top-degree composition, dimension-zero étale counit and surjectivity for nonempty fibres. Work with n invertible in K so the Tate twist is defined; in mixed characteristic p, n=p^r is allowed here. The prime-to-residue hypothesis is imposed on Poincaré duality, not on this trace interface.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.2.1, pp. 131–132; [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The smooth relative trace in arbitrary dimension
+
+`ClassicalAdicEtaleCohomology:H3/smooth-relative-trace` (construction); planet **Smooth relative trace**
+
+Let K be a complete nontrivially rank-one valued field, n>0 invertible in K and Λ=ℤ/n. For a smooth partially proper rigid f:X→Y of relative pure dimension d, define t_f:R^{2d}f_!Λ_X(d)→Λ_Y by θ_Y^* of the Berkovich trace on taut affinoid-base neighbourhoods, using α_f. These local sheaf morphisms glue by their compatible geometric maximal stalks. The map has geometric-maximal-fibre compatibility, t_g⊙t_f=t_{g∘f}, the étale counit normalization at d=0, and is surjective when every fibre is nonempty. This is Zavyalov Theorem 5.3.3; it constructs a trace without asserting p-torsion duality.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/berkovich-etale-counit-comparison`, `ClassicalAdicEtaleCohomology:H3/overconvergent-proper-support-preservation`, `ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks`, `ClassicalAdicEtaleCohomology:H3/top-degree-proper-support-composition`.
+
+Proof outline:
+
+1. Cover Y by affinoids; each inverse image is taut because f is partially proper.
+2. Transfer the normalized Berkovich trace through θ^* and α_f on each taut piece.
+3. Use the canonical fibre identifications to show agreement of these already constructed sheaf morphisms on overlaps, then glue.
+4. Transfer composition and dimension-zero normalization; surjectivity follows from the Berkovich trace and maximal-point surjectivity.
+
+API:
+
+- `SmoothRelativeTrace` (structure): The family t_f:R^{2d}f_!Λ(d)→Λ for smooth partially proper pure-dimensional f.
+- `SmoothRelativeTrace.ofBerkovich` (constructor): Local trace obtained through α_f and θ^*.
+- `SmoothRelativeTrace.maximalFiber` (compatibility): Restriction to a geometric fibre over a maximal point is its trace.
+- `SmoothRelativeTrace.comp` (functoriality): t_g⊙t_f=t_{g∘f} under the top-degree Leray isomorphism.
+- `SmoothRelativeTrace.dimensionZero` (simp): For d=0 the map is the counit (f_!,f^*).
+- `SmoothRelativeTrace.surjective` (relation): All nonempty fibres imply an epimorphism of sheaves.
+- `SmoothRelativeTrace.restrict` (functoriality): Trace commutes with restriction to the affinoid-base neighbourhoods used in its construction.
+- `SmoothRelativeTrace.proper` (compatibility): For proper f, use f_!=f_* to obtain R^{2d}f_*Λ(d)→Λ.
+
+Unit tests:
+
+- `smoothTrace_identity` (computation): The trace of id_X in dimension zero is id_Λ.
+- `smoothTrace_splitFinite` (computation): For a disjoint union of r copies of Y→Y, t_f is the sum Λ^r→Λ.
+- `smoothTrace_emptyFiber` (non-example): The zero trace for an empty fibre is not surjective onto a nonzero coefficient sheaf.
+- `smoothTrace_composition` (compatibility): For two projections of smooth proper factors, the trace on their product is the iterated trace.
+
+Uses: Guo–Reinecke Theorem 7.16/Remark 7.17; higher-dimensional classical duality: Exports the composition, degree-zero and surjectivity normalization of the étale trace; prismatic trace construction remains with its owner..
+
+Acceptance: Let K be a complete nontrivially rank-one valued field, n>0 invertible in K and Λ=ℤ/n. For a smooth partially proper rigid f:X→Y of relative pure dimension d, define t_f:R^{2d}f_!Λ_X(d)→Λ_Y by θ_Y^* of the Berkovich trace on taut affinoid-base neighbourhoods, using α_f. These local sheaf morphisms glue by their compatible geometric maximal stalks. The map has geometric-maximal-fibre compatibility, t_g⊙t_f=t_{g∘f}, the étale counit normalization at d=0, and is surjective when every fibre is nonempty. This is Zavyalov Theorem 5.3.3; it constructs a trace without asserting p-torsion duality.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Trace on geometric maximal fibres
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-geometric-maximal-fibres` (lemma)
+
+For the trace t_f and a geometric point over a maximal y∈Y, the proper-support base-change identification carries its stalk to t_{f_y}:H_c^{2d}(X_y,Λ(d))→Λ. It is the maximal-geometric-fibre property in Zavyalov 5.3.3(1). This statement does not claim a base-change theorem for arbitrary higher-rank plus rings or arbitrary morphisms of bases.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`.
+
+Proof outline:
+
+1. Use the matching maximal geometric stalks under θ^*.
+2. Apply Berkovich fibre compatibility and the support comparison.
+3. Transport the fibre trace into the adic stalk.
+
+Acceptance: For the trace t_f and a geometric point over a maximal y∈Y, the proper-support base-change identification carries its stalk to t_{f_y}:H_c^{2d}(X_y,Λ(d))→Λ. It is the maximal-geometric-fibre property in Zavyalov 5.3.3(1). This statement does not claim a base-change theorem for arbitrary higher-rank plus rings or arbitrary morphisms of bases.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Composition of smooth traces
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-composition` (lemma)
+
+For smooth partially proper pure-dimensional f,g as in top-degree-proper-support-composition, t_g⊙t_f=t_{g∘f}. The equality is between the maps from R^{2(d+e)}(g∘f)_!Λ(d+e) to Λ after the canonical Leray/twist identification; relative dimensions add.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/top-degree-proper-support-composition`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`, `ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks`.
+
+Proof outline:
+
+1. Check the equality on taut affinoid-base pieces through the Berkovich comparison.
+2. Apply the source trace’s composition property.
+3. Use overconvergent maximal-stalk detection to glue the equality.
+
+Acceptance: For smooth partially proper pure-dimensional f,g as in top-degree-proper-support-composition, t_g⊙t_f=t_{g∘f}. The equality is between the maps from R^{2(d+e)}(g∘f)_!Λ(d+e) to Λ after the canonical Leray/twist identification; relative dimensions add.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Dimension-zero trace is the étale counit
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-dimension-zero` (lemma)
+
+When d=0, smooth partially proper f is étale and t_f:f_!Λ→Λ is exactly the counit of (f_!,f^*), via f^*Λ=Λ. In the proper case f is finite étale and this is the usual summation trace on finite geometric fibres.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-etale-counit-comparison`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-proper-and-etale-cases`.
+
+Proof outline:
+
+1. Use the dimension-zero smooth/étale geometry identification.
+2. Apply the counit comparison A.19 to the local Berkovich trace.
+3. For proper f use the finite étale description and its fibrewise sum.
+
+Acceptance: When d=0, smooth partially proper f is étale and t_f:f_!Λ→Λ is exactly the counit of (f_!,f^*), via f^*Λ=Λ. In the proper case f is finite étale and this is the usual summation trace on finite geometric fibres.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Nonempty fibres make the smooth trace surjective
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-nonempty-fibre-surjectivity` (lemma)
+
+If all fibres of smooth partially proper f are nonempty, t_f is an epimorphism of Λ-sheaves. On each taut affinoid-base piece, surjectivity of f gives surjectivity X_max→Y_max, hence of u(f), and the Berkovich trace is surjective. Exact θ^* and locality preserve this conclusion. Nonempty fibres are needed; connectedness is not required.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`, `ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface`, `ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks`.
+
+Proof outline:
+
+1. Use the maximal-generalization lifting in Huber 1.1.10 cited by Zavyalov.
+2. Apply Berkovich trace surjectivity and exact θ^*.
+3. Check epimorphism locally on Y.
+
+Acceptance: If all fibres of smooth partially proper f are nonempty, t_f is an epimorphism of Λ-sheaves. On each taut affinoid-base piece, surjectivity of f gives surjectivity X_max→Y_max, hence of u(f), and the Berkovich trace is surjective. Exact θ^* and locality preserve this conclusion. Nonempty fibres are needed; connectedness is not required.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Finite-level trace compatibility in the coefficients
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-finite-coefficient-compatibility` (lemma)
+
+The smooth relative trace is compatible with the reduction maps ℤ/p^{r+1}(d)→ℤ/p^r(d) when char(K)=0, and likewise with coefficient maps between finite constant torsion rings having invertible torsion in K. The trace squares commute through the natural support comparison and the coefficient-natural Berkovich trace. This finite-level fact is required before passing to a ℤ_p trace; it alone does not identify R^{2d}f_*ℤ_p with lim_r R^{2d}f_*ℤ/p^r.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`.
+
+Proof outline:
+
+1. Use coefficient-natural Kummer twists and derived proper-support maps.
+2. Apply the naturality of the source trace under coefficient reduction.
+3. Transport the commutative square through θ^* and glue.
+
+Acceptance: The smooth relative trace is compatible with the reduction maps ℤ/p^{r+1}(d)→ℤ/p^r(d) when char(K)=0, and likewise with coefficient maps between finite constant torsion rings having invertible torsion in K. The trace squares commute through the natural support comparison and the coefficient-natural Berkovich trace. This finite-level fact is required before passing to a ℤ_p trace; it alone does not identify R^{2d}f_*ℤ_p with lim_r R^{2d}f_*ℤ/p^r.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### Galois-equivariant trace on a proper geometric fibre
+
+`ClassicalAdicEtaleCohomology:H3/smooth-proper-galois-trace` (theorem)
+
+For smooth proper rigid X/K of pure dimension d, n invertible in K and a completed algebraic closure C, the relative trace yields a G_K-equivariant map t_X:H^{2d}_et(X_C,ℤ/n(d))→ℤ/n. It is compatible with finite coefficient reduction and with composition of smooth proper maps. The field-point stalk comparison transports the continuous Galois action; equivariance is part of the sheaf morphism on Spa(K,O_K).
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-composition`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-finite-coefficient-compatibility`, `ClassicalAdicEtaleCohomology:H0/profinite-g-set-cohomology`.
+
+Proof outline:
+
+1. Replace f_! by f_* for the proper structure map.
+2. Take the geometric field-point stalk of the sheaf morphism.
+3. Use the field-point/Galois equivalence to retain equivariance.
+
+Acceptance: For smooth proper rigid X/K of pure dimension d, n invertible in K and a completed algebraic closure C, the relative trace yields a G_K-equivariant map t_X:H^{2d}_et(X_C,ℤ/n(d))→ℤ/n. It is compatible with finite coefficient reduction and with composition of smooth proper maps. The field-point stalk comparison transports the continuous Galois action; equivariance is part of the sheaf morphism on Spa(K,O_K).
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), Theorem 1.1.3 and §5.4 first paragraph.
+
+#### Prime-to-residue Poincaré duality in arbitrary dimension
+
+`ClassicalAdicEtaleCohomology:H3/higher-dimensional-prime-to-residue-duality` (theorem)
+
+Let X be a smooth proper rigid K-space of pure dimension d, C a completed algebraic closure and ℓ a prime invertible in O_K. For every i≥0 the pairing H^i_et(X_C,𝔽_ℓ)⊗ H^{2d−i}_et(X_C,𝔽_ℓ(d)) → H^{2d}_et(X_C,𝔽_ℓ(d)) → 𝔽_ℓ is perfect and G_K-equivariant, with the second map the normalized trace above. The theorem is Zavyalov 1.1.3, citing Huber 7.5.3/Berkovich 7.3.1. In mixed characteristic p it requires ℓ≠p; the p-torsion duality of Zavyalov §5.4 is an external theorem on another roadmap.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-proper-galois-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence`, `DiamondsAndVStacks:D0`, `ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-local-system-cohomology-finiteness`.
+
+Proof outline:
+
+1. Use the Berkovich prime-to-residue proper smooth duality theorem on the taut rigid realization.
+2. Transfer the constant coefficients, cup product and normalized trace through the support comparison.
+3. Retain the stronger coefficient hypothesis and finite-dimensional/perfect-pairing conclusion.
+
+Acceptance: All i and arbitrary dimension d are included. The hypothesis is ℓ invertible in O_K, not merely invertible in K. The pairing uses the same trace fixed by the composition and counit normalization.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), Theorem 1.1.3, p. 2; [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.3.1, p. 135.
+
+#### The zero-dimensional duality pairing
+
+`ClassicalAdicEtaleCohomology:H3/prime-to-residue-duality-dimension-zero` (lemma)
+
+For a smooth proper zero-dimensional X/K with r geometric points, H⁰(X_C,𝔽_ℓ)=𝔽_ℓ^r and higher cohomology is zero. Cup product followed by the normalized trace pairs (a_j),(b_j) by Σ_j a_jb_j. This pairing is perfect, even when ℓ divides r; its perfectness is not the assertion that the trace of the constant unit is invertible.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/higher-dimensional-prime-to-residue-duality`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-dimension-zero`, `ClassicalAdicEtaleCohomology:H0/profinite-g-set-cohomology`.
+
+Proof outline:
+
+1. Split the finite étale geometric fibre into points.
+2. Use the counit summation trace and coordinatewise cup product.
+3. Compute the identity Gram matrix to establish perfectness without a degree-invertibility condition.
+
+Acceptance: For a smooth proper zero-dimensional X/K with r geometric points, H⁰(X_C,𝔽_ℓ)=𝔽_ℓ^r and higher cohomology is zero. Cup product followed by the normalized trace pairs (a_j),(b_j) by Σ_j a_jb_j. This pairing is perfect, even when ℓ divides r; its perfectness is not the assertion that the trace of the constant unit is invertible.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### General trace agrees with the normalized curve trace
+
+`ClassicalAdicEtaleCohomology:H3/general-trace-curve-normalization` (comparison)
+
+For a smooth proper curve over Spa(C,O_C), the arbitrary-dimensional trace at d=1 agrees with the packet’s curve trace transported through its Berkovich comparison. Hence the prime-to-residue perfect pairing specializes to the existing curve pairing with the same twist and sign convention. This comparison is limited to O_C; the higher-rank C⁺ formal-model transfer remains a distinct gap.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/higher-dimensional-prime-to-residue-duality`, `ClassicalAdicEtaleCohomology:H3/curve-trace`, `ClassicalAdicEtaleCohomology:H3/curve-duality-perfect-pairing`.
+
+Proof outline:
+
+1. Both maps are transported from Berkovich’s normalized trace on the same curve.
+2. Use naturality of the support comparison and the curve normalization.
+3. Identify the cup products and Tate twists before comparing the pairings.
+
+Acceptance: For a smooth proper curve over Spa(C,O_C), the arbitrary-dimensional trace at d=1 agrees with the packet’s curve trace transported through its Berkovich comparison. Hence the prime-to-residue perfect pairing specializes to the existing curve pairing with the same twist and sign convention. This comparison is limited to O_C; the higher-rank C⁺ formal-model transfer remains a distinct gap.
+
+Sources: [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The ℤ_p trace for smooth proper formal generic fibres
+
+`ClassicalAdicEtaleCohomology:H3/integral-smooth-proper-trace` (construction)
+
+For a smooth proper morphism f:𝔛→𝔜 of smooth formal O_K-schemes of relative equidimension d, with K of mixed characteristic (0,p), construct t_{f_η}:R^{2d}f_{η,*}ℤ_p(d)→ℤ_p from the compatible finite-level traces using the integral-coefficient comparison supplied by L2. The normalized family satisfies composition, degree-zero adjunction counit, and surjectivity for all nonempty fibres, precisely the three hypotheses of Guo–Reinecke Theorem 7.16. Remark 7.17 supplies the classical Berkovich/adic family. This node exports the étale normalization only; the prismatic trace and duality construction are imported by their own roadmap.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-composition`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-dimension-zero`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-nonempty-fibre-surjectivity`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-finite-coefficient-compatibility`, `AdicCoefficientsAndComparisons:L2`, `AdicSpacesPartII:R1`.
+
+Proof outline:
+
+1. Use L2’s integral inverse-system carrier and proper smooth finite-level comparison to pass from the compatible mod-p^r traces to the ℤ_p sheaf map.
+2. Transfer composition and dimension-zero normalization through those identifications.
+3. Prove integral surjectivity using the supplier’s compatible local lifts/derived-completeness argument; do not infer it from surjectivity of unrelated finite-level maps alone.
+4. Export the normalized family to the prismatic owner under exactly the formal smooth/proper hypotheses of Theorem 7.16.
+
+API:
+
+- `IntegralSmoothProperTrace` (structure): The ℤ_p-linear trace family on smooth proper formal generic fibres.
+- `IntegralSmoothProperTrace.modPow` (compatibility): Reduction modulo p^r is the corresponding normalized finite-level trace.
+- `IntegralSmoothProperTrace.comp` (functoriality): The integral trace family is compatible with composition.
+- `IntegralSmoothProperTrace.dimensionZero` (simp): For d=0 the trace is the finite étale adjunction counit.
+- `IntegralSmoothProperTrace.surjective` (relation): All nonempty fibres imply an epimorphism of ℤ_p sheaves under the integral comparison interface.
+- `IntegralSmoothProperTrace.guoReineckeInput` (compatibility): Packages exactly assumptions (a)–(c) of Guo–Reinecke Theorem 7.16.
+
+Unit tests:
+
+- `integralTrace_splitFinite` (computation): The split finite étale trace is the sum ℤ_p^r→ℤ_p.
+- `integralTrace_modPow` (compatibility): Reducing that sum modulo p^n gives the finite-level counit sum.
+- `integralTrace_empty` (non-example): The empty proper smooth fibre supplies the zero map and fails the nonempty-fibre surjectivity hypothesis.
+
+Uses: Guo–Reinecke Theorem 7.16; PrismaticCohomology: Supplies its chosen étale traces without reconstructing Frobenius, prismatic crystals or prismatic duality..
+
+Acceptance: For a smooth proper morphism f:𝔛→𝔜 of smooth formal O_K-schemes of relative equidimension d, with K of mixed characteristic (0,p), construct t_{f_η}:R^{2d}f_{η,*}ℤ_p(d)→ℤ_p from the compatible finite-level traces using the integral-coefficient comparison supplied by L2. The normalized family satisfies composition, degree-zero adjunction counit, and surjectivity for all nonempty fibres, precisely the three hypotheses of Guo–Reinecke Theorem 7.16. Remark 7.17 supplies the classical Berkovich/adic family. This node exports the étale normalization only; the prismatic trace and duality construction are imported by their own roadmap.
+
+Sources: [GuoReinecke-CrystallineLocalSystems-2024](https://par.nsf.gov/servlets/purl/10534610), Theorem 7.16 and Remark 7.17, pp. 114–115; [Zavyalov-PoincareDuality-2025](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf), §5.3 and Appendix A, pp. 77–78 and 84–88.
+
+#### The classical trace normalization for prismatic comparisons
+
+`ClassicalAdicEtaleCohomology:H3/guo-reinecke-etale-trace-normalization-export` (comparison)
+
+The integral trace family of integral-smooth-proper-trace supplies a collection tr^et satisfying Guo–Reinecke 7.16(a)–(c), and agrees with the classical family specified in Remark 7.17 after finite-level reduction. The downstream prismatic theorem may consume these hypotheses to construct its own Frobenius-equivariant trace; no prismatic pairing or mod-p analytic duality is asserted by this export.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/integral-smooth-proper-trace`.
+
+Proof outline:
+
+1. List the three normalized hypotheses with the exact smooth proper formal scope.
+2. Identify the chosen family by its finite-level Berkovich normalization.
+3. Pass only this interface to the downstream owner.
+
+Acceptance: The integral trace family of integral-smooth-proper-trace supplies a collection tr^et satisfying Guo–Reinecke 7.16(a)–(c), and agrees with the classical family specified in Remark 7.17 after finite-level reduction. The downstream prismatic theorem may consume these hypotheses to construct its own Frobenius-equivariant trace; no prismatic pairing or mod-p analytic duality is asserted by this export.
+
+Sources: [GuoReinecke-CrystallineLocalSystems-2024](https://par.nsf.gov/servlets/purl/10534610), Theorem 7.16 and Remark 7.17, pp. 114–115.
+
+#### Independence of the smooth trace chart
+
+`ClassicalAdicEtaleCohomology:H3/berkovich-trace-chart-independence` (lemma)
+
+For a separated smooth strict Berkovich f:Y→X of pure dimension d with an étale factorization Y→𝔸_X^d→X, Tr_f=Tr_projection∘Tr_etale is independent of the factorization. This is Berkovich Lemma 7.2.2, the key input making the general relative trace canonical. It uses the algebraic affine-space trace normalization and does not identify an adic closed ball with analytic affine space.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`, `AdicSpacesPartII:R1`, `ClassicalAdicEtaleCohomology:H3/algebraic-curve-comparison`, `ClassicalAdicEtaleCohomology:H3/curve-trace`.
+
+Proof outline:
+
+1. Use the weak base-change theorem to reduce to an algebraically closed field.
+2. Exchange one étale coordinate at a time via regular local parameters; use the one-dimensional trace normalization.
+3. Remove a lower-dimensional complement without changing top compactly supported cohomology.
+
+Acceptance: For a separated smooth strict Berkovich f:Y→X of pure dimension d with an étale factorization Y→𝔸_X^d→X, Tr_f=Tr_projection∘Tr_etale is independent of the factorization. This is Berkovich Lemma 7.2.2, the key input making the general relative trace canonical. It uses the algebraic affine-space trace normalization and does not identify an adic closed ball with analytic affine space.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Lemma 7.2.2 and proof, pp. 132–133.
+
+#### Rigid base change of the smooth trace
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-rigid-base-change` (lemma)
+
+For a Cartesian square of smooth partially proper pure-dimensional rigid maps over K, with all four spaces taut and their Berkovich realization available, the smooth trace commutes with the canonical proper-support base-change map. The comparison α_f must be coherent with that square; that coherence is a supplier obligation. The statement covers rigid spaces over Spa(K,O_K), retaining n invertible in K, and does not assert arbitrary-plus-ring base change.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/taut-adic-berkovich-geometry-interface`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Use Berkovich Theorem 7.2.1(a).
+2. Compare its square with the adic square through θ-naturality and the requested base-change coherence of α_f.
+3. Apply exact θ^* to transfer the trace equality.
+
+Acceptance: For a Cartesian square of smooth partially proper pure-dimensional rigid maps over K, with all four spaces taut and their Berkovich realization available, the smooth trace commutes with the canonical proper-support base-change map. The comparison α_f must be coherent with that square; that coherence is a supplier obligation. The statement covers rigid spaces over Spa(K,O_K), retaining n invertible in K, and does not assert arbitrary-plus-ring base change.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.2.1(a), p. 131.
+
+#### Connected geometric fibres give an isomorphism trace
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-geometrically-connected-fibres` (theorem)
+
+For smooth partially proper taut rigid f of pure relative dimension d and n invertible in O_K, if all geometric fibres are nonempty and connected, t_f:R^{2d}f_!ℤ/n(d)→ℤ/n is an isomorphism. This is the final assertion of Berkovich 7.2.1 transferred by θ^* and α_f. The stronger prime-to-residue condition is retained here; nonempty fibres alone give only surjectivity.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-geometric-maximal-fibres`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`.
+
+Proof outline:
+
+1. Use the connected-geometric-fibre assertion of the Berkovich theorem.
+2. Transport through the exact inverse image and the support comparison.
+3. Check isomorphism at maximal geometric stalks.
+
+Acceptance: For smooth partially proper taut rigid f of pure relative dimension d and n invertible in O_K, if all geometric fibres are nonempty and connected, t_f:R^{2d}f_!ℤ/n(d)→ℤ/n is an isomorphism. This is the final assertion of Berkovich 7.2.1 transferred by θ^* and α_f. The stronger prime-to-residue condition is retained here; nonempty fibres alone give only surjectivity.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.2.1, final assertion and proof, pp. 132–134.
+
+#### Uniqueness with the Berkovich trace normalization
+
+`ClassicalAdicEtaleCohomology:H3/smooth-trace-berkovich-normalization-uniqueness` (theorem)
+
+A trace family on separated smooth strict Berkovich maps is uniquely determined by base-change compatibility, top-degree composition, the dimension-zero étale trace, and the absolute algebraically closed curve trace. Consequently the adic trace obtained through the fixed θ/α comparison is independent of the local affinoid cover and any choice of normalized Berkovich family. This uses all four normalizations of Berkovich 7.2.1; it does not claim uniqueness from Guo–Reinecke’s three assumptions alone.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `ClassicalAdicEtaleCohomology:H3/berkovich-trace-chart-independence`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-rigid-base-change`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-dimension-zero`, `ClassicalAdicEtaleCohomology:H3/curve-trace`.
+
+Proof outline:
+
+1. Apply the uniqueness assertion of Berkovich Theorem 7.2.1 with its additional curve normalization.
+2. Use θ^* and the fixed support comparison on every taut piece.
+3. Glue the equal local maps.
+
+Acceptance: A trace family on separated smooth strict Berkovich maps is uniquely determined by base-change compatibility, top-degree composition, the dimension-zero étale trace, and the absolute algebraically closed curve trace. Consequently the adic trace obtained through the fixed θ/α comparison is independent of the local affinoid cover and any choice of normalized Berkovich family. This uses all four normalizations of Berkovich 7.2.1; it does not claim uniqueness from Guo–Reinecke’s three assumptions alone.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.2.1(a)–(d), pp. 131–132.
+
+#### The derived Berkovich duality input
+
+`ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface` (comparison)
+
+Let h:Z→W be separated smooth strict Berkovich of pure dimension d and n invertible in O_K. For G∈D⁻(Z_et,ℤ/n) and F∈D⁺(W_et,ℤ/n), the trace-induced map Rh_*RHom(G,h^*F(d)[2d])→RHom(Rh_!G,F) is an isomorphism. This is the precise imported Berkovich 7.3.1 input. It is not asserted here for every arbitrary non-overconvergent adic G; each adic application below states the properness/local-coefficient hypotheses enabling transport.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H0/berkovich-strict-etale-site-comparison`, `ClassicalAdicEtaleCohomology:H3/berkovich-general-trace-interface`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Use the trace-induced duality morphism stated immediately before Berkovich Theorem 7.3.1.
+2. Import the theorem with its stronger prime-to-residue hypothesis and boundedness directions.
+3. Keep this Berkovich interface distinct from an all-sheaf adic six-functor duality statement.
+
+Acceptance: Let h:Z→W be separated smooth strict Berkovich of pure dimension d and n invertible in O_K. For G∈D⁻(Z_et,ℤ/n) and F∈D⁺(W_et,ℤ/n), the trace-induced map Rh_*RHom(G,h^*F(d)[2d])→RHom(Rh_!G,F) is an isomorphism. This is the precise imported Berkovich 7.3.1 input. It is not asserted here for every arbitrary non-overconvergent adic G; each adic application below states the properness/local-coefficient hypotheses enabling transport.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.3.1 and preceding duality morphism, pp. 134–135.
+
+#### Relative duality for constant coefficients
+
+`ClassicalAdicEtaleCohomology:H3/smooth-proper-constant-relative-duality` (theorem)
+
+For smooth proper taut rigid f:X→Y of pure relative dimension d, n invertible in O_K and a finite locally free ℤ/n-sheaf F on Y, the normalized trace induces Rf_*f^*F ≅ RHom_Y(Rf_*ℤ/n,F(−d)[−2d]). This is the proper adic transport of Berkovich 7.4.1; both direct images are proper-support images and F’s finite local freeness allows internal Hom to be transported through θ. Generic derived tensor/Hom coherence is imported from D0/E1.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence`, `ClassicalAdicEtaleCohomology:H3/smooth-relative-trace`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E1`.
+
+Proof outline:
+
+1. Apply Berkovich 7.4.1 with the unit sheaf in its derived duality theorem.
+2. Use f_!=f_* and A.15 to transport both direct images.
+3. Use local finite freeness of F and the imported tensor/Hom compatibility to transport the adjoint map.
+
+Acceptance: For smooth proper taut rigid f:X→Y of pure relative dimension d, n invertible in O_K and a finite locally free ℤ/n-sheaf F on Y, the normalized trace induces Rf_*f^*F ≅ RHom_Y(Rf_*ℤ/n,F(−d)[−2d]). This is the proper adic transport of Berkovich 7.4.1; both direct images are proper-support images and F’s finite local freeness allows internal Hom to be transported through θ. Generic derived tensor/Hom coherence is imported from D0/E1.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.4.1 and proof, p. 143.
+
+#### Poincaré pairing with finite local-system coefficients
+
+`ClassicalAdicEtaleCohomology:H3/smooth-proper-local-system-perfect-pairing` (theorem)
+
+For smooth proper rigid X/K of pure dimension d, ℓ invertible in O_K and a finite locally constant 𝔽_ℓ-sheaf L on X_C, let L∨=Hom(L,𝔽_ℓ). The trace and evaluation cup product give perfect pairings H^i(X_C,L)⊗H^{2d−i}(X_C,L∨(d))→𝔽_ℓ for all i. If L descends to X, the pairing is G_K-equivariant. This generalizes the constant-coefficient target using Berkovich 7.4.3; local freeness over the field ensures the dual is the actual finite local system.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-galois-trace`, `ClassicalAdicEtaleCohomology:H0/torsion-local-systems`, `DiamondsAndVStacks:D0`.
+
+Proof outline:
+
+1. Transport finite local systems through the taut/Berkovich sheaf equivalence.
+2. Apply Berkovich 7.4.3 with the evaluation dual and normalized trace.
+3. Use properness for support comparison and retain Galois equivariance on descended coefficients.
+
+Acceptance: For smooth proper rigid X/K of pure dimension d, ℓ invertible in O_K and a finite locally constant 𝔽_ℓ-sheaf L on X_C, let L∨=Hom(L,𝔽_ℓ). The trace and evaluation cup product give perfect pairings H^i(X_C,L)⊗H^{2d−i}(X_C,L∨(d))→𝔽_ℓ for all i. If L descends to X, the pairing is G_K-equivariant. This generalizes the constant-coefficient target using Berkovich 7.4.3; local freeness over the field ensures the dual is the actual finite local system.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.4.3, p. 143.
+
+#### Finiteness in arbitrary dimension with local-system coefficients
+
+`ClassicalAdicEtaleCohomology:H3/smooth-proper-local-system-cohomology-finiteness` (theorem)
+
+For an algebraically closed complete rank-one field C, a proper smooth rigid X/C and a finite locally constant ℤ/n-sheaf L with n invertible in O_C, every H^i_et(X,L) is finite. This is the adic proper transport of Berkovich 7.4.4, extending the existing curve finiteness node to arbitrary dimension. For 𝔽_ℓ-coefficients these finite groups are finite-dimensional vector spaces, as required by the perfect-pairing formulation.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H0/berkovich-overconvergent-sheaf-equivalence`, `ClassicalAdicEtaleCohomology:H0/torsion-local-systems`.
+
+Proof outline:
+
+1. Use the finite-locally-constant finiteness theorem on u(X).
+2. Identify proper cohomology via A.15 and f_!=f_*.
+3. Retain the prime-to-residue coefficient hypothesis.
+
+Acceptance: For an algebraically closed complete rank-one field C, a proper smooth rigid X/C and a finite locally constant ℤ/n-sheaf L with n invertible in O_C, every H^i_et(X,L) is finite. This is the adic proper transport of Berkovich 7.4.4, extending the existing curve finiteness node to arbitrary dimension. For 𝔽_ℓ-coefficients these finite groups are finite-dimensional vector spaces, as required by the perfect-pairing formulation.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Corollary 7.4.4, p. 143.
+
+#### Relative duality when the cohomology sheaves are local systems
+
+`ClassicalAdicEtaleCohomology:H3/smooth-proper-relative-local-system-duality` (theorem)
+
+Let f:X→Y be smooth proper taut rigid of pure relative dimension d, ℓ invertible in O_K, and L a finite locally constant 𝔽_ℓ-sheaf. If every R^if_*L∨ is finite locally constant, the trace pairing gives canonical isomorphisms R^qf_*L ≅ (R^{2d−q}f_*L∨)∨(−d). This is the proper adic instance of Berkovich 7.4.9. The local-constancy hypothesis is an assumption, not a new smooth proper base-change theorem; the generic finite-coefficient Ext calculation in Lemma 7.4.10 is requested from D0/E1.
+
+Prerequisites: `ClassicalAdicEtaleCohomology:H3/berkovich-derived-duality-interface`, `ClassicalAdicEtaleCohomology:H3/berkovich-proper-support-comparison`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-constant-relative-duality`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-local-system-perfect-pairing`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E1`.
+
+Proof outline:
+
+1. Use Berkovich 7.4.9 and its finite-coefficient Ext calculation.
+2. Transport the proper direct images through α_f.
+3. Identify the finite local-system duals and Tate twist with the trace-induced relative pairing.
+
+Acceptance: Let f:X→Y be smooth proper taut rigid of pure relative dimension d, ℓ invertible in O_K, and L a finite locally constant 𝔽_ℓ-sheaf. If every R^if_*L∨ is finite locally constant, the trace pairing gives canonical isomorphisms R^qf_*L ≅ (R^{2d−q}f_*L∨)∨(−d). This is the proper adic instance of Berkovich 7.4.9. The local-constancy hypothesis is an assumption, not a new smooth proper base-change theorem; the generic finite-coefficient Ext calculation in Lemma 7.4.10 is requested from D0/E1.
+
+Sources: [Berkovich-EtaleCohomology-1993](http://www.numdam.org/item/PMIHES_1993__78__5_0/), Theorem 7.4.9 and proof, pp. 145–146.
+
+### Confirmed ownership findings
+
+- **RT-AREA-etale/15:** L2 owns Noetherian approximation and affine-limit Hom/Dᵇ_c continuity.
+  H1:valuation-nearby-cycles owns its valuation-base Rj_* constructibility and H1:valuation-exports its
+  compatible exports. The packet proposes the missing GeneralBasesFourier imports and comparisons,
+  including ABE/A10–A11 and YZ/A07/ABE/A14. It retains the nondominant and finite-boundary limitations.
+- **RT-AREA-etale/20:** the affine Gabber–Huber comparison and Noetherian proper Fujiwara comparison
+  remain H1:henselian’s. ArcTopologyAndDescent imports them and owns the broader non-Noetherian
+  Fujiwara–Gabber extension, strongly Noetherian Tate extension and affinoid Artin vanishing.
+- **RT-AREA-etale/26:** the perfectoid comparison is proposed as an isolated suffix importing P5,
+  H0 continuity and L2 scheme continuity. P5 acquires no classical-cohomology ancestor, and early
+  affine/Noetherian consumers do not acquire the whole perfectoid suffix.
+
+These are proposals in this packet; downstream briefs and other workers’ files are outside this
+issue’s deliverables. The algebraic p-torsion BKH supplier is separately proposed as an early log
+semistable nearby-cycle layer extending LPV, importing CR.5 and SF.2. It has not been silently assigned
+to the existing prime-to-p LPV.0 stage or to a period-comparison layer.
+
+### Sources and proof gaps carried forward
+
+The Huber finite-boundary alternative in 4.2.8–4.2.9 still has no verified public statement. The
+Springer chapter remains subscription-only; this pass does not invent its hypothesis. Public
+Zavyalov restatements identify the exact general-dimensional trace, support-comparison and
+cohomological-dimension inputs, but their cited Huber proofs remain unread. The integral inverse-limit
+trace proof and algebraic BKH theorem also remain explicit supplier gaps. All 40 gaps and 37 requests
+are recorded per consumer in the packet and summarized in the handoff.
+
+## Sources
 
 Hub96 only through the excerpts of the reviewed decomposition (3.1.3, 3.2.1, 3.2.5, 3.5.12–3.5.13, 3.5.17);
 SGA 7 II Exposé XIII (1.3.2, 1.3.10, 1.4.3, 2.1.1–2.1.2, 2.1.8.9); Berkovich, *Vanishing cycles for formal
@@ -2498,7 +4841,7 @@ p-torsion.
 ## H2. Invariance under extension of an algebraically closed valued field
 
 
-**Coverage: source_decomposed** (every target of the stage is realised by a node; Huber's reduction of Theorem 4.1.1(c) to
+**Coverage: planned** (every target of the stage is realised by a node; Huber's reduction of Theorem 4.1.1(c) to
 the algebraizable case exported by H1:valuation-exports exists only in the non-public book and is a recorded gap, and two
 rigid-geometry inputs are requests to AdicSpacesPartII).
 
@@ -3211,7 +5554,7 @@ Proof outline: (1) (i) Berkovich Lemma 6.2.2: if r ∉ |C^×| the ring O(A) is a
 
 Acceptance: g = T − a: deg_D(g) = 1 and γ_D(g) = −1. g = (T − a)^n: γ_D(g) = 0 in ℤ/n, consistent with the Kummer class of an n-th power being trivial.
 
-`ClassicalAdicEtaleCohomology:H3/curve-trace` (construction; planet “Trace map for curves”). Notation: C an algebraically closed field complete for a nontrivial nonarchimedean absolute value, with residue characteristic p ≥ 0; C⁺ ⊆ C an open and bounded valuation subring of arbitrary rank; S = Spa(C, C⁺), with closed point s and generic point η = Spa(C, O_C); n ≥ 1 an integer prime to p (so n is invertible in C⁺); μ_n the étale sheaf of n-th roots of unity and Λ(1) = Λ ⊗ μ_n. To every smooth adic curve f : X → S (ClassicalAdicEtaleCohomology:H3/smooth-adic-curve) is attached a trace Tr_f : R²f_!μ_n → ℤ/n of sheaves on S, equivalently (S being strictly local) a homomorphism Tr_X : H²_c(X/S, μ_n) → ℤ/n, and, by the projection formula and R^q f_! = 0 for q > 2, a map Tr_f : Rf_!(f^*K(1))[2] → K for K ∈ D(S_ét, ℤ/n). The traces are uniquely determined by: (a) for every flat, separated, locally quasi-finite S-morphism φ : Y → X of smooth adic curves, Tr_Y = Tr_X ∘ Tr_φ, with Tr_φ the flat quasi-finite trace (ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace); (b) Tr_{P¹_S} is the degree: H²(P¹_S, μ_n) ≅ H²(P¹_C, μ_n) ≅ Pic(P¹)/n → ℤ/n (ClassicalAdicEtaleCohomology:H3/algebraic-curve-comparison); (c) generic-point determination: Hom_S(R²f_!μ_n, ℤ/n) ≅ Hom(H²_c(X_η, μ_n), ℤ/n) by restriction to the generic point η = Spa(C, O_C), and Tr_f corresponds to Tr_{X_η}. For C⁺ = O_C the traces are surjective for nonempty X; they are compatible with base change of S and with restriction to opens of S (ClassicalAdicEtaleCohomology:H3/curve-trace-base-change), with finite étale maps and restrictions to open subspaces (ClassicalAdicEtaleCohomology:H3/curve-trace-flat-quasi-finite-compatibility), with the algebraic trace (ClassicalAdicEtaleCohomology:H3/curve-trace-algebraic-comparison), and are isomorphisms for connected X in the cases of ClassicalAdicEtaleCohomology:H3/curve-trace-iso-connected. This is Hub96 Theorem 7.2.2 for curves over Spa(C, C⁺), in the form restated by ECD for the ball.
+`ClassicalAdicEtaleCohomology:H3/curve-trace` (construction). Notation: C an algebraically closed field complete for a nontrivial nonarchimedean absolute value, with residue characteristic p ≥ 0; C⁺ ⊆ C an open and bounded valuation subring of arbitrary rank; S = Spa(C, C⁺), with closed point s and generic point η = Spa(C, O_C); n ≥ 1 an integer prime to p (so n is invertible in C⁺); μ_n the étale sheaf of n-th roots of unity and Λ(1) = Λ ⊗ μ_n. To every smooth adic curve f : X → S (ClassicalAdicEtaleCohomology:H3/smooth-adic-curve) is attached a trace Tr_f : R²f_!μ_n → ℤ/n of sheaves on S, equivalently (S being strictly local) a homomorphism Tr_X : H²_c(X/S, μ_n) → ℤ/n, and, by the projection formula and R^q f_! = 0 for q > 2, a map Tr_f : Rf_!(f^*K(1))[2] → K for K ∈ D(S_ét, ℤ/n). The traces are uniquely determined by: (a) for every flat, separated, locally quasi-finite S-morphism φ : Y → X of smooth adic curves, Tr_Y = Tr_X ∘ Tr_φ, with Tr_φ the flat quasi-finite trace (ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace); (b) Tr_{P¹_S} is the degree: H²(P¹_S, μ_n) ≅ H²(P¹_C, μ_n) ≅ Pic(P¹)/n → ℤ/n (ClassicalAdicEtaleCohomology:H3/algebraic-curve-comparison); (c) generic-point determination: Hom_S(R²f_!μ_n, ℤ/n) ≅ Hom(H²_c(X_η, μ_n), ℤ/n) by restriction to the generic point η = Spa(C, O_C), and Tr_f corresponds to Tr_{X_η}. For C⁺ = O_C the traces are surjective for nonempty X; they are compatible with base change of S and with restriction to opens of S (ClassicalAdicEtaleCohomology:H3/curve-trace-base-change), with finite étale maps and restrictions to open subspaces (ClassicalAdicEtaleCohomology:H3/curve-trace-flat-quasi-finite-compatibility), with the algebraic trace (ClassicalAdicEtaleCohomology:H3/curve-trace-algebraic-comparison), and are isomorphisms for connected X in the cases of ClassicalAdicEtaleCohomology:H3/curve-trace-iso-connected. This is Hub96 Theorem 7.2.2 for curves over Spa(C, C⁺), in the form restated by ECD for the ball.
 
 Hypotheses: S = Spa(C, C⁺) with C algebraically closed; open subsets U ⊆ S are again of this form (U = Spa(C, C⁺_U)) and are allowed as bases; n prime to the residue characteristic p of C; no trace is asserted on p-torsion (Berkovich Remark 6.2.10).
 
@@ -3415,7 +5758,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
 
 - **The affinoid étale basis is essentially small, so étale sheaf categories are Grothendieck abelian** — `ClassicalAdicEtaleCohomology:H0/affinoid-etale-basis-essentially-small` (lemma)
   - prerequisites: `AdicEtaleGeometry:A1/basis-comparison`, `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/strongly-sheafy-huber-pair`, `AdicEtaleGeometry:A1/pro-etale-site-corrected`, `AdicEtaleGeometry:A1/corrected-covers-pretopology`, `AdicEtaleGeometry:A1/proetale-coherence`, `AdicEtaleGeometry:A1/profinite-set-objects`, `DiamondsAndVStacks:D0/cutoff-cardinal`, `DiamondsAndVStacks:D0/completion-cardinality-bound`, `mathlib:CategoryTheory.Functor.IsDenseSubsite.sheafEquiv`, `mathlib:CategoryTheory.Sheaf.isGrothendieckAbelian_of_essentiallySmall`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.IsGrothendieckAbelian.enoughInjectives`, `mathlib:ModuleCat`
-- **Étale and pro-étale sheaves of modules on analytic adic spaces** — `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules` (construction) — planet *Étale sheaves of modules*
+- **Étale and pro-étale sheaves of modules on analytic adic spaces** — `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules` (construction)
   - prerequisites: `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/etale-structure-sheaf`, `AdicEtaleGeometry:A1/slice-site`, `AdicEtaleGeometry:A1/etale-site-and-geometric-points`, `AdicEtaleGeometry:A1/etale-enough-points`, `AdicEtaleGeometry:A1/etale-open-map`, `AdicEtaleGeometry:A1/etale-base-change`, `AdicEtaleGeometry:A1/pro-etale-site-corrected`, `AdicEtaleGeometry:A1/proetale-projection-nu`, `ClassicalAdicEtaleCohomology:H0/affinoid-etale-basis-essentially-small`, `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`, `mathlib:ModuleCat`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.constantSheaf`, `mathlib:CategoryTheory.presheafToSheaf`, `mathlib:CategoryTheory.Functor.sheafPushforwardContinuous`, `mathlib:CategoryTheory.Functor.sheafPullback`, `mathlib:CategoryTheory.Functor.sheafAdjunctionContinuous`, `mathlib:CategoryTheory.RepresentablyFlat`, `mathlib:CategoryTheory.Functor.sheafPullbackConstruction.preservesFiniteLimits`, `mathlib:CategoryTheory.GrothendieckTopology.overPullback`, `mathlib:CategoryTheory.GrothendieckTopology.Point.sheafFiber`, `mathlib:CategoryTheory.ObjectProperty.IsConservativeFamilyOfPoints`
   - API: `AdicSpace.EtaleSheaf`; `AdicSpace.EtaleSheaf.isGrothendieckAbelian`; `AdicSpace.EtaleSheaf.enoughInjectives`; `AdicSpace.EtaleSheaf.equivSheafOfModules`; `AdicSpace.EtaleSheaf.sections`; `AdicSpace.EtaleSheaf.const`; `AdicSpace.EtaleSheaf.const_sections`; `AdicSpace.EtaleSheaf.pushforward`; `AdicSpace.EtaleSheaf.pullback`; `AdicSpace.EtaleSheaf.restrict`; `AdicSpace.EtaleSheaf.stalk`; `AdicSpace.EtaleSheaf.stalk_pullback`; `AdicSpace.EtaleSheaf.isIso_iff_stalk`; `AdicSpace.EtaleSheaf.restrictScalars`; `AdicSpace.ProEtaleSheaf`; `AdicSpace.ProEtaleSheaf.nuPullback`
   - unit tests: `EtaleSheaf.test_const_sections_connected`; `EtaleSheaf.test_empty`; `EtaleSheaf.test_int_compat`; `EtaleSheaf.test_galois_point`; `EtaleSheaf.test_rank_one_points_insufficient`
@@ -3425,7 +5768,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/proetale-projection-nu`, `ClassicalAdicEtaleCohomology:H0/affinoid-etale-basis-essentially-small`, `ClassicalAdicEtaleCohomology:H0/etale-restriction-preserves-injectives`, `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`, `mathlib:CategoryTheory.Functor.rightDerived`, `mathlib:CategoryTheory.presheafToSheaf`, `mathlib:CategoryTheory.InjectiveResolution`
 - **Cohomology of sheaves of modules agrees with cohomology of the underlying abelian sheaves** — `ClassicalAdicEtaleCohomology:H0/module-and-abelian-cohomology-agree` (lemma)
   - prerequisites: `ClassicalAdicEtaleCohomology:H0/etale-restriction-preserves-injectives`, `ClassicalAdicEtaleCohomology:H0/higher-direct-image-sheafification`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `AdicEtaleGeometry:A1/proetale-topos-enough-points`, `AdicEtaleGeometry:A1/etale-enough-points`, `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/proetale-projection-nu`, `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.cechComplexFunctor`
-- **Bounded-below derived categories, derived global sections and derived direct images on classical analytic sites** — `ClassicalAdicEtaleCohomology:H0/derived-direct-image` (construction) — planet *Derived direct image*
+- **Bounded-below derived categories, derived global sections and derived direct images on classical analytic sites** — `ClassicalAdicEtaleCohomology:H0/derived-direct-image` (construction)
   - prerequisites: `ClassicalAdicEtaleCohomology:H0/etale-sheaves-of-modules`, `ClassicalAdicEtaleCohomology:H0/affinoid-etale-basis-essentially-small`, `ClassicalAdicEtaleCohomology:H0/etale-restriction-preserves-injectives`, `ClassicalAdicEtaleCohomology:H0/module-and-abelian-cohomology-agree`, `AdicEtaleGeometry:A1/proetale-projection-nu`, `AdicEtaleGeometry:A1/etale-site`, `mathlib:DerivedCategory`, `mathlib:DerivedCategory.Plus`, `mathlib:CategoryTheory.Functor.rightDerivedFunctorPlus`, `mathlib:CategoryTheory.Functor.rightDerivedFunctorPlusUnit`, `mathlib:CategoryTheory.Functor.rightDerived`, `mathlib:CategoryTheory.InjectiveResolution`, `mathlib:CategoryTheory.Abelian.Ext`, `mathlib:CategoryTheory.Abelian.Ext.addEquiv₀`, `mathlib:CategoryTheory.HasExt`, `mathlib:CategoryTheory.Sheaf.H`, `mathlib:CategoryTheory.Sheaf.H.equiv₀`, `mathlib:CategoryTheory.constantSheaf`
   - API: `AdicSpace.EtaleDPlus`; `AdicSpace.RGamma`; `AdicSpace.RGamma.isIso_unit_of_injective`; `AdicSpace.etaleCohomology`; `AdicSpace.etaleCohomology_zero`; `AdicSpace.etaleCohomology.δ`; `AdicSpace.etaleCohomology_iso_ext`; `AdicSpace.etaleCohomology_iso_sheafH`; `AdicSpace.etaleCohomology_restrict`; `AdicSpace.Rpushforward`; `AdicSpace.higherDirectImage`; `AdicSpace.higherDirectImage_iso_sheafify`; `AdicSpace.Rpushforward_comp`; `AdicSpace.RNu`; `AdicSpace.RGamma_Rpushforward`
   - unit tests: `etaleCohomology_test_injective`; `etaleCohomology_test_galois`; `etaleCohomology_test_sheafH`; `RGamma_test_injective_complex`; `etaleCohomology_test_not_coherent`
@@ -3893,7 +6236,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle`, `ClassicalAdicEtaleCohomology:H3/berkovich-taut-comparison`, `ClassicalAdicEtaleCohomology:H3/formal-model-transfer`, `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H0/tate-twists`
 - **Compactly supported cohomology of analytified algebraic curves over Spa(C, C⁺)** — `ClassicalAdicEtaleCohomology:H3/algebraic-curve-comparison` (comparison)
   - prerequisites: `AdicSpacesPartII:R1/scheme-fibre-product-analytification`, `ClassicalAdicEtaleCohomology:H3/formal-model-transfer`, `ClassicalAdicEtaleCohomology:H3/henselian-proper-base-change`, `AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-composition`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-proper-and-etale-cases`, `SchemeAndStackFoundations:SF.2`, `ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12`
-- **The trace map for smooth adic curves over Spa(C, C⁺)** — `ClassicalAdicEtaleCohomology:H3/curve-trace` (construction) — planet *Trace map for curves*
+- **The trace map for smooth adic curves over Spa(C, C⁺)** — `ClassicalAdicEtaleCohomology:H3/curve-trace` (construction)
   - prerequisites: `ClassicalAdicEtaleCohomology:H3/smooth-adic-curve`, `ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace`, `ClassicalAdicEtaleCohomology:H3/algebraic-curve-comparison`, `ClassicalAdicEtaleCohomology:H3/local-residue-degree-formula`, `ClassicalAdicEtaleCohomology:H3/berkovich-taut-comparison`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-quasi-compact-exhaustion`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-base-change`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-cohomological-dimension`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-projection-formula`, `ClassicalAdicEtaleCohomology:H3/relative-ball-compact-support`, `AdicEtaleGeometry:A1/geometric-point-etale-split`, `EtaleDualityAndPerverseSheaves:EDC.2:trace-purity`, `ClassicalAdicEtaleCohomology:H0/tate-twists`
   - API: `AdicSpace.curveTrace`; `AdicSpace.curveTrace'`; `AdicSpace.curveTrace_comp_quasiFiniteTrace`; `AdicSpace.curveTrace_projectiveLine`; `AdicSpace.curveTrace_generic`; `AdicSpace.curveTrace_surjective`; `AdicSpace.curveTrace_unique`; `AdicSpace.curveTrace_baseChange`; `AdicSpace.curveTrace_isIso`
   - unit tests: `curveTrace_relBall`; `curveTrace_projectiveLine`; `curveTrace_kummerCover`; `curveTrace_empty`; `curveTrace_generic`; `curveTrace_not_pTorsion`
@@ -3952,3 +6295,13 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
 - **Zavyalov-FoundationalAdic-2024**: Bogdan Zavyalov, *Some foundational results in adic geometry*, arXiv:2409.15516 v2. <https://arxiv.org/abs/2409.15516>
 - **Scholze-PerfectoidSpaces-2012**: Peter Scholze, *Perfectoid spaces*, arXiv:1111.4914 v1. <https://arxiv.org/abs/1111.4914>
 - **FarguesScholze-Geometrization**: Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, arXiv:2102.13459. <https://arxiv.org/abs/2102.13459>
+
+- **deJong-AnalyticFundamentalGroups-1995**: A. J. de Jong, *Étale fundamental groups of non-Archimedean analytic spaces*, Compositio Math. 97 (1995), 89–118; Numdam scan; printed page numbers. [Public source](https://www.numdam.org/item/CM_1995__97_1-2_89_0.pdf). Read: §2 (Definitions 2.1, 2.6; Lemmas 2.2–2.7; Theorems 2.9–2.10, with proofs); §4 (Definition 4.1, Theorem 4.2 with proof, Corollary 4.4); §5 first paragraphs (rigid translation).
+
+- **Cesnavicius-BrauerPurity-2019**: Kęstutis Česnavičius, *Purity for the Brauer group*, Author PDF of Duke Math. J. 168 (2019); §4.10, printed pp. 9–11. [Public source](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf). Read: §4.10 proof, formulas (4.10.2)–(4.10.7), footnotes 2–4.
+
+- **ColmezDospinescuNiziol-DrinfeldFactorisation-2023**: Pierre Colmez, Gabriel Dospinescu, Wiesława Nizioł, *Factorisation de la cohomologie étale p-adique de la tour de Drinfeld*, Published Forum Math. Pi 11 (2023), e16; printed pp. 22–24; PDF carries a download stamp. [Public source](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf). Read: §2.1.1, including Theorem 2.4 and its local algebraization proof.
+
+- **Zavyalov-PoincareDuality-2025**: Bogdan Zavyalov, *Mod-p Poincaré Duality in p-adic analytic geometry*, Author PDF of Annals Math. 201 (2025), no. 3; author pagination, §5.3 pp. 77–78, Appendix A pp. 84–88. [Public source](https://bogdanzavyalov.com/refs/papers/Poincare_Duality.pdf). Read: Theorem 1.1.3 (prime-to-residue-characteristic duality); §1.4 conventions; §5.3 complete (Definition 5.3.1, Lemma 5.3.2, Theorem 5.3.3 with proof); Appendix A complete (A.1–A.19); §5.4 used only to delimit the external mod-p duality input.
+
+- **GuoReinecke-CrystallineLocalSystems-2024**: Haoyang Guo, Emanuel Reinecke, *A prismatic approach to crystalline local systems*, Published Invent. Math. 236 (2024), 17–164; printed pp. 114–115. [Public source](https://par.nsf.gov/servlets/purl/10534610). Read: Theorem 7.16 (étale normalization hypotheses only), Remark 7.17, first paragraph of proof.
