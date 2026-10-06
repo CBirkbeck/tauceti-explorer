@@ -22314,8 +22314,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #684"
   },
   {
    "id": "REV-AutomorphicFormsOnReductiveGroups",
