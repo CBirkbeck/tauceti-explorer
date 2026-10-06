@@ -2,19 +2,24 @@
 Suggested Lean forms for EtaleDualityAndPerverseSheaves, part EDC.4
 (stages EDC.4, EDC.5, EDC.6, EDC.7, EDC.8).
 
+Independent review REV-EtaleDualityAndPerverseSheaves--EDC.4: NEEDS CHANGES.
+The review report records the remaining mathematical and signature blockers. Elaboration
+checks the types of admitted declarations; it does not certify their source agreement.
+
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.4.md` and the blueprint packet
-`research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json` are definitive; the
+`research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json` require the corrections
+and reconciliation recorded in the independent review; the
 statements below suggest Lean forms so that contributors and reviewers converge on names and
 signatures. Every proof is `sorry`; nothing here is claimed to be formalised (every packet node has
 implementationStatus "unchecked"). Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib is imported.
 
-Names. Every API item and unit test of the packet appears below under the name the packet gives it
+Names. API items and unit tests are proposed below under the names of the original packet
 (namespace `TauCeti.EtaleDuality`); unit tests are `example`s whose docstring reads "Test `<name>`".
 Named theorems carry the packet node slug in their docstring. Some statements are typed in a
-simplified but faithful form (for instance with constant coefficients instead of a locally constant
-sheaf); the packet states them in full.
+simplified form. The review identifies forms that are weaker than the packet, omit essential
+hypotheses, or need replacement; these must not be treated as faithful target signatures.
 
 Carriers. As in part EDC.0, the étale derived category is Mathlib's `DerivedCategory` of
 `Sheaf X.smallEtaleTopology (ModuleCat Λ)`, and t-structures are Mathlib's `TStructure`. The
@@ -113,7 +118,7 @@ lemma TStructure.homologyZero_obj_heart (X : t.heart.FullSubcategory) :
 lemma TStructure.isZero_of_homology_isZero (X : C) (a b : ℤ) (ha : t.IsGE X a) (hb : t.IsLE X b)
     (h : ∀ n : ℤ, IsZero ((TStructure.homology t n).obj X)) : IsZero X := sorry
 
-lemma TStructure.isLE_iff_homology (X : C) (a : ℤ) (ha : t.IsGE X a) :
+lemma TStructure.isLE_iff_homology (X : C) (a b : ℤ) (ha : t.IsGE X a) (hb : t.IsLE X b) :
     t.IsLE X 0 ↔ ∀ n : ℤ, 0 < n → IsZero ((TStructure.homology t n).obj X) := sorry
 
 /-- Test `homologyZero_zero`. -/
@@ -162,6 +167,11 @@ lemma Functor.IsRightTExact.comp {T : C₁ ⥤ C₂} {S : C₂ ⥤ C₃} {t₁ :
     (hS : Functor.IsRightTExact S t₂ t₃) : Functor.IsRightTExact (T ⋙ S) t₁ t₃ :=
   fun X hX => hS _ (hT X hX)
 
+lemma Functor.IsLeftTExact.comp {T : C₁ ⥤ C₂} {S : C₂ ⥤ C₃} {t₁ : TStructure C₁}
+    {t₂ : TStructure C₂} {t₃ : TStructure C₃} (hT : Functor.IsLeftTExact T t₁ t₂)
+    (hS : Functor.IsLeftTExact S t₂ t₃) : Functor.IsLeftTExact (T ⋙ S) t₁ t₃ :=
+  fun X hX => hS _ (hT X hX)
+
 lemma Functor.isRightTExact_iff_isLeftTExact_of_adjunction {F : C₂ ⥤ C₁} {G : C₁ ⥤ C₂}
     (adj : F ⊣ G) [F.CommShift ℤ] [G.CommShift ℤ] (t₁ : TStructure C₁) (t₂ : TStructure C₂) :
     Functor.IsRightTExact F t₂ t₁ ↔ Functor.IsLeftTExact G t₁ t₂ := sorry
@@ -176,6 +186,10 @@ def Functor.heartFunctor (T : C₁ ⥤ C₂) (t₁ : TStructure C₁) (t₂ : TS
 lemma Functor.heartFunctor_preservesFiniteColimits (T : C₁ ⥤ C₂) [T.CommShift ℤ] [T.IsTriangulated]
     (t₁ : TStructure C₁) (t₂ : TStructure C₂) (hT : Functor.IsRightTExact T t₁ t₂) :
     PreservesFiniteColimits (Functor.heartFunctor T t₁ t₂) := sorry
+
+lemma Functor.heartFunctor_preservesFiniteLimits (T : C₁ ⥤ C₂) [T.CommShift ℤ] [T.IsTriangulated]
+    (t₁ : TStructure C₁) (t₂ : TStructure C₂) (hT : Functor.IsLeftTExact T t₁ t₂) :
+    PreservesFiniteLimits (Functor.heartFunctor T t₁ t₂) := sorry
 
 /-- Test `isTExact_id`. -/
 example (t : TStructure C₁) : Functor.IsTExact (𝟭 C₁) t t := sorry
@@ -264,6 +278,8 @@ recollements with the same `i_*`, `j^*` have isomorphic `i^!`. -/
 example (R R' : Recollement D_F D D_U) (h₁ : R.iLowerStar = R'.iLowerStar) :
     Nonempty (R.iUpperShriek ≅ R'.iUpperShriek) := sorry
 
+variable [IsTriangulated D_F] [IsTriangulated D] [IsTriangulated D_U]
+
 /-- Named theorem `EDC.5/glued-t-structure` (BBD 1.4.10): the glued t-structure. -/
 def Recollement.glue (R : Recollement D_F D D_U) (tF : TStructure D_F) (tU : TStructure D_U) :
     TStructure D := sorry
@@ -281,8 +297,6 @@ lemma Recollement.glue_exactness (R : Recollement D_F D D_U) (tF : TStructure D_
     Functor.IsTExact R.iLowerStar tF (R.glue tF tU) ∧
     Functor.IsTExact R.jUpperStar (R.glue tF tU) tU := sorry
 
-variable [IsTriangulated D_F] [IsTriangulated D] [IsTriangulated D_U]
-
 /-- `j_!* B := image(pj_!B → pj_*B)` (node `EDC.5/abstract-intermediate-extension`). -/
 def Recollement.intermediateExtension (R : Recollement D_F D D_U) (tF : TStructure D_F)
     (tU : TStructure D_U) : tU.heart.FullSubcategory ⥤ (R.glue tF tU).heart.FullSubcategory := sorry
@@ -293,9 +307,9 @@ lemma Recollement.upperStar_intermediateExtension (R : Recollement D_F D D_U)
 
 lemma Recollement.intermediateExtension_no_sub_quotient (R : Recollement D_F D D_U)
     (tF : TStructure D_F) (tU : TStructure D_U) (B : tU.heart.FullSubcategory)
-    (S : (R.glue tF tU).heart.FullSubcategory) (hS : IsZero (R.jUpperStar.obj S.obj))
-    (f : S ⟶ (R.intermediateExtension tF tU).obj B) (g : (R.intermediateExtension tF tU).obj B ⟶ S)
-    (hf : Mono f) (hg : Epi g) : IsZero S := sorry
+    (S : (R.glue tF tU).heart.FullSubcategory) (hS : IsZero (R.jUpperStar.obj S.obj)) :
+    (∀ f : S ⟶ (R.intermediateExtension tF tU).obj B, Mono f → IsZero S) ∧
+      (∀ g : (R.intermediateExtension tF tU).obj B ⟶ S, Epi g → IsZero S) := sorry
 
 lemma Recollement.intermediateExtension_unique (R : Recollement D_F D D_U)
     (tF : TStructure D_F) (tU : TStructure D_U) (B : tU.heart.FullSubcategory)
@@ -489,7 +503,7 @@ example {X : Scheme.{u}} [IsEmpty X] (K : Dbc Λ X) : IsZero K := sorry
 /-- Test `not_perverse_curve_constant`. -/
 example {k : Type u} [Field k] [IsSepClosed k] [Nontrivial Λ] {X : Scheme.{u}} [Nonempty X]
     (a : X ⟶ Spec (CommRingCat.of k)) [SmoothOfRelativeDimension 1 a] :
-    ¬ (perverseTStructure Λ X).IsGE (constant X) 0 := sorry
+    ¬ (perverseTStructure Λ X).IsLE (constant X) 0 := sorry
 
 variable (Λ) in
 /-- Perverse sheaves (node `EDC.5/perverse-sheaves`). -/
@@ -580,6 +594,16 @@ lemma intermediateExtension_stalk_bound {U X : Scheme.{u}} (j : U ⟶ X) [IsOpen
     (hd : x.dim = d) (hi : -(d : ℤ) ≤ i) :
     IsZero (stalkCohomology x i ((intermediateExtension j).obj A).obj) := sorry
 
+/-- Stand-in: geometric point costalk cohomology, including the generic-point limit. -/
+def costalkCohomology {X : Scheme.{u}} (x : GeomPoint X) (j : ℤ) (K : Dbc Λ X) :
+    ModuleCat.{u} Λ := sorry
+
+lemma intermediateExtension_costalk_bound {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
+    (A : PerverseSheaf Λ U) (x : GeomPoint X)
+    (hx : x.pt.base (IsLocalRing.closedPoint x.Ω) ∉ Set.range j.base) (d : ℕ) (i : ℤ)
+    (hd : x.dim = d) (hi : i ≤ -(d : ℤ)) :
+    IsZero (costalkCohomology x i ((intermediateExtension j).obj A).obj) := sorry
+
 lemma intermediateExtension_fullyFaithful {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j] :
     Nonempty (intermediateExtension (Λ := Λ) j).FullyFaithful := sorry
 
@@ -592,9 +616,12 @@ variable (Λ) in
 /-- Stand-in: the standard t-structure on `D^b_c(X, Λ)` (restriction of Mathlib's canonical one). -/
 def standardTStructure (X : Scheme.{u}) : TStructure (Dbc Λ X) := sorry
 
-lemma intermediateExtension_truncation_formula {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
-    (e : ℕ) (he : ∀ x : GeomPoint X, x.pt.base (IsLocalRing.closedPoint x.Ω) ∉ Set.range j.base →
-      x.dim = e) (A : PerverseSheaf Λ U) :
+/-- One standard-truncation step requires a smooth closed stratum and an ordinary input bound. -/
+lemma intermediateExtension_truncation_formula {k : Type u} [Field k] {Z U X : Scheme.{u}}
+    (j : U ⟶ X) [IsOpenImmersion j] (i : Z ⟶ X) [IsClosedImmersion i]
+    (e : ℕ) (aZ : Z ⟶ Spec (CommRingCat.of k)) [SmoothOfRelativeDimension e aZ]
+    (hcomp : Set.range j.base = (Set.range i.base)ᶜ) (A : PerverseSheaf Λ U)
+    (hA : (standardTStructure Λ U).IsLE A.obj (-(e : ℤ) - 1)) :
     Nonempty (((intermediateExtension j).obj A).obj ≅
       ((standardTStructure Λ X).truncLE (-(e : ℤ) - 1)).obj ((pushforward j).obj A.obj)) := sorry
 
@@ -635,6 +662,7 @@ example {Λ : Type u} [Field Λ] {k : Type u} [Field k] [IsSepClosed k] {U X : S
 
 /-- The intersection complex `IC_X(L) := j_!*(L[d])` (node `EDC.5/intersection-complex`), here for
 `L` a perverse sheaf `L[d]` on the dense open smooth `U`. -/
+/- Review blocker: the input must be a lisse sheaf shifted by the dimension, not an arbitrary perverse object. -/
 def intersectionComplex {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
     (L : PerverseSheaf Λ U) : PerverseSheaf Λ X :=
   (intermediateExtension j).obj L
@@ -827,7 +855,8 @@ variable {Λ : Type u} [CommRing Λ]
 theorem affine_vanishing_hypercohomology {k : Type u} [Field k] [IsSepClosed k] {U : Scheme.{u}}
     (a : U ⟶ Spec (CommRingCat.of k)) [LocallyOfFiniteType a] [IsAffine U] (K : Dbc Λ U)
     (dq : ℤ → ℕ) (hK : ∀ (x : GeomPoint U) (q : ℤ) (d : ℕ), x.dim = d →
-      ¬ IsZero (stalkCohomology x q K) → d ≤ dq q) (m : ℤ) (hm : ∀ q : ℤ, q + dq q < m) :
+      ¬ IsZero (stalkCohomology x q K) → d ≤ dq q) (m : ℤ) (hm : ∀ q : ℤ, (∃ x : GeomPoint U, ¬ IsZero (stalkCohomology x q K)) →
+      q + dq q < m) :
     IsZero (cohomology m K) := sorry
 
 /-- Named theorem `EDC.4/compact-support-vanishing-smooth-affine`. -/
@@ -909,7 +938,9 @@ def projBundle.xiPow {X : Scheme.{u}} {r : ℕ} (E : LocallyFree X (r + 1)) (q :
 
 /-- Named theorem `EDC.4/projective-bundle-decomposition` (untwisted form over a separably
 closed field): `⊕_j H^{q−2j}(X) → H^q(P(E))`, `(a_j) ↦ Σ π^*a_j ∪ ξ^j`, is bijective. -/
-theorem projective_bundle_decomposition {X : Scheme.{u}} {r : ℕ} (E : LocallyFree X (r + 1)) (q : ℤ) :
+theorem projective_bundle_decomposition {k : Type u} [Field k] [IsSepClosed k]
+    {X : Scheme.{u}} (aX : X ⟶ Spec (CommRingCat.of k)) {r : ℕ}
+    (E : LocallyFree X (r + 1)) (q : ℤ) :
     Function.Bijective (fun a : (Π j : Fin (r + 1), cohomology (q - 2 * (j : ℕ)) (constant (Λ := Λ) X)) =>
       ∑ j : Fin (r + 1), (projBundle.xiPow E q j).hom (a j)) := sorry
 
@@ -924,14 +955,14 @@ def blowUp.excMap {Z X : Scheme.{u}} (i : Z ⟶ X) [IsClosedImmersion i] (q : �
 /-- Named theorem `EDC.4/blowup-direct-images`: `π_*Λ = Λ`, i.e. `Λ_X → Rπ_*Λ` is split injective. -/
 theorem blowup_direct_images {k : Type u} [Field k] {Z X : Scheme.{u}} (aX : X ⟶ Spec (CommRingCat.of k))
     (i : Z ⟶ X) [IsClosedImmersion i] (d c : ℕ) [SmoothOfRelativeDimension d aX]
-    [SmoothOfRelativeDimension (d - c) (i ≫ aX)] (hc : 2 ≤ c) :
+    [SmoothOfRelativeDimension (d - c) (i ≫ aX)] (hc : 2 ≤ c) (hcd : c ≤ d) :
     ∃ r : (pushforward (Λ := Λ) (blowUp.π i)).obj (constant _) ⟶ constant X,
       ∃ s : constant X ⟶ (pushforward (Λ := Λ) (blowUp.π i)).obj (constant _), s ≫ r = 𝟙 _ := sorry
 
 /-- Named theorem `EDC.4/blowup-formula`: `(x, (z_a)) ↦ π^*x + Σ_a j_*(ζ^{a−1} ∪ p^*z_a)` is bijective. -/
-theorem blowup_formula {k : Type u} [Field k] {Z X : Scheme.{u}} (aX : X ⟶ Spec (CommRingCat.of k))
+theorem blowup_formula {k : Type u} [Field k] [IsSepClosed k] {Z X : Scheme.{u}} (aX : X ⟶ Spec (CommRingCat.of k))
     (i : Z ⟶ X) [IsClosedImmersion i] (d c : ℕ) [SmoothOfRelativeDimension d aX]
-    [SmoothOfRelativeDimension (d - c) (i ≫ aX)] (hc : 2 ≤ c) (q : ℤ) :
+    [SmoothOfRelativeDimension (d - c) (i ≫ aX)] (hc : 2 ≤ c) (hcd : c ≤ d) (q : ℤ) :
     Function.Bijective (fun x : cohomology q (constant (Λ := Λ) X) ×
         (Π a : Fin (c - 1), cohomology (q - 2 * (((a : ℕ) + 1 : ℕ) : ℤ)) (constant (Λ := Λ) Z)) =>
       (restriction₀ (Λ := Λ) (blowUp.π i) q).hom x.1 +
@@ -940,7 +971,8 @@ theorem blowup_formula {k : Type u} [Field k] {Z X : Scheme.{u}} (aX : X ⟶ Spe
 /-- Named theorem `EDC.4/pencil-axis-blowup` (codimension two). -/
 theorem pencil_axis_blowup {k : Type u} [Field k] [IsSepClosed k] {Z X : Scheme.{u}}
     (aX : X ⟶ Spec (CommRingCat.of k)) (i : Z ⟶ X) [IsClosedImmersion i] (n : ℕ)
-    [SmoothOfRelativeDimension (n + 1) aX] [SmoothOfRelativeDimension (n - 1) (i ≫ aX)] (q : ℤ) :
+    [SmoothOfRelativeDimension (n + 1) aX] [SmoothOfRelativeDimension (n - 1) (i ≫ aX)]
+    (hn : 1 ≤ n) (q : ℤ) :
     Function.Injective (restriction (Λ := Λ) (blowUp.π i) q (constant X)).hom := sorry
 
 /-- Named theorem `EDC.4/pullback-injective-blowup-bundle` (projective-bundle case). -/
@@ -1087,15 +1119,23 @@ def diamondLowerShriek {Λ : Type u} [CommRing Λ] {X Y : Scheme.{u}} (f : X ⟶
 /-- Named comparison `EDC.6/scheme-adic-diamond-operation-comparisons-index` (ECD 27.4). -/
 theorem diamond_lowerShriek_comparison {Λ : Type u} [CommRing Λ] {X Y : Scheme.{u}} (f : X ⟶ Y)
     [IsSeparated f] [LocallyOfFiniteType f] [QuasiCompact f] (p : ℕ) [Fact p.Prime]
-    (hp : CharP Γ(Y, ⊤) p) :
+    (hp : CharP Γ(Y, ⊤) p) (n : ℕ) (hn : 0 < n) (hΛ : (n : Λ) = 0)
+    (hnp : Nat.Coprime n p) :
     Nonempty (toDiamond (Λ := Λ) X ⋙ diamondLowerShriek f ≅ lowerShriek f ⋙ toDiamond Y) := sorry
 
-/-- Named theorem `EDC.6/diamond-transport-of-duality`. -/
+/-- Stand-in: the right adjoint `Rc_{X*}` to scheme-to-diamond pullback. -/
+def fromDiamond {Λ : Type u} [CommRing Λ] (X : Scheme.{u}) : DiamondDbc Λ X ⥤ Dbc Λ X := sorry
+
+/-- Named theorem `EDC.6/diamond-transport-of-duality`: right-adjoint recovery.
+Here `diamondDual` must denote duality relative to `(Spec k)^◇`.
+The stronger `c^* D_X ≅ D_{X^◇} c^*` target requires the comparison gap in the packet. -/
 theorem diamond_transport_of_duality {Λ : Type u} [CommRing Λ] {k : Type u} [Field k] {X : Scheme.{u}}
     (a : X ⟶ Spec (CommRingCat.of k)) [IsSeparated a] [LocallyOfFiniteType a] (p : ℕ) [Fact p.Prime]
-    [CharP k p] (K : Dbc Λ X) :
-    Nonempty ((toDiamond X).obj ((verdierDual X).obj (Opposite.op K)) ≅
-      (diamondDual X).obj (Opposite.op ((toDiamond X).obj K))) := sorry
+    [CharP k p] [QuasiCompact a] (n : ℕ) (hn : 0 < n) (hΛ : (n : Λ) = 0)
+    (hnp : Nat.Coprime n p) (K : Dbc Λ X) :
+    Nonempty ((fromDiamond X).obj
+      ((diamondDual X).obj (Opposite.op ((toDiamond X).obj K))) ≅
+        (verdierDual X).obj (Opposite.op K)) := sorry
 
 end Comparison
 
@@ -1154,8 +1194,9 @@ theorem ext_vanishing_weights (P Q : (mixedPerverse Λ X₀).heart.FullSubcatego
 
 /-- Named theorem `EDC.7/mixed-perverse-weight-filtration` (one step of the filtration). -/
 theorem mixed_perverse_weight_filtration (P : (mixedPerverse Λ X₀).heart.FullSubcategory) (w : ℤ) :
-    ∃ (W Q : (mixedPerverse Λ X₀).heart.FullSubcategory) (ι : W ⟶ P) (π : P ⟶ Q),
-      Mono ι ∧ Epi π ∧ ι ≫ π = 0 ∧ HasWeightsLE W.obj w ∧ HasWeightsGE Q.obj (w + 1) := sorry
+    ∃ (W Q : (mixedPerverse Λ X₀).heart.FullSubcategory) (ι : W ⟶ P) (π : P ⟶ Q)
+      (h : ι ≫ π = 0), Mono ι ∧ Epi π ∧ (ShortComplex.mk ι π h).Exact ∧
+        HasWeightsLE W.obj w ∧ HasWeightsGE Q.obj (w + 1) := sorry
 
 /-- Stand-in: intermediate extension of mixed perverse sheaves along `j : U₀ → X₀`. -/
 def mixedIntermediateExtension {U₀ : Scheme.{u}} (j : U₀ ⟶ X₀) [IsOpenImmersion j] :
@@ -1183,6 +1224,7 @@ theorem pure_complex_decomposition {X : Scheme.{u}} (K : MixedDbc Λ X₀) (w : 
 def mixedPushforward {Y₀ : Scheme.{u}} (f : X₀ ⟶ Y₀) : MixedDbc Λ X₀ ⥤ MixedDbc Λ Y₀ := sorry
 
 /-- Named theorem `EDC.7/proper-direct-image-decomposition`. -/
+/- Review blocker: purity preservation alone does not state a decomposition isomorphism or semisimplicity. -/
 theorem proper_direct_image_decomposition {Y₀ : Scheme.{u}} (f : X₀ ⟶ Y₀) [IsProper f]
     (K : MixedDbc Λ X₀) (w : ℤ) (hK : IsPure K w) : IsPure ((mixedPushforward f).obj K) w := sorry
 
@@ -1193,12 +1235,14 @@ def lefschetzMap {Y₀ : Scheme.{u}} (f : X₀ ⟶ Y₀) (F : MixedDbc Λ X₀) 
 
 /-- Named theorem `EDC.7/relative-hard-lefschetz` (BBD 5.4.10; `f` projective with an `f`-ample
 class, whose Chern class defines `lefschetzMap`). -/
+/- Review blocker: introduce the projective morphism, chosen relatively ample line bundle, its Chern-class action and Tate-twisted target. -/
 theorem relative_hard_lefschetz {Y₀ : Scheme.{u}} (f : X₀ ⟶ Y₀) [IsProper f]
     (F : (mixedPerverse Λ X₀).heart.FullSubcategory) (w : ℤ) (hF : IsPure F.obj w) (i : ℕ) :
     IsIso (lefschetzMap f F.obj i) := sorry
 
 /-- Named theorem `EDC.7/relative-primitive-decomposition`: the primitive part `P^{−i}` is a direct
 summand of `pH^{−i}(Rf_*F)` (its complement being `η · pH^{−i−2}(Rf_*F)(−1)`). -/
+/- Review blocker: P must be the specified primitive kernel; an arbitrary retract can be zero. -/
 theorem relative_primitive_decomposition {Y₀ : Scheme.{u}} (f : X₀ ⟶ Y₀) [IsProper f]
     (F : (mixedPerverse Λ X₀).heart.FullSubcategory) (w : ℤ) (hF : IsPure F.obj w) (i : ℕ) :
     ∃ (P : (mixedPerverse Λ Y₀).heart.FullSubcategory)
@@ -1368,10 +1412,19 @@ lemma CohCorr.trace_additive {Λ : Type u} [Field Λ] {X : Scheme.{u}} {L : Dbc 
     [IsProper c.left] {Zc U : Scheme.{u}} (i : Zc ⟶ X) [IsClosedImmersion i] (j : U ⟶ X)
     [IsOpenImmersion j] (hZ : c.IsInvariantClosed i)
     (hU : c.left.base ⁻¹' Set.range j.base ⊆ c.right.base ⁻¹' Set.range j.base)
-    [IsProper (c.restrictClosed i hZ).left] [IsProper (c.restrictOpen j hU).left] (q : ℤ) :
-    LinearMap.trace Λ _ (c.actionOnCompactCohomology q).hom =
-      LinearMap.trace Λ _ ((c.restrictOpen j hU).actionOnCompactCohomology q).hom +
-      LinearMap.trace Λ _ ((c.restrictClosed i hZ).actionOnCompactCohomology q).hom := sorry
+    [IsProper (c.restrictClosed i hZ).left] [IsProper (c.restrictOpen j hU).left]
+    (hcomp : Set.range j.base = (Set.range i.base)ᶜ) (S : Finset ℤ)
+    (hX : ∀ q ∉ S, IsZero (compactCohomology q L))
+    (hU' : ∀ q ∉ S, IsZero (compactCohomology q ((pullback j).obj L)))
+    (hZ' : ∀ q ∉ S, IsZero (compactCohomology q ((pullback i).obj L)))
+    [∀ q : ℤ, FiniteDimensional Λ (compactCohomology q L)]
+    [∀ q : ℤ, FiniteDimensional Λ (compactCohomology q ((pullback j).obj L))]
+    [∀ q : ℤ, FiniteDimensional Λ (compactCohomology q ((pullback i).obj L))] :
+    (∑ q ∈ S, (-1 : Λ) ^ q.natAbs * LinearMap.trace Λ _ (c.actionOnCompactCohomology q).hom) =
+      (∑ q ∈ S, (-1 : Λ) ^ q.natAbs *
+        LinearMap.trace Λ _ ((c.restrictOpen j hU).actionOnCompactCohomology q).hom) +
+      (∑ q ∈ S, (-1 : Λ) ^ q.natAbs *
+        LinearMap.trace Λ _ ((c.restrictClosed i hZ).actionOnCompactCohomology q).hom) := sorry
 
 /-- Test `restrictClosed_self`. -/
 example (c : CohCorr L L) : c.IsInvariantClosed (𝟙 X) := by
@@ -1445,6 +1498,7 @@ def CohCorr.trace {C : Scheme.{u}} (l r : C ⟶ X) [IsSeparated r] [LocallyOfFin
       dualizingH0 Λ (Limits.pullback (Limits.prod.lift l r) (Limits.diag X)) := sorry
 
 /-- The local term of a proper clopen part `β` of the fixed locus. -/
+/- Review blocker: add the base-field structure map and properness of the clopen component before integration. -/
 def CohCorr.localTerm (c : CohCorr L L) {β : Scheme.{u}} (ι : β ⟶ c.fixedLocus) [IsOpenImmersion ι]
     [IsClosedImmersion ι] : Λ := sorry
 
@@ -1470,6 +1524,7 @@ lemma CohCorr.trace_restrictOpen {C C' : Scheme.{u}} (l r : C ⟶ X) [IsSeparate
   sorry
 
 /-- Stand-in: integration `H⁰(F, K_F) → Λ` for `F` proper. -/
+/- Review blocker: integration requires a structure map to the base and properness; this unscoped data carrier is pending replacement. -/
 def integrate (Λ : Type u) [CommRing Λ] (F : Scheme.{u}) : dualizingH0 Λ F ⟶ ModuleCat.of Λ Λ := sorry
 
 lemma CohCorr.localTerm_sum (c : CohCorr L L) {β₁ β₂ : Scheme.{u}} (ι₁ : β₁ ⟶ c.fixedLocus)
@@ -1516,9 +1571,10 @@ example {Λ : Type u} [Field Λ] {k : Type u} [Field k] [IsSepClosed k] {X : Sch
 theorem lefschetz_verdier_formula {Λ : Type u} [Field Λ] {k : Type u} [Field k] [IsSepClosed k]
     {X : Scheme.{u}} {L : Dbc Λ X} (a : X ⟶ Spec (CommRingCat.of k)) [IsProper a] (c : CohCorr L L)
     [IsProper c.left] [IsProper (Limits.pullback.snd (Limits.prod.lift c.left c.right) (Limits.diag X) ≫ a)]
-    (d : ℕ) :
-    ∑ q ∈ Finset.range (2 * d + 1), (-1 : Λ) ^ q *
-        LinearMap.trace Λ _ (c.actionOnCompactCohomology (q : ℤ)).hom =
+    (S : Finset ℤ) (hS : ∀ q ∉ S, IsZero (compactCohomology q L))
+    [∀ q : ℤ, FiniteDimensional Λ (compactCohomology q L)] :
+    ∑ q ∈ S, (-1 : Λ) ^ q.natAbs *
+        LinearMap.trace Λ _ (c.actionOnCompactCohomology q).hom =
       (integrate Λ c.fixedLocus).hom (CohCorr.trace c.left c.right c.u) := sorry
 
 /-- Named theorem `EDC.8/local-terms-finite-order`: at an isolated fixed point `β` (a single point)
