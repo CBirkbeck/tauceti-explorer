@@ -24,6 +24,13 @@ import Mathlib.AlgebraicGeometry.OpenImmersion
 import Mathlib.CategoryTheory.Comma.Over.Pullback
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.Cospan
 import Mathlib.FieldTheory.LinearDisjoint
+import Mathlib.Algebra.Module.PUnit
+import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
+import Mathlib.Data.Nat.Totient
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.GroupTheory.QuotientGroup.Basic
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Projectivization.Basic
 
 set_option linter.unusedVariables false
 
@@ -69,6 +76,13 @@ example {i j : I} (f : i ⟶ j) (a : M i ⟶ M j) (ha : a ≠ t f) :
 example (b : C ⟶ S) {i j : I} (f : i ⟶ j) :
     HEq (((ofLevelMaps M t h_id h_comp) ⋙ Over.pullback b).map f)
       ((Over.pullback b).map (t f)) := by sorry
+-- CanonicalTower.test_gl2_jline_degree: the transition from K(N) to GL₂(ℤ̂) is the j-map
+-- Y_full(N)_ℚ → 𝔸¹, of degree |GL₂(ℤ/N)|/2; at N = 3, |GL₂(𝔽₃)| = 48 = 2 · 24.
+-- Missing carrier: the transition itself; this pins the number it must have.
+example : Nat.card (Matrix.GeneralLinearGroup (Fin 2) (ZMod 3)) = 2 * 24 := by sorry
+-- CanonicalTower.test_not_constant: M_{K(3)} has φ(3) = 2 geometric components while
+-- M_{GL₂(ℤ̂)} is geometrically connected, so the transition is not an isomorphism.
+example : Nat.totient 3 = 2 := by sorry
 
 end CanonicalTower
 namespace CanonicalHecke
@@ -98,7 +112,76 @@ example (p₁ p₂ : A ⟶ A) (h : p₁ ≠ p₂) :
 example (b : C ⟶ S) (p₁ : A ⟶ B) (p₂ : A ⟶ D) :
     HEq ((span p₁ p₂ ⋙ Over.pullback b).map WalkingSpan.Hom.fst)
       ((Over.pullback b).map p₁) := by sorry
+-- CanonicalHecke.test_gl2_Tp_index: for g = diag(p,1), J = K ∩ gKg⁻¹ is the stabilizer of a
+-- line in 𝔽_p², of index |ℙ¹(𝔽_p)| = p + 1 in GL₂(ℤ̂); both legs of T_p have degree p + 1.
+example (p : ℕ) [Fact p.Prime] :
+    Nat.card (Projectivization (ZMod p) (Fin 2 → ZMod p)) = p + 1 := by sorry
 end CanonicalHecke
+
+/-! Zero-dimensional Shimura varieties (Milne, *Introduction to Shimura varieties*, pp.62–63 and
+formula (64), p.119). `TQ`, `TAf` stand for `T(ℚ)` and `T(𝔸_f)`, `ι` for the diagonal map, and
+`Y` for the finite `T(ℝ)/T(ℝ)⁺`-set; the carriers for tori and finite adèles are absent at the
+pinned baseline, so they are parameters here. -/
+namespace ZeroDimShimura
+
+variable {TQ TAf : Type u} [CommGroup TQ] [CommGroup TAf]
+
+/-- The relation `(y, a) ~ (q • y, ι q * a * k)` with `q ∈ T(ℚ)` and `k ∈ K`. -/
+def rel (ι : TQ →* TAf) (K : Subgroup TAf) (Y : Type v) [MulAction TQ Y]
+    (p p' : Y × TAf) : Prop :=
+  ∃ (q : TQ) (k : K), p' = (q • p.1, ι q * p.2 * (k : TAf))
+
+/-- `Sh_K(T,Y) = T(ℚ)\(Y × T(𝔸_f))/K`. -/
+def shimuraSet (ι : TQ →* TAf) (K : Subgroup TAf) (Y : Type v) [MulAction TQ Y] :
+    Type (max u v) :=
+  Quot (rel ι K Y)
+
+variable (ι : TQ →* TAf) (K : Subgroup TAf) {Y : Type v} [MulAction TQ Y]
+
+/-- The class `[y, a]_K`. -/
+def mk (y : Y) (a : TAf) : shimuraSet ι K Y := Quot.mk _ (y, a)
+
+lemma mk_eq_mk {y y' : Y} {a a' : TAf} :
+    mk ι K y a = mk ι K y' a' ↔ ∃ (q : TQ) (k : K), y' = q • y ∧ a' = ι q * a * k := by
+  sorry
+
+/-- The transition `[y, a]_K ↦ [y, a]_{K'}` for `K ≤ K'`. -/
+def map {K K' : Subgroup TAf} (h : K ≤ K') : shimuraSet ι K Y → shimuraSet ι K' Y :=
+  Quot.map id (by sorry)
+
+lemma map_id (x : shimuraSet ι K Y) : map ι (le_refl K) x = x := by sorry
+lemma map_comp {K' K'' : Subgroup TAf} (h : K ≤ K') (h' : K' ≤ K'') (x : shimuraSet ι K Y) :
+    map ι h' (map ι h x) = map ι (h.trans h') x := by sorry
+
+/-- For a one-point `Y` this is `T(𝔸_f)/(T(ℚ)K)`, the set of the V4 torus model. -/
+def singletonEquiv : shimuraSet ι K PUnit.{v + 1} ≃ TAf ⧸ (ι.range ⊔ K) := by sorry
+
+/-- Formula (64): `σ • [y, a] = [r_∞(σ) • y, r_f(σ) * a]`. The reciprocity data `rInf`, `rf`
+come from the reflex norm and Artin map of V4 (missing carriers); `hcomm` is what makes the
+formula well defined. -/
+def galoisAct {Γ : Type*} (rInf : Γ → Y → Y) (rf : Γ → TAf)
+    (hcomm : ∀ σ (q : TQ) (y : Y), rInf σ (q • y) = q • rInf σ y) (σ : Γ) :
+    shimuraSet ι K Y → shimuraSet ι K Y :=
+  Quot.map (fun p => (rInf σ p.1, rf σ * p.2)) (by sorry)
+
+/-- The canonical model: the finite étale scheme over the reflex field attached to the Galois
+set `(shimuraSet ι K Y, galoisAct)` by PR81 0D. Missing carrier: that equivalence. -/
+def canonicalModel {Γ : Type*} (rInf : Γ → Y → Y) (rf : Γ → TAf)
+    (hcomm : ∀ σ (q : TQ) (y : Y), rInf σ (q • y) = q • rInf σ y) (E : Scheme.{u}) :
+    Over E := by sorry
+
+-- ZeroDimShimura.test_gl2_components: Sh_{1+Nℤ̂}(𝔾_m, {±1}) ≅ (ℤ/N)ˣ has φ(N) elements.
+example (N : ℕ) [NeZero N] : Nat.card (ZMod N)ˣ = N.totient := by sorry
+-- ZeroDimShimura.test_strict_datum_halves: with one point instead of {±1} the set is
+-- (ℤ/N)ˣ/{±1}, with φ(N)/2 elements for N ≥ 3 (one point at N = 3).
+example (N : ℕ) (hN : 3 ≤ N) :
+    Nat.card ((ZMod N)ˣ ⧸ Subgroup.zpowers (-1 : (ZMod N)ˣ)) = N.totient / 2 := by sorry
+-- ZeroDimShimura.test_singleton
+example : Nonempty (shimuraSet ι K PUnit.{v + 1} ≃ TAf ⧸ (ι.range ⊔ K)) := by sorry
+-- ZeroDimShimura.test_maximal_level: at K = ℤ̂ˣ the set (ℤ/1)ˣ is one point.
+example : Nat.card (ZMod 1)ˣ = 1 := by sorry
+
+end ZeroDimShimura
 
 namespace CanonicalModel
 -- Missing condition: F must be a reflex field of a special torus subdatum of D,
@@ -122,6 +205,16 @@ theorem unique_iso (eC : (Over.pullback b).obj M ≅ (Over.pullback b).obj N) :
 theorem datum_map_defined_over_compositum
     (fC : (Over.pullback b).obj M ⟶ (Over.pullback b).obj N) :
     ∃! f : M ⟶ N, (Over.pullback b).map f = fC := by sorry
+-- S is E(D); P is the canonical model of Sh_{ν(K)}(T,Y). Missing: the datum with simply connected
+-- derived group, ν, the actual canonical models and the complex component map fC.
+theorem component_map_defined_over_reflex (P : Over S)
+    (fC : (Over.pullback b).obj M ⟶ (Over.pullback b).obj P) :
+    ∃! f : M ⟶ P, (Over.pullback b).map f = fC := by sorry
+-- Missing: the actual complex partial compactification M_K(ℂ)⁺ (plusC), normality, and the
+-- closure in the product with X_full(N) or the finite quotient of Pink 12.10.
+theorem codim_one_extension (plusC : Over C) (jC : (Over.pullback b).obj M ⟶ plusC) :
+    ∃ (plus : Over S) (j : M ⟶ plus) (e : (Over.pullback b).obj plus ≅ plusC),
+      IsOpenImmersion j.left ∧ (Over.pullback b).map j ≫ e.hom = jC := by sorry
 
 -- Incomplete carrier form: restore normality, projectivity, BB comparison and intrinsic log-line
 -- construction. Properness alone is strictly weaker than the packet's compactification target.
@@ -168,6 +261,8 @@ theorem full_level_is_canonical {ι Γ : Type v} (P : Scheme.{u})
 theorem full_level_iso (eC : (Over.pullback b).obj M ≅ (Over.pullback b).obj Y) :
     ∃! e : M ≅ Y, (Over.pullback b).mapIso e = eC := by sorry
 -- Actual determinant/Weil pairing morphisms, cyclotomic target and comparison are missing.
+-- T is the canonical model of Sh_{det K(N)}(𝔾_m, {±1}) = μ_N^prim (ZeroDimShimura with Y = {±1}),
+-- not the one-point torus datum, whose set at this level is (ℤ/N)ˣ/{±1}.
 theorem det_eq_weil_pairing (T : Over S) (det : M ⟶ T) (pairing : Y ⟶ T) (e : M ≅ Y) :
     e.hom ≫ pairing = det := by sorry
 -- Here M,Y are the actual scheme fibres after Q(zeta) base change; restore connectedness.

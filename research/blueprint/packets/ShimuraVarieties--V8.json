@@ -7,7 +7,7 @@
     "ShimuraVarieties:V8.general"
   ],
   "status": "complete",
-  "summary": "Complete target-level plan for canonical finite-level functoriality, arithmetic GL2 modular comparisons, and reflex-field minimal descent, with four explicit supplier/carrier gaps; both stages are planned, neither closed.",
+  "summary": "Complete target-level plan for canonical finite-level functoriality over the reflex field, the Galois action on connected components through zero-dimensional Shimura varieties, arithmetic GL2 modular comparisons, and reflex-field descent of the minimal compactification through Pink's codimension-one extension, with four explicit gaps; both stages are planned, neither closed.",
   "nodes": [
     {
       "id": "ShimuraVarieties:V8/disjoint-special-reflex-fields",
@@ -182,7 +182,7 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "5.29(a), p.65; 12.10, p.116; 13.7(b), p.119",
+          "locator": "5.29(a), p.65; 12.10, p.115; 13.7(b), p.119",
           "excerpt": "form an inverse system",
           "match": "Assemble the algebraic models with their actual maps. Neither an infinite-level scheme nor its point formula is required."
         }
@@ -261,6 +261,16 @@
           "name": "CanonicalTower.test_base_change",
           "kind": "compatibility",
           "statement": "The base-changed constructor map on f is exactly Over.pullback(b).map(t(f))."
+        },
+        {
+          "name": "CanonicalTower.test_gl2_jline_degree",
+          "kind": "computation",
+          "statement": "For GL2 and N >= 3 the tower map from level K(N) to GL2(Zhat) is identified with the j-map Y_full(N)_Q -> A^1_Q (gl2-full-level, PR81 9E); its degree is |GL2(Z/N)|/2 because -1 acts trivially, so 24 at N = 3, and |GL2(F_3)| = 48."
+        },
+        {
+          "name": "CanonicalTower.test_not_constant",
+          "kind": "non-example",
+          "statement": "The tower is not constant: for GL2, M_{K(N)} has phi(N) geometric connected components (component-reciprocity) while M_{GL2(Zhat)} is geometrically connected, so for N >= 3 the transition is not an isomorphism; phi(3) = 2."
         }
       ]
     },
@@ -290,9 +300,15 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "5.29(b), pp.65–66",
+          "locator": "5.29(b)–(c), p.65",
           "excerpt": "the identity map",
           "match": "Source/target levels and coherent right translations."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "Discussion before Definition 5.14, p.58",
+          "excerpt": "Note that this is a right action",
+          "match": "Pins the convention T(gh)=T(h)∘T(g): first T(g), then T(h)."
         }
       ],
       "acceptance": [
@@ -314,14 +330,14 @@
       ],
       "kind": "theorem",
       "title": "Finite level maps and effective deck groups",
-      "statement": "For K1 contained in K2, pi_{K1,K2} is finite and surjective over E; at neat effective levels it is finite étale. If K1 is normal in K2, the finite quotient is by the effective image of K2/K1 in automorphisms of M_{K1}; its kernel consists of elements acting trivially on the actual quotient. Deck groups and degree use this effective quotient, not K2/K1 without a kernel calculation.",
+      "statement": "For K1 contained in K2, pi_{K1,K2} is finite and surjective over E; when K2 (hence K1) is neat it is finite étale. If K1 is normal in K2, M_{K2} is the quotient of M_{K1} by the effective image of K2/K1 in automorphisms of M_{K1}; its kernel consists of elements acting trivially on the actual quotient (for GL2 and K(N) normal in GL2(Zhat), the element -1 acts trivially, so the effective group is GL2(Z/N)/{±1}). Deck groups and degree use this effective quotient, not K2/K1 without a kernel calculation.",
       "hypotheses": [
         "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
         "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane."
       ],
       "proofSteps": [
         "V1 supplies finite analytic coverings and the effective stabilizer calculation. V3 supplies finite algebraic maps and finite quotients at non-neat levels.",
-        "Finiteness, surjectivity and étaleness in the certified neat range descend along C/E. Apply the finite quotient universal property to the descended effective action."
+        "Finiteness, surjectivity and, for neat K2, étaleness descend along C/E. Apply the finite quotient universal property to the descended effective action."
       ],
       "prerequisites": [
         "ShimuraVarieties:V8/translation-descent",
@@ -336,14 +352,15 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "5.29(a), p.65",
+          "locator": "5.29(c), p.65",
           "excerpt": "of the finite group",
-          "match": "Finite quotient statement, with the effective-kernel qualification inherited from V1."
+          "match": "Finite quotient statement of 5.29(c), with the effective-kernel qualification inherited from V1."
         }
       ],
       "acceptance": [
         "For torus data the dimension is zero; level morphisms are finite étale.",
-        "Non-neat levels retain elliptic stabilizer ramification, so étaleness is not exported there."
+        "Non-neat levels retain elliptic stabilizer ramification, so étaleness is not exported there.",
+        "Y_full(3) -> Y(1) (the j-line) has degree |GL2(F_3)|/2 = 24 and ramifies over j = 0 and j = 1728: the target level GL2(Zhat) is not neat."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -382,14 +399,15 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "5.29, pp.65–66; 13.6, p.118",
+          "locator": "5.29, p.65; 13.6, p.118",
           "excerpt": "right action",
           "match": "Arithmetic descent of the two legs of the V1 Hecke correspondence."
         }
       ],
       "acceptance": [
         "J is K intersect gKg^{-1}, not K intersect g^{-1}Kg.",
-        "For g=1, J=K and both legs are the identity."
+        "For g=1, J=K and both legs are the identity.",
+        "For g = diag(p,1) the apex has index p+1, not p or p^2: J is K ∩ gKg^{-1}, the stabilizer of a line in F_p^2."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -452,6 +470,11 @@
           "name": "CanonicalHecke.test_base_change",
           "kind": "compatibility",
           "statement": "After Over.pullback(b), evaluation at the first WalkingSpan arrow is Over.pullback(b).map(p1)."
+        },
+        {
+          "name": "CanonicalHecke.test_gl2_Tp_index",
+          "kind": "computation",
+          "statement": "For GL2, K = GL2(Zhat) and g = diag(p,1) at a prime p, J = K ∩ gKg^{-1} is the preimage of the lower-triangular subgroup mod p, of index p+1 = |P^1(F_p)| in K; both legs of the Hecke span have degree p+1 over the coarse j-line, the classical T_p."
         }
       ]
     },
@@ -463,7 +486,7 @@
       ],
       "kind": "theorem",
       "title": "Functoriality of canonical models in the datum",
-      "statement": "For a datum morphism f:D -> Dprime, compact open K,Kprime with f(K) contained in Kprime, and actual canonical models on both sides, the complex map [x,a] -> [f(x),f(a)] descends uniquely over the compositum E(D)E(Dprime) in C. It commutes with admissible level maps and right translations, identity datum maps and compositions after the necessary common-base changes.",
+      "statement": "For a datum morphism f:D -> Dprime, compact open K,Kprime with f(K) contained in Kprime, and actual canonical models on both sides, the complex map [x,a] -> [f(x),f(a)] descends uniquely to a morphism over E(D). Milne states the field as the compositum E(D)E(Dprime); it equals E(D), because E(Dprime) is contained in E(D) (the argument of Milne 12.3(c) applies to every datum morphism: f carries the cocharacter class of X into that of Xprime Galois-equivariantly). It commutes with admissible level maps and right translations, identity datum maps and compositions after the necessary base changes of the target models to E(D).",
       "hypotheses": [
         "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
         "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
@@ -471,7 +494,7 @@
       ],
       "proofSteps": [
         "V3 gives the complex algebraic map; D4 sends special pairs to special pairs.",
-        "Functoriality of V4 reflex norms makes the map Galois equivariant on the dense Hecke orbit of each source special pair. Apply the disjoint-field argument after forming the common compositum.",
+        "Functoriality of V4 reflex norms makes the map Galois equivariant on the dense Hecke orbit of each source special pair (special points map to special points by D4). Apply the disjoint-field argument of translation-descent over E(D), which contains E(Dprime).",
         "Descend by A; identities, compositions and Hecke compatibility follow from their complex formulas and faithful base change."
       ],
       "prerequisites": [
@@ -488,13 +511,19 @@
           "sourceId": "milne-svi",
           "locator": "13.8, p.119",
           "excerpt": "In fact, one can prove more.",
-          "match": "Base field is the compositum, not an unjustified smaller field."
+          "match": "Milne's compositum statement; the compositum equals E(D)."
         },
         {
           "sourceId": "deligne-1971",
           "locator": "5.4, pp.155–156",
           "excerpt": "est défini sur E",
           "match": "Special-pair proof of datum functoriality."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "12.3(c), p.112",
+          "excerpt": "be an inclusion of Shimura data",
+          "match": "The reflex field of the source contains that of the target; the argument uses only Galois-equivariance of the induced map on cocharacter classes."
         }
       ],
       "acceptance": [
@@ -510,6 +539,183 @@
         "name": "Functoriality of canonical models"
       },
       "leanName": "CanonicalModel.datum_map_defined_over_compositum"
+    },
+    {
+      "id": "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "title": "Zero-dimensional Shimura varieties and their canonical models",
+      "kind": "construction",
+      "statement": "Let T be a Q-torus, Y a nonempty finite set on which T(R) acts transitively through T(R)/T(R)^+ (T(Q) acting through T(Q) ⊂ T(R)), and mu a cocharacter of T_C with field of definition E ⊂ C. For compact open K ⊂ T(A_f) put Sh_K(T,Y) = T(Q)\\(Y × T(A_f))/K, the finite set of classes [y,a]_K with [y,a]_K = [q·y, q a k]_K for q in T(Q), k in K; the sets form an inverse system with right translations by T(A_f). For sigma in Gal(Qbar/E) choose s in the ideles of E with art_E(s) = sigma on E^ab, let r(s) = (r(s)_inf, r(s)_f) be its image under the multiplicative reflex norm r(T,mu) of V4, and put sigma[y,a]_K = [r(s)_inf·y, r(s)_f·a]_K (Milne, formula (64)). This is a continuous action independent of s, compatible with transitions and translations; the canonical model M_K(T,Y,mu) is the finite étale E-scheme attached to this Galois set. When Y is one point and mu = mu_h it is the V4 torus model of the strict torus datum (T,{h}); in general it is not: for (G_m,{±1}) and K = 1+N Zhat it is mu_N^prim, whereas the strict datum gives Spec of the real subfield of Q(zeta_N).",
+      "hypotheses": [
+        "T is a Q-torus; Y is a nonempty finite set with a transitive T(R)-action factoring through T(R)/T(R)^+ (Milne, zero-dimensional Shimura varieties, pp.62–63).",
+        "mu is a cocharacter of T_C defined over the number field E ⊂ C; r(T,mu) is the multiplicative reflex norm of V4 (Milne (60) with the product correction E5) and art_E is the Artin map in the V4 normalization.",
+        "K ranges over compact open subgroups of T(A_f)."
+      ],
+      "proofSteps": [
+        "Finiteness: T(Q)\\T(A_f)/K is finite (Milne 5.22) and Y is finite.",
+        "Independence of s: two choices differ by an element of the kernel of art_E, the closure of E^× times the identity component at infinity; r(E^×) lies in T(Q), which acts trivially on the double quotient, r of the identity component lies in T(R)^+, which acts trivially on Y, and K is open, so the closure does not matter. The action factors through Gal(E^ab/E) and through a finite quotient.",
+        "Transitions [y,a]_K -> [y,a]_K′ for K ⊂ K′ and translations [y,a] -> [y,ag] commute with the action because T is commutative; apply the PR81 0D equivalence between finite étale E-schemes and finite continuous Galois sets to obtain the models and their E-morphisms.",
+        "For Y a point, (64) reduces to (62) for the special pair (T,h), because T(R) fixes h; this is the V4 torus model."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V4",
+        "ShimuraData:D5/torus-datum",
+        "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "§5, Zero-dimensional Shimura varieties and the GL2 example, pp.62–63",
+          "excerpt": "We should extend this definition a little",
+          "match": "Defines Sh(T,Y) for a finite set Y with transitive T(R)/T(R)^+-action, extending Deligne's one-point torus data; the GL2 example gives (Z/NZ)^× ≅ Gal(Q[zeta_N]/Q)."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "§13, The Galois action on the connected components, formula (64), p.119",
+          "excerpt": "When we use (64) to define the notion a canonical model",
+          "match": "Formula (64) defines the canonical model of a zero-dimensional Shimura variety."
+        }
+      ],
+      "acceptance": [
+        "For (G_m,{±1}) with mu(z)=z and K = 1+N Zhat the set has phi(N) points and Galois acts through the cyclotomic character (Milne p.125): the model is Spec Q[z]/Phi_N(z).",
+        "Complex conjugation acts on Y={±1} by the sign of r(s)_inf; a one-point Y cannot record it."
+      ],
+      "uses": [
+        {
+          "where": "Milne SVI §5, p.63 and §13, (64), p.119",
+          "how": "pi_0 of Sh_K(G,X) is the zero-dimensional Shimura variety Sh_{nu(K)}(T,Y), and (64) gives its canonical model."
+        },
+        {
+          "where": "ShimuraVarieties:V8/gl2-determinant-pairing",
+          "how": "the target of the determinant at level det K(N) is Sh(G_m,{±1}) ≅ mu_N^prim."
+        },
+        {
+          "where": "Pink 12.8 and 12.10 (the datum (G_m,Q,H_0))",
+          "how": "the quotient (GL2,H±)/SL2 in the codimension-one construction is a two-point zero-dimensional datum, whose canonical model is this one."
+        }
+      ],
+      "api": [
+        {
+          "name": "ZeroDimShimura.shimuraSet",
+          "role": "data",
+          "statement": "Sh_K(T,Y) = T(Q)\\(Y × T(A_f))/K, the quotient of Y × T(A_f) by (y,a) ~ (q·y, q a k), q in T(Q), k in K."
+        },
+        {
+          "name": "ZeroDimShimura.mk",
+          "role": "constructor",
+          "statement": "The class [y,a]_K of y in Y and a in T(A_f)."
+        },
+        {
+          "name": "ZeroDimShimura.mk_eq_mk",
+          "role": "characterisation",
+          "statement": "[y,a]_K = [y′,a′]_K if and only if y′ = q·y and a′ = q a k for some q in T(Q) and k in K."
+        },
+        {
+          "name": "ZeroDimShimura.map",
+          "role": "functoriality",
+          "statement": "For K ⊂ K′ the transition [y,a]_K -> [y,a]_K′, with map_id and map_comp."
+        },
+        {
+          "name": "ZeroDimShimura.singletonEquiv",
+          "role": "compatibility",
+          "statement": "For Y a point, Sh_K(T,Y) is T(A_f)/(T(Q)K), the finite Shimura set of the V4 torus datum."
+        },
+        {
+          "name": "ZeroDimShimura.galoisAct",
+          "role": "structure",
+          "statement": "Formula (64): sigma[y,a]_K = [r(s)_inf·y, r(s)_f·a]_K; independent of s, continuous, compatible with map and translations."
+        },
+        {
+          "name": "ZeroDimShimura.canonicalModel",
+          "role": "other",
+          "statement": "The finite étale E-scheme attached to the Galois set (Sh_K(T,Y), galoisAct) by PR81 0D; its Qbar-points are Sh_K(T,Y) with this action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ZeroDimShimura.test_gl2_components",
+          "kind": "computation",
+          "statement": "For T = G_m, Y = R^×/R_{>0} ≅ {±1} and K = 1+N Zhat, Sh_K(T,Y) ≅ (Z/NZ)^×, which has phi(N) elements (Milne p.63)."
+        },
+        {
+          "name": "ZeroDimShimura.test_strict_datum_halves",
+          "kind": "non-example",
+          "statement": "With Y replaced by one point (the strict datum (G_m,{det∘h}) of ShimuraData D5) the same level gives Q^×\\A_f^×/K ≅ (Z/NZ)^×/{±1}, with phi(N)/2 elements for N >= 3; at N = 3 it is a single point, whereas mu_3^prim has two geometric points."
+        },
+        {
+          "name": "ZeroDimShimura.test_singleton",
+          "kind": "compatibility",
+          "statement": "For Y a point, Sh_K(T,Y) is T(A_f)/(T(Q)K), the set underlying the V4 torus model."
+        },
+        {
+          "name": "ZeroDimShimura.test_maximal_level",
+          "kind": "degenerate",
+          "statement": "For T = G_m, Y = {±1} and K = Zhat^×, Sh_K(T,Y) is one point (Q_{>0}·Zhat^× = A_f^×), with model Spec Q."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "ZeroDimShimura.shimuraSet",
+      "addedBy": "REV-ShimuraVarieties--V8"
+    },
+    {
+      "id": "ShimuraVarieties:V8/component-reciprocity",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "title": "Galois action on connected components",
+      "kind": "theorem",
+      "statement": "Let D=(G,X) be a pure Shimura datum with G^der simply connected, nu: G -> T = G/G^der, T(R)^† the image of Z(R) and Y = T(R)/T(R)^† (Milne (34)), and mu = nu∘mu_x, which is independent of x in X and defined over E = E(D). For actual canonical models M_K over E, the complex map Sh_K(G,X) -> Sh_{nu(K)}(T,Y), [x,a]_K -> [y(x), nu(a)], with y: pi_0(X) -> Y induced by nu, descends uniquely to an E-morphism M_K -> M_{nu(K)}(T,Y,mu) into the canonical model of zero-dimensional-shimura-variety. For K as in Milne 5.17 (in particular every K(N) for GL2) its geometric fibres are the connected components, so it identifies pi_0(M_K ⊗_E C) with Sh_{nu(K)}(T,Y) compatibly with the Galois action (64). It commutes with level maps and with right translation by g in G(A_f), acting on the target by nu(g).",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "G^der is simply connected; for the pi_0 bijection K is as in Milne 5.17 (sufficiently small, or K(N) for GL2)."
+      ],
+      "proofSteps": [
+        "Over C the map is well defined and, for K as in Milne 5.17, induces a bijection on connected components (V0's component decomposition).",
+        "For a special pair (T0,x0) and sigma fixing E(x0), (62) gives sigma[x0,a] = [x0, r_{x0}(s′)a]. Functoriality of reflex norms (V4) gives nu∘r(T0,mu_{x0}) = r(T,mu)∘Nm_{E(x0)/E}, compatible with the Artin maps; T0(R) fixes x0 (Milne 12.6), so the archimedean component of r(T,mu)(Nm s′) fixes y(x0). Hence the map commutes with sigma on the Hecke orbit of x0, which is dense (Milne 13.5): it is fixed by Aut(C/E(x0)) (Milne footnote 73).",
+        "Take x1 with E(x1) linearly disjoint from the normal closure of E(x0) over E (disjoint-special-reflex-fields); as in translation-descent, the map is defined over E(x0) ∩ E(x1) = E, uniquely by faithful base change (R09.3). Compatibility with level maps and translations holds over C and descends."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V4",
+        "ShimuraData:D4/special-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-svi",
+          "locator": "§13, The Galois action on the connected components, (64) and footnote 73, p.119",
+          "excerpt": "When we use (64) to define the notion a canonical model",
+          "match": "pi_0 of the canonical model is the canonical model of Sh(T,Y); footnote 73 gives the special-point argument."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "(34) and Theorem 5.17, p.59",
+          "excerpt": "the set of connected components is a",
+          "match": "The complex component set is the zero-dimensional Shimura variety when G^der is simply connected."
+        }
+      ],
+      "acceptance": [
+        "For GL2 at K(N), N >= 3, the target has phi(N) points and the fibres are the fixed-pairing curves of gl2-fixed-pairing-fibre.",
+        "Complex conjugation interchanges the two components H^+ and H^- over a fixed level class: the target must use Y = {±1}, not the one-point torus datum."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "CanonicalModel.component_map_defined_over_reflex",
+      "addedBy": "REV-ShimuraVarieties--V8"
     },
     {
       "id": "ShimuraVarieties:V8/abelian-instance",
@@ -538,9 +744,9 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "14.15–14.16, pp.127–128; 13.7, p.119",
+          "locator": "14.15–14.16 and the paragraph after them, p.127; 13.7, p.119",
           "excerpt": "canonical models for all connected Shimura varieties of abelian type",
-          "match": "Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof."
+          "match": "Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof. On p.127 the second citation “(14.16)” should read (14.15); see E9."
         }
       ],
       "acceptance": [
@@ -568,7 +774,7 @@
         "The fine generic-fibre full-level moduli scheme and analytic comparison are the suppliers' actual constructions."
       ],
       "proofSteps": [
-        "Identify GL2=GSp2 and an elliptic curve with its canonical principal polarization. M3/R12.1 compare homology, Tate modules and the ordered level basis with the V3 complex variety.",
+        "Identify GL2=GSp2 and an elliptic curve with its canonical principal polarization. PELModuli M5 supplies the genus-one comparison of the Siegel moduli with PR81's Y_full(N), including the determinant/Weil-pairing convention; M3/R12.1 compare homology, Tate modules and the ordered level basis with the V3 complex variety.",
         "V5 supplies normalized CM reciprocity on the elliptic special pairs and their Tate levels; M4 verifies that the constructed genus-one moduli model has that Galois action.",
         "Apply V4 Artin-convention conversion, including the field of definition of each special point. A geometric-point bijection alone is insufficient to identify the Q-scheme."
       ],
@@ -579,6 +785,7 @@
         "ShimuraVarieties:V5",
         "PELModuli:M3",
         "PELModuli:M4",
+        "PELModuli:M5",
         "ModularCurvesPartII:R12.1",
         "ModularCurvesPartII:R12.2",
         "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing"
@@ -586,7 +793,7 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "6.3, pp.70–71; 6.11, p.73; 14.12, pp.125–126",
+          "locator": "6.3, pp.70–71; 6.11, p.74; 14.12, p.125",
           "excerpt": "a canonical model",
           "match": "The symplectic/abelian moduli description and normalized CM action certify the genus-one canonical condition."
         }
@@ -630,7 +837,7 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "6.3, pp.70–71; 6.11, p.73; 13.7(a), p.119",
+          "locator": "6.3, pp.70–71; 6.11, p.74; 13.7(a), p.119",
           "excerpt": "modulo isomorphism",
           "match": "The moduli description followed by canonical-model uniqueness gives a scheme isomorphism over Q."
         },
@@ -663,18 +870,19 @@
       ],
       "kind": "comparison",
       "title": "Determinant is the Weil-pairing morphism",
-      "statement": "Under full_level_iso, the canonical morphism induced by det:GL2->Gm and the induced zero-dimensional torus datum is identified over Q with (E,P,Q)->e_N(P,Q) in mu_N^prim. The torus level is det K(N)=ker(Zhat^×->(Z/N)^×); its canonical Q-model is identified with Spec Q[z]/Phi_N(z), not the constant disjoint union of phi(N) Q-points.",
+      "statement": "Let nu = det: GL2 -> G_m, T = G_m, Y = R^×/R_{>0} ≅ {±1} (Milne (34): T(R)^† = R_{>0}, T(Q)^† = Q_{>0}) and mu = det∘mu_x. Under full_level_iso, the Q-morphism of component-reciprocity, Sh_{K(N)}(GL2,H±) -> Sh_{det K(N)}(G_m,{±1}), is identified over Q with the PR81 determinant det_N: Y_full(N)_Q -> mu_N^prim, (E,P,Q) -> e_N(P,Q). Here det K(N) = ker(Zhat^× -> (Z/N)^×), Sh_{det K(N)}(G_m,{±1}) ≅ (Z/N)^× with Galois acting through the cyclotomic character, and its canonical Q-model is mu_N^prim = Spec Q[z]/Phi_N(z), not the constant disjoint union of phi(N) Q-points. The strict one-point torus datum (G_m,{det∘h}) of ShimuraData D5 is not the target: at this level its Shimura set is (Z/N)^×/{±1}, with model the spectrum of the real subfield of Q(zeta_N).",
       "hypotheses": [
-        "N>=3; choose the analytic reference basis so its pairing is a specified reference primitive root; use the V4 normalization."
+        "N>=3; choose the analytic reference basis so that its pairing is the reference primitive root calibrated by R12.1; use the V4 normalization of the Artin map and reflex norm."
       ],
       "proofSteps": [
-        "V4 supplies the torus model and its cyclotomic reciprocity action. AA.5 supplies the determinant-indexed GL2 components.",
-        "For level map eta, Milne 6.3 sends the moduli object to [ah,a eta]; the determinant component records the multiplier of the alternating pairing. R12.1/R12.2 prove that multiplier is the exponent in e_N(P,Q).",
-        "Use datum-functoriality and the CM/Galois pairing compatibility of gl2-moduli-reciprocity; equality after complex comparison descends."
+        "component-reciprocity (G^der = SL2 is simply connected) gives the Q-morphism to the canonical model of Sh_{det K(N)}(G_m,{±1}); zero-dimensional-shimura-variety identifies that set with (Z/N)^× (Milne p.63) and its Galois action (64) with the cyclotomic character (Milne p.125), so the model is mu_N^prim. AA.5 supplies the determinant-indexed components.",
+        "For a level eta, Milne 6.3 sends the moduli object to [ah, a∘eta]; the determinant records the multiplier of the alternating pairing. R12.1/R12.2 and PELModuli M5 identify that multiplier with the exponent of e_N(P,Q) relative to the calibrated reference root.",
+        "Both are Q-morphisms Y_full(N)_Q -> mu_N^prim agreeing on complex points; equality descends by faithful base change (R09.3)."
       ],
       "prerequisites": [
         "ShimuraVarieties:V8/gl2-full-level",
-        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/component-reciprocity",
+        "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
         "ShimuraVarieties:V4",
         "AdelicAlgebraicGroups:AA.5/gl2-principal-level",
         "ModularCurvesPartII:R12.1",
@@ -686,7 +894,7 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "13, connected-component formula (64), p.119; 14, Siegel proof, p.125",
+          "locator": "§13, The Galois action on the connected components, (64), p.119; §14, Siegel proof, p.125",
           "excerpt": "through the cyclotomic character",
           "match": "Determinant-component Galois action."
         },
@@ -695,11 +903,18 @@
           "locator": "8.7, p.100 (root normalization corrected)",
           "excerpt": "A level-N structure",
           "match": "The fixed-pairing condition; the chosen analytic reference root must be calibrated."
+        },
+        {
+          "sourceId": "milne-svi",
+          "locator": "§5, Zero-dimensional Shimura varieties, GL2 example, p.63",
+          "excerpt": "We should extend this definition a little",
+          "match": "pi_0(Sh_K(N)) is T(Q)\\{±1} × A_f^×/(1+N Zhat)^× ≅ (Z/NZ)^×, using Y = {±1}, not a one-point torus datum."
         }
       ],
       "acceptance": [
         "For N=3 the primitive-root model is Spec Q[z]/(z^2+z+1), geometrically two points with nontrivial conjugation.",
-        "A determinant-one basis change preserves the pairing; a determinant-u change raises it to the u-th power."
+        "A determinant-one basis change preserves the pairing; a determinant-u change raises it to the u-th power.",
+        "With the one-point torus datum the N = 3 target would be a single Q-point, since (Z/3)^×/{±1} is trivial; the correct target has two geometric points."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -887,7 +1102,8 @@
         "ModularCurvesPartII:R12.2",
         "ModularCurvesPartII:R12.6",
         "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
-        "AlgebraicModuliForArithmeticGeometry:R09.5"
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients"
       ],
       "sources": [
         {
@@ -924,7 +1140,7 @@
       "title": "Minimal compactification of the full modular curve",
       "statement": "For N>=3 the independently constructed proper normal coarse compact curve X_full(N)_Q from R13.4a, with its specified open Y_full(N)_Q, is the E=Q-model of the complex Baily–Borel minimal compactification for the GL2 principal-level datum, via the open isomorphism full_level_iso. This is the genus-one arithmetic compactification base case, constructed without assuming the general minimal-descent theorem.",
       "hypotheses": [
-        "N>=3; use R13.4a construction for full/composite levels; for prime N>=5 and H <= (Z/N)^×/{±1}, the Layer-10 coarse X_H has its separate certified comparison."
+        "N>=3; the full and composite levels use the R13.4a construction. PR81 Layer 10 (prime N>=5 diamond quotients with H <= (Z/N)^×/{±1}) is not used here and supplies no full-level model."
       ],
       "proofSteps": [
         "R13.4a constructs the proper normal coarse compactification from generalized elliptic curves; R12.3 identifies its C-model with the independently constructed analytic modular compactification.",
@@ -965,6 +1181,70 @@
       "leanName": "GL2Modular.minimal_compact_iso"
     },
     {
+      "id": "ShimuraVarieties:V8/codim-one-extension",
+      "parentStageId": "ShimuraVarieties:V8",
+      "realises": [
+        "ShimuraVarieties:V8"
+      ],
+      "title": "Arithmetic codimension-one partial compactification",
+      "kind": "theorem",
+      "statement": "Let D=(G,X) be a pure Shimura datum with actual canonical models and K neat. Let M_K(C)^+ ⊂ M_K(C)^min be the union of M_K(C) with the boundary strata of codimension one (Pink 8.2): it is smooth, its boundary is a smooth divisor and its complement in M_K(C)^min has codimension at least two. Then M_K(C)^+ has a unique normal E(D)-model M_K^+ containing the canonical model M_K as a dense open subscheme. The codimension-one strata come from the Q-simple factors of G^ad isomorphic to PGL2,Q, through surjections G -> PGL2,Q. When such a surjection lifts to a morphism (G,X) -> (GL2,H±), the corresponding partial extension is the scheme-theoretic closure of M_K in M_K′(G′,X′) ×_E (X_full(N)_Q ⊗ E) for (G′,X′) = (G,X)/SL2,Q (Pink 2.9), using gl2-compact-model; otherwise it is the quotient by a finite group of the corresponding extension for G̃ = G ×_{PGL2} GL2. The construction uses no torus torsor or mixed toroidal input (Pink 12.8 and ShimuraCompactifications C2 concern mixed data).",
+      "hypotheses": [
+        "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
+        "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
+        "The auxiliary data (G,X)/SL2,Q and (G̃,X̃) of Pink 12.10 also carry actual canonical models; in the abelian-type lane their membership in the V5/V6 class is the recorded auxiliary-class gap.",
+        "K is neat and the auxiliary levels are chosen as in Pink 12.10, so that the complex closed-immersion and finite-quotient statements of the recorded complex functoriality gap apply."
+      ],
+      "proofSteps": [
+        "V2 and C1: the codimension-one boundary strata of M_K(C)^min belong to the rational boundary components whose parabolic is the preimage of a Borel subgroup under some G -> PGL2,Q; M_K(C)^+ is smooth with smooth boundary divisor (Pink 8.2). The strata of distinct factors are disjoint, so M_K^+ is glued along M_K from one partial extension per factor.",
+        "Lifted case (Pink 12.10, first paragraph): PGL2,Q lifts to an almost direct factor SL2,Q of G^der and (G,X) embeds in (G′,X′) × (GL2,H±), with E(G,X) = E(G′,X′) because E(GL2,H±) = Q. The product of the canonical model of (G′,X′) with X_full(N)_E (gl2-compact-model) is an E-model of the corresponding product partial compactification. By the complex closed-immersion statement, M_K(C)^+ is the closure of M_K(C) there; take the scheme-theoretic closure over E of the image of the descended embedding (datum-functoriality); closure commutes with the flat base change E -> C (R09.5) and closed subschemes descend (R09.3).",
+        "General case (Pink 12.10, second paragraph): G̃ = G ×_{PGL2} GL2 lifts, E(G̃,X̃) = E(G,X), and the complex map M_K̃(G̃,X̃)(C)^+ -> M_K(C)^+ is finite surjective (H^1(A,G_m) = 0); define M_K^+ as the finite quotient of the lifted extension (finite-level-maps, R09.5), which exists by quasi-projectivity. Uniqueness: a normal model containing the dense open M_K is unique (Pink 12.6)."
+      ],
+      "prerequisites": [
+        "ShimuraVarieties:V8/gl2-compact-model",
+        "ShimuraVarieties:V8/datum-functoriality",
+        "ShimuraVarieties:V8/model-uniqueness",
+        "ShimuraVarieties:V8/finite-level-maps",
+        "ShimuraVarieties:V2",
+        "ShimuraCompactifications:C1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "mathlib:AlgebraicGeometry.IsOpenImmersion"
+      ],
+      "sources": [
+        {
+          "sourceId": "pink",
+          "locator": "12.10, pp.200–201 (author-typeset version)",
+          "excerpt": "lifts to an almost direct factor of",
+          "match": "The lifted and general cases of the codimension-one extension for reductive P, using 12.9 for GL2, descent of closed subschemes and a finite quotient."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "8.2, p.132",
+          "excerpt": "with all boundary strata of codimension 1",
+          "match": "Definition and properties of the partial compactification M^+(C)."
+        },
+        {
+          "sourceId": "pink",
+          "locator": "12.9, p.200",
+          "excerpt": "we just set",
+          "match": "The GL2 case is the compactified moduli of generalized elliptic curves, supplied here by gl2-compact-model."
+        }
+      ],
+      "acceptance": [
+        "For G = GL2 itself, (G′,X′) is the two-point datum (G_m,{±1}) and M_K^+ = X_full(N)_Q, agreeing with gl2-compact-model.",
+        "If no Q-simple factor of G^ad is PGL2,Q (for example Hilbert modular data over F ≠ Q), M_K^+ = M_K.",
+        "No prerequisite on ShimuraCompactifications:C0 torus embeddings or C2 is allowed."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/CanonicalTower",
+        "namespace": "TauCeti.Shimura"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "CanonicalModel.codim_one_extension",
+      "addedBy": "REV-ShimuraVarieties--V8"
+    },
+    {
       "id": "ShimuraVarieties:V8/minimal-descent",
       "parentStageId": "ShimuraVarieties:V8",
       "realises": [
@@ -976,31 +1256,29 @@
       "hypotheses": [
         "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
         "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
-        "The arithmetic codimension-one partial compactification and intrinsic logarithmic-line inputs specified in the recorded gap are supplied; preserving the abelian-type class for auxiliary data is required in that lane."
+        "The complex functoriality and auxiliary-class inputs of codim-one-extension, recorded as gaps, are supplied."
       ],
       "proofSteps": [
-        "At neat level, V2 supplies S_C^+: the open plus codimension-one boundary strata, smooth with smooth boundary divisor and complement of codimension at least two in S_C^min.",
-        "Use Pink 12.10: codimension-one rational boundary components come from surjections to PGL2. A lift to GL2 reduces to an auxiliary pure factor times the independently descended GL2 compact model; otherwise pass to Gtilde=G ×_{PGL2} GL2 and take the Gm-kernel finite quotient. The arithmetic extension S^+ is the recorded supplier gap, not the full C2 toroidal theorem.",
-        "On S^+ the top log-differential line omega[dlog] is intrinsic and defined over E. V2/Pink 8.2 gives sufficiently large n with global generation and a closed embedding of the complex minimal model. Descend sections and use closure of S^+ in the associated projective space, as Pink 12.12.",
-        "Apply effective descent, base change for sections, schematic closure and normality descent. Remove neatness by the V3 finite quotient machinery and finite-level-maps. Use projective dense-open extension uniqueness to identify choices."
+        "At neat level, codim-one-extension gives the normal E-model M_K^+ of M_K(C)^+: the open part with the codimension-one boundary strata, smooth with smooth boundary divisor and complement of codimension at least two in M_K(C)^min (Pink 8.2, 12.10).",
+        "On M_K^+ the sheaf omega[dlog] of top differentials with logarithmic poles along the boundary divisor is defined over E, and its global sections commute with the flat base change E -> C (R09.3). V2 (Pink 8.2, Baily–Borel 10.11): for n large, omega[dlog]^n is generated by global sections on M_K(C)^+ and the induced map extends to a closed embedding of M_K(C)^min.",
+        "Define M_K^min as the closure of M_K^+ in the projective space of Gamma(M_K^+, omega[dlog]^n) over E (Pink 12.12). Closure commutes with E -> C (R09.5), so its base change is M_K(C)^min; normality and projectivity descend.",
+        "Remove neatness by finite quotients (finite-level-maps, R09.5; Pink 12.6). Uniqueness: two normal models agreeing on the dense open M_K agree (Pink 12.6, normality and descent of morphisms)."
       ],
       "prerequisites": [
+        "ShimuraVarieties:V8/codim-one-extension",
         "ShimuraVarieties:V2",
         "ShimuraVarieties:V3",
         "ShimuraVarieties:V8/model-uniqueness",
-        "ShimuraVarieties:V8/gl2-compact-model",
         "ShimuraVarieties:V8/finite-level-maps",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
-        "ShimuraCompactifications:C1",
-        "ShimuraCompactifications:C0/relative-torus-embedding",
         "mathlib:AlgebraicGeometry.IsProper",
         "mathlib:AlgebraicGeometry.IsOpenImmersion"
       ],
       "sources": [
         {
           "sourceId": "pink",
-          "locator": "12.3(a), p.197; 12.7, p.199; 12.10, pp.200–201; 12.12, p.202",
+          "locator": "12.3(a), p.197; 12.6–12.7, pp.198–199; 12.10, pp.200–201; 12.12, p.202",
           "excerpt": "extends uniquely to a scheme",
           "match": "The codimension-one extension and intrinsic logarithmic line make arithmetic descent effective."
         },
@@ -1012,9 +1290,9 @@
         }
       ],
       "acceptance": [
-        "When no codimension-one boundary occurs, S^+=S; the proof must still establish the log/canonical-line BB embedding and base-change of sections.",
+        "When no codimension-one boundary occurs, M_K^+ = M_K and Koecher's principle makes the sections those of automorphic forms without growth condition; the closure argument is unchanged.",
         "For GL2 the construction agrees with gl2-compact-model.",
-        "No prerequisite on AutomorphicBundles:B1 or full ShimuraCompactifications:C2 is allowed."
+        "No prerequisite on AutomorphicBundles:B1, ShimuraCompactifications:C0 torus embeddings or C2 is allowed."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -1207,7 +1485,7 @@
       "sources": [
         {
           "sourceId": "milne-svi",
-          "locator": "12.10, p.116; 13.6–13.8, pp.118–119",
+          "locator": "12.10, p.115; 13.6–13.8, pp.118–119",
           "excerpt": "have canonical models",
           "match": "V8 applies to actual models independently of the argument establishing existence."
         }
@@ -1234,18 +1512,19 @@
       ],
       "kind": "application",
       "title": "General-data minimal compactification interface",
-      "statement": "Apply minimal_defined_over_reflex and minimal_map_extension to the V7 models and the corresponding actual auxiliary pure models needed in the codimension-one proof. This gives normal projective minimal compactifications and their functorial maps over reflex fields for all pure data; their open restriction is the general-data tower. Export these objects to C2.general and S0.general with the same unresolved codimension-one supplier leaf exposed.",
+      "statement": "Apply codim_one_extension, minimal_defined_over_reflex and minimal_map_extension to the V7 models and the corresponding actual auxiliary pure models of Pink 12.10. This gives normal projective minimal compactifications and their functorial maps over reflex fields for all pure data; their open restriction is the general-data tower. Export these objects to C2.general and S0.general with the same complex-functoriality gap exposed.",
       "hypotheses": [
-        "V7 supplies all pure auxiliary models in Pink 12.10 as well as the original datum; the codimension-one extension/section-base-change gaps recorded in V8 must be discharged."
+        "V7 supplies all pure auxiliary models in Pink 12.10 as well as the original datum; the complex Baily–Borel functoriality gap recorded in V8 must be discharged."
       ],
       "proofSteps": [
-        "Instantiate minimal-descent with the V7 schemes and all auxiliary pure data; apply the existing argument, with no separate general compactification proof.",
+        "Instantiate codim-one-extension and minimal-descent with the V7 schemes and all auxiliary pure data; apply the existing argument, with no separate general compactification proof.",
         "Instantiate minimal-map-extension and identify restrictions by general-tower and model-uniqueness.",
         "Supply only this arithmetic minimal/open interface to downstream C2.general and S0.general; toroidal existence and perfectoid limits remain their own targets."
       ],
       "prerequisites": [
         "ShimuraVarieties:V7",
         "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8/codim-one-extension",
         "ShimuraVarieties:V8/minimal-descent",
         "ShimuraVarieties:V8/minimal-map-extension"
       ],
@@ -1272,14 +1551,14 @@
   "requests": [
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
-      "need": "Representability of the regular-Lie incidence cover and relative Hom/Isom; finitely generated fields of definition for general finite-type complex morphisms. In translation-descent a finite algebraic field of definition follows separately from invariance under one special-torus fixing subgroup.",
+      "need": "The relative Hom scheme of cocharacters Hom(G_m, T) for the family of maximal tori T_v over the regular semisimple locus V of Lie(G), representing Deligne's incidence cover W -> V (Deligne 5.1) as a finite étale V-scheme, with its base change.",
       "neededBy": [
         "ShimuraVarieties:V8/disjoint-special-reflex-fields"
       ]
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
-      "need": "Faithful field base change on morphisms, Galois fixed-morphism descent along C/E, effective polarized projective descent, intrinsic invertible-sheaf/section base change and dense-open equality for reduced source and separated target.",
+      "need": "Faithful field base change on morphisms; descent along C/E of morphisms fixed by Aut(C/E) (Milne 13.1) and of closed subschemes; effective polarized projective descent; flat base change of global sections of an invertible sheaf on a quasi-compact separated E-scheme; dense-open equality for reduced source and separated target.",
       "neededBy": [
         "ShimuraVarieties:V8/translation-descent",
         "ShimuraVarieties:V8/model-uniqueness",
@@ -1289,17 +1568,20 @@
         "ShimuraVarieties:V8/gl2-determinant-pairing",
         "ShimuraVarieties:V8/minimal-descent",
         "ShimuraVarieties:V8/minimal-map-extension",
-        "ShimuraVarieties:V8/gl2-tower-compatibility"
+        "ShimuraVarieties:V8/gl2-tower-compatibility",
+        "ShimuraVarieties:V8/component-reciprocity",
+        "ShimuraVarieties:V8/codim-one-extension"
       ]
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
-      "need": "Actual finite coarse quotients by effective group actions, descent of finite/surjective/étale properties, normal projective curve compactifications and finite correspondences, and scheme-theoretic closure compatible with extension of fields.",
+      "need": "Finite quotients of quasi-projective schemes by finite group actions (effective quotients), descent of finite/surjective/étale properties, normal projective curve compactifications and finite correspondences, and scheme-theoretic closure compatible with extension of fields.",
       "neededBy": [
         "ShimuraVarieties:V8/finite-level-maps",
         "ShimuraVarieties:V8/gl2-gamma1",
         "ShimuraVarieties:V8/gl2-gamma0",
-        "ShimuraVarieties:V8/minimal-descent"
+        "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/codim-one-extension"
       ]
     },
     {
@@ -1311,7 +1593,7 @@
     },
     {
       "supplier": "ModularCurvesPartII:R12.1",
-      "need": "Actual open elliptic modular analytification from lattices/homology and Tate level; full H± versus chosen upper component, calibrated Weil-pairing primitive root and q convention.",
+      "need": "Uniformisation E(C) ≅ C/Lambda with H_1(E,Z) = Lambda, compatible with Tate modules and full level-N bases, and the analytic formula for the scheme-theoretic Weil pairing; in particular the reference root zeta_ref = e_N(tau/N, 1/N) on C/(Z tau + Z), Im tau > 0, is independent of tau (the calibration behind E2).",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-moduli-reciprocity",
         "ShimuraVarieties:V8/gl2-determinant-pairing",
@@ -1321,7 +1603,7 @@
     },
     {
       "supplier": "ModularCurvesPartII:R12.2",
-      "need": "Scheme analytification and moduli uniformization for full ordered level N >= 3, fixed pairing, Gamma1 N >= 4 and coarse Gamma0 every N > 0, agreeing with AA.5 and the integral representative component calculation.",
+      "need": "Analytic uniformization of the full ordered level N >= 3, fixed-pairing, Gamma1 (N >= 4) and coarse Gamma0 (every N > 0) curves as isomorphisms, with the ordered-basis determinant identified with the chosen root of unity. Agreement with AA.5's adelic component calculation is AA.5's own target, since AA.5 consumes R12.2.",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-moduli-reciprocity",
         "ShimuraVarieties:V8/gl2-full-level",
@@ -1348,7 +1630,7 @@
     },
     {
       "supplier": "ModularCurvesPartII:R12.5",
-      "need": "Hecke isogeny moduli and both finite correspondence legs, integral row action and nonintegral adelic/isogeny dictionary, differential pullback and pull-push normalization.",
+      "need": "The basic isogeny correspondences on the modular curves (both legs as moduli maps), their description on the upper half-plane, and the pullback and trace normalization of the Hecke action on differentials. The adelic dictionary for nonintegral g is V8's row-basis node, not R12.5.",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-row-basis-dictionary",
         "ShimuraVarieties:V8/gl2-gamma1",
@@ -1357,7 +1639,7 @@
     },
     {
       "supplier": "ModularCurvesPartII:R12.6",
-      "need": "Cusp residue fields and Galois action, level/Hecke maps on cusp labels and Tate parameters.",
+      "need": "Compatibility of the analytic–algebraic comparison with level changes, diamond operators and complex conjugation; fields of definition of the components and of the canonical cusp. Residue fields of all cusps come from R13.4b.",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-gamma1",
         "ShimuraVarieties:V8/gl2-gamma0",
@@ -1397,16 +1679,17 @@
     },
     {
       "supplier": "PELModuli:M5",
-      "need": "Weil pairing and multiplier on full level, basis-change determinant exponent and cyclotomic target, compatible with the selected homology convention.",
+      "need": "The genus-one Siegel moduli and its comparison with #81's Y_full(N) (N >= 3), including the determinant/Weil-pairing convention, the basis-change determinant exponent and the cyclotomic target.",
       "neededBy": [
-        "ShimuraVarieties:V8/gl2-determinant-pairing"
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/gl2-moduli-reciprocity"
       ]
     },
     {
       "supplier": "ShimuraCompactifications:C1",
-      "need": "Complex rational boundary components, codimension-one PGL2 factors and auxiliary lifted/product pure data in Pink 12.10, intrinsic top logarithmic differential line on the codimension-one partial extension. Arithmetic descent is a separate recorded gap.",
+      "need": "Complex rational boundary components with their parabolic subgroups and Levi quotients; the codimension-one components are those attached to surjections G -> PGL2,Q; the quotient data (G,X)/SL2,Q and (G̃,X̃) for G̃ = G ×_{PGL2} GL2 used in Pink 12.10. Arithmetic descent is V8's codim-one-extension.",
       "neededBy": [
-        "ShimuraVarieties:V8/minimal-descent"
+        "ShimuraVarieties:V8/codim-one-extension"
       ]
     },
     {
@@ -1422,11 +1705,12 @@
     },
     {
       "supplier": "ShimuraVarieties:V2",
-      "need": "Normal projective complex Baily–Borel compactification with the intrinsic logarithmic-line embedding and extensions of the applicable datum and level maps.",
+      "need": "The normal projective complex Baily–Borel compactification M_K(C)^min with its boundary stratification; the open M_K(C)^+ of codimension-one strata, smooth with smooth boundary divisor and complement of codimension at least two; global generation of omega[dlog]^n on M_K(C)^+ for large n and the induced closed embedding of M_K(C)^min (Pink 8.2, Baily–Borel 10.11); extension of level maps and Hecke translations. Extension of datum morphisms is outside V2's stated targets and is recorded as a gap.",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-compact-model",
         "ShimuraVarieties:V8/minimal-descent",
-        "ShimuraVarieties:V8/minimal-map-extension"
+        "ShimuraVarieties:V8/minimal-map-extension",
+        "ShimuraVarieties:V8/codim-one-extension"
       ]
     },
     {
@@ -1442,12 +1726,14 @@
     },
     {
       "supplier": "ShimuraVarieties:V4",
-      "need": "Actual canonical-model predicate with fixed complex comparison, special-pair reciprocity using corrected multiplicative reflex norm and Artin convention, density of Hecke translates and zero-dimensional cyclotomic torus models. AGHMP integral CM lattices are not required here.",
+      "need": "Actual canonical-model predicate with fixed complex comparison, special-pair reciprocity using the corrected multiplicative reflex norm and Artin convention, functoriality of reflex norms under torus maps (nu∘r(T0,mu) = r(T,nu∘mu)∘Nm), density of Hecke translates and zero-dimensional cyclotomic torus models. AGHMP integral CM lattices are not required here.",
       "neededBy": [
         "ShimuraVarieties:V8/translation-descent",
         "ShimuraVarieties:V8/datum-functoriality",
         "ShimuraVarieties:V8/gl2-moduli-reciprocity",
-        "ShimuraVarieties:V8/gl2-determinant-pairing"
+        "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
+        "ShimuraVarieties:V8/component-reciprocity"
       ]
     },
     {
@@ -1459,7 +1745,7 @@
     },
     {
       "supplier": "ShimuraVarieties:V6",
-      "need": "Actual abelian-type canonical models satisfying V4, with choice comparisons and auxiliary-class preservation required by the recorded compactification gap.",
+      "need": "Actual abelian-type canonical models satisfying V4, with choice comparisons; the auxiliary data of Pink 12.10 need models in the same class (recorded gap).",
       "neededBy": [
         "ShimuraVarieties:V8/abelian-instance"
       ]
@@ -1499,7 +1785,28 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
-      "need": "Existing characteristic-zero coarse Gamma0 cyclic-subgroup moduli for every N > 0. No universal elliptic family is claimed.",
+      "need": "Existing characteristic-zero coarse Gamma0 cyclic-subgroup moduli: Y_0(1) is the coarse j-line and, for N >= 3, Y_full(N)/B by the coarse Borel-quotient formula. No universal elliptic family is claimed.",
+      "neededBy": [
+        "ShimuraVarieties:V8/gl2-gamma0"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V0",
+      "need": "The connected-component decomposition: for G^der simply connected and K as in Milne 5.17, pi_0(Sh_K(G,X)) ≅ T(Q)^†\\T(A_f)/nu(K), as an analytic statement independent of representatives.",
+      "neededBy": [
+        "ShimuraVarieties:V8/component-reciprocity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+      "need": "The equivalence between finite étale K-schemes and finite continuous Gal(K^s/K)-sets over a field K, used to attach a scheme to the Galois set of formula (64).",
+      "neededBy": [
+        "ShimuraVarieties:V8/zero-dimensional-shimura-variety"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+      "need": "Coarse moduli M([Gamma0(N)]) as a finite quotient of a rigidified representable cover, for N = 2, where 9E's Borel-quotient formula is not used.",
       "neededBy": [
         "ShimuraVarieties:V8/gl2-gamma0"
       ]
@@ -1510,8 +1817,8 @@
       "stageId": "ShimuraVarieties:V8",
       "status": "planned",
       "remaining": [
-        "Resolve the codimension-one arithmetic extension and intrinsic log-line/base-change gap in minimal-descent.",
-        "Bind the concrete canonical-model, analytic comparison and modular-curve carriers in the suggested file to supplier declarations.",
+        "Close the complex Baily–Borel functoriality gap (datum morphisms; the codimension-one embedding and finite quotient of Pink 12.10) and the auxiliary-class gap used by codim-one-extension.",
+        "Bind the concrete canonical-model, zero-dimensional Shimura set, analytic comparison and modular-curve carriers in the suggested file to supplier declarations.",
         "Discharge exact requested supplier interfaces."
       ]
     },
@@ -1520,7 +1827,7 @@
       "status": "planned",
       "remaining": [
         "Supply the actual V7 canonical models and auxiliary pure models, then specialize V8.",
-        "Inherit and discharge V8 minimal-descent and Lean-carrier gaps; do not duplicate the conditional functoriality proof."
+        "Inherit and discharge the V8 complex-functoriality, auxiliary-class and Lean-carrier gaps; do not duplicate the conditional functoriality proof."
       ]
     }
   ],
@@ -1624,11 +1931,13 @@
       "sha256": "f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e",
       "read": "2026-10-06",
       "readSections": [
-        "5.4, 5.17 and proof through 5.21, 5.29–5.30",
-        "6.3, 6.11",
-        "12.8, 12.10–12.11",
-        "13.1–13.8",
-        "14.12, 14.15–14.16"
+        "5.13–5.17 and (34), pp.57–59",
+        "Zero-dimensional Shimura varieties, pp.62–63",
+        "5.29–5.30, pp.65–66",
+        "6.3, 6.11, pp.70–74",
+        "12.1–12.11, pp.111–116",
+        "13.1–13.8 and The Galois action on the connected components, pp.117–119",
+        "14.12–14.16, pp.125–127"
       ]
     },
     {
@@ -1653,12 +1962,11 @@
       "sha256": "6f8aa447ccf54368d465a9d45f44bc91f0d35440cba04e20061c576145ca8669",
       "read": "2026-10-06",
       "readSections": [
-        "8.2–8.3, pp.132–133",
+        "8.1–8.4, pp.131–133",
         "10.9, p.175",
         "10.20–10.22, pp.183–185",
         "11.16, p.194",
-        "12.3, 12.6–12.12, pp.197–202",
-        "12.13 statement, pp.202–203"
+        "12.3–12.13, pp.197–203"
       ]
     },
     {
@@ -1727,7 +2035,12 @@
       "searched": [
         "Milne official CourseNotes errata page, https://www.jmilne.org/math/CourseNotes/errata.html, checked 2026-10-06; no correction to 8.7–8.9 listed.",
         "Bounded web search for Milne MF Lemma 8.7 and Example 8.9 errata on 2026-10-06; no applicable correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked MF v1.31, Example 8.9, p.100: it prints that A^1 is the solution for N = 2, with universal curve Y²Z = X(X−Z)(X−λZ), and that A^1 is a fine moduli variety. The Legendre curve is singular at λ = 0, 1 (discriminant 16λ²(λ−1)²), so A^1 is not even the coarse space; the quadratic twist dY² = X(X−1)(X−λ) carries the same level-2 structure and the same λ, and for j ≠ 0, 1728 and d a nonsquare it is not isomorphic over k, so E(k) → A^1(k) is not injective. Milne's Course Notes errata page (checked 2026-10-06) lists nothing for pp.98–101.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E2",
@@ -1742,7 +2055,12 @@
       "searched": [
         "Milne official CourseNotes errata page, https://www.jmilne.org/math/CourseNotes/errata.html, checked 2026-10-06; no correction to 8.7–8.9 listed.",
         "Bounded web search for Milne MF Lemma 8.7 and Example 8.9 errata on 2026-10-06; no applicable correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked MF v1.31, the definition before Lemma 8.7 and Lemma 8.7, p.100: E_N fixes an arbitrary primitive root ζ, but on C/(Zz+Z) with Im z > 0 the pairing e_N(z/N, 1/N) is constant in z (continuous with discrete values), a single reference root. For ζ = ζ_ref^u the displayed map lands in E_N only after replacing z/N by u z/N, by bilinearity. The Course Notes errata page lists nothing here.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E3",
@@ -1750,14 +2068,19 @@
       "kind": "misprint",
       "locator": "Proposition 6.3 proof, second paragraph, p.71, 2017 author copy",
       "printed": "Choose isomorphisms a: V → W and a′: V → W′",
-      "correction": "Use a: W → V and a′: W′ → V, consistent with the setup on p.70; with q absorbed into a′, the comparison isomorphism W → W′ is (a′)⁻¹ a. Also use the corrected primed h′ and eta′ where specified in Lee’s errata. In the first paragraph use s′ in place of t′, the correction on p.70 line -3 in Lee’s list.",
+      "correction": "Use a: W → V and a′: W′ → V, consistent with the setup on p.70; with q absorbed into a′, the comparison isomorphism W → W′ is (a′)⁻¹ a. Also use the corrected primed h′ and eta′ where specified in Jungin Lee’s errata. In the first paragraph use s′ in place of t′, the correction on p.70 line -3 in Jungin Lee’s list.",
       "reason": "The printed directions make a h and a composed with eta ill-typed. The initial setup uses a: W → V, and the inverse expression for the comparison must have domain W.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
-        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
-      ]
+        "The linked Jungin Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked SVI 2017, p.71: the proof prints 'Choose isomorphisms a: V → W and a′: V → W′', while the setup on p.70 uses a: W → V, and (ah, a∘η) is only typed for a: W → V; with the corrected directions the comparison W → W′ is (a′)⁻¹∘a. Jungin Lee's list (linked from the official errata page) corrects p.70 lines −3 and −1 only, and the official page has nothing for p.71, so the arrow reversal is new.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E4",
@@ -1768,26 +2091,36 @@
       "correction": "For K contained in K′ the forgetful quotient map is S_K → S_K′.",
       "reason": "Forgetting a finer level maps the smaller subgroup quotient to the larger subgroup quotient.",
       "affects": "nothing",
-      "known": "Jungyun Lee, SV_errata.pdf, p.1: page 65 line -6.",
+      "known": "Jungin Lee, SV_errata.pdf, p.1: page 65 line -6.",
       "searched": [
         "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
-        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
-      ]
+        "The linked Jungin Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked SVI 2017, Remark 5.29(a), p.65: for K ⊂ K′ the printed map S_K′ → S_K goes the wrong way. Already corrected in Jungin Lee's list (p.65, line −6), as recorded.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E5",
       "source": "milne-svi",
       "kind": "misprint",
       "locator": "The homomorphism r_x, displayed formula (60) and the final formula before Definition 12.8, p.114, 2017 author copy",
-      "printed": "r(T, μ)(P) = Σ_{σ:E→Q̄} σ(μ(P)); r_x(a) = Σ_{σ:E→Q̄} σ(μ_x(a_f))",
-      "correction": "Replace the aggregation signs by products in these multiplicative torus formulas. In the r_x formula the embeddings are of E(x), the field of definition of μ_x, as specified in Lee’s errata. V8 uses the corrected V4 multiplicative reciprocity norm.",
+      "printed": "r(T, μ)(P) = Σ_{ρ:E→Q^a} ρ(μ(P)); r_x(a) = Σ_{ρ:E→Q^a} ρ(μ_x(a_f))",
+      "correction": "Replace the aggregation signs by products in these multiplicative torus formulas. In the r_x formula the embeddings are of E(x), the field of definition of μ_x, as specified in Jungin Lee’s errata. V8 uses the corrected V4 multiplicative reciprocity norm.",
       "reason": "The target is the multiplicative torus; an additive sum does not define the asserted torus homomorphism. V8 imports the corrected V4 reciprocity norm.",
       "affects": "nothing",
-      "known": "Milne official xnotes errata, sums-to-products correction credited to Ruida Di, p.114; Jungyun Lee SV_errata.pdf, embeddings indexed by E(x) in the r_x formula.",
+      "known": "Milne official xnotes errata, sums-to-products correction credited to Ruida Di, p.114; Jungin Lee SV_errata.pdf, embeddings indexed by E(x) in the r_x formula.",
       "searched": [
         "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06.",
-        "The linked Jungyun Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
-      ]
+        "The linked Jungin Lee list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; corrections near 6.3 include missing primes, not the direction of a."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked SVI 2017, (60) and the r_x formula, p.114: both are printed as sums over ρ: E → Q^a. The official errata page (sums to products, Ruida Di) and Jungin Lee's list (embeddings of E(x) in r_x) already correct them. The printed quote has been made literal (ρ and Q^a).",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E6",
@@ -1802,7 +2135,12 @@
       "searched": [
         "Numdam version of record and publication metadata checked 2026-10-06.",
         "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the page image of printed p.155: the lemma reads 'pour tout ouvert U ⊂ V(R) ... et toute extension F de E'. The counterexample is right: for W = {s² = t} → V = A^1 − {0} over Q, U = (1,2) and F = Qbar, each rational fibre is split or a quadratic field inside Qbar. Theorem 5.1 itself takes F finite, so the application is unaffected; empty U is trivially excluded.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E7",
@@ -1817,7 +2155,12 @@
       "searched": [
         "Numdam version of record and publication metadata checked 2026-10-06.",
         "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the page image of printed p.154: 5.1.2(b) prints 'le schéma des tores maximaux de G_mC contenant i(G_mC)'; the tori are maximal tori of G_C, the centralizer being taken in G_C.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     },
     {
       "id": "ShimuraVarieties/E8",
@@ -1832,25 +2175,53 @@
       "searched": [
         "Numdam version of record and publication metadata checked 2026-10-06.",
         "Bounded search for Travaux de Shimura exposé 389, 5.1.3 erratum on 2026-10-06; no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the page images of printed pp.154–155: the lemma is headed 'Lemme 5.13' between 5.1.2 and 5.2, and its proof refers to 'Les hypothèses de 4.12'; Deligne's 4.12 is a construction with a compact open subgroup and an integral lattice, unrelated, so the reference is to the lemma's own hypotheses.",
+        "by": "REV-ShimuraVarieties--V8"
+      }
+    },
+    {
+      "id": "ShimuraVarieties/E9",
+      "source": "milne-svi",
+      "kind": "misprint",
+      "locator": "Shimura varieties of abelian type, paragraph after Proposition 14.16, p.127, 2017 author copy",
+      "printed": "Now (14.16) proves the existence of canonical models for all connected Shimura varieties of abelian type, and (14.16) proves the existence for all Shimura varieties of abelian type.",
+      "correction": "The second citation should be (14.15): passing from the connected Shimura varieties Sh°(G^der, X^+) to Sh(G,X) is Theorem 14.15 (Deligne 1979, 2.7.13), not Proposition 14.16.",
+      "reason": "14.16 concerns products and isogenies of connected Shimura data only; the statement for the non-connected Sh(G,X) of abelian type is the 'if' direction of 14.15.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Milne official xnotes errata page, https://www.jmilne.org/math/xnotes/errata.html, checked 2026-10-06; nothing listed for p.127.",
+        "Jungin Lee's list, https://www.jmilne.org/math/xnotes/SV_errata.pdf, checked 2026-10-06; no entry for p.127."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review after reading p.127; the two citations in the sentence are both printed as (14.16).",
+        "by": "REV-ShimuraVarieties--V8"
+      }
     }
   ],
   "gaps": [
     {
-      "title": "Arithmetic codimension-one extension before full toroidal descent",
+      "title": "Complex Baily–Borel functoriality for datum morphisms and the codimension-one embedding",
       "neededBy": [
+        "ShimuraVarieties:V8/codim-one-extension",
         "ShimuraVarieties:V8/minimal-descent",
+        "ShimuraVarieties:V8/minimal-map-extension",
         "ShimuraVarieties:V8.general/general-minimal"
       ],
-      "detail": "Pink 12.8–12.10 needs actual canonical torus torsors/central quotients and arithmetic partial extensions S+ along codimension-one boundary. C0/relative-torus-embedding supplies a torus embedding only after an arithmetic torsor is supplied; C1 supplies the complex boundary data. Full C2 consumes V8 and cannot be imported here. A separately owned pre-V8 arithmetic codimension-one statement, plus its auxiliary pure-model inputs, is missing; the rescope proposal identifies its boundary. No claim of compactification closure is made."
+      "detail": "Pink 12.10 for pure data needs, at suitable levels: (i) for a lift (G,X) -> (GL2,H±) of a surjection G -> PGL2,Q, that the embedding (G,X) -> (G′,X′) × (GL2,H±) induces a closed immersion of M_K(C)^+ into M_K′(G′,X′)(C) × M(C)^min(GL2), with image the closure of M_K(C); (ii) in general, that M_K̃(G̃,X̃)(C)^+ -> M_K(C)^+ is the quotient by a finite group. minimal-map-extension also needs the extension of datum morphisms to complex Baily–Borel compactifications (Pink 3.4, 6.2 and the complex form of 12.3(b)). V2's stated targets cover the boundary stratification and level maps, not datum morphisms; no ShimuraCompactifications stage before V8 states them (C3's datum-morphism extensions are toroidal and consume V8). The arithmetic codimension-one extension itself is no longer a gap: codim-one-extension constructs it from gl2-compact-model, open canonical models, descent of closed subschemes and finite quotients, and uses no torus torsor (Pink 12.8 concerns mixed data). The natural owner of (i)–(ii) is V2."
     },
     {
-      "title": "Abelian auxiliary class and logarithmic-section descent",
+      "title": "Abelian auxiliary class for Pink 12.10",
       "neededBy": [
+        "ShimuraVarieties:V8/codim-one-extension",
         "ShimuraVarieties:V8/minimal-descent",
         "ShimuraVarieties:V8.general/general-minimal"
       ],
-      "detail": "Verify that quotients by the lifted SL2 factor and the Gm-kernel fibre product in Pink 12.10 stay in the existence class of V5/V6, or state precisely the stronger actual auxiliary-model hypothesis. This prevents a hidden V7 dependency in the abelian lane. On S+ construct the intrinsic top logarithmic line and prove finite-dimensional global sections commute with C/E; V2 must identify its large tensor-power map with the complex Baily–Borel closed embedding. Neither B1 nor generic open-model uniqueness supplies these statements."
+      "detail": "In the abelian-type lane, Pink 12.10 needs canonical models of (G,X)/SL2,Q and of (G̃,X̃) for G̃ = G ×_{PGL2} GL2, including data in Pink's sense whose X maps non-injectively to Hom(S,G_R) (for GL2 itself, the two-point datum (G_m,{±1}) of zero-dimensional-shimura-variety). Verify that these stay in the existence class of V5/V6, or state precisely the stronger hypothesis on the actual auxiliary models; this prevents a hidden V7 dependency in the abelian lane. The logarithmic line is not part of this gap: on M_K^+ over E, omega[dlog] is defined algebraically and its sections commute with E -> C (R09.3), and V2's projective realization supplies the comparison with the complex Baily–Borel embedding."
     },
     {
       "title": "Concrete canonical-model and comparison carriers at the pinned Lean baseline",
@@ -1877,7 +2248,10 @@
         "ShimuraVarieties:V8/gl2-cusps-tate",
         "ShimuraVarieties:V8/gl2-tower-compatibility",
         "ShimuraVarieties:V8.general/general-tower",
-        "ShimuraVarieties:V8.general/general-minimal"
+        "ShimuraVarieties:V8.general/general-minimal",
+        "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
+        "ShimuraVarieties:V8/component-reciprocity",
+        "ShimuraVarieties:V8/codim-one-extension"
       ],
       "detail": "Pinned Mathlib and Tau Ceti provide schemes/slice categories/functors/pullbacks/spans but no concrete pure datum, canonical reciprocity predicate, finite-adelic level tower or actual full modular-curve carrier under the audited names. Suggested theorem forms explicitly omit those not-yet-expressible conditions rather than use proposition fields or assume their conclusions. Their elaboration checks types only and is not a valid universal theorem about arbitrary schemes. Bind them to the named suppliers, restore every hypothesis and strengthen the schematic finite/proper forms to the full packet statements."
     },
@@ -1890,19 +2264,151 @@
       "detail": "The AA packet is reviewed needs_changes, not an accepted implementation. Its GL2 principal-level calculation supplies the right target, but the literal stabilizer Gamma(N) requires determinant representatives g_c in GL2(Zhat), which normalize K(N); arbitrary finite-adelic representatives give conjugate stabilizers. Require this restriction or explicit conjugating isomorphisms in the supplying node. Do not reproduce the underlying adelic quotient in V8."
     }
   ],
-  "restructure": [
+  "restructure": [],
+  "upstreamNotes": [
     {
-      "action": "rescope",
       "roadmaps": [
-        "ShimuraCompactifications",
-        "ShimuraVarieties"
+        "tauceti:TauCetiRoadmap/ModularCurves"
       ],
-      "detail": "Arithmetic minimal descent uses a codimension-one partial extension, while full C2 depends on V8; taking all of C2 as a V8 prerequisite creates a cycle.",
-      "proposal": "Within ShimuraCompactifications split the pre-V8 arithmetic codimension-one extension/torus-torsor and intrinsic log-line interface of Pink 12.8–12.10 from the full C2 toroidal descent consuming V8. Keep complex Baily–Borel and its log-line embedding in V2, canonical minimal descent in V8, full arithmetic toroidal compactification in C2, and mixed boundary geometry in C1. No new stage id is asserted as already existing."
+      "note": "MF 8.6 and 8.9 coarse/fine distinctions must not weaken the PR81 fine-level ranges: full N >= 3, Gamma1 N >= 4, Gamma0 coarse N > 0. Layer 10 covers only prime N >= 5 diamond subgroups modulo signs; R13.4a/b supply the other compact levels."
     }
   ],
-  "upstreamNotes": [
-    "MF 8.6 and 8.9 coarse/fine distinctions must not weaken the PR81 fine-level ranges: full N >= 3, Gamma1 N >= 4, Gamma0 coarse N > 0. Layer 10 covers only prime N >= 5 diamond subgroups modulo signs; R13.4a/b supply the other compact levels.",
-    "RS-04 accepted by REV-RS-04; AA.5 owns the underlying GL2 adelic quotient. This packet adds arithmetic scheme comparisons only."
-  ]
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ShimuraVarieties--V8",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review (Claude, session claude-xeFOsL) of all 23 original nodes, the four public sources (hashes reproduced; Milne SVI §§5,6,12–14, MF §8, Pink 8.1–8.4 and 12.3–12.13, Deligne 5.1–5.4 from page images), the 12 Mathlib baseline declarations at 082e2d3, every request against its supplier stage text, the library audit and its duplicate notes. Clear corrections were made in place: the determinant target is Milne's zero-dimensional Sh(G_m,{±1}), not the one-point torus datum (wrong pi_0 by a factor 2); added zero-dimensional-shimura-variety, component-reciprocity and codim-one-extension (Pink 12.10, using no torus torsor), which replaces the old arithmetic S^+ gap and makes the C2 rescope proposal unnecessary (removed); datum functoriality is over E(D); étaleness needs K2 neat; M5 owns the genus-one #81 comparison; Gamma0 at N = 2 uses PR81 9D; nine locator corrections; request texts narrowed to their suppliers' stated scope; discriminating tests added for both original constructions. All eight source issues confirmed, Jungin Lee's name corrected, E5 quote made literal, and E9 added. The suggested file gains honest zero-dimensional Shimura set definitions and elaborates at Mathlib 082e2d3 with unproved-declaration warnings only. The packet and suggested file are a sound complete pass with honest gaps (complex Baily–Borel functoriality, auxiliary class, Lean carriers, AA.5 representatives). Acceptance is withheld only because the reader readmes/ShimuraVarieties--V8.md, not a deliverable of #491, now contradicts the packet (determinant target, field of datum functoriality, étaleness range, Layer-10 claim, codimension-one gap, rescope proposal, new nodes) and promotion would publish it. The revision should regenerate the reader from this packet.",
+    "checked": [
+      {
+        "nodeId": "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "verdict": "verified",
+        "note": "Milne 13.4 (p.118) and Deligne 5.1–5.1.3 (pp.153–155, page images) checked: incidence cover, irreducible geometric fibres, real-open Hilbert specialization; the GL2 acceptance is Milne's remark after 13.4. R09.2 request narrowed to the cocharacter Hom-scheme over the regular semisimple locus."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/translation-descent",
+        "verdict": "verified",
+        "note": "Milne 13.6 (p.118): T(g):[x,a]_K -> [x,ag]_K′ for g^{-1}Kg ⊂ K′, with the special-point square. The two-step field-of-definition argument (E(x0), then a disjoint E(x1)) is a sound refinement of Milne's 'these sigma generate'."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/model-uniqueness",
+        "verdict": "verified",
+        "note": "Milne 13.7(a) p.119, proof by T(1) with the two comparisons; excerpt literal."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/level-tower",
+        "verdict": "corrected",
+        "note": "Locator 12.10 is on p.115, not p.116. The four original tests only test categorical assembly of supplied maps; added test_gl2_jline_degree (degree |GL2(F_3)|/2 = 24, PR81 9E) and test_not_constant (phi(3) = 2 components), which a wrong tower fails."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/translation-laws",
+        "verdict": "corrected",
+        "note": "The excerpt 'the identity map' is in 5.29(c); locator now 5.29(b)–(c), p.65. Added Milne p.58 'Note that this is a right action' (T(gh) = T(h)∘T(g)), which pins the gh order."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/finite-level-maps",
+        "verdict": "corrected",
+        "note": "Étaleness holds when K2 (hence K1) is neat, not at 'neat effective levels': Y_full(3) -> j-line ramifies over 0 and 1728. Locator of 'of the finite group' is 5.29(c). Added the GL2 effective group GL2(Z/N)/{±1}."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/hecke-span",
+        "verdict": "corrected",
+        "note": "Locator 5.29, p.65. J = K ∩ gKg^{-1} recomputed for g = diag(p,1): lower triangular mod p, index p+1; added test_gl2_Tp_index and an acceptance line. The original tests remain valid assembly tests."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/datum-functoriality",
+        "verdict": "corrected",
+        "note": "Milne 13.8 states the compositum E(D)E(D′), but E(D′) ⊂ E(D) for every datum morphism (argument of Milne 12.3(c)), so the field is E(D); statement, proof step and sources corrected."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/zero-dimensional-shimura-variety",
+        "verdict": "added",
+        "note": "Needed by the determinant target: Milne pp.62–63 extend Deligne's one-point torus data to finite T(R)/T(R)^+-sets Y, and (64) on p.119 defines their canonical models. ShimuraData D5 has only one-point torus data. Seven API items, four tests, honest Lean definitions."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/component-reciprocity",
+        "verdict": "added",
+        "note": "Milne §13 (64) and footnote 73, p.119: the component map to Sh(T,Y) descends to E; proof by special points, reflex-norm functoriality, density 13.5 and the disjoint-field lemma."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/abelian-instance",
+        "verdict": "corrected",
+        "note": "14.15–14.16 and the paragraph after them are on p.127, not pp.127–128. The second '(14.16)' there should be (14.15); recorded as E9."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-moduli-reciprocity",
+        "verdict": "corrected",
+        "note": "Theorem 6.11 is on p.74, not p.73. Added PELModuli:M5, which owns the genus-one Siegel/#81 comparison (library audit duplicate note), instead of re-deriving it."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-full-level",
+        "verdict": "corrected",
+        "note": "Theorem 6.11 is on p.74. Statement, acceptance (phi(3) = phi(4) = 2 components) and Pink 12.9 excerpt verified."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-determinant-pairing",
+        "verdict": "corrected",
+        "note": "Mathematical error: with the one-point torus datum (G_m,{det∘h}) of D5, Sh_{det K(N)} = (Z/N)^×/{±1} (model the real subfield of Q(zeta_N)), so the claimed identification with mu_N^prim fails (N = 3 gives one point). The target is Milne's Sh(G_m,{±1}) (pp.62–63, example p.63), reached through component-reciprocity, not datum-functoriality, which applies only to morphisms of Shimura data."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-fixed-pairing-fibre",
+        "verdict": "verified",
+        "note": "MF 8.7–8.8 p.100 (with the E2 calibration), PR81 5B fibre Y(N,zeta), R12.4 open connectedness without compactification; acceptance correct."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-row-basis-dictionary",
+        "verdict": "verified",
+        "note": "From Milne 6.3's [ah, a∘eta], right translation is eta -> eta∘u, so (P,Q) -> (aP+cQ, bP+dQ), the PR81 Conventions item 5 action; all three acceptance examples recomputed."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-gamma1",
+        "verdict": "verified",
+        "note": "K1(N) (first column ≡ e1) fixes P under the row action; for N >= 4 only the identity automorphism fixes a point of order N, so the quotient is the fine Y1(N) of PR81 5A."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-gamma0",
+        "verdict": "corrected",
+        "note": "PR81 9E gives the coarse Y0(N) for N = 1 and, by the Borel-quotient formula, N >= 3, and says not to use the formula for N = 2; added PR81 9D (coarse finite quotients) as prerequisite and request for N = 2."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-compact-model",
+        "verdict": "corrected",
+        "note": "Removed the hypothesis that Layer-10 X_H 'has its separate certified comparison': no node or supplier provides it, and V8 does not need it. R13.4a/R12.3 inputs verified."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/codim-one-extension",
+        "verdict": "added",
+        "note": "Pink 12.10 (pp.200–201) for reductive data: the codimension-one extension is the closure in (G′,X′) × X_full(N) or a finite quotient from G̃; it uses gl2-compact-model and no torus torsor (12.8 is the mixed case). This replaces the previous 'arithmetic S^+ supplier gap' and removes the need for the rescope of C2."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/minimal-descent",
+        "verdict": "corrected",
+        "note": "Proof now cites codim-one-extension, then Pink 12.12 (closure in P(Gamma(M^+, omega[dlog]^n)) over E) and 8.2. Removed the direct prerequisites ShimuraCompactifications:C0/relative-torus-embedding (mixed-data torsors) and C1 (now used by codim-one-extension). Locator 12.6–12.7 is pp.198–199."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/minimal-map-extension",
+        "verdict": "verified",
+        "note": "Pink 12.3(b) and 12.6 (descent on a dense open suffices for normal schemes) verified. The complex extension of datum morphisms is outside V2's stated targets and is now in the complex-functoriality gap."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-cusps-tate",
+        "verdict": "verified",
+        "note": "Width N at infinity and q = q_c^N verified; Pink 10.21–10.22 pp.184–185 excerpts literal; R12.3/R13.4b scopes match."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8/gl2-tower-compatibility",
+        "verdict": "verified",
+        "note": "Composition of the verified GL2 comparisons with R12.5/R12.6/R13.4b; the Layer-10 range statement matches PR81 Layer 10."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8.general/general-tower",
+        "verdict": "corrected",
+        "note": "Locator 12.10 is on p.115. No second proof; V7 only supplies models."
+      },
+      {
+        "nodeId": "ShimuraVarieties:V8.general/general-minimal",
+        "verdict": "corrected",
+        "note": "Now instantiates codim-one-extension; the exported open gap is the complex-functoriality gap, not a 'codimension-one supplier leaf'."
+      }
+    ]
+  }
 }
