@@ -35531,7 +35531,8 @@
    ],
    "revisionOf": "DESIGN-LV",
    "prompt": "research/blueprint/prompts/DESIGN-LV~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6377"
   },
   {
    "priority": 2,
