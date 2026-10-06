@@ -6,7 +6,7 @@
     "Polylogarithms:P.3"
   ],
   "status": "complete",
-  "summary": "Follow-up to the reviewed parent: explicit relation checks, weight-three configuration maps, rank-three comparisons, top-degree transfers, regulator calibration and the every-family form of Zagier’s determinant statement. Parent objects are imported, not replaced. The plan distinguishes rank filtration from Adams weights and records the missing cycle-lifting argument and source access.",
+  "summary": "Independent review of the weight-three follow-up: source locators and all pinned baselines checked; both configuration coefficients corrected; the alleged p. 298 misprint rejected. The mathematical plan retains explicit cycle-lifting, primitive/normalization and conditional-residue gaps. Faithful supplier interfaces and discriminating suggested Lean coverage require revision; this finished review pass does not accept the packet.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -16,175 +16,182 @@
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
         "provides": "Evaluation of a finite rational formal sum in a rational module.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Finsupp.lmapDomain",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Finsupp/Defs.lean",
         "provides": "Linear pushforward of a finite formal sum along a function.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Submodule.liftQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "A linear map vanishing on a submodule factors through the native quotient.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:LinearIndependent",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
         "provides": "Injectivity of the finite linear-combination map; used on each subset of a vector tuple.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.det",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Native determinant, with rows indexed by a finite type.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.det_mul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinant multiplicativity, including the GL change-of-volume factor.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:exteriorPower.ιMulti",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Native alternating insertion into the third exterior power, not the antisymmetric tensor quotient.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:exteriorPower.alternatingMapLinearEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Universal linear map out of the native exterior power from an alternating map.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:exteriorPower.linearMap_ext",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Extensionality on wedges.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:TensorProduct.lift",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Native bilinear-to-linear universal property.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:TensorProduct.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensor product of linear maps with evaluation on pure tensors.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:CategoryTheory.ShortComplex.homology",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/ShortComplex/Homology.lean",
         "provides": "Homology of a short complex with HasHomology, not a replacement cohomology theory.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:CategoryTheory.ShortComplex.homologyMap",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/ShortComplex/Homology.lean",
         "provides": "Homology functor on morphisms of short complexes.",
-        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Representation.Coinvariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
         "provides": "Native representation coinvariants V/span{ρ(g)x−x}; generic configurations use this existing quotient.",
-        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Units of square matrices, providing the simultaneous GL action.",
-        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:groupHomology",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
         "provides": "Native group homology of a bundled representation, as ModuleCat objects.",
-        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Rep.trivial",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
         "provides": "Trivial coefficient representation for rational GL homology.",
-        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:HomologicalComplex₂.total",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/TotalComplex.lean",
         "provides": "Native totalization with two anticommuting signed differential components.",
-        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+        "checked": "Full statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:Projectivization",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Projectivization/Basic.lean",
         "provides": "The native quotient of nonzero vectors by scalar units; provides the points of P² used in the geometric presentation.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:DirectSum.lof",
         "kind": "def",
         "module": "Mathlib/Algebra/DirectSum/Module.lean",
         "provides": "Native linear inclusion of each module into its dependent direct sum.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "Dedekind zeta as the complex L-series of integral-ideal norm counts.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.discr",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
         "provides": "Absolute number-field discriminant in Z, using the ring-of-integers basis.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "Cardinality of the subtype of native real infinite places.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "Cardinality of the subtype of native complex infinite places.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.embedding",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "A chosen complex field embedding inducing each infinite place.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-Polylogarithms--P.3 at the same commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValRat",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "Integer prime valuations of rational numbers; the coordinate test uses only primes 2 and 3, and the native zero convention at triple ratio 1.",
+        "checked": "Full statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-Polylogarithms--P.3 on 2026-10-06."
       }
     ]
   },
@@ -200,7 +207,7 @@
       "readSections": [
         "§1 pp. 197–222",
         "§1 transfers pp. 239–241",
-        "§2.5 pp. 256–259",
+        "§2.5–2.6 pp. 256–259",
         "§3 pp. 264–266",
         "§5 conclusion pp. 291–293",
         "§6 pp. 295–298",
@@ -208,13 +215,19 @@
         "§8 pp. 304–308",
         "§9 pp. 308–311",
         "§10 Lemma 10.1 p. 312"
-      ]
+      ],
+      "independentRead": {
+        "by": "REV-Polylogarithms--P.3",
+        "date": "2026-10-06",
+        "note": "Public PDF independently obtained; hash agrees. Locators and quoted expressions checked against the passages recorded here.",
+        "sections": "pp. 202–220, 239–241, 254–259, 264–312, including the complete §§4–5 proof and high-resolution inspection of pp. 208, 286–287, 293, 298 and 304."
+      }
     },
     {
       "id": "GR5",
       "title": "Motivic correlators, cluster varieties, and Zagier’s conjecture on ζ_F(4)",
       "authors": "A. B. Goncharov and D. Rudenko",
-      "edition": "arXiv:1803.08585v5 (2025), final revised preprint; formulas numbered as in v5",
+      "edition": "arXiv:1803.08585v5 (15 July 2026), revised preprint; Annals of Mathematics forthcoming as checked on 2026-10-06; formulas numbered as in v5",
       "url": "https://arxiv.org/pdf/1803.08585v5",
       "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
       "accessed": "2026-10-06",
@@ -222,7 +235,13 @@
         "§1.2 B3 presentation and Theorem 1.8",
         "§5.1 pp. 53–56, Lemmas 5.1–5.2 and Proposition 5.4",
         "§7.1–7.3 pp. 61–68, including the normalization footnote 16"
-      ]
+      ],
+      "independentRead": {
+        "by": "REV-Polylogarithms--P.3",
+        "date": "2026-10-06",
+        "note": "Public PDF independently obtained; hash agrees. Locators and quoted expressions checked against the passages recorded here.",
+        "sections": "§1.2 explicit B₃ presentation, §5.1 pp. 53–56, §§7.1–7.3 pp. 61–68."
+      }
     },
     {
       "id": "Z03",
@@ -234,7 +253,13 @@
       "accessed": "2026-10-06",
       "readSections": [
         "p. 2 formula (3) and its nondegeneracy conditions; used only to cross-check the coordinate sign"
-      ]
+      ],
+      "independentRead": {
+        "by": "REV-Polylogarithms--P.3",
+        "date": "2026-10-06",
+        "note": "Public PDF independently obtained; hash agrees. Locators and quoted expressions checked against the passages recorded here.",
+        "sections": "p. 2 formula (3), including its nondegeneracy conditions."
+      }
     }
   ],
   "nodes": [
@@ -266,7 +291,7 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "p. 208 (1.16), p. 210 (1.17)",
+          "locator": "p. 208 (1.16)–(1.17); p. 210 unnumbered specialization",
           "match": "The coordinate form of the parent relation, including its constant terms."
         },
         {
@@ -402,8 +427,13 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "§2.5 pp. 256–259; GR §7.1 (126)–(129)",
-          "match": "These are vector configurations modulo simultaneous GL, not projective point configurations."
+          "locator": "§2.5 p. 255, generic-vector module and GL coinvariants; §2.6 pp. 257–259, symmetrized resolution",
+          "match": "Vector configurations modulo simultaneous GL; symmetrized resolutions are in §2.6."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "§7.1 (129) p. 62",
+          "match": "The vector configuration module; individual scales are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -513,8 +543,13 @@
       "sources": [
         {
           "sourceId": "GR5",
-          "locator": "GR §7.1 (129)–(130); Gon95 §6 (6.2)",
-          "match": "The quotient and degree convention are specialized to weight three."
+          "locator": "§7.1 (129)–(130) pp. 62–63",
+          "match": "The quotient and degree convention specialized to weight three."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§6 (6.2) pp. 295–296",
+          "match": "The original weight-three configuration complex."
         }
       ],
       "implementationStatus": "unchecked",
@@ -697,8 +732,13 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 p. 264 formula for f₀^(3), (3.3)–(3.4); GR (142)",
-          "match": "The corrected common normalization is checked by a nonzero rational exterior-coordinate counterexample."
+          "locator": "p. 264 f₀^(3); (3.3)–(3.4) pp. 264–265",
+          "match": "Alt₄ is −6 times the original f₀; hence corrected r₄ is 18 f₀."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "§7.2 (142) p. 65",
+          "match": "The printed coefficient is refuted by E-P3-02; the corrected common coefficient is −3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -788,8 +828,13 @@
       "sources": [
         {
           "sourceId": "GR5",
-          "locator": "GR §7.2 (142); Gon95 Proposition 3.7",
-          "match": "The mixed degree map and its full volume-independence check."
+          "locator": "§7.2 (142) p. 65",
+          "match": "The middle component with unnormalized alternation."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§3 Proposition 3.7 p. 266",
+          "match": "The original volume-invariance argument uses the Bloch five-term relation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -856,7 +901,7 @@
       ],
       "title": "Triple-ratio configuration map",
       "kind": "construction",
-      "statement": "Define T(l)=|124||235||136|/(|125||236||134|) for a generic six-tuple, and r₆:C₆(3)→B₃(F) as (1/5) Alt₆[T(l)]₃. The symbol [1]₃ is permitted and generally nonzero. The ratio is invariant under independent vector rescalings; the resulting alternating map descends through GL. Use the explicit 22-term B₃ of the parent, not the conjectural equality with inductive B₃.",
+      "statement": "Define T(l)=|124||235||136|/(|125||236||134|) for a generic six-tuple, and r₆:C₆(3)→B₃(F) as −(1/5) Alt₆[T(l)]₃. The symbol [1]₃ is permitted and generally nonzero. The ratio is invariant under independent vector rescalings; the resulting alternating map descends through GL. Use the explicit 22-term B₃ of the parent, not the conjectural equality with inductive B₃. This negative sign is forced by E-P3-05 under δ₃[z]₃=[z]₂⊗u(z), δ₂[z]₂=u(1−z)∧u(z) and the stated deletion signs.",
       "hypotheses": [
         "F is an infinite field; all coefficient modules are rational unless specified otherwise."
       ],
@@ -872,13 +917,14 @@
         "Polylogarithms:P.3/generic-vector-configurations",
         "Polylogarithms:P.3/trilogarithm-group",
         "mathlib:Finsupp.linearCombination",
-        "mathlib:Submodule.liftQ"
+        "mathlib:Submodule.liftQ",
+        "mathlib:padicValRat"
       ],
       "sources": [
         {
           "sourceId": "GR5",
           "locator": "GR §7.2 (144), footnote 16; §7.3 Proposition 7.2",
-          "match": "The coefficient belongs to the same normalization as r₅, not Gon95a’s 1/15."
+          "match": "The printed positive 1/5 is refuted by E-P3-05. The magnitude alone is explained by footnote 16; its sign must also match (143)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -895,7 +941,7 @@
         {
           "name": "TauCeti.Polylog.WeightThree.configTrilog",
           "role": "constructor",
-          "statement": "The rational map r₆=(1/5) Alt₆[T]₃."
+          "statement": "The rational map r₆=−(1/5) Alt₆[T]₃."
         },
         {
           "name": "TauCeti.Polylog.WeightThree.configTrilog_mk",
@@ -932,7 +978,12 @@
         {
           "name": "TauCeti.Polylog.WeightThree.configTrilog_normalization",
           "kind": "non-example",
-          "statement": "5r₆=Alt₆[T]₃; using 1/15 would make the left chain square differ by a factor of 3."
+          "statement": "5r₆=−Alt₆[T]₃; positive 1/5 has the wrong left-square sign, and magnitude 1/15 has the wrong factor of 3."
+        },
+        {
+          "name": "TauCeti.Polylog.WeightThree.configTrilog_cobracketCoordinate",
+          "kind": "computation",
+          "statement": "For the generic tuple e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), evaluate the raw corrected −(1/5) Alt₆ triple-ratio formula after δ₂⊗1. Its (v₂∧v₃)⊗v₂ coordinate is −60, equal to the corresponding r₅∂ coordinate; the printed positive formula gives +60. This raw rational computation requires no unimplemented B₃ interface."
         }
       ],
       "uses": [
@@ -998,7 +1049,7 @@
       ],
       "proofSteps": [
         "For the right square use Plücker and expand determinant-unit wedges; Gon95 Proposition 3.8 supplies the primitive normalization, and the corrected r₄ matches GR’s r₅.",
-        "For the left square use GR (143)–(144), checking the coefficient 1/5 against the old map rather than copying the old triple-ratio coefficient.",
+        "For the left square use the corrected −1/5 coefficient of E-P3-05, then supply the full B₂-valued identity. The nonzero valuation-coordinate computation detects the sign but is not a proof of the entire square.",
         "The two lower projection identities use the five-term relation (Gon95 Lemma 6.2 and Lemma 3.6).",
         "Apply the trilogarithm-duality node: Corollary 7.6 exchanges deletion and projection, and Theorem 8.1 identifies dual six-tuples with their negatives. Its 46-term cancellation is read on pp. 304–308; converting M₃ to the common r₆ normalization is part of the explicit adapter check.",
         "Use the previous seven-term node for the incoming degree-7 differential."
@@ -1006,7 +1057,8 @@
       "acceptance": [
         "The right square on the rational moment fixture gives 36 u(2)∧u(3)∧u(5) on both sides.",
         "Using printed 2 Alt₄ gives −24 u(2)∧u(3)∧u(5), a nonzero counterexample.",
-        "D lowers tuple size while Γ degrees are 6−m."
+        "D lowers tuple size while Γ degrees are 6−m.",
+        "On the six-vector E-P3-05 fixture, applying δ₂⊗1 gives coordinate −60 on both sides; the printed positive r₆ gives +60."
       ],
       "prerequisites": [
         "Polylogarithms:P.3/exterior-configuration-map",
@@ -1019,8 +1071,13 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 §6 Theorems 6.1, 6.3; GR (141)–(144)",
-          "match": "The three nonzero components are isolated with the projection identities needed for totalization."
+          "locator": "§6 Theorems 6.1 and 6.3 pp. 295–297",
+          "match": "The original complex map and its projection identities."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "§7.2 (141)–(144) pp. 64–65",
+          "match": "The common normalization must correct both r₄ and r₆; see E-P3-02 and E-P3-05."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1038,7 +1095,7 @@
       ],
       "title": "Stabilized configuration comparison",
       "kind": "construction",
-      "statement": "For infinite F and n≥3 construct c_i^(n):H_{6−i}(GL_n(F),Q)→H^iΓ(F,3), i=1,2,3, using the symmetrized generic-vector resolution C_•^{n−2}(n) of Gon95 §2.5 and its projection map φ to BC^(3). On GL₃ this restricts to the maps induced by r₆,r₅,r₄. The compatible stable map restricts along rational primitive Hurewicz from Quillen K_{6−i}.",
+      "statement": "For infinite F and n≥3 construct c_i^(n):H_{6−i}(GL_n(F),Q)→H^iΓ(F,3), i=1,2,3, using the symmetrized generic-vector resolution C_•^{n−2}(n) of Gon95 §2.6 and its projection map φ to BC^(3). On GL₃ this restricts to the maps induced by r₆,r₅,r₄. The compatible stable map restricts along rational primitive Hurewicz from Quillen K_{6−i}.",
       "hypotheses": [
         "F is an infinite field; all coefficient modules are rational unless specified otherwise."
       ],
@@ -1065,7 +1122,7 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 §2.5 Lemmas 2.12–2.16; §6 (6.4)–(6.8)",
+          "locator": "Gon95 §2.6 Lemmas 2.12–2.16; §6 (6.4)–(6.8)",
           "match": "The construction on group homology precedes the restriction to rational K-theory."
         }
       ],
@@ -1110,7 +1167,7 @@
         {
           "name": "TauCeti.Polylog.WeightThree.configurationComparison_degree2",
           "kind": "characterisation",
-          "statement": "At i=2 its codomain is H²Γ and its group-homology degree is 4, correcting the final display on p. 298."
+          "statement": "At i=2 the actual configurationComparison has codomain H²Γ and group-homology degree 4, agreeing with the published final display on p. 298."
         },
         {
           "name": "TauCeti.Polylog.WeightThree.configurationComparison_stableFixture",
@@ -1120,7 +1177,7 @@
       ],
       "uses": [
         {
-          "where": "Gon95 §2.5 Lemmas 2.12–2.16; §6 (6.4)–(6.8)",
+          "where": "Gon95 §2.6 Lemmas 2.12–2.16; §6 (6.4)–(6.8)",
           "how": "Provides the concrete formula used by the subsequent comparison and its normalization checks."
         }
       ],
@@ -1153,7 +1210,6 @@
         "Polylogarithms:P.3/stabilized-configuration-comparison",
         "GeneralAlgebraicKTheory:K.2:plus",
         "mathlib:Submodule.liftQ",
-        "Polylogarithms:P.3/k-theory-comparison-weight-three",
         "KTheoryLowDegrees:U.1/stable-general-linear-group"
       ],
       "sources": [
@@ -1197,7 +1253,6 @@
         "K3BlochGroups:V.3/pre-bloch-group",
         "Polylogarithms:P.3/polylogarithmic-complex",
         "mathlib:exteriorPower.alternatingMapLinearEquiv",
-        "Polylogarithms:P.3/milnor-degree-comparison",
         "K2SymbolsBrauer:T.2/milnor-alternating"
       ],
       "sources": [
@@ -1247,7 +1302,7 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 pp. 239–241 transfer discussion; parent top-degree comparison",
+          "locator": "pp. 239–241 conditional complex transfer; top-degree Milnor comparison p. 220",
           "match": "The unrestricted complex transfer is conditional there; top cohomology already has the supplier norm."
         }
       ],
@@ -1325,19 +1380,20 @@
       ],
       "title": "Top-degree configuration–Milnor comparison",
       "kind": "comparison",
-      "statement": "Under the imported integral stability and Milnor-symbol isomorphism of K3BlochGroups:V.4/homological-stability, the rational map c₃ on the rank-three graded K₃ quotient agrees, via η:H³Γ≃K₃^M⊗Q, with the diagonal Milnor symbol map and primitive Hurewicz. This comparison is a normalization adapter; it does not replan Suslin’s homological stability. Compatibility with Quillen transfer in degree 3 needs a separate T.3 request.",
+      "statement": "Under the imported Suslin integral homology/Milnor quotient isomorphism, compare η∘c₃ on the rank-three graded rational K₃ quotient with the diagonal Milnor symbol map restricted along primitive Hurewicz. Compute the nonzero rational normalization coefficient κ for r₄=18 f₀ and specify the rescaling that gives equality. The cited Suslin quotient theorem does not itself identify κ or the restriction to primitive K₃. This comparison is a normalization adapter, not a second proof of homological stability. Degree-three Quillen-transfer compatibility needs the separate T.3 request.",
       "hypotheses": [
         "F is an infinite field; all coefficient modules are rational unless specified otherwise."
       ],
       "proofSteps": [
         "Import V.4/homological-stability; its Suslin source-proof gap remains with that owner. Compute the diagonal-symbol configuration image in degree 3 and compare the η normalization.",
         "Use the requested primitive Hurewicz/rank interface to restrict the homology quotient to K₃.",
-        "Check that the diagonal-matrix Milnor symbol agrees with the configuration map before composing η.",
+        "Evaluate the corrected configuration map on explicit diagonal bar-shuffle cycles and compare both symbol and primitive conventions; determine κ before asserting agreement.",
         "The required primitive projection and symbol compatibility are requested below; Suslin’s own source was not obtained, and its existing V.4 source gap is inherited rather than duplicated."
       ],
       "acceptance": [
         "The n=3 torsion allowance is 2-torsion, killed by Q.",
-        "No integral isomorphism is asserted without that allowance."
+        "No integral isomorphism is asserted without that allowance.",
+        "The coefficient κ is computed by the actual diagonal-symbol cycle, not inferred from Suslin’s abstract isomorphism or assumed to be one."
       ],
       "prerequisites": [
         "Polylogarithms:P.3/steinberg-boundary-image",
@@ -1395,7 +1451,7 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 p. 202 (1.4), p. 264 regulator descent",
+          "locator": "p. 202 (1.3)–(1.4); p. 264 regulator descent",
           "match": "The quotient functional and its archimedean pullback supplement the parent regulator-comparison target."
         }
       ],
@@ -1576,13 +1632,12 @@
         "BorelRegulators:R.4/borel-regulator",
         "BorelRegulators:R.5/borel-zeta-proportionality",
         "BorelRegulators:R.5/leading-term-functional-equation",
-        "Polylogarithms:P.3/trilogarithm-regulator-borel",
         "BorelRegulators:R.7"
       ],
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 §9.2 p. 311 rational calibration; parent Borel suppliers",
+          "locator": "§9.2 p. 311 rational calibration",
           "match": "The rationality proof uses a nonzero rational cycle and a period comparison, not dimension alone."
         }
       ],
@@ -1675,7 +1730,7 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 Theorem 1.1(a), §9.2; parent P.3 part (b)",
+          "locator": "Theorem 1.1 p. 198; §9.2 pp. 310–311",
           "match": "The published existence theorem and the stronger every-family consequence have separate dependency chains."
         }
       ],
@@ -1740,7 +1795,7 @@
       "kind": "theorem",
       "statement": "Assume the weight-four homotopy/residue resolution of Gon95 Conjecture 1.39: Γ(F(t),4)/Γ(F,4)→⊕_P Γ(F[t]/P,3)[−1] is a quasi-isomorphism, for monic irreducible P, with all maps interpreted in the derived category. For E=F[t]/P, insert its summand, invert this quasi-isomorphism and take minus the residue at infinity. After cancelling the shift this constructs a derived transfer Γ(E,3)→Γ(F,3). Its H³ map must agree with the previously constructed Milnor transfer. No unconditional B₃ or termwise transfer is inferred.",
       "hypotheses": [
-        "All groups are rational. The displayed domain and hypotheses are part of the statement."
+        "F is a field; E=F[t]/P is a simple finite extension. All groups are rational. Assume the stated weight-four quasi-isomorphism and residue-at-infinity chain map killing constants, for the same explicit/inductive model."
       ],
       "proofSteps": [
         "The residue-at-infinity map kills constants, hence factors through the quotient by Γ(F,4).",
@@ -1755,7 +1810,6 @@
         "Polylogarithms:P.3/cohomology-transfer",
         "Polylogarithms:P.4/general-polylog-complex",
         "Polylogarithms:P.4",
-        "Polylogarithms:P.5/residue-map",
         "K2SymbolsBrauer:T.4/simple-transfer"
       ],
       "sources": [
@@ -1801,8 +1855,13 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "Gon95 Definition 1.5 and Lemma 1.7 pp. 211–214; GR §7.3 (146)–(148)",
-          "match": "The rationalized geometric presentation used in the seven-term and duality arguments."
+          "locator": "Definition 1.5 and Lemma 1.7 pp. 211–214",
+          "match": "The geometric six-point quotient and skew symmetry."
+        },
+        {
+          "sourceId": "GR5",
+          "locator": "§7.3 (146)–(148) pp. 65–66",
+          "match": "The rational intersection-relation formula adopted here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1878,7 +1937,7 @@
         "The corrected coordinate relation gives the relations among triangle classes; the geometric R3 gives the reverse evaluation.",
         "Apply the seven-term reduction to the generic case and the projected five-point reduction to type C.",
         "GR Lemmas 7.3–7.4 cancel the type-B alternating terms and identify the remaining type-C contribution with the triple ratio.",
-        "Track the factor 3/2 and the separate r₆ coefficient 1/5; the alternation of M₃ is not r₆ without this rescaling."
+        "Track the printed 3/2 factor and the corrected r₆ coefficient −1/5: r₆=−(2/15) Alt M₃ if the displayed M₃ conventions agree. Establish that adapter in explicit B₃ before transferring seven-term and duality identities."
       ],
       "acceptance": [
         "The displayed geometric and algebraic conventions agree with the stated source passage."
@@ -1892,9 +1951,14 @@
       ],
       "sources": [
         {
+          "sourceId": "G95",
+          "locator": "Theorem A p. 293; construction pp. 286–287; Proposition 5.3 and Lemma 5.4 pp. 287–288",
+          "match": "The rational comparison and primary choice-independence argument were independently read."
+        },
+        {
           "sourceId": "GR5",
-          "locator": "Gon95 Theorem A pp. 291–293; GR §7.3 Proposition 7.2 and Lemmas 7.3–7.4 pp. 66–68",
-          "match": "Provides the geometric-to-symbol adapter; the complete primary choice-independence proof remains in the normalization gap."
+          "locator": "§7.3 Proposition 7.2 (149), Lemmas 7.3–7.4 pp. 67–68",
+          "match": "The skew-symmetrization is (3/2) Alt₆ of the raw ratio. This does not validate the sign of (144)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2036,12 +2100,14 @@
       "stageId": "Polylogarithms:P.3",
       "status": "planned",
       "remaining": [
-        "Configuration normalization and duality verification: The primary duality proof in Gon95 §§7–8 and the GR v5 chain-map formulas have been read. The coefficient −3 Alt₄ is forced by the rational right-square computation. A fully checked adapter from Gon95’s M₃ and the geometric G₃ presentation to the corrected coordinate B₃ presentation, including choice-independence and the precise 3/2, 1/5 and old-map factors, remains to be written. Gon95 Theorem A asserts the needed rational isomorphism; its full §§4–5 proof has not been read. This must be resolved before treating the chain map as proved.",
+        "Configuration normalization and duality verification: The independent reviewer read complete Gon95 §§4–5, including choice independence, reduction and Theorem A, and §§7–8 duality, as well as GR §§7.1–7.3. Necessary common coefficients are −3 Alt₄ and −(1/5) Alt₆, independently forced by rational valuation coordinates. Supply the full B₂-valued corrected chain square and an explicit adapter from the geometric presentation/old maps to the parent explicit B₃, tracking the printed 3/2 factor and rescaling −2/15. Reading a rational isomorphism and checking coordinates does not establish this normalization adapter.",
         "Analytic proof of corrected 22-term identity: Gon95 Theorem 1.3 states the needed functional identity. Supply the full derivative/constant/continuation argument for the corrected coordinate expression, or a primary detailed analytic proof; the source theorem and GR cobracket proof alone do not display this analytic step.",
         "Cycle-lifting higher differentials: Gon95 §9.2 asserts without displaying the unpleasant computation of higher differentials that ker δ₃ lifts to H₅(PGL₃(F),Q). Write those differentials and surviving-edge identification, then check PGL-to-stable-GL passage and primitive pairing. This is the decisive unresolved proof for the all-family conclusion; do not assume the stronger H¹Γ≃K₅^(3) conjecture.",
-        "Suslin primary proof and primitive symbol adapter: The integral homology/Milnor statement is imported from K3BlochGroups:V.4/homological-stability, which already owns its missing Suslin 1984 source proof. The primary text was not obtained (MathNet access failed). The new work is the diagonal-symbol, primitive-Hurewicz and configuration normalization adapter. Do not claim a second proof or integral transfer compatibility.",
+        "Suslin primary proof and primitive symbol adapter: The integral homology/Milnor statement is imported from K3BlochGroups:V.4/homological-stability, which already owns its missing Suslin 1984 source proof. The primary text was not obtained (MathNet access failed). The new work is the diagonal-symbol, primitive-Hurewicz and configuration normalization adapter. Do not claim a second proof or integral transfer compatibility. The original unscaled agreement of c₃ with the diagonal symbol was not justified: r₄ is 18 f₀, and the cited abstract quotient isomorphism does not compute the primitive/diagonal coefficient κ.",
         "Exact regulator-class normalization: R.4 uses Tate-divided R(2) coordinates and a Burgos-normalized class. Gon95’s original real Borel class has a different convention. The determinant exponents force a π² factor per coordinate; computing the exact universal class adapter is requested from R.7. Until then the parent plain rational-multiple wording cannot be applied to R.4 coordinates.",
-        "Unconditional complex transfer: Only the H³ transfer is unconditional from Milnor norms. Gon95’s derived construction assumes the weight-four homotopy/residue quasi-isomorphism and does not establish tower independence of termwise B₃ transfers. P.4 owns the higher-weight hypothesis; a proof of it or a separate transfer construction is required."
+        "Unconditional complex transfer: Only the H³ transfer is unconditional from Milnor norms. Gon95’s derived construction assumes the weight-four homotopy/residue quasi-isomorphism and does not establish tower independence of termwise B₃ transfers. P.4 owns the higher-weight hypothesis; a proof of it or a separate transfer construction is required. The required infinity residue is a weight-four field-complex map killing constants, not the normal-complex-variety exterior residue in P.5. It must be supplied for the same complex model as the quasi-isomorphism.",
+        "Faithful supplier interfaces in the suggested file: Comments do not restrict universally quantified Lean module variables to the parent objects. The review removes the false arbitrary-module theorems and marks them not stated under PROTOCOL §13. A revision must bind the actual parent B₂/B₃ quotient symbols, differential laws, Γ, single-valued L₃ and regulator; supply their genuine carrier/maps and quotient universal properties. Do not assume desired comparison conclusions as structure fields. Missing API/test signatures remain listed explicitly in the review.",
+        "Discriminating comparison and descent tests: Finish the omitted API/test signatures against real supplier maps. Zero-map and type-only homology examples do not characterize the configuration comparison; its nonzero stabilized-cycle fixture is absent. The geometric relation submodule and triangle class need explicit native construction formulas, not only placeholder-defined objects. Ordinary Fin dimension transports do not justify omitting all general duality API. The review report inventories each omission; at least three meaningful tests per definition/construction must survive."
       ]
     }
   ],
@@ -2053,7 +2119,7 @@
         "Polylogarithms:P.3/geometric-trilogarithm-comparison",
         "Polylogarithms:P.3/trilogarithm-duality"
       ],
-      "detail": "The primary duality proof in Gon95 §§7–8 and the GR v5 chain-map formulas have been read. The coefficient −3 Alt₄ is forced by the rational right-square computation. A fully checked adapter from Gon95’s M₃ and the geometric G₃ presentation to the corrected coordinate B₃ presentation, including choice-independence and the precise 3/2, 1/5 and old-map factors, remains to be written. Gon95 Theorem A asserts the needed rational isomorphism; its full §§4–5 proof has not been read. This must be resolved before treating the chain map as proved."
+      "detail": "The independent reviewer read complete Gon95 §§4–5, including choice independence, reduction and Theorem A, and §§7–8 duality, as well as GR §§7.1–7.3. Necessary common coefficients are −3 Alt₄ and −(1/5) Alt₆, independently forced by rational valuation coordinates. Supply the full B₂-valued corrected chain square and an explicit adapter from the geometric presentation/old maps to the parent explicit B₃, tracking the printed 3/2 factor and rescaling −2/15. Reading a rational isomorphism and checking coordinates does not establish this normalization adapter."
     },
     {
       "title": "Analytic proof of corrected 22-term identity",
@@ -2077,7 +2143,7 @@
       "neededBy": [
         "Polylogarithms:P.3/suslin-top-comparison"
       ],
-      "detail": "The integral homology/Milnor statement is imported from K3BlochGroups:V.4/homological-stability, which already owns its missing Suslin 1984 source proof. The primary text was not obtained (MathNet access failed). The new work is the diagonal-symbol, primitive-Hurewicz and configuration normalization adapter. Do not claim a second proof or integral transfer compatibility."
+      "detail": "The integral homology/Milnor statement is imported from K3BlochGroups:V.4/homological-stability, which already owns its missing Suslin 1984 source proof. The primary text was not obtained (MathNet access failed). The new work is the diagonal-symbol, primitive-Hurewicz and configuration normalization adapter. Do not claim a second proof or integral transfer compatibility. The original unscaled agreement of c₃ with the diagonal symbol was not justified: r₄ is 18 f₀, and the cited abstract quotient isomorphism does not compute the primitive/diagonal coefficient κ."
     },
     {
       "title": "Exact regulator-class normalization",
@@ -2093,13 +2159,42 @@
       "neededBy": [
         "Polylogarithms:P.3/conditional-complex-transfer"
       ],
-      "detail": "Only the H³ transfer is unconditional from Milnor norms. Gon95’s derived construction assumes the weight-four homotopy/residue quasi-isomorphism and does not establish tower independence of termwise B₃ transfers. P.4 owns the higher-weight hypothesis; a proof of it or a separate transfer construction is required."
+      "detail": "Only the H³ transfer is unconditional from Milnor norms. Gon95’s derived construction assumes the weight-four homotopy/residue quasi-isomorphism and does not establish tower independence of termwise B₃ transfers. P.4 owns the higher-weight hypothesis; a proof of it or a separate transfer construction is required. The required infinity residue is a weight-four field-complex map killing constants, not the normal-complex-variety exterior residue in P.5. It must be supplied for the same complex model as the quasi-isomorphism."
+    },
+    {
+      "title": "Faithful supplier interfaces in the suggested file",
+      "neededBy": [
+        "Polylogarithms:P.3/coordinate-relation",
+        "Polylogarithms:P.3/relation-cobracket",
+        "Polylogarithms:P.3/middle-configuration-map",
+        "Polylogarithms:P.3/seven-term-configuration-relation",
+        "Polylogarithms:P.3/configuration-chain-comparison",
+        "Polylogarithms:P.3/steinberg-boundary-image",
+        "Polylogarithms:P.3/trilogarithm-descent",
+        "Polylogarithms:P.3/every-family-special-value",
+        "Polylogarithms:P.3/trilogarithm-functional-relations",
+        "Polylogarithms:P.3/geometric-trilogarithm-comparison"
+      ],
+      "detail": "Comments do not restrict universally quantified Lean module variables to the parent objects. The review removes the false arbitrary-module theorems and marks them not stated under PROTOCOL §13. A revision must bind the actual parent B₂/B₃ quotient symbols, differential laws, Γ, single-valued L₃ and regulator; supply their genuine carrier/maps and quotient universal properties. Do not assume desired comparison conclusions as structure fields. Missing API/test signatures remain listed explicitly in the review."
+    },
+    {
+      "title": "Discriminating comparison and descent tests",
+      "neededBy": [
+        "Polylogarithms:P.3/stabilized-configuration-comparison",
+        "Polylogarithms:P.3/middle-configuration-map",
+        "Polylogarithms:P.3/geometric-trilogarithm-presentation",
+        "Polylogarithms:P.3/trilogarithm-descent",
+        "Polylogarithms:P.3/configuration-duality",
+        "Polylogarithms:P.3/weight-three-bigrassmannian",
+        "Polylogarithms:P.3/cohomology-transfer"
+      ],
+      "detail": "Finish the omitted API/test signatures against real supplier maps. Zero-map and type-only homology examples do not characterize the configuration comparison; its nonzero stabilized-cycle fixture is absent. The geometric relation submodule and triangle class need explicit native construction formulas, not only placeholder-defined objects. Ordinary Fin dimension transports do not justify omitting all general duality API. The review report inventories each omission; at least three meaningful tests per definition/construction must survive."
     }
   ],
   "requests": [
     {
       "supplier": "GeneralAlgebraicKTheory:K.2:plus",
-      "need": "Part II: natural rational primitive Hurewicz K_n(F)_Q≃Prim H_n(GL(F),Q), stable block-sum Hopf structure, primitive/decomposable splitting and compatibility with the rank≤r filtration. In degree 3 compare the primitive rank quotient and Suslin’s diagonal Milnor map; in degree 5 primitive Borel pairing kills the decomposable complement. This is not the arithmetic-only Cartan–Serre node in BorelRegulators R.3.",
+      "need": "Part II: natural rational primitive Hurewicz K_n(F)_Q≃Prim H_n(GL(F),Q), stable block-sum Hopf structure, primitive/decomposable splitting and compatibility with the rank≤r filtration. In degree 3 compare the primitive rank quotient and Suslin’s diagonal Milnor map; in degree 5 primitive Borel pairing kills the decomposable complement. This is not the arithmetic-only Cartan–Serre node in BorelRegulators R.3. In degree 3 compute the nonzero rational diagonal-symbol coefficient for the corrected r₄=18 f₀, with specified bar-shuffle and primitive conventions; do not presume that coefficient is one.",
       "neededBy": [
         "Polylogarithms:P.3/stabilized-configuration-comparison",
         "Polylogarithms:P.3/rank-two-vanishing",
@@ -2133,7 +2228,7 @@
     },
     {
       "supplier": "Polylogarithms:P.4",
-      "need": "Weight-four homotopy/residue quasi-isomorphism Γ(F(t),4)/Γ(F,4)→⊕_P Γ(k(P),3)[−1] (Gon95 Conjecture 1.39), or a proof-independent derived transfer with tower independence and agreement with Milnor top cohomology. Treat the conjectural hypothesis explicitly; explicit-to-inductive B₃ is not a proved isomorphism.",
+      "need": "Weight-four homotopy/residue quasi-isomorphism Γ(F(t),4)/Γ(F,4)→⊕_P Γ(k(P),3)[−1] (Gon95 Conjecture 1.39), or a proof-independent derived transfer with tower independence and agreement with Milnor top cohomology. Treat the conjectural hypothesis explicitly; explicit-to-inductive B₃ is not a proved isomorphism. Supply the weight-four field-complex residues, including infinity, their chain-map and constant-annihilation laws, the quotient/shift identifications and the bridge from inductively defined to explicit B₃. P.5/residue-map is only a normal-complex-variety exterior residue and does not provide these maps.",
       "neededBy": [
         "Polylogarithms:P.3/conditional-complex-transfer"
       ]
@@ -2157,17 +2252,27 @@
       "id": "Polylogarithms/E-P3-01",
       "kind": "misprint",
       "locator": "Gon95 published p. 298, final c₂ display after (6.11)",
-      "printed": "H¹(B_F(3))",
-      "correction": "The c₂ target is H²(B_F(3)).",
-      "reason": "Its input degree is 4 and the Γ indexing is i=6−4=2; Theorem 1.14 p. 220 and (6.11b) p. 297 both give H².",
-      "known": "No published erratum located; corrected locally from the adjacent source statements.",
+      "printed": "H²(B_F(3))",
+      "correction": "None. The published c₂ display already has the correct degree-two target.",
+      "reason": "The original allegation transcribed the source as H¹. Independent high-resolution reading shows H², agreeing with p. 220 and (6.11b) p. 297. The superscript was misread; this is not a published misprint.",
+      "known": "Rejected by independent review. The original allegation is preserved separately; the printed field now records the actual published expression.",
       "searched": [
         "Author-hosted 1995 published scan",
         "Durham-hosted copy",
         "Search for Goncharov 1995 errata"
       ],
       "affects": "nothing",
-      "source": "G95"
+      "source": "G95",
+      "review": {
+        "verdict": "rejected",
+        "reason": "High-resolution inspection of the published p. 298 display shows H²(B_F(3)), already agreeing with p. 220 and (6.11b). The alleged H¹ is a transcription/OCR error; no source correction is needed.",
+        "by": "REV-Polylogarithms--P.3"
+      },
+      "originalAllegation": {
+        "printed": "H¹(B_F(3))",
+        "correction": "The c₂ target is H²(B_F(3)).",
+        "reason": "Its input degree is 4 and the Γ indexing is i=6−4=2; Theorem 1.14 p. 220 and (6.11b) p. 297 both give H²."
+      }
     },
     {
       "id": "Polylogarithms/E-P3-02",
@@ -2176,7 +2281,7 @@
       "printed": "2 · Alt₄",
       "correction": "With δ₂[x]=(1−x)∧x and the printed r₅, replace r₄ by −3 Alt₄.",
       "reason": "On v(t)=(1,t,t²) at t=1,2,3,5,7, d₂r₅=36 u(2)∧u(3)∧u(5), while the printed r₄∂=−24 times that basic wedge. The rational unit classes of distinct primes are independent. Alt₄=−6 f₀^(3) from Gon95 p. 264; the corrected r₄ is 18 f₀. Three additional generic rational fixtures give the same ratio −3/2. The failure persists with unnormalized alternation and zero-based deletion signs.",
-      "known": "New finding in this run; no correction located in v5 or its TeX source. Independent review must confirm.",
+      "known": "Independently confirmed by REV-Polylogarithms--P.3; no correction located. This is a v5 preprint finding; the Annals article is forthcoming.",
       "searched": [
         "arXiv v5 PDF and TeX (142)",
         "GR §7.2 footnote 16",
@@ -2184,7 +2289,12 @@
         "Web search for GR Zagier erratum coefficient r₄"
       ],
       "affects": "a stated result",
-      "source": "GR5"
+      "source": "GR5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently recomputed every prime-exterior coordinate using exact rational arithmetic. The moment fixture gives 36 for d₂r₅ and −24 for printed r₄∂; −3 Alt₄ fixes it. A scaled fixture gives 18 versus −12, and a nonconic fixture agrees in all 31 coordinates. Scope: arXiv v5 of 15 July 2026.",
+        "by": "REV-Polylogarithms--P.3"
+      }
     },
     {
       "id": "Polylogarithms/E-P3-03",
@@ -2200,7 +2310,12 @@
         "GR v5 §7 proof of configuration relation"
       ],
       "affects": "the proof",
-      "source": "G95"
+      "source": "G95",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read §9.2 p. 310 independently. The higher-differential calculation is explicitly omitted, and the required edge identification is only asserted. This confirms a source-proof gap, not falsity of the lifting statement.",
+        "by": "REV-Polylogarithms--P.3"
+      }
     },
     {
       "id": "Polylogarithms/E-P3-04",
@@ -2209,7 +2324,7 @@
       "printed": "{(bc−c+1)a/(ca−a+1)}",
       "correction": "Use {−a(bc−c+1)/(ca−a+1)}. Keep the coefficient +1.",
       "reason": "As printed, substitution a=b=c=1 gives 6[1]+[−1], whose L₃ value is 21ζ(3)/4, contradicting Theorem 1.3 and the explicitly printed p. 210 specialization 3[1]+4[−1]. The negative argument gives the latter. The geometric expression (1.10) and the independently displayed coordinate formula in Zhao’s supplement support the negative sign.",
-      "known": "The negative argument occurs in Zhao’s primary supplement formula (3); no publisher erratum for Gon95 located. Independent review must confirm the generic coordinate comparison.",
+      "known": "Independently confirmed by REV-Polylogarithms--P.3 against the published scan and Zhao’s supplement; no publisher erratum located.",
       "searched": [
         "Author-hosted Gon95 p. 208 scan at full resolution",
         "Gon95 (1.10) p. 205 and specialization p. 210",
@@ -2218,7 +2333,33 @@
         "Web search for Goncharov (1.16) misprints"
       ],
       "affects": "a stated result",
-      "source": "G95"
+      "source": "G95",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Inspected published p. 208 (1.16): the argument lacks a minus. The p. 210 specialization and L₃(−1)=−3ζ(3)/4 contradict the positive argument. Zhao formula (3) independently gives the corresponding negative denominator on its nondegenerate locus; continuity is needed for the (1,1,1) specialization.",
+        "by": "REV-Polylogarithms--P.3"
+      }
+    },
+    {
+      "id": "Polylogarithms/E-P3-05",
+      "kind": "error",
+      "locator": "GR arXiv:1803.08585v5 §7.2 (144), compared with (143), (142) and §7 cross-ratio (135)",
+      "printed": "r₆=(1/5) Alt₆[|124||235||136|/(|125||236||134|)]₃",
+      "correction": "Under δ₃[z]₃=[z]₂⊗u(z), δ₂[z]₂=u(1−z)∧u(z), unnormalized alternation and zero-based deletion, use r₆=−(1/5) Alt₆[T]₃.",
+      "reason": "For e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), all twenty three-by-three minors are nonzero. Apply δ₂⊗1 to (143) and extract (v₂∧v₃)⊗v₂: printed (144) gives 60 while r₅∂ gives −60. All six nonzero coordinates have opposite signs; a second generic fixture gives the same failure in 722 coordinates. No injectivity of δ₂ is needed to refute a claimed equality.",
+      "known": "New independently confirmed v5 preprint error. The corrected sign matches the necessary projected equality on two fixtures; a full B₂-valued proof remains a gap. No version of record available: Annals lists the article as forthcoming on 2026-10-06.",
+      "searched": [
+        "arXiv:1803.08585v5 PDF, §7.2 (135), (142)–(144), footnote 16",
+        "Goncharov author website and targeted triple-ratio/erratum searches",
+        "Annals of Mathematics forthcoming articles list"
+      ],
+      "affects": "a stated result",
+      "source": "GR5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact rational determinant and prime-valuation calculation independently reproduces 60 versus −60 on the nonconic fixture. Moment-curve tests vanish on both sides and cannot detect this sign. See the reproducible algorithm and complete coordinate table in the independent review.",
+        "by": "REV-Polylogarithms--P.3"
+      }
     }
   ],
   "sourceVersions": [
@@ -2236,7 +2377,11 @@
       "url": "https://arxiv.org/pdf/1803.08585v5",
       "read": "2026-10-06",
       "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
-      "note": "v5 PDF and TeX checked; no located correction to (142)."
+      "note": "v5 dated 15 July 2026. Independently checked PDF and public metadata; no correction to (142) or (144) located. Annals forthcoming listing checked on 2026-10-06; findings concern this preprint version.",
+      "versionChecks": [
+        "https://arxiv.org/abs/1803.08585",
+        "https://annals.math.princeton.edu/toappear"
+      ]
     },
     {
       "source": "Z03",
@@ -2254,5 +2399,148 @@
       ],
       "note": "At assembly, reconcile the parent P.3 comparison domain: rank≤3/rank≤2 is not an Adams eigenspace or a quotient of all K without a rank bound. Also reconcile the parent regulator’s rational-multiple wording with R.4’s Tate coordinates (π² per coordinate), and orient the every-family special-value formula as det=q·period to allow zero determinants. This follow-up imports the targets but does not edit the parent packet."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-Polylogarithms--P.3",
+    "date": "2026-10-06",
+    "notes": "Completed independent source, pinned-baseline, supplier, closure, target-granularity, API, test, Lean and planet audit. Corrected both configuration coefficients, one baseline kind, conflated/misplaced locators, redundant parent-conclusion inputs and the wrong conditional residue supplier. Rejected E-P3-01; confirmed E-P3-02/03/04 and added E-P3-05. Removed false arbitrary-module/function signatures and recorded their genuine missing interfaces. Fifteen node verdicts remain unverifiable; the reader also requires synchronization in a revision. The packet checker passes and the retained Lean file elaborates with only planning-placeholder warnings. This is a completed review, not a checkpoint or acceptance.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.3/coordinate-relation",
+        "verdict": "corrected",
+        "note": "The signed coordinate formula and all three formal-sum tests were checked independently; (1.17) is on p. 208, while p. 210 has an unnumbered specialization. Quotient evaluation needs the actual parent symbol, now explicitly omitted rather than falsely universal."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/relation-cobracket",
+        "verdict": "verified",
+        "note": "GR §5.1 Proposition 5.4 proves relation-cobracket vanishing in the explicit B₂ presentation. The quotient and differential are parent inputs, not arbitrary module maps; the unfaithful generic signature was removed."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/generic-vector-configurations",
+        "verdict": "corrected",
+        "note": "Native GL coinvariants give precisely the free rational module on vector orbits. Genericity, deletion/projection dimensions and the unequal rank-one ratios are sound. Corrected the G95 definition locator to p. 255 and separated the GR citation."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/weight-three-bigrassmannian",
+        "verdict": "unverifiable",
+        "note": "The weight-three quotient and zero-based differential signs match the sources, but its component and field-map API are only comments; no component formula constrains the placeholder differential. Finite direct-sum transport is routine and should be supplied."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/projected-cross-ratio",
+        "verdict": "verified",
+        "note": "The §7 cross-ratio is the inverse of the V.4 convention. Exact determinant computation gives 6/5 and 5/6; Plücker gives the exclusions 0 and 1. The missing ordered projective adapter is identified explicitly."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/exterior-configuration-map",
+        "verdict": "corrected",
+        "note": "Independently confirmed −3 Alt₄=18 f₀, the nonzero 18·u(5)∧u(67)∧u(197) fixture and the zero conic fixture. Corrected source attribution and native unit-class decidability; the field-map interface remains omitted."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/middle-configuration-map",
+        "verdict": "unverifiable",
+        "note": "The raw r₅ formula is correct, but arbitrary gen2 need not obey five-term relations, so the former GL descent, volume API and tests were false. Removed those signatures; a revision needs the actual B₂ symbol and d₂ law."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/triple-ratio-map",
+        "verdict": "corrected",
+        "note": "Corrected r₆ to −(1/5) Alt₆ under the fixed differential signs. Raw ratios 10/9 and 1 are correct. Added a nonzero native valuation-coordinate test that detects the old sign; full B₂-valued chain compatibility remains unresolved."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/seven-term-configuration-relation",
+        "verdict": "unverifiable",
+        "note": "GR Theorem 1.8 and the primary G95 geometric proof support the seven-term relation, but transport to the parent corrected explicit B₃ with the chosen normalization still needs the recorded adapter. Removed the assertion for arbitrary gen3."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/configuration-chain-comparison",
+        "verdict": "unverifiable",
+        "note": "Both necessary coefficient corrections are reproduced, but applying δ₂⊗1 does not prove equality in B₂⊗U. Full left-square and projection identities require actual quotient laws and the geometric adapter, not arbitrary d₂ and δ₃."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/stabilized-configuration-comparison",
+        "verdict": "unverifiable",
+        "note": "Read the full symmetrized resolution and stabilization construction. The prototype for arbitrary Γ also admits the zero map; four comparison APIs and the stabilized-cycle test are missing. The degree-two example now uses the actual configurationComparison term and agrees with p. 298."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/rank-two-vanishing",
+        "verdict": "corrected",
+        "note": "The source supplies rank-two vanishing and the rank≤3/rank≤2 quotient. Removed the parent comparison conclusion as a proof input. Primitive-Hurewicz/rank interfaces remain supplier requests; no Adams-weight identification was imported."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/steinberg-boundary-image",
+        "verdict": "corrected",
+        "note": "The rational Milnor presentation gives precisely the Steinberg span. Removed the parent Milnor-comparison conclusion from prerequisites and the false range assertion for arbitrary d₂. A faithful signature must bind the generating symbols and differential law."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/cohomology-transfer",
+        "verdict": "unverifiable",
+        "note": "Conjugating the genuine Milnor norm by η gives the correct transfer; the native conjugation/id/composition prototypes are valid. Restriction, product and residue API and the quadratic test are missing; the abstract exterior-power scaling test alone does not instantiate finite-extension norms."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/suslin-top-comparison",
+        "verdict": "unverifiable",
+        "note": "The Suslin quotient isomorphism does not compute the diagonal/primitive scalar of the corrected c₃. Replaced unjustified unscaled equality by a request to compute κ and specify its rescaling; this remains open and with the original owners."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/trilogarithm-descent",
+        "verdict": "unverifiable",
+        "note": "The genuine analytic L₃ has the stated constants and symmetries, but arbitrary L₃/gen3C cannot descend or satisfy its values. Removed the false generic signatures; actual parent quotient/function and kernel-inclusion interfaces are required."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/configuration-borel-class",
+        "verdict": "unverifiable",
+        "note": "Theorem 1.9, Proposition 1.11 and Theorem 9.1 support the continuous class and two-dimensional measurable calculation. The actual measurable/continuous and parity/primitive interfaces are missing; nonzero normalization cannot be manufactured as a field."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/cycle-lifting",
+        "verdict": "unverifiable",
+        "note": "G95 §9.2 omits the higher-differential calculation. It asserts a ker δ₃ lift to H₅(PGL₃); equality with the stable configuration comparison and primitive pairing still need the recorded adapters. No H¹Γ≃K₅^(3) is asserted."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/rational-regulator-calibration",
+        "verdict": "unverifiable",
+        "note": "R.4 Tate coordinates and R.5 periods force π² per coordinate, but do not determine the universal rational class scalar. Removed the parent regulator comparison conclusion as a prerequisite; the R.7 request still must be fulfilled."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/regulator-image-containment",
+        "verdict": "verified",
+        "note": "Given the explicitly identified lifting, primitive-pairing and calibration inputs, rational image containment follows. It is sufficient for the determinant argument and does not require an isomorphism of all H¹Γ with K₅."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/every-family-special-value",
+        "verdict": "corrected",
+        "note": "Corrected the source locator and NumberField.discr declaration kind. Multiplying the R.5 period by π^(2(r₁+r₂)) gives π^(−3r₂). det=q·period correctly allows dependent families. Removed the false statement for arbitrary regAt; the actual regulator and open lifting inputs remain essential."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/trilogarithm-functional-relations",
+        "verdict": "unverifiable",
+        "note": "The negative sixth argument is independently confirmed, but the packet still lacks the requested full analytic continuation/constant argument for this explicit coordinate expression. Removed the assertion for every arbitrary complex function L₃."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/conditional-complex-transfer",
+        "verdict": "corrected",
+        "note": "The construction is conditional, derived and requires weight four. P.5 supplies a complex-variety exterior residue, not this field-complex infinity map; removed that citation and strengthened the P.4 request and hypotheses, including the explicit/inductive bridge."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/geometric-trilogarithm-presentation",
+        "verdict": "unverifiable",
+        "note": "Read the geometric six-point quotient and rational intersection relation independently. The prototype leaves its generating submodule and triangle representative unspecified, and the nonzero triangle test is missing. Those native constructions must be made concrete before the adapter can be checked."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/geometric-trilogarithm-comparison",
+        "verdict": "unverifiable",
+        "note": "Read full G95 §§4–5, especially the choice-independence proof and Theorem A; rationalization removes the 6-torsion qualification. The exact adapter to the corrected coordinate quotient and map remains open. Removed the false isomorphism to arbitrary B₃; split source IDs and tracked −2/15 versus printed 3/2."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/configuration-duality",
+        "verdict": "unverifiable",
+        "note": "Kernel/annihilator duality and all three small tests are mathematically sound. General involution, matrix and face signatures are only comments. Fin-index transports are routine mathematical data, not unavailable supplier notions; they should be supplied in the revision."
+      },
+      {
+        "nodeId": "Polylogarithms:P.3/trilogarithm-duality",
+        "verdict": "verified",
+        "note": "Inspected Theorem 8.1 visually and read its cancellation proof: the hypothesis is no four collinear, not merely generic. The equality in G₃ and its sign are supported; the separate normalization/explicit-quotient adapter remains recorded."
+      }
+    ]
+  }
 }
