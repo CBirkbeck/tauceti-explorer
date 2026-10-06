@@ -23456,9 +23456,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #707"
+   "note": "deliverables arrived from an external worker on issue #707",
+   "finishedAt": "2026-10-06T12:31:19Z"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.7",
@@ -24519,7 +24520,8 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.8",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #401"
   },
   {
    "id": "BP-EulerSystemsCyclotomicMainConjecture",
@@ -29192,7 +29194,8 @@
    ],
    "avoidAccountOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #497"
   },
   {
    "id": "BP-TorsionCohomologyInfrastructure",
