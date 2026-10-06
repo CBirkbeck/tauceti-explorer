@@ -28919,8 +28919,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #993"
   },
   {
    "id": "REV-ShimuraVarieties--V0",
@@ -56204,8 +56205,9 @@
     "REV-FIX-RT-BP-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5721"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5721",
+   "finishedAt": "2026-10-06T16:19:11Z"
   },
   {
    "id": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
