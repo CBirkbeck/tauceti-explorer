@@ -131,7 +131,10 @@
         "Koecher and Fourier arguments: pp. 22–24; rendered p. 24 inspected.",
         "Comparison with author-hosted typeset copy: physical pp. 1, 22–24, with printed pp. 546–548 at the latter three pages; rendered printed p. 547 inspected."
       ],
-      "accessNote": "The publisher DOI page returned HTTP 405. The author-hosted 27-page typeset copy has pagination differing from the published citation pp. 527–554; it is recorded as an author copy, not asserted to be the publisher version. Other cited books and papers in its bibliography have not been independently read for this packet."
+      "accessNote": "The publisher DOI page returned HTTP 405. The author-hosted 27-page typeset copy has pagination differing from the published citation pp. 527–554; it is recorded as an author copy, not asserted to be the publisher version. Other cited books and papers in its bibliography have not been independently read for this packet.",
+      "independentReviewReadSections": [
+        "Proof-issue passages in pp. 23–24 collated against the author copy on 2026-10-06; not a new full-preprint reading."
+      ]
     },
     {
       "id": "DIMITROV-AUTHOR",
@@ -144,6 +147,9 @@
       "readSections": [
         "Entire author copy, §§1–8 and bibliography.",
         "Rechecked Definition 3.2, Proposition 3.3(iv), Proposition 4.1, Theorem 7.2, Corollaries 7.4–7.5, Proposition 7.6, Theorem 7.7, equation (5), Theorem 8.3, Proposition 8.5, and all six assertions of Theorem 8.6."
+      ],
+      "independentReviewReadSections": [
+        "Entire author copy, introduction, sections 1–8 and bibliography; all cited locators rechecked on 2026-10-06."
       ]
     },
     {
@@ -159,6 +165,9 @@
         "§5.1 moduli/level conventions and §5.2 ordinary neighbourhoods and boundary inputs to Lemma 5.12.",
         "Remark 6.9, §7.1 semiabelian and natural versus modified integral differentials.",
         "§8.1 finite polarization action, §8.2 mixed full levels, §8.4 tower actions; Remark 9.9 and Theorem 9.12 inspected for consumer boundaries."
+      ],
+      "independentReviewReadSections": [
+        "Section 2.1 elliptic conventions; sections 5.1–5.2, 7.1, 8.1–8.4, at every cited locator, on 2026-10-06. The source consumer results listed in the author’s readSections are not claimed as a fresh whole-paper reading."
       ]
     },
     {
@@ -171,7 +180,10 @@
         "R13.4a and R13.4b with their dependencies; reviewed Modular Curves link-map entries into C6."
       ],
       "accessDate": "2026-10-06",
-      "accessNote": "A supplier scope, not evidence that the comparison is implemented. Its exact statements are requested below."
+      "accessNote": "A supplier scope, not evidence that the comparison is implemented. Its exact statements are requested below.",
+      "independentReviewReadSections": [
+        "Whole supplier roadmap and exact R13.4a/R13.4b statements; Modular Curves Layer 10 prime-N diamond-quotient scope checked on 2026-10-06."
+      ]
     },
     {
       "id": "DIMITROV-TILOUINE-AUTHOR",
@@ -184,7 +196,10 @@
       "readSections": [
         "§7 opening geometric irreducibility and weight extensions, Koecher Theorem 7.1, q-expansion Definition 7.2, Proposition 7.3 and its complete proof, Remark 7.4, printed pp. 584–586."
       ],
-      "accessNote": "This source restricts its displayed q-expansion charts to nonramified cusps and refers to Dimitrov §8 for general cusps. Only the stated passage was read, not the whole paper."
+      "accessNote": "This source restricts its displayed q-expansion charts to nonramified cusps and refers to Dimitrov §8 for general cusps. Only the stated passage was read, not the whole paper.",
+      "independentReviewReadSections": [
+        "Entire cited section 7 passage, printed pp. 584–586, on 2026-10-06; no claim to have read the whole paper."
+      ]
     }
   ],
   "sourceVersions": [
@@ -192,21 +207,27 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0212071v3",
       "read": "2026-09-26",
-      "sha256": "e590480f6a0f29048502721505e5742a0fec2c86fa8629909a480978696a16da"
+      "sha256": "e590480f6a0f29048502721505e5742a0fec2c86fa8629909a480978696a16da",
+      "reviewRead": "2026-10-06",
+      "reviewNote": "SHA256 independently confirmed. Only the proof-issue passages collated; original full reading retained as author evidence."
     },
     {
       "kind": "author copy",
       "url": "https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf",
       "read": "2026-10-06",
       "sha256": "722986ce0343547cdbc6cd7d39fa524a9c967f3ab42fdd231cc3acd87b006f03",
-      "citation": "Entire author-hosted typeset copy read; not certified as the publisher version."
+      "citation": "Entire author-hosted typeset copy read; not certified as the publisher version.",
+      "reviewRead": "2026-10-06",
+      "reviewNote": "SHA256 independently confirmed. Exact reading scope is recorded in the corresponding sources entry; publisher version remains unverified."
     },
     {
       "kind": "author copy",
       "url": "https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad16-DiTi.pdf",
       "read": "2026-10-06",
       "sha256": "184736dfe17df7202a8ab2913f53a763b6459daaef29001c7a75b4ed3e746f29",
-      "citation": "Author-hosted typeset copy, 58 physical pages, printed pp. 553–610; not certified as the publisher version of record"
+      "citation": "Author-hosted typeset copy, 58 physical pages, printed pp. 553–610; not certified as the publisher version of record",
+      "reviewRead": "2026-10-06",
+      "reviewNote": "SHA256 independently confirmed. Exact reading scope is recorded in the corresponding sources entry; publisher version remains unverified."
     }
   ],
   "nodes": [
@@ -247,7 +268,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3 proof, author copy printed p. 547",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -284,7 +305,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3 proof, author copy printed p. 547",
           "match": "Corrects the omitted exclusion of exponent zero in the printed contradiction argument; see E1."
         }
       ],
@@ -327,7 +348,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3 proof, author copy printed p. 547",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -365,7 +386,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Fourier transformation law preceding Theorem 8.3, p. 23; author copy printed pp. 546–548, §8",
+          "locator": "Equation (5), author copy printed p. 546",
           "match": "The scalar unit consequence of the actual Fourier transformation law; the lattice and line trivialization are supplier obligations."
         }
       ],
@@ -406,7 +427,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3 proof, author copy printed p. 547",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -449,7 +470,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "§2 toric coordinates, pp. 5–6, and Theorem 8.3, pp. 23–24; author copy printed pp. 546–548, §8",
+          "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; Theorem 8.3, printed p. 547",
           "match": "Elementary positivity consequence used to identify the Hilbert boundary ideal; generic toric coordinate construction remains in C0."
         }
       ],
@@ -487,7 +508,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Proposition 8.5(iii), p. 24; author copy printed pp. 546–548, §8",
+          "locator": "Proposition 8.5(iii), author copy printed p. 548",
           "match": "The explicit ring-valued equality underlying the source’s zero-divisor formulation."
         }
       ],
@@ -525,7 +546,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Proposition 8.5(iii), p. 24; author copy printed pp. 546–548, §8",
+          "locator": "Proposition 8.5(iii), author copy printed p. 548",
           "match": "Coefficient-sensitive consequence; no assertion that every nonparallel character remains nontrivial modulo a prime."
         }
       ],
@@ -572,7 +593,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "§2, p. 5, and Theorem 8.3 proof, pp. 23–24; author copy printed pp. 546–548, §8",
+          "locator": "Section 2 completed toric coordinates, author copy printed pp. 529–530; Theorem 8.3 proof, printed p. 547",
           "match": "Hilbert specialization of imported completed-coordinate algebra; not a new generic completion theorem."
         }
       ],
@@ -622,7 +643,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3 proof, author copy printed p. 547",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -674,7 +695,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8",
+          "locator": "Theorem 8.3, author copy printed p. 547",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -727,7 +748,7 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.3, pp. 23–24, and §2 boundary coordinates, p. 5; author copy printed pp. 546–548, §8",
+          "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; equation (5) and Theorem 8.3, printed pp. 546–547",
           "match": "Explicit Hilbert-specific consequence of positive support and the boundary-ideal computation, not attributed as a separately numbered theorem in Dimitrov."
         }
       ],
@@ -1194,8 +1215,13 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 7.2(ii), printed pp. 542–543; BHW Proposition 8.4, p. 1766",
+          "locator": "Theorem 7.2(ii), author copy printed pp. 542–543",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+        },
+        {
+          "sourceId": "BHW-2023",
+          "locator": "Proposition 8.4, printed p. 1766",
+          "match": "The finite tame polarization quotient on the open Hilbert variety; extension and boundary freeness are supplied by Dimitrov Theorem 7.2(ii), not by this open torsor statement."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1399,8 +1425,13 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Proposition 7.6 and beginning of §8, printed pp. 544–546; BHW §7.1, pp. 1759–1760",
+          "locator": "Proposition 7.6 and opening of section 8, author copy printed pp. 544–546",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+        },
+        {
+          "sourceId": "BHW-2023",
+          "locator": "Section 7.1, printed pp. 1759–1760",
+          "match": "Identifies the natural invariant differentials of the semiabelian extension. The subsequently modified integral lattice has a different owner and is not identified with this sheaf."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2006,23 +2037,28 @@
         "First over the source arithmetic base; any coefficient extension requires the requested coherent pushforward/base-change comparison, not an automatic equality of pulled-back ideals."
       ],
       "proofSteps": [
-        "Use π_*O=O and the formal q-expansion identification.",
-        "A function has zero boundary restriction exactly when its constant coefficients vanish, hence exactly when it lies in I_cusp on the minimal model.",
-        "Glue by completion detection and apply the projection formula for an invertible Lmin."
+        "Use the C5 normal proper contraction theorem to obtain π_*O_Mbar=O_Mmin over B=Z[1/N(n)]. Let C be the finite étale minimal cusp subscheme and f:D→C the induced boundary map.",
+        "Use hilbert-boundary-etale-charts and C0: the scheme-theoretic toric boundary has a monomial quotient basis over its cusp coefficient ring, so it is flat and has geometrically reduced fibres. Descend along the actual cusp étale covers. Hilbert-minimal-boundary-fibres identifies the geometrically connected fibres over C; properness follows from the contraction.",
+        "Apply the requested SF.0/C5 theorem for a proper flat finitely presented morphism with geometrically reduced and geometrically connected fibres: O_C≅f_*O_D, with its coherent base-change statement. This is an integral global-function argument, not a reduced-point detection argument.",
+        "Push forward 0→I_D→O_Mbar→O_D. Left exactness identifies π_*I_D with the kernel of O_Mmin→O_C, namely I_cusp. Apply the projection formula for the invertible parallel line Lmin.",
+        "Any coefficient extension uses the explicitly permitted coherent base changes; do not interchange a completed series ring with arbitrary tensor product."
       ],
       "prerequisites": [
-        "ShimuraCompactifications:C6/hilbert-boundary-constant",
         "ShimuraCompactifications:C6/hilbert-minimal-normal-projective",
         "ShimuraCompactifications:C6/hilbert-minimal-cusps",
         "ShimuraCompactifications:C6/hilbert-minimal-formal-comparison",
         "ShimuraCompactifications:C5",
         "AdicSpacesPartII:F0",
         "SchemeAndStackFoundations:SF.0",
-        "AdicSpacesPartII:F0/formal-direct-image-comparison"
+        "AdicSpacesPartII:F0/formal-direct-image-comparison",
+        "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
+        "ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres",
+        "ShimuraCompactifications:C0"
       ],
       "acceptance": [
         "No equality π*I_cusp=I_D is claimed; orders of vanishing can change under refinements.",
-        "Boundary ideals retain nilpotent coefficients."
+        "Boundary ideals retain nilpotent coefficients.",
+        "The integral base B does not invert the discriminant. The weight-line boundary criterion over o′[1/Δ] is not used to prove this base-B assertion."
       ],
       "library": {
         "module": "TauCeti/Geometry/Shimura/Hilbert/Compactification",
@@ -2031,8 +2067,8 @@
       "sources": [
         {
           "sourceId": "DIMITROV-AUTHOR",
-          "locator": "Theorem 8.6(iv),(v), equation (5) and Theorem 8.3, printed pp. 546–549",
-          "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+          "locator": "Theorem 8.6(iv),(v) and its proof, author copy printed pp. 548–549; Corollary 7.4, printed p. 544",
+          "match": "Derived ideal comparison from the source boundary contraction and toric charts, plus the explicitly requested integral global-function theorem in SF.0/C5; not a separately numbered source theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2074,8 +2110,13 @@
       "sources": [
         {
           "sourceId": "BHW-2023",
-          "locator": "BHW §§5.1.2–5.2, pp. 1744–1748; Dimitrov Theorems 7.2, 8.6",
+          "locator": "Sections 5.1.2–5.2, printed pp. 1744–1748",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+        },
+        {
+          "sourceId": "DIMITROV-AUTHOR",
+          "locator": "Theorems 7.2 and 8.6, author copy printed pp. 541–543, 548–549",
+          "match": "The arithmetic toroidal/minimal models to which the BHW ordinary construction is compared; ramified integral local-model compatibility is separately requested from H2."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2264,15 +2305,17 @@
       "title": "Finite-level Hilbert boundary maps",
       "kind": "comparison",
       "declaration": "hilbert_pLevel_boundary_compare",
-      "statement": "The forgetful and finite effective H4 level/polarization maps between Hilbert generic-fibre normal compactifications extend their open moduli maps and agree on completed cusp data, including the induced lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units.",
+      "statement": "The forgetful and finite effective H4 level/polarization maps extend between the canonical Hilbert generic-fibre minimal compactifications (or the specified finite normalizations). For toroidal compactifications they extend after choosing fans compatible with the induced cusp lattice maps; a finite toroidal extension uses the pullback fan/finite normalization, while further refinements may give proper nonfinite maps. These maps agree on completed cusp data, including lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units.",
       "hypotheses": [
         "F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.",
-        "Integral models at wild p-level are only those explicitly supplied by H2/H4 and the applicable C5 extension theorem; the BHW generic-fibre tower alone supplies no all-level smooth integral model."
+        "Integral models at wild p-level are only those explicitly supplied by H2/H4 and the applicable C5 extension theorem; the BHW generic-fibre tower alone supplies no all-level smooth integral model.",
+        "For every toroidal map choose source and target admissible fans compatible under the actual cusp lattice map, using C0/C3 equivariant refinements. A finiteness assertion requires the source to be the finite normalization of the target, equivalently the pullback fan in the finite toric lattice case; compatibility alone does not imply finiteness."
       ],
       "proofSteps": [
         "Use H4’s actual finite-level action (precomposition by γ∨=det(γ)γ⁻¹) and effective centers.",
-        "Apply C5’s finite normal compactification extension to the finite open maps.",
-        "Use C4’s level period maps and H3’s phase compatibility to identify the formal boundary maps."
+        "Apply C5’s canonical minimal compactification/finite normalization extension theorem to finite open maps, with its stated normality and density hypotheses.",
+        "For toroidal maps use C0’s lattice-map criterion and C3’s compatible equivariant refinements, with C4’s period data. Identify the finite normalization with the pullback fan when claiming finiteness; additional subdivisions only supply proper comparison maps.",
+        "Use H3’s phase compatibility to identify the formal boundary maps, and schematic density to compare them with the extended open maps."
       ],
       "prerequisites": [
         "ShimuraCompactifications:C6/hilbert-boundary-formal-comparison",
@@ -2281,11 +2324,14 @@
         "HilbertModularVarietiesAndShimuraCurves:H3",
         "HilbertModularVarietiesAndShimuraCurves:H4",
         "ShimuraCompactifications:C4",
-        "ShimuraCompactifications:C5"
+        "ShimuraCompactifications:C5",
+        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C3"
       ],
       "acceptance": [
         "The map from full G* to full G level is not generally surjective (BHW §8.2).",
-        "Finite effective groups at fixed n are not the profinite group Δ(p∞N)."
+        "Finite effective groups at fixed n are not the profinite group Δ(p∞N).",
+        "Unrelated fixed fans need not admit the level map. A proper subdivision of a compatible fan can give a nonfinite toroidal map, even though the open level map is finite."
       ],
       "library": {
         "module": "TauCeti/Geometry/Shimura/Hilbert/Compactification",
@@ -2295,7 +2341,7 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779",
-          "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+          "match": "BHW supplies the actual open finite-level maps, effective groups and mixed-level distinction. Extension to compactifications is a C6 comparison using C5 and the explicitly requested C0/C3 fan compatibility; BHW is not cited as proving extension for arbitrary toroidal fans."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2382,8 +2428,13 @@
       "sources": [
         {
           "sourceId": "MODULAR-CURVES-II",
-          "locator": "R13.4a; BHW §2.1 and §5.1.2",
-          "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+          "locator": "R13.4a",
+          "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
+        },
+        {
+          "sourceId": "BHW-2023",
+          "locator": "Section 2.1, printed pp. 1720–1721",
+          "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2427,8 +2478,13 @@
       "sources": [
         {
           "sourceId": "MODULAR-CURVES-II",
-          "locator": "R13.4a and R13.4b; BHW §2.1",
-          "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+          "locator": "R13.4a and R13.4b",
+          "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a and R13.4b."
+        },
+        {
+          "sourceId": "BHW-2023",
+          "locator": "Section 2.1, printed pp. 1720–1721",
+          "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2465,8 +2521,8 @@
       "sources": [
         {
           "sourceId": "MODULAR-CURVES-II",
-          "locator": "R13.4a; reviewed Modular Curves → C6 link",
-          "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
+          "locator": "R13.4a",
+          "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2475,13 +2531,15 @@
   "requests": [
     {
       "supplier": "ShimuraCompactifications:C0",
-      "need": "Arithmetic Hilbert admissible fans: complete positive cone, locally finite away from zero, finite modulo effective units, regular equivariant refinements; completed t-adic toric charts, coefficient/support description, localization shifts and boundary-union ideal (t), retaining nilpotents. Existing relative regular-coordinate nodes are reused; this request is for their missing completion and arithmetic admissibility interfaces.",
+      "need": "Arithmetic Hilbert admissible fans: complete positive cone, locally finite away from zero, finite modulo effective units, regular equivariant refinements; completed t-adic toric charts, coefficient/support description, localization shifts and boundary-union ideal (t), retaining nilpotents. Existing relative regular-coordinate nodes are reused; this request is for their missing completion and arithmetic admissibility interfaces. Supply the toric boundary monomial quotient basis, flatness and geometric reducedness, and the morphism criterion for an actual cusp lattice map with compatible fans; finite lattice maps with pullback fans give the finite normalization.",
       "neededBy": [
         "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
         "ShimuraCompactifications:C6/admissible-fan-specialization",
         "ShimuraCompactifications:C6/hilbert-boundary-formal-comparison",
         "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
-        "ShimuraCompactifications:C6/hilbert-regular-refinement"
+        "ShimuraCompactifications:C6/hilbert-regular-refinement",
+        "ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward",
+        "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison"
       ]
     },
     {
@@ -2502,7 +2560,7 @@
     },
     {
       "supplier": "ShimuraCompactifications:C5",
-      "need": "Specialize the generic integral compactification effectivity to the Hilbert boundary presentation on B=Z[1/N(n)] with H2 local models at discriminant primes; supply finite normal compactification of finite generic level maps. Supply determinant Hodge semi-ampleness, normalized section-ring/Veronese comparison, finite generation including finiteness over the Veronese, projectivity, normality, connected fibres, constancy of abelian parts, coherent pushforward/projection formula and the allowed base changes. Good-prime smoothness is not imported at a discriminant prime.",
+      "need": "Specialize the generic integral compactification effectivity to the Hilbert boundary presentation on B=Z[1/N(n)] with H2 local models at discriminant primes; supply extension to canonical minimal compactifications and specified finite normalizations of finite generic level maps, without claiming extension to unrelated toroidal fans. Supply determinant Hodge semi-ampleness, normalized section-ring/Veronese comparison, finite generation including finiteness over the Veronese, projectivity, normality, connected fibres, constancy of abelian parts, coherent pushforward/projection formula and the allowed base changes. Good-prime smoothness is not imported at a discriminant prime. Over B, compare the toroidal boundary with its finite étale cusp base: the map is proper flat with geometrically connected and geometrically reduced fibres, and its pushforward of O is O, with precisely permitted coherent base changes.",
       "neededBy": [
         "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
         "ShimuraCompactifications:C6/arithmetic-koecher",
@@ -2523,9 +2581,10 @@
     },
     {
       "supplier": "ShimuraCompactifications:C3",
-      "need": "Cusp-equivariant regular refinements and comparison morphisms on actual arithmetic locally finite fans. The C6 specialization only identifies the Hilbert charts; generic refinement geometry remains C3.",
+      "need": "Cusp-equivariant regular refinements and comparison morphisms on actual arithmetic locally finite fans. The C6 specialization only identifies the Hilbert charts; generic refinement geometry remains C3. For level comparisons choose compatible source/target fans under the actual cusp lattice map and distinguish a pullback fan (finite normalization) from further subdivisions (proper, possibly nonfinite).",
       "neededBy": [
-        "ShimuraCompactifications:C6/hilbert-regular-refinement"
+        "ShimuraCompactifications:C6/hilbert-regular-refinement",
+        "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison"
       ]
     },
     {
@@ -2631,7 +2690,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Semiabelian/conormal and invertible-line boundary exact sequences, normal proper curve uniqueness, proper coherent pushforward and projection formula. For arbitrary coefficients supply H0 on qcqs finite-presentation models/lines commuting with filtered colimits of coefficient algebras; descend line, open immersion and section data to finitely generated subalgebras. This replaces invalid tensor/completion interchange. For q-expansion detection supply schematic density on prime-power thickenings of a smooth geometrically irreducible fibre, flat-line coefficient exactness and H0 on qcqs models commuting with filtered colimits of coefficient modules. Use directed unions of finitely generated submodules and the injective coefficient maps induced by an invertible line; full formal series need not commute with colimits.",
+      "need": "Semiabelian/conormal and invertible-line boundary exact sequences, normal proper curve uniqueness, proper coherent pushforward and projection formula. For arbitrary coefficients supply H0 on qcqs finite-presentation models/lines commuting with filtered colimits of coefficient algebras; descend line, open immersion and section data to finitely generated subalgebras. This replaces invalid tensor/completion interchange. For q-expansion detection supply schematic density on prime-power thickenings of a smooth geometrically irreducible fibre, flat-line coefficient exactness and H0 on qcqs models commuting with filtered colimits of coefficient modules. Use directed unions of finitely generated submodules and the injective coefficient maps induced by an invertible line; full formal series need not commute with colimits. For the integral boundary-ideal comparison, supply O_C≅f_*O_D and coherent base change for proper flat finitely presented f:D→C with geometrically connected and geometrically reduced fibres; apply left exact pushforward to the boundary ideal sequence over B without inverting the discriminant.",
       "neededBy": [
         "ShimuraCompactifications:C6/arithmetic-koecher",
         "ShimuraCompactifications:C6/hilbert-boundary-constant",
@@ -2711,9 +2770,9 @@
       "stageId": "ShimuraCompactifications:C6",
       "status": "planned",
       "remaining": [
-        "Close the exact supplier requests for arithmetic completed charts, formal effectivity, HBAV local models, determinant section-ring geometry, Hasse/differential extension and modular coarse comparisons; replace the geometric signature omission ledger with the actual native interfaces.",
+        "Close the exact supplier requests for arithmetic completed charts, formal effectivity, HBAV local models, determinant section-ring geometry, Hasse/differential extension and modular coarse comparisons; replace the geometric signature omission ledger with the actual native interfaces. In particular close the integral boundary global-function comparison and the compatible/pullback-fan level-map contracts.",
         "Supply the module-valued schematic-density/completion contracts needed by the inclusion q-expansion theorem; specify any separate noninjective-map image formulation and the integral wild-level local-model comparison before enlarging those statements.",
-        "Collate source issues against the version of record and obtain independent review."
+        "Collate the independently reviewed source issues against the version of record; the accessible-copy independent review is complete."
       ]
     }
   ],
@@ -2761,7 +2820,7 @@
         "ShimuraCompactifications:C6/modular-formal-cusp-comparison",
         "ShimuraCompactifications:C6/prime-diamond-pr81-comparison"
       ],
-      "detail": "The target-level mathematical statements are specified, but the current baseline has no HBAV cusp, arithmetic completed toric fan, Hilbert moduli, relative semiabelian or Hasse-neighbourhood carrier. Exact interfaces are requested from their unique owners. Consequently these named geometric signatures are omitted from the suggested file, with a per-node omission ledger; there are no substitute propositions or axiomatized opaque geometry. Populate genuine signatures once the supplier objects exist."
+      "detail": "The target-level mathematical statements are specified, but the current baseline has no HBAV cusp, arithmetic completed toric fan, Hilbert moduli, relative semiabelian or Hasse-neighbourhood carrier. Exact interfaces are requested from their unique owners. Consequently these named geometric signatures are omitted from the suggested file, with a per-node omission ledger; there are no substitute propositions or axiomatized opaque geometry. Populate genuine signatures once the supplier objects exist. The independent review additionally makes the base-B boundary global-function comparison and the compatible-fan finite-level distinction explicit in the C0/C3/C5/SF.0 requests."
     },
     {
       "title": "Noninjective maps in the printed coefficient-descent statement",
@@ -2776,16 +2835,16 @@
         "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison",
         "ShimuraCompactifications:C6/hilbert-integral-differential-interface"
       ],
-      "detail": "BHW §5.1.2 constructs the added p-level models over Q and completes tame level over O_L. It does not by itself identify an integral compactification at every wild full level and ramified residue prime. The H2/H4/C5 requests specify the exact additional local-model and normalization/base-change theorem needed. This remains a supplier gap, not a claim of smooth all-level models."
+      "detail": "BHW §5.1.2 constructs the added p-level models over Q and completes tame level over O_L. It does not by itself identify an integral compactification at every wild full level and ramified residue prime. The H2/H4/C5 requests specify the exact additional local-model and normalization/base-change theorem needed. This remains a supplier gap, not a claim of smooth all-level models. Toroidal level-map extension also requires compatible cusp fans; finiteness requires a pullback fan or finite normalization, not an arbitrary refinement."
     },
     {
-      "title": "Version-of-record collation and independent source-issue review",
+      "title": "Version-of-record collation",
       "neededBy": [
         "ShimuraCompactifications:C6/negative-cusp-exponent",
         "ShimuraCompactifications:C6/constant-term-vanishing",
         "ShimuraCompactifications:C6/hilbert-q-expansion-module-injective"
       ],
-      "detail": "The entire author-hosted typeset copy was read in this run. Its printed pagination differs from the published citation. The publisher version and errata remain unverified; E-C6-1 and E-C6-2 are scoped to the accessed preprint/author copy and require independent review. No result relies on an asserted publisher correction. The companion explains E-C6-2’s intended zero-module interpretation; the earlier proposed replacement R=C is not retained. E-C6-3 records the invalid full-series colimit step in the companion author copy; the node uses a directed-union repair. This new finding also needs version-of-record collation and independent review."
+      "detail": "Independent review confirms E-C6-1, E-C6-2 and E-C6-3 in the accessed preprint/author copies, with the narrowed zero-module interpretation of E-C6-2 and directed-union repair for E-C6-3. The main author copy has printed pagination differing from the published citation; publisher DOI access failed again. Version-of-record collation remains outstanding, and no result relies on an asserted publisher correction. Fresh public errata searches found no correction, which does not establish that none exists."
     }
   ],
   "sourceIssues": [
@@ -2803,8 +2862,14 @@
         "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
         "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
         "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
-        "Public title + errata/corrigendum search on 2026-09-26; no correction located."
-      ]
+        "Public title + errata/corrigendum search on 2026-09-26; no correction located.",
+        "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3 p. 24 and author copy p. 547: zero is not strictly totally positive but has no negative embedding or pairing. The contradiction requires a nonzero exponent outside the positive cone. Dimitrov–Tilouine Theorem 7.1 p. 585 repeats the wording. This changes the proof wording, not Koecher’s theorem.",
+        "by": "REV-ShimuraCompactifications--C6"
+      }
     },
     {
       "id": "ShimuraCompactifications/E-C6-2",
@@ -2821,8 +2886,14 @@
         "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
         "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
         "Public title + errata/corrigendum search on 2026-09-26; no correction located.",
-        "Dimitrov–Tilouine author-hosted companion, printed pp. 585–586, read 2026-10-06."
-      ]
+        "Dimitrov–Tilouine author-hosted companion, printed pp. 585–586, read 2026-10-06.",
+        "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as a terminology imprecision. Both the main author copy p. 548 and companion p. 585 print the zero-ring sentence; the companion proof p. 586 works with arbitrary abelian coefficient groups. An inclusion of unital rings from the zero ring forces the target zero, whereas the zero coefficient submodule gives the intended injectivity case. No theorem failure or replacement by C is asserted.",
+        "by": "REV-ShimuraCompactifications--C6"
+      }
     },
     {
       "id": "ShimuraCompactifications/E-C6-3",
@@ -2839,8 +2910,14 @@
         "https://gitlabpages.univ-lille.fr/dimitrov/ (publication listing and linked author copy, inspected 2026-10-06)",
         "https://www.math.univ-paris13.fr/~tilouine/publications.html (publication listing inspected 2026-10-06)",
         "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.2.555/html (publisher full-page access failed)",
-        "Public title + errata/corrigendum search, 2026-10-06; no correction located."
-      ]
+        "Public title + errata/corrigendum search, 2026-10-06; no correction located.",
+        "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the companion author copy p. 586. For N_j=Z^j and N=⊕_i Z, the series with coefficient e_i at the ith positive multiple of one allowed exponent lies in N[[q]] but in no N_j[[q]]. Thus the full-series target does not commute with this colimit. The directed-union argument in the node needs only H0 colimit commutation and injective coefficient maps from the flat line.",
+        "by": "REV-ShimuraCompactifications--C6"
+      }
     }
   ],
   "restructure": [],
@@ -2904,5 +2981,273 @@
       ],
       "note": "The existing complex fan carrier is finite. C0 must supply arithmetic locally finite, unit-admissible fans and relative toric completions before the Hilbert comparisons can use it; this packet requests that extension and does not change the upstream fan roadmap."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ShimuraCompactifications--C6",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 52 nodes, their sources, direct prerequisites, supplier statements, construction API/tests, reader and suggested file. Corrected 12 mixed-pagination locators and six mixed-source/contract citations; repaired the base-B boundary-ideal proof and compatible-fan finite-level comparison, with C0/C3/C5/SF.0 requests and the Lean omission ledger. All 13 pinned baseline citations confirmed, no replacements or new nodes. All three source issues confirmed narrowly in accessible copies and RT-AREA-padic-1/26 ownership checked. Blueprint checker passes. The native suggested signatures elaborate at the exact Mathlib pin with only 31 warnings for admitted proofs; geometric carriers remain honest omissions. Complete is one finished target-level pass; C6 remains planned with four precise gaps and 19 supplier requests, not closed. Publisher-version collation remains open.",
+    "checked": [
+      {
+        "nodeId": "ShimuraCompactifications:C6/finite-index-cusp-unit-contraction",
+        "verdict": "corrected",
+        "note": "Confirmed the finite-index power argument, weighted logarithm sum and real multiplicity convention at the pins; degree greater than one is essential. Corrected the mixed author/preprint pagination. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/negative-cusp-exponent",
+        "verdict": "corrected",
+        "note": "Nonzero is explicitly required before a nonpositive real embedding can be made negative; zero is a separate allowed coefficient. Confirmed E-C6-1 and corrected pagination. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/negative-trace-orbit",
+        "verdict": "corrected",
+        "note": "At the chosen negative embedding unit powers dominate while all other absolute values contract; positive dual y and degree greater than one are explicit. Corrected pagination. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/coefficient-unit-orbit",
+        "verdict": "corrected",
+        "note": "Fourier covariance multiplies by units, hence preserves nonzero coefficients over rings with nilpotents and zero divisors. Corrected equation (5) pagination."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/bounded-cusp-support",
+        "verdict": "corrected",
+        "note": "A preserved nonzero coefficient with unbounded negative trace contradicts the one uniform lower support bound. No analytic convergence or domain hypothesis is used. Corrected pagination. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/positive-exponents-on-charts",
+        "verdict": "corrected",
+        "note": "Positive signed embeddings paired with a nonzero nonnegative boundary ray give positive integral monomial exponents in the actual lattice; C0 owns coordinates. Corrected the separate toric and Koecher locators. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/constant-term-covariance",
+        "verdict": "corrected",
+        "note": "Specializing the covariance law at zero removes the root phase and gives (c(u,0)-1)a(0)=0. Corrected Proposition 8.5(iii) to printed p. 548."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/constant-term-vanishing",
+        "verdict": "corrected",
+        "note": "The non-zero-divisor hypothesis is necessary over arbitrary coefficients; character nontriviality in characteristic zero alone is insufficient. Corrected Proposition 8.5(iii) pagination."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "verdict": "corrected",
+        "note": "A finite pole order on each Noetherian regular completed chart gives the lower trace bound; completed support and completion detection are explicitly requested. Corrected the toric/proof locators. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "verdict": "corrected",
+        "note": "Actual cusp lattice, weight line, phase covariance and finite-index cusp units feed the support theorem; zero is retained. Corrected the author-copy locator. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/arithmetic-koecher",
+        "verdict": "corrected",
+        "note": "The geometric regularity step and arbitrary-coefficient passage use the stated F0/SF.0/SF.1 interfaces, not arbitrary completion/tensor interchange; g>1 and the weight base are explicit. Corrected pagination. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-boundary-constant",
+        "verdict": "corrected",
+        "note": "On regular Hilbert charts every positive monomial is divisible by the boundary-union product, while the constant survives; formal detection retains nilpotents. C0 stratum intersection and boundary union are distinguished by the request. Corrected locators. Removed the extra terminal period from the literal theorem marker."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/cusp-lattice-comparison",
+        "verdict": "verified",
+        "note": "Checked Definition 3.2 and Proposition 3.3(iv): X=cbb′=ab′, dual involves the different, and the congruences/effective u²ε action are retained; finite cyclotomic image is not the full stabilizer."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/admissible-fan-specialization",
+        "verdict": "verified",
+        "note": "Definition 7.1 requires support the open positive cone and finite orbit set under the actual cusp-unit action. This is a Hilbert identification of the generic C0/C3 fan interface."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/trace-exponent-integral",
+        "verdict": "verified",
+        "note": "Integral rational trace follows from nB⊆A and x∈traceDual(A); native Z-submodules avoid selecting an ideal generator. Suggested signature matches."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/trace-exponents-congruent",
+        "verdict": "verified",
+        "note": "Changing x by traceDual(B) changes nTr(ξx) by an integer multiple of n; integer witnesses are unique through Z→Q injectivity."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/phase-independent-of-lift",
+        "verdict": "verified",
+        "note": "ζ^n=1 and congruent integer exponents suffice, with no primitive-root requirement. Negative exponents are valid in the unit group; the wrong-dual test is discriminating."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/phase-additive-in-character",
+        "verdict": "verified",
+        "note": "Trace additivity gives multiplicativity of the phase and value one at zero for integral witnesses. No geometric cusp carrier is fabricated."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/uniformization-phase-character",
+        "verdict": "verified",
+        "note": "Native AddMonoidHom to Additive(R×) supplies extensionality and homomorphism structure; all six API signatures and five tests agree with the packet, including denominator, dual-shift and nonprimitive-root cases."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/uniformized-level-chart",
+        "verdict": "verified",
+        "note": "Proposition 4.1 changes an actual uniformization by a trace/root character; the family, monomial action and overlap comparison are imported from C4/H1/H3."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-toroidal-model",
+        "verdict": "verified",
+        "note": "Theorem 7.2(i) and its construction use the prescribed locally finite cusp formal relation and density/effectivity, not an arbitrary gluing of fans. The missing characteristic-zero valuation interface is honestly requested."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/toroidal-polarization-quotient",
+        "verdict": "corrected",
+        "note": "Toroidal tame polarization action is free at the specified torsion-free level, unlike the minimal cusp action. Split the mixed Dimitrov/BHW citation into its own source records and distinguished open torsor evidence."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-boundary-formal-comparison",
+        "verdict": "verified",
+        "note": "The formal completion is the specified arithmetic toric boundary quotient with actual cyclotomic coefficients and full unit action; formal comparison is not an equality with the minimal completion."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-boundary-etale-charts",
+        "verdict": "verified",
+        "note": "Corollary 7.4 identifies actual-lattice toric charts étale locally and the nonopen strata over the stated fields. Freeness on these strata does not survive contraction."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-regular-refinement",
+        "verdict": "verified",
+        "note": "Cusp-equivariant regular refinement is imported from C3, measured in X*, and gives the stated good-prime smoothness; no discriminant-prime smoothness is claimed."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-semiabelian-extension",
+        "verdict": "verified",
+        "note": "Proposition 7.6 supplies the unique semiabelian extension and split rank-g torus at a cusp. Boundary p-divisible height need not remain the open abelian height 2g."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-conormal-comparison",
+        "verdict": "corrected",
+        "note": "Natural conormal line comes from the actual semiabelian extension and agrees on charts/overlaps. Split the BHW locator from the Dimitrov record and preserved the distinction from T5 modified lattices."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-toroidal-proper",
+        "verdict": "verified",
+        "note": "Theorem 7.7 uses the valuative criterion and split polarized period data after the allowed extension; R11.3 only covers positive residue characteristic, so the additional characteristic-zero contract is requested."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-hodge-semiampleness",
+        "verdict": "verified",
+        "note": "Theorem 8.6(i) is determinant-Hodge semi-ampleness for a positive parallel power; effectivity remains a precise C5 request, not a proved consequence of local toric charts."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-contraction",
+        "verdict": "verified",
+        "note": "Theorem 8.6(ii) uses the semiample determinant section ring and normal contraction; independence of the admissible fan is requested over the arithmetic base, not inferred solely on generic fibres."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-finite-generation",
+        "verdict": "verified",
+        "note": "Theorem 8.6 proof normalizes a Veronese section ring. The packet explicitly requests finiteness over the Veronese and finite generation, avoiding integrality-alone reasoning."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-normal-projective",
+        "verdict": "verified",
+        "note": "Theorem 8.6(iii) gives a normal projective finite-type minimal model through the supplied C5 section-ring geometry; connected fibres and π_*O=O retain their precise normal/proper hypotheses."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/minimal-polarization-quotient",
+        "verdict": "verified",
+        "note": "The finite polarization quotient of the minimal model is normal/projective, with possibly nontrivial cusp stabilizers; no minimal étale torsor is asserted."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-cusps",
+        "verdict": "verified",
+        "note": "Theorem 8.6(iv) identifies finite étale arithmetic cusps with the prescribed cyclotomic invariant coefficient rings and codimension g; neither full stabilizer nor all cusp fields are made trivial."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres",
+        "verdict": "verified",
+        "note": "Theorem 8.6(v) identifies whole geometrically connected toroidal boundary components as contraction fibres, not separate cones, using constancy of the abelian part from C5."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-formal-comparison",
+        "verdict": "verified",
+        "note": "Theorem 8.6(v) and formal functions compare the minimal completion via the whole toroidal inverse image. F0 proper/coherent/Noetherian hypotheses and adic completion of the pulled-back closed locus are used."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-minimal-weight-extension",
+        "verdict": "verified",
+        "note": "Theorem 8.6(vi) tests unit character triviality over the stated arithmetic base for g>1; the parallel-weight converse is not exported to arbitrary special fibres where characters can specialize."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-q-expansion-comparison",
+        "verdict": "verified",
+        "note": "Definition 8.4 and equation (5) identify actual weight-line-valued q-expansions with unit/root covariance at the chosen component. Scalar coefficients require the specified trivializing cover."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-q-expansion-module-injective",
+        "verdict": "verified",
+        "note": "Companion Proposition 7.3 proves module-valued detection using geometric irreducibility and prime-power thickenings; the directed-union repair avoids the invalid full-series colimit claim E-C6-3. General ramified charts come from Dimitrov, not the companion’s displayed nonramified formula."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-q-expansion-injective",
+        "verdict": "verified",
+        "note": "Fixed-component, fixed-weight q-expansion injectivity follows from the module-valued statement; geometric connectedness/irreducibility, flat line and the discriminant-inverted base are supplied explicitly."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent",
+        "verdict": "verified",
+        "note": "Coefficient descent is for inclusions R⊂R′ and uses the quotient module plus flat-line exactness, without requiring R′ flat over R. Noninjective-map image statements remain a named gap."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward",
+        "verdict": "corrected",
+        "note": "Replaced the unsupported use of the Δ-inverted weight criterion in the base-B ideal theorem by proper flat geometrically connected/reduced boundary fibres and the explicitly requested global-function comparison. Added toric-chart/fibre/C0 prerequisites; left exact pushforward and projection formula give the result."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-ordinary-model-comparison",
+        "verdict": "corrected",
+        "note": "Integral ordinary models use the actual H2 Deligne–Pappas/Rapoport interface, including ramification and p=2; BHW alone supplies no smooth all-level integral compactification. Split the mixed-source locator."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison",
+        "verdict": "verified",
+        "note": "Confirmed RT-AREA-padic-1/26 ownership: R07.2 owns generic Ha=det(V*), LF and BT₁ Hodge–Tate input; T0 extends to semiabelian degeneration, H2 instantiates it. Natural conormal and Hasse boundary trivialization agree."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-boundary-ordinary",
+        "verdict": "verified",
+        "note": "Split-torus Verschiebung acts invertibly on invariant differentials, hence the boundary Hasse ideal is a unit and cusp neighbourhoods are ordinary. The change of p-divisible height at the boundary is explicit."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-near-ordinary-model",
+        "verdict": "verified",
+        "note": "The ε<1 Hasse rational-domain convention is lift independent with the specified integral p^ε data; normalized admissible blowup removes p-torsion, and integral/formal/adic comparisons are requested."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient",
+        "verdict": "verified",
+        "note": "BHW Proposition 8.4/Lemma 8.5 give the finite effective tame polarization quotient on ordinary opens. Full wild-level comparisons use the mixed G-level problem and not this tame quotient."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison",
+        "verdict": "corrected",
+        "note": "Distinguished canonical finite minimal/normalization extensions from toroidal extensions requiring compatible fans; finiteness requires a pullback fan/finite normalization. Added C0/C3 prerequisites and precise supplier requests; arbitrary refinements may be proper and nonfinite."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/hilbert-integral-differential-interface",
+        "verdict": "verified",
+        "note": "BHW section 7.1 natural ω+ is the semiabelian conormal lattice pulled to the specified integral/formal/adic models. It is not equated with the later modified ωint lattice or a full quantitative canonical-subgroup result."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/modular-toroidal-minimal-comparison",
+        "verdict": "corrected",
+        "note": "F=Q is compared to R13.4a’s actual coarse modular curves, using proper normal curve uniqueness only on the stated common base; integral blowups are not identified by generic equality. Split the supplier/BHW locator and labelled the supplier as a contract."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/modular-formal-cusp-comparison",
+        "verdict": "corrected",
+        "note": "The formal/adic modular cusp comparison uses the actual Tate width parameter t with q=t^w, determinant/cusp fields and the permitted completions; arbitrary coarse cusp width one is not assumed. Split supplier/BHW citations."
+      },
+      {
+        "nodeId": "ShimuraCompactifications:C6/prime-diamond-pr81-comparison",
+        "verdict": "corrected",
+        "note": "PR81 Layer 10 is restricted to prime N≥5 diamond H≤(Z/N)×/{±1} with its finite normal j-line and density hypotheses. General-level modular compactification remains R13.4a’s job; corrected the supplier locator and evidence scope."
+      }
+    ]
+  }
 }
