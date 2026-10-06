@@ -274,7 +274,7 @@
       "id": "YZ",
       "title": "On the averaged Colmez conjecture",
       "authors": "Xinyi Yuan and Shou-Wu Zhang",
-      "edition": "Published Annals 187 (2018), 533–638; 2023 erratum not read in this run",
+      "edition": "Published Annals 187 (2018), 533–638; §2.2 reflex data; 2022 author erratum introduction read separately, 2023 journal erratum not collated",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
       "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
       "accessed": "2026-10-06",
@@ -522,11 +522,11 @@
       ],
       "title": "Induced and primitive CM types",
       "kind": "definition",
-      "statement": "For a CM subalgebra E₀⊂E, Φ is induced from Φ₀ iff Φ consists of all embeddings whose restriction belongs to Φ₀. A CM pair is primitive iff no proper CM subalgebra induces its type. The unique primitive core is the fixed algebra of the right stabilizer of the extended type in a common Galois closure; it is distinct from the reflex field, obtained by the left stabilizer.",
+      "statement": "For a CM subalgebra E₀⊂E, Φ is induced from Φ₀ iff Φ consists of all embeddings whose restriction belongs to Φ₀. For a CM FIELD E, the pair is primitive iff no proper CM subfield induces its type. Its unique primitive core is the fixed field of the right stabilizer of the extended type in a common Galois CM closure; the reflex field uses the left stabilizer. The field hypothesis is part of Milne Definition 1.8 and Proposition 1.9: no single primitive core is asserted for a product CM algebra.",
       "hypotheses": [],
       "proofSteps": [
-        "Extend the embeddings to a Galois closure; right invariance detects restriction to a smaller field.",
-        "Identify the fixed field and descend the selected embeddings; use conjugation to show the core is CM."
+        "For E a field, extend the embeddings to a Galois CM closure; right invariance detects restriction to a smaller field.",
+        "Identify the fixed field and descend the selected embeddings; conjugation shows that the core is CM. General algebra induction is restriction of embeddings, without this primitive-core conclusion."
       ],
       "acceptance": [
         "On Q(ζ₈), the type with ζ₈↦ζ₈ and ζ₈↦ζ₈³ is induced from Q(√−2); primitive must fail."
@@ -569,7 +569,7 @@
         {
           "name": "TauCeti.CM.CMType.primitive_core_unique",
           "role": "universal-property",
-          "statement": "Any primitive subpair inducing Φ is uniquely isomorphic to its primitive core."
+          "statement": "For E a CM field, any primitive CM subpair inducing Φ is uniquely the embedded primitive core."
         }
       ],
       "tests": [
@@ -608,7 +608,7 @@
       ],
       "title": "Trace description of the CM reflex field",
       "kind": "construction",
-      "statement": "For a CM pair (E,Φ) inside a fixed algebraic closure in C, E* is the subfield Q(Σ_{φ∈Φ}φ(a):a∈E). Equivalently, in a finite Galois closure L with extended type S, E*=L^{Stab_left(S)}. Identify this actual subfield with ShimuraData D3’s cocharacter reflex field; do not introduce a second generic reflex-field carrier.",
+      "statement": "For a finite étale CM algebra E and CM type Φ, choose a common finite Galois CM field L⊂C containing the images of every embedding of every field factor. The reflex field is E*=Q(Σ_{φ∈Φ}φ(a):a∈E)⊂L. Equivalently E*=L^{Stab(Φ)}, where Galois acts on Hom_Q-alg(E,L); if E is a field this is the left stabilizer of the extended type S⊂Gal(L/Q). A product algebra E is not embedded as a subalgebra of L. Identify this actual trace subfield with ShimuraData D3’s cocharacter reflex field, without a second generic carrier.",
       "hypotheses": [],
       "proofSteps": [
         "Represent the trace as the character of the Φ representation.",
@@ -628,7 +628,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Definition 1.16 and Proposition 1.18, pp.13–14",
+          "locator": "Proposition 1.16, Definition 1.17 and Proposition 1.18, pp.13–14",
           "match": "Trace generators and left stabilizer define the same reflex field."
         },
         {
@@ -660,7 +660,7 @@
         {
           "name": "TauCeti.CM.CMType.reflexField_stabilizer",
           "role": "characterisation",
-          "statement": "Gal(L/E*) is the left stabilizer of the extended type.",
+          "statement": "Gal(L/E*) is the stabilizer of Φ in Hom_Q-alg(E,L); for E a field it is the left stabilizer of its extended type S.",
           "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field-api-reflexField-stabilizer"
         },
         {
@@ -709,7 +709,7 @@
       ],
       "title": "Inverse-coset construction of the reflex type",
       "kind": "construction",
-      "statement": "Let L/Q be a finite Galois CM closure of E, G=Gal(L/Q), H=Gal(L/E) and S={g:g|E∈Φ}. Put H*=Stab_left(S); inverse set S⁻¹ is right H*-stable and defines Φ* on E*=L^{H*}. This is independent of L. The reflex pair is primitive; its double reflex is the primitive core of (E,Φ), hence is (E,Φ) only when Φ is primitive.",
+      "statement": "Let E be a CM FIELD and Φ a CM type. Let L/Q be a finite Galois CM closure containing E, G=Gal(L/Q), H=Gal(L/E) and S={g:g|E∈Φ}. Put H*=Stab_left(S); the inverse set S⁻¹ is right H*-stable and defines Φ* on E*=L^{H*}. This is independent of L. The reflex pair is primitive; its double reflex is the primitive core of (E,Φ), and recovers the original pair only when Φ is primitive. This single inverse-coset reflex-type construction is field-scoped; the trace reflex field of a CM algebra remains available separately.",
       "hypotheses": [],
       "proofSteps": [
         "Invert the extended embedding set and descend through its right H* invariance.",
@@ -727,7 +727,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Definitions 1.19 and 1.28, pp.14,19",
+          "locator": "Examples 1.19 and 1.28, pp.14,19",
           "match": "Reflex embeddings arise by inverting the extended type, with double reflex giving the primitive core."
         }
       ],
@@ -793,7 +793,7 @@
       ],
       "title": "Type-product, conjugation and change-of-type identities",
       "kind": "theorem",
-      "statement": "For a∈(E*)×, NΦ(a)=∏ψ∈Φ*ψ(a) lies in E×, satisfies NΦ(a)·overline{NΦ(a)}=N_{E*/Q}(a), and is multiplicative. For γ∈Gal(Qbar/Q), transport the embedded pairs: N_{γΦ}(γa)=γNΦ(a). Induction from a primitive core leaves the reflex field unchanged and the map to E is the inclusion of the primitive-core type product. These are algebraic formulas, not another construction of the V4 idelic torus norm.",
+      "statement": "For a CM FIELD E with type Φ and reflex type Φ* on E*, and a∈(E*)×, NΦ(a)=∏ψ∈Φ*ψ(a) lies in E×, satisfies NΦ(a)·overline{NΦ(a)}=N_{E*/Q}(a), and is multiplicative. For γ∈Gal(Qbar/Q), transport the embedded pairs: N_{γΦ}(γa)=γNΦ(a). Induction from the primitive core leaves the reflex field unchanged and the map to E is the inclusion of the primitive-core type product. These are algebraic formulas, not another construction of V4’s idelic torus norm. For product CM algebras use V4’s cocharacter norm rather than asserting one primitive reflex pair.",
       "hypotheses": [],
       "proofSteps": [
         "Use the inverse-coset description to show Galois invariance under H.",
@@ -811,7 +811,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Propositions 1.23–1.26, pp.15–17",
+          "locator": "Proposition 1.23, Remark 1.24 and Proposition 1.26, pp.15–17; Example 1.28, p.19",
           "match": "The product formula, conjugate product and induced-type norm identity."
         }
       ],
@@ -830,7 +830,7 @@
       ],
       "title": "The CM reflex order",
       "kind": "construction",
-      "statement": "For a CM field E with order O and type Φ, use E* and the trace-splitting E*⊗_Q E=~E_Φ⊕~E_Φ^c of YZ §2.2. Define the reflex order R_Φ as the image of O_{E*}⊗_Z O in ~E_Φ. It is an order in that finite étale E*-algebra, not by definition the full ring of integers. Its discriminant ideal d_Φ is the discriminant of this image order; keep it distinct from the field discriminant.",
+      "statement": "For a CM field E with order O and type Φ, use E* and YZ §2.2’s trace-selected splitting E*⊗_Q E=~E_Φ⊕~E_Φ^c. Define R_Φ as the image of O_{E*}⊗_Z O in ~E_Φ. It is an O_{E*}-order in that finite étale E*-algebra. Define d_Φ as its RELATIVE trace-discriminant ideal in O_{E*}, distinct from the absolute discriminant of O or E. It need not generally be the full integral closure. In the quadratic case E*=E and ~E_Φ=E, the first tensor factor already maps onto O_E, so R_Φ=O_E for every O⊂O_E and d_Φ=(1).",
       "hypotheses": [],
       "proofSteps": [
         "Use the type-trace primitive idempotent to specify the quotient factor.",
@@ -838,8 +838,8 @@
         "Define its discriminant through the supplier trace pairing."
       ],
       "acceptance": [
-        "For E imaginary quadratic with O=OE, the selected factor is E and the image is OE.",
-        "For nonmaximal O, do not simplify the image to its integral closure without a proof."
+        "For any imaginary quadratic O⊂OE, the selected factor is E, the image is OE and the relative discriminant is the unit ideal.",
+        "In higher degree, do not simplify the image to its integral closure without a proof. Extending YZ’s maximal-order input to O requires the image/full-rank argument."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field",
@@ -880,7 +880,7 @@
         {
           "name": "TauCeti.CM.CMType.reflexOrder_discriminant",
           "role": "data",
-          "statement": "dΦ is the discriminant of the trace pairing on this order, using GN11’s discriminant carrier."
+          "statement": "dΦ is the relative O_{E*}-ideal discriminant of the trace pairing on RΦ, using GN11’s order/discriminant carrier; it is not disc_Z(O)."
         }
       ],
       "tests": [
@@ -897,7 +897,7 @@
         {
           "name": "TauCeti.CM.CMType.test_order_discriminant",
           "kind": "non-example",
-          "statement": "An order’s discriminant is not automatically its fraction algebra’s field discriminant; the square index factor must be retained."
+          "statement": "For E=Q(i) and O=Z+3Zi, the reflex image RΦ is O_E and its relative discriminant dΦ is the unit ideal, although disc_Z(O)=−36. Using the absolute discriminant of O as dΦ gives the wrong answer."
         }
       ],
       "uses": [
@@ -979,7 +979,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.1, ideal/lattice dictionary",
+          "locator": "§16.3, Definition 16.9 and Theorem 16.12, pp.6–7",
           "match": "Use proper invertible ideals of the specified order, not all ideals of its maximal order."
         },
         {
@@ -1031,7 +1031,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.1",
+          "locator": "Introduction p.1; Theorem 16.4 pp.4–5; §16.3 pp.6–7",
           "match": "The ideal-lattice construction is an instance of complex uniformization."
         },
         {
@@ -1137,7 +1137,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Theorem 20.2, pp.1–2",
+          "locator": "§20.3 p.5, ideal-action/class-group torsor and norm-degree formulas",
           "match": "The inverse-ideal left action fixes the sign used by arithmetic reciprocity."
         },
         {
@@ -1240,7 +1240,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Theorem 20.2, pp.1–2",
+          "locator": "§20.3 p.5, ideal-action/class-group torsor and norm-degree formulas",
           "match": "Ideal homothety classes classify elliptic curves with the specified CM order."
         }
       ],
@@ -1324,7 +1324,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.1, CM lattices",
+          "locator": "§16.3, Definition 16.9 and Theorem 16.12, pp.6–7",
           "match": "The ideal/lattice dictionary yields the quadratic-form version used by Heegner-point consumers."
         },
         {
@@ -1372,7 +1372,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Theorem 20.2",
+          "locator": "§20.3 p.5, ideal-action/class-group torsor and norm-degree formulas",
           "match": "The ideal norm is the isogeny degree."
         },
         {
@@ -1455,7 +1455,7 @@
       "sources": [
         {
           "sourceId": "KS",
-          "locator": "§1.1.3–Definition 1.8, pp.6–8",
+          "locator": "§1.2, Definition 1.8 and equation (1.2.3), p.9",
           "match": "Generic Serre tensor is specialized to the CM action and projective Lie hypothesis."
         }
       ],
@@ -1945,12 +1945,12 @@
       ],
       "title": "The polarization and lattice reciprocity formula",
       "kind": "comparison",
-      "statement": "With the normalized σ,t,f=NΦ(t)⁻¹ above, the conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on finite-adelic lattices and their rational comparison. For the V5 finite-adelic isomorphism α, (σEξ)(αx,αy)=χ_cyc(σ)Eξ(x,y). Ideals therefore change the lattice by NΦ(a)⁻¹ while the polarization acquires the corresponding positive rational norm factor; the cyclotomic factor must not be omitted from the torsion pairing. Ordinary isomorphisms, polarized similitudes and finite-level equivalences are kept distinct.",
+      "statement": "With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogeny α has finite-adelic realization satisfying α(fx)=σx. Its pairing multiplier is (σEξ)(αx,αy)=[χ_cyc(σ)/(f f̄)]Eξ(x,y), with the compatible rational representative provided by V5. The natural Galois map x↦σx=α(fx) instead has multiplier χ_cyc(σ). The conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on finite-adelic lattices and their rational comparison. Ideals change the lattice by NΦ(a)⁻¹ with the corresponding positive rational norm factor. Keep ordinary isomorphisms, polarized similitudes and finite-level equivalences distinct.",
       "hypotheses": [],
       "proofSteps": [
-        "Translate Theorem 9.17 by s=t⁻¹ in the same way as the torsion dictionary.",
-        "Evaluate the trace Riemann form after scaling the lattice; solve for the required ξ′.",
-        "Compare with the Weil/Tate pairing multiplier through A4 and V5."
+        "Translate Theorems 9.10–9.11(c) and 9.17 by s=t⁻¹, using the same comparison map α as the torsion dictionary.",
+        "The natural Galois map scales the Weil/Tate pairing by χ_cyc; replacing its input by f⁻¹x divides that multiplier by f f̄.",
+        "Evaluate the trace Riemann form on the changed lattice and compare ξ′=ξ χ_cyc/(f f̄) through A4 and V5."
       ],
       "acceptance": [
         "A formula changing I but keeping ξ without the norm/cyclotomic factor fails already for multiplication by an integer on a polarized surface."
@@ -1965,7 +1965,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Theorem 9.17, p.82",
+          "locator": "Theorem 9.11(c) and Theorem 9.17, pp.79–81",
           "match": "The uniformization theorem changes both the lattice and its polarization parameter."
         }
       ],
@@ -2242,7 +2242,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Theorems 9.10 and 9.17, pp.78–82",
+          "locator": "Theorems 9.10–9.11 and 9.17, pp.78–81",
           "match": "Instantiate the dictionary with two explicit elliptic factors and keep the covariance multiplier."
         }
       ],
@@ -2287,7 +2287,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Definition 20.1, p.1",
+          "locator": "Introduction p.1 and §20.3 p.5, defining product for H_D",
           "match": "The finite product is over all CM curves with the specified quadratic order."
         }
       ],
@@ -2612,7 +2612,7 @@
       "sources": [
         {
           "sourceId": "Streng",
-          "locator": "Theorem 2.5 and its proof §4.4",
+          "locator": "Theorem 2.5 and its proof §4.5",
           "match": "The field has conductor dividing NF and the exact ideal subgroup is known."
         }
       ],
@@ -2660,7 +2660,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Definition 20.1 and Theorem 20.2",
+          "locator": "Introduction p.1 and §20.3 p.5, defining product for H_D",
           "match": "The finite product is instantiated with the class-number-one square lattice."
         }
       ],
@@ -2862,7 +2862,7 @@
         },
         {
           "sourceId": "Kato",
-          "locator": "§15.11 pp.261–262",
+          "locator": "§15.10 p.260 and §15.11 p.261",
           "match": "The infinity type fixes the one-dimensional components."
         }
       ],
@@ -2881,12 +2881,12 @@
       ],
       "title": "Full elliptic CM L-factorization, including bad primes",
       "kind": "theorem",
-      "statement": "Let A/K be an elliptic curve with CM by an order in K and every endomorphism defined over K. For every finite prime v and coefficient l≠char κ(v), P_v(A,T)=det(1−Frob_v T | V_l(A)^{I_v}) equals P_v(ψ,T)P_v(̄ψ,T), where a rank-one unramified factor is 1−ψ(v)T and a ramified factor is 1. Hence L(A/K,s)=L(ψ,s)L(̄ψ,s), with all finite bad factors retained. The local Artin conductor exponent is a_v(A)=a_v(ψ)+a_v(̄ψ); for the CM conjugate pair these exponents agree and the conductor ideal of A is f(ψ)². At bad places CM j is integral, so reduction is potentially good; the inertia-invariant formula, rather than a good-prime polynomial, determines the factor.",
+      "statement": "Let A/K be an elliptic curve with CM by an order in K and every endomorphism defined over K. For every finite prime v and coefficient l≠char κ(v), define P_v(A,T)=det(1−Frob_geom,v T | H¹_et(A_Kbar,Q_l)^{I_v}), using R11.5’s cohomological carrier H¹_et=V_l(A)∨. It equals P_v(ψ,T)P_v(̄ψ,T), where an unramified rank-one factor is 1−ψ(v)T and a ramified factor is 1. CM j is integral, so A has potentially good reduction and finite inertia image: duality and averaging identify this determinant with that of arithmetic Frobenius on V_l(A)^{I_v}. Hence L(A/K,s)=L(ψ,s)L(̄ψ,s), retaining every finite bad factor. The Artin exponent is a_v(A)=a_v(ψ)+a_v(̄ψ); conjugation preserves these exponents, giving conductor ideal f(ψ)².",
       "hypotheses": [],
       "proofSteps": [
-        "Restrict the actual direct-sum Tate comparison to inertia at each v.",
-        "Apply the generic rank-one local Euler/conductor constructions and determinant/direct-sum laws.",
-        "At bad places use potential good reduction from integral CM j; compare conjugate inertia characters and conductor exponents."
+        "Use integrality of CM j to obtain potential good reduction, hence finite inertia action on V_l(A).",
+        "Dualize the actual covariant Tate decomposition to R11.5’s H¹_et. Finite-inertia averaging identifies invariant duals; geometric Frobenius on the dual has the same characteristic polynomial as arithmetic Frobenius on the covariant invariant space.",
+        "Apply rank-one local Euler and Artin/Swan conductor constructions, direct-sum determinant laws and equality of the two conjugate conductor exponents."
       ],
       "acceptance": [
         "For the Gaussian curve, the bad prime above 2 has ramified characters and local factor 1; omitting it from the product is not an all-prime proof.",
@@ -3715,8 +3715,8 @@
       "hypotheses": [],
       "proofSteps": [
         "Use the supplied splitting theorem to find arbitrarily many admissible ordinary primes.",
-        "At each prime use exhaustive finite search and the independent order verifier; the complete class orbit gives exactly the reduced H_D roots.",
-        "Strict CRT uniqueness and the known integral coefficient bound identify the reconstruction with H_D."
+        "At each prime use exhaustive finite curve search and the independent prime-power order verifier. For r>3 exhaustive relation search terminates by Endo Proposition 5; at 2 and 3 use the certified climbing procedure. Suitable seeds exist by the CM reduction/lifting dictionary.",
+        "The complete class orbit gives exactly the reduced H_D roots. Strict CRT uniqueness and the integral coefficient bound identify the reconstruction with H_D."
       ],
       "acceptance": [
         "Reject a supersingular seed even when all its j-values are present in an extension field.",
@@ -3732,7 +3732,8 @@
         "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
         "ComputationalNumberTheory:CN.1",
         "ComputationalNumberTheory:CN.3",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate-api-unique"
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate-api-unique",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-verification-sound-complete"
       ],
       "sources": [
         {
@@ -3756,12 +3757,12 @@
       ],
       "title": "An ordinary endomorphism-ring certificate",
       "kind": "definition",
-      "statement": "For an ordinary elliptic curve A/F_q of trace t with p∤t, write t²−4q=v²D_K with D_K a fundamental negative discriminant; the actual order conductor u divides v. A certificate of a claimed u includes certified q,t,D_K,v, prime factorizations and u|v, and valid signed small-prime ideal relations R_r for every r|v/u and r|u. For r|v/u, require #R_r in Cl(u²D_K)>#R_r in Cl(r²D_K) and verify #R_r/A>#R_r/Cl(r²D_K). For r|u require #R_r in Cl((u/r)²D_K)>#R_r in Cl(u²D_K) and verify #R_r/Cl((u/r)²D_K)>#R_r/A. The relations, their actual class-group counts and finite-field isogeny counts are certified, not uninterpreted Booleans.",
+      "statement": "For an ordinary elliptic curve A/F_q with certified trace t and p∤t, write t²−4q=v²D_K, with D_K a fundamental negative discriminant and actual conductor u_A|v. A certificate for claimed 0<u|v stores certified factorizations and exact 2- and 3-adic conductor valuations from verified isogeny climbing. For EVERY prime power r^k|v with r>3 and k≥1, put j=ν_r(v)−k+1, D1=(v/r^j)²D_K and D2=r^{2k}D_K. Store an explicit signed ideal relation R_{r,k}, all its primes split in K and prime to v and p, together with independently checked counts c1=#R/D1>c2=#R/D2. Compute cA=#R/A by certified isogeny walks. Verification requires (cA<c1) iff r^k|u, plus agreement of the climbing valuations at 2 and 3 with those of u. Counts and climbing outputs are bound to actual curve/class-group calculations, not Boolean flags. Prime-only tests cannot certify arbitrary prime-power conductors.",
       "hypotheses": [],
       "proofSteps": [
-        "Validate the ordinary trace/discriminant/factorization data and the conductor divisibility.",
-        "Represent each signed ideal relation explicitly and verify its counts in both comparison orders.",
-        "Compute the curve relation counts by certified isogeny walks and perform the two strict inequalities for each conductor prime."
+        "Validate ordinary trace, fundamental discriminant, prime factorizations and u|v; compare certified climbing valuations at 2 and 3.",
+        "Enumerate every r^k|v for r>3, form the Corollary 4 comparison orders, and verify the explicit relation data and strict class-group-count inequality.",
+        "Compute the curve counts by certified isogeny walks, retaining multiplicities of sign choices; compare the prime-power divisibility decisions with those of the claimed conductor."
       ],
       "acceptance": [
         "If v=u=1 there are no relation inequalities, but the trace, fundamental discriminant and primality checks remain mandatory.",
@@ -3781,8 +3782,8 @@
       "sources": [
         {
           "sourceId": "Endo",
-          "locator": "§3.2 pp.7–8, algorithms Certify and Verify",
-          "match": "The certificate distinguishes every possible conductor divisor using independently valid relation inequalities."
+          "locator": "arXiv:0902.4670v2 §2.4, Lemma 3, Corollary 4 and Proposition 5, pp.5–6; §3.1–3.3 pp.6–8",
+          "match": "Corollary 4 supplies prime-power divisibility decisions; Proposition 5 supplies exhaustive separating relations for r>3; small-prime climbing is treated separately. The prime-only §3.2 display requires adaptation outside the squarefree simplification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3805,13 +3806,13 @@
         {
           "name": "TauCeti.CM.OrdinaryEndomorphismCertificate.valid_relations",
           "role": "characterisation",
-          "statement": "Every relation satisfies the required strict class-group inequality for its two comparison orders.",
+          "statement": "Every r^k|v with r>3 is covered by a relation with c1>c2 for D1=(v/r^(ν_r(v)−k+1))²D_K and D2=r^{2k}D_K; the 2- and 3-adic conductor valuations are certified by isogeny climbing.",
           "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate-api-valid-relations"
         },
         {
           "name": "TauCeti.CM.OrdinaryEndomorphismCertificate.verify",
           "role": "constructor",
-          "statement": "Run the curve relation counts and the displayed strict inequalities, returning the checked order certificate on success."
+          "statement": "Check trace/factorizations, the climbing outputs at 2 and 3, each relation’s actual class-group counts and every prime-power curve-count decision; return the order certificate on success."
         }
       ],
       "tests": [
@@ -3829,6 +3830,11 @@
           "name": "TauCeti.CM.OrdinaryEndomorphismCertificate.test_forged_relation",
           "kind": "non-example",
           "statement": "A relation failing its promised class-group inequality is rejected before its curve count can certify u."
+        },
+        {
+          "name": "TauCeti.CM.OrdinaryEndomorphismCertificate.test_prime_powers",
+          "kind": "computation",
+          "statement": "For v=25 and claimed u=5, both (5,1) and (5,2) are tested: the curve decisions must be true for 5|u and false for 25|u. A certificate indexing only the prime 5 misses this distinction."
         }
       ],
       "uses": [
@@ -3850,15 +3856,16 @@
       ],
       "title": "Sound and complete ordinary order verification",
       "kind": "theorem",
-      "statement": "Assume the trace/discriminant/factorization data and all relation-validity conditions of the ordinary endomorphism certificate have been checked. The displayed Verify inequalities return true iff End_geom(A) has conductor exactly the claimed u. The assertion is unconditional for such valid certificates; heuristic FindRelation is a producer of candidates and its runtime/existence assumptions are not proof inputs hidden inside the verifier. The verified order certificate is a separate input to CRT root-orbit enumeration.",
+      "statement": "After checking trace/discriminant/factorizations, exact climbing valuations at 2 and 3, and all prime-power relation conditions in OrdinaryEndomorphismCertificate, Verify returns true iff the geometric endomorphism order has exactly the claimed conductor u. For r>3 Corollary 4 proves cA<c1 iff r^k|u_A, and equality of these decisions for every r^k|v proves ν_r(u_A)=ν_r(u). No squarefree restriction on v is imposed. This is unconditional for valid certificates; smooth FindRelation runtime heuristics are not verifier assumptions. The order certificate remains an independent CRT input.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the conductor-divisor lattice and the monotonicity of relation counts under order extension.",
-        "The first family excludes every extra prime in the actual conductor; the second excludes every missing prime in the claimed conductor.",
-        "With the valid separating relation hypotheses, these inequalities are equivalent to equality of conductors; transport the order back to geometric End."
+        "The actual conductor u_A and the claimed u both divide v by the verified Frobenius-order data.",
+        "Apply Endo Corollary 4 separately to EVERY tested r^k: cA<c1 iff r^k|u_A. Agreement with claimed divisibility for all k determines each valuation for r>3.",
+        "Use certified isogeny climbing for r=2,3. Equality at every prime implies u_A=u, then transport the resulting order to geometric End."
       ],
       "acceptance": [
-        "Knowing j is a root of H_D mod p does not bypass any of the relation or ordinary checks."
+        "Knowing j is a root of H_D mod p does not bypass any of the relation or ordinary checks.",
+        "v=25,u=5 is allowed; recording the prime support alone is insufficient to distinguish conductor 5 from 25."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate",
@@ -3874,8 +3881,8 @@
       "sources": [
         {
           "sourceId": "Endo",
-          "locator": "§3.2 pp.7–8",
-          "match": "The source explicitly states unconditional verification after the discriminant data and Certify relations are correct."
+          "locator": "arXiv:0902.4670v2 §2.4, Lemma 3, Corollary 4 and Proposition 5, pp.5–6; §3.1–3.3 pp.6–8",
+          "match": "Corollary 4 supplies prime-power divisibility decisions; Proposition 5 supplies exhaustive separating relations for r>3; small-prime climbing is treated separately. The prime-only §3.2 display requires adaptation outside the squarefree simplification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3893,7 +3900,7 @@
       ],
       "title": "CMType.reflexField_stabilizer",
       "kind": "lemma",
-      "statement": "Gal(L/E*) is the left stabilizer of the extended type.",
+      "statement": "Gal(L/E*) is the stabilizer of Φ in Hom_Q-alg(E,L); for E a field it is the left stabilizer of its extended type S.",
       "hypotheses": [],
       "proofSteps": [
         "Establish the stated API property using the construction and its specified supplier comparisons; this is a promoted API fact, not further target-level proof splitting."
@@ -3908,7 +3915,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Definition 1.16 and Proposition 1.18, pp.13–14",
+          "locator": "Proposition 1.16, Definition 1.17 and Proposition 1.18, pp.13–14",
           "match": "Trace generators and left stabilizer define the same reflex field."
         },
         {
@@ -3947,7 +3954,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.1",
+          "locator": "Introduction p.1; Theorem 16.4 pp.4–5; §16.3 pp.6–7",
           "match": "The ideal-lattice construction is an instance of complex uniformization."
         },
         {
@@ -3986,7 +3993,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Theorem 20.2, pp.1–2",
+          "locator": "§20.3 p.5, ideal-action/class-group torsor and norm-degree formulas",
           "match": "The inverse-ideal left action fixes the sign used by arithmetic reciprocity."
         },
         {
@@ -4025,7 +4032,7 @@
       "sources": [
         {
           "sourceId": "KS",
-          "locator": "§1.1.3–Definition 1.8, pp.6–8",
+          "locator": "§1.2, Definition 1.8 and equation (1.2.3), p.9",
           "match": "Generic Serre tensor is specialized to the CM action and projective Lie hypothesis."
         }
       ],
@@ -4093,7 +4100,7 @@
       "sources": [
         {
           "sourceId": "MIT20",
-          "locator": "Definition 20.1, p.1",
+          "locator": "Introduction p.1 and §20.3 p.5, defining product for H_D",
           "match": "The finite product is over all CM curves with the specified quadratic order."
         }
       ],
@@ -4224,7 +4231,7 @@
       ],
       "title": "OrdinaryEndomorphismCertificate.valid_relations",
       "kind": "lemma",
-      "statement": "Every relation satisfies the required strict class-group inequality for its two comparison orders.",
+      "statement": "Every r^k|v with r>3 is covered by a relation with c1>c2 for D1=(v/r^(ν_r(v)−k+1))²D_K and D2=r^{2k}D_K; the 2- and 3-adic conductor valuations are certified by isogeny climbing.",
       "hypotheses": [],
       "proofSteps": [
         "Establish the stated API property using the construction and its specified supplier comparisons; this is a promoted API fact, not further target-level proof splitting."
@@ -4239,8 +4246,8 @@
       "sources": [
         {
           "sourceId": "Endo",
-          "locator": "§3.2 pp.7–8, algorithms Certify and Verify",
-          "match": "The certificate distinguishes every possible conductor divisor using independently valid relation inequalities."
+          "locator": "arXiv:0902.4670v2 §2.4, Lemma 3, Corollary 4 and Proposition 5, pp.5–6; §3.1–3.3 pp.6–8",
+          "match": "Corollary 4 supplies prime-power divisibility decisions; Proposition 5 supplies exhaustive separating relations for r>3; small-prime climbing is treated separately. The prime-only §3.2 display requires adaptation outside the squarefree simplification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4463,7 +4470,7 @@
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.2",
-      "need": "Rank-one local inertia and Weil–Deligne character, inertia-invariant Euler factor and induction/restriction at all primes.",
+      "need": "Rank-one local inertia and Weil–Deligne character, duality between covariant Tate and cohomological H¹, inertia-invariant Euler factors with geometric Frobenius on H¹, and induction/restriction at all primes.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.4/full-elliptic-l-factorization"
       ],
@@ -4527,7 +4534,7 @@
     },
     {
       "supplier": "ComputationalNumberTheory:CN.3",
-      "need": "Certified finite-field elliptic trace, l-isogeny kernels and ideal-class relation counts, with endomorphism-ring verification distinct from j-polynomial roots.",
+      "need": "Certified finite-field elliptic trace and l-isogeny walks with sign multiplicities, exhaustive curve/seed search, and exact 2- and 3-adic conductor valuations by isogeny climbing. Bind outputs to intrinsic curves and ideal-class counts; CM proves prime-power conductor verification separately from j-polynomial roots.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-isogeny-graphs",
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate",
@@ -4815,7 +4822,7 @@
       "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
       "status": "planned",
       "remaining": [
-        "Match D3 reflex cocharacter and GN11 reflex-order/conductor APIs; extend the suggested field-case primitive/reflex comparisons to finite CM algebras and discharge the omitted native-carrier conditions."
+        "Match D3’s CM-algebra cocharacter/trace reflex-field comparison and GN11’s relative reflex-order discriminant; retain field hypotheses on primitive cores and the single inverse-coset reflex type, and replace weakened suggested API/test fragments with the specified contracts."
       ]
     },
     {
@@ -4850,7 +4857,8 @@
       "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.5",
       "status": "planned",
       "remaining": [
-        "Complete full Deuring proof decomposition and the generic quaternion-order contract; match CN4 certified j-tail and CN3 order/seed-search APIs; replace suggested raw-data signatures by final supplier carriers."
+        "Complete full Deuring proof decomposition and the generic quaternion-order contract; match CN4 certified j-tail and CN3 order/seed-search APIs; replace suggested raw-data signatures by final supplier carriers.",
+        "Match the prime-power conductor relation tests and certified 2/3-adic climbing to CN3/GN11; repair suggested verification/termination conclusions and their unit tests. Collate Endo v2 §3.2 with the published version before extending the finding beyond that preprint."
       ]
     },
     {
@@ -4962,6 +4970,62 @@
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm"
       ]
+    },
+    {
+      "detail": "Section 13 requires agreement of packet and suggested signatures: multiple native fragments change the specified conclusion instead of only omitting unavailable supplier conditions. The per-node review identifies every affected theorem/API/test, including verification versus conductor divisibility, termination versus output equality, representation comparison versus scalar identities, and CM-object tests versus independent arithmetic. Replace these conclusions and bind the fixtures to their actual constructions. The reader still contains pre-correction primitive-core, polarization, prime-only conductor and reflex-discriminant statements; this review issue cannot edit its path. Its revision must have the reader as a deliverable. Compilation validates syntax/types only.",
+      "neededBy": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-type",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-order",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/non-galois-quartic-example",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/nonmaximal-quadratic-example",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/rational-cm-self-twist",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-tensor-kernel-degree",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-hodge-eigenspaces",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-period-pairings",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-cm-lattice-data",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/arbitrary-dimensional-classification",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/normalized-idele-torsion-dictionary",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarization-reciprocity-dictionary",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/explicit-level-reciprocity",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-level-stabilizer",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/class-map-and-unit-obstruction",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2/dimension-two-example",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3/admissible-cm-value-field",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3/ray-class-values",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3/complete-elliptic-example",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/tate-coefficient-components",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/frobenius-and-infinity-type",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/full-elliptic-l-factorization",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-induction-comparison",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/residual-cartan-normalizer",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-classification",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-reduction-dictionary",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/shimura-taniyama-specialization",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-lifting",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-isogeny-graphs",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-algorithm-soundness-termination",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-algorithm-soundness-termination",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-verification-sound-complete",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field-api-reflexField-stabilizer",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve-api-endomorphismRing",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate-api-valid-relations",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm"
+      ],
+      "title": "Independent review: signature and reader agreement"
     }
   ],
   "sourceIssues": [
@@ -4979,7 +5043,12 @@
         "Published Annals PDF and article page https://annals.math.princeton.edu/2018/187-2/p02",
         "arXiv:1506.01466 version list",
         "Author publication page; no applicable correction found in this bounded search"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published Annals §5 p.386: I is an ideal of K*, so its positive absolute ideal norm has domain K*. The type-norm identity and unit obstruction in this packet use that corrected domain.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocity/E2",
@@ -4995,7 +5064,12 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, E10 (existing finding, not a journal erratum)",
         "Published Annals PDF and article page",
         "arXiv version list and author publication page; no applicable correction found in this bounded search"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published Lemma 4.1 proof p.384. For a quartic CM field, an infinite-order integral unit has a power congruent to 1 modulo 3. Its action on a CM variety preserves the origin and A[3], yet is a nontrivial automorphism. A polarization is needed before the finite-automorphism/full-level rigidity argument. This confirms the existing E10 finding, not a published erratum.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocity/E3",
@@ -5011,7 +5085,34 @@
         "https://math.mit.edu/classes/18.783/2023/index.html and LectureNotes21.pdf",
         "https://ocw.mit.edu/courses/18-783-elliptic-curves-fall-2025/mit18_783_f25_lec21.pdf, corresponding Theorem 21.14 (search excerpt only)",
         "https://math.mit.edu/~drew/ (author/course links); no applicable erratum found in this bounded search"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the Fall 2023 Theorem 21.14 p.10. In the stated D=-23 example, reduction of every nonleading coefficient modulo 5 is zero. The inert principal prime (5) splits in H/K and has norm 25 there, satisfying the printed norm condition while H_D mod 5 has a repeated root. Ordinary split reduction is required; it is retained in the packet CM.5 contract.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+      }
+    },
+    {
+      "id": "ComplexMultiplicationAndExplicitReciprocity/E4",
+      "source": "Endo",
+      "kind": "gap",
+      "locator": "arXiv:0902.4670v2, 17 March 2009, §3.2 p.7, Certify steps 1–4; compare §3.1 p.6 and §2.4 Corollary 4 pp.5–6",
+      "printed": "The source ranges over every prime p dividing v/u.",
+      "correction": "Either explicitly restrict the displayed prime-only Certify routine to the squarefree residual conductor used in the simplified Algorithm 1, or replace it by the prime-power separation of Corollary 4 and independently certify conductor valuations at 2 and 3. The packet uses the latter; this finding concerns the unqualified certificate-construction scope of the read preprint, not the published JNT version.",
+      "reason": "For v=25 and claimed u=5, Certify step 2 sets D1=u²D_K=25D_K and D2=5²D_K=25D_K. It therefore asks FindRelation to separate the same class group by a strict count inequality, which is impossible. These conductor data are not excluded by ordinary trace arithmetic: p=q=641, t=8 and D_K=-4 give t²-4q=25²D_K, with p not dividing t. Section 3.1 explicitly assumes no large squared prime remains for Algorithm 1, but §3.2 allows a proposed conductor from other constructions and does not impose that restriction. Optional removal of small primes is not an unconditional restriction on this display. Corollary 4 supplies the general prime-power repair. This does not dispute conditional soundness of a correctly constructed valid certificate or the heuristically stated running-time results.",
+      "affects": "a stated result",
+      "known": "new within this bounded audit; a squarefree simplification is explicit for Algorithm 1, but no applicable correction to the general §3.2 display was established",
+      "searched": [
+        "https://arxiv.org/abs/0902.4670 (v1/v2 list; v2 read)",
+        "https://math.mit.edu/~drew/index.html (author publication entry links arXiv and DOI; no correction linked for this item)",
+        "https://doi.org/10.1016/j.jnt.2009.11.003 (published version not available to this run)",
+        "https://eprint.iacr.org/2009/100 (download refused; not collated)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two comparison discriminants coincide for v=25,u=5, so no strict relation separation exists in that step. The independent correction uses Corollary 4 for every r^k and treats r=2,3 by climbing. Scope is exactly the read arXiv v2 display; a journal-version collation remains a task for errata follow-up.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+      }
     }
   ],
   "detailLevel": "target",
@@ -5021,7 +5122,8 @@
     "CMGeometry": "CM endomorphisms are defined over the stated model field, not assumed defined over the CM field. Unpolarized CM-action triples, polarized triples, and level structures have different stabilizers.",
     "polarization": "Eξ(x,y)=Tr(E/Q)(ξxȳ), ξ̄=−ξ and Im φ(ξ)>0; Eξ(x,Jx)>0. When translating Streng’s E(Jx,y)>0 convention, negate the Riemann form and use its corresponding ξ convention.",
     "Tate": "Covariant H₁ and Tate module; arithmetic Frobenius has characteristic polynomial X²−a_vX+q. Idelic infinity type (−1,0) corresponds to positive ideal type (1,0).",
-    "orders": "Generic orders, conductor ideals, proper/invertible ideals and Picard groups belong to GlobalNumberFields Layer 11; no higher-dimensional nonmaximal-order class-field theorem is inferred from elliptic CM."
+    "orders": "Generic orders, conductor ideals, proper/invertible ideals and Picard groups belong to GlobalNumberFields Layer 11; no higher-dimensional nonmaximal-order class-field theorem is inferred from elliptic CM.",
+    "localEuler": "Local Euler polynomials use R11.5’s H¹_et=V_l(A)∨ and geometric Frobenius. For CM potential good reduction, finite-inertia averaging identifies their determinant with arithmetic Frobenius on covariant Tate invariants. Keep this duality explicit."
   },
   "restructure": [
     {
@@ -5131,7 +5233,7 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
       "read": "2026-10-06",
       "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
-      "citation": "Published Annals 187 (2018), 533–638; 2023 erratum not read in this run; On the averaged Colmez conjecture"
+      "citation": "Published Annals 187 (2018), 533–638; only §2.2 reflex data used; 2022 author erratum introduction read separately, 2023 journal erratum not collated"
     },
     {
       "kind": "published",
@@ -5159,7 +5261,7 @@
       "url": "https://arxiv.org/pdf/0902.4670v2",
       "read": "2026-10-06",
       "sha256": "7b29760f2faa8a63cb558c86b5cc87e1440a7223fcc08a2a09e80434a52aa422",
-      "citation": "arXiv:0902.4670v2, 17 March 2009; Computing the endomorphism ring of an ordinary elliptic curve over a finite field"
+      "citation": "arXiv:0902.4670v2, 17 March 2009; Computing the endomorphism ring of an ordinary elliptic curve over a finite field; published JNT 131 (2011), 815–831, not collated; DOI access and IACR download unsuccessful"
     },
     {
       "kind": "published",
@@ -5202,6 +5304,366 @@
       "read": "2026-10-06",
       "sha256": "c62eeddd16c3071a339d775cdd4e08fd11db2e61eb4333f30d02c96daec840fc",
       "citation": "Fall 2023 lecture notes; 18.783 Elliptic Curves, Lecture 22"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.princeton.edu/~shouwu/publications/Erratum3.pdf",
+      "read": "2026-10-06",
+      "sha256": "e3f3f5f8771858dd3c086c36e563b0afcfa0289e806522843a327dd17346c36c",
+      "citation": "Yuan–Zhang, Erratum to On the Averaged Colmez Conjecture, 30 April 2022; introduction and corrected theorem pp.1–2 only. Error concerns original Theorem 2.7/Néron exactness, not the §2.2 trace-order definition used here; journal Annals 198 (2023), 867–878, not collated."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ComplexMultiplicationAndExplicitReciprocity",
+    "date": "2026-10-06",
+    "notes": "Independent review of all 69 nodes, 75 API items, 61 tests, 95 source excerpts in 20 hash-matched public documents, 19 exact-pin baseline declarations, coverage/ownership and 37 requests. Corrected field-only primitive/reflex scope, relative reflex-order discriminant, polarization comparison multiplier, local Euler duality, prime-power conductor verification/small-prime climbing, source locators and a direct CRT dependency. All four sourceIssues independently confirmed; the new certificate-scope finding is restricted to Endo arXiv v2. Lean elaborates with 211 warnings for admitted proofs only, in the existing Mathlib-pinned shared build; unavailable Tau Ceti imports remain commented. Needs changes because named conclusions and object-sensitive tests remain weaker than the packet, and the read-only reader still contradicts corrected statements. Recorded gaps do not alone cause rejection. See the review report and handoff for revision instructions.",
+    "checked": [
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/cm-type",
+        "verdict": "verified",
+        "note": "Embedding partition, complement, cardinality and three type-sensitive tests agree with Milne 1.2 and AGHMP 3.4; the finite-CM-algebra supplier condition is openly omitted in Lean."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
+        "verdict": "unverifiable",
+        "note": "Corrected primitive core to CM fields (Milne 1.8–1.9), retaining general algebra induction. Reader line 90 still asserts a unique core for CM algebras and line 260 asks to extend the field-only assertion; revise those statements."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field",
+        "verdict": "corrected",
+        "note": "Corrected common closure to contain factor images, not an embedding of a product algebra. The actual trace-adjoin definition and its quadratic/induced tests are appropriate; cocharacter identification is an explicit D3 refinement."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-type",
+        "verdict": "unverifiable",
+        "note": "Corrected field scope and Examples 1.19/1.28 locators. Inverse-coset membership is appropriate, but doubleReflex_primitiveCore concludes only subfield inclusion rather than equality with the primitive core."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/type-product-identities",
+        "verdict": "corrected",
+        "note": "Corrected field scope and Proposition/Remark/Example locators. The algebraic product/conjugation norm follows from the inverse-coset type; V4 owns its idelic extension."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-order",
+        "verdict": "unverifiable",
+        "note": "Corrected relative O_E*-discriminant and quadratic nonmaximal test; native tensor-image test now uses O_E⊗O. The fractionAlgebra API still concludes range=top under surjectivity, instead of identifying its fraction algebra with the selected étale factor. Reader test and carrier identifications require revision."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/non-galois-quartic-example",
+        "verdict": "unverifiable",
+        "note": "The source-based D4/reflex computation has the stated correct polynomials and distinct real subfields. Lean records only polynomial identities, omitting field, primitivity and double-reflex conclusions."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/nonmaximal-quadratic-example",
+        "verdict": "unverifiable",
+        "note": "Corrected MIT16 proper-order locator; D=-36 has two proper classes. Lean's numerical class-number expression neither constructs the nonmaximal order nor proves the ideal-class census."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
+        "verdict": "unverifiable",
+        "note": "Corrected uniformization/proper-order locators. Native Weierstrass output is appropriate, but endomorphismRing gives only a multiplier-membership equivalence and the Gaussian/nonmaximal tests do not exercise the construction or its endomorphism ring."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action",
+        "verdict": "unverifiable",
+        "note": "Corrected MIT20 locator to §20.3, not Lemma 20.2. Inverse-ideal action and quotient-group kernel are appropriate arithmetic inputs; Gaussian-prime and conductor tests still omit actual isogeny/kernel/proper-ideal checks."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/picard-classification",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 action/torsor locator. Exact proper invertible ideals, not maximal-order ideals, are used; j-equality is a valid elliptic observable for the specified oriented action once EC1 supplies the classification adapter."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/automorphism-factors",
+        "verdict": "verified",
+        "note": "MIT22 Remark 22.2 gives the 6/4/2 stabilizer factors. The order-unit cardinal observable is sound under the stated omitted elliptic/order identification; generic automorphisms remain owned by EC1/A6."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary",
+        "verdict": "unverifiable",
+        "note": "Corrected MIT16 §16.3 locator. Form sign and proper-ideal convention are right, but Lean supplies only a quadratic-root identity and not the SL2 quotient/proper ideal correspondence."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-isogeny-degree",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 §20.3 locator. Kernel index equals ideal norm, using characteristic-zero transfer and the actual Tau Ceti degree prerequisite; the geometry transfer is honestly recorded as a supplier refinement."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/rational-cm-self-twist",
+        "verdict": "unverifiable",
+        "note": "Kato §15.10 supplies the induced representation/self-twist; Lean assumes trace vanishing and concludes a scalar identity instead of the representation isomorphism."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor",
+        "verdict": "unverifiable",
+        "note": "Corrected ideal-action source locator. Projective modules and scheme tensor outputs have the correct scope, but the torsion-exclusion test is generic torsion-freeness and never tests the constructor's prohibited input."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-tensor-kernel-degree",
+        "verdict": "unverifiable",
+        "note": "KS §1.1.3 gives tensor kernel/cokernel and degree. Lean converts Fintype.card to Nat.card rather than stating the tensor isogeny kernel/degree comparison."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-hodge-eigenspaces",
+        "verdict": "unverifiable",
+        "note": "Corrected KS Definition 1.8 locator to §1.2 p9. Lean retains the Lie eigenspace dimension but lacks the differential inverse type and Hodge decomposition in the packet conclusion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-period-pairings",
+        "verdict": "unverifiable",
+        "note": "Corrected KS Definition 1.8 locator. Distinct integration and differential-dual pairings are required; Lean's generic injectivity/bijectivity lacks their typed CM eigenspace targets and comparison laws."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-cm-lattice-data",
+        "verdict": "unverifiable",
+        "note": "Trace sign/positivity, homothety and trace-dual criterion agree with Milne Example 2.9. All three named Lean tests are scalar computations independent of PolarizedCMLattice and its form/scale constructor."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/arbitrary-dimensional-classification",
+        "verdict": "unverifiable",
+        "note": "Milne 3.12–3.13/3.17 and A5 support the polarized classification and primitive endomorphism assertion; Lean concludes only degree=twice type cardinality."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map",
+        "verdict": "unverifiable",
+        "note": "V4 norm is imported and GN11 owns contraction/extension to order ideals. The quadratic and conductor tests use a generic identity homomorphism or Nat.Coprime, rather than this map on actual ideals."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/normalized-idele-torsion-dictionary",
+        "verdict": "unverifiable",
+        "note": "Milne 8.1, 9.10–9.11 and MilneFT §3 support arithmetic Artin inversion. Lean records multiplication by a unit and its inverse, rather than alpha(fx)=sigma(x) on actual torsion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarization-reciprocity-dictionary",
+        "verdict": "unverifiable",
+        "note": "Corrected multiplier of alpha to chi_cyc/(f*fbar), distinguishing the natural Galois map, and corrected 9.17 locator. Lean comment now pins the distinction; reader line 600 still assigns chi_cyc alone to alpha and the native theorem is only scalar cancellation."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/explicit-level-reciprocity",
+        "verdict": "unverifiable",
+        "note": "Streng 2.4–2.5 and proof §4.5 support the inverse norm and modular-function action; corrected the proof locator. Lean gives scalar cancellation instead of the CM function-value equality."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-level-stabilizer",
+        "verdict": "unverifiable",
+        "note": "Streng 2.5 supports the simultaneous principal/norm/level conditions. Native subgroup membership is suitable, but the quadratic level-one test proves only one direction and the bad-generator test does not test subgroup membership or all generators."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/class-map-and-unit-obstruction",
+        "verdict": "unverifiable",
+        "note": "Tsimerman §5 norm-domain misprint is corrected in sourceIssues. The packet retains the unit quotient; Lean gives scalar norm multiplication without the actual class-map/kernel obstruction."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/relative-moduli-orbit",
+        "verdict": "verified",
+        "note": "Correctly limits the assertion to the marked polarized relative orbit. The absolute unmarked moduli-degree passage remains an explicit source/descent gap rather than an asserted equality; the Artin-kernel degree shape is appropriate."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/dimension-two-example",
+        "verdict": "unverifiable",
+        "note": "Corrected Milne reciprocity page locator. E0 squared is a product/nonprimitive example with matrix endomorphisms; Lean gives only polynomial degree and constant term, not those CM structures."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 defining-product locator. Native ClassGroup of arbitrary domain orders and finite product are suitable; Gaussian/Eisenstein/nonmaximal tests retain the relevant product/cardinality observables with supplier identifications openly omitted."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/integrality",
+        "verdict": "verified",
+        "note": "MIT20 20.12 gives integral CM j and Galois descent gives integer coefficients. IsIntegral Z is the correct native target, with actual CM j inputs identified by the recorded A5/GN11 adapter."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial-galois-action",
+        "verdict": "verified",
+        "note": "Inverse ideal action permutes the exact finite product and fixes its coefficients; the native polynomial equality and direct CM reciprocity prerequisites have the right convention."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/ring-class-generator",
+        "verdict": "verified",
+        "note": "Milne 8.2–8.3 and the proper-class action give H_f=K(j); native adjoin equality states that conclusion. Actual CFT13/A5 carrier identification is an explicit omitted condition."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/admissible-cm-value-field",
+        "verdict": "unverifiable",
+        "note": "Regular local evaluation, not meromorphic pole values, is required. Native adjoin uses supplied values, but no_poles/test_pole express ring-hom containment and zero-times-value arithmetic rather than regularity at the actual CM point."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/ray-class-values",
+        "verdict": "unverifiable",
+        "note": "Corrected Milne reflex-type Example locator. Full regular level values give the quadratic ray field, whereas general types use the smaller stabilizer field. Lean concludes only nonsurjectivity for an assumed degree-two extension."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/complete-elliptic-example",
+        "verdict": "unverifiable",
+        "note": "Corrected MIT20 product locator. Gaussian j/class/ray-degree data are mathematically right, but the Lean theorem proves polynomial arithmetic and (9-1)/4=2 without the actual ray extension or CM curve."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character",
+        "verdict": "unverifiable",
+        "note": "Milne 8.1 and Kato 15.11 give the ideal-valued CM character. Native E-unit values and principal law are appropriate, but all named tests check scalars without evaluating the constructed character at any actual ideal."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/tate-coefficient-components",
+        "verdict": "unverifiable",
+        "note": "The rank-one E⊗Q_l module splits over its coefficient factors. Lean gives only a field finrank multiplication identity, omitting the product coefficient algebra and lambda-component representation comparison."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/frobenius-and-infinity-type",
+        "verdict": "unverifiable",
+        "note": "Corrected locator to Kato 15.10–15.11. Purity uses the full residue norm and ideal/idelic sign conventions; Lean assumes the purity equation and concludes normSq without the actual Frobenius or infinity-type law."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/full-elliptic-l-factorization",
+        "verdict": "unverifiable",
+        "note": "Corrected H1-dual/geometric versus covariant-Tate/arithmetic Frobenius conversion using CM finite inertia. All bad factors/conductor exponents stay in the packet; Lean gives only the unramified quadratic polynomial expansion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-induction-comparison",
+        "verdict": "unverifiable",
+        "note": "Kato 15.10 and BT proof of 1.1 give induction and CM theta realization. Lean gives zero linear coefficient of a polynomial instead of the induced-representation/theta comparison."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/residual-cartan-normalizer",
+        "verdict": "unverifiable",
+        "note": "BS §6 supplies normalizer containment with the odd-prime/discriminant restrictions; Lean assumes exactly its desired containment and repeats it, with no CM representation input."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character",
+        "verdict": "unverifiable",
+        "note": "Yang Introduction/BKO 3.0.1 support conjugation, principal signs and ramified-only support. Primary existence is openly a gap; inert/even named tests are independent Nat arithmetic rather than the canonical predicate on supplied characters."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction",
+        "verdict": "unverifiable",
+        "note": "BKO 3.0.1 and eq3.8 retain the canonical Hilbert pullback and odd-discriminant/inert auxiliary hypotheses. Lean proves only a conductor-support divisibility implication, without the realized Gross curve or reduction conclusion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-classification",
+        "verdict": "unverifiable",
+        "note": "Primary introduction and §8 realization preserve all-characteristic geometric End and p=2,3 scope; full proof/quaternion carrier is honestly a gap. Lean gives only discriminant arithmetic, not classification or realization."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-reduction-dictionary",
+        "verdict": "unverifiable",
+        "note": "Split versus inert/ramified and p-primary conductor loss have the correct geometric scope. Lean proves p squared is not p, omitting every reduction and End assertion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/shimura-taniyama-specialization",
+        "verdict": "unverifiable",
+        "note": "V5 owns the general theorem; this node is a specialization to embedding-count slopes. Lean gives a rational number between zero and one, without equality to an actual Newton slope."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-lifting",
+        "verdict": "unverifiable",
+        "note": "MIT21 21.15 states lifting of a specified endomorphism over F_q; primary §9.1 passage and finite-field refinement remain explicit proof work. Lean gives noninjectivity of a noncommutative ring map to C, rather than existence of the lift of the pair."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-isogeny-graphs",
+        "verdict": "unverifiable",
+        "note": "Proper ideal horizontals, vertical edges and weights are required; EC3/CN3 own generic graphs. Lean gives only the possible integers 1+symbol and not the graph/action identification."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair",
+        "verdict": "unverifiable",
+        "note": "Gross–Zagier III §§3/7 distinguish maximal geometric End (disc p) from the level-pair Eichler order (disc Np); all excerpts visually checked. Lean concludes Np differs from p without identifying either actual order."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/class-polynomial-height-bound",
+        "verdict": "verified",
+        "note": "CRT Appendix 1 pp31–32 supplies exp(pi sqrt(abs D)/a)+2114.567. The product bound on coefficients follows by elementary symmetric sums; its native polynomial inequality is correct and CN4 owns certified analytic evaluations."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate",
+        "verdict": "unverifiable",
+        "note": "CN4's existing enclosure/recovery carriers are imported correctly. The missing-class test is merely Fin1 not equivalent to Fin2, and integer-boundary tests do not exercise certificate acceptance; bind them to the verified proper-class census/constructor."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-algorithm-soundness-termination",
+        "verdict": "unverifiable",
+        "note": "Telescoping product error and strict integer recovery are sound with the recorded shrinking evaluator contract. Lean proves P=H for a supplied certificate, without the precision estimate or finite termination conclusion."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate",
+        "verdict": "unverifiable",
+        "note": "Strict M>2B and distinct primes are correct. The endomorphism_check API still concludes u divides v implies a factorization, rather than validating the ordinary seed/order independently; seed/orbit adapters remain missing."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-algorithm-soundness-termination",
+        "verdict": "unverifiable",
+        "note": "Added direct order-verification prerequisite and exhaustive prime-power relation search/climbing in proof sketch. Lean proves only P=H, lacking total search termination and validated ordinary full-order seeds."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate",
+        "verdict": "unverifiable",
+        "note": "Corrected all prime-power comparisons using Corollary 4 and explicit certified climbing at 2/3. Added a fourth v25/u5 test and made forged-relation test use the certificate. Counts/valuations still need intrinsic CN3/GN11 binding and the reader retains the prime-only contradictory contract."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-verification-sound-complete",
+        "verdict": "unverifiable",
+        "note": "Corrected valuation proof to every r^k|v and small-prime climbing, without squarefree or heuristic assumptions. Lean concludes only v=u*w, rather than Verify iff End_geom has the claimed order."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field-api-reflexField-stabilizer",
+        "verdict": "unverifiable",
+        "note": "Corrected CM-algebra ambient scope and reflex-field locator. Native theorem fixes type traces; packet requires the permutation stabilizer of the embedding type, with linear independence/descent identification still absent."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve-api-endomorphismRing",
+        "verdict": "unverifiable",
+        "note": "Corrected proper-order/uniformization locator. Scalar multipliers determine the desired ring, but native conclusion is membership iff scalar from R and omits the algebraic End ring equivalence."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action-api-kernel",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 norm/action locator. Native quotient-group kernel is exactly a^-1 I/I; the analytic/algebraic isogeny transfer and integral-ideal hypothesis are explicitly supplied by EC1/GN11."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor-api-lie",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 action source locator. The native linear equivalence has the tensor comparison shape; actual Lie modules and CM actions are explicitly missing A0 inputs, rather than a new Lie carrier."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map-api-principal",
+        "verdict": "verified",
+        "note": "Product over actual reflex embeddings fixes the principal-ideal law and inverse Artin convention; V4 norm and GN11 contraction/extension are explicit supplier conditions."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial-api-roots",
+        "verdict": "corrected",
+        "note": "Corrected MIT20 defining-product locator. Finite product roots are the supplied class values; exact End order and multiplicity-one are carried by the CM classification/injectivity supplier condition."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character-api-frobenius",
+        "verdict": "verified",
+        "note": "Good-place arithmetic Frobenius scalar agrees with the ideal character; EC5/GN9 identify the native scalar and actual curve realization, as the comment explicitly requires."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate-api-coefficient-enclosure",
+        "verdict": "verified",
+        "note": "The enclosure law is an actual certificate projection on CN4 box denotations; outward propagation is a precisely requested numeric supplier, not replanned here."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate-api-unique",
+        "verdict": "verified",
+        "note": "Prime moduli are distinct and their product strictly exceeds twice the coefficient bound. Exact signed coefficient congruence implies equality; no floating or GRH assumption is used."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate-api-valid-relations",
+        "verdict": "unverifiable",
+        "note": "Corrected coverage to every r^k and certified 2/3 valuations. Native inequalities/valuation equalities now agree at the fragment level; actual discriminant-indexed class-group counts and climbing outputs remain unbound."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
+        "verdict": "unverifiable",
+        "note": "CN4 evaluator/census are precise requests. Native construction returns a polynomial/certificate pair but its unvalidated-oracle test rejects a nonintegral root instead of an uncertified approximation to an integral CM root."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm",
+        "verdict": "unverifiable",
+        "note": "The complete finite prime/order/seed search is precisely requested from CN3. Native return shape records CRT residues, but supersingular/order-separation tests are integer arithmetic without an actual curve/order check."
+      }
+    ]
+  }
 }
