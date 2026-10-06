@@ -15,6 +15,8 @@ import Mathlib.AlgebraicTopology.FundamentalGroupoid.SimplyConnected
 import Mathlib.Topology.CWComplex.Classical.Basic
 import Mathlib.RepresentationTheory.Homological.GroupHomology.Basic
 import Mathlib.CategoryTheory.Core
+import Mathlib.CategoryTheory.Monoidal.Skeleton
+import Mathlib.CategoryTheory.Monoidal.Action.Basic
 import Mathlib.Algebra.Category.Ring.Basic
 import Mathlib.CategoryTheory.Action
 import Mathlib.CategoryTheory.ConnectedComponents
@@ -30,6 +32,7 @@ import Mathlib.CategoryTheory.Triangulated.TStructure.Basic
 import Mathlib.CategoryTheory.Triangulated.SpectralObject
 import Mathlib.Algebra.Homology.SpectralObject.Basic
 import Mathlib.Algebra.Homology.SpectralSequence.Basic
+import Mathlib.Algebra.Homology.SpectralObject.HasSpectralSequence
 import Mathlib.Algebra.Homology.DerivedCategory.Basic
 import Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
 import Mathlib.GroupTheory.IsPerfect
@@ -38,6 +41,8 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RingTheory.AdicCompletion.AsTensorProduct
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.Topology.Compactness.CompactlyGeneratedSpace
+import Mathlib.Topology.Covering.Basic
 
 
 /-!
@@ -142,12 +147,39 @@ def classifyingSpace_edge {X Y : C} (f : X ⟶ Y) :
 
 theorem classifyingSpace_eq_toTop_nerve : classifyingSpace C = SSet.toTop.obj (nerve C) := rfl
 
+/-- `CategoryTheory.classifyingSpaceMap_vertex`: `BF [X] = [F X]`. -/
+theorem classifyingSpaceMap_vertex (F : C ⥤ D) (X : C) :
+    (classifyingSpaceMap F).hom (classifyingSpace_vertex X) = classifyingSpace_vertex (F.obj X) := sorry
+
+/-- `CategoryTheory.classifyingSpaceMap_edge`: `BF` sends the edge of `f` to the edge of `F.map f`. -/
+theorem classifyingSpaceMap_edge (F : C ⥤ D) {X Y : C} (f : X ⟶ Y) :
+    ((classifyingSpace_edge f).map (classifyingSpaceMap F).hom.continuous).cast
+        (classifyingSpaceMap_vertex F X).symm (classifyingSpaceMap_vertex F Y).symm =
+      classifyingSpace_edge (F.map f) := sorry
+
+/-- `CategoryTheory.classifyingSpace_edge_comp`: `edge (f ≫ g) ≃ edge f · edge g` and `edge (𝟙 X) ≃ const`. -/
+theorem classifyingSpace_edge_comp {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) :
+    (classifyingSpace_edge (f ≫ g)).Homotopic
+        ((classifyingSpace_edge f).trans (classifyingSpace_edge g)) ∧
+      (classifyingSpace_edge (𝟙 X)).Homotopic (Path.refl _) := sorry
+
+/-- `CategoryTheory.classifyingSpace_joined_vertex`: every point of `BC` is joined to a vertex. -/
+theorem classifyingSpace_joined_vertex (x : classifyingSpace C) :
+    ∃ X : C, Joined x (classifyingSpace_vertex X) := sorry
+
+/-- `CategoryTheory.classifyingSpaceMap_universes` (other): `classifyingSpaceMap`, like Mathlib's `nerveMap`,
+needs both categories in one object universe and one morphism universe; for the projection of the
+translation category this forces `G : Type` (or a `ULift`). -/
+example (G : Type) [Group G] :
+    classifyingSpace (ActionCategory G G) ⟶ classifyingSpace (SingleObj G) :=
+  classifyingSpaceMap (ActionCategory.π G G)
+
 /-- `classifyingSpace_fin_two_homeomorph_unitInterval` (computation). -/
 example : Nonempty (classifyingSpace (Fin 2) ≃ₜ unitInterval) := sorry
 
 /-- `classifyingSpace_empty` (degenerate). -/
 example : IsEmpty (classifyingSpace (Discrete PEmpty.{1})) ∧
-    Subsingleton (classifyingSpace (Discrete PUnit.{1})) := sorry
+    Nonempty (Unique (classifyingSpace (Discrete PUnit.{1}))) := sorry
 
 /-- `classifyingSpace_discrete` (computation): for a set `S`, `B(Discrete S) ≃ S` (discrete). -/
 example (S : Type) [TopologicalSpace S] [DiscreteTopology S] :
@@ -180,6 +212,37 @@ theorem _root_.SSet.toTop_map_cellular {X Y : SSet.{u}} (f : X ⟶ Y) (n : ℕ) 
 theorem classifyingSpace_subcomplex (F : C ⥤ D) [F.Faithful] (hF : Function.Injective F.obj) :
     Topology.IsClosedEmbedding (classifyingSpaceMap F) := sorry
 
+/-- `SSet.toTop_t2Space`: realisations are Hausdorff. -/
+theorem _root_.SSet.toTop_t2Space (X : SSet.{u}) : T2Space (SSet.toTop.obj X) := sorry
+
+/-- `SSet.toTop_isCompact_subset_finite_subcomplex`: a compact subset of `|X|` lies in the realisation
+of a simplicial subset with finitely many nondegenerate simplices. -/
+theorem _root_.SSet.toTop_isCompact_subset_finite_subcomplex (X : SSet.{u})
+    (K : Set (SSet.toTop.obj X)) (hK : IsCompact K) :
+    ∃ A : X.Subcomplex, SSet.Finite A ∧ K ⊆ Set.range (SSet.toTop.map A.ι).hom := sorry
+
+/-- `SSet.toTop_map_isClosedEmbedding_of_mono`: realisations of monomorphisms are closed embeddings
+(onto subcomplexes). -/
+theorem _root_.SSet.toTop_map_isClosedEmbedding_of_mono {A X : SSet.{u}} (i : A ⟶ X) [Mono i] :
+    Topology.IsClosedEmbedding (SSet.toTop.map i).hom := sorry
+
+-- `SSet.toTop_locallyContractibleSpace` (instance), signature (not yet statable at the pins in this file):
+-- `instance (X : SSet.{u}) : LocallyContractibleSpace (SSet.toTop.obj X)`; Mathlib's `LocallyContractibleSpace`
+-- (Mathlib/Topology/Homotopy/LocallyContractible.lean) is not imported by this file. Consequence: `|X|` is
+-- locally path-connected and semilocally simply connected (Tau Ceti
+-- `SemilocallySimplyConnectedSpace.of_locallyContractibleSpace`).
+
+/-- `CategoryTheory.classifyingSpace_sigma`: `B` of a disjoint union of categories is the disjoint union
+of their classifying spaces. -/
+theorem classifyingSpace_sigma {ι : Type u} (C : ι → Type u) [∀ i, Category.{v} (C i)] :
+    Nonempty (classifyingSpace (Σ i, C i) ≃ₜ Σ i, classifyingSpace (C i)) := sorry
+
+-- `H.1/realisation-boundary-inclusion-disk`, signature (not yet statable at the pins in this file):
+-- `theorem SSet.toTop_boundary_arrowIso_diskBoundaryInclusion (n : ℕ) :
+--   Nonempty (Arrow.mk (SSet.toTop.{u}.map (SSet.boundary.{u} n).ι) ≅ Arrow.mk (TopCat.diskBoundaryInclusion.{u} n))`;
+-- `TopCat.diskBoundaryInclusion` lives in Mathlib/Topology/Category/TopCat/Sphere.lean, which this file does not
+-- import. The closed-embedding half is `SSet.toTop_map_isClosedEmbedding_of_mono` applied to `(SSet.boundary n).ι`.
+
 /-- `toTopCWComplex_stdSimplex_cells` (computation). -/
 example (n k : ℕ) : letI := SSet.toTopCWComplex (SSet.stdSimplex.obj (SimplexCategory.mk n))
     Nat.card (Topology.CWComplex.cell (Set.univ : Set (SSet.toTop.obj (SSet.stdSimplex.obj
@@ -190,10 +253,14 @@ example (k : ℕ) : letI := SSet.toTopCWComplex (SSet.stdSimplex.obj (SimplexCat
     Nat.card (Topology.CWComplex.cell (Set.univ : Set (SSet.toTop.obj (SSet.stdSimplex.obj
       (SimplexCategory.mk 0)))) k) = if k = 0 then 1 else 0 := sorry
 
-/- `toTopCWComplex_compat_skeleton` (compatibility). -/
--- signature (not yet statable at the pins): example (X : SSet.{u}) (n : ℕ) : the realisation of the
--- simplicial `n`-skeleton `X.skeleton n` is the CW `n`-skeleton of `SSet.toTop.obj X`; stating it needs
--- the realisation of a simplicial subcomplex as a CW subcomplex, which neither pin provides.
+/-- `toTopCWComplex_compat_skeleton` (compatibility): the CW `n`-skeleton of `|X|` is the image of the
+realisation of the simplicial skeleton `X.skeleton (n + 1)` (simplices of dimension `≤ n`). -/
+example (X : SSet.{u}) [T2Space (SSet.toTop.obj X)] (n : ℕ) :
+    letI := SSet.toTopCWComplex X
+    Set.range (SSet.toTop.map (X.skeleton (n + 1)).ι).hom =
+      ((Topology.CWComplex.skeleton (Set.univ : Set (SSet.toTop.obj X)) n :
+        Topology.RelCWComplex.Subcomplex (Set.univ : Set (SSet.toTop.obj X))) : Set (SSet.toTop.obj X)) :=
+  sorry
 
 /-- `toTopCWComplex_not_all_simplices` (non-example): the 1-cells of `BG` are the non-identity elements. -/
 example (G : Type u) [Group G] [Finite G] :
@@ -201,14 +268,30 @@ example (G : Type u) [Group G] [Finite G] :
     Nat.card (Topology.CWComplex.cell (Set.univ : Set (SSet.toTop.obj (nerve (SingleObj G)))) 1) =
       Nat.card G - 1 := sorry
 
-/-- `H.1/classifying-space-op-homeomorph`: `B(Cᵒᵖ) ≃ₜ BC`, not induced by a functor. -/
-theorem classifyingSpaceOpHomeomorph (C : Type u) [Category.{v} C] :
-    Nonempty (classifyingSpace Cᵒᵖ ≃ₜ classifyingSpace C) := sorry
+/-- `H.1/classifying-space-op-homeomorph`: the canonical cellular homeomorphism `B(Cᵒᵖ) ≃ₜ BC`
+(not induced by a functor), fixing vertices and natural in functors. -/
+def classifyingSpaceOpHomeomorph (C : Type u) [Category.{v} C] :
+    classifyingSpace Cᵒᵖ ≃ₜ classifyingSpace C := sorry
 
-/-- `H.1/classifying-space-prod`: `B(C × D) → BC × BD` is a homeomorphism when `BC` is finite. -/
+theorem classifyingSpaceOpHomeomorph_vertex (X : C) :
+    classifyingSpaceOpHomeomorph C (classifyingSpace_vertex (Opposite.op X)) =
+      classifyingSpace_vertex X := sorry
+
+theorem classifyingSpaceOpHomeomorph_naturality (F : C ⥤ D) (x : classifyingSpace Cᵒᵖ) :
+    classifyingSpaceOpHomeomorph D ((classifyingSpaceMap F.op).hom x) =
+      (classifyingSpaceMap F).hom (classifyingSpaceOpHomeomorph C x) := sorry
+
+/-- `H.1/classifying-space-prod`: the canonical map `B(C × D) → BC × BD` is a homeomorphism when
+`BD` is a finite complex. -/
 theorem classifyingSpaceProdHomeomorph (C D : Type u) [Category.{v} C] [Category.{v} D]
-    [Finite (Σ n, (nerve C).nonDegenerate n)] :
-    Nonempty (classifyingSpace (C × D) ≃ₜ (classifyingSpace C × classifyingSpace D)) := sorry
+    [(nerve D).Finite] :
+    IsHomeomorph (fun x : classifyingSpace (C × D) =>
+      ((classifyingSpaceMap (CategoryTheory.Prod.fst C D)).hom x,
+        (classifyingSpaceMap (CategoryTheory.Prod.snd C D)).hom x)) := sorry
+
+-- `H.1/classifying-space-prod-compactly-generated`: signature (not yet statable at the pins): the same map is a
+-- homeomorphism onto the product in compactly generated spaces, for arbitrary `C`, `D`; Mathlib has no
+-- compactly generated product at 082e2d3.
 
 /-- `H.1/natural-transformations-adjoints-contractibility`: a natural transformation gives a homotopy. -/
 theorem NatTrans.classifyingSpaceHomotopic {F G : C ⥤ D} (η : F ⟶ G) :
@@ -217,7 +300,7 @@ theorem NatTrans.classifyingSpaceHomotopic {F G : C ⥤ D} (η : F ⟶ G) :
 /-- `H.1/adjunction-homotopy-equivalence`. -/
 theorem Adjunction.classifyingSpaceHomotopyEquiv {L : C ⥤ D} {R : D ⥤ C} (adj : L ⊣ R) :
     ∃ e : ContinuousMap.HomotopyEquiv (classifyingSpace C) (classifyingSpace D),
-      e.toFun = (classifyingSpaceMap L).hom := sorry
+      e.toFun = (classifyingSpaceMap L).hom ∧ e.invFun = (classifyingSpaceMap R).hom := sorry
 
 /-- `H.1/contractible-of-initial-or-terminal`. -/
 theorem classifyingSpace_contractible_of_hasInitial [HasInitial C] :
@@ -225,6 +308,11 @@ theorem classifyingSpace_contractible_of_hasInitial [HasInitial C] :
 
 theorem classifyingSpace_contractible_of_hasTerminal [HasTerminal C] :
     ContractibleSpace (classifyingSpace C) := sorry
+
+/-- `H.1/nerve-filtered-colimit`: the nerve commutes with filtered colimits of categories. -/
+theorem nerve_isColimit_of_isFiltered {I : Type u} [SmallCategory I] [IsFiltered I]
+    (F : I ⥤ Cat.{v, u}) (c : Cocone F) (hc : IsColimit c) :
+    Nonempty (IsColimit (nerveFunctor.mapCocone c)) := sorry
 
 /- `H.1/filtered-colimits-of-categories`: homotopy groups commute with filtered colimits. -/
 -- signature (not yet statable at the pins): theorem classifyingSpace_pi_filtered_colimit {I : Type u} [SmallCategory I] [IsFiltered I]
@@ -256,27 +344,44 @@ theorem classifyingSpace_homology_filtered_colimit {I : Type u} [SmallCategory I
 theorem classifyingSpace_zerothHomotopy :
     Nonempty (ZerothHomotopy (classifyingSpace C) ≃ CategoryTheory.ConnectedComponents C) := sorry
 
-/-- `H.1/coverings-fundamental-group-local-coefficients`: coverings of `BC` are morphism-inverting
-functors `C ⥤ Type`; equivalently functors out of the free groupoid `FreeGroupoid C`. -/
-theorem classifyingSpace_coverings_equiv :
-    Nonempty ((FreeGroupoid C ⥤ Type (max u v)) ≌
-      (FundamentalGroupoid (classifyingSpace C) ⥤ Type (max u v))) := sorry
+-- `H.1/simplicial-covering-realisation`, signature (not yet statable at the pins in this file):
+-- `theorem SSet.toTop_map_isCoveringMap {E X : SSet.{u}} (p : E ⟶ X) (hp : p is a simplicial covering, i.e.
+-- every simplex of X has exactly one lift through each lift of its 0-th vertex) :
+-- IsCoveringMap (SSet.toTop.map p).hom`; the unique-lifting hypothesis needs an API for lifting simplices
+-- along a map of simplicial sets (or for pullbacks along `Δ[n] ⟶ X` being trivial), which this file does
+-- not set up.
 
-/-- `H.1/fundamental-groupoid-localization`: `π₁(BC, [X]) ≅ Aut_{C[C⁻¹]}(X)`. -/
+/-- `H.1/coverings-fundamental-group-local-coefficients`: for a morphism-inverting functor
+`F : C ⥤ Type u`, `B` of the projection from the category of elements is a covering map (fibre
+`F X` over `[X]`); with the fibre functor of a covering this gives Quillen's Proposition 1. -/
+theorem classifyingSpace_elements_isCoveringMap (F : C ⥤ Type u)
+    (hF : ∀ ⦃X Y : C⦄ (f : X ⟶ Y), Function.Bijective (F.map f)) :
+    IsCoveringMap (classifyingSpaceMap (Functor.Elements.π F)).hom := sorry
+
+/-- The functor `C ⥤ Π(BC)`: `X ↦ [X]`, `f ↦ [classifyingSpace_edge f]`. -/
+def classifyingSpace_edgeFunctor (C : Type u) [Category.{v} C] :
+    C ⥤ FundamentalGroupoid (classifyingSpace C) := sorry
+
+/-- `H.1/fundamental-groupoid-localization`: the induced functor `C[C⁻¹] ⥤ Π(BC)` is an equivalence. -/
+theorem classifyingSpace_fundamentalGroupoid_isEquivalence (C : Type u) [Category.{v} C] :
+    (FreeGroupoid.lift (classifyingSpace_edgeFunctor C)).IsEquivalence := sorry
+
+/-- Corollary of `H.1/fundamental-groupoid-localization`: `π₁(BC, [X]) ≅ Aut_{C[C⁻¹]}(X)`. -/
 theorem classifyingSpace_fundamentalGroup (X : C) :
     Nonempty (FundamentalGroup (classifyingSpace C) (classifyingSpace_vertex X) ≃*
       Aut ((FreeGroupoid.of C).obj X)) := sorry
 
-/-- `H.1/maximal-tree-presentation` (stated for one-object categories: `π₁(BM)` is the group
-completion of the monoid `M`; the general maximal-tree presentation is the node statement). -/
+/-- `H.1/maximal-tree-presentation`, case `T = ∅` for a group: `π₁(BG, ⋆) ≃* G`. The presentation of
+`π₁(BC)` by a maximal tree is the node statement; the monoid case (group completion) is not stated. -/
 theorem classifyingSpace_fundamentalGroup_singleObj (G : Type u) [Group G] :
     Nonempty (FundamentalGroup (classifyingSpace (SingleObj G))
       (classifyingSpace_vertex (SingleObj.star G)) ≃* G) := sorry
 
 /-- `H.1/local-systems-as-functors`: local systems on `BC` are morphism-inverting functors. -/
 theorem classifyingSpace_localSystems_equiv (R : Type (max u v)) [Ring R] :
-    Nonempty ((FreeGroupoid C ⥤ ModuleCat.{max u v} R) ≌
-      Stub.LocalCoefficientSystem R (classifyingSpace C)) := sorry
+    ((Functor.whiskeringLeft (FreeGroupoid C) (FundamentalGroupoid (classifyingSpace C))
+      (ModuleCat.{max u v} R)).obj
+        (FreeGroupoid.lift (classifyingSpace_edgeFunctor C))).IsEquivalence := sorry
 
 /-- `H.1/category-homology`: the chain complex `⊕_{X₀ → ⋯ → X_n} M(X₀)`. -/
 def categoryChainComplex (R : Type (max u v)) [Ring R] (M : C ⥤ ModuleCat.{max u v} R) :
@@ -300,12 +405,18 @@ def categoryHomology.longExactSequence (R : Type (max u v)) [Ring R]
 def categoryHomologyZeroIsoColimit (R : Type (max u v)) [Ring R] (M : C ⥤ ModuleCat.{max u v} R) :
     categoryHomology R M 0 ≅ colimit M := sorry
 
--- signature (not yet statable at the pins): def categoryHomology.normalizedIso (R : Type (max u v)) [Ring R]
---     (M : C ⥤ ModuleCat.{max u v} R) (n : ℕ) :
---     ((AlgebraicTopology.normalizedMooreComplex _).obj (categorySimplicialModule R M)).homology n ≅
---       categoryHomology R M n
--- It needs `categorySimplicialModule R M : SimplicialObject (ModuleCat R)`, the simplicial module
--- `n ↦ ⊕_{σ ∈ (nerve C) _[n]} M (σ.obj 0)` whose alternating face complex is `categoryChainComplex`.
+/-- The simplicial module `n ↦ ⊕_{σ ∈ (nerve C) _[n]} M (σ.obj 0)`; its alternating face map complex is
+`categoryChainComplex R M`. -/
+def categorySimplicialModule (R : Type (max u v)) [Ring R] (M : C ⥤ ModuleCat.{max u v} R) :
+    SimplicialObject (ModuleCat.{max u v} R) := sorry
+
+def categoryHomology.normalizedIso (R : Type (max u v)) [Ring R] (M : C ⥤ ModuleCat.{max u v} R)
+    (n : ℕ) : ((AlgebraicTopology.normalizedMooreComplex _).obj
+      (categorySimplicialModule R M)).homology n ≅ categoryHomology R M n := sorry
+
+/-- Constant coefficients: `H_n(C; A)` is Mathlib's simplicial homology of the nerve. -/
+def categoryHomology.constIso (R : Type (max u v)) [Ring R] (A : ModuleCat.{max u v} R) (n : ℕ) :
+    categoryHomology R ((Functor.const C).obj A) n ≅ (nerve C).homology A n := sorry
 
 /-- `categoryHomology_zero_eq_colimit_const` (computation). -/
 example (R : Type (max u v)) [Ring R] [IsConnected C] (A : ModuleCat.{max u v} R) :
@@ -330,6 +441,15 @@ theorem categoryHomology_isDerivedColimit (R : Type (max u v)) [Ring R] (X : C) 
     IsZero (categoryHomology R (coyoneda.obj (Opposite.op X) ⋙ uliftFunctor.{u} ⋙
       (ModuleCat.free R)) (n + 1)) := sorry
 
+-- `H.1/cellular-chains-local-coefficients`, signature (not yet statable at the pins): for a morphism-inverting
+-- `L : C ⥤ ModuleCat R`, the twisted relative homology `H_q(BC⁽ⁿ⁾, BC⁽ⁿ⁻¹⁾; L)` is `⊕ L(X₀)` over the
+-- nondegenerate `n`-simplices in degree `q = n` and zero otherwise, and the connecting maps form a complex
+-- isomorphic to `(AlgebraicTopology.normalizedMooreComplex _).obj (categorySimplicialModule R L)`; it needs
+-- singular homology with local coefficients (Tau Ceti AlgebraicTopology stage 2 item 6).
+-- `H.1/homology-of-small-categories`, signature (not yet statable at the pins): for a morphism-inverting
+-- `L : C ⥤ ModuleCat R`, viewed as a local system on `BC` through `classifyingSpace_localSystems_equiv`,
+-- `H_n(BC; L) ≅ categoryHomology R L n`, natural in `(C, L)`; it needs singular homology with local
+-- coefficients (Tau Ceti AlgebraicTopology stage 2 item 6), which neither pin has.
 /-- `H.1/homology-of-small-categories`: `H_n(BC; L) ≅ H_n(C; L)` (constant coefficients shown). -/
 theorem categoryHomology_iso_singular (R : Type (max u v)) [CommRing R] (n : ℕ) :
     Nonempty (categoryHomology R ((Functor.const C).obj (ModuleCat.of R R)) n ≅
@@ -362,14 +482,27 @@ def homologyIso (G : Type u) [Group G] (n : ℕ) :
     Stub.singH (ULift ℤ) n (Group.classifyingSpace G) ≅
       groupHomology (Rep.trivial (ULift ℤ) G (ULift ℤ)) n := sorry
 
+/-- `Group.classifyingSpace.fundamentalGroupMulEquiv_loop`: the class of `loop g` goes to `g`. -/
+theorem fundamentalGroupMulEquiv_loop (g : G) :
+    fundamentalGroupMulEquiv G (FundamentalGroup.fromPath ⟦loop g⟧) = g := sorry
+
+/-- `Group.classifyingSpace.H1AddEquiv`: `H₁(BG; ℤ) ≃+ Gᵃᵇ` (natural in `G`; see the test
+`classifyingSpace_H1_abelianization`). -/
+def H1AddEquiv (G : Type) [Group G] :
+    Stub.singH ℤ 1 (Group.classifyingSpace G) ≃+ Additive (Abelianization G) := sorry
+
 end Group.classifyingSpace
 
 /-- `classifyingSpace_trivial_contractible` (degenerate). -/
 example : ContractibleSpace (Group.classifyingSpace (Unit : Type)) := sorry
 
 /-- `classifyingSpace_H1_abelianization` (computation). -/
-example (G : Type) [Group G] :
-    Nonempty (Stub.singH ℤ 1 (Group.classifyingSpace G) ≃+ Additive (Abelianization G)) := sorry
+example : ∃ e : ∀ (G : Type) [Group G],
+      Stub.singH ℤ 1 (Group.classifyingSpace G) ≃+ Additive (Abelianization G),
+    ∀ (G H : Type) [Group G] [Group H] (φ : G →* H) (x : Stub.singH ℤ 1 (Group.classifyingSpace G)),
+      e H ((((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 1).obj
+        (ModuleCat.of ℤ ℤ)).map (Group.classifyingSpace.map φ)).hom x) =
+        Additive.ofMul (Abelianization.map φ (Additive.toMul (e G x))) := sorry
 
 /-- `classifyingSpace_zmod2_cells` (computation). -/
 example (k : ℕ) : letI := SSet.toTopCWComplex (nerve (SingleObj (Multiplicative (ZMod 2))))
@@ -388,6 +521,9 @@ example : ¬ ContractibleSpace (Group.classifyingSpace (Multiplicative ℤ)) := 
 theorem Group.classifyingSpace_translation_contractible (G : Type u) [Group G] :
     ContractibleSpace (CategoryTheory.classifyingSpace (CategoryTheory.ActionCategory G G)) := sorry
 
+theorem Group.classifyingSpace_translation_isCoveringMap (G : Type) [Group G] :
+    IsCoveringMap (CategoryTheory.classifyingSpaceMap (CategoryTheory.ActionCategory.π G G)).hom := sorry
+
 /-- `H.1/classifying-space-of-group-is-KG1`. -/
 theorem Group.classifyingSpace_isKOne (G : Type u) [Group G] :
     Stub.IsKOne G (Group.classifyingSpace G) (Group.classifyingSpace.basepoint G) := sorry
@@ -398,14 +534,27 @@ theorem Group.classifyingSpace_map_conj_homotopic {G H : Type u} [Group G] [Grou
     ContinuousMap.Homotopic (Group.classifyingSpace.map φ).hom
       (Group.classifyingSpace.map ((MulAut.conj h).toMonoidHom.comp φ)).hom := sorry
 
+/-- `H.1/bar-complex-comparison`, chain level: entrywise inversion `(g₁, …, g_n) ↦ (g₁⁻¹, …, g_n⁻¹)`
+identifies the category chains of `SingleObj G` with Mathlib's inhomogeneous chains. -/
+theorem Group.categoryChainComplex_singleObj_iso (k G : Type u) [CommRing k] [Group G] (A : Rep k G) :
+    Nonempty (CategoryTheory.categoryChainComplex k
+      ((Action.functorCategoryEquivalence (ModuleCat.{u} k) G).functor.obj ((Rep.RepToAction k G).obj A)) ≅
+        groupHomology.inhomogeneousChains A) := sorry
+
 /-- `H.1/bar-complex-comparison`: `H_n(BG; M) ≅ H_n(G; M)` via the bar construction. -/
 theorem Group.categoryHomology_singleObj_iso (k G : Type u) [CommRing k] [Group G] (A : Rep k G)
     (n : ℕ) : Nonempty (CategoryTheory.categoryHomology k
       ((Action.functorCategoryEquivalence (ModuleCat.{u} k) G).functor.obj ((Rep.RepToAction k G).obj A)) n ≅ groupHomology A n) := sorry
 
-/-- `H.1/groupoid-nerve-one-type`. -/
+/-- `H.1/groupoid-nerve-kan`: the nerve of a groupoid is a Kan complex. -/
 theorem CategoryTheory.Groupoid.nerve_kanComplex (C : Type u) [Groupoid.{u} C] :
     SSet.KanComplex (nerve C) := sorry
+
+/-- `H.1/groupoid-nerve-one-type`: `π₁(BC, [X]) ≅ Aut X` and `π_n(BC, [X]) = 0` for `n ≥ 2`. -/
+theorem CategoryTheory.Groupoid.classifyingSpace_oneType (C : Type u) [Groupoid.{u} C] (X : C) :
+    Nonempty (FundamentalGroup (classifyingSpace C) (classifyingSpace_vertex X) ≃* Aut X) ∧
+      ∀ n : ℕ, Subsingleton (HomotopyGroup.Pi (n + 2) (classifyingSpace C)
+        (classifyingSpace_vertex X)) := sorry
 
 /-! ## H.2 — Homotopy fibres and Quillen's theorems -/
 
@@ -422,6 +571,14 @@ def IsWeakHomotopyEquivalence {X Y : TopCat.{u}} (f : X ⟶ Y) : Prop :=
 theorem IsWeakHomotopyEquivalence.comp {X Y Z : TopCat.{u}} {f : X ⟶ Y} {g : Y ⟶ Z}
     (hf : IsWeakHomotopyEquivalence f) (hg : IsWeakHomotopyEquivalence g) :
     IsWeakHomotopyEquivalence (f ≫ g) := sorry
+
+theorem IsWeakHomotopyEquivalence.of_comp_left {X Y Z : TopCat.{u}} {f : X ⟶ Y} {g : Y ⟶ Z}
+    (hg : IsWeakHomotopyEquivalence g) (hfg : IsWeakHomotopyEquivalence (f ≫ g)) :
+    IsWeakHomotopyEquivalence f := sorry
+
+theorem IsWeakHomotopyEquivalence.of_comp_right {X Y Z : TopCat.{u}} {f : X ⟶ Y} {g : Y ⟶ Z}
+    (hf : IsWeakHomotopyEquivalence f) (hfg : IsWeakHomotopyEquivalence (f ≫ g)) :
+    IsWeakHomotopyEquivalence g := sorry
 
 theorem _root_.ContinuousMap.HomotopyEquiv.isWeakHomotopyEquivalence {X Y : TopCat.{u}}
     (e : ContinuousMap.HomotopyEquiv X Y) : IsWeakHomotopyEquivalence (TopCat.ofHom e.toFun) := sorry
@@ -519,6 +676,13 @@ theorem mappingPathSpace_homotopyEquiv (f : A ⟶ B) :
     Nonempty (ContinuousMap.HomotopyEquiv A
       (TopCat.of {p : A × C(unitInterval, B) // p.2 0 = f.hom p.1})) := sorry
 
+/-- `H.2/mapping-path-space-fibration`: `(a, γ) ↦ γ 1` has the homotopy lifting property for all spaces. -/
+theorem mappingPathSpace_hasHomotopyLifting (f : A ⟶ B) (Y : TopCat.{u})
+    (H : C(Y × unitInterval, B)) (g₀ : C(Y, {p : A × C(unitInterval, B) // p.2 0 = f.hom p.1}))
+    (h₀ : ∀ y, (g₀ y).1.2 1 = H (y, 0)) :
+    ∃ G : C(Y × unitInterval, {p : A × C(unitInterval, B) // p.2 0 = f.hom p.1}),
+      ∀ y t, (G (y, t)).1.2 1 = H (y, t) ∧ G (y, 0) = g₀ y := sorry
+
 /-- `H.2/fibre-to-homotopy-fibre` (stated for maps with the homotopy lifting property for all spaces). -/
 theorem homotopyFiber.ofFiber_homotopyEquiv (p : A ⟶ B)
     (hp : ∀ (Y : TopCat.{u}) (H : C(Y × unitInterval, B)) (g₀ : C(Y, A)),
@@ -526,6 +690,10 @@ theorem homotopyFiber.ofFiber_homotopyEquiv (p : A ⟶ B)
         G (y, 0) = g₀ y) (b : B) :
     ∃ e : ContinuousMap.HomotopyEquiv (TopCat.of {a : A // p.hom a = b}) (homotopyFiber p b),
       ∀ a, e.toFun a = homotopyFiber.ofFiber p b a := sorry
+
+-- signature (not yet statable at the pins): theorem serreFibration_relativeHomotopy_bijective
+-- `H.2/fibration-relative-homotopy-iso`: for `p` with disc lifting, `p_* : π_n(E, p⁻¹ b, x₀) → π_n(B, b)`
+-- is bijective for `n ≥ 1`; relative homotopy groups are Tau Ceti AlgebraicTopology stage 8 objects.
 
 /-- `H.2/connecting-map`. -/
 def homotopyFiber.connecting (f : A ⟶ B) (a₀ : A) (n : ℕ) :
@@ -567,6 +735,21 @@ theorem homotopyFiber.exact_at_total (f : A ⟶ B) (a₀ : A) (n : ℕ) :
     Set.range (Stub.piMap (n + 1) (homotopyFiber.proj f (f.hom a₀)).hom (homotopyFiber.basepoint f a₀)) =
       {y | Stub.piMap (n + 1) f.hom a₀ y = 1} := sorry
 
+/-- `H.2/long-exact-sequence`: exactness at `π_n(F)` (`n = 0`: pointed sets). -/
+theorem homotopyFiber.exact_at_fiber (f : A ⟶ B) (a₀ : A) (n : ℕ) :
+    Set.range (homotopyFiber.connecting f a₀ n) =
+      {y | Stub.piMap n (homotopyFiber.proj f (f.hom a₀)).hom (homotopyFiber.basepoint f a₀) y = default} :=
+  sorry
+
+/-- `H.2/long-exact-sequence`: exactness at `π_{n+1}(B)`. -/
+theorem homotopyFiber.exact_at_base (f : A ⟶ B) (a₀ : A) (n : ℕ) :
+    Set.range (Stub.piMap (n + 1) f.hom a₀) = {y | homotopyFiber.connecting f a₀ n y = default} := sorry
+
+/-- `H.2/long-exact-sequence`: exactness at `π₀(A)` (pointed sets). -/
+theorem homotopyFiber.exact_at_total_zero (f : A ⟶ B) (a₀ : A) :
+    Set.range (Stub.piMap 0 (homotopyFiber.proj f (f.hom a₀)).hom (homotopyFiber.basepoint f a₀)) =
+      {y | Stub.piMap 0 f.hom a₀ y = default} := sorry
+
 /-- `H.2/fibre-sequence-low-degree`: `π₁(B)` acts on `π₀` of the fibre with orbits the fibres of
 `π₀(F) → π₀(A)`. -/
 @[instance_reducible]
@@ -596,8 +779,12 @@ theorem homotopyFiber.transport_trans (f : A ⟶ B) {b b' b'' : B} (ω : Path b 
     ContinuousMap.Homotopic (homotopyFiber.transport f (ω.trans ω')).hom
       ((homotopyFiber.transport f ω').hom.comp (homotopyFiber.transport f ω).hom) := sorry
 
--- signature (not yet statable at the pins): theorem homotopyFiber.connecting_transport (f : A ⟶ B) {a₀ : A} (n : ℕ)
--- `connecting` intertwines basepoint change on `π_{n+1} B` (`Stub.piOfPath`) with `transport`.
+-- signature (not yet statable at the pins): theorem homotopyFiber.connecting_transport (f : A ⟶ B) {a₀ a₁ : A}
+--     (σ : Path a₀ a₁) (n : ℕ)
+-- With `ω = σ.map f.hom.continuous`: `connecting f a₁ n ∘ Stub.piOfPath (n + 1) ω` equals
+-- `Stub.piOfPath n τ ∘ Stub.piMap n (transport f ω).hom _ ∘ connecting f a₀ n`, where `τ` is the path
+-- `t ↦ (σ t, ω|[t,1])` in `homotopyFiber f (f a₁)` from `transport f ω (basepoint f a₀)` to
+-- `basepoint f a₁`; the restricted paths `ω|[t,1]` need path-restriction API absent at the pins.
 
 /-- `transport_refl_homotopic_id` (degenerate). -/
 example (f : A ⟶ B) (b : B) :
@@ -653,21 +840,28 @@ example (b : B) : Nonempty (homotopyPullback
 /-- `isHomotopyCartesian_id` (degenerate). -/
 example : IsHomotopyCartesian (𝟙 A) (𝟙 A) (𝟙 A) (𝟙 A) rfl := sorry
 
-/-- `isHomotopyCartesian_iff_fiber` (characterisation). -/
-example {E' E B' : TopCat.{u}} [ContractibleSpace B'] (p' : E' ⟶ B') (p : E ⟶ B) (α : E' ⟶ E)
-    (h : B' ⟶ B) (w : p' ≫ h = α ≫ p) (b' : B') (hp' : ∀ e', p'.hom e' = b')
-    (hb : ∀ e, p.hom (α.hom e) = h.hom b') :
-    IsHomotopyCartesian p' p α h w ↔ IsWeakHomotopyEquivalence (fiberSequenceMap α p (h.hom b') hb) := sorry
+/-- The map `E' → F(p, h b')`, `e' ↦ (α e', t ↦ h (K (p' e', t)))`, given by a contraction `K` of `B'`. -/
+def homotopyFiber.ofContraction {E' E B' : TopCat.{u}} (p' : E' ⟶ B') (p : E ⟶ B) (α : E' ⟶ E)
+    (h : B' ⟶ B) (w : p' ≫ h = α ≫ p) (b' : B')
+    (K : ContinuousMap.Homotopy (ContinuousMap.id B') (ContinuousMap.const B' b')) :
+    E' ⟶ homotopyFiber p (h.hom b') := sorry
+
+/-- `isHomotopyCartesian_iff_fiber` (characterisation): over a point, homotopy-cartesian means
+homotopy fibre sequence. -/
+example {E' E : TopCat.{u}} (p' : E' ⟶ TopCat.of PUnit.{u + 1}) (p : E ⟶ B) (α : E' ⟶ E)
+    (h : TopCat.of PUnit.{u + 1} ⟶ B) (w : p' ≫ h = α ≫ p) :
+    IsHomotopyCartesian p' p α h w ↔ IsHomotopyFiberSequence α p (h.hom PUnit.unit) := sorry
 
 /- `not_isHomotopyCartesian_strictFiber` (non-example). -/
 -- signature (not yet statable at the pins): example (G : Type u) [Group G] (H : Subgroup G) (hH : H ≠ ⊤)
 -- The square (point → BH over point → BG) fails: `π₀` of the homotopy pullback is `G ⧸ H ≠ *`.
 
 /-- `H.2/homotopy-cartesian-contractible-base`. -/
-theorem IsHomotopyCartesian.iff_of_contractible {E' E B' : TopCat.{u}} [ContractibleSpace B']
+theorem IsHomotopyCartesian.iff_of_contraction {E' E B' : TopCat.{u}}
     (p' : E' ⟶ B') (p : E ⟶ B) (α : E' ⟶ E) (h : B' ⟶ B) (w : p' ≫ h = α ≫ p) (b' : B')
-    (hp' : ∀ e', p'.hom e' = b') (hb : ∀ e, p.hom (α.hom e) = h.hom b') :
-    IsHomotopyCartesian p' p α h w ↔ IsWeakHomotopyEquivalence (fiberSequenceMap α p (h.hom b') hb) := sorry
+    (K : ContinuousMap.Homotopy (ContinuousMap.id B') (ContinuousMap.const B' b')) :
+    IsHomotopyCartesian p' p α h w ↔
+      IsWeakHomotopyEquivalence (homotopyFiber.ofContraction p' p α h w b' K) := sorry
 
 /-- `H.2/homotopy-cartesian-pasting`. -/
 theorem IsHomotopyCartesian.paste {X₁ X₂ X₃ Y₁ Y₂ Y₃ : TopCat.{u}} (a₁ : X₁ ⟶ X₂) (a₂ : X₂ ⟶ X₃)
@@ -676,6 +870,17 @@ theorem IsHomotopyCartesian.paste {X₁ X₂ X₃ Y₁ Y₂ Y₃ : TopCat.{u}} (
     (h₂ : IsHomotopyCartesian v₂ v₃ a₂ b₂ w₂) :
     IsHomotopyCartesian v₁ v₂ a₁ b₁ w₁ ↔
       IsHomotopyCartesian v₁ v₃ (a₁ ≫ a₂) (b₁ ≫ b₂) (by rw [← Category.assoc, w₁, Category.assoc, w₂, ← Category.assoc]) := sorry
+
+/-- `H.2/homotopy-cartesian-pasting`: a square is homotopy-cartesian iff its transpose is. -/
+theorem IsHomotopyCartesian.transpose {E' E B' : TopCat.{u}} (p' : E' ⟶ B') (p : E ⟶ B)
+    (α : E' ⟶ E) (h : B' ⟶ B) (w : p' ≫ h = α ≫ p) :
+    IsHomotopyCartesian p' p α h w ↔ IsHomotopyCartesian α h p' p w.symm := sorry
+
+/-- `H.2/homotopy-cartesian-pasting`: horizontal weak equivalences give a homotopy-cartesian square. -/
+theorem IsHomotopyCartesian.of_isWeakHomotopyEquivalence {E' E B' : TopCat.{u}} (p' : E' ⟶ B')
+    (p : E ⟶ B) (α : E' ⟶ E) (h : B' ⟶ B) (w : p' ≫ h = α ≫ p)
+    (hα : IsWeakHomotopyEquivalence α) (hh : IsWeakHomotopyEquivalence h) :
+    IsHomotopyCartesian p' p α h w := sorry
 
 /-- `H.2/quasi-fibration`. -/
 def IsQuasiFibration (p : A ⟶ B) : Prop :=
@@ -687,9 +892,12 @@ theorem IsQuasiFibration.of_serreFibration (p : A ⟶ B)
       (∀ y, p.hom (g₀ y) = H (y, 0)) → ∃ G : C((Fin n → unitInterval) × unitInterval, A),
         ∀ y t, p.hom (G (y, t)) = H (y, t) ∧ G (y, 0) = g₀ y) : IsQuasiFibration p := sorry
 
-theorem IsQuasiFibration.longExactSequence {p : A ⟶ B} (hp : IsQuasiFibration p) (a₀ : A) (n : ℕ) :
-    IsWeakHomotopyEquivalence (TopCat.ofHom ⟨homotopyFiber.ofFiber p (p.hom a₀), sorry⟩ :
-      TopCat.of {a : A // p.hom a = p.hom a₀} ⟶ homotopyFiber p (p.hom a₀)) := hp _
+/-- `IsQuasiFibration.longExactSequence`: exactness at `π_{n+1}(E)` with the strict fibre. -/
+theorem IsQuasiFibration.exact_at_total {p : A ⟶ B} (hp : IsQuasiFibration p) (a₀ : A) (n : ℕ) :
+    Set.range (Stub.piMap (n + 1)
+        (ContinuousMap.mk Subtype.val continuous_subtype_val : C({a : A // p.hom a = p.hom a₀}, A))
+        (⟨a₀, rfl⟩ : {a : A // p.hom a = p.hom a₀})) =
+      {y | Stub.piMap (n + 1) p.hom a₀ y = 1} := sorry
 
 -- signature (not yet statable at the pins): theorem IsQuasiFibration.iff_relative [PathConnectedSpace B] (p : A ⟶ B)
 -- Relative homotopy groups `π_i(E, p⁻¹ b, x₀)` are Tau Ceti AlgebraicTopology stage 8 objects.
@@ -717,6 +925,30 @@ theorem IsQuasiFibration.of_openCover (p : A ⟶ B) (V₁ V₂ : Set B) (h₁ : 
     (q : ∀ V : Set B, IsQuasiFibration (TopCat.ofHom ⟨fun (a : p.hom ⁻¹' V) => (⟨p.hom a, a.2⟩ : V), sorry⟩ :
       TopCat.of (p.hom ⁻¹' V) ⟶ TopCat.of V) ∨ (V ≠ V₁ ∧ V ≠ V₂ ∧ V ≠ V₁ ∩ V₂)) :
     IsQuasiFibration p := sorry
+
+/-- `H.2/dold-lashof-exhaustion` (criterion (b)). -/
+theorem IsQuasiFibration.of_exhaustion (p : A ⟶ B) (Bn : ℕ → Set B) (hmono : Monotone Bn)
+    (hcpt : ∀ K : Set B, IsCompact K → ∃ n, K ⊆ Bn n)
+    (q : ∀ n, IsQuasiFibration (TopCat.ofHom ⟨fun (a : p.hom ⁻¹' Bn n) => (⟨p.hom a, a.2⟩ : Bn n), sorry⟩ :
+      TopCat.of (p.hom ⁻¹' Bn n) ⟶ TopCat.of (Bn n))) :
+    IsQuasiFibration p := sorry
+
+/-- `H.2/dold-lashof-deformation` (criterion (c)); deformations in the weak sense. -/
+theorem IsQuasiFibration.of_deformation (p : A ⟶ B) (E' : Set A) (B' : Set B)
+    (hE' : ∀ a ∈ E', p.hom a ∈ B') (D : C(A × unitInterval, A)) (Db : C(B × unitInterval, B))
+    (hD₀ : ∀ a, D (a, 0) = a) (hD₁ : ∀ a, D (a, 1) ∈ E') (hDE : ∀ a ∈ E', ∀ t, D (a, t) ∈ E')
+    (hDb₀ : ∀ b, Db (b, 0) = b) (hDb₁ : ∀ b, Db (b, 1) ∈ B') (hDbB : ∀ b ∈ B', ∀ t, Db (b, t) ∈ B')
+    (hcov : ∀ a t, p.hom (D (a, t)) = Db (p.hom a, t))
+    (q : IsQuasiFibration (TopCat.ofHom ⟨fun (a : E') => (⟨p.hom a, hE' a a.2⟩ : B'), sorry⟩ :
+      TopCat.of E' ⟶ TopCat.of B'))
+    (hfib : ∀ b : B, IsWeakHomotopyEquivalence (TopCat.ofHom
+      ⟨fun (a : {a : A // p.hom a = b}) => (⟨D (a.1, 1), sorry⟩ : {a : A // p.hom a = Db (b, 1)}), sorry⟩ :
+        TopCat.of {a : A // p.hom a = b} ⟶ TopCat.of {a : A // p.hom a = Db (b, 1)})) :
+    IsQuasiFibration p := sorry
+
+-- signature (not yet statable at the pins): theorem excisiveTriad_relativeHomotopy_comparison
+-- `H.2/excisive-triad-homotopy-comparison` (Hatcher Prop. 4K.1): relative homotopy groups of pairs
+-- are Tau Ceti AlgebraicTopology stage 8 objects, not imported here.
 
 /-- `H.2/simplicial-space-realisation`. -/
 def SimplicialSpace.realization : SimplicialObject TopCat.{u} ⥤ TopCat.{u} := sorry
@@ -767,6 +999,13 @@ example : Nonempty (BisimplicialSet.diagonal (BisimplicialSet.box
 theorem BisimplicialSet.realization_iso_diagonal (T : BisimplicialSet.{u}) :
     Nonempty (BisimplicialSet.realization T ≅ SSet.toTop.obj (BisimplicialSet.diagonal T)) := sorry
 
+/-- The transpose `(p, q) ↦ T_{q,p}` of a bisimplicial set. -/
+def BisimplicialSet.transpose (T : BisimplicialSet.{u}) : BisimplicialSet.{u} := sorry
+
+/-- `H.2/bisimplicial-realization-lemma`: realising in either order gives the same space. -/
+theorem BisimplicialSet.realization_transpose (T : BisimplicialSet.{u}) :
+    Nonempty (BisimplicialSet.realization T.transpose ≅ BisimplicialSet.realization T) := sorry
+
 /-- Hurewicz cofibrations: the homotopy extension property for all targets. -/
 def IsHCofibration {X : TopCat.{u}} (S : Set X) : Prop :=
   ∀ (Y : TopCat.{u}) (f : C(X, Y)) (H : C(S × unitInterval, Y)), (∀ s, H (s, 0) = f s) →
@@ -800,7 +1039,9 @@ example : ∃ X : SimplicialObject TopCat.{0}, ¬ SimplicialSpace.IsProper X := 
 
 /- `H.2/realisation-preserves-finite-limits` (binary products shown). -/
 -- signature (not yet statable at the pins): theorem SimplicialSpace.realization_prod (X Y : SimplicialObject TopCat.{u})
--- In compactly generated weak Hausdorff spaces; Mathlib's `TopCat` product is not k-ified.
+-- `|X × Y| ≅ |X| × |Y|` and `|X ×_Y Z| ≅ |X| ×_{|Y|} |Z|` for compactly generated weak Hausdorff levels
+-- (Nikolaus–Scholze Prop. C.1); Mathlib's `TopCat` product is not k-ified, so the statement needs
+-- compactly generated products, which neither pin provides.
 
 /-- `H.2/gluing-lemma`. -/
 theorem gluingLemma {X₀ X₁ X₂ Y₀ Y₁ Y₂ : TopCat.{u}} (i : X₀ ⟶ X₁) (j : X₀ ⟶ X₂) (i' : Y₀ ⟶ Y₁)
@@ -811,21 +1052,34 @@ theorem gluingLemma {X₀ X₁ X₂ Y₀ Y₁ Y₂ : TopCat.{u}} (i : X₀ ⟶ X
     (h₂ : IsWeakHomotopyEquivalence f₂) :
     IsWeakHomotopyEquivalence (pushout.map i j i' j' f₁ f₂ f₀ w₁ w₂) := sorry
 
+/-- `H.2/h-cofibration-pushout-product` (Strøm's product theorem). -/
+theorem IsHCofibration.pushoutProduct {X Y : TopCat.{u}} {S : Set X} {T : Set Y}
+    (hS : IsHCofibration S) (hT : IsHCofibration T) (hTc : IsClosed T) :
+    IsHCofibration (X := TopCat.of (X × Y)) (S ×ˢ Set.univ ∪ Set.univ ×ˢ T) := sorry
+
 /-- `H.2/levelwise-equivalence-theorem`. -/
 theorem SimplicialSpace.realization_weakEquivalence {X Y : SimplicialObject TopCat.{u}} (f : X ⟶ Y)
     (hX : SimplicialSpace.IsProper X) (hY : SimplicialSpace.IsProper Y)
+    (hXk : ∀ n, CompactlyGeneratedSpace (X.obj n)) (hYk : ∀ n, CompactlyGeneratedSpace (Y.obj n))
+    (hX₂ : ∀ n, T2Space (X.obj n)) (hY₂ : ∀ n, T2Space (Y.obj n))
     (hf : ∀ n, IsWeakHomotopyEquivalence (f.app n)) :
     IsWeakHomotopyEquivalence (SimplicialSpace.realization.map f) := sorry
 
-/-- `H.2/levelwise-fibration-realisation`. -/
-theorem SimplicialSpace.realization_fiberSequence {V W X : SimplicialObject TopCat.{u}} (i : V ⟶ W)
-    (p : W ⟶ X) (x : ∀ n, X.obj n) (hX : ∀ n, PathConnectedSpace (X.obj n))
-    (hV : SimplicialSpace.IsProper V) (hW : SimplicialSpace.IsProper W)
-    (hX' : SimplicialSpace.IsProper X)
-    (hx : ∀ ⦃m n⦄ (φ : m ⟶ n), (X.map φ).hom (x m) = x n)
-    (hlev : ∀ n, IsHomotopyFiberSequence (i.app n) (p.app n) (x n)) (xr : SimplicialSpace.realization.obj X)
-    (hxr : ∀ v, (SimplicialSpace.realization.map p).hom ((SimplicialSpace.realization.map i).hom v) = xr) :
-    IsHomotopyFiberSequence (SimplicialSpace.realization.map i) (SimplicialSpace.realization.map p) xr := sorry
+/-- `H.2/levelwise-fibration-realisation` (levelwise realisations of bisimplicial sets). -/
+theorem BisimplicialSet.realization_fiberSequence {V W X : BisimplicialSet.{u}} (i : V ⟶ W)
+    (p : W ⟶ X) (x : ∀ n, SSet.toTop.obj (X.obj n))
+    (hX : ∀ n, PathConnectedSpace (SSet.toTop.obj (X.obj n)))
+    (hx : ∀ ⦃m n⦄ (φ : m ⟶ n), (SSet.toTop.map (X.map φ)).hom (x m) = x n)
+    (hlev : ∀ n, IsHomotopyFiberSequence (SSet.toTop.map (i.app n)) (SSet.toTop.map (p.app n)) (x n))
+    (xr : SimplicialSpace.realization.obj (X ⋙ SSet.toTop))
+    (hxr : ∀ v, (SimplicialSpace.realization.map (Functor.whiskerRight p SSet.toTop)).hom
+      ((SimplicialSpace.realization.map (Functor.whiskerRight i SSet.toTop)).hom v) = xr) :
+    IsHomotopyFiberSequence (SimplicialSpace.realization.map (Functor.whiskerRight i SSet.toTop))
+      (SimplicialSpace.realization.map (Functor.whiskerRight p SSet.toTop)) xr := sorry
+
+-- signature (not yet statable at the pins): theorem BisimplicialSet.realization_fiberSequence_piKan
+-- `H.2/bisimplicial-fibration-pi-kan` (Bousfield–Friedlander B.4): the π_*-Kan condition is phrased
+-- with homotopy groups of Kan complexes (Tau Ceti AlgebraicTopology stage 8), not imported here.
 
 /-- `H.2/bousfield-kan-homotopy-colimit`. -/
 def hocolimSimplicial (I : Type u) [SmallCategory I] (X : I ⥤ TopCat.{u}) :
@@ -843,6 +1097,8 @@ def toNerve (X : I ⥤ TopCat.{u}) : hocolim I X ⟶ CategoryTheory.classifyingS
 def map {X X' : I ⥤ TopCat.{u}} (φ : X ⟶ X') : hocolim I X ⟶ hocolim I X' := sorry
 
 theorem isWeakHomotopyEquivalence_map {X X' : I ⥤ TopCat.{u}} (φ : X ⟶ X')
+    (hk : ∀ i, CompactlyGeneratedSpace (X.obj i) ∧ CompactlyGeneratedSpace (X'.obj i))
+    (h₂ : ∀ i, T2Space (X.obj i) ∧ T2Space (X'.obj i))
     (h : ∀ i, IsWeakHomotopyEquivalence (φ.app i)) : IsWeakHomotopyEquivalence (map φ) := sorry
 
 def const_point : hocolim I ((Functor.const I).obj (TopCat.of PUnit.{u + 1})) ≅
@@ -872,10 +1128,13 @@ example (I : Type u) [SmallCategory I] (X : I ⥤ Type u) :
 /-- `H.2/realisation-is-homotopy-colimit`: for a proper simplicial space the Bousfield–Kan
 homotopy colimit over `Δᵒᵖ` maps to the realisation by a weak homotopy equivalence
 (Nikolaus–Scholze Lemma B.7). Stated in universe `0`, where `SimplexCategory` lives. -/
+def SimplicialSpace.hocolimToRealization (X : SimplicialObject TopCat.{0}) :
+    hocolim SimplexCategoryᵒᵖ X ⟶ SimplicialSpace.realization.obj X := sorry
+
 theorem SimplicialSpace.hocolim_weakEquivalence_realization (X : SimplicialObject TopCat.{0})
-    (hX : SimplicialSpace.IsProper X) :
-    ∃ g : hocolim SimplexCategoryᵒᵖ X ⟶ SimplicialSpace.realization.obj X,
-      IsWeakHomotopyEquivalence g := sorry
+    (hX : SimplicialSpace.IsProper X) (hk : ∀ n, CompactlyGeneratedSpace (X.obj n))
+    (h₂ : ∀ n, T2Space (X.obj n)) :
+    IsWeakHomotopyEquivalence (SimplicialSpace.hocolimToRealization X) := sorry
 
 /-- `H.2/quasi-fibration-lemma`. -/
 theorem hocolim.toNerve_isQuasiFibration {I : Type u} [SmallCategory I] (X : I ⥤ TopCat.{u})
@@ -898,14 +1157,14 @@ variable {C D : Type u} [SmallCategory C] [SmallCategory D]
 /-- The coefficient functor `d ↦ H_q(B(T/d); ℤ)` on `D` (comma categories `CostructuredArrow T d`). -/
 def commaHomologyCoeff (T : C ⥤ D) (q : ℕ) : D ⥤ ModuleCat.{u} (ULift.{u} ℤ) := sorry
 
-/-- `H.2/functor-homology-spectral-sequence`: a first-quadrant spectral sequence with
+/- `H.2/functor-homology-spectral-sequence`: a first-quadrant spectral sequence with
 `E²_{p,q} = H_p(D; d ↦ H_q(B(T/d)))`; its convergence to `H_{p+q}(BC)` needs the abutment
 API of Mathlib's spectral sequences, which the pin does not have, and is left out here. -/
-theorem functorHomologySpectralSequence (T : C ⥤ D) :
-    ∃ E : SpectralSequence (ModuleCat.{u} (ULift.{u} ℤ))
-      (fun r => ComplexShape.spectralSequenceNat ⟨-r, r - 1⟩) 2,
-      ∀ p q : ℕ, Nonempty ((E.page 2).X (p, q) ≅
-        categoryHomology (ULift.{u} ℤ) (commaHomologyCoeff T q) p) := sorry
+-- signature (not yet statable at the pins): theorem functorHomologySpectralSequence (T : C ⥤ D)
+-- The row-filtration spectral sequence of the double complex with generators
+-- `(c₀ → ⋯ → c_q, T c_q → d₀ → ⋯ → d_p)` has `E²_{p,q} ≅ categoryHomology (ULift ℤ)
+-- (commaHomologyCoeff T q) p` and converges to `H_{p+q}` of `C`; without Mathlib's abutment API an
+-- existence statement for the `E²` page alone would be vacuous.
 
 /-- `H.2/comma-category-to-homotopy-fibre`. -/
 def commaToHomotopyFiber (F : C ⥤ D) (d : D) :
@@ -948,6 +1207,14 @@ theorem quillenTheoremA (F : C ⥤ D) (h : ∀ d : D, ContractibleSpace (classif
 /-- The inclusion of the strict fibre into the comma category `d \ F`, `X ↦ (X, 𝟙)`. -/
 def fiberToComma (F : C ⥤ D) (d : D) : F.Fiber d ⥤ StructuredArrow d F := sorry
 
+/-- `commaToHomotopyFiber_fiberToComma`: on the strict fibre the comparison map is the fibre inclusion. -/
+theorem commaToHomotopyFiber_fiberToComma (F : C ⥤ D) (d : D) :
+    ∃ h : ∀ x, (classifyingSpaceMap F).hom
+        ((classifyingSpaceMap (Functor.Fiber.fiberInclusion : F.Fiber d ⥤ C)).hom x) = classifyingSpace_vertex d,
+      ContinuousMap.Homotopic (classifyingSpaceMap (fiberToComma F d) ≫ commaToHomotopyFiber F d).hom
+        (fiberSequenceMap (classifyingSpaceMap (Functor.Fiber.fiberInclusion : F.Fiber d ⥤ C))
+          (classifyingSpaceMap F) (classifyingSpace_vertex d) h).hom := sorry
+
 /-- `H.2/prefibred-iff-fibre-adjoint`. -/
 theorem isPreFibered_iff_fibre_adjoint (F : C ⥤ D) :
     F.IsPreFibered ↔ ∀ d : D, ∃ R : StructuredArrow d F ⥤ F.Fiber d, Nonempty (fiberToComma F d ⊣ R) := sorry
@@ -966,8 +1233,14 @@ theorem quillenTheoremB (F : C ⥤ D)
     IsWeakHomotopyEquivalence (commaToHomotopyFiber F d) := sorry
 
 /- `H.2/quillen-theorem-b-prefibred`. -/
--- signature (not yet statable at the pins): theorem quillenTheoremB_prefibered (F : C ⥤ D) [F.IsPreFibered] (d : D)
--- With base changes homotopy equivalences, `B(F⁻¹ d) → BC → BD` is a homotopy fibre sequence.
+theorem quillenTheoremB_prefibered (F : C ⥤ D) (R : ∀ d : D, StructuredArrow d F ⥤ F.Fiber d)
+    (adj : ∀ d : D, fiberToComma F d ⊣ R d)
+    (h : ∀ ⦃d d' : D⦄ (u : d ⟶ d'), ∃ e : ContinuousMap.HomotopyEquiv
+      (classifyingSpace (F.Fiber d')) (classifyingSpace (F.Fiber d)),
+        e.toFun = (classifyingSpaceMap (fiberToComma F d' ⋙ StructuredArrow.map (T := F) u ⋙ R d)).hom)
+    (d : D) :
+    IsHomotopyFiberSequence (classifyingSpaceMap (Functor.Fiber.fiberInclusion : F.Fiber d ⥤ C))
+      (classifyingSpaceMap F) (classifyingSpace_vertex d) := sorry
 
 /-- `H.2/group-extension-fibration`. -/
 theorem groupExtension_fiberSequence (G : Type u) [Group G] (N : Subgroup G) [N.Normal] :
@@ -1012,8 +1285,13 @@ example : ∃ F : TopCat.{0}, IsAcyclicSpace F ∧ ∃ x : F, Nontrivial (Fundam
 /-- `isAcyclicSpace_contractible_compat` (compatibility). -/
 example (F : TopCat.{u}) [ContractibleSpace F] : IsAcyclicSpace F := IsAcyclicSpace.of_contractible F
 
+/-- `H.3/hurewicz-degree-one` (Hatcher Theorem 2A.1). -/
+theorem hurewicz_one (X : TopCat.{u}) [PathConnectedSpace X] (x : X) :
+    Nonempty (Additive (Abelianization (FundamentalGroup X x)) ≃+ Stub.singH (ULift.{u} ℤ) 1 X) := sorry
+
 /-- `H.3/acyclic-space-perfect-fundamental-group`. -/
-theorem IsAcyclicSpace.perfect_and_H2 {F : TopCat.{u}} (h : IsAcyclicSpace F) (x : F) :
+theorem IsAcyclicSpace.perfect_and_H2 {F : TopCat.{u}} [Topology.CWComplex (Set.univ : Set F)]
+    (h : IsAcyclicSpace F) (x : F) :
     Group.IsPerfect (FundamentalGroup F x) ∧
       IsZero (groupHomology (Rep.trivial (ULift.{u} ℤ) (FundamentalGroup F x) (ULift.{u} ℤ)) 2) := sorry
 
@@ -1052,10 +1330,37 @@ theorem IsAcyclicMap.pi1_surjective_perfect_kernel {f : X ⟶ Y} (hf : IsAcyclic
     Function.Surjective (FundamentalGroup.map f.hom x) ∧ Group.IsPerfect (FundamentalGroup.map f.hom x).ker :=
   ⟨hf.surjective_pi1 x, (hf.ker_isPerfect x).1⟩
 
+/- `H.3/twisted-homology-via-cover`: for a path-connected `X` with universal cover, a normal subgroup
+`N` of `π = π₁(X, x)`, the regular cover `X_N` and a `ℤ[π/N]`-module `M`, the twisted singular chains
+satisfy `C_*(X; M) ≅ C_*(X_N) ⊗_{ℤ[π/N]} M`, so `H_*(X; ℤ[π/N]) ≅ H_*(X_N; ℤ)`. -/
+-- signature (not yet statable at the pins): theorem twistedHomology_iso_cover (X : TopCat) (x : X) (N) (M)
+-- Twisted singular homology with local coefficients is Tau Ceti AlgebraicTopology stage 2 item 6, not built.
+
 /-- `H.3/acyclic-map-homology-criterion` (constant-coefficient shadow; see `IsAcyclicMap.iff_homology`). -/
 theorem IsAcyclicMap.homology_criterion (f : X ⟶ Y) (hf : IsAcyclicMap f) (n : ℕ) :
     IsIso (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{u} (ULift.{u} ℤ)) n).obj
       (ModuleCat.of (ULift.{u} ℤ) (ULift.{u} ℤ))).map f) := sorry
+
+/-- `TauCeti.IsAcyclicMap.of_comp` (API of `H.3/acyclic-map-homology-criterion`): for connected CW
+complexes, if `g ∘ f` and `f` are acyclic then so is `g`. -/
+theorem IsAcyclicMap.of_comp [Topology.CWComplex (Set.univ : Set X)] [Topology.CWComplex (Set.univ : Set Y)]
+    [Topology.CWComplex (Set.univ : Set Z)] [PathConnectedSpace X] {f : X ⟶ Y} {g : Y ⟶ Z}
+    (hgf : IsAcyclicMap (f ≫ g)) (hf : IsAcyclicMap f) : IsAcyclicMap g := sorry
+
+/-- `H.3/serre-comparison-fibre`, simply connected special case (used for the converse of
+`H.3/acyclic-map-homology-criterion`): an integral homology isomorphism of CW complexes onto a simply
+connected space has acyclic homotopy fibres. -/
+theorem IsAcyclicMap.of_homology_iso_of_simplyConnected [Topology.CWComplex (Set.univ : Set X)]
+    [Topology.CWComplex (Set.univ : Set Y)] [SimplyConnectedSpace Y] (f : X ⟶ Y)
+    (hf : ∀ n, IsIso (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{u} (ULift.{u} ℤ)) n).obj
+      (ModuleCat.of (ULift.{u} ℤ) (ULift.{u} ℤ))).map f)) :
+    IsAcyclicMap f := sorry
+
+/- `H.3/serre-comparison-fibre`, general form: for a map of Serre fibrations with trivial monodromy on the
+integral homology of both fibres, integral homology isomorphisms on bases and total spaces give one on
+fibres. -/
+-- signature (not yet statable at the pins): theorem serreComparison_fibre
+-- Serre fibrations and the monodromy action on fibre homology are Tau Ceti AlgebraicTopology stage 5, not built.
 
 /-- `H.3/plus-construction-predicate`. -/
 def IsPlusConstruction (f : X ⟶ Y) (x : X) (P : Subgroup (FundamentalGroup X x)) : Prop :=
@@ -1066,7 +1371,9 @@ def perfectRadical (G : Type u) [Group G] : Subgroup G :=
   ⨆ (H : Subgroup G) (_ : Group.IsPerfect H), H
 
 theorem IsPlusConstruction.pi1_quotient {f : X ⟶ Y} {x : X} {P : Subgroup (FundamentalGroup X x)} [P.Normal]
-    (h : IsPlusConstruction f x P) : Nonempty (FundamentalGroup Y (f.hom x) ≃* FundamentalGroup X x ⧸ P) := sorry
+    (h : IsPlusConstruction f x P) :
+    ∃ e : FundamentalGroup X x ⧸ P ≃* FundamentalGroup Y (f.hom x),
+      ∀ g : FundamentalGroup X x, e (QuotientGroup.mk g) = FundamentalGroup.map f.hom x g := sorry
 
 theorem IsPlusConstruction.homology_iso {f : X ⟶ Y} {x : X} {P : Subgroup (FundamentalGroup X x)}
     (h : IsPlusConstruction f x P) (n : ℕ) :
@@ -1087,6 +1394,11 @@ example (G : Type u) [Group G] [Group.IsPerfect G] : perfectRadical G = ⊤ := s
 /-- `not_isPlusConstruction_nonperfect` (non-example). -/
 example (f : X ⟶ Y) (x : X) (P : Subgroup (FundamentalGroup X x)) (hP : ¬ Group.IsPerfect P) :
     ¬ IsPlusConstruction f x P := sorry
+
+/-- `H.3/acyclic-pi1-iso-weak-equivalence` (Weibel IV Exercise 1.2(b)). -/
+theorem IsAcyclicMap.isWeakHomotopyEquivalence_of_bijective_pi1 [PathConnectedSpace X] {f : X ⟶ Y}
+    (hf : IsAcyclicMap f) (x : X) (h1 : Function.Bijective (FundamentalGroup.map f.hom x)) :
+    IsWeakHomotopyEquivalence f := sorry
 
 /-- `H.3/plus-construction-by-cell-attachment`. -/
 def plusConstruction (X : TopCat.{u}) (x : X) (P : Subgroup (FundamentalGroup X x)) : TopCat.{u} := sorry
@@ -1211,9 +1523,9 @@ example (A : Type u) [AddCommGroup A] :
     Nonempty (ContinuousMap.HomotopyEquiv (EilenbergMacLaneSpace A 1)
       (Group.classifyingSpace (Multiplicative A))) := sorry
 
-/-- `eilenbergMacLaneSpace_not_moore` (non-example): `K(ℤ/2, 1)` has `H₂ = 0`, unlike `RP²`-type Moore
-spaces with nonzero `π₂`. -/
-example : IsZero (Stub.singH ℤ 2 (EilenbergMacLaneSpace (ZMod 2) 1)) := sorry
+/-- `eilenbergMacLaneSpace_not_moore` (non-example): `H₃(K(ℤ/2, 1); ℤ) = H₃(RP^∞; ℤ) ≅ ℤ/2 ≠ 0`, whereas
+the Moore space `RP² = M(ℤ/2, 1)` has `H₃ = 0`. -/
+example : ¬ IsZero (Stub.singH ℤ 3 (EilenbergMacLaneSpace (ZMod 2) 1)) := sorry
 
 /- `H.3/cohomology-representability`: for a CW complex `X`, based homotopy classes `X → K(G, n)` are
 in natural bijection with `Hⁿ(X; G)`. Singular cohomology is Tau Ceti AlgebraicTopology stage 6 and not
@@ -1222,11 +1534,32 @@ in the pinned libraries, so the signature is recorded as a comment:
   (based homotopy classes X → EilenbergMacLaneSpace G n) ≃ singularCohomology X G n`. -/
 -- signature (not yet statable at the pins): theorem cohomologyRepresentability_signature
 
-/-- `H.3/postnikov-principal-fibrations` (existence of a Postnikov tower: maps `X → X_n` inducing
-isomorphisms on `π_i`, `i ≤ n`, with `π_i(X_n) = 0` for `i > n`; principal when `X` is abelian). -/
+/-- `H.3/postnikov-principal-fibrations`, existence part only (Hatcher Example 4.16): maps `X → X_n`
+inducing isomorphisms on `π_i`, `i ≤ n`, with `π_i(X_n) = 0` for `i > n`. Principality is not stated here:
+the k-invariant needs `EilenbergMacLaneSpace` of `π_n X` with its group structure. -/
 theorem postnikovTower [Topology.CWComplex (Set.univ : Set X)] [PathConnectedSpace X] (x : X) (n : ℕ) :
     ∃ (Xn : TopCat.{u}) (p : X ⟶ Xn), (∀ i ≤ n, Function.Bijective (Stub.piMap i p.hom x)) ∧
       ∀ i > n, Subsingleton (HomotopyGroup.Pi i Xn (p.hom x)) := sorry
+
+/- `H.3/relative-hurewicz-trivial-action`: for an `(n-1)`-connected based pair `(X, A, a₀)` of
+path-connected spaces, `n ≥ 2`, on which `π₁(A, a₀)` acts trivially on `π_n(X, A, a₀)`, the Hurewicz map
+`π_n(X, A) → H_n(X, A; ℤ)` is an isomorphism and `H_i(X, A; ℤ) = 0` for `i < n`. -/
+-- signature (not yet statable at the pins): theorem relativeHurewicz_of_trivialAction
+-- Relative homotopy groups with their π₁-action and relative singular homology are Tau Ceti
+-- AlgebraicTopology stages 8 (item 1) and 2, not built.
+
+/- `H.3/principal-fibration-criterion` (Hatcher Lemma 4.70): for a CW pair `(X, A)` of connected
+spaces whose inclusion has homotopy fibre a `K(π, n)`, `A` is weakly equivalent, compatibly with `A ⊆ X`,
+to the homotopy fibre of a map `X → K(π, n+1)` iff `π₁(A)` acts trivially on `π_{n+1}(X, A)`. -/
+-- signature (not yet statable at the pins): theorem principalFibration_iff_trivialAction
+-- The hypothesis needs relative homotopy groups and their π₁(A)-action (Tau Ceti AlgebraicTopology stage 8).
+
+/- `H.3/postnikov-limit-weak-equivalence` (Hatcher Prop. 4.67 and Cor. 4.68): for a tower of fibrations
+`⋯ → X₂ → X₁`, `π_i(lim X_n) → lim π_i(X_n)` is onto, and injective when the maps on `π_{i+1}` are
+eventually onto; for a Postnikov tower of a connected CW complex `X`, `X → lim X_n` is a weak homotopy
+equivalence. -/
+-- signature (not yet statable at the pins): theorem postnikovTower_limit_isWeakHomotopyEquivalence
+-- Fibrations of spaces (homotopy lifting for all spaces) are not defined in Mathlib or Tau Ceti at the pins.
 
 /- `H.3/obstruction-lifting`: a lift through the principal fibration `X_n → X_{n-1}` extending a lift
 on `A` exists iff the obstruction class in `H^{n+1}(W, A; π_n X)` vanishes; relative singular cohomology
@@ -1234,12 +1567,16 @@ is Tau Ceti AlgebraicTopology stage 6, so the signature is recorded as a comment
 -- signature (not yet statable at the pins): theorem obstructionLifting
 
 /-- `H.3/abelian-extension-corollary` (Hatcher 4.73), with the cohomological hypothesis replaced by
-the sufficient hypothesis that the pair is acyclic, as used in `abelianHomologyWhitehead`. -/
+the sufficient hypothesis that the pair is acyclic (`H_*(W, A; ℤ) = 0`, so all obstruction groups vanish
+by universal coefficients); this covers the retraction in `abelianHomologyWhitehead` and the extensions
+in `IsPlusConstruction.lift`. -/
 theorem abelianExtension [Topology.CWComplex (Set.univ : Set X)] (x : X) (hX : IsAbelianSpace X x)
-    (W : TopCat.{u}) (i : X ⟶ W) [Topology.RelCWComplex (Set.univ : Set W) (Set.range i.hom)]
+    {A W : TopCat.{u}} [Topology.CWComplex (Set.univ : Set A)] (i : A ⟶ W)
+    (hi_emb : Topology.IsClosedEmbedding i.hom)
+    [Topology.RelCWComplex (Set.univ : Set W) (Set.range i.hom)]
     (hi : ∀ n, IsIso (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{u} (ULift.{u} ℤ)) n).obj
-      (ModuleCat.of (ULift.{u} ℤ) (ULift.{u} ℤ))).map i)) :
-    ∃ r : W ⟶ X, i ≫ r = 𝟙 X := sorry
+      (ModuleCat.of (ULift.{u} ℤ) (ULift.{u} ℤ))).map i))
+    (g : A ⟶ X) : ∃ G : W ⟶ X, i ≫ G = g := sorry
 
 /-- `H.3/abelian-homology-whitehead` (Hatcher 4.74). -/
 theorem abelianHomologyWhitehead [Topology.CWComplex (Set.univ : Set X)]
@@ -1265,13 +1602,15 @@ theorem IsPlusConstruction.lift [Topology.CWComplex (Set.univ : Set X)] [Topolog
       ∀ h' : Y ⟶ Z, ContinuousMap.Homotopic (f ≫ h').hom g.hom → ContinuousMap.Homotopic h.hom h'.hom := sorry
 
 /-- `H.3/plus-construction-uniqueness`. -/
-theorem IsPlusConstruction.unique [Topology.CWComplex (Set.univ : Set Y)]
+theorem IsPlusConstruction.unique [Topology.CWComplex (Set.univ : Set X)] [Topology.CWComplex (Set.univ : Set Y)]
     [Topology.CWComplex (Set.univ : Set Z)] {f : X ⟶ Y} {f' : X ⟶ Z} {x : X} {P : Subgroup (FundamentalGroup X x)}
     (hf : IsPlusConstruction f x P) (hf' : IsPlusConstruction f' x P) (hZ : IsAbelianSpace Z (f'.hom x)) :
     ∃ e : ContinuousMap.HomotopyEquiv Y Z, ContinuousMap.Homotopic (e.toFun.comp f.hom) f'.hom := sorry
 
 /-- `H.3/plus-construction-functoriality`. -/
-theorem IsPlusConstruction.map {X' Y' : TopCat.{u}} (φ : X ⟶ X') {f : X ⟶ Y} {f' : X' ⟶ Y'} {x : X}
+theorem IsPlusConstruction.map {X' Y' : TopCat.{u}} [Topology.CWComplex (Set.univ : Set X)]
+    [Topology.CWComplex (Set.univ : Set Y)] [Topology.CWComplex (Set.univ : Set Y')]
+    (φ : X ⟶ X') {f : X ⟶ Y} {f' : X' ⟶ Y'} {x : X}
     {P : Subgroup (FundamentalGroup X x)} {P' : Subgroup (FundamentalGroup X' (φ.hom x))}
     (hf : IsPlusConstruction f x P) (hf' : IsPlusConstruction f' (φ.hom x) P')
     (hφ : P.map (FundamentalGroup.map φ.hom x) ≤ P') (hY' : IsAbelianSpace Y' (f'.hom (φ.hom x))) :
@@ -1293,6 +1632,13 @@ theorem plusConstruction.pi2_eq_H2 (G : Type u) [Group G] [Group.IsPerfect G] :
       ((plusConstruction.incl _ _ ⊤).hom (Group.classifyingSpace.basepoint G)) ≃*
         Multiplicative (groupHomology (Rep.trivial (ULift.{u} ℤ) G (ULift.{u} ℤ)) 2)) := sorry
 
+/- `H.3/plus-pi2-natural`: for `φ : G →* G'` with `φ(P) ≤ P'` and `φ⁺` with `φ⁺ ∘ f ≃ f' ∘ Bφ`
+(based, or with trivial `π₁`-action on `π₂(BG'⁺)`), the isomorphisms `π₂(BG⁺) ≅ H₂(P; ℤ)` and
+`π₂(BG'⁺) ≅ H₂(P'; ℤ)` carry `φ⁺_*` to `H₂(φ|_P; ℤ)`. -/
+-- signature (not yet statable at the pins): theorem plusConstruction.pi2_eq_H2_natural
+-- Needs the specific isomorphism of `H.3/plus-pi2-universal-central-extension` (stated above only as
+-- `Nonempty`, and only for `P = G`) and the universal-central-extension lift of K2SymbolsBrauer T.1.
+
 /- `H.3/plus-universal-cover`: `π_n(BP⁺) ≅ π_n(BG⁺)` for `n ≥ 2`. -/
 -- signature (not yet statable at the pins): theorem plusConstruction.universalCover (G : Type u) [Group G] (P : Subgroup G) [P.Normal]
 --       [Group.IsPerfect P] (n : ℕ)
@@ -1309,6 +1655,19 @@ theorem plusConstruction.pi2_eq_H2 (G : Type u) [Group G] [Group.IsPerfect G] :
 -- signature (not yet statable at the pins): theorem plusConstruction.relativeFibre {F E B : TopCat.{u}} (i : F ⟶ E) (p : E ⟶ B) (b : B)
 --       (h : IsHomotopyFiberSequence i p b)
 -- Under trivial `π₁(B)`-action on `H_*(F)`, `F⁺ → E⁺ → B` is a homotopy fibre sequence.
+
+/-- `H.3/serre-class-fibration` (class of finitely generated groups, simply connected base; Hatcher
+SSAT Lemma 1.9, case 1). -/
+theorem serreClass_fibration_finite {F E B : TopCat.{u}} (i : F ⟶ E) (p : E ⟶ B) (b : B)
+    (h : IsHomotopyFiberSequence i p b) [PathConnectedSpace F] [PathConnectedSpace E]
+    [SimplyConnectedSpace B]
+    (hF : ∀ n, Module.Finite (ULift.{u} ℤ) (Stub.singH (ULift.{u} ℤ) (n + 1) F))
+    (hB : ∀ n, Module.Finite (ULift.{u} ℤ) (Stub.singH (ULift.{u} ℤ) (n + 1) B)) :
+    ∀ n, Module.Finite (ULift.{u} ℤ) (Stub.singH (ULift.{u} ℤ) (n + 1) E) := sorry
+
+/-- `H.3/serre-class-eilenberg-maclane` (class of finitely generated groups; Hatcher SSAT Lemma 1.10). -/
+theorem serreClass_eilenbergMacLane_finite (A : Type u) [AddCommGroup A] [AddGroup.FG A] (n k : ℕ) :
+    Module.Finite (ULift.{u} ℤ) (Stub.singH (ULift.{u} ℤ) (k + 1) (EilenbergMacLaneSpace A (n + 1))) := sorry
 
 /-- `H.3/serre-class-theorem` (class of finitely generated groups). -/
 theorem serreClass_finitelyGenerated (x : X) (hX : IsAbelianSpace X x) :
@@ -1329,6 +1688,10 @@ open MonoidalCategory
 
 variable (S : Type u) [Groupoid.{u} S] [MonoidalCategory S] [SymmetricCategory S]
 
+/-- Translations are faithful (Weibel IV 4.2.1): `Aut s → Aut (s ⊗ t)`, `g ↦ g ▷ t`, is injective. -/
+def FaithfulTranslations : Prop :=
+  ∀ s t : S, Function.Injective (fun g : s ≅ s => whiskerRightIso g t)
+
 /-- `H.4/symmetric-monoidal-groupoid-core`. -/
 @[instance_reducible]
 def Core.monoidalCategory (T : Type u) [Category.{u} T] [MonoidalCategory T] :
@@ -1342,15 +1705,16 @@ theorem Core.inclusion_monoidal (T : Type u) [Category.{u} T] [MonoidalCategory 
     letI := Core.monoidalCategory T
     Nonempty (Core.inclusion T).Monoidal := sorry
 
+/-- Mathlib's `F.core` (`CategoryTheory.Functor.core`) is strong monoidal. -/
+@[instance_reducible]
 def Core.mapMonoidal {T T' : Type u} [Category.{u} T] [Category.{u} T'] [MonoidalCategory T]
-    [MonoidalCategory T'] (F : T ⥤ T') [F.Monoidal] : Core T ⥤ Core T' := sorry
+    [MonoidalCategory T'] (F : T ⥤ T') [F.Monoidal] :
+    letI := Core.monoidalCategory T; letI := Core.monoidalCategory T'; F.core.Monoidal := sorry
 
-/-- The commutative monoid of isomorphism classes under `⊗`. -/
-def Core.isoClassesMonoid (T : Type u) [Category.{u} T] [MonoidalCategory T] [SymmetricCategory T] :
-    Type u := _root_.Quotient (isIsomorphicSetoid T)
-
-instance (T : Type u) [Category.{u} T] [MonoidalCategory T] [SymmetricCategory T] :
-    CommMonoid (Core.isoClassesMonoid T) := sorry
+/-- The commutative monoid of isomorphism classes under `⊗`: Mathlib's `Skeleton T` with
+`Skeleton.instCommMonoid` (isomorphism classes of `Core T` are those of `T`). -/
+abbrev Core.isoClassesMonoid (T : Type u) [Category.{u} T] [MonoidalCategory T] [SymmetricCategory T] :
+    Type u := Skeleton T
 
 /- `core_finset_pi0` (computation): finite sets under disjoint union have iso-class monoid `ℕ`. -/
 -- signature (not yet statable at the pins): example
@@ -1389,13 +1753,19 @@ def kSpace : TopCat.{u} := classifyingSpace (SInvS S)
 
 def pi0Equiv : ZerothHomotopy (kSpace S) ≃ Algebra.GrothendieckGroup (Core.isoClassesMonoid S) := sorry
 
+/-- `pi0Equiv` is the canonical map: the component of `(m, n)` goes to `[m] - [n]` (Weibel IV 4.3.1). -/
+theorem pi0Equiv_vertex (m n : S) :
+    pi0Equiv S (ZerothHomotopy.mk (classifyingSpace_vertex (C := SInvS S) (m, n))) =
+      Algebra.GrothendieckGroup.of (toSkeleton m) / Algebra.GrothendieckGroup.of (toSkeleton n) := sorry
+
 def swap : SInvS S ⥤ SInvS S := sorry
 
 end SInvS
 
 /-- `SInvS_pic_K0` (computation): for a Picard groupoid (π₀ already a group), `K(S) ≃ π₀ × B Aut(1)`. -/
 example [∀ X : S, Nonempty (Σ Y : S, X ⊗ Y ≅ 𝟙_ S)] :
-    Nonempty (ZerothHomotopy (SInvS.kSpace S) ≃ Core.isoClassesMonoid S) := sorry
+    Nonempty (ZerothHomotopy (SInvS.kSpace S) ≃ Core.isoClassesMonoid S) ∧
+      ∀ (n : ℕ) (x : SInvS.kSpace S), 2 ≤ n → Subsingleton (HomotopyGroup.Pi n (SInvS.kSpace S) x) := sorry
 
 /-- `SInvS_trivial` (degenerate). -/
 example [Subsingleton S] [∀ X Y : S, Subsingleton (X ⟶ Y)] : ContractibleSpace (SInvS.kSpace S) := sorry
@@ -1415,9 +1785,13 @@ example (A : Type u) [Category.{u} A] [HasInitial A] : ContractibleSpace (classi
 
 /-- `H.4/monoidal-action-category`. -/
 structure MonoidalAction (X : Type u) [Category.{u} X] where
-  act : S × X ⥤ X
-  assoc : ∀ (s t : S) (x : X), act.obj (s, act.obj (t, x)) ≅ act.obj (s ⊗ t, x)
-  unit : ∀ x : X, act.obj (𝟙_ S, x) ≅ x
+  /-- Mathlib's coherent left action: natural associativity and unit isomorphisms with their
+  coherence conditions (Weibel IV Definition 4.7). -/
+  toLeftAction : MonoidalLeftAction S X
+
+/-- The diagonal action `s ⊙ (t, x) = (s ⊗ t, s ⊙ x)` of `S` on `S × X` (uses the symmetry). -/
+def MonoidalAction.diag {X : Type u} [Category.{u} X] (a : MonoidalAction S X) :
+    MonoidalAction S (S × X) := sorry
 
 def MonoidalActionCategory {X : Type u} [Category.{u} X] (_a : MonoidalAction S X) : Type u := X
 
@@ -1428,8 +1802,8 @@ namespace MonoidalActionCategory
 
 def regular : MonoidalAction S S := sorry
 
-def loc {X : Type u} [Category.{u} X] (_a : MonoidalAction S X) : Type u :=
-  MonoidalActionCategory S (X := S × X) sorry
+def loc {X : Type u} [Category.{u} X] (a : MonoidalAction S X) : Type u :=
+  MonoidalActionCategory S a.diag
 
 instance {X : Type u} [Category.{u} X] (a : MonoidalAction S X) : Category.{u} (loc S a) := sorry
 
@@ -1462,18 +1836,28 @@ example : ContractibleSpace (classifyingSpace (MonoidalActionCategory S (Monoida
 theorem SInvS.pi0_grothendieck : Nonempty (ZerothHomotopy (SInvS.kSpace S) ≃
     Algebra.GrothendieckGroup (Core.isoClassesMonoid S)) := ⟨SInvS.pi0Equiv S⟩
 
-/-- `H.4/classifying-space-hspace` (countable case; in general compactly generated products). -/
+/-- `H.4/classifying-space-hspace`: the H-space structure on `BS` with multiplication homotopic to
+`B(⊗)` (strictly unital at the vertex of `𝟙_ S` after the homotopy-extension modification); countable
+case, in general compactly generated products. -/
+@[instance_reducible]
+def classifyingSpace.hSpace [Countable S] [∀ X Y : S, Countable (X ⟶ Y)] :
+    HSpace (classifyingSpace S) :=
+  let _tensor : S → S → S := fun X Y => X ⊗ Y
+  sorry
+
+/-- `H.4/classifying-space-hspace` (existence form). -/
 theorem classifyingSpace_hSpace [Countable S] [∀ X Y : S, Countable (X ⟶ Y)] :
     Nonempty (HSpace (classifyingSpace S)) := sorry
 
 /-- `H.4/action-projection-cofibred`. -/
-theorem MonoidalActionCategory.proj_isCofibred {X : Type u} [Category.{u} X] (a : MonoidalAction S X) :
-    (MonoidalActionCategory.proj S a).op.IsFibered := sorry
+theorem MonoidalActionCategory.proj_isCofibred {X : Type u} [Category.{u} X] (a : MonoidalAction S X)
+    (hS : FaithfulTranslations S) : (MonoidalActionCategory.proj S a).op.IsFibered := sorry
 
 /-- `H.4/invertible-action-equivalence`. -/
 theorem MonoidalActionCategory.incl_homotopyEquiv {X : Type u} [Category.{u} X] (a : MonoidalAction S X)
+    (hS : FaithfulTranslations S)
     (hinv : ∀ t : S, ∃ e : ContinuousMap.HomotopyEquiv (classifyingSpace X) (classifyingSpace X),
-      e.toFun = (classifyingSpaceMap (Prod.sectR t X ⋙ a.act)).hom)
+      e.toFun = (classifyingSpaceMap (letI := a.toLeftAction; MonoidalLeftAction.actionLeft X t)).hom)
     (s : S) : ∃ e : ContinuousMap.HomotopyEquiv (classifyingSpace X) (classifyingSpace (MonoidalActionCategory.loc S a)),
       e.toFun = (classifyingSpaceMap (MonoidalActionCategory.incl S a s)).hom := sorry
 
@@ -1536,7 +1920,7 @@ theorem IsGroupCompletion.of_groupLike (X : TopCat.{u}) [HSpace X]
       (HSpace.hmul (a, HSpace.hmul (b, c)))) : IsGroupCompletion (𝟙 X) := sorry
 
 theorem IsGroupCompletion.basepointComponent {X Y : TopCat.{u}} [HSpace X] [HSpace Y] {f : X ⟶ Y}
-    (hf : IsGroupCompletion f) (y : Y) (g g' : FundamentalGroup Y y) : g * g' = g' * g := sorry
+    (hf : IsGroupCompletion f) (g g' : FundamentalGroup Y (HSpace.e : Y)) : g * g' = g' * g := sorry
 
 /-- `isGroupCompletion_id_groupLike` (degenerate). -/
 example (G : Type u) [TopologicalSpace G] [CommGroup G] [IsTopologicalGroup G] :
@@ -1552,14 +1936,22 @@ example (G : Type u) [TopologicalSpace G] [CommGroup G] [IsTopologicalGroup G] :
 /- `not_isGroupCompletion_pi0_only` (non-example). -/
 -- signature (not yet statable at the pins): example
 
+/-- Homotopy associativity of an H-space multiplication. -/
+def IsHomotopyAssocHSpace (X : TopCat.{u}) [HSpace X] : Prop :=
+  ContinuousMap.Homotopic ((HSpace.hmul (X := X)).comp ((HSpace.hmul (X := X)).prodMap (ContinuousMap.id X)))
+    (((HSpace.hmul (X := X)).comp ((ContinuousMap.id X).prodMap (HSpace.hmul (X := X)))).comp
+      (⟨Homeomorph.prodAssoc X X X, (Homeomorph.prodAssoc X X X).continuous⟩ : C((X × X) × X, X × X × X)))
+
 /-- `H.4/group-completion-uniqueness`. -/
 theorem IsGroupCompletion.homotopyEquiv_of_groupLike {X Y : TopCat.{u}} [HSpace X] [HSpace Y]
     [Topology.CWComplex (Set.univ : Set X)] [Topology.CWComplex (Set.univ : Set Y)] {f : X ⟶ Y}
+    (hassocX : IsHomotopyAssocHSpace X) (hassocY : IsHomotopyAssocHSpace Y)
     (hf : IsGroupCompletion f) (hX : IsGroupCompletion (𝟙 X)) :
     ∃ e : ContinuousMap.HomotopyEquiv X Y, e.toFun = f.hom := sorry
 
 /-- `H.4/group-completion-uniqueness-countable`. -/
 theorem IsGroupCompletion.unique_of_countable {X Y Y' : TopCat.{u}} [HSpace X] [HSpace Y] [HSpace Y']
+    [Topology.CWComplex (Set.univ : Set Y)] [Topology.CWComplex (Set.univ : Set Y')]
     [Countable (ZerothHomotopy X)] {f : X ⟶ Y} {f' : X ⟶ Y'} (hf : IsGroupCompletion f)
     (hf' : IsGroupCompletion f') : Nonempty (ContinuousMap.HomotopyEquiv Y Y') := sorry
 
@@ -1579,6 +1971,7 @@ theorem IsGroupCompletion.unique_of_countable {X Y Y' : TopCat.{u}} [HSpace X] [
 /-- `H.4/cofinality-theorem`. -/
 theorem cofinality {S T : Type u} [Groupoid.{u} S] [MonoidalCategory S] [SymmetricCategory S]
     [Groupoid.{u} T] [MonoidalCategory T] [SymmetricCategory T] (F : S ⥤ T) [F.Monoidal]
+    (hS : FaithfulTranslations S) (hT : FaithfulTranslations T)
     (hcof : ∀ t : T, ∃ (t' : T) (s : S), Nonempty (t ⊗ t' ≅ F.obj s))
     (haut : ∀ s : S, Function.Bijective (fun g : Aut s => F.mapIso g)) (n : ℕ) (x : SInvS.kSpace S) :
     Function.Bijective (Stub.piMap (n + 1) (classifyingSpaceMap (SInvS.map S F)).hom x) := sorry
@@ -1586,6 +1979,91 @@ theorem cofinality {S T : Type u} [Groupoid.{u} S] [MonoidalCategory S] [Symmetr
 /- `H.4/cofinality-projective-modules`. -/
 -- signature (not yet statable at the pins): theorem kSpace_projective_plus (R : Type u) [Ring R]
 -- `B((iso P(R))⁻¹ iso P(R)) ≃ K₀(R) × BGL(R)⁺`, component-preserving, natural up to homotopy.
+
+/-- `H.4/based-free-module-groupoid`: the groupoid `F(R)` of based free modules `Rⁿ` (objects `ℕ`,
+automorphisms `GLₙ(R)`, no maps between different ranks), strict symmetric monoidal under block sum. -/
+structure BasedFree (R : Type u) : Type u where
+  /-- The rank `n` of the based free module `Rⁿ`. -/
+  n : ℕ
+
+/-- The groupoid structure of `F(R)`: `Hom(m, n)` is `GLₙ(R)` if `m = n`, empty otherwise. -/
+instance (R : Type u) [Ring R] : Groupoid.{u} (BasedFree R) := sorry
+
+/-- Block sum `m □ n = m + n`, `g □ h = fromBlocks g 0 0 h` (reindexed by `finSumFinEquiv`). -/
+instance (R : Type u) [Ring R] : MonoidalCategory (BasedFree R) := sorry
+
+/-- The symmetry is the block-exchange permutation matrix. -/
+instance (R : Type u) [Ring R] : SymmetricCategory (BasedFree R) := sorry
+
+/-- `TauCeti.BasedFree.autEquiv`: `Aut(Rⁿ) ≃* GLₙ(R)ᵐᵒᵖ` (Mathlib's `Aut` multiplies in the
+composition-reversed order). -/
+def BasedFree.autEquiv (R : Type u) [Ring R] (n : ℕ) :
+    Aut (⟨n⟩ : BasedFree R) ≃* (Matrix.GeneralLinearGroup (Fin n) R)ᵐᵒᵖ := sorry
+
+/-- `TauCeti.BasedFree.toProj`: `n ↦ Fin n → R`, `g ↦ vecMulLinear g`, landing in the finitely generated
+projective modules; strong symmetric monoidal for `⊕` (not stated: `ModuleCat` carries `⊗` as its
+monoidal instance). -/
+def BasedFree.toProj (R : Type u) [Ring R] : BasedFree R ⥤ Core (ModuleCat.{u} R) := sorry
+
+/-- `TauCeti.BasedFree.map`: a ring hom induces a strict symmetric monoidal functor (entrywise). -/
+def BasedFree.map {R R' : Type u} [Ring R] [Ring R'] (φ : R →+* R') : BasedFree R ⥤ BasedFree R' := sorry
+
+/-- `TauCeti.BasedFree.faithfulTranslations`: `g ↦ g ⊕ 1` is injective. -/
+theorem BasedFree.faithfulTranslations (R : Type u) [Ring R] : FaithfulTranslations (BasedFree R) := sorry
+
+/-- `TauCeti.BasedFree.cofinal`: every finitely generated projective module is a summand of some `Rⁿ`. -/
+theorem BasedFree.cofinal (R : Type u) [Ring R] (P : ModuleCat.{u} R) [Module.Finite R P]
+    [Module.Projective R P] : ∃ (Q : ModuleCat.{u} R) (n : ℕ), Nonempty (P ⊞ Q ≅ ModuleCat.of R (Fin n → R)) :=
+  sorry
+
+/-- `faithfulTranslations_basedFree` (computation). -/
+example (R : Type u) [Ring R] : FaithfulTranslations (BasedFree R) := BasedFree.faithfulTranslations R
+
+/-- `basedFree_isoClasses` (computation): isomorphism classes of `F(R)` are `ℕ`, for every ring. -/
+example (R : Type u) [Ring R] : Nonempty (Skeleton (BasedFree R) ≃* Multiplicative ℕ) := sorry
+
+/-- `basedFree_braiding_swap` (computation): the symmetry on `ℤ¹ ⊕ ℤ¹` is not the identity. -/
+example : (β_ (⟨1⟩ : BasedFree ℤ) ⟨1⟩).hom ≠ 𝟙 _ := sorry
+
+/-- `basedFree_toProj_not_injective` (non-example): if `R ≅ R²` then `toProj` identifies `R¹` and `R²`,
+which are not isomorphic in `F(R)`. -/
+example (R : Type u) [Ring R] (e : (Fin 1 → R) ≃ₗ[R] (Fin 2 → R)) :
+    Nonempty ((BasedFree.toProj R).obj ⟨1⟩ ≅ (BasedFree.toProj R).obj ⟨2⟩) ∧
+      IsEmpty ((⟨1⟩ : BasedFree R) ≅ ⟨2⟩) := sorry
+
+/-- `basedFree_aut_bijective` (compatibility). -/
+example (R : Type u) [Ring R] (n : ℕ) :
+    Function.Bijective (fun g : Aut (⟨n⟩ : BasedFree R) => (BasedFree.toProj R).mapIso g) := sorry
+
+/-- `H.4/plus-of-product` (acyclicity part): a product of acyclic maps is acyclic; the kernel on `π₁`
+of `f × g` is `P × Q`, so a product of plus constructions is a plus construction. -/
+theorem IsAcyclicMap.prod {X Y X' Y' : TopCat.{u}} {f : X ⟶ X'} {g : Y ⟶ Y'} (hf : IsAcyclicMap f)
+    (hg : IsAcyclicMap g) :
+    IsAcyclicMap (TopCat.ofHom (f.hom.prodMap g.hom) : TopCat.of (X × Y) ⟶ TopCat.of (X' × Y')) := sorry
+
+/- `H.4/group-completion-acyclic`. -/
+-- signature (not yet statable at the pins): theorem telescope_isAcyclicMap
+-- For `S` with a cofinal sequence, the telescope map `B Aut(S) → Y_S` into the basepoint component of
+-- `B(S⁻¹S)` is acyclic; `Aut(S) = colim Aut(s_n)` and the telescope map are not defined in this file.
+
+/-- Restriction of an action along a strong monoidal functor (used by `H.4/cofinality-action`). -/
+def restrictAction {S T : Type u} [Groupoid.{u} S] [MonoidalCategory S] [SymmetricCategory S]
+    [Groupoid.{u} T] [MonoidalCategory T] [SymmetricCategory T] (F : S ⥤ T) [F.Monoidal]
+    {X : Type u} [Category.{u} X] (a : MonoidalAction T X) : MonoidalAction S X := sorry
+
+/-- `H.4/cofinality-action`: for `F` cofinal, `S⁻¹X ≃ T⁻¹X`. -/
+theorem cofinality_action {S T : Type u} [Groupoid.{u} S] [MonoidalCategory S] [SymmetricCategory S]
+    [Groupoid.{u} T] [MonoidalCategory T] [SymmetricCategory T] (F : S ⥤ T) [F.Monoidal]
+    (hS : FaithfulTranslations S) (hT : FaithfulTranslations T)
+    (hcof : ∀ t : T, ∃ (t' : T) (s : S), Nonempty (t ⊗ t' ≅ F.obj s))
+    {X : Type u} [Category.{u} X] (a : MonoidalAction T X) :
+    Nonempty (ContinuousMap.HomotopyEquiv (classifyingSpace (MonoidalActionCategory.loc S (restrictAction F a)))
+      (classifyingSpace (MonoidalActionCategory.loc T a))) := sorry
+
+/- `H.4/gl-plus-comparison-naturality`. -/
+-- signature (not yet statable at the pins): theorem kSpace_basedFree_plus_natural (φ : R →+* R')
+-- The equivalence `BGL(R)⁺ ≃ Y_{F(R)}` commutes up to homotopy with `φ⁺` and `B(F(φ)⁻¹F(φ))`, and is an
+-- H-map for block sum; `GL(R) = colim GLₙ(R)` and its plus construction are not defined in this file.
 
 /-- `H.4/gamma-space`: the skeleton of finite pointed sets `[n] = {0, …, n}` pointed at `0`. -/
 structure FinPointed : Type where
@@ -1660,7 +2138,8 @@ theorem segalGammaSpace.isSpecial (C : Type u) [Category.{u} C] [HasZeroObject C
 
 def segalGammaSpace.map {C D : Type u} [Category.{u} C] [Category.{u} D] [HasZeroObject C]
     [HasBinaryCoproducts C] [HasZeroObject D] [HasBinaryCoproducts D] (F : C ⥤ D)
-    [PreservesColimitsOfShape (Discrete WalkingPair) F] : segalGammaSpace C ⟶ segalGammaSpace D := sorry
+    [PreservesColimitsOfShape (Discrete WalkingPair) F] [PreservesColimitsOfShape (Discrete.{0} PEmpty) F] :
+    segalGammaSpace C ⟶ segalGammaSpace D := sorry
 
 /-- The connective Ω-spectrum of a special Γ-space, as the sequence of its levels `Sp_n(C)`. -/
 def segalSpectrum (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C] :
@@ -1691,12 +2170,13 @@ variable (C : Type u) [Groupoid.{u} C] [MonoidalCategory C] [SymmetricCategory C
 
 theorem isSpecial : (coherentSubsetGammaSpace C).IsSpecial := sorry
 
-def pi0Equiv : GammaSpace.pi0Monoid (coherentSubsetGammaSpace C) ≃ Core.isoClassesMonoid C := sorry
+def pi0Equiv : GammaSpace.pi0Monoid (coherentSubsetGammaSpace C) ≃* Core.isoClassesMonoid C := sorry
 
 def map {D : Type u} [Groupoid.{u} D] [MonoidalCategory D] [SymmetricCategory D] (F : C ⥤ D)
     [F.Monoidal] : coherentSubsetGammaSpace C ⟶ coherentSubsetGammaSpace D := sorry
 
-def level_one : (coherentSubsetGammaSpace C).obj (FinPointed.mk' 1) ≅ nerve C := sorry
+theorem level_one : ∃ g : (coherentSubsetGammaSpace C).obj (FinPointed.mk' 1) ⟶ nerve C,
+    IsWeakHomotopyEquivalence (SSet.toTop.map g) := sorry
 
 end coherentSubsetGammaSpace
 
@@ -1716,6 +2196,11 @@ example (C : Type u) [Groupoid.{u} C] [MonoidalCategory C] [SymmetricCategory C]
 
 /- `H.4/segal-delooping-theorem` (group completion `X → ΩBX` is an equivalence iff grouplike). -/
 -- signature (not yet statable at the pins): theorem segalDelooping (X : GammaSpace.{u}) (hX : X.IsSpecial)
+
+/- `H.4/segal-group-completion-homology`. -/
+-- signature (not yet statable at the pins): theorem segalGroupCompletion (X : GammaSpace.{u}) (hX : X.IsSpecial)
+-- `|X([1])| → Ω|BX([1])|` is a group completion (`IsGroupCompletion`); the classifying space `BX` of a
+-- Γ-space, its loop space and the H-space structure on `|X([1])|` are not defined in this file.
 
 /- `H.4/group-completion-adjunction`. -/
 -- signature (not yet statable at the pins): theorem groupCompletion_adjunction
@@ -1786,6 +2271,9 @@ def sphere (n : ℕ) : SSet.Pointed.{u} := sorry
 
 def sphereAction (n : ℕ) : Equiv.Perm (Fin n) →* Aut (sphere.{u} n) := sorry
 
+/-- `S^{m+n} ≅ S^m ∧ S^n` (associativity of `smashMonoidal`), equivariant for the block sum `Σ_m × Σ_n → Σ_{m+n}`. -/
+def sphereAddIso (m n : ℕ) : sphere.{u} (m + n) ≅ smash (sphere m) (sphere n) := sorry
+
 def loop (K : SSet.Pointed.{u}) : SSet.Pointed.{u} := sorry
 
 -- signature (not yet statable at the pins): theorem toTop_smash (K L : SSet.Pointed.{u})
@@ -1811,13 +2299,25 @@ namespace TauCeti
 
 open SSet.Pointed
 
-/-- `H.5:spectra/symmetric-spectrum`. The equivariance axiom on the iterated structure maps
-`X_n ∧ S^m → X_{n+m}` needs the iterated maps, built with the associativity isomorphisms of the
-smash product, and is left out here (see the packet). -/
-structure SymmSpectrum : Type (u + 1) where
+/-- The data of a symmetric spectrum before the equivariance axiom. -/
+structure SymmSpectrum.Data : Type (u + 1) where
   level : ℕ → SSet.Pointed.{u}
   action : ∀ n, Equiv.Perm (Fin n) →* Aut (level n)
   σ : ∀ n, smash (level n) circle ⟶ level (n + 1)
+
+/-- The iterated structure map `σ^m : X_n ∧ S^m → X_{n+m}` (Schwede I (1.2)), built from `σ` and the
+associativity isomorphisms of `smashMonoidal`; `σ^0` is the unit isomorphism. -/
+def SymmSpectrum.Data.iterσ (X : SymmSpectrum.Data.{u}) (n m : ℕ) :
+    smash (X.level n) (SSet.Pointed.sphere m) ⟶ X.level (n + m) := sorry
+
+/-- `H.5:spectra/symmetric-spectrum` (Schwede I Definition 3.1). -/
+structure SymmSpectrum extends SymmSpectrum.Data.{u} where
+  /-- `σ^m` is `Σ_n × Σ_m`-equivariant, `Σ_n × Σ_m ⊆ Σ_{n+m}` by block sum. -/
+  equivariant : ∀ (n m : ℕ) (g : Equiv.Perm (Fin n)) (h : Equiv.Perm (Fin m)),
+    smashMap (action n g).hom (SSet.Pointed.sphereAction m h).hom ≫
+        SymmSpectrum.Data.iterσ ⟨level, action, σ⟩ n m =
+      SymmSpectrum.Data.iterσ ⟨level, action, σ⟩ n m ≫
+        (action (n + m) (finSumFinEquiv.permCongr (Equiv.sumCongr g h))).hom
 
 namespace SymmSpectrum
 
@@ -1856,8 +2356,8 @@ example : ∃ Z : SymmSpectrum.{u}, IsZero Z := sorry
 /-- `symmSpectrum_sphere_level` (computation). -/
 example : Nonempty ((sphere.{u}).level 2 ≅ SSet.Pointed.sphere 2) := sorry
 
-/-- `symmSpectrum_colimit_levelwise` (characterisation). -/
-example : HasColimits SymmSpectrum.{u} := sorry
+/-- `symmSpectrum_colimit_levelwise` (characterisation): evaluation at each level preserves colimits. -/
+example (n : ℕ) : PreservesColimits (level'.{u} n) := sorry
 
 /- `symmSpectrum_not_sequential` (non-example): comment only (the `Σ₂`-equivariance on `X₀ ∧ S² → X₂`). -/
 -- signature (not yet statable at the pins): example
@@ -1916,10 +2416,11 @@ def adjointStructureMap (X : SymmSpectrum.{u}) (n : ℕ) :
 def IsOmegaSpectrum (X : SymmSpectrum.{u}) : Prop :=
   ∀ n, IsWeakHomotopyEquivalence (adjointStructureMap X n)
 
-def IsConnective (X : SymmSpectrum.{u}) : Prop := ∀ k : ℤ, k < 0 → Subsingleton (naivePi X k)
+/-- Naive homotopy groups vanish in negative degrees; implies `IsConnective` (Schwede I Example 8.50). -/
+def IsNaivelyConnective (X : SymmSpectrum.{u}) : Prop := ∀ k : ℤ, k < 0 → Subsingleton (naivePi X k)
 
--- signature (not yet statable at the pins): theorem IsOmegaSpectrum.naivePi_eq {X : SymmSpectrum.{u}} (hX : IsOmegaSpectrum X) (k : ℤ)
--- `π̂_k X ≅ π_{k+n}|X_n|` for `k + n ≥ 0`.
+theorem IsOmegaSpectrum.naivePi_eq {X : SymmSpectrum.{u}} (hX : IsOmegaSpectrum X) (k : ℤ) (n : ℕ)
+    (hkn : 0 ≤ k + n) : Function.Bijective (naivePi_of_level X k n) := sorry
 
 /-- `H.5:spectra/semistable`: `λ_X : S¹ ∧ X → sh X` is a `π̂_*`-isomorphism (Schwede I.3.14). -/
 def IsSemistable (X : SymmSpectrum.{u}) : Prop := IsNaivePiIso (lambda.app X)
@@ -1933,7 +2434,7 @@ example (Z : SymmSpectrum.{u}) (hZ : IsZero Z) : IsOmegaSpectrum Z := sorry
 example : ¬ IsOmegaSpectrum sphere.{u} := sorry
 
 /-- `isConnective_sphere` (computation). -/
-example : IsConnective sphere.{u} := sorry
+example : IsNaivelyConnective sphere.{u} := sorry
 
 /-- `H.5:spectra/suspension-spectrum`. -/
 def suspensionSpectrum : SSet.Pointed.{u} ⥤ SymmSpectrum.{u} := sorry
@@ -1953,7 +2454,7 @@ example : IsZero (suspensionSpectrum.{u}.obj (Under.mk (𝟙 (⊤_ SSet.{u})))) 
 example : Nonempty (naivePi (suspensionSpectrum.{0}.obj (SSet.Pointed.sphere 0)) 0 ≃+ ℤ) := sorry
 
 /-- `suspensionSpectrum_connective` (characterisation). -/
-example (K : SSet.Pointed.{u}) : IsConnective (suspensionSpectrum.obj K) := sorry
+example (K : SSet.Pointed.{u}) : IsNaivelyConnective (suspensionSpectrum.obj K) := sorry
 
 /-- `free_one_not_piIso` (non-example). -/
 example : ¬ IsNaivePiIso ((freeAdj.{u} 1).counit.app sphere) := sorry
@@ -1962,7 +2463,7 @@ example : ¬ IsNaivePiIso ((freeAdj.{u} 1).counit.app sphere) := sorry
 example (Z : SymmSpectrum.{u}) (hZ : IsZero Z) : IsZero (loop.obj Z) := sorry
 
 /-- `naivePi_shift` (computation). -/
-example (X : SymmSpectrum.{u}) (k : ℤ) : Nonempty (naivePi (shift.obj X) k ≃+ naivePi X (k + 1)) := sorry
+example (X : SymmSpectrum.{u}) (k : ℤ) : Nonempty (naivePi (shift.obj X) (k + 1) ≃+ naivePi X k) := sorry
 
 /-- `loop_susp_sphere` (compatibility). -/
 example : Nonempty (naivePi (susp.{0}.obj sphere) 1 ≃+ ℤ) := sorry
@@ -1992,15 +2493,47 @@ def naivePiToPi (X : SymmSpectrum.{u}) (k : ℤ) : naivePi X k →+ pi X k := so
 theorem naivePiToPi_iso_of_semistable {X : SymmSpectrum.{u}} (hX : IsSemistable X) (k : ℤ) :
     Function.Bijective (naivePiToPi X k) := sorry
 
-/-- `H.5:spectra/stable-equivalence` (via true homotopy groups, equivalent to the injective
-Ω-spectrum definition by Schwede I Theorem 6.2). -/
-def stableEquivalences : MorphismProperty SymmSpectrum.{u} :=
-  fun _ _ f => ∀ k, Function.Bijective (pi.map f k)
+/-- Connective: the true homotopy groups vanish in negative degrees. -/
+def IsConnective (X : SymmSpectrum.{u}) : Prop := ∀ k : ℤ, k < 0 → Subsingleton (pi X k)
 
+theorem IsNaivelyConnective.isConnective {X : SymmSpectrum.{u}} (hX : IsNaivelyConnective X) :
+    IsConnective X := sorry
+
+/-- Level equivalences: levelwise weak equivalences after realisation. -/
+def levelEquivalences : MorphismProperty SymmSpectrum.{u} :=
+  fun _ _ f => ∀ n, IsWeakHomotopyEquivalence (SSet.toTop.map (f.app n).right)
+
+/-- Injective spectra (Hovey–Shipley–Smith Definition 3.1.1). -/
+def IsInjective (E : SymmSpectrum.{u}) : Prop :=
+  ∀ ⦃A B : SymmSpectrum.{u}⦄ (i : A ⟶ B), Mono i → levelEquivalences i →
+    ∀ g : A ⟶ E, ∃ h : B ⟶ E, i ≫ h = g
+
+/-- Simplicial homotopy classes `[A, E]` of morphisms (homotopies `Δ[1]₊ ∧ A → E`). -/
+def homotopyClasses (A E : SymmSpectrum.{u}) : Type u := sorry
+
+def homotopyClasses.precomp {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (E : SymmSpectrum.{u}) :
+    homotopyClasses Y E → homotopyClasses X E := sorry
+
+/-- `H.5:spectra/stable-equivalence` (Hovey–Shipley–Smith Definition 3.1.3, Schwede I Definition 4.11). -/
+def stableEquivalences : MorphismProperty SymmSpectrum.{u} :=
+  fun _ _ f => ∀ E : SymmSpectrum.{u}, IsInjective E → IsOmegaSpectrum E →
+    Function.Bijective (homotopyClasses.precomp f E)
+
+/-- `H.5:spectra/naive-isomorphism-is-stable-equivalence` (Schwede I Theorem 4.23). -/
 theorem stableEquivalence_of_naivePiIso {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (hf : IsNaivePiIso f) :
     stableEquivalences f := sorry
+/-- Schwede I Theorem 6.2. -/
 theorem stableEquivalence_iff_truePi {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) :
-    stableEquivalences f ↔ ∀ k, Function.Bijective (pi.map f k) := Iff.rfl
+    stableEquivalences f ↔ ∀ k, Function.Bijective (pi.map f k) := sorry
+
+/-- A functorial stable equivalence `p_Y : Y ⟶ ωY` to an injective Ω-spectrum (Schwede I Props. 4.10, 4.39). -/
+def injectiveOmegaReplacement : SymmSpectrum.{u} ⥤ SymmSpectrum.{u} := sorry
+
+def injectiveOmegaReplacement.ι : 𝟭 SymmSpectrum.{u} ⟶ injectiveOmegaReplacement := sorry
+
+theorem injectiveOmegaReplacement.spec (Y : SymmSpectrum.{u}) :
+    IsInjective (injectiveOmegaReplacement.obj Y) ∧ IsOmegaSpectrum (injectiveOmegaReplacement.obj Y) ∧
+      stableEquivalences (injectiveOmegaReplacement.ι.app Y) := sorry
 theorem stableEquivalence_iff_naivePi_of_semistable {X Y : SymmSpectrum.{u}} (f : X ⟶ Y)
     (hX : IsSemistable X) (hY : IsSemistable Y) : stableEquivalences f ↔ IsNaivePiIso f := sorry
 theorem stableEquivalences.twoOutOfThree : (stableEquivalences.{u}).HasTwoOutOfThreeProperty := sorry
@@ -2047,6 +2580,8 @@ theorem isIso_γ_iff {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) :
     IsIso (γ.map f) ↔ SymmSpectrum.stableEquivalences f := sorry
 
 instance preadditive : Preadditive SHC.{u} := sorry
+/-- `H.5:spectra/shc-products` (Schwede II Proposition 1.10(ii)). -/
+instance hasProducts : HasProducts.{u} SHC.{u} := sorry
 instance : HasZeroObject SHC.{u} := sorry
 instance shiftFunctor : HasShift SHC.{u} ℤ := sorry
 instance (n : ℤ) : (CategoryTheory.shiftFunctor SHC.{u} n).Additive := sorry
@@ -2055,6 +2590,10 @@ instance (n : ℤ) : (CategoryTheory.shiftFunctor SHC.{u} n).Additive := sorry
 def sphere (k : ℤ) : SHC.{u} := (CategoryTheory.shiftFunctor SHC k).obj (γ.obj SymmSpectrum.sphere)
 
 def homSphereEquiv (X : SymmSpectrum.{u}) (k : ℤ) : (sphere k ⟶ γ.obj X) ≃ SymmSpectrum.pi X k := sorry
+
+-- signature (not yet statable at the pins): def homSuspensionSpectrumEquiv (K : SSet.Pointed.{u}) (X : SymmSpectrum.{u})
+-- (hX : SymmSpectrum.IsOmegaSpectrum X) : pointed homotopy classes `[K, X₀]` ≃ `(γ.obj (suspensionSpectrum.obj K) ⟶ γ.obj X)`
+-- (Schwede II Example 1.17); pointed simplicial homotopy classes into a Kan complex are not in Mathlib.
 
 end SHC
 
@@ -2104,9 +2643,23 @@ example (X Z : SymmSpectrum.{u}) (hZ : IsZero Z) (f : X ⟶ Z) (hX : ¬ IsZero (
 theorem cofibre_exact {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
     Function.Exact (pi.map f k) (pi.map (mappingCone.inr f) k) := sorry
 
-/-- `H.5:spectra/fibre-cofibre-shift`. -/
+/-- The connecting homomorphism `π_k C(f) → π_{k-1} X` (Schwede I (2.11), Prop. 6.11). -/
+def mappingCone.piδ {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    pi (mappingCone f) k →+ pi X (k - 1) := sorry
+
+theorem cofibre_exact_cone {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    Function.Exact (pi.map (mappingCone.inr f) k) (mappingCone.piδ f k) := sorry
+
+theorem cofibre_exact_source {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    Function.Exact (mappingCone.piδ f k) (pi.map f (k - 1)) := sorry
+
+/-- The natural comparison `h : S¹ ∧ F(f) → C(f)` (Schwede I (2.16)). -/
+def homotopyFiber.toMappingCone {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) :
+    susp.obj (homotopyFiber f) ⟶ mappingCone f := sorry
+
+/-- `H.5:spectra/fibre-cofibre-shift` (Schwede I Proposition 2.17). -/
 theorem fibre_cofibre_shift {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) :
-    Nonempty (SHC.γ.obj (homotopyFiber f) ≅ SHC.γ.obj (loop.obj (mappingCone f))) := sorry
+    stableEquivalences (homotopyFiber.toMappingCone f) := sorry
 
 /-- `H.5:spectra/finite-biproducts`. -/
 theorem coprod_to_prod_stableEquivalence (X Y : SymmSpectrum.{u}) [HasBinaryCoproduct X Y]
@@ -2128,11 +2681,24 @@ namespace SymmSpectrum
 /-- `H.5:spectra/smash-product`. -/
 def smash (X Y : SymmSpectrum.{u}) : SymmSpectrum.{u} := sorry
 
-/-- A bimorphism `(X, Y) → Z`: compatible equivariant maps `X_p ∧ Y_q → Z_{p+q}`. -/
+/-- The universal bimorphism `i_{p,q} : X_p ∧ Y_q → (X ∧ Y)_{p+q}` (Schwede I Construction 5.6). -/
+def smash.ι (X Y : SymmSpectrum.{u}) (p q : ℕ) :
+    SSet.Pointed.smash (X.level p) (Y.level q) ⟶ (smash X Y).level (p + q) := sorry
+
+/-- A bimorphism `(X, Y) → Z` (Schwede I (5.1)): `Σ_p × Σ_q`-equivariant maps `X_p ∧ Y_q → Z_{p+q}`;
+the bilinearity diagram (5.1) needs the symmetry isomorphism of `smashMonoidal` and is stated in the packet. -/
 structure Bimorphism (X Y Z : SymmSpectrum.{u}) where
   app : ∀ p q, SSet.Pointed.smash (X.level p) (Y.level q) ⟶ Z.level (p + q)
+  equivariant : ∀ p q (g : Equiv.Perm (Fin p)) (h : Equiv.Perm (Fin q)),
+    SSet.Pointed.smashMap (X.action p g).hom (Y.action q h).hom ≫ app p q =
+      app p q ≫ (Z.action (p + q) (finSumFinEquiv.permCongr (Equiv.sumCongr g h))).hom
 
-def smash.desc {X Y Z : SymmSpectrum.{u}} : (smash X Y ⟶ Z) ≃ Bimorphism X Y Z := sorry
+/-- Restriction along the universal bimorphism (Schwede I (5.2)); injective, with image the bimorphisms
+satisfying (5.1). -/
+def smash.desc {X Y Z : SymmSpectrum.{u}} (f : smash X Y ⟶ Z) : Bimorphism X Y Z := sorry
+
+theorem smash.desc_injective {X Y Z : SymmSpectrum.{u}} :
+    Function.Injective (smash.desc (X := X) (Y := Y) (Z := Z)) := sorry
 
 def smash.map {X X' Y Y' : SymmSpectrum.{u}} (f : X ⟶ X') (g : Y ⟶ Y') : smash X Y ⟶ smash X' Y' := sorry
 def smash.assoc (X Y Z : SymmSpectrum.{u}) : smash (smash X Y) Z ≅ smash X (smash Y Z) := sorry
@@ -2152,6 +2718,9 @@ def smash_suspensionSpectrum (K L : SSet.Pointed.{u}) :
 
 def mapSpace (X Y : SymmSpectrum.{u}) : SSet.{u} := sorry
 
+/-- `H.5:spectra/true-homotopy-pairing` (Schwede I Theorem 6.16): `π_k X × π_l Y → π_{k+l}(X ∧ Y)`. -/
+def piSmashPairing (X Y : SymmSpectrum.{u}) (k l : ℤ) : pi X k →+ pi Y l →+ pi (smash X Y) (k + l) := sorry
+
 /-- `smash_sphere_left` (degenerate). -/
 example (X : SymmSpectrum.{u}) : Nonempty (smash sphere X ≅ X) := sorry
 /-- `smash_level_zero` (computation). -/
@@ -2164,6 +2733,12 @@ example (X : SymmSpectrum.{u}) : Nonempty (smash (suspensionSpectrum.obj (SSet.P
 /-- `H.5:spectra/derived-smash-product`. -/
 @[instance_reducible]
 def _root_.TauCeti.SHC.derivedSmash : MonoidalCategory SHC.{u} := sorry
+
+/-- The symmetry of the derived smash product (Schwede II Theorem 3.1). -/
+@[instance_reducible]
+def _root_.TauCeti.SHC.derivedSmashSymmetric :
+    letI := SHC.derivedSmash.{u}
+    SymmetricCategory SHC.{u} := sorry
 
 /- `H.5:spectra/twist-sign`: the twist on `S^p ∧ S^q` is `(-1)^{pq}` (stated on `π_{p+q}`). -/
 -- signature (not yet statable at the pins): theorem twistSign (p q : ℕ)
@@ -2183,6 +2758,7 @@ def piPairing (X Y : SymmSpectrum.{u}) (p q : ℤ) :
 -- `τ_*(x · y) = (-1)^{pq} y · x` under the symmetry `smash X Y ≅ smash Y X`.
 -- signature (not yet statable at the pins): theorem piPairing_unit (X : SymmSpectrum.{u}) (p : ℤ)
 -- signature (not yet statable at the pins): theorem piPairing_naturality {X Y X' Y' : SymmSpectrum.{u}} (f : X ⟶ X') (g : Y ⟶ Y') (p q : ℤ)
+/-- `H.5:spectra/smash-connectivity` (Schwede II Proposition 5.22). -/
 theorem piPairing_bottom_iso (X Y : SymmSpectrum.{u}) (k l : ℤ)
     (hX : ∀ i < k, Subsingleton (pi X i)) (hY : ∀ i < l, Subsingleton (pi Y i)) :
     ∃ φ : TensorProduct ℤ (pi X k) (pi Y l) ≃+ (SHC.sphere (k + l) ⟶ smashL X Y),
@@ -2224,6 +2800,14 @@ structure Hom (R S : SymmRingSpectrum.{u}) where
 structure Module (R : SymmRingSpectrum.{u}) where
   carrier : SymmSpectrum.{u}
   act : SymmSpectrum.smash carrier R.carrier ⟶ carrier
+  act_assoc : SymmSpectrum.smash.map act (𝟙 R.carrier) ≫ act =
+    (SymmSpectrum.smash.assoc carrier R.carrier R.carrier).hom ≫ SymmSpectrum.smash.map (𝟙 carrier) R.mul ≫ act
+  act_one : SymmSpectrum.smash.map (𝟙 carrier) R.unit ≫ act = (SymmSpectrum.smash.rightUnitor carrier).hom
+
+/- `H.5:spectra/module-spectra-model-structure` (Schwede IV Theorem 1.3): `TauCeti.SymmRingSpectrum.Module.stableModelCategory`,
+`TauCeti.SymmRingSpectrum.Module.HomotopyCategory`, `TauCeti.SymmRingSpectrum.Module.freeAdj` and the tests `moduleSpectra_sphere`, `moduleSpectra_free_hom`,
+`moduleSpectra_forget_compat`, `moduleSpectra_not_level` need the category of `R`-modules, not built here. -/
+-- signature (not yet statable at the pins): instance Module.stableModelCategory (R : SymmRingSpectrum.{u})
 
 def levelMul (R : SymmRingSpectrum.{u}) (n m : ℕ) :
     SSet.Pointed.smash (R.carrier.level n) (R.carrier.level m) ⟶ R.carrier.level (n + m) :=
@@ -2247,15 +2831,22 @@ example (Z : SymmSpectrum.{u}) (hZ : IsZero Z) : ∃ R : SymmRingSpectrum.{u}, R
 
 namespace SymmSpectrum
 
-/-- `H.5:spectra/operadic-algebras`. -/
+/-- `H.5:spectra/operadic-algebras` (Schwede III Definition 5.3); the composition maps
+`O(n) ∧ O(i₁) ∧ ⋯ ∧ O(iₙ) → O(i₁ + ⋯ + iₙ)` and the axioms are stated in the packet. -/
 structure Operad : Type (u + 1) where
   obj : ℕ → SymmSpectrum.{u}
+  action : ∀ n, (Equiv.Perm (Fin n))ᵐᵒᵖ →* Aut (obj n)
   unit : sphere ⟶ obj 1
 
+/-- The smash power `A^{∧ n}`, with `A^{∧ 0} = S`. -/
+def smashPow (A : SymmSpectrum.{u}) (n : ℕ) : SymmSpectrum.{u} :=
+  Nat.iterate (fun B => smash B A) n sphere
+
+/-- Algebras (Schwede III Definition 5.4): `α_n : O(n) ∧ A^{∧ n} → A`; associativity, unit and
+`Σ_n`-equivariance are stated in the packet. -/
 structure Operad.Algebra (O : Operad.{u}) where
   carrier : SymmSpectrum.{u}
-  act : ∀ n, smash (O.obj n) carrier ⟶ carrier
--- (The `Σ_n`-coinvariants of `O(n) ∧ A^{∧ n}` need the smash powers; recorded schematically.)
+  act : ∀ n, smash (O.obj n) (smashPow carrier n) ⟶ carrier
 
 def Operad.ofSSet (O : ℕ → SSet.{u}) : Operad.{u} := sorry
 -- `TauCeti.SymmSpectrum.Operad.comAlgebraEquiv`: algebras over the commutative operad are exactly the
@@ -2285,6 +2876,7 @@ theorem level_kpi (A : Type u) [AddCommGroup A] (n : ℕ) :
     Nonempty (ContinuousMap.HomotopyEquiv (SSet.toTop.obj ((eilenbergMacLane A).level (n + 1)).right)
       (EilenbergMacLaneSpace A (n + 1))) := sorry
 
+/-- `H.5:spectra/eilenberg-maclane-uniqueness` (Schwede II Theorem 5.25). -/
 theorem uniqueness (A : Type u) [AddCommGroup A] (X : SymmSpectrum.{u}) (hX : IsConnective X) :
     Nonempty ((SHC.γ.obj X ⟶ SHC.γ.obj (eilenbergMacLane A)) ≃ (pi X 0 →+ A)) := sorry
 
@@ -2333,6 +2925,7 @@ def eilenbergMacLaneComplex : CochainComplex (ModuleCat.{u} (ULift ℤ)) ℤ ⥤
 
 namespace eilenbergMacLaneComplex
 
+/-- `H.5:spectra/eilenberg-maclane-of-chain-complex-homotopy`: `π_k(HC) ≅ H_k(C) = H^{-k}(C)`. -/
 def piIso (C : CochainComplex (ModuleCat.{u} (ULift ℤ)) ℤ) (k : ℤ) :
     pi (eilenbergMacLaneComplex.obj C) k ≃+ C.homology (-k) := sorry
 
@@ -2352,13 +2945,16 @@ end eilenbergMacLaneComplex
 /-- `eilenbergMacLaneComplex_zero` (degenerate). -/
 example (C : CochainComplex (ModuleCat.{u} (ULift ℤ)) ℤ) (hC : IsZero C) :
     IsZero (SHC.γ.obj (eilenbergMacLaneComplex.obj C)) := sorry
-/- `eilenbergMacLaneComplex_single` (compatibility). -/
--- signature (not yet statable at the pins): example (A : Type u) [AddCommGroup A] [_root_.Module (ULift ℤ) A] :
---       Nonempty (SHC.γ.obj (eilenbergMacLaneComplex.obj ((HomologicalComplex.single _ _ 0).obj
---         (ModuleCat.of (ULift ℤ) A))) ≅ SHC.γ.obj (eilenbergMacLane A)) := eilenbergMacLaneComplex.single A
---   /-- `eilenbergMacLaneComplex_negative` (computation). -/
---   example
-/- `eilenbergMacLaneComplex_not_formal_over_Z4` (non-example). -/
+/-- `eilenbergMacLaneComplex_single` (compatibility). -/
+example (A : Type u) [AddCommGroup A] [_root_.Module (ULift ℤ) A] :
+    Nonempty (SHC.γ.obj (eilenbergMacLaneComplex.obj ((HomologicalComplex.single _ _ 0).obj
+      (ModuleCat.of (ULift ℤ) A))) ≅ SHC.γ.obj (eilenbergMacLane A)) := eilenbergMacLaneComplex.single A
+
+/-- `eilenbergMacLaneComplex_negative` (computation): `ℤ` in homological degree `-2` (cochain degree `2`). -/
+example : Nonempty (pi (eilenbergMacLaneComplex.{0}.obj ((HomologicalComplex.single _ _ 2).obj
+    (ModuleCat.of (ULift ℤ) (ULift ℤ)))) (-2) ≃+ ULift ℤ) := sorry
+/- `eilenbergMacLaneComplex_sees_differential` (non-example): `H(ℤ →·2 ℤ)` has `π₀ = ℤ/2`, so it is not
+`HZ ∨ ΣHZ`; stating it needs chosen coproducts in `SHC`. -/
 -- signature (not yet statable at the pins): example
 
 /- `H.5:spectra/eilenberg-maclane-cohomology`: comment-level (singular cohomology is Tau Ceti stage 6):
@@ -2384,6 +2980,20 @@ theorem postnikovTriangle_distinguished (n : ℤ) (X : SHC.{u}) :
 /-- True homotopy groups of an object of `SHC`. -/
 abbrev piObj (X : SHC.{u}) (k : ℤ) : Type (u + 1) := sphere k ⟶ X
 
+/-- `H.5:spectra/connective-generation` (Schwede II Proposition 5.21): every `(n-1)`-connected spectrum lies in
+the smallest class containing `Sⁿ` and closed under sums and extensions to the right. -/
+theorem connective_generation (n : ℤ) (P : SHC.{u} → Prop) (hS : P (sphere n))
+    (hsum : ∀ (ι : Type u) (f : ι → SHC.{u}) [HasCoproduct f], (∀ i, P (f i)) → P (∐ f))
+    (hext : ∀ T ∈ distTriang SHC.{u}, P T.obj₁ → P T.obj₂ → P T.obj₃)
+    (X : SHC.{u}) (hX : ∀ k < n, Subsingleton (piObj X k)) : P X := sorry
+
+/- `H.5:spectra/cellular-approximation` (Schwede II Proposition 5.14), for a set of compact objects of a
+triangulated category with sums and a cohomological functor: comment only. -/
+-- signature (not yet statable at the pins): theorem cellularApproximation
+
+/-- `H.5:spectra/shc-products`: `π_k` commutes with products. -/
+def piProdEquiv {J : Type u} (Y : J → SHC.{u}) (k : ℤ) : piObj (∏ᶜ Y) k ≃+ ∀ j, piObj (Y j) k := sorry
+
 theorem pi_connectiveCover (n k : ℤ) (X : SHC.{u}) (hk : n ≤ k) :
     Nonempty (piObj ((connectiveCover n).obj X) k ≃+ piObj X k) := sorry
 theorem pi_postnikovSection (n k : ℤ) (X : SHC.{u}) (hk : k ≤ n) :
@@ -2399,10 +3009,12 @@ end SHC
 /-- `connectiveCover_connective` (degenerate). -/
 example (X : SymmSpectrum.{u}) (hX : X.IsConnective) :
     IsIso ((SHC.connectiveCover.counit 0).app (SHC.γ.obj X)) := sorry
-/-- `postnikovSection_zero_HA` (computation). -/
-example (A : Type u) [AddCommGroup A] :
-    IsIso ((SHC.postnikovSection.unit 0).app (SHC.γ.obj (SymmSpectrum.eilenbergMacLane A))) := sorry
-/- `connectiveCover_KU_ku` (compatibility): comment (`KU` and `ku` are RefinedTraceMethods:RT.4 objects). -/
+/-- `postnikovSection_zero_HA` (computation): `P₀(X⟨0⟩) ≅ H(π₀ X)`. -/
+example (X : SymmSpectrum.{u}) :
+    Nonempty ((SHC.postnikovSection 0).obj ((SHC.connectiveCover 0).obj (SHC.γ.obj X)) ≅
+      SHC.γ.obj (SymmSpectrum.eilenbergMacLane (SymmSpectrum.pi X 0))) := sorry
+/- `connectiveCover_wedge_example` (compatibility): for `X = HZ ∨ Σ²HZ ∨ Σ⁻²HZ`, `connectiveCover 0 X ≅ HZ ∨ Σ²HZ`
+and `postnikovSection (-1) X ≅ Σ⁻²HZ`; stating it needs chosen coproducts in `SHC`. -/
 -- signature (not yet statable at the pins): example
 /-- `connectiveCover_not_identity_negative` (non-example). -/
 example : IsZero ((SHC.connectiveCover 0).obj ((CategoryTheory.shiftFunctor SHC.{0} (-1 : ℤ)).obj
@@ -2457,6 +3069,7 @@ def kSpectrum.map {D : Type u} [Category.{u} D] [HasZeroObject D] (W' : Stub.Wal
 theorem kSpectrum.level_zero : ∃ (D : Type u) (_ : Category.{u} D),
     Nonempty (((kSpectrum C W).level 0).right ≅ nerve D) := sorry
 
+/-- `H.5:S-delooping/iterated-S-construction-omega-spectrum`: positive Ω-spectrum (levels `n + 1 ≥ 1`). -/
 theorem kSpectrum.isPositiveOmega (n : ℕ) :
     IsWeakHomotopyEquivalence (SymmSpectrum.adjointStructureMap (kSpectrum C W) (n + 1)) := sorry
 
@@ -2516,6 +3129,9 @@ def piZero (m : ℕ) : piObj (moore.{u} m) 0 ≃+ ZMod m := sorry
 
 def liftHom {m m' : ℕ} (φ : ZMod m →+ ZMod m') : moore.{u} m ⟶ moore m' := sorry
 
+theorem liftHom_piZero {m m' : ℕ} (φ : ZMod m →+ ZMod m') (x : piObj (moore.{u} m) 0) :
+    piZero m' (x ≫ liftHom φ) = φ (piZero m x) := sorry
+
 end moore
 
 /-- `moore_one_trivial` (degenerate). -/
@@ -2527,8 +3143,11 @@ example : Nonempty (piObj (moore.{u} 2) 2 ≃+ ZMod 4) := sorry
 /-- `moore_two_not_ring` (non-example). -/
 example : (2 : ℤ) • 𝟙 (moore.{u} 2) ≠ 0 := sorry
 
-/-- `H.6/coefficient-spectrum`: `E/m` as a cofibre of `m • 𝟙 E`. -/
-def modM (E : SHC.{u}) (m : ℕ) : SHC.{u} := sorry
+/-- `H.6/coefficient-spectrum`: `E/m := E ∧ᴸ S/m`, functorial in `E`; it is a cofibre of `m • 𝟙 E`
+(`modM.triangle_distinguished`). -/
+def modM (E : SHC.{u}) (m : ℕ) : SHC.{u} :=
+  letI := SHC.derivedSmash.{u}
+  MonoidalCategory.tensorObj E (moore m)
 
 namespace modM
 
@@ -2540,7 +3159,9 @@ theorem triangle_distinguished (E : SHC.{u}) (m : ℕ) : triangle E m ∈ distTr
 def smashIso (E : SHC.{u}) (m : ℕ) : letI := SHC.derivedSmash.{u}
     modM E m ≅ MonoidalCategory.tensorObj E (moore m) := sorry
 
-def functor (m : ℕ) : SHC.{u} ⥤ SHC.{u} := sorry
+def functor (m : ℕ) : SHC.{u} ⥤ SHC.{u} :=
+  letI := SHC.derivedSmash.{u}
+  MonoidalCategory.tensorRight (moore m)
 
 -- signature (not yet statable at the pins): theorem HA (A : Type u) [AddCommGroup A] (m : ℕ)
 -- `π₀((HA)/m) ≅ A ⧸ mA` and `π₁((HA)/m) ≅ A[m]`.
@@ -2564,6 +3185,10 @@ gives a long exact sequence (Mathlib's homological functor long exact sequences)
 theorem bockstein_distinguished (E : SHC.{u}) (m : ℕ) : modM.triangle E m ∈ distTriang SHC :=
   modM.triangle_distinguished E m
 
+/-- The Bockstein `π_n(E; ℤ/m) → π_{n-1}(E)`: composition with `(modM.triangle E m).mor₃ : E/m → ΣE`
+followed by the shift identification `[S^n, ΣE] ≅ [S^{n-1}, E]`. -/
+def piMod.bockstein (E : SHC.{u}) (m : ℕ) (n : ℤ) : piMod E m n →+ piObj E (n - 1) := sorry
+
 /-- `H.6/mod-l-homotopy-and-bockstein-sequence`: the universal coefficient sequence, stated for
 `E = γ X` through the true homotopy groups of `X`. -/
 theorem universalCoefficient (X : SymmSpectrum.{u}) (m : ℕ) (n : ℤ) :
@@ -2571,7 +3196,21 @@ theorem universalCoefficient (X : SymmSpectrum.{u}) (m : ℕ) (n : ℤ) :
       (j : piMod (γ.obj X) m n →+ AddSubgroup.torsionBy (SymmSpectrum.pi X (n - 1)) m),
       (∀ x : SymmSpectrum.pi X n, i (TensorProduct.tmul ℤ x 1) =
         (homSphereEquiv X n).symm x ≫ (modM.triangle (γ.obj X) m).mor₂) ∧
+      (∀ y, (j y : SymmSpectrum.pi X (n - 1)) =
+        homSphereEquiv X (n - 1) (piMod.bockstein (γ.obj X) m n y)) ∧
       Function.Injective i ∧ Function.Surjective j ∧ ∀ y, (∃ x, i x = y) ↔ j y = 0 := sorry
+
+/-- `H.6/uct-splitting`: for `m` odd or `4 ∣ m` the universal coefficient sequence splits (not naturally),
+so `π_n(E; ℤ/m)` is abstractly the sum of its two outer terms. -/
+theorem universalCoefficient_split (X : SymmSpectrum.{u}) (m : ℕ) (n : ℤ) (hm : Odd m ∨ 4 ∣ m) :
+    Nonempty (piMod (γ.obj X) m n ≃+
+      (TensorProduct ℤ (SymmSpectrum.pi X n) (ZMod m) × AddSubgroup.torsionBy (SymmSpectrum.pi X (n - 1)) m)) :=
+  sorry
+
+/-- `H.6/coprime-coefficient-decomposition`: `S/q₁q₂ ≅ S/q₁ ∨ S/q₂` for coprime `q₁, q₂`, stated on
+mod-`q₁q₂` homotopy groups. -/
+theorem piMod_coprime (E : SHC.{u}) (q₁ q₂ : ℕ) (h : Nat.Coprime q₁ q₂) (n : ℤ) :
+    Nonempty (piMod E (q₁ * q₂) n ≃+ piMod E q₁ n × piMod E q₂ n) := sorry
 
 /-- `H.6/moore-spectrum-change-of-coefficients`. -/
 def moore.incl (p r : ℕ) : moore.{u} (p ^ r) ⟶ moore (p ^ (r + 1)) := sorry
@@ -2605,10 +3244,11 @@ def TauCeti.SymmSpectrum.towerLimit (X : ℕᵒᵖ ⥤ TauCeti.SymmSpectrum.{u})
 
 namespace TauCeti.SHC
 
-/- `holimTower_const` (degenerate). -/
--- signature (not yet statable at the pins): example (E : SHC.{u}) : Nonempty (holimTower ((Functor.const _).obj E) ≅ E) := ⟨holimTower.const E⟩
---   /-- `holimTower_zero_maps` (computation): comment (zero transition maps give `holim = 0`). -/
---   example
+/-- `holimTower_const` (degenerate). -/
+example (E : SHC.{u}) : Nonempty (holimTower ((Functor.const _).obj E) ≅ E) := ⟨holimTower.const E⟩
+/-- `holimTower_zero_maps` (computation). -/
+example (X : ℕᵒᵖ ⥤ SHC.{u}) (hX : ∀ n : ℕ, X.map (homOfLE (Nat.le_succ n)).op = 0) :
+    IsZero (holimTower X) := sorry
 /- `holimTower_point_set_compat` (compatibility). -/
 -- signature (not yet statable at the pins): example (X : ℕᵒᵖ ⥤ SymmSpectrum.{u})
 /- `holimTower_not_lim_pi` (non-example): see `nonzeroLimOne`. -/
@@ -2621,19 +3261,31 @@ theorem milnor_surjective (X : ℕᵒᵖ ⥤ SHC.{u}) (k : ℤ)
     (hx : ∀ n, x (n + 1) ≫ X.map (homOfLE (Nat.le_succ n)).op = x n) :
     ∃ y : piObj (holimTower X) k, ∀ n, y ≫ holimTower.π X n = x n := sorry
 
+/-- `H.6/milnor-sequence`, Mittag-Leffler case: if the tower `π_{k+1} X_n` is Mittag-Leffler then
+`lim¹ π_{k+1} X_n = 0`, so `π_k holim → lim π_k X_n` is injective. -/
+theorem milnor_injective_of_isMittagLeffler (X : ℕᵒᵖ ⥤ SHC.{u}) (k : ℤ)
+    (hML : (X ⋙ coyoneda.obj (Opposite.op (sphere.{u} (k + 1)))).IsMittagLeffler)
+    (y y' : piObj (holimTower X) k) (h : ∀ n, y ≫ holimTower.π X n = y' ≫ holimTower.π X n) :
+    y = y' := sorry
+
 /-- `H.6/nonzero-lim-one-example`: the tower `⋯ →p S →p S` has `π_{-1}(holim) ≅ ℤ_p ⧸ ℤ ≠ 0`. -/
 theorem nonzeroLimOne (p : ℕ) [Fact p.Prime] : ∃ X : ℕᵒᵖ ⥤ SHC.{u},
     (∀ n, Subsingleton (piObj (X.obj (Opposite.op n)) (-1))) ∧ ¬ Subsingleton (piObj (holimTower X) (-1)) := sorry
 
-/-- `H.6/p-completion`. -/
-def pCompletion (p : ℕ) (E : SHC.{u}) : SHC.{u} := holimTower (modTower E p)
+/-- `H.6/p-completion`: `E^∧_p := F(S/p^∞, ΣE)` (internal Hom of the derived smash product, not a
+declaration of this file); `pCompletion.isoHolim` identifies it with the homotopy limit of `E/pʳ`. -/
+def pCompletion (p : ℕ) (E : SHC.{u}) : SHC.{u} := sorry
 
 namespace pCompletion
 
+/-- The canonical map, adjoint to `Id ∧ δ : E ∧ S/p^∞ → ΣE`. -/
 def unit (p : ℕ) (E : SHC.{u}) : E ⟶ pCompletion p E := sorry
 def functor (p : ℕ) : SHC.{u} ⥤ SHC.{u} := sorry
--- signature (not yet statable at the pins): theorem isoFunction (p : ℕ) (E : SHC.{u})
--- `pCompletion p E ≅ F(S/p^∞, ΣE)` (internal Hom of the derived smash product).
+def functorObjIso (p : ℕ) (E : SHC.{u}) : (functor p).obj E ≅ pCompletion p E := sorry
+theorem unit_naturality (p : ℕ) {E F : SHC.{u}} (f : E ⟶ F) :
+    f ≫ unit p F ≫ (functorObjIso p F).inv = unit p E ≫ (functorObjIso p E).inv ≫ (functor p).map f := sorry
+/-- Schwede II Theorem 9.9(iii) and Remark 9.11. -/
+def isoHolim (p : ℕ) (E : SHC.{u}) : pCompletion p E ≅ holimTower (modTower E p) := sorry
 
 end pCompletion
 
@@ -2672,13 +3324,20 @@ theorem rationalization.pi (X : SymmSpectrum.{u}) (k : ℤ) :
 theorem rationalization.smashHQ (E : SHC.{u}) : letI := SHC.derivedSmash.{u}
     Nonempty (rationalization E ≅ MonoidalCategory.tensorObj (γ.obj (SymmSpectrum.eilenbergMacLane (ULift ℚ))) E) := sorry
 def IsRational (E : SHC.{u}) : Prop := IsIso (rationalization.unit E)
--- signature (not yet statable at the pins): theorem rational_generalizedEM (E : SHC.{u}) (hE : IsRational E)
--- A rational spectrum is `∏_k Σ^k H(π_k E)`.
+/-- `H.6/rational-spectra-generalized-eilenberg-maclane`: a spectrum with uniquely divisible homotopy
+groups is the product `∏_k Σ^k H(π_k X)` (Schwede II Theorem 9.6; uses Serre finiteness, a packet gap). -/
+theorem rational_generalizedEM (X : SymmSpectrum.{u})
+    (hX : ∀ (k : ℤ) (n : ℕ), n ≠ 0 → Function.Bijective (fun x : SymmSpectrum.pi X k => n • x)) :
+    Nonempty (γ.obj X ≅ ∏ᶜ (fun k : ULift.{u} ℤ =>
+      (CategoryTheory.shiftFunctor SHC.{u} k.down).obj
+        (γ.obj (SymmSpectrum.eilenbergMacLane (SymmSpectrum.pi X k.down))))) := sorry
 
 /-- `rationalization_zero` (degenerate). -/
 example (Z : SHC.{u}) (hZ : IsZero Z) : IsZero (rationalization Z) := sorry
 /-- `rationalization_sphere` (computation). -/
 example : Nonempty (rationalization (sphere.{0} 0) ≅ γ.obj (SymmSpectrum.eilenbergMacLane ℚ)) := sorry
+/-- `rationalization_pi_zero_sphere` (computation). -/
+example : Nonempty (piObj (rationalization (sphere.{0} 0)) 0 ≃+ ℚ) := sorry
 /-- `rationalization_HZp` (compatibility). -/
 example (p : ℕ) [Fact p.Prime] : IsZero (rationalization (γ.obj (SymmSpectrum.eilenbergMacLane.{0} (ZMod p)))) := sorry
 /-- `rationalization_moore_zero` (non-example). -/
@@ -2729,40 +3388,51 @@ end TauCeti.SHC
 
 namespace TauCeti
 
-/-- `H.6/exact-couple`: `D →i D →j E →k D` exact at each vertex (the bigrading is carried by the
-modules, for example `D = ⊕_{s,t} π_{s+t} X_s`). -/
-structure ExactCouple : Type (u + 1) where
-  D : ModuleCat.{u} ℤ
-  E : ModuleCat.{u} ℤ
-  i : D ⟶ D
-  j : D ⟶ E
-  k : E ⟶ D
-  w_ij : i ≫ j = 0
-  w_jk : j ≫ k = 0
-  w_ki : k ≫ i = 0
-  exact_D : (ShortComplex.mk i j w_ij).Exact
-  exact_E : (ShortComplex.mk j k w_jk).Exact
-  exact_D' : (ShortComplex.mk k i w_ki).Exact
+/-- `H.6/exact-couple`: a bigraded exact couple with `i : D_{pq} → D_{pq+a}`, `j : D_{pq} → E_{pq+b}`,
+`k : E_{pq} → D_{pq+c}`, exact at each vertex. The couple of a filtered spectrum has
+`a = (1, -1)`, `b = (0, 0)`, `c = (-1, 0)`. -/
+structure ExactCouple (a b c : ℤ × ℤ) : Type (u + 1) where
+  D : ℤ × ℤ → ModuleCat.{u} ℤ
+  E : ℤ × ℤ → ModuleCat.{u} ℤ
+  i : ∀ pq : ℤ × ℤ, D pq ⟶ D (pq + a)
+  j : ∀ pq : ℤ × ℤ, D pq ⟶ E (pq + b)
+  k : ∀ pq : ℤ × ℤ, E pq ⟶ D (pq + c)
+  exact_D : ∀ (pq : ℤ × ℤ) (x : D (pq + a)), (j (pq + a)).hom x = 0 ↔ ∃ y, (i pq).hom y = x
+  exact_E : ∀ (pq : ℤ × ℤ) (x : E (pq + b)), (k (pq + b)).hom x = 0 ↔ ∃ y, (j pq).hom y = x
+  exact_D' : ∀ (pq : ℤ × ℤ) (x : D (pq + c)), (i (pq + c)).hom x = 0 ↔ ∃ y, (k pq).hom y = x
 
 namespace ExactCouple
 
-def derived (C : ExactCouple.{u}) : ExactCouple.{u} := sorry
+variable {a b c : ℤ × ℤ}
 
-/-- The page `E^r`, `r ≥ 1`: the `(r - 1)`-fold derived couple (`E¹ = C.E`). -/
-def page (C : ExactCouple.{u}) (r : ℕ) : ModuleCat.{u} ℤ := (Nat.iterate derived (r - 1) C).E
+/-- The derived couple: `D' = im i`, `E' = ker (j ∘ k) / im (j ∘ k)`; the bidegree of `j` drops by `a`. -/
+def derived (C : ExactCouple.{u} a b c) : ExactCouple.{u} a (b - a) c := sorry
 
-def toSpectralSequence (C : ExactCouple.{u}) :
+/-- The `n`-fold derived couple. -/
+def derivedN (C : ExactCouple.{u} a b c) (n : ℕ) : ExactCouple.{u} a (b - (n : ℤ) • a) c := sorry
+
+/-- The page `E^r_{pq}`, `r ≥ 1` (`E¹ = C.E`). -/
+def page (C : ExactCouple.{u} a b c) (r : ℕ) (pq : ℤ × ℤ) : ModuleCat.{u} ℤ :=
+  (C.derivedN (r - 1)).E pq
+
+/-- For the standard bidegrees, `d_r = j ∘ k` on page `r` has bidegree `(-r, r - 1)`. -/
+def toSpectralSequence (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0)) :
     SpectralSequence (ModuleCat.{u} ℤ) (fun r => ComplexShape.up' ((-r, r - 1) : ℤ × ℤ)) 1 := sorry
 
 end ExactCouple
 
 namespace SHC.FilteredSpectrum
 
-def exactCouple (F : FilteredSpectrum.{u}) : ExactCouple.{u + 1} := sorry
+def exactCouple (F : FilteredSpectrum.{u}) : ExactCouple.{u + 1} (1, -1) (0, 0) (-1, 0) := sorry
 
 /-- `H.6/filtered-spectrum-spectral-sequence`. -/
 def spectralSequence (F : FilteredSpectrum.{u}) :
-    SpectralSequence (ModuleCat.{u + 1} (ULift ℤ)) (fun r => ComplexShape.up' ((-r, r - 1) : ℤ × ℤ)) 1 := sorry
+    SpectralSequence (ModuleCat.{u + 1} ℤ) (fun r => ComplexShape.up' ((-r, r - 1) : ℤ × ℤ)) 1 := sorry
+
+/-- The `E¹` homological data core with `d_r` of bidegree `(-r, r - 1)` for spectral objects indexed by
+`EInt` (Mathlib at the pin provides only `E₂` data cores). -/
+def coreE₁Homological : CategoryTheory.Abelian.SpectralObject.SpectralSequenceDataCore EInt
+    (fun r : ℤ => ComplexShape.up' ((-r, r - 1) : ℤ × ℤ)) 1 := sorry
 
 -- signature (not yet statable at the pins): theorem spectralSequence.E1 (F : FilteredSpectrum.{u}) (s t : ℤ)
 -- `E¹_{s,t} ≅ π_{s+t}(gr_s F)`.
@@ -2790,7 +3460,13 @@ end SHC.FilteredSpectrum
 
 /- `H.6/spectral-sequence-convergence-complete`. -/
 -- signature (not yet statable at the pins): theorem SHC.FilteredSpectrum.converges_of_complete (F : SHC.FilteredSpectrum.{u}) (hF : F.IsComplete)
--- Conditional convergence (Boardman); strong under uniform connectivity of the fibres.
+-- Strong convergence under uniform connectivity of the fibres; the general complete case is the next node.
+
+/- `H.6/spectral-sequence-conditional-convergence` (Boardman 1999, Theorems 7.1 and 8.2, quoted): a complete
+tower converges conditionally to `π_*(Y)`, and strongly when `RE_∞ = lim¹_r Z^r_{s,t} = 0`. -/
+-- signature (not yet statable at the pins): theorem SHC.FilteredSpectrum.converges_conditionally (F : SHC.FilteredSpectrum.{u}) (hF : F.IsComplete)
+-- The r-cycles `Z^r`, the derived term `RE_∞` and conditional convergence have no declarations in this file
+-- or in Mathlib (only pages and their homology isomorphisms).
 
 /- `H.6/atiyah-hirzebruch-spectral-sequence`. -/
 -- signature (not yet statable at the pins): theorem atiyahHirzebruch (E : SHC.{u}) (X : TopCat.{u}) [Topology.CWComplex (Set.univ : Set X)]
@@ -2800,6 +3476,18 @@ end SHC.FilteredSpectrum
 associative and commutative unital multiplication; the unit and associativity diagrams in `SHC` need the
 derived smash product's coherence isomorphisms, so the signature is a comment. -/
 -- signature (not yet statable at the pins): theorem moore_multiplication
+
+/- `H.6/browder-scholium-mod-products` (Browder, quoted by Weibel IV Scholium 2.8.1): if `π_m E = 0` for even
+`m > 0` and for `m < 0`, then `E ∧ S/ℓ^ν` is a homotopy associative and commutative ring spectrum for every
+`ℓ^ν`; as for `moore_multiplication`, homotopy ring structures need the coherence isomorphisms of the derived
+smash product, so the signature is a comment. -/
+-- signature (not yet statable at the pins): theorem browder_mod_products
+
+/- `H.6/burklund-quotient-tower` (Burklund Theorems 1.5 and 5.2): in a stably `E_m`-monoidal stable
+∞-category (`m ≥ 2`) with `v : I → 𝟙` such that `𝟙/v` has a right unital multiplication, there is a tower of
+`E_n`-algebras `⋯ → 𝟙/v^{n+2} → 𝟙/v^{n+1}` (`n ≤ m`), unique up to equivalence for each `q > n`; applies to
+`v = 4` and `v = p` odd in spectra. `E_n`-algebras in stable ∞-categories are not in Mathlib. -/
+-- signature (not yet statable at the pins): theorem burklund_quotient_tower
 
 /- `H.6/burklund-moore-multiplicative`: `S/8` admits an `E₁`-algebra structure (and more; comment). -/
 -- signature (not yet statable at the pins): theorem burklund_moore
