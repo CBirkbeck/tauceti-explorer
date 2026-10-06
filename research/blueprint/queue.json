@@ -26063,9 +26063,10 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.2.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #754"
+   "note": "deliverables arrived from an external worker on issue #754",
+   "finishedAt": "2026-10-06T22:56:55Z"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.2",
@@ -36588,7 +36589,8 @@
     "REV-K3BlochGroups--V.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-K3BlochGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6423"
   },
   {
    "id": "ASM-Polylogarithms",
