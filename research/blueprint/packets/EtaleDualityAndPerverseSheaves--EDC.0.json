@@ -13,7 +13,7 @@
   "EtaleDualityAndPerverseSheaves:EDC.3"
  ],
  "status": "complete",
- "summary": "Part 1 of 2 of 'Étale duality, cycle classes and perverse sheaves': the scheme duality formalism of SGA 4 XVIII at finite level, and the Gysin and cycle class maps built on it. EDC.0 names the étale derived category D(X, Λ) on Mathlib's small étale site, its geometric stalks, the constructible and finite-Tor-dimension subcategories, Tate twists with the Frobenius convention, cohomology with supports with its localization triangle, change of coefficients, and the lift of the imported Rf_! (CompactSupport, requested through SchemeAndStackFoundations SF.2) to the EnhancedDerivedSheaves enhancement together with its amplitude and colimit properties. EDC.1:adjoint produces f^! as the right adjoint of the enhanced Rf_! (EnhancedDerivedSheaves E3), with its pseudofunctoriality, the sheafified adjunction and induction formulas, the identification of i^! with local cohomology, the dualizing complex K_X = a^!Λ, the Verdier dual D_X and the formal exchange maps, all before any purity. EDC.2:trace-purity builds the traces of SGA 4 XVIII (quasi-finite flat, Kummer c₁, curves, the curve duality and effacement lemmas from the Jacobian, affine space, Theorem 2.9) and proves smooth purity f^! ≅ f^*(d)[2d] (3.2.5) by a stalkwise argument that avoids Deligne's Lemma 3.2.3. EDC.1:biduality then proves K_X ≅ Λ(d)[2d] on smooth X, constructible biduality by dévissage, the exchange isomorphisms, recollement and relative/geometric global duality over a field (kept distinct from absolute duality). EDC.2:pairings gives finite-level, ℓ-adic and rational Poincaré duality with cup-product, graded-symmetry and Frobenius compatibilities, Weil I (2.10) and (2.12), the lisse tensor identifications used by Yu, and relative duality for smooth maps. EDC.3 proves smooth-pair purity and semi-purity, constructs fundamental classes (through the smooth locus for singular cycles, over perfect fields), Gysin maps and the Gysin sequence, Chern classes by Grothendieck's method, the cycle class map with its compatibilities, the self-intersection formula and the cohomology of projective space. Sources: SGA 4 XVII-XVIII (retyped edition), Milne's Lectures on Étale Cohomology, the Stacks Project, Weil I and Yu. Stacks and perfect schemes (confirmed red-team findings RT-AREA-etale/3 and /16) are proposed as Part II roadmaps; the Grothendieck-Ogg-Shafarevich formula and purity over a trait are recorded as gaps.",
+ "summary": "Part 1 of 2 of 'Étale duality, cycle classes and perverse sheaves': the scheme duality formalism of SGA 4 XVIII at finite level, and the Gysin and cycle class maps built on it. EDC.0 names the étale derived category D(X, Λ) on Mathlib's small étale site, its geometric stalks, the constructible and finite-Tor-dimension subcategories, Tate twists with the Frobenius convention, cohomology with supports with its localization triangle, change of coefficients, and the lift of the imported Rf_! (CompactSupport, requested through SchemeAndStackFoundations SF.2) to the EnhancedDerivedSheaves enhancement together with its amplitude and colimit properties. EDC.1:adjoint produces f^! as the right adjoint of the enhanced Rf_! (EnhancedDerivedSheaves E3), with its pseudofunctoriality, the sheafified adjunction and induction formulas, the identification of i^! with local cohomology, the dualizing complex K_X = a^!Λ, the Verdier dual D_X and the formal exchange maps, all before any purity. EDC.2:trace-purity builds the traces of SGA 4 XVIII (quasi-finite flat, Kummer c₁, curves, the curve duality and effacement lemmas from the Jacobian, affine space, Theorem 2.9) and proves smooth purity f^! ≅ f^*(d)[2d] (3.2.5) by a stalkwise argument that avoids Deligne's Lemma 3.2.3. EDC.1:biduality then proves K_X ≅ Λ(d)[2d] on smooth X, constructible biduality by dévissage, the exchange isomorphisms, recollement and relative/geometric global duality over a field (kept distinct from absolute duality). EDC.2:pairings gives finite-level, ℓ-adic and rational Poincaré duality with cup-product, graded-symmetry and Frobenius compatibilities, Weil I (2.10) and (2.12), the lisse tensor identifications used by Yu, and relative duality for smooth maps. EDC.3 proves smooth-pair purity and semi-purity, constructs fundamental classes (through the smooth locus for singular cycles, over perfect fields), Gysin maps and the Gysin sequence, Chern classes by Grothendieck's method, the cycle class map with its compatibilities, the self-intersection formula and the cohomology of projective space. Sources: SGA 4 XVII-XVIII (retyped edition), Milne's Lectures on Étale Cohomology, the Stacks Project, Weil I and Yu. Stacks and perfect schemes (confirmed red-team findings RT-AREA-etale/3 and /16) are proposed as Part II roadmaps; the Grothendieck-Ogg-Shafarevich formula and purity over a trait are recorded as gaps. Independent review 2026-10-06: a complete target-level pass with explicit gaps, not a closed plan. Constructible biduality, cycle-class compatibilities, self-intersection specialization, enhanced coherence and suggested Lean signature coverage require revision; see review and gaps.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,287 +23,280 @@
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "smallEtaleTopology X : GrothendieckTopology X.Etale, the small étale site of a scheme X on which every coefficient category of this packet is built.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Etale",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "provides": "X.Etale := MorphismProperty.Over @Etale ⊤ X, the category of étale X-schemes (the underlying category of the small étale site).",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.isGrothendieckAbelian_sheaf_smallEtaleTopology",
     "kind": "instance",
     "module": "Mathlib/AlgebraicGeometry/Sites/AffineEtale.lean",
     "provides": "For A abelian and Grothendieck abelian, Sheaf S.smallEtaleTopology A is Grothendieck abelian (applied with A = ModuleCat Λ): enough injectives, so D(X_ét, Λ) exists with K-injective resolutions.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.pointSmallEtale",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
     "provides": "For Ω separably closed and s : Spec Ω ⟶ S, the point of the small étale site of S at the geometric point s; its fibre functor is the geometric stalk.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.isConservativeFamilyOfPoints_pointSmallEtale'",
     "kind": "lemma",
     "module": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
     "provides": "The points pointSmallEtale form a conservative family of points of the small étale site: a morphism of étale sheaves is an isomorphism when it is one on all geometric stalks.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.GrothendieckTopology.Point.sheafFiber",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/Point/Basic.lean",
     "provides": "Φ.sheafFiber : Sheaf J A ⥤ A, the fibre (stalk) functor of a point of a site; with pointSmallEtale it is the geometric stalk F ↦ F_x̄.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:DerivedCategory",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "DerivedCategory C, the unbounded derived category of an abelian category C (localization of ℤ-graded cochain complexes at quasi-isomorphisms), with its triangulated structure.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:HasDerivedCategory.standard",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "A choice of universe for the morphisms of the derived category of any abelian category, used as a local instance.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.mapDerivedCategory",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/ExactFunctor.lean",
     "provides": "An exact functor F : C₁ ⥤ C₂ of abelian categories induces F.mapDerivedCategory : DerivedCategory C₁ ⥤ DerivedCategory C₂; used for geometric stalks and exact pullbacks.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Adjunction",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
     "provides": "F ⊣ G with unit and counit and the triangle identities: the form of the adjunctions Rf_! ⊣ f^!, f^* ⊣ Rf_* and ⊗ ⊣ RHom.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsTriangulated",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Triangulated/Functor.lean",
     "provides": "A functor of pretriangulated categories commuting with shifts is triangulated when it sends distinguished triangles to distinguished triangles: the property asserted of f^! and D_X.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
-    "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
-    "kind": "structure",
-    "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
-    "provides": "t-structures on a pretriangulated category; the canonical t-structure of D(X_ét, Λ) gives D^+, D^- and D^b and the truncations used in the amplitude bounds.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "ref": "mathlib:DerivedCategory.TStructure.t",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
+    "provides": "The canonical t-structure on DerivedCategory C for an abelian C with HasDerivedCategory C. DerivedCategory.Plus, Minus and Bounded use this structure; IsGE/IsLE are characterized by cohomology vanishing.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Sheaf.H",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
     "provides": "Sheaf cohomology H^n(F) := Ext^n(ℤ, F) of an abelian sheaf on a site; on the small étale site it is the étale cohomology H^n(X_ét, F) that RΓ computes.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.Ext",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
     "provides": "Ext groups in an abelian category, via shifted morphisms in the derived category: the groups Hom(K, L[n]) of the adjunction and duality statements.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Smooth",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "provides": "Smooth morphisms of schemes (locally standard smooth): the hypothesis of the trace and purity theorems.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "provides": "SmoothOfRelativeDimension n f: f is locally standard smooth of relative dimension n; the pure relative dimension d of the smooth purity theorem.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
     "provides": "Closed immersions of schemes: the immersions i of cohomology with supports, i^! and the Gysin maps.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
     "provides": "Open immersions of schemes: the immersions j of extension by zero and of the localization triangles.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsSeparated",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
-    "provides": "Separated morphisms: with locally of finite type and a qcqs base, the compactifiable morphisms of SGA 4 XVII 3.2.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "provides": "Separated morphisms. Nagata compactification also needs finite type (including quasi-compactness), with a qcqs base; separated and locally of finite type alone do not suffice.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyOfFiniteType",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FiniteType.lean",
     "provides": "Morphisms locally of finite type; part of the compactifiability hypothesis.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "provides": "Proper morphisms: for proper f, Rf_! = Rf_* and the pairings lose their compact supports.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Flat",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
     "provides": "Flat morphisms: the flatness hypothesis of the trace morphisms (quasi-finite flat, and (∗)_d of SGA 4 XVIII 2.9).",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsFinite",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
     "provides": "Finite morphisms: the finite locally free case of the degree normalization.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Etale",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "provides": "Étale morphisms: for étale f, f^! = f^* and the trace is the counit of f_! ⊣ f^*.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyQuasiFinite",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiFinite.lean",
     "provides": "Locally quasi-finite morphisms: the relative-dimension-zero case of the trace and of f^!.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
-   },
-   {
-    "ref": "mathlib:Algebra.trace",
-    "kind": "def",
-    "module": "Mathlib/RingTheory/Trace/Defs.lean",
-    "provides": "Algebra.trace R S : S →ₗ[R] R, the trace of multiplication; on stalks of a finite locally free morphism it computes the trace morphism on constant coefficients.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:rootsOfUnity",
     "kind": "def",
     "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
     "provides": "rootsOfUnity n M, the subgroup of units with x^n = 1: the sections μ_n(Γ(U, O_U)) of the Tate-twist sheaf.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:Module.Injective",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/Injective.lean",
     "provides": "Injective modules; Λ self-injective (Module.Injective Λ Λ) is the coefficient hypothesis under which ordinary duals Hom(−, Λ) compute derived duals.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
-    "ref": "mathlib:Module.Baer",
-    "kind": "def",
+    "ref": "mathlib:Module.Baer.injective",
+    "kind": "theorem",
     "module": "Mathlib/Algebra/Module/Injective.lean",
-    "provides": "Baer's criterion for injectivity, used to show ℤ/ℓⁿ and O/πⁿ are self-injective.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "provides": "Baer R Q implies Module.Injective R Q, for a ring R and an R-module Q. The accompanying Module.Baer definition expresses extension of maps from ideals.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:LinearMap.IsPerfPair",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/PerfectPairing/Basic.lean",
     "provides": "A bilinear map p : M →ₗ N →ₗ R is a perfect pairing when both curried maps are bijective onto the duals: the form of the Poincaré duality pairings.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
     "provides": "AlgebraicCycle X R := Function.locallyFinsupp X R, cycles as locally finitely supported functions on the points of X (generic points of integral closed subschemes): the source of the cycle class map.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
     "provides": "Pushforward of algebraic cycles along a quasi-compact morphism, weighted by residue degrees and a dimension function: the cycle-side proper pushforward compared with the cohomological Gysin map.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:PerfectField",
     "kind": "class",
     "module": "Mathlib/FieldTheory/Perfect.lean",
     "provides": "Perfect fields: the base fields over which the cycle class of a singular cycle is built from its dense smooth locus.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:IsSepClosed",
     "kind": "class",
     "module": "Mathlib/FieldTheory/IsSepClosed.lean",
     "provides": "Separably closed fields: geometric points and the geometric cohomology H^i(X_k̄, −).",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:ZMod",
     "kind": "def",
     "module": "Mathlib/Data/ZMod/Defs.lean",
     "provides": "ZMod n = ℤ/n, the basic coefficient ring Λ = ℤ/ℓⁿ.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.finrank",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
     "provides": "f.finrank s : ℕ, the rank of a finite flat morphism at a point of the base (locally constant for finite presentation): the r of the degree normalization Tr ∘ unit = r.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.AffineSpace",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/AffineSpace.lean",
     "provides": "AffineSpace n S = 𝔸(n; S), affine space over a scheme with its structure morphism 𝔸(n; S) ↘ S: the source of the affine-space trace and of the A¹ tests.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:DerivedCategory.singleFunctor",
     "kind": "abbrev",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "The functor placing an object in a single degree of the derived category: sheaves as complexes concentrated in degree 0.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:DerivedCategory.homologyFunctor",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
     "provides": "The cohomology-object functor ℋ^q : D(C) ⥤ C; the sheaves R^q f_!K = ℋ^q(Rf_!K) and the amplitude statements.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.constantSheaf",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/ConstantSheaf.lean",
     "provides": "constantSheaf J A : A ⥤ Sheaf J A; the constant sheaf Λ_X on the small étale site.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.CommShift",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Shift/CommShift.lean",
     "provides": "Compatibility of a functor with shifts, the data needed before a functor of triangulated categories can be triangulated.",
-    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06."
+    "checked": "Statement read in the Lean source at the pinned Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-06. Independently confirmed by REV-EtaleDualityAndPerverseSheaves--EDC.0 at the same pin, including the declaration statement and conventions."
    }
   ]
  },
@@ -320,7 +313,7 @@
     "1.1 (1.1.1-1.1.9, the trace morphism for curves)",
     "1.6.6-1.6.9 (the effacement lemma)",
     "2 (2.1-2.14.4, the trace morphism and Theorem 2.14)",
-    "3.1.1-3.1.13 (the functor Rf^!)",
+    "3.1.1-3.1.14 (the functor Rf^!, composition and base change)",
     "3.2 (3.2.1-3.2.6, Poincaré duality)"
    ]
   },
@@ -346,6 +339,7 @@
    "url": "https://www.jmilne.org/math/CourseNotes/LEC.pdf",
    "sha256": "ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077",
    "readSections": [
+    "§14, Theorems 14.7-14.8 (curve duality and Weil pairing)",
     "§16 Purity; the Gysin sequence (pp. 108-113)",
     "§23 The cycle map; Chern classes (pp. 138-143)",
     "§24 Poincaré duality (pp. 144-146)"
@@ -373,7 +367,7 @@
    "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
    "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
    "readSections": [
-    "§2, (2.10)-(2.14): Scholie (2.10), Théorème (2.12) and the bibliographic indications (2.14)"
+    "§2, (2.3)-(2.14): Frobenius pairings (2.4), Scholie (2.10), Théorème (2.12) and the bibliographic indications (2.14)"
    ]
   },
   {
@@ -450,7 +444,7 @@
     {
      "name": "TauCeti.EtaleDuality.etaleDerived_globalSections_not_conservative",
      "kind": "non-example",
-     "statement": "Over X = Spec 𝔽_q, the rank-one sheaf of ℤ/n-modules (n ≥ 3 prime to q) given by a nontrivial character Gal(𝔽̄_q/𝔽_q) → (ℤ/n)ˣ is nonzero with H⁰(X, −) = 0: global sections do not detect zero objects, stalks do."
+     "statement": "Over Spec 𝔽₂ with Λ = ℤ/3, the rank-one character sending arithmetic Frobenius to −1 gives a nonzero sheaf with H⁰ = 0 (−1−1 is a unit in ℤ/3). Global sections do not detect zero objects."
     }
    ],
    "planet": {
@@ -466,7 +460,7 @@
     "mathlib:AlgebraicGeometry.Scheme.isConservativeFamilyOfPoints_pointSmallEtale'",
     "mathlib:CategoryTheory.GrothendieckTopology.Point.sheafFiber",
     "mathlib:CategoryTheory.Functor.mapDerivedCategory",
-    "mathlib:CategoryTheory.Triangulated.TStructure",
+    "mathlib:DerivedCategory.TStructure.t",
     "mathlib:CategoryTheory.Sheaf.H",
     "mathlib:DerivedCategory.singleFunctor",
     "mathlib:DerivedCategory.homologyFunctor",
@@ -561,7 +555,7 @@
    ],
    "title": "Constructible complexes D^b_c(X, Λ) and complexes of finite Tor-dimension D_ctf(X, Λ)",
    "kind": "definition",
-   "statement": "Let X be a noetherian scheme (in practice separated of finite type over a field or over a regular base of dimension ≤ 1) and Λ a noetherian torsion ring with nΛ = 0, n invertible on X. A complex K ∈ D(X, Λ) is constructible, K ∈ D^b_c(X, Λ), when it is bounded and every cohomology sheaf ℋ^q K is a constructible sheaf of Λ-modules in the sense imported from ConstructibleEtale (there is a finite partition of X into locally closed constructible subschemes on each of which the sheaf is locally constant with finitely generated stalks). K is of finite Tor-dimension, K ∈ D_ctf(X, Λ), when moreover there is an a such that K ⊗^L_Λ M has ℋ^q = 0 for q < a for every Λ-module M (equivalently K is locally quasi-isomorphic to a bounded complex of flat constructible sheaves). D_ctf ⊂ D^b_c ⊂ D^b are full triangulated subcategories, and the predicates are checked on stalks.",
+   "statement": "Let X be a noetherian scheme (in practice separated of finite type over a field or over a regular base of dimension ≤ 1) and Λ a noetherian torsion ring with nΛ = 0, n invertible on X. A complex K ∈ D(X, Λ) is constructible, K ∈ D^b_c(X, Λ), when it is bounded and every cohomology sheaf ℋ^q K is a constructible sheaf of Λ-modules in the sense imported from ConstructibleEtale (there is a finite partition of X into locally closed constructible subschemes on each of which the sheaf is locally constant with finitely generated stalks). K is of finite Tor-dimension, K ∈ D_ctf(X, Λ), when moreover there is an a such that K ⊗^L_Λ M has ℋ^q = 0 for q < a for every Λ-module M (equivalently K is locally quasi-isomorphic to a bounded complex of flat constructible sheaves). D_ctf ⊂ D^b_c ⊂ D^b are full triangulated subcategories, constructibility requires the finite stratification just specified; finite Tor-amplitude is checked on geometric stalks with a common bound. Finite stalks alone do not imply constructibility.",
    "hypotheses": [
     "Λ noetherian, torsion, with nΛ = 0 and n invertible on X.",
     "The notion of constructible sheaf is ConstructibleEtale's (imported through SchemeAndStackFoundations SF.2); this node only names the derived subcategories and their closure properties.",
@@ -603,12 +597,12 @@
     {
      "name": "TauCeti.EtaleDuality.not_isCtf_reduction",
      "kind": "non-example",
-     "statement": "For Λ = ℤ/ℓ², the sheaf (ℤ/ℓ)_X is constructible but not of finite Tor-dimension: (ℤ/ℓ) ⊗^L_{ℤ/ℓ²} ℤ/ℓ has nonzero cohomology in every degree ≤ 0."
+     "statement": "For ℓ prime, Λ = ℤ/ℓ² and nonempty X with ℓ invertible, (ℤ/ℓ)_X is constructible but not of finite Tor-dimension: its derived tensor with ℤ/ℓ has nonzero cohomology in every degree ≤ 0 at each geometric point."
     },
     {
      "name": "TauCeti.EtaleDuality.not_isConstructible_infinite_skyscrapers",
      "kind": "non-example",
-     "statement": "On A¹ over an algebraically closed field, ⊕_{a ∈ ℕ} (i_a)_*Λ over infinitely many distinct closed points is not constructible."
+     "statement": "Assume Λ ≠ 0. On A¹ over an algebraically closed field, ⊕_{a ∈ ℕ} (i_a)_*Λ over infinitely many distinct closed points is not constructible."
     },
     {
      "name": "TauCeti.EtaleDuality.isConstructible_zero",
@@ -1139,9 +1133,10 @@
    ],
    "proofSteps": [
     "Truncation: for every sheaf F the terms of τ_{≤2d}Cℓ^*j_!F are f̄_*-acyclic: for i < 2d they are filtered colimits of flasque sheaves, and for i = 2d R^k f̄_* of the term is R^{k+2d}f_!F = 0 (SGA 4 XVIII 3.1.4.5, using XVII 5.2.8.1).",
-    "So f_!^• is an exact functor from sheaves to bounded complexes commuting with filtered colimits; applied termwise to dg models it gives a dg functor between the K-injective/K-flat dg models of EnhancedDerivedSheaves E1, hence a functor of the dg nerves.",
+    "Apply the exact bounded resolution functor termwise on complexes and prove that it preserves quasi-isomorphisms; descend to the dg localization and compare this model with the K-injective presentation of EnhancedDerivedSheaves E1. It does not directly give a functor between K-injective subcategories.",
     "Its homotopy-category functor is the imported Rf_! (both are R f̄_* ∘ j_!), and it preserves small colimits because it is exact and commutes with direct sums (EDC.0/compact-pushforward-amplitude-and-colimits).",
-    "Composition and base change: use the coherent diagrams of ringed topoi of EnhancedDerivedSheaves E3 (the Liu-Zheng construction) over the category of compactifiable S-morphisms, and Beck-Chevalley mates; independence of the compactification is the contractibility of the category of compactifications (CompactSupport) transported to the enhancement."
+    "Composition and base change require a coherent diagram of these compactification models and the localization comparisons, compatible with the Beck-Chevalley mates of EnhancedDerivedSheaves E3. The supplier gives mates abstractly; the missing diagram and compactification comparison are the explicit coherence gap, not an established contractibility theorem in this packet.",
+    "The target-level construction must use dg localization; a termwise f_!^• on complexes is not automatically a functor between K-injective subcategories. Its comparison and localization coherence are recorded as a gap, including the point choices in source issue E9."
    ],
    "acceptance": [
     "Open immersion j : U → X: Rj_!^{enh} is extension by zero.",
@@ -1276,7 +1271,7 @@
    "prerequisites": [
     "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
     "SchemeAndStackFoundations:SF.2",
-    "mathlib:CategoryTheory.Triangulated.TStructure"
+    "mathlib:DerivedCategory.TStructure.t"
    ],
    "sources": [
     {
@@ -1651,7 +1646,7 @@
     {
      "name": "TauCeti.EtaleDuality.not_dualizingComplex_shift_of_constant",
      "kind": "non-example",
-     "statement": "For X = Spec k ⊔ A¹_k (k algebraically closed), K_X restricts to Λ on the point and to Λ(1)[2] on the line, so K_X is not Λ_X(d)[2d] for any single d."
+     "statement": "Assume Λ ≠ 0. For X = Spec k ⊔ A¹_k (k algebraically closed), K_X restricts to Λ on the point and to Λ(1)[2] on the line, so K_X is not Λ_X(d)[2d] for any single d."
     }
    ],
    "planet": {
@@ -1763,7 +1758,7 @@
     {
      "name": "TauCeti.EtaleDuality.not_verdierDual_eq_linearDual",
      "kind": "non-example",
-     "statement": "D_X(Λ_X) ≇ RHom(Λ_X, Λ_X) = Λ_X on a smooth curve: duality is measured against K_X, not against Λ_X."
+     "statement": "Assume Λ ≠ 0 and X nonempty. D_X(Λ_X) ≇ RHom(Λ_X, Λ_X) = Λ_X on a smooth curve: duality is measured against K_X, not against Λ_X."
     }
    ],
    "planet": {
@@ -1905,7 +1900,7 @@
     {
      "name": "TauCeti.EtaleDuality.not_upperShriekBaseChange_iso_closedPoint",
      "kind": "non-example",
-     "statement": "For f = id_{A¹} and g : {0} → A¹ (over Ω algebraically closed), the map g^*Λ → g^!Λ = Λ(−1)[−2] is not an isomorphism."
+     "statement": "Over an algebraically closed field with nonzero prime-to-characteristic torsion Λ, take f = g = i : {0} → A¹ and f′ = g′ = id_{point}. This is the cartesian self-pullback of the closed immersion. Its base-change map i^!Λ = Λ(−1)[−2] → Λ is not an isomorphism. For f = id and arbitrary g the base-change map is an isomorphism."
     }
    ],
    "prerequisites": [
@@ -1955,6 +1950,11 @@
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.7 (tag 0GLE)",
      "match": "Isomorphism (i)."
+    },
+    {
+     "sourceId": "SGA4-XVIII",
+     "locator": "3.1.14, (3.1.14.2), p. 577–578",
+     "match": "Cartesian base-change transformation, separately from the cobase-change map in 3.1.13."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1973,8 +1973,7 @@
     "F any abelian sheaf (no torsion hypothesis is needed in relative dimension zero)."
    ],
    "proofSteps": [
-    "Uniqueness: (Var 2) reduces to S the spectrum of a separably closed field, where (Var 3)-(Var 4) and decomposition into connected components (6.2.3.1) determine the map (SGA 4 XVII 6.2.3).",
-    "Existence: étale-locally on S, f is a disjoint union of a finite locally free part and a part with empty fibres over the point; on the finite locally free part with constant coefficients use the trace of the finite locally free algebra, which on the geometric fibre gives the multiplicities (Mathlib Algebra.trace on stalks); glue by uniqueness.",
+    "Reduce étale-locally to the finite flat pieces of SGA 4 XVII 6.2.1–6.2.2. Define the trace on a geometric fibre as the sum of coefficient stalks weighted by the lengths of its local rings; the weighted morphism construction in 6.2.3–6.2.5 glues these maps and proves base change and composition. Algebra.trace on regular functions is a different map and is not an input.",
     "Étale case: SGA 4 XVII 6.2.11 identifies f_! with the left adjoint of f^* and Tr_f with the counit."
    ],
    "acceptance": [
@@ -2027,7 +2026,6 @@
    "prerequisites": [
     "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
     "EtaleDualityAndPerverseSheaves:EDC.0/compact-pushforward-amplitude-and-colimits",
-    "mathlib:Algebra.trace",
     "mathlib:AlgebraicGeometry.Flat",
     "mathlib:AlgebraicGeometry.LocallyQuasiFinite",
     "mathlib:AlgebraicGeometry.IsFinite",
@@ -2545,7 +2543,7 @@
    ],
    "title": "The trace morphism Tr_f : R^{2d}f_!f^*F(d) → F",
    "kind": "construction",
-   "statement": "Consider triples (f, d, F): f : X → Y compactifiable, d an integer, F a torsion sheaf on Y prime to the residue characteristics, where f satisfies (∗)_d: there is an open U ⊂ X on which f is flat of finite presentation with fibres of dimension ≤ d and the fibres of X − U have dimension < d. There is a unique trace Tr_f : R^{2d}f_!f^*F(d) → F such that (Var 1) it is natural in F; (Var 2) it commutes with base change along Y′ → Y (Y′ quasi-compact quasi-separated); (Var 3) for composable X →g Y →f Z satisfying (∗)_e and (∗)_d, fg satisfies (∗)_{d+e} and Tr_{fg} = Tr_f ∘ R^{2d}f_!(Tr_g) under R^{2d}f_!R^{2e}g_! ≅ R^{2(d+e)}(fg)_!; (Var 4)(I) for d = 0 and f finite locally free of rank r, F → f_*f^*F → F is multiplication by r; (II) for the affine line it is the isomorphism (2.8.1). For d = 0 it is the quasi-finite flat trace, for curves the curve trace, for affine space (2.8.1) (Prop. 2.10). It is compatible with Künneth: Tr_{f×g} = Tr_f ⊗ Tr_g (2.12). In derived form, Tr_f : Rf_!(f^*K(d)[2d]) → K for K ∈ D(Y, Λ), Λ killed by n invertible (2.13.2). Tr_f is an isomorphism iff every geometric fibre has exactly one irreducible component of dimension d, with multiplicity prime to n (Remark 2.10.1, via EDC.2:trace-purity/smooth-purity).",
+   "statement": "Consider triples (f, d, F): f : X → Y compactifiable, d an integer, F a torsion sheaf on Y prime to the residue characteristics, where f satisfies (∗)_d: there is an open U ⊂ X on which f is flat of finite presentation with fibres of dimension ≤ d and the fibres of X − U have dimension < d. There is a unique trace Tr_f : R^{2d}f_!f^*F(d) → F such that (Var 1) it is natural in F; (Var 2) it commutes with base change along Y′ → Y (Y′ quasi-compact quasi-separated); (Var 3) for composable X →g Y →f Z satisfying (∗)_e and (∗)_d, fg satisfies (∗)_{d+e} and Tr_{fg} = Tr_f ∘ R^{2d}f_!(Tr_g) under R^{2d}f_!R^{2e}g_! ≅ R^{2(d+e)}(fg)_!; (Var 4)(I) for d = 0 and f finite locally free of rank r, F → f_*f^*F → F is multiplication by r; (II) for the affine line it is the isomorphism (2.8.1). For d = 0 it is the quasi-finite flat trace, for curves the curve trace, for affine space (2.8.1) (Prop. 2.10). It is compatible with Künneth: Tr_{f×g} = Tr_f ⊗ Tr_g (2.12). In derived form, Tr_f : Rf_!(f^*K(d)[2d]) → K for K ∈ D(Y, Λ), Λ killed by n invertible (2.13.2). For Λ = ℤ/n with n ≥ 2, the sheaf trace R^{2d}f_!Λ(d) → Λ is an isomorphism iff every geometric fibre has exactly one d-dimensional irreducible component and its multiplicity is prime to n (Remark 2.10.1). This criterion does not assert that the derived trace Rf_!f^*K(d)[2d] → K is an isomorphism; it is not an iff for arbitrary F, for instance F = 0.",
    "hypotheses": [
     "f compactifiable satisfying (∗)_d (e.g. flat of finite presentation of pure relative dimension d); F torsion prime to residue characteristics.",
     "Uses only §1.1 of SGA 4 XVIII (not the effacement lemma)."
@@ -2592,7 +2590,7 @@
     {
      "name": "TauCeti.EtaleDuality.trace_twoComponents",
      "kind": "computation",
-     "statement": "For X = P¹ ⊔ P¹ over an algebraically closed field (d = 1), H²(X, Λ(1)) ≅ Λ² and Tr is the sum, so Tr is surjective but not injective."
+     "statement": "Assume Λ ≠ 0. For X = P¹ ⊔ P¹ over an algebraically closed field (d = 1), H²(X, Λ(1)) ≅ Λ² and Tr is the sum, so Tr is surjective but not injective."
     },
     {
      "name": "TauCeti.EtaleDuality.not_trace_ignores_multiplicity",
@@ -2651,7 +2649,7 @@
     {
      "name": "TauCeti.EtaleDuality.trace_isIso_iff",
      "role": "characterisation",
-     "statement": "Tr_f is an isomorphism iff each geometric fibre has exactly one d-dimensional irreducible component, of multiplicity prime to n."
+     "statement": "For Λ = ℤ/n, n ≥ 2, the sheaf trace R^{2d}f_!Λ(d) → Λ is an isomorphism iff each geometric fibre has one d-dimensional irreducible component of multiplicity prime to n. No such criterion for the derived trace or an arbitrary sheaf F is asserted."
     },
     {
      "name": "TauCeti.EtaleDuality.higherLowerShriek",
@@ -2795,14 +2793,14 @@
    ],
    "title": "Top-degree compactly supported cohomology of a variety",
    "kind": "theorem",
-   "statement": "Let X be separated of finite type of dimension ≤ d over an algebraically closed field k, n invertible in k, Λ = ℤ/n. Then H^q_c(X, F) = 0 for q > 2d and every torsion sheaf F, and the trace gives H^{2d}_c(X, Λ(d)) ≅ Λ^{C_d}, C_d the set of irreducible components of dimension d, the trace on the factor of a component of multiplicity m being multiplication by m. In particular, for X geometrically irreducible of dimension d over a field k₀ with k = k̄₀, H^{2d}_c(X_k, Λ) ≅ Λ(−d) as a Galois module (geometric Frobenius acting by q^d over 𝔽_q). For X smooth connected of dimension d and F locally constant constructible, H^{2d}_c(X, F) ≅ (F_x̄)_{π₁(X, x̄)}(−d) (coinvariants); this is EDC.2:pairings/extreme-degree-cohomology.",
+   "statement": "Let X be separated of finite type of dimension ≤ d over an algebraically closed field k, n invertible in k, Λ = ℤ/n. Then H^q_c(X, F) = 0 for q > 2d and every torsion sheaf F, and étale topological invariance and the reduced smooth loci give H^{2d}_c(X, Λ(d)) ≅ Λ^{C_d}, C_d the set of irreducible components of dimension d, when the structure morphism satisfies (*)_d, its trace on the factor of a component of multiplicity m is multiplication by m. In particular, for X geometrically irreducible of dimension d over a field k₀ with k = k̄₀, H^{2d}_c(X_k, Λ) ≅ Λ(−d) as a Galois module (geometric Frobenius acting by q^d over 𝔽_q). For X smooth connected of dimension d and F locally constant constructible, H^{2d}_c(X, F) ≅ (F_x̄)_{π₁(X, x̄)}(−d) (coinvariants); this is EDC.2:pairings/extreme-degree-cohomology.",
    "hypotheses": [
     "X separated of finite type over an algebraically closed field (for the Galois statement, base change from k₀)."
    ],
    "proofSteps": [
     "Vanishing above 2d: SGA 4 XVII 5.2.8.1.",
-    "Remove the closed set where X is not flat Cohen-Macaulay of dimension d plus the components of smaller dimension: R^{2d} is unchanged (SGA 4 XVIII 2.1). On the dense smooth open part of X_red of each d-dimensional component (k algebraically closed, hence perfect), smooth purity gives H^{2d}_c(U, Λ(d)) ≅ H⁰(U, Λ)^∨ = Λ^{π₀(U)} through Tr; multiplicities enter through the CM-locus trace (Remark 2.10.1).",
-    "Galois equivariance: Tr is compatible with base change (Var 2), hence Galois-equivariant into Λ, so H^{2d}_c(X_k, Λ) ≅ Λ(−d)."
+    "Remove the smaller-dimensional components and a closed subset of dimension < d (XVIII 2.1). Pass to X_red using étale topological invariance, then to a dense smooth open in each component. Smooth purity identifies each summand with Λ. The trace of 2.9, when (*)_d holds, separately acts on this reduced-cohomology identification with the generic multiplicities (2.10.1); it need not be an isomorphism for nonreduced X.",
+    "Galois equivariance: use topological invariance to pass to X_red, then a Galois-stable dense smooth open. On that geometrically irreducible smooth open, the trace is an isomorphism and is Galois-equivariant by (Var 2), giving H^{2d}_c(X_k, Λ) ≅ Λ(−d). The possibly noninvertible multiplicity-weighted trace of X itself is not used to deduce this identification."
    ],
    "acceptance": [
     "X = P^d: H^{2d}(P^d, Λ(d)) ≅ Λ.",
@@ -2900,7 +2898,7 @@
    ],
    "prerequisites": [
     "mathlib:Module.Injective",
-    "mathlib:Module.Baer",
+    "mathlib:Module.Baer.injective",
     "mathlib:ZMod"
    ],
    "sources": [
@@ -2935,7 +2933,8 @@
    "proofSteps": [
     "Both sides are triangulated in K, so by dévissage along a stratification X = ⊔ X_α into smooth connected locally closed strata on which the ℋ^q K are locally constant (the stratification exists by constructibility, refined to smooth strata because the reduced strata are generically smooth over a perfect closure; over an imperfect field use a purely inseparable base change, which does not change étale sites), and the localization triangles j_!j^* → id → i_*i^* →, it suffices to treat K = (j_α)_!L with L locally constant on a smooth stratum.",
     "Exchange (EDC.1:adjoint/formal-duality-exchange): D_X((j_α)_!L) ≅ R(j_α)_*D_{X_α}L, and on the smooth stratum D(L) = L^∨(d)[2d] (EDC.1:biduality/dualizing-complex-of-smooth-scheme). Constructibility of R(j_α)_* (imported finiteness) gives D_X preserves D^b_c.",
-    "Biduality for (j_α)_!L: apply D again; D_X(Rj_*M) ≅ j_!D_U(M) for M ∈ D^b_c(U) is the dual statement, proved by induction on dim X using the same dévissage on X − U and the identity i^!Rj_* = 0; the local calculation on a smooth stratum is L ≅ L^∨∨ (self-injectivity)."
+    "Biduality for (j_α)_!L: apply D again; D_X(Rj_*M) ≅ j_!D_U(M) for M ∈ D^b_c(U) is the dual statement, proved by induction on dim X using the same dévissage on X − U and the identity i^!Rj_* = 0; the local calculation on a smooth stratum is L ≅ L^∨∨ (self-injectivity).",
+    "Review gate: the induction and regular one-dimensional base extension in the preceding steps are not established by the cited smooth calculation; see the constructible-biduality gap. The reverse exchange cannot be imported from the dependent duality-exchange-isomorphisms node."
    ],
    "acceptance": [
     "X = Spec Ω (Ω separably closed): biduality is M ≅ Hom(Hom(M, Λ), Λ) on perfect complexes over Λ = ℤ/ℓⁿ.",
@@ -2961,7 +2960,7 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "0.2, p. 481",
-     "match": "Biduality consumes the smooth calculation (IV); it is not part of the adjoint construction."
+     "match": "This is the introduction describing §2 (trace and smooth calculations), not a citation proving general constructible biduality. A source and proof of the missing dévissage are still required."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3056,7 +3055,7 @@
    ],
    "proofSteps": [
     "(a) is EDC.1:adjoint/sheafified-adjunction (a) for a with L := K and K := Λ, using a^!Λ = K_X (EDC.1:adjoint/dualizing-complex).",
-    "(b): proper base change along Spec k_s → Spec k (imported) commutes Ra_*, Ra_! with geometric fibres, and the stalk of RHom(Ra_!K, Λ) at the geometric point is RHom(RΓ_c(X̄, K̄), Λ) since Ra_!K is constructible (bounded with finite cohomology) for K ∈ D^b_c; self-injectivity gives the degreewise statement."
+    "For the displayed geometric duality, apply sheafified adjunction directly to ā : X_k̄ → Spec k̄. Do not commute Ra_* across the field extension by the proper base change theorem when a is not proper. Any separate comparison of the original relative duality object with its geometric stalk requires its own constructibility/base-change hypotheses."
    ],
    "acceptance": [
     "X = Spec k: (a) is RHom(K, Λ) ≅ RHom(K, Λ).",
@@ -3108,7 +3107,7 @@
    ],
    "proofSteps": [
     "Combine EDC.1:biduality/relative-and-geometric-duality (b) with D_X F = F^∨(d)[2d] (EDC.1:biduality/dualizing-complex-of-smooth-scheme).",
-    "Identify the pairing with cup product followed by the trace (EDC.2:pairings/cup-product-trace-pairing).",
+    "The adjunction isomorphism is given by evaluation F ⊗ F^∨ → Λ followed by the counit R a_!a^!Λ → Λ. Taking cohomology identifies this map with cup product and the smooth trace; this is the formal evaluation/counit calculation, independent of the later cup-product-trace-pairing node.",
     "Finiteness of H^i_c and H^i: imported finiteness theorem."
    ],
    "acceptance": [
@@ -3150,13 +3149,13 @@
    ],
    "title": "The duality pairing is cup product followed by the trace; graded symmetry",
    "kind": "theorem",
-   "statement": "In the situation of EDC.2:pairings/poincare-duality-torsion, the pairing defined by the duality isomorphism equals ⟨x, y⟩ = Tr_X(x ∪ y) for x ∈ H^i_c(X, F), y ∈ H^{2d−i}(X, F^∨(d)), where ∪ : H^i_c(X, F) ⊗ H^j(X, G) → H^{i+j}_c(X, F ⊗ G) is the cup product and F ⊗ F^∨ → Λ is evaluation. For F = Λ and X proper, the cup-product pairing H^i(X, Λ) × H^{2d−i}(X, Λ(d)) → Λ satisfies ⟨x, y⟩ = (−1)^{i(2d−i)}⟨y, x⟩ = (−1)^i ⟨y, x⟩ after identifying Λ(d) ⊗ Λ ≅ Λ ⊗ Λ(d); in the middle degree i = d with d odd it is alternating, and with d even symmetric. For smooth proper f : X → S of relative dimension d with connected geometric fibres, R^{2d}f_*Λ(d) ≅ Λ via Tr_f and the fibrewise pairings R^jf_*Λ ⊗ R^{2d−j}f_*Λ → R^{2d}f_*Λ → Λ(−d) are morphisms of sheaves compatible with base change, so monodromy preserves them.",
+   "statement": "In the situation of EDC.2:pairings/poincare-duality-torsion, the pairing defined by the duality isomorphism equals ⟨x, y⟩ = Tr_X(x ∪ y) for x ∈ H^i_c(X, F), y ∈ H^{2d−i}(X, F^∨(d)), where ∪ : H^i_c(X, F) ⊗ H^j(X, G) → H^{i+j}_c(X, F ⊗ G) is the cup product and F ⊗ F^∨ → Λ is evaluation. For F = Λ and X proper, the cup-product pairing H^i(X, Λ) × H^{2d−i}(X, Λ(d)) → Λ satisfies ⟨x, y⟩ = (−1)^{i(2d−i)}⟨y, x⟩ = (−1)^i ⟨y, x⟩ after identifying Λ(d) ⊗ Λ ≅ Λ ⊗ Λ(d); in the middle degree i = d with d odd, graded commutativity proves alternation when 2 is invertible in Λ, and with d even it proves symmetry. The curve alternation for all n follows separately from the Weil pairing (curve-h1-duality); no general 2-primary alternation is deduced from the Koszul sign alone. For smooth proper f : X → S of relative dimension d with connected geometric fibres, R^{2d}f_*Λ(d) ≅ Λ via Tr_f and the fibrewise pairings R^jf_*Λ ⊗ R^{2d−j}f_*Λ → R^{2d}f_*Λ → Λ(−d) are morphisms of sheaves compatible with base change, so monodromy preserves them.",
    "hypotheses": [
     "As in poincare-duality-torsion; for the relative form f smooth proper with geometrically connected fibres, n invertible on S."
    ],
    "proofSteps": [
     "The duality isomorphism is the adjoint of Tr through the evaluation K ⊗^L D K → K_X; on cohomology this is cup product with the evaluation map followed by Tr (SGA 4 XVIII 3.2.6, Milne LEC 24.1 discussion).",
-    "Graded commutativity of the cup product on H*(X, Λ) (Koszul sign (−1)^{ij}), with i(2d − i) ≡ i mod 2.",
+    "Graded commutativity of the cup product on H*(X, Λ) (Koszul sign (−1)^{ij}), with i(2d − i) ≡ i mod 2. To infer ⟨x,x⟩ = 0 from 2⟨x,x⟩ = 0 require 2 invertible, or the separate curve Weil-pairing argument.",
     "Relative form: Tr_f is an isomorphism for connected geometric fibres (EDC.2:trace-purity/flat-trace, isomorphism criterion) and commutes with base change (Var 2); R^jf_* = R^jf_! commutes with base change (proper base change, imported)."
    ],
    "acceptance": [
@@ -3166,7 +3165,8 @@
    "prerequisites": [
     "EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion",
     "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/flat-trace",
-    "SchemeAndStackFoundations:SF.2"
+    "SchemeAndStackFoundations:SF.2",
+    "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/curve-h1-duality"
    ],
    "sources": [
     {
@@ -3190,7 +3190,7 @@
    ],
    "title": "Galois and Frobenius equivariance of the Poincaré pairing",
    "kind": "theorem",
-   "statement": "Let X₀ be smooth separated of finite type of pure dimension d over a field k₀, X = X₀ ⊗ k_s, and F₀ locally constant constructible on X₀. The pairing H^i_c(X, F) × H^{2d−i}(X, F^∨(d)) → Λ of EDC.2:pairings/poincare-duality-torsion is Gal(k_s/k₀)-equivariant (Λ with trivial action). Over k₀ = 𝔽_q with geometric Frobenius F: for the untwisted pairing H^i_c(X, Λ) × H^{2d−i}(X, Λ) → H^{2d}_c(X, Λ) ≅ Λ(−d), one has ⟨Fx, Fy⟩ = q^d⟨x, y⟩. Consequently, if F acts on H^i_c with eigenvalue α then q^d/α is an eigenvalue of F on H^{2d−i}, with multiplicities preserved.",
+   "statement": "Let X₀ be smooth separated of finite type of pure dimension d over a field k₀, X = X₀ ⊗ k_s, and F₀ locally constant constructible on X₀. The pairing H^i_c(X, F) × H^{2d−i}(X, F^∨(d)) → Λ of EDC.2:pairings/poincare-duality-torsion is Gal(k_s/k₀)-equivariant (Λ with trivial action). Over k₀ = 𝔽_q with geometric Frobenius F: for the untwisted pairing H^i_c(X, Λ) × H^{2d−i}(X, Λ) → H^{2d}_c(X, Λ) ≅ Λ(−d), one has ⟨Fx, Fy⟩ = q^d⟨x, y⟩. Consequently, if F acts on H^i_c with eigenvalue α then q^d/α is an eigenvalue of F on H^{2d−i}, with multiplicities preserved. Eigenvalue multisets and their algebraic multiplicities are statements for field coefficients (𝔽_ℓ or, after adic-and-rational-poincare-duality, ℚ_ℓ), not for modules over ℤ/ℓᵐ. The torsion-ring conclusion is the equivariance of the pairing itself.",
    "hypotheses": [
     "k₀ arbitrary for Galois equivariance; k₀ = 𝔽_q for the Frobenius statement."
    ],
@@ -3210,8 +3210,8 @@
    "sources": [
     {
      "sourceId": "Deligne-WeilI-1974",
-     "locator": "Théorème (2.12), p. 283",
-     "match": "The Frobenius-compatible trace pairing used in Weil I (OCR symbols restored)."
+     "locator": "(2.4), p. 281",
+     "match": "The Galois-equivariant rational pairing and eigenvalue reciprocity. Finite-level equivariance follows from trace base change; eigenvalues require field coefficients."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3265,7 +3265,7 @@
    ],
    "title": "Poincaré duality on a projective curve with j_* coefficients (Weil I 2.12)",
    "kind": "theorem",
-   "statement": "Let X be a projective smooth connected curve over an algebraically closed field k, j : U → X the inclusion of a dense open, ℓ invertible in k, and F a lisse ℚ_ℓ-sheaf (or a locally constant constructible O/πⁿ-sheaf) on U. Then D_X(j_*F) ≅ j_*(F^∨)(1)[2], and the pairing Tr(x ∪ y) : H^i(X, j_*F) ⊗ H^{2−i}(X, j_*F^∨(1)) → H²(X, j_*(F ⊗ F^∨)(1)) → H²(X, ℚ_ℓ(1)) → ℚ_ℓ is a perfect duality, Frobenius-equivariant when X, U and F are defined over 𝔽_q. The stalks of j_*F at the points of X − U are the local monodromy invariants.",
+   "statement": "Write Λ for ℚ_ℓ in the rational case and O/πᵐ in the finite-level case. Let X be a projective smooth connected curve over an algebraically closed field k, j : U → X the inclusion of a dense open, ℓ invertible in k, and F a lisse ℚ_ℓ-sheaf (or a locally constant constructible O/πⁿ-sheaf) on U. Then D_X(j_*F) ≅ j_*(F^∨)(1)[2], and the pairing Tr(x ∪ y) : H^i(X, j_*F) ⊗ H^{2−i}(X, j_*F^∨(1)) → H²(X, j_*(F ⊗ F^∨)(1)) → H²(X, Λ(1)) → Λ is a perfect duality, Frobenius-equivariant when X, U and F are defined over 𝔽_q. The stalks of j_*F at the points of X − U are the local monodromy invariants. In the finite-level variant the trace target is Λ = O/πᵐ; in the rational variant it is ℚ_ℓ. The invariant/coinvariant duality used locally is valid for these self-injective finite coefficients.",
    "hypotheses": [
     "X projective smooth connected curve over k algebraically closed; F lisse on U; for ℚ_ℓ coefficients pass to the limit as in EDC.2:pairings/adic-and-rational-poincare-duality.",
     "The torsion statement needs the dual of j_*F to be j_*(F^∨)(1)[2], which is the local calculation at the punctures."
@@ -3306,7 +3306,7 @@
    ],
    "title": "Cohomology in degrees 0 and 2d with compact supports",
    "kind": "theorem",
-   "statement": "Let X be smooth, separated, connected of dimension d ≥ 1 over a separably closed field k, n invertible, and F a locally constant constructible sheaf of Λ-modules (Λ = O/πⁿ) or a lisse ℚ_ℓ-sheaf. (a) H^{2d}_c(X, F) ≅ (F_x̄)_{π₁(X, x̄)}(−d), the coinvariants of the monodromy representation, twisted. (b) If X is affine, H⁰_c(X, F) = 0. (c) For d = 1 (a curve, Weil I (2.10)): H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x̄)_{π₁(X, x̄)}(−1). In particular, for a rank-one F with geometrically nontrivial monodromy on a non-proper geometrically connected X, H⁰_c = H^{2d}_c = 0.",
+   "statement": "Let X be smooth, separated, connected of dimension d ≥ 1 over a separably closed field k, n invertible, and F a locally constant constructible sheaf of Λ-modules (Λ = O/πⁿ) or a lisse ℚ_ℓ-sheaf. (a) H^{2d}_c(X, F) ≅ (F_x̄)_{π₁(X, x̄)}(−d), the coinvariants of the monodromy representation, twisted. (b) If X is affine, H⁰_c(X, F) = 0. (c) For d = 1 (a curve, Weil I (2.10)): H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x̄)_{π₁(X, x̄)}(−1). In particular, for a rank-one F over a field coefficient ring with geometrically nontrivial monodromy on a non-proper geometrically connected X, H⁰_c = H^{2d}_c = 0. For finite-ring coefficients require that some monodromy scalar χ(γ)−1 is a unit; nontrivial monodromy alone is insufficient. For example the ℤ/4 Kummer local system on G_m with monodromy −1 has coinvariants ℤ/2.",
    "hypotheses": [
     "X smooth connected; for (b) affine (or more generally with no proper component)."
    ],
@@ -3549,7 +3549,7 @@
     {
      "name": "TauCeti.EtaleDuality.not_fundamentalClass_purity_singular",
      "kind": "non-example",
-     "statement": "For the cone Z = {xy = z²} ⊂ A³ (singular at the origin), H*_Z(A³, Λ) is not H^{*−2}(Z, Λ(−1)): purity fails for the singular pair, so s_{Z/A³} cannot be defined by applying purity to Z."
+     "statement": "Over an algebraically closed characteristic-zero field with Λ = ℤ/3, let Z = {xy = 0} ⊂ A². The stalk at the crossing of ℋ²_Z(Λ(1)) is Λ², generated by the two branches (local Kummer residues), whereas Λ_Z has stalk Λ. Thus i^!Λ cannot be Λ_Z(−1)[−2]; the fundamental classes of the branches exist without asserting purity for the singular union."
     }
    ],
    "planet": {
@@ -3622,8 +3622,9 @@
    "proofSteps": [
     "(a) from EDC.3/smooth-pair-purity and the localization triangle; (b) from smooth purity for Y and X and the counit of Rf_! = Rf_* ⊣ f^!.",
     "Agreement of (a) and (b) for closed immersions: both are adjoint to restriction under duality (Milne LEC 24.2 (b)).",
-    "Projection formula and composition from the projection formula for Rf_* and the composition of f^! (EDC.1:adjoint/upper-shriek-pseudofunctor); Tr_X ∘ f_* = Tr_Y from the trace compatibility (Var 3) of EDC.2:trace-purity/flat-trace; finite flat degree from (Var 4)(I).",
-    "Transverse base change: g^!-compatibility of purity for g transverse (the base change map of EDC.1:adjoint/base-change-exchange-maps is an isomorphism for the smooth pair pulled back transversally)."
+    "Projection formula and composition follow from the projection formula for Rf_* and composition of f^! (EDC.1:adjoint/upper-shriek-pseudofunctor). For general proper f, Tr_X ∘ f_* = Tr_Y is the composition law for adjunction counits after identifying the smooth dualizing complexes. The finite flat degree formula additionally uses (Var 4)(I) of EDC.2:trace-purity/flat-trace.",
+    "Transverse base change: g^!-compatibility of purity for g transverse (the base change map of EDC.1:adjoint/base-change-exchange-maps is an isomorphism for the smooth pair pulled back transversally).",
+    "For a general proper map between smooth schemes use the canonical counit Rf_*f^! → id together with the dualizing-complex identifications. The flat top-degree trace transitivity of XVIII 2.9 alone does not cover a nonflat proper map."
    ],
    "acceptance": [
     "Point i : x → C on a smooth projective curve: i_*1 = cl(x) and Tr_C(i_*1) = 1.",
@@ -3666,7 +3667,7 @@
     {
      "name": "TauCeti.EtaleDuality.not_properPushforward_ring_hom",
      "kind": "non-example",
-     "statement": "For f : C′ → C finite flat of degree 2 between smooth projective connected curves over an algebraically closed field (n odd), f_*(1_{C′}) = 2 · 1_C ≠ 1_C in H⁰(C, Λ): proper pushforward is H*(C)-linear by the projection formula but not a ring homomorphism."
+     "statement": "Assume Λ ≠ 0. For f : C′ → C finite flat of degree 2 between smooth projective connected curves over an algebraically closed field (n odd), f_*(1_{C′}) = 2 · 1_C ≠ 1_C in H⁰(C, Λ): proper pushforward is H*(C)-linear by the projection formula but not a ring homomorphism."
     }
    ],
    "planet": {
@@ -3678,7 +3679,8 @@
     "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/flat-trace",
     "EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion",
     "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/base-change-exchange-maps",
-    "mathlib:AlgebraicGeometry.IsProper"
+    "mathlib:AlgebraicGeometry.IsProper",
+    "EtaleDualityAndPerverseSheaves:EDC.3/fundamental-class"
    ],
    "api": [
     {
@@ -3866,7 +3868,7 @@
     {
      "name": "TauCeti.EtaleDuality.chernClass_sum_lines",
      "kind": "computation",
-     "statement": "c(O(1) ⊕ O(1)) = (1 + h)² on P^m, so c₂ = h² ≠ 0 for m ≥ 2."
+     "statement": "Assume Λ ≠ 0. c(O(1) ⊕ O(1)) = (1 + h)² on P^m, so c₂ = h² ≠ 0 for m ≥ 2."
     },
     {
      "name": "TauCeti.EtaleDuality.not_chernClass_two_of_line",
@@ -3952,10 +3954,11 @@
    ],
    "proofSteps": [
     "Additivity by construction; flat pullback and étale-local nature from EDC.3/fundamental-class.",
-    "Rational equivalence: a principal divisor div(f) on an integral W of codimension r − 1 maps to zero because cl(div f) = i_{W*}c₁(O(div f)) for W smooth, and in general by restricting to the regular locus (semi-purity) and the Kummer class of f; this is the independence of representatives.",
+    "For W smooth, a principal divisor maps to i_{W*}c₁(O(div f)) = 0. Extending this argument to singular integral W is an open proof gate: Sing(W) may have codimension r in X, so semi-purity does not justify the proposed restriction argument. Supply the normalization/proper-pushforward or deformation proof recorded in the cycle-class gap.",
     "Proper pushforward: cl(f_*α) = f_*cl(α) from the trace compatibility of fundamental classes (finite case: (Var 4); generically finite by restriction to an open; contracted components push forward to 0 in both).",
-    "Intersection: for properly intersecting α, β the cup product s_α ∪ s_β ∈ H^{2(r+s)}_{|α|∩|β|} is determined on the smooth locus of the intersection, where it is the fundamental class with intersection multiplicities (Tor formula), as in SGA 4½ [Cycle] 2.3.8; the Chern-class route (Milne LEC 23.4) gives the same map.",
-    "Galois equivariance and Tr(cl(point)) = 1 from base change of purity and the normalization of the trace."
+    "Intersection compatibility requires the non-routine identification of cup products of supported fundamental classes with Serre Tor multiplicities. The intended comparison SGA 4½ [Cycle] 2.3.8 needs a registered public source and a proof outline. Milne LEC 23.4 explicitly omits the comparison proof and does not close this gate.",
+    "Galois equivariance and Tr(cl(point)) = 1 from base change of purity and the normalization of the trace.",
+    "Review gate: the singular rational-equivalence and Tor-multiplicity steps above are unproved by this chain. The recorded gap is part of this target; Milne 23.4 is not an alternative proved prerequisite."
    ],
    "acceptance": [
     "Hyperplanes in P^n: cl(H) = h and cl(H₁ ∩ … ∩ H_r) = h^r for transverse hyperplanes.",
@@ -4093,7 +4096,7 @@
     "Smooth pair over a field; n invertible."
    ],
    "proofSteps": [
-    "Deformation to the normal bundle: the smooth pair (Z × A¹, M°) over A¹ with fibre (Z, X) at 1 and (Z, N) at 0 has a relative fundamental class, and specialization identifies i^*i_* with the zero-section composite for N; for a vector bundle N, s^*s_*1 = c_top(N) by the projective-bundle relation on P(N ⊕ O) (EDC.3/chern-classes).",
+    "Use the deformation pair (Z × A¹, M°), with fibres (Z, X) at 1 and (Z, N) at 0, supplied by SF.5. Construct its relative fundamental class and establish a cohomological specialization/homotopy comparison compatible with purity; that comparison is the recorded gap, and smoothness of a nonproper family alone is insufficient. Once it is supplied, reduce to the zero-section calculation s^*s_*1 = c_top(N) using the projective-bundle relation on P(N ⊕ O) (EDC.3/chern-classes).",
     "For c = 1, directly: i^*c₁(O(Z)) = c₁(O(Z)|_Z) and O(Z)|_Z = N."
    ],
    "acceptance": [
@@ -4104,7 +4107,8 @@
     "EtaleDualityAndPerverseSheaves:EDC.3/gysin-map",
     "EtaleDualityAndPerverseSheaves:EDC.3/chern-classes",
     "EtaleDualityAndPerverseSheaves:EDC.3/smooth-pair-purity",
-    "SchemeAndStackFoundations:SF.0"
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.5"
    ],
    "sources": [
     {
@@ -4134,7 +4138,7 @@
    ],
    "proofSteps": [
     "Induction on m with the Gysin sequence for P^{m−1} ⊂ P^m with complement A^m (H^q_c(A^m) concentrated in degree 2m, H^q(A^m) = Λ in degree 0): EDC.3/gysin-sequence, EDC.2:trace-purity/affine-space-trace; h generates H² by the curve trace on a line.",
-    "Degree formula: cl(L)^d = cl(D₁ ∩ … ∩ D_d) for general divisors D_i of a very ample multiple, and Tr ∘ cl = degree on 0-cycles (EDC.3/cycle-class-map); extend additively.",
+    "Degree formula: in CH*(X), take the integral self-intersection c₁(L)^d and use cl(c₁(L)) = c₁(L), multiplicativity and Tr ∘ cl = degree on 0-cycles (cycle-class-map). This proves the stated degree formula once that compatibility gap is closed; do not divide by a very-ample multiple modulo n.",
     "Hyperplane formulas: projection formula and Tr_X ∘ i_* = Tr_Y (EDC.3/gysin-map)."
    ],
    "acceptance": [
@@ -4146,7 +4150,8 @@
     "EtaleDualityAndPerverseSheaves:EDC.3/gysin-map",
     "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
     "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
-    "SchemeAndStackFoundations:SF.5"
+    "SchemeAndStackFoundations:SF.5",
+    "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/curve-trace"
    ],
    "sources": [
     {
@@ -4227,7 +4232,8 @@
    "need": "For X smooth (quasi-projective where intersections are taken) over a field: the group Z^r(X) of codimension-r cycles (Mathlib AlgebraicCycle restricted to codimension r), rational equivalence and CH^r(X); flat pullback; proper pushforward compatible with Mathlib's AlgebraicCycle.map; the intersection product of properly intersecting cycles with Serre's Tor multiplicities and the moving lemma making CH*(X) a ring; the degree of 0-cycles on proper X; and the deformation to the normal cone of a closed immersion.",
    "neededBy": [
     "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
-    "EtaleDualityAndPerverseSheaves:EDC.3/projective-space-cohomology"
+    "EtaleDualityAndPerverseSheaves:EDC.3/projective-space-cohomology",
+    "EtaleDualityAndPerverseSheaves:EDC.3/self-intersection-formula"
    ]
   },
   {
@@ -4259,7 +4265,8 @@
    "status": "planned",
    "remaining": [
     "Lemma-level refinement of EDC.0/enhanced-compact-pushforward (dg model of f_!^•, independence of compactification in the enhancement) once EnhancedDerivedSheaves E1/E3 are accepted.",
-    "The constructibility predicate and Tate-twist sheaf are imported from ConstructibleEtale through the SF.2 requests; replace the stage prerequisite by SF.2 node ids when SchemeAndStackFoundations plans them."
+    "The constructibility predicate and Tate-twist sheaf are imported from ConstructibleEtale through the SF.2 requests; replace the stage prerequisite by SF.2 node ids when SchemeAndStackFoundations plans them.",
+    "Resolve the recorded enhanced localization/compactification coherence gap and complete the missing suggested Lean statements."
    ]
   },
   {
@@ -4280,8 +4287,8 @@
    "stageId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
    "status": "planned",
    "remaining": [
-    "Lemma level: the stratification dévissage of constructible-biduality (existence of a smooth stratification adapted to K, the induction on dim X) as separate nodes.",
-    "Biduality over the regular one-dimensional base ℤ[1/ℓ] (DWP.7's request) is stated with the same proof; its finiteness input (SGA 4½ [Th. finitude] 4.3) is requested from SF.2."
+    "Close the noncircular constructible-biduality induction and provide the regular one-dimensional base dualizing input, as specified in the review gap.",
+    "Complete the actual Lean statements and finite-coefficient hypotheses for every API/test in this stage."
    ]
   },
   {
@@ -4295,22 +4302,27 @@
    "stageId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
    "status": "planned",
    "remaining": [
-    "Lemma level: SGA 4 XVIII 2.5-2.6 (chains of systems of parameters) and 2.14.2 (the derived-category factorization lemma) as separate lemma nodes."
+    "Lemma level: SGA 4 XVIII 2.5-2.6 (chains of systems of parameters) and 2.14.2 (the derived-category factorization lemma) as separate lemma nodes.",
+    "Repair the Lean trace signatures to encode compactifiability, fibre dimension and (*)_d, as recorded in the signature gap.",
+    "Verify trace compatibility and normalization in the proposed replacement smooth-purity proof (source issue E1 and the review gap)."
    ]
   },
   {
    "stageId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
    "status": "planned",
    "remaining": [
-    "The Euler-characteristic sub-stage requested by FiniteFieldsAndCharacterSums is proposed under restructure, not planned here."
+    "The Euler-characteristic sub-stage requested by FiniteFieldsAndCharacterSums is proposed under restructure, not planned here.",
+    "Supply the omitted typed lisse/adic/Frobenius statements; field eigenvalue and finite-ring coinvariant hypotheses must remain distinct."
    ]
   },
   {
    "stageId": "EtaleDualityAndPerverseSheaves:EDC.3",
    "status": "planned",
    "remaining": [
-    "Lemma level: deformation to the normal cone and the Tor-multiplicity comparison inside cycle-class-map and self-intersection-formula as separate nodes, after SchemeAndStackFoundations SF.5 plans the Chow-side constructions.",
-    "Purity over a trait for LPV.7 is recorded as a gap (no owner in EDC.0-EDC.3)."
+    "Prove singular rational-equivalence descent and the Tor intersection comparison for cycle-class-map; register the public source used.",
+    "Obtain SF.5 deformation geometry and prove the cohomological specialization step of self-intersection-formula.",
+    "Replace the unrestricted Lean cycle/fundamental-class/proper-pushforward signatures with the actual codimension and smoothness contracts.",
+    "Purity over a trait remains an explicit separate-owner gap."
    ]
   }
  ],
@@ -4330,9 +4342,14 @@
     "GlobalShtukasAndFunctionFieldLanglands:GS.1",
     "GlobalShtukasAndFunctionFieldLanglands:GS.3",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
-    "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks"
+    "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks",
+    "EtaleDualityAndPerverseSheaves:EDC.8/YUN-ZHANG-17/35",
+    "EtaleDualityAndPerverseSheaves:EDC.8/YUN-ZHANG-19/120",
+    "EtaleDualityAndPerverseSheaves:EDC.8/LAFFORGUE-18/48",
+    "ShtukaSpecialCyclesAndHigherSiegelWeil",
+    "RamifiedGeometricClassFieldTheory"
    ],
-   "detail": "EDC.0-EDC.3 are planned for schemes only. Consumers on Artin and Deligne-Mumford stacks (shtuka, Hitchin, Bun_G and root-Picard stacks; WC.6's smooth proper DM stacks; FunctionFieldArithmeticPartII's tame coarse comparisons) need the Laszlo-Olsson / Liu-Zheng enhanced six operations on stacks, which this packet does not plan. The restructure entry proposes the Part II that the confirmed red-team finding asks for. The scheme-level objects of this packet (the enhanced Rf_! and f^!, the dualizing complex, smooth purity) are what that Part II extends by smooth descent."
+   "detail": "EDC.0-EDC.3 are planned for schemes only. Consumers on Artin and Deligne-Mumford stacks (shtuka, Hitchin, Bun_G and root-Picard stacks; WC.6's smooth proper DM stacks; FunctionFieldArithmeticPartII's tame coarse comparisons) need the Laszlo-Olsson / Liu-Zheng enhanced six operations on stacks, which this packet does not plan. The restructure entry proposes the Part II that the confirmed red-team finding asks for. The scheme-level objects of this packet (the enhanced Rf_! and f^!, the dualizing complex, smooth purity) are what that Part II extends by smooth descent. Explicit RT-AREA-etale/3 paper routes: EDC.8 YUN-ZHANG-17/35, YUN-ZHANG-19/120 and LAFFORGUE-18/48; the two named Part IIs are consumers, not scheme-level completions."
   },
   {
    "title": "Perfect schemes and finite-level equivariant coefficients (RT-AREA-etale/16) are not planned here",
@@ -4350,6 +4367,59 @@
     "FiniteFieldsAndCharacterSums:FF.2/deligne-cohomology-of-polynomial-sheaf"
    ],
    "detail": "FiniteFieldsAndCharacterSums requests χ_c(X, F) = rk F · χ_c(X) − Σ_s Sw_s(F) from EDC.2 (RT-AREA-finitefields/3, confirmed). It is not among EDC.2's stated targets and needs Swan conductors (ArithmeticGaloisRepresentations:R01.3) and the Euler-characteristic computation of SGA 5 X / Raynaud (Séminaire Bourbaki 286). This packet endorses the FiniteFieldsAndCharacterSums proposal of a sub-stage EtaleDualityAndPerverseSheaves:EDC.2:euler-characteristic after EDC.2 (restructure entry), with inputs EDC.2:pairings and R01.3."
+  },
+  {
+   "title": "Enhanced compactification and localization coherence still require a supplier contract",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/upper-shriek-pseudofunctor",
+    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/base-change-exchange-maps"
+   ],
+   "detail": "A termwise Godement functor need not land in K-injective complexes. Construct it on complexes, prove preservation of quasi-isomorphisms, descend to the dg localization, and compare to the K-injective presentation using EnhancedDerivedSheaves E1. E3 supplies mates abstractly, not by itself a contractible coherent diagram of compactifications. Specify the comparison and all localization choices (SGA XVIII 3.1.9, editor note 37) before claiming the enhanced lift coherent."
+  },
+  {
+   "title": "Constructible biduality dévissage and the regular-base extension are not closed",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality",
+    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/duality-exchange-isomorphisms",
+    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions"
+   ],
+   "detail": "XVIII 3.2.6 proves the smooth local-system calculation, not general constructible biduality. The supplied induction uses D_X Rj_* ≅ j_!D_U, itself obtained from biduality in the next node, without a separate proof of the boundary step. Establish that step without circularity. Over a regular base of dimension one, the field smooth-stratum argument does not cover vertical strata; define the actual dualizing object on the base and prove its purity/duality input. SF.2 coherent O-module biduality is a different theorem, and the finiteness request alone does not supply this étale input."
+  },
+  {
+   "title": "Cycle-class descent to Chow groups and intersection multiplicities need a proof",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
+    "EtaleDualityAndPerverseSheaves:EDC.3/projective-space-cohomology"
+   ],
+   "detail": "The direct additive map from fundamental classes is justified. For rational equivalence on a singular W of codimension r−1, Sing(W) may have codimension r in X, not r+1. Semi-purity therefore does not make restriction on H^{2r} injective; the proposed reduction to W_reg is insufficient. Supply a normalization/proper-pushforward or deformation argument with the required trace multiplicities. The Tor intersection comparison is non-routine; the reference to SGA 4½ [Cycle] 2.3.8 is not a registered public source in this packet. Milne 23.4 explicitly withholds its proof. Do not claim these compatibilities closed by that citation."
+  },
+  {
+   "title": "Self-intersection specialization needs a cohomological comparison",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.3/self-intersection-formula"
+   ],
+   "detail": "SF.5 is requested for the deformation-to-the-normal-cone geometry and is now a direct prerequisite. The general self-intersection proof additionally needs a cohomological specialization/homotopy comparison for the deformation pair, compatible with purity and its normalization. Smoothness of the family alone does not identify cohomology of nonproper fibres. The two Milne citations prove normalization and projection formula, not this missing comparison."
+  },
+  {
+   "title": "Suggested Lean declarations do not yet implement every packet signature",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+    "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes",
+    "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+    "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/flat-trace",
+    "EtaleDualityAndPerverseSheaves:EDC.3/fundamental-class",
+    "EtaleDualityAndPerverseSheaves:EDC.3/gysin-map",
+    "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map"
+   ],
+   "detail": "The input lists 95 of its 217 API/test entries only in Not typed here comments. Section 13 requires actual Lean statements, with honest data stand-ins when appropriate. Several existing statements also omit compactifiability/quasi-compactness, torsion hypotheses, condition (*)_d for trace, codimension for fundamentalClass/cycleClass, or smoothness and the dimension difference for properPushforward. The review corrects the cartesian-square arguments, the false base-change test, smooth-pair dimensions and some duality coefficient hypotheses. The remaining declarations require a systematic carrier/hypothesis revision rather than fabricated Prop stand-ins. See the review report for the explicit inventory. The localization-triangle prototypes also need the actual relation that j is the open complement of i, rather than two unrelated immersion arguments."
+  },
+  {
+   "title": "Trace compatibility in the proposed replacement purity proof remains to be checked",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/smooth-purity"
+   ],
+   "detail": "The published smooth-purity theorem is not contradicted. The packet claims to replace the problematic proof of XVIII 3.2.3 by the stalk formula and effacement. Establish that the two neighbourhood pro-systems and their transition maps are identified through the chosen trace, and that the induced cohomology isomorphism is precisely the adjoint t_f. Merely obtaining isomorphic stalk groups does not verify that normalization. E1 confirms the author remark, not the packet’s claimed repair."
   }
  ],
  "restructure": [
@@ -4390,14 +4460,19 @@
    "kind": "gap",
    "locator": "Lemme 3.2.3 and its proof, p. 583-584 (retyped edition, version 71766d9, 2024)",
    "printed": "After proving agreement between the two constructions of t_f, the author asks anyone who understands the demonstration to explain it to them.",
-   "correction": "The compatibility of the adjoint of Tr_f with the map t_f of (3.2.1.2) is asserted with a proof the author himself does not vouch for. The purity theorem can be proved without it: define t_f as the adjoint of Tr_f and compute ℋ^q(f^!K) stalkwise by the formula of Stacks More Étale Lemma 16.1 together with the factorization 2.14.4, as EDC.2:trace-purity/smooth-purity does.",
+   "correction": "The compatibility of the adjoint of Tr_f with the map t_f of (3.2.1.2) is asserted with a proof the author himself does not vouch for. The packet proposes instead to define t_f as the adjoint of Tr_f and use the stalk formula of Stacks More Étale Lemma 16.1 and factorization 2.14.4. This possible alternative still needs the trace-compatibility calculation recorded as a gap; this source issue does not assert that the repair is established.",
    "reason": "The proof's final step is left to the reader ('dont on laisse au lecteur le soin de vérifier que, dans la catégorie dérivée, il coïncide avec (3.2.1.2)'), and the author records that he did not understand it.",
    "affects": "the proof",
    "known": "The author's own remark in the text (SGA 4 XVIII, after the proof of 3.2.3); the Stacks Project (More Étale Cohomology §16, tags 0GLJ-0GLK) computes f^! stalkwise instead.",
    "searched": [
     "SGA 4 XVIII retyped edition (2024), editors' notes (N.D.E.) around 3.2.3: none corrects it.",
     "Stacks Project, More Étale Cohomology, Section 16 (tag 0GLJ-0GLK), read 2026-10-06: gives the stalk formula used instead."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. The remark is present; the source does not itself furnish the claimed alternative proof. The proposed stalk/effacement proof still needs its trace-compatibility calculation.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E2",
@@ -4412,7 +4487,12 @@
    "searched": [
     "Retyped edition 71766d9 (2024), editors' notes in §3.2: none.",
     "The original LNM 305 scan was not available to compare; the slip may be the retyping's."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. Confirmed as a slip in the 2024 retyped edition; no claim about the original LNM scan.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E3",
@@ -4427,7 +4507,12 @@
    "searched": [
     "Retyped edition 71766d9 (2024), editors' notes in §2: none.",
     "The original LNM 305 scan was not available to compare; the slip may be the retyping's."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. Confirmed as a slip in the 2024 retyped edition; no claim about the original LNM scan.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E4",
@@ -4435,14 +4520,19 @@
    "kind": "misprint",
    "locator": "Remark 24.2 and the display before it, p. 145 (version 2.21, 22 March 2013)",
    "printed": "The source invokes duality to obtain π∗ : H^r(Y, Λ) → H^{r−2c}(X, Λ(−e)), using a = dim X, d = dim Y, e = d − a.",
-   "correction": "π_* : H^r(Y, Λ) → H^{r−2e}(X, Λ(−e)); for a closed immersion of codimension c, e = −c and the target is H^{r+2c}(X, Λ(c)).",
+   "correction": "π_* : H^r(Y, Λ) → H^{r−2e}(X, Λ(−e)); for a closed immersion of codimension c, e = −c and the target is H^{r+2c}(X, Λ(c)). In 24.2(b), replace “e is the codimension” by “−e is the codimension”.",
    "reason": "Dualizing π^* : H^{2d−r}_c(X, Λ(d)) → H^{2d−r}_c(Y, Λ(d)) with Poincaré duality on Y (dimension d) and X (dimension a) lands in H^{2a−2d+r}(X, Λ(a − d)) = H^{r−2e}(X, Λ(−e)); c is not defined in the remark.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "LEC versions listed on the title page (2.01, 2.10, 2.20, 2.21) and their change notes: no erratum for 24.2.",
     "jmilne.org course-notes page, checked 2026-10-06: no separate errata file for LEC."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. The degree shift must be −2e. Remark 24.2(b) also calls e the codimension, although e = −codimension for a closed immersion.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E5",
@@ -4450,14 +4540,19 @@
    "kind": "gap",
    "locator": "§23, after Theorem 23.3 and the NOTES, p. 140-142 (version 2.21)",
    "printed": "The source defines φ(Z) = Σ(−1)^i ch(E_i). Theorem 23.4 identifies this Chern-class construction with the cycle map defined directly; the proof says that a correct demonstration would be lengthy.",
-   "correction": "The Chern character used to define φ is not defined in the notes, and the agreement 23.4 is unproved there. The packet's cycle class map is the direct one (fundamental classes through the smooth locus) and proves its compatibilities directly (EDC.3/cycle-class-map), not through 23.4.",
+   "correction": "The Chern character and the proof of agreement 23.4 are missing in these notes. The packet uses the direct fundamental-class map, but its rational-equivalence and intersection compatibilities still need the proof recorded in the cycle-class gap.",
    "reason": "The notes say so themselves.",
    "affects": "the proof",
    "known": "Milne's NOTES in §23 of version 2.21: 'This subsection needs to be rewritten ... you seem to have forgotten to define it.'",
    "searched": [
     "LEC version 2.21 (2013), §23 NOTES.",
     "jmilne.org course-notes page, checked 2026-10-06."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. Milne explicitly says the Chern character is undefined and the comparison proof long. The packet has not repaired all direct compatibilities; the new cycle-class gap records this distinction.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E6",
@@ -4472,7 +4567,12 @@
    "searched": [
     "The PAPER-YU-23 extraction's sourceIssues (E14) and its review verdict.",
     "arXiv 1807.04659v5 re-read at (6.1.1)-(6.1.2), 2026-10-06; journal version not openly available."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. Both Hom arguments are reversed in arXiv v5; the tensor-Hom convention confirms the correction, also confirmed independently in REV-PAPER-YU-23.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E7",
@@ -4486,7 +4586,69 @@
    "known": "Editors' note (N.D.E.) 2 to 1.1.2 in the retyped edition (2024).",
    "searched": [
     "Retyped SGA 4 XVIII (2024), note 2."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the cited locator in the public version recorded in sources/sourceVersions. Editor note 2 identifies the unavailable reference; the local trace construction does not require general quasi-projectivity.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E8",
+   "source": "SGA4-XVIII",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 1.1.6, p. 489 (2024 retyped edition 71766d9)",
+   "printed": "The source introduces a morphism ℤ/n → R¹p_*ℤ/n(1).",
+   "correction": "Replace R¹p_* by R²p_* in the Kummer class of O(1) on p : P¹_S → S.",
+   "reason": "The Kummer boundary of Pic lies in degree two; fibrewise H¹(P¹, μ_n) = 0 and H²(P¹, μ_n) = ℤ/n. The displayed superscript 1 was checked visually in the PDF, not only by text extraction.",
+   "affects": "nothing",
+   "known": "new in this packet; retyped-edition slip",
+   "searched": [
+    "Public retyped SGA 4 XVIII 71766d9 and its editor notes, read 2026-10-06; no claim about the original LNM scan."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The Kummer boundary of Pic lies in degree two; fibrewise H¹(P¹, μ_n) = 0 and H²(P¹, μ_n) = ℤ/n. The displayed superscript 1 was checked visually in the PDF, not only by text extraction.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E9",
+   "source": "SGA4-XVIII",
+   "kind": "gap",
+   "locator": "3.1.9, (3.1.9.3), p. 572; editor note 37 on p. 573 (2024 retyped edition 71766d9)",
+   "printed": "The source says that an isomorphism cannot be expected without first choosing points coherently.",
+   "correction": "Fix a family P of points of S_ét and on V_ét use the points (p, ξ), ξ ∈ V_p, as in editor note 37; do not use independent Godement resolutions in the localization comparison.",
+   "reason": "The editor explicitly supplies the missing compatible point choices, affecting the enhancement/sheafified-adjunction proof model.",
+   "affects": "the proof",
+   "known": "new in this packet; editor note 37",
+   "searched": [
+    "Public retyped SGA 4 XVIII 71766d9 and its editor notes, read 2026-10-06; no claim about the original LNM scan."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The editor explicitly supplies the missing compatible point choices, affecting the enhancement/sheafified-adjunction proof model.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E10",
+   "source": "SGA4-XVIII",
+   "kind": "misprint",
+   "locator": "3.1.13, (3.1.13.1), p. 576; editor note 38 (2024 retyped edition 71766d9)",
+   "printed": "The source says that transposition produces a composition morphism Rh! Rg! → R(gh)!.",
+   "correction": "The actual transpose initially goes from R(gh)! to Rh! Rg!; invert that isomorphism to obtain the displayed direction.",
+   "reason": "Editor note 38 explicitly says the transposed morphism goes in the other direction. Both displayed functors are isomorphic, so the final pseudofunctor statement is unchanged.",
+   "affects": "nothing",
+   "known": "Editor note 38, newly recorded in this packet.",
+   "searched": [
+    "Retyped SGA 4 XVIII 71766d9, 3.1.13 and note 38, read 2026-10-06."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The editor note is present at the cited locator; the typed comparison is an isomorphism and may use its inverse.",
+    "by": "REV-EtaleDualityAndPerverseSheaves--EDC.0"
+   }
   }
  ],
  "sourceVersions": [
@@ -4515,5 +4677,263 @@
    "read": "2026-10-06",
    "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c"
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-EtaleDualityAndPerverseSheaves--EDC.0",
+  "date": "2026-10-06",
+  "notes": "Completed an independent pass over all 50 nodes, all source locators/excerpts and hypotheses, all 41 original baseline citations at the pinned Mathlib, the audit, supplier contracts, target coverage, API/tests, planets, sourceIssues and RT-AREA-etale/3 and /16. Corrected clear mathematical/citation/signature errors; removed one baseline and replaced two, leaving 40 independently confirmed baselines. Added six explicit proof/signature gaps and confirmed all ten sourceIssues. The suggested file elaborates with only placeholder-proof warnings but 95 API/test entries remain comment-only, and several present signatures omit essential hypotheses. Biduality and cycle/specialization/trace-compatibility proof gates, and reader-document disagreement, require revision; this is a completed review, not a checkpoint. See the report for the full inventory.",
+  "checked": [
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
+    "verdict": "corrected",
+    "note": "Confirmed the small étale site, geometric points, exact stalks and standard derived t-structure at the pin. Replaced the false composite-coefficient monodromy non-example by the F₂/ℤ₃ character −1; corrected the baseline t-structure prerequisite."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes",
+    "verdict": "unverifiable",
+    "note": "Corrected constructibility to require a finite stratification and Tor-amplitude to require a uniform bound. The finite-stalk criterion alone is false. All eight predicate APIs and three tests remain comment-only; the fourth test is only a module-level nonflatness shadow."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/tate-twist",
+    "verdict": "unverifiable",
+    "note": "Checked μ_n, the change-of-n convention and geometric Frobenius q⁻¹ against XVIII 1.1.1. Repaired excerpts. The Frobenius API/test still have no typed signature."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/derived-tensor-and-internal-hom",
+    "verdict": "verified",
+    "note": "The tensor/internal-Hom adjunction, exact monoidal pullback and stalk formula agree with the E1 supplier contract; no duplicate derived-category construction is planned."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+    "verdict": "corrected",
+    "note": "Checked supports, localization, excision and dependence on Z_red against XVII 5.1.16 and Stacks growing sections. Repaired the source excerpts. Lean still needs an actual complement relation in the localization statements."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change",
+    "verdict": "corrected",
+    "note": "Checked restriction/derived extension of coefficients and the torsion projection formula. Repaired excerpts. The unrestricted Lean lower-shriek signatures require the hypotheses recorded in the signature gap."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+    "verdict": "unverifiable",
+    "note": "Corrected the false direct passage from a termwise resolution to K-injective subcategories. Coherent compactification/localization comparisons are not supplied by abstract mates; recorded the supplier gap and editor note 37. Five APIs and a test remain comment-only."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.0/compact-pushforward-amplitude-and-colimits",
+    "verdict": "corrected",
+    "note": "Checked stalks, amplitude and colimits in XVII 5.2.8-10 and Stacks; replaced the abstract t-structure citation by the actual derived t-structure. Finiteness is a precise pending SF.2 request, not a baseline result."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/exceptional-inverse-image",
+    "verdict": "corrected",
+    "note": "The adjoint, amplitude and étale/closed-immersion comparisons match XVIII 3.1.4-8 and Stacks. Repaired excerpts. Existence is conditional on the explicit enhancement gap; Lean compactifiability/torsion hypotheses remain to be encoded."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/upper-shriek-pseudofunctor",
+    "verdict": "unverifiable",
+    "note": "Composition and localization are stated correctly; confirmed the transpose-direction misprint E10. Coherence remains conditional on the missing enhanced compactification diagram, not established by the abstract E3 mates alone."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/sheafified-adjunction",
+    "verdict": "corrected",
+    "note": "Checked sheafified adjunction and induction/coefficient/base-change specializations in XVIII 3.1.10-11 and Stacks. Repaired excerpts and recorded compatible Godement-point choices E9. Typed prototypes remain narrower than all parts of the target."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification",
+    "verdict": "verified",
+    "note": "The quasi-finite/closed-immersion identification agrees with XVIII 3.1.8 and the supports adjunction; the dependency is the imported finite-level f_!, not an invented purity theorem."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/dualizing-complex",
+    "verdict": "corrected",
+    "note": "The relative and field dualizing objects are f^!Λ and a^!Λ. Added a nonzero-coefficient condition to the mixed-dimension test. No uniform shift/twist is claimed before smooth purity."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/verdier-dual",
+    "verdict": "corrected",
+    "note": "Checked evaluation, shifts, internal Hom and étale restriction. Corrected the non-example to assume nonzero coefficients and a nonempty scheme. Biduality remains a separate target."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/formal-duality-exchange",
+    "verdict": "verified",
+    "note": "Both formal exchanges follow from sheafified adjunction and composition without constructible biduality. The reverse exchanges are correctly reserved for the dependent biduality stage."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/base-change-exchange-maps",
+    "verdict": "corrected",
+    "note": "Checked the directions of the three mates and pasted squares. Replaced the invalid f=id non-example by the self-pullback square of a point in A¹; Lean now retains explicit cartesian witnesses rather than silently dropping the square argument."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/quasi-finite-flat-trace",
+    "verdict": "unverifiable",
+    "note": "Removed Algebra.trace: it acts on regular functions, not constant torsion étale sheaves. Replaced that proof by weighted geometric stalks/gluing from XVII 6.2.3 and the étale counit 6.2.11. One API and two tests still lack typed statements."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/first-chern-class",
+    "verdict": "unverifiable",
+    "note": "Kummer c₁, naturality and divisor/degree normalization agree with the sources and JacobianChallenge Layer A contract. Repaired excerpts. All six APIs and four tests remain comment-only pending the Picard carrier."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/curve-trace",
+    "verdict": "unverifiable",
+    "note": "Checked component multiplicities and trace normalization in XVIII 1.1.1-9; added the R¹/R² Kummer misprint E8. Four APIs and three tests remain comment-only; the typed curve trace omits relative dimension one."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/curve-h1-duality",
+    "verdict": "corrected",
+    "note": "Checked the independent Jacobian/Kummer proof in Milne 14.7-8 and XVIII 1.6.6. The Jacobian and Weil pairing are imported from their owners. Added self-injective/noetherian coefficients to the Lean pairing theorem; its current constant-coefficient prototype does not state the full sheaf theorem."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/curve-effacement-lemma",
+    "verdict": "unverifiable",
+    "note": "The curve effacement target and cover/spreading argument match XVIII 1.6.6-9 and the requested smooth acyclicity input. The named theorem is still only a comment in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+    "verdict": "unverifiable",
+    "note": "The iterated affine-line trace, permutation sign and normalization agree with XVIII 2.7-8. Three APIs and two tests remain comment-only."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/flat-trace",
+    "verdict": "unverifiable",
+    "note": "Restricted the trace-isomorphism criterion to the constant ℤ/n sheaf, n≥2; F=0 disproves the arbitrary-sheaf version. It is not a criterion for the derived counit. Corrected the two-component test. Six APIs/four tests and (*)_d geometry remain missing in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/smooth-effacement",
+    "verdict": "unverifiable",
+    "note": "The higher-dimensional effacement and 2.14.4 factorization match XVIII 2.14; target-level granularity is appropriate. Its named theorem remains comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/smooth-purity",
+    "verdict": "unverifiable",
+    "note": "The smooth-purity statement and normalizations match XVIII 3.2 and Stacks. The claimed replacement of 3.2.3 still needs the trace-compatible pro-system calculation; recorded a separate gap rather than certifying the source-issue repair."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/top-degree-compact-cohomology",
+    "verdict": "corrected",
+    "note": "Separated the canonical top cohomology of X_red from the weighted trace of a possibly nonreduced scheme. Multiplicity may make trace noninvertible. Corrected the smooth-open proof; the trace statement is conditional on (*)_d. The Galois calculation uses the reduced dense smooth open, rather than a potentially zero weighted trace."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/dualizing-complex-of-smooth-scheme",
+    "verdict": "verified",
+    "note": "The smooth dualizing identification follows from smooth purity. The finite local-system calculation uses self-injective coefficient duality; it does not establish general constructible biduality or trait purity."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/self-injective-coefficients",
+    "verdict": "unverifiable",
+    "note": "Replaced the predicate Module.Baer by the actual theorem Module.Baer.injective. The ideal-extension proof and finite double-dual calculation are correct for O/πⁿ. Lean states only the ZMod self-injective special case and does not yet encode the full DVR target."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality",
+    "verdict": "unverifiable",
+    "note": "XVIII 3.2.6 supplies only the smooth local calculation. The boundary induction uses the reverse exchange later derived from biduality; no noncircular proof is given. The regular one-dimensional base additionally lacks its actual dualizing/purity input. Recorded both gaps."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/duality-exchange-isomorphisms",
+    "verdict": "unverifiable",
+    "note": "The formal deduction from biduality is correct, but its essential prerequisite remains unestablished. The complete constructible exchange theorem is also comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions",
+    "verdict": "unverifiable",
+    "note": "The unbounded recollement adjunctions and triangles are valid. Their restriction to Dᵇ_c and the duality comparison depend on the unresolved biduality/finiteness inputs; the named constructible theorem remains comment-only."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/relative-and-geometric-duality",
+    "verdict": "corrected",
+    "note": "Corrected geometric duality by applying adjunction directly to the base-changed scheme, avoiding improper use of proper base change for nonproper a. The finite-field absolute-versus-relative counterexample is correct."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion",
+    "verdict": "corrected",
+    "note": "The torsion pairing follows from smooth local duality and geometric adjunction. Added self-injective/noetherian coefficients to the typed perfect-pairing theorem; arbitrary coefficients retain derived Hom rather than an unjustified ordinary dual. Removed the forward proof reference to the dependent cup-product node; evaluation and the counit identify the pairing directly."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/cup-product-trace-pairing",
+    "verdict": "corrected",
+    "note": "Corrected the graded-sign argument: for general odd middle degree it proves alternation only when 2 is invertible. Curve alternation for all n uses the separate Weil-pairing proof. Kept Frobenius/monodromy compatibility; its complete signature remains to be supplied. Listed the curve Weil-pairing result directly for that separate alternation argument."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/galois-frobenius-equivariance",
+    "verdict": "unverifiable",
+    "note": "Restricted eigenvalue multiplicities to field coefficients; finite torsion rings retain only pairing equivariance. Replaced the unrelated Weil I 2.12 excerpt by the actual Frobenius pairing (2.4). The Frobenius theorem is comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality",
+    "verdict": "unverifiable",
+    "note": "Checked the derived-limit/Ext¹ distinction and the rational perfect pairing. Perfect-complex and reduction/lim¹ hypotheses are precise SF.2 requests. The lisse-adic theorem remains comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement",
+    "verdict": "unverifiable",
+    "note": "Corrected the mixed ℚ_ℓ/finite-ring trace target to Λ throughout. Invariant/coinvariant duality for self-injective finite coefficients is valid; it is not a counterexample to derived Verdier duality. The j_* local-system theorem has no typed signature and depends on biduality."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology",
+    "verdict": "unverifiable",
+    "note": "Corrected nontrivial rank-one monodromy: vanishing of coinvariants needs field coefficients or a unit χ(γ)−1. The ℤ/4, monodromy −1 example has coinvariants ℤ/2. Confirmed H⁰_c in the scanned Weil I passage; Lean theorem remains comment-only."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/lisse-tensor-hom-duality-on-curves",
+    "verdict": "unverifiable",
+    "note": "Checked both tensor-Hom orders directly in Yu arXiv v5 and confirmed E6. The finite-field equivariance is conditional on Weil data; the full lisse theorem remains comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.2:pairings/relative-duality-locally-constant",
+    "verdict": "unverifiable",
+    "note": "Checked the locally constant relative-duality spectral-sequence argument and its hypotheses in XVIII 3.2.1 and Stacks. It uses self-injectivity locally, not global projectivity of every sheaf. Its typed lisse/family theorem is still missing."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/smooth-pair-purity",
+    "verdict": "corrected",
+    "note": "Checked smooth-pair purity through composition and local charts; it does not supply Gabber absolute purity. Corrected the Lean pure dimensions of X and Z and the invertibility hypothesis."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/semi-purity",
+    "verdict": "corrected",
+    "note": "Checked semi-purity and the codimension-(c+1) support restriction in Milne 23.1. Corrected the typed pure-dimension, quasi-compactness and coefficient hypotheses. This does not justify dropping singular strata of codimension only c."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/fundamental-class",
+    "verdict": "unverifiable",
+    "note": "The integral-cycle class via the dense smooth locus is correct. Replaced the unsupported universal quadric-cone counterexample by crossing divisors xy=0, whose local supported H² has two branches. Five APIs/four tests and actual codimension/integrality hypotheses remain missing in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/gysin-map",
+    "verdict": "unverifiable",
+    "note": "Added fundamental-class as a direct prerequisite. Corrected general proper trace transitivity to use adjunction counits, not the flat trace theorem alone. Added nonzero coefficients to the non-ring-map test. Seven APIs/three tests and the correct smoothness/dimension carriers remain missing."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/gysin-sequence",
+    "verdict": "unverifiable",
+    "note": "The Gysin sequence follows from localization and smooth-pair purity; the family version needs relative smooth purity. Repaired excerpts. The named theorem remains comment-only in Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/projective-bundle-freeness",
+    "verdict": "unverifiable",
+    "note": "The projective-bundle decomposition and local trivialization proof are mathematically correct. The SF.0 lines convention is coherent with the all-plus Chern relation. The typed projective-bundle theorem is absent."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/chern-classes",
+    "verdict": "unverifiable",
+    "note": "Confirmed all plus signs: P(E)=Proj Sym(E∨) parametrizes lines, so ξ=−c₁(L) for rank one. No sign correction is needed. Added Λ≠0 to the c₂ non-example. All seven APIs/four tests remain comment-only."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
+    "verdict": "unverifiable",
+    "note": "The additive fundamental-class map is justified. Rational-equivalence descent on singular W and the Tor intersection comparison are not proved by semi-purity or Milne 23.4. Recorded the exact codimension failure, absent public comparison source and missing graded Lean carrier/APIs."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/self-intersection-formula",
+    "verdict": "unverifiable",
+    "note": "Added SF.5 deformation geometry as a direct prerequisite and request consumer. Smoothness of a nonproper family does not identify its cohomology fibres; the specialization comparison remains a gap. The named self-intersection theorem is absent from Lean."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheaves:EDC.3/projective-space-cohomology",
+    "verdict": "unverifiable",
+    "note": "Removed division by a very-ample multiple modulo n. The integral Chow self-intersection route is conditional on cycle compatibility; added curve trace as the direct normalization prerequisite. The named projective-space/degree theorem remains comment-only in Lean."
+   }
+  ]
+ }
 }

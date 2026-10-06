@@ -10,8 +10,10 @@ signatures. Every proof is `sorry`; nothing here is claimed to be formalised (ev
 implementationStatus "unchecked"). Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib is imported.
 
-Names. Every `api` item of the packet is a declaration below under its packet name (namespace
-`TauCeti.EtaleDuality`); every unit test is an `example` whose docstring begins "Test `<name>`".
+Names. The file mentions every input API/test name, but 95 of the 217 entries are only comments,
+not typed declarations. This is an unresolved section 13 gap (independent review
+REV-EtaleDualityAndPerverseSheaves--EDC.0, 2026-10-06). Typed items use the namespace
+`TauCeti.EtaleDuality`; typed tests are `example`s with a "Test `<name>`" docstring.
 Named theorems carry the packet node slug in their docstring.
 
 Carriers. The étale derived category is Mathlib's: `EtaleDerived Λ X` is the `DerivedCategory` of
@@ -49,7 +51,6 @@ import Mathlib.CategoryTheory.Triangulated.Functor
 import Mathlib.CategoryTheory.Sites.Point.Basic
 import Mathlib.Algebra.Module.Injective
 import Mathlib.RingTheory.RootsOfUnity.Basic
-import Mathlib.RingTheory.Trace.Defs
 import Mathlib.LinearAlgebra.PerfectPairing.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.FieldTheory.IsSepClosed
@@ -689,45 +690,50 @@ end Dualizing
 section Exchange
 
 variable {Λ : Type u} [CommRing Λ] {X S X' S' : Scheme.{u}}
-  (f : X ⟶ S) (g : S' ⟶ S) (f' : X' ⟶ S') (g' : X' ⟶ X) (sq : IsPullback g' f' f g)
+  (f : X ⟶ S) (g : S' ⟶ S) (f' : X' ⟶ S') (g' : X' ⟶ X)
   [IsSeparated f] [LocallyOfFiniteType f] [IsSeparated f'] [LocallyOfFiniteType f']
 
-def upperShriekPushforwardIso :
+def upperShriekPushforwardIso (sq : IsPullback g' f' f g) :
     upperShriek (Λ := Λ) f' ⋙ pushforward g' ≅ pushforward g ⋙ upperShriek f := sorry
 
-def upperShriekBaseChange : upperShriek (Λ := Λ) f ⋙ pullback g' ⟶ pullback g ⋙ upperShriek f' :=
+def upperShriekBaseChange (sq : IsPullback g' f' f g) : upperShriek (Λ := Λ) f ⋙ pullback g' ⟶ pullback g ⋙ upperShriek f' :=
   sorry
 
-def upperShriekCobaseChange [IsSeparated g] [LocallyOfFiniteType g] [IsSeparated g']
+def upperShriekCobaseChange (sq : IsPullback g' f' f g) [IsSeparated g] [LocallyOfFiniteType g] [IsSeparated g']
     [LocallyOfFiniteType g'] :
     upperShriek g' ⋙ lowerShriek (Λ := Λ) f' ⟶ lowerShriek f ⋙ upperShriek g := sorry
 
-lemma upperShriekBaseChange_etale [Etale g] : IsIso (upperShriekBaseChange (Λ := Λ) f g f' g') :=
+lemma upperShriekBaseChange_etale (sq : IsPullback g' f' f g) [Etale g] :
+    IsIso (upperShriekBaseChange (Λ := Λ) f g f' g' sq) :=
   sorry
 
 /-- `upperShriekBaseChange_paste`: the base-change map of a vertically pasted square is the
 composite of the two base-change maps, up to the pseudofunctoriality of pullback. -/
-lemma upperShriekBaseChange_paste {S'' X'' : Scheme.{u}} (h : S'' ⟶ S') (f'' : X'' ⟶ S'')
-    (h' : X'' ⟶ X') [IsSeparated f''] [LocallyOfFiniteType f''] :
+lemma upperShriekBaseChange_paste (sq : IsPullback g' f' f g) {S'' X'' : Scheme.{u}} (h : S'' ⟶ S') (f'' : X'' ⟶ S'')
+    (h' : X'' ⟶ X') [IsSeparated f''] [LocallyOfFiniteType f'']
+    (sq₂ : IsPullback h' f'' f' h) (sq₃ : IsPullback (h' ≫ g') f'' f (h ≫ g)) :
     ∃ (c₁ : pullback (Λ := Λ) g' ⋙ pullback h' ≅ pullback (h' ≫ g'))
       (c₂ : pullback (Λ := Λ) g ⋙ pullback h ≅ pullback (h ≫ g)),
-      upperShriekBaseChange (Λ := Λ) f (h ≫ g) f'' (h' ≫ g') =
+      upperShriekBaseChange (Λ := Λ) f (h ≫ g) f'' (h' ≫ g') sq₃ =
         Functor.whiskerLeft (upperShriek f) c₁.inv ≫
-          Functor.whiskerRight (upperShriekBaseChange f g f' g') (pullback h') ≫
-          Functor.whiskerLeft (pullback g) (upperShriekBaseChange f' h f'' h') ≫
+          Functor.whiskerRight (upperShriekBaseChange f g f' g' sq) (pullback h') ≫
+          Functor.whiskerLeft (pullback g) (upperShriekBaseChange f' h f'' h' sq₂) ≫
           Functor.whiskerRight c₂.hom (upperShriek f'') := sorry
 
 /-- Test `upperShriekBaseChange_id`. -/
-example : IsIso (upperShriekBaseChange (Λ := Λ) f (𝟙 S) f (𝟙 X)) := sorry
+example (sqId : IsPullback (𝟙 X) f f (𝟙 S)) :
+    IsIso (upperShriekBaseChange (Λ := Λ) f (𝟙 S) f (𝟙 X) sqId) := sorry
 
 /-- Test `upperShriekBaseChange_openImmersion`. -/
-example [IsOpenImmersion g] : IsIso (upperShriekBaseChange (Λ := Λ) f g f' g') := sorry
+example (sq : IsPullback g' f' f g) [IsOpenImmersion g] :
+    IsIso (upperShriekBaseChange (Λ := Λ) f g f' g' sq) := sorry
 
 /-- Test `not_upperShriekBaseChange_iso_closedPoint`. -/
 example [Nontrivial Λ] (Ω : Type u) [Field Ω] [IsAlgClosed Ω]
     (o : Spec (CommRingCat.of Ω) ⟶ 𝔸(ULift.{u} (Fin 1); Spec (CommRingCat.of Ω)))
-    [IsClosedImmersion o] :
-    ¬ IsIso (upperShriekBaseChange (Λ := Λ) (𝟙 _) o (𝟙 _) o) := sorry
+    [IsClosedImmersion o] (n : ℕ) [NeZero n] (hΛ : (n : Λ) = 0)
+    (hΩ : IsUnit (n : Ω)) (sq : IsPullback (𝟙 _) (𝟙 _) o o) :
+    ¬ IsIso (upperShriekBaseChange (Λ := Λ) o o (𝟙 _) (𝟙 _) sq) := sorry
 
 end Exchange
 
@@ -935,7 +941,8 @@ theorem dualizingComplex_smooth (n : ℕ) [NeZero n] (hΛ : (n : Λ) = 0) (a : X
 /-- Node `EDC.1:biduality/constructible-biduality`, for the constant sheaf on a smooth `X`
 (the constructible statement waits for the constructibility predicate). -/
 theorem verdierDualEval_isIso_constant (n : ℕ) [NeZero n] (hΛ : (n : Λ) = 0) (a : X ⟶ Spec (CommRingCat.of k))
-    (d : ℕ) [SmoothOfRelativeDimension d a] [IsSeparated a] [LocallyOfFiniteType a] :
+    (d : ℕ) [SmoothOfRelativeDimension d a] [IsSeparated a] [LocallyOfFiniteType a]
+    (hX : IsUnit (n : Γ(X, ⊤))) :
     IsIso (verdierDualEval (Λ := Λ) a (EtaleDerived.constant X)) := sorry
 
 /-- Node `EDC.1:biduality/relative-and-geometric-duality` (a):
@@ -966,13 +973,13 @@ def poincarePairing (a : X ⟶ Spec (CommRingCat.of Ω)) [IsSeparated a] [Locall
         →ₗ[Λ] Λ := sorry
 
 /-- Node `EDC.2:pairings/poincare-duality-torsion` (constant coefficients). -/
-theorem poincare_duality (a : X ⟶ Spec (CommRingCat.of Ω)) [IsSeparated a] [LocallyOfFiniteType a]
+theorem poincare_duality [Module.Injective Λ Λ] [IsNoetherianRing Λ] (a : X ⟶ Spec (CommRingCat.of Ω)) [IsSeparated a] [LocallyOfFiniteType a]
     (d : ℕ) [SmoothOfRelativeDimension d a] (hX : IsUnit ((n : Γ(X, ⊤)))) (i : ℤ) :
     (poincarePairing n hΛ a d hX i).IsPerfPair := sorry
 
 /-- Node `EDC.2:trace-purity/curve-h1-duality`: Poincaré duality on a smooth curve over an
 algebraically closed field, proved from the Jacobian (constant coefficients shown). -/
-theorem curve_h1_duality (a : X ⟶ Spec (CommRingCat.of Ω)) [IsSeparated a] [LocallyOfFiniteType a]
+theorem curve_h1_duality [Module.Injective Λ Λ] [IsNoetherianRing Λ] (a : X ⟶ Spec (CommRingCat.of Ω)) [IsSeparated a] [LocallyOfFiniteType a]
     [SmoothOfRelativeDimension 1 a] [IrreducibleSpace X] (hX : IsUnit ((n : Γ(X, ⊤)))) (r : ℤ) :
     (poincarePairing n hΛ a 1 hX r).IsPerfPair := sorry
 
@@ -994,15 +1001,17 @@ variable {Λ : Type u} [CommRing Λ] {k : Type u} [Field k] {X Z Y : Scheme.{u}}
 
 /-- Node `EDC.3/smooth-pair-purity`: `i^!Λ ≅ Λ(−c)[−2c]` for a smooth pair of codimension `c`. -/
 theorem smooth_pair_purity (aX : X ⟶ Spec (CommRingCat.of k)) (aZ : Z ⟶ Spec (CommRingCat.of k))
-    [Smooth aX] [Smooth aZ] (i : Z ⟶ X) [IsClosedImmersion i] (h : i ≫ aX = aZ) (c : ℕ)
-    (hc : Order.krullDim X = Order.krullDim Z + c) (hZ : IsUnit ((n : Γ(Z, ⊤)))) :
+    (i : Z ⟶ X) [IsClosedImmersion i] (h : i ≫ aX = aZ) (c d : ℕ)
+    [SmoothOfRelativeDimension (d + c) aX] [SmoothOfRelativeDimension d aZ]
+    (hX : IsUnit (n : Γ(X, ⊤))) (hZ : IsUnit ((n : Γ(Z, ⊤)))) :
     Nonempty ((upperShriek (Λ := Λ) i).obj (EtaleDerived.constant X) ≅
       ((tateTwist n Z hZ hΛ (-c)).obj (EtaleDerived.constant Z))⟦(-2 * c : ℤ)⟧) := sorry
 
 /-- Node `EDC.3/semi-purity`. -/
-theorem semi_purity [PerfectField k] (aX : X ⟶ Spec (CommRingCat.of k)) [Smooth aX] (i : Z ⟶ X)
-    [IsClosedImmersion i] (c : ℕ) (hc : Order.krullDim Z + c ≤ Order.krullDim X)
-    (q : ℤ) (hq : q < 2 * c) :
+theorem semi_purity [PerfectField k] (aX : X ⟶ Spec (CommRingCat.of k)) (d : ℕ)
+    [SmoothOfRelativeDimension d aX] [IsSeparated aX] [QuasiCompact aX] (i : Z ⟶ X)
+    [IsClosedImmersion i] (c : ℕ) (hc : Order.krullDim Z + c ≤ d)
+    (hX : IsUnit (n : Γ(X, ⊤))) (q : ℤ) (hq : q < 2 * c) :
     IsZero (cohomologyWithSupports (Λ := Λ) i q (EtaleDerived.constant X)) := sorry
 
 /-- The fundamental class with supports `s_{Z/X} ∈ H^{2c}_Z(X, Λ(c))`. -/
@@ -1048,7 +1057,7 @@ example (q m : ℤ) (hX : IsUnit ((n : Γ(X, ⊤)))) :
 * `fundamentalClass_restrict`, `fundamentalClass_smooth`, `fundamentalClass_divisor`,
   `fundamentalClass_etale`, `fundamentalClassOfCycle`, tests `fundamentalClass_hyperplane`,
   `fundamentalClass_nodalCubic`, `fundamentalClass_whole`, `not_fundamentalClass_purity_singular`
-  (need Cartier divisors, `ℙ^n`, and the singular cone as explicit schemes);
+  (need Cartier divisors, `ℙ^n`, and the crossing divisor as explicit schemes);
 * vector bundles and projective bundles (SchemeAndStackFoundations SF.0): `chernClass`,
   `totalChernClass`, `chernClass_pullback`, `chernClass_one_lineBundle`,
   `totalChernClass_whitney`, `chernClass_eq_zero_of_rank_lt`,
