@@ -26911,7 +26911,8 @@
    ],
    "avoidAccountOf": "BP-MetaplecticAutomorphicForms--MP.8",
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #449"
   },
   {
    "id": "BP-ModularCurvesPartII--R12.1",
@@ -27419,8 +27420,9 @@
    ],
    "avoidAccountOf": "BP-PELModuli",
    "prompt": "research/blueprint/prompts/REV-PELModuli.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #459"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #459",
+   "finishedAt": "2026-10-06T13:17:28Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology",
@@ -55025,8 +55027,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5715"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5715",
+   "finishedAt": "2026-10-06T13:17:31Z"
   },
   {
    "id": "REV-FIX-RT-BP-ClassicalSerreModularity--R27.3",
