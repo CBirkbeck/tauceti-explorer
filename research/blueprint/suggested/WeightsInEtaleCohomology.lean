@@ -58,6 +58,12 @@ theorem frobCharpoly_inertia {P : Type*} (ρ : Representation E G V)
     (hu : ∀ s ∈ I v, ρ s = 1) :
     frobCharpoly ρ (t * g) = frobCharpoly ρ g := by
   sorry
+
+theorem frobCharpoly_equiv {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (ρ : Representation E G V) (σ : Representation E G W)
+    (e : V ≃ₗ[E] W) (he : ∀ g x, e (ρ g x) = σ g (e x)) (g : G) :
+    frobCharpoly ρ g = frobCharpoly σ g := by
+  sorry
 end Frobenius
 
 section Predicates
@@ -86,10 +92,51 @@ def IsIotaPureOutside (ρ : Representation E G V) (I : P → Subgroup G)
     ∀ α : E, (frobCharpoly ρ (F v)).IsRoot α →
       ‖ι α‖ = Real.rpow (q v : ℝ) (w / 2)
 
+theorem isPureOutside_iff (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) (q : P → ℕ) (T : Set P) (w : ℤ) :
+    IsPureOutside ρ I F q T w ↔
+      ∀ v ∉ T, (∀ g ∈ I v, ρ g = 1) ∧
+        ∀ α : E, (frobCharpoly ρ (F v)).IsRoot α →
+          IsIntegral ℚ α ∧ ∀ ι : E →+* ℂ,
+            ‖ι α‖ = Real.rpow (q v : ℝ) ((w : ℝ) / 2) := by
+  sorry
+
+theorem hasIntegralFrobOutside_iff (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) (T : Set P) :
+    HasIntegralFrobOutside ρ I F T ↔
+      ∀ v ∉ T, (∀ g ∈ I v, ρ g = 1) ∧
+        ∃ Q : ℤ[X], Q.map (Int.castRingHom E) = frobCharpoly ρ (F v) := by
+  sorry
+
+theorem isIotaPureOutside_iff (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) (q : P → ℕ) (T : Set P) (ι : E →+* ℂ) (w : ℝ) :
+    IsIotaPureOutside ρ I F q T ι w ↔
+      ∀ v ∉ T, (∀ g ∈ I v, ρ g = 1) ∧
+        ∀ α : E, (frobCharpoly ρ (F v)).IsRoot α →
+          ‖ι α‖ = Real.rpow (q v : ℝ) (w / 2) := by
+  sorry
+
 theorem IsPureOutside.mono (ρ : Representation E G V) (I : P → Subgroup G)
     (F : P → G) (q : P → ℕ) {T T' : Set P} {w : ℤ}
     (hT : T ⊆ T') (h : IsPureOutside ρ I F q T w) :
     IsPureOutside ρ I F q T' w := by
+  sorry
+
+theorem HasIntegralFrobOutside.mono (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) {T T' : Set P} (hT : T ⊆ T') (h : HasIntegralFrobOutside ρ I F T) :
+    HasIntegralFrobOutside ρ I F T' := by
+  sorry
+
+theorem IsIotaPureOutside.mono (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) (q : P → ℕ) {T T' : Set P} (ι : E →+* ℂ) (w : ℝ)
+    (hT : T ⊆ T') (h : IsIotaPureOutside ρ I F q T ι w) :
+    IsIotaPureOutside ρ I F q T' ι w := by
+  sorry
+
+theorem IsPureOutside.iota (ρ : Representation E G V) (I : P → Subgroup G)
+    (F : P → G) (q : P → ℕ) (T : Set P) (w : ℤ) (ι : E →+* ℂ)
+    (h : IsPureOutside ρ I F q T w) :
+    IsIotaPureOutside ρ I F q T ι (w : ℝ) := by
   sorry
 
 theorem IsPureOutside.weight_unique (ρ : Representation E G V) (I : P → Subgroup G)
@@ -157,12 +204,16 @@ example : ¬ ∃ w : ℤ,
 -- Unit test: TauCeti.Weights.isPureOutside_zero
 example (w : ℤ) :
     IsPureOutside (Representation.trivial ℂ ℂˣ (Fin 0 → ℂ)) (fun _ : Unit => ⊥)
-      (fun _ => three) (fun _ => 3) ∅ w := by
+      (fun _ => three) (fun _ => 3) ∅ w ∧
+    frobCharpoly (Representation.trivial ℂ ℂˣ (Fin 0 → ℂ)) three = 1 ∧
+    HasIntegralFrobOutside (Representation.trivial ℂ ℂˣ (Fin 0 → ℂ))
+      (fun _ : Unit => ⊥) (fun _ => three) ∅ := by
   sorry
 
 /-! R34.1 numerical cores. Continuous restriction/induction, sheaf equivalence and
 mixed complexes have no current-library geometric signature here: their requested
-suppliers are DWP.0/5/8, LocalFields R21.6 and Ramification R22.4. -/
+suppliers are DWP.0/5/8, ArithmeticGaloisRepresentations R01.1/2 and
+SchemeAndStackFoundations SF.2. -/
 theorem pureOutside_dual {G V P : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
     [FiniteDimensional ℂ V] (ρ : Representation ℂ G V) (I : P → Subgroup G)
     (F : P → G) (q : P → ℕ) (T : Set P) (w : ℤ)
@@ -185,6 +236,16 @@ theorem charpoly_induced_inert_trivial :
 theorem transcendental_not_pure : ∃ α : ℂ, ¬ IsIntegral ℚ α := by
   sorry
 
+-- The same irreducible rational polynomial has unit-circle and non-unit-circle
+-- conjugates. Its algebraic-unit root gives the finite-field character in R34.1;
+-- this numerical core does not assert a globally pure number-field character.
+theorem chosen_embedding_integer_weight_nonexample :
+    Irreducible (X ^ 4 - X ^ 3 - X ^ 2 - X + 1 : ℚ[X]) ∧
+      ∃ α β : ℂ, (X ^ 4 - X ^ 3 - X ^ 2 - X + 1 : ℂ[X]).IsRoot α ∧
+        (X ^ 4 - X ^ 3 - X ^ 2 - X + 1 : ℂ[X]).IsRoot β ∧
+          ‖α‖ = 1 ∧ 1 < ‖β‖ := by
+  sorry
+
 theorem pureOutside_implies_iota {G V P : Type*} [Group G] [AddCommGroup V]
     [Module ℂ V] [FiniteDimensional ℂ V] (ρ : Representation ℂ G V)
     (I : P → Subgroup G) (F : P → G) (q : P → ℕ) (T : Set P) (w : ℤ)
@@ -193,8 +254,9 @@ theorem pureOutside_implies_iota {G V P : Type*} [Group G] [AddCommGroup V]
   sorry
 
 /-! R34.2: actual Tate modules, smooth proper specialization, Jacobians and curve
-cohomology are imports from AbelianVarieties A.4, NeronModels R11.5, SchemeFoundations
-SF.2 and DWP.1. The following cores test variance, rank-zero and extension traces. -/
+cohomology are imports from AbelianSchemesAndArithmeticModuli A4,
+NeronModelsAndSemistableAbelianVarieties R11.5, SchemeAndStackFoundations SF.2
+and DWP.1. The following cores test variance, rank-zero and extension traces. -/
 theorem tate_h1_inverse_dual {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
     [FiniteDimensional ℂ V] (ρ : Representation ℂ G V) (F : G) :
     frobCharpoly (Representation.dual ρ) F⁻¹ = frobCharpoly ρ F := by
@@ -220,10 +282,12 @@ example : (25 : ℤ) + 1 - ((-2) ^ 2 - 2 * 5) = 32 := by
   norm_num
 
 /-! R34.3 needs actual proper traits, nearby/vanishing cycles, nodal models and Saito's
-projector: LPV.0/1/2/7, EtaleDualityAndPerverseSheaves EDC.2/4, ModularCurvesAndModularForms
-R13.2/4, ShimuraVarieties R18.3/5 and CohomologyComparisons CP.4. No opaque `ProperModel`
-or `Comparison` proposition substitutes for these. The matrix fixes geometric-Frobenius
-monodromy normalization only; it is not the trait comparison theorem. -/
+projector: LPV.0/1/2/7:semistable-curves, ModularCurvesPartII R13.5,
+HilbertModularVarietiesAndShimuraCurves R18.2 and CohomologyComparisons CP.4.
+Saito's V is finite over the completed maximal unramified extension of E_q;
+descent to finite local/residue fields with its Weil action is a separate gap.
+No opaque `ProperModel` or `Comparison` proposition substitutes for these.
+The matrix fixes geometric-Frobenius monodromy normalization only. -/
 theorem nodal_monodromy_scaling (q : ℚ) (hq : q ≠ 0) :
     let F : Matrix (Fin 2) (Fin 2) ℚ := !![1, 0; 0, q]
     let Finv : Matrix (Fin 2) (Fin 2) ℚ := !![1, 0; 0, q⁻¹]
@@ -237,9 +301,10 @@ They must distinguish odd alternating from even symmetric degree and the zero qu
 A two-dimensional symplectic matrix alone does not witness open geometric monodromy. -/
 
 /-! R34.5: arithmetic realization signatures require AGR R19.1's parabolic premotive
-(not its weight-dependent aggregate), ModularRepresentations R14.3, GeometricHeights
-GH.0, DWP.6/7 and DWP.0 degree/twist operations. These are geometric supplier requests;
-weight arithmetic below is only their numerical check. -/
+(not its weight-dependent aggregate), ModularCurvesPartII R14.3,
+GeneralizedHeegnerCycles GH.0 for the classical projector, HilbertModularVarietiesAndShimuraCurves
+R18.2 for Saito's Hilbert projector, and DWP.4/7/9 with DWP.0 degree/twist operations.
+These are geometric supplier requests; weight arithmetic below is only their numerical check. -/
 theorem parabolic_degree_weight (k : ℤ) : (k - 2) + 1 = k - 1 := by
   sorry
 
@@ -247,8 +312,10 @@ theorem hard_lefschetz_target_weight (d a : ℤ) : d + a - 2 * a = d - a := by
   sorry
 
 /-! R34.6 eigenform construction, Hecke projectors, common coefficient-field
-polynomials and Saito's rank-two local comparison require AGR R19.1/3, MotivicGaloisGroups
-R24.5, GH.0, R34.3/5 and the imported PadicHodgeTheory R06.6 Hilbert theorem.
+polynomials and Saito's rank-two local comparison require AGR R19.1,
+PotentialModularityAndCompatibleSystems R24.5's fine carrier and predicate nodes,
+R34.3/5 and the imported PadicHodgeTheory R06.6 Hilbert theorem.
+AGR R19.3 consumes the fixed-source exports; it is not the generic system owner.
 Its projected degree/twist normalization belongs here. Equal root norms are not compatibility.
 The last statements isolate the triangle inequality, this logical separation, and
 Saito's twist; they do not formalize the omitted eigenform or WD carriers. -/
@@ -265,6 +332,7 @@ theorem local_monodromy_twist_weight (w : ℤ) : (w - 1 + 1) - 2 = w - 2 := by
 
 /-! Full signatures omitted because their arithmetic/geometric carriers are unavailable:
 R34.1/purity-under-restriction-and-induction: continuous Galois induction and local places.
+R34.1/purity-under-linear-algebra-operations: full arithmetic subquotient/tensor/Tate interfaces.
 R34.1/frobenius-eigenvalues-need-not-be-algebraic: continuous character of Gal(F_qbar/F_q).
 R34.1/representation-sheaf-weight-comparison: actual lisse sheaf and π₁ correspondence.
 R34.1/arithmetic-complex-weight-normalization: adic constructible complex and Verdier duality.
