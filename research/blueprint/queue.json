@@ -24454,8 +24454,9 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #399"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #399",
+   "finishedAt": "2026-10-06T22:08:07Z"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -27872,9 +27873,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidQuotients.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #971"
+   "note": "claimed on GitHub issue #971"
   },
   {
    "id": "REV-PerfectoidQuotients",
