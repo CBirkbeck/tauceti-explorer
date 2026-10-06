@@ -694,6 +694,17 @@
     "data/blueprints/roadmaps/ErdosProgressionPowers.json"
    ]
   },
+  "research/blueprint/packets/FarguesFontaineDiamonds.json": {
+   "promotedAt": "2026-10-06T07:59:57Z",
+   "review": "78786d3d7d7291af",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-FarguesFontaineDiamonds",
+   "sha256": "55db51e51a534fa54fbbe3b25c5b7731c12d3a8dbffd5fbe8cd89edabb670ae3",
+   "to": [
+    "data/blueprints/FarguesFontaineDiamonds.json",
+    "data/blueprints/FarguesFontaineDiamonds.md"
+   ]
+  },
   "research/blueprint/packets/FiniteFieldsAndCharacterSums--FF.3.json": {
    "promotedAt": "2026-10-05T19:01:18Z",
    "review": "3c9f96b4d57979c2",
