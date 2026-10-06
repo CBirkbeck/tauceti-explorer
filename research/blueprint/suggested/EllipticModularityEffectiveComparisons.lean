@@ -1,7 +1,7 @@
 /-
 This file is not the roadmap and is not exhaustive. The mathematical reader is definitive.
 These signatures suggest names and native Lean forms for contributors and reviewers.
-Every proof is admitted. The Mathlib arithmetic portion was elaborated with only admission
+Every proof is admitted. The Mathlib arithmetic portion was checked independently with only admission
 warnings. The full file could not be elaborated: the shared build lacks the prebuilt Tau Ceti
 Newforms.Nebentypus module. No library build was started.
 -/
@@ -10,6 +10,7 @@ import Mathlib.Data.Nat.Totient
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.RingTheory.Norm.Basic
 import Mathlib.RingTheory.Norm.Transitivity
 import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
 import Mathlib.NumberTheory.NumberField.Norm
@@ -294,6 +295,9 @@ These names have no prototype here. Native newform coefficient-field, integral c
 local Galois, conductor, Cartan-modular-curve or winding-quotient interfaces are missing.
 Their conditions are left out under PROTOCOL §13. No private surrogate or Prop assumption
 bundle is introduced. Each entry gives the exact packet node and direct suppliers.
+Kraus uses the residual conductor N for ell≥5. Replacing N by M0 requires the explicit
+reduction alternative; the Serre-weight shortcut is restricted to ell≥11.
+The winding source curve is X0(rp²)/w_(p²), with the p-local involution.
 
 EllipticModularityEffectiveComparisons:EC.1/removed-prime-bound
 TauCeti.EffectiveEllipticComparison.removed_prime_bound
@@ -317,7 +321,7 @@ TauCeti.EffectiveEllipticComparison.exact_weight_two_lift
 
 EllipticModularityEffectiveComparisons:EC.3/rationality-from-small-primes
 TauCeti.EffectiveEllipticComparison.rationality_from_small_primes
-  prerequisites: ComputationalNumberTheory:CN.3/modular-data-equality, tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields, tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality, tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas, tauceti:TauCeti.ModularForm.eq_of_sturm_bound
+  prerequisites: ComputationalNumberTheory:CN.3/modular-data-equality, tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields, tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality, tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas, tauceti:TauCeti.ModularForm.eq_of_sturm_bound, tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor
 
 EllipticModularityEffectiveComparisons:EC.3/nonrational-witness
 TauCeti.EffectiveEllipticComparison.nonrational_witness
@@ -381,7 +385,7 @@ TauCeti.EffectiveEllipticComparison.kraus_full_two_realization
 
 EllipticModularityEffectiveComparisons:EC.3/deletion-conductor-away
 TauCeti.EffectiveEllipticComparison.deletion_conductor_away
-  prerequisites: SerreWeightAndLevelOptimisation:R20.6/reduced-level-of-elliptic-curve, ArithmeticGaloisRepresentations:R01.3, ArithmeticGaloisRepresentations:R01.6, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/multiplicative-torsion-inertia
+  prerequisites: SerreWeightAndLevelOptimisation:R20.6/reduced-level-of-elliptic-curve, ArithmeticGaloisRepresentations:R01.3, ArithmeticGaloisRepresentations:R01.6, tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
 
 EllipticModularityEffectiveComparisons:EC.3/deletion-level-exact-adapter
 TauCeti.EffectiveEllipticComparison.deletion_level_exact_adapter
@@ -393,7 +397,7 @@ TauCeti.EffectiveEllipticComparison.prime_isogeny_potential_good
 
 EllipticModularityEffectiveComparisons:EC.4/isogeny-character-exponents
 TauCeti.EffectiveEllipticComparison.isogeny_character_exponents
-  prerequisites: EllipticModularityEffectiveComparisons:EC.4/prime-isogeny-potential-good, ArithmeticGaloisRepresentations:R01.2, ArithmeticGaloisRepresentations:R01.6, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-tame-inertia
+  prerequisites: EllipticModularityEffectiveComparisons:EC.4/prime-isogeny-potential-good, ArithmeticGaloisRepresentations:R01.2, ArithmeticGaloisRepresentations:R01.6, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-tame-inertia, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields
 
 EllipticModularityEffectiveComparisons:EC.4/isogeny-character-frobenius
 TauCeti.EffectiveEllipticComparison.isogeny_character_frobenius
@@ -413,7 +417,7 @@ TauCeti.EffectiveEllipticComparison.isogeny_character_third_case
 
 EllipticModularityEffectiveComparisons:EC.4/isogeny-character-half-case
 TauCeti.EffectiveEllipticComparison.isogeny_character_half_case
-  prerequisites: EllipticModularityEffectiveComparisons:EC.4/isogeny-character-frobenius, tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1
+  prerequisites: EllipticModularityEffectiveComparisons:EC.4/isogeny-character-frobenius, tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1, mathlib:NumberField.exists_ideal_in_class_of_norm_le
 
 EllipticModularityEffectiveComparisons:EC.4/mazur-prime-isogeny-classification
 TauCeti.EffectiveEllipticComparison.mazur_prime_isogeny_classification
@@ -505,7 +509,7 @@ TauCeti.EffectiveEllipticComparison.cartan_cusp_formal_immersion
 
 EllipticModularityEffectiveComparisons:EC.5/cartan-point-torsion
 TauCeti.EffectiveEllipticComparison.cartan_point_torsion
-  prerequisites: EllipticModularityEffectiveComparisons:EC.5/finite-winding-quotient, ModularCurvesPartII:R14.2/jacobian-and-functoriality, ModularCurvesPartII:R12.3
+  prerequisites: EllipticModularityEffectiveComparisons:EC.5/finite-winding-quotient, ModularCurvesPartII:R14.2/jacobian-and-functoriality, ModularCurvesPartII:R12.3, ModularSymbolsPadicLFunctions:L0
 
 EllipticModularityEffectiveComparisons:EC.5/cartan-denominator-exclusion
 TauCeti.EffectiveEllipticComparison.cartan_denominator_exclusion
@@ -541,7 +545,7 @@ TauCeti.EffectiveEllipticComparison.small_isogeny_image_certificates
 
 EllipticModularityEffectiveComparisons:EC.5/lemos-surjectivity
 TauCeti.EffectiveEllipticComparison.lemos_surjectivity
-  prerequisites: EllipticModularityEffectiveComparisons:EC.5/large-prime-isogeny-cm, EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing, EllipticModularityEffectiveComparisons:EC.5/finite-integral-j, EllipticModularityEffectiveComparisons:EC.5/large-isogeny-image-certificates, EllipticModularityEffectiveComparisons:EC.5/small-isogeny-image-certificates
+  prerequisites: EllipticModularityEffectiveComparisons:EC.5/large-prime-isogeny-cm, EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing, EllipticModularityEffectiveComparisons:EC.5/finite-integral-j, EllipticModularityEffectiveComparisons:EC.5/large-isogeny-image-certificates, EllipticModularityEffectiveComparisons:EC.5/small-isogeny-image-certificates, EllipticModularityEffectiveComparisons:EC.5/integral-j-characterisation
 
 EllipticModularityEffectiveComparisons:EC.3/four-count-square-classes
 TauCeti.EffectiveEllipticComparison.four_count_square_classes
@@ -590,5 +594,9 @@ TauCeti.EffectiveEllipticComparison.heegner_gross_split_criterion
 EllipticModularityEffectiveComparisons:EC.5/split-cartan-finite-sieve
 TauCeti.EffectiveEllipticComparison.split_cartan_finite_sieve
   prerequisites: EllipticModularityEffectiveComparisons:EC.5/heegner-gross-split-criterion, ComplexMultiplicationAndExplicitReciprocity:CM.5, ComputationalNumberTheory:CN.3/modular-data-equality
+
+EllipticModularityEffectiveComparisons:EC.5/integral-j-characterisation
+TauCeti.EffectiveEllipticComparison.integral_j_characterisation
+  prerequisites: EllipticModularityEffectiveComparisons:EC.5/finite-integral-j, EllipticModularityEffectiveComparisons:EC.5/genus-zero-j-map, EllipticModularityEffectiveComparisons:EC.5/integral-parameter-divisibility
 
 -/
