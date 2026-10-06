@@ -239,7 +239,7 @@ Let f : X → Y be a separated morphism of schemes of finite type over ℤ[1/ℓ
 
 - Acceptance: for f = id the class P_n contains exactly the sheaves mixed of weights ≤ n.
 - Acceptance: for the finite étale double cover Spec 𝔽_{q²} → Spec 𝔽_q and ℱ = ℚ̄_ℓ, f_*ℚ̄_ℓ has F-eigenvalues ±1 (weight 0), not 1 with multiplicity 2: (f) computes induced modules, not sums of copies.
-- Non-example: (a) does not give P_n for ℱ″ from P_n for ℱ and ℱ′ (the connecting map lowers degree): this direction is not claimed.
+- Non-example: (a) does not give P_n for ℱ″ from P_n for ℱ and ℱ′ (the connecting map R^i f_!ℱ″ → R^{i+1}f_!ℱ′ raises degree, so it only gives the weaker bound n + i + 1): this direction is not claimed.
 
 **Source.** deligne-weil-ii, §3, (3.3.1) a), b), f), p. 204; deligne-weil-ii, §3, (3.3.1) f), p. 204.
 
@@ -834,8 +834,8 @@ In the setting of DWP.8/mixed-sheaves-with-galois-action-on-the-special-fibre, l
 
 **Acceptance.**
 
-- Acceptance: for a smooth proper X over S, RΨ(ℚ̄_ℓ) = ℚ̄_ℓ and the conclusion is the mixedness (indeed purity) of H^i of the special fibre.
-- Acceptance: for the Tate curve family over the trait, R¹Ψ at the node has the unipotent action with graded pieces of weights 0 and 2 (mixed, not pure).
+- Acceptance: for a smooth proper X over S, R⁰Ψ(ℚ̄_ℓ) = ℚ̄_ℓ and R^iΨ(ℚ̄_ℓ) = 0 for i > 0; the conclusion is that ℚ̄_ℓ on X_s is mixed, indeed pure of weight 0
+- Acceptance: for the Tate curve family over the trait (a node with local equation xy = π in relative dimension 1), R¹Ψ(ℚ̄_ℓ) is supported at the node with stalk R¹Φ = ℚ̄_ℓ(−1), on which inertia acts trivially (pure of weight 2); the rank-two unipotent action with graded weights 0 and 2 is on H¹(X_η̄) = H¹(X_s̄, RΨℚ̄_ℓ), whose weight-0 piece is H¹ of the nodal fibre and whose weight-2 piece is H⁰(X_s̄, R¹Ψ)
 
 **Source.** deligne-weil-ii, §6, Théorème (6.1.13), p. 246.
 
@@ -902,7 +902,7 @@ Let X₀ be of finite type over 𝔽_q. (a) For every N ∈ ℤ, K is mixed of w
 **Acceptance.**
 
 - Acceptance: j : 𝔾_m → ℙ¹, ℱ₀ = ℚ̄_ℓ: j_*ℚ̄_ℓ = ℚ̄_ℓ on ℙ¹ is pure of weight 0.
-- Acceptance: for the Legendre family over ℙ¹ − {0, 1, ∞}, j_*R¹h_*ℚ̄_ℓ is pure of weight 1 and H¹(ℙ¹, j_*R¹h_*ℚ̄_ℓ) is pure of weight 2 (consistent with DWP.6).
+- Acceptance: for the Legendre family h over ℙ¹ − {0, 1, ∞}, j_*R¹h_*ℚ̄_ℓ is pure of weight 1: its stalks at the multiplicative points 0 and 1 are the one-dimensional inertia invariants, of weight 0 ≤ 1, its stalk at ∞ (monodromy minus a unipotent) is 0, and its dual is again of this form. Here H¹(ℙ¹, j_*R¹h_*ℚ̄_ℓ) = 0 (Euler characteristic; there are no cusp forms of weight 3 for Γ(2)), so a global test needs Sym^k with nonzero parabolic cohomology
 - Non-example: Rj_*ℚ̄_ℓ for j : 𝔾_m → ℙ¹ is not pure of weight 0: R¹j_*ℚ̄_ℓ has weight 2 at 0 and ∞.
 
 **Source.** deligne-weil-ii, §6, Exemples (6.2.5) c), p. 248.
@@ -973,7 +973,7 @@ For X of finite type over ℤ[1/ℓ] with structure map a : X → Spec ℤ[1/ℓ
 
 **Acceptance.**
 
-- Acceptance: X = Spec ℤ[1/ℓ], K = ℚ̄_ℓ: K′_X = ℚ̄_ℓ(1)[2] (the regular one-dimensional base is 'smooth of dimension 1'), and ℚ̄_ℓ is pure of weight 0 in this sense.
+- Acceptance: X = Spec ℤ[1/ℓ], K = ℚ̄_ℓ: a is the identity, so K′_X = ℚ̄_ℓ, D′ℚ̄_ℓ = ℚ̄_ℓ and ℚ̄_ℓ is pure of weight 0 in this sense; for X over 𝔽_p the formula K′_X = K_X(−1)[−2] applies
 
 **Source.** deligne-weil-ii, §6, Variante (6.2.7), p. 248.
 
@@ -1206,7 +1206,7 @@ Let X₀ be a normal scheme of finite type over 𝔽_q, ι : ℚ̄_ℓ ≅ ℂ, 
 
 - Acceptance: for an elliptic curve family h : E₀ → S₀ over a smooth curve with nonconstant j-invariant, R¹h_*ℚ̄_ℓ (pure of weight 1) is geometrically irreducible, in particular semisimple.
 - Non-example: the Kummer extension ℒ on 𝔾_m (mixed of weights −2 and 0, not pure) is not geometrically semisimple: purity cannot be weakened to mixedness.
-- Non-example: the unipotent Weil sheaf [[1, 1], [0, 1]] on Spec 𝔽_q is pure of weight 0 and geometrically semisimple but not arithmetically semisimple; purity does not make Frobenius semisimple on arbitrary smooth proper cohomology.
+- Non-example: the unipotent Weil sheaf [[1, 1], [0, 1]] on Spec 𝔽_q is pure of weight 0 and geometrically semisimple but not arithmetically semisimple; purity of a Weil sheaf does not imply that Frobenius acts semisimply.
 
 **Source.** deligne-weil-ii, §3, Théorème (3.4.1) (iii), p. 207; deligne-weil-ii, §3, (3.4.5), p. 208.
 
@@ -1648,7 +1648,7 @@ Let k be algebraically closed with ℓ invertible and X a smooth projective k-sc
 
 - Acceptance: a smooth projective curve of genus g has b₁ = 2g.
 - Acceptance: an abelian variety of dimension g has b_j = C(2g, j), which is even for odd j.
-- Non-example: for a smooth proper non-Kähler compact complex surface (a Hopf surface) b₁ = 1 is odd; projectivity (or a Kähler structure) is needed, and the statement here is only for smooth projective schemes.
+- Non-example: a non-algebraic compact complex manifold (a Hopf surface, b₁ = 1) shows that some algebraic or Kähler input is needed; this node proves only the projective case
 
 **Source.** deligne-weil-ii, §4, Corollaire (4.1.5), p. 218.
 
@@ -1699,7 +1699,7 @@ Let k be algebraically closed with ℓ invertible, X a smooth projective k-schem
 
 - Acceptance: ℱ = ℚ_ℓ recovers DWP.9/hard-lefschetz-4-1-1.
 - Acceptance: for h : E × X → X the constant elliptic family, ℱ = R¹h_*ℚ_ℓ = H¹(E) ⊗ ℚ_ℓ and the statement is hard Lefschetz for X tensored with H¹(E).
-- Non-example: no claim is made for lisse sheaves that are not potentially pure, such as a nonsplit unipotent local system on an elliptic curve over ℂ (an extension of ℚ_ℓ by ℚ_ℓ with nonzero class in H¹(E, ℚ_ℓ)), which is potentially mixed but, being nonsemisimple, not potentially pure (DWP.8/potentially-pure-lisse-sheaves-are-semisimple-3-4-12).
+- Non-example: no claim is made for lisse sheaves that are not potentially pure, such as a nonsplit unipotent local system on an elliptic curve over ℂ (an extension of ℚ_ℓ by ℚ_ℓ with nonzero class in H¹(E, ℚ_ℓ)), which, being nonsemisimple, is not potentially pure (DWP.8/potentially-pure-lisse-sheaves-are-semisimple-3-4-12)
 
 **Source.** deligne-weil-ii, Introduction, p. 142.
 
