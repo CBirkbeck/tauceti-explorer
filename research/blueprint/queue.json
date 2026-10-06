@@ -55649,8 +55649,9 @@
     "REV-FIX-RT-BP-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5717"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5717",
+   "finishedAt": "2026-10-06T17:34:56Z"
   },
   {
    "id": "REV-FIX-RT-BP-EllipticCurveModularity~2",
@@ -61265,7 +61266,8 @@
     "REV-FIX-RT-AREA-langlands-2~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5870"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~3",
