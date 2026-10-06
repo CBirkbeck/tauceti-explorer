@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3563,
+  "stages": 3566,
   "originalStages": 2098,
-  "sourceRefinements": 1465,
+  "sourceRefinements": 1468,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3462,
+  "mathematicalStars": 3465,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1854,
-  "stageEdges": 9508,
+  "stageEdges": 9518,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -597,6 +597,12 @@
       "reviewer": "independent-review-REV-HabiroNumberFields"
     },
     {
+      "file": "HabiroRings--HR.3",
+      "roadmap": "HabiroRings",
+      "nodes": 7,
+      "reviewer": "independent-review-REV-HabiroRings--HR.3"
+    },
+    {
       "file": "HabiroRings",
       "roadmap": "HabiroRings",
       "nodes": 50,
@@ -688,8 +694,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32311808,
-  "htmlSha256": "125385cd75a1b9647428b756665e6ca748ba1bedd2ba06aaba067737ecf5c135",
+  "htmlBytes": 32321939,
+  "htmlSha256": "82806eeb3144c86d65f59284d2b3d9743ba326f47c5207c5a7a32bc0cc199be0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -720,7 +726,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "55572ea81fb4fd350465e696845b909dcc0e2a2ea17b0fa23cd87f0f00db027f",
+    "data/roadmap-distances.json": "03a7b3bd8f48f373fbe22e107c432adcd1f7603f1f1ec6cc7a9cdfbb0bdfb88a",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -862,6 +868,8 @@
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
+    "data/blueprints/HabiroRings--HR.3.json": "e723d2b2060a9a9cb2951d0104c67aa163c3aef5d1aa91b32f9b9011c231c3af",
+    "data/blueprints/HabiroRings--HR.3.md": "1e4bc5881a504972c411728510bbf2f6f58124826d28aaaefdaa5a40d5e9b64b",
     "data/blueprints/HabiroRings.json": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
