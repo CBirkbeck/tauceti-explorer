@@ -87,6 +87,13 @@
         "module": "Mathlib/RingTheory/Norm/Basic.lean",
         "provides": "Norm commutes with simultaneous ring equivalences respecting the algebra map; supplies the Frobenius/norm square.",
         "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_self",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "The class of the ring module is the identity Picard class; the unit step of the character construction.",
+        "checked": "Exact statement Pic.mk R R = 1 read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, PicardGroup.lean, on 2026-10-06."
       }
     ]
   },
@@ -415,7 +422,8 @@
         "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
         "mathlib:Module.Invertible.left",
         "mathlib:CommRing.Pic.mk",
-        "mathlib:CommRing.Pic.mk_tensor"
+        "mathlib:CommRing.Pic.mk_tensor",
+        "mathlib:CommRing.Pic.mk_self"
       ],
       "sources": [
         {

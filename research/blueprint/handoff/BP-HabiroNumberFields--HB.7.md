@@ -11,7 +11,7 @@ Lean file, and this note. Only these files are changed. The accepted parent
 HabiroNumberFields packet is untouched; its thirteen HB.7 node IDs are imported.
 
 The part has 11 new nodes: 1 definition, 6 theorems, 4 constructions;
-27 API items; 15 definition/construction unit tests; 11 pinned baseline
+27 API items; 15 definition/construction unit tests; 12 pinned baseline
 declarations; 3 gap categories; 4 supplier requests. It retains all four
 parent HB.7 planets and adds none, avoiding duplicate definitions or a
 second planet for Theorem 2. All implementation statuses remain unchecked.
@@ -102,7 +102,7 @@ source search for Habiro, Coleman and dilogarithm found no target
 implementation; Coleman-name hits are explanatory references about formal
 group and multivariate-series evaluation. The Mathlib source statements
 used here were read at the pin: PowerSeries map/product/log/exp/substitution,
-Module.Invertible.left, Pic.mk/mk_tensor/mapAlgebra, and determinant norm
+Module.Invertible.left, Pic.mk/mk_self/mk_tensor/mapAlgebra, and determinant norm
 including its finite-basis restriction and equivariance theorem.
 
 Read the full upstream AdicSpaces and ArithmeticDirichletSeries documents
