@@ -28132,7 +28132,8 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R23.1",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #473"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -30268,8 +30269,9 @@
    ],
    "avoidAccountOf": "BP-OverconvergentAutomorphicForms--O8",
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #523"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #523",
+   "finishedAt": "2026-10-06T19:41:18Z"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructure",
