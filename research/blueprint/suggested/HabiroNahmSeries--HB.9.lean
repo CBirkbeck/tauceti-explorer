@@ -390,7 +390,7 @@ the pins because their mathematical carriers are imported planning nodes.
 
 * followup-integral-gluing-contract / integral_product_gluing:
   The actual unpowered Gaussian auxiliary product is required to have integral coefficients in
-  S^(m)[1/Δ][[x]] and satisfies the HB.6 coefficient-Frobenius root gluing on
+  S^(m)[1/(Δγ)][[x]], at primes p∤Δγ, and satisfies the HB.6 coefficient-Frobenius root gluing on
   all components. The family is identified using unpowered_product_unique;
   integrality and the faithful coefficient model are separate recorded gaps.
   The imported all-root-order symmetrization and torsion-power corollaries also

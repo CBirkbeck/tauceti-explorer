@@ -564,10 +564,10 @@
       ],
       "title": "Integral product gluing and Frobenius transport",
       "kind": "comparison",
-      "statement": "For γ≥1, gcd(m,γ)=1 and q=ζ_m+x, the unpowered auxiliary Nahm product ∏_i F_A(q^(γμ_i)t,q^γ)·F_A(q^(−ν)t,q^(−1)) is to yield a Gaussian expansion in S^(m)[1/Δ][[x]] after level-m substitution t↦t^(1/m). At each p∤Δ its coefficients must lie in S_p^(m)[[x]], and root reexpansion must satisfy the coefficient-Frobenius gluing of HB.6. At μ=ν=0 the principal parts cancel. After t=1 this is the product condition ∏_(i=1)^γ f(q^γ)·f(q^(−1)) in the indexed Habiro ring on root orders prime to Δ and γ. The powered family of inherited E47 is a valid q-system but cannot supply this universal integrality claim: its principal part is (V(t^γ)−V(t))/(m²h).",
+      "statement": "For γ≥1, gcd(m,γ)=1 and q=ζ_m+x, the unpowered auxiliary Nahm product ∏_i F_A(q^(γμ_i)t,q^γ)·F_A(q^(−ν)t,q^(−1)) is to yield a Gaussian expansion in S^(m)[1/(Δγ)][[x]] after level-m substitution t↦t^(1/m). At each p∤Δγ its coefficients must lie in S_p^(m)[[x]], and root reexpansion must satisfy the coefficient-Frobenius gluing of HB.6. At μ=ν=0 the principal parts cancel. After t=1 this is the product condition ∏_(i=1)^γ f(q^γ)·f(q^(−1)) in the indexed Habiro ring over coefficients with γ inverted on root orders prime to Δ and γ. The powered family of inherited E47 is a valid q-system but cannot supply this universal integrality claim: its principal part is (V(t^γ)−V(t))/(m²h).",
       "hypotheses": [
         "The product is interpreted using root-coordinate substitutions: x↦(ζ_m+x)^γ−ζ_m^γ and x↦(ζ_m+x)^(−1)−ζ_m^(−1), together with the chosen-root transport of HB.6.",
-        "For coefficients invert Δ only; p-integrality for p∤Δ does not prove membership in the unlocalized S^(m).",
+        "For coefficients invert Δ and γ; local integrality is required only at p∤Δγ. This is the localization R[1/γ] in HB.7 and GSWZ Definition 1.4. The stronger assertion at p|γ is false (E66).",
         "This node is a conditional contract, not a claim that q-difference uniqueness implies integral coefficients."
       ],
       "proofSteps": [
@@ -575,13 +575,14 @@
         "Construct the unpowered Gaussian family with the corrected normalization. Its unshifted volumes cancel: γV(t)/(m²γh)+V(t)/(−m²h)=0. Shifts change the regular terms but not the leading root-volume.",
         "Show the family solves the unpowered system and has t-constant one; uniqueness identifies it with the rational product.",
         "Prove all-order integral coefficients and reduction-faithful transport before specializing: G-coefficient-transfer and G-all-order-gluing. Neither recurrence uniqueness nor cancellation alone proves integrality.",
-        "Establish coefficient-Frobenius root reexpansion on the full finite product algebra, specialize to the chosen t=1 solution, and descend the Kummer extension using its actual action. The global coefficient ring inverts Δ, correcting E63.",
+        "Establish coefficient-Frobenius root reexpansion on the full finite product algebra, specialize to the chosen t=1 solution, and descend the Kummer extension using its actual action. The global coefficient ring inverts Δγ, correcting E63 and E66.",
         "Do not import the powered-family universal integrality claim from the accepted base. That claim is an unsupported proof repair, now separated from the valid powered recurrences."
       ],
       "acceptance": [
         "At γ=1 the two products agree and the volume cancels.",
         "At γ=2,A=0,m=1, the powered product has volume −Li₂(t²)+Li₂(t), a nonzero formal series. It cannot be an ordinary x-power series.",
-        "The unpowered family has q^γ covariance and a complete arbitrary-rank uniqueness proof; integral all-order coefficient estimates remain required."
+        "The unpowered family has q^γ covariance and a complete arbitrary-rank uniqueness proof; integral all-order coefficient estimates remain required.",
+        "At A=0,m=1,γ=5 and zero shifts, the coefficient of t is 5/(1−q⁵)+q/(q−1)=3−2x+x²+x³/5+O(x⁴), q=1+x. Thus p=5 integrality requires inverting γ. For the nondegenerate A=(3) datum the corresponding x³ coefficient is 3224/5."
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness",
@@ -1176,7 +1177,7 @@
         "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
         "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring"
       ],
-      "detail": "Both powered and unpowered general-rank systems and uniqueness are specified. Only the unpowered product has universal volume cancellation. Prove its all-order integral Gaussian coefficients, full coefficient-Frobenius root reexpansion and Kummer descent over S^(m)[1/Δ] using faithful coefficient transfer. Supply actual HB.7 effective descent for the full quadratic étale algebra; local-span arguments allow a zero sum. The accepted base powered-family universal integrality statement is not a usable proof. The local first-jet argument and Theorem 5 cover root orders coprime to Δ. The imported all-root-order statements of Corollary 1.11 additionally require the source’s γ=1 product argument and the five-term/cyclic-dilogarithm identity for torsion constants, with their bad-order integrality and coefficient-gluing hypotheses checked. Restricted membership alone does not imply these unrestricted corollaries; retain their target IDs with this extension obligation."
+      "detail": "Both powered and unpowered general-rank systems and uniqueness are specified. Only the unpowered product has universal volume cancellation. Prove its all-order integral Gaussian coefficients, full coefficient-Frobenius root reexpansion and Kummer descent over S^(m)[1/(Δγ)] at primes p∤Δγ using faithful coefficient transfer. Supply actual HB.7 effective descent for the full quadratic étale algebra; local-span arguments allow a zero sum. The accepted base powered-family universal integrality statement is not a usable proof. The local first-jet argument and Theorem 5 cover root orders coprime to Δ. The imported all-root-order statements of Corollary 1.11 additionally require the source’s γ=1 product argument and the five-term/cyclic-dilogarithm identity for torsion constants, with their bad-order integrality and coefficient-gluing hypotheses checked. Restricted membership alone does not imply these unrestricted corollaries; retain their target IDs with this extension obligation."
     },
     {
       "id": "G-descendant-transport",
@@ -1287,6 +1288,28 @@
         "reason": "Read (112), (118) and (242) in v2 and checked the author copy. The inverse Euler denominator contributes exp(Nh/24). Independently expanded the corrected regularization at m=1 and proved exactly over Q(z), with t=(z−1)/z³ and δ=(3−2z)/z³, that its Gaussian first jet plus 1/24 equals the coefficient displayed in (242) under inherited E41. This confirms the omitted scalar factor, conditional on the E64 correction.",
         "by": "REV-HabiroNahmSeries--HB.9"
       }
+    },
+    {
+      "id": "HabiroNahmSeries/E66",
+      "source": "GSWZ.HB9.v2",
+      "kind": "error",
+      "locator": "§3.3, proof of Theorem 5, third paragraph, p.44, arXiv:2412.04241v2; compare Definition 1.4, (24), p.10",
+      "printed": "The source claims ψ^(γ)_(A,μ,ν)(t^(1/m),ζ_m+x) ∈ S_p^(m)[[x]] whenever p is a prime not dividing Δ and m is relatively prime to γ.",
+      "correction": "Require p∤Δγ and conclude coefficients in S^(m)[1/(Δγ)][[x]]. The final product belongs to the ring over R[1/γ], as already specified in (24).",
+      "reason": "For the unpowered source product, A=0,m=1,γ=5,μ=ν=0, its t coefficient is 5/(1−q⁵)+q/(q−1)=3−2x+x²+x³/5+O(x⁴), q=1+x. Thus the coefficient of tx³ is not 5-integral. The same defect occurs for A=(3), which has nondegenerate t=1 solutions with field discriminant −23 and Nahm-unit discriminant absolute norm 23: its t coefficient is 5q¹⁵/(q⁵−1)−q⁻²/(q−1)=15+74x+278x²+(3224/5)x³+O(x⁴). Its coefficient algebra has an integral normalized 5-adic branch, so this denominator cannot be hidden by algebraic localization. This strengthens the separate E63 conclusion; E63 checked only the omitted Δ localization, not the false local assertion when p|γ. More generally, for any prime p∤Δ take γ=p and m=1. Write H(x)=((1+x)^p−1)/(px); all coefficients of H below degree p−1 are p-integral, while its degree p−1 coefficient is 1/p. The t coefficient for rank-one A is (−1)^A((1+x)^(1−A)−(1+x)^(pA)/H(x))/x. Its x^(p−2) coefficient is (−1)^A/p plus a p-integral element. Thus no fixed finite excluded-prime set Δ makes the stronger assertion true for every γ, even when A=(3).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv v2 and the checked Scholze author copy, proof of Theorem 5 and Definition 1.4",
+        "Scholze publication page and public title/erratum/correction searches, 6 October 2026",
+        "Accepted HabiroNahmSeries/E63: records only Δ localization; E47 concerns recurrence repairs",
+        "HabiroNumberFields:HB.7/the-global-module: explicitly requires R[1/γ]"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently divided the exact rational t coefficients at q=1+x for both A=0 and the nondegenerate A=(3) case. The x³ coefficients 1/5 and 3224/5 refute universal 5-integrality. The source module definition already inverts γ, so the corrected proof contract is the expected one.",
+        "by": "REV-HabiroNahmSeries--HB.9"
+      }
     }
   ],
   "sourceVersions": [
@@ -1386,7 +1409,7 @@
     {
       "id": "HabiroNahmSeries/E63",
       "packet": "HabiroNahmSeries.json",
-      "disposition": "Global coefficients lie in S^(m)[1/Δ], not S^(m)."
+      "disposition": "Invert Δ as in E63 and also γ as required by Definition 1.4 and independently checked E66; the correct universal product coefficient ring is S^(m)[1/(Δγ)]."
     },
     {
       "id": "HabiroNumberFields/E24",
@@ -1452,7 +1475,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-HabiroNahmSeries--HB.9",
     "date": "2026-10-06",
-    "notes": "Independent review by Codex session codex-HyViHv of all 18 local nodes, 17 imported HB.9 IDs, 19 source excerpts, 11 pinned Mathlib declarations, the reviewed audit and cited suppliers. Corrected powered-product use, page locators and direct dependencies; delimited imported all-root-order corollaries as additional obligations in G-all-order-gluing. Independently confirmed E64/E65, the exact A=(3) first coefficient, Wick contractions and 1440 product-system coefficient equalities. Accepted as a complete planning pass with five honest open gaps and six supplier requests; no theorem is claimed implemented or proof-closed. The Mathlib-only suggested file elaborates with only proof-placeholder warnings.",
+    "notes": "Independent review by Codex session codex-HyViHv of all 18 local nodes, 17 imported HB.9 IDs, 19 source excerpts, 11 pinned Mathlib declarations, the reviewed audit and cited suppliers. Corrected powered-product use, page locators and direct dependencies; delimited imported all-root-order corollaries as additional obligations in G-all-order-gluing. Independently confirmed E64/E65, the exact A=(3) first coefficient, Wick contractions and 1440 product-system coefficient equalities. Added confirmed E66 and corrected the missing γ localization using exact coefficients and a general good-prime argument. Accepted as a complete planning pass with five honest open gaps and six supplier requests; no theorem is claimed implemented or proof-closed. The Mathlib-only suggested file elaborates with only proof-placeholder warnings.",
     "checked": [
       {
         "nodeId": "HabiroNahmSeries:HB.9/followup-saturation-transfer",
@@ -1497,7 +1520,7 @@
       {
         "nodeId": "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
         "verdict": "corrected",
-        "note": "Added the direct construction, system and corrected Gaussian inputs. This is a conditional unpowered contract: volume cancellation/uniqueness do not prove integrality. The full coefficient and all-order gluing gaps remain explicit."
+        "note": "Corrected the coefficient localization to S^(m)[1/(Δγ)] and the local condition to p∤Δγ, matching HB.7; explicit A=0 and A=(3),γ=5 coefficients disprove the stronger claim (E66). Added the direct construction, system and corrected Gaussian inputs. Integral existence and full coefficient gluing remain recorded gaps."
       },
       {
         "nodeId": "HabiroNahmSeries:HB.9/followup-coleman-potential-sign",
