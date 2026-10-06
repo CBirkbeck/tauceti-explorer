@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3688,
+  "stages": 3689,
   "originalStages": 2098,
-  "sourceRefinements": 1590,
+  "sourceRefinements": 1591,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,7 +334,7 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3587,
+  "mathematicalStars": 3588,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
@@ -843,6 +843,12 @@
       "reviewer": "independent-review-REV-Polylogarithms--P.5"
     },
     {
+      "file": "Polylogarithms--P.6",
+      "roadmap": "Polylogarithms",
+      "nodes": 2,
+      "reviewer": "independent-review-REV-Polylogarithms--P.6"
+    },
+    {
       "file": "Polylogarithms",
       "roadmap": "Polylogarithms",
       "nodes": 75,
@@ -874,8 +880,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32591986,
-  "htmlSha256": "84c64b10d1ed8a9baf606b9455b8a8cc9604c1f6ee4f0e819e296946a5c6a1c9",
+  "htmlBytes": 32594712,
+  "htmlSha256": "3001e790c7a70159a6c231711ff5607be346d6fb5a99e1d0038aa98eff49fd25",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -906,7 +912,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "9e808e653fe71159099b388136ef7a95d9ee89b2edddbf76bc29c53320dadd61",
+    "data/roadmap-distances.json": "9d2c6c5eae97e81d33944d6cdda3e86ae223f192743fb7aa8f5b32cf61fe6793",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1130,6 +1136,8 @@
     "data/blueprints/Polylogarithms--P.4.md": "68b0ccfba2576683a6389ce5931af102764be895d42c88f6c1f2bf10c91c4270",
     "data/blueprints/Polylogarithms--P.5.json": "7cde32e9e008a5de8bc1a8a2d0c1ada829549a1c8a9c21029b7dd0cef8dda62f",
     "data/blueprints/Polylogarithms--P.5.md": "19843cb2ed466da13f31cf357d530014c5915ebac523efd9f20a2c9e0734f33c",
+    "data/blueprints/Polylogarithms--P.6.json": "0c1bd8419cc9c866a0348e6bf495794fbb729d2b7202d9efdf29ff176870d4eb",
+    "data/blueprints/Polylogarithms--P.6.md": "f899b858700700a954cf60fea63f669f7a7e6c6092e89e3933a8ca11ae1e45bd",
     "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/ProbabilisticAndMetricNumberTheory.json": "c281a61e13ec7f433532aa0ecef0848a7951f3cb467e8a815b482b492f0412ab",
