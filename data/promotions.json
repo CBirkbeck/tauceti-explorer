@@ -774,6 +774,17 @@
     "data/blueprints/K2SymbolsBrauer--T.3.md"
    ]
   },
+  "research/blueprint/packets/K3BlochGroups--V.1.json": {
+   "promotedAt": "2026-10-06T00:03:55Z",
+   "review": "d16723f88653d630",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-K3BlochGroups--V.1",
+   "sha256": "9fc56bde8d09206bf6df4f2f681b6364e910b5d7f5f15b7d8e5a32272c741635",
+   "to": [
+    "data/blueprints/K3BlochGroups--V.1.json",
+    "data/blueprints/K3BlochGroups--V.1.md"
+   ]
+  },
   "research/blueprint/packets/K3BlochGroups--V.2.json": {
    "promotedAt": "2026-10-05T23:16:05Z",
    "review": "a89e4c1f26083206",

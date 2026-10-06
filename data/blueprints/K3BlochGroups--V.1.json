@@ -1,0 +1,1125 @@
+{
+  "roadmapId": "K3BlochGroups",
+  "protocol": "blueprint-v1",
+  "part": "V.1",
+  "scope": [
+    "K3BlochGroups:V.1"
+  ],
+  "status": "complete",
+  "summary": "A target-level completion of the accepted V.1 plan: import stable Steinberg superperfection, classifying-space and relative-plus comparisons; specify the canonical degree-three Hurewicz composite, explicit unnormalised cycle certificates and finite-stage witnesses; supply the universal-cover H-space application and the corrected Hopf-kernel argument. Shared sphere-operation and stable-unit inputs are assigned to foundational extensions rather than rebuilt here.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:groupHomology.inhomogeneousChains",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Existing unnormalised chain complex with degree n object (Fin n → G) →₀ A.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.inhomogeneousChains.d",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Alternating bar differential; the leading coefficient action is by g₀ inverse.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.inhomogeneousChains.d_single",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Differential on a single tuple with its coefficient action and signs.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.cycles",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Existing kernel object of the differential, not a new group of cycles.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.cyclesMk",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Construction of a cycle from a chain and the vanishing differential, using the complex shape.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.iCycles",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Inclusion of the cycles object in the chain object.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.toCycles",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Differential factored through the target cycles object.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Homology of the inhomogeneous chain complex in ModuleCat.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.π",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Canonical epimorphism from cycles to group homology.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology_induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Every group-homology element is represented by a cycle.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isZero_groupHomology_succ_of_subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "Positive-degree group homology of a subsingleton group is a zero object.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Tuplewise group map and coefficient map assembled into a chain map.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.chainsMap_f_single",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "A single tuple maps to the tuplewise image with the mapped coefficient.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.cyclesMap",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Induced map of the existing cycles objects.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.map",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Induced map on group homology.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.π_map",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "The cycle-to-homology projections commute with induced maps.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.map_id",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Identity group map and coefficient identity induce the homology identity.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:groupHomology.map_comp",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Composition of group and coefficient maps induces the composite homology map.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:HSpace",
+        "kind": "class",
+        "module": "Mathlib/Topology/Homotopy/HSpaces.lean",
+        "provides": "Continuous multiplication, chosen unit, strict unit at (e,e) and two unit homotopies relative to the unit.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "provides": "A map from a simply connected locally path connected space lifts uniquely after selecting one lifted point.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.liftHomotopyRel",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "provides": "Lift of a homotopy relative to a subset from a preconnected domain with prescribed starting lift.",
+        "checked": "Statement read in source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-05."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook-IV-author",
+      "title": "The K-book, Chapter IV: Definitions of higher K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted standalone chapter, fetched 2026-10-05; chapter page numbers IV.1–IV.93",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "readSections": [
+        "IV.1, Definition 1.1 and Functoriality 1.1.2",
+        "IV.1, Lemma 1.19, Remark 1.19.1, Corollary 1.20, IV.13–14",
+        "IV.1, Exercises 1.8–1.12 and 1.25, IV.14–17",
+        "IV.4, Example 4.9.2, Theorem 4.9.3 and Example 4.10.1, IV.43–44"
+      ]
+    },
+    {
+      "id": "Hatcher-AT-author",
+      "title": "Algebraic Topology",
+      "authors": "Allen Hatcher",
+      "edition": "Author-hosted book PDF, fetched 2026-10-05",
+      "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+      "sha256": "bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618",
+      "readSections": [
+        "Section 4.2, Examples 4.49–4.52, printed pp.380–381",
+        "Section 4.2, Exercise 37, printed p.392"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "read": "2026-10-05",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "note": "Finding E31 is confined to this standalone chapter. AMS version-of-record landing page returned 403 to the download attempt; its text was not obtained. Author errata PDF links returned 404; an archived link was inaccessible. No claim about the printed edition is made."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+      "read": "2026-10-05",
+      "sha256": "bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K3BlochGroups:V.1/two-connected-hurewicz-input",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "Hurewicz input for the Steinberg plus space",
+      "kind": "theorem",
+      "statement": "For every associative unital ring A, let X_A = BSt(A)⁺ be the parent plus model. It is path connected with π₁(X_A)=π₂(X_A)=0. Its degree-three Hurewicz map is an isomorphism π₃(X_A) ≅ H₃(X_A; ℤ), natural for the chosen based ring-induced maps. This is the first nonzero-degree Hurewicz map, not a Hurewicz isomorphism for BGL(A)⁺.",
+      "hypotheses": [
+        "A is an associative unital ring; use the stable Steinberg group in the same universe as ℤ.",
+        "Classifying spaces and plus models have CW homotopy type, with chosen basepoints."
+      ],
+      "proofSteps": [
+        "Import the UCE-source superperfection corollary from the parent: H₁(St(A))=H₂(St(A))=0, using only K2SymbolsBrauer T.1:classical theory.",
+        "Apply the existing plus-cell construction and its homology preservation to the perfect group St(A); π₁ vanishes. The bar/singular comparison transfers H₂=0 to X_A.",
+        "Apply upstream absolute Hurewicz in degree two to obtain π₂=0, then in degree three to obtain the displayed isomorphism. Its naturality comes from the upstream Hurewicz transformation; no new general Hurewicz theorem is planned here."
+      ],
+      "acceptance": [
+        "Reject applying degree-three Hurewicz to BGL(A)⁺ merely because it is an H-space.",
+        "When St(A) is trivial all positive homotopy and homology groups in the comparison vanish."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/steinberg-superperfect",
+        "K3BlochGroups:V.1/bst-plus",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
+        "StableHomotopyKTheory:H.3/plus-construction-by-cell-attachment",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercise 1.9, IV.14–15",
+          "match": "Exercise 1.9 states the two-connectivity and degree-three comparison for a universal central extension. The proof sketch supplies the intermediate absolute Hurewicz argument from the upstream owner; this exercise has no Hurewicz hint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/bst-plus-two-connected"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/cover-and-fibre-interface",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "The connected-cover comparison and its supplier boundary",
+      "kind": "comparison",
+      "statement": "For each ring A the canonical map q_A:BSt(A)⁺→BGL(A)⁺, induced by St(A)→E(A)→GL(A), factors through the simply connected cover Y_A of BGL(A)⁺. Under the imported relative-plus comparison there is a homotopy fibration BK₂(A)→BSt(A)⁺→BE(A)⁺, and BE(A)⁺≃Y_A under BE(A). Thus q_A induces π_n isomorphisms for n≥3 and exhibits BSt(A)⁺ as a two-connected cover of the base component of K(A). Chosen space representatives commute with ring maps up to based homotopy; induced homotopy-group maps commute exactly.",
+      "hypotheses": [
+        "A is associative and unital.",
+        "Use the central kernel K₂(A) of the stable UCE, not an unstable Steinberg kernel.",
+        "The generic relative-plus/fibre assertions are supplier outputs, including their source gaps."
+      ],
+      "proofSteps": [
+        "Import the generic BP⁺ universal-cover and UCE-fibration assertions from H.3/plus-pi2-universal-central-extension; specialize P=E(A), G=GL(A), S=St(A), kernel=K₂(A).",
+        "Use the homotopy-fibre LES and BK₂(A)=K(K₂(A),1) to get π_n(BSt⁺)→π_n(BE⁺) isomorphisms for n≥3; in degree two the fibre is not contractible.",
+        "Use covering invariance in degrees n≥2 to compare BE⁺ with BGL⁺, and two-connected-hurewicz-input for the source.",
+        "Specify the composite under BSt and the based homotopy naturality, rather than declaring chosen plus spaces strictly equal."
+      ],
+      "acceptance": [
+        "The n=2 analogue for BSt⁺→BGL⁺ would force K₂(A)=0 and is not asserted.",
+        "The map is the one induced by the UCE, not an arbitrary homotopy equivalence of spaces."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/bst-plus",
+        "K3BlochGroups:V.1/uce-plus-fibration",
+        "K3BlochGroups:V.1/two-connected-hurewicz-input",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+        "StableHomotopyKTheory:H.1/nerve-and-classifying-space",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercises 1.8–1.9, IV.14–15",
+          "match": "Generic cover and fibre comparisons, imported at finer supplier node IDs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/bst-plus-connected-cover",
+        "K3BlochGroups:V.1/uce-plus-fibration"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/canonical-comparison-interface",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "The canonical homological K₃ comparison",
+      "kind": "construction",
+      "statement": "For every associative unital ring A, refine the parent comparison to the canonical additive isomorphism c_A:K₃(A)≅H₃(St(A);ℤ). If q₃:π₃(BSt⁺)≅K₃(A), h₃:π₃(BSt⁺)≅H₃(BSt⁺), j₃:H₃(BSt)≅H₃(BSt⁺) and b₃:H₃(BSt)≅H₃(St(A);ℤ) are the specified supplier maps, define c_A=b₃∘j₃⁻¹∘h₃∘q₃⁻¹. All homology uses trivial integral coefficients. An additive isomorphism is automatically ℤ-linear.",
+      "hypotheses": [
+        "A is associative and unital; K₃ is the imported plus/Q K-theory group.",
+        "Maps q₃, h₃, j₃ and b₃ are the canonical maps indicated, with the agreed basepoints and orientations."
+      ],
+      "proofSteps": [
+        "Use cover-and-fibre-interface to obtain q₃ and two-connected-hurewicz-input to obtain h₃.",
+        "Import the plus homology isomorphism j₃ and the bar/singular comparison b₃; its unnormalised Mathlib convention requires the natural normalisation bridge requested from H.1.",
+        "Compose the four additive isomorphisms in the stated directions; independent model choices produce the same homomorphism under the canonical comparison of models.",
+        "The composite is the refinement of the parent k3-h3-steinberg node, not a second definition of Quillen K₃."
+      ],
+      "acceptance": [
+        "Changing a chosen based plus model transports c_A through its canonical homotopy comparison.",
+        "The forward map starts with q₃ inverse; reversing j₃ would be ill-typed."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/k3-h3-steinberg",
+        "K3BlochGroups:V.1/two-connected-hurewicz-input",
+        "K3BlochGroups:V.1/cover-and-fibre-interface",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
+        "StableHomotopyKTheory:H.3/acyclic-map-homology-criterion",
+        "StableHomotopyKTheory:H.1",
+        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercise 1.9, IV.14–15",
+          "match": "The degree-three comparison; the explicit composite is the planning interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "K3BlochGroups V.1 bar-cycle-model; V.4 Suslin comparison",
+          "how": "Turn a homology class of the stable Steinberg group into its canonical Quillen K₃ element."
+        },
+        {
+          "where": "K-book IV.1.9 and Corollary 1.20",
+          "how": "Fix the exact natural comparison, including the map to H₃(E(A))."
+        }
+      ],
+      "api": [
+        {
+          "name": "K3Homological.comparison",
+          "role": "constructor",
+          "statement": "Given the four canonical isomorphisms, form c_A in the specified order."
+        },
+        {
+          "name": "K3Homological.comparison_apply",
+          "role": "characterisation",
+          "statement": "c_A(x)=b₃(j₃⁻¹(h₃(q₃⁻¹(x))))."
+        },
+        {
+          "name": "K3Homological.comparison_symm_apply",
+          "role": "characterisation",
+          "statement": "c_A⁻¹(z)=q₃(h₃⁻¹(j₃(b₃⁻¹(z))))."
+        },
+        {
+          "name": "K3Homological.comparison_zero",
+          "role": "simp",
+          "statement": "c_A(0)=0."
+        },
+        {
+          "name": "K3Homological.comparison_add",
+          "role": "structure",
+          "statement": "c_A(x+y)=c_A(x)+c_A(y), hence c_A is ℤ-linear."
+        }
+      ],
+      "tests": [
+        {
+          "name": "comparison_identity_data",
+          "kind": "compatibility",
+          "statement": "If all four groups agree and all four imported isomorphisms are identities, c_A is the identity."
+        },
+        {
+          "name": "comparison_trivial_group",
+          "kind": "degenerate",
+          "statement": "For a subsingleton Steinberg group G and any genuine c:K≅H₃(G;ℤ), K is subsingleton."
+        },
+        {
+          "name": "comparison_detects_nonzero",
+          "kind": "characterisation",
+          "statement": "For each x, c_A(x)=0 if and only if x=0; the constant-zero map fails this for every nonzero x."
+        }
+      ],
+      "refines": [
+        "K3BlochGroups:V.1/k3-h3-steinberg"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/cycle-certificate-evaluator",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "K₃ evaluation with explicit bar-boundary certificates",
+      "kind": "construction",
+      "statement": "For the existing unnormalised integral bar complex C_*(St(A)), let Z₃ be Mathlib’s cycles object and β:C₄→Z₃ its toCycles map. Refine the parent evaluation to the additive map ev_A:Z₃→K₃(A), ev_A(z)=c_A⁻¹(π(z)). It is surjective and ev_A(z)=ev_A(z′) if and only if there is a finitely supported w∈C₄ with β(w)=z−z′. The underlying chain condition is d₃z=0; no map C₃→K₃ is asserted on arbitrary chains.",
+      "hypotheses": [
+        "A is associative and unital; use the canonical comparison c_A.",
+        "C_n consists of finitely supported integer combinations of Fin n-tuples. Identity entries are retained."
+      ],
+      "proofSteps": [
+        "Use the existing cycles and homology projection from Mathlib, then compose with c_A inverse.",
+        "Identify the kernel of π with the image of β, using homology as cycles modulo boundaries in ModuleCat ℤ. This gives an explicit finite chain witness for equality, including both directions.",
+        "Use groupHomology_induction_on for surjectivity. The cycle and boundary objects, their differentials, and tuplewise chain maps are baseline constructions.",
+        "For trivial coefficients d₃[g|h|k]=[h|k]−[gh|k]+[g|hk]−[g|h]; d₄[g|h|k|l]=[h|k|l]−[gh|k|l]+[g|hk|l]−[g|h|kl]+[g|h|k]. In particular d₄[1|1|1|1]=[1|1|1]."
+      ],
+      "acceptance": [
+        "Given z,z′, the equality interface returns an actual 4-chain certificate, not just membership in an unspecified relation.",
+        "A single [g|1|1] with g≠1 has d₃=[1|1]−[g|1]≠0 and is not accepted as a cycle."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/bar-cycle-model",
+        "K3BlochGroups:V.1/canonical-comparison-interface",
+        "mathlib:groupHomology.inhomogeneousChains",
+        "mathlib:groupHomology.inhomogeneousChains.d_single",
+        "mathlib:groupHomology.cycles",
+        "mathlib:groupHomology.cyclesMk",
+        "mathlib:groupHomology.iCycles",
+        "mathlib:groupHomology.toCycles",
+        "mathlib:groupHomology",
+        "mathlib:groupHomology.π",
+        "mathlib:groupHomology_induction_on"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercise 1.9 and Definition 1.1, IV.2,14–15",
+          "match": "The source motivates transport through the homological K₃ comparison; explicit chain conventions follow the pinned Mathlib differential."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "K3BlochGroups V.4 configuration and comparison maps",
+          "how": "Use explicit representatives and check equality by finite boundary certificates."
+        },
+        {
+          "where": "K3BlochGroups V.5/V.6 concrete classes",
+          "how": "Transport a proved integral cycle to K₃ with no rationalisation or omitted torsion."
+        }
+      ],
+      "api": [
+        {
+          "name": "K3Homological.eval3",
+          "role": "constructor",
+          "statement": "Compose π:Z₃→H₃(St(A)) with c_A inverse, as an additive map."
+        },
+        {
+          "name": "K3Homological.eval3_comparison",
+          "role": "compatibility",
+          "statement": "c_A(ev_A(z))=π(z), with the exact pinned groupHomology.π."
+        },
+        {
+          "name": "K3Homological.eval3_zero",
+          "role": "simp",
+          "statement": "ev_A(0)=0."
+        },
+        {
+          "name": "K3Homological.eval3_add",
+          "role": "simp",
+          "statement": "ev_A(z+z′)=ev_A(z)+ev_A(z′)."
+        },
+        {
+          "name": "K3Homological.eval3_zsmul",
+          "role": "structure",
+          "statement": "ev_A(mz)=m ev_A(z) for each integer m."
+        },
+        {
+          "name": "K3Homological.eval3_boundary",
+          "role": "relation",
+          "statement": "ev_A(β(w))=0 for each 4-chain w."
+        },
+        {
+          "name": "K3Homological.eval3_eq_iff_certificate",
+          "role": "characterisation",
+          "statement": "ev_A(z)=ev_A(z′) iff ∃w:C₄, β(w)=z−z′."
+        },
+        {
+          "name": "K3Homological.eval3_surjective",
+          "role": "universal-property",
+          "statement": "Every element of K₃(A) is ev_A(z) for some cycle z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "eval3_identity_triple",
+          "kind": "computation",
+          "statement": "The nonzero chain [1|1|1] is a cycle and has evaluation zero, with witness [1|1|1|1]."
+        },
+        {
+          "name": "eval3_zero_cycle",
+          "kind": "degenerate",
+          "statement": "The zero cycle evaluates to zero."
+        },
+        {
+          "name": "eval3_baseline_projection",
+          "kind": "compatibility",
+          "statement": "After c_A, evaluation agrees exactly with the pinned groupHomology.π on every cycle."
+        },
+        {
+          "name": "eval3_not_injective",
+          "kind": "non-example",
+          "statement": "Evaluation on cycles is not injective: [1|1|1] and zero are distinct cycles with equal values, even for the trivial group."
+        },
+        {
+          "name": "single_g_one_one_not_cycle",
+          "kind": "non-example",
+          "statement": "For g≠1 the differential of [g|1|1] is nonzero; the constructor cannot silently treat every 3-chain as a cycle."
+        }
+      ],
+      "refines": [
+        "K3BlochGroups:V.1/bar-cycle-model"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/ring-map-comparison-square",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "Naturality on classes and cycle certificates",
+      "kind": "theorem",
+      "statement": "For a unital ring map f:A→B let s_f:St(A)→St(B), K₃(f):K₃(A)→K₃(B), Z₃(f) and H₃(s_f) be the canonical maps. Then c_B∘K₃(f)=H₃(s_f)∘c_A and K₃(f)(ev_A(z))=ev_B(Z₃(f)z). If β_A(w)=z−z′, tuplewise chainsMap sends w to a certificate β_B(C₄(f)w)=Z₃(f)z−Z₃(f)z′. Identity and composition laws are strict on chains, cycles and groups; the space-level comparison uses based homotopies.",
+      "hypotheses": [
+        "A and B associative unital rings; f preserves the unit.",
+        "All coefficient maps are the identity of ℤ with trivial actions."
+      ],
+      "proofSteps": [
+        "Refine the parent k3-naturality square using naturality of UCE/group maps, the relative-plus maps, Hurewicz, and the natural bar/singular comparison requested from H.1.",
+        "Invert the canonical isomorphism squares to prove the first identity, then apply the pinned π_map to prove the evaluator identity.",
+        "The chain map commutes with the differential and toCycles; apply it to the certificate equation.",
+        "Use the pinned map_id and map_comp, together with ring-functor laws; retain based homotopy naturality of chosen plus maps rather than claiming strict functoriality of chosen spaces."
+      ],
+      "acceptance": [
+        "Test the identity ring map and a composite of two unital maps.",
+        "Tuplewise image of the all-identity 4-chain still certifies vanishing of the all-identity 3-cycle.",
+        "No commutativity or injectivity hypothesis is imposed on f."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/k3-naturality",
+        "K3BlochGroups:V.1/canonical-comparison-interface",
+        "K3BlochGroups:V.1/cycle-certificate-evaluator",
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3",
+        "mathlib:groupHomology.chainsMap",
+        "mathlib:groupHomology.chainsMap_f_single",
+        "mathlib:groupHomology.cyclesMap",
+        "mathlib:groupHomology.map",
+        "mathlib:groupHomology.π_map",
+        "mathlib:groupHomology.map_id",
+        "mathlib:groupHomology.map_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Functoriality 1.1.2, IV.3",
+          "match": "Group maps are natural although space representatives are chosen only up to homotopy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/k3-naturality"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/finite-stage-cycle-certificates",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "Finite-stage representatives and eventual boundary witnesses",
+      "kind": "theorem",
+      "statement": "For any ring A and the directed tower St_n(A) defining St(A), every x∈K₃(A) has a representative cycle z_n∈Z₃(St_n(A);ℤ) at some finite rank n. If two finite-stage cycles have the same value in K₃(A), there is a common later rank m and a 4-chain w_m with d₄w_m equal to the difference of their stabilised underlying chains. Conversely any such witness proves equality. Neither injectivity of St_n→St(A) nor a uniform stable range is assumed.",
+      "hypotheses": [
+        "A associative unital; use the imported colimit tower and its universal maps.",
+        "Finite stages need not be superperfect, and are not assigned K₃(A) by a finite-rank Hurewicz theorem."
+      ],
+      "proofSteps": [
+        "Reuse parent steinberg-homology-colimit for surjectivity on homology; compose with c_A inverse to get representatives at some rank.",
+        "For an explicit stable chain, finitely many tuple entries lift to a common rank. Its differential may only become zero after enlarging the rank: lift the finitely many relations asserting d₃z=0 to that later rank.",
+        "For equality, lift the stable finite boundary witness from cycle-certificate-evaluator and the finite equality of its differential with the difference of cycles to a common later rank.",
+        "Use chainsMap for all stabilization maps. Retain existential ranks and eventual witnesses; no homological-stability theorem or injectivity assumption is inserted."
+      ],
+      "acceptance": [
+        "The certificate is produced at a common later rank, not necessarily the rank where its entries were first lifted.",
+        "For x=0 take the zero cycle; the all-identity 4-chain gives a second vanishing witness at every rank.",
+        "Do not assert a fixed bound on n for arbitrary rings."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/steinberg-homology-colimit",
+        "K3BlochGroups:V.1/cycle-certificate-evaluator",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "mathlib:groupHomology.chainsMap",
+        "mathlib:groupHomology.inhomogeneousChains",
+        "mathlib:groupHomology.toCycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, stable GL convention, IV.2; Exercise 1.9, IV.15",
+          "match": "The finite-stage interface follows from the imported stable presentation and finite supports, rather than a finite-rank comparison theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/steinberg-homology-colimit",
+        "K3BlochGroups:V.1/k3-naturality"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/elementary-cover-hspace",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "The H-space on the elementary plus cover",
+      "kind": "application",
+      "statement": "Let X_A be a well-pointed CW-type model of BGL(A)⁺ with the block-sum H-space structure of K.2:plus, and p_A:Y_A→X_A a based simply connected covering model, Y_A locally path connected, p_A(y₀)=e_X. Lift μ_X∘(p_A×p_A) uniquely through p_A with value y₀ at (y₀,y₀). This multiplication, y₀, and lifted unit homotopies give Mathlib’s HSpace Y_A. Its multiplication projects exactly to μ_X; under the imported BE(A)⁺≃Y_A it supplies the H-space needed in the parent η-Hurewicz argument.",
+      "hypotheses": [
+        "A associative unital; p_A is an actual covering map of the chosen CW-type K-space model.",
+        "Y_A is simply connected and locally path connected, with chosen y₀ over the H-space unit.",
+        "The block-sum H-space has based unit homotopies, as in the pinned HSpace carrier."
+      ],
+      "proofSteps": [
+        "Import the cover and BE⁺ comparison from the finer H.3 node and the block-sum H-space from K.2:plus. No new universal-cover object or HSpace carrier is introduced.",
+        "Apply the general H-space lifting application requested from upstream UniversalCovers stage 2: lift multiplication from Y_A×Y_A, prescribe its value at (y₀,y₀), and use the existing unique lifting theorem.",
+        "Use that supplier’s relative homotopy-lift compatibility to obtain based unit homotopies. The requested generic construction supplies every field of the existing HSpace carrier; V.1 imports it and records this ring application only.",
+        "The application is ring-specific. The general covering/lifting and homotopy-lifting statements remain in upstream UniversalCovers; the requested block-sum naturality gives the needed H-map on covers."
+      ],
+      "acceptance": [
+        "The universal cover is equipped with a genuine continuous multiplication and based unit homotopies.",
+        "A homotopy equivalence BE⁺≃Y_A is used for transport; it is not identified with an actual covering projection."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/cover-and-fibre-interface",
+        "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+        "mathlib:HSpace",
+        "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts",
+        "mathlib:IsCoveringMap.liftHomotopyRel"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercise 1.11 and Corollary 1.20, IV.14–15",
+          "match": "Lift the K-space multiplication to its simply connected cover before using the simply connected H-space lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "Suslin’s degree-three Hurewicz kernel",
+      "kind": "theorem",
+      "statement": "For a based simply connected well-pointed CW-type H-space X, composition with the based Hopf generator η:S³→S² gives an additive map η_X:π₂(X)→π₃(X), and π₂(X)→π₃(X)→H₃(X;ℤ)→0 is exact. In particular H₃(X)≅π₃(X)/im(η_X), naturally for based H-maps. The proof uses the elementary degree-three wedge calculation and a relative-Hurewicz consequence with H₃(Y)=0; it does not use Exercise IV.1.25 as printed.",
+      "hypotheses": [
+        "X simply connected and of well-pointed CW homotopy type.",
+        "HSpace X is the existing carrier, with based unit homotopies.",
+        "The generic Hopf generator, wedge calculation, Whitehead products, their naturality and H-space vanishing require the proposed foundational extension recorded as gap G1."
+      ],
+      "proofSteps": [
+        "Choose a wedge Y=∨_I S² and a based map f:Y→X surjective on π₂; for example choose one sphere representative for each element of π₂(X). The CW wedge has H₃(Y)=0.",
+        "Apply the upstream pair LES and relative Hurewicz to the mapping-cylinder pair (M_f,Y), which is two-connected: X,Y simply connected and π₂(f) surjective. Compare with the homology LES, using H₃(Y)=0 and π₂(Y)≅H₂(Y), to obtain exact π₃(Y)→π₃(X)→H₃(X)→0.",
+        "Use Hatcher Example 4.52: π₃(Y) is freely generated by the Hopf maps on each sphere and by the Whitehead products of distinct sphere inclusions, with unordered indexing i<j. Infinite wedges use finite-subcomplex factorization of both maps and homotopies. This only needs the degree-three calculation, not the full Hilton–Milnor theorem.",
+        "In an H-space every Whitehead product vanishes: multiplication extends the wedge of two based maps to the product, after correcting wedge restrictions by the based unit homotopies and the CW homotopy extension property.",
+        "Only Hopf composites remain in the image of π₃(Y). The same vanishing kills the Hopf composition addition cross-term, so η_X is additive; the image equals the Hurewicz kernel. Record the additional H₃(Y)=0 condition absent from printed Exercise 1.25 as source issue E31."
+      ],
+      "acceptance": [
+        "For K(ℤ,2), η_X is zero and H₃(X)=π₃(X)=0.",
+        "Simply connected alone does not make η_X additive: in S² the degree-k map composes with η with coefficient k². Thus the H-space hypothesis cannot be dropped.",
+        "The counterexample point→S³→S³ to printed IV.1.25 has nonzero H₃(Y) and cannot enter the corrected relative-Hurewicz step."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "mathlib:HSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Lemma 1.19 and Remark 1.19.1, IV.13",
+          "match": "The target exact sequence and its extension to simply connected H-spaces."
+        },
+        {
+          "sourceId": "Hatcher-AT-author",
+          "locator": "Section 4.2, Examples 4.51–4.52, printed pp.380–381; Exercise 37, p.392",
+          "match": "Elementary degree-three wedge generators and H-space vanishing; gap G1 assigns the generic package."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/eta-hurewicz-sequence"
+      ],
+      "planet": {
+        "name": "Suslin’s Hurewicz lemma"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "The Hopf operation is multiplication by minus one",
+      "kind": "comparison",
+      "statement": "For every associative unital ring A, transport π₂(Y_A) and π₃(Y_A) to K₂(A) and K₃(A) through its covering projection and the imported plus model. Then the Hopf composition operation equals α↦α·[−1], the external pairing K₂(A)×K₁(ℤ)→K₃(A⊗ℤ)≅K₃(A). Under the canonical sphere-unit map π₁ˢ→K₁(ℤ), stable η maps to the unit class [−1]. No internal tensor product of two arbitrary A-modules, or commutativity of A, is required.",
+      "hypotheses": [
+        "A associative unital; use the external tensor product over ℤ and the standard unit A⊗ℤ≅A.",
+        "The Hopf map and stable η are the same class under stabilization, with the sphere-unit action and K-product conventions fixed.",
+        "The missing stable-unit/Barratt–Priddy–Quillen compatibility is assigned to the foundational extension in gap G2."
+      ],
+      "proofSteps": [
+        "Import the external K-theory pairing from K.7/biexact-pairings-and-products; request its associative-ring specialization and compatible plus/spectrum models rather than constructing products here.",
+        "In the multiplicative finite-set/BΣ∞⁺ sphere model, the stable η is represented in π₁ by an odd transposition. Its permutation matrix has determinant −1, so its image in K₁(ℤ) is [−1]. The BPQ identification and compatibility with the sphere unit belong to the proposed H extension, not to V.1.",
+        "For a spectrum represented by its K-theory infinite-loop space, precomposition α∘β agrees with the right action of the stabilized sphere class [β]. Specialize n=2, β=η and transport through the cover. This compatibility, not merely an isomorphism of abstract groups, is the content required from IV.1.12(e).",
+        "Conclude the two operations agree on each α. The degree-two sign is even, so reversing the scalar side introduces no sign; keep the stated right-scalar convention."
+      ],
+      "acceptance": [
+        "The degree-one permutation class is sent to [−1] via its determinant, not to the additive integer −1 in a higher K-group.",
+        "In characteristic two, factor the external ℤ-scalar pairing through the central prime field 𝔽₂. The image of [-1] in K₁(𝔽₂) is [1]=0, so bilinearity makes the operation zero; no internal K-product on a noncommutative A is assumed.",
+        "For a noncommutative A use A×ℤ external coefficients, rather than assuming A has a commutative-ring K-product."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/elementary-cover-hspace",
+        "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+        "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+        "StableHomotopyKTheory:H.5:spectra",
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Exercise 1.12(a),(e), IV.15; IV.4, Theorem 4.9.3, IV.43",
+          "match": "Sphere action identifies the operation; BPQ alone without its compatible unit/action is insufficient."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/k2-to-k3-h3-e"
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement",
+      "parentStageId": "K3BlochGroups:V.1",
+      "realises": [
+        "K3BlochGroups:V.1"
+      ],
+      "title": "The degree-three elementary homology quotient",
+      "kind": "theorem",
+      "statement": "For every associative unital ring A define h_A:K₃(A)→H₃(E(A);ℤ) by h_A=H₃(St(A)→E(A))∘c_A. Then K₂(A) --(α↦α·[−1])→ K₃(A) --h_A→ H₃(E(A);ℤ)→0 is exact and natural for unital ring maps. Equivalently c_A⁻¹ identifies the kernel of H₃(St(A))→H₃(E(A)) with the image of the minus-one product. This is a quotient of K₃, not an isomorphism K₃(A)≅H₃(E(A)).",
+      "hypotheses": [
+        "A associative unital; trivial integral homology and the right K₁(ℤ)-scalar convention.",
+        "Use all canonical comparison maps and the covering H-space structure, rather than arbitrary abstract group isomorphisms."
+      ],
+      "proofSteps": [
+        "Apply hspace-hopf-kernel-refinement to Y_A and identify its π₂,π₃ with K₂(A),K₃(A) using the cover and K.2:plus; identify H₃(Y_A) with H₃(E(A)) using BE⁺ and its plus homology comparison.",
+        "Use hopf-minus-one-product-refinement to identify the kernel-generating operation.",
+        "Check the displayed Hurewicz map is H₃(St→E)∘c_A by the naturality square of Hurewicz with BSt⁺→BE⁺, the two plus maps and the two bar/singular comparisons. This is why the direction and naturality of c_A are part of the construction.",
+        "Transport exactness and naturality across the comparisons. In characteristic two, ℤ→A factors through its central prime field 𝔽₂. External-product naturality identifies the ℤ-scalar action with the 𝔽₂ pairing, using A⊗𝔽₂≅A; [-1] maps to [1]=0 in K₁(𝔽₂), so the first map vanishes and h_A is an isomorphism. In general only the quotient assertion is made."
+      ],
+      "acceptance": [
+        "For A of characteristic two, the first map is zero and h_A is an isomorphism.",
+        "The map from a bar cycle z to H₃(E(A)) is π_E(Z₃(St→E)z), directly compatible with cycle-certificate-evaluator.",
+        "Keep the [-1] product distinct from V.2’s full Milnor-image quotient defining K₃^ind."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.1/k2-to-k3-h3-e",
+        "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+        "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+        "K3BlochGroups:V.1/canonical-comparison-interface",
+        "K3BlochGroups:V.1/ring-map-comparison-square",
+        "K2SymbolsBrauer:T.1:plus",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
+        "GeneralAlgebraicKTheory:K.7/biexact-pairings-and-products",
+        "K3BlochGroups:V.1/elementary-cover-hspace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook-IV-author",
+          "locator": "IV.1, Corollary 1.20, IV.13–14",
+          "match": "The all-ring exact sequence with the specific Hurewicz map and product convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K3BlochGroups:V.1/k2-to-k3-h3-e"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "need": "Absolute Hurewicz in degrees two and three, its naturality, and the pair LES/relative Hurewicz for a two-connected mapping-cylinder pair. In particular: for simply connected CW X,Y with π₂(f) surjective and H₃(Y;ℤ)=0, exact π₃(Y)→π₃(X)→H₃(X)→0, with the actual Hurewicz map. These are applications of the stated upstream relative/Hurewicz scope.",
+      "neededBy": [
+        "K3BlochGroups:V.1/two-connected-hurewicz-input",
+        "K3BlochGroups:V.1/hspace-hopf-kernel-refinement"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "need": "CW wedge and mapping-cylinder pair models, H₃(∨S²;ℤ)=0 from cellular homology, based homotopy extension for the wedge inclusion into S²×S², and finite-subcomplex factorization for maps/homotopies from compact spheres.",
+      "neededBy": [
+        "K3BlochGroups:V.1/hspace-hopf-kernel-refinement"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "need": "Covering and based lift uniqueness, products of simply connected locally path connected spaces, and lifting unit homotopies relative to the chosen point, as used for the multiplication on the elementary cover. Existing cover objects and generic lifting theory are imported. Export the general based H-space-on-cover application of these lifting theorems, with projection and lift uniqueness; V.1 instantiates it on the elementary cover and does not redeclare that generic construction.",
+      "neededBy": [
+        "K3BlochGroups:V.1/elementary-cover-hspace"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "need": "For an actual covering p, its based induced maps on π_n are isomorphisms for n≥2, natural in based covering squares; compatibility with the cubical homotopy-group carrier.",
+      "neededBy": [
+        "K3BlochGroups:V.1/cover-and-fibre-interface"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.1",
+      "need": "Enhance H.1/homology-of-small-categories with the natural comparison to the exact pinned unnormalised groupHomology (Rep.trivial ℤ G ℤ), via its natural normalisation/degenerated-chain equivalence. It must commute with groupHomology.π and group homomorphisms. H.1/nerve-and-classifying-space and H.1/homology-of-small-categories already supply BG and the abstract comparison; do not rebuild those.",
+      "neededBy": [
+        "K3BlochGroups:V.1/canonical-comparison-interface",
+        "K3BlochGroups:V.1/ring-map-comparison-square"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.3",
+      "need": "Provide the based ring-map naturality of the chosen relative-plus/fibre square in H.3/plus-pi2-universal-central-extension, including the maps under BSt and BE. The generic universal-cover and UCE-fibration assertions of IV.1.8/1.9 already have that finer supplier node; only this compatibility/proof boundary is requested.",
+      "neededBy": [
+        "K3BlochGroups:V.1/ring-map-comparison-square",
+        "K3BlochGroups:V.1/cover-and-fibre-interface"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.2:plus",
+      "need": "The block-sum multiplication and based unit homotopies on a well-pointed CW-type representative of BGL(A)⁺, with unital-ring-map H-map compatibility, refining the ring plus model of K.2:plus/plus-equals-Q. Keep the early model separate from K.2:low-degree-comparisons, which consumes V.",
+      "neededBy": [
+        "K3BlochGroups:V.1/elementary-cover-hspace"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.7",
+      "need": "Specialize K.7/biexact-pairings-and-products to the external product K₂(A)×K₁(ℤ)→K₃(A⊗ℤ)≅K₃(A) for associative unital A. Supply compatibility between the plus and spectrum products and change of coefficient ring. In characteristic two, the scalar action factors through the central ℤ→𝔽₂→A: naturality identifies it with K₂(A)×K₁(𝔽₂)→K₃(A⊗𝔽₂)≅K₃(A), where [-1] maps to [1]=0. This needs neither a commutative A nor a redefinition of products.",
+      "neededBy": [
+        "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+        "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.5:spectra",
+      "need": "Import the general suspension/stabilization and stable-homotopy carrier from the early spectrum foundation. The sphere-unit action and its compatibility with precomposition, and the multiplicative BPQ identification of η with the transposition class, exceed its current explicit scope: they are gap G2 and the proposed Part II extension, not supplied by this request alone.",
+      "neededBy": [
+        "K3BlochGroups:V.1/hopf-minus-one-product-refinement"
+      ]
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.1:plus",
+      "need": "The natural identification K₂(A)≅π₂(BGL(A)⁺)≅H₂(E(A);ℤ) of the stable UCE kernel with the imported plus model, for every associative unital ring A. No finite-rank kernel comparison is requested.",
+      "neededBy": [
+        "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K3BlochGroups:V.1",
+      "status": "planned",
+      "note": "All original V.1 targets retain their accepted parent nodes, cited by ID, and each inherited remaining item is resolved into precise finer imports, a supplier enhancement request, or a foundational extension gap. This follow-up introduces refinements rather than replacing those nodes. The planning pass is complete at target level; the stage is not closed.",
+      "remaining": [
+        "G1: design/source the shared early Hopf/Whitehead/wedge-π₃ package in the foundational Part II; replace the recorded gap by its owner node IDs.",
+        "G2: source/decompose the multiplicative BPQ, sphere-unit and precomposition/action compatibility in the H extension; then discharge the [-1] operation comparison.",
+        "G3 and requests: obtain supplier relative-plus proofs and based naturality, the exact normalisation/bar comparison, upstream Hurewicz/CW/cover APIs and K.2/K.7 compatibility. These remain supplier responsibilities, not new V.1 objects.",
+        "Instantiate the suggested algebraic transport interfaces with the canonical topological suppliers once their Lean declarations exist; the file currently validates the available carriers and conditional algebraic API."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Shared low-degree Hopf and Whitehead package has no explicit owner node",
+      "neededBy": [
+        "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+        "K3BlochGroups:V.1/hopf-minus-one-product-refinement"
+      ],
+      "detail": "Neither exact pin has a Hopf-generator/Whitehead-product/wedge-π₃ library package; all relevant atlas stage descriptions and supplier nodes were screened. AT stage 8 supplies relative Hurewicz, not the sphere computation. The missing shared output is π₃(S²)=ℤ·η, π₃(∨_I S²) freely generated by individual Hopf classes and unordered Whitehead pairs, naturality, and vanishing/additivity in based H-spaces. Hatcher 4.51–4.52 and Exercise 37 give the elementary proof route read here. Propose the foundational Part II extension described below, without introducing generic topology nodes in V.1. The full Hilton–Milnor theorem is unnecessary for this target."
+    },
+    {
+      "id": "G2",
+      "title": "Shared stable sphere-unit and minus-one action compatibility",
+      "neededBy": [
+        "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+        "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement"
+      ],
+      "detail": "No explicit atlas stage or accepted node names multiplicative BPQ or the stable-η/transposition identification, and H.5:spectra’s carrier alone does not prove IV.1.12(a),(e). Needed: a compatible sphere-unit/finite-set model, π₁ˢ=ℤ/2 with η its transposition, its image [-1] under permutation matrices, and α∘β=α·[β] for the K-spectrum action. IV.4.9.3 cites the BPQ proof rather than providing it; that cited proof was not acquired. Route once to the H foundational extension, shared with parent V.4’s BPQ/stem needs. Do not certify the operation equality from a bare abstract isomorphism of groups."
+    },
+    {
+      "id": "G3",
+      "title": "Transitive supplier proof boundaries remain visible",
+      "neededBy": [
+        "K3BlochGroups:V.1/cover-and-fibre-interface",
+        "K3BlochGroups:V.1/canonical-comparison-interface",
+        "K3BlochGroups:V.1/ring-map-comparison-square"
+      ],
+      "detail": "The accepted StableHomotopyKTheory decomposition’s plus-pi2-universal-central-extension node includes IV.1.8/1.9 with hints rather than complete proofs; its generic plus acyclicity/universal-property sources and relative construction remain open there. Import that node and request its naturality interface; do not mark those supplier proofs closed or replan them in V.1. The old no-upstream-stage checker restriction is resolved: AT/UniversalCovers IDs now validate as stages."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "K3BlochGroups",
+        "K2SymbolsBrauer"
+      ],
+      "detail": "Implement confirmed RT-AREA-ktheory-1/29: V.1 imports stable St(A), its UCE and UCE-source superperfection from T.1:classical, retaining only the degree-three plus/Hurewicz and cycle model. Parent moved recognition-theorem IDs are already supplier references and remain unchanged.",
+      "proposal": {
+        "stageEdges": [
+          {
+            "source": "K2SymbolsBrauer:T.1:classical",
+            "target": "K3BlochGroups:V.1",
+            "reason": "Stable Steinberg group/UCE and source superperfection are supplier inputs to the retained V.1 comparison."
+          }
+        ],
+        "ownership": "K2SymbolsBrauer:T.1:classical owns the group, UCE and recognition theorem; K3BlochGroups:V.1 owns their degree-three homological application."
+      }
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "StableHomotopyKTheory"
+      ],
+      "detail": "AlgebraicTopology, Part II: low-degree pointed sphere operations, as an additional early foundation layer of the StableHomotopyKTheory extension of upstream AlgebraicTopology. RS-33 was accepted by independent-review-REV-RS-33 on 2026-09-29 and retains the existing H stage/node IDs. This proposal is an additive brief within that accepted direction; it neither changes upstream nor treats G1/G2 as already supplied.",
+      "proposal": {
+        "title": "Algebraic topology of spaces and manifolds, Part II: low-degree pointed sphere operations",
+        "owner": "StableHomotopyKTheory (early sphere-operations extension; exact new stage ID assigned by the restructuring/design job)",
+        "startsAfter": [
+          "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+          "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations"
+        ],
+        "targets": [
+          "Construct η:S³→S² from the Hopf bundle with orientation; π₃(S²)=ℤ generated by η.",
+          "Construct Whitehead products by the product-cell attaching map, with naturality and H-space vanishing using based unit homotopies.",
+          "Prove π₃ of arbitrary CW wedges of S² from finite wedges and finite-subcomplex factorization: direct sum of Hopf generators and unordered distinct Whitehead pairs.",
+          "Prove Hopf-composition additivity for based H-spaces and compatibility with the degree-three Hurewicz kernel."
+        ],
+        "consumers": [
+          "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+          "K3BlochGroups:V.4/pi3-bm-plus"
+        ],
+        "sources": [
+          "Hatcher, Algebraic Topology, 4.51–4.52 and Exercise 37; K-book IV.1.19.1"
+        ],
+        "boundary": "Import CW/cofibration, pair LES, Hurewicz and universal-cover theory; do not edit or replan the upstream roadmap. Avoid full Hilton–Milnor until an actual consumer needs it."
+      }
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "StableHomotopyKTheory"
+      ],
+      "detail": "Extend the same homotopy-foundation Part II with one shared stable sphere-unit/BPQ layer. Existing early spectrum machinery supplies carriers, and K.7 supplies external K-products. V.1 retains only the ring specialization and transports the operation; parent V.4 imports the same package.",
+      "proposal": {
+        "title": "Algebraic topology of spaces and manifolds, Part II: stable sphere units and finite-set K-theory",
+        "owner": "StableHomotopyKTheory (sphere-unit/BPQ extension)",
+        "startsAfter": [
+          "StableHomotopyKTheory:H.4",
+          "StableHomotopyKTheory:H.5:spectra"
+        ],
+        "targets": [
+          "Prove the BPQ equivalence between finite-set group completion, ℤ×BΣ∞⁺ and Ω∞𝕊, compatible with disjoint union, cartesian product and the unit.",
+          "Identify π₁ˢ=ℤ/2 and stabilized η with the odd-transposition class.",
+          "Prove the universal spectrum action agrees with precomposition of unstable sphere representatives after stabilization, naturally in spectrum maps.",
+          "Under finite-set-to-free-ℤ-module linearization, identify η with [-1] and require compatibility with K.7’s external products; keep K-theory products owned by K.7."
+        ],
+        "consumers": [
+          "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+          "K3BlochGroups:V.4/pi3-bm-plus",
+          "K3BlochGroups:V.4/pi3ind-bm-plus"
+        ],
+        "sourceBoundary": "K-book IV.4.9.3 states BPQ and cites its proof. The cited BP71/Adams proof was not acquired in this pass; the extension blueprint must source that proof. V.4’s higher-stem calculations are additional consumers to screen, not claimed proved here."
+      }
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K3BlochGroups/E31",
+      "source": "Kbook-IV-author",
+      "kind": "error",
+      "locator": "Author-hosted standalone Chapter IV, Exercise 1.25, IV.17 (PDF page 17), fetched 2026-10-05",
+      "printed": "π3(Y) → π3(X) → H3(X) → 0",
+      "correction": "The displayed exact sequence does not follow from X,Y,F simply connected alone. Add H₃(Y;ℤ)=0. Equivalently use the sufficient corrected map formulation: X,Y simply connected CW-type, π₂(f) surjective, H₃(Y)=0. This formulation applies to Y=∨S² in the elementary H-space proof.",
+      "reason": "Take the identity fibration *→S³→S³. All three spaces are simply connected, but the first map π₃(Y)→π₃(X) is the identity of ℤ and the Hurewicz map π₃(X)→H₃(X) is also an isomorphism; their composite is nonzero, so the printed sequence is not even a complex. Under H₃(Y)=0, the mapping-cylinder pair is two-connected and relative Hurewicz plus the homology LES gives the corrected sequence. Parent E1–E30 were screened; none records this issue.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author K-book page and errata links on Rutgers; linked Kbook.errata.pdf returned 404 at sites.math.rutgers.edu and www.math.rutgers.edu on 2026-10-05.",
+        "Archived author errata link attempted; not accessible in this run.",
+        "AMS GSM 145 landing page/download attempt returned 403; published text not obtained.",
+        "Web search for Weibel K-book errata Exercise 1.25; no correction found.",
+        "Parent packet K3BlochGroups sourceIssues E1–E30, including already-recorded IV.1.19.1 indexing and IV.1.20 notation corrections."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read Exercise 1.25 in the identified standalone Chapter IV (matching SHA-256). The identity fibration *→S³→S³ satisfies the stated simply-connected hypotheses, but the composite of its identity π₃ map with the Hurewicz isomorphism is nonzero. With H₃(Y)=0, the two-connected mapping-cylinder pair and relative Hurewicz/homology LES give the sufficient corrected formulation. Confirmation concerns this author copy, not an unavailable published edition.",
+        "by": "REV-K3BlochGroups--V.1"
+      }
+    }
+  ],
+  "parentPacket": "research/blueprint/packets/K3BlochGroups.json",
+  "inheritedTargets": [
+    {
+      "target": "Stable Steinberg superperfection",
+      "nodeId": "K3BlochGroups:V.1/steinberg-superperfect",
+      "refinement": "K3BlochGroups:V.1/two-connected-hurewicz-input"
+    },
+    {
+      "target": "BSt plus and two-connected cover",
+      "nodeId": "K3BlochGroups:V.1/bst-plus",
+      "refinement": "K3BlochGroups:V.1/cover-and-fibre-interface"
+    },
+    {
+      "target": "Canonical K₃≈H₃(St)",
+      "nodeId": "K3BlochGroups:V.1/k3-h3-steinberg",
+      "refinement": "K3BlochGroups:V.1/canonical-comparison-interface"
+    },
+    {
+      "target": "Bar cycles, boundaries and evaluation",
+      "nodeId": "K3BlochGroups:V.1/bar-cycle-model",
+      "refinement": "K3BlochGroups:V.1/cycle-certificate-evaluator"
+    },
+    {
+      "target": "Ring-map naturality",
+      "nodeId": "K3BlochGroups:V.1/k3-naturality",
+      "refinement": "K3BlochGroups:V.1/ring-map-comparison-square"
+    },
+    {
+      "target": "Stabilisation",
+      "nodeId": "K3BlochGroups:V.1/steinberg-homology-colimit",
+      "refinement": "K3BlochGroups:V.1/finite-stage-cycle-certificates"
+    },
+    {
+      "target": "Hopf kernel and [-1] quotient",
+      "nodeId": "K3BlochGroups:V.1/k2-to-k3-h3-e",
+      "refinement": "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement"
+    }
+  ],
+  "links": [
+    {
+      "source": "K2SymbolsBrauer:T.1:classical",
+      "target": "K3BlochGroups:V.1",
+      "type": "dependency",
+      "reason": "Confirmed RT-AREA-ktheory-1/29: import stable St and its UCE-source superperfection corollary; never replan the recognition theorem here."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K3BlochGroups--V.1",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review by Codex, session codex-SM6L4J: both hashed public source copies, all ten nodes, 21 exact-pinned baseline declarations, 13 API entries, eight construction tests, supplier statements, reviewed audit and RT-AREA-ktheory-1/29 checked. Corrected Exercise 1.9 citation, external characteristic-two scalar explanation and accepted RS-33 provenance; confirmed source issue E31. Removed three duplicate planet markers: the accepted parent contributes four and this follow-up adds only Suslin’s Hurewicz lemma, giving five in V.1. G1–G3 and supplier requests remain honest open boundaries; planned does not mean closed. Suggested file unchanged and elaborated with only warnings for admitted declarations. The report records companion-reader synchronization outside this review’s authorized deliverables.",
+    "checked": [
+      {
+        "nodeId": "K3BlochGroups:V.1/two-connected-hurewicz-input",
+        "verdict": "corrected",
+        "note": "Confirmed superperfection imports and successive degree-two/three Hurewicz applications; replaced an absent Hurewicz quotation and nonexistent hint in Exercise 1.9 by its actual perfect-group phrase."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/cover-and-fibre-interface",
+        "verdict": "verified",
+        "note": "Read Exercises 1.8/1.9 and the H.3 supplier: the actual cover and homotopy-equivalent plus model are distinguished, the fibre is BK₂, and the comparison range is n≥3."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/canonical-comparison-interface",
+        "verdict": "corrected",
+        "note": "Verified the four canonical maps, directions, additive API and three tests. Removed a planet duplicating the inherited k3-h3-steinberg marker."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/cycle-certificate-evaluator",
+        "verdict": "corrected",
+        "note": "Verified the pinned unnormalised differential, cycle projection, finite boundary criterion, eight API items and five tests. Removed the planet duplicating the inherited bar-cycle-model marker."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/ring-map-comparison-square",
+        "verdict": "verified",
+        "note": "Confirmed natural canonical comparison and evaluator squares, chain-level transport of witnesses, and identity/composition conventions; based space naturality remains a supplier request."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/finite-stage-cycle-certificates",
+        "verdict": "verified",
+        "note": "Finite support and eventual equality in the directed group colimit give representatives and later-rank witnesses without injective transition maps or a fixed stable range. The Lean omission of transition data is explicit."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/elementary-cover-hspace",
+        "verdict": "verified",
+        "note": "The existing HSpace and based unique-lift/relative-homotopy carriers support the application; generic cover multiplication is requested from upstream, while ring block sum remains K.2:plus-owned."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/hspace-hopf-kernel-refinement",
+        "verdict": "verified",
+        "note": "Checked the two-connected mapping-cylinder proof with H₃(Y)=0, unordered wedge generators and H-space vanishing. E31 confirmed; G1 honestly records missing generic sphere operations."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/hopf-minus-one-product-refinement",
+        "verdict": "corrected",
+        "note": "Checked IV.1.12(a),(e), determinant/transposition and external-product conventions; retained G2 for multiplicative BPQ/action compatibility. Clarified characteristic-two vanishing via the central 𝔽₂ scalar pairing."
+      },
+      {
+        "nodeId": "K3BlochGroups:V.1/elementary-homology-exact-sequence-refinement",
+        "verdict": "corrected",
+        "note": "Confirmed the actual Hurewicz map via the natural comparison square and noncircular Lean exactness transport. Clarified characteristic-two scalar factorization and removed the planet duplicating the inherited elementary-homology quotient marker."
+      }
+    ]
+  }
+}
