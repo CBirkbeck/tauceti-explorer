@@ -30,8 +30,8 @@
     "ref": "mathlib:Algebra.IsInvariant.exists_smul_of_under_eq",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Invariant/Basic.lean",
-    "provides": "For a finite group G acting on B with Algebra.IsInvariant A B G, two primes of B over the same prime of A are G-conjugate.",
-    "checked": "statement read at the pinned commit"
+    "provides": "For a finite group G acting on a commutative ring B by A-algebra automorphisms (SMulCommClass G A B) with Algebra.IsInvariant A B G, two primes of B with the same contraction to A are G-conjugate (Q = g • P).",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "mathlib:Algebra.IsInvariant.isIntegral",
@@ -79,8 +79,8 @@
     "ref": "mathlib:Ideal.Quotient.stabilizerHom_surjective",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Invariant/Basic.lean",
-    "provides": "For a finite group acting with Algebra.IsInvariant A B G and Q a prime of B over P, the decomposition group surjects onto Aut((B/Q)/(A/P)).",
-    "checked": "statement read at the pinned commit"
+    "provides": "For a finite group G acting on B by A-algebra automorphisms (SMulCommClass G A B) with Algebra.IsInvariant A B G, and Q a prime of B lying over P, the stabilizer of Q surjects onto Aut_{A/P}(B/Q); no field or maximality hypothesis.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "mathlib:Ideal.exists_ideal_over_prime_of_isIntegral",
@@ -114,8 +114,8 @@
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
-    "provides": "Faithfully flat modules; the module descent theorem is also present as comonadicExtendScalars and imported below.",
-    "checked": "statement read at the pinned commit"
+    "provides": "Faithfully flat modules (flat, with m·M ≠ M for every maximal ideal m). Mathlib proves that extension of scalars along a faithfully flat ring map is comonadic (comonadicExtendScalars, imported below). The descent-data/effective-descent formulation is a Mathlib TODO.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "mathlib:Module.Finite.exists_comp_eq_id_of_projective",
@@ -163,8 +163,8 @@
     "ref": "mathlib:PerfectRing",
     "kind": "class",
     "module": "Mathlib/FieldTheory/Perfect.lean",
-    "provides": "Perfect rings of characteristic p (bijective Frobenius).",
-    "checked": "statement read at the pinned commit"
+    "provides": "PerfectRing R p: x ↦ x^p is bijective on R. Characteristic p is a separate hypothesis ([CharP R p] or [ExpChar R p]).",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "mathlib:ProfiniteGrp",
@@ -177,8 +177,8 @@
     "ref": "mathlib:Sylow",
     "kind": "structure",
     "module": "Mathlib/GroupTheory/Sylow.lean",
-    "provides": "Sylow p-subgroups of a group, with existence for finite groups.",
-    "checked": "statement read at the pinned commit"
+    "provides": "Sylow p-subgroups (maximal p-subgroups) of a group; Sylow.nonempty gives existence (for any group); for finite G, Sylow.not_dvd_index / Sylow.card_eq_multiplicity give the index prime to p.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "mathlib:T2Quotient",
@@ -268,8 +268,8 @@
     "ref": "tauceti:TauCeti.GaloisDescent.span_invariants_eq_top",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
-    "provides": "For a field extension L/k with finite automorphism group and a semilinear representation on an L-vector space, the invariants span; the field case of Galois descent (Milne A.64 together with its companions).",
-    "checked": "statement read at the pinned commit"
+    "provides": "For L a field over a commutative ring k with Aut_k(L) finite, and a semilinear k-representation of Aut_k(L) on an L-vector space V, the invariants span V over L (the surjectivity half of Milne A.64). Injectivity of L ⊗_k V^G → V is the companion liftBaseChange_injective_of_invariant (k a field, L/k finite Galois), to be cited separately.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.Huber.IsPseudoUniformizer",
@@ -296,22 +296,22 @@
     "ref": "tauceti:TauCeti.Huber.PairOfDefinition.completionLocObj",
     "kind": "def",
     "module": "TauCeti/RingTheory/Huber/LocalizationTopology/CompleteSeparated/Basic.lean",
-    "provides": "The completed rational localisation A⟨T/s⟩, the ring of sections over a rational subset; not yet identified with a structure sheaf, and sheafiness is not in the library.",
-    "checked": "statement read at the pinned commit"
+    "provides": "The completed localisation A⟨T/s⟩ (completion of A_s for the localisation topology) as a complete separated topological ring, defined per presentation (P, T, s, S) under HasDenominatorPower. Independence of the presentation, restriction maps, the structure presheaf and sheafiness are not in the library.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.Huber.PairOfDefinition.flat_toCompletionLoc",
     "kind": "theorem",
     "module": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
-    "provides": "Flatness of the rational localisation map A → A⟨T/s⟩ in the strongly noetherian case.",
-    "checked": "statement read at the pinned commit"
+    "provides": "For a complete separated strongly noetherian Tate ring A, the map A → A⟨T/s⟩ is flat for every presentation (T, s) satisfying HasDenominatorPower.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.Huber.PairOfDefinition.isContinuous_of_forall_le_of_cofinalValue",
     "kind": "theorem",
     "module": "TauCeti/RingTheory/Huber/Continuous/OfCofinal.lean",
-    "provides": "A valuation bounded by 1 on an ideal of definition, with its generators dominated by an element of cofinal value, is continuous: one direction of the continuity criterion.",
-    "checked": "statement read at the pinned commit"
+    "provides": "A valuation with values in a linearly ordered commutative group with zero, bounded by 1 on an ideal of definition I ⊆ A₀, with a generating set of I dominated by an element t₀ ∈ A₀ of cofinal value, is continuous (one direction of the continuity criterion).",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.cont",
@@ -324,15 +324,15 @@
     "ref": "tauceti:TauCeti.ValuationSpectrum.rationalSubset",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
-    "provides": "Rational subsets R(T/s) of the adic spectrum; with open T·A they form a quasicompact open basis.",
-    "checked": "statement read at the pinned commit"
+    "provides": "Rational subsets R(T/s) = spa A⁺ ∩ {v(t) ≤ v(s) ≠ 0} (no openness hypothesis in the definition). For a Huber ring, those with T·A open form a basis of quasicompact opens of Spa (isTopologicalBasis_spaRationalFamily, isCompact_of_mem_spaRationalFamily in Spa/RationalSubset/Basis.lean).",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.spaComap",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
-    "provides": "The continuous map Spa(B, B⁺) → Spa(A, A⁺) induced by a continuous map of pairs, with spaComap_id and spaComap_comp.",
-    "checked": "statement read at the pinned commit"
+    "provides": "The map Spa(B, B⁺) → Spa(A, A⁺) induced by a continuous ring hom carrying A⁺ into B⁺ (continuity: continuous_spaComap), with spaComap_id and spaComap_comp.",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.spaComap_preimage_rationalSubset",
@@ -359,8 +359,8 @@
     "ref": "tauceti:Valuation.IsContinuous.cofinalValue_of_isTopologicallyNilpotent",
     "kind": "theorem",
     "module": "TauCeti/RingTheory/Valuation/Continuous/TopologicallyNilpotent.lean",
-    "provides": "A continuous valuation takes a cofinal value at a topologically nilpotent unit.",
-    "checked": "statement read at the pinned commit"
+    "provides": "A continuous valuation with values in a linearly ordered commutative group with zero has cofinal value at every topologically nilpotent element (right multiplication continuous, e.g. A a topological ring).",
+    "checked": "statement read at the pinned commit; description corrected by REV-PerfectoidSpaces--P8"
    },
    {
     "ref": "tauceti:Valuation.IsContinuous.lt_one_of_isTopologicallyNilpotent",
@@ -653,6 +653,30 @@
    "url": "https://arxiv.org/abs/math/0206203v2",
    "read": "2026-09-24",
    "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1602.06899v1",
+   "read": "2026-10-06",
+   "sha256": "288a26ff42fe45039a6c14dff1dbdeda05fb4ea0a7b232468ac63cb71e448471"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1602.06899v2",
+   "read": "2026-10-06",
+   "sha256": "b26cdd4f7881f59c597c194e25a8c23b8e33d5b99fa47f74dff9236dc5f53464"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1905.08229v1",
+   "read": "2026-10-06",
+   "sha256": "8587456d76ba19a080e125607cba9bda292afff533b2cbf829ad82feed4517d2"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1905.08229v2",
+   "read": "2026-10-06",
+   "sha256": "01bdac340dbfd369a5fa165e7e2cfed012bdfbbbe477b5c4b5097e905b83d8bb"
   }
  ],
  "nodes": [
@@ -927,7 +951,7 @@
    "prerequisites": [
     "PerfectoidSpaces:P8/continuous-valuations-over-invariants",
     "PerfectoidSpaces:P8/invariant-huber-pair",
-    "DiamondsAndVStacks:D0",
+    "DiamondsAndVStacks:D0/generalizing-surjection-is-quotient",
     "tauceti:TauCeti.ValuationSpectrum.spaComap",
     "tauceti:TauCeti.ValuationSpectrum.spaComap_preimage_rationalSubset",
     "tauceti:TauCeti.ValuationSpectrum.spa_integralClosure",
@@ -981,8 +1005,11 @@
     "PerfectoidSpaces:P8/invariant-huber-pair",
     "DiamondsAndVStacks:D2",
     "DiamondsAndVStacks:D5",
-    "DiamondsAndVStacks:D6",
-    "mathlib:Algebra.IsInvariant.exists_smul_of_under_eq"
+    "DiamondsAndVStacks:D6/spd-is-a-spatial-diamond",
+    "mathlib:Algebra.IsInvariant.exists_smul_of_under_eq",
+    "DiamondsAndVStacks:D5/quasi-pro-etale-and-fibre-product-permanence",
+    "DiamondsAndVStacks:D4/spaces-and-surjectivity-for-small-v-stacks",
+    "DiamondsAndVStacks:D4/underlying-topological-space"
    ],
    "sources": [
     {
@@ -1113,7 +1140,7 @@
     "PerfectoidSpaces:P8/invariant-huber-pair",
     "PerfectoidSpaces:P8/invariant-spectrum-homeomorphism",
     "tauceti:TauCeti.Huber.PairOfDefinition.completionLocObj",
-    "AdicEtaleGeometry:A0",
+    "AdicEtaleGeometry:A0/rational-pullback-comparison",
     "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "sources": [
@@ -1223,7 +1250,8 @@
    "kind": "lemma",
    "statement": "Let K be a complete nonarchimedean field, A a K-affinoid algebra (a quotient of some K⟨X₁, …, X_n⟩) and G a finite group acting by K-algebra automorphisms. Then A^G is a K-affinoid algebra and A is a finite A^G-module.",
    "hypotheses": [
-    "Any characteristic and any |G|."
+    "Any characteristic and any |G|.",
+    "The Weierstrass step needs division by monic polynomials whose coefficients are power-bounded (K⟨Y⟩⟨X⟩/(P) free over K⟨Y⟩ of rank deg P); it is part of the R0 request."
    ],
    "proofSteps": [
     "Let a₁, …, a_n be topological generators of A over K. The coefficients of the polynomials ∏_{g}(T − g a_i) lie in A^G; they generate a K-affinoid subalgebra B ⊆ A^G (the image of a Tate algebra).",
@@ -1235,13 +1263,15 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P8/invariant-huber-pair",
-    "AdicSpacesPartII:R0"
+    "AdicSpacesPartII:R0",
+    "AdicSpacesPartII:R0/finite-algebra-over-affinoid",
+    "AdicSpacesPartII:R0/noetherian-rod-module-complete"
    ],
    "sources": [
     {
      "sourceId": "chj17",
-     "locator": "Corollary 6.25, p. 54 (PDF p. 54); proof p. 55 (PDF p. 55)",
-     "match": "§6.4 quotes Bosch–Güntzer–Remmert 6.3.3, Proposition 2, for exactly this statement."
+     "locator": "§6.4, opening paragraph, p. 53 (PDF p. 53)",
+     "match": "CHJ quote Bosch–Güntzer–Remmert §6.3.3 for exactly this statement (Hansen quotes the same result as BGR Prop. 6.3.3/3; the book is not public, so the numbering was not checked)."
     },
     {
      "sourceId": "han16",
@@ -1395,7 +1425,8 @@
     }
    ],
    "prerequisites": [
-    "AdicEtaleGeometry:A0",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
     "mathlib:TopCat.Presheaf",
     "mathlib:Topology.IsQuotientMap"
    ],
@@ -1453,7 +1484,7 @@
     "PerfectoidSpaces:P8/rational-invariants-perfectoid",
     "PerfectoidSpaces:P8/categorical-quotient",
     "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
-    "DiamondsAndVStacks:D2",
+    "DiamondsAndVStacks:D2/v-descent-of-functions",
     "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity"
    ],
    "sources": [
@@ -1667,7 +1698,8 @@
     "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
     "PerfectoidSpaces:P8/perfectoid-quotient-invariant-cover",
     "DiamondsAndVStacks:D4",
-    "DiamondsAndVStacks:D6"
+    "DiamondsAndVStacks:D6/gluing-and-the-diamond-functor",
+    "DiamondsAndVStacks:D4/underlying-topological-space"
    ],
    "sources": [
     {
@@ -1709,9 +1741,10 @@
    "prerequisites": [
     "PerfectoidSpaces:P8/quotient-diamond-comparison",
     "PerfectoidSpaces:P8/perfectoid-quotient-invariant-cover",
-    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D3/locally-profinite-torsors",
+    "DiamondsAndVStacks:D3/etale-and-finite-etale-are-v-stacks",
     "DiamondsAndVStacks:D2",
-    "DiamondsAndVStacks:D5",
+    "DiamondsAndVStacks:D4/spaces-and-surjectivity-for-small-v-stacks",
     "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids"
    ],
    "sources": [
@@ -1905,7 +1938,7 @@
    ],
    "title": "Zariski-closed embeddings of perfectoid spaces and Zariski-open subsets",
    "kind": "definition",
-   "statement": "A map of perfectoid spaces Z → X is a Zariski-closed embedding if for every open affinoid perfectoid U ⊆ X the base change Z ×_X U → U is a Zariski-closed embedding of affinoid perfectoid spaces, i.e. an injection onto the vanishing locus of an ideal I ⊆ O_X(U) (equivalently, by ECD 5.8, a strongly Zariski-closed immersion Spa(S, S⁺) → U with O_X(U) → S surjective and S⁺ the integral closure of O_X⁺(U)). An open subset U ⊆ X is Zariski open if X ∖ U → X, with its induced structure, is a Zariski-closed embedding.",
+   "statement": "A map of perfectoid spaces Z → X is a Zariski-closed embedding if for every open affinoid perfectoid U ⊆ X the base change Z ×_X U → U is a Zariski-closed embedding of affinoid perfectoid spaces, i.e. a closed immersion (ECD Definition 5.6) whose image is the vanishing locus of an ideal I ⊆ O_X(U) (ECD Definition 5.7(i)), which is then the universal perfectoid space over that Zariski-closed subset (Scholze, torsion paper, Lemma II.2.2), and equivalently, by ECD 5.8, a strongly Zariski-closed immersion Spa(S, S⁺) → U with O_X(U) → S surjective and S⁺ the integral closure of O_X⁺(U). An open subset U ⊆ X is Zariski open if X ∖ U → X, with its induced structure, is a Zariski-closed embedding.",
    "hypotheses": [
     "The affinoid notion is the one of Scholze's torsion paper II.2 and ECD Definition 5.7, owned by P4 and Q4.",
     "Base change of an affinoid Zariski-closed immersion along any map of affinoid perfectoids is Zariski closed (Scholze, torsion paper, Lemma II.2.9(i)); what the source leaves open is whether the property can be checked on one affinoid cover, so the definition quantifies over all open affinoid perfectoids."
@@ -1990,7 +2023,10 @@
    ],
    "prerequisites": [
     "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
-    "PerfectoidSpaces:P4",
+    "PerfectoidSpaces:P4/perfectoid-immersion",
+    "PerfectoidSpaces:P4/zariski-closed-immersion",
+    "PerfectoidSpaces:P4/universal-perfectoid-zariski-closed",
+    "PerfectoidSpaces:P4/zariski-closed-base-change",
     "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces"
    ],
    "library": {
@@ -2100,7 +2136,7 @@
    "prerequisites": [
     "PerfectoidSpaces:P8/zariski-closed-embedding",
     "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
-    "PerfectoidSpaces:P2"
+    "PerfectoidSpaces:P2/fibre-products-over-analytic-base"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Perfectoid/FiniteQuotient/AnalyticallySeparated",
@@ -2128,10 +2164,10 @@
    ],
    "title": "Analytically separated perfectoid spaces are separated",
    "kind": "lemma",
-   "statement": "If a perfectoid space X over Spa(K, K⁺) is analytically separated, then X^◇ → Spd(K, K⁺) is a separated map of v-sheaves in the sense of ECD Definition 10.7 (for K perfectoid, X → Spa(K, K⁺) is separated in the sense of ECD Definition 5.10) (ECD Definition 5.10).",
+   "statement": "If a perfectoid space X over Spa(K, K⁺) is analytically separated, then X^◇ → Spd(K, K⁺) is a separated map of v-sheaves in the sense of ECD Definition 10.7 (for K perfectoid, X → Spa(K, K⁺) is separated in the sense of ECD Definition 5.10).",
    "hypotheses": [],
    "proofSteps": [
-    "A Zariski-closed embedding is a closed immersion (injection with closed image) of perfectoid spaces: the base change to each open affinoid perfectoid is an injection onto a closed vanishing locus.",
+    "A Zariski-closed embedding is a closed immersion of perfectoid spaces (an injection whose underlying map is a closed embedding, ECD Definition 5.6): its base change to each open affinoid perfectoid is a closed immersion onto a vanishing locus, and both conditions are local on the target.",
     "So the diagonal of X over Spa(K, K⁺) is a closed immersion of perfectoid spaces, hence X^◇ → X^◇ × X^◇ over Spd(K, K⁺) is a closed immersion of v-sheaves, which is separatedness (ECD 10.7; ECD 5.10 when K is perfectoid)."
    ],
    "acceptance": [
@@ -2140,12 +2176,13 @@
    "prerequisites": [
     "PerfectoidSpaces:P8/analytically-separated",
     "PerfectoidSpaces:P8/zariski-closed-embedding",
-    "PerfectoidSpaces:P4"
+    "PerfectoidSpaces:P4/separated-perfectoid-map",
+    "PerfectoidSpaces:P4/perfectoid-immersion"
    ],
    "sources": [
     {
      "sourceId": "hj20",
-     "locator": "Lemma 5.5, p. 29 (PDF p. 29)",
+     "locator": "Lemma 5.5, pp. 29–30 (PDF pp. 29–30; part (2) is on p. 30)",
      "match": "Lemma 5.5(1), whose proof the source leaves to the reader."
     }
    ],
@@ -2176,7 +2213,7 @@
    "sources": [
     {
      "sourceId": "hj20",
-     "locator": "Lemma 5.5, p. 29 (PDF p. 29)",
+     "locator": "Lemma 5.5, pp. 29–30 (PDF pp. 29–30; part (2) is on p. 30)",
      "match": "Lemma 5.5(2) and its one-line proof."
     }
    ],
@@ -2201,7 +2238,8 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P8/zariski-closed-embedding",
-    "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed"
+    "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+    "PerfectoidSpaces:P4/universal-perfectoid-zariski-closed"
    ],
    "sources": [
     {
@@ -2242,7 +2280,9 @@
     "PerfectoidSpaces:P8/zariski-closed-embedding",
     "AdicSpacesPartII:R3/vector-bundle-global-generation",
     "AdicSpacesPartII:R1",
-    "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed"
+    "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+    "AdicSpacesPartII:R1/analytification-immersions",
+    "AdicSpacesPartII:R1/analytification-of-modules"
    ],
    "sources": [
     {
@@ -2430,8 +2470,9 @@
    ],
    "prerequisites": [
     "DiamondsAndVStacks:D5",
-    "DiamondsAndVStacks:D4",
-    "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces"
+    "DiamondsAndVStacks:D4/underlying-topological-space",
+    "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+    "DiamondsAndVStacks:D5/limits-and-finite-stage-comparisons"
    ],
    "sources": [
     {
@@ -2452,7 +2493,7 @@
    "kind": "lemma",
    "statement": "Let (R, R⁺) → (S, S⁺) be a map of Tate–Huber pairs with R a perfectoid Tate ring and R⁺ → S⁺ integral. Then the diamond Spd(S, S⁺) is an affinoid perfectoid space: with ϖ a pseudouniformizer of R⁺, S⁺_perfd the universal integral perfectoid S⁺-algebra, T = ((S⁺_perfd)^∧_ϖ)[1/ϖ] (the ϖ-adic completion is needed: in characteristic p the perfectoidization is the uncompleted perfection) and T⁺ the integral closure of (S⁺_perfd)^∧_ϖ in T, (S, S⁺) → (T, T⁺) induces Hom((T, T⁺), (A, A⁺)) = Hom((S, S⁺), (A, A⁺)) for every perfectoid Tate–Huber pair (A, A⁺), so Spd(S, S⁺) ≅ Spa(T, T⁺).",
    "hypotheses": [
-    "The needed integral-algebra perfectoidization is BS22 Theorem 10.11 (the p-completion of an integral map) together with the universal property of Corollary 8.14. PAPER-BHATT-SCHOLZE-22 routes it to the proposed PerfectoidQuotientsPartIIIntegralPerfectoidization. No Q5 stage exists and Q4’s semiperfectoid quotient theorem does not supply it: this remains a recorded gap.",
+    "The needed integral-algebra perfectoidization is BS22 Theorem 10.11 (the p-completion of an integral map) together with the universal property of Corollary 8.14. PAPER-BHATT-SCHOLZE-22 (route 3) routes it to the Part II of PerfectoidQuotients, whose generated id is PerfectoidQuotientsPartII (design job DESIGN-PerfectoidQuotientsPartII, issue #3362, \"Perfectoid quotients and their prismatic prerequisites, Part II\"; the route's longer name was retired by the confirmed finding RT-PAPER-BHATT-SCHOLZE-22/5). No Q5 stage exists and Q4’s semiperfectoid quotient theorem does not supply it: this remains a recorded gap.",
     "The passage from the integral perfectoid ring to the complete Tate pair, including π-completion in characteristic p and the compatibility with the continuous universal property, is part of that requested interface."
    ],
    "proofSteps": [
@@ -2465,7 +2506,7 @@
    ],
    "prerequisites": [
     "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
-    "DiamondsAndVStacks:D6"
+    "DiamondsAndVStacks:D6/spd-of-a-tate-pair"
    ],
    "sources": [
     {
@@ -2504,7 +2545,8 @@
     "PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair",
     "PerfectoidSpaces:P8/finite-level-affinoid-basis",
     "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
-    "AdicSpacesPartII:R0"
+    "AdicSpacesPartII:R0",
+    "AdicSpacesPartII:R0/finite-algebra-tensor-complete"
    ],
    "sources": [
     {
@@ -2535,7 +2577,8 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
-    "PerfectoidSpaces:P7",
+    "PerfectoidSpaces:P7/represented-functor-comparison",
+    "PerfectoidSpaces:P7/rational-subsets-from-finite-level",
     "tauceti:TauCeti.ValuationSpectrum.rationalSubset"
    ],
    "sources": [
@@ -2643,7 +2686,7 @@
    "prerequisites": [
     "PerfectoidSpaces:P8/analytically-separated",
     "PerfectoidSpaces:P8/finite-level-affinoid-basis",
-    "PerfectoidSpaces:P7",
+    "PerfectoidSpaces:P7/represented-functor-comparison",
     "AdicSpacesPartII:R1"
    ],
    "library": {
@@ -2717,7 +2760,8 @@
     "PerfectoidSpaces:P8/rigid-finite-quotient",
     "PerfectoidSpaces:P8/projective-tower-limit-is-analytically-separated",
     "PerfectoidSpaces:P8/quotient-diamond-comparison",
-    "DiamondsAndVStacks:D5"
+    "DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks",
+    "DiamondsAndVStacks:D5/limits-and-finite-stage-comparisons"
    ],
    "sources": [
     {
@@ -2747,7 +2791,7 @@
     "Density of lim→ O(X_i ∩ V_i) in S: its image contains the image of lim→ O(V_i) under the surjection R → S, and lim→ O(V_i) is dense in R for the tilde-limit V ~ lim V_i of affinoids. (Scholze's proof of torsion Theorem IV.1.1 uses these steps for the Hodge-type embedding into the Siegel tower, where the integral statement R_∞⁺ = (lim→ R_{K_p}⁺)^∧ is proved from the Siegel case.)"
    ],
    "acceptance": [
-    "Compatible-root closed locus: over K ∋ μ_{p^∞}, take Y_n = 𝔾_m^an with transition maps T ↦ T^p and V = {|T| = 1} pulled back from level 0, so that the limit over V is the perfectoid torus Spa(K⟨T^{±1/p^∞}⟩). The compatible closed subvarieties X_n = {T_n = 1} (T_n the coordinate at level n) give the Zariski-closed point cut out by (T^{1/p^n} − 1)_n, with R → S = K surjective. The single equation T = 1 instead cuts out the profinite set of points T^{1/p^n} = ζ_{p^n}^a (a ∈ ℤ_p), whose ring of functions C(ℤ_p, K) is again a quotient of R, as ECD 5.8 asserts against Scholze's Remark II.2.4.",
+    "Compatible-root closed locus: over a perfectoid field K ∋ μ_{p^∞} (for instance ℂ_p), take Y_n = 𝔾_m^an with transition maps T ↦ T^p and V = {|T| = 1} pulled back from level 0, so that the limit over V is the perfectoid torus Spa(K⟨T^{±1/p^∞}⟩). The compatible closed subvarieties X_n = {T_n = 1} (T_n the coordinate at level n) give the Zariski-closed point cut out by (T^{1/p^n} − 1)_n, with R → S = K surjective. The single equation T = 1 instead cuts out the profinite set of points T^{1/p^n} = ζ_{p^n}^a (a ∈ ℤ_p), whose ring of functions C(ℤ_p, K) is again a quotient of R, as ECD 5.8 asserts against Scholze's Remark II.2.4.",
     "The Hodge-type tower inside the perfectoid Siegel tower (PerfectoidShimuraVarieties:S2) is the downstream application."
    ],
    "planet": {
@@ -2758,9 +2802,10 @@
     "PerfectoidSpaces:P8/limit-of-zariski-closed-embeddings",
     "PerfectoidSpaces:P8/zariski-closed-embedding",
     "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
-    "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
-    "PerfectoidSpaces:P7",
-    "ClassicalAdicEtaleCohomology:H0"
+    "PerfectoidSpaces:P7/perfectoid-tilde-limit",
+    "PerfectoidSpaces:P7/tilde-limit-rational-restriction",
+    "ClassicalAdicEtaleCohomology:H0/huber-tilde-limit",
+    "ClassicalAdicEtaleCohomology:H0/tilde-limit-density-rational-restriction"
    ],
    "sources": [
     {
@@ -2883,10 +2928,12 @@
    },
    "prerequisites": [
     "AdicEtaleGeometry:A1/pro-etale-site-corrected",
-    "PerfectoidSpaces:P7",
+    "PerfectoidSpaces:P7/perfectoid-tilde-limit",
+    "PerfectoidSpaces:P7/tilde-limit-base-change",
+    "PerfectoidSpaces:P7/compact-open-subgroup-cofinality",
     "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
-    "DiamondsAndVStacks:D2",
-    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D2/small-pro-etale-site-and-v-site",
+    "DiamondsAndVStacks:D3/locally-profinite-torsors",
     "mathlib:ProfiniteGrp",
     "mathlib:OpenNormalSubgroup"
    ],
@@ -3122,7 +3169,7 @@
     "PerfectoidSpaces:P9/cech-descent-datum",
     "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
     "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
-    "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf"
+    "PadicHodgeTheory:P8:local-rational/pushforward-of-structural-de-rham-sheaf"
    ],
    "sources": [
     {
@@ -3157,8 +3204,8 @@
    ],
    "prerequisites": [
     "PerfectoidSpaces:P9/cech-descent-datum",
-    "DiamondsAndVStacks:D2",
-    "DiamondsAndVStacks:D3"
+    "DiamondsAndVStacks:D2/v-descent-of-functions",
+    "DiamondsAndVStacks:D3/locally-profinite-torsors"
    ],
    "sources": [
     {
@@ -3308,7 +3355,8 @@
    ],
    "prerequisites": [
     "AdicSpacesPartII:R0/completed-tensor-banach-module",
-    "AdicSpacesPartII:R0/banach-countable-type-orthogonal-basis"
+    "AdicSpacesPartII:R0/banach-countable-type-orthogonal-basis",
+    "AdicSpacesPartII:R0"
    ],
    "sources": [
     {
@@ -3327,9 +3375,9 @@
    ],
    "title": "Descent of O and O⁺ along a torsor after product with a smooth weight space",
    "kind": "theorem",
-   "statement": "Let L₀ ⊇ ℚ_p be a complete discretely valued field with perfect residue field and L ⊇ L₀ a complete extension. Let Y be an affinoid adic space over L₀ that is either a smooth rigid space or a perfectoid space, Γ a profinite group, X ∈ Y_proet an affinoid perfectoid pro-étale Γ-torsor with h: X → Y, and 𝒰 a smooth adic space over L. Put X_𝒰 = X ×_{L₀} 𝒰 and Y_𝒰 = Y ×_{L₀} 𝒰. Then for every affinoid V ⊆ Y, with affinoid perfectoid W = h^{-1}(V), and every affinoid 𝒰′ ⊆ 𝒰: O⁺(W × 𝒰′)^Γ = O⁺(V × 𝒰′) and O(W × 𝒰′)^Γ = O(V × 𝒰′). These product affinoids are not a basis of Y_𝒰; the statement is what the character sheaves need, which are sheaves on Y of O_Y ⊗̂ O(𝒰′)-modules.",
+   "statement": "Let L₀ ⊇ ℚ_p be a complete discretely valued field with perfect residue field and L ⊇ L₀ a perfectoid field (as in BHW §1.5, where L is a perfectoid extension of ℚ_p^cyc). Let Y be an affinoid adic space over L₀ that is either a smooth rigid space or a perfectoid space, Γ a profinite group, X ∈ Y_proet an affinoid perfectoid pro-étale Γ-torsor with h: X → Y, and 𝒰 a smooth adic space over L. Put X_𝒰 = X ×_{L₀} 𝒰 and Y_𝒰 = Y ×_{L₀} 𝒰. Then for every affinoid V ⊆ Y, with affinoid perfectoid W = h^{-1}(V), and every affinoid 𝒰′ ⊆ 𝒰: O⁺(W × 𝒰′)^Γ = O⁺(V × 𝒰′) and O(W × 𝒰′)^Γ = O(V × 𝒰′). These product affinoids are not a basis of Y_𝒰; the statement is what the character sheaves need, which are sheaves on Y of O_Y ⊗̂ O(𝒰′)-modules.",
    "hypotheses": [
-    "The fibre products exist as sousperfectoid adic spaces (AdicSpacesPartII R5, BHW Corollary 3.4).",
+    "The fibre products exist as sousperfectoid adic spaces: X_𝒰 = (X ×_{L₀} Spa L) ×_L 𝒰, where X ×_{L₀} Spa L is perfectoid (PerfectoidSpaces:P2/fibre-products-over-analytic-base) and the product with the smooth 𝒰 is AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product (BHW Corollary 3.4); Y_𝒰 = Y_L ×_L 𝒰 is a smooth rigid (or sousperfectoid) space. The product-affinoid rings used below are the completed tensors O(W) ⊗̂_{L₀} O(𝒰′) and O(V) ⊗̂_{L₀} O(𝒰′).",
     "Y lives over a discrete L₀ so that the smooth-base function comparison applies. The coefficient O(𝒰′) may have arbitrary Banach dimension over L₀; use the unrestricted discrete-base clause. This node is a product-affinoid statement. The full sheaf statement of BHW Lemma 3.7 is a separate target with its missing general comparison recorded below."
    ],
    "proofSteps": [
@@ -3338,7 +3386,8 @@
     "Integral statement: f ∈ O⁺(W × 𝒰′)^Γ lies in O(V × 𝒰′) by the rational statement and satisfies |f(y)| ≤ 1 at every point y of W × 𝒰′; since |W × 𝒰′| → |V × 𝒰′| is surjective (a torsor), |f| ≤ 1 at every point of V × 𝒰′, so f ∈ O⁺(V × 𝒰′) (O⁺ is the ring of functions of absolute value ≤ 1 everywhere). The source instead applies CHJ Lemma 2.23(2), a rational statement over ℚ_p, directly to O⁺ and to ⊗̂_L (see sourceIssues)."
    ],
    "acceptance": [
-    "BHW Proposition 3.8 over the non-cuspidal locus of the anticanonical tower; the cusps need the q-expansion argument of that proposition, which belongs to the Shimura application."
+    "Motivating application: BHW Proposition 3.8 away from the cusps. There the base X*_{Γ₀(pⁿ)}(ε)_a lives over BHW's perfectoid field L and the assertion is a sheaf equality, so Proposition 3.8 itself consumes weight-extension-sheaf-equalizer (with its recorded gaps); this node supplies its sections over product affinoids when the base and the torsor are defined over a discretely valued L₀.",
+    "Trivial torsor X = Y × Γ: O⁺(W × 𝒰′)^Γ = C(Γ, O⁺(V × 𝒰′))^Γ = O⁺(V × 𝒰′)."
    ],
    "planet": {
     "name": "Descent with weight-space coefficients"
@@ -3351,7 +3400,8 @@
     "AdicSpacesPartII:R5/sousperfectoid-rings",
     "AdicSpacesPartII:R5",
     "AdicSpacesPartII:R0/completed-tensor-banach-module",
-    "AdicSpacesPartII:R5/affinoid-weight-coefficient-sheaf"
+    "AdicSpacesPartII:R5/affinoid-weight-coefficient-sheaf",
+    "PerfectoidSpaces:P2/fibre-products-over-analytic-base"
    ],
    "sources": [
     {
@@ -3462,7 +3512,7 @@
    ],
    "title": "The twisted-invariant character sheaf of a pro-étale tower",
    "kind": "construction",
-   "statement": "Let X_∞ → X be a pro-étale G-tower, A a coefficient algebra (a small ℤ_p-algebra with the mixed completed tensor product, or a reduced affinoid ℚ_p-algebra with ⊗̂_{ℚ_p}), and c: G → (O(X_∞) ⊗̂ A)^× a continuous 1-cocycle for the pullback action, c(γδ) = c(γ)·γ^*(c(δ)) (right action on X_∞, so (γδ)^* = γ^*δ^* on functions). The sheaf ω_c on X is ω_c(U) = {f ∈ O(U_∞) ⊗̂ A : γ^*f = c(γ)^{-1} f for all γ ∈ G}, a sheaf of O_X ⊗̂ A-modules; ω_c⁺ is defined with O⁺ and c valued in (O⁺(X_∞) ⊗̂ A°)^×. Coboundaries are γ ↦ F/γ^*(F) for units F; for c′(γ) = c(γ)·F/γ^*(F), multiplication by F is an isomorphism ω_c ≅ ω_{c′}. The character sheaves of CHJ and BHW are the case c(γ) = χ(b𝔷 + d) for the Hodge–Tate coordinate 𝔷, formally the coboundary of χ(t)^{-1} for a unit t with γ^*t = (b𝔷 + d)t, which is not itself defined.",
+   "statement": "Let X_∞ → X be a pro-étale G-tower, A a coefficient algebra (a small ℤ_p-algebra with the mixed completed tensor product, or a reduced affinoid ℚ_p-algebra with ⊗̂_{ℚ_p}), and c: G → (O(X_∞) ⊗̂ A)^× a continuous 1-cocycle for the pullback action, c(γδ) = c(γ)·γ^*(c(δ)) (right action on X_∞, so (γδ)^* = γ^*δ^* on functions). The sheaf ω_c on X is ω_c(U) = {f ∈ O(U_∞) ⊗̂ A : γ^*f = c(γ)^{-1} f for all γ ∈ G}, a sheaf of O_X ⊗̂ A-modules; ω_c⁺ is defined with O⁺ and c valued in (O⁺(X_∞) ⊗̂ A°)^×. Coboundaries are γ ↦ F/γ^*(F) for units F; for c′(γ) = c(γ)·F/γ^*(F), multiplication by F is an isomorphism ω_c ≅ ω_{c′}. The character sheaves of CHJ and BHW are the case c(γ) = χ(b𝔷 + d) for the Hodge–Tate coordinate 𝔷 (CHJ Definition 2.18, γ = (a b; c d) ∈ K₀(p); BHW Definition 3.15 prints the factor as κ⁻¹(c𝔷 + d) for γ ∈ Γ₀(pⁿ), in its own normalisation of the action and of 𝔷), formally the coboundary of χ(t)^{-1} for a unit t with γ^*t = (b𝔷 + d)t, which is not itself defined.",
    "hypotheses": [
     "The cocycle law is pinned in this convention; O1 generalises the construction from characters to representations."
    ],
@@ -3778,7 +3828,8 @@
     "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
     "AdicSpacesPartII:R5/coefficient-sheaf-tate-acyclicity",
     "AdicSpacesPartII:R5",
-    "mathlib:Module.Flat"
+    "mathlib:Module.Flat",
+    "AdicSpacesPartII:R5/coefficient-sheaf-loc"
    ],
    "sources": [
     {
@@ -3820,7 +3871,7 @@
     "PerfectoidSpaces:P9/etale-sheaf-sections-over-galois-tower",
     "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
     "PerfectoidSpaces:P9/cech-descent-datum",
-    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D3/locally-profinite-torsors",
     "AdicSpacesPartII:R5/mixed-completed-tensor"
    ],
    "sources": [
@@ -3946,7 +3997,7 @@
     "PerfectoidSpaces:P9/function-descent-seminormal-base",
     "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
     "AdicSpacesPartII:R5/sousperfectoid-rings",
-    "DiamondsAndVStacks:D2"
+    "DiamondsAndVStacks:D2/v-descent-of-functions"
    ],
    "sources": [
     {
@@ -4042,8 +4093,8 @@
    "stageId": "PerfectoidSpaces:P8",
    "status": "planned",
    "remaining": [
-    "Install the routed PerfectoidQuotientsPartIIIntegralPerfectoidization supplier and import BS22 Theorem 10.11 with the continuous Tate-pair universal property (recorded gap).",
-    "Requests to DiamondsAndVStacks D0, D2–D6, AdicEtaleGeometry A0, AdicSpacesPartII R0, R1, R3 and ClassicalAdicEtaleCohomology H0 are open; the nodes name exactly the statements they import."
+    "Install the PerfectoidQuotients Part II (generated id PerfectoidQuotientsPartII, DESIGN-PerfectoidQuotientsPartII, issue #3362) and import BS22 Theorem 10.11 with the continuous Tate-pair universal property (recorded gap).",
+    "Requests to DiamondsAndVStacks D2, D4, D5, AdicSpacesPartII R0, R1 and to Tau Ceti AdicSpaces Layers 3 and 5 are open; the nodes name exactly the statements they import, and the statements that supplier packets already contain are cited as nodes."
    ],
    "note": "Every definition and theorem of Hansen–Johansson §5.1, Hansen 2016, CGJ §2.1 and KL16 3.3.26 is a node, together with the closed-locus perfectoidization of Scholze's torsion II.2 and IV.1.1 in the form ECD 5.8 makes true. The stage text's 'Hansen–Johansson §5's invariant affinoid-cover hypothesis' is Hansen 2016's hypothesis; Hansen–Johansson replace it by analytic separation and prove that an invariant affinoid cover exists a posteriori, which is how this packet meets the completion contract to prove invariant-affinoid-cover existence before applying the quotient theorem. Groups of order divisible by p are included throughout: the invariants theorem (norm estimates and Sylow reduction) and the rational-localisation theorem (binomial coefficients prime to p and tilting) divide by no multiple of p."
   },
@@ -4055,7 +4106,7 @@
     "The full smooth-product sheaf equalizer on nonproduct rational domains remains an explicit gap; product-affinoid equalities and coefficient sheaf conditions are distinguished.",
     "Import R0’s requested saturated-completion/generic-fibre and discrete arbitrary-cardinal coordinate interface; the proof and tests are specified, not implemented.",
     "Respect the R5 infinite-pseudobasis globalization/flatness gap in the global character and coefficient-change targets.",
-    "Other exact requests to R3, R5 and DiamondsAndVStacks remain supplier interfaces."
+    "Other exact requests to R5 and DiamondsAndVStacks D2 remain supplier interfaces; the R3, D3 and D6 statements are cited as supplier nodes."
    ],
    "note": "Planned from CHJ §§2.6, 4.1–4.2 and the appendix, BHW §3.1 and §4, and Scholze's pro-étale lemmas as decomposed in PadicHodgeTheory P8:local-rational. The stage's items appear as: the Čech datum; descent of O and O⁺ as actual equalizers, with the almost comparison in positive degrees stated separately; full faithfulness on finite locally free modules and the counterexample to essential surjectivity; finite-level identification and rank-one local freeness of character sheaves; the integral effectivity criterion; flat, regular and derived nonflat coefficient change; lim¹ vanishing. The completed external product with a weight space and its sheaf property stay with AdicSpacesPartII R5 (RS-05); the general equivariant sheaves for representations stay with OverconvergentAutomorphicForms O1; distributions stay with LocallyAnalyticDistributions. The arbitrary-rank integral matrix-coboundary criterion fills the stage’s effectivity target. The rational countable-type gap is resolved by the R0 basis node, with weighted coordinates; the general source sheaf and coefficient ranges are separately accounted for by nodes ending in recorded gaps."
   }
@@ -4069,7 +4120,7 @@
     "PerfectoidSpaces:P8/good-towers-under-finite-maps",
     "PerfectoidSpaces:P8/quotient-of-good-tower"
    ],
-   "detail": "Hansen–Johansson Lemma 5.10 needs, for a perfectoid R and an integral R⁺ → S⁺, the universal integral perfectoid S⁺-algebra S⁺_perfd (BS22 v4 Theorem 1.17(1), proved in Theorem 10.11 with the universal property from Corollary 8.14). PerfectoidQuotients Q4 owns only the semiperfectoid case (Theorem 7.4, Remark 7.5), which covers closed immersions but not finite maps. The paper extraction PAPER-BHATT-SCHOLZE-22 routes Theorem 10.11 to a Part II of PerfectoidQuotients (perfectoidization of integral algebras and almost purity along arbitrary ideals) that is not yet an atlas roadmap. When that roadmap exists, its node for Theorem 10.11 is the prerequisite of the integral-extension lemma. Confirmed finding RT-AREA-padic-1/1 called this Q5; the accepted paper route gives the precise Part II name PerfectoidQuotientsPartIIIntegralPerfectoidization. Q5 is not an installed stage. Import its theorem once that roadmap exists; do not route the proof through P8, adic almost purity, or Q4 and create a cycle."
+   "detail": "Hansen–Johansson Lemma 5.10 needs, for a perfectoid R and an integral R⁺ → S⁺, the universal integral perfectoid S⁺-algebra S⁺_perfd (BS22 v4 Theorem 1.17(1), proved in Theorem 10.11 with the universal property from Corollary 8.14). PerfectoidQuotients Q4 owns only the semiperfectoid case (Theorem 7.4, Remark 7.5), which covers closed immersions but not finite maps. The paper extraction PAPER-BHATT-SCHOLZE-22 routes Theorem 10.11 to a Part II of PerfectoidQuotients (perfectoidization of integral algebras and almost purity along arbitrary ideals) that is not yet an atlas roadmap. When that roadmap exists, its node for Theorem 10.11 is the prerequisite of the integral-extension lemma. Confirmed finding RT-AREA-padic-1/1 called this Q5. The accepted paper route 3 named it PerfectoidQuotientsPartIIIntegralPerfectoidization, but the confirmed finding RT-PAPER-BHATT-SCHOLZE-22/5 retires that name: the queue generates one Part II per parent, PerfectoidQuotientsPartII (\"Perfectoid quotients and their prismatic prerequisites, Part II\"), designed by DESIGN-PerfectoidQuotientsPartII (issue #3362, not yet designed). Neither Q5 nor that roadmap is installed. Import its theorem once that roadmap exists; do not route the proof through P8, adic almost purity, or Q4 and create a cycle."
   },
   {
    "title": "Descent of functions along towers over seminormal (non-smooth) rigid bases",
@@ -4077,7 +4128,7 @@
     "PerfectoidSpaces:P9/function-descent-seminormal-base",
     "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer"
    ],
-   "detail": "KL II Theorem 8.2.3 and proof, pp. 162–163, supplies O_Y ≅ ν_proet* Ô_Y for seminormal rigid spaces over arbitrary complete analytic fields of mixed characteristic. Its proof requires the restricted-toric comparison, perfectoid-field scalar descent and seminormalization/birational comparison. The current PadicHodgeTheory P8:local-rational supplier gives the smooth discretely valued special case only. A Part II of that foundational direction is proposed below. P9 plans the application node and leaves this exact input as a gap; it does not reconstruct the foundational theorem."
+   "detail": "KL II Theorem 8.2.3 and proof, pp. 162–163, supplies O_Y ≅ ν_proet* Ô_Y for seminormal rigid spaces over arbitrary complete analytic fields of mixed characteristic. Its proof requires the restricted-toric comparison, perfectoid-field scalar descent and the seminormalization/birational comparison, which uses Temkin's desingularization of the reduced affinoid (KL II Remark 8.1.2) and rigid GAGA (Remark 8.1.4). The current PadicHodgeTheory P8:local-rational supplier gives the smooth discretely valued special case only. A Part II of that foundational direction is proposed below. P9 plans the application node and leaves this exact input as a gap; it does not reconstruct the foundational theorem."
   },
   {
    "title": "Sheaf equalizer on nonproduct rational opens after smooth base change",
@@ -4098,68 +4149,31 @@
  ],
  "requests": [
   {
-   "supplier": "DiamondsAndVStacks:D0",
-   "need": "The quotient criterion for spectral spaces: a surjective generalizing spectral map of spectral spaces is a quotient map (ECD Lemma 2.5, stated as Hansen's Lemma 3.2), with the image lemma for pro-constructible sets it uses. Mathlib has only the Spec case.",
-   "neededBy": [
-    "PerfectoidSpaces:P8/invariant-spectrum-homeomorphism"
-   ]
-  },
-  {
    "supplier": "DiamondsAndVStacks:D2",
-   "need": "The v-topology on Perfd is subcanonical and O, O⁺ are v-sheaves (ECD Theorem 8.7); quotients of v-sheaves by finite groups computed as v-sheaves; the pro-étale and v-sheaf quotients of a diamond by a finite group agree.",
+   "need": "Quotients by finite groups computed as sheaves: for a finite group G acting on a v-sheaf (in particular a diamond) X, the quotient v-sheaf X/G with X × G ⇉ X → X/G a coequalizer, its compatibility with base change, and agreement of the pro-étale and v-sheaf quotients when X is a diamond. That O, O⁺ are v-sheaves and the v-site is subcanonical (ECD Theorem 8.7) is DiamondsAndVStacks:D2/v-descent-of-functions, cited as a node.",
    "neededBy": [
     "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
-    "PerfectoidSpaces:P8/affinoid-perfectoid-quotient",
-    "PerfectoidSpaces:P8/free-action-quotient-is-torsor",
-    "PerfectoidSpaces:P9/function-descent-over-perfectoid-base"
-   ]
-  },
-  {
-   "supplier": "DiamondsAndVStacks:D3",
-   "need": "G-torsors of v-stacks for locally profinite G and their representability and pro-étaleness over perfectoid bases (ECD Definition 10.12, Lemma 10.13), and effectivity of v-descent for finite étale maps over a perfectoid base.",
-   "neededBy": [
-    "PerfectoidSpaces:P8/free-action-quotient-is-torsor",
-    "PerfectoidSpaces:P9/profinite-galois-tower",
-    "PerfectoidSpaces:P9/function-descent-over-perfectoid-base"
-   ]
-  },
-  {
-   "supplier": "DiamondsAndVStacks:D4",
-   "need": "Diamonds as pro-étale sheaf quotients, open subdiamonds and their compatibility with quotients by finite groups acting on a diamond, so that X^◇/G is formed and restricts along G-stable opens.",
-   "neededBy": [
-    "PerfectoidSpaces:P8/quotient-diamond-comparison",
-    "PerfectoidSpaces:P8/perfectoid-from-perfectoid-components"
-   ]
-  },
-  {
-   "supplier": "DiamondsAndVStacks:D5",
-   "need": "ECD Lemma 11.11 (a qcqs map of diamonds bijective on (C, C⁺)-points is an isomorphism), Proposition 11.13 (points of a diamond through perfectoid fields), Proposition 11.23(iii), Lemma 11.27 (a spatial diamond whose connected components are affinoid perfectoid is affinoid perfectoid), Corollary 11.29 (fibre products of spatial diamonds are spatial), Lemma 12.11 (quasicompact maps of v-sheaves surjective on |·| are surjective) and Proposition 13.6 (a separated map is quasi-pro-étale if it is so on fibres over Spa(C, O_C)).",
-   "neededBy": [
-    "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
-    "PerfectoidSpaces:P8/perfectoid-from-perfectoid-components",
-    "PerfectoidSpaces:P8/quotient-of-good-tower",
     "PerfectoidSpaces:P8/free-action-quotient-is-torsor"
    ]
   },
   {
-   "supplier": "DiamondsAndVStacks:D6",
-   "need": "Spd(A, A⁺) of a Tate ℤ_p-pair with |Spd(A, A⁺)| = |Spa(A, A⁺)| (ECD 15.2–15.4), and X^◇ for analytic adic spaces, compatible with open immersions.",
+   "supplier": "DiamondsAndVStacks:D4",
+   "need": "For a finite group G acting on a diamond X: the pro-étale quotient X/G is a diamond, and for a G-stable open subdiamond U ⊆ X, U/G → X/G is the open subdiamond with |U/G| = |U|/G. Quotient presentations and the open-subfunctor correspondence themselves are DiamondsAndVStacks:D4/quotient-presentations-of-diamonds and DiamondsAndVStacks:D4/underlying-topological-space.",
    "neededBy": [
-    "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
-    "PerfectoidSpaces:P8/quotient-diamond-comparison",
-    "PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair"
+    "PerfectoidSpaces:P8/quotient-diamond-comparison"
    ]
   },
   {
-   "supplier": "AdicEtaleGeometry:A0",
-   "need": "Adic spaces as objects of Huber’s category V with their complete structure sheaves, for the categorical quotient. General analytic completed tensors are owned by AdicSpacesPartII R0 under RS-05; they are not requested from A0.",
+   "supplier": "DiamondsAndVStacks:D5",
+   "need": "ECD Lemma 11.27 (a spatial diamond all of whose connected components are affinoid perfectoid is affinoid perfectoid) and ECD Proposition 13.6 (a separated map of v-stacks is quasi-pro-étale if and only if it is representable in locally spatial diamonds and pro-étale over every Spa(C, O_C)). ECD 11.11, 11.13, 11.23(iii), 11.29 and 12.11 are cited as the nodes D4/isomorphism-criteria-for-v-sheaves-and-stacks, D4/underlying-topological-space, D5/limits-and-finite-stage-comparisons, D5/quasi-pro-etale-and-fibre-product-permanence and D4/spaces-and-surjectivity-for-small-v-stacks.",
    "neededBy": [
-    "PerfectoidSpaces:P8/categorical-quotient"
+    "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
+    "PerfectoidSpaces:P8/perfectoid-from-perfectoid-components"
    ]
   },
   {
    "supplier": "AdicSpacesPartII:R0",
-   "need": "Classical affinoid algebras over a complete nonarchimedean field: noetherianity, finite modules are Banach and closed, a finite algebra over an affinoid algebra is affinoid (BGR 6.3.3/3 in the form cited by Hansen and CHJ); finite morphisms of rigid spaces and their base change. Also import completed-tensor-banach-module and banach-countable-type-orthogonal-basis. Extend the coordinate interface to weighted c₀ and arbitrary-cardinal residue bases over a discretely valued field. Supply the general saturated-completion/generic-fibre interface specified in P9/invariants-of-completed-lattice-tensor: quotient torsion-freeness, π-regular completion and its mod-πⁿ comparison, completion exactness for a regular quotient, completed-lattice saturation/localization intersection, and canonical generic-fibre comparison natural on elementary tensors. Use Mathlib AdicCompletion and flatness over valuation domains; map_exact’s Noetherian finite hypotheses are unavailable. Tests include zero lattices, nonsaturated πO ⊂ O, and the rescaled Q₂ unit-ball counterexample. These are proposed helper targets, not fabricated supplier node IDs.",
+   "need": "Classical affinoid algebras over a complete nonarchimedean field: Weierstrass division by monic polynomials with power-bounded coefficients (K⟨Y⟩⟨X⟩/(P) is free over K⟨Y⟩ of rank deg P), the invariant-ring statement BGR §6.3.3 as cited by Hansen and CHJ, and the intersection of two affinoids in a separated rigid space is affinoid (BGR 9.6.1/6, used by Hansen 1.3(ii) and HJ 5.3). Finite algebras over noetherian affinoids, closedness of submodules of finite modules and base change of finite algebras are the existing nodes R0/finite-algebra-over-affinoid, R0/noetherian-rod-module-complete and R0/finite-algebra-tensor-complete, cited directly. Also import completed-tensor-banach-module and banach-countable-type-orthogonal-basis. Extend the coordinate interface to weighted c₀ and arbitrary-cardinal residue bases over a discretely valued field. Supply the general saturated-completion/generic-fibre interface specified in P9/invariants-of-completed-lattice-tensor: quotient torsion-freeness, π-regular completion and its mod-πⁿ comparison, completion exactness for a regular quotient, completed-lattice saturation/localization intersection, and canonical generic-fibre comparison natural on elementary tensors. Use Mathlib AdicCompletion and flatness over valuation domains; map_exact’s Noetherian finite hypotheses are unavailable. Tests include zero lattices, nonsaturated πO ⊂ O, and the rescaled Q₂ unit-ball counterexample. These are proposed helper targets, not fabricated supplier node IDs.",
    "neededBy": [
     "PerfectoidSpaces:P8/invariants-of-affinoid-algebra",
     "PerfectoidSpaces:P8/rigid-finite-quotient",
@@ -4179,19 +4193,6 @@
    ]
   },
   {
-   "supplier": "AdicSpacesPartII:R3",
-   "need": "Vector bundles on a sheafy (stably uniform, e.g. affinoid perfectoid) affinoid are finite projective modules and generated by global sections (Kiehl, Kedlaya–Liu); Loc of finite projective modules is acyclic on finite affinoid covers; and for uniform Banach rings the spectral seminorm is the supremum over the spectrum, so a map of uniform rings surjective on spectra is isometric (KL15 Theorem 2.3.10, Remark 2.8.3). Import finite-projective-etale-descent for the finite-group comparison; ordinary faithfully flat module descent is already comonadic in Mathlib.",
-   "neededBy": [
-    "PerfectoidSpaces:P8/closed-subvariety-pullback-is-zariski-closed",
-    "PerfectoidSpaces:P8/rational-invariants-characteristic-p",
-    "PerfectoidSpaces:P9/descent-of-finite-locally-free-modules",
-    "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
-    "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
-    "PerfectoidSpaces:P9/derived-coefficient-change",
-    "PerfectoidSpaces:P9/finite-galois-descent-of-modules"
-   ]
-  },
-  {
    "supplier": "AdicSpacesPartII:R5",
    "need": "Import the exact existing nodes profinite-flat-pseudobasis, mixed-completed-tensor, mixed-completed-tensor-product-formula, mixed-tensor-finite-projective-base-change, completed-coefficient-sheaf, coefficient-sheaf-local-equalizer, coefficient-sheaf-loc, coefficient-sheaf-tate-acyclicity, affinoid-weight-coefficient-sheaf and the sousperfectoid product nodes. For coefficient-sheaf-kiehl respect the finite-pseudobasis range: its infinite-pseudobasis existence assertion is explicitly open. The missing general coefficient-flatness, quotient compatibility and globalization inputs are the recorded R5 gap. For the Banach integral tensor application supply the coefficient sheaf condition with the same π-adic lattice completion as R0, rather than identify it with geometric O⁺.",
    "neededBy": [
@@ -4202,15 +4203,21 @@
     "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
     "PerfectoidSpaces:P9/derived-coefficient-change",
     "PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity",
-    "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer",
-    "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor"
+    "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer"
    ]
   },
   {
-   "supplier": "ClassicalAdicEtaleCohomology:H0",
-   "need": "The general Huber tilde-limit (inverse-limit topology and affinoid density) with the density of lim→ O(V_i) in O(V) for a tilde-limit of affinoids, which RS-05 assigns to H0; the closed-loci theorem uses it for the tilde-limit comparison.",
+   "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+   "need": "Wedhorn's category 𝒱 of spaces with a sheaf of complete separated topological rings, local stalks and residue-field valuations (Tau Ceti AdicSpaces §3.4), as the category in which the categorical quotient X/G = (|X|/G, (q_*O_X)^G, (v_y)) is formed and proved universal.",
    "neededBy": [
-    "PerfectoidSpaces:P8/closed-loci-in-towers"
+    "PerfectoidSpaces:P8/categorical-quotient"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "need": "Adic spaces as the objects of 𝒱 covered by affinoid adic spaces (Tau Ceti AdicSpaces Layer 5), with restriction to open subspaces, so that a quotient covered by affinoid quotients is an adic space.",
+   "neededBy": [
+    "PerfectoidSpaces:P8/categorical-quotient"
    ]
   }
  ],
@@ -4254,7 +4261,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read HJ v2 pp. 28 and 31. U_x ⊆ |X|^h is G-clean at π(x), so π⁻¹(U_x) is stable under Stab_G(π(x)), which can be larger than H_x when π identifies two rank-one points of one orbit; then π⁻¹(U_x) meets its own translates and is not G-clean at x. Footnote 7 says that π⁻¹(π(x)) = closure{x} is not clear in general and that for taut |X| the map |X|^ν → |X|^h is a homeomorphism, so π is injective on rank-one points; the added hypothesis is exactly what the proof uses.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E2",
@@ -4269,7 +4281,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ Theorem 5.8's proof cites [Han16, Theorem 1.4] for V_x/H_x; Hansen's Theorem 1.4 (p. 2) assumes (i) |G| invertible or (ii) a K-linear action over a perfectoid field K. Neither is among Theorem 5.8's hypotheses. CGJ Proposition 2.1.3 with KL16 3.3.26 gives the affinoid quotient for every finite group, as the packet's proof uses.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E3",
@@ -4284,7 +4301,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ §5.1 declares that 'adic space' means an analytic adic space over Z_p, so an action of G on a rigid space X over K need not be K-linear, while the affinoid step cites [Han16], whose Theorem 3.4 and the BGR result it quotes assume K-linear actions. Under the usual convention that automorphisms of a rigid space over K are K-linear the printed statement already contains the hypothesis; the finding is a missing precision rather than a false result, and the packet states the K-linear form.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E4",
@@ -4299,7 +4321,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ Theorem 5.8 (p. 30) prints 'open affinoid perfectoid subsets Y ⊆ X whose preimages q^{-1}(Y)'; the proof takes Y ⊆ W_x/H_x ⊆ X/G, so Y ⊆ X/G is meant.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E5",
@@ -4314,7 +4341,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ p. 33, proof of Proposition 5.13(1), prints 'U_{j,i_j}, V_{j,i_j} ⊆ Y_i'; Definition 5.12(3) on the same page has X_{i_j}, so Y_{i_j} is meant.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E6",
@@ -4329,7 +4361,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "HJ's [BS19] is the May 2019 preprint. In arXiv:1905.08229v1 (SHA-256 8587456d…, read 6 October 2026) and v2 (01bdac34…), Theorem 1.16 is 'Let R be a perfectoid ring and let S be an integral R-algebra', i.e. the perfectoidization of integral algebras; v4 renumbered it Theorem 1.17. The citation is correct for the version cited. The packet's nodes correctly use the v4 numbering (Theorem 1.17(1) = Theorem 10.11).",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E7",
@@ -4344,7 +4381,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ Lemma 5.1's proof (p. 27) checks only that each Ũ ∩ X₀k = Uk is affinoid perfectoid and then asserts that each connected component of Ũ ∩ X₀K is affinoid perfectoid, which ECD Lemma 11.27 needs. The missing step (a component of Ũ ∩ X₀K is a component of some Uk, and a connected component of an affinoid perfectoid is a cofiltered limit of clopen affinoid perfectoids) is easy and is supplied in the node.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E8",
@@ -4359,7 +4401,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HJ p. 29 cites KL15 Corollary 3.6.18 for fibre products over any affinoid field; KL15 3.6.18 (p. 96 of arXiv v5) is stated for uniform Banach ℚ_p-algebras. The characteristic-p case needs the separate argument indicated; the atlas now has PerfectoidSpaces:P2/fibre-products-over-analytic-base for it.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E9",
@@ -4374,7 +4421,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Hansen Theorem 1.1 (p. 1) asks only for a cover by G-stable affinoids of an analytic adic space, while the proof (p. 4) applies Theorem 1.2, stated for Tate–Huber pairs, to those affinoids; Hansen's own remark (p. 3) gives only a cover by some Tate affinoids, not by G-stable ones. The theorem is established for G-stable Tate charts, as the packet states it.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E10",
@@ -4389,7 +4441,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Hansen p. 5: v ∈ Cont(A^G) and K = Frac(A^G/p), so the rank-one generization meant is the one in Cont(A^G), not Cont(A).",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E11",
@@ -4404,7 +4461,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Hansen Step 1 (pp. 4–5) fixes a G-invariant pseudouniformizer without constructing one, uses integrality of A over A^G implicitly ('By the going-up theorem'), and proves continuity of w only for the field topology on L; continuity on A needs the extra argument through a G-stable ring of definition. Each gap is minor and the packet supplies the arguments (norm pseudouniformizer; the monic-polynomial estimate in continuous-valuations-over-invariants).",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E12",
@@ -4419,7 +4481,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Hansen Step 2 (p. 5) asserts that φ: Cont(A) → Cont(A^G) is 'a surjective generalizing spectral map' without proof; spectrality and the lifting of generalizations (vertical generizations correspond because Γ_w/Γ_v is torsion) need the argument recorded in the node.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E13",
@@ -4434,7 +4501,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Hansen's 2016 note cites the 2016 preprint of KL16. In arXiv:1602.06899v1 (SHA-256 288a26ff…, read 6 October 2026) Theorem 3.3.24 is exactly 'Let A be a Fontaine perfectoid ring on which the finite group G acts … Then the invariant subring A^G is again Fontaine perfectoid'. The citation is correct for that version; v2 numbers it 3.3.25 and v3 3.3.26.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E14",
@@ -4449,7 +4521,12 @@
    "searched": [
     "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
     "the citations of it in Hansen–Johansson and CGJ"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "The sentence at the start of §3 says the theorems follow from '(the proof of) Theorem 1.1' together with Theorems 3.4–3.6, and the proof of Theorem 1.4 on p. 9 treats the case char K = p, p | |G| separately by untilting ('Therefore it remains to prove … when char K = p > 0 and p divides |G|'). Theorem 1.3 uses only the gluing step of Theorem 1.1's proof with Theorem 3.4 in place of Theorem 1.2. Nothing is asserted without proof; at most the roadmap sentence is loose.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E15",
@@ -4463,7 +4540,12 @@
    "known": "new",
    "searched": [
     "arXiv:1602.06899 versions v1–v3 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KL16 v3 p. 68: with G acting on the right and y ∈ A^P, y^g depends only on the coset Pg, so S must be a set of representatives of P∖G for z = [G:P]^{-1} Σ_{g∈S} y^g to be well defined and G-invariant; 'left coset representatives' is a slip whose intended meaning is clear. The congruence x ≡ z^p uses [G:P]^{1−p} ≡ 1 mod p, which the proof leaves implicit. Continuity of the action is implicit in KL's Banach-ring setting (morphisms are bounded), so that part is not a separate gap.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E16",
@@ -4477,7 +4559,12 @@
    "known": "new",
    "searched": [
     "arXiv:1910.09214 versions v1–v2 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "CGJ v2 cites [KL16, Thm. 3.3.25]. In arXiv:1602.06899v2 (SHA-256 b26cdd4f…, read 6 October 2026) Theorem 3.3.25 is the invariant-subring theorem ('Let A be a Fontaine perfectoid ring on which the finite group G acts … A^G is again Fontaine perfectoid'). The citation is correct for that version; only v3 renumbered it 3.3.26.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E17",
@@ -4493,7 +4580,12 @@
     "arXiv:1306.2070 v2 (the version read)",
     "ECD v4 §5",
     "Bhatt–Scholze v4 Remark 7.5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Scholze, torsion, Remark II.2.4 (arXiv v2 p. 14) claims R → S need not be surjective for R = K⟨T^{1/p^∞}⟩, I = (T − 1). ECD v4 §5 (p. 24) says 'The example turned out to be erroneous, and in fact the two conditions are equivalent', and BS22 Remark 7.5 proves it from Theorem 7.4. Known, correctly recorded.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E18",
@@ -4509,7 +4601,12 @@
     "arXiv:1306.2070 v2 (the version read)",
     "ECD v4 §5",
     "Bhatt–Scholze v4 Remark 7.5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Torsion Definition II.2.6 (p. 15) asks only that R⁺ → S⁺ be almost surjective and then says strongly Zariski closed implies Zariski closed with I = ker(R → S). The packet's example works: for the rank-two point x with |T(x)| = 1⁺ and R⁺ = {f ∈ R° : |f(x)| ≤ 1}, every f ∈ R° has |ϖ^ε f(x)| < 1, so R⁺ → R° is almost surjective, yet Spa(R, R°) misses x ∈ V(0) = Spa(R, R⁺). ECD Definition 5.7(ii) adds the integral-closure condition. Known, correctly recorded.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E19",
@@ -4523,7 +4620,12 @@
    "known": "new",
    "searched": [
     "arXiv:1709.07343 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "ECD p. 24 cites KL15 Proposition 3.6.9(c) for all strongly Zariski closed maps; 3.6.9(c) (arXiv v5) concerns strict homomorphisms of perfectoid uniform Banach ℚ_p-algebras. The characteristic-p case is 3.6.9(a) with Remark 3.1.6 or torsion Lemma II.2.5, and ECD's next sentence gives an independent route through BS22 Theorem 7.4.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E20",
@@ -4537,7 +4639,12 @@
    "known": "new",
    "searched": [
     "arXiv:1709.07343 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "ECD v4 p. 25 prints 'S⁺ → R⁺ is almost surjective'; the map is R⁺ → S⁺ (compare p. 24). The integrated PerfectoidQuotients Q4 node records the same misprint.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E21",
@@ -4551,7 +4658,12 @@
    "known": "new",
    "searched": [
     "arXiv:1709.07343 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "ECD v4 Definition 10.12 prints 'A G-torsor is map f'.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E22",
@@ -4567,7 +4679,12 @@
     "arXiv:1306.2070 v2 (the version read)",
     "ECD v4 §5",
     "Bhatt–Scholze v4 Remark 7.5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Torsion, proof of Theorem IV.1.1 (p. 68) prints the index set of the limit as K^p ⊂ K^{p′} ⊂ G(A^p_f); the K^{p′} are tame levels of G′ = Sp_{2g} (they index Y*_{K^{p′}}), so G′(A^p_f) is meant.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E23",
@@ -4583,7 +4700,12 @@
     "arXiv:1306.2070 v2 (the version read)",
     "ECD v4 §5",
     "Bhatt–Scholze v4 Remark 7.5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The proof of Theorem IV.1.1 constructs R⁺_{K^p} as the completed colimit of rings of the fibre products Y*_{K^p} ×_{Y*_{K′_pK^{p′}}} X*_{K_pK^p}, and then says 'Going through the argument … it is easy to deduce part (i) for G'. Part (i) asserts that R⁺_{J,∞} is the p-adic completion of lim→ R⁺_{J,K_p} for affinoids V_{J,K_p} ⊆ X*_{K_pK^p}, whose rings do not occur in the construction. The step is asserted without argument; the packet uses only the tilde-limit and the rational density.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E24",
@@ -4597,7 +4719,12 @@
    "known": "new",
    "searched": [
     "arXiv:1902.03985 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "BHW v4 p. 10, proof of Lemma 3.7, prints O⁺_{X_U}(V × U)^Γ = O⁺_{Y_U}(W × U) with V ⊆ Y and W = h^{-1}(V) ⊆ X; the roles are swapped.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E25",
@@ -4611,7 +4738,12 @@
    "known": "new",
    "searched": [
     "arXiv:1902.03985 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "BHW p. 10 reduces to (h_*O⁺_X)^Γ = O⁺_Y by [CHJ17, Lem. 2.23(2)], which (CHJ v2 p. 19) is a rational statement about Banach spaces over ℚ_p with the trivial action; it says nothing about O⁺ or about ⊗̂ over L. The packet's rational-then-pointwise-bound argument repairs the step.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E26",
@@ -4625,7 +4757,12 @@
    "known": "new",
    "searched": [
     "arXiv:1902.03985 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "BHW Lemma 3.6 (p. 9) is stated for seminormal adic spaces and cites KL Theorem 8.2.3, which is proved under KL16 Hypothesis 8.0.1 (p. 158: a rigid analytic space over an analytic field containing ℚ_p); BHW's proof also uses 'Since Y is a rigid space, O_Y(V)° = O⁺_Y(V)'.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E27",
@@ -4640,7 +4777,12 @@
    "searched": [
     "arXiv:1507.04875 versions v1–v2 (listing page)",
     "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CHJ v2 p. 22: the twisted action is f₀ ↦ χ_U(j_{U,n}(γ))·γ^*f₀, but the printed idempotent is |G_n|^{-1} Σ χ_U(j_{U,n}(γ))^{-1}γ; in the skew group ring this projects onto the opposite twist (on a fixed f₀ it gives |G_n|^{-1}Σ χ(j(γ))^{-2} f₀ ≠ f₀ in general). The cocycle law holds automatically since j_{U,n}(γ) = γ^*s/s is of coboundary form. The suggested Lean file uses the corrected sign.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E28",
@@ -4655,7 +4797,12 @@
    "searched": [
     "arXiv:1507.04875 versions v1–v2 (listing page)",
     "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CHJ p. 23 justifies flatness of A_U ⊗̂ O(U_n) over A_U 'in the same way as Lemma 6.13(2)'; Lemma 6.13(2) (p. 50) is flatness of R(U) → R(V) for rational V ⊆ U, a different statement.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E29",
@@ -4670,7 +4817,12 @@
    "searched": [
     "arXiv:1507.04875 versions v1–v2 (listing page)",
     "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CHJ Lemma 6.21 (p. 53) prints M ⊗_{R(X)} R_C(X) ≅ M ⊗_K C. For M = R(X) the left side is R_C(X) = O(X_C) ⊗̂ R, which is complete, while R(X) ⊗_K C is not; the completed tensor product is meant.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E30",
@@ -4685,7 +4837,12 @@
    "searched": [
     "arXiv:1507.04875 versions v1–v2 (listing page)",
     "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CHJ p. 30, proof of Proposition 4.4, derives the vanishing of R^i lim_k((D/Fil^k) ⊗ O⁺_X) from [Sch3, Lemma 3.18], whose hypotheses (vanishing higher cohomology and surjective transition maps on a basis) hold on affinoid perfectoid V_∞ only in the almost sense; only almost vanishing follows, which suffices after inverting p.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E31",
@@ -4700,7 +4857,12 @@
    "searched": [
     "arXiv:1507.04875 versions v1–v2 (listing page)",
     "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "CHJ's phrase 'the locally constant sheaf on X_ét associated with M_i' denotes the local system attached to the finite G-module M_i through the Galois tower, not a constant sheaf: §4.2 (p. 29) uses the same language ('the K₀(p)-modules D/Fil^k define locally constant constructible sheaves on the étale site'), and the proof of Lemma 4.1 trivialises M̃_i only over V_∞. Nothing in the text uses the constant sheaf; the packet's explicit description is a clarification, not a correction.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E32",
@@ -4715,7 +4877,12 @@
    "searched": [
     "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
     "the authors' pages (no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In characteristic p, BS22 Example 8.3 identifies perfectoidization with the colimit perfection, which need not be ϖ-adically separated. Example: K a perfectoid field of characteristic p, (R, R⁺) = (K⟨T^{1/p^∞}⟩, K°⟨T^{1/p^∞}⟩), S = R/(T) with S⁺ the integral closure of the image of R⁺ (an integral map R⁺ → S⁺). Then S⁺_perfd[1/ϖ] = S_perf = R/⋃_m T^{1/p^m}R, and Σ_m ϖ^m T^{1/p^m} lies in the closure of ⋃_m T^{1/p^m}R but not in it (its T-exponents 1/p^{m} accumulate at 0), so this ring is not Hausdorff and is not a perfectoid Tate ring. The completion in the correction is needed; maps to perfectoid pairs still factor uniquely.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E33",
@@ -4730,7 +4897,12 @@
    "searched": [
     "arXiv:1905.08229 versions v1–v4 (listing page)",
     "the REV-PAPER-BHATT-SCHOLZE-22 review file in this repository"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Same example as E32 with I = (T) ⊂ R = K⟨T^{1/p^∞}⟩ in characteristic p: S = R⁺/(T) is ϖ-adically complete and semiperfectoid, S_perfd = S_red = R⁺/⋃_m T^{1/p^m}R⁺ is not ϖ-adically separated, so R′ = S_perfd[1/ϖ] must be completed before it is a perfectoid Tate ring. This settles the lead that the PerfectoidQuotients packet's Q4 coverage asks to assess.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   },
   {
    "id": "PerfectoidSpaces/E34",
@@ -4744,7 +4916,350 @@
    "known": "new",
    "searched": [
     "arXiv:1902.03985 versions v1–v4 (listing page)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "BHW p. 10 reduces Lemma 3.7 to opens V × U, but such products do not form a basis of Y ×_L U (on the bidisc the rational domain |T − S| ≤ |π| is not a union of products), and sheaves agreeing on a non-basis need not agree. The sheaf statement is therefore not established; the packet restricts the proved statement to product affinoids and records the general equalizer as a gap.",
+    "by": "REV-PerfectoidSpaces--P8"
+   }
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-PerfectoidSpaces--P8",
+  "date": "2026-10-06",
+  "notes": "Independent review by Claude (session claude-D8e3bs) of the complete target-level packet for P8–P9 (66 nodes). All eleven sources were downloaded and matched their recorded SHA-256 (including Hansen's author PDF, available again); every excerpt was located in the source text (82 verbatim, the rest up to mathematical layout) and every locator checked; all 55 baseline declarations were read at Mathlib 082e2d3 and Tau Ceti f790474 (all exist and provide what is used; 12 descriptions corrected). All 34 source issues were checked at their locators: 29 confirmed, 5 rejected (E6, E13, E16 cite the arXiv versions then current; E14 and E31 are not mistakes). Corrections: cross-roadmap prerequisites were refined to the exact supplier nodes that DiamondsAndVStacks, ClassicalAdicEtaleCohomology H0, AdicEtaleGeometry A0, AdicSpacesPartII R0/R1/R5, PadicHodgeTheory P8:local-rational and PerfectoidSpaces P2/P4/P7 already contain (requests to D0, D3, D6, H0, R3 and A0 dropped, D2/D4/D5/R0 narrowed); Huber's category V is now requested from Tau Ceti AdicSpaces Layers 3.4 and 5 rather than from A0, which does not plan it; function descent now cites the exact ν_*Ô_X = O_X node; the retired route name PerfectoidQuotientsPartIIIntegralPerfectoidization is replaced by the generated id PerfectoidQuotientsPartII (DESIGN-PerfectoidQuotientsPartII); the Zariski-closed-embedding gloss, two HJ locators, one CHJ locator, the BHW weight-extension setting and two acceptance examples were corrected. RT-AREA-padic-1/1 is handled: P8 follows HJ Lemmas 5.9–5.10, Hansen 2016 is a source, and BS22 Theorem 10.11 is a recorded gap owned by the pending Part II. Four gaps and eight requests remain, all precise; both stages are planned, none closed. The suggested Lean file elaborates (lean-check, Mathlib 082e2d3, Tau Ceti cf386627 whose imported modules agree with f790474): exactly 70 placeholder-proof warnings and no other messages. The reader document research/blueprint/readmes/PerfectoidSpaces--P8.md, outside this review's deliverables, still carries the retired route name and the older prerequisite lists; the report lists the follow-up edits.",
+  "checked": [
+   {
+    "nodeId": "PerfectoidSpaces:P8/invariant-huber-pair",
+    "verdict": "verified",
+    "note": "Parts (i)-(v) checked: the subring generated by the translates of a ring of definition is bounded and open, N(ϖ) is an invariant pseudouniformizer, A₀^G is a ring of definition, (A^G)° = (A°)^G, integrality via Algebra.IsInvariant, A⁺ = integral closure of A^{+G} (Hansen Step 3, p. 6). Tests discriminate (swap action, trivial action of Z/p in characteristic p)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/extensions-of-valuations-are-conjugate",
+    "verdict": "verified",
+    "note": "Classical statement (Zariski–Samuel VI.7, cited by Hansen p. 5 and CHJ 6.24); proof sketch through the integral closure of O_v and Mathlib's conjugacy of primes is sound."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/continuous-valuations-over-invariants",
+    "verdict": "verified",
+    "note": "Hansen Step 1 (pp. 4–5) read; the packet's monic-polynomial estimate w(ϖa) < 1 on a G-stable ring of definition closes the gap E11 correctly."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/invariant-spectrum-homeomorphism",
+    "verdict": "corrected",
+    "note": "Hansen Theorem 3.1 and Lemma 3.2 (pp. 4–6) read. Prerequisite DiamondsAndVStacks:D0 replaced by the existing exact node D0/generalizing-surjection-is-quotient (ECD Lemma 2.5); the D0 request was dropped."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/invariant-quotient-v-sheaf-presentation",
+    "verdict": "corrected",
+    "note": "CGJ Proposition 2.1.1 (pp. 4–5) and HJ p. 29 read. Added the exact supplier nodes for ECD 11.29, 12.11 and 11.13 (D5/quasi-pro-etale-and-fibre-product-permanence, D4/spaces-and-surjectivity-for-small-v-stacks, D4/underlying-topological-space) and D6/spd-is-a-spatial-diamond in place of the D6 stage; D2 (finite-group quotient sheaves) and D5 (ECD 13.6) remain precise requests."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/frobenius-on-invariants-of-p-group",
+    "verdict": "verified",
+    "note": "KL16 v3 Theorem 3.3.26, p-group paragraph (p. 68) read; the expanded last step (w^{p^k} ∈ u^{p^{k+1}}A° ⇒ w ∈ u^p(A^G)°) is correct."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/invariants-of-perfectoid-tate-ring",
+    "verdict": "verified",
+    "note": "KL16 3.3.26 and Hansen 3.5–3.6 read. Sylow averaging with coset representatives of G/P for left actions (see E15) and [G:P]^{1−p} ≡ 1 mod p are correct; no division by p."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rational-invariants-order-invertible",
+    "verdict": "corrected",
+    "note": "Hansen Theorem 3.3 (p. 7) read. Prerequisite AdicEtaleGeometry:A0 replaced by the exact node A0/rational-pullback-comparison (A⟨f/h⟩ = A ⊗̂_{A^G} A^G⟨f/h⟩); the misdirected A0 request was dropped."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rational-invariants-characteristic-p",
+    "verdict": "verified",
+    "note": "CGJ Remark 2.1.4 (pp. 5–6) read; the sketch is reproduced faithfully. Elementary symmetric polynomial e_{p^m}, Lucas (C(p^m k, p^m) ≡ k), injectivity through R3/uniform-spectral-seminorm (bijection on Spa gives surjection on rank-one points) and perfectness/reducedness checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rational-invariants-perfectoid",
+    "verdict": "verified",
+    "note": "CGJ Proposition 2.1.3 and Remark 2.1.4 read; tilting route and v-sheaf route both sound; P1/P2 supplier nodes state what is used."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/invariants-of-affinoid-algebra",
+    "verdict": "corrected",
+    "note": "Hansen 3.4 (p. 8) and CHJ §6.4 (p. 53) read. CHJ locator corrected from Corollary 6.25 (pp. 54–55) to the §6.4 opening paragraph (p. 53), where BGR §6.3.3 Prop. 2 is quoted, with a literal excerpt. Added the exact R0 nodes finite-algebra-over-affinoid and noetherian-rod-module-complete; the Weierstrass-division input is now named in the R0 request."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rational-invariants-affinoid-algebra",
+    "verdict": "verified",
+    "note": "Hansen 3.4 proof read. The acceptance example (Z/p acting by T ↦ T + 1 in characteristic p: invariants K⟨T^p − T⟩, K⟨T⟩ free of rank p) was checked: K⟨T⟩ is integral over the normal K⟨S⟩, S = T^p − T, so the invariants are K⟨S⟩."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/categorical-quotient",
+    "verdict": "corrected",
+    "note": "Hansen Definition 2.2 and Proposition 2.3 (p. 3), CHJ 6.23 read. The supplier of Huber's category V was AdicEtaleGeometry:A0, whose stage plans completed tensor products and fibre products, not V. V (Wedhorn's 𝒱) is planned by Tau Ceti AdicSpaces §3.4 and adic spaces in Layer 5; the prerequisites now cite those layers, with request entries (as PerfectoidSpaces--P0 does). The stalk counterexample (type-five point at the Gauss point, μ_{p−1}) was checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/affinoid-perfectoid-quotient",
+    "verdict": "corrected",
+    "note": "CGJ 2.1.3, Hansen 1.2 and 1.4 read. D2 stage replaced by the exact node D2/v-descent-of-functions (ECD 8.7: subcanonical v-site)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/quotient-scalar-extension",
+    "verdict": "verified",
+    "note": "Coordinate argument and the saturated-completion transfer checked (E⁺ ∩ D_alg = D_alg⁺ by transitivity of integrality, saturation gives C⁺ ∩ C^G = D⁺); the R0 request names the missing coordinate and completion interfaces precisely. Example ℚ_p⟨T⟩ ⊗̂ ℂ_p with T ↦ −T checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/perfectoid-quotient-invariant-cover",
+    "verdict": "verified",
+    "note": "CGJ Theorem 2.1.2 and Hansen 1.1/1.4 read; gluing argument as in Hansen's proof of Theorem 1.1."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/adic-quotient-order-invertible",
+    "verdict": "verified",
+    "note": "Hansen Theorem 1.1 and its proof read; the Tate-chart hypothesis (E9) is correctly imposed."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rigid-quotient-invariant-cover",
+    "verdict": "verified",
+    "note": "Hansen Theorem 1.3 and CHJ 6.26 read; the optimality converse is Hansen's remark on p. 2."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/quotient-diamond-comparison",
+    "verdict": "corrected",
+    "note": "HJ 5.3 and 5.8 final assertions read. D6 stage replaced by the exact node D6/gluing-and-the-diamond-functor and D4/underlying-topological-space added; the D4 request is narrowed to the finite-group quotient compatibility it actually needs."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/free-action-quotient-is-torsor",
+    "verdict": "corrected",
+    "note": "ECD 10.12–10.13 and SGA 1 V.2.6 read. D3 stage replaced by D3/locally-profinite-torsors and D3/etale-and-finite-etale-are-v-stacks (finite étale maps descend along v-covers), D5 stage by D4/spaces-and-surjectivity-for-small-v-stacks; D2 (quotient sheaves) remains a request. Equivalences (a)–(c) checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/g-clean-neighbourhood",
+    "verdict": "verified",
+    "note": "HJ definition (pp. 27–28) read; tests checked (the doubled-origin test is stated in the Lean file in the general non-separated form, which is correct)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/g-clean-neighbourhoods-exist",
+    "verdict": "verified",
+    "note": "HJ Lemma 5.2 and proof (p. 28) read; the coset construction is correct."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/finite-quotient-chart",
+    "verdict": "verified",
+    "note": "HJ proofs of 5.3 and 5.8 read; the added injectivity of π on the orbit is exactly the hypothesis the proof uses (E1)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/zariski-closed-embedding",
+    "verdict": "corrected",
+    "note": "HJ Definition 5.4, torsion II.2.1–II.2.2 and ECD 5.6–5.8 read. The gloss 'an injection onto the vanishing locus of an ideal' was too weak; it now says a closed immersion (ECD 5.6) whose image is the vanishing locus (ECD 5.7(i)). The P4 stage was replaced by the existing P4 nodes perfectoid-immersion, zariski-closed-immersion, universal-perfectoid-zariski-closed and zariski-closed-base-change."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/analytically-separated",
+    "verdict": "corrected",
+    "note": "HJ Definition 5.4(2) and the paragraph before it read. P2 stage replaced by the exact node P2/fibre-products-over-analytic-base (fibre products over a non-perfectoid field, which E8 shows HJ's citation does not cover). The non-example (two discs glued along {|T| ≥ |ϖ|}) checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/analytically-separated-is-separated",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.5(1) (pp. 29–30) read: HJ themselves state it for X^◇ → Spd(K, K⁺). Duplicated '(ECD Definition 5.10)' removed, locator corrected to pp. 29–30, proof step made precise, P4 stage replaced by P4/separated-perfectoid-map and P4/perfectoid-immersion."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/analytically-separated-affinoid-intersections",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.5(2) is on p. 30; locator corrected to pp. 29–30. Proof checked."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/limit-of-zariski-closed-embeddings",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.6 last sentence and torsion II.2.2–II.2.3 read; added the exact node P4/universal-perfectoid-zariski-closed (universal property (c)) that the proof uses."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/closed-subvariety-pullback-is-zariski-closed",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.7 and proof read. Added R1/analytification-immersions and R1/analytification-of-modules (closed immersions and ideal sheaves); the R1 stage stays for rigid GAGA."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/projective-tower-limit-is-analytically-separated",
+    "verdict": "verified",
+    "note": "HJ Lemma 5.6 and proof (p. 30) read."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/rigid-finite-quotient",
+    "verdict": "verified",
+    "note": "HJ Theorem 5.3 (p. 28) and Hansen 1.3(ii) read; the orbit-injectivity hypothesis (E1) and K-linearity (E3) are stated."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/perfectoid-finite-quotient",
+    "verdict": "verified",
+    "note": "HJ Theorem 5.8 and proof (pp. 30–31) read; the proof via the affinoid perfectoid quotient for every finite group avoids E2."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/perfectoid-quotient-map-is-weakly-affinoid",
+    "verdict": "verified",
+    "note": "HJ Theorem 5.8 ('To see that q is affinoid', p. 31) read."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/perfectoid-from-perfectoid-components",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.1 and proof (p. 27) read; the added step on connected components (E7) is correct. Added D5/limits-and-finite-stage-comparisons (ECD 11.23(iii)); D4 stage replaced by D4/underlying-topological-space; D5 stays for ECD 11.27."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.10 (p. 32) and BS22 1.17/10.11/Example 8.3 read. The ϖ-adic completion is necessary (E32, verified by an explicit example). The supplier is now named by its generated id PerfectoidQuotientsPartII (DESIGN-PerfectoidQuotientsPartII, issue #3362) instead of the retired route name; D6 stage replaced by D6/spd-of-a-tate-pair."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/finite-tower-over-perfectoid-tower",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.9 and proof (pp. 31–32) read. Added R0/finite-algebra-tensor-complete for S = R ⊗_{O(U_i)} O(W_i) without completion."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/finite-level-affinoid-basis",
+    "verdict": "corrected",
+    "note": "HJ Lemma 5.11 (p. 32) read. P7 stage replaced by P7/represented-functor-comparison (lim X_i^◇ = X^◇ gives |X| = lim |X_i|) and P7/rational-subsets-from-finite-level."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/good-tower",
+    "verdict": "corrected",
+    "note": "HJ Definition 5.12 (pp. 32–33) read; tests checked (affine-line tower satisfies (2),(3) but not (1)). P7 stage replaced by P7/represented-functor-comparison."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/good-towers-under-finite-maps",
+    "verdict": "verified",
+    "note": "HJ Proposition 5.13(1) and proof (p. 33) read."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/quotient-of-good-tower",
+    "verdict": "corrected",
+    "note": "HJ Proposition 5.13(2), proof and footnote 8 (pp. 33–34) read. D5 stage replaced by D4/isomorphism-criteria-for-v-sheaves-and-stacks (ECD 11.11) and D5/limits-and-finite-stage-comparisons (limits of spatial diamonds)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P8/closed-loci-in-towers",
+    "verdict": "corrected",
+    "note": "Torsion IV.1.1 (pp. 67–69), ECD 5.7–5.8 and HJ 5.7 read. The P7/H0 stages and the étale-topos node were replaced by the exact tilde-limit nodes P7/perfectoid-tilde-limit, P7/tilde-limit-rational-restriction, H0/huber-tilde-limit and H0/tilde-limit-density-rational-restriction (the H0 request was dropped). The torus acceptance example now requires K perfectoid."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/profinite-galois-tower",
+    "verdict": "corrected",
+    "note": "CHJ §4.1 setup and 2.24, BHW 3.7, ECD 10.12 read. Stages replaced by P7/perfectoid-tilde-limit, P7/tilde-limit-base-change, P7/compact-open-subgroup-cofinality (which also underlies tower_not_cofinal), D2/small-pro-etale-site-and-v-site and D3/locally-profinite-torsors. Tests checked (ℤ_p(1)-torus invariants)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/cech-descent-datum",
+    "verdict": "verified",
+    "note": "BHW 3.7 proof and CHJ Remark 2.25 read; identifications via Scholze's Corollary 6.6 as decomposed in PadicHodgeTheory P8 checked against the supplier node."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/invariants-of-eventually-injective-colimits",
+    "verdict": "verified",
+    "note": "CHJ Lemma 2.24 proof read; both forms (finite-quotient action, eventual injectivity) checked, including the case where later stages act through finer quotients."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/etale-sheaf-sections-over-galois-tower",
+    "verdict": "verified",
+    "note": "CHJ Lemma 2.24 and proof (p. 20) read."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/function-descent-along-tower",
+    "verdict": "corrected",
+    "note": "CHJ Lemma 2.26 and proof (pp. 20–21) read. The step Ô(U) = O(U) is Scholze's Corollary 6.19, which PadicHodgeTheory P8 states exactly as P8:local-rational/pushforward-of-structural-de-rham-sheaf (ii); that node replaces the cohomology-of-graded node, which only computes H^q(gr OB_dR)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/function-descent-over-perfectoid-base",
+    "verdict": "corrected",
+    "note": "BHW 3.7 last sentence read. Stages replaced by D2/v-descent-of-functions and D3/locally-profinite-torsors."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/almost-cohomology-of-tower",
+    "verdict": "verified",
+    "note": "CHJ Remark 2.25 and Lemma 6.11 (pp. 48–49) read; the excerpt matches the PDF modulo layout. The lim¹ hypothesis is correctly explicit."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/closed-invariant-subalgebra",
+    "verdict": "verified",
+    "note": "CHJ Proposition 2.22 (p. 19) read; statement correctly separates a chosen power-multiplicative norm from uniformity."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-profinite-module",
+    "verdict": "verified",
+    "note": "CHJ Lemma 2.23(1) and proof (pp. 19–20) read; both non-examples checked (Tate twist; the N² = 0 module, where e_{−1} + Σ p^m e_m is invariant in the completion only)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
+    "verdict": "corrected",
+    "note": "CHJ 2.23(2) read; weighted t-orthogonal coordinates and the discrete-base residue-basis clause checked (isometry from t‖z‖ ≤ ‖Jz‖ ≤ ‖z‖ for all t < 1). Added the R0 stage prerequisite for the requested weighted/arbitrary-cardinal coordinate interface, matching the R0 request."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/weight-extension-of-function-descent",
+    "verdict": "corrected",
+    "note": "BHW 3.4, 3.7 and 3.8 read. BHW work over a perfectoid L (§1.5) and R5's product node needs perfectoid fields; the statement now takes L perfectoid and forms X_𝒰 = (X ×_{L₀} Spa L) ×_L 𝒰 via P2/fibre-products-over-analytic-base and R5. The acceptance item claimed BHW 3.8 as an instance, but 3.8 is a sheaf statement over a perfectoid base; it is now stated as the motivating consumer of weight-extension-sheaf-equalizer, and a trivial-torsor test was added."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/descent-of-finite-locally-free-modules",
+    "verdict": "verified",
+    "note": "CHJ 2.19 and 2.28 read; full faithfulness and the Tate-twist non-example checked; the integral statement is correctly sheafwise."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/finite-galois-descent-of-modules",
+    "verdict": "verified",
+    "note": "Galois descent and the comonadicExtendScalars dictionary checked; the injectivity counterexample (A₁ × A₂ → B₁) is valid."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/twisted-character-sheaf",
+    "verdict": "corrected",
+    "note": "CHJ Definition 2.18 and BHW Definition 3.15 read; cocycle law, coboundary change and tests checked. Added that BHW print the factor as κ⁻¹(c𝔷 + d) in their own normalisation."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/approximation-of-units-at-finite-level",
+    "verdict": "verified",
+    "note": "CHJ Proposition 2.27 and proof (p. 21) read; the ring-level Lean statement was checked to be provable as stated (p⁻¹ lies in each Rn n by the unit hypothesis)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/finite-level-character-sheaf-comparison",
+    "verdict": "verified",
+    "note": "CHJ pp. 21–22 and Theorem 2.28 read; the corrected idempotent sign (E27) and the conditional global Loc assertion (R5 Kiehl range) are right."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/integral-coboundary-trivialises-integral-sheaf",
+    "verdict": "verified",
+    "note": "BHW Theorem 4.8 proof (p. 18) read; the integral invariants step uses the integral forms of the invariants lemmas."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/coefficient-change-by-regular-element",
+    "verdict": "verified",
+    "note": "CHJ Lemma 2.29 and Lemma 6.13 read; the flatness and Loc inputs are explicit hypotheses (E28 and the R5 Kiehl gap)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/derived-coefficient-change",
+    "verdict": "corrected",
+    "note": "Standard derived base change for Čech complexes of flat modules; the Tate-curve Tor example was recomputed (H⁰ = 0, H¹ ≅ A/(S), H⁰(ℒ/S) = ℚ_p). Added R5/coefficient-sheaf-loc (CHJ Proposition 6.16), which the Čech step cites."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/profinite-module-coefficient-sheaf",
+    "verdict": "corrected",
+    "note": "CHJ Lemma 4.1 and 4.5 read (excerpt matches modulo layout). D3 stage replaced by D3/locally-profinite-torsors."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/higher-inverse-limits-vanish-on-towers",
+    "verdict": "verified",
+    "note": "CHJ Propositions 4.3–4.4 (pp. 29–30) read; the almost version (E30) is used."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/invariants-of-completed-lattice-tensor",
+    "verdict": "verified",
+    "note": "Saturation argument checked: torsion-free quotient over a valuation ring is flat, π-regular completions are exact and saturated, cofinal norm estimates identify generic fibres; the rescaled-ℚ₂ and sign-action tests discriminate."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/weight-extension-sheaf-equalizer",
+    "verdict": "corrected",
+    "note": "BHW Lemma 3.7 read; the non-basis of products (E34) is real. D2 stage replaced by D2/v-descent-of-functions; the recorded gaps stand."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/function-descent-seminormal-base",
+    "verdict": "verified",
+    "note": "KL16 Theorem 8.2.3 and proof (pp. 162–163 of v3) and BHW 3.6 read; the gap is genuine (no atlas node owns KL II 8.2.3; its proof also uses Temkin's desingularization, now named in the gap)."
+   },
+   {
+    "nodeId": "PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity",
+    "verdict": "verified",
+    "note": "Frame computation g·(Pa) = P g(a) checked; the ℚ_p(√p) sign-twist example (invariants √p ℤ_p, base change √p O_B) shows rational coboundaries do not suffice."
+   }
+  ]
+ }
 }
