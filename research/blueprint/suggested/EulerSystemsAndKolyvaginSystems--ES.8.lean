@@ -312,7 +312,7 @@ def ind (ψ : H →ₗ[Λ] (Fin r → Λ)) (c : H) : Ideal Λ :=
 @[simp] theorem ind_zero (ψ : H →ₗ[Λ] (Fin r → Λ)) : ind ψ 0 = ⊥ := sorry
 
 theorem ind_eq_char [IsDomain Λ] (ψ : H →ₗ[Λ] (Fin r → Λ)) (hψ : EulerSystem.IsPseudoIso Λ ψ)
-    (c : H) (hc : c ≠ 0) :
+    (c : H) (hc : c ∉ Submodule.torsion Λ H) :
     ind ψ c = EulerSystem.charIdeal Λ (Submodule.torsion Λ (H ⧸ Λ ∙ c)) := sorry
 
 @[simp] theorem ind_smul [IsDomain Λ] [UniqueFactorizationMonoid Λ]
@@ -384,7 +384,7 @@ theorem blindSpot_smul (a : Λ) (κ : M) :
       ((∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0) → ∀ I, a ∈ I → I ∈ blindSpot N red (a • κ)) := sorry
 
 theorem not_isLambdaPrimitive_smul [IsDomain Λ] [IsNoetherianRing Λ]
-    [UniqueFactorizationMonoid Λ] (hann : ∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0)
+    [UniqueFactorizationMonoid Λ] (hΛ : ¬ IsField Λ) (hann : ∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0)
     (a : Λ) (ha : ¬ IsUnit a) (κ : M) : ¬ IsLambdaPrimitive N red (a • κ) := sorry
 
 /-- **`ES.8/residual-primitivity-implies-lambda-primitivity`**: if reduction to `𝔪` factors
@@ -412,7 +412,7 @@ example (hann : ∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0) (g : Λ) (hg : (Id
 
 /-- Test `TauCeti.KolyvaginSystem.free_rank_one_primitive_iff`. -/
 example [IsLocalRing Λ] [IsDomain Λ] [IsNoetherianRing Λ] [UniqueFactorizationMonoid Λ]
-    (hann : ∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0)
+    (hΛ : ¬ IsField Λ) (hann : ∀ I, ∀ b ∈ I, ∀ y : N I, b • y = 0)
     (hfac : ∀ 𝔓 : Ideal Λ, 𝔓.IsPrime →
       ∃ π : N 𝔓 →ₗ[Λ] N (IsLocalRing.maximalIdeal Λ),
         red (IsLocalRing.maximalIdeal Λ) = π ∘ₗ red 𝔓)
@@ -436,7 +436,8 @@ variable (p : ℕ) (Λ : Type*) [CommRing Λ] (H2g H2l : Type*) [AddCommGroup H2
 
 /-- **`ES.8/exceptional-height-one-primes`** (Mazur–Rubin, Definition 5.3.12): the height-one
 primes `𝔓` with `H²(ℚ_Σ/ℚ, 𝐓)[𝔓]` or `H²(ℚ_p, 𝐓)[𝔓]` infinite, together with `pΛ`. The two
-`H²` modules are parameters, supplied by `SelmerIwasawaCohomology` L3. -/
+`H²` modules are parameters, supplied by `SelmerIwasawaCohomology` L3. Mazur–Rubin take
+`Λ = ℤ_p⟦Γ⟧`; over `O⟦Γ⟧` with `O` ramified the prime `ϖΛ` replaces `pΛ`. -/
 def exceptionalSet : Set (Ideal Λ) :=
   {𝔓 | 𝔓.IsPrime ∧ 𝔓.height = 1 ∧ (Infinite (Submodule.torsionBySet Λ H2g (𝔓 : Set Λ)) ∨
       Infinite (Submodule.torsionBySet Λ H2l (𝔓 : Set Λ)))} ∪ {Ideal.span {(p : Λ)}}
@@ -450,7 +451,8 @@ theorem exceptionalSet_finite [IsDomain Λ] [IsNoetherianRing Λ] [IsLocalRing �
 
 theorem mem_exceptionalSet_iff [IsDomain Λ] (𝔓 : Ideal Λ) (h𝔓 : 𝔓 ≠ Ideal.span {(p : Λ)}) :
     𝔓 ∈ exceptionalSet p Λ H2g H2l ↔ 𝔓.IsPrime ∧ 𝔓.height = 1 ∧
-      EulerSystem.charIdeal Λ (Submodule.torsion Λ H2g) * EulerSystem.charIdeal Λ H2l ≤ 𝔓 :=
+      EulerSystem.charIdeal Λ (Submodule.torsion Λ H2g) *
+        EulerSystem.charIdeal Λ (Submodule.torsion Λ H2l) ≤ 𝔓 :=
   sorry
 
 theorem exceptionalSet_twist (τ : Λ ≃+* Λ) (hτ : τ (p : Λ) = p) (H2g' H2l' : Type*)
@@ -502,6 +504,7 @@ def perturb (p : ℕ) (g : Λ) (N : ℕ) : Ideal Λ := Ideal.span {g + (p : Λ) 
 (Hensel's lemma). -/
 theorem perturb_quotient_equiv {O : Type*} [CommRing O] [IsDomain O]
     [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O] (p : ℕ)
+    (hp : (p : O) ∈ IsLocalRing.maximalIdeal O)
     (g : Polynomial O) (hg : g.IsDistinguishedAt (IsLocalRing.maximalIdeal O))
     (hirr : Irreducible g) :
     ∀ᶠ N in Filter.atTop, (perturb p (g : PowerSeries O) N).IsPrime ∧
@@ -599,10 +602,12 @@ end LambdaSelmerStructure
 
 /- Suggested signatures awaiting the Galois-cohomology carriers of `SelmerIwasawaCohomology`:
 * `TauCeti.KolyvaginSystem.lambdaRep_cohomologyEquiv :
-    H^i(K, lambdaRep Λ O T) ≃ₗ[Λ] lim_n H^i(K_n, T)` (Shapiro)
+    H^i(K, lambdaRep Λ O T) ≃ₛₗ[ι] lim_n H^i(K_n, T)` (Shapiro; semilinear for the involution `ι`
+    of `Λ` when `G_K` acts on `Λ` through `Ψ`, with `Γ` acting on the limit by conjugation)
 * `TauCeti.KolyvaginSystem.LambdaSelmerStructure.dualX :
     X = Hom(H¹_{F_Λ*}(K, 𝐓*), ℚ_p/ℤ_p)`
-* `TauCeti.KolyvaginSystem.LambdaSelmerStructure.canonical_X_eq : X = Rubin's X∞` (`K = ℚ`)
+* `TauCeti.KolyvaginSystem.LambdaSelmerStructure.canonical_X_eq : X ≃ₛₗ[ι] Rubin's X∞` (`K = ℚ`;
+    so `charIdeal X = ι (charIdeal X∞)`)
 * tests `TauCeti.KolyvaginSystem.canonical_rat_selmer`, `canonical_unramified_away_from_p`,
   `quotient_not_full`, `ordinary_selfOrthogonal`. -/
 
@@ -671,7 +676,8 @@ cohomology of the finite layers `F` of `K∞/K`, restricted and true Selmer grou
 
 * **`ES.8/restricted-iwasawa-selmer-module`**: `restrictedSelmerInf`, `Xinf`,
   `restrictedSelmerInf.res`, `Xinf_coinvariants`, `Xinf_finitelyGenerated`, `Xinf_twist`,
-  `Xinf_eq_mazurRubin`; tests `Xinf_rat_Zp1`, `Xinf_coinvariants_rank_one`,
+  `Xinf_eq_mazurRubin` (an `ι`-semilinear identification with Mazur–Rubin's `X∞`); tests
+  `Xinf_rat_Zp1`, `Xinf_coinvariants_rank_one`,
   `Xinf_not_true_selmer`, `Xinf_contragredient`.
 * **`ES.8/iwasawa-class-of-an-euler-system`**: `iwasawaClass : ES(T, 𝒦, N) →ₗ H¹∞`,
   `iwasawaClassAt`, `iwasawaClass_proj`, `iwasawaClass_smul`, `iwasawaClass_zero`,
