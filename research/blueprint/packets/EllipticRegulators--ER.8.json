@@ -37,14 +37,14 @@
         "kind": "def",
         "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
         "provides": "A formal symbol generator.",
-        "checked": "Definition read at pinned Mathlib, line 110."
+        "checked": "Definition independently read at pinned Mathlib, line 108 (corrected from 110)."
       },
       {
         "ref": "mathlib:FreeAbelianGroup.lift",
         "kind": "def",
         "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
         "provides": "Extends a generator evaluation uniquely to an additive homomorphism.",
-        "checked": "Full equivalence signature read at pinned Mathlib, line 114."
+        "checked": "Full equivalence signature independently read at pinned Mathlib, line 112 (corrected from 114); the target requires AddCommGroup."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Affine.FunctionField",
@@ -93,7 +93,7 @@
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
         "provides": "For a nonsingular n-torsion point, n(P)-n(O) is the principal divisor of a unit. This existence theorem is imported, not planned again.",
-        "checked": "Whole file read at pinned Tau Ceti; theorem line 44 requires a Dedekind coordinate ring and decidable equality."
+        "checked": "Whole file independently read at pinned Tau Ceti; theorem line 42 (corrected from 44) requires a Field, Dedekind coordinate ring and DecidableEq, a nonsingular point and integer-scalar affine annihilation."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Ψ",
@@ -122,6 +122,20 @@
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
         "provides": "The converse: an n-torsion point is a zero of ψ_n.",
         "checked": "Statement read at pinned Tau Ceti, line 1084; no nonzero-index hypothesis is needed, but the example uses n=6."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.CoordinateRing.mk_ψ",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+        "provides": "For every integer n, the images of ψ_n and Ψ_n agree in the affine coordinate ring. Evaluating at a point satisfying the curve equation transports the computed Ψ_6 to the ψ_6 used by Tau Ceti torsion theorems.",
+        "checked": "Full statement and ambient CommRing hypotheses independently read at pinned Mathlib, line 438; no field or ellipticity hypothesis is required. Added by REV-EllipticRegulators--ER.8."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.zsmul_fromAffine_eq_zero_iff",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+        "provides": "For an affine point P and natural n, integer-cast n annihilates Jacobian.Point.fromAffine P iff n annihilates P in the affine group. Use n=6 and natCast_zsmul to reach the torsion-principal-divisor theorem.",
+        "checked": "Full statement independently read at pinned Tau Ceti, line 1106; Field and DecidableEq hypotheses retained. Added by REV-EllipticRegulators--ER.8."
       }
     ]
   },
@@ -136,7 +150,7 @@
         "§2.2 Theorems 2.2–2.3",
         "§2.3 critical slope",
         "§3.3–3.4, especially Conjecture 3.3",
-        "§5.2 algorithm interface"
+        "§4.7 algorithm interface; §5.2 Legendre example interface"
       ],
       "accessDate": "2026-10-06",
       "sha256": "5120eb167b7f02662a6540dd4e2dd7af420f95a16e32bbc3ee278afadf543fec"
@@ -153,7 +167,9 @@
         "§6 footnote 10"
       ],
       "accessDate": "2026-10-06",
-      "sha256": "70103ec8703754c395e23c750e5bb6d22b46dcd6a54a5668e0e25eb71671aed8"
+      "sha256": "c0b23ae71a8006b9bd3ce2e7529fb1cb668c9f549e188e89e5d44bd876e69043",
+      "previousPlanningSha256": "70103ec8703754c395e23c750e5bb6d22b46dcd6a54a5668e0e25eb71671aed8",
+      "reviewAccessNote": "Independent reviewer downloaded and read this URL on 2026-10-06. The returned PDF has this SHA256, differing from the planning download; no claim about the cause of that byte difference is made. Theorem 2.2(1), Theorem 2.3, section 3.4 and footnote 10 were checked in the reviewer copy."
     },
     {
       "id": "AC2023VOR",
@@ -185,7 +201,7 @@
       "edition": "Publications mathématiques de Besançon (2010), 29–57, DOI 10.5802/pmb.a-125",
       "url": "https://pmb.centre-mersenne.org/item/10.5802/pmb.a-125.pdf",
       "readSections": [
-        "Introduction; §1; §3 Remark 3.1; §9, including Remark 9.4"
+        "Introduction; §1; §3 Remark 3.1; §9, including Théorème 9.4 (115)"
       ],
       "accessDate": "2026-10-06",
       "sha256": "c266dc60fec34b877e131dede67ba64d29f1a875396198f4aa28a31d27859d30"
@@ -637,8 +653,8 @@
         "The generic-fibre certificate asserts no arithmetic integrality."
       ],
       "proofSteps": [
-        "Evaluate the pinned division-polynomial recurrence at E to obtain the displayed psi6. Use the baseline torsion-zero equivalence, and check the factors have simple zeros on the curve; the pole order is 35.",
-        "Use the pinned existence of principal torsion divisors and the E.7 Miller-function construction. The fixed chain, including vertical/infinity conventions, makes every f_b explicit from its coordinates.",
+        "Evaluate the pinned division-polynomial recurrence at E to obtain the displayed Ψ6. Use CoordinateRing.mk_ψ and evaluation at a point satisfying the curve equation to pass to ψ6, then the pinned ψ-zero/annihilation theorems and zsmul_fromAffine_eq_zero_iff to pass to affine six-torsion. Check that the displayed factors have simple zeros on the curve; the pole order is 35.",
+        "Import the pinned existence of principal torsion divisors and E.7 principal-divisors-on-rational-torsion over L. For the particular Miller functions given here, verify div(h_(P,Q)/v_(P+Q))=[P]+[Q]-[P+Q]-[O] by the line intersection formula, including the displayed vertical/infinity cases. The fixed chain has div(f_n)=n[b]-[nb]-(n-1)[O] at n=2,3,6 and is normalised at O. This is the explicit instance computation, not an additional Miller algorithm attributed to E.7.",
         "Use orders (-1,0) at b not a, (-1,6) at a and (35,-6) at O to obtain the stated leading-unit residues.",
         "At b not O the corrected numerator has residue c_(a,b)^6 c_(a,b)^(-6)=1; outside E[6] it is 1. At O reciprocity over the fully split field gives c_(a,O) product_(b not O)c_(a,b)=1, hence the numerator residue is 1.",
         "Invoke E.7 choice independence over a number field and rational descent to match ER.5 U. The schema specifies all 35 finite rows for each of the three a, rather than omitting nonrational rows."
@@ -657,7 +673,9 @@
         "mathlib:WeierstrassCurve.preΨ_even",
         "tauceti:WeierstrassCurve.zsmul_eq_zero_of_evalEval_ψ_eq_zero",
         "tauceti:WeierstrassCurve.evalEval_ψ_eq_zero_of_zsmul_eq_zero",
-        "tauceti:WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity"
+        "tauceti:WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity",
+        "mathlib:WeierstrassCurve.Affine.CoordinateRing.mk_ψ",
+        "tauceti:WeierstrassCurve.zsmul_fromAffine_eq_zero_iff"
       ],
       "sources": [
         {
@@ -1089,10 +1107,10 @@
       ],
       "title": "Arithmetic integrality and admissibility of the worked examples",
       "kind": "application",
-      "statement": "On E11:y²+y=x³-x² (11a3), import xi={x,y}+{-1,x}, its rational lift and its arithmetic-integral certificate on the regular minimal proper model over Z. The discriminant is -11; the fibre at 11 is split I1 and irreducible, and x,y have vertical order zero. Thus xi is an admissible integral input at every good p>2 with p not equal to 11, after the eigenline and period conditions above. Its complex source regulator is -11i/(8pi)L(E11,2)=-pi i/2 Lprime(E11,0), with the parent orientation. In contrast the u=1/3 example y²=x(x+1)(x+1/9) has the vertical residue 1/w of infinite order on the component V=0 at 3 of the E.8 model, so no nonzero rational multiple of its horizontally certified class lies in the global integral part. A regulator can be evaluated locally at a good prime without making that second class an integral witness for the global Beilinson conjecture. The quadratic beta and CM U need an independent vertical certificate for any global integral claim.",
+      "statement": "On E11:y²+y=x³-x² (11a3), import xi={x,y}+{-1,x}, its rational lift and its arithmetic-integral certificate on the regular minimal proper model over Z. The discriminant is -11; the fibre at 11 is split I1 and irreducible, and x,y have vertical order zero. Thus xi is an admissible integral input at every good p>2 with p not equal to 11, after the eigenline and period conditions above. Its complex source regulator evaluated on omega0=(dx/(2y+1))/Omega_plus is -11i/(8pi)L(E11,2)=-pi i/2 Lprime(E11,0), where Omega_plus is the positive primitive real-cycle period of dx/(2y+1) fixed by the parent orientation. This is the period-one differential, not the unnormalised Néron differential. In contrast the u=1/3 example y²=x(x+1)(x+1/9) has the vertical residue 1/w of infinite order on the component V=0 at 3 of the E.8 model, so no nonzero rational multiple of its horizontally certified class lies in the global integral part. A regulator can be evaluated locally at a good prime without making that second class an integral witness for the global Beilinson conjecture. The quadratic beta and CM U need an independent vertical certificate for any global integral claim.",
       "hypotheses": [
         "The arithmetic model, integral part and vertical boundary maps are owned by E.6, and their certificate by E.7/E.8.",
-        "The E11 real regulator is r_source, not directly the Deligne cycle coordinate.",
+        "The E11 real regulator is r_source evaluated on the period-one omega0=(dx/(2y+1))/Omega_plus, not directly the Deligne cycle coordinate. The Néron-differential evaluation scales by Omega_plus.",
         "No p-adic numerical L-value comparison for E11, beta or U is asserted."
       ],
       "proofSteps": [
@@ -1125,7 +1143,8 @@
         "The positive xi carries both horizontal and vertical certificates.",
         "The nonzero 1/w vertical residue rejects every nonzero rational multiple of the negative class.",
         "Good p excludes 11 for E11 and excludes 2,3 for E36.",
-        "The parent P1 and conductor-14/35/54 examples remain imported, with their original orientation and numerical qualifications."
+        "The parent P1 and conductor-14/35/54 examples remain imported, with their original orientation and numerical qualifications.",
+        "The E11 scalar is quoted only with its period-one differential; evaluating on dx/(2y+1) multiplies it by Omega_plus."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -1208,6 +1227,7 @@
       "title": "Geometric signatures absent from the pinned prototype",
       "neededBy": [
         "EllipticRegulators:ER.8/good-reduction-elliptic-pairing",
+        "EllipticRegulators:ER.8/elliptic-syntomic-etale-factor",
         "EllipticRegulators:ER.8/neron-refinement-period-dictionary",
         "EllipticRegulators:ER.8/weight-two-padic-beilinson-conjecture",
         "EllipticRegulators:ER.8/cm36-full-torsion-certificate",
@@ -1235,7 +1255,12 @@
         "arXiv version history and v2 PDF accessed 2026-10-06",
         "HUSCAP author accepted manuscript, Theorem 2.2(1), accessed 2026-10-06",
         "Publisher DOI page public preview and author publication page; no separate erratum was found in the inspected material"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by direct comparison of arXiv v2 Theorem 2.2(1), p.6, with the inspected accepted manuscript, p.7: the former omits alpha^(-nu), while the latter includes it. The displayed lambda convention needs this factor for U_p-compatible coset additivity. The finding remains restricted to the preprint.",
+        "by": "REV-EllipticRegulators--ER.8"
+      }
     },
     {
       "id": "EllipticRegulators/E29",
@@ -1251,7 +1276,12 @@
         "arXiv:2003.08888 v2 and its version history, accessed 2026-10-06",
         "HUSCAP author accepted manuscript, displayed lambda, Theorem 2.3 and §3.4, accessed 2026-10-06",
         "Publisher DOI page public preview; Masataka Chida publication page https://www.cck.dendai.ac.jp/math/~chida/, accessed 2026-10-06; neither inspected page supplied a separate correction for this formula"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at accepted-manuscript Theorem 2.3, p.7, and section 3.4, p.16. The explicitly defined Gauss sum and positive Fourier exponent in the displayed integral give gamma^(-nu) tau(chi) L(E,chi^(-1),1)/Omega^sign. For the odd quadratic character mod 3, chi=chi^(-1) and tau^2=-3; the printed p^nu/tau has the opposite sign. Checked against the owner twisted Mellin and L2 interpolation statements. No separate correction was found in the searched public material; no verdict is given on the unread published theorem body.",
+        "by": "REV-EllipticRegulators--ER.8"
+      }
     }
   ],
   "targetCoverage": [
@@ -1336,7 +1366,7 @@
         "§2.2 Theorems 2.2–2.3",
         "§2.3 critical slope",
         "§3.3–3.4, especially Conjecture 3.3",
-        "§5.2 algorithm interface"
+        "§4.7 algorithm interface; §5.2 Legendre example interface"
       ],
       "sha256": "5120eb167b7f02662a6540dd4e2dd7af420f95a16e32bbc3ee278afadf543fec"
     },
@@ -1350,7 +1380,8 @@
         "§3.4 Conjecture 3.3 and normalisations",
         "§6 footnote 10"
       ],
-      "sha256": "70103ec8703754c395e23c750e5bb6d22b46dcd6a54a5668e0e25eb71671aed8"
+      "sha256": "c0b23ae71a8006b9bd3ce2e7529fb1cb668c9f549e188e89e5d44bd876e69043",
+      "previousPlanningSha256": "70103ec8703754c395e23c750e5bb6d22b46dcd6a54a5668e0e25eb71671aed8"
     },
     {
       "kind": "published",
@@ -1361,5 +1392,73 @@
         "Public publisher preview: introduction and footnote 10; body not available in the preview"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticRegulators--ER.8",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all twelve nodes, all eighteen retained/added pinned baseline statements, source locators, owner prerequisites, five requests, APIs/tests, four planets and both handed red-team findings. Corrected three baseline line locators, added Ψ/ψ and affine/Jacobian bridges, corrected Miller attribution, made E11 differential normalization explicit, updated the inspected accepted-manuscript checksum and two reading locators, indexed the omitted etale prototype and confirmed source issues E28/E29. Complete planning pass accepted with ER.8 planned (not closed), three honest gaps and all implementation statuses unchecked. Full suggested file was not compiled: lean-check stops at a missing Tau Ceti GenericPoint object file in the available shared build.",
+    "checked": [
+      {
+        "nodeId": "EllipticRegulators:ER.8/good-reduction-elliptic-pairing",
+        "verdict": "verified",
+        "note": "Read Besser–de Jeu pp.3–4 and Remark 1.10. Holomorphic constant-term independence follows from t^(n+1)log(t) expansions; closed-point traces and principal-divisor degree zero are retained. Actual regulator, presentation independence and the full vector remain explicit D.5/Coleman requests."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/elliptic-syntomic-etale-factor",
+        "verdict": "verified",
+        "note": "Read accepted-manuscript footnote 10 and public publisher footnote 10. With Qp-linear Frobenius extended to K, similitude gives B(Phi z,v)=p/gamma B(z,v), hence the distinct factor 1-1/(p gamma). The geometric identity remains an owner contract; its omitted prototype is now also indexed by the signature gap."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/frobenius-regulator-scalar",
+        "verdict": "verified",
+        "note": "Read section 3.4 definition and denominator condition. Six APIs and four tests distinguish the quotient, zero, eigenvector scaling and inadmissible denominator; differential scaling is inverse. Pure field expression is separated from geometric guards."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/neron-refinement-period-dictionary",
+        "verdict": "verified",
+        "note": "Read accepted-manuscript sections 2.2,3.4 and preprint critical-slope discussion; checked all L1/L2/L3/L4 supplier statements. Corrected character convention follows finite Fourier/Mellin with tau(chi), inverse twist and two trivial Euler factors; odd quadratic mod3 exposes the printed sign error. Critical eigenlift is not characterized solely by classical moments."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/weight-two-beilinson-relation",
+        "verdict": "verified",
+        "note": "The existential predicate has an actual body with a common nonzero rational scalar and a sign. Four APIs and four tests reject zero maps and the wrong ratio; witness rescaling and real-regulator sign change are valid by Q-linearity. Real rationality is a separate conjectural component."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/weight-two-padic-beilinson-conjecture",
+        "verdict": "verified",
+        "note": "Read Conjecture 3.3, n=0, and its preceding rationality sentence. Good reduction, selected slope/non-theta-critical refinement, eigenline guard, integral motivic input, period coordinate and Teich inverse-x moment are preserved. This node remains a conjectural application and is not a theorem for arbitrary linear maps."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/cm36-full-torsion-certificate",
+        "verdict": "corrected",
+        "note": "Added the existing coordinate-ring Ψ/ψ congruence and affine/Jacobian torsion bridge as direct prerequisites. Corrected attribution of the explicit Miller-chain computation. Independently checked Ψ6, squarefree support, pole/leading term at O and all symbolic tame rows; full L=kappa(E[6]) and CM coordinate/descent gaps retained."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/cm36-corrected-l-value",
+        "verdict": "verified",
+        "note": "Read accepted parent ER.5 U, corrected L-value theorem and Fourier/regulator conventions. Substituting C=6,y^2=3/4,chi_hat(gbar)g=3 gives pi/(324i), hence 2pi/3 times the three D-values. No extra factor six and no proof from decimals of the one-point identity."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/quadratic-corrected-symbol",
+        "verdict": "verified",
+        "note": "Independently checked exact tangent/secant factorizations, 2T=A,3T=(-zeta,0),6T=O, function divisors and leading units including 1/108 at T and the positive tame sign at B. All four tame rows cancel in their own residue fields. Seven APIs/five tests use the actual pinned function field and raw free group; geometric certification is explicitly omitted pending its owner."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/quadratic-transfer-certificate",
+        "verdict": "verified",
+        "note": "Checked H,J,F norm polynomials, root-of-unity 3-torsion removal only after rationalization, and Q-closed-point residue 1/(4zeta^2), not its norm 1/16. Its sixth power cancels (1/4)^(-6); A,B and O cancel as stated. E.7 projection, norm-boundary and descent contracts were read."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/quadratic-regulator-trace",
+        "verdict": "verified",
+        "note": "Expanded the second-minus-first diamond independently: coefficients 7,2,-5,2,-2,-4 at 0,T,...,5T, reducing to 6R(T)-3R(A). Parent half-conjugate regulator gives 18conj R(T)-9conj R(A); transfer gives the stated trace, and imaginary simplification uses the rational real-class comparison. ER.2 period conversion is preserved."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.8/integral-example-padic-eligibility",
+        "verdict": "corrected",
+        "note": "Restored the period-one differential in the 11a3 source-regulator scalar and its rescaling acceptance test. Read parent/E.6/E.7/E.8 model and certificate statements: positive I1 example is integral, negative 1/w residue has infinite order. No horizontal certificate is promoted into a global-integrality or p-adic special-value proof."
+      }
+    ]
+  }
 }
