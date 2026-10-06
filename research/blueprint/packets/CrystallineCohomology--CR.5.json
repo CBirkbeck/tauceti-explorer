@@ -19,175 +19,175 @@
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
         "provides": "Grothendieck topology on the category of schemes étale over X.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:Algebra.GrothendieckGroup",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
         "provides": "Universal group of a commutative monoid as localization at the full submonoid.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:Algebra.GrothendieckGroup.lift",
         "kind": "def",
         "module": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
         "provides": "Equivalence between monoid homomorphisms to a commutative group and homomorphisms out of its groupification.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:Algebra.GrothendieckGroup.of_injective",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
         "provides": "Cancellation implies injectivity of the canonical map to the groupification.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:DividedPowers",
         "kind": "structure",
         "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
         "provides": "Structure of divided powers on an ideal in a commutative semiring, with operations and all PD identities.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:ExteriorAlgebra",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "Exterior algebra of a module, implemented using the zero-form Clifford algebra.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:ExteriorAlgebra.ι_sq_zero",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "Every degree-one exterior generator squares to zero, including in characteristic two.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:WittVector",
         "kind": "structure",
         "module": "Mathlib/RingTheory/WittVector/Defs.lean",
         "provides": "The p-typical Witt vector carrier with its coefficient family.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:WittVector.frobenius",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
-        "provides": "The Witt vector Frobenius ring homomorphism; the characteristic-p coefficient formula is supplied in the same module.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "provides": "The Witt vector Frobenius ring homomorphism; the characteristic-p coefficient formula is supplied in the same module. The prime and characteristic-p hypotheses must be retained for the stated coefficient formulas.",
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:WittVector.frobeniusEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
-        "provides": "Witt Frobenius is a ring equivalence when the coefficient ring is perfect of characteristic p.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "provides": "Witt Frobenius is a ring equivalence when the coefficient ring is perfect of characteristic p. This uses the prime, CharP and PerfectRing instances.",
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:WittVector.teichmuller",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
         "provides": "Multiplicative Teichmüller map R→W_p(R); it is not an additive ring map.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "tauceti:TauCeti.nilpotentExpUnit",
         "kind": "def",
         "module": "TauCeti/RingTheory/Nilpotent/Exp.lean",
         "provides": "For a nilpotent element of an associative rational algebra, its finite exponential is a unit with inverse the exponential of its negative.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:KaehlerDifferential",
         "kind": "def",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "Ordinary Kähler differential module for a commutative algebra, as the cotangent of the multiplication ideal.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:KaehlerDifferential.D",
         "kind": "def",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "Universal ordinary algebra derivation into the existing Kähler differential module.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:ModuleCat",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Existing category of modules over a ring with linear morphisms.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:CategoryTheory.GrothendieckTopology",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
         "provides": "Covering sieves with maximality, pullback stability and transitivity.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
-        "provides": "Localization of cochain complexes of an abelian category at quasi-isomorphisms, under HasDerivedCategory.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "provides": "Localization of cochain complexes of an abelian category at quasi-isomorphisms, under HasDerivedCategory. This is the ordinary unbounded derived category under HasDerivedCategory, not by itself the enhanced tensor/limit supplier.",
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:PresheafOfModulesOfCommRing",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Category/ModuleCat/Presheaf/OfCommRing.lean",
         "provides": "Existing category of module presheaves on a commutative ring presheaf, with coherent restriction maps.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:ModuleCat.extendScalars",
         "kind": "def",
         "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
         "provides": "The scalar-extension functor M↦S⊗_R M for a commutative-ring homomorphism.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:CategoryTheory.HasLiftingProperty",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/LiftingProperties/Basic.lean",
         "provides": "Every commutative square against the two specified arrows has a lift.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:IsNilpotent.exp",
         "kind": "def",
         "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
         "provides": "Finite factorial exponential of a nilpotent element in a ring with rational scalar action; its finite-sum formula is already proved.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:CategoryTheory.Ind",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
         "provides": "Existing category of filtered ind-objects, with fully faithful Yoneda embedding.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:CategoryTheory.Ind.lim",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
-        "provides": "Functor from small filtered diagrams in C to their ind-colimit in Ind C.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "provides": "Functor from small filtered diagrams in C to their ind-colimit in Ind C. The input indexing category is filtered; this does not construct the analytic Fréchet coefficient category.",
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:DividedPowerAlgebra",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
         "provides": "Existing quotient algebra Γ_R(M) by the divided-power generator relations; no canonical augmentation PD structure is asserted here.",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       },
       {
         "ref": "mathlib:DividedPowerAlgebra.dp",
         "kind": "def",
         "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
         "provides": "Degree-indexed class of the polynomial generator in the existing Γ_R(M).",
-        "checked": "Actual statement read in the source at the recorded pinned commit, 2026-10-06."
+        "checked": "Independently read the actual declaration and its hypotheses at the recorded pin, 2026-10-06; confirmed by REV-CrystallineCohomology--CR.5."
       }
     ]
   },
@@ -254,7 +254,7 @@
     },
     {
       "id": "bkv",
-      "title": "The motivic monodromy conjecture for p-adically uniformized varieties",
+      "title": "On the p-adic weight-monodromy conjecture for complete intersections in toric varieties",
       "authors": "Federico Binda, Hiroki Kato and Alberto Vezzani",
       "edition": "arXiv:2207.00369v2 (2025)",
       "url": "https://arxiv.org/pdf/2207.00369v2",
@@ -774,7 +774,7 @@
         {
           "name": "TauCeti.LogCrystalline.characteristicMonoid.gp_quotient",
           "role": "compatibility",
-          "statement": "M̄^gp≅M^gp/O_X×."
+          "statement": "The characteristic groupification is canonically M^gp modulo the image of O_X^×→M^gp. No injectivity of the unit map after groupification is assumed."
         },
         {
           "name": "TauCeti.LogCrystalline.characteristicMonoid.sharp",
@@ -822,7 +822,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Use groupification and its cancellation criterion.",
-        "Transfer integrality between M and its characteristic stalks."
+        "Use Kato §2.4(3) to descend integrality from the log monoid to its characteristic. No converse is claimed for arbitrary log structures."
       ],
       "acceptance": [
         "ℕ and ℚ≥0 are integral."
@@ -856,9 +856,9 @@
           "statement": "The canonical map to the pinned GrothendieckGroup is injective."
         },
         {
-          "name": "TauCeti.LogCrystalline.IsIntegralMonoid.characteristic_iff",
+          "name": "TauCeti.LogCrystalline.IsIntegralMonoid.characteristic",
           "role": "equivalence",
-          "statement": "A log stalk is integral exactly when its characteristic is integral."
+          "statement": "An integral log structure has integral characteristic stalks. Integral characteristic alone does not force an arbitrary log monoid to be integral."
         }
       ],
       "tests": [
@@ -996,14 +996,9 @@
       },
       "sources": [
         {
-          "sourceId": "koshikawa",
-          "locator": "Appendix A, opening conventions",
-          "match": "The passage is used for An integral monoid P is saturated when for every g∈P^gp and integer n>0, gⁿ∈P implies g∈P. The planned reduction is: Use the existing groupification and define the power condition."
-        },
-        {
-          "sourceId": "kato",
-          "locator": "§2.2, integral monoid convention, p.197",
-          "match": "Use Kato groupification with the root-closed condition of the primary Appendix A source."
+          "sourceId": "thompson",
+          "locator": "§1.2, Definition 1.6, p.7",
+          "match": "The root-closure condition in the existing groupification defines saturation; integral monoids are retained explicitly. The cusp and nonnegative-rational examples distinguish saturation from finite generation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1939,7 +1934,7 @@
       "sources": [
         {
           "sourceId": "temkin",
-          "locator": "Theorem 4.3.1 proof, Steps 9–10 inherited from IT14b, p.123; §1.2.7",
+          "locator": "Theorem 4.2.1 proof, Steps 9–10 inherited from IT14b, p.123; §1.2.7",
           "match": "The passage is used for Let X be regular noetherian with SNC boundary D, U=X∖D, and V→U a finite étale cover whose normal finite extension Y→X is tamely ramified along D. The planned reduction is: Import the classical prime-to-characteristic Abhyankar lemma from its owner. The complete proof chain is subject to the specific gap recorded in this packet; this citation is not a proof-closure claim."
         }
       ],
@@ -2249,7 +2244,7 @@
       "prerequisites": [
         "CrystallineCohomology:CR.5:log-algebra/qc-log-scheme",
         "CrystallineCohomology:CR.5:log-algebra/log-pullback",
-        "AInfCohomology:AI.0"
+        "AInfCohomology:AI.0:integral"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/LogCrystalline",
@@ -2641,7 +2636,7 @@
         },
         {
           "sourceId": "dl",
-          "locator": "Appendix B.2, residue quotient after Lemma B.5",
+          "locator": "Appendix B.2, residue quotient and diagram (B.7), PDF p.118",
           "match": "Residues are taken on the absolute log form quotient with degree shift and ordered components."
         }
       ],
@@ -2722,7 +2717,7 @@
       "sources": [
         {
           "sourceId": "ck",
-          "locator": "§5.9–5.13, pp.43–46",
+          "locator": "§5.9–5.13, pp.36–38",
           "match": "The passage is used for Reduction of a chart and adic completion mean pullback of its actual associated log structure along the underlying ring or scheme map. The planned reduction is: Pull back and logify at every finite level."
         },
         {
@@ -2945,8 +2940,10 @@
       ],
       "title": "Fine log PD envelopes",
       "kind": "construction",
-      "statement": "Fix a PD base (S,L,I,γ) with fine L and O_S killed by a nonzero integer. For a closed log immersion X→Y over S, X fine and Y coherent, its log PD envelope is the right adjoint to forgetting an exact PD thickening with PD structure compatible with γ. Étale locally exactify, take the ordinary PD envelope supplied by CR.0, and pull back the exactifying log structure. For an exact immersion it is the ordinary PD envelope with the inherited log structure.",
-      "hypotheses": [],
+      "statement": "Fix a PD base (S,L,I,γ) with fine L and O_S killed by a nonzero integer. For a closed log immersion X→Y over S, X fine and Y coherent, Kato Proposition 5.3 constructs a right adjoint to forgetting the compatible PD structure on an exact thickening. In general this adjoint may replace X by X̃. In the fixed-source specialization used here require γ to extend to Y, as in §5.5.2; then X̃≅X. Étale locally exactify, take the ordinary PD envelope supplied by CR.0, and pull back the exactifying log structure. For an exact immersion it is the ordinary PD envelope with inherited log structure.",
+      "hypotheses": [
+        "For the fixed-source factorization/API, the base PD structure extends to the ambient Y (Kato §5.5.2)."
+      ],
       "proofSteps": [
         "Exactify and apply the generic ordinary PD envelope from CR.0.",
         "Check the universal property on exact PD test thickenings and descend along étale refinements."
@@ -2968,8 +2965,8 @@
       "sources": [
         {
           "sourceId": "kato",
-          "locator": "Proposition 5.3, p.215; log construction §5.4–5.6, p.216",
-          "match": "The passage is used for Fix a PD base (S,L,I,γ) with fine L and O_S killed by a nonzero integer. The planned reduction is: Exactify and apply the generic ordinary PD envelope from CR.0."
+          "locator": "Proposition 5.3, p.215; §§5.4–5.6, p.216, especially §5.5.2 for the fixed source",
+          "match": "The general right adjoint can change the closed source; §5.5.2 gives the specified fixed-source specialization. Exactification and the ordinary envelope construct it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2977,7 +2974,7 @@
         {
           "name": "TauCeti.LogCrystalline.logPDEnvelope.factor",
           "role": "constructor",
-          "statement": "The source embeds exactly into its log PD envelope."
+          "statement": "Under the ambient PD-extension hypothesis, the original source X embeds exactly into its log PD envelope."
         },
         {
           "name": "TauCeti.LogCrystalline.logPDEnvelope.lift",
@@ -3029,8 +3026,10 @@
       ],
       "title": "Quasi-coherent log PD envelopes",
       "kind": "construction",
-      "statement": "Let (S,M_S,I,γ) be a quasi-coherent log PD base with p^nO_S=0. For a locally closed embedding (Z,M)→(Y,N) over S with M integral quasi-coherent and N quasi-coherent, Beilinson constructs the log PD envelope in integral quasi-coherent exact PD thickenings. Under the fine-base specialization this extends the fine envelope. Construction uses chart approximations and logarithmic coordinate thickenings. It does not prove an uncompleted envelope theorem over a base where p is not nilpotent.",
-      "hypotheses": [],
+      "statement": "Let (S,M_S,I,γ) be a quasi-coherent log PD base with p^nO_S=0. For a locally closed embedding (Z,M)→(Y,N) of log S♯-schemes (so γ extends to both Z and Y) with M integral quasi-coherent and N quasi-coherent, Beilinson constructs the log PD envelope in integral quasi-coherent exact PD thickenings. Under the fine-base specialization this extends the fine envelope. Construction uses chart approximations and logarithmic coordinate thickenings. It does not prove an uncompleted envelope theorem over a base where p is not nilpotent.",
+      "hypotheses": [
+        "The source and ambient are log S♯-schemes in Beilinson §1.2: γ extends to their extended base ideals."
+      ],
       "proofSteps": [
         "Reduce étale locally to chart embeddings and finite fine approximations.",
         "Construct PD polynomial coordinates and logarithmic multiplicative coordinates, quotient by the chart relations, then descend the right-adjoint universal property.",
@@ -3116,7 +3115,7 @@
       ],
       "title": "Exact log PD thickenings",
       "kind": "definition",
-      "statement": "Over a log PD base S with p^n=0, an object is an exact closed immersion U→T of integral quasi-coherent log schemes over S, with a quasi-coherent PD ideal J defining U and divided powers extending those on the base ideal. J is nil in this setting; do not require a uniform ordinary nilpotence bound absent in the source. Fine thickenings form the Kato special case.",
+      "statement": "Over a log PD base S with p^n=0, an object is an exact closed immersion U→T of integral quasi-coherent log schemes over S, with a quasi-coherent PD ideal (J,δ) defining U. Require γ to extend to T and U, and require γ and δ to extend jointly to divided powers on J+IO_T. There is no assumption IO_T⊆J. J is nil in this setting; do not require a uniform ordinary nilpotence bound absent in the source. Fine thickenings form the Kato special case.",
       "hypotheses": [],
       "proofSteps": [
         "Use the existing DividedPowers API on affine PD ideals and descend it.",
@@ -3158,7 +3157,7 @@
         {
           "name": "TauCeti.LogCrystalline.LogPDThickening.pd_base",
           "role": "relation",
-          "statement": "The PD operations on the extended base ideal coincide with the base operations."
+          "statement": "The divided powers on J and IO_T have a common extension to J+IO_T; their restrictions agree on the intersection."
         }
       ],
       "tests": [
@@ -3279,7 +3278,7 @@
       ],
       "title": "Log crystalline sites",
       "kind": "construction",
-      "statement": "For integral quasi-coherent Z over a p-nilpotent log PD base S, objects of (Z/S)_crys are U étale over Z and exact integral quasi-coherent log PD thickenings U→T over S. Morphisms commute with source, log structure and divided powers; coverings are étale covers of T whose induced closed fibers cover U. The structure sheaf sends (U,T) to Γ(T,O_T), and the PD ideal and log sheaves are inherited from T. Fine objects recover the Kato site.",
+      "statement": "For integral quasi-coherent Z over a p-nilpotent log PD base S♯, with the base PD structure extending to Z, objects of (Z/S)_crys are U étale over Z and exact integral quasi-coherent log PD thickenings U→T over S. Morphisms commute with source, log structure and divided powers; coverings are étale covers of T whose induced closed fibers cover U. The structure sheaf sends (U,T) to Γ(T,O_T), and the PD ideal and log sheaves are inherited from T. Fine objects recover the Kato site.",
       "hypotheses": [],
       "proofSteps": [
         "Define the category of exact PD objects and its étale coverings.",
@@ -3942,7 +3941,8 @@
         "CrystallineCohomology:CR.5/log-reduction-completion",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category",
         "DerivedDeRhamCohomology:DD.1/derived-completion",
-        "mathlib:DerivedCategory"
+        "mathlib:DerivedCategory",
+        "DerivedDeRhamCohomology:DD.1"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/LogCrystalline",
@@ -4067,7 +4067,7 @@
         "CrystallineCohomology:CR.5/unique-p-divisible-lift",
         "CrystallineCohomology:CR.5:log-algebra/valuation-log",
         "CrystallineCohomology:CR.5/p-adic-log-crystalline",
-        "AInfCohomology:AI.0",
+        "AInfCohomology:AI.0:integral",
         "PadicHodgeTheory:R06.1",
         "mathlib:WittVector.teichmuller",
         "CrystallineCohomology:CR.0"
@@ -4167,7 +4167,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§3.1, pp.241–242",
+          "locator": "§3.1, p.242",
           "match": "The passage is used for For p prime and k perfect of characteristic p, W_n(k) and W(k) carry the associated log structure of ℕ→W_n(k) or W(k), 1↦0. The planned reduction is: Import Witt vectors, their Frobenius and the finite quotient interface from CR.4."
         }
       ],
@@ -4212,7 +4212,7 @@
           "how": "The zero chart and canonical (p) PD structure give the base of every finite-level HK complex; the Witt Frobenius and chart p-power give its semilinear Frobenius."
         },
         {
-          "where": "hk §3.1, pp.241–242",
+          "where": "hk §3.1, p.242",
           "how": "The source construction uses the zero chart and canonical (p) PD structure give the base of every finite-level HK complex; the Witt Frobenius and chart p-power give its semilinear Frobenius."
         }
       ]
@@ -4249,7 +4249,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§3.1–3.3, pp.241–243",
+          "locator": "§3.1–3.3, pp.242–244",
           "match": "The passage is used for Let O_K be a complete mixed-characteristic DVR with perfect residue k, and X a proper semistable model with special log fiber Y over k^log. The planned reduction is: Apply the completed log crystalline construction to the standard Witt log base."
         }
       ],
@@ -4294,7 +4294,7 @@
           "how": "Its derived inverse limit retains torsion and is rationalized explicitly. Its coherent restriction and embedding maps carry Frobenius and the monodromy boundary through that step."
         },
         {
-          "where": "hk §3.1–3.3, pp.241–243",
+          "where": "hk §3.1–3.3, pp.242–244",
           "how": "The source construction uses its derived inverse limit retains torsion and is rationalized explicitly. Its coherent restriction and embedding maps carry Frobenius and the monodromy boundary through that step."
         }
       ],
@@ -4331,7 +4331,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§3.2; Theorem 5.1, pp.242,264",
+          "locator": "§3.2, p.243; Theorem 5.1, pp.262–263",
           "match": "The passage is used for With the same proper semistable hypotheses let K₀=Frac W(k)=W(k)[1/p] and C_HK(Y)=C_HK,ℤ(Y)⊗^L_{W(k)}K₀. The planned reduction is: Invert p by the derived scalar extension, which is flat."
         }
       ],
@@ -4376,7 +4376,7 @@
           "how": "Explicit K₀ scalar extension gives the domain of ρ_π; finite-dimensional cohomology and Frobenius isogeny make the nilpotence and uniformizer exponential arguments applicable."
         },
         {
-          "where": "hk §3.2; Theorem 5.1, pp.242,264",
+          "where": "hk §3.2, p.243; Theorem 5.1, pp.262–263",
           "how": "The source construction uses explicit K₀ scalar extension gives the domain of ρ_π; finite-dimensional cohomology and Frobenius isogeny make the nilpotence and uniformizer exponential arguments applicable."
         }
       ]
@@ -4626,7 +4626,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§2.22–2.24 and §3.2–3.4, pp.239–244",
+          "locator": "§2.22–2.24 and §3.2–3.4, pp.240–244",
           "match": "The passage is used for For a proper fine log smooth integral Y/k^log of Cartier type, finite-level log crystalline cohomology has finite W_n(k)-length and the completed cohomology is a finite W(k)-module. The planned reduction is: Use log smooth integral embeddings and proper coherent cohomology to obtain finite-level length and completed finiteness."
         }
       ],
@@ -4662,7 +4662,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§3.2, p.242; algebraic deduction from §3.4",
+          "locator": "§3.2, p.243; algebraic deduction from §3.4, p.244",
           "match": "The passage is used for On each finite-dimensional rational HK cohomology D^m, N is nilpotent. The planned reduction is: Compare characteristic-polynomial coefficients of N under the σ-semilinear conjugation and p-scaling."
         }
       ],
@@ -4700,7 +4700,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "§4.19–4.20, pp.261–264",
+          "locator": "§4.19–4.20, pp.260–262",
           "match": "The passage is used for Import the log de Rham–Witt complex W_nω_Y from CR.4 for fine log smooth Cartier-type Y/k^log. The planned reduction is: Use the CR.4 logarithmic Witt complex and its operators as the supplied object."
         }
       ],
@@ -4735,7 +4735,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "Proof §5.5, pp.266–267",
+          "locator": "Proof §5.5, pp.265–266",
           "match": "The passage is used for For the complete mixed-characteristic DVR O_K with perfect k and the fixed W(k) coefficient map, write u=[ū](1+a), a∈m_K. The planned reduction is: Divide the unit by its Teichmüller lift to obtain a principal unit."
         }
       ],
@@ -4780,7 +4780,7 @@
           "how": "The normalized logarithm of the unit π′/π is the scalar in exp(log(u)N); killing Teichmüller and torsion units specifies this scalar without assigning any log(π)."
         },
         {
-          "where": "hk Proof §5.5, pp.266–267",
+          "where": "hk Proof §5.5, pp.265–266",
           "how": "The source construction uses the normalized logarithm of the unit π′/π is the scalar in exp(log(u)N); killing Teichmüller and torsion units specifies this scalar without assigning any log(π)."
         }
       ]
@@ -4818,7 +4818,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "Theorem 5.1 and construction §5.2–5.4, pp.264–266",
+          "locator": "Theorem 5.1, pp.262–263; construction §5.2–5.4, pp.263–265",
           "match": "The passage is used for For proper semistable X/O_K, K₀=Frac W(k) and chosen uniformizer π, construct ρ_π:C_HK(Y)⊗^L_{K₀}K→RΓ(X_K,Ω^•_{X_K/K,log}). The planned reduction is: Use the PD envelope of the uniformizer relation in W_n[t]^log and its two base specializations."
         }
       ],
@@ -4863,7 +4863,7 @@
           "how": "The actual PD-parameter specialization map, followed by rational Frobenius iteration, is the map proved a quasi-isomorphism; its dependence on π is measured by the specified exponential."
         },
         {
-          "where": "hk Theorem 5.1 and construction §5.2–5.4, pp.264–266",
+          "where": "hk Theorem 5.1, pp.262–263; construction §5.2–5.4, pp.263–265",
           "how": "The source construction uses the actual PD-parameter specialization map, followed by rational Frobenius iteration, is the map proved a quasi-isomorphism; its dependence on π is measured by the specified exponential."
         }
       ],
@@ -4903,7 +4903,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "Theorem 5.1 and proof §5.2–5.4, pp.264–266",
+          "locator": "Theorem 5.1, pp.262–263; proof §5.2–5.4, pp.263–265",
           "match": "The passage is used for For a proper semistable X over a complete mixed-characteristic DVR with perfect residue k, the map ρ_π is a quasi-isomorphism after the displayed K₀→K scalar extension. The planned reduction is: Apply the rational Frobenius-isogeny comparison on the PD parameter envelope."
         }
       ],
@@ -4945,7 +4945,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "Theorem 5.1 and proof §5.5, pp.264–267",
+          "locator": "Theorem 5.1, pp.262–263; proof §5.5, pp.265–266",
           "match": "The passage is used for For π′=πu with u∈O_K×, in the fixed right-wedge monodromy convention and normalized unit logarithm, ρ_{πu}=ρ_π∘exp(log_K(u)N). The planned reduction is: Compare the two parameter maps t↦π and t↦πu using the log diagonal unit ratio."
         }
       ],
@@ -4962,7 +4962,7 @@
       "statement": "For proper fine log smooth integral Cartier-type models for which the log fiber product stays in those hypotheses, rational HK has the Künneth quasi-isomorphism C_HK(Y₁)⊗^L C_HK(Y₂)→C_HK(Y₁×^logY₂). The operators are φ₁⊗φ₂ and N₁⊗1+1⊗N₂, and ρ_π respects the de Rham product comparison. The ordinary product of two strictly semistable models need not itself be strictly semistable; use the stated log product or an allowed semistable refinement.",
       "hypotheses": [],
       "proofSteps": [
-        "Import the derived Künneth/cup-product interface for proper perfect complexes.",
+        "Use the ordinary derived cup-product/Künneth machinery owned by CR.3 and the enhanced tensor from E1. Adapt the PD de Rham resolutions and descent to the fine smooth integral logarithmic product, as in Kato’s final Künneth theorem on p.222; retain its quasi-compact/quasi-separated and flat-crystal hypotheses before proper rational scalar extension.",
         "Tensor the absolute-relative triangles to identify N as the sum of factor operators.",
         "Use the naturality of the PD parameter comparison for the common uniformizer and tensor the nilpotent exponentials."
       ],
@@ -4974,7 +4974,8 @@
         "CrystallineCohomology:CR.6/hk-monodromy",
         "CrystallineCohomology:CR.6/n-phi-relation",
         "CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product",
-        "CohomologyComparisons:CP.2"
+        "CrystallineCohomology:CR.3",
+        "EnhancedDerivedSheaves:E1/enhanced-derived-category"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/LogCrystalline",
@@ -4984,7 +4985,7 @@
       "sources": [
         {
           "sourceId": "hk",
-          "locator": "Theorem 5.1, pp.264–267, functorial comparison input",
+          "locator": "Theorem 5.1, pp.262–263, functorial comparison input",
           "match": "The passage is used for For proper fine log smooth integral Cartier-type models for which the log fiber product stays in those hypotheses, rational HK has the Künneth quasi-isomorphism C_HK(Y₁)⊗^L C_HK(Y₂)→C_HK(Y₁×^logY₂). The planned reduction is: Import the derived Künneth/cup-product interface for proper perfect complexes."
         },
         {
@@ -4995,7 +4996,7 @@
         {
           "sourceId": "kato",
           "locator": "Final Künneth theorem, printed Theorem 6.12 and announced as 6.11, p.222",
-          "match": "The fine crystalline product theorem supplies the algebraic Künneth input. The proper coefficient scalar-extension conditions are retained and assembled with the imported CP.2 product map."
+          "match": "Kato’s final theorem supplies the logarithmic product formula with fine smooth integral maps and flat quasi-coherent crystals. CR.3 owns the ordinary product machinery; no product theory is requested from CP.2."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5051,7 +5052,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Use the semistable nodal model and its oriented annular residue/dual-graph connecting map.",
-        "Import the Tate curve period and valuation calculation from R06.5 to identify the coefficient n.",
+        "Derive the Tate curve valuation/residue coefficient locally in CR.6 from a source-qualified geometric calculation; the exact locator remains a gap. R06.5 consumes CR.6 and cannot supply a prerequisite for this construction.",
         "Compare this residue boundary with the fixed HK triangle, then compute the displayed matrices. The complete source derivation is tracked as a gap until its Tate-curve locator is supplied."
       ],
       "acceptance": [
@@ -5060,8 +5061,7 @@
       "prerequisites": [
         "CrystallineCohomology:CR.6/hk-monodromy",
         "CrystallineCohomology:CR.6/n-phi-relation",
-        "CrystallineCohomology:CR.6/hk-comparison",
-        "PadicHodgeTheory:R06.5"
+        "CrystallineCohomology:CR.6/hk-comparison"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/LogCrystalline",
@@ -5114,7 +5114,7 @@
       "sources": [
         {
           "sourceId": "qian",
-          "locator": "Theorem 1.6; Theorem 3.2 and proof, pp.18–23",
+          "locator": "Theorem 1.6, PDF p.4; Theorem 3.2 and proof, PDF pp.14–18",
           "match": "The passage is used for Let Y be a proper fine log smooth family over a neighborhood of T=0 in W(k)[T]^log, with chart ℕ, 1↦T. The planned reduction is: Use the finite-level log smooth lift and PD Poincaré lemma, comparing the right-wedge dlog T sequences to prove N compatibility."
         }
       ],
@@ -5151,7 +5151,7 @@
       "sources": [
         {
           "sourceId": "dl",
-          "locator": "Appendix B.1–B.2; footnote 31, pp.103–106",
+          "locator": "Appendix B.1–B.2; footnote 31, PDF pp.113–116",
           "match": "The passage is used for For a fine finite-type log scheme X over k^log, take the embedding system of DL Appendix B.1 into log smooth W[t]^log schemes, completed on the special fiber. The planned reduction is: Import the analytic tube, quasi-étale site, specialization and embedding independence interface from the analytic owner."
         }
       ],
@@ -5196,7 +5196,7 @@
           "how": "The absolute model retains θ=dlog t and the relative model kills it; their tube-supported exact sequence defines the convergent boundary compared with crystalline HK."
         },
         {
-          "where": "dl Appendix B.1–B.2; footnote 31, pp.103–106",
+          "where": "dl Appendix B.1–B.2; footnote 31, PDF pp.113–116",
           "how": "The source construction uses the absolute model retains θ=dlog t and the relative model kills it; their tube-supported exact sequence defines the convergent boundary compared with crystalline HK."
         }
       ]
@@ -5231,7 +5231,7 @@
       "sources": [
         {
           "sourceId": "dl",
-          "locator": "Definition B.1; Remark B.2; natural map B.3, pp.104–106",
+          "locator": "Definition B.1 and Remark B.2, PDF p.113; Lemma B.3, PDF p.114; triangle (B.3), PDF p.116",
           "match": "The passage is used for For an open U⊂X in the DL embedding setting, let g:]X∖U[→]X[ be the open analytic tube inclusion. The planned reduction is: Use the exact support kernel on the quasi-étale analytic tube site supplied by RD.4."
         }
       ],
@@ -5276,7 +5276,7 @@
           "how": "The exact analytic kernel is applied before tube pushforward to preserve the absolute-relative sequence. The special-fiber natural transformation has a fixed direction and is not assumed invertible."
         },
         {
-          "where": "dl Definition B.1; Remark B.2; natural map B.3, pp.104–106",
+          "where": "dl Definition B.1 and Remark B.2, PDF p.113; Lemma B.3, PDF p.114; triangle (B.3), PDF p.116",
           "how": "The source construction uses the exact analytic kernel is applied before tube pushforward to preserve the absolute-relative sequence. The special-fiber natural transformation has a fixed direction and is not assumed invertible."
         }
       ]
@@ -5313,7 +5313,7 @@
       "sources": [
         {
           "sourceId": "dl",
-          "locator": "Appendix B.2, sequences B.4 and Lemma B.5",
+          "locator": "Appendix B.2, triangles (B.1)–(B.2), PDF pp.115–116; Witt triangle (B.4), PDF p.117",
           "match": "The passage is used for For the relative and absolute convergent log complexes with the stated analytic proper support, right wedge by θ=dlog t yields ω_(U,X)[−1]→ω̃_(U,X)→ω_(U,X)→^N ω_(U,X), compatibly with the Frobenius factor p. The planned reduction is: Take the absolute-relative log differential short exact sequence on the embedding tube."
         }
       ],
@@ -5327,7 +5327,7 @@
       ],
       "title": "Convergent and log de Rham–Witt complexes",
       "kind": "comparison",
-      "statement": "For a strictly semistable X/k^log, DL Lemma B.5 supplies natural quasi-isomorphisms ω_X≃Wω_X⊗ℚ and ω̃_X≃Wω̃_X⊗ℚ, compatible with the absolute-relative triangle, Frobenius and N. The Witt objects belong to CR.4. This is a rational comparison in the stated embedding setting; arbitrary singular log schemes and an integral convergent comparison are outside its statement.",
+      "statement": "For a strictly semistable X/k^log, DL equation (B.5) supplies natural quasi-isomorphisms ω_X≃Wω_X⊗ℚ and ω̃_X≃Wω̃_X⊗ℚ, compatible with the absolute-relative triangle, Frobenius and N. The Witt objects belong to CR.4. This is a rational comparison in the stated embedding setting; arbitrary singular log schemes and an integral convergent comparison are outside its statement.",
       "hypotheses": [],
       "proofSteps": [
         "Import the semistable logarithmic Witt complexes and compare the embedding models via crystalline de Rham–Witt comparison.",
@@ -5349,8 +5349,8 @@
       "sources": [
         {
           "sourceId": "dl",
-          "locator": "Lemma B.5, pp.106–107",
-          "match": "The passage is used for For a strictly semistable X/k^log, DL Lemma B.5 supplies natural quasi-isomorphisms ω_X≃Wω_X⊗ℚ and ω̃_X≃Wω̃_X⊗ℚ, compatible with the absolute-relative triangle, Frobenius and N. The planned reduction is: Import the semistable logarithmic Witt complexes and compare the embedding models via crystalline de Rham–Witt comparison."
+          "locator": "Equation (B.5) and the preceding strict-semistable comparison argument, PDF p.117",
+          "match": "The passage is used for For a strictly semistable X/k^log, DL equation (B.5) supplies natural quasi-isomorphisms ω_X≃Wω_X⊗ℚ and ω̃_X≃Wω̃_X⊗ℚ, compatible with the absolute-relative triangle, Frobenius and N. The planned reduction is: Import the semistable logarithmic Witt complexes and compare the embedding models via crystalline de Rham–Witt comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5386,7 +5386,7 @@
       "sources": [
         {
           "sourceId": "dl",
-          "locator": "Appendix B.2, after Lemma B.5",
+          "locator": "Appendix B.2, residue quotient, diagrams (B.7)–(B.9), PDF p.118",
           "match": "The passage is used for For the strict semistable setup of DL Appendix B.2, define the specialized residue quotient Ω_+^q=Ω_log^{q+1}/Ω_ordinary^{q+1} on its ambient log lift and compare the resulting rational ω_X^+ with WΞ_X⊗ℚ. The planned reduction is: Use the absolute ambient logarithmic forms and divide by the ordinary form subcomplex with the indicated degree shift."
         },
         {
@@ -5575,7 +5575,7 @@
       ],
       "title": "Completed Hyodo–Kato comparison for Stein curves",
       "kind": "theorem",
-      "statement": "For the smooth semistable Stein curve and strict-limit hypotheses above, the uniformizer-dependent HK map extends to a topological isomorphism C⊗̂_{K₀^nr}H¹_HK(X_C)≅H¹_dR(X_C). Over K before geometric descent use K⊗_{K₀}H¹_HK(X_k). The geometric C-map uses completed tensor products, continuous projective limits and the source Gal(K̄/K) action; it is not obtained from the proper theorem by dropping properness.",
+      "statement": "For the smooth semistable Stein curve and strict-limit hypotheses above, the uniformizer-dependent HK map extends to a topological isomorphism C⊗̂_{K̆₀}H¹_HK(X_C)≅H¹_dR(X_C). Over K before geometric descent use K⊗_{K₀}H¹_HK(X_k). The geometric C-map uses completed tensor products, continuous projective limits and the source Gal(K̄/K) action; it is not obtained from the proper theorem by dropping properness. Here K̆₀=widehat(K₀^nr) is the completed maximal unramified coefficient field (Q̆_p in CDN), as required for these Fréchet spaces.",
       "hypotheses": [],
       "proofSteps": [
         "Use Grosse-Klönne’s log boundary embedding zigzag on each semistable dagger piece.",
@@ -5600,7 +5600,7 @@
         {
           "sourceId": "curves",
           "locator": "§3.1.3, Proposition 3.12; Appendix A.1–A.5",
-          "match": "The passage is used for For the smooth semistable Stein curve and strict-limit hypotheses above, the uniformizer-dependent HK map extends to a topological isomorphism C⊗̂_{K₀^nr}H¹_HK(X_C)≅H¹_dR(X_C). The planned reduction is: Use Grosse-Klönne’s log boundary embedding zigzag on each semistable dagger piece."
+          "match": "The passage is used for For the smooth semistable Stein curve and strict-limit hypotheses above, the uniformizer-dependent HK map extends to a topological isomorphism C⊗̂_{K̆₀}H¹_HK(X_C)≅H¹_dR(X_C). The planned reduction is: Use Grosse-Klönne’s log boundary embedding zigzag on each semistable dagger piece."
         },
         {
           "sourceId": "cdn",
@@ -5618,7 +5618,7 @@
       ],
       "title": "Hyodo–Kato cohomology of semistable curve towers",
       "kind": "construction",
-      "statement": "For the source-qualified Drinfeld-type finite-level semistable curve tower (M_n), define H¹_HK(M_∞)=colim_n H¹_HK(M_n) in the category of ind-Fréchet K₀^nr-spaces with continuous commuting tower/group and Gal_F actions and (φ,N). Levelwise HK-to-de Rham maps induce C⊗̂H¹_HK(M_∞)≅H¹_dR(M_∞) in that category under the analytic continuity hypotheses. The representation classification of the tower belongs to its automorphic owner.",
+      "statement": "For the source-qualified Drinfeld-type finite-level semistable curve tower (M_n), define H¹_HK(M_∞)=colim_n H¹_HK(M_n) in the category of ind-Fréchet K̆₀-spaces with continuous commuting tower/group and Gal_F actions and (φ,N). Levelwise HK-to-de Rham maps induce C⊗̂H¹_HK(M_∞)≅H¹_dR(M_∞) in that category under the analytic continuity hypotheses. The representation classification of the tower belongs to its automorphic owner. Here K̆₀=widehat(K₀^nr) is the completed maximal unramified coefficient field (Q̆_p in CDN), as required for these Fréchet spaces.",
       "hypotheses": [],
       "proofSteps": [
         "Apply the nonproper curve HK construction at each finite level with the source semistable models.",
@@ -5644,7 +5644,7 @@
         {
           "sourceId": "cdn",
           "locator": "§0.3, pp.6–7; §0.6, pp.11–13",
-          "match": "The passage is used for For the source-qualified Drinfeld-type finite-level semistable curve tower (M_n), define H¹_HK(M_∞)=colim_n H¹_HK(M_n) in the category of ind-Fréchet K₀^nr-spaces with continuous commuting tower/group and Gal_F actions and (φ,N). The planned reduction is: Apply the nonproper curve HK construction at each finite level with the source semistable models."
+          "match": "The passage is used for For the source-qualified Drinfeld-type finite-level semistable curve tower (M_n), define H¹_HK(M_∞)=colim_n H¹_HK(M_n) in the category of ind-Fréchet K̆₀-spaces with continuous commuting tower/group and Gal_F actions and (φ,N). The planned reduction is: Apply the nonproper curve HK construction at each finite level with the source semistable models."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5796,12 +5796,12 @@
         "Use the stated Tate twist convention to scale Frobenius and shift the filtration."
       ],
       "acceptance": [
-        "The Tate twist convention agrees with R06.5 and the standard R07.2 modules."
+        "The Tate twist convention agrees with R06.2 and the standard R07.2 modules."
       ],
       "prerequisites": [
         "CrystallineCohomology:CR.7/finite-projective-coefficients",
         "CrystallineCohomology:CR.6/n-phi-relation",
-        "PadicHodgeTheory:R06.5"
+        "PadicHodgeTheory:R06.2"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/LogCrystalline",
@@ -6336,7 +6336,7 @@
       ]
     },
     {
-      "supplier": "AInfCohomology:AI.0",
+      "supplier": "AInfCohomology:AI.0:integral",
       "need": "Export the already-owned perfectoid tilt, sharp and Teichmüller charts, A_inf and θ from AI.0:integral, with coefficient maps to the common A_cris owned by CR.0. The generic log structures are owned here; AI.6 owns the specialized semistable period-envelope comparison.",
       "neededBy": [
         "CrystallineCohomology:CR.5:log-algebra/valuation-log",
@@ -6345,26 +6345,11 @@
     },
     {
       "supplier": "PadicHodgeTheory:R06.1",
-      "need": "Provide the complete DVR/Witt coefficient embedding, rational period coefficient maps, geometric K₀^nr→C scalar extension, and convergent p-adic unit logarithm on principal units. The normalization killing Teichmüller units is specified by this packet. Shared integral A_cris and its finite PD quotients remain owned by CR.0 under RS-01.",
+      "need": "Provide the complete DVR/Witt coefficient embedding, rational period coefficient maps, geometric coefficient extension through K̆₀=widehat(K₀^nr)→C, and convergent p-adic unit logarithm on principal units. The normalization killing Teichmüller units is specified by this packet. Shared integral A_cris and its finite PD quotients remain owned by CR.0 under RS-01.",
       "neededBy": [
         "CrystallineCohomology:CR.5/a-cris-log",
         "CrystallineCohomology:CR.6/unit-logarithm",
         "CrystallineCohomology:CR.6/stein-hk-comparison"
-      ]
-    },
-    {
-      "supplier": "CohomologyComparisons:CP.2",
-      "need": "Supply the derived cup product and Künneth map for the proper perfect coefficient complexes used by the log crystalline and de Rham models, with tensor signs and scalar extension; the current scope must be extended as Cohomology comparisons, Part II: log products if its existing statement is narrower.",
-      "neededBy": [
-        "CrystallineCohomology:CR.6/hk-products"
-      ]
-    },
-    {
-      "supplier": "PadicHodgeTheory:R06.5",
-      "need": "Supply the Tate elliptic curve semistable period module and residue/valuation computation N(e₁)=v_K(q)e₀ with variance/Tate twist conventions; provide the ordinary filtered (φ,N) coefficient interface with twist φ_r=p^{−r}φ. The generic crystal/log HK construction is not replanned there.",
-      "neededBy": [
-        "CrystallineCohomology:CR.6/hk-tate-curve",
-        "CrystallineCohomology:CR.7/filtered-frobenius-coefficients"
       ]
     },
     {
@@ -6394,6 +6379,20 @@
         "CrystallineCohomology:CR.7/dieudonne-evaluation",
         "CrystallineCohomology:CR.7/messing-filtration-interface"
       ]
+    },
+    {
+      "supplier": "PadicHodgeTheory:R06.2",
+      "need": "Export the existing filtered (φ,N)-module coefficient category, horizontal maps, descent data and the convention φ_{D(r)}=p^{−r}φ_D, with the specified filtration shift. This is the period-functor interface, before the geometric representation applications in R06.5. The latter consumes CR.6 and is not a supplier here.",
+      "neededBy": [
+        "CrystallineCohomology:CR.7/filtered-frobenius-coefficients"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "Export the generic countable derived inverse-limit functor on coherent towers of enhanced module complexes, its finite-level projections, and its homotopy/Milnor description. The existing derived-completion node is not this generic functor: identify it with the corresponding quotient-tower limit only under that node’s proved regularity/weak-proregularity hypotheses. Use the corrected BO projective replacement when applicable.",
+      "neededBy": [
+        "CrystallineCohomology:CR.5/p-adic-log-crystalline"
+      ]
     }
   ],
   "coverage": [
@@ -6402,7 +6401,8 @@
       "status": "planned",
       "remaining": [
         "Obtain the full logarithmic Abhyankar proof and supplier boundary/tame-cover interfaces. Obtain the local Kato log smooth/log regular proof cited by Thompson Theorem 3.14.",
-        "Verify the nonnoetherian formal-boundary approximation proof chain under the exact finite-model hypotheses."
+        "Verify the nonnoetherian formal-boundary approximation proof chain under the exact finite-model hypotheses.",
+        "Revise strictness, log smoothness/finite-model and log-regularity signatures to use the actual objects; restore full named APIs and discriminating geometric tests."
       ]
     },
     {
@@ -6410,7 +6410,8 @@
       "status": "planned",
       "remaining": [
         "Supply the generic ordinary PD envelope/canonical-base imports from CR.0 and completion interface.",
-        "Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain."
+        "Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain.",
+        "Supply genuine ringed log PD site/crystal, joint-base PD and enhanced tower types; replace arbitrary-object equivalences and complete named PD/Cartier/descent tests."
       ]
     },
     {
@@ -6418,7 +6419,8 @@
       "status": "planned",
       "remaining": [
         "Provide CR.4 log Witt and Sato residue objects and the RD Part II analytic/topological interfaces.",
-        "Supply the Tate-curve geometric monodromy calculation and compare its basis orientation."
+        "Supply the Tate-curve geometric monodromy calculation and compare its basis orientation.",
+        "Restrict HK operator/comparison statements to actual geometric constructions and coherent scalar extensions; restore derived product/good-reduction/Tate tests and complete analytic coefficient topology."
       ]
     },
     {
@@ -6426,7 +6428,8 @@
       "status": "planned",
       "remaining": [
         "Provide the R07.2 crystalline Dieudonné/Grothendieck–Messing construction and actual evaluation maps.",
-        "Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees."
+        "Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees.",
+        "Bind Dieudonné, Hodge exactness, direct-image and Gauss–Manin maps to the actual supplier constructions; add evaluation/F,V, dual-twist and horizontal base-change tests."
       ]
     }
   ],
@@ -6437,14 +6440,14 @@
         "CrystallineCohomology:CR.5:log-algebra/log-abhyankar",
         "CrystallineCohomology:CR.5:log-algebra/log-smooth-over-log-regular"
       ],
-      "detail": "Temkin Theorem 4.3.1 proof, Step 10 inherited from IT14b, uses the tame Kummer étale/log regular extension, and its root-chart reduction is specified, but the complete fs descent/log-regularity proof from its cited log source has not been obtained. Supply an accessible proof with exact noetherian/tameness hypotheses and reconcile it with the requested LPV.5 classical lemma; do not mark this target closed. Thompson Theorem 3.14 states log smooth preservation of log regularity and refers to Kato Toric singularities Theorem 8.2. Obtain its local completed-ring proof as well; this is separate from arbitrary non-fine log regularity."
+      "detail": "Temkin Theorem 4.2.1 proof, Step 10 inherited from IT14b, uses the tame Kummer étale/log regular extension, and its root-chart reduction is specified, but the complete fs descent/log-regularity proof from its cited log source has not been obtained. Supply an accessible proof with exact noetherian/tameness hypotheses and reconcile it with the requested LPV.5 classical lemma; do not mark this target closed. Thompson Theorem 3.14 states log smooth preservation of log regularity and refers to Kato Toric singularities Theorem 8.2. Obtain its local completed-ring proof as well; this is separate from arbitrary non-fine log regularity."
     },
     {
       "title": "Tate curve geometric monodromy locator",
       "neededBy": [
         "CrystallineCohomology:CR.6/hk-tate-curve"
       ],
-      "detail": "The nonzero rank-two acceptance block and its Nφ sign are explicit, but a complete source proof deriving the coefficient v_K(q) for the Tate curve from the oriented HK/residue comparison is not present in the passages read. R06.5 must provide this calculation and its basis convention; until then the geometric acceptance theorem is planned with this gap."
+      "detail": "The rank-two matrix test fixes Nφ=pφN but does not derive the geometric coefficient v_K(q). Supply a public source proof from the oriented log crystalline/residue model of the split Tate curve, with the valuation normalization and basis change. This calculation belongs to CR.6; R06.5 is a downstream consumer of CR.6 and cannot be a prerequisite."
     },
     {
       "title": "Non-fine period-base and formal-boundary proof chains",
@@ -6453,6 +6456,13 @@
         "CrystallineCohomology:CR.5/a-cris-log"
       ],
       "detail": "Beilinson supplies the uniquely p-divisible finite-level lift, CK supplies the period-base chart, and BKV/Nizioł state the formal divisorial identification. Their full extension from noetherian fine log regularity to the nonnoetherian O_C formal boundary uses Koshikawa/Ogus and auxiliary approximation results not all proved in the read passages. Keep the O_C identification under the source finite-model hypotheses and supply the remaining proof chain; do not infer arbitrary non-fine log regularity."
+    },
+    {
+      "title": "Generic derived inverse-limit interface",
+      "neededBy": [
+        "CrystallineCohomology:CR.5/p-adic-log-crystalline"
+      ],
+      "detail": "The DD.1 derived-completion node constructs a specific completion localization, not Rlim for an arbitrary coherent tower. The precise generic DD.1 export is requested separately. Its enhancement, coherent transition maps, projections and Milnor/lim-one comparison must be supplied before the finite-level log crystalline tower is assembled; a bare function from sequences of objects does not supply it."
     }
   ],
   "sameRoadmapInputs": [
@@ -6470,7 +6480,7 @@
     },
     {
       "stage": "CrystallineCohomology:CR.3",
-      "need": "Proper coherent finiteness, flat-coefficient derived base change and formal-functions passage; state the precise torsion/rank criteria when an individual H^i is locally free."
+      "need": "Proper coherent finiteness, flat-coefficient derived base change and formal-functions passage; state the precise torsion/rank criteria when an individual H^i is locally free. Reuse ordinary proper cup products and derived Künneth; CR.6 owns the logarithmic adaptation, as in Kato p.222."
     },
     {
       "stage": "CrystallineCohomology:CR.4",
@@ -6518,7 +6528,12 @@
         "Official Ogus author erratum",
         "Public BO Appendix B and Chapter 7"
       ],
-      "source": "bo"
+      "source": "bo",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against original Appendix B2.1 and both pages of the official erratum. The replacement is an isomorphism in the derived category; a surjective map onto the original tower requires its transition-surjectivity assumption. Bounded-above/projective replacement hypotheses must be kept.",
+        "by": "REV-CrystallineCohomology--CR.5"
+      }
     },
     {
       "id": "CrystallineCohomology/E7052",
@@ -6531,9 +6546,17 @@
       "known": "Already recorded as E12 in the routed Qian companion extraction; this packet retains the proper hypothesis. The finding is scoped to arXiv:2103.00106v1, not to an assertion about the published 2023 potential-automorphy article.",
       "searched": [
         "Qian v1 Theorem 3.2 proof",
-        "Companion extraction source issue E12"
+        "Companion extraction source issue E12",
+        "https://arxiv.org/abs/2103.00106 (only v1; no journal reference)",
+        "https://web.stanford.edu/~lqian/ (separate preprint and 2023 article)",
+        "https://par.nsf.gov/servlets/purl/10388233 (published potential-automorphy article, reference 14)"
       ],
-      "source": "qian"
+      "source": "qian",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for arXiv:2103.00106v1 Theorem 3.2, PDF p.14 and proof pp.17–18: the displayed setup omits properness, while proper base change and finite cohomology are invoked. The packet retains properness. The author lists this as a separate preprint; the 2023 potential-automorphy article only cites it and is not a corrected version of this theorem.",
+        "by": "REV-CrystallineCohomology--CR.5"
+      }
     },
     {
       "id": "CrystallineCohomology/E7053",
@@ -6548,7 +6571,12 @@
         "BKV v2 Definition 2.3 and Remark 2.4",
         "Accepted routed extraction and available arXiv version"
       ],
-      "source": "bkv"
+      "source": "bkv",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in BKV v2 Remark 2.4(1): the printed difference condition is tautological with p=0 and q′=q. A group quotient instead requires q+q′ in the image; 0→ℕ is a counterexample to the printed condition.",
+        "by": "REV-CrystallineCohomology--CR.5"
+      }
     },
     {
       "id": "CrystallineCohomology/E7054",
@@ -6563,7 +6591,12 @@
         "Public 1989 scan, p.222, visually read",
         "Adjacent §§6.9–6.10 and bibliography"
       ],
-      "source": "kato"
+      "source": "kato",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on Kato p.222: the introduction announces 6.11 while the displayed Künneth theorem is headed 6.12. This changes the locator only.",
+        "by": "REV-CrystallineCohomology--CR.5"
+      }
     }
   ],
   "baselineAudit": {
@@ -6718,5 +6751,453 @@
       "read": "2026-10-06",
       "sha256": "830cdd56e6948f44c433cfb9d07b158bde8bdea03bf9ae368940aae221c3365c"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-CrystallineCohomology--CR.5",
+    "date": "2026-10-06",
+    "notes": "Independent completed review of all 88 nodes, all named API/test statements, all 25 pinned baseline declarations, all 18 source versions and every external supplier reference. Corrected source locators/title, integrality and groupification API, PD hypotheses, ownership cycle/product supplier and complete analytic coefficients; confirmed all four source issues and RT-AREA-padic-2/14 remedy. Remaining false universal Lean signatures and missing geometric/API tests prevent acceptance. Complete is retained as one finished target-level planning pass; honest pre-existing gaps/open supplier stages are not grounds for rejection. See the report for all corrections and required revisions.",
+    "checked": [
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/prelog-ring",
+        "verdict": "verified",
+        "note": "Kato §1.1; the affine prelog ring/map slice has the correct multiplicative convention, compatibility and three meaningful tests."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-structure",
+        "verdict": "verified",
+        "note": "Kato §1.2; the affine unit-fibre condition is correct. The étale-sheaf extension is explicitly omitted rather than asserted."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/associated-log",
+        "verdict": "verified",
+        "note": "Kato §1.3; logification has its unit pushout, universal map and idempotence; the log point and invertible-generator tests distinguish it from its prelog chart."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-pullback",
+        "verdict": "verified",
+        "note": "Kato §1.4; the affine ring-map pullback slice and its log-point/torus specializations are consistent. Étale descent remains in the mathematical node."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/characteristic-monoid",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated Lean kernel assertion by the actual groupification quotient equivalence. The quotient is by the image of units, with no unjustified injectivity assumption."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/integral-monoid",
+        "verdict": "corrected",
+        "note": "Removed the false characteristic_iff API and Lean equivalence: Kato §2.4(3) supplies only descent of integrality to the characteristic. A nonfree unit action gives a counterexample to the converse."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/fine-monoid",
+        "verdict": "unverifiable",
+        "note": "The fine-monoid definition/tests are sound, but the named logification API promises a fine associated log structure and its Lean type asserts only integrality. Supply its fine-chart/coherence conclusion, rather than finite generation of the entire unit-containing log monoid."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/saturated-monoid",
+        "verdict": "corrected",
+        "note": "Replaced nonmatching saturation locators with Thompson §1.2 Definition 1.6, p.7. Root closure, cusp and rational-monoid tests have the right hypotheses."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-chart",
+        "verdict": "verified",
+        "note": "Kato Definition 2.9 and Lemma 2.10; the global affine chart slice uses an associated-log isomorphism. Stalk and restriction geometry is recorded as a supplier extension."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/strict-morphism",
+        "verdict": "unverifiable",
+        "note": "Packet strictness is an isomorphism of pulled-back log structures; Lean IsStrict instead tests an arbitrary chart homomorphism for bijectivity. The smooth_iff API assumes equality of arbitrary test families and has no strict log morphism. Nonminimal charts of a strict map need not be isomorphic."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/exact-morphism",
+        "verdict": "verified",
+        "note": "Kato §4.6: for the stated integral monoid scope, the groupification pullback criterion and positive-multiple/sum-chart examples are appropriate."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/integral-morphism",
+        "verdict": "unverifiable",
+        "note": "Kato integrality/factorization and local-exactness hypotheses are correct. The named pushout API in Lean repeats the factorization predicate instead of exporting integrality of the pushout; supply that conclusion and its canonical comparison."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/kummer-morphism",
+        "verdict": "verified",
+        "note": "The chart Kummer condition is injectivity and positive-power lifting, with composition. Prime-to-characteristic invertibility is kept separate from Kummerness and needed for étaleness."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product",
+        "verdict": "unverifiable",
+        "note": "Kato/Beilinson distinguish ordinary, integralized and fs log fibre products. Lean constructs an ordinary monoid pushout only; its signature and tests do not export integralization or the fs underlying-scheme change promised in the node."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-smooth",
+        "verdict": "unverifiable",
+        "note": "The source infinitesimal definition is appropriate, but Lean has an arbitrary category/test family and replaces the strict-smooth criterion by equality of families. The semistable test checks only group injectivity and the torsion test only noninvertibility, neither the lifting conclusion."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion",
+        "verdict": "unverifiable",
+        "note": "Kato Theorem 3.5 has both group kernel/cokernel torsion invertibility and smoothness of the actual toric map. Lean omits the cokernel and toric map and concludes a lifting property for an unrelated arbitrary arrow. This is false."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/chart-base-change",
+        "verdict": "unverifiable",
+        "note": "The packet covers strict/exact/integral/log-smooth base change. Lean states only integral chart-map base change; the remaining named target is not prototyped."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/divisorial-log",
+        "verdict": "unverifiable",
+        "note": "Temkin/Nizioł justify the regular SNC source scope. The affine invertible-on-complement monoid slice is useful, but boundary_chart has no SNC carrier/equations and the named crossing test does not identify the logarithmic boundary through the supplied carrier."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-regularity",
+        "verdict": "unverifiable",
+        "note": "Nizioł Definition 2.2 requires a noetherian fs log stalk and regular quotient ring. Lean IsLogRegular is a relation on four natural numbers; it does not define that local-ring property or test it."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-smooth-over-log-regular",
+        "verdict": "unverifiable",
+        "note": "Thompson Theorem 3.14 has the proper log-smooth/fs/noetherian scope; the local proof remains an honest gap. Lean asserts only an arithmetic dimension identity with no log morphism or regular local ring."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/log-abhyankar",
+        "verdict": "unverifiable",
+        "note": "Corrected Temkin locator to Theorem 4.2.1 proof, Steps 9–10. Full tame normal-extension/log-regular descent is honestly a gap; Lean only asserts that rootChart is Kummer, without the tame cover or extension."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/qc-log-scheme",
+        "verdict": "unverifiable",
+        "note": "Beilinson integral quasi-coherent scope is correct. The affine QCLogScheme chart slice is sound, but integral_limits only tests pushouts along an integral map and does not supply general finite integral log limits as the API promises."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/qc-log-smooth",
+        "verdict": "unverifiable",
+        "note": "BKV Definition 2.1 requires a fine log-smooth model. Lean QCLogSmooth carries fine monoids and a pushout but no smooth model; fine_compatibility consequently includes every fine chart map. Reinstate the source model and smoothness."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/fine-model-descent",
+        "verdict": "unverifiable",
+        "note": "BKV Proposition 2.2 descends the finite-presentation log-smooth morphism to a fine base model. Lean only factors the image of a finitely generated monoid; it does not descend the scheme or its smooth structure."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/vertical-log",
+        "verdict": "verified",
+        "note": "The monoid quotient is a group exactly when every element has an inverse modulo the base image. Lean uses the corrected sum/product criterion rather than BKV’s tautological printed difference. E7053 independently confirmed."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/valuation-log",
+        "verdict": "corrected",
+        "note": "BKV Notation 2.5/Lemma 2.6 and the arbitrary integral valuation chart are appropriate; narrowed the supplier to its owned AI.0:integral branch. No fine log structure is inferred for O_C."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5:log-algebra/formal-semistable-log",
+        "verdict": "unverifiable",
+        "note": "The BKV/Koshikawa finite-model scope is retained, with a recorded nonnoetherian boundary proof gap. Lean returns an associated affine log chart without formal semistable or boundary data; supply the geometric identification, reduction and formal base-change tests."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-differentials",
+        "verdict": "verified",
+        "note": "Kato §§1.7–1.8 match the log differential generators/relations and universal derivation pair; trivial log, toric line and log-point tests discriminate the module."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-de-rham",
+        "verdict": "verified",
+        "note": "Kato §1.9/6.4; cohomological log forms, degree zero, closed dlog and coefficient Leibniz differential have the right conventions. Laurent characteristic-p test is nontrivial."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/semistable-log-forms",
+        "verdict": "verified",
+        "note": "Kato semistable chart and CK §5.10 match the explicit relative presentation and base-generator relation; the affine form presentation is a valid slice."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/semistable-residues",
+        "verdict": "corrected",
+        "note": "Corrected the DL locator to residue quotient/diagram (B.7), PDF p.118. Absolute ordered coordinate residues are distinguished from the relative quotient, so the nonexample is meaningful."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-reduction-completion",
+        "verdict": "unverifiable",
+        "note": "Corrected CK page range to 36–38. Lean proves only a chart pullback identity; it does not state the continuous differential inverse-limit comparison under the finite-chart/completion hypotheses."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/cartier-type",
+        "verdict": "unverifiable",
+        "note": "Kato Cartier type is integrality plus exactness of the actual relative Frobenius. Lean takes an unrelated arbitrary qF; base_change simply returns its assumed predicate. Bind qF to relative Frobenius and state the real base-change theorem."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-cartier-isomorphism",
+        "verdict": "unverifiable",
+        "note": "Kato Theorem 4.12 requires log-smooth Cartier type in characteristic p and the actual differential complex. Lean claims an isomorphism between arbitrary modules q,Hq; choose zero and a nonzero field module to contradict it."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-exactification",
+        "verdict": "unverifiable",
+        "note": "Kato exactification is source-qualified. Lean exposes an arbitrary factorization slice without the étale chart neighbourhood or required universal common-refinement maps; the geometric target remains untyped."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-pd-envelope",
+        "verdict": "unverifiable",
+        "note": "Corrected the fixed-source envelope hypothesis using visually read Kato §5.5.2: require γ to extend to Y, since the general adjoint may change X. Lean still takes arbitrary rings/logs, lacks base PD/closed log immersion data, and its diagonal test is merely δ₁(x)=x."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/qc-log-pd-envelope",
+        "verdict": "unverifiable",
+        "note": "Made Beilinson’s log S♯-scheme assumptions explicit: γ extends to Z and Y. Lean still lacks this base, p-nilpotence and the embedded log map. uncompleted_scope repeats the identity example and does not catch the unsupported uncompleted generalization."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-pd-thickening",
+        "verdict": "unverifiable",
+        "note": "Clarified Beilinson §1.2 joint PD extension on J+IO_T; IO_T need not lie in J. Lean carries only divided powers on J and its pd_base API repeats a hypothesis without the common extension data."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-pd-smooth",
+        "verdict": "unverifiable",
+        "note": "Beilinson §1.4 does not claim étale locality. Lean coordinate and coordinate_envelope assert PD smoothness of any arbitrary arrow for any tests; the polynomial/log coordinate construction is missing and the assertion is false."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-crystalline-site",
+        "verdict": "unverifiable",
+        "note": "Made the source base-PD extension explicit. Lean accepts arbitrary covering families without the crystalline-site construction; trivial_log says every arbitrary functor is an equivalence. The source category/geometric forgetful map must restrict that claim."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-crystal",
+        "verdict": "unverifiable",
+        "note": "Kato/Beilinson crystals are module sheaves with cartesian transitions. Lean defines cartesian presheaves without the sheaf condition; the claimed sheaf supplier is already owned by E1. Supply the actual ringed-site sheaf type and tensor/finite-projective dual interface."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-pd-stratification",
+        "verdict": "unverifiable",
+        "note": "Diagonal/cocycle data have the right source orientation, but first_order constructs a connection on arbitrary unrelated M,Ω,d from arbitrary categorical stratification data. Identify the actual first PD neighbourhood and evaluated module; do not claim every module admits that connection."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-connection",
+        "verdict": "unverifiable",
+        "note": "The additive Leibniz connection slice is sound. The named nonintegrable test proves only a nonzero exterior product and never constructs the connection or computes its curvature; horizontal complex maps also need the actual compatible exterior differential."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-quasi-nilpotence",
+        "verdict": "unverifiable",
+        "note": "The one-coordinate falling-factorial slice/tests are meaningful. coordinate_independent is merely conjugacy of one operator; formal_mod_pn is one-way descent to an arbitrary quotient. Neither gives the stated log-coordinate-change or formal iff on all p-power levels."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/crystal-connection-equivalence",
+        "verdict": "unverifiable",
+        "note": "Kato Theorem 6.2/Beilinson §1.7 require the specified PD smooth embedding, evaluation and integrable quasi-nilpotent modules. Lean gives C≌D for arbitrary categories C,D, contradicted by empty/nonempty categories."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-pd-de-rham",
+        "verdict": "unverifiable",
+        "note": "PD derivative and filtration formula match Beilinson. Lean exposes truncated arbitrary module/differential data rather than the full coefficient PD log de Rham complex; coefficient_tensor does not supply the named tensor complex comparison."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/log-poincare",
+        "verdict": "unverifiable",
+        "note": "The Kato/Beilinson Poincaré source scope is retained. Lean returns an isomorphism between arbitrary derived objects; zero and the field in degree zero contradict this claim."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/embedding-descent",
+        "verdict": "unverifiable",
+        "note": "The finite-level uniformly bounded-below hypercover supplier is appropriate. Lean returns an isomorphism of arbitrary unrelated derived objects and does not encode the hypercover/refinement comparison."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/p-adic-log-crystalline",
+        "verdict": "unverifiable",
+        "note": "Added exact DD.1 Rlim request/gap: derived completion is not generic tower limit. Lean takes a bare function Rlim; an arbitrary constant nonzero output contradicts zero_coefficients, and an arbitrary zero output contradicts witt_point. Supply a functor with coherent limit projections."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/unique-p-divisible-lift",
+        "verdict": "unverifiable",
+        "note": "Beilinson §1.17 requires integral quasi-coherent characteristic-p source and p-nilpotent compatible PD thickening. Lean omits those hypotheses and the unique compatible log-lift property, taking arbitrary rings/logs instead."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.5/a-cris-log",
+        "verdict": "unverifiable",
+        "note": "CK §5.2 matches the uniquely p-divisible finite-level chart and common CR.0 A_cris ownership. Refined AI.0:integral import. Lean is generic associated logification and its rational_characteristic/not_fine tests do not compute the actual A_cris quotient chart."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/log-witt-base",
+        "verdict": "verified",
+        "note": "HK §3.1 is on printed p.242; corrected locator. The completed Witt chart really sends 1 to zero, and the distinction from the p chart is retained. Truncations/canonical PD ideal remain CR.4 imports."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/integral-hk",
+        "verdict": "unverifiable",
+        "note": "Corrected HK construction pages. Lean integralHK takes an unconstrained Rlim and embedding_model identifies it with an arbitrary object; its point tests are false for arbitrary constant zero/nonzero functions."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/rational-hk",
+        "verdict": "unverifiable",
+        "note": "Rational scalar extension is the right construction in HK §3.2, with corrected locator. Lean invertP is any functor; no exactness/p-inversion/base field relation is specified, so torsion-killed and point tests are not justified."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-frobenius",
+        "verdict": "verified",
+        "note": "HK/CK Frobenius requires the p-factor on logarithmic one-forms and semilinearity. The affine coefficient formula and Witt nonlinearity test correctly retain prime/CharP assumptions; geometric maps remain source constructions."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-monodromy",
+        "verdict": "unverifiable",
+        "note": "The fixed right-wedge HK triangle is appropriate. Lean boundary equates N with any arbitrary linear map, and embedding_independence says every linear equivalence commutes with N. Choose a nonzero Tate block and zero boundary to contradict the first."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/n-phi-relation",
+        "verdict": "unverifiable",
+        "note": "The source relation is Nφ=pφN. In Lean HKModule already assumes this as a structure field, so the theorem repeats the assumption rather than testing the geometric Frobenius/connecting-map construction."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-finiteness",
+        "verdict": "unverifiable",
+        "note": "HK proper fine smooth integral Cartier-type finiteness/isogeny hypotheses are correct, with corrected pages. Lean asserts finite dimension and bijective φ for every HKModule, permitting infinite-dimensional modules or φ=N=0."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-nilpotence",
+        "verdict": "corrected",
+        "note": "Corrected source page to 243. The abstract finite-dimensional nilpotence deduction has invertible semilinear φ and valuation-preserving σ with 0<|p|<1; these rule out the false infinite-dimensional/noninvertible cases."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/log-de-rham-witt-model",
+        "verdict": "unverifiable",
+        "note": "Corrected HK §4.19–4.20 to pp.260–262; CR.4 log Witt extension is explicitly requested. Lean claims HK≅logWitt for arbitrary derived objects without the source comparison construction."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/unit-logarithm",
+        "verdict": "unverifiable",
+        "note": "Corrected HK §5.5 pages. Lean unitLog accepts arbitrary characteristic-zero fields/algebras, and teichmuller vanishing is asserted for any homomorphism, without the actual complete DVR, section and principal-unit convergence/normalization."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-comparison-map",
+        "verdict": "unverifiable",
+        "note": "Corrected HK construction pages; the source map depends on the semistable model, scalar extension and π. Lean pullback asserts naturality for arbitrary unrelated h,d, and generic_log identifies arbitrary derived objects. Its tests are tensor/exponential identities, not the geometric map."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-comparison",
+        "verdict": "unverifiable",
+        "note": "Corrected HK Theorem 5.1/proof pages. Lean claims hkComparisonMap is an isomorphism for arbitrary H,D; the source proper semistable/Cartier-type hypotheses and actual complexes are essential."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/uniformizer-change",
+        "verdict": "unverifiable",
+        "note": "Corrected source pages. The packet fixes the right-wedge sign and finite exponential correctly; Lean asserts the change law for an arbitrary function ρ on K×. With N=0, any nonconstant ρ contradicts it."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-products",
+        "verdict": "unverifiable",
+        "note": "Rerouted ordinary products from CP.2 to CR.3 and local CR.6 logarithmic adaptation, retaining Kato p.222 hypotheses. Lean only defines tensor monodromy and never states the canonical derived Künneth quasi-isomorphism or HK comparison compatibility."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-good-reduction",
+        "verdict": "unverifiable",
+        "note": "HK good reduction means ordinary crystalline identification, N=0 and uniformizer-independent geometric comparison. Lean states exp(a·0)=1 only; it does not verify any of those identifications."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/hk-tate-curve",
+        "verdict": "unverifiable",
+        "note": "Removed the CR.6→R06.5→CR.6 dependency cycle. The geometric Tate-curve valuation/residue derivation stays a precise local CR.6 source gap; Lean proves a supplied rank-two matrix identity, not the geometric identification."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/qian-family-model",
+        "verdict": "unverifiable",
+        "note": "Corrected Qian locators to PDF p.4 and pp.14–18 and confirmed the retained properness remedy. Lean comparison accepts arbitrary derived objects; it does not construct the family or its actual completed log de Rham model."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/convergent-log-complex",
+        "verdict": "unverifiable",
+        "note": "Corrected DL embedding/tube pages. The source is convergent, with absolute W[t] and relative W^log variants. Lean refinement returns C≅D for arbitrary objects and the not_overconvergent test compares affine differentials, not convergent versus overconvergent cohomology."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/tube-proper-support",
+        "verdict": "unverifiable",
+        "note": "Corrected DL Definition B.1/Remark B.2/Lemma B.3 locators. The scalar kernel slice is sound, but the actual exact tube functor and special-fibre natural transform are not supplied; wrong_order does not exercise the source prohibition on factorization through Rs_*."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/convergent-monodromy-triangle",
+        "verdict": "unverifiable",
+        "note": "Corrected DL locator to triangles (B.1)–(B.2), with (B.4) the Witt triangle. Lean asserts the relation on already assumed HKModule data without the analytic supported triangle/Frobenius connecting map."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/convergent-witt-comparison",
+        "verdict": "unverifiable",
+        "note": "Corrected DL Lemma B.5 to equation (B.5), PDF p.117. The rational strict-semistable comparison is stated there; the actual Lemma B.5 is a different high-degree support result. Lean still equates arbitrary derived objects."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/sato-residue-variant",
+        "verdict": "unverifiable",
+        "note": "Corrected DL residue locator to (B.7)–(B.9), PDF p.118, and checked Sato Definition 8.3/Proposition 8.4. The shifted quotient and module convention are correct; Lean omits the actual WΞ residue diagram and source comparison."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/proper-log-rigid-hk",
+        "verdict": "unverifiable",
+        "note": "Grosse-Klönne §3.11/Theorem 3.4 and BKV Remark 3.4(2) justify the proper log-rigid HK comparison. The precise RD extension is requested. Lean returns an equivalence of arbitrary modules, not the proper model comparison."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/ramified-hk-base-change",
+        "verdict": "unverifiable",
+        "note": "BKV Remarks 3.4–3.5 justify ramified base change with N_raw/d. Lean exposes normalized linear monodromy but not the coefficient/model base-change map and its Frobenius-equivariant isomorphism."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/stein-hk",
+        "verdict": "unverifiable",
+        "note": "The Stein weak-formal/strict-limit source scope and RD requests are appropriate. Lean SteinHKData is only a Hausdorff topological module and exhaustion_independence identifies arbitrary spaces; it lacks complete metrizable locally convex structure and actual admissible exhaustions."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/stein-hk-comparison",
+        "verdict": "unverifiable",
+        "note": "Corrected geometric coefficients to the completed K̆₀=widehat(K₀^nr), as in CDN Q̆_p. Lean asserts continuous linear equivalence of arbitrary SteinHKData, including zero and nonzero spaces, without source completed scalar extension."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.6/tower-hk",
+        "verdict": "unverifiable",
+        "note": "Corrected CDN completed coefficient field. Mathlib Ind.lim supplies a valid generic coherent filtered diagram construction, but its arbitrary category does not provide ind-Fréchet topology, completed C tensor, source tower/group actions or geometric comparison. Supply those named APIs/tests."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/finite-projective-coefficients",
+        "verdict": "unverifiable",
+        "note": "de Jong finite locally free coefficient scope is retained. Scalar extension/evaluation of finite-projective modules is appropriate; tensor_dual merely returns a package with no specified tensor or dual module or comparison. The geometric crystal still needs the module-sheaf supplier."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/filtered-frobenius-coefficients",
+        "verdict": "unverifiable",
+        "note": "Moved ordinary filtered (φ,N) conventions to R06.2. Lean filtration is just decreasing submodules: no horizontal crystal/Frobenius, Griffiths transversality or compatible actual base change is typed. The twist scalar formula alone does not export that interface."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/dieudonne-evaluation",
+        "verdict": "unverifiable",
+        "note": "de Jong and exact R07.2 standard modules confirm contravariance/F,V conventions. Lean takes an arbitrary contravariant functor and its tests reduce to F(1)=1 or pF(1)=p, without evaluating D of either p-divisible group or verifying V."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/dieudonne-variance-twist",
+        "verdict": "unverifiable",
+        "note": "Exact R07.2 standard modules match the packet constant/multiplicative modules and −1 twist; no owner duplication. Lean returns an arbitrary finite-projective package and omits the evaluation/dual-twist identification."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/messing-filtration-interface",
+        "verdict": "unverifiable",
+        "note": "The requested R07 nilpotent-PD filtration theorem is correctly distinguished from evaluation; de Jong documents its use. Lean asserts exactness of any i,q on arbitrary modules. Set i=0 on a nonzero field module to contradict injectivity."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/relative-crystalline-direct-image",
+        "verdict": "unverifiable",
+        "note": "BO §7.8/7.11–7.13 is consistent with the derived-before-locally-free statement. Lean evaluates an arbitrary functor; its base_change_map lacks the actual geometric cartesian PD diagram/evaluation, and its point test does not exercise the crystalline direct image."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/relative-base-change",
+        "verdict": "unverifiable",
+        "note": "BO Theorem 7.8 was visually checked: qc base, smooth qcqs f₀, cartesian X′, sub-PD base fibres and flat quasi-coherent coefficients are retained. Official erratum confirmed. Lean claims IsIso for an arbitrary coefficient functor/map between arbitrary derived targets."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/gauss-manin",
+        "verdict": "unverifiable",
+        "note": "BO supports the relative Gauss–Manin source scope, with explicit additional local-freeness/base-change conditions. Lean boundary identifies the connection with any arbitrary additive map and integrable uses an arbitrary d₁; neither is the geometric filtered-complex boundary."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/gauss-manin-horizontality",
+        "verdict": "unverifiable",
+        "note": "The source cartesian/crystalline base-change map is horizontal. Lean states every arbitrary linear equivalence is horizontal for independently constructed connections; no compatible base map or geometric cohomology arrow is present."
+      },
+      {
+        "nodeId": "CrystallineCohomology:CR.7/pd-coefficient-compatibility",
+        "verdict": "unverifiable",
+        "note": "Beilinson §1.7(a) PD compatibility and Kato coefficient complex match the mathematical node. Lean assumes the same derivative identities it concludes and does not export their actual crystal/stratification/connection comparison under common PD base data."
+      }
+    ]
+  }
 }
