@@ -23543,7 +23543,8 @@
    ],
    "avoidAccountOf": "BP-DerivedDeRhamCohomology",
    "prompt": "research/blueprint/prompts/REV-DerivedDeRhamCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #385"
   },
   {
    "id": "BP-DiamondEtaleCohomology--C0",
@@ -29419,9 +29420,10 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1003"
+   "note": "deliverables arrived from an external worker on issue #1003",
+   "finishedAt": "2026-10-06T17:00:43Z"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB3",
@@ -54969,8 +54971,9 @@
     "REV-FIX-RT-BP-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5713"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5713",
+   "finishedAt": "2026-10-06T17:00:45Z"
   },
   {
    "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7~2",
