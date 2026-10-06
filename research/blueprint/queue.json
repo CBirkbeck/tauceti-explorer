@@ -27959,9 +27959,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #974"
+   "note": "claimed on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
@@ -28234,8 +28234,9 @@
    ],
    "avoidAccountOf": "BP-PrismaticCohomology--PR.8",
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #476"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #476",
+   "finishedAt": "2026-10-06T13:52:43Z"
   },
   {
    "id": "BP-RankZeroOneBSD--BSD.0",
