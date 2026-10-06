@@ -47,6 +47,7 @@ theorem diagonalExtension_normalForm
     (x : E) (hx : p x = 1) (hdiag : w • x = ι (fun _ => 1)) :
     Nonempty (E ≃+ (ZMod (2 * w) × (Fin (r - 1) → ZMod 2))) ∧
       addOrderOf x = 2 * w ∧
+      (∀ y : E, p y = 1 → w • y = ι (fun _ => 1)) ∧
       ¬ ∃ s : ZMod w →+ E, p.comp s = AddMonoidHom.id (ZMod w) := by
   sorry
 
@@ -61,10 +62,15 @@ example {E : Type*} [AddCommGroup E]
       ¬ ∃ s : ZMod 8 →+ E, p.comp s = AddMonoidHom.id (ZMod 8) := by
   sorry
 
-/-- Acceptance: the split group of the same cardinality has exponent at most
- eight, whereas the diagonal normal form has an element of order sixteen. -/
-example :
-    (∀ y : ZMod 8 × (Fin 2 → ZMod 2), 8 • y = 0) ∧
+/-- Acceptance: two real coordinates give the specified diagonal normal form.
+The split group of the same cardinality has exponent at most eight. -/
+example {E : Type*} [AddCommGroup E]
+    (ι : (Fin 2 → ZMod 2) →+ E) (p : E →+ ZMod 8)
+    (hι : Function.Injective ι) (hp : Function.Surjective p)
+    (hexact : p.ker = ι.range)
+    (x : E) (hx : p x = 1) (hdiag : 8 • x = ι (fun _ => 1)) :
+    Nonempty (E ≃+ (ZMod 16 × ZMod 2)) ∧ addOrderOf x = 16 ∧
+      (∀ y : ZMod 8 × (Fin 2 → ZMod 2), 8 • y = 0) ∧
       addOrderOf (1 : ZMod 16) = 16 := by
   sorry
 

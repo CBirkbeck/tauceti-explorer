@@ -139,7 +139,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.2.5 and Exercise IV.2.6, printed pp. 280, 283; VI.8.2 proof, printed p. 513 (combined PDF pp. 288, 291, 521)",
+          "locator": "IV.2.5 and Exercise IV.2.6, printed pp. 280, 284; VI.8.2 proof, printed p. 513 (combined PDF pp. 288, 292, 521)",
           "match": "The coefficient exact sequence and its use on a ring of ℓ-integers; use the corrected residue ring recorded in ArithmeticKTheory/E17."
         }
       ],
@@ -214,9 +214,9 @@
         "p(x) = 1 and w x = ι of the nonzero diagonal vector."
       ],
       "proofSteps": [
-        "Choose a basis of (Z/2)^r whose first vector is the diagonal vector; this is possible because it is nonzero when r > 0.",
-        "The generators x and this kernel basis present E with relations 2a_i = 0 and w x = a_0. Exactness shows that these relations give E: every element differs from an integer multiple of x by an element of the kernel, and any relation maps to a multiple of w in Z/w.",
-        "Eliminate a_0 to get the direct sum Z/(2w) ⊕ (Z/2)^{r−1}. Since a_0 ≠ 0 and w x = a_0, x has order exactly 2w. Every lift of 1 has the same nonzero w-multiple, whereas a section would give a lift killed by w."
+        "Fix a coordinate v₀ of (Z/2)^r, possible since r > 0, and write d = (1,…,1). The subgroup C of vectors whose v₀-coordinate is zero is a complement to the diagonal: a = a(v₀)d + (a − a(v₀)d). Reindex the remaining coordinates to identify C with (Z/2)^{r−1}; no finite-dimensional basis theorem is needed.",
+        "Surjectivity of p and exactness show that x and ι(C) generate E: subtract an integer multiple of x to enter ker p, then eliminate the diagonal component using w x = ι(d). If m x + ι(c) = 0 with c in C, applying p gives w | m. Write m = qw; injectivity of ι gives q d + c = 0. Its v₀-coordinate forces q even, and then c = 0. Thus precisely the relations 2w x = 0 and 2c = 0 remain.",
+        "This presentation gives E ≅ Z/(2w) ⊕ C and order(x) = 2w. For another lift y, exactness gives y − x in im ι; since w is even, w(y − x) = 0. Hence every lift has the same nonzero w-multiple, whereas a section would give a lift killed by w."
       ],
       "acceptance": [
         "w = 8, r = 1 gives a cyclic group of order 16 and no section to its quotient of order 8.",
@@ -252,7 +252,7 @@
       ],
       "title": "The real-place extension of the e-invariant",
       "kind": "theorem",
-      "statement": "Let F be a number field with real-place set V, r_1 = |V| > 0, and n = 8k+3 ≥ 3, j = 4k+2. Write T = K_n(F)_tors and W = W_j(F), cyclic of even order w = w_j(F). There is a natural short exact sequence 0 → (Z/2)^V --ι→ T --e→ W → 0. Under the identification of each kernel coordinate with the unique nonzero element of Z/2, the pushout along any coordinate V → {v} is the pullback, along W ↪ Q/Z(j) at v, of 0 → Z/2 → K_n(ℝ)_tors → Q/Z(j) → 0; its last map is multiplication by 2 in compatible Suslin trivialisations. Consequently, after choosing W ≅ Z/w and lifting 1 to x, one has w x = ι(1,…,1). The extension class is the diagonal vector in Ext^1_Z(Z/w,(Z/2)^V) ≅ (Z/2)^V. Thus T ≅ Z/(2w) ⊕ (Z/2)^{r_1−1}, with e surjective and no section. The sequence and its real-place coordinates are natural; the cyclic generator and abstract direct sum are not chosen naturally.",
+      "statement": "Let F be a number field with real-place set V, r_1 = |V| > 0, and n = 8k+3 ≥ 3, j = 4k+2. Write T = K_n(F)_tors and W = W_j(F), cyclic of even order w = w_j(F). There is a natural short exact sequence 0 → (Z/2)^V --ι→ T --e→ W → 0. Under the identification of each kernel coordinate with the unique nonzero element of Z/2, the pushout along the coordinate projection (Z/2)^V → Z/2 at any v ∈ V is the pullback, along W ↪ Q/Z(j) at v, of 0 → Z/2 → K_n(ℝ)_tors → Q/Z(j) → 0; its last map is multiplication by 2 in compatible Suslin trivialisations. Consequently, after choosing W ≅ Z/w and lifting 1 to x, one has w x = ι(1,…,1). The extension class is the diagonal vector in Ext^1_Z(Z/w,(Z/2)^V) ≅ (Z/2)^V. Thus T ≅ Z/(2w) ⊕ (Z/2)^{r_1−1}, with e surjective and no section. The sequence and its real-place coordinates are natural; the cyclic generator and abstract direct sum are not chosen naturally.",
       "hypotheses": [
         "F is a number field; n = 8k+3 with k ≥ 0; r_1 > 0.",
         "S-integer versions use the inherited odd-degree localisation isomorphism.",
@@ -274,13 +274,14 @@
         "ArithmeticKTheory:N.5/e-invariant-descent-edge",
         "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
         "ArithmeticKTheory:N.4/the-w-invariant",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
         "ArithmeticKTheory:N.4/two-primary-w-invariant",
         "MotivicEtaleKTheory:M.7"
       ],
       "sources": [
         {
           "sourceId": "RognesWeibel.2000",
-          "locator": "Theorem 6.7 and its final proof paragraph, printed p. 33; Theorem 6.9, pp. 33–34",
+          "locator": "Theorem 6.7, printed pp. 32–33 (final proof paragraph p. 33); Theorem 6.9, pp. 33–34",
           "match": "Real-place maps identify the extension, not merely its cardinality; the all-coordinate diagonal statement follows by applying the proof to every real embedding."
         },
         {
@@ -326,7 +327,8 @@
       "prerequisites": [
         "ArithmeticKTheory:N.5/e-invariant-descent-edge",
         "ArithmeticKTheory:N.5/real-e-invariant-extension",
-        "ArithmeticKTheory:N.4/exceptional-fields-at-two",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.4/two-primary-w-invariant",
         "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
         "MotivicEtaleKTheory:M.7"
       ],
@@ -362,7 +364,7 @@
         "Completion is the K-spectrum ℓ-adic passage; its odd group agrees with ordinary ℓ-adic completion here by finite generation and the H.6 Milnor/UCT interface."
       ],
       "proofSteps": [
-        "The cyclotomic character has infinite image on every number field. For positive j its j-th power is nontrivial, so H^0(R; Q_ℓ(j)) = H^0(R; Z_ℓ(j)) = 0. The coefficient long exact sequence embeds W_j(F){ℓ} into H^1(R; Z_ℓ(j)) and identifies it with the kernel of passage to Q_ℓ cohomology. Finite generation of this H^1 is supplied by M.2; that kernel is its torsion subgroup.",
+        "By N.4/finiteness-of-the-w-invariant, W_j(F){ℓ} is finite for j ≥ 2. A nonzero invariant vector in the one-dimensional Q_ℓ(j) would force the j-th cyclotomic character to be trivial, making all of Q_ℓ/Z_ℓ(j) invariant and contradicting that finiteness. Thus H^0(R; Q_ℓ(j)) = H^0(R; Z_ℓ(j)) = 0, also at ℓ = 2. The coefficient long exact sequence embeds W_j(F){ℓ} into H^1(R; Z_ℓ(j)) and identifies it with the kernel of passage to Q_ℓ cohomology. Finite generation and rationalisation of this H^1 are supplied by M.2; that kernel is its finite torsion subgroup.",
         "Use the natural coefficient triangles on K-theory and étale cohomology and the comparison supplied by M.7. On the even Q_ℓ/Z_ℓ group, its H^0 edge is ε_R. The connecting square therefore gives c_edge ∘ β_R = δ ∘ ε_R. Apply e-invariant-descent-edge and invert β_R.",
         "For completion, the finite coefficient inverse systems are finite (Mittag–Leffler), and the inverse limit of the bounded finite even-group torsion term with multiplication-by-ℓ transitions is zero. H.6 then identifies the odd completed homotopy group with the completion of the finitely generated odd group, preserving its ℓ-primary torsion.",
         "Restrict the formula to torsion and use e-invariant-kernel-cokernel. Naturality of both triangles proves compatibility with S and pullback. The formula contains no assertion about injectivity of a rational or syntomic regulator."
@@ -376,7 +378,8 @@
         "ArithmeticKTheory:N.5/primary-bockstein-localisation",
         "ArithmeticKTheory:N.5/e-invariant-descent-edge",
         "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
-        "ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
         "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
         "KTheoryFiniteLocalFields:L.1/completed-k-theory",
         "MotivicEtaleKTheory:M.2",
@@ -655,7 +658,45 @@
   ],
   "suggestedLean": {
     "compiled": true,
-    "scope": "Only the algebraic diagonal-extension theorem and three acceptance examples can be stated with the pinned Mathlib carriers. The five arithmetic comparison/theorem signatures are explicitly omitted until genuine higher K-theory, coefficients, descent, Tate-twist and étale cohomology carriers/maps exist. No proposition-valued surrogate records are introduced."
+    "scope": "Only the algebraic diagonal-extension theorem (including independence of the chosen lift) and three acceptance examples can be stated with the pinned Mathlib carriers. The two-coordinate example explicitly specialises the diagonal normal form and contrasts the split group of the same cardinality. The five arithmetic comparison/theorem signatures are explicitly omitted until genuine higher K-theory, coefficients, descent, Tate-twist and étale cohomology carriers/maps exist. No proposition-valued surrogate records are introduced."
   },
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.5",
+    "date": "2026-10-06",
+    "notes": "Independent review by Codex session codex-aqqeHF of BP-ArithmeticKTheory--N.5 (author session codex-mDuyQK). Checked all six new nodes, the seven retained N.5 imports, all six pinned baseline statements, the three hashed public source versions, supplier statements, inherited corrections, both confirmed red-team findings, target coverage, API/test ownership, Lean signatures and the six-planet union. Corrected locators, direct prerequisites and the group-theory proof/signature. Accepted as a complete target-level planning pass with planned coverage, nine requests and five explicit gaps, not closed or formalised. The inherited global dependency cycle and Harris–Segal original-proof boundary remain recorded. See REV-ArithmeticKTheory--N.5.md for the full findings and validation.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "verdict": "corrected",
+        "note": "UCT and localisation are valid for finite S and j ≥ 2, including real dyadic fields. Corrected Exercise IV.2.6 from printed p. 283/PDF p. 291 to printed p. 284/PDF p. 292; the finiteness input concerns R, not F."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "verdict": "verified",
+        "note": "Rognes–Weibel p. 8 explicitly factors the coefficient edge through Bockstein and restriction; K-book VI.1.7.1 supplies equivariance. Isomorphism is confined to odd primes or totally imaginary fields at two; the exact M.7 interfaces remain requests."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+        "verdict": "corrected",
+        "note": "Verified the elementary presentation and nonsplitting. Replaced the unlisted basis-choice step by an explicit coordinate complement; added lift independence to the Lean conclusion and made the existing two-coordinate acceptance example state the actual normal form."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "verdict": "corrected",
+        "note": "Rognes–Weibel’s map of extensions applies at every real embedding, giving each nonzero coordinate and hence the diagonal class. Clarified coordinate projection, corrected the Theorem 6.7 page range, and added the direct N.4 finiteness prerequisite. Real KO/BO and Suslin suppliers remain honestly open."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "verdict": "corrected",
+        "note": "Verified all four positive even coefficient rows against K-book VI.9.4–9.5 and the edge factorisation. Replaced the exceptionality definition with the direct two-primary W formula and added W finiteness for primary reassembly."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
+        "verdict": "corrected",
+        "note": "Verified the edge normalisation in Handbook §5.4 and the coefficient connecting-square argument conditional on the precise M.2/M.7 requests. Replaced an odd-prime-only cyclotomic prerequisite by all-prime W finiteness, rewrote invariant vanishing accordingly, and added direct arithmetic finite generation for completion."
+      }
+    ]
+  }
 }
