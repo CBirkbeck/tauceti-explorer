@@ -27249,11 +27249,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #959"
+   "note": "deliverables arrived from an external worker on issue #959",
+   "finishedAt": "2026-10-06T14:55:32Z"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.5d",
@@ -27988,7 +27989,8 @@
    ],
    "avoidAccountOf": "BP-PerfectoidSpaces--P8",
    "prompt": "research/blueprint/prompts/REV-PerfectoidSpaces--P8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #471"
   },
   {
    "id": "BP-PhiGammaModulesAndIwasawaCohomology",
@@ -28295,7 +28297,8 @@
    ],
    "avoidAccountOf": "BP-RankZeroOneBSD--BSD.0",
    "prompt": "research/blueprint/prompts/REV-RankZeroOneBSD--BSD.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #477"
   },
   {
    "id": "BP-RankZeroOneBSD--BSD.7",
@@ -28556,9 +28559,10 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #986"
+   "note": "deliverables arrived from an external worker on issue #986",
+   "finishedAt": "2026-10-06T14:55:34Z"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF4",
