@@ -17,13 +17,15 @@ import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import TauCeti.NumberTheory.LSeries.EntireExtension
 import TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist
 import TauCeti.AlgebraicGeometry.EllipticCurve.GaloisDescent
+import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree
 
 /-!
 # Elliptic curves, Part II: rank-zero and rank-one BSD — suggested declarations (BSD.0–BSD.6a)
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-(`research/blueprint/readmes/RankZeroOneBSD--BSD.0.md`) is definitive. The statements suggest
-Lean forms so that contributors and reviewers converge on names and signatures. Every proof is
+This file is not the roadmap and is not exhaustive. The independently reviewed packet
+(`research/blueprint/packets/RankZeroOneBSD--BSD.0.json`) records corrections; the reader
+document is definitive and still needs the revisions listed in `REV-RankZeroOneBSD--BSD.0.md`.
+The statements suggest Lean forms so that contributors and reviewers converge on names and signatures. Every proof is
 `sorry`; nothing here is claimed formalised.
 
 Baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. The file prototypes against Mathlib's
@@ -64,6 +66,10 @@ def shaCard (E : WeierstrassCurve ℚ) : ℕ := sorry
 
 /-- PLACEHOLDER for `∏_ℓ c_ℓ(E)` (EllipticCurves Layer 4, Tate's algorithm). -/
 def tamagawaProduct (E : WeierstrassCurve ℚ) : ℕ := sorry
+
+/-- PLACEHOLDER for the local epsilon-factor sign at the rational prime `p`
+(GL2AutomorphicRepresentationsAndTransfer R16.3). -/
+def localRootNumber (E : WeierstrassCurve ℚ) (p : ℕ) : ℤˣ := sorry
 
 /-- PLACEHOLDER for `Reg_BSD(E/ℚ) = 2 ^ rank · regulator` (GrossZagierAndArithmeticHeights GZ.0),
 which needs a number-field `AdmissibleAbsValues` instance absent at the pin. -/
@@ -115,10 +121,9 @@ theorem ellipticL_conj (s : ℂ) :
     E.ellipticL (starRingEnd ℂ s) = starRingEnd ℂ (E.ellipticL s) := by
   sorry
 
-/-- Isogenous curves have the same L-function (EllipticCurves Layer 7). Isogeny is expressed by
-equality of all Euler-factor coefficients, which is what Layer 7 proves for a `ℚ`-isogeny. -/
+/-- Isogenous curves have the same L-function (EllipticCurves Layer 7). -/
 theorem ellipticL_eq_of_isogenous (E' : WeierstrassCurve ℚ) [E'.IsElliptic]
-    (h : E.LFunction = E'.LFunction) : E.ellipticL = E'.ellipticL := by
+    (φ : TauCeti.Isogeny E.toAffine E'.toAffine) : E.ellipticL = E'.ellipticL := by
   sorry
 
 theorem ellipticL_eq_of_variableChange (C : VariableChange ℚ) :
@@ -142,9 +147,11 @@ instance : e11a3.IsElliptic := ⟨by sorry⟩
 instance : e11a1.IsElliptic := ⟨by sorry⟩
 instance : e37a1.IsElliptic := ⟨by sorry⟩
 
-/-- Test `WeierstrassCurve.LSeries_one_eq_zero_ne_ellipticL` (non-example): Mathlib's tsum is
-`0` at `s = 1`, the continuation is not. -/
-example : e11a3.LSeries 1 = 0 ∧ e11a3.ellipticL 1 ≠ 0 := by
+/-- Test `WeierstrassCurve.LSeries_one_eq_zero_ne_ellipticL` (non-example): if the coefficient
+series is not summable, Mathlib's tsum is `0`; this does not make the continuation zero.
+The absolute-convergence bound alone does not prove this nonsummability hypothesis. -/
+example (h : ¬ LSeriesSummable (fun n ↦ (e11a3.LFunction n : ℂ)) 1) :
+    e11a3.LSeries 1 = 0 ∧ e11a3.ellipticL 1 ≠ 0 := by
   sorry
 
 /-- Test `WeierstrassCurve.ellipticL_eq_newformL`: any entire extension (in particular the one
@@ -166,9 +173,27 @@ section Analytic
 
 variable (E : WeierstrassCurve ℚ) [E.IsElliptic]
 
-/-- BSD.0/completed-l-function. -/
-def completedEllipticL (s : ℂ) : ℂ :=
-  (E.conductor : ℂ) ^ (s / 2) * Gammaℂ s * E.ellipticL s
+/-- Existence of the completed entire function, obtained from the newform Mellin transform.
+Agreement is asserted away from the Gamma poles. -/
+theorem exists_completedEllipticL :
+    ∃ F : ℂ → ℂ, Differentiable ℂ F ∧ ∀ s : ℂ, 0 < s.re →
+      F s = (E.conductor : ℂ) ^ (s / 2) * Gammaℂ s * E.ellipticL s := by
+  sorry
+
+/-- BSD.0/completed-l-function. At a Gamma pole, use entire continuation, rather than the
+pointwise product of Lean's total Gamma function and `ellipticL`. -/
+def completedEllipticL : ℂ → ℂ := Classical.choose E.exists_completedEllipticL
+
+theorem completedEllipticL_eq_gammaProduct {s : ℂ} (hs : 0 < s.re) :
+    E.completedEllipticL s =
+      (E.conductor : ℂ) ^ (s / 2) * Gammaℂ s * E.ellipticL s := by
+  sorry
+
+theorem completedEllipticL_unique {F : ℂ → ℂ} (hF : Differentiable ℂ F)
+    (hprod : ∀ s : ℂ, 0 < s.re →
+      F s = (E.conductor : ℂ) ^ (s / 2) * Gammaℂ s * E.ellipticL s) :
+    F = E.completedEllipticL := by
+  sorry
 
 open Classical in
 /-- The root number: the sign `w` with `Λ(E, 2 − s) = w Λ(E, s)`. -/
@@ -190,13 +215,18 @@ theorem rootNumber_eq_neg_fricke (ε : ℤˣ)
   sorry
 
 theorem rootNumber_eq_of_isogenous (E' : WeierstrassCurve ℚ) [E'.IsElliptic]
-    (h : E.LFunction = E'.LFunction) (hN : E.conductor = E'.conductor) :
+    (φ : TauCeti.Isogeny E.toAffine E'.toAffine) :
     E.rootNumber = E'.rootNumber := by
   sorry
 
-/-- The product formula `w_E = ∏_v w_v(E)` with `w_∞ = −1`, in the semistable case where the local
-sign at a multiplicative prime `ℓ` is `−a_ℓ` (GL2AutomorphicRepresentationsAndTransfer R16.3). -/
-theorem rootNumber_eq_prod_local (hss : Squarefree E.conductor) :
+/-- The full local product formula, with `w_∞ = −1` and the good-prime signs equal to one
+(GL2AutomorphicRepresentationsAndTransfer R16.3). -/
+theorem rootNumber_eq_prod_local :
+    E.rootNumber = -∏ p ∈ E.conductor.primeFactors, E.localRootNumber p := by
+  sorry
+
+/-- In the semistable case, the local multiplicative sign is `−a_p`. -/
+theorem rootNumber_eq_prod_trace (hss : Squarefree E.conductor) :
     (E.rootNumber : ℤ) = -∏ p ∈ E.conductor.primeFactors, -E.LFunction p := by
   sorry
 
@@ -215,6 +245,12 @@ example : e11a1.rootNumber = 1 := by
 /-- Test `WeierstrassCurve.completedEllipticL_one_eq`. -/
 example : E.completedEllipticL 1 =
     ((Real.sqrt E.conductor / π : ℝ) : ℂ) * E.ellipticL 1 := by
+  sorry
+
+/-- Test `WeierstrassCurve.completedEllipticL_zero`: continuation cancels the Gamma pole,
+and the functional equation gives a nonzero value at zero. -/
+example : E.completedEllipticL 0 = (E.rootNumber : ℂ) * E.completedEllipticL 2 ∧
+    E.completedEllipticL 0 ≠ 0 := by
   sorry
 
 /-- Test `WeierstrassCurve.rootNumber_ne_fricke` (non-example): for 37a1 the Fricke
@@ -256,7 +292,7 @@ theorem ellipticL_isBigO_leading :
   sorry
 
 theorem analyticRank_eq_of_isogenous (E' : WeierstrassCurve ℚ) [E'.IsElliptic]
-    (h : E.LFunction = E'.LFunction) :
+    (φ : TauCeti.Isogeny E.toAffine E'.toAffine) :
     E.analyticRank = E'.analyticRank ∧ E.leadingTerm = E'.leadingTerm := by
   sorry
 
@@ -446,19 +482,33 @@ theorem finrank_point_quadratic :
         Module.finrank ℚ (ℚ ⊗[ℤ] ((E.quadraticTwist K)⁄ℚ).toAffine.Point) := by
   sorry
 
-/-- BSD.1/quadratic-period: `Ω_{E/K} = N(𝔞_ω) · 2 ∫_{E(ℂ)} |ω ∧ ω̄|` for `K` imaginary quadratic.
-The Néron lattice over `𝓞_K` and the complex period integral are constructed in the roadmap
-document; the body is not given here. -/
-def quadraticPeriod (E : WeierstrassCurve ℚ) (K : Type*) [Field K] [NumberField K] : ℝ := sorry
+/-- PLACEHOLDER for the covolume of the period lattice of the global minimal Néron
+differential (GrossZagierAndArithmeticHeights GZ.0). Its geometric carrier/API is still missing. -/
+def neronPeriodCovolume (E : WeierstrassCurve ℚ) : ℝ := sorry
+
+/-- PLACEHOLDER for the norm of the Néron differential ideal over `𝓞_K` (NeronModels R11.6).
+Its ideal and base-change API are still missing; this real number is not a formalisation. -/
+def neronDifferentialIdealNorm (E : WeierstrassCurve ℚ) (K : Type*) [Field K] [NumberField K] : ℝ :=
+  sorry
+
+/-- BSD.1/quadratic-period: `Ω_{E/K} = N(𝔞_ω) · 2 ∫_{E(ℂ)} |ω ∧ ω̄|`, hence four times the
+period-lattice covolume when the differential ideal has norm one. The imported geometric data
+remain explicit placeholders, so this is only a partial prototype. -/
+def quadraticPeriod (E : WeierstrassCurve ℚ) (K : Type*) [Field K] [NumberField K] : ℝ :=
+  neronDifferentialIdealNorm E K * (4 * neronPeriodCovolume E)
+
+theorem quadraticPeriod_eq_norm_mul_covolume :
+    quadraticPeriod E K = neronDifferentialIdealNorm E K * (4 * neronPeriodCovolume E) := by
+  sorry
 
 theorem quadraticPeriod_pos [NumberField.IsTotallyComplex K] : 0 < quadraticPeriod E K := by
   sorry
 
-/-- With `𝔞_ω = 𝓞_K`, the period is four times the covolume of the period lattice of a Néron
-differential (stated existentially: the lattice is not yet in the libraries). -/
+/-- With `𝔞_ω = 𝓞_K`, the period is four times the covolume of the actual Néron period lattice.
+Deriving norm one from coprimality needs the requested Néron base-change comparison. -/
 theorem quadraticPeriod_eq_covolume [NumberField.IsTotallyComplex K]
-    (h : IsCoprime (2 * NumberField.discr K) E.conductor) :
-    ∃ covol : ℝ, 0 < covol ∧ quadraticPeriod E K = 4 * covol := by
+    (hnorm : neronDifferentialIdealNorm E K = 1) :
+    quadraticPeriod E K = 4 * neronPeriodCovolume E := by
   sorry
 
 theorem realPeriod_mul_twist_eq [NumberField.IsTotallyComplex K]
@@ -474,8 +524,9 @@ theorem padicValRat_period_ratio [NumberField.IsTotallyComplex K] (p : ℕ) [Fac
   sorry
 
 theorem quadraticPeriod_of_isogenous [NumberField.IsTotallyComplex K] (E' : WeierstrassCurve ℚ)
-    [E'.IsElliptic] (h : E.LFunction = E'.LFunction) :
-    ∃ q : ℚ, quadraticPeriod E K / quadraticPeriod E' K = q := by
+    [E'.IsElliptic] (φ : TauCeti.Isogeny E.toAffine E'.toAffine)
+    (p : ℕ) [Fact p.Prime] (hdeg : ¬ p ∣ φ.degree) :
+    ∃ q : ℚ, quadraticPeriod E K / quadraticPeriod E' K = q ∧ padicValRat p q = 0 := by
   sorry
 
 /-- Test `WeierstrassCurve.quadraticPeriod_pos_test`. -/
@@ -488,8 +539,10 @@ example [NumberField.IsTotallyComplex K] (h : IsCoprime (2 * NumberField.discr K
       Real.sqrt |(NumberField.discr K : ℝ)| / quadraticPeriod E K = q := by
   sorry
 
-/-- Test `WeierstrassCurve.quadraticPeriod_not_square` (non-example). -/
-example [NumberField.IsTotallyComplex K] : quadraticPeriod e11a1 K ≠ e11a1.realPeriod ^ 2 := by
+/-- Test `WeierstrassCurve.quadraticPeriod_not_half_covolume` (non-example): this detects
+the missing outer factor two in `2 ∫ |ω ∧ ω̄|`. It makes no transcendence claim about periods. -/
+example [NumberField.IsTotallyComplex K] (hnorm : neronDifferentialIdealNorm E K = 1)
+    (hcovol : 0 < neronPeriodCovolume E) : quadraticPeriod E K ≠ 2 * neronPeriodCovolume E := by
   sorry
 
 end QuadraticPoints
@@ -561,7 +614,7 @@ theorem padicValRat_bsdDefect (h : E.analyticRank ≤ 1) (p : ℕ) [Fact p.Prime
   sorry
 
 theorem bsdDefect_eq_of_isogenous (E' : WeierstrassCurve ℚ) [E'.IsElliptic]
-    (h : E.LFunction = E'.LFunction) (hr : E.analyticRank ≤ 1) :
+    (φ : TauCeti.Isogeny E.toAffine E'.toAffine) (hr : E.analyticRank ≤ 1) :
     E.bsdDefect = E'.bsdDefect := by
   sorry
 
@@ -629,6 +682,7 @@ inductive Splitting
 /-- BSD.2/heegner-local-conditions (planet: Heegner hypothesis). -/
 structure LocalPrescription where
   primes : Finset ℕ
+  prime_valid : ∀ ℓ ∈ primes, Nat.Prime ℓ
   behaviour : ℕ → Splitting
   sign : ℤˣ
 
@@ -640,24 +694,31 @@ def Splitting.value : Splitting → ℤ
   | .inert => -1
   | .ramified => 0
 
-/-- The Kronecker symbol `(D/2)`: `0` for even `D`, `1` for `D ≡ 1 (mod 8)`, `−1` otherwise. -/
-def kroneckerAtTwo (D : ℤ) : ℤ := if D % 2 = 0 then 0 else if D % 8 = 1 then 1 else -1
+/-- The Kronecker symbol `(D/2)`: `0` for even `D`, `1` for `D ≡ 1,7 (mod 8)`, `−1` otherwise. -/
+def kroneckerAtTwo (D : ℤ) : ℤ :=
+  if D % 2 = 0 then 0 else if D % 8 = 1 ∨ D % 8 = 7 then 1 else -1
 
 /-- The Kronecker symbol `(D/ℓ)` at a prime `ℓ` (CA.1's `kroneckerCharacter` at primes). -/
 def kroneckerAtPrime (D : ℤ) (ℓ : ℕ) : ℤ := if ℓ = 2 then kroneckerAtTwo D else jacobiSym D ℓ
 
 /-- Admissibility of a fundamental discriminant for a local prescription. -/
 def Admissible (π : LocalPrescription) (D : ℤ) : Prop :=
-  D.IsFundamentalDiscr ∧ (π.sign : ℤ) * D > 0 ∧
+  D.IsFundamentalDiscr ∧ D ≠ 1 ∧ (π.sign : ℤ) * D > 0 ∧
     ∀ ℓ ∈ π.primes, kroneckerAtPrime D ℓ = Splitting.value (π.behaviour ℓ)
 
 /-- The Heegner prescription for a level `N`: every prime of `N` splits, negative sign. -/
-def heegner (N : ℕ) : LocalPrescription := ⟨N.primeFactors, fun _ ↦ .split, -1⟩
+def heegner (N : ℕ) : LocalPrescription where
+  primes := N.primeFactors
+  prime_valid := by sorry
+  behaviour := fun _ ↦ .split
+  sign := -1
 
 /-- The generalized Heegner prescription for `N = N⁺ N⁻`. -/
 def generalizedHeegner (Nplus Nminus : ℕ) : LocalPrescription :=
-  ⟨Nplus.primeFactors ∪ Nminus.primeFactors,
-    fun ℓ ↦ if ℓ ∈ Nminus.primeFactors then .inert else .split, -1⟩
+  { primes := Nplus.primeFactors ∪ Nminus.primeFactors
+    prime_valid := by sorry
+    behaviour := fun ℓ ↦ if ℓ ∈ Nminus.primeFactors then .inert else .split
+    sign := -1 }
 
 instance admissible_decidable (π : LocalPrescription) (D : ℤ) : Decidable (π.Admissible D) := by
   classical exact Classical.dec _
@@ -671,12 +732,21 @@ theorem mono (π π' : LocalPrescription) (h : π.primes ⊆ π'.primes)
     π'.Admissible D → π.Admissible D := by
   sorry
 
+/-- Behaviour outside the prescribed prime set does not affect admissibility. -/
+theorem admissible_congr (π π' : LocalPrescription) (hprimes : π.primes = π'.primes)
+    (hb : ∀ ℓ ∈ π.primes, π.behaviour ℓ = π'.behaviour ℓ) (hs : π.sign = π'.sign) (D : ℤ) :
+    π.Admissible D ↔ π'.Admissible D := by
+  sorry
+
 theorem rootNumber_twist_of_admissible (E : WeierstrassCurve ℚ) [E.IsElliptic]
     (K : Type*) [Field K] [NumberField K] [Algebra.IsQuadraticExtension ℚ K]
-    [Algebra.IsSeparable ℚ K] [NumberField.IsTotallyComplex K]
+    [Algebra.IsSeparable ℚ K] (π : LocalPrescription)
     (hN : IsCoprime (NumberField.discr K) E.conductor)
-    (hK : (heegner E.conductor).Admissible (NumberField.discr K)) :
-    (E.quadraticTwist K).rootNumber = -E.rootNumber := by
+    (hprimes : E.conductor.primeFactors ⊆ π.primes)
+    (hK : π.Admissible (NumberField.discr K)) :
+    ((E.quadraticTwist K).rootNumber : ℤ) =
+      ((π.sign : ℤ) * ∏ ℓ ∈ E.conductor.primeFactors,
+        Splitting.value (π.behaviour ℓ) ^ padicValNat ℓ E.conductor) * (E.rootNumber : ℤ) := by
   sorry
 
 /-- Test `TauCeti.BSD.LocalPrescription.heegner_sign`. -/
@@ -698,7 +768,8 @@ example : ¬ (heegner 11).Admissible (-3) := by
 
 /-- Test `TauCeti.BSD.LocalPrescription.empty`. -/
 example (D : ℤ) (hD : D.IsFundamentalDiscr) (hneg : D < 0) :
-    (⟨∅, fun _ ↦ .split, -1⟩ : LocalPrescription).Admissible D := by
+    ({ primes := ∅, prime_valid := by simp, behaviour := fun _ ↦ .split, sign := -1 } :
+      LocalPrescription).Admissible D := by
   sorry
 
 end LocalPrescription
@@ -733,12 +804,13 @@ theorem heegnerIndex_div_maninConstant_invariant (y : (E⁄K).toAffine.Point) (h
     (heegnerIndex E (m • y) : ℚ) / (m * c) = heegnerIndex E y / c := by
   sorry
 
-theorem torsion_dvd_heegnerIndex (y : (E⁄K).toAffine.Point)
+theorem torsion_dvd_heegnerIndex (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
     (hfin : (AddSubgroup.zmultiples y).FiniteIndex) :
     E.torsionCard ∣ heegnerIndex E y := by
   sorry
 
-theorem not_dvd_heegnerIndex_of_large (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0) :
+theorem not_dvd_heegnerIndex_of_large (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
+    (hfin : (AddSubgroup.zmultiples y).FiniteIndex) :
     {p : ℕ | p.Prime ∧ p ∣ heegnerIndex E y}.Finite := by
   sorry
 
@@ -751,7 +823,8 @@ example (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
 /-- Test `TauCeti.BSD.heegnerIndex_scale` (non-example): doubling the point doubles the index. -/
 example (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
     (hfin : (AddSubgroup.zmultiples y).FiniteIndex) :
-    heegnerIndexFree E (2 • y) = 2 * heegnerIndexFree E y := by
+    heegnerIndex E (2 • y) = 2 * heegnerIndex E y ∧
+      heegnerIndexFree E (2 • y) = 2 * heegnerIndexFree E y := by
   sorry
 
 /-- Test `TauCeti.BSD.heegnerIndex_11a`: for `J₀(11)` (11a1, torsion `ℤ/5`), `5 ∣ I_K`. -/
@@ -761,20 +834,24 @@ example (y : (WeierstrassCurve.e11a1⁄K).toAffine.Point) (hy : addOrderOf y = 0
   sorry
 
 /-- Test `TauCeti.BSD.heegnerIndexFree_one_of_generator`. -/
-example (y : (E⁄K).toAffine.Point)
+example (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
     (hgen : heegnerIndexFree E y = 1) (hfin : (AddSubgroup.zmultiples y).FiniteIndex) :
     heegnerIndex E y = Nat.card (AddCommGroup.torsion (E⁄K).toAffine.Point) := by
   sorry
 
 end HeegnerIndex
 
-/-! ## BSD.6a — the BSTW two-variable zeta element
+/-! ## BSD.6a — the supersingular BSTW two-variable zeta element (unresolved prototype)
 
 The carrier of `Z^•(E/L)` — the two-variable Iwasawa cohomology `H¹_{rel,∘}(𝓞_L[1/p], T(1) ⊗̂ Λ_L)`
 with signed local conditions (SelmerIwasawaCohomology L3, PadicHodgeRegulators L4) — is not in
 the pinned libraries, and an abstract stand-in would make the reciprocity statements false for
 arbitrary data. The planned declarations are therefore recorded here by name only, with their
-statements in the roadmap document (BSD.6a/bstw-two-variable-zeta-element):
+statements in the corrected packet (BSD.6a/bstw-two-variable-zeta-element). BSTW Theorem1.14
+uses `Col_v` and `Log_v̄`, with different primes. Ordinary zeta elements are imported from the
+Kato supplier, and the CM-family input belongs to PadicFamilies L4.
+The six API names and four tests below are comments, not Lean declarations or examples.
+PROTOCOL §13 remains unmet for this construction; the review marks BSD.6a partial:
 
 * `TauCeti.BSD.bstwZetaElement`, `TauCeti.BSD.bstwZetaElement_ne_zero`,
   `TauCeti.BSD.bstwZetaElement_col`, `TauCeti.BSD.bstwZetaElement_log`,
