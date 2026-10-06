@@ -1,8 +1,8 @@
 {
   "roadmaps": 232,
-  "stages": 4013,
+  "stages": 4034,
   "originalStages": 2129,
-  "sourceRefinements": 1884,
+  "sourceRefinements": 1905,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -306,14 +306,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3912,
+  "mathematicalStars": 3933,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1961,
-  "stageEdges": 10570,
+  "roadmapEdges": 1969,
+  "stageEdges": 10625,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -797,6 +797,12 @@
       "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0~2"
     },
     {
+      "file": "HilbertModularVarietiesAndShimuraCurves--R18.2",
+      "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+      "nodes": 58,
+      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
+    },
+    {
       "file": "InductionRestrictionPartII",
       "roadmap": "InductionRestrictionPartII",
       "nodes": 109,
@@ -978,8 +984,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 34005314,
-  "htmlSha256": "5d66f3432160348aa815400f3f651f3cbf94ddb19cefbd71b667a94d6d615516",
+  "htmlBytes": 34077551,
+  "htmlSha256": "f30068b59e38c61fb1d652fb0b465fd8d64c3575ce80a4f815d5e5ac0fdffcb3",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1011,7 +1017,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "19340f1a74f06c98e0926da8efecd5e8e5bc73b0abb6e2c450f9df3efc5bccc6",
+    "data/roadmap-distances.json": "6ba054e319ca41548d4d376b822e0ca6f59b023079f0017c7db0eeae14b4cefe",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1229,6 +1235,8 @@
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.json": "ac5a9ab99f4f5cc015231379961433746521211ed1b844f9b4ff05f3b07fcd33",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md": "7d5303017cfc58865957e91dba0f044491b693554de8f02fa3ec40bc69db8ce1",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "2bfb96947e41cf78c40a01e574b87c3e46b116ec823db4fb507a348816fa17ee",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "81d48de4514ac6dba529650c1d8c4162ac17c95cfd1c8838bb0a2e022885d358",
     "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
     "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
     "data/blueprints/JacobianChallengePartII.json": "fe5ba0926b48925f60ff4f689dad88c54a684b257f9318c41d878e0543484b82",
