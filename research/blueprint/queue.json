@@ -22340,7 +22340,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicFormsOnReductiveGroups",
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #359"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentations",
@@ -22790,8 +22791,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H4",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #368"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #368",
+   "finishedAt": "2026-10-06T16:28:08Z"
   },
   {
    "id": "BP-ClassicalSerreModularity--R26.1",
@@ -23518,9 +23520,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-DerivedDeRhamCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #708"
+   "note": "deliverables arrived from an external worker on issue #708",
+   "finishedAt": "2026-10-06T16:28:12Z"
   },
   {
    "id": "REV-DerivedDeRhamCohomology",
@@ -55636,7 +55639,8 @@
     "REV-FIX-RT-BP-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5717"
   },
   {
    "id": "REV-FIX-RT-BP-EllipticCurveModularity~2",
