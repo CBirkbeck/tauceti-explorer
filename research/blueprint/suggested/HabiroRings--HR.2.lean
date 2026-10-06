@@ -49,6 +49,10 @@ Proposed characterisation SpectralHabiroCompletion.complete_iff_pi: M is complet
 Proposed characterisation SpectralHabiroCompletion.nakayama: If M is complete and M/Φ_m=0 for every positive m, then M=0.
 Proposed characterisation SpectralHabiroCompletion.detect_degree: For complete M and k∈Z, π_k(M/Φ_m)=0 for all positive m implies π_kM=0.
 Proposed compatibility SpectralHabiroCompletion.restrict_HZ: Under Mod_{HZ[q±1]}≃D(Z[q±1]), restriction along R→HZ[q±1] commutes with L_H. The tensor comparison uses the HZ[q±1]-relative tensor followed by completion; restriction to R-modules is only lax monoidal.
+Proposed functoriality SpectralHabiroCompletion.map: For an R-linear map u:M→N, L_H(u):L_HM→L_HN is the induced map between the reflections.
+Proposed simp SpectralHabiroCompletion.map_id: L_H(id_M)=id_{L_HM}, with the canonical functor coherence.
+Proposed functoriality SpectralHabiroCompletion.map_comp: L_H(v∘u)=L_H(v)∘L_H(u), coherently for composable R-linear maps.
+Proposed compatibility SpectralHabiroCompletion.unit_naturality: L_H(u)∘η_M=η_N∘u for every R-linear u:M→N.
 Proposed example SpectralHabiroCompletion.zero (degenerate): L_H0≃0.
 Proposed example SpectralHabiroCompletion.local_zero (non-example): L_HT≃0 although π_0T=Rr≠0; localization and completion are different functors.
 Proposed example SpectralHabiroCompletion.cyclotomic_fixed (characterisation): η_{R/(q−1)} is an equivalence; its homotopy groups are complete because 1−q acts by zero.
@@ -60,12 +64,13 @@ HabiroRings:HR.2/solid-habiro-unit-idempotence
 Solid idempotence of the Habiro unit
 In light solid spectra, regard SH as the condensed factorial limit lim_n R/P_n. Then multiplication SH⊗■_RSH→SH is an equivalence of commutative algebras. Moreover (∏_NS)⊗■SH≃∏_NSH, and shifts of ∏_NSH compactly generate Mod_SH(Sp■). The comparison identifies this SH with the image of the spherical complete unit under the accepted B.7 embedding.
 Proposed theorem SolidHabiroUnit.idempotent: In light solid spectra, regard SH as the condensed factorial limit lim_n R/P_n. Then multiplication SH⊗■_RSH→SH is an equivalence of commutative algebras. Moreover (∏_NS)⊗■SH≃∏_NSH, and shifts of ∏_NSH compactly generate Mod_SH(Sp■). The comparison identifies this SH with the image of the spherical complete unit under the accepted B.7 embedding.
+Finite-stage convention: divide by the monic associate (−1)^nP_n. The quotient here is a module cofiber; its sphere basis is proved on all π_k, and the tower splittings are S-linear.
 -/
 
 /-
 HabiroRings:HR.2/completed-countable-free-solid-modules
 Completed countable free solid modules
-For a sequence of countable sets I_n, put F_I=⊕_{n∈N}∏_{i∈I_n}SH in Mod_SH(Sp■), and C_I=L_HF_I. Let W consist of f:N→N tending to infinity: for every k, f(n)≥k for all sufficiently large n. Give W reverse pointwise order: an arrow f→g means f(n)≥g(n) for all n. Define J_r=fib(SH→SH/P_r), equivalently the principal ideal with specified multiplication map P_r:SH→SH, and J_0=SH. Then C_I ≃ colim_{f∈W}∏_n∏_{i∈I_n}J_{f(n)}, with arrows the ideal inclusions. This is an equivalence of complete solid SH-modules, natural in block maps. The ideal notation denotes fibre objects and maps, not an untyped subset of a spectrum.
+For a sequence of countable sets I_n, put F_I=⊕_{n∈N}∏_{i∈I_n}SH in Mod_SH(Sp■), and C_I=L_HF_I. Let W consist of f:N→N tending to infinity: for every k, f(n)≥k for all sufficiently large n. Give W reverse pointwise order: an arrow f→g means f(n)≥g(n) for all n. Define J_r=fib(SH→SH/P_r), equivalently the principal ideal with specified multiplication map P_r:SH→SH, and J_0=SH. Then C_I ≃ colim_{f∈W}∏_n∏_{i∈I_n}J_{f(n)}, with arrows the ideal inclusions. This is an equivalence of complete solid SH-modules, natural in SH-linear finite-support block maps as specified in the map API. The ideal notation denotes fibre objects and maps, not an untyped subset of a spectrum.
 Proposed constructor CountableSolidHabiroFree: For a countable block family I, construct C_I=L_H(⊕_n∏_{i∈I_n}SH).
 Proposed data CountableSolidHabiroFree.ideal: J_r is fib(SH→SH/P_r), with transition J_s→J_r for r≤s induced by P_r | P_s.
 Proposed equivalence CountableSolidHabiroFree.null_family: C_I ≃ colim_{f→∞}∏_{n,i∈I_n}J_{f(n)}, natural in finite-support block maps.
@@ -73,10 +78,15 @@ Proposed constructor CountableSolidHabiroFree.inclusion: The nth block map ∏_{
 Proposed extensionality CountableSolidHabiroFree.ext: For complete Q, restriction to the block inclusions gives Map(C_I,Q)≃∏_n Map(∏_{i∈I_n}SH,Q).
 Proposed characterisation CountableSolidHabiroFree.complete: RHom_R(T,C_I)=0, and C_I→lim_r C_I/P_r is an equivalence.
 Proposed functoriality CountableSolidHabiroFree.transition: If f≥g pointwise, the profile transition is ∏J_{f(n)}→∏J_{g(n)}; min(f,g) gives a common target.
+Proposed functoriality CountableSolidHabiroFree.map: For an SH-linear finite-support block map u:F_I→F_J, define C(u)=L_H(u):C_I→C_J. A finite-support block map means each input block map factors through a finite subcoproduct of output blocks.
+Proposed simp CountableSolidHabiroFree.map_id: C(id_{F_I})=id_{C_I}.
+Proposed functoriality CountableSolidHabiroFree.map_comp: C(v∘u)=C(v)∘C(u) for composable finite-support block maps, with the reflection coherence.
+Proposed compatibility CountableSolidHabiroFree.inclusion_naturality: For such u, C(u)∘η_{F_I}∘ι_n=η_{F_J}∘u∘ι_n, where ι_n includes the nth input block.
 Proposed example CountableSolidHabiroFree.empty (degenerate): If every I_n is empty then C_I=0.
 Proposed example CountableSolidHabiroFree.one_block (computation): If I_0 is a singleton and every other I_n is empty then C_I≃SH.
-Proposed example CountableSolidHabiroFree.constant_not_null (non-example): For singleton blocks, the constant family (1,1,…) in ∏_NSH is not in the image of C_I→∏_NSH: modulo P_1=q−1 it is nonzero in infinitely many coordinates.
+Proposed example CountableSolidHabiroFree.constant_not_null (non-example): For singleton blocks, the constant family (1,1,…) in ∏_NSH is not in the image of C_I→∏_NSH: modulo P_1=1−q (the same ideal as q−1) it is nonzero in infinitely many coordinates.
 Proposed example CountableSolidHabiroFree.decaying_family (characterisation): For singleton blocks the maps P_n:SH→SH in the nth coordinate assemble to a map SH→C_I, since n↦n is a proper weight.
+B.7 comparison: finite blocks only without an additional theorem. The discrete functor does not preserve arbitrary countable products; the infinite product-block model remains a solid construction conditional on G-solid.
 -/
 
 /-
