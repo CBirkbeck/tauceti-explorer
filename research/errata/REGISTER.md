@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7341 new mistakes confirmed · 1536 awaiting review · 1612 already corrected in print · 116 rejected on review · 19 extractions and packets not yet checked.
+7341 new mistakes confirmed · 1536 awaiting review · 1612 already corrected in print · 116 rejected on review · 18 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -19588,4 +19588,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `CohomologyComparisons`, `ComplexComparisonPartII`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `CohomologyComparisons`, `ComplexComparisonPartII`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`.
