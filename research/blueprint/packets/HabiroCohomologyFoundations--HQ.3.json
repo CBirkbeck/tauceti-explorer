@@ -309,7 +309,7 @@
       "sources": [
         {
           "sourceId": "wagner-tex-v2",
-          "locator": "Construction 3.38, pp. 43–44, final paragraph",
+          "locator": "Construction 3.38, pp. 42–44, final paragraph on p. 44",
           "match": "Functoriality there is in the pair over a fixed base. This packet supplies a conditional argument for changing the base, by the displayed pullback, not a claimed quotation of a source theorem."
         }
       ],
@@ -354,6 +354,7 @@
         "HabiroCohomologyFoundations:HQ.3/the-abstract-colimit-filtration-lemma",
         "HabiroCohomologyFoundations:HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration",
         "HabiroRings:HR.2/habiro-complete-modules",
+        "HabiroRings:HR.2/completeness-via-the-factorial-tower",
         "HabiroRings:HR.2/the-monoidal-structure",
         "DerivedDeRhamCohomology:DD.1",
         "mathlib:CategoryTheory.Limits.limit.post",
@@ -372,12 +373,12 @@
       "sources": [
         {
           "sourceId": "wagner-tex-v2",
-          "locator": "Construction 3.45, p. 48, definition of the limit",
+          "locator": "Construction 3.45, p. 47, definition of the limit",
           "match": "Supplies the inverse-limit object; β is derived here by functoriality of the construction and the finite-projective comparison, not directly stated by 3.45."
         },
         {
           "sourceId": "wagner-tex-v2",
-          "locator": "Theorem 3.11(b), p. 25, and proof following Lemma 3.46, pp. 48–49",
+          "locator": "Theorem 3.11(b), p. 25, and proof of Lemma 3.46, p. 47",
           "match": "Pins the cyclotomic filtration to q-𝓗dg/(q^m−1). Respect the inherited shift erratum E401 by using gr of the animated stupid filtration, rather than applying a second shift."
         }
       ],
@@ -588,7 +589,7 @@
       ]
     },
     {
-      "target": "Base-change maps in a stated proven range",
+      "target": "Base-change maps in the specified finite-projective range",
       "providedBy": [
         "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
         "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
@@ -660,7 +661,30 @@
   ],
   "validation": {
     "blueprint": "0 errors and 0 warnings with the provided pinned declaration index.",
-    "suggestedLean": "Elaborated via lean-check, exit 0, only 22 declaration-uses-placeholder warnings; only pinned Mathlib imports. The file is a partial ordinary categorical signature prototype; detailed enhanced omissions are listed in its opening note and the handoff.",
+    "suggestedLean": "Independently re-elaborated after review corrections via lean-check on 2026-10-06: exit 0, only 19 declaration-uses-placeholder warnings, pinned Mathlib imports only. This is a partial ordinary categorical signature prototype; the enhanced omissions remain explicit.",
     "date": "2026-10-06"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.3",
+    "date": "2026-10-06",
+    "notes": "Independent session codex-BRnBke reviewed all three local nodes, nine pinned Mathlib declarations, seven tests, sixteen API items, six reused planets, four supplier requests and target coverage. Corrected source page locators/excerpts and added the explicit HR.2 factorial-completeness prerequisite; strengthened the suggested polynomial differential test and made its ordinary scalar-extension/completion/monoidal data explicit. RT-AREA-etale/31 is respected by the packet and reader. Acceptance concerns this complete planning pass with honest gaps: no supplier export, unrestricted base-change theorem or enhanced Lean implementation is certified. See the review report for evidence and prototype limits.",
+    "checked": [
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-chosen-filtrations",
+        "verdict": "corrected",
+        "note": "All Definition 3.2 clauses and full diagrams are transported separately. Finite-projective retract argument is sound; DD.1 and filtered DD.2 enhancements remain precise requests. Replaced an uninformative compatibility excerpt and made stepMul actual multiplication by t in the prototype."
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/finite-projective-base-change-of-twisted-filtrations",
+        "verdict": "corrected",
+        "note": "Checked the prime-power pullback, arithmetic gluing, Adams-twist associativity and divisor/factorial transitions in 3.32–3.41. Corrected Construction 3.38 page range to 42–44. Conditional PR.3/AI.1 interfaces are explicit and not claimed from fixed-base source functoriality."
+      },
+      {
+        "nodeId": "HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change",
+        "verdict": "corrected",
+        "note": "The canonical comparison is limit.post followed by limMap, with the correct projection, composition and monoidal order. Corrected 3.45/3.46 locators to p.47; added HR.2/completeness-via-the-factorial-tower. Strengthened the coordinate example to the actual scaled differential; concretised three data-level API bodies. Cyclotomic filtration stays on H, with intrinsic graded shifts and no double shift."
+      }
+    ]
   }
 }
