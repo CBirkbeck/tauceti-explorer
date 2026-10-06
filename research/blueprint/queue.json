@@ -21364,8 +21364,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #665"
   },
   {
    "id": "REV-AInfCohomology--AI.6",
@@ -24369,8 +24370,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #721"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.0",
