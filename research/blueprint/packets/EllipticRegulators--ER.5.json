@@ -1,0 +1,861 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.5",
+  "scope": [
+    "EllipticRegulators:ER.5"
+  ],
+  "status": "complete",
+  "summary": "Target-level follow-up of the accepted parent. Import all eight ER.5 targets; add the conductor Gauss coefficient, finite-fiber/orbit and principal-ideal normalization certificates, a pinned ideal-Euler nonvanishing specialization, and reproducible CM examples. Correct E7/E8/E9 without re-planning CM characters, Fourier theory, K₂ classes or descent. RT-AREA-ktheory-2/5 is handled by explicit CM.1/CM.4 supplier edges.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:WeierstrassCurve.LSeries",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+        "provides": "W.LSeries(s)=LSeries((↑)∘W.LFunction,s), where LFunction is the product of the local reduction factors, including additive factor1.",
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "ZMod C additive character exp(2πij/C), used for the concrete dual-first coordinate adapter.",
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:cot_series_rep",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Cotangent.lean",
+        "provides": "For z not an integer, πcot(πz)=1/z+Σ_{n:ℕ+}(1/(z−n)+1/(z+n)); paired partial fraction summation.",
+        "checked": "Actual declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.MultiplicativeIdealWeight",
+        "kind": "definition",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
+        "provides": "Ideal(O K)→*₀ℂ with only finitely many height-one primes killed; existing carrier for ψ extended by zero at the conductor.",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.norm_idealTerm",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+        "provides": "For I a nonzero ideal, ‖idealTerm K f s I‖=‖f I‖/(absNorm I:ℝ)^Re(s).",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.LSeries_normCoeff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Regroup.lean",
+        "provides": "Summable(idealTerm K f s) implies LSeries(normCoeff K f,s)=Σ_I idealTerm K f s I.",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.summable_absNorm_rpow_ideal_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convergence.lean",
+        "provides": "For a number field K and real t, Summable(I≠0↦(absNorm I:ℝ)^(−t)) iff1<t.",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+        "provides": "For ψ:MultiplicativeIdealWeight K, Summable(idealTerm K ψ.toIdealArithmeticFunction s) implies LSeries(normCoeff K ψ.toIdealArithmeticFunction,s)≠0, with no separate real-part hypothesis.",
+        "checked": "Actual declaration and hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 via git show on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Bloch.CRM11.public",
+      "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
+      "authors": "Spencer J. Bloch",
+      "edition": "CRM Monograph Series 11, AMS 2000; public digitization of the licensed ebook/reprint text. Overlines are lost in the text layer; no page-image or private-scan verification is claimed.",
+      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "sha256": "c6922f3650cd46f68f1237284668079bd89b6d35baf4f42137cc303fc0ad9d1f",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Lecture11 §§11.1–11.2, printed pp.87–93, all lemmas, corollaries, construction and Theorem11.2.1.",
+        "The corrected overlines and kernel are inherited from the accepted parent and independently checked through exact coordinate algebra; OCR is not used to certify them."
+      ]
+    },
+    {
+      "id": "Brunault.These.2005.public",
+      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "authors": "François Brunault",
+      "edition": "Paris 7 thesis, 2005; arXiv math/0602186v1.",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction §0.5, printed p.11, CM scope; §1.2, Theorem21 and neighboring normalization discussion, pp.20–28.",
+        "Theorem21 invokes Bloch10.2.1 and is not an independent premise for the direct ER.4 analytic identity."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.5/dual-first-fourier-comparison",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "comparison",
+      "title": "Lecture 10 and Lecture 11 Fourier conventions",
+      "statement": "With B(a+bτ,k+ℓτ)=exp(2πi(−aℓ+bk)/C), use H_F(x)=C⁻¹Σ_y F(y)B(x,y). In coordinates H_F(k+ℓτ)=C⁻¹Σ_{a,b}F(a+bτ)exp(2πi(aℓ−bk)/C). For f₁₀(a,b)=F(b+aτ), H_F(k+ℓτ)=C f̂₁₀(k,ℓ), with the SAME output coordinates. Thus the imported direct ER.4 analytic identity gives Σ_x H_F(x)R_C(x)=iy²C⁴/π·Σ_{w∈O,w≠0}F(w)/(w²w̄). For odd F the printed opposite kernel gives −H_F and the negative of this identity. The associated sine kernel is sin(2π(bm−an)/C), not sin(2π(an−bm)/C).",
+      "hypotheses": [
+        "C≥1, τ∈ℍ; F:O/CO→ℂ is odd. O=ℤ+ℤτ is needed only to identify residue coordinates."
+      ],
+      "proofSteps": [
+        "Import the AC.0 Fourier API through the parent torsion adapter; no general Fourier transform, inversion or Parseval is constructed here.",
+        "Substitute f₁₀(a,b)=F(b+aτ) in the parent ER.4 transform and rename a,b; its factor C⁻² becomes C⁻¹ after multiplication by C, without swapping the output.",
+        "Use ER.4/direct-regularized-fourier-identity, then ER.4/the-regulator-of-the-corrected-classes: the analytic transform supplies C, the class normalization supplies C³.",
+        "Negating the kernel replaces x by −x. Oddness gives H_F(−x)=−H_F(x); inversion and R_C(−x)=−R_C(x) determine the corrected sine sign."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "EllipticRegulators:ER.4/direct-regularized-fourier-identity",
+        "EllipticRegulators:ER.4/the-regulator-of-the-corrected-classes",
+        "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C",
+        "EllipticRegulators:ER.5/lattice-sum-form-of-theorem-10-2-1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "§11.1, (11.1.1)–(11.1.2), pp.87–88; proof of Lemma 11.1.7, p.91",
+          "excerpt": "(11.1.1)",
+          "match": "The printed transform and the dual-first transform in the proof disagree. This comparison implements the accepted parent correction EllipticRegulators/E7; the C⁴ is independently reconstructed from the reviewed direct ER.4 proof."
+        }
+      ],
+      "acceptance": [
+        "C=3, F=δ_(1,0): H_F(0,1)=exp(2πi/3)/3 and H_F(1,0)=1/3, detecting an output-coordinate swap.",
+        "C=4, τ=i, primitive χ: H_χ(1+i)=1+i; the printed kernel gives −1−i.",
+        "No dependency on the final ER.5 L-value theorem enters the analytic identity."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/cm-gauss-coefficient",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "definition",
+      "title": "The CM Gauss coefficient",
+      "statement": "Define Γ_C(F,g)=g H_F(ḡ mod C), with H the imported dual-first, C⁻¹ transform. This is a complex-linear finite-weight scalar; the CM specialization is Γ_C(χ,g). It is the numerator coefficient in Bloch’s regulator formula, named separately to pin the generator, Fourier sign and level normalization. It constructs no Hecke character.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C."
+      ],
+      "proofSteps": [
+        "Take the imported finite transform and the image of ḡ in O/CO; multiply its value by the chosen embedding of g.",
+        "Expose the value and linearity APIs for arbitrary finite weights. For the primitive CM character, derive the conductor-generator independence, reality and norm APIs using primitive-gauss-normalization."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C",
+        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "§11.2, (11.2.1)–(11.2.4), pp.91–92",
+          "excerpt": "(11.2.4)",
+          "match": "Γ names the product g·H_χ(ḡ) occurring in the displayed formulas, rather than another CM datum. Parent E7/E8 fixes its convention and final scalar."
+        }
+      ],
+      "acceptance": [
+        "The norm and reality APIs require a primitive CM character with conjugation and μ-restriction; they are not assertions about arbitrary finite weights.",
+        "Changing the generator of the SAME ideal (f), with C fixed, preserves Γ. Changing C is not covered by that API."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "The CM Gauss coefficient"
+      },
+      "api": [
+        {
+          "name": "cmGaussCoefficient_apply",
+          "role": "characterisation",
+          "statement": "Γ_C(F,g)=g·C⁻¹Σ_x F(x)B(ḡ,x)."
+        },
+        {
+          "name": "cmGaussCoefficient_zero",
+          "role": "simp",
+          "statement": "Γ_C(0,g)=0 for every g."
+        },
+        {
+          "name": "cmGaussCoefficient_add",
+          "role": "structure",
+          "statement": "Γ_C(F+G,g)=Γ_C(F,g)+Γ_C(G,g)."
+        },
+        {
+          "name": "cmGaussCoefficient_smul",
+          "role": "structure",
+          "statement": "Γ_C(cF,g)=cΓ_C(F,g) for c∈ℂ."
+        },
+        {
+          "name": "cmGaussCoefficient_changeGenerator",
+          "role": "compatibility",
+          "statement": "For ζ∈μ, replacing f by ζf and g by ζ⁻¹g, C fixed, gives Γ_C(χ,ζ⁻¹g)=Γ_C(χ,g)."
+        },
+        {
+          "name": "cmGaussCoefficient_real",
+          "role": "relation",
+          "statement": "For the primitive CM character, conjugate Γ_C(χ,g)=Γ_C(χ,g)."
+        },
+        {
+          "name": "cmGaussCoefficient_norm",
+          "role": "characterisation",
+          "statement": "For the primitive CM character, ‖Γ_C(χ,g)‖=N(g)=C²/N(f)>0; in particular Γ_C(χ,g)≠0."
+        },
+        {
+          "name": "cmGaussCoefficient_oppositeKernel",
+          "role": "compatibility",
+          "statement": "For odd F, the coefficient formed with B(x,ḡ) is −Γ_C(F,g)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ER.5 corrected regulator scalar",
+          "how": "The coefficient is πΓ/(iy²C⁴), and its nonzero norm permits division."
+        },
+        {
+          "where": "ER.8 CM worked example",
+          "how": "Finite exact Gauss sums certify the chosen character and the scalar before evaluating the dilogarithm."
+        },
+        {
+          "where": "Bloch §11.2, Remark 11.2.2(ii)",
+          "how": "The generator independence removes a spurious choice of f; the formula still records the chosen class level C."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cmGaussCoefficient_Qi_C4",
+          "kind": "computation",
+          "statement": "τ=i, C=4, f=2+2i, g=1−i, χ(h) the unique unit congruent to h mod f: H_χ(1+i)=1+i and Γ=2."
+        },
+        {
+          "name": "cmGaussCoefficient_Eisenstein_C6",
+          "kind": "computation",
+          "statement": "τ=(1+√−3)/2, C=6, f=2√−3, g=−√−3, χ the unique congruent unit: H_χ(√−3)=√−3 and Γ=3."
+        },
+        {
+          "name": "cmGaussCoefficient_Qsqrt7_C7",
+          "kind": "computation",
+          "statement": "τ=(1+√−7)/2, C=7, f=√−7, g=−√−7, χ(a+bτ)=Legendre(a+4b,7): H_χ(√−7)=√−7 and Γ=7."
+        },
+        {
+          "name": "cmGaussCoefficient_zero_weight",
+          "kind": "degenerate",
+          "statement": "The zero finite weight gives Γ=0, so the primitive-character norm formula cannot omit its hypotheses."
+        },
+        {
+          "name": "cmGaussCoefficient_wrong_kernel",
+          "kind": "non-example",
+          "statement": "The printed kernel gives Γ=−2 in the Gaussian C=4 case, rejecting a transform with the wrong orientation."
+        },
+        {
+          "name": "cmGaussCoefficient_imprimitive",
+          "kind": "non-example",
+          "statement": "At τ=i,C=4,f=2+2i,g=1−i, the trivial character on units mod f extended by zero has H(1+i)=0 and Γ=0; the underlying trivial unit character has conductor (1), while its nonunit-zero extension is an indicator prime to (1+i), and it does not restrict to μ as the embedding."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.5/primitive-gauss-normalization",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "theorem",
+      "title": "Primitive CM Gauss sum normalization",
+      "statement": "For the primitive CM character, H_χ is supported exactly on ḡ·(O/f̄O)× in O/CO, |H_χ(ḡ)|²=N(g), and Γ_C(χ,g) is real with |Γ_C(χ,g)|=N(g)>0. For ζ∈μ, Γ_C(χ,ζ⁻¹g)=Γ_C(χ,g) when f is replaced by ζf. In particular Γ=±N(g); the sign is determined by the character and the fixed additive kernel, not discarded by taking a norm.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C."
+      ],
+      "proofSteps": [
+        "Import the parent conductor-support and multiplicative transformation laws. A unit modulo f̄ has a unit-modulo-C lift by the finite quotient/CRT interface of GlobalNumberFields layer 9. The transformation law therefore makes every allowed Fourier coefficient a root of unity times H_χ(ḡ).",
+        "Reduction O/CO→O/fO has N(g) elements per fiber, so Σ_x|χ(x)|²=N(g)φ(f), while the allowed support has φ(f̄)=φ(f) elements. Imported counting-measure Parseval for the unitary transform gives φ(f)|H_χ(ḡ)|²=N(g)φ(f); φ(f)>0 proves the norm and exact support.",
+        "Conjugation reverses B: B(x̄,ȳ)=B(x,y)⁻¹. With χ(x̄)=χ̄(x), obtain conjugate H_χ(w)=H_χ(w̄). Since (f̄)=(f), u=g/ḡ=f̄/f is a unit. The character law and χ|μ give H_χ(g)=u H_χ(ḡ), whence conjugate(g H_χ(ḡ))=g H_χ(ḡ).",
+        "For f′=ζf,g′=ζ⁻¹g, ḡ′=ζḡ and H_χ(ζḡ)=ζ H_χ(ḡ); the two factors cancel. N(g)>0, and N(f)N(g)=C²."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "EllipticRegulators:ER.5/fourier-transform-of-the-character",
+        "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C",
+        "AdditiveCombinatorics:AC.0/fourier-parseval",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "Lemma 11.1.7 and proof, pp.90–91; §11.2, pp.91–92",
+          "excerpt": "Lemma 11.1.7.",
+          "match": "The support/covariance are Lemma 11.1.7. The norm, reality and generator independence are derived consequences using the imported Fourier API and the E/ℚ conjugation hypothesis, not separately numbered source theorems."
+        }
+      ],
+      "acceptance": [
+        "The Gaussian norm is |1+i|²=2, the Eisenstein norm is 3, and the √−7 norm is 7.",
+        "No literal equation f=f̄ is used: f=2+2i is an explicit counterexample to that stronger equation.",
+        "The imprimitive indicator test has zero Fourier value and fails the claimed primitive norm."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Gauss sum nonvanishing"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/conductor-fiber-regulator-evaluation",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "theorem",
+      "title": "Conductor fibers in the weighted regulator sum",
+      "statement": "Let A_C=Σ_{w∈O/CO}H_χ(w)R_C(w). Then A_C=Γ_C(χ,g)Σ_{x∈W}χ(x)R_C(x), where W consists of all residues invertible modulo f. This equality holds even when g has a prime factor not dividing f.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "Support and the character transformation law rewrite A_C as H_χ(ḡ)Σ_{t∈(O/f̄O)×}χ(t)R_C(ḡt), using χ̄(t̄)=χ(t).",
+        "Apply the parent distribution relation to the factorization C=f̄ḡ: R_C(ḡt)=g Σ_{ν∈O/ḡO}R_C(t+f̄ν). Both sides denote S built with the SAME C; no replacement by f-level Bloch classes occurs.",
+        "These fibers partition residues invertible modulo f̄, which equal W because (f̄)=(f). χ is constant on each fiber. Multiply by H_χ(ḡ) to obtain the formula.",
+        "The step never identifies W with units modulo C. That replacement requires every prime dividing g to divide f."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "EllipticRegulators:ER.5/fourier-transform-of-the-character",
+        "EllipticRegulators:ER.5/cm-twisting-and-distribution",
+        "EllipticRegulators:ER.5/the-class-U",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "Corollary 11.1.6, p.90; (11.2.1), pp.91–92",
+          "excerpt": "Corollary 11.1.6.",
+          "match": "The distribution proof partitions full conductor fibers. The printed last step of (11.2.1) incorrectly replaces them by units modulo C without an extra prime-support assumption; accepted parent E9 supplies the correction."
+        }
+      ],
+      "acceptance": [
+        "At √−7,C=14, |W|=168 although |(O/14O)×|=42.",
+        "At Qi,C=4, W equals units modulo C, and the formula reduces to the printed indexing after the scalar correction.",
+        "The prefactor here is g, obtained by applying distribution to f̄,ḡ; substituting ḡ would fail the Gaussian example."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/unit-orbit-regulator-count",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "comparison",
+      "title": "Root-of-unity orbits in Bloch’s class",
+      "statement": "The μ-action on W is free. The map x↦xχ̄(x) identifies W/μ with its image in O/CO, and |W/μ|=N(g)φ(f)/|μ|. For the imported class U=Σ_{W/μ}S_{xχ̄(x)/C}, Σ_{x∈W}χ(x)R_C(x)=|μ|R_q(U). Thus A_C=|μ|Γ_C(χ,g)R_q(U). The class and rational descent remain the parent/E.7 constructions.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "If ζx=x mod C, invert x mod f to get ζ=1 mod f; χ|μ then gives ζ=1 as a root of unity. This proves freeness without requiring x to be a unit modulo C.",
+        "The index map is orbit-constant because χ(ζx)=ζχ(x). If two images coincide, x=(χ(x)/χ(y))y, so their residues lie in the same μ-orbit.",
+        "Unit twisting gives R_C(xχ̄(x))=χ(x)R_C(x). Rational additivity of the parent regulator and equal orbit sizes give the displayed sum.",
+        "Use the parent Galois action/descent, with inverse norm divided by [L:ℚ], for U over ℚ; no integrality or generation assertion is added."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/conductor-fiber-regulator-evaluation",
+        "EllipticRegulators:ER.5/the-class-U",
+        "EllipticRegulators:ER.5/cm-twisting-and-distribution",
+        "EllipticRegulators:ER.4/the-divisor-formula",
+        "EllipticKTheory:E.7/rational-galois-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "(11.2.2)–(11.2.3), p.92",
+          "excerpt": "(11.2.3)",
+          "match": "This is the orbit step in Bloch’s construction, with W replacing the insufficient unit index set as recorded in parent E9. Its precise factor |μ| must be compared with the generator multiplicity on the L-series side."
+        }
+      ],
+      "acceptance": [
+        "Qi,C=4: eight residues, four roots of unity, two distinct index points (1,0),(3,2).",
+        "Eisenstein,C=6: eighteen residues, six roots, three index points (1,0),(5,4),(3,2).",
+        "√−7,C=7 and14: 21 and84 orbits, respectively; freeness remains true at14."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/principal-generator-L-series-comparison",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "comparison",
+      "title": "Ideal and generator normalizations of the Hecke series",
+      "statement": "With ψ supplied by CM.4, at s=2 the absolutely convergent element sum T_C=Σ_{a∈O,a≠0}χ(a)/(a²ā) equals |μ|·LSeries(normCoeff κ ψ.toIdealArithmeticFunction,2), the latter also equal to Σ_{I≠0}ψ(I)/N(I)². The summand is zero if a is not prime to f, not merely if a is not prime to C.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "Use the CM.4 principal-ideal law ψ((a))=āχ(a) and N((a))=a ā to identify the summand with ψ((a))/N((a))². It is unchanged by a↦ζa because χ(ζ)=ζ and ζ̄ζ=1.",
+        "Class number one makes every nonzero integral ideal principal, with exactly |μ| generators. Regroup the absolutely convergent sum by this finite fiber.",
+        "The norm of each element summand is at most |a|⁻³; import the reviewed ER.4 lattice convergence. Independently the ideal series is summable by cm-ideal-series-at-two.",
+        "Apply the pinned TauCeti.LSeries_normCoeff regrouping declaration. The coefficient n=0 is zero, and ideals killed at the conductor contribute zero."
+      ],
+      "prerequisites": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "EllipticRegulators:ER.5/cm-ideal-series-at-two",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "tauceti:TauCeti.LSeries_normCoeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "§11.2 preceding (11.2.1), p.91; Theorem 11.2.1, p.92",
+          "excerpt": "(11.2.1)",
+          "match": "Bloch moves from the lattice sum to an ideal Hecke L-function without dividing by the number of generators. This explicit comparison implements accepted parent E8. The generator’s bar is recovered from the parent’s reviewed CM convention, since the public text loses overlines."
+        }
+      ],
+      "acceptance": [
+        "For Qi, the ideal (1) has four generators, each contributing 1; it contributes once to the ideal L-series.",
+        "For Eisenstein the corresponding multiplier is six, and for √−7 it is two.",
+        "At C=14, conductor-prime-to ideals above2 are retained; deleting them would give an imprimitive L-function."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/cm-ideal-series-at-two",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "application",
+      "title": "Absolute convergence and nonvanishing at two",
+      "statement": "For the imported CM weight ψ, Summable(idealTerm κ ψ.toIdealArithmeticFunction s) for Re s>3/2, and LSeries(normCoeff κ ψ.toIdealArithmeticFunction,s)≠0 there. In particular L(E/ℚ,2)=L(2,ψ)≠0 via CM.4’s all-local-factor comparison. This is a specialization of the pinned ideal Euler-product result, not a new nonvanishing theorem for general Hecke L-functions.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "CM.4 and GlobalNumberFields layer10 supply |ψ(I)|=N(I)^(1/2) on ideals prime to f and zero otherwise, as a MultiplicativeIdealWeight κ.",
+        "TauCeti.norm_idealTerm bounds the norm by N(I)^(−(Re s−1/2)). TauCeti.summable_absNorm_rpow_ideal_iff at Re s−1/2>1 proves the summability by norm comparison.",
+        "Apply TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm. The existing theorem supplies the reciprocal Euler-product argument, including prevention of a product of nonzero factors converging to zero.",
+        "CM.4 identifies the curve’s pinned WeierstrassCurve.LSeries including bad additive factors1. Specialize to2. The parent nonvanishing node then gives R_q(U)≠0 and U≠0 once the corrected scalar is in place."
+      ],
+      "prerequisites": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "tauceti:TauCeti.MultiplicativeIdealWeight",
+        "tauceti:TauCeti.norm_idealTerm",
+        "tauceti:TauCeti.summable_absNorm_rpow_ideal_iff",
+        "tauceti:TauCeti.MultiplicativeIdealWeight.LSeries_ne_zero_of_summable_idealTerm",
+        "mathlib:WeierstrassCurve.LSeries",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "Remark 11.2.2 and Corollary 11.2.3, p.93",
+          "excerpt": "Corollary 11.2.3.",
+          "match": "The source nonzero argument lies entirely in the absolutely convergent region. The reviewed library audit identifies the pinned Tau Ceti declaration that already supplies it."
+        }
+      ],
+      "acceptance": [
+        "The exponent is 3/2 at s=2; a bounded/unitary-weight theorem applied directly to ψ would have the wrong hypothesis.",
+        "The Hecke conductor is part of the coefficient, not an omitted Euler factor of the elliptic curve.",
+        "No claim of analytic continuation, functional equation, K₂ injectivity or spanning follows."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/unit-factor-cancellation-certificate",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "theorem",
+      "title": "Normalization certificate for Bloch’s CM formula",
+      "statement": "The same weighted sum satisfies A_C=|μ|Γ_C(χ,g)R_q(U) and A_C=(iy²C⁴/π)|μ|L(2,ψ). Cancelling |μ|>0 proves the accepted parent theorem with coefficient πΓ_C(χ,g)/(iy²C⁴). With the printed opposite kernel its coefficient is −πΓ/(iy²C⁴), where Γ denotes the dual-first coefficient. Thus the printed factor |μ| is spurious. For the rational class U, R_q(U)=iC³Σ_{W/μ}D_q(exp(2πixχ̄(x)/C)), and L(E,2)=πΓ/(y²C)ΣD_q.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "Use conductor-fiber-regulator-evaluation and unit-orbit-regulator-count for the first expression for A_C.",
+        "Use dual-first-fourier-comparison and principal-generator-L-series-comparison for the second expression.",
+        "Cancel the same positive integer |μ|; divide by iy²C⁴/π, which is nonzero. No nonvanishing of a numerical diagnostic is a premise.",
+        "Import the parent rational descent and conjugation/real-regulator convention. Conjugation-stability of the index set kills the real J companion; the imaginary part is the elliptic D sum. Nonvanishing uses cm-ideal-series-at-two and the primitive Gauss coefficient."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/dual-first-fourier-comparison",
+        "EllipticRegulators:ER.5/unit-orbit-regulator-count",
+        "EllipticRegulators:ER.5/principal-generator-L-series-comparison",
+        "EllipticRegulators:ER.5/primitive-gauss-normalization",
+        "EllipticRegulators:ER.4/the-regulator-of-the-corrected-classes",
+        "EllipticRegulators:ER.5/the-class-U",
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "(11.2.1)–(11.2.4), pp.91–92; Corollary 11.2.3, p.93",
+          "excerpt": "Theorem 11.2.1.",
+          "match": "This is an independent scalar certificate for the parent corrected theorem, using accepted E7/E8/E9, rather than a new identifier for that theorem. The printed final formula and the printed kernel cannot be combined unchanged."
+        }
+      ],
+      "acceptance": [
+        "Gaussian Γ=2, y=1,C=4 gives L(E,2)=π/2·ΣD_q.",
+        "Eisenstein Γ=3,y²=3/4,C=6 gives coefficient2π/3; √−7 Γ=7,y²=7/4,C=7 gives4π/7.",
+        "The regulator is Bloch’s complex R_q. The Deligne regulator is ½ conjugate R_q from ER.4; those scalars cannot be interchanged."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/three-CM-normalization-examples",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "application",
+      "title": "The Gaussian, Eisenstein and √−7 examples",
+      "statement": "For E:y²=x³−x, τ=i,C=4,f=2+2i,g=1−i, Γ=2 and U=S_{1/4}+S_{(3+2i)/4}; R_q(U)=37.36400426919091138661030173188499…i and L(E,2)=0.917050635318654988643805524295713…. For y²=x³+1, τ=(1+√−3)/2,C=6, Γ=3, the three indices are (1,0),(5,4),(3,2) divided by6. For the maximal-order √−7 curve 49a1, C=7,χ(a+bτ)=Legendre(a+4b,7), Γ=7 and there are21 indices. The finite Gauss data and the scalar coefficients are exact; displayed decimal values are diagnostics.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "Construct finite character tables by unit congruence modulo f for the Gaussian/Eisenstein cases, and by the quadratic residue character modulo7 for √−7. CM.4 supplies their elliptic/Hecke identification; the tables do not prove Deuring.",
+        "Compute the finite transform and orbit image, checking |W|=8,18,42 and |μ|=4,6,2.",
+        "For √−7, H(ḡ)=Σ_{t mod7}Legendre(t,7)exp(2πit/7)=2i[sin(2π/7)+sin(4π/7)−sin(6π/7)]. The primitive norm gives absolute value √7; sin(2π/7)>sin(π/7)=sin(6π/7) makes its imaginary part positive, fixing H(ḡ)=i√7 and Γ=7. At C=14 four residue lifts and the factor1/14 give twice this Gauss sum, hence Γ=28.",
+        "Evaluate the absolutely convergent direct q-orbit regulator series at canonical lifts. The summed real companion vanishes; retain C³ in the class regulator.",
+        "Independently check the Gaussian ideal L-series using the alternating bilateral-row evaluation: L(2,ψ)=Σ_{a≥1 odd}(−1)^((a−1)/2)[π/(4a²)csch(πa/2)+π²/(8a)csch(πa/2)coth(πa/2)]. This comes from χ(a+bi)=sin(πa/2)cos(πb/2)+i cos(πa/2)sin(πb/2), regrouping the absolutely convergent Gaussian lattice sum, and differentiating the paired cotangent partial fraction series."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/unit-factor-cancellation-certificate",
+        "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "EllipticRegulators:ER.5/the-class-U",
+        "EllipticRegulators:ER.4/direct-series-convergence",
+        "mathlib:cot_series_rep"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "Theorem 11.2.1, p.92, specialized to the parent accepted examples",
+          "excerpt": "(11.2.4)",
+          "match": "The source gives the general construction; the finite tables and numerical diagnostics are explicit specializations, independently recalculated here. The curve labels and character conventions are inherited from the accepted parent, not taken from OCR."
+        }
+      ],
+      "acceptance": [
+        "The independent Gaussian row sum agrees with the regulator evaluation within10⁻⁴² at45-digit working precision; this is a diagnostic, not an error-certified proof.",
+        "Exact local tests supplied by CM.4 for x³−x include a₅=−2,a₁₃=6, and the bad factor at2 is1.",
+        "Twisting to y²=x³+x preserves the CM order and changes the conductor/finite character, so these data cannot be reused."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.5/extra-prime-level-counterexample",
+      "parentStageId": "EllipticRegulators:ER.5",
+      "realises": [
+        "EllipticRegulators:ER.5"
+      ],
+      "kind": "application",
+      "title": "The enlarged conductor index set at level fourteen",
+      "statement": "For κ=ℚ(√−7),τ=(1+√−7)/2,f=√−7,C=14,g=−2√−7,χ(a+bτ)=Legendre(a+4b,7), Γ=28. W has168 residues and84 root-of-unity orbits; units modulo14 have42 residues and21 orbits. The corrected W-sum gives L(2,ψ)=1.13881438870384811745067015019065…, while direct numerical evaluation of the original unit-only sum gives twice that value to the recorded precision. The primes above2 divide g but not f, so the original index-set hypothesis fails.",
+      "hypotheses": [
+        "E/ℚ has CM by the maximal order O=ℤ+ℤτ of an imaginary quadratic field κ of class number one; the embedding has y=Im τ>0. CM.1/CM.4 supply this datum and ψ, not ER.5.",
+        "The imported primitive finite character χ:(O/fO)×→μ restricts to the chosen embedding on μ=O×, satisfies χ(x̄)=χ̄(x), and (f̄)=(f). C≥1 is a rational integer, C=fg, f,g≠0 in O. Equality of conjugate conductor ideals does not mean f̄=f as elements.",
+        "χ on O/CO means pullback from O/fO on residues invertible modulo f, and zero elsewhere. W is precisely that nonzero locus. R_C(x)=R_q(S_{x/C}) always uses classes built at the same level C.",
+        "For rational descent and the pure-imaginary regulator conclusion, the chosen CM uniformization is required to intertwine complex conjugation with z↦z̄ on ℂ/O (equivalently the CM.2 real-structure transport is the natural one in these coordinates). This compatibility is an incoming datum; maximal-order CM and a shared j-invariant alone do not establish it for every ℚ-twist."
+      ],
+      "proofSteps": [
+        "Compute χ by reduction modulo7. Chinese remainder O/14O≅O/2O×O/7O gives four lifts of each conductor unit, hence168 residues. Since2 splits in κ, O/2O≅𝔽₂×𝔽₂ has only one unit, giving42 full-level units.",
+        "Use |μ|=2 for orbit counts. The primitive coefficient has |H(ḡ)|²=N(g)=28 and Γ=28.",
+        "Evaluate both specified finite sums with the imported direct q-orbit regulator formulas; the numerical ratio is2 within10⁻⁴² at45 digits. The exact cardinalities and failure of the prime-support condition already reject the unqualified index substitution. No exact proof of the numerical factor2 is claimed in this diagnostic application."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.5/unit-factor-cancellation-certificate",
+        "EllipticRegulators:ER.5/primitive-gauss-normalization",
+        "EllipticRegulators:ER.5/cm-twisting-and-distribution",
+        "EllipticRegulators:ER.5/the-class-U"
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch.CRM11.public",
+          "locator": "(11.2.1)–(11.2.3), pp.91–92; parent E9 counterexample",
+          "excerpt": "(11.2.3)",
+          "match": "This is the accepted parent E9 counterexample, recalculated at45 digits; it is not an example asserted in the published book."
+        }
+      ],
+      "acceptance": [
+        "The target uses W at every permitted C; the smaller unit index is allowed only with the extra prime-support condition.",
+        "At C=14, the W regulator is870.352604165136888924379523858885…i and the unit-only regulator is1740.70520833027377784875904771777…i.",
+        "The two numerical L-values are L and2L, rejecting a plan that silently substitutes units modulo C."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/CM",
+        "namespace": "TauCeti.EllipticRegulator"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "id": "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Import the CM.1/CM.4 datum and Deuring comparison; preserve its owner requests. Conjugation equality is ideal-level, not element-level."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/the-class-U",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain the explicit W/μ sum, all six API items and four tests; K₂ classes/descent belong to E.7 and CM.2. Rational descent assumes the chosen uniformization has the natural conjugation transport; record this explicit hypothesis at assembly."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/the-L-value-theorem",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain the corrected theorem identifier; the new normalization certificate supplies its scalar proof."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/nonvanishing-and-what-is-not-claimed",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain U≠0 and the stated limit on the conclusion; replace the natural-number near miss by the exact pinned ideal Euler result."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain the specialized transform, all API/tests, using dual-first kernel and C⁻¹ normalization."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/lattice-sum-form-of-theorem-10-2-1",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain the corrected C⁴ identity; use the direct reviewed ER.4 analytic proof."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/cm-twisting-and-distribution",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain the same-level unit and CM distribution laws."
+    },
+    {
+      "id": "EllipticRegulators:ER.5/fourier-transform-of-the-character",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "purpose": "Retain conductor support/covariance; primitive norm and exact support are supplied here."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+      "need": "Import the CM endomorphism/order action and oriented ideal-lattice uniformization for maximal-order E/ℚ, together with the finite unit group and principal ideal generator ambiguity. ER.5 does not classify CM orders or reconstruct the CM curve. For the Bloch model, certify compatibility of the selected analytic uniformization with the natural complex-conjugation action. For other ℚ-twists supply the actual transported real structure instead; ER.5 does not infer natural conjugation from an abstract CM order or a homothety of complex tori.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "EllipticRegulators:ER.5/principal-generator-L-series-comparison"
+      ]
+    },
+    {
+      "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+      "need": "At C divisible by conductor, import the actual torsion-field Galois image and action y/C↦z⁻¹χ(z)y/C for ray residues z, plus complex conjugation. It is enough that Gal(κ(E[C])/κ) acts through this ray representation; do not assert it equals the entire ray class group. This supplies invariance of the parent U. For the Bloch model, certify compatibility of the selected analytic uniformization with the natural complex-conjugation action. For other ℚ-twists supply the actual transported real structure instead; ER.5 does not infer natural conjugation from an abstract CM order or a homothety of complex tori.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/the-class-U"
+      ]
+    },
+    {
+      "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+      "need": "Import ψ as the existing TauCeti.MultiplicativeIdealWeight κ, zero at ideals divisible by conductor primes, with primitive χ:(O/fO)×→μ, χ|μ the embedding, χ(x̄)=χ̄(x), (f̄)=(f), ψ((h))=h̄χ(h), and ‖ψ(I)‖=N(I)^(1/2) on conductor-prime-to ideals. Export Deuring’s comparison to the pinned WeierstrassCurve.LSeries on Re s>3/2 with ALL local factors, including additive bad factors1 and conductor N_E=|discκ|N(f). Twists must select their own χ; maximal order/class number one is the exact consumer scope.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character",
+        "EllipticRegulators:ER.5/cm-gauss-coefficient",
+        "EllipticRegulators:ER.5/principal-generator-L-series-comparison",
+        "EllipticRegulators:ER.5/cm-ideal-series-at-two"
+      ]
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "need": "Import the ideal/rank-one Hecke local factor convention (1−ψ(P)N(P)^(-s))^-1, and comparison of split/inert factors with the rank-two elliptic local polynomial. CM.4 owns the elliptic Frobenius/conductor theorem; AL.1 supplies its generic conventions, not a second Deuring proof.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "need": "Import finite ray characters with exact conductor and zero extension, finite quotient cardinalities, reduction of units modulo a multiple ideal onto conductor units by CRT, and their conductor-primitivity interface. Keep the idelic character owner and its ideal-weight comparison; no generic conductor theory is planned here.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/primitive-gauss-normalization",
+        "EllipticRegulators:ER.5/conductor-fiber-regulator-evaluation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "need": "Import the algebraic infinity-type (0,1) in ψ((h))=h̄χ(h) for the chosen embedding and its ideal norm N(I)^(1/2). The opposite embedding conjugates this convention. This identifies the incoming CM weight used in the already-built ideal convergence/Euler APIs.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/cm-ideal-series-at-two"
+      ]
+    }
+  ],
+  "gaps": [],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.5",
+      "status": "planned",
+      "note": "Every ER.5 target is imported by its accepted id; ten new declarations account for the missing normalization proof and examples. Chains terminate in pinned declarations, accepted parent/supplier nodes, or the six explicit owner requests. No unrecorded local mathematical gap remains.",
+      "remaining": [
+        "Supplier requests to CM.1/CM.2/CM.4, AL.1 and GlobalNumberFields9/10 must be fulfilled with the exact stated interfaces; this stage is planned rather than library-closed.",
+        "Assembly must retain the parent ids, connect their scalar proof to unit-factor-cancellation-certificate and their nonvanishing proof to the pinned ideal Euler result, and apply the stage-text correction proposal."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticRegulators",
+        "ComplexMultiplicationAndExplicitReciprocity"
+      ],
+      "title": "Import CM theory and correct the Bloch specialization",
+      "detail": "RT-AREA-ktheory-2/5: CM.1 and CM.4 are the owners of the action, character, conductor and Frobenius identities. RS-14 generic links do not replace these imports. The accepted parent already records E7/E8/E9; this part supplies their proof and preserves owner boundaries.",
+      "proposal": "Add CM.1→ER.5 and CM.4→ER.5, and retain CM.2→ER.5 for torsion descent. ER.5 keeps only the maximal-order, class-number-one E/ℚ specialization C=fg, primitive finite character/Gauss normalization, U and its regulator. Replace stage (11.2.4) by L(E,2)=πΓ/(iy²C⁴)R_q(U), with H dual-first and U indexed by W/μ. Unit indexing requires primes(g)⊆primes(f). Keep K₂ integrality in ER.6 and generation as an unproved conjecture. State the real-structure compatibility needed for the natural conjugation action on the chosen Bloch model; arbitrary twists require their transported action."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticRegulators"
+      ],
+      "title": "Replace the ideal-series request by its pinned library result",
+      "detail": "The reviewed ER.5 audit and actual Tau Ceti source contain the ideal carrier, norm regrouping and nonvanishing theorem. The parent’s ArithmeticDirichletSeries request and its natural-number Euler near miss are obsolete for this target.",
+      "proposal": "Use TauCeti.MultiplicativeIdealWeight, LSeries_normCoeff, norm_idealTerm, summable_absNorm_rpow_ideal_iff and LSeries_ne_zero_of_summable_idealTerm. Do not add an ideal Euler-product node. RS-14 Mathlib Dirichlet and modular nebentypus links are generic adjacent contracts, not prerequisites for the CM regulator example; their uses in ER.7 remain outside this scope."
+    }
+  ],
+  "links": [
+    {
+      "source": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "RT-AREA-ktheory-2/5: imported maximal-order CM action and analytic lattice."
+    },
+    {
+      "source": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Imported torsion reciprocity and conjugation for rational descent of U."
+    },
+    {
+      "source": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "RT-AREA-ktheory-2/5: imported ψ, conductor, norm and Deuring/Frobenius identities."
+    },
+    {
+      "source": "EllipticRegulators:ER.4",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Reviewed direct Fourier identity and C³ class normalization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Consume its already-built pinned ideal nonvanishing declaration, with CM norm/convergence supplied by this specialization."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "citation": "Bloch CRM11, public text-layer digitization; source collation limited to this version.",
+      "read": "2026-10-06"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "read": "2026-10-06",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7"
+    }
+  ],
+  "sourceIssues": [],
+  "inheritedSourceIssues": [
+    {
+      "id": "EllipticRegulators/E7",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
+      "handling": "Dual-first kernel exp2πi(aℓ−bk)/C; opposite printed kernel is negative on odd inputs."
+    },
+    {
+      "id": "EllipticRegulators/E8",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
+      "handling": "The element/ideal factor |μ| cancels the residue/orbit factor; final coefficient has no |μ|."
+    },
+    {
+      "id": "EllipticRegulators/E9",
+      "from": "research/blueprint/packets/EllipticRegulators.json",
+      "status": "confirmed by REV-EllipticRegulators; used here without a duplicate erratum record",
+      "handling": "Use W invertible modulo conductor, or explicitly impose primes(g)⊆primes(f)."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+      "detail": "The consumer needs the existing TauCeti.MultiplicativeIdealWeight carrier and all-local-factor Deuring comparison including additive bad primes. The stage’s good-prime Frobenius identity alone is not enough; extend its owner interface rather than reconstructing it in ER.5."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "detail": "Import conductor/finite-character carriers and their ideal-weight comparison. A natural-number DirichletCharacter is not the character of (O/fO)× and cannot be substituted even in class number one."
+    },
+    {
+      "roadmap": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+      "detail": "Natural complex conjugation in coordinates ℂ/O is a normalization hypothesis, not a consequence of an abstract homothety E(ℂ)≅ℂ/ΩO. The CM.1/2 real-structure interface must certify it for the chosen Bloch model; a rotated period lattice of another ℚ-twist requires transport. The rational descent/pure-imaginary statements in this part are explicitly conditional on that compatibility."
+    }
+  ],
+  "review": null
+}
