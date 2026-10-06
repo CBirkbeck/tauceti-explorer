@@ -22162,9 +22162,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #681"
+   "note": "deliverables arrived from an external worker on issue #681",
+   "finishedAt": "2026-10-06T14:10:21Z"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
@@ -27562,12 +27563,13 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #966"
+   "note": "deliverables arrived from an external worker on issue #966",
+   "finishedAt": "2026-10-06T14:10:24Z"
   },
   {
    "id": "REV-PadicHodgeRegulators--D.1",
@@ -28549,9 +28551,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #986"
+   "note": "claimed on GitHub issue #986"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF4",
