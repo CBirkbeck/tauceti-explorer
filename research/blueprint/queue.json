@@ -33821,7 +33821,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.6",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6439"
   },
   {
    "id": "BP-EllipticRegulators--ER.7",
@@ -34448,8 +34449,9 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.10.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6505"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6505",
+   "finishedAt": "2026-10-06T05:07:54Z"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.10",
@@ -34680,7 +34682,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.9.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6510"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.9",
