@@ -88,7 +88,10 @@ pro-étale sites, sheaves on `Spa`, affinoid algebras and completed tensor produ
 neither library. Every packet item that needs one of them is a comment of the form
 `-- <name>: not stated here; needs <missing carrier> (supplier: <stage>)`, so that every packet
 name still appears. The supplier is the packet's request for that carrier when there is one;
-otherwise it is the earlier stage that the node lists as a prerequisite for it. No stand-in is
+otherwise it is the stage (or Tau Ceti layer) owning the node that the packet lists as a
+prerequisite for it. Huber's category `V` (Wedhorn's `𝒱`) is planned by Tau Ceti AdicSpaces,
+Layers 3.4 and 5 ("Tau Ceti AdicSpaces 3.4 and 5" below); the independent review
+REV-PerfectoidSpaces--P8 corrected the supplier names to match the reviewed packet. No stand-in is
 introduced for any of these geometric objects. Where a node has a ring-level or topological
 core that the libraries can state, that core is stated under the node's name with a suffix, and
 the comment says so.
@@ -495,7 +498,7 @@ theorem rational_invariants_characteristic_p_isUnit_choose {R : Type*} [CommRing
 -- rational_invariants_order_invertible: not stated here; needs the completed rational
 --   localisations A^G⟨f/h⟩ and A⟨f/h⟩ with the G-action on the latter (Tau Ceti
 --   `completionLocObj`, module not built here), completed tensor products and sheafiness
---   (supplier: AdicEtaleGeometry:A0). Node
+--   (supplier: AdicEtaleGeometry:A0/rational-pullback-comparison). Node
 --   PerfectoidSpaces:P8/rational-invariants-order-invertible. Its splitting
 --   A = A^G ⊕ (1 - e_G) A is Mathlib's `Representation.isProj_averageMap`; the twisted form is
 --   `TorsorDescent.twistedAverage` below.
@@ -507,7 +510,7 @@ theorem rational_invariants_characteristic_p_isUnit_choose {R : Type*} [CommRing
 -- rational_invariants_perfectoid: not stated here; needs A⟨T/s⟩ with its G-action (Tau Ceti
 --   `completionLocObj`, module not built here), rational localisation and tilting of perfectoid
 --   pairs and O_Y, q_* O_X as sheaves on Spa (supplier: PerfectoidSpaces:P1,
---   PerfectoidSpaces:P2, AdicEtaleGeometry:A0). Node
+--   PerfectoidSpaces:P2, Tau Ceti AdicSpaces Layer 3). Node
 --   PerfectoidSpaces:P8/rational-invariants-perfectoid.
 -- invariants_of_affinoid_algebra: not stated here; needs classical K-affinoid algebras,
 --   noetherian, with closed finite modules (supplier: AdicSpacesPartII:R0). Node
@@ -520,40 +523,44 @@ theorem rational_invariants_characteristic_p_isUnit_choose {R : Type*} [CommRing
 category `V` -/
 
 -- VRingedSpace.quotient: not stated here; needs Huber's category V of v-ringed spaces with
---   structure sheaves (supplier: AdicEtaleGeometry:A0)
--- VRingedSpace.quotient.π: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
--- VRingedSpace.quotient.isQuotientMap: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
+--   structure sheaves (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- VRingedSpace.quotient.π: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- VRingedSpace.quotient.isQuotientMap: not stated here; needs V
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5)
 -- VRingedSpace.quotient.sections: not stated here; needs V and sheaves on |X|/G
---   (supplier: AdicEtaleGeometry:A0)
--- VRingedSpace.quotient.lift: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
--- VRingedSpace.quotient.restrict: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
--- VRingedSpace.quotient.map: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- VRingedSpace.quotient.lift: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- VRingedSpace.quotient.restrict: not stated here; needs V
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- VRingedSpace.quotient.map: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5)
 -- VRingedSpace.quotient.stalk: not stated here; needs V and stalks of O_X
---   (supplier: AdicEtaleGeometry:A0)
--- quotient_trivialAction: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5)
+-- quotient_trivialAction: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5)
 --   [degenerate test]
--- quotient_prod_self: not stated here; needs V (supplier: AdicEtaleGeometry:A0)
+-- quotient_prod_self: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5)
 --   [computation test]
 -- quotient_affinoid_perfectoid: not stated here; needs V and affinoid perfectoid spaces
---   (supplier: AdicEtaleGeometry:A0, PerfectoidSpaces:P2) [compatibility test]
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5, PerfectoidSpaces:P2) [compatibility test]
 -- quotient_not_etale_at_fixed_point: not stated here; needs V, the perfectoid disc and étale
---   morphisms of adic spaces (supplier: AdicEtaleGeometry:A0) [non-example test]
+--   morphisms of adic spaces (supplier: Tau Ceti AdicSpaces 3.4 and 5) [non-example test]
 
--- affinoid_perfectoid_quotient: not stated here; needs V (supplier: AdicEtaleGeometry:A0),
+-- affinoid_perfectoid_quotient: not stated here; needs V (supplier: Tau Ceti AdicSpaces 3.4 and 5),
 --   affinoid perfectoid spaces (supplier: PerfectoidSpaces:P2) and v-sheaves on Perfd
 --   (supplier: DiamondsAndVStacks:D2). Node PerfectoidSpaces:P8/affinoid-perfectoid-quotient.
 --   Its ring-level parts are `invariants_of_perfectoid_tate_ring` and the
 --   `invariant_spectrum_homeomorphism_*` theorems.
 -- quotient_scalar_extension: not stated here; needs completed tensor products A ⊗̂_K L
 --   (supplier: AdicSpacesPartII:R0) and P2's uniform perfectoid base change. Node
---   PerfectoidSpaces:P8/quotient-scalar-extension. Topological orthonormalisability is explicit; any discrete-base extension is included.
+--   PerfectoidSpaces:P8/quotient-scalar-extension. Topological orthonormalisability is explicit;
+--   any discrete-base extension is included.
 -- perfectoid_quotient_invariant_cover: not stated here; needs perfectoid spaces and V
---   (supplier: AdicEtaleGeometry:A0, PerfectoidSpaces:P2). Node
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5, PerfectoidSpaces:P2). Node
 --   PerfectoidSpaces:P8/perfectoid-quotient-invariant-cover.
 -- adic_quotient_order_invertible: not stated here; needs analytic adic spaces and V
---   (supplier: AdicEtaleGeometry:A0). Node PerfectoidSpaces:P8/adic-quotient-order-invertible.
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5). Node
+--   PerfectoidSpaces:P8/adic-quotient-order-invertible.
 -- rigid_quotient_invariant_cover: not stated here; needs rigid analytic spaces and finite
---   morphisms (supplier: AdicSpacesPartII:R0) and V (supplier: AdicEtaleGeometry:A0). Node
+--   morphisms (supplier: AdicSpacesPartII:R0) and V (supplier: Tau Ceti AdicSpaces 3.4 and 5). Node
 --   PerfectoidSpaces:P8/rigid-quotient-invariant-cover.
 -- quotient_diamond_comparison: not stated here; needs diamonds X^◇ and pro-étale sheaf quotients
 --   (supplier: DiamondsAndVStacks:D4, DiamondsAndVStacks:D6). Node
@@ -670,7 +677,7 @@ theorem finite_quotient_chart_isGClean_preimage (Γ : Type*) {X : Type*} [Group 
     MulAction.IsGClean Γ x (T2Quotient.mk ⁻¹' U) ∧ closure {x} ⊆ T2Quotient.mk ⁻¹' U := sorry
 
 -- finite_quotient_chart: not stated here; needs quasi-separated analytic adic spaces, their
---   affinoid quotients and V (supplier: AdicEtaleGeometry:A0). Node
+--   affinoid quotients and V (supplier: Tau Ceti AdicSpaces 3.4 and 5). Node
 --   PerfectoidSpaces:P8/finite-quotient-chart. Its topological step is
 --   `finite_quotient_chart_isGClean_preimage`.
 
@@ -738,13 +745,13 @@ spaces -/
 --   spaces with perfectoid limit (supplier: AdicSpacesPartII:R1, PerfectoidSpaces:P7). Node
 --   PerfectoidSpaces:P8/projective-tower-limit-is-analytically-separated.
 -- rigid_finite_quotient: not stated here; needs separated rigid spaces and their affinoids
---   (supplier: AdicSpacesPartII:R0) and V (supplier: AdicEtaleGeometry:A0). Node
+--   (supplier: AdicSpacesPartII:R0) and V (supplier: Tau Ceti AdicSpaces 3.4 and 5). Node
 --   PerfectoidSpaces:P8/rigid-finite-quotient.
 -- perfectoid_finite_quotient: not stated here; needs perfectoid spaces, V and diamonds
---   (supplier: AdicEtaleGeometry:A0, DiamondsAndVStacks:D4). Node
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5, DiamondsAndVStacks:D4). Node
 --   PerfectoidSpaces:P8/perfectoid-finite-quotient.
 -- perfectoid_quotient_map_is_weakly_affinoid: not stated here; needs perfectoid spaces and V
---   (supplier: AdicEtaleGeometry:A0). Node
+--   (supplier: Tau Ceti AdicSpaces 3.4 and 5). Node
 --   PerfectoidSpaces:P8/perfectoid-quotient-map-is-weakly-affinoid.
 -- perfectoid_from_perfectoid_components: not stated here; needs spatial diamonds and their
 --   connected components (supplier: DiamondsAndVStacks:D4, DiamondsAndVStacks:D5). Node
