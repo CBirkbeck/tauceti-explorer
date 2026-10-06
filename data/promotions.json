@@ -1249,6 +1249,17 @@
     "data/blueprints/PadicHodgeRegulators--L3.md"
    ]
   },
+  "research/blueprint/packets/PerfectoidSpaces--P8.json": {
+   "promotedAt": "2026-10-06T15:33:23Z",
+   "review": "58460b1ec7a51a82",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-PerfectoidSpaces--P8",
+   "sha256": "0dd66671f24d7eb8736b68ac49e379af83e80008b3093e4474048417c7be67df",
+   "to": [
+    "data/blueprints/PerfectoidSpaces--P8.json",
+    "data/blueprints/PerfectoidSpaces--P8.md"
+   ]
+  },
   "research/blueprint/packets/Polylogarithms--P.2.json": {
    "promotedAt": "2026-10-06T00:46:09Z",
    "review": "c68815279fab6d90",
