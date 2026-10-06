@@ -292,7 +292,7 @@
       "realises": [
         "ArithmeticKTheory:N.3:finite-generation"
       ],
-      "title": "From integral homology to finite K-groups",
+      "title": "From integral homology to finitely generated K-groups",
       "kind": "theorem",
       "declarationName": "TauCeti.ArithmeticKTheory.quillenK_finitelyGenerated",
       "statement": "Under the two hypotheses of rank-filtration-homology-finite-type, K_n(A)=π_{n+1}(BQ(P(A)),0) is a finitely generated abelian group for every n≥0. In particular this holds for O_F for every number field F. Direct sum makes the connected CW-type space BQ(P(A)) a homotopy associative and commutative H-space, hence a simple space, so the integral Serre finite-type theorem applies. This supplies the proof interface of the retained quillen-finiteness-criterion and quillen-finite-generation-theorem; it does not replace the K-group carrier.",
@@ -357,7 +357,7 @@
         "Each residue field A/p is finite. Finite S is required in degrees ≥1."
       ],
       "proofSteps": [
-        "The predecessor localization sequence restricts to ⊕_{p∈S}K_n(A/p) → K_n(A) → K_n(B) → ⊕_{p∈S}K_{n−1}(A/p). Use its exactness to express the kernel as an image and the cokernel as a subgroup.",
+        "Use N.1/S-integers-localisation-of-torsion-class-group to choose nonzero s with B=A[1/s] and the primes containing s exactly S: take the product of generators of positive principal powers of the primes in S, and s=1 for S empty. Apply the finite localization sequence and dévissage in N.2/finite-support to obtain ⊕_{p∈S}K_n(A/p) → K_n(A) → K_n(B) → ⊕_{p∈S}K_{n−1}(A/p). This is the sequence for A → B, not a restriction of the fraction-field sequence. Use exactness to express the kernel as an image and the cokernel as a subgroup.",
         "Quillen’s finite-field table (KTheoryFiniteLocalFields:L.1/quillen-k-groups) makes the two outer terms finite for n≥2. Its positive even groups vanish: the left term is zero for even n, and the right term is zero for odd n≥3.",
         "An image of a finitely generated abelian group is finitely generated and a finite cokernel is finitely generated; the baseline exact-sequence lemma proves finite generation of the middle target using quillen-homotopy-finite-type.",
         "For n=1 the right outer term is Z^S, not finite. Use the imported K1 identification with units and Tau Ceti’s finite-S unit theorem instead. K0 is Z plus a finite class group quotient; do not extrapolate the finite-defect assertion to degree one."
@@ -372,7 +372,8 @@
         "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type",
         "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
         "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant",
-        "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+        "ArithmeticKTheory:N.1/S-integers-localisation-of-torsion-class-group",
+        "ArithmeticKTheory:N.2/finite-support",
         "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
         "KTheoryLowDegrees:Z.4/k0-s-integers",
         "tauceti:IsDedekindDomain.finite_integer_classGroup",
@@ -479,7 +480,7 @@
         "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type",
         "ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect"
       ],
-      "detail": "Pinned libraries do not provide the Q-rank spaces, building/Steinberg coefficient carriers, relative comparison package or higher Quillen K-group carrier. The suggested file therefore has a comment-only intended signature register for these five names and compiled Mathlib examples for the existing arithmetic/algebra inputs; no opaque stand-ins or placeholder proposition fields are introduced. Convert the register to elaborated signatures once suppliers are available. Tau Ceti baseline statements were read, but not elaborated against a newer shared checkout."
+      "detail": "Pinned libraries do not provide the Q-rank spaces, building/Steinberg coefficient carriers, relative comparison package or higher Quillen K-group carrier. The suggested file therefore has a comment-only intended signature register for these five names and compiled Mathlib examples for the existing arithmetic/algebra inputs; no opaque stand-ins or placeholder proposition fields are introduced. Convert the register to elaborated signatures once suppliers are available. Tau Ceti baseline statements were read, but not elaborated against a newer shared checkout. Independent review: this accurately records the missing carriers, but a comment-only register does not satisfy PROTOCOL section 13, which requires the named theorems as actual Lean declarations with prototype proofs. Supply truthful typed prototypes, with unstateable conditions explicitly omitted as the protocol permits, and reconcile the reader with the corrected finite-S supplier chain. No opaque carrier or proposition-field substitutes are permitted."
     }
   ],
   "coverage": [
@@ -505,5 +506,38 @@
     }
   ],
   "sourceIssues": [],
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3-finite-generation",
+    "date": "2026-10-06",
+    "notes": "Completed independent target-level review of all five fresh nodes, nine retained interfaces, five public sources, nine baseline declarations at the recorded commits, supplier contracts, library audit and confirmed RT-AREA-ktheory-1/1. Corrected the finite-S localization proof to use the torsion-class-group presentation and finite-support exact sequence; corrected finite K-groups to finitely generated K-groups in a title. The mathematical targets are justified and coverage remains planned with honest supplier gaps. Needs changes because all five proposed Lean declarations are comments rather than actual named theorem signatures as required by PROTOCOL section 13. Helper examples elaborate at the Mathlib pin; they do not check those signatures. The reader, outside this review issue’s deliverables, must be reconciled in revision. See the review report.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
+        "verdict": "verified",
+        "note": "Kahn 2.3.7 and 4.3.1–4.3.4 and Quillen Theorem 3 give the integral relative comparison. Checked mapping-cone shift, signed i−m, rank-one two-point case, coefficient action and representative transport; requested H.2 extension remains explicit."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-homology-stability",
+        "verdict": "verified",
+        "note": "Quillen Stability has precisely the stated surjectivity and isomorphism bounds. Relative LES and exhaustive finite-chain filtration justify stabilization to BQ without a general finite-generation claim about colimits."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
+        "verdict": "verified",
+        "note": "Finite Pic gives finitely many classes in each rank; integral Steinberg homology for all projective lattices gives finitely generated relative groups. Noetherian subgroups, exact extensions and degreewise stabilization give the conclusion. Borel R.1 supplies orientation-correct integral duality and finite-index descent, not merely rational cohomology."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type",
+        "verdict": "corrected",
+        "note": "Corrected the title to finitely generated K-groups. Checked the n+1 homotopy shift, connected H-space/simple-space distinction and Serre cover argument with trivial homology action. Requested early homotopy extension is not claimed to exist in the present H.6 text."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect",
+        "verdict": "corrected",
+        "note": "Replaced the fraction-field localization prerequisite with N.1/S-integers-localisation-of-torsion-class-group and N.2/finite-support, and made B=A[1/s] with support exactly S explicit. Checked finite outer terms, parity bounds, and separate K1/K0 arguments. No finite-defect claim in degree one or infinite-S finite-generation claim."
+      }
+    ]
+  }
 }
