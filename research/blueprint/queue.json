@@ -33563,8 +33563,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators--ER.1",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6434"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6434",
+   "finishedAt": "2026-10-06T02:13:11Z"
   },
   {
    "id": "BP-EllipticRegulators--ER.2",
