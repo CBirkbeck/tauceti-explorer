@@ -31800,7 +31800,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.2",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6402"
   },
   {
    "id": "BP-Polylogarithms--P.3",
@@ -33083,8 +33084,9 @@
    ],
    "followUpOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6473"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6473",
+   "finishedAt": "2026-10-06T00:29:07Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.2",
