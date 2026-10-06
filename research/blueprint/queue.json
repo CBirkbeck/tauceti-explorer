@@ -22340,8 +22340,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicFormsOnReductiveGroups",
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #359"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #359",
+   "finishedAt": "2026-10-06T17:50:03Z"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentations",
@@ -29452,8 +29453,9 @@
    ],
    "avoidAccountOf": "BP-VectorBundlesAndIsocrystals--VB3",
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #501"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #501",
+   "finishedAt": "2026-10-06T17:50:06Z"
   },
   {
    "id": "BP-WeightsInEtaleCohomology",
