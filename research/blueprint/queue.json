@@ -34014,7 +34014,8 @@
    ],
    "followUpOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6494"
   },
   {
    "id": "REV-HabiroNumberFields--HB.2",
@@ -34165,8 +34166,9 @@
    ],
    "avoidAccountOf": "BP-HabiroRings--HR.1",
    "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6449"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6449",
+   "finishedAt": "2026-10-06T01:25:55Z"
   },
   {
    "id": "BP-HabiroRings--HR.2",
@@ -34211,8 +34213,9 @@
    ],
    "avoidAccountOf": "BP-HabiroRings--HR.2",
    "prompt": "research/blueprint/prompts/REV-HabiroRings--HR.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6450"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6450",
+   "finishedAt": "2026-10-06T01:25:58Z"
   },
   {
    "id": "BP-HabiroRings--HR.3",
