@@ -2,13 +2,13 @@
  "roadmapId": "RelativeFarguesFontaine",
  "protocol": "blueprint-v1",
  "part": "RF4",
- "status": "complete",
+ "status": "partial",
  "scope": [
   "RelativeFarguesFontaine:RF4",
   "RelativeFarguesFontaine:RF4:G-torsors",
   "RelativeFarguesFontaine:RF4:vector-bundles"
  ],
- "summary": "Relative Fargues-Fontaine curves, second part (RF4): linear Beauville-Laszlo patching of vector bundles along the relative Cartier divisors of RF2, and its Tannakian transfer to G-bundles. RS-20 is accepted (1 October 2026) and is followed: RF4:vector-bundles is kept as the linear supplier, RF4:G-torsors is narrowed to the transfer, so the general equivalence of the geometric, cohomological and Tannakian descriptions of torsors is imported from BunGAndNewtonStrata BG0 (its owner) and the two nodes the previous checkpoint planned for it are removed. The linear layer starts from algebra: exact squares of rings and their glueing data (Kedlaya-Liu 1.3.7-1.3.10), glueing pairs and the Beauville-Laszlo theorem for non-noetherian rings with the full Stacks-project proof (15.92), which the previous checkpoint had only as a statement. On the curve it defines modifications of vector bundles at a degree-d divisor and proves that they are B^+_D-lattices (Scholze-Weinstein 19.1.2, 14.1.1; Howe-Klevdal 4.3), with exactness, tensor, base-change and coefficient-change compatibility and the cases of disjoint, colliding and infinitely many legs. On the schematic curve it plans Kedlaya-Liu 8.9: the affine complement of the untilt divisor, the relative period rings B_e(A), B^+_dR(A), B_dR(A), B-pair cohomology and vector bundles as relative B-pairs (with Caraiani-Scholze 3.5.1 and Fargues-Fontaine 5.3). It exports to the essential-surjectivity half of Fargues' theorem (RT-AREA-padic-1/19) the lattice description of modifications of trivial bundles (Scholze-Weinstein 12.4.6, 14.1.1) and Kedlaya's algebraicity of bundles on Spa W(R^+) minus V(p, [x]). The G-layer defines G-modifications, transfers the gluing (Scholze-Weinstein 19.1.2, Fargues-Scholze III.3, Caraiani-Scholze 3.5.2), proves that meromorphy is tested on one faithful representation (Deligne-Milne 2.20), compatibility with change of group, base change and addition of legs, the relative v-descent and etale-local triviality over B^+_{Div^d} (Scholze-Weinstein 19.5.3, Fargues-Scholze VI.1.7, with Gabber-Ramero 5.4.21 now matched), and constructs the modification of a G-bundle by a lattice exported to GS0, BG2, HS0 and HS2. Mathlib supplies completion, localisation, flatness, finite presentation, finite etale algebras, invertible modules, B_dR^+ and the lifting of sections of formally smooth algebras over adically complete rings; Tau Ceti supplies faithful comodules and affine group schemes. 22 nodes; every stage is planned.",
+ "summary": "Relative Fargues-Fontaine curves, second part (RF4): linear Beauville-Laszlo patching of vector bundles along the relative Cartier divisors of RF2, and its Tannakian transfer to G-bundles. RS-20 is accepted (1 October 2026) and is followed: RF4:vector-bundles is kept as the linear supplier, RF4:G-torsors is narrowed to the transfer, so the general equivalence of the geometric, cohomological and Tannakian descriptions of torsors is imported from BunGAndNewtonStrata BG0 (its owner) and the two nodes the previous checkpoint planned for it are removed. The linear layer starts from algebra: exact squares of rings and their glueing data (Kedlaya-Liu 1.3.7-1.3.10), glueing pairs and the Beauville-Laszlo theorem for non-noetherian rings with the full Stacks-project proof (15.92), which the previous checkpoint had only as a statement. On the curve it defines modifications of vector bundles at a degree-d divisor and proves that they are B^+_D-lattices (Scholze-Weinstein 19.1.2, 14.1.1; Howe-Klevdal 4.3), with exactness, tensor, base-change and coefficient-change compatibility and the cases of disjoint, colliding and infinitely many legs. On the schematic curve it plans Kedlaya-Liu 8.9: the affine complement of the untilt divisor, the relative period rings B_e(A), B^+_dR(A), B_dR(A), B-pair cohomology and vector bundles as relative B-pairs (with Caraiani-Scholze 3.5.1 and Fargues-Fontaine 5.3). It exports to the essential-surjectivity half of Fargues' theorem (RT-AREA-padic-1/19) the lattice description of modifications of trivial bundles (Scholze-Weinstein 12.4.6, 14.1.1) and Kedlaya's algebraicity of bundles on Spa W(R^+) minus V(p, [x]). The G-layer defines G-modifications, transfers the gluing (Scholze-Weinstein 19.1.2, Fargues-Scholze III.3, Caraiani-Scholze 3.5.2), proves that meromorphy is tested on one faithful representation (Deligne-Milne 2.20), compatibility with change of group, base change and addition of legs, the relative v-descent and etale-local triviality over B^+_{Div^d} (Scholze-Weinstein 19.5.3, Fargues-Scholze VI.1.7, with Gabber-Ramero 5.4.21 now matched), and constructs the modification of a G-bundle by a lattice exported to GS0, BG2, HS0 and HS2. Mathlib supplies completion, localisation, flatness, finite presentation, finite etale algebras, invertible modules, B_dR^+ and the lifting of sections of formally smooth algebras over adically complete rings; Tau Ceti supplies faithful comodules and affine group schemes. 22 nodes; all three stages have partial coverage after independent source, signature and supplier review. The fixed-reference modification case is distinguished from arbitrary complement data; additional supplier and approximation contracts are recorded in gaps.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -157,7 +157,7 @@
     "ref": "mathlib:HenselianRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/Henselian.lean",
-    "provides": "Henselian pairs; an I-adically complete ring is henselian along I (instance in the same file), the hypothesis of Gabber-Ramero 5.4.21.",
+    "provides": "Henselian pairs and the instance that an I-adically complete ring is henselian along I. This is a carrier and elementary completeness input; it does not by itself supply the regular element t, henselian pair (R,tI), approximation or etale-neighbourhood conclusion of Gabber-Ramero 5.4.21.",
     "checked": "statement read in the source file at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474), 2026-10-06"
    },
    {
@@ -253,7 +253,8 @@
     "14.1 (Theorem 14.1.1 and its proof), 14.2 (Theorem 14.2.1, Lemma 14.2.3), 14.3 (Lemma 14.3.1 and the end of the proof of 14.2.1), printed pp. 115-121",
     "19.1 (Definition 19.1.1, Proposition 19.1.2 and its proof, Remark 19.1.3, Lemmas 19.1.4-19.1.5), printed pp. 169-171",
     "Appendix to Lecture 19, 19.5 (Theorem 19.5.1 with footnote 1, Theorem 19.5.2, Proposition 19.5.3 and proofs), printed pp. 178-181",
-    "Read 2026-10-06 by BP-RelativeFarguesFontaine--RF4 (claude-QXE3hL); hash reproduced"
+    "Read 2026-10-06 by BP-RelativeFarguesFontaine--RF4 (claude-QXE3hL); hash reproduced",
+    "Theorem 12.3.4, Proposition 12.3.5 and Corollary 12.4.1 (independent review: missing shtuka prerequisites)"
    ]
   },
   {
@@ -317,7 +318,8 @@
    "readSections": [
     "5.3 (Proposition 5.3.1, Corollaire 5.3.2, 5.3.2 and Proposition 5.3.3), pp. 208-209",
     "5.6.4.2, the definition of a modification of a bundle before Theoreme 5.6.29, p. 238",
-    "Read 2026-10-06"
+    "Read 2026-10-06",
+    "8.3.1, paragraph before Definition 8.3.1, p. 289: minuscule lattices and C-subspaces (independently read in REV-RelativeFarguesFontaine--RF4)"
    ]
   },
   {
@@ -447,7 +449,7 @@
     {
      "name": "GlueingDatum.sections_zariski_Z",
      "kind": "computation",
-     "statement": "For R = Z, f = 2, g = 3, the glueing datum (Z[1/2], Z[1/3], Z[1/6], id, multiplication by 3) has module of sections {(3k, k) : k in Z}, free of rank one with generator (3, 1)."
+     "statement": "For R = Z, f = 2, g = 3, the glueing datum (Z[1/2], Z[1/3], Z[1/6], id, multiplication by 3) has module of sections {(k, k/3) : k in Z}, free of rank one with generator (1, 1/3)."
     },
     {
      "name": "GlueingDatum.sections_identitySquare",
@@ -740,7 +742,7 @@
     {
      "name": "GlueingPair.iff_torsion_bijective",
      "role": "characterisation",
-     "statement": "(R -> R', f) is a glueing pair iff R[f^oo] -> R'[f^oo] is bijective (Stacks 15.92.6)."
+     "statement": "Assuming the ring map induces R/f^n R = R'/f^n R' for all positive n, (R -> R', f) is a glueing pair iff R[f^oo] -> R'[f^oo] is bijective (Stacks 15.92.6)."
     },
     {
      "name": "GlueingPair.of_nonZeroDivisor",
@@ -760,7 +762,7 @@
     {
      "name": "GlueingPair.quotient_equiv",
      "role": "simp",
-     "statement": "R/f^n R = R-hat/f^n R-hat for every n (Stacks 15.92.1)."
+     "statement": "For a glueing pair (R -> R',f), the canonical map R/f^n R -> R'/f^n R' is an isomorphism for every n. In the completion case R'=R-hat these quotient isomorphisms hold without assuming the pair condition (Stacks 15.92.1)."
     },
     {
      "name": "GlueingPair.spec_surjective",
@@ -895,7 +897,7 @@
    ],
    "title": "Modifications of vector bundles at a relative Cartier divisor",
    "kind": "definition",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let X-cal be one of Y-curly_S, Y_S, X_S and D a closed Cartier divisor of X-cal attached to a map S -> Div^d_(-), with ideal sheaf I_D and E(kD) = E (x) I_D^(-k). For vector bundles E, E' on X-cal, a modification of E' at D is a pair (E, beta) with beta : E|_{X-cal minus D} = E'|_{X-cal minus D} an isomorphism of vector bundles on the open complement which is meromorphic along D: for some k >= 0, beta extends to a morphism E -> E'(kD) and beta^(-1) extends to a morphism E' -> E(kD) (through the inclusions E' -> E'(kD), E -> E(kD)). Such a k is a bound of the modification. A morphism (E_1, beta_1) -> (E_2, beta_2) is a morphism E_1 -> E_2 whose restriction off D is beta_2^(-1) beta_1; modifications of E' at D form a groupoid Mod_D(E').",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let X-cal be one of Y-curly_S, Y_S, X_S and D a closed Cartier divisor of X-cal attached to a map S -> Div^d_(-), with ideal sheaf I_D and E(kD) = E (x) I_D^(-k). For vector bundles E, E' on X-cal, a modification of E' at D is a pair (E, beta) with beta : E|_{X-cal minus D} = E'|_{X-cal minus D} an isomorphism of vector bundles on the open complement which is meromorphic along D: locally on S and X-cal there is some k >= 0 such that beta extends to a morphism E -> E'(kD) and beta^(-1) extends to a morphism E' -> E(kD) (through the inclusions E' -> E'(kD), E -> E(kD)). Such a k is a bound of the modification. A morphism (E_1, beta_1) -> (E_2, beta_2) is an isomorphism E_1 -> E_2 whose restriction off D is beta_2^(-1) beta_1; modifications of E' at D form a groupoid Mod_D(E').",
    "hypotheses": [
     "D must be a closed Cartier divisor (I_D invertible); this is what makes O(kD) defined and what makes restriction to the complement injective on sections",
     "beta must be an isomorphism on all of X-cal minus D, not only near D",
@@ -905,7 +907,7 @@
    "proofSteps": [
     "The definition is Fargues-Scholze's meromorphic modification at D, specialised to GL_n (FS III.3, printed p. 97), and the datum beta of Scholze-Weinstein Theorem 14.1.1(3).",
     "Composition and inverses: if beta_1 is bounded by k and beta_2 by l then beta_2 beta_1 is bounded by k + l, and beta^(-1) is a modification of E at D with the same bound.",
-    "Because I_D is invertible and locally generated by a nonzerodivisor, a morphism of vector bundles is determined by its restriction off D; so morphisms of modifications are unique when they exist, and Mod_D(E') is equivalent to a set."
+    "Because I_D is invertible and locally generated by a nonzerodivisor, a morphism of vector bundles is determined by its restriction off D; so isomorphisms of modifications are unique when they exist. The groupoid Mod_D(E') is therefore equivalent to the discrete set of its isomorphism classes. Allowing arbitrary bundle maps here would give a category with noninvertible arrows, for example O(-D) -> O for nonempty D."
    ],
    "acceptance": [
     "The inclusion I_D = O(-D) -> O is a modification of O at D bounded by 1",
@@ -938,7 +940,7 @@
     {
      "name": "Modification.ideal_inclusion",
      "kind": "computation",
-     "statement": "The inclusion I_D = O(-D) -> O_X-cal restricts to an isomorphism off D and is a modification of O at D bounded by 1, not bounded by 0."
+     "statement": "For D nonempty, the inclusion I_D = O(-D) -> O_X-cal restricts to an isomorphism off D and is a modification of O at D bounded by 1, not bounded by 0."
     },
     {
      "name": "Modification.empty_divisor",
@@ -1005,7 +1007,7 @@
     {
      "name": "Modification.ext",
      "role": "extensionality",
-     "statement": "Two morphisms of modifications are equal iff they agree off D; (E_1, beta_1) = (E_2, beta_2) iff beta_2^(-1) beta_1 extends to an isomorphism E_1 = E_2."
+     "statement": "Two morphisms of modifications are equal iff they agree off D; (E_1, beta_1) and (E_2, beta_2) are isomorphic iff beta_2^(-1) beta_1 extends to an isomorphism E_1 = E_2."
     },
     {
      "name": "Modification.ofSubbundle",
@@ -1048,7 +1050,7 @@
    ],
    "title": "Beauville-Laszlo gluing on the relative curve: modifications are B^+-lattices",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let X-cal be Y-curly_S, Y_S or X_S, D the divisor of a map S -> Div^d_(-), assumed affinoid, and E' a vector bundle on X-cal with completion E'-hat_D = Gamma(D, completion of E' along D), a finite projective B^+_D(S)-module. Then (E, beta) |-> Xi(E, beta) := beta(E-hat_D) is an equivalence from the groupoid Mod_D(E') of modifications of E' at D to the set of B^+_D(S)-lattices in E'-hat_D[1/I_D], i.e. finite projective B^+_D(S)-submodules Xi with Xi[1/I_D] = E'-hat_D[1/I_D]. A modification is bounded by k iff I_D^k E'-hat_D is contained in Xi and Xi in I_D^(-k) E'-hat_D. In particular a vector bundle off D (namely E'), a vector bundle on the formal neighbourhood (Xi) and an isomorphism on the punctured formal neighbourhood (Xi[1/I_D] = E'-hat_D[1/I_D]) determine a vector bundle on X-cal, and the gluing functor is fully faithful and essentially surjective. Locally: on an affinoid chart U = Spa(A, A^+) containing D on which I_D = xi A, B^+_D(S) is the xi-adic completion of A and the statement is RF4:vector-bundles/beauville-laszlo-module-gluing for the glueing pair (A, xi) combined with finite projective A-modules = vector bundles on U.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let X-cal be Y-curly_S, Y_S or X_S, D the divisor of a map S -> Div^d_(-), assumed affinoid, and E' a vector bundle on X-cal with completion E'-hat_D = Gamma(D, completion of E' along D), a finite projective B^+_D(S)-module. Then (E, beta) |-> Xi(E, beta) := beta(E-hat_D) is an equivalence from the groupoid Mod_D(E') of modifications of E' at D to the set of B^+_D(S)-lattices in E'-hat_D[1/I_D], i.e. finite projective B^+_D(S)-submodules Xi with Xi[1/I_D] = E'-hat_D[1/I_D]. A modification is bounded by k iff I_D^k E'-hat_D is contained in Xi and Xi in I_D^(-k) E'-hat_D. In particular the restriction E'|_{X-cal minus D} of this globally given reference bundle, a vector bundle on the formal neighbourhood (Xi) and an isomorphism on the punctured formal neighbourhood (Xi[1/I_D] = E'-hat_D[1/I_D]) determine a vector bundle on X-cal, and this fixed-reference gluing functor is fully faithful and essentially surjective. This does not assert effectivity for an arbitrary bundle given only off D; that stage target is recorded separately as a gap. Locally: on each sheafy affinoid chart U = Spa(A, A^+) meeting D on which I_D = xi A, the ring of completion along D intersect U is the xi-adic completion of A and the statement is RF4:vector-bundles/beauville-laszlo-module-gluing for the glueing pair (A, xi) combined with finite projective A-modules = vector bundles on U.",
    "hypotheses": [
     "D affinoid, which holds locally on S (RF2:integral-divisors/product-equation-and-affineness); the result globalises over S by gluing",
     "I_D is invertible and locally generated by a nonzerodivisor xi of the chart ring A (RF2:untilts/closed-cartier-divisor-norm-estimate, RF2:integral-divisors/product-equation-and-affineness); this makes (A, xi) a glueing pair",
@@ -1057,9 +1059,9 @@
     "The theorem is linear: G-valued and Grassmannian statements are RF4:G-torsors and GeometricSatakeAndFusion:GS0:loop-geometry"
    ],
    "proofSteps": [
-    "Localise on S so that D is affinoid and contained in an affinoid chart U = Spa(A, A^+) of X-cal with I_D|_U = xi A, xi a nonzerodivisor of A; then B^+_D(S) = A-hat (the xi-adic completion) because A/xi^n = O(D_n) for every n, and this is independent of U (RF2:integral-divisors/completed-rings-B-plus-and-B).",
-    "Given a lattice Xi with xi^k E'-hat_D in Xi in xi^(-k) E'-hat_D, let M' = E'(U), a finite projective A-module (AdicSpacesPartII:R3/vector-bundle-global-generation). The glueing datum (M'[1/xi], Xi, can) is finite projective, so the Beauville-Laszlo theorem gives a finite projective A-module M with M[1/xi] = M'[1/xi] and M-hat = Xi; the inclusions xi^k M' in M in xi^(-k) M' hold because they hold after completion and after inverting xi (exactness of 0 -> M -> M[1/xi] (+) M-hat -> M-hat[1/xi] -> 0).",
-    "The bundle E_U on U attached to M agrees with E' on U minus D through these inclusions (xi is invertible there); glue E_U with E'|_{X-cal minus D} along U minus D (vector bundles form a sheaf: AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing). The result is a modification bounded by k with Xi(E, beta) = Xi.",
+    "Use a cover of a neighbourhood of D by sheafy affinoid charts U = Spa(A, A^+) on which I_D|_U = xi A, xi a nonzerodivisor of A; the completion along D intersect U has section ring A-hat (the xi-adic completion) because A/xi^n = O(D_n intersect U) for every n, and this is independent of U (RF2:integral-divisors/completed-rings-B-plus-and-B). On overlaps the canonical constructions agree by full faithfulness. Glue the formal finite projective modules on this cover; for affinoid D their global sections give the lattice over B^+_D(S). Affineness of D alone does not assert a single chart U containing it with a principal ideal.",
+    "Given a lattice Xi with xi^k E'-hat_D in Xi in xi^(-k) E'-hat_D, let M' = E'(U), a finite projective A-module (AdicSpacesPartII:R3/vector-bundle-global-generation). The glueing datum (M'[1/xi], Xi, can) is finite projective, so the Beauville-Laszlo theorem gives a finite projective A-module M with M[1/xi] = M'[1/xi] and M tensor_A A-hat = Xi|_{D intersect U}; the inclusions xi^k M' in M in xi^(-k) M' hold because they hold after completion and after inverting xi (exactness of 0 -> M -> M[1/xi] (+) M-hat -> M-hat[1/xi] -> 0).",
+    "The bundle E_U on U attached to M agrees with E' on U minus D through these inclusions (xi is invertible there); glue all E_U with E'|_{X-cal minus D} along their overlaps and U minus D (vector bundles form a sheaf: AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing). The result is a modification bounded by k with Xi(E, beta) = Xi.",
     "Conversely a modification bounded by k gives xi^k M' in E(U) in xi^(-k) M' and Xi(E, beta) = E(U)-hat is a lattice; morphisms are determined off D (RF4:vector-bundles/modification-of-vector-bundles), giving full faithfulness.",
     "This is the argument of Scholze-Weinstein in the proofs of Proposition 19.1.2 and Theorem 14.1.1 and of Howe-Klevdal 4.3 ('Beauville-Laszlo gluing using the equivalence of vector bundles and finite projective modules on affinoids')."
    ],
@@ -1133,9 +1135,9 @@
    ],
    "proofSteps": [
     "(a) On a chart U with I_D = xi A, the gluing of RF4:vector-bundles/beauville-laszlo-module-gluing commutes with tensor products and duals of finite projective glueing data, because Can is a tensor functor and the module of sections of a finite projective datum is finite projective with M (x) R' = M' (RF4:vector-bundles/finite-projective-glueing-over-exact-square).",
-    "(b) Exact sequences of finite projective modules are split, so tensoring with R', R_f, R'_f preserves them; conversely a sequence of A-modules is exact iff it is after (x) A-hat and (x) A[1/xi], by the exact square 0 -> A -> A-hat (+) A[1/xi] -> A-hat[1/xi] -> 0 and the snake lemma. Caraiani-Scholze record this compatibility for Kedlaya-Liu's B-pair equivalence.",
+    "(b) Exact sequences of finite projective modules are split, so scalar extension preserves them. For reflection, the cokernel vanishes if it vanishes on both pieces (Stacks 15.92.2). Surjectivity onto the right finite projective module then splits; its kernel is finite projective and its scalar extensions are the kernels on the pieces. Apply the same cokernel detection to the map from the left module to that kernel, split again, and detect its remaining kernel by the sections exact sequence. This proves exactness reflection for finite projective sequences without claiming it for arbitrary modules. Caraiani-Scholze 3.5.1 records this compatibility.",
     "(c) Pullback of the chart: A -> A_T with xi |-> xi_T a local generator of I_{D_T}, so A-hat (x) ... -> A_T-hat; the gluing of the base change is the base change of the gluing by (d).",
-    "(d) Base change of the exact square along a map of glueing pairs, and V1's base change API."
+    "(d) Let R -> A be the coefficient map of glueing pairs, with compatible maps R' -> A' and their localizations. If M glues the old finite projective datum, M tensor_R A is finite projective; tensor associativity identifies its canonical datum over (A,A') with the datum extended piecewise from the old one. Beauville-Laszlo over the new glueing pair identifies its sections with M tensor_R A. This does not assert that tensoring the original ring exact sequence stays exact, or that R' tensor_R A equals A'."
    ],
    "acceptance": [
     "The tensor product of modifications bounded by k and l is bounded by k + l, and the lattice of the determinant is the determinant of the lattice",
@@ -1182,22 +1184,23 @@
    ],
    "title": "Gluing along several disjoint or colliding legs",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let D_1, D_2 be divisors attached to S -> Div^{d_1}_(-), S -> Div^{d_2}_(-) and D = D_1 + D_2 the divisor attached to their sum in Div^{d_1 + d_2}, so I_D = I_{D_1} I_{D_2}. (a) Disjoint legs: if D_1 and D_2 are disjoint then B^+_D(S) = B^+_{D_1}(S) x B^+_{D_2}(S) and B_D(S) = B_{D_1}(S) x B_{D_2}(S); a lattice at D is a pair of lattices, and modifications of E' at D are equivalent to pairs consisting of a modification (E_1, beta_1) of E' at D_1 and a modification of E_1 at D_2 (iterated gluing, in either order, canonically independent of the order). (b) Colliding legs: if D = m D_1 (all legs equal, m >= 1) then I_D = I_{D_1}^m, B^+_D(S) = B^+_{D_1}(S) and B_D(S) = B_{D_1}(S), and a modification at D_1 bounded by k is the same as a modification at D bounded by ceiling(k/m). (c) For a locally finite family (D_n) of pairwise disjoint degree-one divisors of Y_S (for instance the Frobenius translates phi^n(D_0), n >= 1, on Y_{[0,oo)}), modifications of E' along the union are equivalent to families of lattices (Xi_n) at each D_n.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). Let D_1, D_2 be divisors attached to S -> Div^{d_1}_(-), S -> Div^{d_2}_(-) and D = D_1 + D_2 the divisor attached to their sum in Div^{d_1 + d_2}, so I_D = I_{D_1} I_{D_2}. (a) Disjoint legs: if D_1 and D_2 are disjoint then B^+_D(S) = B^+_{D_1}(S) x B^+_{D_2}(S) and B_D(S) = B_{D_1}(S) x B_{D_2}(S); a lattice at D is a pair of lattices, and modifications of E' at D are equivalent to pairs consisting of a modification (E_1, beta_1) of E' at D_1 and a modification of E_1 at D_2 (iterated gluing, in either order, canonically independent of the order). (b) Colliding legs: if D = m D_1 (all legs equal, m >= 1) then I_D = I_{D_1}^m, B^+_D(S) = B^+_{D_1}(S) and B_D(S) = B_{D_1}(S), and a modification is bounded by l at D iff it is bounded by m*l at D_1. A k-bound at D_1 implies a ceiling(k/m)-bound at D, while that bound at D implies only an m*ceiling(k/m)-bound at D_1. When a least global bound k_min exists, the least bound at D is ceiling(k_min/m). (c) For a locally finite family (D_n) of pairwise disjoint degree-one divisors of Y_S (for instance the Frobenius translates phi^n(D_0), n >= 1, on Y_{[0,oo)}), modifications of E' with locally finite support along the union and meromorphy bounded on each chart (no single global bound imposed) are equivalent to families of lattices (Xi_n) at each D_n.",
    "hypotheses": [
     "Disjointness in (a) is of the closed subspaces D_1, D_2 of X-cal; then I_{D_1} + I_{D_2} = O and the Chinese remainder theorem applies on affinoid charts",
     "In (b) the legs may coincide; FS VI.1.2 constructs the degree-d divisor of an ordered tuple by the product equation xi = xi_1 ... xi_d, which is a nonzerodivisor also at coincident legs",
     "In (c) local finiteness is what lets the gluing be performed chart by chart; the family is infinite in Scholze-Weinstein Proposition 12.4.6"
    ],
    "proofSteps": [
-    "(a) On an affinoid chart A containing D with I_{D_i} = xi_i A, the ideals xi_1^n A and xi_2^n A are comaximal for every n, so A/(xi_1 xi_2)^n = A/xi_1^n x A/xi_2^n and the completions split; a lattice at D is then a pair, and RF4:vector-bundles/meromorphic-modification-at-a-divisor glues one factor at a time.",
-    "(b) For D = m D_1 one has I_D = I_{D_1}^m, so the I_D-adic and I_{D_1}-adic filtrations are cofinal and the completions and their localisations coincide; E -> E'(k D_1) is the same as E -> E'(k' D) for k' = ceiling(k/m), so meromorphy along D and along D_1 are the same condition.",
+    "(a) Work on an affinoid chart cover near D with I_{D_i} = xi_i A, the ideals xi_1^n A and xi_2^n A are comaximal for every n, so A/(xi_1 xi_2)^n = A/xi_1^n x A/xi_2^n and the completions split; a lattice at D is then a pair, and RF4:vector-bundles/meromorphic-modification-at-a-divisor glues one factor at a time.",
+    "(b) For D = m D_1 one has I_D = I_{D_1}^m, so the I_D-adic and I_{D_1}-adic filtrations are cofinal and the completions and their localisations coincide; E -> E'(l D) is exactly E -> E'(m*l D_1); the same applies to beta^(-1), so meromorphy along D and along D_1 are the same condition.",
     "(c) Apply the gluing on a cover of Y_S by charts each meeting finitely many D_n, as in the proof of Scholze-Weinstein Proposition 12.4.6 ('We can repeat this at phi^n(x_C) for all n >= 1'), and glue (AdicSpacesPartII:R3).",
     "Fargues-Fontaine Proposition 5.3.1 is the absolute case: a bundle on X, finitely many points x_i, completions O-hat_{X,x_i}."
    ],
    "acceptance": [
     "For S a geometric point and finitely many distinct classical points x_1, ..., x_r of X_FF, recover Fargues-Fontaine Proposition 5.3.1",
     "For two colliding legs at the same untilt, the Beilinson-Drinfeld ring B^+_{Div^2} at the diagonal is B^+_dR, not B^+_dR x B^+_dR",
-    "The iterated gluing at D_1 then D_2 and at D_2 then D_1 give canonically isomorphic modifications"
+    "The iterated gluing at D_1 then D_2 and at D_2 then D_1 give canonically isomorphic modifications",
+    "For m = 2, the modification O(-2D_1) -> O is bounded by 1 at 2D_1 but not by 1 at nonempty D_1. Thus k-bounded and ceiling(k/m)-bounded loci are not identified in general."
    ],
    "prerequisites": [
     "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
@@ -1440,8 +1443,8 @@
    ],
    "proofSteps": [
     "Cover Proj(P_R) by Spec(R_1) and an affine open Spec(B) containing Z on which Z = V(z) (Lemma 8.9.3(b)); Proj(P_R) is separated, so the Cech complex of this cover computes cohomology of quasicoherent sheaves and cohomology vanishes above degree 1 (KL Remark 8.7.6(b); VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension).",
-    "On Spec(B), Beauville-Laszlo for the glueing pair (B, z) and the flat module V(B) gives the exact sequence 0 -> V(B) -> V(B)[1/z] (+) V(B)-hat -> V(B)-hat[1/z] -> 0 (RF4:vector-bundles/beauville-laszlo-module-gluing (c)).",
-    "Combine the two by a diagram chase: Spec(B) minus Z = Spec(B[1/z]) is contained in Spec(R_1), and V(B)-hat = Gamma(Spec R_2, V), V(B)-hat[1/z] = Gamma(Spec R_3, V) (KL: 'This follows from Proposition 1.3.6')."
+    "On Spec(B), Beauville-Laszlo for the glueing pair (B, z) and the flat module V(B) gives the exact sequence 0 -> V(B) -> V(B)[1/z] (+) (V(B) tensor_B B-hat) -> (V(B) tensor_B B-hat)[1/z] -> 0 (RF4:vector-bundles/beauville-laszlo-module-gluing (c)). This is extension of scalars, not the z-adic completion of V(B): those differ for infinite flat modules.",
+    "Combine the two by a diagram chase: Spec(B) minus Z = Spec(B[1/z]) is contained in Spec(R_1), and (V(B) tensor_B B-hat) = Gamma(Spec R_2, V), (V(B) tensor_B B-hat)[1/z] = Gamma(Spec R_3, V) (KL: 'This follows from Proposition 1.3.6')."
    ],
    "acceptance": [
     "For V = O and A = C recover H^0(X, O) = Q_p and H^1(X, O) = 0 from Fontaine's fundamental exact sequence",
@@ -1549,11 +1552,12 @@
    ],
    "title": "Lattices (T, Xi) and modifications of trivial bundles (Scholze-Weinstein 12.4.6, 14.1.1)",
    "kind": "comparison",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). (a) For S affinoid perfectoid with an untilt S^sharp over E, D = S^sharp the degree-one divisor of X_S and T a finite free O_E-module, the gluing of RF4:vector-bundles/meromorphic-modification-at-a-divisor applied to F = T (x)_{O_E} O_{X_S} gives an equivalence between pairs (T, Xi) with Xi a B^+_dR(S^sharp)-lattice in T (x)_{O_E} B_dR(S^sharp) and triples (F, F', beta) with F' a vector bundle on X_S and beta : F|_{X_S minus D} = F'|_{X_S minus D} an isomorphism meromorphic along D (so that (F', beta^(-1)) is a modification of F at D). (b) For S = Spa(C^flat) and E = Q_p, using the locally finite family of disjoint divisors phi^n(x_C), n >= 1, of Y_{[0,oo)}: the pairs (T, Xi) are equivalent to shtukas over Spa(C^flat) with one leg at phi^(-1)(x_C) (Scholze-Weinstein Proposition 12.4.6), and to quadruples (F, F', beta, T) with F trivial and T a Z_p-lattice in H^0(X_FF, F) (Theorem 14.1.1, (2) <=> (3)). (c) Minuscule case (Fargues-Fontaine 8.3.1): lattices with t Xi_0 in Xi in Xi_0, Xi_0 = T (x) B^+_dR, correspond to C-subspaces of T (x) C, i.e. to modifications whose cokernel is killed by t.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). (a) For S affinoid perfectoid with an untilt S^sharp over E, D = S^sharp the degree-one divisor of X_S, fix a finite free O_E-module T and the reference bundle F = T (x)_{O_E} O_{X_S}. The gluing of RF4:vector-bundles/meromorphic-modification-at-a-divisor gives an equivalence between B^+_dR(S^sharp)-lattices Xi in T (x)_{O_E} B_dR(S^sharp) and modifications (F', beta^(-1)) of this fixed F at D, where beta : F|_{X_S minus D} -> F'|_{X_S minus D} is meromorphic along D. If T varies, the output retains T and its identification with the reference bundle; forgetting this integral data does not give an equivalence of categories. (b) For S = Spa(C^flat) and E = Q_p, using the locally finite family of disjoint divisors phi^n(x_C), n >= 1, of Y_{[0,oo)}: the pairs (T, Xi) are equivalent to shtukas over Spa(C^flat) with one leg at phi^(-1)(x_C) (Scholze-Weinstein Proposition 12.4.6), and to quadruples (F, F', beta, T) with F trivial and T a Z_p-lattice in H^0(X_FF, F) (Theorem 14.1.1, (2) <=> (3)). (c) Minuscule case (Fargues-Fontaine 8.3.1): lattices with t Xi_0 in Xi in Xi_0, Xi_0 = T (x) B^+_dR, correspond to C-subspaces of T (x) C, i.e. to modifications whose cokernel is killed by t.",
    "hypotheses": [
     "E = Q_p and S a geometric point in (b), as in the source; (a) is the relative statement and needs no more than the linear gluing",
     "The equivalence of 'F trivial with a Z_p-lattice T in H^0(X_FF, F)' and 'T finite free over Z_p' uses H^0(X_FF, O) = Q_p (VectorBundlesAndIsocrystals:VB1/cohomology-of-twists), not the classification of bundles",
-    "This node is the curve input of the ESSENTIAL SURJECTIVITY of Fargues' theorem (BKF modules <-> (T, Xi)); full faithfulness uses no curve input (BMS1 Remark 4.29), so it is exported to the essential-surjectivity part of AInfCohomology AI.2 only (RT-AREA-padic-1/19)"
+    "This node is the curve input of the ESSENTIAL SURJECTIVITY of Fargues' theorem (BKF modules <-> (T, Xi)); full faithfulness uses no curve input (BMS1 Remark 4.29), so it is exported to the essential-surjectivity part of AInfCohomology AI.2 only (RT-AREA-padic-1/19)",
+    "The one-leg shtuka assertion additionally needs SW Theorem 12.3.4, Proposition 12.3.5 and Corollary 12.4.1. The owner of these contracts must be assigned; they are not supplied by the vector-bundle cohomology prerequisite."
    ],
    "proofSteps": [
     "(a) Apply RF4:vector-bundles/meromorphic-modification-at-a-divisor with E' = F: F-hat_D = T (x) B^+_dR(S^sharp), so modifications of F at D are lattices in T (x) B_dR.",
@@ -1622,7 +1626,7 @@
     "These Huber rings are stably uniform (after completed tensor product with Z_p[p^(1/p^oo)] they become perfectoid and split back by the normalised trace: the sousperfectoid method, AdicSpacesPartII:R5), hence sheafy, and A_2 is uniform (Kedlaya Proposition 3.6).",
     "On each sheafy chart, vector bundles are finite projective modules (Kedlaya Proposition 3.2(c); AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing), and the simple Laurent squares are glueing squares (Proposition 3.2(a,b); AdicSpacesPartII:R3/simple-laurent-glueing-square, AdicSpacesPartII:R3/glueing-square-finite-projective-descent).",
     "Compare the Zariski cover {Spec A_1, Spec A_2} of X-sch with the adic cover through the exact-square gluing of RF4:vector-bundles/finite-projective-glueing-over-exact-square; in the resulting 2-commutative square every functor but Vec(X-sch) -> Vec(Y-ad) is an equivalence (proof of Kedlaya Theorem 3.8).",
-    "Field case: Kedlaya Theorem 2.7 (vector bundles on the punctured Spec of A_inf extend uniquely, via the Beauville-Laszlo square of A_inf[1/p] along p) combined with Theorem 3.8; Scholze-Weinstein give the same proof (Lemmas 14.2.3, 14.3.1)."
+    "Field case: Kedlaya Theorem 2.7 (vector bundles on the punctured Spec of A_inf extend uniquely: the gluing stack uses A_inf[1/p] and W(K) over W(K)[1/p], where W(K) is the p-adic completion of A_inf[1/[x]]; Lemma 2.6 proves that its sections are finite free and Lemma 2.3(c) recovers the bundle) combined with Theorem 3.8; Scholze-Weinstein give the same proof (Lemmas 14.2.3, 14.3.1)."
    ],
    "acceptance": [
     "Field case: every vector bundle on Spa(A_inf) minus {x_k} is free, recovering the input of Breuil-Kisin-Fargues module theory",
@@ -1893,7 +1897,7 @@
    ],
    "title": "Meromorphy can be tested on one faithful representation",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). Let G be a linear algebraic group over E and V in Rep_E G faithful. (a) An isomorphism beta : P|_{X-cal minus D} = P'|_{X-cal minus D} of G-bundles is a modification at D iff beta_V is a modification of the vector bundles P(V), P'(V) at D (both beta_V and beta_V^(-1) meromorphic). (b) Consequently the G-gluing of RF4:G-torsors/tannakian-transfer-of-gluing and its bounds may be computed with any faithful representation: if beta_V is bounded by k then for every tensor construction W = V^(x a) (x) (V^dual)^(x b) and every subquotient of a direct sum of such, beta_W is bounded by (a + b) k.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). Let G be a linear algebraic group over E and V in Rep_E G faithful. (a) An isomorphism beta : P|_{X-cal minus D} = P'|_{X-cal minus D} of G-bundles is a modification at D iff beta_V is a modification of the vector bundles P(V), P'(V) at D (both beta_V and beta_V^(-1) meromorphic). (b) Consequently the G-gluing of RF4:G-torsors/tannakian-transfer-of-gluing and its bounds may be computed with any faithful representation: if beta_V is bounded by k then for every tensor construction W = V^(x a) (x) (V^dual)^(x b) and every subquotient of a direct sum of copies of that tensor word, beta_W is bounded by (a + b) k. For a finite sum of tensor words of differing bidegrees (a_i,b_i), the bound is max_i(a_i + b_i) k.",
    "hypotheses": [
     "V faithful: G -> GL(V) a closed immersion (Tau Ceti's TauCeti.Comodule.IsFaithful); a non-faithful V does not suffice",
     "Both directions of meromorphy are needed for V; equivalently one direction for V and for V^dual",
@@ -1948,10 +1952,11 @@
    ],
    "title": "Gluing commutes with change of structure group",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). Let rho : G -> H be a homomorphism of linear algebraic groups over E (resp. of smooth affine group schemes over O_E). (a) Pushforward rho_* (precomposition with the restriction functor Res_rho : Rep H -> Rep G) carries G-modifications at D to H-modifications at D, and commutes with the gluing of RF4:G-torsors/tannakian-transfer-of-gluing: rho_*(glue(Q, alpha)) = glue(rho_* Q, rho_* alpha), compatibly with composition (rho' rho)_* = rho'_* rho_*. (b) If rho is a closed immersion, an isomorphism of G-bundles off D is meromorphic along D iff its pushforward to H is.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). Let rho : G -> H be a homomorphism of linear algebraic groups over E (resp. of smooth affine group schemes over O_E). (a) Pushforward rho_* (precomposition with the restriction functor Res_rho : Rep H -> Rep G) carries G-modifications at D to H-modifications at D, and commutes with the gluing of RF4:G-torsors/tannakian-transfer-of-gluing: rho_*(glue(Q, alpha)) = glue(rho_* Q, rho_* alpha), compatibly with composition (rho' rho)_* = rho'_* rho_*. (b) Over E, if rho is a closed immersion, an isomorphism of G-bundles off D is meromorphic along D iff its pushforward to H is.",
    "hypotheses": [
     "(a) needs no hypothesis on rho; (b) needs rho a closed immersion (equivalently every G-representation is a subquotient of restrictions of H-representations)",
-    "Extension of structure group of torsors itself is BG0's; this node is its compatibility with gluing and meromorphy"
+    "Extension of structure group of torsors itself is BG0's; this node is its compatibility with gluing and meromorphy",
+    "Part (b) is over the field E. Deligne-Milne 2.21(b) does not justify the same claim over O_E; the integral extension requires a separate representation theorem and is not asserted here."
    ],
    "proofSteps": [
     "(a) For W in Rep H, (rho_* P)(W) = P(Res W); the gluing of RF4:G-torsors/tannakian-transfer-of-gluing is computed representation by representation, so it commutes with precomposition by Res.",
@@ -1993,7 +1998,7 @@
    ],
    "title": "G-gluing commutes with base change and with addition of legs",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). (a) For a map f : T -> S of affinoid perfectoid spaces over F_q and D the divisor of S -> Div^d_(-), the G-gluing of RF4:G-torsors/tannakian-transfer-of-gluing commutes with pullback: f^* glue(Q, alpha) = glue(Q (x)_{B^+_D(S)} B^+_{D_T}(T), alpha_T), compatibly with composition of base changes. (b) For D = D_1 + D_2 with D_1, D_2 disjoint, G-torsors on Spec B^+_D(S) with an isomorphism over B_D(S) are pairs of such data at D_1 and D_2, and the gluing at D is the iterated gluing at D_1 and D_2; for colliding legs D = m D_1 the data at D and at D_1 coincide. (c) Consequently the assignment S |-> {(P, beta)} is compatible with the addition maps Div^{d_1} x Div^{d_2} -> Div^{d_1 + d_2}.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). (a) For a map f : T -> S of affinoid perfectoid spaces over F_q and D the divisor of S -> Div^d_(-), the G-gluing of RF4:G-torsors/tannakian-transfer-of-gluing commutes with pullback: f^* glue(Q, alpha) = glue(Q (x)_{B^+_D(S)} B^+_{D_T}(T), alpha_T), compatibly with composition of base changes. (b) For D = D_1 + D_2 with D_1, D_2 disjoint, G-torsors on Spec B^+_D(S) with an isomorphism over B_D(S) are pairs of such data at D_1 and D_2, and the gluing at D is the iterated gluing at D_1 and D_2; for colliding legs D = m D_1 the data at D and at D_1 coincide. (c) For arbitrary D_1, D_2, a chain of modifications at D_1 then D_2 has a composite meromorphic at D_1 + D_2: representationwise the local equations multiply, and the two finite pole bounds give a bound at the sum. This construction commutes with base change. An equivalence with pairs of independent lattice data is asserted only on the disjoint locus; on a collision locus the chain retains extra intermediate data.",
    "hypotheses": [
     "Base change uses that B^+_{Div^d} and B_{Div^d} are v-sheaves over Div^d (RF2:integral-divisors/completed-rings-B-plus-and-B)",
     "Disjointness is of the closed subspaces D_1, D_2; the product decomposition of the completed rings is RF4:vector-bundles/disjoint-and-colliding-legs"
@@ -2001,7 +2006,7 @@
    "proofSteps": [
     "(a) Apply RF4:vector-bundles/gluing-exactness-tensor-and-base-change (c) representation by representation.",
     "(b) A G-torsor on Spec(B_1 x B_2) is a pair of torsors; combine with RF4:vector-bundles/disjoint-and-colliding-legs (a), (b) representation by representation.",
-    "(c) The divisor of a sum of legs is the sum of the divisors (FS VI.1.2, product equation), so (b) applies on the locus where the legs are disjoint and the colliding case on the diagonal."
+    "(c) Work representationwise on charts with local equations xi_1, xi_2. If the bounds are k,l, the composite and its inverse have poles at most kD_1+lD_2, hence at most max(k,l)(D_1+D_2). The product equation and pullback of divisors are RF2:integral-divisors/product-equation-and-affineness. Disjoint product decomposition and diagonal cofinality do not prove a factorisation for partially overlapping divisors."
    ],
    "acceptance": [
     "Pullback to geometric points recovers the fibrewise Beauville-Laszlo modifications of Fargues-Scholze III.3",
@@ -2040,9 +2045,9 @@
    ],
    "title": "v-descent of G-torsors and etale-local triviality over the completed divisor rings",
    "kind": "theorem",
-   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). (a) For S in Perf over F_q, U an open subset of S x Spa O_E (for example of Y-curly_S) and G smooth affine over O_E, the functor S' |-> {G-torsors on U x_{S x Spa O_E} (S' x Spa O_E)} is a v-stack on Perf_S (Scholze-Weinstein Proposition 19.5.3; Fargues-Scholze's footnote extends it from Z_p to O_E). (b) For S -> Div^d_(-) with D_S affinoid, vector bundles and G-bundles over B^+_{Div^d}(S) (G reductive over O_E, resp. over E) satisfy v-descent in S, and so do isomorphisms between two of them over B_{Div^d}(S). (c) Every G-bundle over B^+_{Div^d_{Y-curly}}(S), G smooth affine over O_E (in particular reductive), is trivial etale-locally on S. The quotient presentations Hck = L^+G \\ LG / L^+G and Gr = LG / L^+G that Fargues-Scholze deduce from (b) and (c) are GeometricSatakeAndFusion:GS0:loop-geometry's and are not planned here.",
+   "statement": "Conventions of this layer: E is a nonarchimedean local field with residue field F_q and uniformizer pi; S = Spa(R, R^+) is an affinoid perfectoid space over F_q with pseudouniformizer varpi; Y-curly_S = Spa W_{O_E}(R^+) minus V([varpi]), Y_S = Y-curly_S minus V(pi) and X_S = Y_S / phi^Z (RF0, RF1). For a map S -> Div^d_(-) the associated closed Cartier divisor D = D_S of Y-curly_S, Y_S or X_S has invertible ideal sheaf I_D (RF2:integral-divisors); when D is affinoid (always locally on S) B^+_D(S) denotes the global sections of the I_D-adic completion of the structure sheaf along D and B_D(S) = B^+_D(S)[1/I_D] (FS's B^+_{Div^d}(S), B_{Div^d}(S); B^+_dR, B_dR when d = 1). G-bundles are taken in the Tannakian sense of BunGAndNewtonStrata:BG0: for G a linear algebraic group over E (affine of finite type), Rep_E G its finite-dimensional representations, a G-bundle on an adic space or scheme X over E is an exact tensor functor Rep_E G -> Bun(X); BG0 proves this equivalent to geometric and cohomological torsors on sousperfectoid spaces. For G smooth affine over O_E the same with representations on finite free O_E-modules (Scholze-Weinstein 19.5). Over an affine scheme Spec(B), Bun means finite projective B-modules. The general equivalence of the three descriptions is BG0's and is not proved here (RS-20). (a) For S in Perf over F_q, U an open subset of S x Spa O_E (for example of Y-curly_S) and G smooth affine over O_E, the functor S' |-> {G-torsors on U x_{S x Spa O_E} (S' x Spa O_E)} is a v-stack on Perf_S (Scholze-Weinstein Proposition 19.5.3; Fargues-Scholze's footnote extends it from Z_p to O_E). (b) For S -> Div^d_(-) with D_S affinoid, vector bundles and G-bundles over B^+_{Div^d}(S) (G reductive over O_E, resp. over E) satisfy v-descent in S, and so do isomorphisms between two of them over B_{Div^d}(S). (c) Every G-bundle over B^+_{Div^d_{Y-curly}}(S), G reductive over O_E, is trivial etale-locally on S. The quotient presentations Hck = L^+G \\ LG / L^+G and Gr = LG / L^+G that Fargues-Scholze deduce from (b) and (c) are GeometricSatakeAndFusion:GS0:loop-geometry's and are not planned here.",
    "hypotheses": [
-    "G smooth affine for (a) and (c); reductive in Fargues-Scholze's statement of (b)",
+    "G smooth affine for (a); G reductive for (b) and (c), as in Fargues-Scholze VI.1.6-1.7",
     "(a) uses sousperfectoidness: U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^ is perfectoid and U -> it splits as topological modules",
     "(c) is etale-local on S, not merely v-local; the presentation of Hck is one of ETALE stacks",
     "The affineness of the target scheme is what makes loop spaces v-sheaves (FS before Definition VI.1.6)"
@@ -2051,7 +2056,7 @@
     "(a) Scholze-Weinstein, proof of 19.5.3: by the Tannakian description reduce to GL_n; base change to the perfectoid U' = U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^; vector bundles on perfectoid spaces satisfy v-descent (SW Proposition 17.1.8, requested from DiamondsAndVStacks D2); descend back along A -> A' split as topological A-modules (finite projectivity descends, Stacks 08XD).",
     "(b) Fargues-Scholze, proof of VI.1.7: vector bundles over B^+_{Div^d} satisfy v-descent, checked modulo powers of I_S where it is Proposition VI.1.4 (RF2:integral-divisors/v-descent-of-bundles-on-the-divisor); by the Tannakian formalism so do G-bundles; an isomorphism over B_{Div^d}(S) is a section of an affine scheme, which again satisfies v-descent.",
     "(c) At a geometric point B^+_{Div^d_{Y-curly}}(S) is a finite product of complete discrete valuation rings with algebraically closed residue field, so torsors under smooth G are trivial. In general, triviality modulo I_S implies triviality: the torsor's coordinate ring is smooth over B^+ and B^+ is I_S-adically complete, so a section modulo I_S lifts (Mathlib Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete).",
-    "(c) Triviality modulo I_S holds etale-locally on S by Gabber-Ramero Proposition 5.4.21 (in arXiv v3: for (R, tI) henselian and X smooth quasi-projective over R[1/t], X(R[1/t]) is dense in X(R^[1/t])), applied to the torsor over the henselian pair; for d = 1 Scholze-Weinstein give an alternative: the reduction to Spec R^sharp is etale-locally trivial and trivialisations lift along B^+_dR/xi^n because H^1_et(S^sharp, O) = 0."
+    "(c) Triviality modulo I_S holds etale-locally on S by Gabber-Ramero Proposition 5.4.21 (in arXiv v3: for (R, tI) henselian and X smooth quasi-projective over R[1/t], X(R[1/t]) is dense in X(R^[1/t])), applied to the torsor over the henselian pair; for d = 1 Scholze-Weinstein give an alternative: the reduction to Spec R^sharp is etale-locally trivial and trivialisations lift along B^+_dR/xi^n because H^1_et(S^sharp, O) = 0. The arXiv approximation statement has been matched, but specifying R,t,I, the smooth quasi-projective scheme, and the passage from a dense image to an etale neighbourhood on S is a nonroutine step, recorded as a gap; merely citing henselianity of the completed B^+ ring is insufficient."
    ],
    "acceptance": [
     "The presentation obtained by trivialising etale-locally is one of etale stacks, not merely v-stacks",
@@ -2294,26 +2299,34 @@
  "coverage": [
   {
    "stageId": "RelativeFarguesFontaine:RF4:vector-bundles",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "The ramified (W_{O_E}) and equal-characteristic forms of Kedlaya's algebraicity theorem: Kedlaya and Scholze-Weinstein are p-typical, and no source for the general case was read; no node of this packet needs them",
     "Kedlaya-Liu's B-pair statements (8.9.3-8.9.6) are planned in their unramified setting; the general-E relative gluing is the modification form RF4:vector-bundles/meromorphic-modification-at-a-divisor, and the general-E schematic triple form is not stated in a read source",
-    "When RelativeFarguesFontaine:RF0:crystalline-end is created (RT-AREA-padic-1/18), import its charts into RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles (gap 1)"
+    "When RelativeFarguesFontaine:RF0:crystalline-end is created (RT-AREA-padic-1/18), import its charts into RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles (gap 1)",
+    "Prove arbitrary-complement effectivity in general-E adic geometry (gap: Arbitrary complement data).",
+    "Supply the no-leg/one-leg shtuka recovery contracts used by node lattices-and-modifications-of-trivial-bundles(b).",
+    "Finish native algebra API and tests; synchronize the read-only reader with review corrections."
    ],
-   "note": "Fifteen nodes. Algebra: exact squares and glueing data (KL 1.3.7), finite projective and finite etale glueing (KL 1.3.8-1.3.10), glueing pairs and the Beauville-Laszlo theorem with the Stacks proof (15.92). Curve: modifications at a relative Cartier divisor of any degree, the lattice description (the stage's gluing functor, fully faithful and essentially surjective), exact tensor, base-change and coefficient-change compatibility, disjoint, colliding and locally finite families of legs. Schematic curve: Kedlaya-Liu 8.9 (affine complement, B_e, B^+_dR, B_dR of an affinoid perfectoid base, B-pair cohomology, bundles as relative B-pairs) with Caraiani-Scholze 3.5.1 and Fargues-Fontaine 5.3. Exports to the essential-surjectivity half of Fargues' theorem: Scholze-Weinstein 12.4.6 and 14.1.1 (2)<=>(3), and Kedlaya's algebraicity (Guo-Reinecke item 129). The non-noetherian hypotheses are kept throughout: completion is not fpqc, and the finite projectivity criterion is part of the theorem. The phi-module freeness statements also cited in Guo-Reinecke item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13, Lemma 3.2.6) are statements about Frobenius modules over perfect rings and arc-local products of valuation rings, not about patching; they are not planned here (see restructure)."
+   "note": "Fifteen nodes. Algebra: exact squares and glueing data (KL 1.3.7), finite projective and finite etale glueing (KL 1.3.8-1.3.10), glueing pairs and the Beauville-Laszlo theorem with the Stacks proof (15.92). Curve: modifications at a relative Cartier divisor of any degree, the lattice description (fixed-global-reference lattice gluing; arbitrary complement data remains open), exact tensor, base-change and coefficient-change compatibility, disjoint, colliding and locally finite families of legs. Schematic curve: Kedlaya-Liu 8.9 (affine complement, B_e, B^+_dR, B_dR of an affinoid perfectoid base, B-pair cohomology, bundles as relative B-pairs) with Caraiani-Scholze 3.5.1 and Fargues-Fontaine 5.3. Exports to the essential-surjectivity half of Fargues' theorem: Scholze-Weinstein 12.4.6 and 14.1.1 (2)<=>(3), and Kedlaya's algebraicity (Guo-Reinecke item 129). The non-noetherian hypotheses are kept throughout: completion is not fpqc, and the finite projectivity criterion is part of the theorem. The phi-module freeness statements also cited in Guo-Reinecke item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13, Lemma 3.2.6) are statements about Frobenius modules over perfect rings and arc-local products of valuation rings, not about patching; they are not planned here (see restructure)."
   },
   {
    "stageId": "RelativeFarguesFontaine:RF4:G-torsors",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "The numbering of [GR03, Proposition 5.4.21] in the published Springer LNM 1800 edition was not checked; in arXiv v3 the statement with that number is the henselian approximation theorem Fargues-Scholze need, and the published numbering should be confirmed"
+    "The numbering of [GR03, Proposition 5.4.21] in the published Springer LNM 1800 edition was not checked; in arXiv v3 the statement with that number is the henselian approximation theorem Fargues-Scholze need, and the published numbering should be confirmed",
+    "Discharge the BG0 scheme/integral and field representation supplier requests without an RF4 -> BG0 cycle.",
+    "Specialize henselian approximation to the divisor and prove any smooth nonreductive extension.",
+    "Synchronize reader and finish native interfaces once the genuine geometric carriers exist."
    ],
-   "note": "Seven nodes. Narrowed by the accepted RS-20: BG0 owns the general equivalence of the three descriptions of G-torsors; this layer defines G-modifications, transfers the linear gluing (with effectivity), proves that meromorphy is tested on a faithful representation and that the gluing commutes with change of structure group, base change and addition of legs, keeps the relative v-descent and etale-local triviality over B^+_{Div^d} with its source hypotheses, and constructs the modification of a G-bundle by a lattice exported to GS0:loop-geometry, BG2:uniformization, HS0 and HS2. The loop-group quotient presentations of the Hecke stack and Grassmannian are GS0's. The previous checkpoint's nodes three-notions-of-G-torsor and three-descriptions-of-G-torsors are withdrawn (owner BG0)."
+   "note": "Seven nodes. Narrowed by the accepted RS-20: BG0 owns the general equivalence of the three descriptions of G-torsors; this layer defines G-modifications, transfers the linear gluing (with effectivity), proves that meromorphy is tested on a faithful representation and that the gluing commutes with change of structure group, base change and composition at sums of legs, with product decomposition only for disjoint supports, keeps the relative v-descent and etale-local triviality over B^+_{Div^d} with its source hypotheses, and constructs the modification of a G-bundle by a lattice exported to GS0:loop-geometry, BG2:uniformization, HS0 and HS2. The loop-group quotient presentations of the Hecke stack and Grassmannian are GS0's. The previous checkpoint's nodes three-notions-of-G-torsor and three-descriptions-of-G-torsors are withdrawn (owner BG0)."
   },
   {
    "stageId": "RelativeFarguesFontaine:RF4",
-   "status": "planned",
-   "remaining": [],
+   "status": "partial",
+   "remaining": [
+    "Complete the precise open targets recorded by both children; the aggregate inherits their partial coverage."
+   ],
    "note": "Aggregate of RF4:vector-bundles and RF4:G-torsors (RS-20: keep, not a third patching construction). The nodes that realise it are the linear gluing, its compatibilities and exports, the Tannakian transfer, the v-descent theorem and the lattice modification; every child acceptance test is kept in the child nodes, and the linear applications (AI.2 essential surjectivity) are separated from the G-valued ones."
   }
  ],
@@ -2324,6 +2337,68 @@
     "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles"
    ],
    "detail": "Kedlaya's algebraicity theorem is stated on Spa W(R^+) minus V(p, [x]), whose rational charts Spa(B_1) = {|[x]| <= |p| != 0} and Spa(B_2') meet the locus [x] = 0. RF0:integral-Y removes V([varpi]) and RF0:annuli removes V(pi), so neither constructs these charts or proves their stable uniformity (Kedlaya Proposition 3.6). The confirmed finding RT-AREA-padic-1/18 proposes a new child RelativeFarguesFontaine:RF0:crystalline-end for them (handed to BP-RelativeFarguesFontaine--RF0); it is not yet an atlas stage, so no prerequisite can name it. Until it exists, the chart construction and the sousperfectoid stable-uniformity argument are carried in the proof steps of RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles, resting on AdicSpacesPartII:R5/sousperfectoid-stably-uniform and RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness. NEXT ACTION: once RF0:crystalline-end exists, make it a prerequisite of that node and add the stage edge RF0:crystalline-end -> RF4:vector-bundles (acyclic: RF0:crystalline-end requires only RF0:integral-Y and RF0:annuli)."
+  },
+  {
+   "title": "Arbitrary complement data in general-E adic gluing",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+    "RelativeFarguesFontaine:RF4:vector-bundles/gluing-exactness-tensor-and-base-change",
+    "RelativeFarguesFontaine:RF4:G-torsors/tannakian-transfer-of-gluing"
+   ],
+   "detail": "The stage target asks for an arbitrary vector bundle on X-cal minus D, a finite projective module on the formal completion, and a compatible punctured-formal identification. Node meromorphic-modification-at-a-divisor proves the fixed-global-reference lattice case. Prove the local algebraisation/complement-to-localization comparison for arbitrary complement data on Y-curly_S, Y_S and X_S, or provide a precise supplier contract and public proof with hypotheses. CS 3.5.1 and KL 8.9.6 cover the unramified schematic degree-one case, not this full target."
+  },
+  {
+   "title": "BG0 suppliers in the generality required and the RS-20 cycle",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:G-torsors/meromorphic-G-modification",
+    "RelativeFarguesFontaine:RF4:G-torsors/tannakian-transfer-of-gluing",
+    "RelativeFarguesFontaine:RF4:G-torsors/faithful-representation-criterion",
+    "RelativeFarguesFontaine:RF4:G-torsors/change-of-structure-group",
+    "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality"
+   ],
+   "detail": "BG0/g-torsors-three-descriptions currently supplies only reductive G over E on sousperfectoid X over E, and itself requires RF4:vector-bundles and RF4:G-torsors. The exact scheme and smooth O_E-integral versions, and the field tensor-generator/restriction statements, are requested explicitly in requests[0]. Until those statements and the acyclic BG0 supplier contract are present, this is not a closed import. Do not recreate the torsor dictionary in RF4."
+  },
+  {
+   "title": "No-leg shtukas and recovery of a one-leg shtuka",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:vector-bundles/lattices-and-modifications-of-trivial-bundles"
+   ],
+   "detail": "Assign a foundation owner and supply SW Theorem 12.3.4 (phi-modules over the integral Robba ring, W(C-flat), finite free Z_p-modules), Proposition 12.3.5 (no-leg shtukas -> integral Robba phi-modules), and Corollary 12.4.1 (unique meromorphic phi^(-1)-equivariant tail identification and recovery). These are used in node lattices-and-modifications-of-trivial-bundles(b); VB1/cohomology-of-twists supplies only H^0 of trivial curve bundles. HS2 is a downstream consumer of RF4 and cannot be imported as the foundation without a cycle. The fixed-T lattice/modification equivalence and (2)<->(3) of SW 14.1.1 are independently justified."
+  },
+  {
+   "title": "Henselian approximation specialized to a relative divisor",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality"
+   ],
+   "detail": "For FS VI.1.7 etale-local triviality in arbitrary degree, specialize GR arXiv v3 Proposition 5.4.21: give R,t,I with t regular and (R,tI) henselian, identify its completion and the smooth quasi-projective torsor scheme, and derive the etale neighbourhood on S from approximation and the geometric fibre. Confirm the published GR03 locator or cite only the read arXiv statement. Smooth-affine nonreductive G is an additional extension requiring proof, not a consequence of the cited reductive statement."
+  },
+  {
+   "title": "Native suggested API and concrete tests remain incomplete",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square",
+    "RelativeFarguesFontaine:RF4:vector-bundles/glueing-pair",
+    "RelativeFarguesFontaine:RF4:vector-bundles/modification-of-vector-bundles",
+    "RelativeFarguesFontaine:RF4:vector-bundles/relative-period-rings-Be-BdR",
+    "RelativeFarguesFontaine:RF4:G-torsors/meromorphic-G-modification",
+    "RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice"
+   ],
+   "detail": "The revised native algebra signatures state module sections, tensor comparison maps, universal finite-projective surjectivity, compatible effectivity and linear Beauville-Laszlo identifications. But CONTRACT names and prose are not native lemma signatures or examples: finish the algebra morphism/adjunction/tensor/base-change API and the Zariski-Z computation; complete glueing-pair unit/noetherian examples and non-examples using actual carriers. Record each geometric omission against its exact unavailable carrier rather than claiming every API/test is prototyped. All implementationStatus values remain unchecked."
+  },
+  {
+   "title": "Reader synchronization required by the revision",
+   "neededBy": [
+    "RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square",
+    "RelativeFarguesFontaine:RF4:vector-bundles/modification-of-vector-bundles",
+    "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+    "RelativeFarguesFontaine:RF4:vector-bundles/disjoint-and-colliding-legs",
+    "RelativeFarguesFontaine:RF4:vector-bundles/B-pair-cohomology",
+    "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles",
+    "RelativeFarguesFontaine:RF4:G-torsors/change-of-structure-group",
+    "RelativeFarguesFontaine:RF4:G-torsors/base-change-and-divisor-compatibility",
+    "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+    "RelativeFarguesFontaine:RF4:vector-bundles/lattices-and-modifications-of-trivial-bundles"
+   ],
+   "detail": "The review issue permits packet and suggested-file corrections but does not list the reader document as a deliverable. Its revision must synchronize the Zariski section generator, isomorphism-only modification arrows and nonempty-divisor test, fixed-reference scope/chart cover, repeated-divisor bounds, flat-module tensor formula, Kedlaya field-case gluing proof, retention of integral T in the pair/modification comparison, field-only closed-immersion criterion, composition at overlapping sums, reductive local-triviality scope, and partial coverage. Exact corrections and counterexamples are in REV-RelativeFarguesFontaine--RF4.md."
   }
  ],
  "restructure": [
@@ -2354,5 +2429,123 @@
    "proposal": "Keep the algebraic formalism here as its single owner and the topological glueing squares in AdicSpacesPartII:R3 as the special case the API compares with. If the maintainer prefers the most foundational owner (PROTOCOL section 15), move the three algebraic nodes into AdicSpacesPartII:R3 and let RF4:vector-bundles import them; AdicSpacesPartII is upstream of RF4, so the move creates no cycle."
   }
  ],
- "sourceIssues": []
+ "sourceIssues": [],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-RelativeFarguesFontaine--RF4",
+  "date": "2026-10-06",
+  "notes": "Independent completed review of all 22 nodes, public source locators/excerpts, all 32 declarations at the two exact pins, supplier statements, audit, API/tests/planets and RT-AREA-padic-1/19. Corrected clear packet and native-signature defects; all three stages are partial. Needs changes for unresolved target/supplier/prototype contracts and contradictions in the reader, which this issue does not authorize editing. See the review report and seven precise gaps. This is a completed review, not a checkpoint.",
+  "checked": [
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square",
+    "verdict": "corrected",
+    "note": "Corrected the Zariski-Z test to generator (1,1/3). Native sections are an R-submodule, comparison maps are tensor base-change maps, and the unit is linear. The remaining native morphism/adjunction/test API is explicitly open."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/finite-projective-glueing-over-exact-square",
+    "verdict": "corrected",
+    "note": "KL 1.3.8-1.3.9 hypotheses and conclusion checked. Replaced the native hypothesis on a single datum by universal comparison-surjectivity; the conclusion now concerns the actual sections and both canonical comparisons."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/finite-etale-glueing-over-exact-square",
+    "verdict": "corrected",
+    "note": "KL 1.3.10 checked. Native finite-etale effectivity now includes universal surjectivity, the maximal-ideal condition, and compatibility with the supplied overlap isomorphism."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/glueing-pair",
+    "verdict": "corrected",
+    "note": "Stacks glueing-pair and torsion criteria checked. Separated native iff_exact from the actual iff_torsion_bijective. Concrete unit/noetherian/non-example prototypes remain open. Made the quotient API match general R' and stated the torsion-iff quotient hypothesis explicitly."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
+    "verdict": "corrected",
+    "note": "Stacks 15.92.16, .18, .19 and KL 1.3.6 checked, including arbitrary-module scope of the finite-projectivity criterion. The native overlap is linear; recovered isomorphisms respect it; flat_exact now states the full exact sequence."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/modification-of-vector-bundles",
+    "verdict": "corrected",
+    "note": "Modification arrows are isomorphisms, extensionality gives isomorphism rather than equality, and bounds are local. The ideal test requires nonempty D. Native bounded local modifications now require finite projectivity."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+    "verdict": "unverifiable",
+    "note": "The fixed-global-reference lattice case is justified after replacing a single chart containing D by a chart cover. It does not realize arbitrary complement data in the general-E adic stage target; that effectivity contract is still missing."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/gluing-exactness-tensor-and-base-change",
+    "verdict": "corrected",
+    "note": "Exactness reflection is proved in the finite-projective scope by cokernel detection and splittings. Coefficient change uses recovery over the new glueing pair, not unjustified exactness of tensoring the old ring square."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/disjoint-and-colliding-legs",
+    "verdict": "corrected",
+    "note": "For D=mD1, l-bounded at D iff ml-bounded at D1; ceil(k/m) gives only one implication for an arbitrary k-bound. Locally finite families use local bounds, without a uniform global bound."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/untilt-divisor-complement-affine",
+    "verdict": "verified",
+    "note": "KL 8.9.1-8.9.3 hypotheses, affine complement and single-open-neighbourhood condition checked. Restricted unramified coefficient setting is retained."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/relative-period-rings-Be-BdR",
+    "verdict": "verified",
+    "note": "KL 8.9.4 and relative/absolute period-ring conventions checked. Nine API contracts and four tests are sound mathematical specifications; the geometric native prototypes are expressly incomplete."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/B-pair-cohomology",
+    "verdict": "corrected",
+    "note": "KL 8.9.6(a) flat-quasicoherent statement checked. Formal pullback is V(B) tensor_B B-hat, not the adic completion of V(B); infinite flat modules distinguish them."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/vector-bundles-as-relative-B-pairs",
+    "verdict": "verified",
+    "note": "KL 8.9.6(b), CS 3.5.1 and FF 5.3.1-5.3.3 checked. The unramified schematic B-pair equivalence and tensor/exact compatibility are justified."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/lattices-and-modifications-of-trivial-bundles",
+    "verdict": "unverifiable",
+    "note": "Fixed-T relative lattice/modification equivalence is corrected to retain integral T when T varies. SW 12.4.6 additionally requires SW 12.3.4, 12.3.5 and 12.4.1; the foundation owner and direct contracts are absent. RT /19 export remains essential-surjectivity only."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles",
+    "verdict": "corrected",
+    "note": "Kedlaya 2.7, 3.8, 3.9 and 3.14 checked. Replaced the impossible p-adic square of A_inf[1/p] by the A_inf[1/p], W(K), W(K)[1/p] gluing stack. The existing crystalline-end ownership gap remains explicit."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/meromorphic-G-modification",
+    "verdict": "unverifiable",
+    "note": "The meromorphic G-modification definition and four mathematical tests match FS/SW/HK. BG0 does not yet supply the required scheme and integral torsor dictionaries; native G-bundle carriers/API remain absent."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/tannakian-transfer-of-gluing",
+    "verdict": "unverifiable",
+    "note": "Representationwise transfer is justified conditional on linear effectivity and the exact BG0 dictionaries. Current BG0 hypotheses and its reverse RF4 prerequisites do not close this import; no duplicate dictionary was added here."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/faithful-representation-criterion",
+    "verdict": "corrected",
+    "note": "DM 2.20(b), footnote 11, and the pinned faithful-comodule closed-immersion criterion checked. Specified max tensor degree for sums of tensor words of differing degrees; no integral tensor-generator theorem is inferred."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/change-of-structure-group",
+    "verdict": "corrected",
+    "note": "Extension of structure group is precomposition. The subquotient/closed-immersion criterion of DM 2.21(b) is now explicitly over E; it is not asserted over O_E."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/base-change-and-divisor-compatibility",
+    "verdict": "corrected",
+    "note": "Replaced the unsupported inference for arbitrary overlapping sums by composition of a chain, bounded at the sum by max(k,l). Independent product decomposition is only on the disjoint locus; collisions retain intermediate data."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+    "verdict": "unverifiable",
+    "note": "SW 19.5.3 and FS VI.1.7 scopes checked; integral etale-local triviality narrowed to reductive G. The GR 5.4.21 application still needs explicit R,t,I, the torsor scheme and etale-neighbourhood argument; D2 bundle descent is requested separately."
+   },
+   {
+    "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice",
+    "verdict": "unverifiable",
+    "note": "HK 4.3 lattice modification and GL_n/G_m/tautological/SL_2 tests checked. Construction is conditional on the missing BG0 scheme/integral dictionary and native geometric carriers; loop quotient presentations remain GS0-owned."
+   }
+  ]
+ }
 }

@@ -1,0 +1,13 @@
+# Handoff: completed independent review of RF4
+
+Job `REV-RelativeFarguesFontaine--RF4`, issue #483. Codex session `codex-8ZIUh3`, 6 October 2026. Verdict: **needs_changes**. This is a completed review, not an unfinished review or checkpoint. The input author was `claude-QXE3hL`.
+
+Read the review report `research/blueprint/reviews/REV-RelativeFarguesFontaine--RF4.md` first. It records all 22 node verdicts, every correction, all 32 pinned declaration checks, public source versions, supplier checks, the library audit and RT-AREA-padic-1/19. Counts: 13 corrected, 3 verified, 6 unverifiable; no nodes added. There are 57 API items, 25 mathematical test contracts, 7 planets, 7 gaps and 2 precise supplier requests. All three stages now have partial coverage. Implementation remains unchecked.
+
+Clear packet and native-signature defects are fixed. Remaining revision work: native algebra API/examples; arbitrary-complement gluing in general-E adic geometry; BG0 scheme/integral contracts and reverse-edge removal under RS-20; ownership and direct contracts for SW's no-leg and tail-recovery results; explicit specialization of GR approximation; and the pre-existing crystalline-end supplier. Gaps contain the exact required statements and affected nodes. Keep T in the varying-T modification comparison. Do not recreate BG0's torsor dictionary or GS0's loop quotients in RF4.
+
+The reader `research/blueprint/readmes/RelativeFarguesFontaine--RF4.md` was read but is outside this review issue's deliverables. A revision must include it and synchronize the corrections and partial coverage. The report enumerates the contradictions. RT /19 is already correctly applied there and in the packet: curve inputs support AI.2 essential surjectivity, not algebraic full faithfulness.
+
+Validation: the packet checker reports 0 errors and 0 warnings; review metadata covers all 22 nodes exactly once. The suggested file elaborates through `lean-check` with only expected declaration-uses-sorry warnings at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Only Mathlib is imported. Tau Ceti declarations were independently read at `f790474821cf4256814db967cb154e7af3d0c369`; the later shared Tau Ceti checkout is not claimed as the baseline. Compilation validates native signatures, not CONTRACT comments. All eleven PDF hashes match. No source erratum was established at a used locator. `git diff --check` passes.
+
+Resume at the seven exact revision tasks in the report; no scratch files are needed. This worker submits one review PR and stops. No atlas promotion, upstream edits, manual merge, issue closure or label changes were performed.
