@@ -26620,9 +26620,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #766"
+   "note": "claimed on GitHub issue #766"
   },
   {
    "id": "REV-KatoEulerSystems",
@@ -28369,8 +28369,9 @@
    ],
    "avoidAccountOf": "BP-RankZeroOneBSD--BSD.7",
    "prompt": "research/blueprint/prompts/REV-RankZeroOneBSD--BSD.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #478"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #478",
+   "finishedAt": "2026-10-06T18:18:34Z"
   },
   {
    "id": "BP-ReductiveGroupsPartII",
