@@ -739,6 +739,17 @@
     "data/blueprints/HabiroNahmSeries--HB.4.md"
    ]
   },
+  "research/blueprint/packets/HabiroNahmSeries--HB.5.json": {
+   "promotedAt": "2026-10-06T01:38:33Z",
+   "review": "408f461b6c284ea6",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroNahmSeries--HB.5",
+   "sha256": "09b7d10157153ca1875e48edcc2d8f4df731b4c71769cc2fe6fee9b05f937eae",
+   "to": [
+    "data/blueprints/HabiroNahmSeries--HB.5.json",
+    "data/blueprints/HabiroNahmSeries--HB.5.md"
+   ]
+  },
   "research/blueprint/packets/HabiroNahmSeries.json": {
    "promotedAt": "2026-10-02T04:08:57Z",
    "review": "b3c144039c942702",
