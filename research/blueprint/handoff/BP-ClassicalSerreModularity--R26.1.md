@@ -1,110 +1,63 @@
-# BP-ClassicalSerreModularity--R26.1: checkpoint 3 (Claude Code cc-39fac3)
+# BP-ClassicalSerreModularity--R26.1 — completed target-level pass
 
-Claude Code, session `cc-39fac3`, 29 September 2026. Refs #694; the bot confirmed the claim. **Status: partial.**
-- R26.1–R26.4, R26.6, R27.1 and R27.2 are `source_decomposed`.
-- R26.5 is `partial`.
+Codex, session `codex-uGlOi6`, 6 October 2026. Refs #694. This continues the prior packet rather than replacing its declaration identities. The bot confirmed this session's claim. Only this job's four deliverables were edited.
 
-## Checkpoint 3: Skinner–Wiles 2001 and Skinner's correction
+## Result and coverage
 
-1. **Wired to the new supplier.** `R26.4/level-one-lifting-lemma` and `R26.4/degenerate-branches` now cite
-   OrdinaryAutomorphicFormsAndModularityLifting `R21.5/nearly-ordinary-irreducible-lifting-over-q` (Skinner–Wiles 2001,
-   planned in PR #3873). Their residually irreducible branches, ρ̄ reducible over ℚ(√((−1)^{(p−1)/2}p)), use it.
-   `degenerate-branches` also cites `R21.5/theorem-a-over-q`. The request to R21.6 carries a note saying which parts
-   are served.
-2. **The dihedral CM case.**
-   - OrdinaryAutomorphicFormsAndModularityLifting/E11 shows that Skinner–Wiles 2001's Lemma 2.2 bound fails for
-     dihedral residual representations from a CM field split above p. The plan there excludes imaginary quadratic
-     fields.
-   - For p ≡ 3 mod 4 the branch here has ρ̄ induced from ℚ(√−p). p ramifies there, so the problem may not arise, but it
-     waits on E11.
-   - KW I (preprint pp. 3, 16) cite C. Skinner, *Nearly ordinary deformations of residually dihedral
-     representations* ("to appear"; a 2009 preprint), as "a correction to [40]". It is unpublished, and a new gap
-     records it for the four nodes that rely on it.
-3. **Private-library references removed.** The source edition and gaps 1–4 named files of a private reference library.
-   They now describe the sources and what was or was not read.
+The packet is `complete` under PROTOCOL's target-level planning rule. **All eight stages are `planned`; zero are `closed`.** Every scoped target has a declaration-level plan or an exact existing sibling import, with remaining work stated. None is claimed formalised. Counts:
 
-**Totals.** 26 nodes, 7 planets, 10 requests and 5 gaps. `check_blueprint.py`: 0 errors, 0 warnings.
+- 36 nodes: 14 theorems, 13 lemmas, 7 applications, 2 definitions.
+- 13 API items and 8 definition tests; 7 planets; 7 pinned baseline declarations.
+- 18 open supplier contracts, 6 explicit gaps and 5 source-issue records.
+- All 26 carried node ids are preserved. Every implementation status remains `unchecked`.
 
-## Checkpoint 2: alignment with PotentialModularityAndCompatibleSystems part R24.3
+R26.1–R26.4 and R26.6 now have exact statement/convention, source and supplier boundaries. R26.5 has five separate terminal-row applications plus the shared complete branch contract; no terminal-row decomposition remains missing. R27.1 has the explicit good-dihedral API/tests and a concrete early/late stage proposal. R27.2 has the shared odd-estimate import, separate dyadic exponent selection, fixed conductor-count parameter and final third-system reduction to the predecessor characteristic.
 
-1. **The Böckle node became an application contract.** RS-06 moves the generic presentation to GlobalGaloisDeformations
-   R04.3 and the prescribed-lift application to PotentialModularityAndCompatibleSystems R24.3. Part R24.3 (PR #3864) now
-   plans Böckle's Proposition 1, Lemma 2 and Theorem 1. `R26.1/bockle-appendix-minimal-deformation-ring-presentation`
-   keeps its id and states only Khare's application contract:
-   - oddness;
-   - Δ_ℓ = 0 in the four cases of Corollary 1;
-   - Lemma 1 at a decomposable flat p;
-   - T_Q reduced, and Carayol.
+The reader specifies every node's statement, inputs, construction/proof, imports, acceptance and source locators. Its definition sections agree with the packet API/tests. The suggested Lean file contains the full expressible algebraic good-dihedral predicate and API/tests, plus arithmetic signatures. It records a name-by-name omission ledger for canonical Galois, conductor, weight, modularity and compatible-system interfaces. It does not use arbitrary proposition fields to fake those interfaces. HypL/HypW/HypD and representation-valued headline signatures require the supplier interfaces; their complete mathematical specifications and tests are in the packet and reader.
 
-   It imports the R24.3 nodes. The direction R24.3 → R26.1 is the one RS-06 records, so there is no cycle.
-2. **Stage prerequisites became node ids.** Six nodes that cited PotentialModularityAndCompatibleSystems R24.3, R24.5 or
-   R24.6 as stages now cite the exact nodes: `required-lift-types`, `kw-annals-minimal-lifts`,
-   `finite-presentation-complete-intersection`, `brauer-induction-system`, `almost-strict-compatibility`,
-   `kw-theorem-5-1-systems`, `kw-theorem-4-1`, `residual-members` and `linked-systems-modularity-transfer`. The requests
-   to R24.3 and R24.6 are dropped; the one to R24.5 stays for Taylor's potential modularity.
-3. **R27.1 and R27.2 are `source_decomposed`.**
-   - Part R27.3 (PR #3858) plans KW I Lemma 8.2 and the good-dihedral insertion under R27.1.
-   - KW I Theorems 4.1 and 5.1 are R24.4 and R24.5, so the gap "KW I Theorems 4.1 and 5.1 are unproved inputs" is
-     closed.
-   - The Savitt gap now points to R24.5's request.
+## Checks
 
-`check_blueprint.py`: 0 errors, 0 warnings. The suggested Lean file is unchanged and still compiles.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ClassicalSerreModularity--R26.1.json`: **0 errors, 0 warnings**.
+- `lean-check research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean`: **elaborated successfully**, with only the intentional unproved-declaration warnings. Every theorem/example is a signature, not a proof. The wrapper confirmed Mathlib `082e2d3`; the file imports Mathlib only, so no newer Tau Ceti working-tree declaration was used. The Tau Ceti audit used commit-qualified reads at `f790474`.
+- Memory checked before each compilation, with over 20 GB available. No Lean language server, Lake build, update or cache retrieval was started.
+- An independent finite sieve verified all **2,422** primes 5≤p≤21591, the least non-Fermat successor and a suitable exact odd prime power dividing P−1. No failures; the largest successor needed is 21599, within the proposed certificate bound 21649.
+- Checked all terminal-row weights and nebentype cosets; j=18 at P=31 satisfies the allowed multiple-of-6 condition and interval, whereas printed j=16 does not.
+- The consecutive-prime logarithmic comparisons have positive margins at 31 (22/15 bound) and 21591 (61/50 bound). These numerical checks support the plan; they do not implement real logarithm inequalities in Lean.
+- Compared the mixed RS-06 source alias against the inherited packet: only its prerequisites changed; its statement, hypotheses, proofSteps, acceptance, sources and implementation status are preserved. A new ownership note records the component consumers.
+- Read-only stage simulation of atlas edges plus RS-06 links: before the prefix replacement, R33.2–R33.5 inherit all six R26 stages; after replacing the relevant R27.1 imports with the proposed early prefix, R33.1–R33.5 have no R26.x ancestor. **The live stage graph was not edited.**
 
-## Checkpoint 1
+## Ownership fixes and structural application
 
-1. **Carried the reviewed decomposition.** The integrated decomposition (data/decompositions/ClassicalSerreModularity.json)
-   has ten nodes in this part's scope, and all are carried with their statements.
-   - Every excerpt was re-selected and verified against the pinned copies. The earlier excerpts came from a different
-     text extraction (ρ̄ versus ¯ρ, and so on) and no longer matched.
-   - The KW I preprint was fetched from the authors' page. Its TLS chain is incomplete, so the file was checked against
-     the decomposition's recorded sha256 (3c389dc…); it matches.
-   - Khare's arXiv v1 (3012a51…) and the Annals PDF (154c0c2…) also match the recorded hashes. Böckle's appendix
-     (67de08f…) matches too.
-2. **Re-homed a node.** RS-06 moves the KW I §7 prime-estimate node from R26.3 to R27.2, and its id changes accordingly.
-   R26.3 now has Khare's own estimate.
-3. **Decomposed Khare §§2–7**, which the decomposition had not read. There are 16 new nodes:
-   - **R26.2:** the flatness method; Proposition 2.1; the smooth local ring at q (Böckle's Hensel computation);
-     Proposition 2.2; Proposition 3.1.
-   - **R26.3:** Khare's §4 estimate; Lemma 5.2; the interval containment; an explicit well-founded induction on the
-     weight bound.
-   - **R26.4:** Lemma 5.3; Lemma 5.4 with Corollary 5.5; the degenerate branches.
-   - **R26.5:** the small-weight table.
-   - **R26.6:** the assembly of the proof; Corollary 1.2 (with KW I's correction); Corollary 1.3.
-4. **Avoided duplication.** Wintenberger's dihedral lemma (Khare 5.1), the base cases (Tate–Serre, Fontaine, Schoof,
-   weights ≤ 8 and 14) and the base-case table are cited from SmallRamificationAndAbelianVarietyBaseCases R25.2, R25.5
-   and R25.6. Local rings are cited from LocalGaloisDeformationRings. Skinner–Wiles is cited from
-   OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a.
+The shared odd auxiliary-prime estimate has one owner, R26.3. R27.2's carried prime-estimate node imports it and retains the dyadic case. The old prime-number request to R15.3 is gone; R15.3 is requested only for its integral Hecke algebra/weight-two realisation contract.
 
-## Source issues (both in Khare's small-weight table, arXiv v1)
+Savitt/Breuil–Mézard integral tame Barsotti–Tate classification is requested from **R07.5 after R07.4 descent**, with exact local type, lattice and coefficient conditions. R15.4 supplies only the classical integer weight recipe. R24.6 needs a consuming edge from R07.5. The packet includes the proposed edge in its restructuring text; the owner packet is not edited here.
 
-Both reach nothing.
-- **E1 (misprint).** The weights 22–30 row says the mod-7 lift is "unramified outside 3, 19"; it should be 7, 29.
-- **E2 (error).** The weight-32 row uses nebentypus ω_31^{16}. With foil 5 and a lift semistable at 31, only ω_31^{6i} is
-  available; j = 18 gives weights 20 or 14, which are known.
+Apply the proposed **R27.1a/R27.1b split** before considering the early-prefix structural gap closed. R27.1a contains Definition2.1, Lemma6.3 and Lemma8.2; R27.1b contains the later insertion. Replace the early prefix's whole-stage requires, deleting inherited R26.6 and unrelated late modularity inputs, and repoint RS-06's R33.2/R33.3/R33.6 consumers. Keep R26.6→R27.3 for W₁. Then rerun the stage-ancestor check for R33.1–R33.5; adding links alone does not erase the problematic inherited edge.
 
-I found E2 by checking every row's nebentypus against the coset χ⟨η⟩ of Proposition 2.2 (the Lean file checks the
-table).
+The unique Chebotarev-choice and insertion nodes already live in `ClassicalSerreModularity--R27.3`: `R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes` and `R27.1/good-dihedral-prime-insertion`. Preserve their stable ids. Lemma8.2 retains its prime-field F_p, p≡1 mod4 and nonsolvable-image hypotheses. Do not create duplicate nodes in this packet.
 
-## Requests (13)
+The stable `R27.1/dickson-and-the-dyadic-solvable-refinement` is a mixed source alias. Generic Dickson/dyadic image refinement is R01.4; modularity is R17.5/R17.6 and optimisation R20.5; bad-dihedral normalized weights are R15.4. Import the necessary component directly in an early consumer. The alias's full composite statement is not an early-prefix prerequisite.
 
-- PotentialModularityAndCompatibleSystems R24.3, R24.5 and R24.6.
-- AlgebraicModularFormsAndSerreWeights R15.6 and R15.3.
-- ArithmeticGaloisRepresentations R01.4.
-- OrdinaryAutomorphicFormsAndModularityLifting R21.6.
-- GL2ModularityLifting R22.1.
-- DeformationAndDerivedPatchingAlgebra R03.3.
-- SerreWeightAndLevelOptimisation R20.6.
-- LocalGaloisDeformationRings R08.2, R08.3 and R08.6.
+## Source corrections and remaining source boundaries
 
-## Lean
+All PDFs actually used have public URLs, exact editions and SHA256 values in the packet/reader. No private-library or scratch paths are needed to resume.
 
-`suggested/ClassicalSerreModularity--R26.1.lean` imports Mathlib only. It has the interval-containment algebra, the
-small-weight table's new weights and nebentype cosets (including the E2 counterexample), and the good-dihedral arithmetic
-tests. It compiles with 0 errors, 0 warnings and no `sorry`.
+- **E1/E2 retained:** Khare v1's weights22–30 ramification list is 7,29 rather than printed 3,19; the weight32 exponent is corrected from 16 to18. The published Duke edition has not been checked for either.
+- **E10:** known KW paper-extraction E4, collision between conductor-count r and the prime-power exponent. Use e for the latter. KW's repeating decimal is exactly 22/15; no false decimal erratum is recorded.
+- **E11:** newly observed proof-affecting discrepancy in Khare v1 §4. Its asserted uniform Chebyshev upper bound for π(x), x>30, fails at x=31 and100. The packet keeps the required auxiliary-prime conclusion via Rosser–Schoenfeld's exact inequalities and finite checks. Independently check the Duke edition before attributing this discrepancy to the published paper.
+- **E12:** known Savitt v3 Remark1.7 author correction to Theorem6.12(4)'s exceptional i=1 corner. Use the corrected lattice statement. The consumed Theorem6.11/Corollary6.15 contract is unaffected by the old error.
 
-## What a continuation should do
+The principal unfinished source actions are:
 
-1. **R26.5:** optionally, split the §6.1 rows into per-row nodes. This is the only `partial` stage left.
-2. **The dihedral branch:** once OrdinaryAutomorphicFormsAndModularityLifting/E11 is resolved for fields ramified above p,
-   or Skinner's correction is readable, remove the p ≡ 3 mod 4 caveat.
-2. Items 1 and 2 of checkpoint 1's list (R27.1 insertion; KW II) are done: see checkpoint 2.
+1. Obtain the **published Duke** Khare paper and identify Theorems5.1(1),5.1(3 ii),6.1(2) used by KW's corrected Corollary8.1(i). The arXiv v1 numbering cannot resolve them. The PDF endpoint returned a non-PDF access response; do not pretend preprint Proposition3.1 is the corrected published theorem.
+2. Obtain **Skinner's unpublished correction** to Skinner–Wiles2001 or discharge the CM-dihedral branch in the R21 supplier. The affected imaginary quadratic branch is recorded alongside R21/E11. The real-quadratic and other ordinary branches remain separately specified.
+3. Read the **Rosser–Schoenfeld analytic proof and finite verification tables**, and **Breuil–Mézard Proposition6.1.1**. This run read the former's exact displayed bounds and Savitt's corrected primary statements; it does not certify the unread proofs.
+4. Discharge the canonical conductor, Serre weight, attached-newform, lattice and compatible-system contracts, then replace the suggested-file omission ledger with genuine signatures and full representation-valued examples.
+
+The **published Annals numbering was verified**: Definition4.1 and Theorem4.2(ii) specify semistability and the abelian-variety system; Theorem5.2(ii) p.247 is the semistable prime-conductor weight-two exclusion; §6.2 pp.250–251 is killing ramification. Khare's older Theorem4.1(ii)/§5.2 citations use different numbering. For q=2, Artin exponent one and Frobenius force the tame quotient character χ=χ², hence χ=1, giving unipotent inertia in odd residual characteristic. That inference is requested from R01.5. The R26.6 application consumes Schoof and a verified R25.5 realisation/reduction contract; it does not assert that R25 already exports a general conductor-two residual theorem. No backward R24→R25 dependency was introduced.
+
+Ribet Proposition2.2 is now read. Its semistable/cyclotomic-determinant theorem cannot directly supply the general bad-dihedral weight split. The request at R15.4 instead specifies the analogous tame-inertia/rotation-subgroup argument and the primary full proof in Dieulefait–Pacetti v2 Lemma1.14. Savitt Corollary6.15's lattice/trivial-endomorphism condition and Remark6.17's semisimplification scope are preserved.
+
+## Next work
+
+This job's planning pass is finished; submit it for independent review. Review the new E11 replacement derivation, q=2 local inference, terminal-row branches, API signatures and the structural proposal against the primary sources first. Closure proceeds in the named supplier roadmaps and through application of the stage split. There is no second job claimed by this session, no implementation claim and no long-running process left by this run.
