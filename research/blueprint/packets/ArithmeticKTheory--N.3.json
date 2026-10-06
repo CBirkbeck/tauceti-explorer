@@ -1,0 +1,679 @@
+{
+  "roadmapId": "ArithmeticKTheory",
+  "protocol": "blueprint-v1",
+  "part": "N.3",
+  "scope": [
+    "ArithmeticKTheory:N.3"
+  ],
+  "status": "complete",
+  "summary": "Finished target-level number-field pass following the accepted N.1 packet. Reuses all six finiteness/rank endpoints and the rank filtration/building machinery. Adds seven missing declarations for finite-rank homology, precise stabilization, stable finite type, finite localization defects and the specified rational comparison with extension/transfer coherence. N.3 is planned, not closed: two precise topology supplier requests remain; inherited supplier implementations and review boundaries are explicit. No function-field targets are added.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Set.integer",
+        "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+        "provides": "S-integer subalgebra of the fraction field; this carrier is reused, not reconstructed.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/SInteger.lean:65"
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "Finite primes indexing S and the residue terms.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean:493"
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "r₁, used by the imported rank endpoint.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:437"
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "r₂, used by the imported rank endpoint.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:441"
+      },
+      {
+        "ref": "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+        "provides": "Finiteness of Cl(𝓞_F); combined with the imported projective classification.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/ClassNumber.lean:58"
+      },
+      {
+        "ref": "mathlib:NumberField.Units.finrank_eq",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "Actual Dirichlet theorem finrank ℤ (Additive (𝓞_F)ˣ) = Units.rank F for S = ∅; the rank definition alone is insufficient.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:462"
+      },
+      {
+        "ref": "mathlib:Submodule.fg_of_fg_map_of_fg_inf_ker",
+        "module": "Mathlib/RingTheory/Finiteness/Finsupp.lean",
+        "provides": "Finite generation of an extension from its finitely generated image and kernel; over ℤ subgroups remain finitely generated.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Finiteness/Finsupp.lean:70"
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_exact",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Tensoring exact linear maps with a flat module preserves Function.Exact. This is existing algebra, not a new K-theory lemma.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Basic.lean:323"
+      },
+      {
+        "ref": "mathlib:IsLocalization.flat",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "provides": "A localization algebra is flat; specialize to ℚ as the fraction field of ℤ.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Localization.lean:37"
+      },
+      {
+        "ref": "mathlib:ClassGroup.equivPic",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Native class-group/Picard-group equivalence; transport the finiteness instance before using the projective classification.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/PicardGroup.lean:876"
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.lTensor",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "The existing ℚ-linear first-factor tensor map induced by an ℤ-linear map; its restrictScalars agrees with LinearMap.lTensor.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Tower.lean:234"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofBijective",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "Native linear equivalence retaining a specified bijective linear map; ofBijective_apply and inverse rules are read alongside it.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/Algebra/Module/Submodule/Equiv.lean:183"
+      },
+      {
+        "ref": "tauceti:Set.unit_fg_of_units",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+        "provides": "With finite S and finitely generated Rˣ, the classical S-unit group is finitely generated. It does not define higher K or prove K₁=units.",
+        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean:207"
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.finite_integer_classGroup",
+        "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+        "provides": "Finite (ClassGroup R) implies finite S-integer class group, as a classical prerequisite to the imported degree-zero endpoint.",
+        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean:94"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Quillen.1973",
+      "title": "Finite generation of the groups K_i of rings of algebraic integers",
+      "authors": "Daniel Quillen; lecture text prepared by Hyman Bass",
+      "edition": "Lecture Notes in Mathematics 341 (1973), pp. 179–198; collected Bass Seattle scan, source-page and scan-page headers retained",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf",
+      "sha256": "9e10948869fcaf64251261294efddf3f4c13ec31838d9a89a7b5b96a4f0c933b",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1 pp.179–185: all statements, rank-relative exact sequence, stability, and the entire finite-generation proof; p.182 stability also checked in rendered image.",
+        "§2 pp.185–190: building, suspended proper-layer poset and proof of Solomon–Tits.",
+        "§3 pp.190–198: categorical homology argument, comma categories, low-rank and maximal-order passage.",
+        "One-based PDF page = source page + 8; the collected scan’s extra upper header is not the source pagination."
+      ]
+    },
+    {
+      "id": "Weibel.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft dated 29 August 2013; Graduate Studies in Mathematics 145",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "IV.1.12–1.18, book pp.269–271, finite-field table and order/number-field Borel ranks.",
+        "IV.6.8–6.9, book p.325, Quillen finite-generation criterion.",
+        "IV.7.1–7.2, book pp.328–329, Q/plus comparison statement and comparison proof setup (generic comparison remains imported).",
+        "V.6.1–6.1.3, book p.406, finite localization exact sequence.",
+        "V.6.6–6.6.4, book pp.409–410, Dedekind localization and finite-module transfer naturality.",
+        "One-based PDF page = book page + 8. VI.8.1 is not used as evidence for field even-group finiteness; the parent has recorded its typo as ArithmeticKTheory/E15."
+      ]
+    },
+    {
+      "id": "Kahn.2014",
+      "title": "Around Quillen’s theorem A",
+      "authors": "Bruno Kahn",
+      "edition": "arXiv:1108.2441v3, 2 July 2014",
+      "url": "https://arxiv.org/pdf/1108.2441v3",
+      "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.3.5 and §2.4.1, the coefficient and cellular spectral-sequence interfaces.",
+        "§§4.1–4.3.4, pp.15–18, rank filtration, proper layers, rank-one case, Steinberg E¹ terms and Vogel’s relative-exact-sequence comparison."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Finite generation of each rank-filtered Q homology group",
+      "kind": "theorem",
+      "statement": "For a number field F, A = 𝓞_F, and every m,i ≥ 0, the integral homology H_i(BQ_m(P(A)); ℤ) is a finitely generated abelian group. Q_m is the rank ≤ m full subcategory of the Q-construction on finitely generated projectives, with base object 0. This is finite generation in each homological degree, not finiteness of a CW model.",
+      "hypotheses": [
+        "F is a number field; Q_m is the parent packet’s rank filtration on projectives, not on all finitely generated modules.",
+        "All coefficients are integral; projectives of each positive rank are indexed by their Steinitz classes, including nonfree classes."
+      ],
+      "proofSteps": [
+        "Import the parent rank filtration, its contractible Q_0, and the relative-homology calculation in its rank spectral sequence. For m ≥ 1, H_i(BQ_m,BQ_{m−1};ℤ) = ⊕_[P of rank m] H_{i−m}(Aut_A(P);St(P⊗_A F)), with the summands zero when i < m.",
+        "The pinned class-group finiteness instance and Z.4’s Steinitz classification make the set of summands finite. Import the parent’s arithmetic-lattice identification and the precise BorelRegulators:R.1/steinberg-duality-finiteness node, which gives integral finite generation for every summand. The orientation character and finite quotient descent are handled by that supplier; no untwisted duality formula is assumed.",
+        "Induct on m using the relative long exact sequence. H_i(BQ_m) is an extension of a quotient of H_i(BQ_{m−1}) by a subgroup of the relative group. Subgroups of finitely generated ℤ-modules are finitely generated (ℤ is noetherian); apply the pinned finite-generation extension lemma. The base has H_0 = ℤ and H_i = 0 for i > 0."
+      ],
+      "acceptance": [
+        "m = 0 gives ℤ in degree zero and zero in positive degrees.",
+        "For F = ℚ each positive-rank stratum has one projective class; for F = ℚ(√−5) it has two, so a proof summing only over A^m must fail.",
+        "No bound on the number of cells, or vanishing in all high degrees for fixed m, is asserted."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+        "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+        "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups",
+        "BorelRegulators:R.1/steinberg-duality-finiteness",
+        "KTheoryLowDegrees:Z.4/projective-classification",
+        "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "mathlib:ClassGroup.equivPic",
+        "mathlib:Submodule.fg_of_fg_map_of_fg_inf_ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, proof of Theorem 1, pp. 184–185, displayed (2) and (3) (scan PDF pp. 192–193)",
+          "excerpt": "finitely generated",
+          "match": "Quillen proves finite generation of the Steinberg group-homology sums and then of H_i Q_m by induction. The arithmetic input is imported, not reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.finite_rankQHomology"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Homology stability of the rank filtration",
+      "kind": "theorem",
+      "statement": "For any Dedekind domain A with fraction field F, every i,m ≥ 0, the inclusion induces H_i(BQ_m(P(A));ℤ) → H_i(BQ(P(A));ℤ). It is surjective when m ≥ i and bijective when m ≥ i+1. More precisely H_i(BQ_m) → H_i(BQ_{m+1}) has these same sufficient ranges. Neither arithmeticity nor finiteness of Pic(A) is required. These are Q-filtration maps, not the maps H_i(GL_m(A)) → H_i(GL_{m+1}(A)).",
+      "hypotheses": [
+        "Use the projective Q filtration of the parent packet and integral coefficients.",
+        "The relative term at rank p is zero in homological degree j < p. This is integer grading: negative group homology is zero, not H_0 obtained by truncated natural-number subtraction."
+      ],
+      "proofSteps": [
+        "In the pair (BQ_{m+1},BQ_m), H_i(relative) vanishes if i < m+1; the pair exact sequence therefore makes the transition map surjective for m ≥ i.",
+        "The preceding relative group H_{i+1}(relative) also vanishes if i+1 < m+1; hence the transition is injective as well for m ≥ i+1.",
+        "Use the rank filtration’s exhaustion and the requested H.1 integral homology comparison for this filtered union of nerves. Iterating the transitions gives the same bounds for the map into BQ. This argument is degreewise and uses no infinite extension or spectral-sequence convergence assumption."
+      ],
+      "acceptance": [
+        "In degree zero, Q_0 and Q are connected; the sufficient bounds hold, although this particular case is already an isomorphism at m = 0.",
+        "At m = i the theorem promises surjectivity; it does not assert injectivity at that boundary.",
+        "A contribution H_0(Aut(P);St) in relative degree m+1 can obstruct injectivity at i = m, explaining the strict inequality."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+        "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+        "StableHomotopyKTheory:H.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, Corollary (Stability), p. 182 (scan PDF p. 190); Theorem 3, p. 181",
+          "excerpt": "COROLLARY (\"Stability\").",
+          "match": "The exact two bounds are verified against the rendered primary page. The passage to BQ uses filtered-union homology."
+        },
+        {
+          "sourceId": "Kahn.2014",
+          "locator": "§§4.3.3–4.3.4, pp. 17–18, with §2.4.1",
+          "excerpt": "The rank spectral sequence",
+          "match": "Kahn identifies the E¹ terms and compares the relative exact sequences to Quillen’s. His notation is translated using zero in negative group-homology degrees."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.rankQHomology_stable"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Finite-type integral homology of the arithmetic Q-space",
+      "kind": "theorem",
+      "statement": "For every number field F and i ≥ 0, H_i(BQ(P(𝓞_F));ℤ) is a finitely generated abelian group. The inclusion from Q_{i+1} induces an isomorphism onto this group. This gives the integral homological finite-type input to the existing Quillen K-finiteness endpoint.",
+      "hypotheses": [
+        "F is a number field; the stable space is the actual classifying space of the projective Q-construction.",
+        "“Finite type” means each homology group is finitely generated; it does not mean BQ is a finite CW complex or simply connected."
+      ],
+      "proofSteps": [
+        "Apply finite-rank-Q-homology at m = i+1.",
+        "Apply rank-filtration-homology-stability at that rank to identify its homology with H_i(BQ). Transport finite generation across the isomorphism.",
+        "The parent K-finiteness proof then uses the connected homotopy associative, homotopy commutative H-space structure induced by direct sum, and the requested generic finite-type H-space theorem, to pass to π_{n+1}BQ = K_n. That homotopy conclusion remains the parent endpoint; it is not a second theorem owned here."
+      ],
+      "acceptance": [
+        "H_0(BQ) = ℤ. The base point is the zero projective.",
+        "π_1(BQ) = K_0(𝓞_F) includes the ℤ rank summand, so a simply connected Hurewicz theorem is insufficient for the following parent proof.",
+        "The claimed isomorphism uses rank i+1 rather than merely rank i."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+        "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, conclusion of proof of Theorem 1, p. 185 (scan PDF p. 193)",
+          "excerpt": "homotopy associative and commutative H-space",
+          "match": "The primary proof first establishes stable integral homology finite generation, then invokes the H-space theorem for homotopy. This node supplies the former input."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.finite_QHomology"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-type arithmetic Q-space"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Finite kernel and cokernel of finite S-localization",
+      "kind": "theorem",
+      "statement": "Let F be a number field, S ⊆ T finite sets of nonzero primes of 𝓞_F, and n ≥ 2. The map j_*:K_n(𝓞_{F,S}) → K_n(𝓞_{F,T}) induced by inclusion has finite kernel and finite cokernel. If n is positive even, it is injective. In particular this holds for 𝓞_F → 𝓞_{F,S} after the canonical empty-S ring identification. No vanishing of the odd-degree kernel is claimed.",
+      "hypotheses": [
+        "Both S and T are finite; the removed residue fields are k(𝔭) for 𝔭 ∈ T∖S.",
+        "The cokernel is the group quotient by the image. In degree one the kernel remains zero but the cokernel need not be finite, so n ≥ 2 is essential."
+      ],
+      "proofSteps": [
+        "Use the parent number-field localization presentation and finite-support sequence for 𝓞_{F,S} → 𝓞_{F,T}. Dévissage identifies the fibre terms as ⊕_{𝔭∈T∖S}K_n(k(𝔭)) and ⊕_{𝔭∈T∖S}K_{n−1}(k(𝔭)).",
+        "Import L.1/quillen-k-groups: in positive degrees finite fields have finite K-groups; positive even groups are zero. The finite set of removed primes makes both sums finite when n ≥ 2.",
+        "Exactness makes ker(j_*) an image of the first finite sum and coker(j_*) a subgroup of the second finite sum. For even n the first sum is zero, proving injectivity. This does not require the source K-group to be finitely generated."
+      ],
+      "acceptance": [
+        "S = T gives identity with zero kernel and cokernel.",
+        "For F = ℚ, S = ∅ and T = {(p)}, n = 2, K_2(ℤ) injects into K_2(ℤ[1/p]); its cokernel embeds in 𝔽_p^×.",
+        "The degree-one map K_1(ℤ) → K_1(ℤ[1/p]) has cokernel ℤ, so no all-degree finite-cokernel theorem is possible.",
+        "An infinite set of removed primes gives a direct sum of finite groups which can be infinite; it cannot be used to deduce finite cokernel for passage to F."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "ArithmeticKTheory:N.1/S-integers-monotone",
+        "ArithmeticKTheory:N.2/finite-support",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
+          "excerpt": "finite kernel",
+          "match": "The source states the finite kernel/cokernel and even injectivity for 𝓞_F → 𝓞_{F,S}. The same localization proof, over 𝓞_{F,S}, gives S ⊆ T."
+        },
+        {
+          "sourceId": "Weibel.2013",
+          "locator": "V.6.1–6.1.1, book p. 406 (PDF p. 414), and IV.1.13, book p. 269 (PDF p. 277)",
+          "excerpt": "Localization Theorem",
+          "match": "The exact sequence and the positive-degree finite-field table give the stated refinement; degree-zero residue groups explain the n=1 exception."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.finite_localisation_defect"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Canonical rational equivalence for S-integers",
+      "kind": "construction",
+      "statement": "For a number field F, finite S ⊆ HeightOneSpectrum(𝓞_F), and n ≥ 2, construct e_{F,S,n}: ℚ⊗_ℤK_n(𝓞_F) ≃_ℚ ℚ⊗_ℤK_n(𝓞_{F,S}) whose forward linear map is the rationalization of K_n of the canonical inclusion 𝓞_F → 𝓞_{F,S}. Use LinearEquiv.ofBijective on that map. This is an equivalence for the specified map, not a choice from equality of the Borel dimensions. The genuine K_n functor and scalar-extension maps are imported.",
+      "hypotheses": [
+        "S is finite and consists of finite primes; n ≥ 2.",
+        "𝓞_{F,S} is Mathlib’s Set.integer F, and the empty-S case uses the parent’s ring equivalence with 𝓞_F.",
+        "Tensor products have their ℚ-module structures by the first factor; rationalized maps are ℚ-linear."
+      ],
+      "proofSteps": [
+        "Apply finite-S-localisation-defect with initial set ∅. Tensor the exact sequence with ℚ over ℤ; ℚ is flat by localization, and a torsion group tensors to zero (a pure tensor can be killed by moving a nonzero annihilating integer to the invertible ℚ factor). Hence the rationalized inclusion is bijective.",
+        "Apply the pinned LinearEquiv.ofBijective to this particular linear map. Its inverse is uniquely determined and its forward map is unchanged. Do not define a new K carrier, equivalence structure, or rank invariant.",
+        "Use exact-functor identity/composition and the pinned linear-equivalence API for evaluation, inverse, uniqueness and finite-S enlargement. Compatibility with the map to F uses the parent’s all-prime localization sequence: the infinite residue direct sum is torsion in these degrees, although it need not be finite."
+      ],
+      "acceptance": [
+        "The forward-map equality and both inverse identities hold, independently of any choice of a localization generator.",
+        "For n ≥ 2 rational K-groups of 𝓞_{F,S} have exactly the parent period-four ranks.",
+        "The same construction is unavailable at n = 1 when S is nonempty."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+        "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "ArithmeticKTheory:N.1/S-integers-monotone",
+        "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+        "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+        "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+        "mathlib:Module.Flat.lTensor_exact",
+        "mathlib:IsLocalization.flat",
+        "mathlib:TensorProduct.AlgebraTensorModule.lTensor",
+        "mathlib:LinearEquiv.ofBijective",
+        "K2SymbolsBrauer:T.5/k2-of-the-integers",
+        "BorelRegulators:R.3/division-order-rank-period",
+        "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant",
+        "KTheoryLowDegrees:U.4/s-unit-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
+          "excerpt": "same rank",
+          "match": "The finite defects prove bijectivity of the actual rationalized inclusion. Packaging it as the native linear equivalence is a library refinement of this passage, not a new theorem attributed verbatim to Quillen."
+        },
+        {
+          "sourceId": "Weibel.2013",
+          "locator": "IV.1.17, book p. 271 (PDF p. 279); V.6.6, book p. 409 (PDF p. 417)",
+          "excerpt": "for all n",
+          "match": "The order comparison supplies the surrounding rank use; the all-prime localization sequence supplies compatibility with passage to the field. S-integers with nonempty S are not orders."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.rationalSIntegerEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv",
+          "role": "constructor",
+          "statement": "e_{F,S,n} is LinearEquiv.ofBijective applied to the rationalized inclusion, with n ≥ 2 and S finite."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_apply",
+          "role": "simp",
+          "statement": "For x ∈ ℚ⊗K_n(𝓞_F), e_{F,S,n}(x) = j_*^ℚ(x)."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_symm_apply_apply",
+          "role": "simp",
+          "statement": "For x in the source, e_{F,S,n}^{−1}(e_{F,S,n}(x)) = x."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_apply_symm_apply",
+          "role": "simp",
+          "statement": "For y in the target, e_{F,S,n}(e_{F,S,n}^{−1}(y)) = y."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_unique",
+          "role": "extensionality",
+          "statement": "Any ℚ-linear equivalence with forward map j_*^ℚ is equal to e_{F,S,n}."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_empty",
+          "role": "compatibility",
+          "statement": "For S = ∅, after transporting the target by the canonical empty-S ring equivalence, e_{F,∅,n} is LinearEquiv.refl."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_enlarge",
+          "role": "functoriality",
+          "statement": "For finite S ⊆ T, the rationalized map j_{S,T}^ℚ composed with e_{F,S,n} equals e_{F,T,n} as linear maps."
+        },
+        {
+          "name": "ArithmeticKTheory.rationalSIntegerEquiv_toField",
+          "role": "compatibility",
+          "statement": "The rationalized map K_n(𝓞_{F,S}) → K_n(F), composed with e_{F,S,n}, equals the rationalized map K_n(𝓞_F) → K_n(F)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+          "how": "Replaces an abstract rank equality by the specified scalar-extension map, allowing the ring-of-integers Borel rank theorem to be transported to S-integers."
+        },
+        {
+          "where": "BorelRegulators:R.4/borel-regulator and R.4/regulator-transfer",
+          "how": "Identifies rational arithmetic K-groups through their inclusions and preserves extension/transfer squares; the genuine regulator is the supplier’s map."
+        },
+        {
+          "where": "ArithmeticKTheory:N.5 and N.6",
+          "how": "Keeps the rational free-rank input canonical while these stages supply integral torsion. The equivalence does not erase torsion at the integral level."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ArithmeticKTheory.test_rationalSIntegerEquiv_empty",
+          "kind": "degenerate",
+          "statement": "For every F and n ≥ 2, transport e_{F,∅,n} through the empty-S ring equivalence; it is the identity on ℚ⊗K_n(𝓞_F)."
+        },
+        {
+          "name": "ArithmeticKTheory.test_rationalSIntegerEquiv_enlarge",
+          "kind": "compatibility",
+          "statement": "For F = ℚ, distinct primes p,q and n = 5, j_{ {p},{p,q} }^ℚ ∘ e_{ℚ,{p},5} = e_{ℚ,{p,q},5}. These one-dimensional maps agree on every element, not just on their dimensions."
+        },
+        {
+          "name": "ArithmeticKTheory.test_rationalSIntegerEquiv_degree_one",
+          "kind": "non-example",
+          "statement": "For prime p, the rationalized map K_1(ℤ) → K_1(ℤ[1/p]) has zero source and a one-dimensional target, so it is not bijective. The constructor must require n ≥ 2."
+        },
+        {
+          "name": "ArithmeticKTheory.test_rationalSIntegerEquiv_prescribed_map",
+          "kind": "characterisation",
+          "statement": "For F = ℚ and n = 5, composing e_{ℚ,∅,5} with multiplication by 2 gives another abstract linear equivalence but not e_{ℚ,∅,5}: its forward map is not the identity."
+        },
+        {
+          "name": "ArithmeticKTheory.test_rationalSIntegerEquiv_even",
+          "kind": "computation",
+          "statement": "For F = ℚ, any finite S and n = 2, source and target are zero ℚ-vector spaces. This does not assert K_2(ℤ) = 0: the integral group is ℤ/2 (import K2SymbolsBrauer:T.5/k2-of-the-integers)."
+        }
+      ],
+      "planet": {
+        "name": "Rational S-integer comparison"
+      },
+      "testDependencies": {
+        "note": "The constructor uses only localization/flatness. The degree-one and nonzero degree-five tests additionally use the precise K₁/S-unit and order-rank imports listed above."
+      }
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "The canonical equivalence retains the localization map",
+      "kind": "lemma",
+      "statement": "For F, finite S and n ≥ 2, (e_{F,S,n}).toLinearMap = j_*^ℚ, where j is the canonical inclusion 𝓞_F → 𝓞_{F,S}. This is an equality of ℚ-linear maps on the actual tensor-product K-groups.",
+      "hypotheses": [
+        "Use the construction canonical-rational-S-integer-equivalence and its genuine K-theory maps."
+      ],
+      "proofSteps": [
+        "Unfold only the construction of e as LinearEquiv.ofBijective of j_*^ℚ, and apply the pinned ofBijective evaluation rule.",
+        "Use extensionality for linear maps. This API item is promoted because the following naturality theorem consumes it as a prerequisite."
+      ],
+      "acceptance": [
+        "On pure tensors q⊗x the forward map is q⊗j_*(x).",
+        "Multiplying a one-dimensional equivalence by 2 would violate this equality."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "Quillen.1973",
+          "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
+          "excerpt": "finite cokernel",
+          "match": "The refinement packages the actual localization map whose finite defects Quillen computes. Its defining map is retained by the native linear equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.rationalSIntegerEquiv_toLinearMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
+      "parentStageId": "ArithmeticKTheory:N.3",
+      "realises": [
+        "ArithmeticKTheory:N.3"
+      ],
+      "title": "Rational localization commutes with extension and transfer",
+      "kind": "theorem",
+      "statement": "Let E/F be a finite extension of number fields, S a finite set of finite primes of 𝓞_F, and T exactly the primes of 𝓞_E above S. For n ≥ 2 let res_0 and tr_0 be extension and restriction of scalars on K_n(𝓞_F) and K_n(𝓞_E), and res_S and tr_S those for 𝓞_{F,S} → 𝓞_{E,T}. After rationalization, e_{E,T,n} ∘ res_0^ℚ = res_S^ℚ ∘ e_{F,S,n}, and e_{F,S,n} ∘ tr_0^ℚ = tr_S^ℚ ∘ e_{E,T,n}, as linear maps. Ramification is allowed. These squares identify the actual maps; no integral localization isomorphism or degree-multiplication formula is asserted.",
+      "hypotheses": [
+        "T is the complete set above S, not an arbitrary larger set: the imported finite-extension theorem makes 𝓞_{E,T} finite projective over 𝓞_{F,S}.",
+        "The generic higher K transfer is the map induced by restriction of scalars, imported from K.3. A degree-zero ideal-class norm is insufficient."
+      ],
+      "proofSteps": [
+        "Import N.1/S-integers-in-a-finite-extension: finite projectivity and the base-change identification 𝓞_{E,T} ≅ 𝓞_E ⊗_{𝓞_F} 𝓞_{F,S}.",
+        "For extension of scalars, tensor associativity identifies the two exact-functor composites before passing to K. For transfer, localization commutes with the finite-projective restriction-of-scalars functor; the same natural isomorphism of exact functors gives the commuting square on K-groups. Use K.1’s functorial K construction and K.3’s genuine transfer, not determinant alone.",
+        "Tensor these equalities with ℚ, then replace each rationalized horizontal inclusion by the promoted rationalSIntegerEquiv_toLinearMap. Both displayed squares follow."
+      ],
+      "acceptance": [
+        "E = F and T = S gives identity squares.",
+        "S = ∅ reduces both squares to the empty-S ring comparison.",
+        "E = ℚ(i), F = ℚ and S = {(2)} is allowed; T is the ramified prime (1+i). A proof assuming the ring extension is étale would wrongly exclude this example.",
+        "If a new prime is inverted upstairs without its downstairs prime, finite projectivity can fail; that situation is excluded by the exact condition on T."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+        "ArithmeticKTheory:N.1/S-integers-in-a-finite-extension",
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+        "GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.2013",
+          "locator": "V.6.6.3–6.6.4, book p. 410 (PDF p. 418); IV.6.3.3 transfer functor",
+          "excerpt": "homotopy commutative diagram",
+          "match": "The source constructs the transfer square from compatible exact functors. Applying the same finite-projective restriction functors to the finite-S localization square proves the displayed rational refinement; extension is tensor associativity."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticKTheory/Finiteness",
+        "namespace": "ArithmeticKTheory",
+        "declaration": "ArithmeticKTheory.rationalSIntegerEquiv_extension_transfer"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "reusedTargets": [
+    {
+      "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "Integral finite generation for K_n(𝓞_F), n ≥ 0."
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "Integral finite generation for K_n(𝓞_{F,S}), n ≥ 0, finite S."
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "Ranks for n ≥ 2 and the separate S-unit degree-one formula."
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "Positive even K-groups of the ring are finite."
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "Positive even K-groups of the field are infinite torsion."
+    },
+    {
+      "nodeId": "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+      "fromPacket": "ArithmeticKTheory--N.1.json",
+      "provides": "For n ≥ 2 the group is noncanonically ℤ^ρ(n) ⊕ a finite group; no torsion computation."
+    }
+  ],
+  "dependencyBoundaries": [
+    {
+      "supplier": "BorelRegulators:R.1/steinberg-duality-finiteness",
+      "note": "Use this early integral Steinberg-homology output, not R.1/quillen-finiteness-interface or R.1/finite-type-plus-consequences, which consume N.3. The latest independent Borel review corrected the packet; reader reconciliation still prevents acceptance."
+    },
+    {
+      "supplier": "BorelRegulators:R.3/division-order-rank-period",
+      "note": "Specialize the order rank result to 𝓞_F to supply the parent rank endpoint. Do not import R.3/s-integer-rank-import, which consumes N.3. Rational rank does not use final integral K-finiteness."
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+      "note": "Imports ΩBQ(P(A)) ≃ K₀(A) × BGL(A)^+ and hence π_{n+1}BQ = π_n BGL^+ for n ≥ 1. BQ is connected but not simply connected; its π₁ is K₀. This carrier is not reconstructed. The K.1 packet remains needs_changes."
+    },
+    {
+      "supplier": "KTheoryLowDegrees:U.4/s-unit-theorem",
+      "note": "Supplies rank K₁(𝓞_{F,S}) = r₁+r₂+|S|−1 through the separate determinant/SK₁ theorem. Native S-unit finite generation alone does not supply that K₁ identification. U.1’s recent review is needs_changes."
+    },
+    {
+      "supplier": "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
+      "note": "Use the exact finite-field computation node, not a duplicated computation here. Its packet has no recorded independent acceptance; this is a planned supplier, not a baseline theorem."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "StableHomotopyKTheory:H.1",
+      "need": "For the increasing full rank subcategories Q_m(P(A)) with union Q, prove the natural integral homology comparison colim_m H_i(BQ_m;ℤ) ≅ H_i(BQ;ℤ), commuting with the inclusion-induced maps. Use finite-support normalized nerve chains (each simplex lies in some Q_m), exactness of filtered colimits of abelian groups, and the existing bar/singular comparison. The integrated H.1/filtered-colimits-of-categories node states homotopy-colimit comparisons but does not state this homology result. This request lies within H.1’s narrowed filtered-diagram scope.",
+      "neededBy": [
+        "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+        "ArithmeticKTheory:N.3/stable-Q-homology-finite-type"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.3",
+      "need": "StableHomotopyKTheory, Part II: for a connected pointed CW-type homotopy associative H-space with homotopy unit, prove simplicity (abelian π₁, trivial action on higher π), and that all-degree integral homology finite generation implies all π_j, j≥1, finitely generated. Nonzero π₁ must be allowed. Supply the Postnikov/Serre-class proof using the upstream CW, covering, Hurewicz and Serre inputs. This extends H.3’s plus/simple-space direction rather than claiming its current stage already states the theorem. It corrects the parent’s old H.6 request, which is outside the narrowed H.6 scope.",
+      "neededBy": [
+        "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
+        "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticKTheory:N.3",
+      "status": "planned",
+      "note": "Every number-field target in N.3 and its finite-generation/ranks descriptions is supplied by a reused parent node or precise supplier, with this packet refining the missing key homology and map-level steps. The two topology requests prevent closure; all declarations remain implementationStatus unchecked.",
+      "remaining": [
+        "Obtain H.1’s natural integral homology comparison for the filtered union, then replace the stage prerequisite by its declaration node.",
+        "Obtain the proposed StableHomotopyKTheory Part II finite-type theorem with possibly nonzero π₁; reconcile the parent’s stale H.6 edge through the authorized integration/review process.",
+        "Close inherited parent supplier requests using reviewed nodes: Borel R.1 Steinberg finite type, R.3 order ranks, K.1/K.2:plus genuine carriers, K.3 localization/transfer, low-degree projective classification and K₁/S-unit identification. The present follow-up does not edit those packets."
+      ]
+    }
+  ],
+  "gaps": [],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "StableHomotopyKTheory"
+      ],
+      "detail": "RS-33 narrows H.6 to concrete spectra, coefficients and completion; the parent ArithmeticKTheory criterion’s generic homological finite-type ⇒ homotopical finite-type need is not a spectrum/completion theorem. H.3 and the Borel R.1 application need the same connected simple H-space result.",
+      "proposal": "StableHomotopyKTheory, Part II: add one generic finite-type connected H-space theorem and simplicity interface adjacent to H.3, importing upstream AlgebraicTopology CW/Serre/Hurewicz/covering machinery. ArithmeticKTheory and BorelRegulators consume it; neither develops an arithmetic-only copy. Keep RS-33’s existing stage ownership intact and route the old H.6 request to this extension."
+    }
+  ],
+  "upstreamNotes": [],
+  "sourceIssues": [],
+  "review": {
+    "status": "unreviewed"
+  }
+}
