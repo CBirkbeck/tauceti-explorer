@@ -627,6 +627,17 @@
     "data/blueprints/EllipticRegulators--ER.4.md"
    ]
   },
+  "research/blueprint/packets/EllipticRegulators--ER.8.json": {
+   "promotedAt": "2026-10-06T03:23:25Z",
+   "review": "4167dc9524129ba3",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-EllipticRegulators--ER.8",
+   "sha256": "26c7d883135f36641a50521b31382249a7235356991e43f7834299172b318a82",
+   "to": [
+    "data/blueprints/EllipticRegulators--ER.8.json",
+    "data/blueprints/EllipticRegulators--ER.8.md"
+   ]
+  },
   "research/blueprint/packets/EllipticRegulators.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "e1d26973bb20d433",
