@@ -31882,8 +31882,9 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6389"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6389",
+   "finishedAt": "2026-10-06T04:19:25Z"
   },
   {
    "id": "REV-Polylogarithms--P.4",
@@ -34116,7 +34117,8 @@
    ],
    "followUpOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6495"
   },
   {
    "id": "REV-HabiroNumberFields--HB.6",
