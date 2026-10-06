@@ -5,6 +5,7 @@ suggest Lean forms so that contributors and reviewers converge on names and
 signatures. They claim no implementation.
 
 BP-EllipticKTheory--E.6, Codex — codex-pMKZqt.
+Independent review REV-EllipticKTheory--E.6, Codex — codex-t0ghx2.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -81,6 +82,19 @@ def Hom.comp {M N P : RegularProperModel R E toGen} (f : Hom M N) (g : Hom N P) 
     Hom M P := by
   sorry
 
+/-- API Hom.id_hom: simplify the underlying identity map. -/
+@[simp]
+theorem Hom.id_hom (M : RegularProperModel R E toGen) :
+    (Hom.id M).hom = 𝟙 M.X := by
+  sorry
+
+/-- API Hom.comp_hom: simplify the underlying composite map. -/
+@[simp]
+theorem Hom.comp_hom {M N P : RegularProperModel R E toGen}
+    (f : Hom M N) (g : Hom N P) :
+    (Hom.comp f g).hom = f.hom ≫ g.hom := by
+  sorry
+
 /-- API category: marked models form a category, using the preceding operations. -/
 instance category : Category (RegularProperModel R E toGen) where
   Hom := Hom
@@ -142,8 +156,12 @@ def toLocalModel_totalIso :
             M.genericFibre.hom = (toLocalModel M v A).genericFiberIso.hom.left } := by
   sorry
 
--- The comparison on Hom uses this same inherited iterated scalar-extension
--- comparison in TauCeti.Fibers.
+/-- API toLocalModelHom: scalar extension of a marked model map, using the
+same inherited generic-fibre tower comparison as toLocalModel_totalIso. -/
+def toLocalModelHom {N : RegularProperModel R E toGen} (f : Hom M N) :
+    TauCeti.Model.Hom (toLocalModel M v A) (toLocalModel N v A) := by
+  sorry
+
 -- The local regularity/minimality assertions are not stated; they need the
 -- StableReduction layer 5 regular-model and minimality interface.
 
@@ -212,6 +230,10 @@ def markedIsoOfHomBothWays {M N : RegularProperModel R E toGen}
 -- minimality criterion and the fixed elliptic generic curve. It asserts only
 -- inversion of primes in the same number field, with identity/composition
 -- coherence. It does not assert preservation under arbitrary ramified change.
+-- The open restriction uses ArithmeticKTheory:N.1/
+-- S-integers-localisation-of-torsion-class-group: for the finite new prime set,
+-- choose principal prime powers in O_F and invert their product a, obtaining
+-- O_{F,S′} = O_{F,S}[1/a] and hence the principal open D(a).
 
 end RegularProperModel
 end TauCeti.EllipticK

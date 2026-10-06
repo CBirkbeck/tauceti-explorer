@@ -215,6 +215,16 @@
           "statement": "The composite of model morphisms X → Y → Z has the composite scheme morphism; identity and associativity follow from the scheme category."
         },
         {
+          "name": "RegularProperModel.Hom.id_hom",
+          "role": "simp",
+          "statement": "The underlying scheme map of Hom.id M is the identity on M.X."
+        },
+        {
+          "name": "RegularProperModel.Hom.comp_hom",
+          "role": "simp",
+          "statement": "For marked model maps f : Hom M N and g : Hom N P, (Hom.comp f g).hom = f.hom followed by g.hom."
+        },
+        {
           "name": "RegularProperModel.category",
           "role": "instance",
           "statement": "Regular proper models of the fixed marked E form a category with Hom, Hom.id and Hom.comp; identity and associativity laws follow from the scheme category and Hom.ext."
@@ -245,6 +255,11 @@
           "statement": "For a closed point v, localize a parent model to O_(v) and forget regularity and properness to TauCeti.Model O_(v) F E; the generic-fibre marking is unchanged. Its morphisms are TauCeti.Model.Hom after this forgetful comparison."
         },
         {
+          "name": "RegularProperModel.toLocalModelHom",
+          "role": "functoriality",
+          "statement": "A marked model morphism f : Hom M N induces a TauCeti.Model.Hom (toLocalModel M v) (toLocalModel N v) by scalar extension to the same local DVR. Its underlying map is the base change of f.hom under toLocalModel_totalIso; its generic-fibre equality uses genericFiberTowerIso."
+        },
+        {
           "name": "RegularProperModel.toLocalModel_totalIso",
           "role": "compatibility",
           "statement": "The total scheme of toLocalModel M v is canonically isomorphic to M ×_O O_(v), over O_(v) and with the fixed generic-fibre identification."
@@ -253,12 +268,12 @@
       "tests": [
         {
           "name": "smooth_37a1_minimal",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The projective Weierstrass model y²z + yz² = x³ − xz² over Z[1/37] is smooth proper and minimal: Δ = 37 is a unit, and its localized fibres are smooth genus-one curves, with no exceptional rational component."
         },
         {
           "name": "nodal_37a1_minimal",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The same projective model over Z is regular and minimal although its fibre at 37 is nodal. At the nodal point (5,18), f = 222 ∉ (37²); the minimal equation has v_37(Δ)=1 and irreducible type I₁ fibre. The fibre is not smooth, but has no exceptional curve of the first kind."
         },
         {
@@ -471,7 +486,7 @@
         "Spec O_{F,S′} is an open subscheme of Spec O_{F,S}; at every retained prime the local DVR and generic curve are unchanged."
       ],
       "proofSteps": [
-        "Import S-integers-as-a-localisation. Base change preserves properness and flatness; since this base change is an open restriction, the total scheme remains regular. Its generic-fibre marking is the original E.",
+        "Import S-integers-localisation-of-torsion-class-group, using the finite class group of O_F. For each v in S′ but not in S choose h_v ≥ 1 and a_v with v^{h_v} = (a_v), and set a = ∏ a_v (a = 1 for the empty set). Then O_{F,S′} = O_{F,S}[1/a], so the base change is the principal open restriction D(a). Base change preserves properness and flatness; open restriction preserves regularity. Its generic-fibre marking is the original E.",
         "At every retained closed point the localized model is the same M_(v). Apply minimality-local-criterion over O_{F,S′}.",
         "Apply unique-minimal-arithmetic-model to obtain the canonical comparison. Composites and the direct comparison induce the identity on E, hence are equal by model-morphism uniqueness.",
         "The parent model-independence node can therefore be evaluated on this canonical model. The already defined integralPart_le_integralPartS supplies the inclusion of rational K₂-images; no new K-theory formula is needed here."
@@ -487,6 +502,7 @@
         "EllipticKTheory:E.6/minimality-local-criterion",
         "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
         "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "ArithmeticKTheory:N.1/S-integers-localisation-of-torsion-class-group",
         "EllipticKTheory:E.6/the-integral-part",
         "EllipticKTheory:E.6/model-independence"
       ],
@@ -577,7 +593,12 @@
       "searched": [
         "Current official tag 0C9Z: the reversed arrow remains in the proof and its comments section has no entries (2026-10-06).",
         "Searches of the Stacks website and stacks-project repository for tag 0C9Z and an arrow-direction correction found no published correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the ed88ff78 PDF p. 40 and official tag 0C9Z. The lemma statement and the second proof sentence have Y → X; finite contractions of Y end at the unique minimal X. The first proof arrow must have that same direction.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
     },
     {
       "id": "EllipticKTheory/E6-contraction-ambient",
@@ -592,8 +613,71 @@
       "searched": [
         "Current official tag 0C2N retains this ambient-scheme slip (2026-10-06).",
         "Tag 0C2N comments record the separate case-numbering correction in 2023, not this ambient scheme."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the ed88ff78 PDF p. 51 and official tag 0C2N. The constructed contraction has target X̄′, so the image of the open X is an open subscheme of X̄′. This is an ambient-name slip and does not alter the contraction theorem.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
+    },
+    {
+      "id": "EllipticKTheory/E6-factorisation-open",
+      "source": "Stacks.ResolutionOfSurfaces",
+      "kind": "misprint",
+      "locator": "Lemma 54.17.1, tag 0C5R, second proof sentence; ed88ff78 resolve.pdf p. 52 and official HTML accessed 2026-10-06",
+      "printed": "The source refers to points in V having codimension 1.",
+      "correction": "The maximal isomorphism open V contains every codimension-one point of the target Y.",
+      "reason": "The cited Varieties Lemma 33.17.3, tag 0BFP, places all codimension-one regular target points in the maximal isomorphism open. This is what ensures that points outside V in the two-dimensional regular Y are closed. The printed V makes the assertion tautological.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Official tag 0C5R still contains the slip and has no comments (2026-10-06).",
+        "Searches restricted to the Stacks website and GitHub for tag 0C5R together with codimension/correction found no published correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared the PDF and current HTML with the cited tag 0BFP statement; its codimension-one clause concerns the target. Replacing the final V by Y supplies exactly the intended assertion.",
+        "by": "REV-EllipticKTheory--E.6"
+      }
     }
   ],
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticKTheory--E.6",
+    "date": "2026-10-06",
+    "notes": "Independently checked all six nodes, ten source citations, ten baseline declarations at both recorded pins, seven parent imports, two StableReduction contracts, the API, three tests, target coverage, ownership and planet limits. Corrected the localization prerequisite/proof and two test kinds; added three API signatures and confirmed two source misprints plus one additional notation slip. No new nodes or gaps. Full Lean file could not compile because a prebuilt Tau Ceti import is absent; the Mathlib-only signature subset is checked separately, with its exact limitations in the review report and handoff. All implementation statuses remain unchecked.",
+    "checked": [
+      {
+        "nodeId": "EllipticKTheory:E.6/minimal-arithmetic-model",
+        "verdict": "corrected",
+        "note": "Confirmed the marked outgoing-minimality definition, all constructor/category/local comparison hypotheses and three geometric tests; changed two test kinds to computation and added Hom.id_hom, Hom.comp_hom and toLocalModelHom to make the promised API explicit."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/exists-locally-minimal-arithmetic-model",
+        "verdict": "verified",
+        "note": "Projective starting model, exceptional-curve globalization, regular projective contraction, Dedekind flatness and finite component-count termination give arithmetic existence with the stated supplier contracts."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/locally-minimal-terminal-model",
+        "verdict": "verified",
+        "note": "The parent common resolution and local positive-genus terminality show each last exceptional curve maps to a point; the global blowdown universal property supplies the factorization and separated-target equality supplies uniqueness."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/minimality-local-criterion",
+        "verdict": "verified",
+        "note": "The three directions follow from arithmetic existence and terminality; outgoing minimality is not silently replaced by terminality in the definition."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/unique-minimal-arithmetic-model",
+        "verdict": "verified",
+        "note": "Terminal maps in both directions and marked-map uniqueness give the unique identity-marked isomorphism; genus one and the fixed generic curve are retained."
+      },
+      {
+        "nodeId": "EllipticKTheory:E.6/minimal-model-localisation",
+        "verdict": "corrected",
+        "note": "Added the accepted torsion-class-group localization supplier and the finite-prime principal-open argument; retained-prime local minimality and unique marked comparisons then give restriction and composition coherence."
+      }
+    ]
+  }
 }
