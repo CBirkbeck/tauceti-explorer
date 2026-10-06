@@ -23426,9 +23426,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #706"
+   "note": "claimed on GitHub issue #706"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.0",
@@ -28106,12 +28106,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #976"
+   "note": "deliverables arrived from an external worker on issue #976",
+   "finishedAt": "2026-10-06T19:38:22Z"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R23.1",
