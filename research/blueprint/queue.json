@@ -31977,7 +31977,8 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6391"
   },
   {
    "id": "REV-Polylogarithms--P.6",
@@ -35842,8 +35843,9 @@
    ],
    "revisionOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6502"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6502",
+   "finishedAt": "2026-10-06T06:04:07Z"
   },
   {
    "priority": 2,
