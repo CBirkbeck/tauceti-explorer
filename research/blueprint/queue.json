@@ -21387,7 +21387,8 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology--AI.6",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #339"
   },
   {
    "id": "BP-AbelianSchemesAndArithmeticModuli",
@@ -25336,7 +25337,8 @@
    ],
    "avoidAccountOf": "BP-GeneralizedHeegnerCycles--GH.8",
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #417"
   },
   {
    "id": "BP-GeometricSatakeAndFusion--GS0",
