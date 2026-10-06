@@ -33198,8 +33198,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.3-finite-generation",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3-finite-generation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6427"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6427",
+   "finishedAt": "2026-10-06T00:52:37Z"
   },
   {
    "id": "BP-ArithmeticKTheory--N.5",
@@ -33982,7 +33983,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields--HB.1",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6445"
   },
   {
    "id": "BP-HabiroNumberFields--HB.2",
@@ -34134,8 +34136,9 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6497"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6497",
+   "finishedAt": "2026-10-06T00:52:40Z"
   },
   {
    "id": "REV-HabiroRings--HR.1",
@@ -34178,7 +34181,8 @@
    ],
    "followUpOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/BP-HabiroRings--HR.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6498"
   },
   {
    "id": "REV-HabiroRings--HR.2",
