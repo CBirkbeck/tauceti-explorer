@@ -328,6 +328,8 @@ example (d : Structure 2 ℤ) : d.delta 2 = -1 := by sorry
 example : ¬ ∃ d : Structure 2 ℤ, ∀ x, d.delta x = 0 := by sorry
 -- delta_zero_ring
 example : Nonempty (Structure 2 (ZMod 1)) := by sorry
+-- delta_product_rule_integers (the product rule with its term p·δ(x)·δ(y))
+example (d : Structure 2 ℤ) : d.delta 4 = -6 := by sorry
 
 -- lift_on_integers
 example : ∃ f : FrobeniusLift p ℤ, f.1 = RingHom.id ℤ := by sorry
@@ -1752,12 +1754,15 @@ example [Fact (Nat.Prime 2)] (δB : Delta.Structure 2 (Polynomial ℚ))
 
 namespace UnboundedTorsion
 
-/-- The relations `p x_{i,j} = f x_{i,j+1}` and `x_{i,j} = 0` for `j > i`; `f` is the variable
-`none` and `x_{i,j}` the variable `some (i, j)`. -/
+/-- The relations `p x_{i,j} = f x_{i,j+1}`, `x_{i,j} = 0` for `j > i`, and `x_a x_b = 0`
+(the `x_{i,j}` span a square-zero ideal: without the last relations `f` would be a zero
+divisor, since `f x_{1,1}^2 = 0`); `f` is the variable `none` and `x_{i,j}` the variable
+`some (i, j)`. -/
 noncomputable def Rel : Ideal (MvPolynomial (Option (ℕ × ℕ)) ℤ) :=
   Ideal.span ({r | ∃ i j : ℕ, r = (p : MvPolynomial (Option (ℕ × ℕ)) ℤ) * MvPolynomial.X (some (i, j)) -
       MvPolynomial.X none * MvPolynomial.X (some (i, j + 1))} ∪
-    {r | ∃ i j : ℕ, i < j ∧ r = MvPolynomial.X (some (i, j))})
+    {r | ∃ i j : ℕ, i < j ∧ r = MvPolynomial.X (some (i, j))} ∪
+    {r | ∃ a b : ℕ × ℕ, r = MvPolynomial.X (some a) * MvPolynomial.X (some b)})
 
 /-- The uncompleted model of the ring of Anschütz–Le Bras, Example A.4. -/
 abbrev Ring : Type := MvPolynomial (Option (ℕ × ℕ)) ℤ ⧸ Rel p
