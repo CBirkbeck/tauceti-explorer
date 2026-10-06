@@ -2158,12 +2158,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 87,
-     "missingDeclarations": 87,
+     "declarations": 91,
+     "missingDeclarations": 91,
      "depth": 16,
      "layersCovered": 8,
      "layers": 8,
-     "sourcePages": 104
+     "sourcePages": 108
     }
    },
    "measurement": 8.8,

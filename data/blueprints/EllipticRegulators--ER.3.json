@@ -1,0 +1,640 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.3",
+  "scope": [
+    "EllipticRegulators:ER.3"
+  ],
+  "status": "complete",
+  "summary": "A completed target-level planning pass for the elliptic dilogarithm and its logarithmic companion. The fourteen ER.3 declarations in the reviewed parent packet are imported by id, including both Lecture 9 arguments. Four new declarations supply an explicit weight-two Kronecker kernel, a direct calculation and reconstruction of the complex Fourier expansion, and the relative projective-line Steinberg bridge through the existing Chow dilogarithm. The Bernoulli Fourier coefficient is already in the pinned Mathlib. The stage is planned, not closed: Green-kernel supply, convergence of its regularised pairing, and the repeated-root limiting argument remain precisely recorded. No implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.exp",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "The complex exponential used for the character exp(2πi(mb−na)).",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Complex.log",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "Principal complex logarithm; its imaginary part gives arg(1−x) on the open unit disc.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PeriodPair",
+        "kind": "structure",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "provides": "A pair of real-linearly independent complex periods; (1,τ) is such a pair when Im τ>0.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PeriodPair.lattice",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "provides": "The integer span of the two periods, with mem_lattice giving the integer-coordinate description.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:ZLattice.summable_norm_rpow",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/ZLattice/Summable.lean",
+        "provides": "For a discrete integer submodule L of a finite-dimensional real normed space, the norms to power r are summable when r<−rank L. Apply to rank two and r=−3; the zero term has the library total-power convention and is removed.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:bernoulliFourierCoeff_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ZetaValues.lean",
+        "provides": "For k≠0, the normalized coefficient of the Bernoulli polynomial on [0,1] is −k!/(2πin)^k. At k=3 this is −6/(2πin)^3; the coefficient at n=0 is zero with the library division convention.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:fourierCoeff",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Fourier/AddCircle.lean",
+        "provides": "Fourier coefficient defined with the negative character against normalized Haar measure.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:fourierCoeff_eq_intervalIntegral",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/AddCircle.lean",
+        "provides": "For positive period T, coefficients equal (1/T) times the interval integral on any interval of length T. Here T=1.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:fourierBasis_repr",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/AddCircle.lean",
+        "provides": "The coordinates in the integer-indexed Hilbert basis of L² of the circle are its Fourier coefficients. Injectivity is supplied by the Hilbert-basis isometry; apply successively in the two circle variables.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_tsum_of_summable_integral_norm",
+        "kind": "lemma",
+        "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
+        "provides": "An integral and a countable sum commute if every summand is integrable and the sum of the integrals of its norm is finite. Both requirements are checked explicitly in the coefficient calculation and reconstruction.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Evaluation of a rational function at a point via its normalized numerator and denominator. At poles this is totalized; the bridge uses only regular nonzero endpoint values.",
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Zagier.BWR.1990",
+      "title": "The Bloch-Wigner-Ramakrishnan polylogarithm function",
+      "authors": "Don Zagier",
+      "edition": "Math. Ann. 286 (1990), 613–624; author-hosted typeset scan, DOI 10.1007/BF01453591",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01453591/fulltext.pdf",
+      "sha256": "e56ae90511b60119c1276293e1d6cf342be8764543dfa4de7333c2fba67193bf",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1, pp. 613–615, weight two and inversion",
+        "§2, pp. 615–620, including image inspection of pp. 616–619; the proof of Theorem 1 is used as a method, not as an unchecked formula"
+      ]
+    },
+    {
+      "id": "Brunault.These.2005",
+      "title": "Étude de la valeur en s=2 de la fonction L d’une courbe elliptique",
+      "authors": "François Brunault; appendix by Loïc Merel",
+      "edition": "Thèse, 2005; arXiv:math/0602186v1",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.1, pp. 15–20, Green function and regulator pairing",
+        "§1.2, pp. 20–28, Definitions 19–20, Theorem 21, Propositions 22, 24 and 26, Remarks 23 and 25"
+      ]
+    },
+    {
+      "id": "Goncharov.Arakelov.2004",
+      "title": "Polylogarithms, regulators, and Arakelov motivic complexes",
+      "authors": "A. B. Goncharov",
+      "edition": "arXiv:math/0207036v3, 17 June 2004",
+      "url": "https://arxiv.org/pdf/math/0207036",
+      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§3, Theorem 3.4 and proof, pp. 28–29, invariance under multiplying an entry by a constant",
+        "§6, Proposition 6.8 and Lemma 6.9 with proof, pp. 56–58; read using Polylogarithms/E11 and E12 corrections"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.3/weight-two-kronecker-kernel",
+      "parentStageId": "EllipticRegulators:ER.3",
+      "realises": [
+        "EllipticRegulators:ER.3"
+      ],
+      "title": "The weight-two Kronecker–Eisenstein kernel",
+      "kind": "construction",
+      "statement": "For τ∈C with y=Im τ>0, a,b∈R and v=(m,n)∈Z² set λ_v=m+nτ and χ_v(a,b)=exp(2πi(mb−na)). Define K_τ(a,b;0,0)=0 and K_τ(a,b;m,n)=χ_v(a,b)/(λ_v² conjugate(λ_v)) otherwise. This is the summand, not an assumption of convergence. The character is the intersection-pairing character for the oriented basis (1,τ), and agrees with the product of the unit-period circle characters of indices −n and m.",
+      "hypotheses": [
+        "y>0 for norm and nonzero-denominator statements; the displayed total function is defined for all τ.",
+        "The point has additive coordinate a+bτ; m is the coefficient of 1 in the lattice vector, n the coefficient of τ."
+      ],
+      "proofSteps": [
+        "Use the baseline exponential to form the character. Remove the zero lattice index explicitly.",
+        "If m+nτ=0, its imaginary part gives n=0 and then m=0; hence the other denominators are nonzero.",
+        "Multiplicativity of the exponential gives integral-period invariance and the AddCircle comparison. Norm multiplicativity gives |K|=|λ|⁻³."
+      ],
+      "acceptance": [
+        "The six tests distinguish the sign of the character, the placement of conjugation, and exclusion of the zero index."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.exp",
+        "mathlib:fourierCoeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Zagier.BWR.1990",
+          "locator": "§2, p. 616, denominator; Theorem 1, p. 619",
+          "match": "The weight-two double-series summand, rewritten in the oriented basis (1,τ); sourceIssue E-ER3-1 fixes its complex normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.EllipticRegulator.kroneckerTerm",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Kronecker",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Kronecker–Eisenstein kernel"
+      },
+      "uses": [
+        {
+          "where": "ER.3/fourier-and-kronecker-eisenstein and this part’s Fourier reconstruction",
+          "how": "The norm formula and integral-period invariance produce a normally convergent function on the torus."
+        },
+        {
+          "where": "ER.3/lattice-basis-change",
+          "how": "The denominator identifies the antiholomorphic weight and prevents treating D alone as basis invariant."
+        },
+        {
+          "where": "ER.4/the-divisor-formula; ER.5 finite torsion-character evaluation",
+          "how": "The character orientation matches Q−P in the diamond convolution and controls the sign of torsion sums."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_zero",
+          "role": "simp",
+          "statement": "K_τ(a,b;0,0)=0."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_eq",
+          "role": "characterisation",
+          "statement": "For v≠(0,0), K_τ(a,b;v)=χ_v(a,b)/((m+nτ)²(m+n conjugate τ))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_norm",
+          "role": "data",
+          "statement": "For y>0 and v≠0, |K_τ(a,b;v)|=|m+nτ|⁻³."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_neg_index",
+          "role": "relation",
+          "statement": "K_τ(a,b;−m,−n)=−conjugate(χ_v(a,b))/((m+nτ)²(m+n conjugate τ)); this also holds at v=0 using total division."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_neg_point",
+          "role": "relation",
+          "statement": "K_τ(−a,−b;m,n)=−K_τ(a,b;−m,−n)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_add_int_left",
+          "role": "simp",
+          "statement": "For k∈Z, K_τ(a+k,b;v)=K_τ(a,b;v)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_add_int_right",
+          "role": "simp",
+          "statement": "For k∈Z, K_τ(a,b+k;v)=K_τ(a,b;v)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kroneckerTerm_circle",
+          "role": "compatibility",
+          "statement": "For v≠0, K equals fourier(−n)(a mod Z) times fourier(m)(b mod Z), divided by (m+nτ)²(m+n conjugate τ), using Mathlib’s unit-period AddCircle characters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_zero_index",
+          "kind": "degenerate",
+          "statement": "At τ=i and a=b=0, K(0,0)=0."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_real_axis",
+          "kind": "computation",
+          "statement": "At τ=i and a=b=0, K(1,0)=1."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_imaginary_axis",
+          "kind": "computation",
+          "statement": "At τ=i and a=b=0, K(0,1)=−i, distinguishing λ² conjugate λ from λ conjugate λ²."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_quarter_phase",
+          "kind": "computation",
+          "statement": "At τ=i, a=1/4,b=0, K(0,1)=−1, distinguishing exp(−2πina) from exp(+2πina)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_circle_character",
+          "kind": "compatibility",
+          "statement": "At τ=i, a=0,b=1/4, K(1,0)=fourier(1)(1/4 mod Z)=i."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.kernel_not_green",
+          "kind": "non-example",
+          "statement": "At τ=i and a=b=0, K(2,0)=1/8, different from the Green-kernel coefficient scale 1/4."
+        }
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.3/complex-fourier-coefficient-calculation",
+      "parentStageId": "EllipticRegulators:ER.3",
+      "realises": [
+        "EllipticRegulators:ER.3"
+      ],
+      "title": "Direct complex Fourier coefficients of the orbit sums",
+      "kind": "theorem",
+      "statement": "Let τ∈C, y=Im τ>0, q=exp(2πiτ) and x(a,b)=exp(2πi(a+bτ)). Let D_q and J(q;·) be the imported orbit sum and Bernoulli-regularised companion. Put F_τ(a,b)=D_q(x(a,b))−iJ(q;x(a,b)). With the normalized character χ_{m,n}=exp(2πi(mb−na)), the coefficient ∫₀¹∫₀¹ F_τ(a,b) conjugate(χ_{m,n}(a,b)) da db is zero for (m,n)=(0,0), and otherwise is −y²/[π(m+nτ)²(m+n conjugate τ)]. This is the complex coefficient calculation; it includes the companion, not only the real part.",
+      "hypotheses": [
+        "Use the imported continuous, periodic D_q and J(q;·), with the latter’s correction (log|q|)² B₃(log|x|/log|q|)/3.",
+        "Both integrals are with Lebesgue measure on [0,1]; equivalently, normalized Haar measure on the two unit circles."
+      ],
+      "proofSteps": [
+        "For a disc argument w, expand Li₂(w)=Σ w^h/h² and log(1−w)=−Σ w^h/h. Then D(w)−iJ(w)=Σ[(w^h−conjugate(w)^h)/(2ih²)+i log|w| w^h/h]. This follows from the imported Bloch–Wigner definition.",
+        "Use inversion to split the orbit at b+r>0 and b+r<0. The one-sided sums and their integrals commute: away from b=0,1 use geometric uniform bounds; over the whole strip the integrals of the absolute disc-series terms are bounded by constant multiples of Σ h⁻³. Boundary values follow from continuity and have measure zero.",
+        "For horizontal frequency h>0, unfold b+r to u∈R. The integrands are −i(1/(2h²)+2πyu/h) exp(2πi(hτ−m)u) for u>0 and −i/(2h²) exp(2πi(h conjugate τ−m)u) for u<0. Integrating these exponential and u-exponential terms gives y²/[π(hτ−m)²(h conjugate τ−m)], which is the required coefficient with n=−h. Oddness F(−a,−b)=−F(a,b) supplies h<0.",
+        "At horizontal frequency zero the ordinary disc terms have zero average; the remaining function is −i(4π²y²/3)B₃(b). Use baseline bernoulliFourierCoeff_eq at k=3 to obtain −y²/(πm³) for m≠0 and zero for m=0. This is the formerly missing Bernoulli mode."
+      ],
+      "acceptance": [
+        "At (m,n)=(1,0) the coefficient is the negative real number −y²/π.",
+        "At τ=i, (m,n)=(0,1) the coefficient is i/π.",
+        "The correction contributes every n=0 coefficient; omitting it fails the first test."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.3/the-elliptic-dilogarithm",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "Polylogarithms:P.1/distribution-and-inversion",
+        "mathlib:Complex.log",
+        "mathlib:bernoulliFourierCoeff_eq",
+        "mathlib:fourierCoeff_eq_intervalIntegral",
+        "mathlib:MeasureTheory.integral_tsum_of_summable_integral_norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "Zagier.BWR.1990",
+          "locator": "§2, proof of Theorem 1, pp. 619–620",
+          "match": "Use the unfolding, disc expansion and Laplace-integral method. The coefficient is recalculated in weight two rather than copied from the erroneous printed Theorem 1."
+        },
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "§1.2, Theorem 21 and the companion assertion, pp. 23–24",
+          "match": "The real-part theorem and asserted companion identification are both accounted for by this direct complex calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.EllipticRegulator.complex_fourier_coefficients",
+      "planet": {
+        "name": "Elliptic Kronecker expansion"
+      }
+    },
+    {
+      "id": "EllipticRegulators:ER.3/complex-fourier-reconstruction",
+      "parentStageId": "EllipticRegulators:ER.3",
+      "realises": [
+        "EllipticRegulators:ER.3"
+      ],
+      "title": "Reconstruction of the elliptic Kronecker expansion",
+      "kind": "comparison",
+      "statement": "Under the coefficient theorem’s hypotheses, Σ_{v∈Z²} K_τ(a,b;v) converges absolutely and uniformly for all real a,b. Its continuous torus function satisfies F_τ(a,b)=−y²/π Σ_v K_τ(a,b;v), including (a,b)=(0,0). Thus R_q=J+iD_q=−iy²/π Σ_v K_τ. This supplies the complex equality in the imported ER.3/fourier-and-kronecker-eisenstein node without a finite-torsion or unread-book proof assumption.",
+      "hypotheses": [
+        "Im τ>0; F_τ is the imported continuous doubly periodic orbit-sum function."
+      ],
+      "proofSteps": [
+        "Identify Z² with PeriodPair.lattice for periods (1,τ). The lattice is discrete of rank two. Apply ZLattice.summable_norm_rpow with exponent −3; compare with the kernel norm. The majorant is independent of a,b, hence gives uniform convergence and continuity.",
+        "Use integral_tsum_of_summable_integral_norm: the total area is one and each integral of the norm is bounded by the same summable lattice majorant. Character orthogonality gives the displayed coefficients for the summed kernel.",
+        "Subtract this function from F_τ. For each horizontal index its circle coefficient is a continuous function of b, all of whose vertical coefficients vanish by the coefficient theorem. Fourier-basis injectivity in L² and continuity make it zero everywhere. Repeat in the a variable.",
+        "At the origin pair v with −v in the absolutely convergent series: their sum is zero. This agrees with inversion invariance of the imported orbit-sum functions. Multiply by i to obtain R_q and compare the real and imaginary parts with Brunault’s notation."
+      ],
+      "acceptance": [
+        "At τ=0.23+1.05i, (a,b)=(0.31,0.17), F=0.502940259517639−0.433523077962249i. A square cutoff of 400 agrees within 3×10⁻9 (numerical check, not a proof).",
+        "At every two-torsion point, oddness and periodicity give F=0.",
+        "The equality has a continuous value at the origin; the Green series with order |λ|⁻² cannot be substituted for this absolutely convergent series."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.3/weight-two-kronecker-kernel",
+        "EllipticRegulators:ER.3/complex-fourier-coefficient-calculation",
+        "mathlib:PeriodPair",
+        "mathlib:PeriodPair.lattice",
+        "mathlib:ZLattice.summable_norm_rpow",
+        "mathlib:MeasureTheory.integral_tsum_of_summable_integral_norm",
+        "mathlib:fourierCoeff",
+        "mathlib:fourierBasis_repr"
+      ],
+      "sources": [
+        {
+          "sourceId": "Zagier.BWR.1990",
+          "locator": "§2, p. 616 and proof of Theorem 1, pp. 619–620",
+          "match": "The source proof method yields a complete complex Fourier reconstruction with the orientation and signs recalculated."
+        },
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "§1.2, Theorem 21, p. 23; Remark 25, p. 26",
+          "match": "Real-part comparison and normal convergence of the weight-two series."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.EllipticRegulator.complex_fourier_reconstruction"
+    },
+    {
+      "id": "EllipticRegulators:ER.3/relative-projective-line-chow-bridge",
+      "parentStageId": "EllipticRegulators:ER.3",
+      "realises": [
+        "EllipticRegulators:ER.3"
+      ],
+      "title": "Relative Steinberg relation on the projective line",
+      "kind": "theorem",
+      "statement": "Let f∈C(t)× be regular at 0 and ∞ with f(0)=f(∞)=1. Let K∈C× with K≠1 and g=K−f nonzero. Write div(f)=Σ_j d_j[α_j] and div(g)=Σ_k e_k[β_k], with finite supports in C×. Then Σ_{j,k}d_j e_k D(β_k/α_j)=0. The degree-zero and product-one conditions for f follow from its endpoint normalization. This generic-constant identity is the precise D-input used in the truncation argument; this identity already allows repeated zeros and poles through their integer multiplicities. The extension of the elliptic truncation argument to exceptional constants and colliding roots uses the separately recorded continuity obligation, not an assumption that the elliptic relation already holds.",
+      "hypotheses": [
+        "K≠0,1 and K−f≠0; f and g therefore have no zeros or poles at 0 and ∞.",
+        "D is the Bloch–Wigner dilogarithm of Polylogarithms P.1.",
+        "The Chow dilogarithm is imported from Polylogarithms P.5 with the corrected real normalization −(2π)⁻¹∫r₂, not the imaginary normalization printed in Goncharov."
+      ],
+      "proofSteps": [
+        "If f is constant, the endpoint normalization forces f=1, so div(f)=0 and the sum is zero. Otherwise put F=f/K, so g/K=1−F. Apply the imported P.5/chow-dilogarithm-projective-line formula to see that P₂(f∧g∧t)=P₂(F∧(1−F)∧t): multiplication by a nonzero constant leaves each divisor unchanged. Thus the scalar-invariance step follows from this listed prerequisite, without invoking the unpromoted chowDilog_const API item.",
+        "Apply P.5/chow-dilogarithm-steinberg to (1−F)∧F∧t: its value is D(F(0))−D(F(∞))=0, since both endpoint values are 1/K. Reverse the first two wedge entries to get P₂(f∧g∧t)=0.",
+        "In P.5/chow-dilogarithm-projective-line, div(t)=[0]−[∞] and r(α,β,0,∞)=α/β for the normalization r(∞,0,1,z)=z. Degenerate terms have Bloch–Wigner value zero. Thus P₂(f∧g∧t)=Σ d_j e_k D(α_j/β_k).",
+        "Use P.1/distribution-and-inversion to negate this sum and obtain the diamond argument β_k/α_j. The proof uses no elliptic relation and no conjectural reciprocity homomorphism."
+      ],
+      "acceptance": [
+        "For f=1 and K≠0,1, the divisor sum is empty and equals zero.",
+        "Replacing K−f by 1−f/K leaves its divisor unchanged.",
+        "Changing the diamond convention from β/α to α/β negates the sum, rather than leaving the nonzero summands fixed."
+      ],
+      "prerequisites": [
+        "Polylogarithms:P.5/chow-dilogarithm",
+        "Polylogarithms:P.5/chow-dilogarithm-projective-line",
+        "Polylogarithms:P.5/chow-dilogarithm-steinberg",
+        "Polylogarithms:P.1/distribution-and-inversion",
+        "mathlib:RatFunc.eval"
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov.Arakelov.2004",
+          "locator": "Theorem 3.4, p. 28; Proposition 6.8 and Lemma 6.9 with proof, p. 57",
+          "match": "The ensuing Proposition 6.8 gives the projective-line divisor formula, which already makes scalar multiplication irrelevant. The corrected Lemma 6.9 gives the endpoint Steinberg evaluation; Polylogarithms/E11 and E12 supply the normalization corrections."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.EllipticRegulator.relative_projective_line_steinberg",
+      "planet": {
+        "name": "Relative Steinberg relation"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GrossZagierAndArithmeticHeights:GZ.2",
+      "need": "For a compact complex Riemann surface supply the real normalized Green kernel G(P,t), smooth off the diagonal, symmetric, mean zero against the canonical probability volume, with ∂∂̄G=πi(vol−δ_P) as currents and G(P,t)−log|z(t)−z(P)| smooth in a coordinate near P. Include its resulting local derivative bound O(1/r), hence G(P,·)∈L^p for every finite p and ∂̄G(P,·)∈L^p for 1≤p<2. On an elliptic torus identify this normalization with the explicit kernel of the imported ER.3 node.",
+      "neededBy": [
+        "EllipticRegulators:ER.3/green-function-of-the-curve",
+        "EllipticRegulators:ER.3/goncharov-function-and-the-regulator"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.3",
+      "status": "planned",
+      "remaining": [
+        "Close the exact GZ.2 Green-kernel request without creating another general Green theory.",
+        "Prove the Gaussian/Sobolev pairing approximation in the recorded analytic gap, making Proposition 24’s interchange legitimate.",
+        "Discharge the repeated-root and exceptional-constant continuity reduction for both separate Lecture 9 arguments.",
+        "For source collation, compare the public direct proof with Bloch Lectures 5–6 and 10 when publicly accessible; no unread book passage is claimed as verified."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Normalized Green kernel is a supplier boundary",
+      "neededBy": [
+        "EllipticRegulators:ER.3/green-function-of-the-curve",
+        "EllipticRegulators:ER.3/goncharov-function-and-the-regulator"
+      ],
+      "detail": "GZ.2 owns the general Green kernel. Its current stage states the required direction, but no declaration-sized supplier node for the exact normalization and local estimates was found. The request records every property used. No new Green construction is duplicated here."
+    },
+    {
+      "title": "Gaussian regularisation must converge in the Green pairing",
+      "neededBy": [
+        "EllipticRegulators:ER.3/goncharov-function-and-the-regulator"
+      ],
+      "detail": "The source’s Proposition 24 exchanges a non-absolutely-convergent Green series and an integral. A Gaussian factor exp(−δ‖λ‖²) gives smooth kernels and valid exchanges for δ>0. To close the limit prove convergence of the smoothed G in L³ and of its antiholomorphic derivative in L^(3/2), or provide the equivalent H^(1/2)/H^(−1/2) duality argument. Local singularity estimates alone do not prove this approximation theorem. The absolutely convergent final |λ|^(−3) series then admits dominated convergence. This part proves the orbit-sum Fourier identity independently and does not assume this limit."
+    },
+    {
+      "title": "Multiple roots and exceptional constants in Lecture 9",
+      "neededBy": [
+        "EllipticRegulators:ER.3/zeros-of-truncated-products",
+        "EllipticRegulators:ER.3/steinberg-for-the-companion",
+        "EllipticRegulators:ER.3/steinberg-for-the-dilogarithm",
+        "EllipticRegulators:ER.3/the-steinberg-relation-by-truncation"
+      ],
+      "detail": "The parent sourceIssue EllipticRegulators/E5 remains open: Bloch reduces to simple zeros and generic K without spelling out continuity in the divisors. Supply continuity of the weighted divisor evaluation as roots of f−K collide, using the uniform logarithmic modulus, and account for K=0,1 and constant functions. The new projective-line bridge covers K≠0,1 and supports in C×; it does not silently close this limiting step."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EllipticRegulators/E-ER3-1",
+      "source": "Zagier.BWR.1990",
+      "kind": "error",
+      "locator": "Theorem 1, p. 619, author-hosted typeset 1990 scan; restricted here to a+b=3",
+      "printed": "D_{a,b}(q;x) = ((τ−τ̄)^r/(2πi)) Σ′ exp(2πi(nξ−mη))/((mτ+n)^a(mτ̄+n)^b), r=a+b−1.",
+      "correction": "For weight two (a+b=3), with the same character, the right side is −((τ−τ̄)^2/(2πi)) Σ′ exp(2πi(nξ−mη))/((mτ+n)^b(mτ̄+n)^a). In particular D_{1,2}=2(J+iD) and D_{2,1}=2(J−iD), by the definitions on pp. 617–618. No claim about other weights is made.",
+      "reason": "Average D_{1,2}(q;x) over η at fixed ξ. Proposition 2(iii) leaves (8π²y²/3)B₃(ξ). Its frequency-one coefficient is −2iy²/π by the exact Bernoulli Fourier formula. The printed theorem gives +2iy²/π from its (m,n)=(0,1) term. The nonzero horizontal coefficients calculated by unfolding the disc series also require the reversed denominator exponents. The p. 616 sine formula’s sign discrepancy is already parent issue EllipticRegulators/E6; it is not duplicated here.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Zagier’s MPIM publication list and its linked author copy, accessed 2026-10-06; no attached erratum found.",
+        "Web searches for the exact title with erratum, correction, and Theorem 1, on 2026-10-06; no correction located.",
+        "The DOI-linked author-hosted typeset scan, visually inspected at pp. 616–619."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked Theorem 1 on printed p. 619 and Proposition 2(ii)–(iii) on p. 618 in the identical-hash author-hosted typeset scan. At r=2 their definitions give D₁,₂=2(𝒥+iD). Its η-average is (8π²y²/3)B₃(ξ), whose frequency-one coefficient is −2iy²/π, while the printed theorem gives +2iy²/π. Independently integrated the positive and negative half-line coefficients to verify that the weight-two denominator exponents must also be exchanged. The report gives both exact computations. No claim about other weights or a separately accessed publisher copy is made. Fresh exact-title erratum/correction searches found no correction.",
+        "by": "REV-EllipticRegulators--ER.3"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01453591/fulltext.pdf",
+      "read": "2026-10-06",
+      "sha256": "e56ae90511b60119c1276293e1d6cf342be8764543dfa4de7333c2fba67193bf",
+      "citation": "Math. Ann. 286 (1990), 613–624; author-hosted typeset scan, DOI 10.1007/BF01453591"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "read": "2026-10-06",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0207036",
+      "read": "2026-10-06",
+      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db"
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Orbit-sum definition, compact convergence, inversion, conjugation and distribution",
+      "providedBy": [
+        "EllipticRegulators:ER.3/the-elliptic-dilogarithm",
+        "EllipticRegulators:ER.3/bloch-wigner-bounds-at-zero"
+      ]
+    },
+    {
+      "target": "Ordinary and Bloch companions, Bernoulli correction, ellipticity and permitted-lift equality",
+      "providedBy": [
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention"
+      ]
+    },
+    {
+      "target": "Lattice-basis change with antiholomorphic weight",
+      "providedBy": [
+        "EllipticRegulators:ER.3/lattice-basis-change"
+      ]
+    },
+    {
+      "target": "Truncated divisors and zeros on annuli, uniform companion and dilogarithm estimates",
+      "providedBy": [
+        "EllipticRegulators:ER.3/truncated-theta-products",
+        "EllipticRegulators:ER.3/zeros-of-truncated-products",
+        "EllipticRegulators:ER.3/companion-truncation-estimates",
+        "EllipticRegulators:ER.3/steinberg-for-the-dilogarithm"
+      ]
+    },
+    {
+      "target": "Projective-line relative relation and both separate Lecture 9 Steinberg limits",
+      "providedBy": [
+        "EllipticRegulators:ER.3/relative-projective-line-chow-bridge",
+        "EllipticRegulators:ER.3/steinberg-relation-on-the-projective-line",
+        "EllipticRegulators:ER.3/steinberg-for-the-companion",
+        "EllipticRegulators:ER.3/steinberg-for-the-dilogarithm",
+        "EllipticRegulators:ER.3/the-steinberg-relation-by-truncation"
+      ]
+    },
+    {
+      "target": "Complex Fourier/Kronecker expression with justified exchanges",
+      "providedBy": [
+        "EllipticRegulators:ER.3/weight-two-kronecker-kernel",
+        "EllipticRegulators:ER.3/complex-fourier-coefficient-calculation",
+        "EllipticRegulators:ER.3/complex-fourier-reconstruction",
+        "EllipticRegulators:ER.3/fourier-and-kronecker-eisenstein"
+      ]
+    },
+    {
+      "target": "Singular Green-kernel Fourier expression and comparison with Goncharov’s pairing",
+      "providedBy": [
+        "EllipticRegulators:ER.3/green-function-of-the-curve",
+        "EllipticRegulators:ER.3/goncharov-function-and-the-regulator"
+      ],
+      "remaining": "Supplier request and regularised pairing convergence gap below."
+    }
+  ],
+  "imports": [
+    {
+      "packet": "research/blueprint/packets/EllipticRegulators.json",
+      "nodes": [
+        "EllipticRegulators:ER.3/the-elliptic-dilogarithm",
+        "EllipticRegulators:ER.3/the-companion-and-Bloch-convention",
+        "EllipticRegulators:ER.3/the-steinberg-relation-by-truncation",
+        "EllipticRegulators:ER.3/fourier-and-kronecker-eisenstein",
+        "EllipticRegulators:ER.3/bloch-wigner-bounds-at-zero",
+        "EllipticRegulators:ER.3/lattice-basis-change",
+        "EllipticRegulators:ER.3/green-function-of-the-curve",
+        "EllipticRegulators:ER.3/goncharov-function-and-the-regulator",
+        "EllipticRegulators:ER.3/steinberg-relation-on-the-projective-line",
+        "EllipticRegulators:ER.3/truncated-theta-products",
+        "EllipticRegulators:ER.3/zeros-of-truncated-products",
+        "EllipticRegulators:ER.3/companion-truncation-estimates",
+        "EllipticRegulators:ER.3/steinberg-for-the-companion",
+        "EllipticRegulators:ER.3/steinberg-for-the-dilogarithm"
+      ],
+      "role": "Reviewed target declarations and their existing APIs/tests; not copied into this part."
+    },
+    {
+      "packet": "research/blueprint/packets/Polylogarithms.json",
+      "nodes": [
+        "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/distribution-and-inversion",
+        "Polylogarithms:P.5/chow-dilogarithm",
+        "Polylogarithms:P.5/chow-dilogarithm-projective-line",
+        "Polylogarithms:P.5/chow-dilogarithm-steinberg"
+      ],
+      "role": "Owners of the ordinary polylogarithms and Chow dilogarithm. This part only supplies elliptic specializations and a relative bridge."
+    }
+  ],
+  "inheritedSourceIssues": [
+    "EllipticRegulators/E2: Green-pairing interchange gap",
+    "EllipticRegulators/E3: companion asserted without proof, supplied by this part’s complex Fourier calculation",
+    "EllipticRegulators/E5: multiple-root continuity gap",
+    "EllipticRegulators/E6: p. 616 sine-formula sign, used in corrected form",
+    "Polylogarithms/E11 and E12: Chow Steinberg factor and real normalization"
+  ],
+  "audit": {
+    "reviewed": "data/library-coverage.json, EllipticRegulators:ER.3",
+    "finding": "Orbit sums, elliptic companion and Kronecker expansion are not in the pinned libraries. Bernoulli polynomials, lattice summability and integration/Fourier infrastructure are baseline. Further source search found the precise Bernoulli Fourier coefficient already implemented; it is cited, never replanned.",
+    "upstreamDocumentsRead": [
+      "content/tau-ceti/EllipticCurves/README.md",
+      "content/tau-ceti/ModularForms/README.md"
+    ],
+    "duplicationCheck": "All fourteen parent ER.3 IDs are reused through imports and targetCoverage. P.1 and P.5 declarations are imported; no general polylogarithm, K₂, complex-uniformisation or Green-kernel theory is defined here."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EllipticRegulators--ER.3",
+    "date": "2026-10-06",
+    "notes": "Codex — codex-KHnHFo independently reviewed the ER.3 follow-up by Codex — codex-XWL8DR (#6484); this session did none of that work. Verified all four new nodes against the three identical-hash public sources, all eleven baseline declarations at Mathlib 082e2d3, the fourteen parent target interfaces and the six Polylogarithms imports. Confirmed sourceIssue E-ER3-1 by visual inspection and exact Fourier calculations. Corrected the relative bridge proof to treat constant f separately and derive scalar invariance from its explicit projective-line prerequisite, and replaced its symbolic formula excerpt by a literal passage with the exact page. Checked eight API items, six tests, all new prototype signatures and the five combined ER.3 planets. No node or baseline citation added or removed. The complete target-level pass is accepted with planned coverage, three honest gaps and one request; neither closure nor implementation is certified. Packet/source-version checks pass; the suggested file elaborates with only warnings for unproved declarations.",
+    "checked": [
+      {
+        "nodeId": "EllipticRegulators:ER.3/weight-two-kronecker-kernel",
+        "verdict": "verified",
+        "note": "Checked the zero extension, oriented character, denominator nonvanishing, norm and all eight API statements. Independently evaluated all six tests; the conjugation and quarter-period sign tests discriminate the competing conventions. Scalar-valued construction needs no quotient universal property."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/complex-fourier-coefficient-calculation",
+        "verdict": "verified",
+        "note": "Re-derived the disc identity, split the orbit into two half-lines, checked the summed integral-norm bound of order h⁻³ and evaluated the Laplace integrals. The Bernoulli mode and zero coefficient have the stated signs. Parent/P.1 imports supply continuity, inversion and the disc formula, not an assumed Kronecker equality."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/complex-fourier-reconstruction",
+        "verdict": "verified",
+        "note": "Read lattice discreteness/rank and r=−3 summability at the pin, justified character integration by the summable norm majorant and checked the two successive circle Fourier-uniqueness steps with normalized Haar measure. The origin value follows by v↦−v. Numerically checked three nonrectangular lattices and rejected the swapped denominator."
+      },
+      {
+        "nodeId": "EllipticRegulators:ER.3/relative-projective-line-chow-bridge",
+        "verdict": "corrected",
+        "note": "Handle constant f=1 before using the nonconstant supplier. Derive scalar invariance directly from P.5’s divisor formula; evaluate the corrected Steinberg current identity at the equal endpoints and then use r(α,β,0,∞)=α/β and inversion. Replaced the formula excerpt by a literal source passage and tightened its page locator. Three non-real rational-function examples independently check the zero sum. Clarified that the projective-line bridge itself permits all multiplicities; the continuity gap belongs to the elliptic truncation proof."
+      }
+    ]
+  }
+}
