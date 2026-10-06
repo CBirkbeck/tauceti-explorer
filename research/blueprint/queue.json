@@ -26741,9 +26741,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #768"
+   "note": "deliverables arrived from an external worker on issue #768",
+   "finishedAt": "2026-10-06T21:17:16Z"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -62734,8 +62735,8 @@
     "REV-FIX-RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5541"
+   "state": "external",
+   "note": "claimed on GitHub issue #5541"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1~2",
