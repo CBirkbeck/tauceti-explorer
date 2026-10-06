@@ -22185,8 +22185,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicBundles--B5",
    "prompt": "research/blueprint/prompts/REV-AutomorphicBundles--B5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #356"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #356",
+   "finishedAt": "2026-10-06T15:03:24Z"
   },
   {
    "id": "BP-AutomorphicCongruences--L0",
@@ -28582,7 +28583,8 @@
    ],
    "avoidAccountOf": "BP-RelativeFarguesFontaine--RF4",
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #483"
   },
   {
    "id": "BP-SchemeKTheoryOperations",
