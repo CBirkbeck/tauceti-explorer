@@ -1,0 +1,1788 @@
+{
+  "roadmapId": "OverconvergentAutomorphicForms",
+  "protocol": "blueprint-v1",
+  "part": "O8",
+  "scope": [
+    "OverconvergentAutomorphicForms:O8"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level O8 planning pass: arbitrary-genus Siegel analytic coefficients, determinant-character subobjects and Hodge-line specializations, algebraic Levi bundle recovery, supplied non-Siegel analytic reductions, and general toroidal-diamond coefficients with their cyclotomic twist. Preserve all ten checkpoint IDs; import generic analysis/descent and geometric torsors from their owners. O8 is planned, not closed: genuine supplier signatures, the uniform Siegel canonical-domain proof and version-of-record collation remain explicit.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.fromCols",
+        "kind": "def",
+        "module": "Mathlib/Data/Matrix/ColumnRowPartitioned.lean",
+        "provides": "The row graph [I,Z] as a rectangular matrix with a sum-indexed column set.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.fromCols_mul_fromBlocks",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/ColumnRowPartitioned.lean",
+        "provides": "[U,V][A,B;C,D]=[UA+VC,UB+VD] over a semiring.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_fromCols",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/ColumnRowPartitioned.lean",
+        "provides": "Left multiplication distributes across a column partition.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.fromBlocks_multiply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/Block.lean",
+        "provides": "The four block entries of a product, retaining multiplication order.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.isUnit_iff_isUnit_det",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+        "provides": "A square matrix over a commutative ring is a unit exactly when its determinant is a unit.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_nonsing_inv",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+        "provides": "J J⁻¹=1 under IsUnit(det J); total matrix inversion alone gives no cancellation.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.nonsing_inv_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+        "provides": "J⁻¹ J=1 under IsUnit(det J).",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "The multiplicative map GL(n,R)→R× taking a matrix unit to its determinant unit.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Multiplicativity of determinant over commutative rings.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.transpose_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "provides": "Transpose reverses the order of a matrix product.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:mul_zpow",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Basic.lean",
+        "provides": "Integer powers distribute across products in a commutative group, including units of a commutative ring.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:map_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "A group homomorphism preserves inversion.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Module.Basis.det_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "provides": "The determinant of a vector family relative to a basis is the determinant of its coordinate matrix.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:AlternatingMap.eq_smul_basis_det",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "provides": "A top-degree scalar-valued alternating map equals its value on the basis times the basis determinant.",
+        "checked": "Statement and surrounding typeclass hypotheses reread in the pinned Mathlib source on 2026-10-06; its checkout HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Bundled linear maps, including S-linear maps into the pointwise function module; reused for the specific determinant eigenline embedding.",
+        "checked": "Structure statement and module assumptions read at the pinned Mathlib commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.mkOfDetNeZero",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "A genuine general linear group element from a square matrix over a field with nonzero determinant; used in concrete genus-two tests.",
+        "checked": "Definition and field/nonzero determinant hypotheses read at the pinned Mathlib commit on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Matrix.det_transpose",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Transpose preserves determinant; converts the determinant eigenline translation law to the source transpose-left action.",
+        "checked": "Actual theorem det_transpose and commutative-ring hypotheses read at the pinned Mathlib commit on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "drw-v3",
+      "title": "Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism",
+      "authors": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu",
+      "edition": "arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
+      "url": "https://arxiv.org/pdf/2106.00094v3",
+      "sha256": "41ced4964ca50027e9fb93813047820a2853b9632fed221cbd5690be4d3294a8",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Physical/printed pp. 1–27: introduction, conventions, all of §2, all of §3.1, start of §3.2.",
+        "Physical/printed pp. 31–39: end of §3.2, all of §3.3 and §3.4, opening of §3.5.",
+        "Rendered checks: pp. 10–11, 14, 22–23, 25, 34, 36, 38. Mathematical formulas were checked on page images where relevant.",
+        "Fresh reading of §§2.1–2.5, §§3.1, 3.3–3.4, §§3.6–3.7 (pp.7–25,31–38,42–53) and Appendix B (pp.99–106).",
+        "Rendered pages 44 and 47 inspected for the radius monotonicity and canonical-subgroup corollary; all eleven prior source findings retained after checking their cited passages."
+      ],
+      "notRead": [
+        "§3.2 Hecke formulas on pp.28–30, §3.5 classicality, §§4–6 Eichler–Shimura/cohomology/eigenvarieties, and Appendix A proofs: outside the O8 targets or imported from the site/descent owners.",
+        "The version of record was not compared page by page; source findings are confined to the hashed arXiv v3."
+      ]
+    },
+    {
+      "id": "bp-author",
+      "title": "Higher Coleman Theory",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "180-page public author manuscript, accessed 6 October 2026; locators refer to this hashed version",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf",
+      "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§3.5.1 compact open subgroups (pp.46–47); §4 setup and §4.4 setup (pp.49,66); §4.4.38–4.4.40 (pp.79–80); §4.6.1–4.6.17 (pp.89–96); §6.3.1–6.3.8 (pp.153–155)."
+      ],
+      "notRead": [
+        "The full logarithmic Riemann–Hilbert proof is supplied by T6:comparison; local cohomology, slope/control and eigenvariety arguments are outside O8."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "OverconvergentAutomorphicForms:O8/graph-normalisation",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Normalisation of a Siegel row graph",
+      "kind": "lemma",
+      "statement": "Put J=A+ZC and Zγ=J⁻¹(B+ZD). If det J is a unit, then [I,Z][A,B;C,D]=J[I,Zγ]. Here [I,Z] is Matrix.fromCols I Z and J⁻¹ is the nonsingular matrix inverse.",
+      "hypotheses": [
+        "R is a commutative ring; the matrix index set n is finite with decidable equality.",
+        "All displayed blocks and Z are square n by n matrices. These algebraic statements include the empty index set; the geometric application has g≥1.",
+        "det(A+ZC) is a unit."
+      ],
+      "proofSteps": [
+        "Expand the left-hand side by Matrix.fromCols_mul_fromBlocks.",
+        "Expand the right-hand side by Matrix.mul_fromCols and cancel JJ⁻¹ using Matrix.mul_nonsing_inv. No symplectic hypothesis is needed for this finite algebra identity."
+      ],
+      "acceptance": [
+        "For γ=I the coordinate is Z and the factor is I.",
+        "For g=1 the coordinate is (a+zc)⁻¹(b+zd).",
+        "For g=1, Z=0 and γ=[0,1;1,0], the factor is zero and the normalisation equation fails; the unit hypothesis is essential."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.fromCols",
+        "mathlib:Matrix.fromCols_mul_fromBlocks",
+        "mathlib:Matrix.mul_fromCols",
+        "mathlib:Matrix.mul_nonsing_inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.graph_normalisation",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Lemma 2.3.1 and its displayed proof, p. 15",
+          "excerpt": "(γa + z γc)−1",
+          "match": "The chart calculation is restated over an arbitrary commutative ring with its exact unit hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/factor-composition",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Siegel matrix automorphy factor",
+      "kind": "lemma",
+      "statement": "For γ=[A,B;C,D], δ=[E,F;G,H], put Jγ(Z)=A+ZC and Zγ=Jγ(Z)⁻¹(B+ZD). If det Jγ(Z) is a unit, then Jγδ(Z)=Jγ(Z)(E+ZγG), where Jγδ(Z)=(AE+BG)+Z(CE+DG). Thus Jγδ(Z)=Jγ(Z)Jδ(Zγ), in this order.",
+      "hypotheses": [
+        "R is a commutative ring; the matrix index set n is finite with decidable equality.",
+        "All displayed blocks and Z are square n by n matrices. These algebraic statements include the empty index set; the geometric application has g≥1.",
+        "det Jγ(Z) is a unit."
+      ],
+      "proofSteps": [
+        "Use Matrix.fromBlocks_multiply for the top-left and bottom-left entries of γδ.",
+        "Distribute (A+ZC)(E+Jγ(Z)⁻¹(B+ZD)G). Cancel JJ⁻¹ using graph-normalisation and compare the four summands."
+      ],
+      "acceptance": [
+        "Verify Jγδ(Z)=Jγ(Z)Jδ(Zγ), not the reversed product.",
+        "Genus-two upper and lower elementary unipotent matrices do not commute, so a scalar-only test cannot establish the matrix order.",
+        "With either block matrix the identity, the factor law reduces to the identity law."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/graph-normalisation",
+        "mathlib:Matrix.fromBlocks_multiply",
+        "mathlib:Matrix.mul_nonsing_inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.factor_composition",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Lemma 2.3.1, p. 15; equation (5), p. 20; Remark 3.1.15, p. 25",
+          "excerpt": "γa + z γc",
+          "match": "Derived by composing the source row-graph calculation. This supplies the specific Siegel factor to O1; it does not redefine general cocycles."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/coordinate-composition",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Composition on the Siegel graph chart",
+      "kind": "lemma",
+      "statement": "With γ,δ,Jγ and Zγ as above, assume det Jγ(Z) and det(E+ZγG) are units. Then Z(γδ)=(Zγ)δ: explicitly [(AE+BG)+Z(CE+DG)]⁻¹[(AF+BH)+Z(CF+DH)]=(E+ZγG)⁻¹(F+ZγH).",
+      "hypotheses": [
+        "R is a commutative ring; the matrix index set n is finite with decidable equality.",
+        "All displayed blocks and Z are square n by n matrices. These algebraic statements include the empty index set; the geometric application has g≥1.",
+        "Both consecutive denominator determinants are units."
+      ],
+      "proofSteps": [
+        "factor-composition expresses the denominator of γδ as a product of units; Matrix.isUnit_iff_isUnit_det supplies its invertibility.",
+        "Apply graph-normalisation twice and associate [I,Z]γδ. The two resulting graph matrices have the same unit leading factor.",
+        "Cancel that factor by Matrix.nonsing_inv_mul and read the right block, giving the displayed identity."
+      ],
+      "acceptance": [
+        "Three chart coordinates compose in the same right-action order as their block matrices.",
+        "If a consecutive denominator is not a unit, no assertion of chart preservation is made."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/graph-normalisation",
+        "OverconvergentAutomorphicForms:O8/factor-composition",
+        "mathlib:Matrix.isUnit_iff_isUnit_det",
+        "mathlib:Matrix.nonsing_inv_mul",
+        "mathlib:Matrix.fromBlocks_multiply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.coordinate_composition",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Lemma 2.3.1, p. 15",
+          "excerpt": "(γb + z γd)",
+          "match": "The right-action law follows from the source graph normalisation and ordinary matrix associativity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/antidiagonal-dual-factor",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Antidiagonal dual of the Siegel factor",
+      "kind": "lemma",
+      "statement": "Let W be an involutive square matrix, W²=I, with W Zᵀ W=Z. Then W(A+ZC)ᵀW=W AᵀW+(W CᵀW)Z. For the reversal matrix W=breve I, this is Jγ(Z)‡=A‡+C‡Z, where M‡=W Mᵀ W.",
+      "hypotheses": [
+        "R is a commutative ring; the matrix index set n is finite with decidable equality.",
+        "All displayed blocks and Z are square n by n matrices. These algebraic statements include the empty index set; the geometric application has g≥1.",
+        "W²=I and W Zᵀ W=Z."
+      ],
+      "proofSteps": [
+        "Apply Matrix.transpose_mul to ZC; it gives CᵀZᵀ.",
+        "Insert W² between Cᵀ and Zᵀ and use the antidiagonal symmetry of Z.",
+        "The resulting C‡Z order corrects the expressions used in the two intertwining computations of Proposition 3.3.10; source issue E-O8-10 records the counterexample."
+      ],
+      "acceptance": [
+        "For W=[0,1;1,0], Z=[0,1;0,0], C=[0,0;3,0], A=I, the left side is diag(1,4), while A‡+ZC‡=diag(4,1).",
+        "For general q=pⁿ≠0 the same example is a strict-Iwahori, indeed principal-level, lower unipotent symplectic element.",
+        "For g=1 the two orders coincide, so this test must use g≥2."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.transpose_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.antidiagonal_dual_factor",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Proof of Proposition 3.3.10, constructions Ψ1 and Ψ2, pp. 35–36",
+          "excerpt": "γ‡a + z γ‡c",
+          "match": "Corrected finite identity underlying the displayed proof; the printed product order fails for noncommuting genus-two matrices."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Determinant character of the Siegel factor",
+      "kind": "lemma",
+      "statement": "Let R,S be commutative rings and χ:R×→S× a group homomorphism. For consecutive invertible denominator matrices j=Jγ(Z), k=Jδ(Zγ), and l=Jγδ(Z), let d=det:GL(n,R)→R× be the baseline determinant homomorphism. Then χ(d(l))⁻¹=χ(d(j))⁻¹χ(d(k))⁻¹. In particular, χ(u)=uᵐ gives d(l)^(−m)=d(j)^(−m)d(k)^(−m) for every integer m.",
+      "hypotheses": [
+        "R is a commutative ring; the matrix index set n is finite with decidable equality.",
+        "All displayed blocks and Z are square n by n matrices. These algebraic statements include the empty index set; the geometric application has g≥1.",
+        "S is commutative; j,k,l are matrix units with the three displayed underlying matrices.",
+        "χ is a homomorphism, not an arbitrary function on units."
+      ],
+      "proofSteps": [
+        "factor-composition identifies l=jk; equality of matrix units is detected by their underlying matrices.",
+        "Apply Matrix.GeneralLinearGroup.det and χ, then inversion in the commutative group S×.",
+        "Use mul_zpow for the integer-weight consequence. This establishes the scalar inverse factor used for coefficient functions, not a reversed matrix cocycle."
+      ],
+      "acceptance": [
+        "Weight zero gives factor one.",
+        "Weight one gives det(J)⁻¹ on coefficients; weight minus one gives det(J).",
+        "On the empty matrix index set det=1.",
+        "For g=1 this recovers (a+zc)^(−m)."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/factor-composition",
+        "mathlib:Matrix.GeneralLinearGroup.det",
+        "mathlib:Matrix.det_mul",
+        "mathlib:map_inv",
+        "mathlib:mul_zpow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.determinant_character_cocycle",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Equation (5), p. 20; Definition 3.1.14(iii), p. 24",
+          "excerpt": "ρκU(γa + z γc)−1",
+          "match": "Specialization of the displayed representation factor to the one-dimensional determinant representation, derived algebraically."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Transformation of the Hodge–Tate frame",
+      "kind": "lemma",
+      "statement": "On Y_w let s=(s₁,…,s_g) be the frame of the pulled-back Hodge bundle obtained from the first g coordinate sections of the dual universal Lagrangian by the S3 isomorphism π_HT*W∨≅h*ω. Then, for γ=[A,B;C,D]∈K, γ*s=s(A+ZC). Consequently the right frame torsor is trivialized by s, with transition matrix Jγ(Z)=A+ZC.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "The open period domain is defined by the supplied S3 map. When calling it a proven canonical/anticanonical neighbourhood, use the T3 comparison with p>2g and its stated radii; the mere period-domain definition requires no canonical-subgroup theorem."
+      ],
+      "proofSteps": [
+        "S3 provides the tautological dual-Lagrangian identification with h*ω, including its equivariance; this identity is not assumed as an O8 conclusion.",
+        "On the row-graph chart [I,Z], compute the first g columns after right multiplication by γ. graph-normalisation identifies the coefficient matrix as A+ZC.",
+        "Pull this computation through π_HT. This is the source Corollary 2.4.2 followed by equation (5)."
+      ],
+      "acceptance": [
+        "For γ=1 the frame is fixed.",
+        "The coefficient transformation is inverse to the frame transformation.",
+        "No GSp(Q_p) action at fixed toroidal cone decomposition or Galois-equivariance after suppressing Tate twists is inferred."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/graph-normalisation",
+        "OverconvergentAutomorphicForms:O8/coordinate-composition",
+        "PerfectoidShimuraVarieties:S1",
+        "PerfectoidShimuraVarieties:S3",
+        "HodgeTateAndCanonicalSubgroups:T3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.hodge_frame_transformation",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Corollary 2.4.2, p. 17; Proposition 2.5.2, pp. 18–19; equation (5), p. 20",
+          "excerpt": "γ∗s = s ·(γa + z γc)",
+          "match": "The source explicitly identifies the dual tautological bundle with the Hodge bundle and states this frame transformation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Transformation of the determinant Hodge frame",
+      "kind": "lemma",
+      "statement": "In the preceding setting put η=s₁∧…∧s_g, a nowhere-vanishing section of h*det(ω) on Y_w. For γ∈K, γ*η=det(Jγ(Z))η.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below."
+      ],
+      "proofSteps": [
+        "Apply the top exterior power to hodge-frame-transformation.",
+        "In a local determinant-line trivialization, Module.Basis.det_apply identifies the coefficient with det J; AlternatingMap.eq_smul_basis_det identifies every alternating coordinate evaluation with that determinant.",
+        "The determinant-line constructions and gluing are imported from B4; invertibility of J shows η remains a frame."
+      ],
+      "acceptance": [
+        "For diagonal J with entries u₁,…,u_g, the factor is the product of the u_i.",
+        "For g=1, η=s₁.",
+        "The frame transforms by det J, while invariant coefficient functions transform by its inverse."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "mathlib:Module.Basis.det_apply",
+        "mathlib:AlternatingMap.eq_smul_basis_det",
+        "mathlib:Matrix.GeneralLinearGroup.det",
+        "AutomorphicBundles:B4/siegel-coefficient",
+        "AutomorphicBundles:B0/sections-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.determinant_frame_transformation",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Corollary 2.4.2, p. 17; equation (5), p. 20",
+          "excerpt": "γ∗s = s ·(γa + z γc)",
+          "match": "Taking determinant is a stated consequence here, not a separately numbered source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Scalar Siegel coefficients on the anticanonical domain",
+      "kind": "theorem",
+      "statement": "Let E be a complete coefficient field containing C_p, or a reduced affinoid coefficient algebra over C_p, and let χ be an analytic character of the unit neighbourhood containing det Jγ(Z). Suppose O0 supplies its extension and analytic scalar action on that neighbourhood, uniformly at the chosen radius. The O1 coefficient sheaf attached to this character and the Siegel Hodge-frame reduction has, on every open V⊂X_w, sections exactly the analytic coefficient functions f on h⁻¹(V) satisfying γ*f=χ(det Jγ(Z))⁻¹f for every γ∈K. The equality is compatible with restrictions in V.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.",
+        "An actual O0 analytic character and its extension to the determinant neighbourhood are supplied.",
+        "For a character initially on Z_p× use an O0 r-analytic extension and w>r+1; no assertion for a merely continuous character without that extension.",
+        "O1 supplies the sheaf-category equalizer on this quotient and the relevant completed coefficient functions."
+      ],
+      "proofSteps": [
+        "hodge-frame-transformation identifies the actual transition matrix. Apply determinant-character-cocycle to obtain the scalar descent law.",
+        "Invoke the O1 equalizer construction for that law. Its equalizer condition, under the actual frame trivialization, is exactly the displayed equation.",
+        "O1 sheaf and pullback laws identify restrictions; do not replace the analytic section space by all set-theoretic functions."
+      ],
+      "acceptance": [
+        "χ=1 gives the structure sheaf after applying the supplied quotient descent theorem.",
+        "The defining relation contains the inverse scalar factor.",
+        "A radius outside the supplied extension domain is rejected.",
+        "This statement does not assert coherence of an infinite-dimensional analytic induced module."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.scalar_coefficient_identification",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Definition 3.1.14(iii), p. 24; Remark 3.1.15, p. 25",
+          "excerpt": "γ∗f",
+          "match": "The source equivariance condition is specialized to the finite-rank determinant representation supplied by O0. It is not an identification with the full analytic induced coefficient module."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Siegel automorphy factor"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Determinant Hodge bundle at integral weights",
+      "kind": "theorem",
+      "statement": "Under the same actual torsor and descent hypotheses, take the algebraic character χ_m(u)=uᵐ, m∈Z, using its O0 specialization. Then the O1 scalar coefficient sheaf in scalar-coefficient-identification is canonically isomorphic to (det ω)^⊗m restricted to X_w. For negative m this denotes the corresponding tensor power of the dual line. On Y_w the map is f↦fη^⊗m; for m<0 use the dual frame. It is an isomorphism of sheaves, not a classicality theorem for global forms.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.",
+        "The B4 determinant line, its duals and tensor powers, and O1 effective descent for this finite-rank coefficient object are supplied."
+      ],
+      "proofSteps": [
+        "determinant-frame-transformation gives γ*(η^⊗m)=det(Jγ)^mη^⊗m, using duals for negative weights.",
+        "Multiply by the coefficient law det(Jγ)^(−m); the product is invariant and descends through O1.",
+        "Conversely pull back a determinant-line section and express it uniquely in the frame η^⊗m. Invariance gives exactly the scalar coefficient law.",
+        "The two maps are inverse on the torsor. Faithfulness in the imported descent equivalence gives the isomorphism downstairs."
+      ],
+      "acceptance": [
+        "m=0 gives O_Xw.",
+        "m=1 gives det ω, not its dual.",
+        "m=−1 gives (det ω)∨.",
+        "In genus one this gives powers of the Hodge line.",
+        "In genus two m=1 has local factor det(A+ZC), not one chosen matrix entry."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "mathlib:mul_zpow",
+        "AutomorphicBundles:B4/siegel-coefficient",
+        "AutomorphicBundles:B0/sections-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.determinant_hodge_specialisation",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Equation (5), p. 20; §3.4, pp. 37–38",
+          "excerpt": "ω",
+          "match": "Independent determinant-line descent consequence of the verified frame formula. The integer extension uses the imported dual-line functor; no reliance on the flawed induced-module comparison in Proposition 3.3.10."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Determinant Hodge bundle"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Algebraic Levi coefficients recover the automorphic bundle",
+      "kind": "theorem",
+      "statement": "Let ρ:GL_g→GL(V) be a finite-dimensional algebraic representation over the coefficient field, restricted analytically to the actual O0 frame reduction. Let Q=Isom(O^g,ω) be the B4 right Hodge-frame torsor and Eρ=Q×^{GL_g}V with relation (qg,v)~(q,ρ(g)v). Then the O1 coefficient sheaf for this finite-rank representation and the Siegel factor Jγ(Z) is canonically isomorphic to Eρ|X_w. Its pulled-back coefficients satisfy γ*f=ρ(Jγ(Z))⁻¹f. For a Levi with a separate similitude character this statement uses the trivial character on that extra factor; extra twists must be included explicitly.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.",
+        "V is finite-dimensional and ρ algebraic; O0 supplies its analytic restriction.",
+        "B4 supplies Q and its associated bundle with the stated right-torsor convention, and O1 supplies effective descent."
+      ],
+      "proofSteps": [
+        "Pull back Q and trivialize it by the actual frame s from hodge-frame-transformation.",
+        "The associated-bundle relation converts sγ=sJγ into the coefficient change ρ(Jγ)⁻¹. factor-composition proves that these changes compose correctly; O1 supplies the generic representation-valued descent theorem.",
+        "Apply the O1 equivalence to the equivariant trivial bundle and the pullback of Eρ, whose transition maps agree. This proves the isomorphism.",
+        "For comparison with the induced highest-weight model, keep the corrected antidiagonal_dual_factor available, but do not infer equality with its infinite-dimensional analytic enlargement."
+      ],
+      "acceptance": [
+        "The standard representation recovers ω with its rank g.",
+        "The determinant representation agrees with determinant-hodge-specialisation at m=1.",
+        "The dual standard representation recovers ω∨.",
+        "A Schur representation recovers the corresponding B4 Schur-functor bundle.",
+        "For g≥2, specializing an analytic induced module at an algebraic weight is not asserted to collapse to this finite-rank representation."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/factor-composition",
+        "OverconvergentAutomorphicForms:O8/antidiagonal-dual-factor",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "AutomorphicBundles:B4/siegel-coefficient",
+        "AutomorphicBundles:B0/sections-equivariant",
+        "AutomorphicBundles:B2/levi-highest-weight-convention"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "declarationName": "TauCeti.Overconvergent.Siegel.algebraic_levi_specialisation",
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Corollary 2.4.2, p. 17; §3.4 and Proposition 3.4.3, pp. 37–38",
+          "excerpt": "ρk",
+          "match": "The finite-representation recovery is proved through the frame torsor with an explicit associated-bundle convention. The source motivates the comparison; its printed highest-weight torsor description and intertwiner require the recorded corrections."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Algebraic automorphic bundles"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/determinant-line-map",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Determinant eigenline in Siegel coefficients",
+      "kind": "construction",
+      "declarationName": "TauCeti.Overconvergent.Siegel.determinantLineMap",
+      "statement": "For a finite index set n, commutative rings R,S and a homomorphism χ:R×→S×, construct the S-linear map Lχ:S→(GL(n,R)→S), Lχ(a)(g)=a·χ(det g). Its image is the rank-one free determinant-character line, canonically isomorphic to S. This is the specific Siegel scalar eigenline embedding, not a new definition of induction or analytic functions. For an O0 character defined only on the determinant neighbourhood of an analytic Iwahori, the same formula is constructed directly on that group. Its multiplicativity and analyticity use the local O0 extension; no extension to every unit of C_p is asserted.",
+      "hypotheses": [
+        "n is finite with decidable equality; R,S are commutative rings; χ is a homomorphism into units.",
+        "No analyticity or geometric assertion is made about the unrestricted function module."
+      ],
+      "proofSteps": [
+        "Use the pointwise S-module on functions and the existing determinant homomorphism to construct the bundled LinearMap.",
+        "Evaluate at the identity to obtain a left inverse, hence injectivity; use multiplicativity of determinant for both translation laws.",
+        "For analytic coefficients, repeat this formula on the actual Iwahori group using the O0 local character extension on its determinant image; use determinant multiplicativity and evaluation at the identity there. A globally defined χ is required only for the unrestricted finite prototype. No identification with the whole induced module follows."
+      ],
+      "acceptance": [
+        "Evaluation at the identity recovers a, including over a ring with zero divisors.",
+        "For χ=id over Q and g=diag(2,3), Lχ(1)(g)=6; a constant-function embedding gives the wrong answer.",
+        "Every upper-unipotent genus-two g has value 1 for L_id(1)."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap",
+        "mathlib:Matrix.GeneralLinearGroup.det",
+        "mathlib:Matrix.GeneralLinearGroup.mkOfDetNeZero",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.det_transpose"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Definitions 3.1.10 and 3.1.14, pp.23–24; Proposition 3.4.3, p.38",
+          "excerpt": "f (γ β) = κ(β)f (γ)",
+          "match": "The determinant function gives a concrete finite-character submodule of the displayed induced coefficient module. The unrestricted algebraic map is its directly derived reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_apply",
+          "role": "simp",
+          "statement": "Lχ(a)(g)=a·χ(det g)."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_at_one",
+          "role": "projection",
+          "statement": "Lχ(a)(1)=a."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_injective",
+          "role": "characterisation",
+          "statement": "Lχ is injective; its image is canonically a copy of S."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_left_translate",
+          "role": "relation",
+          "statement": "Lχ(a)(hg)=χ(det h)·Lχ(a)(g)."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_right_translate",
+          "role": "relation",
+          "statement": "Lχ(a)(gb)=χ(det b)·Lχ(a)(g); this includes the full upper-unipotent invariance used in Borel induction."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_trivial",
+          "role": "compatibility",
+          "statement": "For the trivial character, Lχ(a) is the constant function with value a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "O8 scalar determinant weights and DRW Definition 3.1.14",
+          "how": "Identifies the finite determinant line inside the induced coefficient space and derives its inverse descent factor."
+        },
+        {
+          "where": "O8 determinant Hodge specialization and DRW Proposition 3.4.3",
+          "how": "Tests the distinction between the rank-one classical subobject and the full analytic sheaf."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_test_trivial",
+          "kind": "degenerate",
+          "statement": "For χ=1, every a and g satisfy Lχ(a)(g)=a."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_test_diagonal",
+          "kind": "computation",
+          "statement": "For R=S=Q, χ=id, a=1 and the genuine GL₂ element diag(2,3), Lχ(1)(g)=6."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_test_unipotent",
+          "kind": "computation",
+          "statement": "For R=S=Q, χ=id and g=[1,7;0,1], Lχ(1)(g)=1."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Siegel.determinantLineMap_test_evaluation",
+          "kind": "characterisation",
+          "statement": "For any χ and a,b, equality Lχ(a)=Lχ(b) implies a=b, by evaluation at 1."
+        }
+      ]
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Analytic Siegel coefficient sheaves",
+      "kind": "theorem",
+      "declarationName": "TauCeti.Overconvergent.Siegel.siegel_analytic_instance",
+      "statement": "Let U=Spa(A,A+) be a bounded smooth weight family on the diagonal torus of GL_g with an O0 uniform r-analytic character κ, trivial on the upper-unipotent subgroup. For rational w>1+r, use the O0 coefficient module Cκ^(w-an)(Iw_GLg,B) of analytic functions satisfying f(ℓb)=κ(b)f(ℓ), with representation ρκ(h)f(ℓ)=f(hᵀℓ). On the supplied Siegel domain X_w, O1 applied to Jγ=Aγ+ZCγ yields the sheaf whose sections on V are analytic coefficients F on Y_w×_Xw V satisfying γ*F=ρκ(Jγ)⁻¹F. Its restriction and bounded family maps are the O1 maps. For κ=χ∘det the determinantLineMap formula, evaluated directly on the actual Iwahori with the O0 local extension of χ, identifies a rank-one subobject with scalar-coefficient-identification, not the entire induced sheaf.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "w>1+r; the family has a uniform character extension, analytic action of all occurring Jγ, and completed coefficients supplied by O0.",
+        "The period-domain application uses p odd. A canonical-domain assertion uses the T3 quantitative comparison with p>2g. Integral assertions require the analytic Gauss lattice, not pointwise integral values."
+      ],
+      "proofSteps": [
+        "Import the analytic Iwahori module, transpose-left representation and bounded base-change interface from O0.",
+        "Use hodge-frame-transformation and factor-composition to supply the actual right-action factor to O1; the inverse representation order is ρ(Jδ(Zγ))⁻¹ρ(Jγ(Z))⁻¹.",
+        "Apply the O1 sheaf/restriction/family construction; evaluate the determinantLineMap formula on the actual analytic group using the local O0 character to obtain the scalar subobject. A character initially on Z_p× is not assumed to extend to all C_p×."
+      ],
+      "acceptance": [
+        "The identity group element acts identically and two noncommuting genus-two elements satisfy the correct shifted cocycle.",
+        "At κ=1 and g≥2, analytic functions in the lower-unipotent coordinate survive; the entire fibre is not the one-dimensional constant line.",
+        "At g=1 the unipotent coordinate set is empty and the determinant induced module is a character line.",
+        "Restriction to a smaller supplied radius domain and bounded weight specialization agree with O1, under its analytic hypotheses."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/factor-composition",
+        "OverconvergentAutomorphicForms:O8/determinant-line-map",
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Definition 3.1.10, Remark 3.1.13 and Definition 3.1.14, pp.23–25",
+          "excerpt": "Cκw−an",
+          "match": "The displayed induced-module sheaf is instantiated through O0/O1; the inverse factor and genus are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Analytic Siegel coefficient sheaves"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Algebraic coefficients inside analytic Siegel coefficients",
+      "kind": "theorem",
+      "declarationName": "TauCeti.Overconvergent.Siegel.algebraic_induced_injection",
+      "statement": "For a dominant polynomial weight k=(k₁≥⋯≥k_g≥0), take the algebraic Borel-equivariant realization P_k of regular functions GL_g→A¹ with f(ℓb)=k(b)f(ℓ), using the transpose-left representation ρ_k of DRW Definition 3.4.2. On the same X_w with w>1+r_k, restriction of regular functions to the analytic Iwahori group induces a monomorphism E_{ρ_k}|X_w→ω_k,w, functorial in open restriction. E_{ρ_k} is the B4 bundle after the B2 highest-weight/dual conversion has identified this specific realization. This is an injection; no equality with the entire analytic induced module is asserted for g≥2. The scalar polynomial weight k=(m,…,m), m≥0, gives the determinant Hodge line subobject. Negative determinant weights are handled by finite-line dual descent, independently of this polynomial-weight source theorem.",
+      "hypotheses": [
+        "g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.",
+        "K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.",
+        "Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.",
+        "The O0 restriction map from the algebraic induced realization to analytic induction is an equivariant injection; it includes full right-Borel equivariance, not merely torus eigenvectors.",
+        "The B2 weight convention identifies ρ_k with the required B4 coefficient; no unproved equality of a representation and its dual is assumed."
+      ],
+      "proofSteps": [
+        "Use the genuine regular-function/Borel-equivariant algebraic realization from O0 and B4/B2, together with its analytic restriction monomorphism.",
+        "Apply algebraic-levi-specialisation to its finite fibre representation; compare with siegel-analytic-instance under the same Jγ.",
+        "Descend the equivariant injection by O1. The finite associated-bundle route bypasses the incorrect frame-factor order in the printed Proposition 3.3.10."
+      ],
+      "acceptance": [
+        "For g=1 the map identifies the character fibre, and for constant dominant weights its finite source is det(ω)^m.",
+        "For g=2, k=0, nonconstant analytic functions of the lower-unipotent coordinate show why surjectivity must not be claimed.",
+        "The regular function x11*x22/det(x) is torus invariant but not right-upper-unipotent invariant; it is excluded from P_0."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "AutomorphicBundles:B2/levi-highest-weight-convention",
+        "AutomorphicBundles:B4/siegel-coefficient",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Definition 3.4.2 and Proposition 3.4.3, p.38",
+          "excerpt": "a natural injection",
+          "match": "The finite realization and its analytic inclusion are retained; the classical frame sheaf is corrected to full Borel equivariance."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/atkin-lehner-chart",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Atkin–Lehner change of Siegel graph chart",
+      "kind": "lemma",
+      "declarationName": "TauCeti.Overconvergent.Siegel.atkin_lehner_chart",
+      "statement": "For a finite index set n and commutative ring R, let q∈R. Then [I,Z][0,I;−qI,0]=[−qZ,I]. Thus over a p-adic coefficient field the Atkin–Lehner matrix with q=p changes the anticanonical graph coordinate Z to the canonical-chart coordinate Z′=−pZ. The graph identity alone says nothing about canonical subgroups or domain quotients.",
+      "hypotheses": [
+        "n finite with decidable equality; R commutative; q any element for the first identity and q a unit for the inverse formula."
+      ],
+      "proofSteps": [
+        "Apply Matrix.fromCols_mul_fromBlocks and simplify the scalar block products.",
+        "Verify both block inverse products with Matrix.fromBlocks_multiply; specialize q to p in the coefficient field.",
+        "Import the actual quotient/domain map from T3/S3 when using this identity to transport sheaves."
+      ],
+      "acceptance": [
+        "At genus one [1,z] maps to [−qz,1]; the sign and factor q are both visible.",
+        "The formula holds at Z=0, including q=0; invertibility is asserted only for units q."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.fromCols_mul_fromBlocks",
+        "mathlib:Matrix.fromBlocks_multiply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "drw-v3",
+          "locator": "Remark 3.6.2, Atkin–Lehner display, p.43; canonical-chart coordinates in §3.6, p.42",
+          "excerpt": "AL : Fℓ×_{w−1} → Fℓ×_{can,w}",
+          "match": "The displayed row-graph identity gives Z′=−pZ in the canonical chart. The finite identity is separate from canonical-subgroup geometry; the missing prime in the p.42 domain formula is recorded as E-O8-15."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Coefficients on the toroidal tower diamond",
+      "kind": "theorem",
+      "declarationName": "TauCeti.Overconvergent.Siegel.toroidal_coefficient_instance",
+      "statement": "For the genuine toroidal tower diamond D and period map π_HT^tor:D→FL supplied by S6, pull back the canonical M^c_μ-torsor on FL. Given a representation V in the O0/O1 coefficient category with an actual analytic action of M^c_μ (or a supplied reduction), form its associated coefficient object on D using O1. It is functorial in equivariant representation maps and agrees with the open-domain construction on the open Shimura subdiamond. Finite-level descent is asserted only for the effective descent data exported by O1; infinite Banach descent is not deduced from a pro-étale torsor alone. The construction uses diamonds and does not assert representability of D by a perfectoid space.",
+      "hypotheses": [
+        "A Shimura datum (G,X), neat finite level K=K^pKp and a smooth admissible toroidal cone system Σ in characteristic zero; F/Qp finite contains the reflex field and splits G and μ as in BP §4.4.",
+        "Use G^c and M^c_μ, the central quotient and Levi of the imported canonical coefficient construction; the Hodge and Hodge–Tate parabolics are opposite.",
+        "S6 supplies the inverse-limit toroidal diamond D and period map, with the compatible deck actions preserving the chosen cone system. General G(Qp) Hecke maps are correspondences between compatible levels and cone decompositions, using common refinements; a G(Qp) action on D at a fixed Σ is not assumed. T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
+        "The chosen fibre object belongs to the supplied descent category; a torus character alone is not an action of the full Levi."
+      ],
+      "proofSteps": [
+        "Import S6 and T6:comparison, specifically BP Theorem 4.4.40, rather than reconstructing logarithmic period sheaves or the period map.",
+        "Apply the existing O1 associated coefficient functor to the actual pullback torsor and the specified full group action/reduction.",
+        "Use functoriality and restriction in O1 for representation morphisms and the open embedding; retain the boundary site."
+      ],
+      "acceptance": [
+        "The trivial finite fibre gives the completed structure sheaf on D.",
+        "The Siegel open restriction with its chosen graph frame gives the same Jγ as hodge-frame-transformation.",
+        "A character given only on a compact torus cannot be used on the full Levi without an analytic extension or an actual reduced torsor.",
+        "At fixed Σ only the supplied cone-compatible deck actions are used; a general Hecke element requires compatible cone changes and a common refinement."
+      ],
+      "prerequisites": [
+        "PerfectoidShimuraVarieties:S6",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "AutomorphicBundles:B0/hodge-parabolic-convention",
+        "AutomorphicBundles:B0/sections-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "bp-author",
+          "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
+          "excerpt": "at the expense of working with diamonds",
+          "match": "The geometry/torsor identification is imported from S6/T6; O8 applies the generic coefficient functor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toroidal diamond coefficients"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Toroidal algebraic coefficients and the cyclotomic twist",
+      "kind": "theorem",
+      "declarationName": "TauCeti.Overconvergent.Siegel.toroidal_algebraic_comparison",
+      "statement": "For a finite-dimensional algebraic representation ρ of M^c_μ, the finite coefficient object associated to π_HT^tor* (G^c,an/U_P) on D is isomorphic to the pullback of the canonical toroidal automorphic bundle Eρ^can associated to M_dR, twisted by the μ-action on Zp(1). On a μ-central summand where ρ∘μ has character t↦t^j, this is h*Eρ^can⊗Qp(j) after completed scalar extension. Without a chosen compatible root system the Tate line must remain in the statement. The comparison is compatible with tensor products, duals, representation morphisms and restriction to the open subdiamond.",
+      "hypotheses": [
+        "A Shimura datum (G,X), neat finite level K=K^pKp and a smooth admissible toroidal cone system Σ in characteristic zero; F/Qp finite contains the reflex field and splits G and μ as in BP §4.4.",
+        "Use G^c and M^c_μ, the central quotient and Levi of the imported canonical coefficient construction; the Hodge and Hodge–Tate parabolics are opposite.",
+        "S6 supplies the inverse-limit toroidal diamond D and period map, with the compatible deck actions preserving the chosen cone system. General G(Qp) Hecke maps are correspondences between compatible levels and cone decompositions, using common refinements; a G(Qp) action on D at a fixed Σ is not assumed. T6:comparison supplies the canonical torsor comparison including the μ-cyclotomic twist. The relevant completed structure sheaf and descent category are supplied by O1.",
+        "ρ is algebraic and finite-dimensional; canonical toroidal extension is the normalized one supplied by B3.general. On an arithmetic base retain the Tate line; on C_p an untwisted formula requires a fixed trivialization."
+      ],
+      "proofSteps": [
+        "Use the S6/T6 identification M_HT=M_dR×^{μ,Zp×}Zp(1) from BP Theorem 4.4.40.",
+        "Apply the associated finite coefficient functor and B0 sections-equivariant, and use the B3.general canonical extension rather than an arbitrary boundary extension.",
+        "Decompose according to the central μ-weights when giving the explicit Tate-summand formula; use tensor/dual compatibility of the imported torsor equivalence."
+      ],
+      "acceptance": [
+        "The trivial representation has j=0 and gives the structure sheaf comparison.",
+        "For a μ-weight-one line the comparison retains Qp(1); dropping it changes arithmetic Galois descent.",
+        "After the specified Siegel twist trivialization, restriction to the graph domain agrees with determinant-hodge-specialisation and algebraic-levi-specialisation.",
+        "At fixed Σ only the supplied cone-compatible deck actions are used; a general Hecke element requires compatible cone changes and a common refinement."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "PerfectoidShimuraVarieties:S6",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "AutomorphicBundles:B3.general/general-canonical-extension",
+        "AutomorphicBundles:B0/sections-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "bp-author",
+          "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
+          "excerpt": "up to a cyclotomic twist by µ",
+          "match": "The torsor identity is transported through the finite associated-bundle functor; Tate weights are retained."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Coefficients on a supplied datum-specific reduction",
+      "kind": "application",
+      "declarationName": "TauCeti.Overconvergent.Siegel.supplied_domain_instance",
+      "statement": "For a unitary or other Shimura datum, let U be an actual analytic domain in its finite-level variety or toroidal diamond, Q_H→U an actual analytic H-torsor reduction of the canonical Levi torsor supplied by its geometry owner, and V an O0 analytic coefficient with an action of H. The O1 coefficient sheaf associated to (Q_H,V) is the datum-specific instance on U. For finite algebraic V extending to the Levi, extension of structure group identifies this sheaf with the canonical B4 datum-specific bundle restricted to U, with any T6 cyclotomic twist retained. A morphism of supplied domains/reductions induces the O1 coefficient pullback map. This statement constructs no ordinary locus and assumes no canonical subgroup for arbitrary data.",
+      "hypotheses": [
+        "The datum, characteristic-zero coefficient base, level, actual domain and topology are supplied, not encoded by an unspecified proposition.",
+        "Q_H is a genuine reduction and V has an analytic H-action at its proven radius; O1 supplies effective descent in this category.",
+        "For the finite comparison, V extends algebraically to the full Levi and B4 supplies that datum-specific associated bundle."
+      ],
+      "proofSteps": [
+        "Import the supplied analytic reduction and its map to the canonical Levi torsor.",
+        "Instantiate O1 on this reduction with the supplied O0 fibre action; use associated-torsor extension of structure group for finite algebraic V.",
+        "Transport the B4 bundle through that equivalence and the T6 twist; obtain pullback naturality directly from O1."
+      ],
+      "acceptance": [
+        "With a trivial reduction the coefficient sheaf is the corresponding function sheaf tensored with V.",
+        "With the Siegel Hodge-frame reduction the result recovers the Siegel nodes in this packet.",
+        "Changing a frame by h changes coefficient coordinates by ρ(h)⁻¹; a noncommuting pair tests the order.",
+        "An arbitrary unitary datum without a supplied analytic reduction is outside the hypotheses."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "AutomorphicBundles:B0/sections-equivariant",
+        "AutomorphicBundles:B4",
+        "PerfectoidShimuraVarieties:S6",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "bp-author",
+          "locator": "§4.6.12, pp.94–95 and §6.3.1, p.153",
+          "excerpt": "reduction to an étale torsor",
+          "match": "The analytic reduction is imported as data; its associated coefficient formalism supplies the instance. BP proves a specific such reduction under its own hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "OverconvergentAutomorphicForms:O8/bruhat-reduced-family",
+      "parentStageId": "OverconvergentAutomorphicForms:O8",
+      "realises": [
+        "OverconvergentAutomorphicForms:O8"
+      ],
+      "title": "Coefficient families on Bruhat period domains",
+      "kind": "theorem",
+      "declarationName": "TauCeti.Overconvergent.Siegel.bruhat_reduced_family",
+      "statement": "In the BP quasi-split abelian-type setting, choose a split finite coefficient field F, compatible reductive O_F model and rational Borel/torus, neat tame level and toroidal Σ. Let Kp=Kp,m′,0 with m′>0 and w∈^M W. For n≥0 use the supplied étale reduction M_dR,n,Kp on U_w,n=(π_HT,Kp^tor)⁻¹(]C_w,k[_n,n Kp), under H=Kp,w,Mμ^c Mμ,n^c. For a complete Tate affinoid (A,A+) over (F,O_F) and n-analytic ν_A:T^c(Zp)→A×, put κ_A=−w0,M wν_A−(w0,M wρ+ρ), using BP additive weight notation and the same positive roots. The O0/O1 coefficient sheaf on U_w,n is the BP §6.3.1 sheaf of functions on M_dR,n,Kp×Spa(A,A+) satisfying f(mb)=(w0,M κ_A)(b⁻¹)f(m) for b∈B^c∩H. When ν is algebraic and κ is Mμ-dominant, it admits the finite canonical coefficient injection Vκ→Vν^(n-an) of BP Proposition 6.3.6. This supplies a proved datum-specific reduction instance beyond a universal ordinary neighbourhood claim.",
+      "hypotheses": [
+        "G_Qp is quasi-split; G splits over F; use the actual integral model and Kp,m′,0 of BP §3.5.1, not a guessed principal-congruence subgroup.",
+        "The toroidal setup is of abelian type as in the reduction section; F is enlarged when needed so the μ-cyclotomic image lies in the reduction group.",
+        "For the precursor reduction with m,n≥0 require 0≤m−n≤m′−1 (BP Proposition 4.6.12); the family uses m=n and the pushout on p.95.",
+        "O0 supplies the analytic induction with precisely this character, root shift and action; O1 supplies completed analytic descent. No local projectivity claim is made without the finite-trivializing cover conditions."
+      ],
+      "proofSteps": [
+        "Import the S6 reduction theorem with the BP radius/level and cyclotomic hypotheses, then push out the m=n reduction to the affinoid thickening group H.",
+        "Use the O0 analytic induced realization with ν→κ and the exact Borel-equivariance convention; instantiate supplied-domain-instance.",
+        "For algebraic κ dominant, restrict regular Borel-equivariant functions to analytic ones, then apply O1 to the finite injection; import the canonical coefficient from B4/B2."
+      ],
+      "acceptance": [
+        "The root correction w0,M wρ+ρ remains visible; replacing ν by κ without it gives the wrong finite coefficient.",
+        "For a torus Levi there are no unipotent analytic coordinates; the fibre is the character line.",
+        "The n=n radius choice satisfies the reduction inequality for every m′>0, whereas m−n>m′−1 is excluded.",
+        "For G=Res_Qp²/Qp GL₂ and the mixed cocharacter of BP Example 4.6.10, Kp,w,Mμ is the actual projected subgroup, not an independently chosen full product Iwahori."
+      ],
+      "prerequisites": [
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "PerfectoidShimuraVarieties:S6",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "AutomorphicBundles:B2/levi-highest-weight-convention",
+        "AutomorphicBundles:B4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
+        "namespace": "TauCeti.Overconvergent.Siegel"
+      },
+      "sources": [
+        {
+          "sourceId": "bp-author",
+          "locator": "§4.6.8–4.6.15, pp.92–95; §6.3.1 and Proposition 6.3.6, pp.153–154",
+          "excerpt": "p-adic families of sheaves",
+          "match": "The source proves the explicit Bruhat-domain reduction and instantiates analytic induction; only this coefficient-level application belongs to O8."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Bruhat-domain coefficient families"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PerfectoidShimuraVarieties:S1",
+      "need": "Open Siegel infinite-level tower with a right group action, the group-theoretic strict-Iwahori quotient and the pro-étale torsor on the open domain. Use inverse image of the full diagonal torus modulo p; source E-O8-1 rules out defining that quotient by only g order-p subgroups.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation"
+      ]
+    },
+    {
+      "supplier": "PerfectoidShimuraVarieties:S3",
+      "need": "Actual equivariant Siegel period map, row-graph chart, stable domains Fl×_w and π_HT*W∨≅h*ω with first-g-coordinate frame and specified Tate trivialization. Include the determinant-neighbourhood bound for A+ZC at strict-Iwahori level.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation"
+      ]
+    },
+    {
+      "supplier": "HodgeTateAndCanonicalSubgroups:T3",
+      "need": "Siegel extension of the quantitative canonical-subgroup domain interface: DRW §3.6 uses p>2g, Z′=−pZ (use the primed coordinates in the canonical-domain definition; E-O8-15), and Proposition 3.6.12 requires c_g+n−1<w≤n, c_g=(2g−1)p/(2g(p−1)). Export the cofinal Hasse/period-domain comparison with actual radius bounds and a uniform affinoid argument; do not use Corollary 3.6.13 under its weaker printed inequality or infer a uniform strict bound from pointwise bounds. This is additional Siegel input in the existing T3 direction, not an O8 construction.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance"
+      ]
+    },
+    {
+      "supplier": "OverconvergentAutomorphicForms:O0",
+      "need": "Export uniform analytic characters and full GL_g/Levi Iwahori induced coefficient modules, transpose-left actions, bounded family/radius maps, Gauss lattices, the coefficient module structure (not a fixed-weight algebra: E-O8-16), analytic restriction of finite algebraic representations, and injectivity of restriction of regular full-Borel-equivariant functions. For BP retain κ=−w0,M wν−(w0,M wρ+ρ). The current O0 packet treats Hilbert unit/norm characters and does not provide these higher-rank interfaces.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ]
+    },
+    {
+      "supplier": "OverconvergentAutomorphicForms:O1",
+      "need": "Export the genuine coefficient-sheaf/associated-torsor functor with open restriction, bounded family maps, equivariant monomorphism descent and effective finite-rank descent on the supplied analytic, pro-Kummer-étale and diamond/v-site categories. Retain Jγδ(x)=Jγ(x)Jδ(xγ), hence inverse coefficient order ρ(Jδ(xγ))⁻¹ρ(Jγ(x))⁻¹. No effectivity of arbitrary Banach pro-étale descent may be assumed.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ]
+    },
+    {
+      "supplier": "AutomorphicBundles:B4",
+      "need": "Supply the analytification of the genuine Siegel Hodge-frame associated bundles and the unitary/other datum-specific canonical finite coefficient for the supplied analytic reduction. Reuse B4/siegel-coefficient, B0/sections-equivariant and B2/levi-highest-weight-convention for existing algebraic definitions; only analytic compatibility and the precise non-Siegel instance are requested.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ]
+    },
+    {
+      "supplier": "PerfectoidShimuraVarieties:S6",
+      "need": "Export the actual toroidal inverse-limit diamond, its cone-compatible deck actions, Hecke correspondences with common cone refinements, and canonical Levi-torsor pullback of BP Theorem 4.4.40. Also export the abelian-type quasi-split Bruhat-domain reduction of BP Proposition 4.6.12 with 0≤m−n≤m′−1, the cyclotomic containment after enlarging F, the m=n pushout on p.95 and the projected Kp,w,Mμ group. Its proof is geometry owned by S6, not a second O8 period-map construction.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ]
+    },
+    {
+      "supplier": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "need": "Canonical logarithmic local-system/de Rham comparison and M_HT=M_dR×^{μ,Zp×}Zp(1), tensor/dual compatible over the toroidal boundary, as BP §4.4.38–4.4.40. Retain the opposite parabolics, G^c quotient, Tate weight and arithmetic descent; an open abelian comparison cannot replace this boundary theorem.",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "OverconvergentAutomorphicForms:O8",
+      "status": "planned",
+      "remaining": [
+        "Implement/export the exact higher-rank O0/O1 and S1/S3/S6/T6 supplier interfaces; replace stage prerequisites by verified node IDs as those owners supply them.",
+        "Resolve the uniform quantitative Siegel canonical-domain gap; collate the confirmed preprint findings against the version of record when its full text is accessible.",
+        "State the eleven genuine geometric suggested signatures once supplier types exist; the finite prototype is not a sheaf implementation.",
+        "Validate the declared highest-weight, opposite-parabolic, central-character and cyclotomic conventions in the assembled owner interfaces."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Genuine geometric and analytic suggested signatures",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ],
+      "detail": "The baseline lacks the actual Siegel spaces, canonical coefficient sheaves, analytic induced modules and toroidal diamonds required for these eleven geometric declarations. Their mathematical interfaces are fully specified by the nodes and owner requests, but their Lean signatures are omitted until the genuine supplier types exist. No Prop-valued stand-ins are used. The suggested file states the six finite matrix lemmas, determinant-line construction, all six API items, four named unit tests and concrete acceptance examples."
+    },
+    {
+      "title": "Uniform Siegel canonical-domain comparison",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance"
+      ],
+      "detail": "The period domains and supplied-domain applications are planned. Closure of the claimed canonical/Hasse-domain identification requires the T3 Siegel extension, including p>2g and repairs to E-O8-12/13/15. The BP Bruhat reduction does not substitute for this genus-specific canonical-subgroup theorem."
+    },
+    {
+      "title": "Corrected analytic induction and version-of-record collation",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection"
+      ],
+      "detail": "O0/O1 must export the full analytic Iwahori module with the correct Gauss lattice and Borel action. The finite associated-bundle comparison is specified independently of DRW Proposition 3.3.10; its printed antidiagonal intertwiners and unipotent normalization are not treated as verified proofs. All sixteen source findings are independently confirmed in the hashed arXiv v3; their presence in the published version is unverified. O0 must retain a fixed-weight coefficient module, with multiplication landing in the product-weight module (E-O8-16). The corrected intertwiners and the uniform-domain argument still need supplier proofs. No AIP sheaf equivalence or classicality theorem is included in the O8 targets."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-1",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Definition 2.2.1(iv) and Remark 2.2.2, pp. 10–11 (rendered); arXiv v3 only",
+      "printed": "{Ci : i = 1, ..., g}",
+      "correction": "Define the strict-Iwahori level by the full-level tower quotient by the inverse image of the diagonal torus. A moduli description needs enough ordered symplectic line data to have that stabilizer, not only g pairwise-disjoint order-p subgroups.",
+      "reason": "For g=1 a single order-p subgroup is one line in F_p². Its stabilizer is a Borel, which contains nontrivial unipotents and is strictly larger than the diagonal torus. Under the source row convention the matrix [1,0;1,1] fixes the first row line and is not diagonal. The displayed block-diagonal stabilizer assertion therefore fails already in genus one. For larger g, pairwise disjointness also does not assert joint independence or isotropy.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp.10–11: in genus one a single line has a Borel stabilizer, including the displayed lower unipotent. The diagonal-torus quotient requires more level data. This concerns the v3 moduli/stabilizer assertion, not the existence of the group-theoretic quotient.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-2",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "§2.3 normalized basis, p. 14 (rendered), against §2.1 p. 7; arXiv v3 only",
+      "printed": "(⟨w□i , e2g+1−j ⟩)1≤i,j≤g = 1g",
+      "correction": "With the pairing matrix [0,−W;W,0] and graph basis e_i+Σ_j Z_ij e_{g+j}, normalize this pairing matrix to −I. Equivalently reverse the pairing arguments. Keep the [I,Z] graph convention used in the subsequent calculations.",
+      "reason": "At Z=0, the displayed graph basis is e_i and §2.1 gives ⟨e_i,e_{2g+1−j}⟩=−δ_ij. The equations on p. 14 cannot simultaneously have the stated +I normalization and the positive e_i leading term.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the pairing matrix on p.7 and the graph basis on p.14: at Z=0 the specified pairing is −δ_ij. Changing the normalization to −I preserves the subsequent [I,Z] chart.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-3",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Lemma 2.2.5, final identity, p. 13; arXiv v3 only",
+      "printed": "hIw,∗",
+      "correction": "The final strict-Iwahori identity must use h_Iw+,∗.",
+      "reason": "The left-hand side is a sheaf on X_Iw+; h_Iw,∗ has target X_Iw. The proof describes the second pair as the same construction at strict-Iwahori level.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.13: the strict-Iwahori equality has target X_Iw+, while the printed pushforward h_Iw,* lands on X_Iw. The missing plus is a type mismatch.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-4",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Remark 3.1.7, p. 22 (rendered); arXiv v3 only",
+      "printed": "p⌈r⌉",
+      "correction": "The closed balls partitioning Z_p^n have radius p^(−ceil(r)) under |p|=p^(−1).",
+      "reason": "Their underlying cosets are a+p^ceil(r) Z_p^n. A ball of radius p^ceil(r)>1 is not such a coset; the surrounding formulas use the negative exponent.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered p.22 radius sentence. Cosets a+p^ceil(r)Z_p^n have radius p^(−ceil(r)) for |p|=p^−1; the printed positive exponent cannot give the claimed partition.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-5",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Definition 3.1.6(iii) and Remark 3.1.7, p. 22 (rendered); arXiv v3 only",
+      "printed": "with value in B◦",
+      "correction": "The unit ball for the displayed analytic Gauss norm requires integral bounds on the analytic extension to each C_p-disc, equivalently on all scaled coefficients. Pointwise values on Z_p^n alone do not give that lattice.",
+      "reason": "Take r=1,n=1,B=C_p and an odd prime p. On pZ_p set f(x)=((x/p)^p−x/p)/p and set f=0 on each other residue class. This is 1-analytic and O_Cp-valued on every Z_p point by Fermat reduction. On the 0+pZ_p chart its series in T/p has coefficients 1/p and −1/p, so its radius-p^(−1) Gauss norm is p>1. Thus the stated pointwise lattice is larger than the analytic Gauss unit ball.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Definition 3.1.6(iii) and the rendered Remark 3.1.7. The given r=1 polynomial has integral values at all Z_p points but scaled coefficients of norm p. It lies outside the analytic Gauss unit ball, so the two proposed lattices differ.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-6",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Remark 3.1.12, p. 23 (rendered); arXiv v3 only",
+      "printed": "κU|U(w)GLg,0 = 0",
+      "correction": "The multiplicative character restricts to 1 on the unipotent subgroup, as in Definition 3.1.10(ii).",
+      "reason": "A homomorphism into units sends the identity to 1, not 0; the formula f(ντν′)=κ(τ)f(ν) on p. 24 requires the trivial multiplicative character.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.23: the character takes values in units, Definition 3.1.10(ii) makes it 1 on the unipotent subgroup, and the printed restriction 0 violates the identity axiom.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-7",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Definition 3.1.14(v), first colimit, p. 25 (rendered); arXiv v3 only",
+      "printed": "MκU Iw,w",
+      "correction": "Use M^κU_Iw+,w on the right side when defining forms of strict-Iwahori level.",
+      "reason": "The preceding definition fixes strict-Iwahori level; the other adjacent colimit and cuspform formulas retain the plus. A change of level cannot be omitted from a definition.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.25: the defining strict-Iwahori colimit drops the plus on its right-hand module; adjacent cuspform and Iwahori-level formulas distinguish the levels.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-8",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Remark 3.3.9, p. 34 (rendered); arXiv v3 only",
+      "printed": "γ ∈ Γ(pn)",
+      "correction": "Use γ∈Iw+_GSp for representatives of the Iw+_GSp/Γ(p^n) quotient action.",
+      "reason": "The principal congruence subgroup already acts trivially under the twisted action on the displayed invariant sheaf. Its elements alone cannot define the remaining finite quotient action.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.34: Γ(p^n) already acts trivially on the invariant sheaf. The quotient action requires representatives in Iw+_GSp, as the finding states.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-9",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Proposition 3.3.10, construction Ψ2 and display defining Φ, p. 36 (rendered); arXiv v3 only",
+      "printed": "g|U(w)GLg,0 = 1",
+      "correction": "Functions descending through the quotient must be invariant under right translation by U^(w), meaning g(xu)=g(x); they need not take the value 1 there.",
+      "reason": "The claimed map is an isomorphism of modules. The zero function on the source maps to zero on the quotient parametrization, while the printed target excludes zero. Right-unipotent invariance gives the requisite linear subspace.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the rendered p.36 Φ target: its condition excludes zero, although the claimed isomorphism is linear. Right-unipotent invariance is the quotient condition; normalization to value 1 is not.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-10",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Proposition 3.3.10, constructions Ψ1 and Ψ2, pp. 35–36 (rendered p. 36); arXiv v3 only",
+      "printed": "γ‡a + z γ‡c",
+      "correction": "Replace the antidiagonal transpose of J=a+zc by J‡=a‡+c‡z when z‡=z. Recheck both intertwiners, their representation convention and ensuing comparison rather than changing a single occurrence.",
+      "reason": "Transpose is an antihomomorphism. With W=[0,1;1,0], z=E12, c=qE21, a=d=I,b=0, q=p^n≠0, the symplectic principal-level element has J=diag(1+q,1). Therefore J‡=diag(1,1+q), whereas a‡+zc‡=diag(1+q,1). The printed Ψ2 equality s W W J W=s W transpose(a‡+zc‡) fails in these coordinates. The corrected finite identity is a node with two genus-two acceptance examples.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both p.36 intertwiner computations. Antidiagonal transpose reverses products; with Z=E12, C=qE21, A=D=I the true dual factor is diag(1,1+q), while the printed expression is diag(1+q,1). This invalidates that displayed step and does not alone disprove the main comparison theorem.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-11",
+      "source": "drw-v3",
+      "kind": "gap",
+      "locator": "§3.4 definition of the classical sheaf, pp. 37–38 (rendered p. 38); arXiv v3 only",
+      "printed": "ϑ∗OM[k∨]",
+      "correction": "On the full GL_g frame torsor, specify right-unipotent invariance as well as the torus character, or work on the corresponding flag quotient with its torus torsor. Use B4 associated finite-dimensional representations for the bundle comparison.",
+      "reason": "A torus eigenspace of regular functions on GL_g is generally larger than the finite-dimensional Borel-equivariant induced representation used in Definition 3.4.2(ii). For g=2, weight zero, the regular function x11*x22/det(x) is invariant under right diagonal multiplication but not under a general right upper-unipotent multiplication. Thus torus equivariance alone does not give the coefficient space appearing in Proposition 3.4.3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from pp.37–38: a torus eigenspace on the full GL_g frame torsor lacks the Borel unipotent condition of P_k. At weight zero x11*x22/det is regular and torus invariant but changes under upper-unipotent translation. The finite bundle route in the packet supplies the corrected convention.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-12",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Remark 3.6.5(i), p.44 (rendered), against Definition 3.6.4(ii)",
+      "printed": "w′ > w",
+      "correction": "The immediate implication from the definition is w-ordinary implies w′-ordinary for 0<w′≤w.",
+      "reason": "The defining condition is HT(α(e_i))∈p^wω. For w′>w, p^wω contains p^w′ω, so membership in the former gives no membership in the latter. The decreasing-domain direction agrees with the period-radius definition.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.44: membership in p^wω implies membership in p^w′ω when w′≤w. The printed w′>w gives the opposite direction.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-13",
+      "source": "drw-v3",
+      "kind": "gap",
+      "locator": "Corollary 3.6.13 and its proof, p.47 (rendered), against Proposition 3.6.12 on the same page",
+      "printed": "((2g−1)p)/(2g(p−1)) < w ≤ n",
+      "correction": "The stated invocation of Proposition 3.6.12 requires c_g+n−1<w≤n. Use that stronger inequality for this argument. A uniform v<1/(2p^(n−1)) additionally needs a uniform-domain argument, not just a v chosen separately for each point.",
+      "reason": "For n>1 the printed corollary omits the n−1 term required by its cited proposition. The final sentence finds a strict Hodge bound pointwise and then uses a single v for the inclusion without supplying the uniform step. This extraction establishes a proof gap, not a counterexample to the corollary or to cofinality.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.47 as a proof gap: the preceding proposition requires c_g+n−1<w, which the corollary omits for n>1. A point-dependent strict Hodge bound does not provide the asserted common v without a uniformity argument. No counterexample to cofinality is claimed.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-14",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "Appendix B.2, p.104, universal 1-motive, compared with §B.1 p.102",
+      "printed": "[V′⊥/V′ → G_V′]",
+      "correction": "Use [V/V′⊥→G_V′], as in the boundary-chart construction on p.102.",
+      "reason": "For V′ of rank r the lattice in the chart 1-motive has rank r, while V′⊥/V′ has rank 2g−2r. In the maximal isotropic case r=g the printed lattice is zero although the chart requires a rank-g lattice. The earlier display has the correct quotient.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered p.104 against p.102: V′⊥/V′ has rank 2g−2r, whereas the chart lattice V/V′⊥ has rank r. For r=g the printed lattice is zero and cannot supply the needed Tate-module rank.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-15",
+      "source": "drw-v3",
+      "kind": "misprint",
+      "locator": "§3.6 definition of Fℓ×_can,w, p.42 (rendered), after the [Z′,I] coordinate display; arXiv v3 only",
+      "printed": "z_i,j(x)",
+      "correction": "Use the primed canonical-chart coordinates z′_i,j(x) in the radius condition defining Fℓ×_can,w. Keep its infimum over pZ_p and radius p^(−w).",
+      "reason": "The preceding display defines [Z′,I] coordinates on Fℓ×_can. The unprimed Z chart of §2.3 is [I,Z] and is not defined at the canonical origin [0,I], where Z′=0 is defined. Remark 3.6.2 on p.43 gives Z′=−pZ under Atkin–Lehner, so these coordinate functions cannot be identified on the same point.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "addedBy": "REV-OverconvergentAutomorphicForms--O8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked in the hashed v3 at the stated locator. The preceding display defines [Z′,I] coordinates on Fℓ×_can. The unprimed Z chart of §2.3 is [I,Z] and is not defined at the canonical origin [0,I], where Z′=0 is defined. Remark 3.6.2 on p.43 gives Z′=−pZ under Atkin–Lehner, so these coordinate functions cannot be identified on the same point.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    },
+    {
+      "id": "OverconvergentAutomorphicForms/E-O8-16",
+      "source": "drw-v3",
+      "kind": "error",
+      "locator": "Definition 3.1.14(ii), p.24, sentence after the analytic coefficient presheaf display; arXiv v3 only",
+      "printed": "This is also a sheaf of uniform Cp-Banach algebra.",
+      "correction": "Treat the fixed-weight analytic induced coefficient as a Banach module over the completed coefficient algebra. Pointwise multiplication maps weights κ and λ into weight κλ; it is not an algebra structure on a general fixed nontrivial weight.",
+      "reason": "The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
+        "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
+        "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
+        "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+      ],
+      "status": "confirmed in arXiv v3 by independent review; version of record not collated",
+      "addedBy": "REV-OverconvergentAutomorphicForms--O8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked in the hashed v3 at the stated locator. The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.",
+        "by": "REV-OverconvergentAutomorphicForms--O8"
+      }
+    }
+  ],
+  "restructure": [],
+  "reviewedAudit": {
+    "job": "AUDIT-15",
+    "verdict": "not built",
+    "read": "O8 row and all four targets read before planning; B4 and S6 duplication warnings respected."
+  },
+  "baselineSearch": {
+    "date": "2026-10-06",
+    "result": "Reviewed AUDIT-15 O8 row reconfirmed. Complete pinned source trees searched: no actual Siegel varieties, canonical/anticanonical domains, analytic Iwahori coefficient module or toroidal Shimura diamond. Complex modular-form slash actions, complex Hodge Tate structures, symplectic algebra and knot-theoretic toroidal grids are different objects. All imported baseline statements reread; no Tau Ceti declaration is restated as a new node.",
+    "suppliersChecked": "Current O0 packet read: Hilbert weight/unit/norm results do not supply general GL_g analytic induction. Current B0 packet exact B0/sections-equivariant, B2/levi-highest-weight-convention, B4/siegel-coefficient and B3.general/general-canonical-extension nodes imported after reading their full statements. S1/S3/S6 and T3/T6 stage contracts read; no exact implementing packet IDs present. Reserved IDs and reviewed decompositions searched; no O8 reservation or existing O8 decomposition to import.",
+    "links": "All 27 stage edges of the roadmap inspected. No link-map record names an OverconvergentAutomorphicForms stage; the 28 roadmap-only none-screen entries introduce no dependency.",
+    "upstreamScreen": "Public searches for Mathlib and Lean Zulip Siegel/cocycle work found no matching pinned declaration or usable design decision; absence from search is not a proof of absence."
+  },
+  "targetCoverage": [
+    {
+      "target": "Arbitrary-genus Siegel coefficients on proven anticanonical domains",
+      "nodes": [
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/atkin-lehner-chart"
+      ],
+      "inputs": [
+        "PerfectoidShimuraVarieties:S1",
+        "PerfectoidShimuraVarieties:S3",
+        "HodgeTateAndCanonicalSubgroups:T3"
+      ]
+    },
+    {
+      "target": "Scalar determinant factor and determinant Hodge powers",
+      "nodes": [
+        "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
+        "OverconvergentAutomorphicForms:O8/determinant-line-map",
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation"
+      ]
+    },
+    {
+      "target": "Algebraic Levi bundles and their analytic inclusion",
+      "nodes": [
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection"
+      ]
+    },
+    {
+      "target": "Other datum-specific domains with supplied analytic reductions",
+      "nodes": [
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ]
+    },
+    {
+      "target": "General toroidal diamond coefficients",
+      "nodes": [
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2106.00094v3",
+      "citation": "Diao–Rosso–Wu, arXiv:2106.00094v3, 9 April 2026, 108 pages",
+      "read": "2026-10-06",
+      "sha256": "41ced4964ca50027e9fb93813047820a2853b9632fed221cbd5690be4d3294a8",
+      "scope": "All source findings in this packet concern this public preprint only."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf",
+      "citation": "Boxer–Pilloni, Higher Coleman Theory, 180-page author manuscript",
+      "read": "2026-10-06",
+      "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
+      "scope": "Toroidal torsor comparison, reductions and coefficient constructions at the locators in the nodes."
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s40687-026-00610-5",
+      "citation": "Diao–Rosso–Wu, Research in the Mathematical Sciences 13, article 31 (2026), published 31 March 2026",
+      "read": "2026-10-06",
+      "scope": "Publisher metadata and abstract preview only. The content/pdf endpoint returned an HTML access preview with access=No rather than the article PDF. Full published statements and proofs were not read or compared; no source finding is asserted against this version."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O8",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 18 nodes, all 17 pinned Mathlib statements, exact B0/B2/B3.general/B4 supplier nodes, stage contracts, AUDIT-15, six planets, six construction API items and four tests. Corrected the Atkin–Lehner locator/excerpt and two fixed-cone action hypotheses plus their requests; added mandatory sourceVersions and two locally verified preprint findings. All 16 source findings are confirmed only in the hashed arXiv v3; the publisher served metadata/access preview rather than full text. The finite Lean prototype elaborates with 29 expected placeholder warnings and no errors. O8 remains planned with three explicit gaps and eight requests, not closed; eleven genuine geometric signatures await supplier types. Reader synchronization is recorded in the report because that reader is outside this issue’s editable paths.",
+    "checked": [
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/graph-normalisation",
+        "verdict": "verified",
+        "note": "The p.15 row-graph display and pinned fromCols multiplication/cancellation prove the identity over a commutative ring with IsUnit(det J); no symplectic assumption is needed for this algebraic generalization."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/factor-composition",
+        "verdict": "verified",
+        "note": "Expanding the four block entries and cancelling JJ⁻¹ gives Jγδ(Z)=Jγ(Z)Jδ(Zγ) in the stated right-action order."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/coordinate-composition",
+        "verdict": "verified",
+        "note": "Both consecutive unit hypotheses make the product denominator invertible. Associativity and cancellation of the leading graph block give the coordinate law."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/antidiagonal-dual-factor",
+        "verdict": "verified",
+        "note": "Pinned transpose_mul reverses order. W²=I and WZᵀW=Z give A‡+C‡Z; the genus-two counterexample independently confirms E-O8-10."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
+        "verdict": "verified",
+        "note": "Underlying matrix units give l=jk; det and χ are homomorphisms. Commutativity of Sˣ justifies the displayed scalar inverse order and mul_zpow supplies integer weights."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
+        "verdict": "verified",
+        "note": "DRW Corollary 2.4.2 and Proposition 2.5.2 supply exactly the frame law through S1/S3. The group-theoretic quotient, chosen Tate trivialization and separate quantitative T3 request avoid the source moduli and radius gaps."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
+        "verdict": "verified",
+        "note": "Top exterior power of the verified frame law has factor det J. Both pinned basis-determinant statements have the required commutative-ring/module hypotheses; B4 owns the geometric determinant line."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "verdict": "verified",
+        "note": "This is the finite determinant-character equalizer supplied by O0/O1. The inverse factor, uniform analytic extension and effective descent are explicit; it does not identify the scalar line with higher-rank analytic induction."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "verdict": "verified",
+        "note": "The inverse scalar coefficient law cancels η^m, including the dual frame for negative m. O1 descent and the exact B4 determinant-line node justify the finite sheaf isomorphism."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "verdict": "verified",
+        "note": "The right-frame relation (qh,v)~(q,ρ(h)v) gives inverse coefficients. B0/B2/B4 statements fix the convention; finite algebraic restriction and descent are requested from O0/O1, with the extra similitude character specified."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/determinant-line-map",
+        "verdict": "verified",
+        "note": "The concrete linear map, all six API signatures and four tests agree with the prototype. Evaluation at 1 is a left inverse, and determinant multiplicativity gives translation. The local analytic version requires the actual character extension."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "verdict": "verified",
+        "note": "Definitions 3.1.10/13/14 give full Borel equivariance and the transpose-left action with w>1+r. The packet correctly treats the fibre as a module, contrary to E-O8-16; Gauss lattices and Banach descent remain explicit supplier requirements."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "verdict": "verified",
+        "note": "Full Borel regular functions restrict injectively to the actual analytic neighbourhood; O0/O1 carry restriction and monomorphism descent. The finite B2/B4 identification and polynomial dominance hypotheses are explicit; E-O8-11 prevents a torus-only realization."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/atkin-lehner-chart",
+        "verdict": "corrected",
+        "note": "Corrected the locator from p.42 to Remark 3.6.2 on p.43 and replaced the paraphrased excerpt with its AL display. The finite identity and unit-only inverse are correct; E-O8-15 records the missing prime in the canonical-domain formula."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "verdict": "corrected",
+        "note": "Removed the unsupported full G(Qp) action at fixed Σ. The canonical diamond/torsor input is exactly BP Theorem 4.4.40; cone-compatible deck actions and general Hecke correspondences with refinements are now distinguished using BP pp.76,96–97 and DRW p.18."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "verdict": "corrected",
+        "note": "Applied the same fixed-cone action correction. The finite associated coefficient follows from M_HT=M_dR×^{μ,Zp×}Zp(1); central μ-weight j retains Qp(j), tensor/dual compatibility and the normalized B3.general extension."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "verdict": "verified",
+        "note": "An actual analytic reduction and effective descent are inputs. Extension to the full Levi and the canonical B4 bundle give the finite comparison; no general ordinary-neighbourhood existence is assumed."
+      },
+      {
+        "nodeId": "OverconvergentAutomorphicForms:O8/bruhat-reduced-family",
+        "verdict": "verified",
+        "note": "BP Proposition 4.6.12, its m=n pushout and §6.3.1 retain quasi-split abelian type, actual projected subgroup, 0≤m−n≤m′−1, cyclotomic containment and the exact Weyl/root shift. Proposition 6.3.6 plus §6.2.11 justify the finite injection."
+      }
+    ]
+  }
+}
