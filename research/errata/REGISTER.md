@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7384 new mistakes confirmed · 1484 awaiting review · 1619 already corrected in print · 123 rejected on review · 18 extractions and packets not yet checked.
+7384 new mistakes confirmed · 1485 awaiting review · 1619 already corrected in print · 123 rejected on review · 18 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -13152,6 +13152,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Pierre Dèbes, Arithmétique des revêtements de la droite, 303-page author-hosted working text V2-ArithRevDte-v2.pdf; PDF creation metadata 2024-05-16; accessed 2026-09-27 (`InverseGaloisAndArithmeticFundamentalGroups`)
 
 - **Misprint** at Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2. The source says `i = 1, . . . , r.`; it should be `The polynomial index ranges from 1 to n, not from 1 to r.`. The page introduces n polynomials P₁,…,Pₙ and r parameter variables. Irreducibility gives positive Y-degree for each of the n polynomials. The displayed Hilbert-set definition on the same page correctly uses n. The index was verified visually, not inferred from OCR. Recorded as `InverseGaloisAndArithmeticFundamentalGroups/E1`; looked for an existing correction in: 2026-09-27: current author-hosted V2-ArithRevDte-v2.pdf, exact hash in sourceVersions, still prints r.; 2026-09-27: author institutional profile https://pro.univ-lille.fr/pierre-debes/ and indexed author teaching page; no correction for this index found.; 2026-09-27: public search for Pierre Dèbes Arithmétique des revêtements de la droite errata 5.2.2; no matching erratum found. This report is scoped to the author working text, not a publisher edition..
+
+### Christophe Soulé, Groupes arithmétiques et K-théorie des anneaux d’entiers de corps de nombres, Author-hosted typed text of the June 1978 doctoral thesis; cite thesis numbering, not the 1979 Inventiones article. (`K2SymbolsBrauer`)
+
+- **Error** at 2.2.1.1, p. 34 (it affects a stated result). The source says `The source gives the class exact order q.`; it should be `Require a,b∈F× and say the class is killed by q, with exact order requiring additional hypotheses.`. The author-hosted typed thesis says the symbol-algebra class has order q for arbitrary a,b. Even for nonzero a=b=1 it is split, so only annihilation by q is unconditional. The same paragraph initially permits a,b∈F, while the central-simple symbol algebra requires a,b nonzero. These surrounding claims are not used for the Chern product rule. Recorded as `K2SymbolsBrauer/E12`; looked for an existing correction in: The author-hosted typed thesis; original scan and 1979 article not obtained for comparison.
 
 ### Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340, Springer 1973; IAS author-archive scan with OCR (the OCR is poor: symbols ~, @, 4 replace accents and Greek letters; statements were reconstructed from the surrounding French text and the numbered cross-references) (`LefschetzPencilsAndVanishingCycles`)
 
