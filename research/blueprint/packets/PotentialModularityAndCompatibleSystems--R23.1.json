@@ -23,63 +23,63 @@
         "kind": "abbrev",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Linearly disjoint field extensions, via the injective tensor multiplication map; no mere-intersection shortcut.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "mathlib:IntermediateField.LinearDisjoint.inf_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Linearly disjoint intermediate fields have intersection equal to the base field.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "mathlib:IntermediateField.LinearDisjoint.iff_inf_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Equivalence with trivial intersection for finite extensions when the left one is Galois.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "tauceti:NumberField.Chebotarev.frobeniusPrimeSet",
         "kind": "def",
         "module": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
         "provides": "The set of unramified height-one primes with a given Artin conjugacy class. This is not a density or prime-existence theorem.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Spec",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Spectrum as a scheme; rational points can be scheme morphisms from a field spectrum.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "Pullback functor on module sheaves, allowing a rigidification along a boundary morphism.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Full category of invertible structure-module sheaves; do not replan line bundles.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "The trivial rank-one sheaf, as the target of a boundary rigidification.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
         "provides": "Equality of unrigidified line-bundle classes iff there is an isomorphism; the rigidified relation additionally respects the boundary trivialization.",
-        "checked": "Actual statement and surrounding parameters read at Mathlib 082e2d3 or by git show at Tau Ceti f790474 on 2026-10-06; no name-only inference."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
       }
     ]
   },
@@ -93,7 +93,8 @@
       "sha256": "fcd52552f0d04f06c9c07301341581ac37f04ef84eb5867a596c560588ab5fdd",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): §1 (1.1–1.10) re-read against the Numdam text layer; the draft EXT-12's decomposition of §§2–3 re-verified at its excerpts; p. 192 (Lemme 3.30.2).",
-        "2026-10-06 (Codex codex-o6iGoa): §1 statement/remarks and §§2–3 reductions and curve proof, OCR text compared with inherited transcriptions; Rem. 1.5 and Lemme 3.6 displays rechecked separately. Corrected the inherited tensor-factor and inverted-prime errors."
+        "2026-10-06 (Codex codex-o6iGoa): §1 statement/remarks and §§2–3 reductions and curve proof, OCR text compared with inherited transcriptions; Rem. 1.5 and Lemme 3.6 displays rechecked separately. Corrected the inherited tensor-factor and inverted-prime errors.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -105,7 +106,8 @@
       "url": "https://www.numdam.org/item/10.24033/asens.1581.pdf",
       "sha256": "b1bec60bc061ae9c64fd08596aa9ad5b8e3d8d022766039cf88986aaae0a0d7a",
       "readSections": [
-        "2026-09-29 (cc-39fac3, part R23.1): the passages quoted by the carried nodes, re-verified."
+        "2026-09-29 (cc-39fac3, part R23.1): the passages quoted by the carried nodes, re-verified.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -118,7 +120,8 @@
       "sha256": "e00ebd580b4bdb591345c051c6ae85801663b4a5807a12269c909a47eff3a57d",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): Introduction, Theorem G (pp. 4–5), whose text layer is damaged; the quotations are transcribed and match the words of the text layer.",
-        "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): §1, printed pp. 6–16 (standing hypotheses, the auxiliary choices, Lemmas 1.1–1.5, the moduli space X, the Moret-Bailly application, Theorem 1.6 and Corollary 1.7), on the page images."
+        "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): §1, printed pp. 6–16 (standing hypotheses, the auxiliary choices, Lemmas 1.1–1.5, the moduli space X, the Moret-Bailly application, Theorem 1.6 and Corollary 1.7), on the page images.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -131,7 +134,8 @@
       "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): §2 (Proposition 2.2, Definition 2.4), §4 (Propositions 4.1, 4.5, Corollary 4.7), §6 (Theorem 6.1 and proof), §8 (Theorem 8.2), §§10.1 and 10.3.",
-        "2026-10-06 (Codex codex-o6iGoa): Theorem 6.1 and complete proof pp. 53–57; §10.1 and §10.3.1–2 pp. 90–94. Earlier Taylor-specific page-image readings retain their previous attribution."
+        "2026-10-06 (Codex codex-o6iGoa): Theorem 6.1 and complete proof pp. 53–57; §10.1 and §10.3.1–2 pp. 90–94. Earlier Taylor-specific page-image readings retain their previous attribution.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -143,7 +147,8 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
       "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
       "readSections": [
-        "2026-09-29 (cc-39fac3, part R23.1): §2 (Theorem 2.1 and proof, pp. 234–237) and the bibliography."
+        "2026-09-29 (cc-39fac3, part R23.1): §2 (Theorem 2.1 and proof, pp. 234–237) and the bibliography.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -156,7 +161,8 @@
       "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): Theorems 3.2–3.3 and §4 in full, pp. 755–763 (Proposition 4.1, Lemmas 4.2–4.5 with proofs, the moduli space X, the twists X_{R,ψ}, X_ρ̄ and X_Dih, Corollary 4.6); Lemma 5.6 and Theorem 5.7 with its proof, pp. 770–771; Corrections to [Tay4], pp. 776–777; all on the page images. Lemmas 5.1–5.5 not read.",
-        "2026-09-29 (cc-39fac3, part R23.1 checkpoint 3): §1, Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke algebras and ρ_𝔪 (pp. 740–743); §5 in full (pp. 763–771: the set-up with η̄^i, 𝐔 and 𝐕, the pairing, I^i, Lemma 5.1, Corollary 5.2, Lemmas 5.3–5.6, Corollary 5.5, Theorem 5.7); the bibliography entries [SW1], [SW2], [W1], [Bu], [CDT]; all on the page images."
+        "2026-09-29 (cc-39fac3, part R23.1 checkpoint 3): §1, Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke algebras and ρ_𝔪 (pp. 740–743); §5 in full (pp. 763–771: the set-up with η̄^i, 𝐔 and 𝐕, the pairing, I^i, Lemma 5.1, Corollary 5.2, Lemmas 5.3–5.6, Corollary 5.5, Theorem 5.7); the bibliography entries [SW1], [SW2], [W1], [Bu], [CDT]; all on the page images.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ],
       "accessDate": "2026-10-06"
     },
@@ -169,7 +175,8 @@
       "edition": "Invent. Math. 231 (2023), author/publisher online-first PDF (37 pages). Printed section/proposition locators.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §2 opening disjointness facts and §4 Proposition 4.2 with its application (S1={∞}, S3={l,l′}); Lemma 2.1 is only a consumer, owned by Dwork Part II."
+        "2026-10-06 (Codex codex-o6iGoa): §2 opening disjointness facts and §4 Proposition 4.2 with its application (S1={∞}, S3={l,l′}); Lemma 2.1 is only a consumer, owned by Dwork Part II.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -181,7 +188,8 @@
       "edition": "Published, Publ. Math. IHES 108 (2008), 1–181.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §4.1, Lemmas 4.1.1–4.1.2, statements and complete proofs, printed pp. 116–117."
+        "2026-10-06 (Codex codex-o6iGoa): §4.1, Lemmas 4.1.1–4.1.2, statements and complete proofs, printed pp. 116–117.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -193,7 +201,8 @@
       "edition": "Final author copy, 2010, of Publ. RIMS 47 (2011), 29–98; author pagination.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): Proposition 6.2 and its full proof, pp. 40–41 (the three classes of local conditions and descent from M)."
+        "2026-10-06 (Codex codex-o6iGoa): Proposition 6.2 and its full proof, pp. 40–41 (the three classes of local conditions and descent from M).",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -205,7 +214,8 @@
       "edition": "Author version v2 of Acta Math. 223 (2019); author pagination.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §9 through Theorem 9.3, including Lemma 9.1 and Proposition 9.2 and proofs, pp. 50–52. §9.5 only as consumer; not the whole automorphy proof."
+        "2026-10-06 (Codex codex-o6iGoa): §9 through Theorem 9.3, including Lemma 9.1 and Proposition 9.2 and proofs, pp. 50–52. §9.5 only as consumer; not the whole automorphy proof.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -217,7 +227,8 @@
       "edition": "Final author version v3 of Forum Math. Pi (2025); author pagination.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §4.5 Proposition 4.5.1 and full proof, pp. 48–49, including the finite fundamental-group quotient refinement."
+        "2026-10-06 (Codex codex-o6iGoa): §4.5 Proposition 4.5.1 and full proof, pp. 48–49, including the finite fundamental-group quotient refinement.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -229,7 +240,8 @@
       "edition": "Published, Publ. Math. IHES 134 (2021), 153–501.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): Propositions 9.1.11–9.1.12 and proofs, pp. 458–459; comparison with arXiv version, and Lemma 9.2.7 use of K and L′/K′ (pp. 462–463)."
+        "2026-10-06 (Codex codex-o6iGoa): Propositions 9.1.11–9.1.12 and proofs, pp. 458–459; comparison with arXiv version, and Lemma 9.2.7 use of K and L′/K′ (pp. 462–463).",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -241,7 +253,8 @@
       "edition": "Author preprint v1 (arXiv:0905.4266v1, 26 May 2009); author pagination. Proposition 8.2.1, called Theorem in some routing notes.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §3 hypotheses (A1),(A2); §§5.1–5.5 potential residual modularity statements, Skolem datum, auxiliary moduli application, induced modular representation and transfer proof; §§8.1–8.2 statements and proofs. §§4.4 and 7.6 are identified imported statements, not claimed decomposed here."
+        "2026-10-06 (Codex codex-o6iGoa): §3 hypotheses (A1),(A2); §§5.1–5.5 potential residual modularity statements, Skolem datum, auxiliary moduli application, induced modular representation and transfer proof; §§8.1–8.2 statements and proofs. §§4.4 and 7.6 are identified imported statements, not claimed decomposed here.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -253,7 +266,8 @@
       "edition": "Author preprint of JAMS 25 (2012), 533–554; author pp. 5–6.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): Theorem 3.1 and Proposition 3.2, complete statements and proofs; inverse-Galois construction and Jordan argument."
+        "2026-10-06 (Codex codex-o6iGoa): Theorem 3.1 and Proposition 3.2, complete statements and proofs; inverse-Galois construction and Jordan argument.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -265,7 +279,8 @@
       "edition": "Author copy of JIMJ 11 (2012), 855–920, author pp. 56–58; current author server fetched with certificate verification disabled after certificate failure.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §10 ordinary finiteness setup, Theorem 10.2 and full proof. No claim to have read/decomposed §§6–9 patching or the adequate-image appendix."
+        "2026-10-06 (Codex codex-o6iGoa): §10 ordinary finiteness setup, Theorem 10.2 and full proof. No claim to have read/decomposed §§6–9 patching or the adequate-image appendix.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -277,7 +292,8 @@
       "edition": "Published Invent. Math. 211 (2018), 297–433, DOI 10.1007/s00222-017-0749-x; the PDF numbers the multiplicity theorem 4.8.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): Theorem 4.8 and its proof, PDF pp. 65–68; ring R_φ and the paragraph citing Thorne Theorem 10.2 on PDF p. 68. Published PDF headers omit pagination in this section; use PDF pages. Only its finiteness input is in scope."
+        "2026-10-06 (Codex codex-o6iGoa): Theorem 4.8 and its proof, PDF pp. 65–68; ring R_φ and the paragraph citing Thorne Theorem 10.2 on PDF p. 68. Published PDF headers omit pagination in this section; use PDF pages. Only its finiteness input is in scope.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -289,7 +305,8 @@
       "edition": "Author version v2 of Ann. Math. 203 (2026), no. 1; author pagination.",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §3 characteristic-zero extraction paragraph, p. 14, with the preceding component choices and dimension input BG19 Prop. 4.2.6. Symmetric-power lifting itself is outside this part."
+        "2026-10-06 (Codex codex-o6iGoa): §3 characteristic-zero extraction paragraph, p. 14, with the preceding component choices and dimension input BG19 Prop. 4.2.6. Symmetric-power lifting itself is outside this part.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -301,7 +318,8 @@
       "sha256": "15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06 (Codex codex-o6iGoa): §9 setup, Lemma 9.1 and Proposition 9.2 with complete proofs, Theorem 9.3 and Remark 9.4, printed pp. 76–79. The finite-etale base misprint of Lemma 9.1(i) persists in print."
+        "2026-10-06 (Codex codex-o6iGoa): §9 setup, Lemma 9.1 and Proposition 9.2 with complete proofs, Theorem 9.3 and Remark 9.4, printed pp. 76–79. The finite-etale base misprint of Lemma 9.1(i) persists in print.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     },
     {
@@ -313,7 +331,8 @@
       "sha256": "0735ecd6e5b41679c71f92a68db1c76f751a14cd17cb4de08ac77aa8ee10a6ad",
       "accessDate": "2026-10-06",
       "readSections": [
-        "2026-10-06: p. 28, paragraph beginning with the Isom scheme and explicitly correcting the base of the finite-etale map in BHKT Lemma 9.1. No other results are marked read."
+        "2026-10-06: p. 28, paragraph beginning with the Isom scheme and explicitly correcting the base of the finite-etale map in BHKT Lemma 9.1. No other results are marked read.",
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
       ]
     }
   ],
@@ -411,6 +430,26 @@
           "name": "TauCeti.PotentialModularity.SkolemDatum.split_iff_algEquiv",
           "role": "compatibility",
           "statement": "The generic splitting condition means that the multiplication/base-change algebra K′⊗_K L_v is isomorphic as an L_v-algebra to a finite product of L_v, not that K′⊗_K K_v has prescribed factors L_v."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.SkolemDatum.fieldPoint_split",
+          "role": "projection",
+          "statement": "An integral field point is split after scalar extension to every L_v in Σ; expose this without unfolding FieldPoint."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.SkolemDatum.fieldPoint_local",
+          "role": "projection",
+          "statement": "For each v∈Σ and each K-embedding K′→L_v, the induced local point belongs to Ω_v."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.SkolemDatum.isComplete_congr",
+          "role": "extensionality",
+          "statement": "Completeness depends only on Σ and Max(R): two data with equal sets have equivalent completeness predicates."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.SkolemDatum.mapPoint",
+          "role": "functoriality",
+          "statement": "For an R-morphism X→Y sending each Ω_v into the target Ω_v and preserving the place data, map normalized field integral points to target field points. This concerns the field-point presentation; geometric image/normalization comparison is separately required. Identity and composition of R-morphisms give the identity and composite maps on the normalized field-point presentation."
         }
       ],
       "tests": [
@@ -421,7 +460,7 @@
         },
         {
           "name": "skolem_incomplete_Z_half",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "R = ℤ[1/2], Σ = {∞}: the place 2 lies neither in Σ nor in Max(R), so the datum is incomplete"
         },
         {
@@ -433,6 +472,11 @@
           "name": "skolem_open_required",
           "kind": "non-example",
           "statement": "a single point {x} ⊂ X(ℚ_p) of a curve is not v-adically open, so it cannot serve as Ω_v"
+        },
+        {
+          "name": "skolem_fieldPoint_local",
+          "kind": "characterisation",
+          "statement": "For an integral field point, every K-embedding of its generic field into every L_v with v∈Σ gives a local point in Ω_v; a definition checking only one embedding fails this test."
         }
       ],
       "planet": {
@@ -531,7 +575,6 @@
       },
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/density-of-algebraic-and-separable-local-points",
-        "AlgebraicModuliForArithmeticGeometry:R09.3",
         "SchemeAndStackFoundations:SF.4"
       ],
       "uses": []
@@ -648,7 +691,8 @@
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
-        "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff"
+        "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
       ],
       "uses": [
         {
@@ -694,17 +738,42 @@
           "name": "TauCeti.PotentialModularity.generalizedPicard_forget",
           "role": "compatibility",
           "statement": "Forget the boundary trivialisation to obtain the pinned TauCeti line-bundle isomorphism class. For empty Z this is bijective; equality of rigidified classes requires an isomorphism respecting the trivialisation, not only mk_eq_mk_iff."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.generalizedPicard_mk_eq_iff",
+          "role": "extensionality",
+          "statement": "Two rigidified line bundles represent the same class exactly when a line-bundle isomorphism intertwines the boundary trivializations."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.generalizedPicard_lift",
+          "role": "universal-property",
+          "statement": "A function on rigidified line bundles invariant under compatible isomorphism descends uniquely to their quotient, with evaluation on a representative."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.generalizedPicard_lift_mk",
+          "role": "simp",
+          "statement": "Evaluation of the descended function on a rigidified representative equals the original function on that representative."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.generalizedPicard_group",
+          "role": "structure",
+          "statement": "In the relative curve setting PG is a commutative group sheaf: tensor product of rigidified line bundles, trivial rigidified unit and dual inverse. This extends the pinned line-bundle monoid and does not identify it with a general-scheme Picard group."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.generalizedPicard_pullback",
+          "role": "functoriality",
+          "statement": "For a Cartesian base change of (X̄,Z)/B, pull back the line bundle and its boundary trivialization; preserve unit, product and inverse, satisfy identity/composition, and commute with forgetting to the relative Picard functor and with the divisor class map."
         }
       ],
       "tests": [
         {
           "name": "pg_affine_line",
-          "kind": "example",
+          "kind": "computation",
           "statement": "X = 𝔸¹ ⊂ ℙ¹, Z = {∞}: g = 0, z = 1, and the fibre dimension d + 1 − g − z = d is that of monic polynomials of degree d"
         },
         {
           "name": "pg_multiplicative",
-          "kind": "example",
+          "kind": "computation",
           "statement": "X = G_m ⊂ ℙ¹, Z = {0, ∞}: g = 0, z = 2, the degree-0 part is G_m (the generalized Jacobian of modulus 0 + ∞), fibres of dimension d − 1"
         },
         {
@@ -716,6 +785,21 @@
           "name": "pg_trivial_Z",
           "kind": "degenerate",
           "statement": "Z = ∅ recovers Pic, which is why z > 0 is arranged by enlarging Z"
+        },
+        {
+          "name": "pg_rigidified_iso",
+          "kind": "compatibility",
+          "statement": "Two rigidified representatives with a line-bundle isomorphism respecting the boundary trivializations give equal PG classes. Equality of literal representatives is not required."
+        },
+        {
+          "name": "pg_boundary_matters",
+          "kind": "non-example",
+          "statement": "If no line-bundle isomorphism intertwines two boundary trivializations, their PG classes differ. Equality of the unrigidified line-bundle class alone cannot be used."
+        },
+        {
+          "name": "pg_forget_representative",
+          "kind": "compatibility",
+          "statement": "For a representative (L,α), forgetting its PG class is exactly the pinned TauCeti LineBundleClass.mk L."
         }
       ]
     },
@@ -828,7 +912,7 @@
       "parentStageId": "PotentialModularityAndCompatibleSystems:R23.1",
       "title": "Moret-Bailly II, Théorème 1.3: every incomplete Skolem datum has an integral point",
       "kind": "theorem",
-      "statement": "Every incomplete Skolem datum S = (f: X -> B, Sigma, {L_v}, {Omega_v}) (in the sense of 1.1-1.2) admits an integral point: an irreducible closed Y ⊂ X, finite and surjective over B, with Y ⊗_R L_v L_v-split and contained in Omega_v for every v in Sigma. Equivalently there are a finite extension K'/K, with R' the normalisation of R in K', and x in X(R') such that for every v in Sigma, K' ⊗_K K_v is a product of copies of L_v and every embedding K' -> L_v sends x into Omega_v.",
+      "statement": "Every incomplete Skolem datum S = (f: X -> B, Sigma, {L_v}, {Omega_v}) (in the sense of 1.1-1.2) admits an integral point: an irreducible closed Y ⊂ X, finite and surjective over B, with Y ⊗_R L_v L_v-split and contained in Omega_v for every v in Sigma. Equivalently there are a finite extension K'/K, with R' the normalisation of R in K', and x in X(R') such that for every v in Sigma, K' ⊗_K L_v is a product of copies of L_v as an L_v-algebra and every embedding K' -> L_v sends x into Omega_v.",
       "hypotheses": [
         "all hypotheses of 1.1: R Dedekind of arithmetic or geometric type, f separated of finite type and surjective, X irreducible, X_K geometrically irreducible, Sigma finite disjoint from Max(R), L_v/K_v finite Galois, Omega_v nonempty open Gal-stable made of smooth points",
         "S incomplete",
@@ -1071,17 +1155,18 @@
         "PotentialModularityAndCompatibleSystems:R23.1/forcing-linear-disjointness-by-extra-split-places",
         "GL2AutomorphicRepresentationsAndTransfer:R17.5",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
-        "PotentialModularityAndCompatibleSystems:R23.2",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
         "AutomorphicGaloisRepresentations:R19.2",
-        "GL2ModularityLifting:R22.6",
+        "GL2ModularityLifting:R22.6/kw-dyadic-lifting",
         "GL2ModularityLifting:R22.5/kw-odd-prime-lifting",
         "GL2ModularityLifting:R22.4",
+        "PadicFamilies:L5/hida-control-nearly-ordinary",
         "PadicFamilies:L5",
         "SerreWeightAndLevelOptimisation:R20.3",
-        "HilbertModularVarietiesAndShimuraCurves:R18.3"
+        "HilbertModularVarietiesAndShimuraCurves:R18.3",
+        "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E"
       ],
       "planet": {
         "name": "Potential modularity (KW II Theorem 6.1)"
@@ -1152,10 +1237,15 @@
         "namespace": "TauCeti.PotentialModularity"
       },
       "prerequisites": [
-        "PotentialModularityAndCompatibleSystems:R23.2",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l",
-        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one"
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
+        "HilbertModularVarietiesAndShimuraCurves:H6",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "HilbertModularVarietiesAndShimuraCurves:R18.3",
+        "PadicFamilies:L5/hida-control-nearly-ordinary",
+        "PadicFamilies:L5",
+        "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E"
       ],
       "uses": []
     },
@@ -1244,7 +1334,7 @@
         {
           "name": "TauCeti.CompatibleSystems.AuxiliaryField.piA",
           "role": "projection",
-          "statement": "π′ unramified everywhere, weight k(ρ̄), central character ψ_F (type (A))"
+          "statement": "π′ unramified everywhere, weight k(ρ̄), central character ψ_F (type (A)); this projection is available only under p ≠ 2 or k(ρ̄) = 2. No type-(A) witness is supplied at p = 2, k = 4."
         },
         {
           "name": "TauCeti.CompatibleSystems.AuxiliaryField.piBC",
@@ -1260,28 +1350,38 @@
           "name": "TauCeti.CompatibleSystems.AuxiliaryField.exists",
           "role": "constructor",
           "statement": "existence from Theorem 6.1 with (iii)(b)–(d), Theorem 8.2 and the local killing of ramification"
+        },
+        {
+          "name": "TauCeti.CompatibleSystems.AuxiliaryField.piA_iff",
+          "role": "characterisation",
+          "statement": "The type-(A) automorphic witness is available under p≠2 or k(ρ̄)=2; at p=2, k=4 only the type-(B)/(C) witness is part of the construction."
+        },
+        {
+          "name": "TauCeti.CompatibleSystems.AuxiliaryField.piBC_eq",
+          "role": "simp",
+          "statement": "The piBC accessor returns the chosen weight-two witness with the fixed central character; in the reduced prototype it returns its stored Galois realization."
         }
       ],
       "tests": [
         {
           "name": "aux_dyadic_weight_four",
-          "kind": "example",
-          "statement": "p = 2, k(ρ̄) = 4: only (β) is used, with ρ_{π′} at the places above 2 of the semistable type (C)"
+          "kind": "characterisation",
+          "statement": "p = 2, k(ρ̄) = 4: only (β) is used, with ρ_{π′} at the places above 2 of the semistable type (C) Test the actual AuxiliaryField object: its type-(A) accessor guard is false and its type-(B)/(C) Galois accessor returns the stored witness."
         },
         {
           "name": "aux_unramified_at_p",
           "kind": "degenerate",
-          "statement": "ρ̄|_{D_p} unramified: the field is chosen with ρ̄|_{G_𝔭} trivial at every 𝔭 | p"
+          "statement": "ρ̄|_{D_p} unramified: the field is chosen with ρ̄|_{G_𝔭} trivial at every 𝔭 | p The reduced object test evaluates its τ on Frob^n for n divisible by the residual Frobenius order; identifying this with the relevant p-adic completion remains a place-supplier input."
         },
         {
           "name": "aux_not_cm",
           "kind": "non-example",
-          "statement": "a CM field would not do: Hilbert modular forms and Theorem 9.7 need F totally real"
+          "statement": "a CM field would not do: Hilbert modular forms and Theorem 9.7 need F totally real In particular, the field stored in an AuxiliaryField cannot contain i with i²=−1."
         },
         {
           "name": "aux_tame_killing",
-          "kind": "example",
-          "statement": "tame inertia of order e at ℓ ≠ p is killed over ℚ_ℓ(ℓ^{1/e}); e.g. e = 3 at ℓ = 7 (3 | 7 − 1, so the extension is abelian)"
+          "kind": "computation",
+          "statement": "tame inertia of order e at ℓ ≠ p is killed over ℚ_ℓ(ℓ^{1/e}); e.g. e = 3 at ℓ = 7 (3 | 7 − 1, so the extension is abelian) Test τ on the object’s stored killed-inertia group; the completion/ramification interpretation is omitted from the reduced prototype."
         }
       ]
     },
@@ -1438,8 +1538,7 @@
         "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
         "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
         "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
-        "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions"
       ],
       "planet": {
         "name": "Characteristic-zero points of deformation rings"
@@ -1472,7 +1571,6 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points",
         "PotentialModularityAndCompatibleSystems:R23.1/skolem-datum-and-integral-point",
-        "AlgebraicModuliForArithmeticGeometry:R09.3",
         "SchemeAndStackFoundations:SF.4"
       ],
       "library": {
@@ -1598,26 +1696,27 @@
       ],
       "title": "Taylor's auxiliary data for the ordinary-at-l case: the prime p, the CM extension L/F, the character psi, and the fields N and M",
       "kind": "construction",
-      "statement": "Standing hypotheses of Taylor 2002 section 1 as corrected in Taylor 2006 (pp. 776-777): l an odd prime, k/F_l finite, F totally real, rho-bar: G_F -> GL_2(k) continuous with insoluble image, rho-bar|G_v ~ (epsilon chi_v^{-1}, *; 0, chi_v) for every place v of F above l, and det rho-bar = epsilon (the corrected third bullet; epsilon the l-adic cyclotomic character mod l). For v | l let F~_v be the smallest totally tamely ramified extension of F_v over which chi_v becomes unramified. Let zeta be a primitive #k^× root of unity and N_0 = Q(zeta, sqrt(1-4l)); l is unramified in N_0 and every prime of N_0 above l has residue field isomorphic to k; fix lambda_0 | l and O_{N_0}/lambda_0 ≅ k. For v | l put beta_v = zeta^{b_v} ((1+sqrt(1-4l))/2)^{[k(v):F_l]} with beta_v ≡ chi_v(phi_v) mod lambda_0 for a Frobenius lift phi_v in G_{F~_v}, and let chi~_v: W_{F_v} -> N_0^× be the unique character which, if chi_v^2 ≠ 1, sends phi_v to beta_v and is the Teichmüller lift of chi_v on inertia, and, if chi_v^2 = 1, is the Teichmüller lift of chi_v. Choose an odd prime p ≠ l such that: rho-bar is unramified at all w | p with rho-bar(Frob_w) having distinct eigenvalues; p splits completely in the Hilbert class field of N_0; p splits completely in the fixed field of ker(epsilon^{-1} det rho-bar); p is coprime to beta_v - beta_v^c for all v | l. Choose wp_0 | p in N_0, and for w | p choose alpha'_w in Z[(1+sqrt(1-4l))/2] of norm p and alpha_w = zeta^{a_w} alpha'_w congruent to an eigenvalue of rho-bar(Frob_w). By Lemma 1.1 choose a quadratic L/F and psi: G_L -> (N-bar_{0,wp_0})^× with: L totally imaginary and not contained in F(zeta_p); each v | l splits as v_1 v_1^c in L with psi|W_{L_{v_1}} = chi~_v in (O_{N_0}/wp_0)^ac; each w | p splits as w_1 w_1^c with psi|G_{w_1} unramified sending arithmetic Frobenius to a lift of alpha_w; det Ind_{G_L}^{G_F} psi = epsilon_p. Then psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} for v | l. Finally choose a Galois CM extension N/N_0 in which primes above l split, primes above p are unramified, and some wp | wp_0 has psi-bar valued in O_N/wp; choose lambda | lambda_0 in O_N and let M be the maximal totally real subfield of N.",
+      "statement": "Standing hypotheses of Taylor 2002 section 1 as corrected in Taylor 2006 (pp. 776-777): l an odd prime, k/F_l finite, F totally real, rho-bar: G_F -> GL_2(k) continuous with insoluble image, rho-bar|G_v ~ (epsilon chi_v^{-1}, *; 0, chi_v) for every place v of F above l, and det rho-bar = epsilon (the corrected third bullet; epsilon the l-adic cyclotomic character mod l). For v | l let F~_v be the smallest totally tamely ramified extension of F_v over which chi_v becomes unramified. Let zeta be a primitive #k^× root of unity and N_0 = Q(zeta, sqrt(1-4l)); l is unramified in N_0 and every prime of N_0 above l has residue field isomorphic to k; fix lambda_0 | l at which a=(1+sqrt(1-4l))/2 is a unit, and O_{N_0}/lambda_0 ≅ k (choose the root reducing to 1 rather than 0). For v | l put beta_v = zeta^{b_v} ((1+sqrt(1-4l))/2)^{[k(v):F_l]} with beta_v ≡ chi_v(phi_v) mod lambda_0 for a Frobenius lift phi_v in G_{F~_v}, and let chi~_v: W_{F_v} -> N_0^× be the unique character which, if chi_v^2 ≠ 1, sends phi_v to beta_v and is the Teichmüller lift of chi_v on inertia, and, if chi_v^2 = 1, is the Teichmüller lift of chi_v. Choose an odd prime p ≠ l such that: rho-bar is unramified at all w | p with rho-bar(Frob_w) having distinct eigenvalues; p splits completely in the Hilbert class field of N_0; p splits completely in the fixed field of ker(epsilon^{-1} det rho-bar); p is coprime to beta_v - beta_v^c for all v | l; and, as an explicit strengthening of the printed choice, p does not divide q_v - 1 whenever chi_v^2 = 1, where q_v = l^[k(v):F_l]. Choose wp_0 | p in N_0, and for w | p choose alpha'_w in Z[(1+sqrt(1-4l))/2] of norm p, taking the wp_0-unit conjugate and alpha_w = zeta^{a_w} alpha'_w congruent to an eigenvalue of rho-bar(Frob_w). Choose a quadratic L/F with the stated real, splitting and noncyclotomic properties (a separate field-choice input, not the conclusion of Lemma 1.1), and use Lemma 1.1 to obtain psi: G_L -> (N-bar_{0,wp_0})^× with: L totally imaginary and not contained in F(zeta_p); each v | l splits as v_1 v_1^c in L with psi-bar|W_{L_{v_1}} equal to the reduction of chi~_v in (O_{N_0}/wp_0)^ac; each w | p splits as w_1 w_1^c with psi|G_{w_1} unramified sending arithmetic Frobenius to a lift of alpha_w; det Ind_{G_L}^{G_F} psi = epsilon_p. Then psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} for v | l. Finally choose a Galois CM extension N/N_0 in which primes above l split, primes above p are unramified, and some wp | wp_0 has psi-bar valued in O_N/wp; choose lambda | lambda_0 in O_N and let M be the maximal totally real subfield of N.",
       "hypotheses": [
         "l odd; rho-bar insoluble image; rho-bar|G_v reducible of the displayed shape at every v | l",
         "det rho-bar = epsilon: printed in the preprint as 'det rho-bar(c) = -1' and corrected in Taylor 2006 p. 776, which explains that without it the alternating isomorphism a_lambda needed for the moduli problem cannot be chosen",
-        "Taylor 2006 p. 776 also replaces the justification of psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} by '(as beta_v beta_v^c = psi(phi_v) psi^c(phi_v) = p and beta_v - beta_v^c is coprime to p)'",
+        "Taylor 2006 p. 776 prints β_vβ_v^c = ψ(φ_v)ψ^c(φ_v) = p. This equality is erroneous: β_vβ_v^c = q_v = l^[k(v):F_l], and the determinant gives ψ(φ_v)ψ^c(φ_v) = q_v at v | l, where v is away from p (source issue E9). When χ_v² = 1, the prescribed ψ is the Teichmüller character, so distinctness additionally requires q_v ≠ 1 mod p. The reviewed construction adds this finite exclusion to the choice of p.",
         "existence of p satisfying the four conditions is asserted without argument (a Chebotarev density argument over the compositum of the relevant fields is implicit)",
         "α_w is printed as congruent to an eigenvalue of ρ̄(Frob_w) 'modulo λ' before λ is chosen (printed p. 7); λ₀ is meant (source issue PotentialModularityAndCompatibleSystems/E6)"
       ],
       "proofSteps": [
-        "Form N₀ and the local lifts β_v, χ̃_v from the residue character data. Choose the auxiliary prime p by Chebotarev in the compositum of the residual cutout, the relevant class fields and the finitely many exclusion fields; exclude the prime divisors of β_v−β_v^c.",
-        "alpha'_w exists because p splits completely in the Hilbert class field of Q((1+sqrt(1-4l))/2), a subfield of N_0 (the source's parenthesis).",
-        "Apply Lemma 1.1 with K = F, O = the completion of N_0 at wp_0 (or a finite extension), phi = epsilon_p, S = places above l and p, S_L = {v_1, w_1}, and prescribed residual characters chi~_v (at v_1) and unramified characters with Frobenius alpha_w (at w_1).",
-        "psi-bar|G_{v_1} ≠ psi-bar^c|G_{v_1} for v | l is deduced from p being coprime to beta_v - beta_v^c."
+        "Form N₀ and choose λ₀ above l with a=(1+sqrt(1−4l))/2 reducing to 1 (the conjugate reduces to 0); this makes β_v nonzero modulo λ₀. Form the local lifts β_v, χ̃_v from the residue character data. Choose the auxiliary prime p by Chebotarev in the compositum of the residual cutout, the relevant class fields and the finitely many exclusion fields; exclude the prime divisors of β_v−β_v^c. Also exclude prime divisors of q_v−1 in the χ_v²=1 branch; these are finitely many additional primes and do not change the Chebotarev existence argument.",
+        "alpha'_w exists because p splits completely in the Hilbert class field of Q((1+sqrt(1-4l))/2), a subfield of N_0 (the source's parenthesis). Take the conjugate that is a unit at wp_0 so that its reduction is a valid nonzero character value.",
+        "First choose L with the CM/split/noncyclotomic properties; this field-choice input is a recorded gap. Then Apply Lemma 1.1 with K = F, O = the completion of N_0 at wp_0 (or a finite extension), phi = epsilon_p, S = places above l and p, S_L = {v_1, w_1}, and prescribed residual characters chi~_v (at v_1) and unramified characters with Frobenius alpha_w (at w_1).",
+        "At v | l, det Ind ψ gives ψ(φ_v)ψ^c(φ_v)=q_v. If χ_v²≠1, the reduction ψ̄(φ_v) equals β̄_v, so ψ̄^c(φ_v)=β̄_v^c and their values differ by the β_v−β_v^c exclusion. If χ_v²=1, ψ̄(φ_v)=±1, so the two reductions differ precisely when q_v≠1 mod p; use the added exclusion. Lemma 1.1 prescribes reductions, not an equality of arbitrary p-adic lifts with β_v. This is distinction on the full local Galois group, not necessarily on inertia."
       ],
       "acceptance": [
         "For F = Q, l = 5 and an explicit rho-bar with k = F_5, list admissible p and compute beta_5 and N_0 = Q(zeta_4, sqrt(-19))",
-        "Check that det Ind_{G_L}^{G_F} psi = epsilon_p forces psi-bar|G_{w_1} psi-bar^c|G_{w_1} to be the mod-p cyclotomic character on Frobenius, consistent with alpha_w alpha_w^c = p"
+        "Check the algebraic norm α_wα_w^c=p independently of the p-adic cyclotomic character. At w | p, ε_p is ramified and its value on a Frobenius lift is a p-adic unit, so it cannot be identified with p. Choose the conjugate of α′_w that is a unit at ℘₀ when specifying an unramified O′×-valued character."
       ],
       "prerequisites": [
-        "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions"
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions",
+        "PotentialModularityAndCompatibleSystems:R23.1/frobenius-primes-generate"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
@@ -1688,34 +1787,59 @@
         {
           "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.psi_ne_conj",
           "role": "characterisation",
-          "statement": "ψ̄|_{G_{v₁}} ≠ ψ̄^c|_{G_{v₁}} for v | l (β_vβ_v^c = p and β_v − β_v^c coprime to p)."
+          "statement": "ψ̄|G_{v₁} ≠ ψ̄^c|G_{v₁} for v | l: β_vβ_v^c=q_v when χ_v²≠1, with p∤β_v−β_v^c; when χ_v²=1 use the additional exclusion p∤q_v−1. The full decomposition group is required; the inertia characters may agree."
         },
         {
           "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.split",
           "role": "characterisation",
           "statement": "Every place of F above l and above p splits in L; L is totally imaginary and not contained in F(ζ_p)."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.prime_ne_l",
+          "role": "projection",
+          "statement": "The chosen auxiliary prime p is different from the original residual prime l."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.conj_conj",
+          "role": "relation",
+          "statement": "Conjugating the auxiliary character twice gives the original character; the involution is the nontrivial element of Gal(L/F)."
+        },
+        {
+          "name": "TauCeti.PotentialModularity.TaylorAuxiliaryData.det_ind_apply",
+          "role": "simp",
+          "statement": "For g∈G_F, det(Ind ψ(g))=ε_p(g); this is a pointwise evaluation of the determinant identity."
         }
       ],
       "tests": [
         {
           "name": "taylorAux_N0_l5",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For l = 5 and k = F_5: ζ has order 4 and N₀ = ℚ(ζ₄, √−19); 5 does not divide 1 − 4·5 = −19, so 5 is unramified in N₀."
         },
         {
           "name": "taylorAux_det_needed",
-          "kind": "example",
-          "statement": "Without det ρ̄ = ε (for instance det ρ̄ = εω²) no alternating isomorphism a_λ of V_λ with its Cartier dual exists: the Taylor 2006 correction."
+          "kind": "computation",
+          "statement": "Without det ρ̄ = ε (for instance det ρ̄ = εω²) no alternating isomorphism a_λ of V_λ with its Cartier dual exists: the Taylor 2006 correction. In the reduced prototype, an AuxiliaryData object together with det(A.induced)≠ε leads to contradiction; existence of the alternating group-scheme pairing still requires H6."
         },
         {
           "name": "taylorAux_alpha_norm",
-          "kind": "example",
-          "statement": "α_wα_w^c = p, matching det Ind ψ = ε_p on Frob_w."
+          "kind": "computation",
+          "statement": "For α_w of algebraic norm p, the determinant of diag(α_w,α_w^c) is p. This tests the algebraic norm only: at w | p it is not the p-adic cyclotomic value on a Frobenius lift."
         },
         {
           "name": "taylorAux_not_in_cyclotomic",
-          "kind": "example",
+          "kind": "computation",
           "statement": "L ⊄ F(ζ_p) is part of the data; a quadratic subfield of F(ζ_p) is not allowed."
+        },
+        {
+          "name": "taylorAux_local_decomposition",
+          "kind": "characterisation",
+          "statement": "The auxiliary object has a full local decomposition-group element on which ψ̄ and ψ̄^c differ; distinction need not hold on inertia."
+        },
+        {
+          "name": "taylorAux_beta_norm",
+          "kind": "computation",
+          "statement": "For l=5, f_v=1 and a satisfying a²−a+5=0, with a^c=1−a, the norm aa^c is 5 and differs from every auxiliary prime p≠5. This rejects E9’s printed p norm."
         }
       ]
     },
@@ -1744,7 +1868,10 @@
         "Check the case K = Q, L imaginary quadratic, S = {p}: the conclusion is an algebraic Hecke character of L with prescribed reduction at one place above p",
         "Identify where the oddness of phi is needed (det Ind psi is odd for any psi, so phi must be odd)"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+      ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/TaylorAuxiliary",
         "namespace": "TauCeti.PotentialModularity"
@@ -1830,7 +1957,7 @@
         "Replace A by A ⊗_{O_M} O_N and twist so that G_x acts on A[lambda] as (epsilon chi_1, *; 0, chi_2) with chi_2 unramified and chi_1|I_x ~ epsilon^{-n}, and on A[wp] as psi_1 ⊕ psi_2 with psi_2 unramified and psi_1|I_x = omega^{-n}; it suffices to show T_lambda A ⊗ Q_l ~ (epsilon chi'_1, *; 0, chi'_2) with chi'_2 an unramified lift of chi_2.",
         "From the action on T_wp A, either A has multiplicative reduction over E_x (then chi_1 is unramified and the result is clear) or good reduction over E_x(zeta_l).",
         "In the good reduction case, over W(k(x)^ac)[zeta_l] the only simple subquotients of the finite flat group scheme A[lambda] are Z/lZ and mu_l, and there are no nontrivial extensions of Z/lZ by Z/lZ nor of mu_l by mu_l; with the connected-étale sequence and dim Lie(A[lambda] × F_l^ac) = [O_N/lambda : F_l] this gives 0 -> mu_l^[O_N/lambda:F_l] -> A[lambda] -> (Z/lZ)^[O_N/lambda:F_l] -> 0, so A has ordinary reduction; done if rho-bar|G_v is not semisimple.",
-        "If rho-bar|G_v is semisimple, I_x acts on Lie(A[lambda] × F_l^ac) by epsilon^{-n} or epsilon^{-1} according as A[lambda]^0 ~ epsilon chi_1 or chi_2 (Edixhoven section 5); if by epsilon^{-1}, it would act by omega^{-1} on a subquotient of A[wp] (CDT appendix B), forcing chi_1|I_x = omega, excluded when A[lambda] is semisimple (n ≠ 1)."
+        "If rho-bar|G_v is semisimple, I_x acts on Lie(A[lambda] × F_l^ac) by epsilon^{-n} or epsilon^{-1} according as A[lambda]^0 ~ epsilon chi_1 or chi_2 (Edixhoven section 5); if by epsilon^{-1}, it would act by omega^{-1} on a subquotient of A[wp] (CDT appendix B), forcing chi_1|I_x = omega^{-1}, hence n = 1, excluded when A[lambda] is semisimple (n ≠ 1)."
       ],
       "acceptance": [
         "Check the boundary n = l - 2 and the excluded case n = 1 with rho-bar|G_v semisimple on an explicit example",
@@ -2126,7 +2253,9 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
-        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime"
+        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+        "PadicHodgeTheory:R06.4",
+        "AutomorphicGaloisRepresentations:R19.5"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/TaylorWeights",
@@ -2153,7 +2282,8 @@
       "statement": "Let l > 3 split completely in F (even degree), 0 ≤ i ≤ l − 2, η̄^i the character of U₀(𝔫, l)/U₁(𝔫, l) sending u to (Nd mod l)^i, and S_{η̄^i,ψ}(U₀(𝔫, l)) the definite quaternionic forms with that character. Filtering the induced representation I^i = ⊗_{x|l} I^i_x by 0 → Symm^i → I^i_x → Symm^{l−1−i} ⊗ det^i → 0 gives subspaces S_{η̄^i,ψ,T} for sets T of places above l, with S_{η̄^i,ψ,∅} ≅ S_{i+2,F̄_l,ψ}(U_H(𝔫)). (Lemma 5.1, a variant of an unpublished result of Buzzard.) For x ∉ T there is an injection κ_x : S_{T∪{x}}/S_T ↪ S_{T∪{x}}, equivariant for T_y, S_y (y ∤ l𝔫) and 𝐔_{ϖ_x} (x | 𝔫), whose composite with the projection is 𝐕_{ϖ_x}. (Corollary 5.2.) There is a natural surjection h_{η̄^i,F̄_l,ψ}(U₀(𝔫, l)) ↠ h_{i+2,F̄_l,ψ}(U_H(𝔫)) on the T_y, S_y and 𝐔_{ϖ_x}; if 𝔪 is a maximal ideal such that for every x | l, 𝐕_{ϖ_x} lies in every maximal ideal of h″ above 𝔪, then h_{i+2,F̄_l,ψ}(U_H(𝔫))_𝔪 ≠ 0. This holds when 𝔪 is non-Eisenstein and ρ̄_φ|_{G_x} ≁ (εχ₁ *; 0 ω^iχ₂) with χ₁, χ₂ unramified, for all x | l.",
       "hypotheses": [
         "if φ(𝐔_{ϖ_x}) ≠ 0 then ρ̄_φ|_{G_x} ∼ (χ₁ *; 0 χ₂) with χ₂ unramified and χ₂(Frob_x) = φ(𝐔_{ϖ_x}) (Wiles 1988, cited as [W1]; AutomorphicGaloisRepresentations R19.2); by the perfect pairing and adjoints, φ(𝐕_{ϖ_x}) ≠ 0 gives the dual shape (εχ₁ *; 0 ω^iχ₂)",
-        "Buzzard's thesis (The levels of modular representations, Cambridge 1995) is cited for the unpublished original; the variant is proved in full here"
+        "Buzzard's thesis (The levels of modular representations, Cambridge 1995) is cited for the unpublished original; the variant is proved in full here",
+        "Use Symm^i in the τ_T coefficient factors; the printed Symm^{i+2} on p. 766 is the source misprint E10."
       ],
       "proofSteps": [
         "Identify the exact sequence 0 → S_T → S_{T∪{x}} → S_{T∪{x}}/S_T → 0 with 0 → S_{τ_T}(U₀(T)) → S_{τ_{T∪{x}}}(U₀(T ∪ {x})) → S_{τ_{T,x}}(U₀(T)) → 0 (maps α, β); define κ(f)(g) = f(gγ)(1, 0)_x with γ = diag(1, ϖ_x); it is well defined, injective and equivariant, and κ ∘ β = 𝐕_{ϖ_x} by the computation with u(s, 1).",
@@ -2212,7 +2342,7 @@
         "By Taylor's Lemma 1.1 it suffices to embed Symm^{k−2}(k(x)²) ⊗ det into Symm^{k+l−1}(k(x)²) GL₂(𝒪_{F,x})-equivariantly; multiplication by X^lY − XY^l does it, since (aX + cY)^l(bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^lY − XY^l) over F_l."
       ],
       "acceptance": [
-        "Check the identity (aX + cY)^l(bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^lY − XY^l) over F_l: it uses a^l = a for a ∈ F_l, checked in the suggested Lean file at l = 5."
+        "Check the identity (aX + cY)^l(bX + dY) − (aX + cY)(bX + dY)^l = (ad − bc)(X^lY − XY^l) over F_l: it uses a^l = a for a ∈ F_l; the reduced suggested file does not contain this calculation."
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"
@@ -2296,7 +2426,7 @@
         "Apply Lemma 5.3 c times to reach weight k_ρ̄ − c(l + 1) + c(l + 1) = k_ρ̄ and untwist."
       ],
       "acceptance": [
-        "Check the weight bookkeeping: k_ρ̄ − c(l + 1) ∈ [2, l] and c applications of D restore k_ρ̄ (checked in the Lean file)."
+        "Check the weight bookkeeping: k_ρ̄ − c(l + 1) ∈ [2, l] and c applications of D restore k_ρ̄; this acceptance calculation remains to be added to the suggested file."
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
@@ -2421,7 +2551,8 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension",
         "PotentialModularityAndCompatibleSystems:R23.1/frobenius-primes-generate",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/MoretBailly",
@@ -2533,6 +2664,7 @@
         "All hypotheses in the statement are required; the supplier interfaces below are not claims of implementation."
       ],
       "proofSteps": [
+        "First restrict to a nonempty affine open meeting every specified analytic open, using density on the smooth variety; retain the finite-cover quotient after restriction. This supplies the affine/quasi-projective hypothesis for scheme Weil restriction. The analytic density/property adapter is recorded as a gap.",
         "Pass to Res_{M/K}T. Its local points are products indexed by places above v; its geometric base change is a product of conjugate varieties.",
         "Apply the three-condition theorem with avoidance field the Galois closure of LM, choose E/K disjoint from LM, then put K′=EM.",
         "Use the tower lemma to check K′∩L=K and translate the product local conditions."
@@ -2543,7 +2675,10 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
         "PotentialModularityAndCompatibleSystems:R23.1/tower-linear-disjointness",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/MoretBailly",
@@ -2571,6 +2706,7 @@
         "All hypotheses in the statement are required; the supplier interfaces below are not claims of implementation."
       ],
       "proofSteps": [
+        "First restrict to a nonempty affine open meeting every specified analytic open, using density on the smooth variety; retain the finite-cover quotient after restriction. This supplies the affine/quasi-projective hypothesis for scheme Weil restriction. The analytic density/property adapter is recorded as a gap.",
         "Apply the Calegari/BLGGT local-completion refinement of Moret–Bailly; restriction of scalars to Q gives F′=FE with E/Q totally real Galois. Exact completions need this refinement, not just splitting after tensoring with L_v.",
         "Spread T and its finite étale cover out smoothly over O_F. Scheme Chebotarev supplies, for each conjugacy class C of G, a sufficiently large closed point x_C in T(k(v_C)) with Frobenius in C.",
         "Choose distinct underlying rational primes, and the Hensel tube of x_C as Ω_{v_C}. At other places of F over that rational prime use T(F_v), nonempty for large norm.",
@@ -2583,7 +2719,10 @@
         "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
         "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
         "AbelianSchemesAndArithmeticModuli:A6",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/MoretBailly",
@@ -2635,7 +2774,7 @@
         {
           "sourceId": "bhkt-published",
           "locator": "Lemma 9.1 and diagram (9.1), published pp. 76–77",
-          "match": "The function-field isomorphism torsor"
+          "match": "The printed base K is corrected to Y_K by E8; the geometric connectedness is confirmed by the proof and the independent 2025 correction."
         },
         {
           "sourceId": "bhkt-correction",
@@ -2753,7 +2892,10 @@
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:H6",
         "AbelianSchemesAndArithmeticModuli:A6",
-        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions"
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
@@ -2791,7 +2933,10 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
         "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/MoretBailly",
@@ -2831,10 +2976,10 @@
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
         "PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field",
-        "GL2ModularityLifting:R22.6",
         "AutomorphicGaloisRepresentations:R19.2",
         "AutomorphicGaloisRepresentations:R19.6",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.6"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+        "GL2ModularityLifting:R22.5"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
@@ -2916,8 +3061,12 @@
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R23.1/potential-global-galois-local-data",
-        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits",
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
+        "SchemeAndStackFoundations:SF.2"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/Residual",
@@ -3023,7 +3172,8 @@
       "kind": "theorem",
       "statement": "In Newton–Thorne §3, choose the fixed-determinant unframed global deformation ring R for the stated residual automorphic representation and the specified local components C_v (potentially crystalline ordinary components above p, the chosen Steinberg component at v0, and the regular components at the other ramified places). BG19 Proposition 4.2.6 gives dim R≥1. The applicable finiteness theorem gives R finite over O. Thus R[1/p]≠0 and there is a characteristic-zero point over a finite extension of Frac(O), integral after passing to its ring of integers; its representation has the prescribed local behaviour. Automorphy of this lift is a subsequent lifting application, not a premise for the point’s existence.",
       "hypotheses": [
-        "All hypotheses in the statement are required; the supplier interfaces below are not claims of implementation."
+        "All hypotheses in the statement are required; the supplier interfaces below are not claims of implementation.",
+        "Newton–Thorne Lemma 3.1 setup: p≥5; π RAESDC over totally real F with det r_π=ε^{-1}, weight zero and Steinberg at p, tamely dihedral order p at v₀ with q_v₀≡−1 mod p, potentially unramified away from p, and residual image containing SL₂(F_{p^a}) for a>a₀(p). The selected lift has determinant ε^{-2}ω and Hodge–Tate weights {0,2}. Local nonemptiness at p uses a Hida specialization; at v₀ use the explicit unipotently ramified lift."
       ],
       "proofSteps": [
         "Import the exact presentation/dimension bound with the local component nonemptiness checked, including the unipotently ramified lift at v0.",
@@ -3038,7 +3188,9 @@
         "PotentialModularityAndCompatibleSystems:R24.1/ordinary-global-ring-finiteness",
         "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
         "GlobalGaloisDeformations:R04.6",
-        "LocalGaloisDeformationRings:R08.6"
+        "LocalGaloisDeformationRings:R08.6",
+        "PadicFamilies:L5/hida-control-nearly-ordinary",
+        "PadicFamilies:L5"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/PotentialModularity/Finiteness",
@@ -3062,8 +3214,7 @@
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
       "need": "Relative generalized Picard functor for a normal projective curve over a Dedekind base with nonempty finite flat boundary: specialize SchemeAndStackFoundations SF.3–SF.4 representability/divisor inputs, with degree components and boundary rigidification. The general scheme, Chow, Bertini and Picard foundations are owned by SF.3–SF.4 and are not re-planned here.",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.1/elementary-reductions-of-skolem-data",
-        "PotentialModularityAndCompatibleSystems:R23.1/theorem-g-from-moret-bailly"
+        "PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration"
       ],
       "status": "open"
     },
@@ -3087,7 +3238,8 @@
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
       "need": "Langlands' solvable base change and descent for GL₂ over totally real fields, as used for the intermediate fields of the potential-modularity extension.",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension"
+        "PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
       ],
       "status": "open"
     },
@@ -3113,10 +3265,10 @@
       "supplier": "HilbertModularVarietiesAndShimuraCurves:H6",
       "need": "For Taylor 2002 §1 and Taylor 2006 §4 (RS-23 leaves R23.2 only the verification for Taylor's data): M-HBAVs (A, i, j) with ordered invertible O_M-modules and P(A, i) (Rapoport §1); the fine moduli space X/F of M-HBAVs with level structures m_λ : V_λ ≅ A[λ] and m_℘ : V_℘ ≅ A[℘] matching fixed alternating pairings a_λ, a_℘ with the j(1)-Weil pairings, fine when ker(GL₂(O_{M,λ}) → GL₂(O_M/λ)) is torsion-free, smooth, geometrically connected by the uniformisation of X(F ⊗_{F_x} ℂ) by [M : ℚ] copies of the upper half plane, and quasi-projective (Theorem G needs it; Taylor does not state it); the moduli of E-HBAVs with b₀-level structure, the group Γ, and the twists X_{R,ψ} by (R, ψ) ∈ H¹(G_ℚ, Γ) with the description of their F-points by quadruples with descent data κ_σ (Taylor 2006, pp. 759–760).",
       "neededBy": [
-        "HilbertModularVarietiesAndShimuraCurves:H6",
-        "HilbertModularVarietiesAndShimuraCurves:H6",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
         "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
-        "HilbertModularVarietiesAndShimuraCurves:H6"
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+        "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application"
       ],
       "status": "open"
     },
@@ -3156,10 +3308,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-      "need": "Global existence and reciprocity for finite idele-class characters, including the congruence-subgroup/S-unit argument and finite ray-class quotient used in CHT 4.1.1; local reciprocity identifies cyclic local extensions.",
+      "need": "Global existence and reciprocity for finite idele-class characters, including the congruence-subgroup/S-unit argument and finite ray-class quotient used in CHT 4.1.1; local reciprocity identifies cyclic local extensions. Taylor Lemma 1.1 additionally needs algebraic CM idele characters of prescribed cyclotomic norm; the finite-order extension lemma alone is insufficient.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension",
-        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions"
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions"
       ],
       "status": "open"
     },
@@ -3168,17 +3321,19 @@
       "need": "Export the chosen smooth quasi-projective geometrically irreducible component of the simultaneous torsion/polarisation twist, compatible pairings and determinant, and nonempty real/finite local opens for Taylor 2002, Taylor 2006, KW II dyadic cases and Snowden over a totally real base. This includes integral ordinary tubes. All moduli/local constructions have this one owner.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
-        "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application"
+        "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
       ],
       "status": "open"
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A6",
-      "need": "Weil restriction for a smooth quasi-projective variety across a finite separable extension: representability, preservation of smoothness/geometric connectedness, geometric product and local-point product formulas; evaluate its points over a disjoint composite field.",
+      "need": "Beyond the existing A6 functor, quasi-projective scheme-representability and separable geometric-product nodes: preserve smoothness and geometric connectedness, and identify local points topologically with products over places. For a smooth variety not assumed quasi-projective, first choose a dense affine open meeting the finitely many analytic opens. Verify that step rather than assuming all Weil restrictions are schemes.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension",
-        "PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field",
+        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
         "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
+        "PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field",
         "PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent"
       ],
       "status": "open"
@@ -3196,15 +3351,18 @@
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.3",
       "need": "Khare, level-one paper (Duke 2006), Lemma 2.2: the neatness/small-prime input used in KW II §6 and Theorem 8.2 and Taylor weight adjustment. This is not owned by R20.6, avoiding the recorded cycle.",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F"
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
       ],
       "status": "open"
     },
     {
       "supplier": "PadicFamilies:L5",
-      "need": "Totally real Hida control, with ordinary weight-two input of inertial type ω^{k−2}⊕1 and passage to an unramified parallel-weight-k modular witness, including the endpoint caveats in KW II p. 57.",
+      "need": "Use PadicFamilies:L5/hida-control-nearly-ordinary for the existing parallel-weight algebraic specialization on its even-degree, finite-order torus-character scope. Beyond that theorem, supply totally real Hida control, with ordinary weight-two input of inertial type ω^{k−2}⊕1 and passage to an unramified parallel-weight-k modular witness, including the endpoint caveats in KW II p. 57. For NT Lemma 3.1 also supply the Hida specialization producing determinant ε^{-2}ω and Hodge–Tate weights {0,2} at every p-adic place. The existing node alone does not construct the required family or supply the endpoint/local-type nonemptiness statements.",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F"
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity",
+        "PotentialModularityAndCompatibleSystems:R24.2/newton-thorne-khare-wintenberger-extraction"
       ],
       "status": "open"
     },
@@ -3217,10 +3375,9 @@
       "status": "open"
     },
     {
-      "supplier": "GL2ModularityLifting:R22.6",
-      "need": "Independent totally-real auxiliary-prime modularity lifting with the hypotheses verified for the Tate representation in the KW/Taylor/Snowden construction; the planned dyadic theorem alone does not cover all odd auxiliary primes. Import R22.5 where its odd-prime statement applies.",
+      "supplier": "GL2ModularityLifting:R22.5",
+      "need": "Snowden 4.4.2 (built from 4.1.1 and 4.4.1): for an odd auxiliary prime ℓ over a totally real field, a weight-two odd finitely ramified representation satisfying (A1),(A2), finite-order det·χ_ℓ^{-1}, and local A/B/C types matching a modular residual witness is modular. Verify these hypotheses for the auxiliary induced/Tate representation in Snowden 5.1.1. KW odd-prime-lifting supplies its exact KW case; it is not a substitute for all Snowden totally-real type data. R22.6 supplies only dyadic lifting.",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
         "PotentialModularityAndCompatibleSystems:R23.3/snowden-totally-real-potential-residual-modularity"
       ],
       "status": "open"
@@ -3291,10 +3448,11 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "SGA1 V.6.9, comparison of geometric fundamental groups under algebraically closed base extension, and Chebotarev for finite étale covers of schemes of finite type over O_F (Serre Cor. 9.12), not just number-field Chebotarev.",
+      "need": "SGA1 V.6.9, comparison of geometric fundamental groups under algebraically closed base extension, and Chebotarev for finite étale covers of schemes of finite type over O_F (Serre Cor. 9.12), not just number-field Chebotarev. For corrected BCGP 9.1.12, give the same finite-cover specialization argument over an arbitrary number field E′ and after Weil restriction to E; Bianchi’s CM/Q-Galois conclusion cannot be applied directly.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.1/function-field-isomorphism-torsor",
-        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient"
+        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
+        "PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent"
       ],
       "status": "open"
     },
@@ -3324,6 +3482,31 @@
         "PotentialModularityAndCompatibleSystems:R24.2/newton-thorne-khare-wintenberger-extraction"
       ],
       "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "need": "Local Artin reciprocity on finite-order and p-adic characters, with arithmetic/geometric Frobenius conventions and cyclotomic normalization, as used in CHT 4.1.2 and Taylor 2002 Lemma 1.1.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions",
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "PadicHodgeTheory:R06.4",
+      "need": "Torsion Fontaine–Laffaille classification over unramified local fields in the exact weight range of Taylor 2006 Lemma 1.4 and Corollary 1.5, with tame fundamental-character exponents, semisimplification, and his Hodge–Tate sign convention. The existing rational crystalline-comparison node does not supply this classification.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentations:R19.5",
+      "need": "Crystallinity and Hodge–Tate numbers {−w_x,1−k_x−w_x} for every Hilbert form needed in Taylor Lemma 1.4 when the local level is maximal; include the passage to an auxiliary ramified place used by Taylor [Tay2]. The existing Carayol node only covers its stated parity/auxiliary-place cases and uses the opposite cyclotomic Hodge–Tate convention.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l"
+      ],
+      "status": "open"
     }
   ],
   "coverage": [
@@ -3336,17 +3519,24 @@
         "Strong approximation and S-unit compact quotient",
         "Exact local-completion refinement and Jordan",
         "Moret–Bailly 1990 potential inverse-Galois theorem",
-        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
+        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked.",
+        "Weil restriction of varieties: property and analytic-open adapter",
+        "Local analytic density used in the approximation arguments",
+        "Suggested APIs and tests: missing full object interfaces"
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R23.2",
       "status": "planned",
       "remaining": [
-        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
+        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked.",
+        "Taylor Lemma 1.1 algebraic characters and S-unit congruence input",
+        "Weil restriction of varieties: property and analytic-open adapter",
+        "Taylor auxiliary prime, quadratic and coefficient field choices",
+        "Suggested APIs and tests: missing full object interfaces"
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R23.3",
@@ -3358,9 +3548,11 @@
         "Taylor 2002 Lemma 1.3 and Corollary 1.7 have no printed proofs",
         "Skinner–Wiles, Base change and a problem of Serre (Duke 2001), used by Taylor 2006 Corollary 5.5, remains an unread supplier input",
         "Snowden auxiliary and residual soluble descent inputs",
-        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
+        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked.",
+        "Odd auxiliary modularity lifting with Snowden type data",
+        "Torsion Fontaine–Laffaille and full Hilbert crystallinity input"
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R23.4",
@@ -3368,16 +3560,17 @@
       "remaining": [
         "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R23.5",
       "status": "planned",
       "remaining": [
         "Exact local-completion refinement and Jordan",
-        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
+        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked.",
+        "Weil restriction of varieties: property and analytic-open adapter"
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R23.6",
@@ -3387,7 +3580,7 @@
         "KW II Theorem 8.2 and the Gross/Coleman-Voloch weight results are imported into Theorem 6.1",
         "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
       ],
-      "notes": "Targets and necessary key inputs are planned; see the reader’s stage discussion and target ledger. R23.6 is an interface/process milestone, realised by the separately typed residual/given-lift exports, with no invented mathematical theorem."
+      "notes": "Targets and necessary key inputs are planned; see the reader’s stage discussion and target ledger. R23.6 is an interface/process milestone, realised by the separately typed residual/given-lift exports, with no invented mathematical theorem. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R24.1",
@@ -3396,9 +3589,10 @@
         "Lemma 4.2 of Khare [33] (finite ramification of the universal residual representation) cannot be located in the library copy",
         "Propositions 9.2–9.3 and Theorem 8.2 of KW II over F are imported",
         "Ordinary finiteness specialization hypotheses",
-        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
+        "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked.",
+        "Suggested APIs and tests: missing full object interfaces"
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R24.2",
@@ -3408,7 +3602,7 @@
         "Integral point to continuous p-adic lift adapter",
         "Obtain and verify the exact outstanding supplier interfaces; retain implementationStatus unchecked."
       ],
-      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim."
+      "notes": "Inherited correct ids retained; added source routes and confirmed findings accounted for. No source_decomposed or closed claim. Independent review retains target-level planned status with explicit gaps; no closed stage or source-decomposed claim."
     }
   ],
   "gaps": [
@@ -3427,7 +3621,8 @@
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
         "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
-        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one"
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
       ],
       "detail": "Taylor 2006 Theorem 5.7's printed proof (p. 771) cites Lemmas 5.6, 1.3 and 5.3; all these and the §5 weight-adjustment statements were read and planned. KW II (p. 56) excludes p=3 from Taylor's §5 and cites Lemma 2.2 of Khare, Serre's modularity conjecture: the level one case (Duke 134), for that prime. Khare's Duke lemma and Conrad–Diamond–Taylor Lemmas 3.1.1 and 4.2.4 (JAMS 12 (1999)), which Taylor Lemma 5.4 imports, remain unread. Obtain the Duke version rather than assuming the numbering of arXiv:math/0504080v1 agrees. Khare's small-prime input is requested from HilbertModularVarietiesAndShimuraCurves R18.3, and the weight/local-level interface from R20.3/R22.4."
     },
@@ -3471,7 +3666,8 @@
     {
       "title": "Skinner–Wiles, Base change and a problem of Serre (Duke 2001), used by Taylor 2006 Corollary 5.5, remains an unread supplier input",
       "neededBy": [
-        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level"
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"
       ],
       "detail": "Verified: Taylor 2006, p. 769, obtains Corollary 5.5 by 'combining the lemma 5.4 with the main theorem of [SW1]', [SW1] = Skinner–Wiles, Duke Math. J. 107 (2001), 15–25 (p. 778). The same paper is a gap of OrdinaryAutomorphicFormsAndModularityLifting (used in Skinner–Wiles 2001 Theorem 5.1) and is used by Taylor's KW Annals Theorem 2.1; it is not freely readable. The exact allowable-base-change/level-adjustment use is included in the R22.4 request; R17.4 supplies automorphic base change and descent. Their generic statements do not certify this unread source input."
     },
@@ -3531,6 +3727,66 @@
         "PotentialModularityAndCompatibleSystems:R24.2/characteristic-zero-points-of-R-bar-S-psi-give-lifts-of-required-type",
         "PotentialModularityAndCompatibleSystems:R24.2/newton-thorne-khare-wintenberger-extraction"
       ]
+    },
+    {
+      "title": "Taylor Lemma 1.1 algebraic characters and S-unit congruence input",
+      "detail": "Construct ψ₀ with ε_p^{-1}det Ind ψ₀ of finite order and finite inertia at the selected split places, and verify Taylor [Ta2] Lemma 2.1: every finite-index subgroup of L_S× contains the inverse image of an open congruence subgroup away from S∪T, with the c−1 quotient argument. Neither the CHT finite character extension nor the existing global reciprocity stage is cited as providing these additional assertions.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions"
+      ]
+    },
+    {
+      "title": "Odd auxiliary modularity lifting with Snowden type data",
+      "detail": "The dyadic R22.6 node cannot supply an odd auxiliary prime. The R22.5 KW node has narrower field/local hypotheses than Snowden 4.4.2. Verify or request the exact Snowden auxiliary lifting interface before using the Tate representation to transfer modularity; this input must be independent of R24.2 global lift extraction.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.3/snowden-totally-real-potential-residual-modularity"
+      ]
+    },
+    {
+      "title": "Torsion Fontaine–Laffaille and full Hilbert crystallinity input",
+      "detail": "The rational FL comparison node is a near miss for inertial-character classification of mod-l lattices. The R19.5 Carayol node requires parity or an auxiliary place; Taylor Lemma 1.4 ranges over all forms after its reduction. Verify the torsion theorem, auxiliary-place passage and negative Hodge–Tate convention before the proof is closed.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l"
+      ]
+    },
+    {
+      "title": "Weil restriction of varieties: property and analytic-open adapter",
+      "detail": "Use the existing A6 functor, scheme-representability criterion and geometric product. Still need smoothness/geometric connectedness preservation and the topological local-point product; for nodes 37 and 38 choose a dense affine open meeting all local opens before restriction. Finite étale Weil restriction of abelian schemes is a different statement and cannot supply these variety assertions.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension",
+        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
+        "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
+        "PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field",
+        "PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent"
+      ]
+    },
+    {
+      "title": "Local analytic density used in the approximation arguments",
+      "detail": "Need the étale local analytic inverse theorem and density of a nonempty Zariski open on a smooth geometrically integral local-field variety, plus the excellent valuation-ring/separable completion argument of MB II 2.1. These are non-routine inputs; in particular U(K_v)≠∅ in Theorem G is not purely scheme-theoretic density.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.1/density-of-algebraic-and-separable-local-points",
+        "PotentialModularityAndCompatibleSystems:R23.1/elementary-reductions-of-skolem-data",
+        "PotentialModularityAndCompatibleSystems:R23.1/theorem-g-from-moret-bailly",
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension",
+        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient"
+      ]
+    },
+    {
+      "title": "Suggested APIs and tests: missing full object interfaces",
+      "detail": "The suggested file has a normalized field-point model rather than the closed-subscheme comparison; PG has an objectwise group signature and quotient descent, without the relative group-sheaf/Cartesian-pullback construction or its tensor/dual and functor laws; auxiliary fields omit automorphic witnesses and local realization data. Supply those full interfaces from SF.3/R09.3/H6 and the place/automorphic owners, together with the geometric integralPoint_iff/enlargeSigma comparison and the identity/composition laws of mapPoint. At least three tests per full object must exercise those interfaces. Arithmetic-only examples are reduced checks, not the packet’s complete geometric/automorphic tests. The existing reduced signatures are explicitly marked as such under Protocol §13.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.1/skolem-datum-and-integral-point",
+        "PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration",
+        "PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument",
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M"
+      ]
+    },
+    {
+      "title": "Taylor auxiliary prime, quadratic and coefficient field choices",
+      "detail": "Taylor 2002 printed pp. 7–9 assert the choice of a CM quadratic L/F split at the l- and p-adic places and not contained in F(ζ_p), followed by a Galois CM N/N₀ split above l and unramified above p with residue field containing the finite image of ψ̄. Lemma 1.1 assumes L and does not construct it. Provide the exact compatibility/existence argument for the simultaneous auxiliary-prime Frobenius/class-field conditions, weak-approximation/quadratic avoidance and coefficient-field extension input; for α_w of norm p choose the wp₀-unit conjugate before prescribing its residual character. General Frobenius prime existence is the separate node frobenius-primes-generate; that theorem alone does not establish compatibility of all the prescribed auxiliary-prime conditions.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M"
+      ]
     }
   ],
   "sourceIssues": [
@@ -3547,7 +3803,12 @@
       "searched": [
         "The author's preprint proofs.pdf (the version read)",
         "Invent. Math. 178 (2009) 505–586: not obtained"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. In Theorem 6.1 (p. 54) the clause about completions containing prescribed local extensions F_{ℓ_i} is (iii) b); (iii) c) makes F split at p when p > 2 and k(ρ̄) = p + 1. The proof needs the local extensions.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E3",
@@ -3561,7 +3822,12 @@
       "known": "new: present in the published article (Numdam scan)",
       "searched": [
         "The Numdam item page for 10.24033/asens.1582 (no erratum listed)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. The lemma sits in 3.10 between 3.10.1 and 3.10.3, and the plan of the paper on p. 182 cites it as (3.10.2) (compactness of Jacobians); there is no §3.30.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E4",
@@ -3576,7 +3842,12 @@
       "searched": [
         "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
         "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E5",
@@ -3591,7 +3862,12 @@
       "searched": [
         "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
         "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. The characters ψ_x are indexed by x ∈ S_L; the condition is at each y ∈ S_L separately, as in the preceding sentence 'restricts … to ψ_x on L_x^× for all x ∈ S_L'.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E6",
@@ -3606,7 +3882,12 @@
       "searched": [
         "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
         "the author's preprint of 23 May 2000 (fm.pdf), the only version read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. On p. 7 only λ₀ | l in N₀ has been chosen; λ | λ₀ in N is chosen on p. 10, and α_w ∈ N₀. On p. 11 the abelian variety is A₀ and no α is defined in this case; the pairing is the trace from N to ℚ(β_v), as i₀ and the tensor product O_N = O_{ℚ(β_v)} ⊗ … show.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E7",
@@ -3622,7 +3903,12 @@
         "Published Centre Mersenne PDF, pp. 458–459",
         "Author arXiv:1812.09269 PDF, Proposition 9.1.12",
         "Issue #976 and PAPER-BOXER-CALEGARI-GEE-PILLONI-21 extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. L′ contains E′, so printed (2) is impossible for E′≠E. Weil restriction supplies a G-cover over KE′ without descent to K. For E=Q, E′=Q(sqrt(2)), S={7}, the two split places permit different local decomposition data, so an L/K descent is not available in general. Lemma 9.2.7 uses only K and L′/K′.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E8",
@@ -3639,7 +3925,53 @@
         "arXiv:1609.03491v2, §9",
         "Author publications pages and web erratum/correction search",
         "Primary arXiv:2502.20611v1 PDF, p. 28"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the cited source passage. With H trivial, Z=Y_K, a curve of dimension one over K, so it cannot be finite over K. Its relative Isom construction and the proof identify a finite cover of Y_K. Proposition 9.2 itself correctly calls it a curve.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
+    },
+    {
+      "id": "PotentialModularityAndCompatibleSystems/E9",
+      "source": "taylor-2006-meromorphic-continuation",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "Corrections to [Tay4], p. 776, second bullet; compare Taylor 2002 printed p. 7 (β_v and χ̃_v)",
+      "printed": "β_vβ_v^c = ψ(φ_v)ψ^c(φ_v) = p",
+      "correction": "The determinant product at v|l is q_v=l^[k(v):F_l], and β_vβ_v^c=q_v. Compare reductions: for χ_v²≠1 use ψ̄(φ_v)=β̄_v; for χ_v²=1 the Teichmüller prescription gives ψ̄(φ_v)=±1, so add the finite exclusion p∤q_v−1 to obtain distinct reductions.",
+      "reason": "a=(1+sqrt(1−4l))/2 satisfies aa^c=l and ζζ^c=1; hence β_vβ_v^c=l^f_v, not the auxiliary prime p≠l. The v|l Frobenius is away from p and ε_p(φ_v)=q_v. Lemma 1.1 prescribes reductions rather than exact p-adic lifts. The Teichmüller branch does not in general have ψ̄(φ_v)=β̄_v, so the printed uniform justification omits that case. The stated construction can be strengthened by excluding finitely many prime divisors of q_v−1.",
+      "known": "No existing correction found in the published corrections section or the targeted erratum search; the finding is scoped to this published formula and its stated justification.",
+      "searched": [
+        "Taylor 2006 published pp. 776–777",
+        "Taylor 2002 author fm.pdf, printed pp. 7–9",
+        "Targeted web searches for the 2006 paper, beta norm and an erratum, 2026-10-06"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the p. 776 page image and recomputed the norm from the p. 7 formula. Distinguishedness on a local decomposition group needs the separate Teichmüller case described in the correction.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
+    },
+    {
+      "id": "PotentialModularityAndCompatibleSystems/E10",
+      "source": "taylor-2006-meromorphic-continuation",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Proof of Lemma 5.1, p. 766: definitions of τ_T and τ_{T,x}",
+      "printed": "Symm^{2+i}((F_l^ac)^2); Symm^{i+2}((F_l^ac)^2)",
+      "correction": "Both factors for y∉T (respectively y∉T∪{x}) are Symm^i((F_l^ac)^2).",
+      "reason": "The filtration on p. 765 has subrepresentation Symm^i and quotient Symm^{l−1−i}⊗det^i. The empty-T term is the weight-(i+2) space, whose coefficient representation is Symm^i by the convention on p. 739. Symm^{i+2} has dimension i+3 rather than i+1 and cannot be the identified subrepresentation.",
+      "known": "No existing correction found in the published corrections section or targeted search; the intended factors are fixed by the preceding filtration.",
+      "searched": [
+        "Taylor 2006 published pp. 739, 765–767 and 776–777",
+        "Targeted search for Richard Taylor Lemma 5.1 Symm correction, 2026-10-06"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the p. 766 page image and compared both coefficient factors with the p. 765 exact sequence and the weight convention. The packet already uses Symm^i; record the printed slip to protect that correct convention.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
+      }
     }
   ],
   "sourceVersions": [
@@ -3695,7 +4027,7 @@
   },
   "baselineAudit": {
     "date": "2026-10-06",
-    "reviewedAudit": "data/library-coverage.json has no PotentialModularityAndCompatibleSystems entries at this checkout. H6 and related supplier rows were consulted as leads; no absent row is represented as an accepted audit.",
+    "reviewedAudit": "No layer audit rows keyed by PotentialModularityAndCompatibleSystems are present at this checkout; references to its layers do occur in other owners’ audit rows. Read H6 (AUDIT-15: twisted moduli/local points absent) and SF.3 (AUDIT-01: existing invertible sheaves/line-bundle classes and function-field divisor/Riemann–Roch theory, but relative Picard representability and scheme cohomological duality missing). The packet imports H6, extends the pinned line-bundle API, and requests the relative-curve foundations from their owners.",
     "search": "Pinned TauCeti git grep plus pinned Mathlib source searches: MoretBailly/Skolem/Grunwald/generalizedPicard/line bundles/Galois disjointness/deformation finiteness. Found primitive schemes, field disjointness, invertible sheaves and Frobenius-prime sets, not the needed approximation, density, twisted-moduli or deformation finiteness conclusions.",
     "build": "Mathlib in the shared lean-check build is exactly 082e2d3. Shared TauCeti HEAD differs from f790474. The relevant line-bundle source blobs were compared and are unchanged, but their compiled objects are absent; full suggested-file elaboration is unavailable and no library build is attempted."
   },
@@ -3708,5 +4040,258 @@
       "detail": "R23.6 is an export-table/noncircularity process panel, not an additional mathematical result. The current eight-stage scope is retained for this packet.",
       "proposal": "Fold R23.6 into the introduction at assembly; assign its residual, given-lift and field-control exports to R23.3, R23.4 and R23.5 respectively. No process node or planet is introduced."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R23.1",
+    "date": "2026-10-06",
+    "notes": "Completed independent target-level review of all 49 nodes: 25 corrected and 24 verified, no added nodes. All 19 public source hashes and all nine exact pinned baseline declarations confirmed; all nine sourceIssues confirmed, including new Taylor E9/E10. Corrected local scalar extension, character/determinant conventions, supplier scopes, API/test interfaces and unsupported verification claims; retained 22 precise gaps, 33 open requests and eight planned/no closed stages. The read-only reader still contradicts the corrected packet in its Moret–Bailly splitting, Taylor norm/cyclotomic/ordinary-shape arguments and odd-prime supplier routing. It must be revised before acceptance. Full Lean elaboration was attempted but stops at missing TauCeti.AlgebraicGeometry.LineBundle.Class.olean; no prototype is certified compiled. Honest partial interfaces/gaps alone are not grounds for rejection; see the review report for exact remaining contradictions.",
+    "checked": [
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/skolem-datum-and-integral-point",
+        "verdict": "corrected",
+        "note": "Checked MB II 1.1–1.2/1.5/1.8. Extended normalized field-point projections, completeness congruence, morphism API and an all-embeddings test; full geometric comparison remains an explicit gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/density-of-algebraic-and-separable-local-points",
+        "verdict": "verified",
+        "note": "Checked MB II 1.6.1–1.6.2 and 2.1. Kept generic smoothness, flatness/surjectivity and excellent/separable-completion hypotheses; recorded the local analytic density supplier gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/elementary-reductions-of-skolem-data",
+        "verdict": "corrected",
+        "note": "Checked MB II 1.4/1.9/1.10. Removed the irrelevant relative-Picard prerequisite; Chow/spreading-out belongs to SF.4, with local analytic density explicitly missing."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/reduction-to-relative-dimension-one",
+        "verdict": "verified",
+        "note": "Checked MB II 2.2–2.4. Target-level grouping is appropriate; Bertini and spreading-out are explicit supplier inputs, not routine deductions."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration",
+        "verdict": "corrected",
+        "note": "Checked MB II 3.1–3.6, including the degree bound. Added rigidified quotient equality/descent, group/pullback outline and discriminating quotient tests; moved the relative Picard request to its actual consumer."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/local-picard-open-sets-and-strong-approximation",
+        "verdict": "verified",
+        "note": "Checked MB II 3.7.2/3.8. Preserved the two distinct degree inequalities and incompleteness; the projective-module strong-approximation extension is an explicit gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/quasi-compactness-of-the-generalized-jacobian-quotient",
+        "verdict": "verified",
+        "note": "Checked MB II 3.9–3.10.4 and the printed 3.30.2 typo. Kept compactified-Picard and S-unit compactness imports explicit; no baseline compactness claim."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points",
+        "verdict": "corrected",
+        "note": "Corrected K′⊗K K_v to K′⊗K L_v as an L_v-algebra. Checked MB II 1.3 and the empty-Σ Rumely passage in part I; the stronger completion prescription is false."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/taylor-theorem-g-split-completely-points-are-dense",
+        "verdict": "verified",
+        "note": "Checked Taylor Theorem G and KW II its local-open use. Retained smoothness, geometric irreducibility, quasi-projectivity and the distinction between maximal split field and finite point field."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/forcing-linear-disjointness-by-extra-split-places",
+        "verdict": "verified",
+        "note": "Checked the KW avoidance argument and pinned disjointness declarations. Galois intersection reasoning is valid only with its stated hypotheses; Frobenius existence and almost-all local points are separate inputs."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+        "verdict": "corrected",
+        "note": "Checked all KW II 6.1 branches and dyadic/weight exceptions. Replaced the coarse local-point stage by its application node, used the dyadic lifting node, and added the existing Hida specialization as a partial supplier."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity",
+        "verdict": "corrected",
+        "note": "Checked KW Annals 2.1, including p odd, k≠p and ordinarity. Added H6/local-point, soluble base-change, definite quaternionic and Hida inputs; unread endpoint inputs remain gaps."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument",
+        "verdict": "corrected",
+        "note": "Checked KW II 10.1 setup and 6.1/8.2 consumers. Guarded the type-(A) witness by p≠2 or weight 2 and replaced arithmetic-only auxiliary tests with tests involving the actual reduced object."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring",
+        "verdict": "verified",
+        "note": "Checked KW II 10.1 proof. Finiteness is for the unframed ring; restriction and finite-image descent use separate imported deformation results and retain their open proof inputs."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.2/characteristic-zero-points-of-R-bar-S-psi-give-lifts-of-required-type",
+        "verdict": "corrected",
+        "note": "Checked KW II 4.5/4.7 and 10.3.1. Removed a repeated extraction prerequisite; the local/continuous p-adic point adapter remains distinct from the algebraic integral-closure theorem."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/theorem-g-from-moret-bailly",
+        "verdict": "corrected",
+        "note": "Checked the deduction of Theorem G from MB II 1.3/1.5. Removed a relative-Picard dependency, retained spreading-out, and recorded the nonempty local-open density input."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.4/potential-modularity-of-a-given-lift",
+        "verdict": "verified",
+        "note": "Checked KW II 10.3.2 against lifting supplier statements. A lift is input data; this export is not used to prove the existence of that lift."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension",
+        "verdict": "verified",
+        "note": "Checked KW II 6.1(iii)(a)–(d) and the dihedral branch. Local containment, splitting, image preservation and avoidance remain distinct; descent is conditional on its own hypotheses."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+        "verdict": "corrected",
+        "note": "Corrected Taylor E9: q_v norm, separate Teichmüller branch and finite prime exclusion, residual rather than exact character values, full decomposition-group distinction and coefficient fields over Q. Added the Frobenius prerequisite, unit choices and a separate field-choice gap; expanded API/tests."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions",
+        "verdict": "corrected",
+        "note": "Checked Taylor 1.1 statement/proof and E5. Added global/local reciprocity prerequisites; the algebraic CM character and S-unit congruence input are a precise gap, not a consequence of finite-order CFT."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+        "verdict": "verified",
+        "note": "Checked Taylor pp. 13–15 and the 2006 local-point application. H6 owns the twisted moduli and all local objects; this node only applies approximation and evaluates its supplied family."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l",
+        "verdict": "corrected",
+        "note": "Applied the already recorded E4 correction ω⁻¹ to the final proof step of Taylor 1.5; it now implies the excluded n=1 rather than n=l−2."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+        "verdict": "verified",
+        "note": "Checked Taylor pp. 13/15 transfer and the lifting supplier. Induced residual modularity is independent; the CM-induced Skinner–Wiles near miss is explicitly retained as a gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
+        "verdict": "verified",
+        "note": "Checked Taylor 1.6/1.7 and the corrected determinant/twist proof on 2006 p. 777. The soluble-image input and unprinted Corollary 1.7 proof are explicitly imported/gapped."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+        "verdict": "verified",
+        "note": "Checked Taylor 2006 4.1/4.6. Kept niveau-two exponents, even degree, split l and the central-character refinement; H6 supplies the two auxiliary moduli twists."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+        "verdict": "verified",
+        "note": "Checked Taylor 2006 1.3 and the Hecke realization passage. Jacquet–Langlands, Hilbert Galois representations and Carayol descent are read supplier interfaces, not new objects here."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l",
+        "verdict": "corrected",
+        "note": "Checked Taylor 2006 1.4/1.5 and the actual R06.4/R19.5 statements. Added torsion Fontaine–Laffaille and full Hilbert crystallinity requests/gap; rational comparison alone does not supply this node."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction",
+        "verdict": "corrected",
+        "note": "Checked Taylor 2006 5.1/5.2. Recorded new E10 and the correct Symm^i coefficient convention; retained the localized V-operator/non-Eisenstein hypotheses."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-3-weight-shift",
+        "verdict": "corrected",
+        "note": "Checked Taylor 2006 5.3. Removed an unsupported claim that the polynomial calculation was checked in Lean; the acceptance calculation remains to be supplied."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+        "verdict": "verified",
+        "note": "Checked Taylor 2006 5.4–5.6. Kept the l>3 bound, weight/conductor changes and unread CDT/Duke Skinner–Wiles inputs explicit."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
+        "verdict": "corrected",
+        "note": "Checked Taylor 2006 5.7. Removed an unsupported Lean weight-bookkeeping claim; retained irreducibility at l, even degree, split l and the p=3 gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/frobenius-primes-generate",
+        "verdict": "verified",
+        "note": "Checked Snowden 5.2.2 and the pinned Frobenius-prime-set definition. Number-field Chebotarev is imported; function-field constant-field congruences and density remain an exact gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension",
+        "verdict": "verified",
+        "note": "Checked CHT 4.1.1/proof. Extension is into divisible roots of unity with a finite ray-class quotient; no fixed cyclic order is imposed and no Grunwald–Wang exception is suppressed."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
+        "verdict": "corrected",
+        "note": "Checked CHT 4.1.2/proof. Added the normalized local reciprocity request; exact completions, soluble Galois extension and disjointness are kept together without a fixed-degree cyclic assertion."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/tower-linear-disjointness",
+        "verdict": "verified",
+        "note": "Checked Qian opening §2 and pinned disjointness API. Base-change of a genuinely linearly disjoint extension is valid; trivial intersection is not used as a converse without Galois hypotheses."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
+        "verdict": "verified",
+        "note": "Checked Qian 4.2 statement/application. S1 is over K_v, S2 over K_v^nr and S3 over Kbar_v, with their distinct invariance and splitting/unramified conclusions."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension",
+        "verdict": "corrected",
+        "note": "Checked BLGHT 6.2. Added fine Weil-restriction nodes and the dense-affine reduction needed for scheme representability; property/analytic-open compatibility is separately gapped."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
+        "verdict": "corrected",
+        "note": "Checked Bianchi 4.5.1. Corrected its literal excerpt, added fine Weil-restriction inputs and dense-affine reduction, and retained CM/Q-Galois/local-equivariance hypotheses."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/function-field-isomorphism-torsor",
+        "verdict": "corrected",
+        "note": "Checked published BHKT 9.1 and the 2025 correction p. 28. Corrected the excerpt to the printed wording; E8 explicitly replaces the finite-etale base by Y_K and retains nonconstant-point avoidance."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/function-field-point-with-fixed-constants",
+        "verdict": "verified",
+        "note": "Checked published BHKT 9.2. Coprime split-place degrees force constant field F_q; disjointness and the nonconstant point condition are separate conclusions/inputs."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/potential-global-galois-local-data",
+        "verdict": "verified",
+        "note": "Checked published BHKT 9.3 and Calegari 3.2. Number-field Galois/avoidance refinements are scoped to Calegari; the function-field assertion is not silently strengthened."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
+        "verdict": "corrected",
+        "note": "Checked BCGP 9.1.11 proof. Added fine representability/geometric-product Weil-restriction inputs; the smoothness/local topology adapter and H6 object remain supplier contracts."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field",
+        "verdict": "corrected",
+        "note": "Checked Snowden 8.2.2/proof. Added fine Weil-restriction inputs; split over L_v is not equality of completions with L_v, and the soluble preliminary field remains separate from F2."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/snowden-totally-real-potential-residual-modularity",
+        "verdict": "corrected",
+        "note": "Checked Snowden 5.1.1/8.2.1. Replaced the dyadic supplier R22.6 by an exact odd-prime R22.5 request/gap; auxiliary (A1),(A2), stable avoidance and split-place compatibility remain explicit."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.3/bcgp-controlled-residual-modularity",
+        "verdict": "verified",
+        "note": "Checked BCGP 9.1.11. Representation is over F1, field choice is over F, and avoidance is F1Favoid; the q-ordinary weight-zero witness is preserved."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent",
+        "verdict": "corrected",
+        "note": "Checked BCGP 9.1.12/9.2.7 use and E7. Removed the inapplicable CM/Q-Galois Bianchi prerequisite in favor of general number-field approximation plus an exact finite-quotient specialization request; no L/K descent is asserted."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.1/ordinary-global-ring-finiteness",
+        "verdict": "verified",
+        "note": "Checked Thorne 10.2 setup/proof. GL2 totally-real use is conditional on the polarized CM adapter, adequate image, ordinary lift and fixed Hodge type; it is not arbitrary-ring finiteness."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.1/cg-ordinary-ring-finiteness",
+        "verdict": "verified",
+        "note": "Checked CG 4.8 proof. R_phi is unframed finite; its framed power-series enlargement is not. The modified ordinary R-dagger comparison is an explicit supplier gap."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.2/newton-thorne-khare-wintenberger-extraction",
+        "verdict": "corrected",
+        "note": "Checked NT §3 Lemma 3.1 setup/proof. Added determinant, p≥5, residual-image and local-component hypotheses plus partial fine Hida input; dimension plus unframed finiteness gives a point before later automorphy."
+      }
+    ]
+  }
 }

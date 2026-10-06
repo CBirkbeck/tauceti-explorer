@@ -1,0 +1,11 @@
+# Handoff: REV-PotentialModularityAndCompatibleSystems--R23.1
+
+Completed independent review by Codex, session `codex-GctJKn`, 2026-10-06. Refs #473. Verdict: **needs_changes**. This is the finished review job, not a checkpoint.
+
+Read the [review report](../reviews/REV-PotentialModularityAndCompatibleSystems--R23.1.md), [reviewed packet](../packets/PotentialModularityAndCompatibleSystems--R23.1.json) and [suggested file](../suggested/PotentialModularityAndCompatibleSystems--R23.1.lean). All 49 nodes have verdicts (25 corrected, 24 verified); all nine pinned baseline citations and 19 source hashes are confirmed. Nine source issues E2–E10 are confirmed, including new Taylor norm/exponent corrections. There are 36 API items, 22 test specifications, 17 planets, 22 explicit gaps, 33 open requests and eight planned/no closed stages. All implementations are unchecked.
+
+The next revision must be authorized to edit the [reader](../readmes/PotentialModularityAndCompatibleSystems--R23.1.md), which this review issue excluded. Synchronize the reviewed packet and reader, especially the MB tensor product at line 300; Taylor norm/residual/Frobenius argument at lines 611–647; inverse ordinary character at line 773; unsupported Lean-check claims at lines 918/960; odd auxiliary supplier at line 979/request 1256; H6 request consumers; and the API/tests/gap ledger. The report gives exact corrections and all eight red-team outcomes. Honest remaining gaps are not by themselves grounds for rejection.
+
+Full suggested-file elaboration is unavailable: lean-check stops at the first import because the shared build lacks `TauCeti.AlgebraicGeometry.LineBundle.Class.olean`. No revised signature/test was certified compiled, and no build was attempted. The packet and errata-projection schema checks pass. Verify the full file when a usable pinned build is available; do not treat the reduced schemas as unconditional theorems.
+
+Keep the exact odd auxiliary lifting, torsion Fontaine–Laffaille/Hilbert crystallinity, relative Picard, local topology, quadratic field choice and ordinary-finiteness adapters with the owners named in the packet. Do not recreate H6 moduli or Tau Ceti line bundles here. Preserve the distinction between a given lift and an independently constructed residual modular witness.
