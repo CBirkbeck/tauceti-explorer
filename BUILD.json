@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3575,
+  "stages": 3582,
   "originalStages": 2098,
-  "sourceRefinements": 1477,
+  "sourceRefinements": 1484,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3474,
+  "mathematicalStars": 3481,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1857,
-  "stageEdges": 9535,
+  "stageEdges": 9548,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -615,6 +615,18 @@
       "reviewer": "independent-review-REV-HabiroNumberFields"
     },
     {
+      "file": "HabiroRings--HR.1",
+      "roadmap": "HabiroRings",
+      "nodes": 17,
+      "reviewer": "independent-review-REV-HabiroRings--HR.1"
+    },
+    {
+      "file": "HabiroRings--HR.2",
+      "roadmap": "HabiroRings",
+      "nodes": 5,
+      "reviewer": "independent-review-REV-HabiroRings--HR.2"
+    },
+    {
       "file": "HabiroRings--HR.3",
       "roadmap": "HabiroRings",
       "nodes": 7,
@@ -718,8 +730,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32350980,
-  "htmlSha256": "91764baeca58e3768e9b78f0a4d062b4cf52b016b21d139743ad7f70875c7738",
+  "htmlBytes": 32369590,
+  "htmlSha256": "b974c9b210a4bba4af1885d210273683fb6f2cfaa0de23d9d43da508b898ad68",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -750,7 +762,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ae7645664a9f5baf74531b59490773abab28405d96a41495ff54d95ca0cadb04",
+    "data/roadmap-distances.json": "c2f0a6096ceca827483723d6797412963af237d3cd50ef7551ed46cbc83abd37",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -898,6 +910,10 @@
     "data/blueprints/HabiroNumberFields--HB.1.md": "ab922b9a8a55638a12973344013721ed5868a8d853907bc6c33dd7f01bf10567",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
     "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
+    "data/blueprints/HabiroRings--HR.1.json": "fe55060cdfbeefaf242b4df2c59e8601b429d92737af7bc2c2ee580d51b14d9e",
+    "data/blueprints/HabiroRings--HR.1.md": "9a01e645959cbf961f0303f81996633e781a14ca5e4bc4a5d13ded09a6935a22",
+    "data/blueprints/HabiroRings--HR.2.json": "e167d87ab1c99f77f179e2378508b76677e139be1520e0d7d88326602fd495f6",
+    "data/blueprints/HabiroRings--HR.2.md": "ce0245df9c5eadd481d92ea686c56e33bf8f21047b0118068f203b488fa38196",
     "data/blueprints/HabiroRings--HR.3.json": "e723d2b2060a9a9cb2951d0104c67aa163c3aef5d1aa91b32f9b9011c231c3af",
     "data/blueprints/HabiroRings--HR.3.md": "1e4bc5881a504972c411728510bbf2f6f58124826d28aaaefdaa5a40d5e9b64b",
     "data/blueprints/HabiroRings.json": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
