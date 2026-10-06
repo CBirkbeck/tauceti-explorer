@@ -706,6 +706,17 @@
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md"
    ]
   },
+  "research/blueprint/packets/HabiroCohomologyFoundations--HQ.3.json": {
+   "promotedAt": "2026-10-06T02:31:35Z",
+   "review": "5e0beadf814625d7",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.3",
+   "sha256": "b0f57a655220df5186e9ec608284ecb7cb5cf7e5fd7066a88b99f2b0c05401a2",
+   "to": [
+    "data/blueprints/HabiroCohomologyFoundations--HQ.3.json",
+    "data/blueprints/HabiroCohomologyFoundations--HQ.3.md"
+   ]
+  },
   "research/blueprint/packets/HabiroCyclotomicCompletions--HC.4.json": {
    "promotedAt": "2026-10-05T23:07:06Z",
    "review": "401c1740aa841260",
@@ -937,6 +948,17 @@
    "to": [
     "data/blueprints/K3BlochGroups--V.5.json",
     "data/blueprints/K3BlochGroups--V.5.md"
+   ]
+  },
+  "research/blueprint/packets/K3BlochGroups--V.6.json": {
+   "promotedAt": "2026-10-06T02:31:35Z",
+   "review": "d56e5dd2d4753f59",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-K3BlochGroups--V.6",
+   "sha256": "ec2dc32a5e3382102a7e98b7fb79ec11e6e19308bcb068ef7b340a203c8467ee",
+   "to": [
+    "data/blueprints/K3BlochGroups--V.6.json",
+    "data/blueprints/K3BlochGroups--V.6.md"
    ]
   },
   "research/blueprint/packets/K3BlochGroups.json": {
