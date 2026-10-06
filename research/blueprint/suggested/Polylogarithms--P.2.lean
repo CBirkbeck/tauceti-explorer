@@ -7,6 +7,7 @@ signatures. They claim no implementation; implementationStatus is unchecked.
 BP-Polylogarithms--P.2, Codex — codex-1MIcru.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+Independent signature review: REV-Polylogarithms--P.2, Codex — codex-bnNBAm.
 
 The eight inherited P.2 nodes and P.1's D are references, not new declarations.
 The local notation D below expands the canonical P.1 weight-two integral formula:
@@ -79,6 +80,9 @@ example : lobachevsky π = -(∫ t in (0 : ℝ)..π, Real.log (Real.sin t)) - π
 
 /-- P.2/lobachevsky-fourier: n begins at 1, and the convergence is uniform in theta. -/
 theorem lobachevsky_fourier :
+    (∀ θ : ℝ, Summable
+      (fun k : ℕ => |Real.sin (2 * ((k + 1 : ℕ) : ℝ) * θ) /
+        (2 * (((k + 1 : ℕ) : ℝ) ^ 2))|)) ∧
     (∀ θ : ℝ, HasSum
       (fun k : ℕ => Real.sin (2 * ((k + 1 : ℕ) : ℝ) * θ) /
         (2 * (((k + 1 : ℕ) : ℝ) ^ 2))) (lobachevsky θ)) ∧
@@ -93,6 +97,7 @@ theorem lobachevsky_duplication (θ : ℝ) :
 
 /-- P.2/unit-circle-fourier, on the canonical P.1 expression. -/
 theorem blochWigner_unit_fourier {w : ℂ} (hw : ‖w‖ = 1) :
+    Summable (fun k : ℕ => |(w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2)|) ∧
     HasSum (fun k : ℕ => (w ^ (k + 1)).im / (((k + 1 : ℕ) : ℝ) ^ 2)) (D w) := by sorry
 
 /-- P.2/unit-circle-fourier-tail; includes w = 1. -/
@@ -103,9 +108,11 @@ theorem blochWigner_unit_fourier_tail {w : ℂ} (hw : ‖w‖ = 1)
 
 /-- P.2/kummer-unit-reduction. No cut or half-plane restriction. -/
 theorem blochWigner_kummer {z : ℂ} (hz0 : z ≠ 0) (hz1 : z ≠ 1) :
-    D z = (D (z / starRingEnd ℂ z) +
-      D ((1 / (1 - z)) / starRingEnd ℂ (1 / (1 - z))) +
-      D ((1 - 1 / z) / starRingEnd ℂ (1 - 1 / z))) / 2 := by sorry
+    let w₀ := z / starRingEnd ℂ z
+    let w₁ := (1 / (1 - z)) / starRingEnd ℂ (1 / (1 - z))
+    let w₂ := (1 - 1 / z) / starRingEnd ℂ (1 - 1 / z)
+    (‖w₀‖ = 1 ∧ ‖w₁‖ = 1 ∧ ‖w₂‖ = 1) ∧
+      D z = (D w₀ + D w₁ + D w₂) / 2 := by sorry
 
 /-- P.2/rational-unit-shapes. All helpers are local rational formulas. -/
 def rationalUnitShapes (z : ℚ × ℚ) : Fin 3 → ℚ × ℚ :=
