@@ -1,0 +1,1437 @@
+{
+  "roadmapId": "HabiroNahmSeries",
+  "protocol": "blueprint-v1",
+  "part": "HB.9",
+  "scope": [
+    "HabiroNahmSeries:HB.9"
+  ],
+  "status": "complete",
+  "summary": "A target-level HB.9 follow-up importing all 17 accepted HB.9 nodes. Eighteen refinements give the Gaussian first coefficient, an explicit modified potential/regulator proof route, arbitrary-rank powered and unpowered auxiliary systems and uniqueness, and exact coefficient/descent contracts. The unpowered q^γ covariance repairs the gluing argument without destroying volume cancellation; the powered family has a nonzero universal principal part. Two additional source normalization errors are recorded for independent review. All targets are planned; faithful coefficient transfer, corrected HB.8 identification, Kummer orientation, all-order gluing and descendant transport remain gaps.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:RingHom",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Ring/Hom/Defs.lean",
+        "provides": "Existing ring maps for the saturated transfer lemma.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Multivariable formal series on an arbitrary finite coordinate type.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.rescale",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+        "provides": "Coefficient scaling by products of coordinate powers; already a ring homomorphism.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_rescale",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+        "provides": "coeff_n(rescale(a,f))=(∏ a_i^n_i)coeff_n(f).",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.expand",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Expand.lean",
+        "provides": "Existing algebra homomorphism t_j↦t_j^γ for γ≠0.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_expand_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Expand.lean",
+        "provides": "Coefficient of γα in expand γ f is coefficient of α in f.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_expand_of_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Expand.lean",
+        "provides": "A coefficient is zero if some exponent is not divisible by γ.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_expand",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Expand.lean",
+        "provides": "Power substitution preserves the constant coefficient.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The existing coefficientwise ring homomorphism used by auxiliaryProduct_map.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient projection for the Gaussian first jet.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_one_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The two cross terms in a first jet of a product.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; target-specific integrality is not inferred."
+      }
+    ]
+  },
+  "libraryAudit": {
+    "record": "data/library-coverage.json#HabiroNahmSeries:HB.9",
+    "review": "AUDIT-14",
+    "finding": "No target implementation at the pins. Existing power-series maps/substitution and adic completion are input; the Frobenius logarithm, indexed Habiro modules and regulator comparisons are absent. General Habiro completion belongs to HabiroRings HR.2, Frobenius lifts to HR.1/HB.6; never duplicate them.",
+    "search": "Pinned Mathlib source read; git grep at Tau Ceti f790474 for Habiro/Nahm/Dwork/dilogarithm found no target declarations."
+  },
+  "sources": [
+    {
+      "id": "GSWZ.HB9.v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2, posted 27 August 2025; PDF dated 13 August 2025",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.5 Definitions 1.3–1.4; §§1.6–1.7 and Theorems 4–5",
+        "§2.1 Bernoulli/root expansion (46)–(60); §§2.4–2.7 in full, including corrected admissibility, formal Gaussian integration and Theorem 4 proof",
+        "§§3.1–3.3 in full through Remark 3.11; corrected shape (195) and module conditions",
+        "§4.1 (222) and §4.2 (242) read for convention/first-jet checks; later examples are not new HB.9 targets"
+      ]
+    },
+    {
+      "id": "CGZ.HB9.v3",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "arXiv:1712.04887v3, 6 April 2021",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§§1.1–1.2, (7)–(13), excluded primes and finite-Chern comparison",
+        "§2.2 in full, (20)–(23), Kummer quotient and cyclic-dilogarithm conventions",
+        "§2.4 Lemma 2.10 and §2.5 Theorem 2.11 read to check restriction/normalization ownership"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-saturation-transfer",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Transfer of divisibility along a saturated coefficient map",
+      "kind": "lemma",
+      "statement": "Let ι:S→T be a homomorphism of commutative rings, T a domain, p∈S with ι(p)≠0, and assume ι(a)∈ι(p)T implies a∈pS for every a∈S. Then ι(a)∈ι(p)^nT implies a∈p^nS for every n≥0. Consequently the image of S[1/p] intersects T inside S: if ι(a)/ι(p)^n belongs to T, a/p^n is represented by an element of S. The same statement with p^(n+1) instead of p^n transfers p-divisibility, coefficient by coefficient, in the logarithmic defect of (39).",
+      "hypotheses": [
+        "S and T are commutative; T is a domain and ι(p)≠0. The localization map into T[1/ι(p)] is understood.",
+        "For coefficient products use the statement on each domain factor with jointly faithful reduction. Injectivity after rationalization alone is insufficient."
+      ],
+      "proofSteps": [
+        "Induct on n. For n+1 reduce ι(a)=ι(p)^(n+1)b modulo ι(p); the hypothesis writes a=pc. Cancel ι(p) in T and apply induction to c.",
+        "If a denominator p^n occurs and its image is p-integral, the conclusion clears exactly that denominator. To prove membership in pS, apply the same argument to divisibility by p^(n+1).",
+        "A sufficient hypothesis is injectivity S/pS→T/ι(p)T. Check this on the actual completed rings before applying it; it is not a consequence of étaleness."
+      ],
+      "acceptance": [
+        "For S=T=Z_p and ι=id, all powers transfer.",
+        "S=Z_p[u]/(u²−1), T=Z_p and u↦1 violates the reduction hypothesis; u−1 is invisible in T.",
+        "An application to the entire Nahm coefficient algebra must account for every square-root/Kummer component."
+      ],
+      "prerequisites": [
+        "mathlib:RingHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.7, proof of Theorem 4, (170), pp.36–37",
+          "excerpt": "S^{(m)}_p[\\tfrac{1}{p},z^{1/m}]",
+          "match": "Own elementary denominator-clearing lemma specifying what the source intersection would require; no assertion that its hypothesis holds for the full S_p."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-branch-loss",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "A single formal branch does not detect the full coefficient algebra",
+      "kind": "application",
+      "statement": "For N=m=1, A=(5), p=5, the Nahm relation is t=(z−1)z^(−5) and δ=z^(−5)(5−4z). In the mod-5 coefficient algebra, with z and z−1 inverted and T=δ^(−1/2), the relation is T²=z⁴. Its two maps to F₅[z,z^(−1),(z−1)^(−1)] send T to ±z². On the normalized t=0 branch z(0)=T(0)=1, T=z². Thus T−z² maps to zero on that branch but is nonzero in the full algebra, as the other map sends it to −2z². The full reduction map proposed in accepted source issue E59 is therefore not injective in general.",
+      "hypotheses": [
+        "This is a counterexample to a proposed proof repair, not to Theorem 4.",
+        "The t=0 evaluation lands in F₅((t)), since t is inverted in S. Both square-root components are retained in S; no quotient selecting one sign is silently imposed."
+      ],
+      "proofSteps": [
+        "Reduce δ modulo 5, obtaining z^(−4); substitute the Nahm relation to eliminate t.",
+        "Factor T²−z⁴=(T−z²)(T+z²); the factors are comaximal because 2z² is a unit.",
+        "Evaluate T−z² on both components. The normalized branch picks the positive component by uniqueness of the formal square root with constant 1."
+      ],
+      "acceptance": [
+        "Both component maps satisfy δT²=1.",
+        "The value −2z² is a unit on the negative component.",
+        "A Frobenius-compatible branchwise proof must still justify transport to an arbitrary nondegenerate t=1 solution."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/ring-S-and-its-level-m-variants",
+        "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§1.7, (35)–(38), pp.13–14; (170), pp.36–37",
+          "excerpt": "(1-z(t)-(-1)^A t \\,z(t)^A)",
+          "match": "Own rank-one mod-5 computation refining the already confirmed E59; do not create a duplicate erratum against the original source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-regularisation-jet",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Corrected pole subtraction for the Gaussian factor",
+      "kind": "lemma",
+      "statement": "Put q=ζ_m e^h, Z=θ^m and y_a=ζ_m^(k+1+a)θ, 0≤a<m. The logarithm of (q^(k+1)θe^w;q)_∞ is Σ_a Σ_r≥0 B_r((k+1+a)/m)m^(r−1)Li_(2−r)(y_a e^w)h^(r−1)/r!. Its quadratic pole is Li₂(Z)/(m²h)+Li₁(Z)w/(mh)+Li₀(Z)w²/(2h). Its h⁰w⁰ term is −Σ_a B₁((k+1+a)/m)log(1−y_a). Subtract precisely these terms to obtain the regularized factor used by HB.8. The logarithmic residual has w³/h and w⁴/h vertices mLi_(−1)(Z)/6 and m²Li_(−2)(Z)/24, w and w² vertices Σ_a B₁(s_a)Li₀(y_a) and (1/2)Σ_a B₁(s_a)Li_(−1)(y_a), and h vertex (m/2)Σ_a B₂(s_a)Li₀(y_a).",
+      "hypotheses": [
+        "m≥1; θ and 1−θ^m are units in a characteristic-zero coefficient algebra containing a primitive ζ_m; k is an integer representative.",
+        "The completion is the Gaussian weight completion: w has weight 1 and h weight 2; w³/h has weight 1. A statement that the residual is in 1+x times an ordinary w-power-series ring is not used.",
+        "This corrects inherited HB.8/fgi-collection; it does not introduce another formal Pochhammer or Gaussian integration definition."
+      ],
+      "proofSteps": [
+        "Use (59) with shifted argument q^(k+1)θe^w and the Bernoulli translation formula.",
+        "Apply Σ_a Li_s(ζ_m^aθ)=m^(1−s)Li_s(θ^m), then differentiate with respect to w.",
+        "Compute B₁(s)=s−1/2 and B₂(s)=s²−s+1/6; retain only Gaussian weight at most 2.",
+        "Correct all three subtractions in printed (114), including the constant-log sign; use source issue E64."
+      ],
+      "acceptance": [
+        "At m=1 the subtracted quadratic coefficient is Li₀(θ)/(2h), not Li₀(θ)/h.",
+        "The normalized residual has constant 1.",
+        "At m=2 the subtracted linear coefficient is Li₁(θ²)/(2h), not Li₁(θ²)/(4h)."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
+        "HabiroNahmSeries:HB.8/fgi-collection"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.1, (59)–(60), p.19; §2.5, (114), p.29",
+          "excerpt": "-\\frac{\\Li_{1}(z^{m})}{m^2\\log(1+x/\\z_m)} w",
+          "match": "Own derivation from the Bernoulli expansion, correcting (114). See E64; higher orders use the same series, not the printed erroneous factor."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-gaussian-first-jet",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The first Gaussian coefficient with diagonal vertices",
+      "kind": "definition",
+      "statement": "For a finite coordinate type I, a characteristic-zero field L, symmetric covariance C:I×I→L, vectors b,Q,T,U:I→L, and c∈L, define gaussianFirstJet(C,b,Q,T,U,c) = c + (1/2)Σ_i Q_i C_ii + (1/2)Σ_ij b_i b_j C_ij + (1/2)Σ_ij T_i b_j C_ii C_ij + (1/8)Σ_i U_i C_ii² + (1/8)Σ_ij T_i T_j C_ii C_jj C_ij + (1/12)Σ_ij T_i T_j C_ij³. This finite polynomial is the coefficient of h after Gaussian integration of exp(Σ_i b_iw_i +(1/2)Σ_i Q_iw_i² +(1/(6h))Σ_i T_iw_i³ +(1/(24h))Σ_i U_iw_i⁴ +hc), modulo terms of Gaussian weight >2.",
+      "hypotheses": [
+        "I is finite; L is a characteristic-zero field. Symmetry is needed for the interpretation as Gaussian covariance, although the finite polynomial itself is defined for any C.",
+        "The Hessian inverse in the application is C=Λ^(−1), not −Λ^(−1). The exponent of the Gaussian density is −wᵗΛw/(2h)."
+      ],
+      "proofSteps": [
+        "Define the displayed finite polynomial on existing finite functions and finite sums.",
+        "Wick contractions give ⟨w_i³w_j⟩/h²=3C_iiC_ij, ⟨w_i⁴⟩/h²=3C_ii² and ⟨w_i³w_j³⟩/h³=9C_iiC_jjC_ij+6C_ij³.",
+        "Enumerate Gaussian weight 2: hc, Qw²/2, (bw)²/2, (Tw³/(6h))(bw), Uw⁴/(24h), and (Tw³/(6h))²/2. Other terms have weight >2 or odd moments."
+      ],
+      "acceptance": [
+        "The cubic-only rank-one term is 5T²C³/24.",
+        "Only 2 and 3 occur as constant denominators.",
+        "A covariance-zero or empty-coordinate test returns c."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "mathlib:PowerSeries.coeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.5, Gaussian integration (110), p.28; (114), (118), pp.29–30",
+          "excerpt": "{\\frac{h}{2}\\sum_{i,j=1}^N (\\Lambda^{-1})_{i,j}",
+          "match": "Own finite coefficient formula for the imported Gaussian operation, not a new integration theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "gaussianFirstJet",
+          "role": "constructor",
+          "statement": "The finite polynomial displayed in the statement."
+        },
+        {
+          "name": "gaussianFirstJet_map",
+          "role": "functoriality",
+          "statement": "A field homomorphism maps the value to the value on the mapped data."
+        },
+        {
+          "name": "gaussianFirstJet_zero_covariance",
+          "role": "simp",
+          "statement": "With C=0 the result is c."
+        },
+        {
+          "name": "gaussianFirstJet_integral",
+          "role": "compatibility",
+          "statement": "For a subring O⊂L containing 1/2 and 1/3, if all entries of C,b,Q,T,U and c lie in O, the value lies in O."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HB.9 corrected shape (195)",
+          "how": "Bounds the first coefficient of each normalized refined Gaussian piece without using all-order Dwork integrality."
+        },
+        {
+          "where": "GSWZ (242)",
+          "how": "Independent exact rational-function comparison detects a missing Euler contribution."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gaussianFirstJet_linear",
+          "kind": "computation",
+          "statement": "For I=Fin 1, C=1,b=1,Q=T=U=c=0, the value is 1/2."
+        },
+        {
+          "name": "gaussianFirstJet_cubic",
+          "kind": "computation",
+          "statement": "For I=Fin 1, C=T=1,b=Q=U=c=0, the value is 5/24."
+        },
+        {
+          "name": "gaussianFirstJet_quartic",
+          "kind": "computation",
+          "statement": "For I=Fin 1, C=U=1,b=Q=T=c=0, the value is 1/8."
+        },
+        {
+          "name": "gaussianFirstJet_empty",
+          "kind": "degenerate",
+          "statement": "For I=Fin 0 the value is c."
+        },
+        {
+          "name": "gaussianFirstJet_mixed",
+          "kind": "computation",
+          "statement": "For I=Fin 1,C=b=T=1,Q=U=c=0, the value is 29/24, including the mixed cubic-linear term."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Integral first jet of each refined Gaussian piece",
+      "kind": "theorem",
+      "statement": "For symmetric integral A, a nondegenerate Nahm solution z in K, m coprime to Δ and p∤Δ, set O=(O_K[1/Δ])^∧_p[T,w,ζ_m]/(δT²−1,w_j^m−z_j). Here Δ contains 6, disc(K), M_K and denominators of z_j,z_j^(−1),δ^(−1). With corrected (114) and the Euler factor exp(Nh/24), the normalized principal-part-free refined piece Ω̄_(A,m,k)(1,x)/Ω̄_(A,m,k)(1,0) has linear coefficient ζ_m^(−1)gaussianFirstJet(C,b,Q,T₃,U₄,c)∈O. Put C=Λ^(−1); b_j=(Ak)_j+A_jj/2+Σ_a B₁(s_(j,a))Li₀(y_(j,a)), Q_j=Σ_a B₁(s_(j,a))Li_(−1)(y_(j,a)), T₃,j=mLi_(−1)(z_j), U₄,j=m²Li_(−2)(z_j), and c=N/24+Σ_j (m/2)Σ_a B₂(s_(j,a))Li₀(y_(j,a))−Σ_jΣ_(r=1)^k_j rζ_m^r/(1−ζ_m^r), with y_(j,a)=ζ_m^(k_j+1+a)w_j and s_(j,a)=(k_j+1+a)/m. The last sum is the first jet of ∏_j(q;q)_(k_j).",
+      "hypotheses": [
+        "0≤k_j<m; Ω̄ is obtained by removing exp(V(t)/(m²h)) from the refined single piece at q=ζ_m+x (m′=1) BEFORE coefficient specialization at t=1. Its individual constant is a unit after adjoining the finite 2m-th roots occurring in that constant; the first-jet quotient is in O. Its identification with the fixed ε_m torsor is G-kummer-orientation. The full sum need not have a nonzero constant.",
+        "Symbols T₃ and U₄ are cubic/quartic vertices; the square-root generator T is different.",
+        "No claim at p=2 or 3, at p|m, or at a degenerate Hessian. O is a finite product algebra, not a chosen field."
+      ],
+      "proofSteps": [
+        "Use followup-regularisation-jet and the covariance Λ^(−1) to identify the vertices; include N/24 from the Euler denominator, source issue E65.",
+        "The prefactor q^((kᵗAk+diag(A)·k)/2) cancels in the refined piece; differentiating the remaining finite Pochhammer factors gives the last term of c.",
+        "Each 1−ζ_m^a w_j is a unit because its product over a is 1−z_j=(-1)^A_jj∏_i z_i^A_ij, a unit. Each 1−ζ_m^r, 0<r<m, is a p-unit because p∤m.",
+        "C has integral entries by the adjugate formula and det(−Λ)=δ∏_j z_j^A_jj/(1−z_j). Bernoulli coefficients introduce only 2,3,m; all are p-units.",
+        "Apply gaussianFirstJet_integral. Since h=log(1+x/ζ_m)=x/ζ_m+O(x²), convert the coefficient by ζ_m^(−1).",
+        "This supplies the missing first-jet input to HB.7 Dwork; Kummer orientation and all-order defect/gluing remain separate inputs."
+      ],
+      "acceptance": [
+        "For A=(3),m=1, substitute t=(z−1)z^(−3),δ=(3−2z)z^(−3): the formula with +1/24 agrees identically with (242); omitting it differs by −1/24.",
+        "The formula works componentwise and is stable under permutation of the chosen w_j roots.",
+        "A zero constant in the sum of pieces does not authorize division by that sum."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-regularisation-jet",
+        "HabiroNahmSeries:HB.9/followup-gaussian-first-jet",
+        "HabiroNahmSeries:HB.9/specialisation-at-one",
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.5, (110), (118), (126), pp.28–32; §3.2, corrected shape (195), pp.39–41; §4.2, (242), p.49",
+          "excerpt": "(q;q)_{k_1}\\cdots(q;q)_{k_N}",
+          "match": "Own first-jet proof, including the corrections E64/E65. It establishes local linear integrality of the intended series; compatibility of the corrected construction with all HB.8 identities is a named upstream proof obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-auxiliary-product",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The powered auxiliary Nahm product",
+      "kind": "construction",
+      "statement": "Let I be finite, γ≥1, L a field, q∈L×, F⁺,F⁻∈L[[t_i:i∈I]], μ=(μ₁,…,μ_γ) with μ_i∈Z^I, and ν∈Z^I. Define auxiliaryProduct(q,γ,F⁺,F⁻,μ,ν)(t)=∏_(i=1)^γ F⁺(q^(γμ_i)t^γ)·F⁻(q^(−ν)t), componentwise. In the Nahm application F⁺=F_A(t,q^γ), F⁻=F_A(t,q^(−1)). Use the existing power substitution t_j↦t_j^γ and rescale by q^(γμ_i) before that substitution; reversing these operations without changing the scale would insert γ².",
+      "hypotheses": [
+        "γ is a positive integer; q is a unit. No positivity or nondegeneracy of A is required for the rational t-series.",
+        "For root expansion take L=Q(ζ_m)((x)),q=ζ_m+x, and gcd(m,γ)=1 for the integral/gluing application. The definition itself needs no coprimality."
+      ],
+      "proofSteps": [
+        "Apply MvPowerSeries.rescale to F⁺ with coordinates q^(γμ_i), then MvPowerSeries.expand γ, and multiply the finite family with the rescaled F⁻.",
+        "Use the constant coefficient ring homomorphism to compute the product constant.",
+        "For covariance, scaling t_j by q shifts each μ_i by e_j and ν by −e_j. This computation is independent of the Nahm equations."
+      ],
+      "acceptance": [
+        "The construction uses exactly γ factors with t^γ and one factor with t.",
+        "Negative shifts are supported through integer powers of a unit.",
+        "At γ=2,q=2,F⁺=t,μ₁=μ₂=1,F⁻=1 the value is 16t⁴, rather than 256t⁴."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.expand",
+        "mathlib:MvPowerSeries.rescale",
+        "mathlib:MvPowerSeries.map",
+        "HabiroNahmSeries:HB.8/series-F-A"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3, proof of Theorem 5, corrected (212), p.43",
+          "excerpt": "\\psi_{A,\\mu}(t,q) \\= F_{A}(q^\\mu t,q)",
+          "match": "General-rank extension of the corrected rank-one product, importing the existing F_A. E47 fixes t^γ and the shift factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "auxiliaryProduct",
+          "role": "constructor",
+          "statement": "The finite product with rescale before expand as displayed."
+        },
+        {
+          "name": "auxiliaryProduct_constantCoeff",
+          "role": "simp",
+          "statement": "Its constant is (F⁺(0))^γ F⁻(0), hence 1 when both constants are 1."
+        },
+        {
+          "name": "auxiliaryProduct_one",
+          "role": "compatibility",
+          "statement": "At γ=1 it is F⁺(q^μ₁t)F⁻(q^(−ν)t)."
+        },
+        {
+          "name": "auxiliaryProduct_covariance",
+          "role": "characterisation",
+          "statement": "Scaling t_j by q gives auxiliaryProduct at μ_i+e_j for every i and ν−e_j."
+        },
+        {
+          "name": "auxiliaryProduct_map",
+          "role": "functoriality",
+          "statement": "A field homomorphism commutes with the construction, mapping q and both coefficient series."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ Theorem 5 product gluing",
+          "how": "Combines γ expansions at q^γ and the inverse-root expansion into a volume-cancelled product."
+        },
+        {
+          "where": "HB.10 descendants",
+          "how": "The γ=1 shift family is the auxiliary family used in Theorem 11; HB.10 owns its all-order ring-membership specialization."
+        },
+        {
+          "where": "HB.9 followup-integral-gluing-contract",
+          "how": "A diagnostic comparison: its volume is V(t^γ)−V(t), so the unpowered product is needed for universal integrality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "auxiliaryProduct_units",
+          "kind": "degenerate",
+          "statement": "With F⁺=F⁻=1 all γ,μ,ν give 1."
+        },
+        {
+          "name": "auxiliaryProduct_gamma_two",
+          "kind": "computation",
+          "statement": "Over Q, γ=2,q=2,F⁺=t,F⁻=1,μ₁=μ₂=1,ν=0 gives 16t⁴."
+        },
+        {
+          "name": "auxiliaryProduct_inverse_shift",
+          "kind": "computation",
+          "statement": "Over Q,γ=1,q=2,F⁺=1,F⁻=t,μ=0,ν=1 gives t/2."
+        },
+        {
+          "name": "auxiliaryProduct_two_coordinates",
+          "kind": "computation",
+          "statement": "Over Q,γ=1,q=2,F⁺=t₀+t₁,F⁻=1,μ=(1,−1),ν=0 gives 2t₀+t₁/2."
+        },
+        {
+          "name": "auxiliaryProduct_covariance_test",
+          "kind": "compatibility",
+          "statement": "For γ=2,q=2,F⁺=t,F⁻=1,μ=0,ν=0, scaling t↦2t gives 16t⁴, equal to shifting both μ_i by 1."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-product-system",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The general-rank auxiliary q-difference system",
+      "kind": "theorem",
+      "statement": "For symmetric A∈Mat_I(Z), let Ψ_(μ,ν) be the auxiliary Nahm product. For i∈{1,…,γ},j∈I, write E_ij for the μ-array increment at (i,j), A_j for column j of A, and e_i⊗A_j for incrementing only μ_i by that column. Then Ψ_(μ,ν)−Ψ_(μ+E_ij,ν)=(-1)^A_jj q^(γ(A_jj+μ_ij))t_j^γ Ψ_(μ+e_i⊗A_j,ν); Ψ_(μ,ν)−Ψ_(μ,ν+e_j)=(-1)^A_jj q^(−(A_jj+ν_j))t_j Ψ_(μ,ν+A_j); and Ψ_(μ,ν)(t₁,…,qt_j,…)=Ψ_(μ+1⊗e_j,ν−e_j)(t). The constant is 1.",
+      "hypotheses": [
+        "γ≥1; q∈L×; F⁺ and F⁻ satisfy the imported HB.8 F_A systems at q^γ and q^(−1).",
+        "Integer matrix entries, including negative ones, act by integer powers of q. The tail increments are columns, not just diagonal entries."
+      ],
+      "proofSteps": [
+        "Apply (33) to exactly the i-th positive factor with parameter q^γ and argument q^(γμ_i)t^γ; multiply by all other factors.",
+        "Apply (33) to the negative factor with parameter q^(−1) and argument q^(−ν)t.",
+        "Use auxiliaryProduct_covariance for the last equation and its constant API for normalization."
+      ],
+      "acceptance": [
+        "For N=1 this reduces to corrected E47, including q^(γμ_i) and q^(−ν).",
+        "Exact arithmetic through total degree 4 checks all three equations for A=[[2,−1],[−1,3]], [[0,1],[1,−2]], [[1,1],[1,1]],γ=2 and μ=((1,−1),(0,2)),ν=(−2,1),q=2.",
+        "Dropping off-diagonal column shifts fails for the coupled matrices."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-auxiliary-product",
+        "HabiroNahmSeries:HB.8/series-F-A"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§1.7, (33), p.13; §3.3, corrected (213), pp.43–44",
+          "excerpt": "(-1)^Aq^{A\\gamma}t\\psi^{(\\gamma)}_{A,\\mu+A\\delta_i,\\nu}(t,q)",
+          "match": "Own multivariable derivation of the source rank-one system; the printed coefficient is corrected by E47."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-product-uniqueness",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Uniqueness of the normalized auxiliary family in arbitrary rank",
+      "kind": "theorem",
+      "statement": "Let L be a field, q∈L× with q^n≠1 for every integer n>0, γ≥1 and A symmetric integral. Any two families Ψ,Θ:((Z^I)^γ×Z^I)→L[[t]] with constant 1 satisfying all three equations of followup-product-system agree at every μ,ν. The statement applies to L=Q(ζ_m)((x)),q=ζ_m+x, regardless of ζ_m having finite order.",
+      "hypotheses": [
+        "Every parameter value μ,ν is included; a single solution without its shift family is insufficient.",
+        "The equations have t_j^γ and t_j on the right. q itself, rather than its constant ζ_m, must have infinite order.",
+        "For I empty, normalization already determines the series."
+      ],
+      "proofSteps": [
+        "Induct on the total t-degree of the difference Ψ−Θ. Fix α≠0 and assume lower coefficients vanish for all parameters.",
+        "Both difference equations show the α-coefficient is invariant under every unit shift of μ and ν because their right sides have strictly smaller degree. Thus it is independent of all μ,ν.",
+        "The covariance then gives (q^α_j−1)c_α=0. Choose j with α_j>0 and cancel the nonzero scalar in L.",
+        "For q=ζ_m+x the polynomial q^n−1 has nonzero x^n coefficient, so it is a nonzero element of the Laurent-series field even when ζ_m^n=1."
+      ],
+      "acceptance": [
+        "No division by 1−ζ_m^α_j occurs.",
+        "Without covariance the first two equations only remove parameter dependence and do not force c_α=0.",
+        "The same induction works with γ=1 and negative A entries."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-product-system",
+        "mathlib:MvPowerSeries"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3, paragraph following (213), p.43",
+          "excerpt": "\\psi^{(\\gamma)}_{A,\\mu+1,\\nu-1}(t,q)",
+          "match": "Own complete general-rank induction replacing the source rank-one uniqueness paragraph."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Integral product gluing and Frobenius transport",
+      "kind": "comparison",
+      "statement": "For γ≥1, gcd(m,γ)=1 and q=ζ_m+x, the unpowered auxiliary Nahm product ∏_i F_A(q^(γμ_i)t,q^γ)·F_A(q^(−ν)t,q^(−1)) is to yield a Gaussian expansion in S^(m)[1/Δ][[x]] after level-m substitution t↦t^(1/m). At each p∤Δ its coefficients must lie in S_p^(m)[[x]], and root reexpansion must satisfy the coefficient-Frobenius gluing of HB.6. At μ=ν=0 the principal parts cancel. After t=1 this is the product condition ∏_(i=1)^γ f(q^γ)·f(q^(−1)) in the indexed Habiro ring on root orders prime to Δ and γ. The powered family of inherited E47 is a valid q-system but cannot supply this universal integrality claim: its principal part is (V(t^γ)−V(t))/(m²h).",
+      "hypotheses": [
+        "The product is interpreted using root-coordinate substitutions: x↦(ζ_m+x)^γ−ζ_m^γ and x↦(ζ_m+x)^(−1)−ζ_m^(−1), together with the chosen-root transport of HB.6.",
+        "For coefficients invert Δ only; p-integrality for p∤Δ does not prove membership in the unlocalized S^(m).",
+        "This node is a conditional contract, not a claim that q-difference uniqueness implies integral coefficients."
+      ],
+      "proofSteps": [
+        "Use followup-unpowered-product-system and followup-unpowered-product-uniqueness. The covariance is t_j↦q^γt_j, μ↦μ+1⊗e_j,ν↦ν−γe_j; this avoids inserting t^γ into the positive series arguments.",
+        "Construct the unpowered Gaussian family with the corrected normalization. Its unshifted volumes cancel: γV(t)/(m²γh)+V(t)/(−m²h)=0. Shifts change the regular terms but not the leading root-volume.",
+        "Show the family solves the unpowered system and has t-constant one; uniqueness identifies it with the rational product.",
+        "Prove all-order integral coefficients and reduction-faithful transport before specializing: G-coefficient-transfer and G-all-order-gluing. Neither recurrence uniqueness nor cancellation alone proves integrality.",
+        "Establish coefficient-Frobenius root reexpansion on the full finite product algebra, specialize to the chosen t=1 solution, and descend the Kummer extension using its actual action. The global coefficient ring inverts Δ, correcting E63.",
+        "Do not import the powered-family universal integrality claim from the accepted base. That claim is an unsupported proof repair, now separated from the valid powered recurrences."
+      ],
+      "acceptance": [
+        "At γ=1 the two products agree and the volume cancels.",
+        "At γ=2,A=0,m=1, the powered product has volume −Li₂(t²)+Li₂(t), a nonzero formal series. It cannot be an ordinary x-power series.",
+        "The unpowered family has q^γ covariance and a complete arbitrary-rank uniqueness proof; integral all-order coefficient estimates remain required."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness",
+        "HabiroNahmSeries:HB.9/followup-saturation-transfer",
+        "HabiroNumberFields:HB.6/the-gluing-condition",
+        "HabiroNahmSeries:HB.8/identification-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3, proof of Theorem 5, (212)–(214), pp.43–44",
+          "excerpt": "S_p^{(m)}[\\![x]\\!]",
+          "match": "Refines the general-rank gap and corrects the localization in E63; distinguishes uniqueness from the missing integral/gluing proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-coleman-potential-sign",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The Coleman potential has the positive Bloch-class sign",
+      "kind": "lemma",
+      "statement": "Let L be a characteristic-zero field, A symmetric integral, z_i∈L∖{0,1}, logarithm values L_i=log(z_i), and a dilogarithm satisfying Li₂(z_i)+Li₂(1−z_i)=−log(z_i)log(1−z_i). If log(1−z_j)=Σ_i A_ij L_i, then −Σ_j Li₂(1−z_j)−(1/2)Σ_ij A_ij L_iL_j = Σ_j (Li₂(z_j)+(1/2)log(z_j)log(1−z_j)). For the Iwasawa logarithm on a Nahm solution, log((-1)^A_jj)=0, so the right side is D_p(Σ_j[z_j]), with positive sign.",
+      "hypotheses": [
+        "The reflection identity is the p-adic one, with no complex π²/6 constant.",
+        "The Nahm logarithm identity holds at t=1; at general t one also has log t_j and cannot delete it."
+      ],
+      "proofSteps": [
+        "Use the reflection identity in each coordinate.",
+        "Sum the logarithmic Nahm equations multiplied by L_j to obtain Σ_j L_j log(1−z_j)=Σ_ij A_ij L_iL_j.",
+        "Combine the full sum with the negative half quadratic term."
+      ],
+      "acceptance": [
+        "A complex dilogarithm with its ζ(2) constant is excluded.",
+        "The sign agrees with GSWZ (116) and (174).",
+        "For a two-coordinate coupled A, the off-diagonal terms occur twice before the factor 1/2."
+      ],
+      "prerequisites": [
+        "ColemanIntegration:L2/dilogarithm-identities",
+        "HabiroNahmSeries:HB.9/potential-and-the-p-adic-dilogarithm"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.5, (116), p.29; §3.1, (174), p.37",
+          "excerpt": "\\Li_2(z)+\\frac{1}{2}\\log(z)\\log(1-z)",
+          "match": "Own algebraic reduction using the imported Coleman reflection formula; establishes the regulator sign without evaluating the formal t-series at 1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-modified-potential-formula",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "An explicit integral formula for the potential defect",
+      "kind": "lemma",
+      "statement": "For p>3, y_j=1−z_j, φ_p(z_i)=z_i^p exp(pη_i), η_i∈S_p, and β_j=Σ_i A_ijη_i, define W_p by the following convergent expression in S_p: pΣ_j ℓ₂(y_j)+pΣ_j β_jℓ₁(y_j)−(p/2)Σ_ij A_ijη_iη_j−Σ_jΣ_(r≥2) p^(r−1)β_j^r Li_(2−r)(y_j^p)/r!. Here ℓ_s is the imported integral modified polylogarithm, and Li_s for s≤0 is the rational function (u∂_u)^(−s)(u/(1−u)). This expression lies in pS_p and on the normalized formal t-branch equals V(t^p)/p−pV(t).",
+      "hypotheses": [
+        "S_p is the p-adic completion of the full coefficient algebra with 2 and all required Nahm units inverted; p∤m in the level-m use.",
+        "η_i=p^(−1)log(φ_p(z_i)/z_i^p) is defined on 1+pS_p. Do not posit an Iwasawa logarithm for arbitrary units in S_p.",
+        "The series converges p-adically; the formal branch identity alone does not provide an embedding of the entire algebra."
+      ],
+      "proofSteps": [
+        "Nahm gives φ_p(y_j)=y_j^p exp(pβ_j), since p is odd and t↦t^p.",
+        "Expand Li₂(y_j^p exp(pβ_j)) by its logarithmic Taylor series; the r≥2 terms are rational functions with unit denominator 1−y_j^p.",
+        "Use Li₂(y^p)−p²Li₂(y)=−p²ℓ₂(y) and Li₁(y^p)−pLi₁(y)=−pℓ₁(y), correcting E60.",
+        "The linear Taylor term and the cross term of the quadratic logarithm combine to +pβ_jℓ₁(y_j). The remaining quadratic term is −pηᵗAη/2.",
+        "For r≥2, v_p(p^(r−1)/r!)≥1 and tends to infinity. Negative polylogarithms have integral rational coefficients at y_j^p with 1−y_j^p a unit. Hence every summand is divisible by p and the limit converges."
+      ],
+      "acceptance": [
+        "Setting every η_i=0 gives W_p=pΣ_jℓ₂(y_j).",
+        "The Li₁ term has positive sign in the displayed W_p.",
+        "The expression is defined on all coefficient components without a logarithm of z_i."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/dwork-difference-for-the-gaussian-data",
+        "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
+        "ColemanIntegration:L2/integral-modified-polylogarithm"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.5, Lemma 2.13, (130), corrected (132)–(135), pp.31–32",
+          "excerpt": "\\frac{V(t^p)}{p}-pV(t)",
+          "match": "Own explicit Taylor formula correcting the signs and omitted factors of the source argument; ℓ_s is imported rather than redefined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Specialization of the potential defect to the local regulator",
+      "kind": "theorem",
+      "statement": "Under the nondegenerate t=1 specialization S_p→B_p, with B=R[T]/(δT²−1), p∤Δ and ξ=Σ_j[z_j], the explicit W_p of followup-modified-potential-formula maps to φ_p(D_p(ξ))/p−pD_p(ξ)∈pB_p. This uses the Iwasawa branch and the regulator normalization D_p(z)=Li₂(z)+(1/2)log(z)log(1−z). It supplies the principal-part comparison between (39) and the local-section defect (21) with f̂=exp(D_p(ξ)/(m²log(q/ζ_m)))f.",
+      "hypotheses": [
+        "p>3, R_p is a finite product of unramified integer rings, z_j and 1−z_j are units, and δ is inverted.",
+        "Coleman Li₂, log and their Frobenius equivariance are imported; K₃ localization is requested from D.1/D.3/D.4.",
+        "The equality concerns W_p as a p-adically completed algebraic expression. No evaluation of V(t)∈Q[[t]] at t=1 is performed."
+      ],
+      "proofSteps": [
+        "The integral modified polylogarithm specializes to Li_s(y)−p^(−s)Li_s(y^p) by ColemanIntegration:L2/frobenius-relation, because |1−y_j|=|z_j|=1.",
+        "Both y_j^p and φ_p(y_j) lie in the same permitted residue disc and differ by exp(pβ_j); the logarithmic Taylor expansion converges there. Reversing the calculation in the preceding lemma gives V_Coleman(φ_pz)/p−pV_Coleman(z).",
+        "Use followup-coleman-potential-sign at z and φ_pz, and Coleman equivariance, to obtain the stated regulator defect.",
+        "Apply the requested K₃ normalization/localization to identify Σ_jD_p(z_j) with the local K₃ regulator of ξ. Insert the common principal part in (39)/(21)."
+      ],
+      "acceptance": [
+        "The analytic comparison takes place on the punctured line in the variable y_j, not by an unstated continuation theorem on the whole Nahm variety.",
+        "This removes the sign ambiguity in the p-adic potential; it does not remove the independent finite-Chern/Kummer orientation ambiguity.",
+        "For ξ=0 the regulator defect vanishes."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-modified-potential-formula",
+        "HabiroNahmSeries:HB.9/followup-coleman-potential-sign",
+        "ColemanIntegration:L2/frobenius-relation",
+        "ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs",
+        "ColemanIntegration:L2/dilogarithm-identities",
+        "HabiroNahmSeries:HB.9/specialisation-at-one",
+        "PadicHodgeRegulators:D.1",
+        "PadicHodgeRegulators:D.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§1.7, after (41), p.14; §3.1, (174), p.37; (130), pp.31–32",
+          "excerpt": "D_p(\\fr \\xi) = \\fr D_p(\\xi)",
+          "match": "Own specialization proof conditional on the named Coleman and K₃ suppliers; refines E54 with an explicit expression, avoiding divergent formal evaluation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "p-adic regulator identity"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The finite-Chern orientation of Gaussian constants",
+      "kind": "comparison",
+      "statement": "For every m prime to Δ, compare U_m(1) in corrected (121) to the exported HB.2 ε_m(ξ)=c_(ζ_m)(ξ)². On the universal Kummer algebra, D_GSWZ(θ)^m=D_CGZ(θ) and P_(ζ_m)(ξ)=∏_j D_CGZ(w_j)/D_CGZ(1) modulo m-th powers. The cyclic prefactor of U_m has the inverse P class. A proof must track the powers of z, the finite k-sum and the square-root normalization to establish that every refined constant is in ε_m(ξ)^(1/m)B_p[ζ_m]× and the whole constant in δ^(−1/2)ε_m(ξ)^(1/m)K[ζ_m]. The finite-Chern comparison must fix whether the exported class is R_(ζ_m)(ξ) or its inverse; this cannot be chosen to match the desired module index.",
+      "hypotheses": [
+        "Δ contains 6, disc(K), M_K, all Nahm-unit denominators and primes needed to invert δ; m prime to Δ means gcd(m,Δ)=1.",
+        "The full family is allowed to have zero constant; only the individual refined constants are units in their torsors.",
+        "Use the reviewed HB.2 base interface; the needs_changes HB.2 follow-up is a lead, not an accepted orientation proof."
+      ],
+      "proofSteps": [
+        "Import the cyclic dilogarithm and Kummer maps from HB.2; raise the full (121) prefactor to the m-th power before passing to a quotient class.",
+        "Identify the finite k-sum and all monomial factors in the same Kummer extension, then prove the corrected k-permutation invariance. Invariance of the sum alone does not select the signed Chern class.",
+        "Request the signed comparison from HB.2; until supplied record G-kummer-orientation and retain the theorem as conditional.",
+        "Descend the Kummer algebra using the actual action and multiplication/torsor comparison from HB.7. Keep δ^(−1/2); dropping it fails already at m=1."
+      ],
+      "acceptance": [
+        "The figure-eight constant (−3)^(−1/4) lies in δ^(−1/2)K, not K.",
+        "D_CGZ uses exponent a while D_GSWZ uses a/m.",
+        "A sign in the local regulator does not by itself fix the finite-Chern orientation."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
+        "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
+        "HabiroNumberFields:HB.2/kummer-value-P",
+        "HabiroNumberFields:HB.2/the-exported-interface"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§2.5, corrected (121)–(124), pp.30–31; §3.3, proof of Theorem 5, p.43",
+          "excerpt": "(1-\\z_m^{\\ell}z)^{\\frac{\\ell}{m}}",
+          "match": "Refines the already recorded constant-term gap E46; CGZ v3 §2.2 (20)–(21), pp.10–11, is also read. No unproved sign choice is made."
+        },
+        {
+          "sourceId": "CGZ.HB9.v3",
+          "locator": "§1.1, (7)–(8), p.3; §2.2, (20)–(21), pp.10–11",
+          "excerpt": "Dζ (x)",
+          "match": "Short literal PDF-text excerpt from the numerator of (20); the surrounding fraction is Dζ(x)/Dζ(1), interpreted modulo m-th powers. This compares CGZ with the inverse GSWZ cyclic prefactor."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Quadratic étale coefficients and Kummer descent for membership",
+      "kind": "comparison",
+      "statement": "Let R=O_K[1/Δ], with δ a unit, and B=R[T]/(δT²−1). The membership target uses the Habiro module H_(B,ξ|B) on the full quadratic finite étale algebra, including the split case. Its local rings are the full products B_p[ζ_m], its Frobenius is the unique lift on every component, and ξ|B is the scalar restriction of the Bloch/K₃ class, componentwise. The HB.7 module, local spans, product gluing, multiplication and Kummer torsors must extend from number fields to this full algebra and preserve descent from B_p[ζ_m,w]/(w_j^m−z_j). This is a supplier contract to HB.7, not a new Habiro-module definition.",
+      "hypotheses": [
+        "2δ∈R×; Δ includes the finite excluded-prime sets for the field factors of B⊗Q, enlarged to a common Δ.",
+        "A formal square-root choice is not an embedding B→R. If δ is already a square in K, B⊗Q is K×K.",
+        "Global effective module descent in the accepted HB.7 follow-up remains a gap and is inherited here."
+      ],
+      "proofSteps": [
+        "Use the existing quadratic étale algebra construction and HB.6 Frobenius, extended componentwise.",
+        "Request the HB.7 indexed-module interface for finite products and finite étale coefficient base change; accepted field pullback alone does not supply a theorem for the split algebra.",
+        "For p∤m the Kummer algebra is finite étale; show corrected pieces and their sums descend via the actual action, and verify first jets, Frobenius defects and nonlinear global gluing before descent.",
+        "Combine the local-span interface with the coefficient product-gluing proof to obtain the imported module-membership theorem."
+      ],
+      "acceptance": [
+        "If δ=a², B has two square-root factors, both retained.",
+        "The figure-eight datum needs a nontrivial quadratic coefficient extension.",
+        "The sum of local sections lies in the local module span even when it is not invertible."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/habiro-module-interface",
+        "HabiroNumberFields:HB.7/invertible-local-sections",
+        "HabiroNumberFields:HB.7/the-global-module",
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-effective-global-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§1.5, Definitions 1.3–1.4, pp.9–10; §1.7, Theorem 5, p.14",
+          "excerpt": "\\calH_{R[\\delta^{-1/2}],\\xi}|_\\Delta",
+          "match": "Clarifies the full-algebra target and precise HB.7 extension needed; no duplicate general Habiro ring or module is planned."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Étale pullback along the level-m descendant curve",
+      "kind": "comparison",
+      "statement": "For ν∈Z^N, root q=ζ_m+x and a nondegenerate t=1 solution, interpret the descendant by t_j^(1/m)=q^ν_j, hence t_j=q^(mν_j). This curve has t_j(0)=1. Pull the completed coefficient algebra at the chosen t=1 point along that curve by formal étale lifting, obtaining z_j(x),δ(x),T(x) and w_j(x) with their prescribed constants. The descendant expansion is the pullback of the full Gaussian expression along these series, including its principal part and varying constant prefactor. Its local and global module conditions require the same Frobenius/product compatibility under q-dependent pullback.",
+      "hypotheses": [
+        "δ≠0 and Δ inverts 2δ,m and all required Nahm units for each permitted m; negative ν is allowed since q is a unit.",
+        "This refines the inherited descendant node; it is not a constant ring map S→B and is not the fixed t=q^ν convention for all m.",
+        "All-order descendant membership is a target with G-descendant-transport, not asserted from equality of constant terms."
+      ],
+      "proofSteps": [
+        "Use formal étaleness at the chosen solution to lift the curve uniquely, with the selected square-root and Kummer constants.",
+        "Differentiate the Nahm equations: the matrix A+diag(z/(1−z)) is −Λ, so at x=0 the logarithmic derivative of z is C·(mν/ζ_m). This supplies the first-order chain-rule terms of every algebraic prefactor.",
+        "Pull back W_p as its explicit completed expression and track the source/target descendant indices under q↦q^p,q^γ,q^(−1).",
+        "Prove the resulting local span and product gluing, including variation of the principal part; this is G-descendant-transport. Specializing only the unvarying z and δ is insufficient."
+      ],
+      "acceptance": [
+        "ν=0 recovers the fixed t=1 series.",
+        "At m=2,q=−1+x,ν=1, t=q²=1−2x+x²; the incorrect t=q curve starts at −1.",
+        "At m=1,q=1+x,ν=−1, t=(1+x)^(−1)=1−x+O(x²)."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/descendants-by-specialisation",
+        "HabiroNahmSeries:HB.9/specialisation-at-one",
+        "HabiroNahmSeries:HB.9/followup-modified-potential-formula",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3, Remark 3.11, p.44; §4.1, (222), p.45",
+          "excerpt": "t=q^\\nu",
+          "match": "Refines E57 with the exact formal étale pullback and a chain-rule calculation. The all-order transport remains explicit. HB.10 owns the integer-shift ring elements."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-unpowered-auxiliary-product",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The auxiliary product for volume cancellation",
+      "kind": "construction",
+      "statement": "For finite I, γ≥1, a field L, unit q, series F⁺,F⁻∈L[[t]], μ∈(Z^I)^γ and ν∈Z^I, define unpoweredAuxiliaryProduct=∏_i rescale(q^(γμ_i),F⁺)·rescale(q^(−ν),F⁻). Thus its Nahm application is ∏_i F_A(q^(γμ_i)t,q^γ)·F_A(q^(−ν)t,q^(−1)). No t-power substitution occurs. This is the original source product (212), with its covariance repaired to q^γ as specified by the next node.",
+      "hypotheses": [
+        "γ≥1 and q is a unit; the finite product and all integer powers are defined.",
+        "At a root, gcd(m,γ)=1 is required for the gluing application, but not for the construction."
+      ],
+      "proofSteps": [
+        "Use existing MvPowerSeries.rescale homomorphisms and finite multiplication.",
+        "The construction commutes with coefficient homomorphisms, preserves the indicated constant product, and under rescaling t_j by q^γ increments all μ_ij by one while decrementing ν_j by γ.",
+        "At μ=ν=0 its common level-m Gaussian volume cancels; compare the powered construction, whose volume need not cancel."
+      ],
+      "acceptance": [
+        "All four API contracts and three unit tests below must hold.",
+        "For γ=2 with F⁺=t,q=2,μ_i=1 the output is 16t², distinguishing this product from the powered one."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.rescale",
+        "mathlib:MvPowerSeries.map",
+        "HabiroNahmSeries:HB.8/series-F-A"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3, (211)–(213), p.43",
+          "excerpt": "\\psi_{A,\\mu_1}(t,q^\\gamma)\\cdots \\psi_{A,\\mu_\\gamma}(t,q^{\\gamma})",
+          "match": "Keep the source product and replace its wrong q covariance by q^γ covariance; this refines inherited E47 without another erratum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Auxiliary Nahm product"
+      },
+      "api": [
+        {
+          "name": "unpoweredAuxiliaryProduct",
+          "role": "constructor",
+          "statement": "The displayed finite product of rescaled series."
+        },
+        {
+          "name": "unpoweredAuxiliaryProduct_constantCoeff",
+          "role": "simp",
+          "statement": "Constant equals constant(F⁺)^γ·constant(F⁻)."
+        },
+        {
+          "name": "unpoweredAuxiliaryProduct_covariance",
+          "role": "relation",
+          "statement": "Rescale t_j by q^γ: μ↦μ+1⊗e_j and ν↦ν−γe_j."
+        },
+        {
+          "name": "unpoweredAuxiliaryProduct_map",
+          "role": "functoriality",
+          "statement": "A coefficient field homomorphism maps the product to the product of the mapped inputs."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ Theorem 5, (212)–(214)",
+          "how": "The product with common t has cancelling principal parts and gives the HB.7 defining product at t=1."
+        },
+        {
+          "where": "HB.9 followup-integral-gluing-contract",
+          "how": "The q^γ system and uniqueness identify its integral Gaussian construction."
+        },
+        {
+          "where": "HB.9 descendants and HB.10 symmetrization",
+          "how": "Integer shifts and γ=1 specialize to the existing descendant/symmetrized products."
+        }
+      ],
+      "tests": [
+        {
+          "name": "unpoweredAuxiliaryProduct_gamma_two",
+          "kind": "computation",
+          "statement": "I=Fin 1,q=2,γ=2,F⁺=t,F⁻=1,μ_i=1,ν=0:16t²."
+        },
+        {
+          "name": "unpoweredAuxiliaryProduct_units",
+          "kind": "degenerate",
+          "statement": "F⁺=F⁻=1 gives 1 at every shift."
+        },
+        {
+          "name": "unpoweredAuxiliaryProduct_inverse_shift",
+          "kind": "computation",
+          "statement": "I=Fin 1,q=2,γ=1,F⁺=1,F⁻=t,μ=0,ν=1:t/2."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "The unpowered auxiliary q-difference system",
+      "kind": "theorem",
+      "statement": "Let A be symmetric integral and F⁺=F_A(t,q^γ), F⁻=F_A(t,q^(−1)). For P_(μ,ν)=unpoweredAuxiliaryProduct, P_(μ,ν)−P_(μ+E_ij,ν)=(-1)^A_jj q^(γ(A_jj+μ_ij))t_j P_(μ+e_i⊗A_j,ν); P_(μ,ν)−P_(μ,ν+e_j)=(-1)^A_jj q^(−(A_jj+ν_j))t_j P_(μ,ν+A_j); and P_(μ,ν)(t₁,…,q^γt_j,…)=P_(μ+1⊗e_j,ν−γe_j). The constant is one.",
+      "hypotheses": [
+        "Finite I; γ≥1; q a unit. The input Nahm recurrences are at q^γ and q^(−1).",
+        "Unlike the powered system, the positive right side has t_j, and covariance is q^γ rather than q."
+      ],
+      "proofSteps": [
+        "Apply the imported F_A recurrence to each rescaled factor; all other factors remain fixed.",
+        "For covariance compare the arguments directly: q^(γμ_ij)q^γ=q^(γ(μ_ij+1)) and q^(−ν_j)q^γ=q^(−(ν_j−γ))."
+      ],
+      "acceptance": [
+        "Coupled matrices and negative entries are included.",
+        "At γ=1 this is the powered system.",
+        "Exact rank-two degree-four checks with γ=2 and nonzero positive/negative shifts verify every equation."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-unpowered-auxiliary-product",
+        "HabiroNahmSeries:HB.8/series-F-A"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§1.7 (33), p.13; §3.3 (211)–(213), p.43",
+          "excerpt": "(-1)^Aq^{-A}t\\psi^{(\\gamma)}_{A,\\mu,\\nu+A}(t,q)",
+          "match": "Own general-rank derivation using the original unpowered product and the corrected shift coefficients/q^γ covariance."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness",
+      "parentStageId": "HabiroNahmSeries:HB.9",
+      "realises": [
+        "HabiroNahmSeries:HB.9"
+      ],
+      "title": "Uniqueness with the q-power covariance",
+      "kind": "theorem",
+      "statement": "For γ≥1, finite I, a field L and q∈L× with q^n≠1 for all n>0, any two families P,Q indexed by all μ∈(Z^I)^γ and ν∈Z^I with t-constant one, satisfying all three equations of followup-unpowered-product-system, coincide.",
+      "hypotheses": [
+        "All integer parameter shifts are included.",
+        "γ is positive; the covariance factor on a coefficient α is q^(γα_j)."
+      ],
+      "proofSteps": [
+        "Induct on total degree of the difference. Both recurrences have a positive t_j factor, so the coefficient is invariant under every unit μ and ν shift by the lower-degree induction hypothesis.",
+        "Covariance now gives (q^(γα_j)−1)c_α=0. If α is positive, choose α_j>0; γα_j>0 and the non-root hypothesis forces c_α=0.",
+        "The empty-coordinate case is the common constant. The field Q(ζ_m)((x)) with q=ζ_m+x satisfies the non-root hypothesis."
+      ],
+      "acceptance": [
+        "Does not claim coefficient integrality from uniqueness.",
+        "At γ=1 agrees with the powered uniqueness argument.",
+        "The proof uses total degree and works for coupled rank greater than one."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+        "mathlib:MvPowerSeries"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB9.v2",
+          "locator": "§3.3 paragraph after (213), p.43",
+          "excerpt": "\\psi^{(\\gamma)}_{A,\\mu+1,\\nu-1}(t,q)",
+          "match": "Own corrected uniqueness proof for the q^γ covariance; q^(γα_j)−1 replaces q^α_j−1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "imports": [
+    {
+      "packet": "HabiroNahmSeries.json",
+      "review": "REV-HabiroNahmSeries",
+      "nodes": [
+        "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
+        "HabiroNahmSeries:HB.9/dwork-difference-for-the-gaussian-data",
+        "HabiroNahmSeries:HB.9/frobenius-congruence",
+        "HabiroNahmSeries:HB.9/habiro-module-interface",
+        "HabiroNahmSeries:HB.9/specialisation-at-one",
+        "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
+        "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
+        "HabiroNahmSeries:HB.9/potential-and-the-p-adic-dilogarithm",
+        "HabiroNahmSeries:HB.9/module-membership",
+        "HabiroNahmSeries:HB.9/descendants-by-specialisation",
+        "HabiroNahmSeries:HB.9/p-adic-regulator-input",
+        "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring",
+        "HabiroNahmSeries:HB.9/bloch-torsion-converse",
+        "HabiroNahmSeries:HB.9/hypotheses-that-cannot-be-dropped",
+        "HabiroNahmSeries:HB.9/verifying-the-defining-conditions",
+        "HabiroNahmSeries:HB.9/constant-terms-of-the-series",
+        "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring"
+      ],
+      "use": "Retain all 17 accepted target/construction IDs; this part refines their open proof contracts rather than restating targets under new IDs."
+    },
+    {
+      "packet": "HabiroNumberFields--HB.7.json",
+      "review": "REV-HabiroNumberFields--HB.7",
+      "use": "Accepted field pullback, half-shift first jets and effective-descent contract; its global-descent/naturality gaps are retained."
+    },
+    {
+      "packet": "ColemanIntegration.json",
+      "review": "accepted base packet",
+      "use": "Specific L2 modified-polylogarithm, analytic-disc, reflection and Frobenius nodes, not an undifferentiated stage placeholder."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "GSWZ Theorem 4: full (p/x) Frobenius congruence",
+      "node": "HabiroNahmSeries:HB.9/frobenius-congruence",
+      "refinements": [
+        "HabiroNahmSeries:HB.9/followup-saturation-transfer",
+        "HabiroNahmSeries:HB.9/followup-branch-loss",
+        "HabiroNahmSeries:HB.9/followup-regularisation-jet",
+        "HabiroNahmSeries:HB.9/followup-modified-potential-formula"
+      ],
+      "status": "planned",
+      "limitations": [
+        "G-coefficient-transfer",
+        "G-HB8-identification"
+      ]
+    },
+    {
+      "target": "GSWZ Theorem 5: H_(R[δ^(−1/2)],ξ)|_Δ membership",
+      "node": "HabiroNahmSeries:HB.9/module-membership",
+      "refinements": [
+        "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "HabiroNahmSeries:HB.9/followup-product-system",
+        "HabiroNahmSeries:HB.9/followup-product-uniqueness",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+        "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness"
+      ],
+      "status": "planned",
+      "limitations": [
+        "G-kummer-orientation",
+        "G-all-order-gluing"
+      ]
+    },
+    {
+      "target": "All HB.7 defining conditions: shape, local span, product/gluing",
+      "node": "HabiroNahmSeries:HB.9/verifying-the-defining-conditions",
+      "refinements": [
+        "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
+        "HabiroNahmSeries:HB.9/followup-unpowered-product-uniqueness"
+      ],
+      "status": "planned",
+      "limitations": [
+        "G-coefficient-transfer",
+        "G-kummer-orientation",
+        "G-all-order-gluing"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNahmSeries:HB.9",
+      "status": "planned",
+      "note": "All stage targets are retained at accepted HB.9 IDs with the explicit new refinements and supplier contracts in targetCoverage. Complete is the completed planning pass under PROTOCOL §0, not a closed theorem proof.",
+      "remaining": [
+        "G-coefficient-transfer: A faithful integral coefficient model for (170)",
+        "G-HB8-identification: Corrected HB.8 construction and admissibility in general rank",
+        "G-kummer-orientation: Signed finite-Chern/Kummer comparison of all constants",
+        "G-all-order-gluing: Integral all-order auxiliary products and indexed-module descent",
+        "G-descendant-transport: All-order q-dependent descendant transport",
+        "D.1/D.3/D.4 regulator suppliers and HB.2/HB.7 extension contracts.",
+        "The converse to torsion powers retains nonvanishing of constants at infinitely many permitted prime orders; no unconditional equivalence is claimed."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-coefficient-transfer",
+      "title": "A faithful integral coefficient model for (170)",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/frobenius-congruence",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
+      ],
+      "detail": "The full quotient S^(m)[w]/p does not inject into one normalized t-branch: followup-branch-loss proves a counterexample. Prove the defect in all components using its canonical Gaussian/modified-polylogarithm formula, or construct a jointly faithful integral family of branches and prove reduction saturation. For completed Laurent targets use lim_r (Z/p^r)[ζ_m]((t^(1/m))), allowing p-adically vanishing coefficients with unbounded negative exponents; ordinary Z_p((t^(1/m))) is too small. Apply followup-saturation-transfer only after its hypothesis is proved. A selected component alone does not transport to every t=1 solution."
+    },
+    {
+      "id": "G-HB8-identification",
+      "title": "Corrected HB.8 construction and admissibility in general rank",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/frobenius-congruence",
+        "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
+      ],
+      "detail": "HB.8 owns formal Pochhammer symbols, Gaussian integration, level-m admissibility and Theorems 7/8. Reconcile E64/E65 with its corrected fgiFactor, periodicity, difference equations and identification theorem at all orders; the first jet is checked here but does not prove those all-order identities. Prove its accepted corrected coefficient ring R_m and general-rank identification in Q(ζ_m)((x))[[t]], retaining m′ coprime to m. HB.9 uses only m′=1 of the Dwork lemma. Do not restore the false printed Theorem 7 or silently change the imported Gaussian construction."
+    },
+    {
+      "id": "G-kummer-orientation",
+      "title": "Signed finite-Chern/Kummer comparison of all constants",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
+        "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+        "HabiroNahmSeries:HB.9/module-membership"
+      ],
+      "detail": "Compare the full corrected U_m(1) to the fixed HB.2 c_ζ and ε_m=c_ζ², including inverse cyclic prefactor, monomial factors and k-sum. Prove individual refined constants are units of the required torsor, descend the sum, and identify the module index. The accepted HB.2 base has an orientation gap; its needs_changes follow-up is not an accepted sign comparison. The positive Coleman regulator sign does not settle this separate finite-Chern convention."
+    },
+    {
+      "id": "G-all-order-gluing",
+      "title": "Integral all-order auxiliary products and indexed-module descent",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract",
+        "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+        "HabiroNahmSeries:HB.9/module-membership"
+      ],
+      "detail": "Both powered and unpowered general-rank systems and uniqueness are specified. Only the unpowered product has universal volume cancellation. Prove its all-order integral Gaussian coefficients, full coefficient-Frobenius root reexpansion and Kummer descent over S^(m)[1/Δ] using faithful coefficient transfer. Supply actual HB.7 effective descent for the full quadratic étale algebra; local-span arguments allow a zero sum. The accepted base powered-family universal integrality statement is not a usable proof."
+    },
+    {
+      "id": "G-descendant-transport",
+      "title": "All-order q-dependent descendant transport",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract",
+        "HabiroNahmSeries:HB.9/descendants-by-specialisation"
+      ],
+      "detail": "The level-m curve and logarithmic derivative are fixed here. Complete its all-order formal étale lift, changing principal part and algebraic prefactors, Frobenius comparison and product gluing. Use ν=0 and the level-2/nontrivial negative-shift tests; a constant t=1 specialization cannot prove Remark 3.11."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "HabiroNahmSeries:HB.8",
+      "need": "The corrected level-m admissibility theorem in the accepted ring R_m, the general-rank identification theorem, and the all-order corrected Gaussian normalization (E64/E65) with periodicity/q-difference API. HB.9 uses m′=1, p∤m. This is an extension of the existing HB.8 owners, not another admissibility or Gaussian definition.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/frobenius-congruence",
+        "HabiroNahmSeries:HB.9/followup-refined-linear-integrality",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
+      ]
+    },
+    {
+      "supplier": "HabiroNumberFields:HB.2",
+      "need": "A signed comparison of the fixed exported ε_m=c_ζ² with the full U_m(1) expression on the universal Kummer algebra, including inverse cyclic prefactors and all monomial/k-sum factors. Supply torsor restriction to every unramified local factor and root-coordinate compatibility, not a comparison up to an unspecified unit exponent.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-kummer-orientation-contract",
+        "HabiroNahmSeries:HB.9/module-membership"
+      ]
+    },
+    {
+      "supplier": "HabiroNumberFields:HB.7",
+      "need": "Indexed Habiro modules/local spans and actual effective global descent for B=R[T]/(δT²−1), a full finite quadratic étale algebra that may split. Extend coefficient Frobenius, K₃ restriction, finite-Chern torsors, product gluing and Kummer descent over B[ζ_m,w]/(w_j^m−z_j), on all factors with a common Δ. Field pullback from the accepted HB.7 follow-up alone does not give the split-algebra result.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-etale-module-contract",
+        "HabiroNahmSeries:HB.9/module-membership"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.1",
+      "need": "Iwasawa D_p=Li₂+(1/2)log z log(1−z), log(root of unity)=0, and identification of the Bloch-symbol sum with the K₃ regulator. Coleman function identities are imported from their existing L2 nodes.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-regulator-specialisation"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.3",
+      "need": "For p>3 on every unramified local field factor, the completed K₃ regulator isomorphism to p²O and the valid integral presentations used by HB.7 local sections; retain full finite products.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/p-adic-regulator-input",
+        "HabiroNahmSeries:HB.9/followup-etale-module-contract"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.4",
+      "need": "Global K₃ localization to the full product of p-adic factors and compatibility with coefficient restriction/Frobenius, giving D_p(φ_pξ)=φ_pD_p(ξ) with the D.1 normalization.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "HabiroNahmSeries:HB.9/p-adic-regulator-input"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [
+    {
+      "id": "HabiroNahmSeries/E64",
+      "source": "GSWZ.HB9.v2",
+      "kind": "error",
+      "locator": "§2.5, (114), p.29, arXiv:2412.04241v2; compare (59), p.19",
+      "printed": "−Li₁(z^m)w/(m²h) − Li₀(z^m)w²/(m²h) + Σ_(a=0)^(m−1)(1/2−(k+a+1)/m)log(1−ζ_m^(k+a+1)z)",
+      "correction": "The pole subtractions are −Li₁(z^m)w/(mh) and −Li₀(z^m)w²/(2h); the constant-log cancellation is +Σ B₁((k+a+1)/m)log(1−ζ_m^(k+a+1)z). Use the Gaussian weight completion and retain the residual w, w³/h terms, rather than the printed 1+x claim.",
+      "reason": "Expand the r=0 term of (59): Li₂(z^m e^(mw))/(m²h) has linear coefficient Li₁(z^m)/(mh) and quadratic Li₀(z^m)/(2h). At m=1 the printed subtraction leaves −Li₀(z)w²/(2h), changing the Hessian, and the printed constant sign leaves −log(1−z) in log ψ. Thus its ψ is not normalized to constant 1. The r=1 term of (59) is B₁(s)Li₁(y)=−B₁(s)log(1−y), whose subtraction has the opposite sign.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 listing, v2 posted 27 August 2025 is the latest listed version on 6 October 2026",
+        "arXiv v2 PDF and TeX: (59), (114), (118), (242)",
+        "Scholze author papers page and linked Habiro.pdf (13 August 2025), (114)/(118): same relevant displays; no linked Habiro erratum found",
+        "Garoufalidis publications page and Zagier preprint link: listed as preprint",
+        "Public title + erratum/correction + regularised Pochhammer searches, 6 October 2026",
+        "Repository HabiroNahmSeries sourceIssues E1–E63 and research/errata register: E64/E65 not already recorded"
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries/E65",
+      "source": "GSWZ.HB9.v2",
+      "kind": "error",
+      "locator": "Definition 2.11, (118), p.30, arXiv:2412.04241v2; compare formal integral (112), p.28, and expansion (242), p.49",
+      "printed": "⟨exp((kᵗA+diag(A)/2)(w+(1/m)log z)) ∏_j ψ_(k_j,z_j^(1/m),ζ_m)(w_j,x)⟩_Λ",
+      "correction": "After correcting ψ as in E64, include the Euler-denominator factor exp(Nh/24), h=log(1+x/ζ_m), in the normalized Gaussian expression. The missing h-coefficient is N/24.",
+      "reason": "The inverse Euler denominator (q;q)_∞^(−N) in (112) has regular factor exp(Nh/24); q^(1/24)(q;q)_∞ is the Dedekind eta normalization. An independent exact rational calculation at A=(3),m=1 gives the corrected-ψ first coefficient minus the coefficient in (242), using the inherited E41 correction exp(V/log(1+x)), equal identically to −1/24 after t=(z−1)z^(−3),δ=(3−2z)z^(−3). Adding 1/24 restores agreement. At t=0 the omission leaves a nonzero normalized first coefficient although F_A(0,q)=1. This is the same Euler-denominator mechanism already recorded for GZ in inherited E2, now in the separate GSWZ definition.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.04241 listing, v2 posted 27 August 2025 is the latest listed version on 6 October 2026",
+        "arXiv v2 PDF and TeX: (59), (114), (118), (242)",
+        "Scholze author papers page and linked Habiro.pdf (13 August 2025), (114)/(118): same relevant displays; no linked Habiro erratum found",
+        "Garoufalidis publications page and Zagier preprint link: listed as preprint",
+        "Public title + erratum/correction + regularised Pochhammer searches, 6 October 2026",
+        "Repository HabiroNahmSeries sourceIssues E1–E63 and research/errata register: E64/E65 not already recorded"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-06",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "note": "Findings E64/E65 are scoped to this version. The arXiv listing and author publication pages inspected do not identify a version of record; no assertion about an unread published text."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Habiro.pdf",
+      "read": "2026-10-06",
+      "note": "Opened the author PDF and checked the relevant (114)/(118) displays; the same subtraction and omitted factor occur. The pinned arXiv PDF supplies the byte-identified primary source."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "read": "2026-10-06",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "note": "Read for the Kummer comparison; no new CGZ source issue is asserted here."
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "id": "HabiroNahmSeries/E28",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Use the accepted enlarged level-m ring; all-order proof remains HB.8 input."
+    },
+    {
+      "id": "HabiroNahmSeries/E30",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Use the corrected integer sign/q-phase in U_m."
+    },
+    {
+      "id": "HabiroNahmSeries/E33",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Use the corrected multirank q-difference sign and t_j^m."
+    },
+    {
+      "id": "HabiroNahmSeries/E39",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Restrict auxiliary root order m′ to coprime m."
+    },
+    {
+      "id": "HabiroNahmSeries/E44",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Keep the square-root coefficient algebra in constants."
+    },
+    {
+      "id": "HabiroNahmSeries/E46",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Exact finite-Chern orientation remains G-kummer-orientation."
+    },
+    {
+      "id": "HabiroNahmSeries/E47",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "The powered repair has correct recurrences but nonzero universal volume V(t^γ)−V(t). Keep the unpowered source product for gluing, repair its covariance to q^γ with ν↦ν−γ, and use the general-rank system/uniqueness supplied here. The base universal integrality claim for the powered repair is not imported as proved."
+    },
+    {
+      "id": "HabiroNahmSeries/E54",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Explicit W_p and Coleman specialization proof route supplied, conditional on imported regulator inputs."
+    },
+    {
+      "id": "HabiroNahmSeries/E55",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Invert δ; common Δ includes all Nahm-unit and field-factor primes."
+    },
+    {
+      "id": "HabiroNahmSeries/E56",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Retain the infinite-prime-order nonvanishing hypothesis on the converse."
+    },
+    {
+      "id": "HabiroNahmSeries/E57",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Level-m curve and derivative supplied; all-order transport remains a gap."
+    },
+    {
+      "id": "HabiroNahmSeries/E58",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Finite first-jet calculation supplies integral linear coefficient after correcting E64/E65."
+    },
+    {
+      "id": "HabiroNahmSeries/E59",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Confirmed source gap retained; its proposed full-ring mod-p injection repair is disproved by A=5,p=5."
+    },
+    {
+      "id": "HabiroNahmSeries/E60",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Explicit W_p uses corrected modified-polylogarithm signs and factors."
+    },
+    {
+      "id": "HabiroNahmSeries/E63",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Global coefficients lie in S^(m)[1/Δ], not S^(m)."
+    },
+    {
+      "id": "HabiroNumberFields/E24",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Use integral constant and linear terms in corrected (195); local module elements may be sums of invertible sections."
+    },
+    {
+      "id": "HabiroNahmSeries/E41",
+      "packet": "HabiroNahmSeries.json",
+      "disposition": "Use exp(V/log(1+x)), rather than the printed exp(V/x), in (242) and its following coefficient statement; v2 locator is p.49. The independent E65 first-coefficient comparison uses this accepted normalization correction."
+    }
+  ],
+  "sourceSearch": {
+    "date": "2026-10-06",
+    "checked": [
+      "arXiv:2412.04241 listing, v2 posted 27 August 2025 is the latest listed version on 6 October 2026",
+      "arXiv v2 PDF and TeX: (59), (114), (118), (242)",
+      "Scholze author papers page and linked Habiro.pdf (13 August 2025), (114)/(118): same relevant displays; no linked Habiro erratum found",
+      "Garoufalidis publications page and Zagier preprint link: listed as preprint",
+      "Public title + erratum/correction + regularised Pochhammer searches, 6 October 2026",
+      "Repository HabiroNahmSeries sourceIssues E1–E63 and research/errata register: E64/E65 not already recorded"
+    ],
+    "result": "No correction of (114)/(118) found in the recorded searches. The preprint/author-copy findings E64/E65 require independent review. Existing E59 is refined, not re-recorded."
+  },
+  "planetPolicy": {
+    "inherited": [
+      {
+        "node": "HabiroNahmSeries:HB.9/frobenius-congruence",
+        "name": "Frobenius congruence"
+      },
+      {
+        "node": "HabiroNahmSeries:HB.9/module-membership",
+        "name": "Habiro module membership"
+      },
+      {
+        "node": "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring",
+        "name": "Bloch-torsion powers in the Habiro ring"
+      }
+    ],
+    "new": [
+      {
+        "node": "HabiroNahmSeries:HB.9/followup-unpowered-auxiliary-product",
+        "name": "Auxiliary Nahm product"
+      },
+      {
+        "node": "HabiroNahmSeries:HB.9/followup-regulator-specialisation",
+        "name": "p-adic regulator identity"
+      }
+    ],
+    "total": 5,
+    "reason": "Retain three accepted planets and add two central constructions/results; coefficient checks and gaps are not planets."
+  },
+  "suggestedPolicy": "Prototype the finite first-jet polynomial, auxiliary product and general-rank system/uniqueness against existing Mathlib. Unavailable Gaussian, completed S, Coleman and indexed Habiro objects have explicit named omissions in the suggested file; no arbitrary Prop-valued fields replace them. Imported target names stay with their owners. All implementationStatus fields are unchecked.",
+  "upstreamNotes": [],
+  "attribution": {
+    "agent": "Codex",
+    "model": "GPT-6",
+    "session": "codex-gEEAjx",
+    "issue": 6510,
+    "date": "2026-10-06"
+  }
+}
