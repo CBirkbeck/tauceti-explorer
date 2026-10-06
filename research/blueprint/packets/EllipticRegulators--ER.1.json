@@ -1,0 +1,873 @@
+{
+  "roadmapId": "EllipticRegulators",
+  "protocol": "blueprint-v1",
+  "part": "ER.1",
+  "scope": [
+    "EllipticRegulators:ER.1"
+  ],
+  "status": "complete",
+  "summary": "A period-choice supplement to the accepted elliptic-regulator packet. It supplies an explicit Mathlib-compatible oriented-period interface, integral basis transport, conjugate embeddings, real q signs and primitive integral regulator cycles. Complex uniformisation, the de Rham–Betti comparison, elliptic Hodge computation and singular homology are imported from their owners, with precise outstanding supplier contracts.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:PeriodPair",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "kind": "structure",
+        "provides": "An ordered pair of complex numbers linearly independent over R; no orientation condition.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PeriodPair.lattice",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "kind": "def",
+        "provides": "The Z-submodule spanned by the two periods.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PeriodPair.latticeBasis",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "kind": "def",
+        "provides": "The integral basis of the actual period lattice.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PeriodPair.latticeEquivProd",
+        "module": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+        "kind": "def",
+        "provides": "Z-linear equivalence from the period lattice to Z × Z; inverse evaluates (u,v) as u omega1+v omega2.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:UpperHalfPlane",
+        "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+        "kind": "structure",
+        "provides": "Complex numbers with strictly positive imaginary part.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "kind": "def",
+        "provides": "Integral two-by-two determinant-one matrices with their existing group structure.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.qParam",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "kind": "def",
+        "provides": "qParam h z = exp(2*pi*i*z/h).",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.norm_qParam",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "kind": "theorem",
+        "provides": "The exact norm exp(-2*pi*Im(z)/h).",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.norm_qParam_lt_one",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "kind": "theorem",
+        "provides": "For h>0 and Im(z)>0 the norm of qParam h z is less than one.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.qParam_ne_zero",
+        "module": "Mathlib/Analysis/Complex/Periodic.lean",
+        "kind": "lemma",
+        "provides": "qParam h z is nonzero.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:NumberField.ComplexEmbedding.conjugate",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+        "kind": "abbrev",
+        "provides": "Conjugation of actual field embeddings K → C, implemented by star.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:NumberField.ComplexEmbedding.involutive_conjugate",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+        "kind": "theorem",
+        "provides": "Conjugation is an involution on complex embeddings.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "kind": "theorem",
+        "provides": "r1+2*r2 equals finrank_Q K for a number field.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:AddCircle.prodFundamentalGroupMulEquiv",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Torus/FundamentalGroup.lean",
+        "kind": "def",
+        "provides": "For nonzero real circle periods and chosen basepoint lifts, pi1 of their product is Multiplicative Z × Multiplicative Z. This is not singular H1.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.invariantDifferential",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+        "kind": "def",
+        "provides": "The algebraic Kaehler differential dx/(2y+a1*x+a3); geometric regularity and analytic comparison are not asserted by this definition.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit on 2026-10-06; not inferred from its name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Brunault.These.2005",
+      "title": "Valeur en 2 de fonctions L de courbes elliptiques",
+      "authors": "François Brunault",
+      "edition": "Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1; PDF page numbers equal printed page numbers.",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 1.2, pp.20–27: (1.36)–(1.48), Remarque 20, Proposition 26; page 22 checked visually for orientations and integrals."
+      ]
+    },
+    {
+      "id": "DJZ.2005v2",
+      "title": "Numerical verification of Beilinson's conjecture for K2 of hyperelliptic curves",
+      "authors": "Tim Dokchitser, Rob de Jeu and Don Zagier",
+      "edition": "arXiv:math/0405040v2, 4 May 2005; this preprint, not the published Compositio version, was inspected.",
+      "url": "https://arxiv.org/pdf/math/0405040v2",
+      "sha256": "a9d5c2cce63f2351991789add5ac9cd213b9783b9cbb0e648313e314eadb3ccf",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 3, equations (3.3)–(3.4) and Remark 3.14: real anti-invariant homology and the disjoint union over all number-field embeddings."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EllipticRegulators:ER.1/oriented-regulator-period-data",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Chosen oriented periods for an elliptic regulator",
+      "kind": "definition",
+      "statement": "Given the genuine integration map H1_sing(E(C),Z) → Lambda_omega imported from C6 and a positively oriented integral basis (gamma1,gamma2), set omega_j=integral_gamma_j omega. RegulatorPeriods consists of the existing Mathlib PeriodPair (omega1,omega2), together with Im(omega2/omega1)>0. It does not store an elliptic curve, homology, a comparison matrix or an assumed comparison theorem. Set tau=omega2/omega1 in UpperHalfPlane, q=qParam 1 tau and normalise(z)=z/omega1. A nonzero rescaling omega↦c omega gives scale(D,c) with both periods multiplied by c; tau and the normalised coordinate are independent of this differential choice when the unnormalised coordinate is also rescaled.",
+      "hypotheses": [
+        "E is a smooth proper elliptic curve over C with origin and nonzero invariant differential omega.",
+        "For number fields work separately at each actual embedding; the periods come from the imported integration map, never arbitrary assigned values.",
+        "The pair is independent over R and the integral basis is positively oriented for the complex structure."
+      ],
+      "proofSteps": [
+        "Import E(C), the group-compatible uniformisation and its differential compatibility from R12.1.",
+        "Use the Stage 5 torus singular-homology calculation and C6 integration compatibility to obtain the two periods from actual coordinate loops. The lattice map is integration, not a definition of H1 as the deck group.",
+        "Use C6’s polarized elliptic computation and the Stage 6 intersection sign to obtain Im(omega2/omega1)>0. Package exactly the PeriodPair and that inequality.",
+        "Define tau, q and normalise using existing library objects. Scaling the differential multiplies all its integrals by c, which cancels in the displayed ratios."
+      ],
+      "acceptance": [
+        "The square pair (1,i) is accepted; (1,-i) is rejected although it is a Mathlib PeriodPair.",
+        "A lattice is the existing PeriodPair.lattice, with the existing latticeBasis and latticeEquivProd; no private lattice or H1 carrier is introduced."
+      ],
+      "prerequisites": [
+        "mathlib:PeriodPair",
+        "mathlib:PeriodPair.lattice",
+        "mathlib:PeriodPair.latticeBasis",
+        "mathlib:PeriodPair.latticeEquivProd",
+        "mathlib:UpperHalfPlane",
+        "mathlib:Function.Periodic.qParam",
+        "ModularCurvesPartII:R12.1",
+        "ComplexComparisonPartII:C6",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "tauceti:AddCircle.prodFundamentalGroupMulEquiv",
+        "tauceti:WeierstrassCurve.Affine.invariantDifferential"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Remarque 20, (1.40), p.22",
+          "excerpt": "choisissons une orientation",
+          "match": "The periods and normalized coordinates are read from integrals on an oriented singular-homology basis, not chosen as a matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Oriented period basis"
+      },
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.tau",
+          "role": "data",
+          "statement": "The upper-half-plane point omega2/omega1."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.q",
+          "role": "data",
+          "statement": "Evaluate the existing qParam with h=1 at tau."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.normalise",
+          "role": "data",
+          "statement": "The scalar coordinate z/omega1."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.square",
+          "role": "constructor",
+          "statement": "The period data with omega1=1, omega2=i."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.scale",
+          "role": "constructor",
+          "statement": "For c≠0 multiply both periods by c and retain positive orientation."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.ext",
+          "role": "extensionality",
+          "statement": "Equality of both complex periods implies equality of the data, by proof irrelevance."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.tau_eq",
+          "role": "simp",
+          "statement": "The underlying complex number of tau is omega2/omega1."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.q_eq",
+          "role": "compatibility",
+          "statement": "q is exactly Function.Periodic.qParam 1 tau."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.normalise_eq",
+          "role": "simp",
+          "statement": "normalise(z)=z/omega1."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.square_periods",
+          "role": "simp",
+          "statement": "The square construction has first period 1 and second period i."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.scale_periods",
+          "role": "simp",
+          "statement": "The first and second periods of scale(D,c) are c omega1 and c omega2."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.scale_tau",
+          "role": "relation",
+          "statement": "The upper-half-plane point of scale(D,c) is tau(D)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.scale_normalise",
+          "role": "relation",
+          "statement": "normalise(scale(D,c),c*z)=normalise(D,z)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_square_tau",
+          "kind": "computation",
+          "statement": "The square datum has tau=i."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_square_q",
+          "kind": "computation",
+          "statement": "The square datum has q=exp(-2*pi), as an exact real scalar in C."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_scale_identity",
+          "kind": "degenerate",
+          "statement": "Scaling by 1 returns the same data."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_q_compatibility",
+          "kind": "compatibility",
+          "statement": "q(D)=Function.Periodic.qParam 1 tau(D)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_negative_orientation",
+          "kind": "non-example",
+          "statement": "There is no RegulatorPeriods with periods (1,-i)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Brunault (1.40), and EllipticRegulators:ER.2",
+          "how": "Normalise the holomorphic differential by its real positive-cycle period."
+        },
+        {
+          "where": "EllipticRegulators:ER.3 and ER.4",
+          "how": "Supply the oriented additive coordinate and existing qParameter for orbit sums and divisor lifts."
+        }
+      ],
+      "declarationName": "TauCeti.EllipticRegulator.RegulatorPeriods"
+    },
+    {
+      "id": "EllipticRegulators:ER.1/oriented-basis-transport",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Transport of a chosen oriented integral period basis",
+      "kind": "construction",
+      "statement": "For M=(a b;c d) in the existing SL2(Z), rebase(D,M) has periods (d*omega1+c*omega2,b*omega1+a*omega2). It retains the same integral lattice and positive orientation. Its tau is (a*tau+b)/(c*tau+d) and its normalized coordinate is normalise(D,z)/(c*tau+d). With this convention rebase(rebase(D,N),M)=rebase(D,M*N). These are the coordinate laws for the chosen-basis part of the parent normalised uniformisation; no new uniformisation is constructed.",
+      "hypotheses": [
+        "D is RegulatorPeriods.",
+        "M is an integral determinant-one matrix. Determinant-minus-one changes orientation and is excluded."
+      ],
+      "proofSteps": [
+        "The integral change of basis is J*M*J on the column (omega1,omega2), where J swaps the coordinates. Its determinant is 1.",
+        "The inverse integral matrix proves equality of the two period spans.",
+        "The first new period is omega1*(c*tau+d), which is nonzero because tau is nonreal. Divide both new periods by it.",
+        "Compute Im(tau_new)=Im(tau)/norm(c*tau+d)^2>0. Matrix multiplication proves identity and composition."
+      ],
+      "acceptance": [
+        "T=(1 k;0 1) gives tau+k, the same normalized coordinate and the same q.",
+        "S=(0 -1;1 0) gives -1/tau and divides the coordinate by tau.",
+        "Minus the identity fixes tau and sends the coordinate to its negative; it must not act trivially on coordinates."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "mathlib:Matrix.SpecialLinearGroup",
+        "mathlib:PeriodPair.lattice",
+        "EllipticRegulators:ER.1/complex-uniformisation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "(1.36) and Remarque 20, (1.40), pp.21–22",
+          "excerpt": "forme une base directe",
+          "match": "Derived by changing the displayed oriented integral basis; the explicit algebra is given in the proof steps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Change of period basis"
+      },
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_periods",
+          "role": "simp",
+          "statement": "The new ordered periods are (d*omega1+c*omega2,b*omega1+a*omega2)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_one",
+          "role": "functoriality",
+          "statement": "Rebasing by the identity gives D."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_mul",
+          "role": "functoriality",
+          "statement": "Rebasing first by N then by M equals rebasing by M*N."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_lattice",
+          "role": "compatibility",
+          "statement": "The Mathlib PeriodPair lattice is unchanged."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_tau",
+          "role": "relation",
+          "statement": "tau_new=(a*tau+b)/(c*tau+d)."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase_normalise",
+          "role": "relation",
+          "statement": "normalise_new(z)=normalise(z)/(c*tau+d)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_rebase_identity",
+          "kind": "degenerate",
+          "statement": "Rebasing by the identity gives D."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_rebase_inverse",
+          "kind": "characterisation",
+          "statement": "Rebasing by M and then by its inverse recovers D."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_rebase_integral_lattice",
+          "kind": "compatibility",
+          "statement": "Rebasing preserves the exact Mathlib Z-submodule of C."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_rebase_minus_identity",
+          "kind": "non-example",
+          "statement": "Rebasing by -I fixes tau but negates normalise(1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Brunault (1.36)–(1.40), EllipticRegulators:ER.3",
+          "how": "Separate the basis dependence of the coordinate from invariance under integer translation of tau."
+        },
+        {
+          "where": "Parent ER.1/complex-uniformisation",
+          "how": "Give an explicit coordinate implementation of its change-of-basis formula without planning the underlying analytic isomorphism again."
+        }
+      ],
+      "declarationName": "TauCeti.EllipticRegulator.RegulatorPeriods.rebase"
+    },
+    {
+      "id": "EllipticRegulators:ER.1/conjugate-oriented-periods",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Oriented period data at a conjugate embedding",
+      "kind": "construction",
+      "statement": "Conjugate(D) has periods (conj(omega1),-conj(omega2)). It is oriented, involutive, and has tau_bar=-conj(tau), q_bar=conj(q). Its normalise(conj(z)) equals conj(normalise(z)), and its existing Mathlib lattice is the complex conjugate of the original lattice. Geometrically at a pair of distinct conjugate embeddings choose gamma1_bar=c_*gamma1 and gamma2_bar=-c_*gamma2. At a real embedding these are generally a different basis of the same curve: for the half-integral real shape tau_bar=tau-1. They are not asserted to be the same chosen basis.",
+      "hypotheses": [
+        "D is RegulatorPeriods; coefficient conjugation and the antiholomorphic base-change map are those of the parent all-embeddings node.",
+        "The sign on the second basis vector compensates for orientation reversal."
+      ],
+      "proofSteps": [
+        "Conjugation reverses complex orientation. Negation of the second vector restores it, since Im(-conj(tau))=Im(tau).",
+        "Complex conjugation of the integration pairing is imported from C6 and the parent all-embeddings node.",
+        "Compute both period ratios and normalized coordinates. Use the existing exponential definition to compute q(-conj(tau))=conj(q(tau)).",
+        "Negation of one integral lattice generator does not change its span. Conjugating twice returns the original two periods."
+      ],
+      "acceptance": [
+        "Conjugating the square pair returns it.",
+        "Conjugating a scaled pair conjugates the scale as well.",
+        "The conjugate datum lies in the upper, not lower, half-plane."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
+        "mathlib:NumberField.ComplexEmbedding.conjugate",
+        "ComplexComparisonPartII:C6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Remarque 20 and (1.40), p.22",
+          "excerpt": "choisissons une orientation",
+          "match": "Real normalization and orientation; the paired nonreal case follows by conjugating the integration formula."
+        },
+        {
+          "sourceId": "DJZ.2005v2",
+          "locator": "Remark 3.14, Section 3, p.7",
+          "excerpt": "using all embeddings",
+          "match": "Conjugation swaps nonreal embedding components rather than acting separately on infinite places."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Conjugate periods"
+      },
+      "api": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_periods",
+          "role": "simp",
+          "statement": "The periods are (conj(omega1),-conj(omega2))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_involutive",
+          "role": "functoriality",
+          "statement": "Applying conjugate twice returns D."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_tau",
+          "role": "relation",
+          "statement": "tau(conjugate(D))=-conj(tau(D))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_q",
+          "role": "relation",
+          "statement": "q(conjugate(D))=conj(q(D))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_normalise",
+          "role": "compatibility",
+          "statement": "normalise(conjugate(D),conj(z))=conj(normalise(D,z))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate_lattice",
+          "role": "compatibility",
+          "statement": "z belongs to the conjugate period lattice iff conj(z) belongs to the original Mathlib lattice."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_conjugate_square",
+          "kind": "computation",
+          "statement": "The square pair is fixed."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_conjugate_twice",
+          "kind": "degenerate",
+          "statement": "Conjugate is an involution."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_conjugate_scalar",
+          "kind": "compatibility",
+          "statement": "Conjugate(scale(D,c))=scale(conjugate(D),conj(c))."
+        },
+        {
+          "name": "TauCeti.EllipticRegulator.RegulatorPeriods.test_conjugate_not_lower_half_plane",
+          "kind": "non-example",
+          "statement": "Im(tau(conjugate(D)))>0; using the naive conjugate tau gives the wrong half-plane."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DJZ Remark 3.14; EllipticRegulators:ER.2",
+          "how": "Carry the actual period data over every embedding and the combined conjugation action."
+        },
+        {
+          "where": "Parent ER.1/all-embeddings-and-the-conjugation-action",
+          "how": "Make its positive-orientation correction explicit for the chosen periods."
+        }
+      ],
+      "declarationName": "TauCeti.EllipticRegulator.RegulatorPeriods.conjugate"
+    },
+    {
+      "id": "EllipticRegulators:ER.1/real-period-shape",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Real-adapted periods and the sign of q",
+      "kind": "theorem",
+      "statement": "For D with conj(omega1)=omega1 and conj(omega2)=-omega2+m*omega1, m an integer, 2*Re(tau)=m. In a real-adapted oriented basis with gamma1 primitive in H1^+, the integral replacement gamma2↦gamma2+k*gamma1 changes m by 2k. Choose m=0 or 1; then Re(tau)=0 or 1/2 respectively. In the first case q=exp(-2*pi*Im(tau))>0; in the second q=-exp(-2*pi*Im(tau))<0. Both have imaginary part zero and 0<norm(q)<1. Existence of the real-adapted basis is the parent real-normalisation input, not a new elliptic Hodge theorem.",
+      "hypotheses": [
+        "The real assertions concern an elliptic curve over R and a real nonzero invariant differential.",
+        "gamma1 is the primitive positive generator of the conjugation-fixed integral sublattice, not an arbitrary real multiple.",
+        "The shape formula for general D assumes the displayed conjugation relation; m is an integer."
+      ],
+      "proofSteps": [
+        "Conjugation reverses orientation, fixes gamma1 and acts by -1 on the quotient by its fixed sublattice; use C6’s elliptic pairing to obtain the displayed integral relation.",
+        "Divide the relation by the real nonzero omega1 and take real parts.",
+        "Reduce m modulo 2 by the stated integral basis shear; its parity is unchanged.",
+        "Evaluate the existing exponential at tau=i*y or tau=1/2+i*y. Its phase is 1 or -1; use qParam_ne_zero and norm_qParam_lt_one."
+      ],
+      "acceptance": [
+        "For periods (1,i), m=0 and q=exp(-2*pi).",
+        "For periods (1,1/2+i), m=1 and q=-exp(-2*pi); a real curve need not have positive q.",
+        "Reversing the orientation of E(R) negates both basis vectors, preserves tau and q and inverts the multiplicative point coordinate."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "EllipticRegulators:ER.1/complex-uniformisation",
+        "ComplexComparisonPartII:C6",
+        "mathlib:Function.Periodic.norm_qParam",
+        "mathlib:Function.Periodic.norm_qParam_lt_one",
+        "mathlib:Function.Periodic.qParam_ne_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Remarque 20, (1.40)–(1.41), p.22",
+          "excerpt": "est un nombre réel non nul",
+          "match": "The source asserts real nonzero q and its dependence on E; the parity/sign formulas follow explicitly from the real-adapted integral basis."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Real period normalization"
+      },
+      "declarationNames": [
+        "TauCeti.EllipticRegulator.RegulatorPeriods.real_period_shape",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.real_q_sign"
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.1/primitive-real-regulator-cycles",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Primitive real regulator cycles and their index",
+      "kind": "theorem",
+      "statement": "In the real-adapted ordered integral basis with m=0 or 1, conjugation sends (u,v) to (u+m*v,-v). Its positive integral eigensublattice is Z*(1,0). For m=0 its negative integral eigensublattice is Z*(0,1), with normalized period i*Im(tau). For m=1 it is Z*(-1,2), with normalized period 2*i*Im(tau). The sum of the two integral eigensublattices is the whole Z^2 for m=0 and is the subgroup of pairs with even second coordinate, of index two, for m=1. Over R both eigenspaces have dimension one. The rational anti-eigenvector (-1/2,1) in the m=1 case is not an integral generator.",
+      "hypotheses": [
+        "The integral singular-period identification and orientation are supplied by C6 and the upstream torus homology/intersection inputs.",
+        "m is reduced to 0 or 1, and the displayed conjugation relation holds."
+      ],
+      "proofSteps": [
+        "Conjugate u*omega1+v*omega2 using the real period relation.",
+        "Solve (u+m*v,-v)=(u,v), which forces v=0.",
+        "Solve (u+m*v,-v)=(-u,-v), namely 2u+m*v=0: for m=0 use (0,1), for m=1 use (-1,2). These vectors are primitive.",
+        "The determinant of the two eigen-generators is 1 or 2. In the second case their span is exactly the pairs with even v.",
+        "Divide their actual periods by omega1. The real part cancels, giving i*y or 2*i*y."
+      ],
+      "acceptance": [
+        "The half-integral real shape has an integral anti-cycle with twice the normalized imaginary period, not i*y.",
+        "An anti-invariant functional vanishes on gamma1; evaluation on the negative generator is twice its evaluation on gamma2 when m=1.",
+        "Use exact integral kernels rather than substituting a direct-sum decomposition over Z."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "ComplexComparisonPartII:C6",
+        "mathlib:PeriodPair.latticeEquivProd"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Remarque 20, p.22 and (1.48), p.23",
+          "excerpt": "forme une base directe",
+          "match": "The oriented integral homology basis identifies periods with the lattice; the matrix, primitive kernels and index follow by the displayed integral calculation."
+        },
+        {
+          "sourceId": "DJZ.2005v2",
+          "locator": "Section 3, paragraph before (3.4), p.5",
+          "excerpt": "the anti-invariants",
+          "match": "The regulator is evaluated on integral anti-invariants; rational eigenspaces do not choose its integral normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Primitive regulator cycle"
+      },
+      "declarationNames": [
+        "TauCeti.EllipticRegulator.RegulatorPeriods.real_conjugation_coordinates",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.positive_cycle_coordinates",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.negative_cycle_coordinates_zero",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.negative_cycle_coordinates_one",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.negative_cycle_period_zero",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.negative_cycle_period_one",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.eigensublattice_index_two"
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.1/exponential-conjugation-coordinates",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Conjugation in multiplicative period coordinates",
+      "kind": "theorem",
+      "statement": "For every z in C, qParam 1 (conj(z))=1/conj(qParam 1 z), and qParam 1 (-z)=1/qParam 1 z. These are point-coordinate identities, distinct from the modulus identity q(-conj(tau))=conj(q(tau)). Hence, in the inherited multiplicative presentation, conjugation from E_sigma to E_sigma_bar is [x]↦[1/conj(x)], between the quotients with moduli q and conj(q). This is well-defined because q^n maps to conj(q)^(-n). In the real-normalized case it is an involution on the same quotient. A representative of modulus one is fixed; the second fixed circle for positive real q is fixed in the quotient, rather than pointwise before quotienting.",
+      "hypotheses": [
+        "Use the inherited exponential-induced group presentation; x is nonzero.",
+        "The paired embedding modulus is conj(q); real moduli include both signs."
+      ],
+      "proofSteps": [
+        "Conjugate exp(2*pi*i*z), observing that conjugation sends i to -i.",
+        "Use exp(-w)=1/exp(w), so both displayed identities are exact.",
+        "For a q^n multiple compute its image as a conj(q)^(-n) multiple; invoke the parent quotient presentation.",
+        "When q>0 and norm(x)^2=q, 1/conj(x)=x/q, so equality is a quotient equality."
+      ],
+      "acceptance": [
+        "At z=i/2, conjugation changes exp(-pi) to exp(pi); it does not merely conjugate exp(-pi).",
+        "For positive q and norm(x)^2=q, the images differ by q^(-1) before quotienting.",
+        "Orientation reversal gives inversion [x]↦[1/x]."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/the-q-parameter-and-the-multiplicative-presentation",
+        "mathlib:Function.Periodic.qParam"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "(1.36)–(1.37), p.21; Remarque 20, p.22",
+          "excerpt": "Composons η",
+          "match": "Derived conjugation and inversion laws for the displayed exponential presentation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "declarationNames": [
+        "TauCeti.EllipticRegulator.RegulatorPeriods.exponential_conjugate",
+        "TauCeti.EllipticRegulator.RegulatorPeriods.exponential_neg"
+      ]
+    },
+    {
+      "id": "EllipticRegulators:ER.1/regulator-period-handoff",
+      "parentStageId": "EllipticRegulators:ER.1",
+      "realises": [
+        "EllipticRegulators:ER.1"
+      ],
+      "title": "Normalized differential and period handoff to the regulator",
+      "kind": "theorem",
+      "statement": "For the inherited normalized uniformisation eta and the chosen period datum D, the normalized holomorphic differential is omega/omega1=eta^*dz, with integrals 1 and tau on gamma1 and gamma2. The existing qParam gives the same nonzero modulus q with norm less than one. For E over R, gamma1 is the positive primitive real cycle and integral_gamma1(omega/omega1)=1. For E over a number field carry this statement at every embedding, with conjugation acting simultaneously on coefficients, the curve and its homology; the conjugate-oriented construction supplies compatible bases for pairs of nonreal embeddings. The parent all-embeddings comparison gives rank(H1^±)=r1+2*r2=[F:Q], not r1+r2. The primitive negative cycles specified here fix the period-coordinate convention for ER.2. No universal Chern/Deligne factor, including its 2*pi, is chosen here.",
+      "hypotheses": [
+        "All curves, differential comparisons and integration maps are the imported geometric ones.",
+        "At a real embedding use a real-adapted basis. At distinct conjugate embeddings choose gamma1_bar=c_*gamma1 and gamma2_bar=-c_*gamma2.",
+        "The rank statement uses the disjoint union over all embeddings, not the set of infinite places."
+      ],
+      "proofSteps": [
+        "Apply the parent normalized-uniformisation pullback formula and divide the actual period integrals by omega1.",
+        "Use the existing qParam nonvanishing and norm theorem, with Im(tau)>0.",
+        "For each conjugate pair apply the constructed conjugate period basis; at a real embedding use its real-adapted basis and primitive negative cycle calculation.",
+        "Import the parent all-embeddings rank statement and its Mathlib number-field identity. The disjoint union has total rank 2*[F:Q], and each sign has rank [F:Q]."
+      ],
+      "acceptance": [
+        "The positive period is exactly 1; an unspecified nonzero period is insufficient.",
+        "For the half-integral real shape the primitive negative-cycle period is 2*i*Im(tau).",
+        "A complex pair contributes two real dimensions to each eigenspace, not one."
+      ],
+      "prerequisites": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "EllipticRegulators:ER.1/complex-uniformisation",
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
+        "EllipticRegulators:ER.1/primitive-real-regulator-cycles",
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "ComplexComparisonPartII:C5",
+        "ComplexComparisonPartII:C6",
+        "mathlib:Function.Periodic.norm_qParam_lt_one",
+        "mathlib:Function.Periodic.qParam_ne_zero",
+        "mathlib:NumberField.ComplexEmbedding.conjugate",
+        "mathlib:NumberField.ComplexEmbedding.involutive_conjugate",
+        "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank"
+      ],
+      "sources": [
+        {
+          "sourceId": "Brunault.These.2005",
+          "locator": "Proposition 26, (1.64), p.26; Remarque 20, (1.40), p.22",
+          "excerpt": "l’unique forme différentielle",
+          "match": "The real normalized differential integrates to 1 on the neutral real component; its geometric identity is inherited."
+        },
+        {
+          "sourceId": "DJZ.2005v2",
+          "locator": "Remark 3.14, Section 3, p.7",
+          "excerpt": "using all embeddings",
+          "match": "The combined action and the integral anti-invariant rank are taken over the entire disjoint union."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticRegulator/Periods",
+        "namespace": "TauCeti.EllipticRegulator"
+      },
+      "planet": {
+        "name": "Normalized invariant differential"
+      },
+      "declarationNames": [
+        "TauCeti.EllipticRegulator.RegulatorPeriods.regulator_period_handoff"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ModularCurvesPartII:R12.1",
+      "need": "The actual complex Lie group E(C), the uniformisation by C/Lambda_omega with origin and group law, compatibility of the existing algebraic invariant differential with dz, and descent of the scalar normalized coordinate. Its current part packet contains no R12.1 nodes.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "The existing proper de Rham–Betti comparison node with its integration map on the integral Betti lattice before complexification, naturality under base change along every field embedding and conjugation. The abstract complex vector-space isomorphism alone does not supply these integral maps.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/regulator-period-handoff"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C6",
+      "need": "The owning elliptic acceptance computation: identify the Hodge line with the invariant differential, construct integration H1_sing(E(C),Z) → Lambda_omega, show it is an integral isomorphism, send the projected path t↦t*lambda to lambda, and compare the polarized intersection form with the complex orientation. Provide the real conjugation action, fixed primitive rank-one lattice and integration naturality at all embeddings. A period matrix and its nondegeneracy, if needed by PS.0, remain this owner’s computation.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data",
+        "EllipticRegulators:ER.1/conjugate-oriented-periods",
+        "EllipticRegulators:ER.1/real-period-shape",
+        "EllipticRegulators:ER.1/primitive-real-regulator-cycles",
+        "EllipticRegulators:ER.1/regulator-period-handoff"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "need": "Integral singular homology of the two-torus from the product/cellular maps, with the two projected coordinate loops as its basis and naturality under integral matrices. Transport through the real-linear period-coordinate homeomorphism and the R12.1 uniformisation. The old deck-group H1 alias is replaced by this actual map-level homology input; no general Hurewicz theorem is newly planned in ER.1.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "need": "The integral oriented intersection pairing on the two-torus, with the two positive coordinate loops having intersection +1 and compatibility under orientation-preserving and orientation-reversing maps. C6 supplies its elliptic/integration specialization.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/oriented-regulator-period-data"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticRegulators:ER.1",
+      "status": "planned",
+      "remaining": [
+        "R12.1 must supply the genuine analytic uniformisation and differential compatibility; its current packet has no nodes in this stage.",
+        "C5/C6 must supply the integral integration and elliptic Hodge-line interfaces described in requests, including geometric signatures omitted from the suggested file.",
+        "The upstream torus singular-homology and intersection interfaces must be connected to the C6 integration map; this is a supplier obligation, not a deck-group definition of homology."
+      ],
+      "note": "All retained ER.1 targets have been planned or imported at target granularity. This is a complete planning pass, not a closed stage or a claim that suppliers are proved."
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0602186v1",
+      "read": "2026-10-06",
+      "sha256": "8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0405040v2",
+      "read": "2026-10-06",
+      "sha256": "a9d5c2cce63f2351991789add5ac9cd213b9783b9cbb0e648313e314eadb3ccf"
+    }
+  ],
+  "extendsPacket": "research/blueprint/packets/EllipticRegulators.json",
+  "importedNodes": [
+    {
+      "id": "EllipticRegulators:ER.1/complex-uniformisation",
+      "role": "Use the normalized uniformisation and differential pullback after satisfying the corrected integral input contracts; no new uniformisation theorem."
+    },
+    {
+      "id": "EllipticRegulators:ER.1/the-q-parameter-and-the-multiplicative-presentation",
+      "role": "Use the existing q and exponential presentation; extend conjugation bookkeeping to paired embeddings."
+    },
+    {
+      "id": "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
+      "role": "Use actual coefficient embeddings, their base changes and the full disjoint-union rank count."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EllipticRegulators",
+        "ComplexComparisonPartII",
+        "PeriodsAndSpecialValues"
+      ],
+      "detail": "Confirmed finding RT-AREA-ktheory-2/8 assigns general comparison and the elliptic Hodge/period computation to C5/C6. The parent periods-and-the-comparison-isomorphism node mixes imported comparison with period choice and records a deck-group/singular-homology gap.",
+      "proposal": "Keep C5 as the general comparison owner and C6 as its elliptic Hodge-line/integral-period computation. ER.1 consumes both through the prerequisites and requests of this packet, retaining chosen oriented bases, q, conjugation and regulator-normalized periods. PS.0 must point its elliptic comparison-matrix acceptance test to the same C6 calculation. During assembly replace the parent mixed comparison node’s imported-comparison and deck-group alias portions by these supplier contracts. No source, data or other packet is edited by this job."
+    }
+  ],
+  "provenance": {
+    "job": "BP-EllipticRegulators--ER.1",
+    "issue": 6482,
+    "agent": "Codex",
+    "session": "codex-5umW8m",
+    "date": "2026-10-06"
+  },
+  "prototypeBoundary": [
+    "All new scalar definitions, APIs and tests have Lean signatures. The geometric singular integration map and differential pullback retain exact supplier requests instead of unconstrained Prop fields.",
+    "The suggested file uses only individual Mathlib imports at the exact pinned Mathlib commit. Tau Ceti baseline declarations were read with their pinned statements; they are inputs, not restated substitutes."
+  ]
+}
