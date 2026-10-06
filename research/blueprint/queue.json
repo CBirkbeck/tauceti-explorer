@@ -27582,12 +27582,13 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--L3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #967"
+   "note": "deliverables arrived from an external worker on issue #967",
+   "finishedAt": "2026-10-06T10:52:04Z"
   },
   {
    "id": "REV-PadicHodgeRegulators--L3",
@@ -28756,9 +28757,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #991"
+   "note": "claimed on GitHub issue #991"
   },
   {
    "id": "REV-ShimuraCompactifications--C6",
