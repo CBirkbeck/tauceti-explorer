@@ -23,483 +23,546 @@
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
         "provides": "The identity principle for analytic functions on a connected set.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gamma_add_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Γ(s + 1) = sΓ(s) for s ≠ 0.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gamma_neg_nat_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Mathlib's totalised Γ is 0 at the nonpositive integers (the value a proof must not rely on).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gamma_one",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Γ(1) = 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gamma_one_half_eq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean",
         "provides": "Γ(1/2) = π^{1/2}.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gammaℂ",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne's complex archimedean factor 2(2π)^{−s}Γ(s).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne's real archimedean factor π^{−s/2}Γ(s/2).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_eq_zero_iff",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Mathlib's totalised Γ_ℝ vanishes exactly at 0, −2, −4, ….",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_ne_zero_of_re_pos",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Γ_ℝ(s) ≠ 0 for Re s > 0.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.differentiable_Gammaℝ_inv",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "The reciprocal Γ_ℝ⁻¹ is entire.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.differentiable_one_div_Gamma",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "The reciprocal 1/Γ is entire.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:DirichletCharacter",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "Dirichlet characters.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "The continued Dirichlet L-function.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction_eq_LSeries",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "The continued L-function is the L-series on Re s > 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:DirichletCharacter.differentiable_LFunction",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "L(s, χ) is entire for χ ≠ 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Finset.prod",
         "kind": "def",
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
         "provides": "Finite products over S.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:HurwitzZeta.hurwitzZeta_neg_nat",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
         "provides": "ζ(x, −k) = −B_{k+1}(x)/(k+1) for k ≥ 1 and x ∈ [0, 1].",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Ideal.absNorm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
         "provides": "The absolute norm Nv = #(𝓞_F/v).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:Ideal.absNorm_eq_one_iff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
         "provides": "An ideal has absolute norm 1 iff it is the whole ring.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
-        "ref": "mathlib:IsCyclotomicExtension",
-        "kind": "class",
-        "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
-        "provides": "Cyclotomic extensions, for the fields F(μ_{ℓ^ν}).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
-        "kind": "structure",
-        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
-        "provides": "The maximal ideals (finite places) of 𝓞_F.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/KummerDedekind.lean",
-        "provides": "Kummer–Dedekind: prime factors of p𝓞 against factors of the minimal polynomial mod p.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:LSeries",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
-        "provides": "The L-series of an arithmetic sequence.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:LSeries.convolution",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
-        "provides": "Dirichlet convolution of sequences.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:LSeries_convolution'",
-        "kind": "lemma",
-        "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
-        "provides": "The L-series of a convolution is the product of the L-series where both converge.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:LSeries_one_eq_riemannZeta",
-        "kind": "lemma",
-        "module": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
-        "provides": "The L-series of the constant 1 is riemannZeta on Re s > 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Module.finrank",
-        "kind": "def",
-        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
-        "provides": "The degree [F:ℚ].",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Module.finrank_self",
+        "ref": "mathlib:Ideal.inertiaDeg_pos",
         "kind": "theorem",
-        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
-        "provides": "[ℚ:ℚ] = 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
+        "provides": "For a prime ideal q of S with S module-finite over R, its inertia degree over R is positive. Applied with R = ℤ and S the ring of integers.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
       },
       {
-        "ref": "mathlib:Nat.card_pi",
+        "ref": "mathlib:Ideal.pow_inertiaDeg",
         "kind": "theorem",
-        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
-        "provides": "The order of a finite product is the product of the orders.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Nat.card_units",
-        "kind": "theorem",
-        "module": "Mathlib/Algebra/GroupWithZero/Units/Fintype.lean",
-        "provides": "#(k^×) = #k − 1 for a finite field k.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Nat.eq_iff_prime_padicValNat_eq",
-        "kind": "theorem",
-        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
-        "provides": "Two positive naturals are equal iff all their prime valuations agree.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
-        "provides": "r_1 + 2r_2 = [F:ℚ].",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.IsTotallyReal",
-        "kind": "class",
-        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
-        "provides": "The hypothesis that every infinite place is real.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
-        "provides": "A totally real field has no complex places.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.RingOfIntegers",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
-        "provides": "The ring of integers 𝓞_F.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.dedekindZeta",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
-        "provides": "The Dedekind zeta function as the L-series of the ideal count (meaningful on Re s > 1).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:NumberField.discr",
-        "kind": "abbrev",
-        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
-        "provides": "The discriminant d_F.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Polynomial.bernoulli",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
-        "provides": "The Bernoulli polynomials.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
-        "kind": "def",
-        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
-        "provides": "First isomorphism theorem for a surjective homomorphism.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Rat.den_dvd",
-        "kind": "theorem",
-        "module": "Mathlib/Data/Rat/Lemmas.lean",
-        "provides": "The reduced denominator of a/b divides b.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Rat.num_div_den",
-        "kind": "lemma",
-        "module": "Mathlib/Algebra/Ring/Rat.lean",
-        "provides": "A rational number is its numerator over its denominator.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Rat.ringOfIntegersEquiv",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
-        "provides": "𝓞_ℚ ≃+* ℤ.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Set.integer",
-        "kind": "def",
-        "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
-        "provides": "The ring of S-integers.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:Subgroup.card_mul_index",
-        "kind": "theorem",
-        "module": "Mathlib/GroupTheory/Index.lean",
-        "provides": "#H · [G:H] = #G.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:ZMod.LFunction_def_even",
-        "kind": "lemma",
-        "module": "Mathlib/NumberTheory/LSeries/ZMod.lean",
-        "provides": "L(s, Φ) for even Φ as a sum of even Hurwitz zeta functions.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:bernoulli_two",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/Bernoulli.lean",
-        "provides": "B_2 = 1/6.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:differentiableAt_riemannZeta",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
-        "provides": "riemannZeta is holomorphic away from 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:legendreSym",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
-        "provides": "The Legendre symbol, the character χ₅ = (·/5).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:legendreSym.quadratic_reciprocity_one_mod_four",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
-        "provides": "Quadratic reciprocity for a prime ≡ 1 (mod 4).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:padicValRat",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "The p-adic valuation of a rational number.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:padicValRat.div",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "v_p(q/r) = v_p(q) − v_p(r) for nonzero q, r.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:padicValRat.mul",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "v_p(qr) = v_p(q) + v_p(r) for nonzero q, r.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:padicValRat.of_nat",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "padicValRat agrees with padicValNat on naturals.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:riemannZeta_neg_nat_eq_bernoulli",
-        "kind": "theorem",
-        "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
-        "provides": "ζ(−k) = (−1)^k B_{k+1}/(k+1).",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
-        "provides": "𝓞_{ℚ(√d)} = ℤ[(1+√d)/2] for squarefree d ≡ 1 (mod 4).",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.EulerProductData.restrictAway",
-        "kind": "def",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
-        "provides": "Euler-product data restricted away from a set of primes.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.EulerProductData.restrictAway_apply",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
-        "provides": "The restricted data vanish on ideals not prime to S.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.LSeriesSummable_dedekindZetaCoeff_iff",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
-        "provides": "The Dedekind zeta series converges exactly on Re s > 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.dedekindZetaCoeff",
-        "kind": "def",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
-        "provides": "The number of ideals of 𝓞_F of norm n.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.dedekindZetaCoeff_rat",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
-        "provides": "Over ℚ there is exactly one ideal of each norm.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.dedekindZeta_eq_LSeries_dedekindZetaCoeff",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
-        "provides": "Mathlib's dedekindZeta is the L-series of dedekindZetaCoeff.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd",
-        "kind": "theorem",
-        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
-        "provides": "The Euler product of the Dedekind zeta function on Re s > 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:PowerSeries",
-        "kind": "abbrev",
-        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
-        "provides": "Formal power series R⟦X⟧; Λ = ℤ_2⟦T⟧.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
-      },
-      {
-        "ref": "mathlib:PadicInt",
-        "kind": "def",
-        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
-        "provides": "The p-adic integers ℤ_[p].",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
+        "provides": "For a Dedekind domain R infinite and finite over ℤ, a prime ideal P lying over (p) satisfies p ^ inertiaDeg(P/ℤ) = absNorm P, for p : ℕ. Applied only to the ring of integers of a number field.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
       },
       {
         "ref": "mathlib:Ideal.span",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "The ideal generated by a set.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension",
+        "kind": "class",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+        "provides": "Cyclotomic extensions, for the fields F(μ_{ℓ^ν}).",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.Rat.galEquivZMod",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
+        "provides": "For n nonzero and a number field K that is a cyclotomic extension of ℚ of level {n}, Gal(K/ℚ) is multiplicatively equivalent to (ZMod n)ˣ. This supplies the concrete cyclotomic Galois groups, not an intersection theorem for arbitrary F.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.Rat.galEquivZMod_restrictNormal_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
+        "provides": "For nonzero m,n with m ∣ n and compatible cyclotomic fields F ⊆ K at those levels, restriction Gal(K/ℚ) → Gal(F/ℚ) agrees with reduction on ZMod units.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "The maximal ideals (finite places) of 𝓞_F.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/KummerDedekind.lean",
+        "provides": "Kummer–Dedekind: prime factors of p𝓞 against factors of the minimal polynomial mod p.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LSeries",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
+        "provides": "The L-series of an arithmetic sequence.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LSeries.convolution",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
+        "provides": "Dirichlet convolution of sequences.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LSeries_convolution'",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
+        "provides": "The L-series of a convolution is the product of the L-series where both converge.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:LSeries_one_eq_riemannZeta",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+        "provides": "The L-series of the constant 1 is riemannZeta on Re s > 1.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.finrank",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "provides": "The degree [F:ℚ].",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.finrank_self",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "[ℚ:ℚ] = 1.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.card_pi",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "The order of a finite product is the product of the orders.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.card_units",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Fintype.lean",
+        "provides": "#(k^×) = #k − 1 for a finite field k.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Nat.eq_iff_prime_padicValNat_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "Two positive naturals are equal iff all their prime valuations agree.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.Ideal.inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+        "provides": "Under the same prime/no-index-prime hypotheses, the corresponding prime ideal has inertia degree equal to the reduced factor’s natural degree.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+        "provides": "For a number field, prime p and θ in its ring of integers with p ∤ exponent θ, primes above (p) are equivalent to the monic irreducible factors of the reduced minimal polynomial.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:NumberField.Ideal.ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+        "provides": "Under the same prime/no-index-prime hypotheses, the corresponding prime ideal’s ramification index is the multiplicity of that factor in the reduced minimal polynomial.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "r_1 + 2r_2 = [F:ℚ].",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.IsTotallyReal",
+        "kind": "class",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+        "provides": "The hypothesis that every infinite place is real.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+        "provides": "A totally real field has no complex places.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.RingOfIntegers",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+        "provides": "The ring of integers 𝓞_F.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.finrank_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "Dirichlet's unit theorem: the free rank of (𝓞 K)ˣ is Units.rank K.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:NumberField.Units.rank",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "rank K = card (InfinitePlace K) − 1.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
-        "ref": "mathlib:padicValNat.mul",
+        "ref": "mathlib:NumberField.dedekindZeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+        "provides": "The Dedekind zeta function as the L-series of the ideal count (meaningful on Re s > 1).",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.discr",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "The discriminant d_F.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:NumberField.discr_ne_zero",
         "kind": "theorem",
-        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
-        "provides": "v_p(ab) = v_p(a) + v_p(b) for nonzero a, b.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "The integral absolute discriminant of every number field is nonzero; hence its absolute value is positive and at least one.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:PadicInt",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The p-adic integers ℤ_[p].",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "The Bernoulli polynomials.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Formal power series R⟦X⟧; Λ = ℤ_2⟦T⟧.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
+        "provides": "First isomorphism theorem for a surjective homomorphism.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Rat.den_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Rat/Lemmas.lean",
+        "provides": "The reduced denominator of a/b divides b.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Rat.num_div_den",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/Rat.lean",
+        "provides": "A rational number is its numerator over its denominator.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Rat.ringOfIntegersEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+        "provides": "𝓞_ℚ ≃+* ℤ.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RingOfIntegers.exponent_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+        "provides": "For θ in the ring of integers, exponent θ = 1 iff ℤ[θ] is the whole ring; the quadratic integral generator discharges the no-index-prime hypothesis.",
+        "checked": "Independent review REV-SpecialValuesBirchTate read the declaration, namespace and section hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; credited only for this provides field."
+      },
+      {
+        "ref": "mathlib:Set.integer",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+        "provides": "The ring of S-integers.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Subgroup.card_mul_index",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "#H · [G:H] = #G.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:ZMod.LFunction_def_even",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+        "provides": "L(s, Φ) for even Φ as a sum of even Hurwitz zeta functions.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:bernoulli_two",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "B_2 = 1/6.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:differentiableAt_riemannZeta",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "riemannZeta is holomorphic away from 1.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:legendreSym",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "provides": "The Legendre symbol, the character χ₅ = (·/5).",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:legendreSym.quadratic_reciprocity_one_mod_four",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+        "provides": "Quadratic reciprocity for a prime ≡ 1 (mod 4).",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       },
       {
         "ref": "mathlib:padicValNat.eq_zero_of_not_dvd",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
         "provides": "v_p(n) = 0 when p ∤ n.",
-        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem."
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValNat.mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "v_p(ab) = v_p(a) + v_p(b) for nonzero a, b.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValRat",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "The p-adic valuation of a rational number.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValRat.div",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "v_p(q/r) = v_p(q) − v_p(r) for nonzero q, r.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValRat.mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "v_p(qr) = v_p(q) + v_p(r) for nonzero q, r.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:padicValRat.of_nat",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "padicValRat agrees with padicValNat on naturals.",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:riemannZeta_neg_nat_eq_bernoulli",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+        "provides": "ζ(−k) = (−1)^k B_{k+1}/(k+1).",
+        "checked": "Declaration statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
+        "provides": "𝓞_{ℚ(√d)} = ℤ[(1+√d)/2] for squarefree d ≡ 1 (mod 4).",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.EulerProductData.restrictAway",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+        "provides": "Euler-product data restricted away from a set of primes.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.EulerProductData.restrictAway_apply",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Data.lean",
+        "provides": "The restricted data vanish on ideals not prime to S.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.LSeriesSummable_dedekindZetaCoeff_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+        "provides": "The Dedekind zeta series converges exactly on Re s > 1.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.dedekindZetaCoeff",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+        "provides": "The number of ideals of 𝓞_F of norm n.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.dedekindZetaCoeff_rat",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+        "provides": "Over ℚ there is exactly one ideal of each norm.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.dedekindZeta_eq_LSeries_dedekindZetaCoeff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Trivial.lean",
+        "provides": "Mathlib's dedekindZeta is the L-series of dedekindZetaCoeff.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+        "provides": "The Euler product of the Dedekind zeta function on Re s > 1.",
+        "checked": "Declaration statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; credited only for the stated provides field, not for the arithmetic special-value theorem. Independently confirmed by REV-SpecialValuesBirchTate on 2026-10-06."
       }
     ]
   },
@@ -553,7 +616,8 @@
       "readSections": [
         "§1: the Main Conjecture (= Theorem 3.2) and the closing remark on Birch–Tate (pp. 452–454)",
         "§3: Lemma 3.3 (p. 469). The whole article is decomposed in EulerSystemsCyclotomicMainConjecture L4, whose nodes are imported.",
-        "Fresh read 2026-10-06: Theorem 3.2 and its introductory consequences (pp. 452–454), Lemma 3.3 (p. 469)."
+        "Fresh read 2026-10-06: Theorem 3.2 and its introductory consequences (pp. 452–454), Lemma 3.3 (p. 469).",
+        "Independent review 2026-10-06: §1 pp. 451–454; §3 Theorem 3.2, Lemma 3.3 and exceptional χ=ω argument pp. 469–470; p. 469 visually checked (E7)."
       ]
     },
     {
@@ -578,7 +642,8 @@
       "sha256": "9d770c079313ccc26f29da641d301269edf12985f122fd107ab201f086e8f446",
       "read": "2026-10-06",
       "readSections": [
-        "Introduction, Theorems 0.1–0.3 and 0.6 (pp. 1–4); Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3 (pp. 45–47). The full K/cohomology comparison proof remains M.7’s."
+        "Introduction, Theorems 0.1–0.3 and 0.6 (pp. 1–4); Kolster appendix, Theorem A.1 and proof, Theorem A.2 and Corollary A.3 (pp. 45–47). The full K/cohomology comparison proof remains M.7’s.",
+        "Independent review 2026-10-06 also read the full induction/root computation in Appendix A.2 pp. 48–49; its variable is u^(1−s), requiring translation before use in the Greither u^s convention."
       ]
     },
     {
@@ -591,7 +656,8 @@
       "read": "2026-10-06",
       "readSections": [
         "§4.2 Lemma 9 and §4.3 Conjectures 4–6, Remark 9 (pp. 534–537); general determinant constructions remain PS.4–PS.5’s.",
-        "Fresh read 2026-10-06: conclusion of Lemma 5 and Lemma 6 with proof, pp. 527–529, and the consequence that Ξ(M)ℤ and RΩ are independent of S and the projective structure under Coherence."
+        "Fresh read 2026-10-06: conclusion of Lemma 5 and Lemma 6 with proof, pp. 527–529, and the consequence that Ξ(M)ℤ and RΩ are independent of S and the projective structure under Coherence.",
+        "Independent review 2026-10-06: §3.4 Lemma 5 from p. 526, Lemma 6 and consequence through p. 529; correct section locator is §3.4, not §4.2."
       ]
     },
     {
@@ -851,7 +917,8 @@
         "mathlib:Complex.differentiable_Gammaℝ_inv",
         "mathlib:Complex.differentiable_one_div_Gamma",
         "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
-        "mathlib:NumberField.discr"
+        "mathlib:NumberField.discr",
+        "mathlib:NumberField.discr_ne_zero"
       ],
       "sources": [
         {
@@ -902,7 +969,8 @@
         "BorelRegulators:R.5/completed-zeta-conventions",
         "mathlib:NumberField.IsTotallyReal.nrComplexPlaces_eq_zero",
         "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
-        "mathlib:NumberField.discr"
+        "mathlib:NumberField.discr",
+        "mathlib:NumberField.discr_ne_zero"
       ],
       "sources": [
         {
@@ -1324,10 +1392,10 @@
         "F = ℚ(√5), with θ = √5, minpoly ℤ θ = X² − 5, 5 squarefree and 5 ≡ 1 (mod 4)."
       ],
       "proofSteps": [
-        "𝓞_F = ℤ[ω] with ω = (1 + √5)/2 (Tau Ceti NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one), and ω has minimal polynomial X² − X − 1 of discriminant 5.",
+        "𝓞_F = ℤ[ω] with ω = (1 + √5)/2 (Tau Ceti NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one), and ω has minimal polynomial X² − X − 1 of discriminant 5. Since ω² − ω − 1 = 0 and [F:ℚ] = 2, its monic quadratic is the minimal polynomial; RingOfIntegers.exponent_eq_one_iff gives exponent ω = 1, so p ∤ exponent ω for every prime p.",
         "Both sides are multiplicative in n: the ideal count by unique factorisation of ideals and multiplicativity of the absolute norm (the Euler product of TauCeti.dedekindZeta_eulerProduct_hasProd), the divisor sum as a convolution of multiplicative functions. So it suffices to take n = p^k.",
-        "Splitting of p in 𝓞_F by Kummer–Dedekind (KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk; the conductor of ℤ[ω] is the whole ring): p = 5 ramifies (X² − X − 1 ≡ (X − 3)² mod 5); p = 2 is inert (X² + X + 1 is irreducible mod 2) and χ₅(2) = −1; for odd p ≠ 5, p splits exactly when 5 is a square mod p, which by quadratic reciprocity (legendreSym.quadratic_reciprocity_one_mod_four, 5 ≡ 1 mod 4) is χ₅(p) = 1, and is inert when χ₅(p) = −1.",
-        "Count ideals of norm p^k: split, k + 1 = Σ_{j ≤ k} 1^j; inert, 1 if k is even and 0 if odd = Σ_{j ≤ k} (−1)^j; ramified, 1 = 1 + 0 + ⋯. In each case this is Σ_{d | p^k} χ₅(d)."
+        "Use NumberField.Ideal.primesOverSpanEquivMonicFactorsMod, with exponent ω = 1, for the primes over p. Its inertiaDeg and ramificationIdx theorems give factor degree and multiplicity; Ideal.pow_inertiaDeg then gives the residue norm p^f. The more general normalizedFactorsMapEquivNormalizedFactorsMinPolyMk supplies prime support only. At p = 5 the polynomial is (X − 3)², giving one prime of norm 5 and ramification index 2. At p = 2 it is the irreducible X² + X + 1, giving one prime of norm 4. For odd p ≠ 5, the discriminant test and quadratic reciprocity identify splitting with χ₅(p) = 1, and inertia with χ₅(p) = −1.",
+        "Count ideals of norm p^k: split, k + 1 = Σ_{j ≤ k} 1^j; inert, 1 if k is even and 0 if odd = Σ_{j ≤ k} (−1)^j; ramified, 1 = 1 + 0 + ⋯. In each case this is Σ_{d | p^k} χ₅(d). Absolute norm is the existing multiplicative monoid hom Ideal.absNorm: map_mul and map_pow turn the prime exponents in unique ideal factorization into these norm counts."
       ],
       "acceptance": [
         "n = 4: one ideal (2𝓞_F, as 2 is inert), and Σ_{d | 4} χ₅(d) = 1 − 1 + 1 = 1.",
@@ -1342,7 +1410,13 @@
         "mathlib:legendreSym.quadratic_reciprocity_one_mod_four",
         "mathlib:LSeries.convolution",
         "mathlib:DirichletCharacter",
-        "mathlib:Ideal.absNorm"
+        "mathlib:Ideal.absNorm",
+        "mathlib:RingOfIntegers.exponent_eq_one_iff",
+        "mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod",
+        "mathlib:NumberField.Ideal.inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply'",
+        "mathlib:NumberField.Ideal.ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply'",
+        "mathlib:Ideal.pow_inertiaDeg",
+        "mathlib:Ideal.inertiaDeg_pos"
       ],
       "sources": [
         {
@@ -1385,7 +1459,8 @@
         "mathlib:DirichletCharacter.LFunction_eq_LSeries",
         "mathlib:DirichletCharacter.differentiable_LFunction",
         "mathlib:DirichletCharacter.LFunction",
-        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "mathlib:differentiableAt_riemannZeta"
       ],
       "sources": [
         {
@@ -1463,9 +1538,9 @@
       ],
       "proofSteps": [
         "Criterion (ArithmeticKTheory N.4/computing-w-from-the-cyclotomic-character, and N.4/two-primary-w-invariant at 2): ℓ^ν divides w₂(F) exactly when Gal(F(μ_{ℓ^ν})/F) has exponent dividing 2.",
-        "ℓ = 5: ℚ(√5) ⊂ ℚ(μ₅), so Gal(F(μ₅)/F) has order 2 and 5 | w₂; Gal(F(μ₂₅)/F) is cyclic of order 10, so 25 ∤ w₂.",
-        "ℓ = 3: F ∩ ℚ(μ₉) = ℚ, so Gal(F(μ₃)/F) ≅ (ℤ/3)^× has order 2 and Gal(F(μ₉)/F) ≅ (ℤ/9)^× is cyclic of order 6: w₂^{(3)} = 3.",
-        "ℓ = 2: F ∩ ℚ(μ₁₆) = ℚ (the quadratic subfields of ℚ(μ₁₆) are ℚ(i), ℚ(√2), ℚ(√−2)), so Gal(F(μ₈)/F) ≅ (ℤ/8)^× has exponent 2 and Gal(F(μ₁₆)/F) ≅ (ℤ/16)^× has exponent 4: w₂^{(2)} = 8.",
+        "For ℓ = 5, choose a primitive fifth root ζ and t = ζ + ζ⁻¹. The relation t² + t − 1 = 0 gives (2t + 1)² = 5, identifying F with the real quadratic subfield of ℚ(μ₅). The explicit cyclotomic Galois equivalence gives relative group C₂ at level 5, and its restriction compatibility gives C₁₀ at level 25. Thus 5 divides w₂ but 25 does not.",
+        "For ℓ = 3, F is real and the real subfield of ℚ(μ₉) has degree 3. The intersection has degree dividing both 2 and 3, so it is ℚ. The cyclotomic groups at levels 3 and 9 are C₂ and C₆, respectively, giving w₂^(3) = 3.",
+        "For ℓ = 2, the real subfield of ℚ(μ₁₆) has cyclic Galois group C₄, with unique quadratic subfield ℚ(√2), realized by (ζ₈ + ζ₈⁻¹)² = 2. The field F is not ℚ(√2), since 5/2 is not a rational square, so its intersection with ℚ(μ₁₆) is ℚ. Explicit ZMod-unit calculations give exponent 2 at level 8 and exponent 4 at level 16, hence w₂^(2) = 8. These are finite cyclotomic computations for this example, not a new general intersection theory.",
         "ℓ ≥ 7: Gal(F(μ_ℓ)/F) is cyclic of order ℓ − 1 or (ℓ − 1)/2, at least 3, so ℓ ∤ w₂ (and N.4/finiteness-of-the-w-invariant bounds the primes: ℓ − 1 ≤ 2·2)."
       ],
       "acceptance": [
@@ -1476,7 +1551,9 @@
         "ArithmeticKTheory:N.4/two-primary-w-invariant",
         "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
         "ArithmeticKTheory:N.4/the-w-invariant",
-        "mathlib:IsCyclotomicExtension"
+        "mathlib:IsCyclotomicExtension",
+        "mathlib:IsCyclotomicExtension.Rat.galEquivZMod",
+        "mathlib:IsCyclotomicExtension.Rat.galEquivZMod_restrictNormal_apply"
       ],
       "sources": [
         {
@@ -2036,17 +2113,17 @@
       "kind": "comparison",
       "statement": "Let F be a totally real number field, abelian over ℚ. Then FedererMainConjecture(F) holds.",
       "hypotheses": [
-        "Neither Kolster nor Greither writes this comparison; Greither asserts the consequence. The steps below are the proof planned here.",
+        "Greither p. 454 asserts the Birch–Tate consequence, but does not write this arbitrary-ramification comparison. It remains a proof target, with the exact convention/minus-module gap and supplier requests below; this review has not verified the proposed final equality.",
         "Greither's Theorem 3.2 needs the base field unramified at 2, which F need not be; the first step replaces F by such a field with the same F_∞."
       ],
       "proofSteps": [
-        "Reduction to a field unramified at 2. F ⊂ ℚ(μ_{m2^∞}) with m odd, and F(μ_{2^∞}) = F′(μ_{2^∞}) for F′ = F(μ_{2^∞}) ∩ ℚ(μ_m), which is abelian and unramified at 2 but possibly imaginary (F = ℚ(√6) gives F′ = ℚ(√−3)). Put K_0 = F′(√−1), Δ′ = Gal(K_0/ℚ) ∋ j and Γ′ = Gal(K_∞/K_0) with generator γ′ and u′ = κ(γ′). Then F_∞ = K_∞ and Gal(F_∞/ℚ) = Δ′ × Γ′.",
+        "Consume ClassFieldTheory Layer 13’s kroneckerWeber before placing F in ℚ(μ_{m2^∞}) with m odd. Put F′=F(μ_{2^∞})∩ℚ(μ_m). The disjoint cyclotomic factors show F(μ_{2^∞})=F′(μ_{2^∞}); F′ is abelian and unramified at 2 and can be imaginary. Put K₀=F′(√−1), Δ′=Gal(K₀/ℚ), Γ′=Gal(K_∞/K₀), γ′ a generator and u′=κ(γ′). Then the common full tower K_∞ is Kolster’s F_∞, and its rational Galois group is Δ′×Γ′.",
         "Kolster's Γ = Gal(F_∞/F(√−1)) is procyclic and open, so Γ = {(φ(γ), γ) : γ ∈ Γ′^{2^b}} for some b ≥ 0 and some homomorphism φ: Γ′^{2^b} → Δ′ fixing √−1. Let γ_1 generate Γ′^{2^b}; then γ_0 = (φ(γ_1), γ_1) and u = u′^{2^b}. Gal(F_∞/F) = ⟨j⟩ × Γ, so the even characters of F are the products χ̌·ρ, with χ̌ an even character of Δ′ and ρ a character of Γ′ such that ρ(γ_1) = χ̌(φ(γ_1))^{−1}. Since φ fixes √−1, χ̌(φ(γ_1)) = χ(φ(γ_1))^{−1} for χ = ωχ̌^{−1}, so the condition is ρ(γ_1) = χ(φ(γ_1)). There are 2^b such ρ for each χ̌, so [F:ℚ] = 2^b·|Δ′|/2.",
-        "Same module. A_∞^- is the direct limit over the common tower, so it is one ℤ_2[[Δ′ × Γ′]]-module; f_F is its dual's characteristic polynomial for the subgroup Γ. Minus parts taken as kernels of norms or as quotients by (1 + j) differ by finite groups, which do not change characteristic ideals. By Greither's Lemma 3.3, X = lim← A_2(K_n) is quasi-isomorphic to Ǎ_∞ with the action (σφ)(x) = φ(σx). So for each odd χ of Δ′, ℚ_2 ⊗ X_χ ≅ ℚ_2 ⊗ Ǎ_{∞,χ}^-.",
-        "Zeros of f_F. μ(f_F) = 0 by Ferrero–Washington at p = 2 (IntegralIwasawaTheory L4). So f_F = unit·Q with Q distinguished, and the roots of Q are the eigenvalues minus 1 of γ_0 on ℂ_2 ⊗ Ǎ_∞^-. This space is the sum of its χ-isotypic parts, χ odd, and there γ_0 acts as χ(φ(γ_1))·γ_1. By Greither's Theorem 3.2, char(X_χ) = (½G_2(T′, χ̌)), with ½G_2(T′, 1)·(T′ − q_0) for χ = ω, where q_0 = u′ − 1. So the eigenvalues of γ_1 on the χ-part are 1 + y for the zeros y of G_2(·, χ̌), and those of γ_0 are χ(φ(γ_1))·(1 + y)^{2^b}, with multiplicity.",
-        "Zeros of G_F. For abelian F, ζ_{F,2}(s) = ∏_ψ L_2(s, ψ) with the Euler factors at 2 removed. For ψ = χ̌ρ the twist by the second-kind character ρ substitutes the root of unity attached to ρ(γ′) into G_2(·, χ̌) (Washington, Theorem 7.10, with the convention fixed by DirichletPadicLFunctions L2). As a function of 1 + T = u^s = (u′^s)^{2^b}, the zeros of ∏_ρ L_2(s, χ̌ρ) over the 2^b admissible ρ are exactly the χ(φ(γ_1))·(1 + y)^{2^b}. The pole factors multiply to ∏_ρ(ζ_ρu′^s − u′) = ±(u^s − u), Kolster's denominator.",
-        "μ-invariants. Each ½G_2(·, χ̌) has μ = 0, because X_χ is a quotient of X^- ⊗ ℤ_2(χ) and so is finitely generated over ℤ_2. Root-of-unity substitutions preserve μ, and there are [F:ℚ] pairs (χ̌, ρ), each contributing one factor 2. So G_F = 2^{[F:ℚ]}·unit·P with P distinguished.",
-        "P and Q have the same roots with multiplicity, so (G_F) = (2^{[F:ℚ]}·f_F) in Λ, which is FedererMainConjecture(F)."
+        "The common tower identifies the direct-limit class module before restricting to Kolster’s open Γ. For the passage from its norm-kernel minus part to the quotient by (1+j), request the actual comparison from I.2. Under Ferrero–Washington μ=0 the relevant compact modules are finite over ℤ₂, so kernels/cokernels killed by 2 are finite; this justifies passage to rational eigenspaces/characteristic ideals only once the maps are established. Greither Lemma 3.3 uses the covariant dual action (σφ)(x)=φ(σx), not inverse action.",
+        "Write 𝒢₂(T′,ψ) for Greither’s meromorphic function and P₂(T′,ψ)=(T′−q₀)^δ 𝒢₂(T′,ψ) for its analytic numerator, q₀=u′−1 and δ=1 iff ψ=1. Use char(X_χ)=(P₂(T′,χ̌)/2) for odd χ, with χ̌=ωχ⁻¹. The exceptional χ=ω numerator P₂/2 is a unit by the separate p. 470 argument (request the corrected supplier case, E7). Consequently the γ′ eigenvalues are 1+y for roots y of P₂, and γ₀=(φ(γ₁),γ₁) has eigenvalues χ(φ(γ₁))(1+y)^(2^b). No roots or μ-invariant are assigned to an uncleared meromorphic function.",
+        "Use ζ_{F,2}(s)=∏_{ψ}L₂(s,ψ), with dyadic factors removed, and the exact second-kind convention requested from L2. In Greither’s u^s variable the root argument requires ζρ=ρ(γ′)⁻¹. Then ρ(γ₁)=χ(φ(γ₁)) implies ζρ^(2^b)=χ(φ(γ₁))⁻¹, so a zero ζρ u′^s=1+y gives u^s=χ(φ(γ₁))(1+y)^(2^b), matching the module eigenvalue. Only χ̌=1 contributes denominators; its admissible ρ multiply the pole factors to a unit times u^s−u, exactly once. Establish the requested involution convention before concluding this root match; with ζρ=ρ(γ′), the two multipliers are inverse and the inherited argument fails.",
+        "Use μ(P₂/2)=0 on the integral pole-cleared numerators, including the unit exceptional case, and justify its preservation under the finite character substitutions and coefficient descent. The product has [F:ℚ] analytic numerator factors, each contributing one 2, so the intended result is G_F=2^[F:ℚ]·unit·P with P distinguished. This is part of the requested arbitrary-ramification comparison, not an application of μ to 𝒢₂ at its pole.",
+        "After the exact L2 convention, I.2 finite minus comparison and exceptional Greither case are supplied, the root and μ computations identify P with f_F’s distinguished polynomial Q and imply (G_F)=(2^[F:ℚ]f_F). The endpoint is the proof target; the outstanding comparison is explicitly recorded as a gap."
       ],
       "acceptance": [
         "The abelian hypothesis is on F/ℚ itself; the auxiliary field F′ is abelian because F is.",
@@ -2059,7 +2136,9 @@
         "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
         "IntegralIwasawaTheory:L4",
         "DirichletPadicLFunctions:L2",
-        "AutomorphicPadicLFunctions:L3"
+        "AutomorphicPadicLFunctions:L3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "IntegralIwasawaTheory:I.2"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SpecialValues/BirchTateTwoPrimary",
@@ -2080,7 +2159,12 @@
         {
           "sourceId": "GREITHER-1992",
           "locator": "§1, the Main Conjecture (= Theorem 3.2), p. 452",
-          "match": "Greither's main conjecture with the one-half normalisation."
+          "match": "The inclusive odd-character statement p. 452, with the meromorphic G₂ normalization and single exceptional pole; the χ=ω argument is on p. 470. The contradictory exclusion printed in Theorem 3.2 p. 469 is source issue E7."
+        },
+        {
+          "sourceId": "GREITHER-1992",
+          "locator": "§3, exceptional-character argument in the proof of Theorem 3.2, p. 470",
+          "match": "The source proves X_ω finite, so its characteristic ideal is (1); this separate case must be exported by the supplier."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2177,7 +2261,7 @@
       "hypotheses": [],
       "proofSteps": [
         "B.7/k2-order-of-s-integers gives #K₂(𝓞_{F,S_ℓ}) = #K₂(𝓞_F)·∏_{v|ℓ}(Nv − 1). This is the localisation sequence 0 → K₂(𝓞_F) → K₂(𝓞_{F,S}) → ⊕_{v∈S} k(v)^× → 0 of K2SymbolsBrauer T.5, whose third term is the tame-symbol diagram.",
-        "Each Nv is a power of ℓ, so Nv − 1 ≡ −1 mod ℓ, and v_ℓ of the product is 0."
+        "For v above ℓ, Ideal.pow_inertiaDeg and Ideal.inertiaDeg_pos give Nv = ℓ^f with f > 0. Thus ℓ ∤ Nv − 1, and the valuation of the residue-factor product is zero."
       ],
       "acceptance": [
         "ℓ = 2, F = ℚ: #K₂(ℤ[1/2]) = #K₂(ℤ)·(2 − 1) = 2.",
@@ -2186,7 +2270,9 @@
       "prerequisites": [
         "SpecialValuesBirchTate:B.7/k2-order-of-s-integers",
         "mathlib:padicValNat.mul",
-        "mathlib:padicValNat.eq_zero_of_not_dvd"
+        "mathlib:padicValNat.eq_zero_of_not_dvd",
+        "mathlib:Ideal.pow_inertiaDeg",
+        "mathlib:Ideal.inertiaDeg_pos"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
@@ -2217,7 +2303,7 @@
       "proofSteps": [
         "Tate's comparison for S-integers (MotivicEtaleKTheory M.3), with S ⊇ S_ℓ: K₂(𝓞_{F,S})/ℓ^r ≅ H²_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) for every r, compatibly in r.",
         "K₂(𝓞_{F,S}) is finite (ArithmeticKTheory N.3), so K₂(𝓞_{F,S}) ⊗ ℤ_ℓ = lim_r K₂(𝓞_{F,S})/ℓ^r. The groups H¹_ét(𝓞_{F,S}, μ_{ℓ^r}^{⊗2}) are finite, so the limit is H²_ét(𝓞_{F,S}, ℤ_ℓ(2)) with no lim¹ term.",
-        "Take S = S_ℓ and pass from 𝓞_F[1/ℓ] to 𝓞_F by the previous lemma."
+        "Take S = S_ℓ. Use the actual injection and cokernel of T.5/relative-s-integer-sequence: 0 → K₂(𝓞_F) → K₂(𝓞_F[1/ℓ]) → ⊕_{v|ℓ} k(v)^× → 0. Each residue-unit group has prime-to-ℓ order Nv − 1 by the norm calculation. Tensoring with the flat ℤ-module ℤ_ℓ kills this finite cokernel and preserves exactness, so the induced K₂ map is an isomorphism after tensoring. Compose it with the natural Tate/limit comparison. The preceding valuation equality alone does not construct this isomorphism."
       ],
       "acceptance": [
         "F = ℚ, ℓ = 3: K₂(ℤ) ≅ ℤ/2 has trivial 3-part, so H²_ét(ℤ[1/3], ℤ_3(2)) = 0."
@@ -2225,7 +2311,10 @@
       "prerequisites": [
         "SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell",
         "MotivicEtaleKTheory:M.3",
-        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined"
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "K2SymbolsBrauer:T.5/relative-s-integer-sequence",
+        "mathlib:Ideal.pow_inertiaDeg",
+        "mathlib:Ideal.inertiaDeg_pos"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SpecialValues/BirchTateOddPrimary",
@@ -3247,7 +3336,7 @@
       "sources": [
         {
           "sourceId": "BURNS-FLACH-2001",
-          "locator": "§4.2, Lemmas 5–6 and their consequence, pp. 527–529; Lemma 9, pp. 534–535; §4.3, Conjectures 4–6 and Remark 9, pp. 535–537",
+          "locator": "§3.4, Lemma 5 pp. 526–528, Lemma 6 and their consequence pp. 528–529; §4.2, Lemma 9 pp. 534–535; §4.3, Conjectures 4–6 and Remark 9 pp. 535–537",
           "match": "The precise relative-K-group conjecture, sign convention, local correction and graded determinant framework."
         }
       ],
@@ -3340,14 +3429,15 @@
     },
     {
       "supplier": "IntegralIwasawaTheory:I.2",
-      "need": "For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Also, for odd p and E/F abelian of degree prime to p containing μ_p, with E_∞ its cyclotomic ℤ_p-extension: Hom(X_S, ℚ_p/ℤ_p(n)) = H¹_ét(𝓞^S_{E_∞}, ℚ_p/ℤ_p(n)), and the twists X_ψ(−n) of the even components have no nonzero finite Λ-submodule. Also at p=2, for the S-ramified X(F) of a totally real F, X and the even twists X(−n) have no nonzero finite Λ-submodules; use the explicit duality to Galois cohomology in Rognes–Weibel Appendix A.1.",
+      "need": "For a totally real E and p = 2, the cyclotomic tower F_n = E(ζ_{2^{n+e}}): the minus class module A_∞^- = lim→ ker(A(F_n) → A(F_n^+)) with its dual Ǎ_∞^- a finitely generated torsion ℤ₂[[T]]-module; Federer's theorem that Ǎ_∞^- has no nonzero finite Λ-submodule; and Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)) on H¹(Γ, ℰ) ≅ B ⊕ (ℚ₂/ℤ₂)^r and H²(Γ, ℰ) ≅ (ℚ₂/ℤ₂)^{r−1} for the free part ℰ of lim→ U_n^+. Also, for odd p and E/F abelian of degree prime to p containing μ_p, with E_∞ its cyclotomic ℤ_p-extension: Hom(X_S, ℚ_p/ℤ_p(n)) = H¹_ét(𝓞^S_{E_∞}, ℚ_p/ℤ_p(n)), and the twists X_ψ(−n) of the even components have no nonzero finite Λ-submodule. Also at p=2, for the S-ramified X(F) of a totally real F, X and the even twists X(−n) have no nonzero finite Λ-submodules; use the explicit duality to Galois cohomology in Rognes–Weibel Appendix A.1. For the common abelian tower in B.5, also export the norm-kernel minus/quotient-by-(1+j) comparison and its dual, with the actual maps and bounded finite kernel/cokernel under μ=0. Use it only for characteristic ideals and rational eigenspaces; do not erase finite groups in a finite-order computation.",
       "neededBy": [
         "SpecialValuesBirchTate:B.5/federer-main-conjecture",
         "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
         "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
         "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
         "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
-        "SpecialValuesBirchTate:B.8/higher-values-real-abelian"
+        "SpecialValuesBirchTate:B.8/higher-values-real-abelian",
+        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
       ]
     },
     {
@@ -3369,7 +3459,7 @@
     },
     {
       "supplier": "DirichletPadicLFunctions:L2",
-      "need": "Twists by characters of the second kind at p = 2: for χ of the first kind and ρ of finite order on Γ, L₂(s, χρ) = G₂(ζu^s − 1, χ)/(ζu^s − u)^{δ(χ)}, with ζ the root of unity attached to ρ(γ) and δ(χ) = 1 exactly for trivial χ (Washington, Theorem 7.10), with the convention for ζ (ρ(γ) or its inverse) fixed explicitly.",
+      "need": "Fix the second-kind character formula in Greither’s variable T=u^s−1, including the character involution. Write 𝒢₂(T,ψ)=Greither’s meromorphic G₂ and P₂(T,ψ)=(T−(u−1))^δ 𝒢₂(T,ψ), δ=1 iff ψ is trivial. Then L₂(s,ψρ)=𝒢₂(ζρ u^s−1,ψ)=P₂(ζρ u^s−1,ψ)/(ζρ u^s−u)^δ. Determine ζρ from the actual coefficient action, rather than importing the u^(1−s) convention without its change of variables. For the covariant dual and graph used in B.5, the proposed equality of roots requires ζρ=ρ(γ)⁻¹: prove this translation, or revise the dual/character dictionary consistently. Preserve the single trivial-character pole, the integral normalization P₂/2 and multiplicities. This is the precise unresolved convention gate recorded in the B.5 gap.",
       "neededBy": [
         "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
       ]
@@ -3462,6 +3552,20 @@
       "neededBy": [
         "SpecialValuesBirchTate:B.7/localisation-comparison-naturality"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "need": "The existing kroneckerWeber theorem: every finite abelian extension F/ℚ embeds into a cyclotomic field. Apply its conductor-normalized form to place F in ℚ(μ_{m2^a}) with m odd, before passing to the common 2-power tower. No class-field theorem is re-planned here.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+      "need": "Export the separate exceptional χ = ω case char(X_ω) = (1), from Greither pp. 452 and 470, alongside the χ ≠ ω equality. The current supplier statement retains the incompatible χ ≠ ω qualifier in its trivial-check-χ branch (source issue E7). Keep Greither’s G₂ as a meromorphic function; its trivial-character pole-cleared numerator P₂=(T−q₀)G₂ has (1/2)P₂ a unit.",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
+      ]
     }
   ],
   "coverage": [
@@ -3497,7 +3601,8 @@
       "stageId": "SpecialValuesBirchTate:B.5",
       "status": "planned",
       "remaining": [
-        "Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence."
+        "Discharge the exact Kolster 1987 finite sequence (N.6), Iwasawa unit cohomology and compact-dual no-finite-submodule theorem (I.2), twist/evaluation (L2), Ferrero–Washington (L4) and second-kind character convention (DirichletPadicLFunctions L2). The arbitrary-ramification auxiliary-tower comparison is a source-based proof outline, not a checked equivalence.",
+        "Discharge the explicit arbitrary-ramification comparison gap: Kronecker–Weber from its existing upstream owner, the χ=ω supplier case, norm-kernel/quotient maps, and the second-kind involution in the u^s variable. Correct the read-only definitive reader to use pole-cleared P₂ and reflect these gates."
       ]
     },
     {
@@ -3546,6 +3651,13 @@
         "SpecialValuesBirchTate:B.6/birch-tate-all-totally-real"
       ],
       "detail": "IntegralIwasawaTheory:I.10 owns the missing exact comparison under RS-16: norm-kernel minus module, dual action, κ² specialization, order-two cokernel, real-place correction and Tor/finite cohomology terms. Kurihara §4.2 proves a height-one determinant identity, not the unstated arithmetic-specialization equivalence. B.6 records the formula as a proof target depending on that diagram."
+    },
+    {
+      "title": "The arbitrary-ramification abelian comparison and second-kind involution",
+      "neededBy": [
+        "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields"
+      ],
+      "detail": "The B.5 graph argument uses the covariant dual χ and even analytic χ̌=ωχ⁻¹. Its zeros match only after translating second-kind twisting to Greither’s u^s variable with ζρ=ρ(γ′)⁻¹ (or making the corresponding consistent change of dual action). The inherited request left this convention open, and the proof also treated Greither’s meromorphic G₂ as an integral numerator in its μ calculation. The numerator/pole distinction is corrected here. L2 must prove the exact involution, I.2 the finite norm-kernel/quotient comparison under μ=0, and the Greither supplier the separate χ=ω case. The abelian endpoint remains a source-supported proof target, not a verified equivalence."
     }
   ],
   "sourceIssues": [
@@ -3563,7 +3675,12 @@
         "Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked)",
         "web search for an erratum to Kolster's note (none found)"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published p. 250 image prints ζ_e; e denotes the tower index, while the same line and interpolation use the field E. This is a typographical correction.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     },
     {
       "id": "SpecialValuesBirchTate/E2",
@@ -3579,7 +3696,12 @@
         "Cambridge Core article page for Canad. Math. Bull. 32 (1989) 248–251 (no erratum linked)",
         "web search for an erratum to Kolster's note (none found)"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published p. 250 image omits the dual accent. The discrete direct-limit module contains the finite images from its levels; the no-finite-submodule hypothesis used for evaluation concerns its compact Pontryagin dual.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     },
     {
       "id": "SpecialValuesBirchTate/E3",
@@ -3596,7 +3718,12 @@
         "the published volume (IAS/Park City Mathematics Series) was not accessed",
         "research/errata/REGISTER.md: no entry for these notes"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author copy p. 16 refers to Theorem 3.4, but the numbered result on p. 15 is Corollary 3.4. No assertion about the inaccessible published volume is made.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     },
     {
       "id": "SpecialValuesBirchTate/E4",
@@ -3613,7 +3740,12 @@
         "the published volume (IAS/Park City Mathematics Series) was not accessed",
         "research/errata/REGISTER.md: no entry for these notes"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author-copy p. 9 image prints lowercase f in H⁰; no such field is defined, whereas F is the base field in the coefficient sequence.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     },
     {
       "id": "SpecialValuesBirchTate/E5",
@@ -3623,14 +3755,19 @@
       "printed": "For arbitrary n ∈ ℤ, the source obtains a long cohomology sequence from 0 → ℤ_p(n) → ℚ_p(n) → ℚ_p(n)/ℤ_p(n) → 0. It concludes that H¹_ét(o′_F, ℤ_p(n)) has torsion part isomorphic to H⁰_ét(o′_F, ℚ_p/ℤ_p(n)).",
       "correction": "The isomorphism H¹_ét(o′_F, ℤ_p(n))_tors ≅ H⁰_ét(o′_F, ℚ_p/ℤ_p(n)) holds for n ≠ 0. In general H¹_tors is H⁰(ℚ_p/ℤ_p(n)) modulo its maximal divisible subgroup.",
       "reason": "By the preceding sentence the kernel of δ₁ is the maximal divisible subgroup of H⁰(ℚ_p/ℤ_p(n)). For n = 0 this is all of H⁰(o′_F, ℚ_p/ℤ_p) = ℚ_p/ℤ_p, while H¹_ét(o′_F, ℤ_p) = Hom_cts(G_F^{(p)}, ℤ_p) is torsion-free. For n ≠ 0 the cyclotomic character has infinite image, so H⁰ is finite and the isomorphism holds. The notes use it only for n ≥ 2.",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
         "the published volume (IAS/Park City Mathematics Series) was not accessed",
         "research/errata/REGISTER.md: no entry for these notes"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At n = 0, H⁰(ℚ_p/ℤ_p) is divisible and H¹ with ℤ_p coefficients is torsion-free. The displayed coefficient sequence quotients by the maximal divisible subgroup. The n ≠ 0 correction is correct and suffices for n ≥ 2.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     },
     {
       "id": "SpecialValuesBirchTate/E6",
@@ -3640,14 +3777,39 @@
       "printed": "The source describes H¹(o_F, ℤ(n)) as a counterpart of units and as an abelian group with finite generation. Its stated ranks are r₂ for odd n ≥ 3 and r₁ + r₂ for even n ≥ 2.",
       "correction": "… of rank r₁ + r₂ if n ≥ 3 is odd, r₂ if n ≥ 2 is even",
       "reason": "The same paragraph requires H¹(o_F, ℤ(n)) ⊗ ℤ_p ≅ H¹_ét(o′_F, ℤ_p(n)), whose rank is r₁ + r₂ for odd n and r₂ for even n by the notes' own Proposition 2.1(5) (p. 10); these are also Borel's ranks of K_{2n−1}(o_F) (p. 15). For F = ℚ and n = 2 the printed rank is 1, but H¹_ét(ℤ[1/p], ℤ_p(2)) is finite (r₂ = 0), matching K₃(ℤ) ≅ ℤ/48. Checked on the page image.",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "the author's copy at maine-quebec.mat.ulaval.ca (the version read; no revision is posted there)",
         "the published volume (IAS/Park City Mathematics Series) was not accessed",
         "research/errata/REGISTER.md: no entry for these notes"
       ],
-      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6."
+      "checked": "Inherited finding rechecked against the cited version; E1–E2 on Cambridge printed p. 250 image; E3–E6 against the 2009 author-preprint text. Searches of the publisher article and author-note title for errata on 2026-10-06 found no correction. No version-of-record check is claimed for E3–E6.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author-copy p. 11 image reverses the ranks. Its Proposition 2.1(5) on p. 10 gives odd weight r₁+r₂ and even weight r₂; ℚ in weight 2 is a direct counterexample to the printed even rank.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
+    },
+    {
+      "id": "SpecialValuesBirchTate/E7",
+      "source": "GREITHER-1992",
+      "kind": "misprint",
+      "locator": "§3, Theorem 3.2, printed p. 469 (Numdam published scan); compare §1 p. 452 and the proof p. 470",
+      "printed": "The assertion ranges over odd characters of K₀ subject to χ ≠ ω.",
+      "correction": "Allow every odd χ; state the χ = ω (equivalently ρ = 1) branch separately with characteristic ideal (1).",
+      "reason": "The extra χ ≠ ω excludes the second displayed branch ρ = ωχ⁻¹ = 1. The introductory statement p. 452 allows every odd character, and p. 470 proves X_ω finite and char(X_ω) = (1). The page image confirms that the exclusion is printed, rather than introduced by OCR.",
+      "affects": "nothing",
+      "known": "The same published article, the introductory theorem on p. 452 and the exceptional-character argument on p. 470, give the intended inclusive statement.",
+      "searched": [
+        "Numdam article record and AIF publisher search for this title and an erratum (2026-10-06); no separate correction located",
+        "The introductory statement and proof in the published scan"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp. 452, 469–470 and visually checked p. 469: the χ ≠ ω qualifier contradicts the displayed trivial-ρ branch; the source itself resolves the intended meaning.",
+        "by": "REV-SpecialValuesBirchTate"
+      }
     }
   ],
   "sourceVersions": [
@@ -3728,5 +3890,268 @@
       "finding": "RS-16 (accepted)",
       "resolution": "I.9 owns the modern determinant theorem, I.10 the old/new module and finite-specialization comparison. B.6 specializes those outputs and proves the K₂/W₂ arithmetic implication; no competing comparison construction."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-SpecialValuesBirchTate",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 51 nodes, the definitive reader, all public source passages, all 69 inherited and 9 added baseline declarations at the recorded pins, supplier scope, RT/10 and RT/11, all definition APIs/tests and 15 planets. Clear corrections made to the packet and suggested file; six inherited source findings confirmed and one published Greither misprint added. B.5’s arbitrary-ramification comparison cannot yet be independently verified: the exact second-kind involution, minus-module map and exceptional-character supplier case are now explicit gates/a fourth gap. The permitted edits leave the read-only definitive reader with contradictory normalization/dependency text; a revision must include that reader and reconcile it with these corrections. Recorded external gaps and planned stages alone are not grounds for rejection. Suggested native file elaborates with three admitted-proof warnings; all higher supplier interfaces remain comments and are not compiler-verified. See research/blueprint/reviews/REV-SpecialValuesBirchTate.md.",
+    "checked": [
+      {
+        "nodeId": "SpecialValuesBirchTate:B.1/birch-tate-formula",
+        "verdict": "verified",
+        "note": "Verified K-book VI.8.6 and Kolster Conj. 3.5. Imports continued ζ, classical K₂, N.3 even-K finiteness and N.4 W₂/positivity; RT/10 ownership is respected. Five tests distinguish twist, sign, ring versus field and vanishing."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/gamma-factor-values",
+        "verdict": "verified",
+        "note": "Verified the Γℝ normalization and recurrence hypotheses at the pin; Γℝ(−1)=−2π and Γℝ(2)=1/π follow without treating Γ at a pole as an analytic value."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/dedekind-zeta-real-positive",
+        "verdict": "verified",
+        "note": "Verified the convergent native series, nonnegative ideal coefficients and norm-one ideal; the n=0 slot is omitted by LSeries. This gives reality and ζ(σ)≥1 for σ>1."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/zeta-via-reciprocal-gamma",
+        "verdict": "corrected",
+        "note": "Corrected direct dependencies with discr_ne_zero. The analytic identity uses the entire reciprocal Γ and the continued/completed R.5 supplier, not raw LSeries at a divergent argument."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/zeta-minus-one-sign",
+        "verdict": "corrected",
+        "note": "Corrected discr_ne_zero dependency. Checked Γℝ values and the functional equation give (−1)^n |d|^(3/2) ζ(2)/(2π²)^n with a strictly positive unsigned value."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/formula-fails-with-complex-place",
+        "verdict": "verified",
+        "note": "Verified reciprocal Γℂ vanishes at −1 while the completed function is regular. A complex place forces ζ(−1)=0, whereas the finite-group ratio is nonzero."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/positive-rational-from-valuations",
+        "verdict": "verified",
+        "note": "Verified uniqueness requires positivity; equal valuations do not distinguish q from −q. Reconstruction uses numerator/denominator factorizations."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/birch-tate-iff-absolute-value",
+        "verdict": "verified",
+        "note": "Verified the sign theorem and positive finite order/w₂ ratio supply the missing sign in the absolute-value equivalence."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/birch-tate-iff-valuations",
+        "verdict": "verified",
+        "note": "Verified nonzero rationality and positivity are prerequisites; multiplicative valuations then characterize the same positive rational ratio."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/denominator-consequence",
+        "verdict": "verified",
+        "note": "Verified this is explicitly conditional on Birch–Tate. Rat.den_dvd applies to the integer obtained after multiplying by w₂."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/dedekind-zeta-of-the-rationals",
+        "verdict": "verified",
+        "note": "Verified native coefficient equality on positive integers and the continued R.5 identity principle. It is an adapter, not a new proof of the native Riemann value."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/zeta-of-the-rationals-at-minus-one",
+        "verdict": "verified",
+        "note": "Verified the Bernoulli convention and k=1 side condition in riemannZeta_neg_nat_eq_bernoulli give −1/12."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/k2-of-the-rationals-ring-of-integers",
+        "verdict": "verified",
+        "note": "Verified ringOfIntegersEquiv and the exact T.5 supplier. The independent upper bound remains an explicit gap; the sign symbol gives only the lower bound."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/birch-tate-for-the-rationals",
+        "verdict": "verified",
+        "note": "Verified numerical combination of the three independent inputs −1/12, 2 and 24; it retains the T.5 upper-bound gate."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/sqrt-five-ideal-count",
+        "verdict": "corrected",
+        "note": "Corrected the prime-support-only citation by adding exact no-index-prime, inertia-degree, ramification-multiplicity and norm results. Checked split/inert/ramified counts and the monogenic hypothesis."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/sqrt-five-zeta-factorisation",
+        "verdict": "corrected",
+        "note": "Corrected direct native Riemann differentiability dependency. Cohen Prop. 10.5.5 and the convergent convolution identity extend by analytic uniqueness away from the pole."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/sqrt-five-zeta-at-minus-one",
+        "verdict": "verified",
+        "note": "Verified the even quadratic character and Hurwitz/Bernoulli formula give L(χ₅,−1)=−2/5 and ζ_F(−1)=1/30."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/sqrt-five-w2",
+        "verdict": "corrected",
+        "note": "Corrected dependencies and finite cyclotomic intersection computations. Explicit unit groups give primary factors 8,3,5; the N.4 exponent criterion excludes all larger primes. This is W₂, not the units torsion order."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.3/sqrt-five-birch-tate-check",
+        "verdict": "verified",
+        "note": "Verified 4/120=1/30 and the N.8 ownership boundary (RT/11). The independent quadratic generation/certificate upper bound is still a gap; B.5 cannot certify this test."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/s-modified-dedekind-zeta",
+        "verdict": "verified",
+        "note": "Verified finite Euler-factor definition against the native restrictAway convention on the convergence region. Five API items and four tests catch empty S, sign, inverse-factor and residue-norm mistakes."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/euler-factors-at-minus-one",
+        "verdict": "verified",
+        "note": "Verified Nv>1 gives ∏(1−Nv)=(−1)^|S|∏(Nv−1); norms are of nonzero height-one primes."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/k2-order-of-s-integers",
+        "verdict": "verified",
+        "note": "Verified T.5 relative-s-integer-sequence has residues IN S and injective integral inclusion. It is distinct from the tame-kernel sequence OUTSIDE S; finite exact-sequence cardinalities give the product."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/birch-tate-for-s-integers",
+        "verdict": "verified",
+        "note": "Verified multiplying ζ by the finite Euler factors and K₂ order by ∏(Nv−1) changes the sign exponent by |S|. Nonzero factors permit the reverse implication."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/federer-main-conjecture",
+        "verdict": "verified",
+        "note": "Verified Kolster Conj. 3, covariant compact dual and norm-kernel minus convention. Equality is of ideals/associated series; the 2^[F:ℚ] normalization is essential. Three tests discriminate it."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/tame-kernel-two-part-via-iwasawa",
+        "verdict": "verified",
+        "note": "Verified Kolster Thm. 1: the 2^[F:ℚ] factor follows from the exact N.6 sequence and specified I.2 unit cohomology, not from erasing finite terms."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/minus-module-coinvariant-order",
+        "verdict": "verified",
+        "note": "Verified Kolster Lemma 2 with the corrected compact-dual no-finite-submodule premise (E2). The twist evaluation is u⁻¹−1 in the covariant convention."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/federer-implies-two-primary-birch-tate",
+        "verdict": "verified",
+        "note": "Verified Kolster Thm. 5 and w₂^(2)=2^(e+1). Interpolation uses only odd dyadic residue factors, with the single pole u⁻¹−u."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields",
+        "verdict": "unverifiable",
+        "note": "Corrected numerator versus meromorphic function, added Kronecker–Weber and exceptional-character requests, and exposed the unresolved second-kind involution/minus comparison as a fourth gap. The source asserts the consequence; this review cannot verify the proposed arbitrary-ramification comparison to its endpoint. See the report’s root calculation."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/two-part-birch-tate-abelian",
+        "verdict": "verified",
+        "note": "Verified the conditional implication chain from the corrected B.5 comparison target through Kolster Thm. 5; it inherits that target’s explicit supplier gates."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.5/birch-tate-for-real-abelian-fields",
+        "verdict": "verified",
+        "note": "Verified K-book Thm. 8.7 and primewise/sign reconstruction from odd and 2-primary parts. The B.5 comparison gate is inherited, not silently discharged."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.4/k2-ell-part-unchanged-by-inverting-ell",
+        "verdict": "corrected",
+        "note": "Corrected direct residue-norm/positive-inertia-degree dependencies. Every Nv=ℓ^f has f>0, so Nv−1 is an ℓ-adic unit; the conclusion remains valuation-only."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.4/k2-ell-part-as-etale-cohomology",
+        "verdict": "corrected",
+        "note": "Corrected proof and suggested signature to an actual isomorphism. Use the relative-S injection and prime-to-ℓ cokernel, tensor flatness and the natural finite-level Tate comparison/finite inverse-limit argument; valuation equality alone is insufficient."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.4/w2-ell-part-as-etale-cohomology",
+        "verdict": "verified",
+        "note": "Verified the nonzero-twist coefficient sequence and finite H⁰. For totally real F in weight two the H¹ rank is zero, so its whole order is the W₂ primary order."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.4/etale-euler-characteristic-and-zeta",
+        "verdict": "verified",
+        "note": "Verified Kolster Thm. 3.3 at trivial χ and n=2, with odd ℓ and the ω²/trivial-pole bookkeeping requested from the suppliers."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.4/odd-primary-birch-tate",
+        "verdict": "verified",
+        "note": "Verified Wiles’s odd-primary consequence by substituting the K₂ and W₂ comparisons into the étale Euler characteristic. No full norm-residue theorem is newly planned."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/cohomological-h2-model",
+        "verdict": "verified",
+        "note": "Verified h_n is the order of the actual imported integral arithmetic H², not a chosen group matching completions. Five API items and three tests preserve h₂ and the rank/torsion distinction."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/lichtenbaum-formula-statements",
+        "verdict": "verified",
+        "note": "Verified Kolster Conjs. 3.6–3.7 as predicates, with nonzero leading term and fixed integral regulator lattice. Corrected ranks are used; five tests distinguish powers of 2, weight and complex zero order."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/odd-primary-even-weight-euler-characteristic",
+        "verdict": "verified",
+        "note": "Verified Kolster Thm. 3.3/Cor. 3.4 hypotheses: totally real F, even n≥2, odd ℓ. W_n comes from the nonzero-twist coefficient sequence."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/odd-primary-lichtenbaum-totally-real",
+        "verdict": "verified",
+        "note": "Verified the even-weight, rank-zero regulator specialization and the odd-primary K/cohomology comparisons. No claim for arbitrary parity or complex places is inferred."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.6/kurihara-kolster-series-dictionary",
+        "verdict": "corrected",
+        "note": "Corrected suggested signature from ideal equality alone to the exact unit factor −(1+T). Verified the interpolation-variable calculation against Kurihara §4.1 and Kolster p. 250; I.10 owns uniqueness/convergence."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.6/kurihara-main-conjecture-over-f",
+        "verdict": "corrected",
+        "note": "Corrected suggested signature to the untwisted I.9 output. Kurihara Thm. 4.1 allows p=2 and retains H³=ℤ₂; twisting is a later operation."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.6/kolster-kurihara-comparison-table",
+        "verdict": "verified",
+        "note": "Verified this is an explicit I.10 proof target, not a deduction from height-one data. Entries retain norm-kernel, dual action, real-place 2^[F:ℚ], order-two cokernel, finite and Tor contributions."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.6/federer-conjecture-all-totally-real",
+        "verdict": "verified",
+        "note": "Verified the implication is conditional on the exact I.10 comparison gap. Neither an arbitrary height-one equality nor omission of finite modules is used to claim it closed."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.6/birch-tate-all-totally-real",
+        "verdict": "verified",
+        "note": "Verified the proof target combines the preceding Federer implication, Kolster’s 2-part, the odd-primary theorem, sign and rational reconstruction. It retains the modern finite-descent gap."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/zeta-minus-one-rationality",
+        "verdict": "verified",
+        "note": "Verified Cohen Thm. 10.5.3 and the requested Borel rank-zero normalization supply a nonzero rational value independently of Birch–Tate."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.2/independent-denominator-integrality",
+        "verdict": "verified",
+        "note": "Verified the request is the exact untruncated trivial-extension Deligne–Ribet consequence w₂ζ(−1)∈ℤ. It does not recycle the conditional denominator node or assert a truncated-only bound."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/enlarging-s",
+        "verdict": "verified",
+        "note": "Verified cancellation of finite Euler factors and relative-S K₂ order ratios, with composing canonical inclusions. All primes are finite, nonzero and IN the enlarged set."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.7/localisation-comparison-naturality",
+        "verdict": "verified",
+        "note": "Verified the requested map-level M.3/M.7 comparison, residues and real corrections. Higher odd localization is an isomorphism on the integral torsion-free quotient, preserving the imported regulator lattice."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/real-place-two-correction",
+        "verdict": "verified",
+        "note": "Verified Rognes–Weibel Thm. 0.6 and the two even congruence classes. The scalar correction is 2^r₁, with real-restriction surjectivity supplied by M.7; ℚ in weights 2 and 4 discriminates it."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/higher-values-real-abelian",
+        "verdict": "verified",
+        "note": "Verified Rognes–Weibel Appendix A.1–A.3 and full induction proof pp. 48–49. This even-weight abelian theorem uses classical going-up and the real correction, not an extrapolation of modern weight-two descent."
+      },
+      {
+        "nodeId": "SpecialValuesBirchTate:B.8/integral-equivariant-tate-statement",
+        "verdict": "corrected",
+        "note": "Corrected Burns–Flach locator to §3.4 pp. 526–529 and strengthened the suggested lattice API to equality of corrected TΩ classes. Checked twist 1−n, plus sign, extended boundary, rationality before local equivalence, integral index and complex leading-term tests."
+      }
+    ]
+  }
 }
