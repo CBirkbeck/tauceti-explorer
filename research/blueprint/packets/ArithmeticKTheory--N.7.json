@@ -398,7 +398,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "excerpt": "Kummer proved that p is irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p − 3)/2 (see Washington [216, 5.34]). By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
+     "excerpt": "By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
      "match": "The Kummer-congruence refinement and the example 5 | B_5 (arithmetic B_10 = 5/66). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     }
    ],
@@ -754,8 +754,14 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "excerpt": "Kummer proved that p is irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p − 3)/2 (see Washington [216, 5.34]). By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
-     "match": "The criterion and its consequence, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "excerpt": "Kummer proved that p is irregular if and only if p divides the numerator of one of the Bernoulli numbers Bk, k ≤ (p − 3)/2 (see Washington [216, 5.34]).",
+     "match": "The criterion, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "VI.2.4.1, the sentence after the criterion, printed p. 472 (PDF p. 480)",
+     "excerpt": "By Kummer's congruences ([216, 5.14]), a regular prime p does not divide the numerator of any Bk/k (but 5|B5). Thus only irregular primes can divide the numerator of Bk/k.",
+     "match": "Its consequence through Kummer's congruences, verbatim, with the source's reference. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1472,7 +1478,13 @@
     {
      "sourceId": "Browkin.2000",
      "locator": "§1, Introduction (p. 1667)",
-     "excerpt": "J. Tate [T] has determined the tame kernel of all quadratic imaginary Euclidean fields F and of F = Q(√−15). He proved that all mappings ∂v (see notation below) are isomorphisms if the norm of the prime ideal v of the field F is sufficiently large. Then he investigated the remaining v’s (with small norms) performing necessary computations with symbols.",
+     "excerpt": "J. Tate [T] has determined the tame kernel of all quadratic imaginary Euclidean fields F and of F = Q(√−15).",
+     "match": "The attribution of the Gaussian case to Tate, verbatim: ℤ[i] is a Euclidean imaginary quadratic ring."
+    },
+    {
+     "sourceId": "Browkin.2000",
+     "locator": "§1, Introduction (p. 1667)",
+     "excerpt": "He proved that all mappings ∂v (see notation below) are isomorphisms if the norm of the prime ideal v of the field F is sufficiently large. Then he investigated the remaining v’s (with small norms) performing necessary computations with symbols.",
      "match": "The shape of Tate's argument, verbatim. Tate's own computation for ℤ[i] (in his appendix to Bass–Tate) was not obtained: the sets C, G and W of steps 2–4 and the inequalities are this packet's application of N.8/tate-criterion, written out in full."
     }
    ],
