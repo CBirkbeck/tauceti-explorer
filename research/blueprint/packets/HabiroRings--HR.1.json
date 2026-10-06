@@ -6,7 +6,7 @@
     "HabiroRings:HR.1"
   ],
   "status": "complete",
-  "summary": "This follow-up fills the accepted parent’s two HR.1 gaps: the torsion-free Adams/big-Witt-coalgebra comparison and the construction and perfect covering of free Λ-rings. It imports all six accepted HR.1 targets and the HR.4 big Witt functor, rather than defining either again. The new target-level proof graph includes the Dwork criterion, the Witt comonad and cofree adjunction, universal Frobenius polynomials, and the two local presentations proving faithful flatness. HR.1 remains planned because the imported derived-completion interface is still an external stage request.",
+  "summary": "This follow-up fills the accepted parent’s two HR.1 gaps: the torsion-free Adams/big-Witt-coalgebra comparison and the construction and perfect covering of free Λ-rings. It imports all six accepted HR.1 targets and the HR.4 big Witt functor, rather than defining either again. The new target-level proof graph includes the Dwork criterion, the Witt comonad and cofree adjunction, universal Frobenius polynomials, Witt-ring Frobenius divisibility, Witt generating-series addition, and the two local presentations proving faithful flatness. HR.1 remains planned because the imported derived-completion interface is still an external stage request.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -78,7 +78,7 @@
         "ref": "mathlib:Module.flat_of_localized_maximal",
         "module": "Mathlib/RingTheory/Flat/Localization.lean",
         "kind": "theorem",
-        "provides": "Flatness of all localized modules at maximal ideals implies flatness; apply to C with the scalar action through ψᵖ.",
+        "provides": "For every maximal P of R, requires Flat R (LocalizedModule P.primeCompl M), with the original base R. Then Flat R M. For the ψᵖ-twisted target, first restrict flatness over R_P along the localization using Module.flat_iff_of_isLocalization.",
         "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. No corresponding big-Witt, Λ-ring, or Wilkerson declarations found in either pinned source tree."
       },
       {
@@ -101,6 +101,13 @@
         "kind": "lemma",
         "provides": "Faithfully flat iff flat with surjective map on prime spectra; localized free presentations give nonzero fibres.",
         "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06. No corresponding big-Witt, Λ-ring, or Wilkerson declarations found in either pinned source tree."
+      },
+      {
+        "ref": "mathlib:Module.flat_iff_of_isLocalization",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "kind": "theorem",
+        "provides": "For S a localization of R and an S-module M with the compatible scalar tower, Flat S M ↔ Flat R M. Supplies the restriction of scalars needed before flat_of_localized_maximal.",
+        "checked": "Statement and scalar-tower hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
       }
     ]
   },
@@ -114,7 +121,7 @@
       "sha256": "1b21e5adf08ea73ea1aac471100d6b191d57d47d95ff27ae0f25ee5e1d9f2973",
       "accessed": "2026-10-06",
       "readSections": [
-        "§1 pp.6–19, Lemmas 1.1, 1.4, 1.8, 1.9, 1.18, Proposition 1.19, Definitions 1.21/1.23, Remark 1.22 and Lemma 1.24",
+        "§1 pp.6–19, Lemmas 1.1, 1.4, 1.8, 1.9, Proposition 1.14, 1.18, Proposition 1.19, Definitions 1.21/1.23, Remark 1.22 and Lemma 1.24",
         "§2 p.24, cofree adjunction"
       ]
     },
@@ -146,7 +153,7 @@
     },
     {
       "id": "Q",
-      "title": "q-Hodge complexes, Habiro rings, and algebraic Habiro cohomology",
+      "title": "q-Hodge complexes over the Habiro ring",
       "authors": "Ferdinand Wagner",
       "edition": "arXiv:2510.04782v2 (8 October 2025)",
       "url": "https://arxiv.org/pdf/2510.04782v2",
@@ -154,6 +161,19 @@
       "accessed": "2026-10-06",
       "readSections": [
         "§1.22(e), p.12; §2.7 and §3.1, imported parent interfaces"
+      ]
+    },
+    {
+      "id": "H-published",
+      "title": "The big de Rham–Witt complex",
+      "authors": "Lars Hesselholt",
+      "edition": "Acta Mathematica 214 (2015), 135–207; DOI 10.1007/s11511-015-0124-y, version of record",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6800-11511_2015_Article_124.pdf",
+      "sha256": "accc403fe6979590661b1d11744eae2adf990ebba92d4927a85815b6ac313de8",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Proposition 1.14 and its proof, p.150",
+        "§2, cofree adjunction paragraph, p.162"
       ]
     }
   ],
@@ -212,10 +232,9 @@
         "m,n positive; p prime; arbitrary specialization ring A."
       ],
       "proofSteps": [
-        "Use the imported F_m and Hesselholt Lemma 1.4 on the universal torsion-free polynomial ring, with Dwork’s criterion supplying integral coordinates.",
+        "Use the imported finite-divisor Frobenius W_(divisors(mn))→W_(divisors(n)) to define the nth full Frobenius coordinate, and Hesselholt Lemma 1.4 on the universal torsion-free polynomial ring. Compatibility with restriction assembles these coordinates into F_m on W(A); Dwork’s criterion supplies integral universal polynomials.",
         "Induct through the ghost equation: the new variable c_(mn) occurs with coefficient mn and the new unknown f_(m,n) with coefficient n. Cancellation gives coefficient m; every other variable has smaller index.",
-        "The same recursion, retaining integer grading, proves weight mn. Hesselholt Lemma 1.8 proves f_(p,n)≡c_nᵖ mod p by strengthening the numerator congruence before cancelling n.",
-        "Separately retain Lemma 1.18’s stronger Witt-ring divisibility; reducing coordinates naively is not a proof of divisibility inside W(A)."
+        "The same recursion, retaining integer grading, proves weight mn. Hesselholt Lemma 1.8 proves f_(p,n)≡c_nᵖ mod p by strengthening the numerator congruence before cancelling n."
       ],
       "acceptance": [
         "f_(2,1)=c_1²+2c_2; f_(2,2)=2c_4−2c_1²c_2−c_2².",
@@ -229,9 +248,9 @@
       "sources": [
         {
           "sourceId": "H",
-          "locator": "Lemma 1.4, pp.8–9; Lemmas 1.8 and 1.18, pp.11,16",
+          "locator": "Lemma 1.4, pp.8–9; Lemma 1.8, p.11",
           "excerpt": "called the nth Frobenius",
-          "match": "Universal polynomial construction; weight and triangular coefficient are derived from its displayed ghost equations, while the two prime congruences are explicitly separated."
+          "match": "Universal polynomial construction; weight and triangular coefficient are derived from the displayed ghost equations. The prime coordinate congruence is Lemma 1.8; the separate Witt-ring congruence has its own prerequisite node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -239,6 +258,50 @@
         "module": "TauCeti/RingTheory/Lambda/BigWitt",
         "namespace": "HabiroHR1"
       }
+    },
+    {
+      "id": "HabiroRings:HR.1/witt-ring-frobenius-congruence",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "The Witt-ring Frobenius congruence",
+      "kind": "theorem",
+      "statement": "For any commutative ring A, any prime p and any a∈W(A), F_p(a)−aᵖ belongs to pW(A), with multiplication and powers taken in the Witt ring. This is stronger than the coordinate congruence f_(p,n)≡c_nᵖ mod p and supplies the Frobenius lifts on W(C) used in the comonad construction.",
+      "hypotheses": [
+        "A arbitrary, including rings with torsion; p prime."
+      ],
+      "proofSteps": [
+        "Work first over C=ℤ[c_n] and its universal Witt vector a. Each ghost component of z=F_p(a)−aᵖ is divisible by p in C; define y_n=gh_n(z)/p using integer torsion-freeness.",
+        "For primes ℓ≠p, the Dwork congruence for y follows from that for z because p is invertible modulo ℓ^vℓ(n). For ℓ=p, expand the ghost sums: the terms indexed by e|pn but e∤n have v_p(e)=v_p(n)+1. The remaining difference of pth powers gains one p-adic power from the elementary power congruence used in Dwork’s criterion.",
+        "Thus y satisfies Dwork’s criterion with φ_ℓ(c_n)=c_n^ℓ. Obtain b∈W(C) with gh_n(b)=y_n. Ghost injectivity gives z=pb in W(C).",
+        "Specialize the universal polynomial coordinates of b along C→A. Naturality gives F_p(a)−aᵖ=pb over every A; no ghost cancellation over a ring with torsion is used."
+      ],
+      "acceptance": [
+        "Divisibility is in the Witt ring, not in the pointwise coordinate ring.",
+        "The theorem applies to A=ℤ/p²ℤ as well as to torsion-free polynomial rings."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/truncated-big-witt-vectors",
+        "HabiroRings:HR.1/dwork-ghost-image",
+        "HabiroRings:HR.1/universal-frobenius-polynomials",
+        "mathlib:MvPolynomial",
+        "mathlib:IsAddTorsionFree"
+      ],
+      "sources": [
+        {
+          "sourceId": "H",
+          "locator": "Lemma 1.18, p.16",
+          "excerpt": "Let A be an arbitrary ring.",
+          "match": "The full lemma and its Dwork proof establish Witt-ring divisibility for arbitrary A; this is not inferred from Lemma 1.8’s coordinate congruence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Lambda/BigWitt",
+        "namespace": "HabiroHR1"
+      },
+      "addedBy": "REV-HabiroRings--HR.1"
     },
     {
       "id": "HabiroRings:HR.1/big-witt-comonad",
@@ -265,7 +328,8 @@
       "prerequisites": [
         "HabiroRings:HR.4/truncated-big-witt-vectors",
         "HabiroRings:HR.1/dwork-ghost-image",
-        "HabiroRings:HR.1/universal-frobenius-polynomials"
+        "HabiroRings:HR.1/universal-frobenius-polynomials",
+        "HabiroRings:HR.1/witt-ring-frobenius-congruence"
       ],
       "sources": [
         {
@@ -310,6 +374,16 @@
           "name": "BigWitt.comul_assoc",
           "role": "relation",
           "statement": "Δ_(W(A)) ∘ Δ_A = W(Δ_A) ∘ Δ_A."
+        },
+        {
+          "name": "BigWitt.comul_unique",
+          "role": "universal-property",
+          "statement": "For torsion-free A, any ring map g:W(A)→W(W(A)) with gh_n∘g=F_n for every n equals Δ_A. No pointwise uniqueness by ghosts is asserted for arbitrary A."
+        },
+        {
+          "name": "BigWitt.comul_teichmuller",
+          "role": "compatibility",
+          "statement": "Δ_A([a])=[[a]] for any commutative A."
         }
       ],
       "tests": [
@@ -445,6 +519,31 @@
           "name": "LambdaCoalgebra.Hom.adams",
           "role": "compatibility",
           "statement": "A coalgebra morphism commutes with every Adams operation."
+        },
+        {
+          "name": "LambdaCoalgebra.coaction",
+          "role": "projection",
+          "statement": "The ring map s:A→W(A), with the literal counit and coassociativity equalities as structure fields."
+        },
+        {
+          "name": "LambdaCoalgebra.coord",
+          "role": "projection",
+          "statement": "coord s n a is the nth Witt coordinate of s(a); it is not generally a ring homomorphism."
+        },
+        {
+          "name": "LambdaCoalgebra.ext_coords",
+          "role": "extensionality",
+          "statement": "Equality of coord s n a and coord t n a for every a and every positive n gives s=t, without a torsion-free hypothesis."
+        },
+        {
+          "name": "LambdaCoalgebra.Hom.ext",
+          "role": "extensionality",
+          "statement": "Two coalgebra morphisms with equal underlying ring homomorphisms are equal."
+        },
+        {
+          "name": "LambdaCoalgebra.Hom.comp_toRingHom",
+          "role": "simp",
+          "statement": "The underlying ring map of g.comp f is g.toRingHom.comp f.toRingHom; identity has underlying RingHom.id."
         }
       ],
       "tests": [
@@ -499,7 +598,8 @@
       "prerequisites": [
         "HabiroRings:HR.1/lambda-coalgebra",
         "HabiroRings:HR.1/big-witt-comonad-laws",
-        "HabiroRings:HR.1/universal-frobenius-polynomials"
+        "HabiroRings:HR.1/universal-frobenius-polynomials",
+        "HabiroRings:HR.1/witt-ring-frobenius-congruence"
       ],
       "sources": [
         {
@@ -541,7 +641,8 @@
         "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
         "HabiroRings:HR.1/dwork-ghost-image",
         "HabiroRings:HR.4/truncated-big-witt-vectors",
-        "mathlib:IsAddTorsionFree"
+        "mathlib:IsAddTorsionFree",
+        "PrismaticCohomology:PR.0/torsionfree-frobenius-equivalence"
       ],
       "sources": [
         {
@@ -587,6 +688,11 @@
           "name": "Adams.toWitt_natural",
           "role": "functoriality",
           "statement": "For an Adams morphism f into torsion-free B, W(f)s_A=s_Bf."
+        },
+        {
+          "name": "Adams.toWitt_coord_recursion",
+          "role": "characterisation",
+          "statement": "n c_n(a)=ψ^n(a)−Σ_(d|n,d<n)d c_d(a)^(n/d), so coordinates are integral and unique on torsion-free A."
         }
       ],
       "tests": [
@@ -747,6 +853,50 @@
       }
     },
     {
+      "id": "HabiroRings:HR.1/witt-product-addition",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "Witt addition and generating series",
+      "kind": "theorem",
+      "statement": "For a∈W(A) put P_N(a,t)=∏_(1≤d≤N)(1−a_d t^d). For arbitrary commutative A, a,b∈W(A), and 0≤k≤N, coeff_k P_N(a+b,t)=coeff_k(P_N(a,t)P_N(b,t)). These finite coefficients are natural under ring maps and independent of N once N≥k. Thus the inverse Witt generating series takes Witt addition to ordinary multiplication of power series; substituting −t gives the exterior sum relation.",
+      "hypotheses": [
+        "A arbitrary; N,k natural with k≤N; addition a+b is Witt addition."
+      ],
+      "proofSteps": [
+        "Work with two universal Witt vectors over the torsion-free ring C=ℤ[a_d,b_d]. The coefficient of t^n in −tP′/P is Σ_(d|n)d a_d^(n/d)=gh_n(a), for n≤N, by expanding the finite factors and their geometric inverses.",
+        "Ghosts are additive for Witt addition. The logarithmic derivatives of P_N(a+b) and P_N(a)P_N(b) therefore agree through degree N. Their constant terms are 1; recursively cancel n in C to deduce equality of their coefficients through degree N.",
+        "Each coefficient uses finitely many universal coordinates. Specialize C→A to obtain the identity with no torsion-freeness assumption on A. Coefficients of factors with d>k cannot affect degree k, proving truncation independence; coefficientwise application of a ring map proves naturality.",
+        "The coefficient expansion uses distinct indices with i_1+⋯+i_r=k, not i_1+2i_2+⋯+ri_r=k. The latter is a misprint in the source’s bijectivity proof, recorded separately as HabiroRings/E13."
+      ],
+      "acceptance": [
+        "For k=2, coeff_2 P_2(a)=−a_2 and (a+b)_2=a_2+b_2−a_1b_1.",
+        "The identity is valid over ℤ/4ℤ and never treats Witt addition as pointwise coordinate addition."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/truncated-big-witt-vectors",
+        "mathlib:MvPolynomial",
+        "mathlib:IsAddTorsionFree",
+        "mathlib:PowerSeries",
+        "mathlib:PowerSeries.coeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "H",
+          "locator": "Proposition 1.14 and its proof, pp.14–15 (published p.150)",
+          "excerpt": "the horizontal maps are isomorphisms.",
+          "match": "This is the finite coefficient form of the natural additive-to-multiplicative Witt series isomorphism. Only its addition identity, not a new infinite-product construction, is needed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Lambda/BigWitt",
+        "namespace": "HabiroHR1"
+      },
+      "addedBy": "REV-HabiroRings--HR.1"
+    },
+    {
       "id": "HabiroRings:HR.1/exterior-operations",
       "parentStageId": "HabiroRings:HR.1",
       "realises": [
@@ -759,20 +909,22 @@
         "n natural; A any commutative ring."
       ],
       "proofSteps": [
-        "Hesselholt Proposition 1.14 gives γ; coefficient n uses only d≤n, so the product is finite at each coefficient.",
+        "The witt-product-addition node gives the coefficientwise generating-series identity and truncation independence. Coefficient n needs only d≤n, so define it by the finite product.",
         "Substitute −t and invert γ, giving the finite product formula with signs fixed.",
-        "Use that s is a ring map and γ sends Witt addition to power-series multiplication for the sum relation. Degree 1 and small-degree formulas follow by multiplying the finite factors.",
+        "Use that s is a ring map and the witt-product-addition identity for the sum relation. Expanding (1+c_1t)(1−c_2t²)(1+c_3t³) gives λ²=−c_2 and λ³=c_3−c_1c_2; the mixed cubic term has a minus sign.",
         "Do not replan the general symmetric-function ring: the Witt-coordinate polynomial ring of the free construction below already represents the same functor."
       ],
       "acceptance": [
-        "λ²(a)=−c_2(a), λ³(a)=c_3(a)+c_1(a)c_2(a).",
+        "λ²(a)=−c_2(a), λ³(a)=c_3(a)−c_1(a)c_2(a).",
         "On ℤ, λⁿ(k)=binomial(k,n) with integer-valued generalized binomial coefficients."
       ],
       "prerequisites": [
         "HabiroRings:HR.1/lambda-coalgebra",
         "HabiroRings:HR.4/truncated-big-witt-vectors",
         "mathlib:PowerSeries",
-        "mathlib:PowerSeries.coeff"
+        "mathlib:PowerSeries.coeff",
+        "HabiroRings:HR.1/witt-product-addition",
+        "HabiroRings:HR.1/wilkerson-comparison"
       ],
       "sources": [
         {
@@ -812,6 +964,21 @@
           "name": "LambdaCoalgebra.exterior_natural",
           "role": "functoriality",
           "statement": "A coalgebra morphism preserves all λⁿ."
+        },
+        {
+          "name": "LambdaCoalgebra.exterior_two",
+          "role": "relation",
+          "statement": "λ²(a)=−s(a)_2 for every commutative A, fixing the exterior/Witt sign convention."
+        },
+        {
+          "name": "LambdaCoalgebra.exterior_three",
+          "role": "relation",
+          "statement": "λ³(a)=s(a)_3−s(a)_1s(a)_2."
+        },
+        {
+          "name": "LambdaCoalgebra.exterior_zero_element",
+          "role": "simp",
+          "statement": "λⁿ(0)=0 whenever n>0."
         }
       ],
       "tests": [
@@ -870,7 +1037,8 @@
         "HabiroRings:HR.1/big-witt-cofree-adjunction",
         "HabiroRings:HR.1/universal-frobenius-polynomials",
         "mathlib:MvPolynomial",
-        "mathlib:MvPolynomial.eval₂Hom"
+        "mathlib:MvPolynomial.eval₂Hom",
+        "HabiroRings:HR.1/exterior-operations"
       ],
       "sources": [
         {
@@ -916,6 +1084,31 @@
           "name": "FreeLambdaRing.reindex",
           "role": "functoriality",
           "statement": "A map I→J induces the coalgebra map c_(i,n)↦c_(r(i),n), respecting identity and composition."
+        },
+        {
+          "name": "FreeLambdaRing.coaction_gen",
+          "role": "simp",
+          "statement": "s_L(x_i)=u_i, so s_L(x_i)_n=c_(i,n); these coordinates detect a free Λ-morphism from its values on x_i."
+        },
+        {
+          "name": "FreeLambdaRing.lift",
+          "role": "constructor",
+          "statement": "For an arbitrary-ring coalgebra (A,s) and g:I→A, the coalgebra morphism sending c_(i,n) to s(g(i))_n."
+        },
+        {
+          "name": "FreeLambdaRing.lift_gen",
+          "role": "simp",
+          "statement": "lift s g sends x_i to g(i)."
+        },
+        {
+          "name": "FreeLambdaRing.lift_unique",
+          "role": "extensionality",
+          "statement": "A coalgebra morphism with the prescribed values g(i) on every x_i equals lift s g, even when A has torsion."
+        },
+        {
+          "name": "FreeLambdaRing.universalProperty",
+          "role": "universal-property",
+          "statement": "The natural equivalence (I→A) ≃ Hom_Λ(L(I),A), given by lift and restriction to x_i; proved in free-lambda-universal-property."
         }
       ],
       "tests": [
@@ -932,7 +1125,7 @@
         {
           "name": "FreeLambdaRing.exterior_newton_three_test",
           "kind": "compatibility",
-          "statement": "Put e_2=−c_2 and e_3=c_3+x c_2. Then ψ³(x)=x³−3xe_2+3e_3."
+          "statement": "For the coalgebra’s actual exterior operations e_n=λⁿ(x_i), ψ³(x_i)=x_i³−3x_i e_2+3e_3. The exterior API identifies e_2=−c_(i,2), e_3=c_(i,3)−x_i c_(i,2)."
         },
         {
           "name": "FreeLambdaRing.not_toric_test",
@@ -1060,8 +1253,8 @@
       ],
       "proofSteps": [
         "For m=p prime, the two local presentations make ψ^p faithfully flat after base localization at ℤ_(p) and ℤ[1/p]: a nonempty free basis in the first case, and a polynomial ring containing the constant basis vector in the second.",
-        "At a maximal ideal of the source L(I), its contraction to ℤ is either (p), another prime ideal, or (0). Choose ℤ_(p) in the first case and ℤ[1/p] in the other two. Further localization of the corresponding free presentation is flat and has nonzero residue fibre.",
-        "Apply Module.flat_of_localized_maximal for flatness, and the nonzero-fibre criterion in Module.FaithfullyFlat (equivalently the RingHom criterion) for faithfulness. This is local descent with the twisted scalar action, not descent from integer torsion-freeness alone.",
+        "At each maximal ideal M of the source L(I), the contraction to ℤ is (p), a different prime ideal, or (0). Choose ℤ_(p) in the first case and ℤ[1/p] otherwise. Further base localization makes the target, with its ψ^p scalar action, free over the localized source L(I)_M with a nonempty basis, so its residue fibre is nonzero.",
+        "Use Module.flat_iff_of_isLocalization to pass from flatness over L(I)_M to flatness over L(I) of the localized twisted module. These are precisely the hypotheses of Module.flat_of_localized_maximal. The nonzero residue fibres give M·target≠target for every maximal M, as required by Module.FaithfullyFlat. This is local descent with the twisted scalar action, not descent from integer torsion-freeness alone.",
         "Factor m into primes, use Adams composition and RingHom.FaithfullyFlat.stableUnderComposition; m=1 is identity. Apply the imported perfectly-covered equivalence and colimit perfection to conclude the covering statement."
       ],
       "acceptance": [
@@ -1077,7 +1270,8 @@
         "mathlib:Module.flat_of_localized_maximal",
         "mathlib:RingHom.FaithfullyFlat",
         "mathlib:RingHom.FaithfullyFlat.stableUnderComposition",
-        "mathlib:RingHom.FaithfullyFlat.iff_flat_and_comap_surjective"
+        "mathlib:RingHom.FaithfullyFlat.iff_flat_and_comap_surjective",
+        "mathlib:Module.flat_iff_of_isLocalization"
       ],
       "sources": [
         {
@@ -1116,13 +1310,58 @@
       "stageId": "HabiroRings:HR.1",
       "status": "planned",
       "remaining": [
-        "Resolve the inherited DerivedDeRhamCohomology:DD.1 completion interface for the imported p-complete criterion and étale Frobenius lift. Assemble the six parent HR.1 nodes with these fifteen new nodes, replace exactly the two parent HR.1 gap records, and retain the parent’s unrelated gaps."
+        "Resolve the inherited DerivedDeRhamCohomology:DD.1 completion interface for the imported p-complete criterion and étale Frobenius lift. Assemble the six parent HR.1 nodes with these seventeen new nodes, replace exactly the two parent HR.1 gap records, and retain the parent’s unrelated gaps."
       ],
       "note": "All HR.1 targets have nodes or explicit imports. Both local mathematical gaps are supplied at target granularity. No new mathematical gap is left in this supplement; the inherited completion stage request prevents closed coverage. The generic δ dictionary now has an exact PR.0 node. Exactly three new planets plus three retained parent planets."
     }
   ],
   "gaps": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "HabiroRings/E13",
+      "source": "H-published",
+      "kind": "misprint",
+      "locator": "Proposition 1.14, final paragraph of proof, published p.150; also arXiv:1006.3125v3 p.15",
+      "printed": "i₁+2i₂+⋯+riᵣ=n",
+      "correction": "The distinct factor indices satisfy i₁+i₂+⋯+iᵣ=n.",
+      "reason": "In ∏_(d≥1)(1−a_d t^d), the term a₁a₂ contributes to t³. The printed weighted condition assigns it degree 1+2·2=5. The corrected degree-three coefficient is −a₃+a₁a₂.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1006.3125 — submission history ends with v3; the latest preprint retains the slips.",
+        "https://web.math.ku.dk/~larsh/papers/028/ — author’s paper page has no correction linked.",
+        "https://link.springer.com/article/10.1007/s11511-015-0124-y — publisher’s article page has no correction linked.",
+        "Public title/DOI searches with erratum, corrigendum and correction on 2026-10-06 found no correction of these slips."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the preprint and visually checked the version-of-record page. Expansion of the first three factors confirms the unweighted index sum; the proposition itself is unchanged.",
+        "by": "REV-HabiroRings--HR.1"
+      }
+    },
+    {
+      "id": "HabiroRings/E14",
+      "source": "H-published",
+      "kind": "misprint",
+      "locator": "§2, paragraph introducing the right adjoint R to the forgetful U, published p.162; also arXiv:1006.3125v3 p.24",
+      "printed": "with the counit and unit maps defined by",
+      "correction": "Replace “counit and unit” by “unit and counit”: λ:(A,λ)→(W(A),Δ_A) is the unit, while ε_A:W(A)→A is the counit of U⊣R.",
+      "reason": "A unit has source an object of the coalgebra category and target RU of that object, exactly the displayed λ. A counit has source UR(A) and target A, exactly ε_A. The maps and adjunction are correct; only their names are reversed.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1006.3125 — submission history ends with v3; the latest preprint retains the slips.",
+        "https://web.math.ku.dk/~larsh/papers/028/ — author’s paper page has no correction linked.",
+        "https://link.springer.com/article/10.1007/s11511-015-0124-y — publisher’s article page has no correction linked.",
+        "Public title/DOI searches with erratum, corrigendum and correction on 2026-10-06 found no correction of these slips."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read both versions and visually checked published p.162; the displayed domains/codomains fix the reversal unambiguously.",
+        "by": "REV-HabiroRings--HR.1"
+      }
+    }
+  ],
   "imports": [
     {
       "node": "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
@@ -1169,7 +1408,8 @@
     "decision": "RS-10.result.json, accepted independent-review-REV-RS-10~2, atomic installation rule",
     "current": "HabiroRings HR.1 is interim owner of Λ/Adams/perfect covering; HR.4 is interim owner of big and q-Witt vectors. QWittVectors is a draft and is not installed in the atlas.",
     "transfer": "On installation of QW.1/QW.2, move these new nodes and the imported interfaces atomically with the parent nodes and their consumers. Do not create parallel QW node ids in this supplement.",
-    "assembly": "Retain the six parent HR.1 nodes and three planets. Replace the two HR.1 gap records with this graph; preserve unrelated HR.4 and other-stage gaps. Add these three planets for a combined six."
+    "assembly": "Retain the six parent HR.1 nodes and three planets. Replace the two HR.1 gap records with this graph; preserve unrelated HR.4 and other-stage gaps. Add these three planets for a combined six.",
+    "futureScope": "RS-10 also proposes an early Taylor-glued ring in HR.1 on installation. The current atlas HR.1 description does not yet contain that additional target; this two-gap follow-up does not plan it. Preserve that separate installation/follow-up obligation rather than treating this review as its completion."
   },
   "sourceVersions": [
     {
@@ -1199,6 +1439,13 @@
       "citation": "arXiv:2510.04782v2 (8 October 2025)",
       "read": "2026-10-06",
       "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b"
+    },
+    {
+      "kind": "published",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6800-11511_2015_Article_124.pdf",
+      "citation": "Acta Mathematica 214 (2015), 135–207; DOI 10.1007/s11511-015-0124-y",
+      "read": "2026-10-06",
+      "sha256": "accc403fe6979590661b1d11744eae2adf990ebba92d4927a85815b6ac313de8"
     }
   ],
   "checks": {
@@ -1207,6 +1454,100 @@
       "content/tau-ceti/AdicSpaces/README.md",
       "content/tau-ceti/LocalFieldsRamification/README.md"
     ],
-    "closure": "No new local gap; one explicitly inherited derived-completion stage request. Imported parent nodes retain their original APIs and tests; the supplement does not overwrite them."
+    "closure": "No new local gap; one explicitly inherited derived-completion stage request. The Witt-ring Frobenius congruence and generating-series addition now have named direct prerequisites, and localized flatness is explicitly restricted to the original base. Imported parent nodes retain their original APIs and tests.",
+    "independentReview": "All source locators and excerpts, all original 15 nodes, both added key theorems, the 14 baseline declarations, the reviewed AUDIT-17 entry and the supplier statements were independently checked. Source hashes matched. Two source misprints were checked against the published Hesselholt PDF. A finite-product coefficient check also corrected the cubic exterior sign and its Newton compatibility formula. The integer exterior examples use Wilkerson comparison explicitly."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroRings--HR.1",
+    "date": "2026-10-06",
+    "notes": "Accepted after corrections: checked all source locators/excerpts and hashes, all original nodes and their APIs/tests, all fourteen baseline declarations at the pinned Mathlib, the reviewed audit and the exact parent/PR.0 suppliers. Added two justified key theorem nodes, completed sixteen API entries, corrected the cubic exterior sign and strengthened the exterior Newton test, made the localized flatness scalar restriction explicit, corrected the Q title, and recorded two confirmed Hesselholt misprints against the published version. Packet remains a complete target-level pass with HR.1 planned, zero new local gaps and one inherited DD.1 request. No formalization is claimed.",
+    "checked": [
+      {
+        "nodeId": "HabiroRings:HR.1/dwork-ghost-image",
+        "verdict": "verified",
+        "note": "H Lemma 1.1, pp.6–7: the criterion gives integral existence; torsion-freeness supplies uniqueness by triangular ghost cancellation. Prime lifts need not commute. Integer and nonexample computations agree."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/universal-frobenius-polynomials",
+        "verdict": "corrected",
+        "note": "Confirmed H Lemmas 1.4/1.8. Clarified assembly of full Frobenius from the imported finite-divisor maps; the ghost recursion proves weights, variable bounds and leading coefficient p. Moved the stronger Witt-ring divisibility to its own node and narrowed this source locator."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/witt-ring-frobenius-congruence",
+        "verdict": "added",
+        "note": "H Lemma 1.18 proves the exact arbitrary-ring statement by Dwork applied to the ghosts divided by p over universal integers, including the extra p-adic power at ℓ=p. Specialization avoids ghost cancellation over torsion rings."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/big-witt-comonad",
+        "verdict": "corrected",
+        "note": "H Proposition 1.19 confirms the construction and identities. Added the explicit Witt-ring Frobenius prerequisite, the torsion-free uniqueness API and Teichmüller compatibility. Dwork is applied only over torsion-free W(C), then all formulas specialize."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/big-witt-comonad-laws",
+        "verdict": "verified",
+        "note": "The simultaneous counit, coassociativity and naturality identities follow by double/triple ghosts over universal torsion-free coefficient rings. The suggested equalities and all source locators agree."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/lambda-coalgebra",
+        "verdict": "corrected",
+        "note": "H Definitions 1.21/1.23 use arbitrary commutative rings and literal coalgebra squares. Added coaction/coordinate projections, coordinate extensionality, morphism extensionality and composition projection APIs; no detection by Adams ghosts is asserted in torsion."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/coalgebra-adams-laws",
+        "verdict": "corrected",
+        "note": "H Lemma 1.24 verifies identity, multiplicativity of indices and prime congruences. Added the direct Witt-ring Frobenius congruence prerequisite used for the prime congruence after the counit; arbitrary rings remain permitted."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/adams-to-witt-section",
+        "verdict": "corrected",
+        "note": "B §§1.6–1.9/1.17 and W §2.31 support the torsion-free section. Dwork differences vanish by Adams composition; ghost injectivity gives the ring laws and uniqueness. Added its coordinate recursion API and the exact PR.0 supplier for the delta compatibility test."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/adams-witt-section-laws",
+        "verdict": "verified",
+        "note": "Promoted section ghost, uniqueness and naturality laws use the same torsion-free cancellation as the construction, without importing coalgebra coassociativity prematurely. W §2.31 excerpt and conventions match."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/wilkerson-comparison",
+        "verdict": "verified",
+        "note": "B §1.17 and H Lemma 1.24/Proposition 1.19 support equivalence on torsion-free rings. Double ghosts prove reconstructed coassociativity; morphism comparison needs the torsion-free target. The accepted parent Adams and PR.0 hypotheses agree."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/big-witt-cofree-adjunction",
+        "verdict": "verified",
+        "note": "H §2 p.24 gives the cofree right adjoint for all rings. Transpose W(f)s and inverse gh_1 agree with the coalgebra laws. W(gh_m)Δ=F_m is proved universally. Recorded the source’s swapped unit/counit labels as E14; the packet’s maps were already correct."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/witt-product-addition",
+        "verdict": "added",
+        "note": "H Proposition 1.14 supplies this finite coefficient form. Logarithmic derivatives identify the ghosts over universal integers; coefficient induction cancels n there, then specializes to arbitrary rings. The source’s weighted index-sum typo is corrected and recorded as E13."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/exterior-operations",
+        "verdict": "corrected",
+        "note": "H Remark 1.22 fixes the signed inverse generating series. Corrected the cubic formula to λ³=c₃−c₁c₂; the original plus sign contradicted both the definition and λ³(2)=0 on ℤ. Added the explicit Witt-product-addition prerequisite and degree-two, degree-three and zero-element APIs. The statements hold in arbitrary characteristic."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/free-lambda-ring",
+        "verdict": "corrected",
+        "note": "B §1.18 and W §2.33 confirm the free adjoint on arbitrary generator sets. Generator evaluation of Δ gives the coalgebra and universal coordinate blocks. Added the exterior prerequisite, generator coaction and free-lift/universal-property APIs; the Newton test now uses actual exterior operations. Corrected e₃=c₃−xc₂ so the actual exterior Newton identity agrees with the third ghost x³+3c₃."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/free-lambda-universal-property",
+        "verdict": "verified",
+        "note": "B §1.18 supports all-ring freeness. Evaluate c_(i,n) at s(g(i))_n; coassociativity proves compatibility and s_L(x_i)=u_i forces uniqueness from the generator values. This holds for torsion targets and infinite I."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/free-adams-local-presentations",
+        "verdict": "verified",
+        "note": "Q §1.22(e) asserts the example; H Lemmas 1.4/1.8 give the inputs for the derived proof. Finite weighted matrices are square and permutation matrices mod p by exponent division pq+r, hence invertible over ℤ_(p). Away p, triangular substitution gives the polynomial algebra inverse. Finite block support handles infinite I."
+      },
+      {
+        "nodeId": "HabiroRings:HR.1/free-lambda-perfect-cover",
+        "verdict": "corrected",
+        "note": "Verified both local presentations, nonempty bases and nonzero residue fibres. Added Module.flat_iff_of_isLocalization and the original-base flatness required by Module.flat_of_localized_maximal. Adams composition then gives every positive m; the accepted parent equivalence gives the canonical perfect cover."
+      }
+    ]
   }
 }

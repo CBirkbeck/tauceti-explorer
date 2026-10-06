@@ -123,13 +123,14 @@ theorem frobenius_poly_prime (p n : ℕ+) (hp : (p : ℕ).Prime) :
     frobeniusPoly p n - MvPolynomial.X n ^ (p : ℕ) ∈
       Ideal.span {((p : ℕ) : Universal)} := by sorry
 
-theorem frobenius_witt_congruence {A : Type u} [CommRing A]
-    (p : ℕ+) (hp : (p : ℕ).Prime) (a : BigWitt A) :
-    frobenius p a - a ^ (p : ℕ) ∈ Ideal.span {((p : ℕ) : BigWitt A)} := by sorry
-
 example : frobeniusPoly 2 1 = MvPolynomial.X 1 ^ 2 + 2 * MvPolynomial.X 2 ∧
     frobeniusPoly 2 2 = 2 * MvPolynomial.X 4 -
       2 * MvPolynomial.X 1 ^ 2 * MvPolynomial.X 2 - MvPolynomial.X 2 ^ 2 := by sorry
+
+/-! witt-ring-frobenius-congruence: divisibility in the Witt ring itself. -/
+theorem frobenius_witt_congruence {A : Type u} [CommRing A]
+    (p : ℕ+) (hp : (p : ℕ).Prime) (a : BigWitt A) :
+    frobenius p a - a ^ (p : ℕ) ∈ Ideal.span {((p : ℕ) : BigWitt A)} := by sorry
 
 /-! big-witt-comonad -/
 def comul {A : Type u} [CommRing A] : BigWitt A →+* BigWitt (BigWitt A) := sorry
@@ -149,6 +150,13 @@ theorem comul_counit_right {A : Type u} [CommRing A] :
 
 theorem comul_assoc {A : Type u} [CommRing A] :
     (comul (A := BigWitt A)).comp comul = (map comul).comp (comul (A := A)) := by sorry
+
+theorem comul_unique {A : Type u} [CommRing A] [IsAddTorsionFree A]
+    (g : BigWitt A →+* BigWitt (BigWitt A))
+    (hg : ∀ n, (ghost n).comp g = frobenius n) : g = comul := by sorry
+
+theorem comul_teichmuller {A : Type u} [CommRing A] (a : A) :
+    comul (teichmuller a) = teichmuller (teichmuller a) := by sorry
 
 /-! big-witt-comonad-laws: the promoted simultaneous identities. -/
 theorem comonad_laws {A : Type u} [CommRing A] :
@@ -180,7 +188,12 @@ variable [CommRing A] [CommRing B] [CommRing C]
 def adams (s : LambdaCoalgebra A) (n : ℕ+) : A →+* A :=
   (BigWitt.ghost n).comp s.coaction
 
+def coord (s : LambdaCoalgebra A) (n : ℕ+) (a : A) : A := (s.coaction a).coeff n
+
 theorem ext (s t : LambdaCoalgebra A) (h : s.coaction = t.coaction) : s = t := by sorry
+
+theorem ext_coords (s t : LambdaCoalgebra A) (h : ∀ n a, s.coord n a = t.coord n a) :
+    s = t := by sorry
 
 structure Hom (s : LambdaCoalgebra A) (t : LambdaCoalgebra B) extends A →+* B where
   compatible : (BigWitt.map toRingHom).comp s.coaction = t.coaction.comp toRingHom
@@ -190,6 +203,16 @@ def id (s : LambdaCoalgebra A) : Hom s s := sorry
 
 def comp {s : LambdaCoalgebra A} {t : LambdaCoalgebra B} {r : LambdaCoalgebra C}
     (g : Hom t r) (f : Hom s t) : Hom s r := sorry
+
+theorem ext {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    (f g : Hom s t) (h : f.toRingHom = g.toRingHom) : f = g := by sorry
+
+theorem comp_toRingHom {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
+    {r : LambdaCoalgebra C} (g : Hom t r) (f : Hom s t) :
+    (comp g f).toRingHom = g.toRingHom.comp f.toRingHom := by sorry
+
+theorem id_toRingHom (s : LambdaCoalgebra A) :
+    (id s).toRingHom = RingHom.id A := by sorry
 
 theorem adams {s : LambdaCoalgebra A} {t : LambdaCoalgebra B}
     (f : Hom s t) (n : ℕ+) :
@@ -222,6 +245,14 @@ theorem toWitt_ghost (s : Adams A) (n : ℕ+) :
     (BigWitt.ghost n).comp s.toWitt = s.adams n := by sorry
 
 theorem toWitt_coord_one (s : Adams A) (a : A) : (s.toWitt a).coeff 1 = a := by sorry
+
+theorem toWitt_coord_recursion (s : Adams A) (n : ℕ+) (a : A) :
+    ((n : ℕ) : A) * (s.toWitt a).coeff n = s.adams n a -
+      ∑ d ∈ (n : ℕ).divisors.attach,
+        if d.1 < (n : ℕ) then
+          (d.1 : A) * (s.toWitt a).coeff ⟨d.1, Nat.pos_of_mem_divisors d.2⟩ ^
+            ((n : ℕ) / d.1)
+        else 0 := by sorry
 
 theorem toWitt_unique (s : Adams A) (f : A →+* BigWitt A)
     (h : ∀ n, (BigWitt.ghost n).comp f = s.adams n) : f = s.toWitt := by sorry
@@ -280,6 +311,21 @@ theorem cofreeAdjunction_inverse {A : Type u} {B : Type v} [CommRing A] [CommRin
 theorem BigWitt.map_ghost_comul {A : Type u} [CommRing A] (m : ℕ+) :
     (BigWitt.map (BigWitt.ghost m)).comp BigWitt.comul = BigWitt.frobenius (A := A) m := by sorry
 
+/-! witt-product-addition: the finite coefficient form of Hesselholt Proposition 1.14.
+The source's product coefficient condition is i₁+⋯+iᵣ=k; its weighted condition
+is a misprint recorded in the packet. No infinite product is used in this signature.
+-/
+theorem BigWitt.product_add {A : Type u} [CommRing A] (a b : BigWitt A)
+    (N k : ℕ) (hk : k ≤ N) :
+    PowerSeries.coeff k (∏ d ∈ Finset.range N,
+      (1 - PowerSeries.C ((a + b).coeff ⟨d+1, Nat.succ_pos d⟩) *
+        PowerSeries.X ^ (d+1))) =
+    PowerSeries.coeff k
+      ((∏ d ∈ Finset.range N,
+        (1 - PowerSeries.C (a.coeff ⟨d+1, Nat.succ_pos d⟩) * PowerSeries.X ^ (d+1))) *
+       (∏ d ∈ Finset.range N,
+        (1 - PowerSeries.C (b.coeff ⟨d+1, Nat.succ_pos d⟩) * PowerSeries.X ^ (d+1)))) := by sorry
+
 /-! exterior-operations -/
 namespace LambdaCoalgebra
 variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
@@ -291,6 +337,16 @@ def exterior (s : LambdaCoalgebra A) (n : ℕ) (a : A) : A :=
 theorem exterior_zero (s : LambdaCoalgebra A) (a : A) : s.exterior 0 a = 1 := by sorry
 
 theorem exterior_one (s : LambdaCoalgebra A) (a : A) : s.exterior 1 a = a := by sorry
+
+theorem exterior_two (s : LambdaCoalgebra A) (a : A) :
+    s.exterior 2 a = -(s.coaction a).coeff 2 := by sorry
+
+theorem exterior_three (s : LambdaCoalgebra A) (a : A) :
+    s.exterior 3 a = (s.coaction a).coeff 3 -
+      (s.coaction a).coeff 1 * (s.coaction a).coeff 2 := by sorry
+
+theorem exterior_zero_element (s : LambdaCoalgebra A) (n : ℕ) (hn : 0 < n) :
+    s.exterior n 0 = 0 := by sorry
 
 theorem exterior_add (s : LambdaCoalgebra A) (n : ℕ) (a b : A) :
     s.exterior n (a+b) = ∑ i ∈ Finset.range (n+1), s.exterior i a * s.exterior (n-i) b := by sorry
@@ -327,6 +383,8 @@ def coalgebra (I : Type u) : LambdaCoalgebra (FreeLambdaRing I) where
   counit := by sorry
   coassoc := by sorry
 
+theorem coaction_gen (i : I) : coaction I (gen i) = universalPoint i := by sorry
+
 def adams (I : Type u) (m : ℕ+) : FreeLambdaRing I →+* FreeLambdaRing I :=
   (coalgebra I).adams m
 
@@ -349,7 +407,8 @@ example : ∃ e : FreeLambdaRing Empty ≃+* ℤ,
     ∀ n a, e (adams Empty n a) = e a := by sorry
 -- test FreeLambdaRing.exterior_newton_three_test (compatibility)
 example (i : I) : adams I 3 (gen i) = gen i ^ 3 -
-    3 * gen i * (-coord i 2) + 3 * (coord i 3 + gen i * coord i 2) := by sorry
+    3 * gen i * (coalgebra I).exterior 2 (gen i) +
+    3 * (coalgebra I).exterior 3 (gen i) := by sorry
 -- test FreeLambdaRing.not_toric_test (non-example)
 example : adams Unit 2 (gen ()) ≠ gen () ^ 2 := by sorry
 
