@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3689,
+  "stages": 3705,
   "originalStages": 2098,
-  "sourceRefinements": 1591,
+  "sourceRefinements": 1607,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3588,
+  "mathematicalStars": 3604,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1867,
-  "stageEdges": 9748,
+  "stageEdges": 9766,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -577,6 +577,12 @@
       "roadmap": "ErdosProgressionPowers",
       "nodes": 49,
       "reviewer": "independent-review-REV-DESIGN-ErdosProgressionPowers"
+    },
+    {
+      "file": "FarguesFontaineDiamonds",
+      "roadmap": "FarguesFontaineDiamonds",
+      "nodes": 37,
+      "reviewer": "independent-review-REV-FarguesFontaineDiamonds"
     },
     {
       "file": "FiniteFieldsAndCharacterSums--FF.3",
@@ -880,8 +886,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32594540,
-  "htmlSha256": "01c834f798637791c998a7a956a70a0d6ee5b4f8781620d55f225eacfe507749",
+  "htmlBytes": 32632583,
+  "htmlSha256": "7cefeab5618f8c8da85dd3efc53f8fd6ad65a2dcc73ee85842dfc0612039352d",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -912,7 +918,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "9d2c6c5eae97e81d33944d6cdda3e86ae223f192743fb7aa8f5b32cf61fe6793",
+    "data/roadmap-distances.json": "6fad978e967f81b08d84613057a1e20f02587cd0e8d7a7420aa6ef0dffc1d360",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1048,6 +1054,8 @@
     "data/blueprints/EllipticRegulators.md": "45df41d0725c4f4bc7b0c43f9710b879367d2386a73a9fddfe4778881d7be759",
     "data/blueprints/ErdosProgressionPowers.json": "59cb5889367c4d8bb5fe0ac4920d7f9042b10abd22b2d237ad6c4c77b2979c3c",
     "data/blueprints/ErdosProgressionPowers.md": "59f7e5945a0743b3d8cf5c7cc1aa85b7572673182a92ff5ca91ffc3c076689f5",
+    "data/blueprints/FarguesFontaineDiamonds.json": "55db51e51a534fa54fbbe3b25c5b7731c12d3a8dbffd5fbe8cd89edabb670ae3",
+    "data/blueprints/FarguesFontaineDiamonds.md": "a76fda18fb0ab1ff1158c9a04c471bc35dd703ed8e53aa15df7378f610a5dbf4",
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.json": "94f566d91d4c124fa1c14e45699779e27e950502bb9aac27194dd0afb995e8f7",
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
