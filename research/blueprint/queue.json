@@ -22162,9 +22162,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #681"
+   "note": "claimed on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
@@ -23481,8 +23481,9 @@
    ],
    "avoidAccountOf": "BP-DeligneWeightsAndPurity--DWP.7",
    "prompt": "research/blueprint/prompts/REV-DeligneWeightsAndPurity--DWP.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #383"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #383",
+   "finishedAt": "2026-10-06T13:25:37Z"
   },
   {
    "id": "BP-DerivedDeRhamCohomology",
@@ -25909,9 +25910,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.7s.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #752"
+   "note": "deliverables arrived from an external worker on issue #752",
+   "finishedAt": "2026-10-06T13:25:40Z"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.7s",
@@ -27240,11 +27242,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #959"
+   "note": "claimed on GitHub issue #959"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.5d",
@@ -28259,9 +28261,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #980"
+   "note": "claimed on GitHub issue #980"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.0",
@@ -29209,8 +29211,9 @@
    ],
    "avoidAccountOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #497"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #497",
+   "finishedAt": "2026-10-06T13:25:42Z"
   },
   {
    "id": "BP-TorsionCohomologyInfrastructure",
