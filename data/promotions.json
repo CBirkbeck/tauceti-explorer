@@ -339,6 +339,17 @@
     "data/blueprints/ArithmeticKTheory--N.1.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.2.json": {
+   "promotedAt": "2026-10-06T01:03:19Z",
+   "review": "fc1b2f3992dcd7b5",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.2",
+   "sha256": "d3070d69d979ec11af0f46b0429d24e1f8ac1ea704f725aa99d0842ea758a540",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.2.json",
+    "data/blueprints/ArithmeticKTheory--N.2.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.7.json": {
    "promotedAt": "2026-09-28T15:05:04Z",
    "review": "14157099068371d4",
@@ -726,6 +737,17 @@
    "to": [
     "data/blueprints/HabiroNahmSeries.json",
     "data/blueprints/HabiroNahmSeries.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroNumberFields--HB.1.json": {
+   "promotedAt": "2026-10-06T01:03:19Z",
+   "review": "c191f8875cb89415",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-HabiroNumberFields--HB.1",
+   "sha256": "be0adb3ecb558ceb825bc7cf30b82ae289ef89e6663700fe9012b67a50416ec5",
+   "to": [
+    "data/blueprints/HabiroNumberFields--HB.1.json",
+    "data/blueprints/HabiroNumberFields--HB.1.md"
    ]
   },
   "research/blueprint/packets/HabiroNumberFields.json": {
