@@ -278,22 +278,25 @@
       "tests": [
         {
           "name": "frobenius_scalar_two",
-          "statement": "For Phi=(2), a=-5, b=6 over Q, P=(1/2)."
+          "statement": "For Phi=(2), a=-5, b=6 over Q, P=(1/2).",
+          "kind": "computation"
         },
         {
           "name": "frobenius_scalar_minus_one",
-          "statement": "For Phi=(-1), a=0, b=-1 over Q, P=(-1)."
+          "statement": "For Phi=(-1), a=0, b=-1 over Q, P=(-1).",
+          "kind": "computation"
         },
         {
           "name": "frobenius_singular_excluded",
-          "statement": "For Phi=(0), a=b=0, P=(0) and Phi P is not I; the nonzero-b hypothesis cannot be omitted."
+          "statement": "For Phi=(0), a=b=0, P=(0) and Phi P is not I; the nonzero-b hypothesis cannot be omitted.",
+          "kind": "non-example"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6 and proof, pp. 1126-1127",
-          "excerpt": "ϕ",
+          "excerpt": "Lemma 5.6.",
           "match": "Isolates the first explicit polynomial inverse used in the displayed Euler expression."
         }
       ],
@@ -326,7 +329,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, proof",
-          "excerpt": "ϕ",
+          "excerpt": "Lemma 5.6.",
           "match": "The inverse assertion requires the explicit nonzero scalar denominator."
         }
       ],
@@ -378,22 +381,25 @@
       "tests": [
         {
           "name": "euler_scalar_two",
-          "statement": "For Phi=(2), a=-5, b=6 over Q, Q=(-1)."
+          "statement": "For Phi=(2), a=-5, b=6 over Q, Q=(-1).",
+          "kind": "computation"
         },
         {
           "name": "euler_scalar_zero",
-          "statement": "For Phi=(0), a=b=0 over Q, Q=I: invertibility of I-Phi does not require invertibility of Phi."
+          "statement": "For Phi=(0), a=b=0 over Q, Q=I: invertibility of I-Phi does not require invertibility of Phi.",
+          "kind": "degenerate"
         },
         {
           "name": "euler_singular_excluded",
-          "statement": "For Phi=(1), a=-3, b=2, Q=0 and (I-Phi)Q is not I, since 1+a+b=0."
+          "statement": "For Phi=(1), a=-3, b=2, Q=0 and (I-Phi)Q is not I, since 1+a+b=0.",
+          "kind": "non-example"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6 and proof, pp. 1126-1127",
-          "excerpt": "ϕ",
+          "excerpt": "Lemma 5.6.",
           "match": "Isolates the inverse of I-Phi in the source's calculation."
         }
       ],
@@ -426,7 +432,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, proof",
-          "excerpt": "ϕ",
+          "excerpt": "Lemma 5.6.",
           "match": "The source calculation becomes a typed two-sided inverse identity with its denominator hypothesis."
         }
       ],
@@ -464,7 +470,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5A, Lemma 5.6, p. 1126",
-          "excerpt": "ϕ",
+          "excerpt": "Lemma 5.6.",
           "match": "The displayed operator formula is retained with every denominator made explicit."
         }
       ],
@@ -520,22 +526,25 @@
       "tests": [
         {
           "name": "constraints_none",
-          "statement": "An empty set of conditions gives the full module."
+          "statement": "An empty set of conditions gives the full module.",
+          "kind": "degenerate"
         },
         {
           "name": "constraints_zero_at_zero",
-          "statement": "Over E[X], d=1, evaluation at 0 and V=0: 1 is excluded and X is included."
+          "statement": "Over E[X], d=1, evaluation at 0 and V=0: 1 is excluded and X is included.",
+          "kind": "computation"
         },
         {
           "name": "constraints_diagonal",
-          "statement": "Over Q[X], one condition V={(a,a)} at 0: (1,1) is included and (1,0) is excluded."
+          "statement": "Over Q[X], one condition V={(a,a)} at 0: (1,1) is included and (1,0) is excluded.",
+          "kind": "computation"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.1 and Proposition 4.2, p. 1118",
-          "excerpt": "S",
+          "excerpt": "Proposition 4.2.",
           "match": "The source module is expressed as a submodule using the actual evaluation maps."
         }
       ],
@@ -569,7 +578,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, first inclusion, pp. 1118-1119",
-          "excerpt": "J",
+          "excerpt": "Lemma 4.3.",
           "match": "Makes explicit the distinct-factor divisibility used in the first image inclusion."
         }
       ],
@@ -606,7 +615,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.1, p. 1118",
-          "excerpt": "S",
+          "excerpt": "Lemma 4.1.",
           "match": "Expands the adapted-basis and division argument of the source."
         }
       ],
@@ -640,7 +649,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, induction step, p. 1118",
-          "excerpt": "Fm",
+          "excerpt": "Proposition 4.2.",
           "match": "This is the source's evaluated basis matrix at the new node."
         }
       ],
@@ -696,22 +705,25 @@
       "tests": [
         {
           "name": "transport_identity",
-          "statement": "For C=I the original subspace is recovered."
+          "statement": "For C=I the original subspace is recovered.",
+          "kind": "compatibility"
         },
         {
           "name": "transport_shear",
-          "statement": "For V=Q(1,0) and C=[[1,1],[0,1]], W=Q(1,-1), not V."
+          "statement": "For V=Q(1,0) and C=[[1,1],[0,1]], W=Q(1,-1), not V.",
+          "kind": "computation"
         },
         {
           "name": "transport_singular",
-          "statement": "For C=0 and V=0, W=E^d; codimension preservation fails without invertibility."
+          "statement": "For C=0 and V=0, W=E^d; codimension preservation fails without invertibility.",
+          "kind": "non-example"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, definition of S double-prime, p. 1118",
-          "excerpt": "S",
+          "excerpt": "Proposition 4.2.",
           "match": "The source transports by the inverse of its evaluated matrix."
         }
       ],
@@ -743,7 +755,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, induction step",
-          "excerpt": "S",
+          "excerpt": "Proposition 4.2.",
           "match": "Justifies preservation of the exponent in the new determinant factor."
         }
       ],
@@ -803,22 +815,25 @@
       "tests": [
         {
           "name": "basis_single_zero_condition",
-          "statement": "For R=Q[X], d=1, x=0 and V=0, S has the one-element basis X."
+          "statement": "For R=Q[X], d=1, x=0 and V=0, S has the one-element basis X.",
+          "kind": "computation"
         },
         {
           "name": "basis_two_zero_conditions",
-          "statement": "For d=1 with V=0 at 0 and 5, S has a basis associated to X(X-5), not X squared."
+          "statement": "For d=1 with V=0 at 0 and 5, S has a basis associated to X(X-5), not X squared.",
+          "kind": "computation"
         },
         {
           "name": "basis_two_coordinates",
-          "statement": "For d=2, V_0=span(e1) at 0 and V_1=span(e2) at 5, rows (X-5,0),(0,X) form a basis with determinant X(X-5)."
+          "statement": "For d=2, V_0=span(e1) at 0 and V_1=span(e2) at 5, rows (X-5,0),(0,X) form a basis with determinant X(X-5).",
+          "kind": "computation"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2 and proof, p. 1118",
-          "excerpt": "det(S)",
+          "excerpt": "Proposition 4.2.",
           "match": "Source induction expanded to declaration granularity, with correct inverse transport and matrix order."
         }
       ],
@@ -852,7 +867,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Proposition 4.2, p. 1118",
-          "excerpt": "det(S)",
+          "excerpt": "Proposition 4.2.",
           "match": "Pins the meaning of the source's determinant expression to a principal ideal."
         }
       ],
@@ -904,22 +919,25 @@
       "tests": [
         {
           "name": "projection_no_constraints",
-          "statement": "With J empty, g_k=1."
+          "statement": "With J empty, g_k=1.",
+          "kind": "degenerate"
         },
         {
           "name": "projection_all_zero",
-          "statement": "For d=1 and V_j=0 at 0 and 5, g_0=X(X-5)."
+          "statement": "For d=1 and V_j=0 at 0 and 5, g_0=X(X-5).",
+          "kind": "computation"
         },
         {
           "name": "projection_mixed",
-          "statement": "For V_0=span(e1) at 0 and V_1=span(e2) at 5, g_0=X-5 and g_1=X."
+          "statement": "For V_0=span(e1) at 0 and V_1=span(e2) at 5, g_0=X-5 and g_1=X.",
+          "kind": "computation"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3 and proof, pp. 1118-1119",
-          "excerpt": "J",
+          "excerpt": "Lemma 4.3.",
           "match": "Uses the source's forced-zero set and not just an unspecified subset of factors."
         }
       ],
@@ -978,22 +996,25 @@
       "tests": [
         {
           "name": "witness_empty",
-          "statement": "With no conditions the standard e_k has the required coordinate one."
+          "statement": "With no conditions the standard e_k has the required coordinate one.",
+          "kind": "degenerate"
         },
         {
           "name": "witness_diagonal",
-          "statement": "For R=Q[X] and V={(a,a)} at 0, (1,1) witnesses that the first coordinate image contains one."
+          "statement": "For R=Q[X] and V={(a,a)} at 0, (1,1) witnesses that the first coordinate image contains one.",
+          "kind": "computation"
         },
         {
           "name": "witness_integral_denominators",
-          "statement": "Interpolation of 0 and 1 at 0 and 5 is X/5. No polynomial over Z_5 has those two values, so the E-polynomial argument cannot be asserted integrally."
+          "statement": "Interpolation of 0 and 1 at 0 and 5 is X/5. No polynomial over Z_5 has those two values, so the E-polynomial argument cannot be asserted integrally.",
+          "kind": "non-example"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, interpolation step, p. 1119",
-          "excerpt": "J",
+          "excerpt": "Lemma 4.3.",
           "match": "Expands the source's interpolating-polynomial construction using the pinned Lagrange API."
         }
       ],
@@ -1027,7 +1048,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 4A, Lemma 4.3, pp. 1118-1119",
-          "excerpt": "J",
+          "excerpt": "Lemma 4.3.",
           "match": "Both directions of the source image description are explicit."
         }
       ],
@@ -1085,15 +1106,18 @@
       "tests": [
         {
           "name": "coleman_zero",
-          "statement": "f=0 gives the zero coordinate map."
+          "statement": "f=0 gives the zero coordinate map.",
+          "kind": "degenerate"
         },
         {
           "name": "coleman_standard",
-          "statement": "f=id and e=id on R^d give the identity coordinate map."
+          "statement": "f=id and e=id on R^d give the identity coordinate map.",
+          "kind": "compatibility"
         },
         {
           "name": "coleman_shear_inverse",
-          "statement": "For U=[[1,1],[0,1]] over Q, c=(1,0) changes to cU inverse=(1,-1), not cU=(1,1)."
+          "statement": "For U=[[1,1],[0,1]] over Q, c=(1,0) changes to cU inverse=(1,-1), not cU=(1,1).",
+          "kind": "computation"
         }
       ],
       "planet": {
@@ -1102,8 +1126,8 @@
       "sources": [
         {
           "sourceId": "LLZ2011",
-          "locator": "Section 3, Definition 3.1 and Lemma 3.3, pp. 1116-1117",
-          "excerpt": "Col",
+          "locator": "Section 3A, displayed definition Col=J composed with (1-phi), Remark 3.1 and Lemma 3.3, pp.1116-1117",
+          "excerpt": "Lemma 3.3.",
           "match": "Separates coordinate algebra from construction of the arithmetic source and target."
         }
       ],
@@ -1134,8 +1158,8 @@
       "sources": [
         {
           "sourceId": "LLZ2011",
-          "locator": "Section 3, Lemma 3.3, p. 1117",
-          "excerpt": "Col",
+          "locator": "Section 3A, Lemma 3.3 and its proof, p.1117",
+          "excerpt": "Lemma 3.3.",
           "match": "This reconstruction is the first equality in the source proof."
         }
       ],
@@ -1188,15 +1212,18 @@
       "tests": [
         {
           "name": "matrix_identity",
-          "statement": "For R=A and all maps identity, M=I."
+          "statement": "For R=A and all maps identity, M=I.",
+          "kind": "compatibility"
         },
         {
           "name": "matrix_non_diagonal",
-          "statement": "For standard Q-coordinates and j with row matrix [[1,2],[3,4]], M is that matrix, not its transpose."
+          "statement": "For standard Q-coordinates and j with row matrix [[1,2],[3,4]], M is that matrix, not its transpose.",
+          "kind": "computation"
         },
         {
           "name": "matrix_singular_inclusion",
-          "statement": "For j with row matrix diag(1,0), det M=0; the construction does not imply invertibility."
+          "statement": "For j with row matrix diag(1,0), det M=0; the construction does not imply invertibility.",
+          "kind": "non-example"
         }
       ],
       "planet": {
@@ -1206,7 +1233,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1), pp. 1116-1117",
-          "excerpt": "M",
+          "excerpt": "matrix M with entries in H(0)",
           "match": "Defines the comparison matrix from basis images with the correct coefficient ring."
         }
       ],
@@ -1241,7 +1268,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1) and Lemma 3.3",
-          "excerpt": "M",
+          "excerpt": "Lemma 3.3.",
           "match": "The finite basis expansion in the source becomes a map-level identity."
         }
       ],
@@ -1275,7 +1302,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, Lemma 3.3, Definition 3.4 and equation (2), p. 1117",
-          "excerpt": "M",
+          "excerpt": "Lemma 3.3.",
           "match": "Separates the coordinate identity from the genuinely arithmetic comparison inputs."
         }
       ],
@@ -1312,7 +1339,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 3, equation (1); section 5C, Remark 5.12, p. 1129",
-          "excerpt": "AM",
+          "excerpt": "Remark 5.12.",
           "match": "Extends the stated fixed-crystalline-basis transformation to explicit two-basis covariance."
         }
       ],
@@ -1364,22 +1391,25 @@
       "tests": [
         {
           "name": "shear_identity",
-          "statement": "e1=e2=0 gives I."
+          "statement": "e1=e2=0 gives I.",
+          "kind": "degenerate"
         },
         {
           "name": "shear_order",
-          "statement": "For e1=2,e2=3 and (F,G)=(7,11), the output is (29,32)."
+          "statement": "For e1=2,e2=3 and (F,G)=(7,11), the output is (29,32).",
+          "kind": "computation"
         },
         {
           "name": "shear_nonunit_determinant",
-          "statement": "Over Z_5, e1=1,e2=-4 give nonzero determinant 5 but a matrix not invertible over Z_5."
+          "statement": "Over Z_5, e1=1,e2=-4 give nonzero determinant 5 but a matrix not invertible over Z_5.",
+          "kind": "non-example"
         }
       ],
       "sources": [
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11, proof, p. 1129",
-          "excerpt": "GL(2, OE)",
+          "excerpt": "Proposition 5.11.",
           "match": "The integral ring makes the distinction between nonzero and unit determinant necessary."
         }
       ],
@@ -1412,7 +1442,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11, proof, p. 1129",
-          "excerpt": "A",
+          "excerpt": "Proposition 5.11.",
           "match": "Preserves all three cases of the source's change-of-lines argument."
         }
       ],
@@ -1448,8 +1478,8 @@
       "sources": [
         {
           "sourceId": "LLZ2011",
-          "locator": "Section 5C, Proposition 5.11; compare arXiv v2 Remark 5.12, p. 25",
-          "excerpt": "A",
+          "locator": "Section 5C, Proposition 5.11, p.1129; compare arXiv1006.5163v2 Section 5.3, Proposition 5.11 and Remark 5.12, p.25",
+          "excerpt": "Proposition 5.11.",
           "match": "The maximal-ideal strengthening is already present in the preprint's integral remark and is used to make the published proof valid."
         }
       ],
@@ -1486,7 +1516,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section 5C, Proposition 5.11 and Remark 5.12, pp. 1128-1129; section 4A, Lemma 4.3",
-          "excerpt": "A",
+          "excerpt": "Proposition 5.11.",
           "match": "The algebra proves the rational conclusion; Theorems 5.10 and 5.13 supply additional integral content, not silently assumed here."
         }
       ],
@@ -1541,15 +1571,18 @@
       "tests": [
         {
           "name": "gamma_zero",
-          "statement": "At j=0 the factor is 1."
+          "statement": "At j=0 the factor is 1.",
+          "kind": "degenerate"
         },
         {
           "name": "gamma_minus_two",
-          "statement": "At j=-2 it is -1."
+          "statement": "At j=-2 it is -1.",
+          "kind": "computation"
         },
         {
           "name": "gamma_minus_three",
-          "statement": "At j=-3 it is 1/2, not 2."
+          "statement": "At j=-3 it is 1/2, not 2.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -1585,8 +1618,8 @@
       "sources": [
         {
           "sourceId": "LLZ2011",
-          "locator": "Sections 1C3, 2.1 and 4.16, pp.1101,1107,1124",
-          "excerpt": "λk",
+          "locator": "Section 1C2, definitions of ell_i, delta_i and n_k and Proposition 1.6, pp.1101-1102; Section 2A, p.1107; Theorem 4.16, p.1124",
+          "excerpt": "These factors are mutually coprime",
           "match": "Reconciles n_k with lambda_k and the normalized delta_i, up to the displayed nonzero constant."
         }
       ],
@@ -1616,15 +1649,18 @@
       "tests": [
         {
           "name": "ell_at_zero",
-          "statement": "ell_0 at the trivial character is 0, whereas ell_1 there is -1."
+          "statement": "ell_0 at the trivial character is 0, whereas ell_1 there is -1.",
+          "kind": "computation"
         },
         {
           "name": "delta_at_node",
-          "statement": "delta_0 at X=0 is 1/log(chi(gamma)), not zero or an undefined inverse."
+          "statement": "delta_0 at X=0 is 1/log(chi(gamma)), not zero or an undefined inverse.",
+          "kind": "computation"
         },
         {
           "name": "lambda_empty",
-          "statement": "lambda_0=n_0=1; lambda_2 at chi^3 is 6."
+          "statement": "lambda_0=n_0=1; lambda_2 at chi^3 is 6.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -1700,15 +1736,18 @@
       "tests": [
         {
           "name": "regulator_zero",
-          "statement": "The zero Iwasawa class has zero regulator."
+          "statement": "The zero Iwasawa class has zero regulator.",
+          "kind": "degenerate"
         },
         {
           "name": "regulator_phi_fixed",
-          "statement": "An actual phi-fixed psi-one class is killed by 1-phi; for E(1) this kills the Kummer Tate tower."
+          "statement": "An actual phi-fixed psi-one class is killed by 1-phi; for E(1) this kills the Kummer Tate tower.",
+          "kind": "computation"
         },
         {
           "name": "regulator_composition_order",
-          "statement": "In the finite linear-map model h(x)=2x, boundary(x)=3x, Mellin_inverse(x)=5x, L(2)=15; using h instead of h inverse would give 60."
+          "statement": "In the finite linear-map model h(x)=2x, boundary(x)=3x, Mellin_inverse(x)=5x, L(2)=15; using h instead of h inverse would give 60.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -1779,15 +1818,18 @@
       "tests": [
         {
           "name": "obstruction_phi_one",
-          "statement": "For rank-one phi=1, k=0 forces f(0)=0, so a nonzero constant derivative is inadmissible."
+          "statement": "For rank-one phi=1, k=0 forces f(0)=0, so a nonzero constant derivative is inadmissible.",
+          "kind": "non-example"
         },
         {
           "name": "obstruction_nonsingular",
-          "statement": "For phi=2 over Q_5 and h=1, both 1-2 and 1-10 are invertible; no derivative obstruction remains."
+          "statement": "For phi=2 over Q_5 and h=1, both 1-2 and 1-10 are invertible; no derivative obstruction remains.",
+          "kind": "characterisation"
         },
         {
           "name": "obstruction_lift_nonunique",
-          "statement": "At phi=1 two lifts differing by a constant have the same boundary; no unique inverse is inferred."
+          "statement": "At phi=1 two lifts differing by a constant have the same boundary; no unique inverse is inferred.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -1810,7 +1852,7 @@
       "title": "Perrin–Riou big exponential",
       "kind": "construction",
       "declaration": "bigExponential",
-      "statement": "For admissible f in ker Delta_h choose a psi-one lift y with (1-phi)y=f and define Omega_(V,h)(f)=nabla_(h-1)...nabla_0(y), with nabla_i=t partial-i. Its value is well-defined in D_rig^+(V)^(psi=1)/V^(H_Qp). If D_cris(V)^(phi=p^(-h))=0 (in particular no E(h) subrepresentation), the unquotiented value is well-defined. Map to H_E tensor_Lambda H^1_Iw using the established comparison.",
+      "statement": "For admissible f in ker Delta_h choose a psi-one lift y with (1-phi)y=f and define Omega_(V,h)(f)=nabla_(h-1)...nabla_0(y), with nabla_i=t partial-i. Its value is well-defined in D_rig^+(V)^(psi=1)/V^(H_Qp). The eigencondition D_cris(V)^(phi=p^(-h))=0 suffices for an unquotiented value (Definition II.12). More generally, absence of an E(h) subrepresentation suffices by Remark II.14, after using Theorem II.13 to identify the remaining lift ambiguity with invariants. Map to H_E tensor_Lambda H^1_Iw using the established comparison.",
       "hypotheses": [
         "p is odd; E/Q_p is finite; G=Delta times Gamma_1; HT(E(1))=+1; roots zeta_(p^n), Tate bases e_j and a generator gamma are fixed compatibly.",
         "V crystalline; h>=1 with Fil^(-h) full; the source is ker Delta_h, not an arbitrary period vector."
@@ -1861,15 +1903,18 @@
       "tests": [
         {
           "name": "bigexp_zero",
-          "statement": "Omega_(V,h)(0)=0 in the quotient."
+          "statement": "Omega_(V,h)(0)=0 in the quotient.",
+          "kind": "degenerate"
         },
         {
           "name": "bigexp_kernel_killed",
-          "statement": "For a lift difference t^k v with 0<=k<h, the differential product is zero."
+          "statement": "For a lift difference t^k v with 0<=k<h, the differential product is zero.",
+          "kind": "computation"
         },
         {
           "name": "bigexp_top_kernel",
-          "statement": "For k=h the product is h! t^h v, nonzero before passing to invariants; the quotient cannot be dropped."
+          "statement": "For k=h the product is h! t^h v, nonzero before passing to invariants; the quotient cannot be dropped.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -1923,7 +1968,7 @@
         {
           "sourceId": "Berger2003",
           "locator": "RemarkII.15, p.121",
-          "excerpt": "∇h",
+          "excerpt": "Remark II.15.",
           "match": "Provides the admitted h and twist identities."
         }
       ],
@@ -1984,15 +2029,18 @@
       "tests": [
         {
           "name": "twist_extension_identity",
-          "statement": "An admitted m=0 recovers the intrinsic positive-range regulator."
+          "statement": "An admitted m=0 recovers the intrinsic positive-range regulator.",
+          "kind": "degenerate"
         },
         {
           "name": "twist_extension_one_step",
-          "statement": "The m=1 and m=2 formulas agree by the one-step ell_-2 relation."
+          "statement": "The m=1 and m=2 formulas agree by the one-step ell_-2 relation.",
+          "kind": "compatibility"
         },
         {
           "name": "twist_extension_pole_control",
-          "statement": "In a scalar analytic model a nonzero numerator at the zero of ell_-1 gives a pole, so localization alone is not an H-valued result."
+          "statement": "In a scalar analytic model a nonzero numerator at the zero of ell_-1 gives a pole, so localization alone is not an H-valued result.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2192,7 +2240,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section3A, pp.1116-1117",
-          "excerpt": "N(T )",
+          "excerpt": "no quotient isomorphic to the trivial representation",
           "match": "Identifies the precise integral source and target lattice."
         },
         {
@@ -2285,7 +2333,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Corollary4.7 and proof, p.1120",
-          "excerpt": "δ(V )",
+          "excerpt": "Corollary 4.7.",
           "match": "Gives the exponent and identifies the additional determinant theorem used."
         }
       ],
@@ -2324,7 +2372,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Section3 equation(2), p.1117; Section1C6 modular bases",
-          "excerpt": "ν1",
+          "excerpt": "Lemma 3.3.",
           "match": "Source coordinates become scalar only in an explicitly chosen basis; the functional formulation is the invariant deduction."
         }
       ],
@@ -2354,15 +2402,18 @@
       "tests": [
         {
           "name": "scalar_zero_functional",
-          "statement": "The zero functional gives the zero map."
+          "statement": "The zero functional gives the zero map.",
+          "kind": "degenerate"
         },
         {
           "name": "scalar_ordered_projection",
-          "statement": "For vector (2,3), first projection gives 2 and second gives 3."
+          "statement": "For vector (2,3), first projection gives 2 and second gives 3.",
+          "kind": "computation"
         },
         {
           "name": "scalar_period_scaling",
-          "statement": "Replacing a functional by twice itself doubles every value; it cannot be silently treated as the same normalized scalar regulator."
+          "statement": "Replacing a functional by twice itself doubles every value; it cannot be silently treated as the same normalized scalar regulator.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -2410,7 +2461,7 @@
         {
           "sourceId": "LZ2014",
           "locator": "Section6.4.2 diagram and text, pp.28-29",
-          "excerpt": "ℓ0",
+          "excerpt": "6.4.2. Coleman series.",
           "match": "States the actual multiplier in the rank-one regulator/Coleman square."
         }
       ],
@@ -2446,7 +2497,7 @@
         {
           "sourceId": "RubinES",
           "locator": "III Section5.8, Proposition5.14, printed p.52",
-          "excerpt": "Col∞",
+          "excerpt": "Proposition 5.14.",
           "match": "The supplied URL is Rubin’s book, not Kolyvagin1990; it states containment rather than equality in the split case."
         }
       ],
@@ -2476,15 +2527,18 @@
       "tests": [
         {
           "name": "rubin_zero",
-          "statement": "Col_infty(0)=0."
+          "statement": "Col_infty(0)=0.",
+          "kind": "degenerate"
         },
         {
           "name": "rubin_split_trivial",
-          "statement": "At split multiplicative alpha=1 the trivial specialization is zero."
+          "statement": "At split multiplicative alpha=1 the trivial specialization is zero.",
+          "kind": "computation"
         },
         {
           "name": "rubin_nonsplit_trivial",
-          "statement": "At p=5 and alpha=-1,beta=-5 the trivial Euler multiplier is 5/3, so it is not automatically zero."
+          "statement": "At p=5 and alpha=-1,beta=-5 the trivial Euler multiplier is 5/3, so it is not automatically zero.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -2589,15 +2643,18 @@
       "tests": [
         {
           "name": "refinement_rank_one",
-          "statement": "The unique flag of a rank-one filtered phi module is noncritical."
+          "statement": "The unique flag of a rank-one filtered phi module is noncritical.",
+          "kind": "characterisation"
         },
         {
           "name": "refinement_wrong_line",
-          "statement": "For weights 0,-2 with Fil^1 the second eigenline, the flag starting in that line is critical in the LLZ positive convention."
+          "statement": "For weights 0,-2 with Fil^1 the second eigenline, the flag starting in that line is critical in the LLZ positive convention.",
+          "kind": "non-example"
         },
         {
           "name": "refinement_scalar_phi",
-          "statement": "With scalar phi any flag is stable, but only flags with the required filtration dimensions are noncritical."
+          "statement": "With scalar phi any flag is stable, but only flags with the required filtration dimensions are noncritical.",
+          "kind": "characterisation"
         }
       ],
       "uses": [
@@ -2681,7 +2738,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Corollary1.12, Theorem2.10 and Corollary3.2, pp.1103,1114,1117",
-          "excerpt": "[nr1",
+          "excerpt": "Theorem 2.10 (Theorem A).",
           "match": "States the actual analytic elementary divisors."
         }
       ],
@@ -2720,7 +2777,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Proposition4.8, Corollaries4.9-4.10 and Proposition4.11, pp.1120-1123",
-          "excerpt": "Fil−i",
+          "excerpt": "Proposition 4.11.",
           "match": "Identifies the period subspace and then the matrix transport."
         }
       ],
@@ -2745,15 +2802,18 @@
       "tests": [
         {
           "name": "specialization_transport",
-          "statement": "For V=span(1,0) and M=[[0,1],[1,0]], W=span(0,1), so the first Coleman coordinate is forced zero."
+          "statement": "For V=span(1,0) and M=[[0,1],[1,0]], W=span(0,1), so the first Coleman coordinate is forced zero.",
+          "kind": "computation"
         },
         {
           "name": "specialization_full_filtration",
-          "statement": "If Fil^(-i) is full and both Euler maps invertible then W=E^d."
+          "statement": "If Fil^(-i) is full and both Euler maps invertible then W=E^d.",
+          "kind": "characterisation"
         },
         {
           "name": "specialization_singular_exclusion",
-          "statement": "A phi eigenvalue p^-1 at i=0 violates NC and forbids using the displayed inverse."
+          "statement": "A phi eigenvalue p^-1 at i=0 violates NC and forbids using the displayed inverse.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2846,7 +2906,7 @@
         {
           "sourceId": "LLZ2011",
           "locator": "Theorem4.16 and proof, p.1124",
-          "excerpt": "[λr1",
+          "excerpt": "Theorem 4.16.",
           "match": "Computes the unbounded vector-regulator cokernel."
         }
       ],
@@ -2920,7 +2980,7 @@
       "sources": [
         {
           "sourceId": "LLZ2011",
-          "locator": "Theorems5.10,5.13 and preprint Remark5.12, pp.1128-1129",
+          "locator": "Theorems 5.10 and 5.13, Proposition 5.11 and the published basis-change Remark 5.12, pp.1128-1129; the maximal-ideal selection is in arXiv1006.5163v2 Remark 5.12, p.25",
           "excerpt": "pseudo-null",
           "match": "Finite cokernel is the integral conclusion."
         },
@@ -2929,6 +2989,12 @@
           "locator": "Proposition4.11 and proof, pp.26-27",
           "excerpt": "assumptions (C) and (D)",
           "match": "Precisely marks the integral proof input still needed beyond its printed scope."
+        },
+        {
+          "sourceId": "LLZ2010v2",
+          "locator": "Section 5.3, Remark 5.12, p.25",
+          "excerpt": "maximal ideal",
+          "match": "The preprint supplies the integral maximal-ideal choice; distinguish it from the published basis-change Remark 5.12."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2993,15 +3059,18 @@
       "tests": [
         {
           "name": "signed_zero",
-          "statement": "The zero class lies in every condition."
+          "statement": "The zero class lies in every condition.",
+          "kind": "degenerate"
         },
         {
           "name": "signed_basis_mix",
-          "statement": "For Col(z)=(1,0) and U^-1=[[1,1],[0,1]], the second new coordinate is 1, so the second condition changes."
+          "statement": "For Col(z)=(1,0) and U^-1=[[1,1],[0,1]], the second new coordinate is 1, so the second condition changes.",
+          "kind": "computation"
         },
         {
           "name": "signed_scalar_basis",
-          "statement": "Multiplying a coordinate by an O_E unit leaves its kernel unchanged; a noninvertible operation is not a basis change."
+          "statement": "Multiplying a coordinate by an O_E unit leaves its kernel unchanged; a noninvertible operation is not a basis change.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -3039,8 +3108,8 @@
       "sources": [
         {
           "sourceId": "RJ2018",
-          "locator": "Sections0E3, IC4, IC6; TheoremI.1 and LemmaI.17, pp.896-898,910-916",
-          "excerpt": "B(η, N)",
+          "locator": "Section 0E3 and IA, Theorem I.1; Sections IC4-IC5, equation(3), Theorem I.15 and Lemma I.17, pp.896-898,910-915",
+          "excerpt": "B(η, N ) =",
           "match": "Records the precise strict inequality and high-conductor union."
         }
       ],
@@ -3065,15 +3134,18 @@
       "tests": [
         {
           "name": "domain_center",
-          "statement": "Each admitted eta has infinite valuation difference from itself and lies in its ball."
+          "statement": "Each admitted eta has infinite valuation difference from itself and lies in its ball.",
+          "kind": "characterisation"
         },
         {
           "name": "domain_wrong_torsion",
-          "statement": "A character on another torsion component has valuation difference -infinity and lies outside this ball."
+          "statement": "A character on another torsion component has valuation difference -infinity and lies outside this ball.",
+          "kind": "non-example"
         },
         {
           "name": "domain_threshold",
-          "statement": "A character with valuation difference exactly p^(N-c) is excluded by the strict inequality; the trivial character is not supplied by a high-conductor center argument."
+          "statement": "A character with valuation difference exactly p^(N-c) is excluded by the strict inequality; the trivial character is not supplied by a high-conductor center argument.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -3121,7 +3193,7 @@
         {
           "sourceId": "RJ2018",
           "locator": "SectionIC2, PropositionI.13 and proof, pp.911-913",
-          "excerpt": "κ(∂)",
+          "excerpt": "Proposition I.13.",
           "match": "The analytic differential calculus is a substantive construction, not a formal exponent."
         }
       ],
@@ -3146,15 +3218,18 @@
       "tests": [
         {
           "name": "differential_weight_zero",
-          "statement": "At k=0 the operator is the identity on psi-zero."
+          "statement": "At k=0 the operator is the identity on psi-zero.",
+          "kind": "degenerate"
         },
         {
           "name": "differential_weight_one",
-          "statement": "At k=1 it is partial, not t partial."
+          "statement": "At k=1 it is partial, not t partial.",
+          "kind": "computation"
         },
         {
           "name": "differential_inverse",
-          "statement": "At k=-1, partial composed with the operator is identity on psi-zero; no inverse is asserted on all Delta."
+          "statement": "At k=-1, partial composed with the operator is identity on psi-zero; no inverse is asserted on all Delta.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -3177,9 +3252,9 @@
       "title": "Rodrigues Jacinto de Rham regulator",
       "kind": "construction",
       "declaration": "deRhamRegulator",
-      "statement": "For z in Delta^(psi=1), define Lambda_(D,z)(eta kappa)=G(eta)^(-1) sum_(a in (Z/p^m)^times) eta(a) sigma_a [phi^(-m) kappa(partial)(1-phi)z]_0, for m sufficiently large and the admitted high-conductor ball. The constant term is taken in E_m tensor D_dR(D) after localization; the sum descends to D_dR(D). These definitions glue to a rigid analytic D_dR(D)-valued function on U_D. For positive-weight D and z in D^(psi=1), use its actual inclusion in Delta; an Iwasawa version is through the proved PG.5/L2 map.",
+      "statement": "For z in Delta^(psi=1) and primitive finite eta of conductor exactly p^m with m>m(Delta), define Lambda_(D,z)(eta kappa)=G(eta)^(-1) sum_(a in (Z/p^m)^times) eta(a) sigma_a [phi^(-m) kappa(partial)(1-phi)z]_0, on its admitted high-conductor ball; the exponent m is the conductor exponent of eta, not a freely enlargeable localization index. The constant term is taken in E_m tensor D_dR(D) after localization at that conductor; the sum descends to D_dR(D). These definitions glue to a rigid analytic D_dR(D)-valued function on U_D. For positive-weight D and z in D^(psi=1), use its actual inclusion in Delta; an Iwasawa version is through the proved PG.5/L2 map.",
       "hypotheses": [
-        "D is de Rham; use the actual Delta, localization embeddings, q coordinates and Gauss periods G(eta)=sum eta(a) zeta_(p^c)^a. On each ball retain the threshold needed for its analytic powers."
+        "D is de Rham; use the actual Delta, localization embeddings, q coordinates and Gauss periods G(eta)=sum eta(a) zeta_(p^c)^a. On each ball retain the threshold needed for its analytic powers. Keep phi^(-m), the residue sum modulo p^m and G(eta) at the same primitive conductor. A larger coefficient field may receive this fixed expression; it does not replace m in the formula."
       ],
       "prerequisites": [
         "PadicHodgeRegulators:L4/analytic-differential-powers",
@@ -3190,17 +3265,18 @@
         "PadicHodgeTheory:P7"
       ],
       "proofSteps": [
-        "RJ I.15 and I.17 establish local convergence of equation(3). Constant coefficients after localization lie in the indicated de Rham realization.",
-        "Changing m, residue representatives and admitted charts gives the same analytic function; use the Gauss-sum transformation under Gamma to prove descent. Glue the ball functions in actual rigid analytic weight space."
+        "RJ IC4 equation(3) fixes m by cond(eta)=p^m. I.15 and I.17 establish convergence on that character ball; constant coefficients after localization at m lie in the indicated de Rham realization.",
+        "Changing residue representatives or embedding the fixed conductor-m expression in a larger coefficient field preserves its value. Compare admitted charts on overlaps using the proved analytic differential identities; use the Gauss-sum transformation under Gamma to prove descent and glue in actual rigid analytic weight space. Do not replace the primitive conductor by a larger imprimitive modulus."
       ],
       "acceptance": [
-        "An arbitrary analytic function with the expected values is not the construction."
+        "An arbitrary analytic function with the expected values is not the construction.",
+        "Conductor and localization enlargement are distinct: equation(3) is not invariant under replacing m by m+1 with eta unchanged."
       ],
       "sources": [
         {
           "sourceId": "RJ2018",
           "locator": "Equation(3), TheoremI.15, LemmaI.17 and proofs, pp.914-916",
-          "excerpt": "ΛD,z",
+          "excerpt": "un caractère de Dirichlet de conducteur",
           "match": "Constructs the vector function and proves its admitted-domain analyticity."
         }
       ],
@@ -3219,7 +3295,7 @@
         {
           "name": "deRhamRegulator_descent",
           "role": "compatibility",
-          "statement": "Its finite-level expression descends to D_dR(D) and is independent of a larger localization level."
+          "statement": "The conductor-m expression descends to D_dR(D). Embedding it in a larger coefficient field preserves its value while phi^(-m), the residue modulus and G(eta) remain at cond(eta)=p^m."
         },
         {
           "name": "deRhamRegulator_restrict",
@@ -3230,15 +3306,23 @@
       "tests": [
         {
           "name": "derham_zero",
-          "statement": "The zero psi-one vector gives the zero analytic function."
+          "statement": "The zero psi-one vector gives the zero analytic function.",
+          "kind": "degenerate"
         },
         {
           "name": "derham_phi_fixed",
-          "statement": "A psi-one vector fixed by phi is killed by 1-phi and gives zero."
+          "statement": "A psi-one vector fixed by phi is killed by 1-phi and gives zero.",
+          "kind": "degenerate"
         },
         {
           "name": "derham_period_normalization",
-          "statement": "Replacing G(eta) by G(eta)^-1 would multiply the expression by G(eta)^2; the stated denominator is essential."
+          "statement": "Replacing G(eta) by G(eta)^-1 would multiply the expression by G(eta)^2; the stated denominator is essential.",
+          "kind": "computation"
+        },
+        {
+          "name": "derham_conductor_level",
+          "kind": "non-example",
+          "statement": "In the Gauss-sum model at p=5, let eta be the quadratic character of conductor 5. For primitive compatible roots zeta_5=zeta_25^5, sum_(a mod 5, 5 not dividing a) eta(a) zeta_5^a=G(eta) is nonzero, whereas sum_(a mod 25, 5 not dividing a) eta(a) zeta_25^a=0. Thus the normalized conductor-5 value is 1 and the imprimitive modulus-25 replacement is 0."
         }
       ],
       "uses": [
@@ -3288,7 +3372,7 @@
         {
           "sourceId": "RJ2018",
           "locator": "LemmaI.17, PropositionsI.22-I.26, TheoremI.27 and footnotes10,25, pp.914-920",
-          "excerpt": "j ≪ 0",
+          "excerpt": "Théorème I.27.",
           "match": "Exact integer ranges, period bases and convergence estimates."
         }
       ],
@@ -3327,7 +3411,7 @@
         {
           "sourceId": "RJ2018",
           "locator": "TheoremI.15, p.914; SectionIC9, PropositionI.28, CorollaryI.29, p.920",
-          "excerpt": "extend",
+          "excerpt": "fonction définie sur tout l’espace des poids",
           "match": "Precisely states the crystalline subrange in which a global extension is proved."
         }
       ],
@@ -3628,8 +3712,14 @@
       "known": "The sufficient maximal-ideal choice is already explicit in arXiv v2 Remark 5.12. No separate published corrigendum located; no novelty claim.",
       "searched": [
         "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
-        "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located."
-      ]
+        "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
+        "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published Proposition5.11 and arXiv v2 Remark5.12. The published nonzero determinant condition is insufficient over O_E: e1=1,e2=-4 in Z_5 give determinant 5. The preprint maximal-ideal choice guarantees a unit determinant and finite avoidance handles all slopes.",
+        "by": "REV-PadicHodgeRegulators--L3"
+      }
     },
     {
       "id": "PadicHodgeRegulators/E302",
@@ -3643,8 +3733,14 @@
       "known": "No correction located in the publication/preprint comparisons and searches listed; novelty not asserted.",
       "searched": [
         "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
-        "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located."
-      ]
+        "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
+        "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Proposition4.2: S imposes the old conditions and one extra, so S is contained in S-prime. The ideals (X(X-5)) subset (X) give a strict concrete check. The later transported coefficient condition uses the correct inclusion.",
+        "by": "REV-PadicHodgeRegulators--L3"
+      }
     },
     {
       "id": "PadicHodgeRegulators/E303",
@@ -3659,8 +3755,14 @@
       "searched": [
         "Downloaded MSP version of record; visually inspected p.1127; compared preceding M(0) and k=2 relation.",
         "Compared arXiv1006.5163v2 Proposition5.9; same ordered-functional text.",
-        "Search on 2026-10-06 for exact title with erratum/correction/Proposition5.9 and journal metadata; no separate correction located."
-      ]
+        "Search on 2026-10-06 for exact title with erratum/correction/Proposition5.9 and journal metadata; no separate correction located.",
+        "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the preceding k=2 relation and M(0), not by guessing a sign. The allowed ordered pair (1,2) at p=5,a_p=0 has printed rho=-6 and corrected rho=0. E is the coefficient-valued quotient unless E=Q_p; coordinate reversal is a distinct convention.",
+        "by": "REV-PadicHodgeRegulators--L3"
+      }
     },
     {
       "id": "PadicHodgeRegulators/E304",
@@ -3675,8 +3777,14 @@
       "searched": [
         "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
         "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
-        "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located."
-      ]
+        "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
+        "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a scalar-carrier correction. Theorem2.12 gives the bounded psi-zero module over Lambda_E; Proposition2.11 separately constructs its analytic H_E extension. Corollary4.13 must either remain bounded over Lambda_E or extend both source and target analytically.",
+        "by": "REV-PadicHodgeRegulators--L3"
+      }
     },
     {
       "id": "PadicHodgeRegulators/E305",
@@ -3691,8 +3799,14 @@
       "searched": [
         "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
         "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
-        "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located."
-      ]
+        "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
+        "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a fixed-coordinate correction, rather than a claim that the source forgot an abstract identification. Equation(2) is L=Col M nu; therefore the preimage of the period subspace is V_(i,eta) M(x_i)^(-1). The weight-two lines span(1,2) and span(-2,5) exhibit the distinction.",
+        "by": "REV-PadicHodgeRegulators--L3"
+      }
     }
   ],
   "provenance": {
@@ -3703,7 +3817,21 @@
     "audit": "Reviewed data/library-coverage.json L3/L4 AUDIT-26 entries read in full. Pinned declaration index and TauCeti sources searched for Perrin-Riou, Wach, Coleman maps, Iwasawa, D_cris, Bloch–Kato and Mellin; complex Mellin is not this API. Twelve baseline statements re-read.",
     "implementation": "Algebraic prototype elaborated with lean-check at pinned Mathlib; all nodes unchecked. No arithmetic construction is claimed implemented. Arithmetic comments are required by the roadmap public contract when native higher carriers are unavailable.",
     "continuation": "Both stage target sets are planned; gaps and requests are exact follow-up obligations, not reasons to add unrelated source results.",
-    "tests": "Exact rational scratch regressions in this run: 36 constraint bases, 72 projection witnesses, 48 quadratic Euler calculations, 30 basis transports, 17 Gamma factors and negative controls. No p-adic analytic correctness claim."
+    "tests": "Exact rational scratch regressions in this run: 36 constraint bases, 72 projection witnesses, 48 quadratic Euler calculations, 30 basis transports, 17 Gamma factors and negative controls. No p-adic analytic correctness claim.",
+    "independentReview": {
+      "job": "REV-PadicHodgeRegulators--L3",
+      "session": "codex-KKTL98",
+      "date": "2026-10-06",
+      "sources": "Fresh downloads of all seven registered editions matched their SHA256 values. All node locators and excerpts checked against the cited passages, with mathematical formulas and proof dependencies checked independently.",
+      "versionCheckUrls": [
+        "https://msp.org/ant/2011/5-8/p06.xhtml",
+        "https://arxiv.org/abs/1006.5163v2",
+        "https://antoniolei.com/publications/"
+      ],
+      "versionCheckLimit": "No separate corrigendum found in the arXiv version record, author publications page and bounded title searches; publisher XHTML index did not render, but the version-of-record PDF was acquired and read. No exhaustive or novel-error claim.",
+      "supplierLimit": "Referenced supplier nodes are plans, not baseline implementations. ColemanPowerSeries is accepted; the current PMIA packet is needs_changes and PG has no acceptance. Their outstanding arithmetic APIs remain supplier requests/gaps.",
+      "baseline": "All twelve Mathlib declaration statements confirmed at 082e2d37e8b0463410cdb532e111cd43d5a66174. No Tau Ceti declaration is cited or imported by the suggested file."
+    }
   },
   "restructure": [
     {
@@ -3714,5 +3842,308 @@
       "proposal": "PhiGammaModulesAndIwasawaCohomology, Part II: differential de Rham module and Nakamura comparison",
       "reason": "Import N_rig(D), its localization/differential API and exponential comparison once from the phi/Gamma owner. L4 plans the regulator analytic powers and character-domain construction only; PHT owns annulus foundations. The supplier must assess whether PG.2 already covers this or a PartII is required."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PadicHodgeRegulators--L3",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 59 nodes, seven source versions, all twelve pinned Mathlib baseline declarations, supplier contracts, API/tests, suggested signatures and planets. Corrected the de Rham conductor/descent contract, big-exponential hypothesis wording, locators/excerpts and test classifications; confirmed E301-E305. Both stages are planned, not closed: ten precise gaps and sixteen requests remain. Arithmetic comments are not implementations. The companion reader is outside this review issue's deliverables; its conductor wording and older review state require authorized synchronization, documented in the review report.",
+    "checked": [
+      {
+        "nodeId": "PadicHodgeRegulators:L3/quadratic-frobenius-inverse",
+        "verdict": "corrected",
+        "note": "Candidate is a polynomial in Phi; b nonzero belongs to the inverse specification, not the definition. Source anchor strengthened and test kinds supplied."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/quadratic-frobenius-inverse-spec",
+        "verdict": "corrected",
+        "note": "The quadratic relation gives both multiplication orders; no commutativity of arbitrary matrices is used. Locator/excerpt now identify the source Euler calculation."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/quadratic-euler-inverse",
+        "verdict": "corrected",
+        "note": "The denominator is 1+a+b; singular cases remain candidates rather than inverses. Source anchor and discriminating test classifications corrected."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/quadratic-euler-inverse-spec",
+        "verdict": "corrected",
+        "note": "Expanding (I-Phi)(Phi+(1+a)I) gives (1+a+b)I in both orders; the nonzero denominator is explicit."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/quadratic-euler-product",
+        "verdict": "corrected",
+        "note": "Independent companion-matrix arithmetic confirms both inverses and the displayed product, including all scalar denominator guards."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/evaluation-constraints",
+        "verdict": "corrected",
+        "note": "Finite componentwise evaluation defines an actual submodule, with the E-algebra and evaluation-kernel assumptions specified; repeated-point negative control retained."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/scalar-multiple-zeros",
+        "verdict": "corrected",
+        "note": "Induction divides by t-x_j and uses nonzero differences at the remaining points. The finite-set distinctness hypothesis is essential."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/single-constraint-basis",
+        "verdict": "corrected",
+        "note": "Extend an E-basis of V_j, then multiply complementary rows by q_j. The determinant uses row orientation and a nonzero coefficient scalar."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/unused-point-invertibility",
+        "verdict": "corrected",
+        "note": "The previous determinant evaluates to a nonzero product of differences at an unused point. Its inverse is over E; no integral inverse is inferred."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/transported-specialization",
+        "verdict": "corrected",
+        "note": "The transported space is the submodule preimage under row multiplication. For invertible C it is VC inverse, with a permutation-matrix test."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/transport-dimension",
+        "verdict": "corrected",
+        "note": "Row multiplication and its inverse give a linear equivalence to V, so dimension and codimension are preserved."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/constraint-basis",
+        "verdict": "corrected",
+        "note": "The induction maintains a basis and its determinant together and multiplies the new coefficient matrix on the left. Bounded-series instantiation remains an explicit gap."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/constraint-determinant",
+        "verdict": "corrected",
+        "note": "Determinants of different bases differ by a unit; the result is association of generators, rather than a preferred numerical determinant."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/projection-generator",
+        "verdict": "corrected",
+        "note": "The forced-zero indices define a squarefree finite product; empty product and zero/full-subspace tests discriminate its meaning."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/projection-witness",
+        "verdict": "corrected",
+        "note": "Interpolate only the other coordinates and prescribe g_k as the k-th coordinate. Lagrange hypotheses were checked; X/5 blocks an integral reinterpretation."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/coordinate-image",
+        "verdict": "corrected",
+        "note": "One inclusion is evaluation divisibility and the other uses the generator witness. Surjective individual projections do not imply S=R^d."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/coleman-coordinates",
+        "verdict": "corrected",
+        "note": "Actual f and coordinate equivalence e are supplied inputs; e composed with f does not construct Wach or Iwasawa objects. Source locator corrected from a nonexistent definition number."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/coleman-reconstruction",
+        "verdict": "corrected",
+        "note": "Apply the inverse coordinate equivalence to e(f(z)); this is genuine reconstruction, without an arithmetic existence claim."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/logarithmic-matrix",
+        "verdict": "corrected",
+        "note": "Rows are the images of the input coordinate vectors under j and b. Scalar extension precedes multiplication; output matrix entries lie in A."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/matrix-expansion",
+        "verdict": "corrected",
+        "note": "Finite basis expansion and the checked row bilinear map produce algebraMap(e(w)) M; the coefficient embedding cannot be omitted."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/regulator-coordinate-decomposition",
+        "verdict": "corrected",
+        "note": "Substitute f(z) into the expansion and reconstruct Col. The arithmetic regulator interpretation waits for the named comparison suppliers."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/constant-basis-covariance",
+        "verdict": "corrected",
+        "note": "Noncommuting matrix checks confirm c prime=cU inverse and M prime=UM B inverse; this is a fixed row convention, including output-basis transport."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/shear-matrix",
+        "verdict": "corrected",
+        "note": "Row action and determinant 1-e1e2 are correct. Integral invertibility requires a unit; literal source anchor and test categories corrected."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/shear-specialization-lines",
+        "verdict": "corrected",
+        "note": "Solving the shear equations gives the three displayed lines. Both transformed slope coefficients must be nonzero for both projections."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/integral-shear-choice",
+        "verdict": "corrected",
+        "note": "Finite avoidance inside the infinite maximal ideal supplies both coefficients; the local-ring lemma makes 1-e1e2 a unit. Published and preprint roles distinguished."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/sheared-coordinate-surjectivity",
+        "verdict": "corrected",
+        "note": "Apply the coordinate-image theorem after transporting every line by the integral shear. Its conclusion is rational coordinate surjectivity with finite integral defects still possible."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/gamma-leading-factor",
+        "verdict": "corrected",
+        "note": "Leading Gamma coefficients at all integers match LZ/RJ; exact values at 0,-1,-2,3 checked. This is a rational factorial function, not p-adic Gamma."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/logarithmic-factors",
+        "verdict": "corrected",
+        "note": "ell_i, delta_i and n_k distinguish logarithmic factors from their removable weight zeros. Locator repaired to Section 1C2; the derivative gives the displayed removable value."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/crystalline-regulator",
+        "verdict": "corrected",
+        "note": "The actual psi-to-cohomology inverse and Mellin inverse fix direction, source, target and linearity. The exact PG boundary was read; arithmetic carriers remain a gap."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/big-exponential-obstruction",
+        "verdict": "corrected",
+        "note": "Berger II.10 includes the top k=h obstruction and eigenvectors. Exactness of the cited original input remains explicitly unresolved; the kernel is not silently discarded."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/big-exponential",
+        "verdict": "corrected",
+        "note": "The differentiated lift descends modulo invariants. The eigencondition of Definition II.12 and the broader no-E(h)-subrepresentation condition of Remark II.14 are now distinguished explicitly."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/auxiliary-h-comparison",
+        "verdict": "corrected",
+        "note": "The auxiliary-h relation and twist law are interpreted on the common admitted source after fraction localization, with h at least one."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/meromorphic-twist-extension",
+        "verdict": "corrected",
+        "note": "LZ Section 4.4 divides logarithmic factors in the fraction algebra; independence of the auxiliary twist is the compatibility target. Unqualified H_E cancellation remains a named target gap."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/ramified-interpolation",
+        "verdict": "verified",
+        "note": "LZ Appendix B supplies the finite-character conductor, Gauss factor, p power and phi power for every integral j in the admitted range. Negative j uses log only on the finite/isomorphism range."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/unramified-interpolation",
+        "verdict": "verified",
+        "note": "Only B_j must be invertible to solve this direction. The numerator A_j may be singular; all Tate and Gamma conventions agree with Appendix B."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/singular-euler-specialization",
+        "verdict": "verified",
+        "note": "Denominator-cleared identities retain the ambiguity A_j(ker B_j). The singular scalar model confirms that the relation need not determine a unique regulator value."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/growth",
+        "verdict": "verified",
+        "note": "LZ Proposition 4.8 gives quotient-slope order h, not universal order zero. The one-variable analytic estimate is honestly retained as a gap."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/naturality-and-lattice",
+        "verdict": "corrected",
+        "note": "Actual maps carry coefficient extension, equivariance and the Wach lattice target. Root-change factor is inverse and a gamma change is a coordinate substitution."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/explicit-reciprocity",
+        "verdict": "verified",
+        "note": "Berger II.16/II.17 and LZ B.6 fix the involution, sigma_minus1, ell_0 and minus sign. Dual regulators use the admitted fractional twist extension."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/regulator-determinant",
+        "verdict": "corrected",
+        "note": "LLZ 4.7 gives the analytic determinant ideal with filtration multiplicities. Reciprocity alone does not supply its determinant-line normalization; that exact gap is retained."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/scalar-projection",
+        "verdict": "corrected",
+        "note": "An explicitly chosen functional is composed with the vector regulator using tensor map and right unitor. Ordered projections and period scaling test the extra choice."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/tate-coleman-comparison",
+        "verdict": "corrected",
+        "note": "LZ 6.4.2 and all four Coleman supplier statements confirm the ell_0 multiplier and raw/normalized minus sign. The cokernel is the first moment; PMIA is only a requested integral supplier."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L3/rubin-coleman-map",
+        "verdict": "corrected",
+        "note": "Rubin III.5.14 has the singular inverse-limit source, conductor exponent, Gauss normalization and injection. Its original construction is a recorded gap; nonsplit p=5 multiplier is 5/3."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/good-wach-basis",
+        "verdict": "verified",
+        "note": "LLZ 2.11-2.14 distinguish existence of a good basis, bounded basis and analytic extension from the conjecture for arbitrary Wach bases. No arbitrary-basis claim is made."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/noncritical-refinement",
+        "verdict": "corrected",
+        "note": "General-position filtration dimensions match LLZ 1C5 with repeated weights. Distinct eigenvalues alone are insufficient; the rank-three obstruction forbids automatic existence."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/refinement-saturated-flag",
+        "verdict": "verified",
+        "note": "LLZ 2.4-2.9 gives saturated intersections, quotient embeddings and rank-one exact annihilators. PG/analytic supplier requests retain the substantive period inputs."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
+        "verdict": "corrected",
+        "note": "Corollary 1.12, Theorem 2.10 and Corollary 3.2 give n_r elementary divisors. Removable weight zeros explain M(x_i) invertibility; lambda_r is a different invariant."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/specialization-subspaces",
+        "verdict": "corrected",
+        "note": "The period-space conditions are pulled back by the actual M(x_i), giving W=V M inverse. NC excludes all singular Euler powers; transported codimension and negative controls are correct."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/actual-coleman-image",
+        "verdict": "verified",
+        "note": "LLZ 4.12-4.15 states exact bounded image and evaluation quotient. Equal analytic determinants alone are not a bounded descent proof; the necessary descent gap is explicit."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/regulator-elementary-divisors",
+        "verdict": "corrected",
+        "note": "Theorem 4.16 combines disjoint weight and remaining zeros to give lambda_r, not n_r or bounded polynomial factors. The analytic product criterion is an explicit supplier obligation."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/modular-specialization",
+        "verdict": "verified",
+        "note": "The ordered source matrix and quadratic calculation give the preceding specialization relation. The corrected E-valued rho kills (1,2) at p=5,a_p=0; the printed swapped row does not."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/integral-image-index",
+        "verdict": "corrected",
+        "note": "The source claims finite integral cokernel, not integral surjectivity. LLZWach 4.11 does not alone prove the broader lower inclusion; its (C),(D) restrictions and gap remain. Published/preprint Remark 5.12 locators separated."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/signed-local-condition",
+        "verdict": "corrected",
+        "note": "The specified coordinate kernel is an actual closed local condition after h_Iw transport. Unit rescaling preserves it, while a basis mix changes it; global orthogonal Selmer conditions belong elsewhere."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/derham-character-domain",
+        "verdict": "corrected",
+        "note": "RJ weight balls use a strict valuation inequality and high conductor. IA/I.15/I.17 locators and literal excerpt corrected; U_D is an admitted open domain, not all weight space."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/analytic-differential-powers",
+        "verdict": "corrected",
+        "note": "RJ I.13 gives analytic differential powers with coefficient and annulus bounds. Representatives and sufficiently large N are auxiliary choices; negative integral powers use the actual psi-zero inverse."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/derham-regulator",
+        "verdict": "corrected",
+        "note": "Equation (3) fixes m as the exact primitive conductor exponent. Statement, descent API, gluing proof and suggested comments corrected together; exact cyclotomic Gauss regression disproves arbitrary conductor enlargement."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/derham-interpolation-growth",
+        "verdict": "corrected",
+        "note": "RJ I.15/I.27 distinguish all j>=0 (or j>=h) from only sufficiently negative j. Gauss dual bases and local annulus growth are retained; no global finite-order bound is asserted."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/crystalline-derham-comparison",
+        "verdict": "corrected",
+        "note": "RJ I.28 computes the strict-negative-slope eigenbasis subcase and I.29 asserts the broader crystalline extension. The reduction and exact LLZ/RJ normalization square remain explicit gaps."
+      },
+      {
+        "nodeId": "PadicHodgeRegulators:L4/split-multiplicative-augmentation",
+        "verdict": "verified",
+        "note": "Rubin III.5.14 gives injection and split-multiplicative image containment in augmentation. It does not claim equality with that ideal or an exceptional-zero derivative."
+      }
+    ]
+  }
 }
