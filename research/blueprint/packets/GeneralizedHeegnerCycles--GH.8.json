@@ -5,8 +5,8 @@
   "scope": [
     "GeneralizedHeegnerCycles:GH.8"
   ],
-  "status": "partial",
-  "summary": "Thirteen-node partial weight-two comparison plan. The twelve inherited targets and their geometric, initial-conductor, lattice and regulator boundaries are retained. The additional source-specific comparison proves that an exact-conductor character kills the lower-conductor stabilization term before passing through the cycle/point map. Its coset proof uses the existing scalar character-sum theorem over an integral domain and works for torsion coefficient modules without dividing by a group order. Exact conductor means nontriviality on the last conductor kernel, not just on the full Galois group. The actual cohomological specialization/descent remains a named supplier obligation. The printed initial unit factor, all seven geometric interfaces, uniform lattice maps and main-conjecture consumer exports are not certified. The earlier algebraic file was compiled in the previous checkpoint; the enlarged prototype is not compiled in this continuation.",
+  "status": "complete",
+  "summary": "Target-level GH.8 plan with sixteen nodes: weight-two divisor/Abel--Jacobi and Kummer comparison, characters and ordinary stabilization including the initial conductor, modular differential, p-old Hida specialization, uniform lattice control, and explicit source-qualified exports to AutomorphicCongruences L2 and RankZeroOneBSD BSD.6a. All thirteen inherited IDs and the symmetric-power source finding are retained. Existing declaration-level Heegner suppliers and the integrated GH.4 reciprocity node are imported. The target pass is complete and the stage is planned, with precise unresolved arithmetic supplier contracts and six gap groups; it is not closed or implemented. General main-conjecture formulations remain with ModularIwasawaMainConjectures L6.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,77 +16,77 @@
         "kind": "structure",
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "Bundled semilinear maps, including ordinary linear maps; supplies the linear algebra of transport, stabilization and comparisons, not an arithmetic realization theorem.",
-        "checked": "Historical 2026-09-26 checkpoint: Definition read at the pin in the original checkpoint and re-read in this continuation, including the additive and scalar-map fields. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Module.Dual",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "The algebraic dual of a module; no de Rham or Galois comparison is supplied.",
-        "checked": "Historical 2026-09-26 checkpoint: Definition read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:LinearMap.dualMap_apply",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Evaluation of the transpose: q.dualMap ell x = ell (q x).",
-        "checked": "Historical 2026-09-26 checkpoint: Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:LinearMap.dualMap_comp_dualMap",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Contravariant composition of transposes, used for the differential comparison composite maps.",
-        "checked": "Historical 2026-09-26 checkpoint: Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Int.natAbs_le_of_dvd_ne_zero",
         "kind": "lemma",
         "module": "Mathlib/Data/Int/Basic.lean",
         "provides": "If m divides a nonzero integer n, natAbs(m) <= natAbs(n); rules out divisibility of a fixed nonzero integer by every power of two.",
-        "checked": "Historical 2026-09-26 checkpoint: Actual statement and proof read in the source at the pinned commit in this continuation. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Submodule.mapQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "Induced map M/P -> N/Q from a linear map f with P contained in f^{-1}(Q); does not imply injectivity.",
-        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Submodule.ker_mapQ",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "The kernel of the induced quotient map is the image of f^{-1}(Q) under M -> M/P.",
-        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Submodule.mkQ_map_self",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "The image of P under its own quotient map is zero.",
-        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:LinearMap.ker_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "A linear map of modules is injective exactly when its kernel is zero.",
-        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:Equiv.prod_comp",
         "kind": "lemma",
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
         "provides": "Reindex a finite product by an equivalence of finite types; its to_additive attribute generates Equiv.sum_comp, the finite-sum form used here. The literal source declaration is cited because the repository index does not enumerate generated additive declarations. No arithmetic cohomology or character-specialization map is supplied.",
-        "checked": "Read the pinned prod_comp statement, proof and to_additive generation of sum_comp, with its Fintype context, on 2026-09-27. File blob 0eec64f2576f4d449b44b877678fe95678cfc9f0. Submission follow-up: index_declarations.py scans only literal declaration heads, so the baseline ref names prod_comp; the mathematical proof uses its generated sum_comp counterpart."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       },
       {
         "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "A nontrivial multiplicative character on a finite commutative monoid has scalar sum zero in a commutative integral domain. Apply to the finite abelian conductor kernel, where every element is a unit. This existing scalar theorem, not a new orthogonality theory, supplies cancellation.",
-        "checked": "Definition context and complete theorem/proof read at Mathlib 082e2d3 on 2026-09-27. File blob 5b3f293f24cced8669b6a5cd50efe1252fccdb06. The domain is a CommMonoid, not necessarily a finite field."
+        "checked": "Statement and surrounding hypotheses reread at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; shared Mathlib checkout has this exact HEAD. Generated Equiv.sum_comp is attributed to the literal Equiv.prod_comp source where applicable."
       }
     ]
   },
@@ -95,80 +95,69 @@
       "id": "bdp-published-2013-gh8",
       "title": "Generalized Heegner cycles and p-adic Rankin L-series",
       "authors": "Massimo Bertolini; Henri Darmon; Kartik Prasanna",
-      "edition": "Duke Mathematical Journal 162 (2013), 1033--1148; published PDF on Darmon's page, inspected in the original 2026-09-26 checkpoint",
+      "edition": "Duke Mathematical Journal 162 (2013), 1033--1148; 116-page published PDF on Darmon’s page",
       "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
       "readSections": [
-        "Introduction, especially printed p. 1038 and the weight-zero convention",
-        "Section 2.3, printed p. 1063: Remark 2.6, Proposition 2.7 and the cusp correction",
-        "Sections 3.1--3.4, printed pp. 1065--1070: extension construction and de Rham realization; diagrams on pp. 1066 and 1070 inspected as images in the original checkpoint"
+        "Section 2.3, Remark 2.6, index-zero paragraph and Proposition 2.7, pp. 1062--1063",
+        "Sections 3.1--3.4, pp. 1065--1070: Gysin extension, crystalline comparison and de Rham functional"
       ],
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
+      "accessed": "2026-10-06",
+      "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc"
     },
     {
       "id": "ch-published-2018-gh8",
       "title": "Heegner cycles and p-adic L-functions",
       "authors": "Francesc Castella; Ming-Lun Hsieh",
-      "edition": "Mathematische Annalen 370 (2018), 567--628, DOI 10.1007/s00208-017-1517-3; journal-typeset PDF on Castella's page, inspected 2026-09-26",
+      "edition": "Mathematische Annalen 370 (2018), 567--628; DOI 10.1007/s00208-017-1517-3; 62-page journal-typeset PDF",
       "url": "https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf",
       "readSections": [
-        "Section 4.3, Proposition 4.4 and proof, printed pp. 591--593",
-        "Section 4.4, printed pp. 593--595; the symmetric-power display on p. 593 checked in the original checkpoint page image",
-        "Section 5.2, Definition 5.2 and Lemma 5.3, printed pp. 601--602; printed p. 601 independently re-inspected as a page image in this continuation, including the order of inverse limit and coefficient extension"
+        "Standing Hypothesis (H); Sections 4.3--4.4, Proposition 4.4 and the symmetric-power display, pp. 591--593; p. 593 rendered and inspected",
+        "Section 5.2, Definition 5.2 and Lemmas 5.3--5.4, pp. 601--602"
       ],
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
-      "continuationReading": [
-        "2026-09-27: standing hypotheses, Proposition 4.4 split recurrence and Section 5.2. Printed pp. 601 and 602 inspected as page images; Definition 5.2, Lemmas 5.3--5.4 and the complete finite-sum proof of Lemma 5.4 read. No fresh PDF-byte acquisition succeeded, so no new byte hash is asserted."
-      ]
+      "accessed": "2026-10-06",
+      "sha256": "be67ffe80a7fa346e8cb0733f38c776268174eebc6277a85bfa9b91c49073ade"
     },
     {
       "id": "ch-author-2022-gh8",
       "title": "Heegner cycles and p-adic L-functions",
       "authors": "Francesc Castella; Ming-Lun Hsieh",
-      "edition": "Author revision dated 2 July 2022, 40 pages; not identified with the 2018 typeset text; inspected 2026-09-26",
+      "edition": "Author revision dated 2 July 2022, 40 pages; distinct from the 2018 journal typesetting",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
       "readSections": [
-        "Standing Hypothesis (H)",
-        "Sections 4.1--4.4: cycle classes, coefficients, Proposition 4.4 and character projection",
-        "Section 5.2, Definition 5.2, Lemmas 5.3--5.4 and equation (5.1); Definition 5.2 rechecked in its page image in this continuation",
-        "Section 5.3, Theorem 5.7 and its proof; pairing and group-like factor checked in the original checkpoint page image",
-        "Current continuation: physical/printed pp. 21--25, Theorem 5.1 statement and quotient proof, Definitions 5.2/5.6, Lemmas 5.3--5.5, pairing (5.3), Theorem 5.7 proof; page 22 rendered and inspected. These reads do not re-adjudicate Section 4.4 or the erratum."
+        "Standing Hypothesis (H), pp. 1--2",
+        "Sections 4.2--4.4, pp. 15--19: coefficient carrier, Proposition 4.4 and its proof, symmetric-power display and character projection",
+        "Sections 5.1--5.3, pp. 21--25: Theorem 5.1 and quotient proof, Definition 5.2, Lemmas 5.3--5.5, period pairings, Definition 5.6 and Theorem 5.7 with proof; p. 25 rendered and inspected",
+        "Section 6.1 hypothesis package and Theorem 6.1, pp. 26--27"
       ],
       "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
-      "accessed": "2026-09-26",
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
-      "continuationReading": [
-        "2026-09-27: Section 5.2, pp. 22--24, especially Lemma 5.4, its exact-conductor condition and its citation of Rubin Lemma 2.4.3 for the cohomological specialization. Parsed text compared with the published page image; the source-wide coefficient repair and erratum are not re-adjudicated."
-      ]
+      "accessed": "2026-10-06"
     },
     {
       "id": "castella-family-author-gh8",
       "title": "On the p-adic variation of Heegner points",
       "authors": "Francesc Castella",
-      "edition": "31-page author copy linked from the author publication page; inspected 2026-09-26. Published article: J. Inst. Math. Jussieu 19 (2020), 2127--2164. Numbering is that of the author copy. Current download identified by SHA-256.",
+      "edition": "31-page author copy; numbering of this copy. Published: J. Inst. Math. Jussieu 19 (2020), 2127--2164",
       "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
       "readSections": [
-        "Introduction and standing ordinary-family hypotheses",
-        "Section 6.2, pp. 27--29: Lemma 6.4, Theorem 6.5, equations (6.7)--(6.9), and Remark 6.6",
-        "Theorem 6.5 and Remark 6.6 inspected as page images in the original checkpoint; this continuation read the parsed section, but its additional screenshot request for p. 28 failed",
-        "Current continuation: physical/printed pp. 27--29, Lemma 6.4 proof, Theorem 6.5 proof and Remark 6.6; page 28 successfully rendered and inspected."
+        "Introduction and standing ordinary/Hida hypotheses, pp. 2--3",
+        "Theorem 2.11 and analytic-specialization proof, p. 12",
+        "Section 5.1--5.2, pp. 21--23: Lemma 5.1, lambda localization, Proposition 5.2, twist, corestriction/restriction and Theorem 5.3 statement",
+        "Section 6.2, pp. 27--29: Lemma 6.4 proof, Theorem 6.5 and proof, equations (6.7)--(6.9) and Remark 6.6; p. 28 rendered and inspected"
       ],
       "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d",
-      "accessed": "2026-09-26",
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
-      "continuationReading": [
-        "2026-09-27: Section 6.2, pp. 27--29, with equation (6.7), Theorem 6.5 and Remark 6.6. Parsed text read; the additional page-28 screenshot attempt failed. No new byte hash or full-paper reread is asserted."
-      ]
+      "accessed": "2026-10-06"
     },
     {
       "id": "ch-erratum-gh8",
       "title": "Erratum to Heegner cycles and p-adic L-functions",
       "authors": "Francesc Castella; Ming-Lun Hsieh",
-      "edition": "One-page author erratum, inspected in full including its page image in the original 2026-09-26 checkpoint",
+      "edition": "One-page author erratum linked by Hsieh",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf",
       "readSections": [
-        "Entire erratum in the original checkpoint: corrections concern Theorem 6.3, Lemma 7.5/Proposition 7.8 and Lemma 7.10, not the Section 4.4 symmetric-power display"
+        "Entire one-page erratum: Theorem 6.3, Lemma 7.5/Proposition 7.8 and Lemma 7.10 corrections"
       ],
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
+      "accessed": "2026-10-06",
+      "sha256": "2a8b615daf100b0f2e8ee5890462a91dde9c860492ec920d2a1a7d5827028678"
     },
     {
       "id": "lz14-v3-gh8",
@@ -177,11 +166,10 @@
       "edition": "arXiv:1108.5954v3, 22 April 2014; 45-page accepted-version preprint, distinct from the journal typesetting",
       "url": "https://arxiv.org/pdf/1108.5954v3",
       "sha256": "0da539348716fa2293377bba81b07de3d851f3e98bbc9b244b19e639a5ae5341",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
-        "Physical/printed pp. 16--18: Definition 4.6, Theorem 4.7 statement/proof, Propositions 4.8--4.11 including the complete proof of Proposition 4.11; page 18 rendered and inspected. Earlier Wach-module/Yager construction and its cited proofs remain supplier work."
-      ],
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
+        "Definition 4.6 and Theorem 4.7 statement, p. 16; Propositions 4.9--4.11 including the complete injectivity proof, p. 18"
+      ]
     },
     {
       "id": "mathlib-quotient-082e2d3-gh8",
@@ -190,9 +178,9 @@
       "edition": "Commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Basic.lean",
       "readSections": [
-        "Quotient/Basic.lean lines 110--188 and 190--242; Submodule/Ker.lean lines 185--209."
+        "Quotient/Basic.lean: mkQ_map_self, mapQ and ker_mapQ with their surrounding hypotheses; Submodule/Ker.lean: ker_eq_bot"
       ],
-      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
+      "accessed": "2026-10-06"
     },
     {
       "id": "mathlib-finite-characters-082e2d3-gh8",
@@ -201,10 +189,23 @@
       "edition": "Commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/MulChar/Basic.lean",
       "readSections": [
-        "Basic.lean lines 1--145: MulChar as MonoidHom with vanishing on nonunits; lines 500--700: finite-domain context and full proof of sum_eq_zero_of_ne_one.",
-        "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean lines 620--825: finite-sum reindexing through the to_additive theorem Equiv.sum_comp."
+        "MulChar Basic.lean finite CommMonoid/CommRing/IsDomain context and sum_eq_zero_of_ne_one statement/proof",
+        "BigOperators Finset Defs.lean: Equiv.prod_comp and its generated additive form Equiv.sum_comp"
       ],
-      "accessed": "2026-09-27"
+      "accessed": "2026-10-06"
+    },
+    {
+      "id": "bsd-multiplicative-erratum-gh8",
+      "title": "Erratum to On the p-part of the Birch–Swinnerton-Dyer formula for multiplicative primes",
+      "authors": "Francesc Castella",
+      "edition": "Five-page author erratum; acquired copy includes Theorem 2.3 and its proof",
+      "url": "https://web.math.ucsb.edu/~castella/Birch-erratum.pdf",
+      "sha256": "c04dff16c27bc3ca4f4e235e366fcd4c95a43cfb9215f75a2584dfeb7114edcf",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction, corrected Theorem 1.1 and Theorem A′, pp. 1--2",
+        "Theorem 2.3 and proof, pp. 3--4; proof of Theorem 1.1 and footnote 1, p. 4; reference register, p. 5"
+      ]
     }
   ],
   "nodes": [
@@ -232,17 +233,28 @@
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.0",
         "GeneralizedHeegnerCycles:GH.1",
-        "HeegnerPointEulerSystems:HE.1"
+        "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation"
       ],
       "sources": [
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Section 2.3, Proposition 2.7 and preceding paragraph, printed p. 1063",
           "match": "The preceding paragraph supplies the index-zero cusp correction; the proposition gives homological triviality.",
-          "excerpt": "Proposition 2.7."
+          "excerpt": "PROPOSITION 2.7"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring."
+      }
     },
     {
       "id": "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
@@ -271,15 +283,15 @@
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
         "GeneralizedHeegnerCycles:GH.1",
-        "HeegnerPointEulerSystems:HE.1",
-        "HeegnerPointEulerSystems:HE.3"
+        "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions"
       ],
       "sources": [
         {
           "sourceId": "bdp-published-2013-gh8",
           "locator": "Section 3.1, Definition 3.1 and Remark 3.2, printed pp. 1065--1066",
           "match": "Supplies the extension realization; the finite Picard comparison is a separate requested proof.",
-          "excerpt": "Remark 3.2."
+          "excerpt": "Remark 3.2"
         },
         {
           "sourceId": "castella-family-author-gh8",
@@ -291,6 +303,17 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Weight-two Abel--Jacobi comparison"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring."
       }
     },
     {
@@ -308,7 +331,8 @@
         "Apply the quotient comparison to every conjugate.",
         "Commute the equivariant linear map with the finite weighted sum.",
         "For h in G substitute t=hg; chi(h^{-1}t)=chi(h)^{-1}chi(t).",
-        "An averaging projector needs |G| invertible; inflation--restriction descent is a separate argument."
+        "An averaging projector needs |G| invertible; inflation--restriction descent is a separate argument.",
+        "Identify the finite group action on continuous cohomology from GH.3; apply the coefficient-map naturality of GH.1. The weighted finite sum has the inverse-character eigenspace convention. Restriction and twisted descent must realize that convention rather than assuming invariants under the untwisted action."
       ],
       "acceptance": [
         "The trivial character gives the trace, not the average.",
@@ -317,8 +341,10 @@
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
-        "HeegnerPointEulerSystems:HE.3",
-        "mathlib:LinearMap"
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+        "mathlib:LinearMap",
+        "GeneralizedHeegnerCycles:GH.1",
+        "GeneralizedHeegnerCycles:GH.3"
       ],
       "sources": [
         {
@@ -328,7 +354,19 @@
           "excerpt": "Lemma 5.4."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.finite_weighted_sum_map"
+      }
     },
     {
       "id": "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
@@ -353,8 +391,9 @@
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
-        "HeegnerPointEulerSystems:HE.3",
-        "mathlib:LinearMap"
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+        "mathlib:LinearMap",
+        "HeegnerPointEulerSystems:HE.8/ordinary-stabilized-point"
       ],
       "sources": [
         {
@@ -364,7 +403,19 @@
           "excerpt": "Definition 5.2."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.positive_stabilization_map"
+      }
     },
     {
       "id": "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
@@ -382,7 +433,8 @@
         "The Hecke polynomial gives a_p-p/alpha=alpha.",
         "Multiply by alpha^{-n}.",
         "The single equation at n=1 determines the bottom. The first-conductor comparison is distinct; GH.3 supplies the actual Iwasawa realization.",
-        "If two actual positive tails are identified by comparison maps commuting with the first corestriction, their norm-compatible bottoms agree by that commutative square. This determines the bottom from the tail, but does not identify the printed conductor-zero formula without the actual initial trace and normalization map."
+        "If two actual positive tails are identified by comparison maps commuting with the first corestriction, their norm-compatible bottoms agree by that commutative square. This determines the bottom from the tail, but does not identify the printed conductor-zero formula without the actual initial trace and normalization map.",
+        "Compare with HE.8 ordinary-stabilized-point, stabilized-corestriction and anticyclotomic-heegner-class at the actual ring-class levels before taking its anticyclotomic quotient; use the supplier’s layer shift if the p-part of the class group changes the indexing."
       ],
       "acceptance": [
         "Check n=2 without a degree-p claim for K_1/K_0.",
@@ -391,10 +443,12 @@
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
-        "HeegnerPointEulerSystems:HE.2",
-        "HeegnerPointEulerSystems:HE.3",
+        "HeegnerPointEulerSystems:HE.2/repeated-conductor-predecessor-recurrence",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "GeneralizedHeegnerCycles:GH.3",
-        "mathlib:LinearMap"
+        "mathlib:LinearMap",
+        "HeegnerPointEulerSystems:HE.8/stabilized-corestriction",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class"
       ],
       "sources": [
         {
@@ -404,7 +458,19 @@
           "excerpt": "for all n > 1"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.positive_trace_normalization"
+      }
     },
     {
       "id": "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
@@ -441,14 +507,25 @@
       "sources": [
         {
           "sourceId": "bdp-published-2013-gh8",
-          "locator": "Sections 3.2--3.4, printed pp. 1066--1070; Introduction, printed p. 1038",
+          "locator": "Sections 3.2--3.4, printed pp. 1066--1070",
           "match": "The quotient-adjunction and scalar calculation specify the comparison with the local realization.",
-          "excerpt": "p-adic Abel-Jacobi map"
+          "excerpt": "p-adic Abel–Jacobi map"
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Modular differential comparison"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring."
       }
     },
     {
@@ -518,6 +595,17 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Weight-two ordinary-family comparison"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring."
       }
     },
     {
@@ -532,6 +620,7 @@
         "Only sigma(tau(x_0))=x_0 is needed; no unmentioned splitting or commutation theorem is assumed."
       ],
       "proofSteps": [
+        "Read the HE.0 conductor-change-kernel and ring-class-tower-quotients together with HE.2 split-ramified-first-step-recurrence. Transport their actual point trace through HE.3 Kummer naturality, keeping any cleared Hodge/basepoint factor. The algebraic identity below applies only once u, d, sigma and tau have been identified with these maps; a published positive-conductor recurrence does not prove this initial identification.",
         "Expand corestriction by linearity, and multiply by u alpha. The raw trace and u d=p-1 yield (a-(p-1)/alpha)x_0-sigma(x_0)-tau(x_0).",
         "The root identity gives a-(p-1)/alpha=alpha+alpha^{-1}.",
         "Expand the two Euler factors and use sigma(tau(x_0))=x_0. Cancel the nonzero scalars.",
@@ -544,9 +633,11 @@
         "No degree-p assertion is made for the initial step."
       ],
       "prerequisites": [
-        "HeegnerPointEulerSystems:HE.0",
-        "HeegnerPointEulerSystems:HE.2",
-        "HeegnerPointEulerSystems:HE.3",
+        "HeegnerPointEulerSystems:HE.0/conductor-change-kernel",
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
+        "HeegnerPointEulerSystems:HE.2/split-ramified-first-step-recurrence",
+        "HeegnerPointEulerSystems:HE.2/repeated-conductor-predecessor-recurrence",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "mathlib:LinearMap"
       ],
       "sources": [
@@ -565,9 +656,16 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.initial_corestriction_comparison"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.initial_corestriction_comparison",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
       }
     },
     {
@@ -602,9 +700,16 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.initial_only_rescaling_obstruction"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.initial_only_rescaling_obstruction",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
       }
     },
     {
@@ -629,7 +734,7 @@
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.1",
         "GeneralizedHeegnerCycles:GH.3",
-        "HeegnerPointEulerSystems:HE.3",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "mathlib:LinearMap"
       ],
       "sources": [
@@ -642,9 +747,16 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.uniform_coherent_kernel_bound"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.uniform_coherent_kernel_bound",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
       }
     },
     {
@@ -673,7 +785,7 @@
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
         "GeneralizedHeegnerCycles:GH.1",
         "GeneralizedHeegnerCycles:GH.3",
-        "HeegnerPointEulerSystems:HE.3",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "mathlib:LinearMap"
       ],
       "sources": [
@@ -686,9 +798,16 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.uniform_coherent_lift"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.uniform_coherent_lift",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
       }
     },
     {
@@ -725,9 +844,16 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.doubling_tower_zero"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.doubling_tower_zero",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
       }
     },
     {
@@ -762,8 +888,9 @@
         "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
         "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
         "GeneralizedHeegnerCycles:GH.3",
-        "HeegnerPointEulerSystems:HE.0",
-        "HeegnerPointEulerSystems:HE.3",
+        "HeegnerPointEulerSystems:HE.0/conductor-change-kernel",
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
+        "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
         "mathlib:LinearMap",
         "mathlib:Equiv.prod_comp",
         "mathlib:MulChar.sum_eq_zero_of_ne_one"
@@ -773,13 +900,13 @@
           "sourceId": "ch-published-2018-gh8",
           "locator": "Lemma 5.4 and its proof, printed p. 602; exact conductor cp^n and equation (5.1)",
           "match": "The source uses exact conductor before dropping the lower term; the comparison spells out the last-kernel condition and supplies an integral coset proof. The separate specialization is not claimed constructed.",
-          "excerpt": "Lemma 5.4."
+          "excerpt": "Lemma 5.4"
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Section 5.2, Lemma 5.4, printed p. 23, including the citation of Rubin Lemma 2.4.3",
           "match": "Separates the finite weighted-sum calculation from the cohomological evaluation/descent used by the source.",
-          "excerpt": "nontrivial finite-order anticyclotomic character"
+          "excerpt": "nontrivial finite order character"
         },
         {
           "sourceId": "mathlib-finite-characters-082e2d3-gh8",
@@ -790,70 +917,250 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
-        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
-        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.primitive_character_stabilization"
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "leanName": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.primitive_character_stabilization",
+      "prototype": {
+        "status": "algebraic_signature",
+        "detail": "Expressible algebraic component in the suggested file; instantiation on the actual arithmetic maps and types remains in the statement and supplier contracts."
+      }
+    },
+    {
+      "id": "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+      "parentStageId": "GeneralizedHeegnerCycles:GH.8",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "title": "Weight-two reciprocity through the modular quotient",
+      "kind": "theorem",
+      "statement": "Let f be the weight-two ordinary prime-to-p newform attached to E, with the CH standing hypotheses, p split in K and (c_0,Np)=1. Let psi have infinity type (1,-1) and conductor c_0. Use the GH.3 class z_f, its CH 2022 psi^{-1}-twist and finite-ring-class corestriction, and the GH.1 quotient coefficient map gamma_pi into V_p E. Let S_F be the completed unramified coefficient Iwasawa algebra on the same ring-class quotient used in CH Theorem 5.7. On the corresponding ordinary crystalline line let d_gamma be the induced coefficient map, and let ell_f be the CH functional written omega_f tensor t^{-2}. Transport the elliptic differential and CM generator to a functional ell_E satisfying ell_E composed with d_gamma = c_pi ell_f, where pi*omega_E=c_pi omega_f; this equality is an arithmetic comparison target. Then, for the transported vector regulator R_E and point Iwasawa class y_E=H^1_Iw(gamma_pi)(z_f), ell_E(R_E(y_E tensor psi^{-1})) = -c_pi L_{p,psi}(f) sigma_{-1,p} in S_F. The point class is identified with the HE.8 Kummer system using the actual first-corestriction square. After any defined coefficient/group-quotient homomorphism rho, the image is -rho(c_pi) rho(L_{p,psi}(f)) rho(sigma_{-1,p}). No invertibility of c_pi in the integral ring is asserted.",
+      "hypotheses": [
+        "The common range is odd discriminant -D_K<-3, all primes of N split in K, p not dividing 2N phi(N), ordinary good reduction at p, and the actual level/cusp descent from GH.0--GH.1.",
+        "Use rational coefficients until the uniform integral comparison is supplied. The two-sided lattice maps are on the selected multiplicity-one f-factor; periods in the completed unramified extension are not automatically integral units.",
+        "For the psi-twisted differential, equation (5.3) introduces Omega_psi. Its generator and nonzero inverse must be transported explicitly when extracting ell_f. Changing omega_E or omega_psi changes both the functional and the formula.",
+        "The chosen coefficient map and distribution pushforward respect restriction, corestriction, twisting and crystalline duality. GH.7 supplies this anticyclotomic regulator diagram."
+      ],
+      "proofSteps": [
+        "Apply the imported GH.4 CH 2022 reciprocity node at r=1: the conductor factor is c_0^0=1 and the scalar is negative, with the group-like sigma_{-1,p} retained.",
+        "Identify the positive finite-level cycle and point classes with modular-quotient-kummer, positive-conductor-stabilization and primitive-character-stabilization. Use GH.3 finite-character descent and the genuine first-corestriction comparison to identify their Iwasawa classes.",
+        "Use differential-evaluation and GH.1 de Rham duality to compute the pullback of the elliptic functional. Insert the GH.4 CM-period and Tate-period maps; verify ell_E d_gamma=c_pi ell_f on the actual line.",
+        "Use GH.7 regulator naturality to move gamma_pi through the vector regulator, then evaluate the functional and apply the imported reciprocity identity. Apply rho as a ring homomorphism; do not infer an integral characteristic-ideal identity from a rational scalar equation."
+      ],
+      "acceptance": [
+        "At r=1 the factorial and c_0 power become 1; the minus sign and sigma_{-1,p} remain.",
+        "Replacing omega_E by b omega_E multiplies the elliptic functional and c_pi by b. The scalar reciprocity identity changes by the same factor, and a squared logarithm formula changes by b squared.",
+        "At a character theta the group-like term evaluates to theta(sigma_{-1,p}). It can be 1 or -1 on the full ring-class quotient; projecting to a pro-p Z_p quotient may kill it and must be stated.",
+        "A map rho killing c_pi produces a zero image identity. This gives no nonvanishing conclusion and no licence to cancel rho(c_pi)."
+      ],
+      "prerequisites": [
+        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
+        "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
+        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
+        "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization",
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+        "GeneralizedHeegnerCycles:GH.3",
+        "GeneralizedHeegnerCycles:GH.4",
+        "GeneralizedHeegnerCycles:GH.7",
+        "mathlib:LinearMap",
+        "mathlib:LinearMap.dualMap_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ch-author-2022-gh8",
+          "locator": "Section 5.3, equations (5.3)--(5.5), Definition 5.6 and Theorem 5.7, pp. 24--25",
+          "excerpt": "Theorem 5.7.",
+          "match": "The exact completed-unramified formula is imported from GH.4; this node adds quotient, differential and consumer coefficient transport at r=1."
+        },
+        {
+          "sourceId": "bdp-published-2013-gh8",
+          "locator": "Sections 3.1--3.4, pp. 1065--1070",
+          "excerpt": "Definition 3.1",
+          "match": "Functorial realization and its de Rham dual determine the sign and differential map; elliptic logarithm naturality is a supplier obligation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Weight-two explicit reciprocity"
+      },
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.differential_reciprocity_transport"
+      }
+    },
+    {
+      "id": "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+      "parentStageId": "GeneralizedHeegnerCycles:GH.8",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "title": "Source-qualified ordinary inputs for automorphic congruences",
+      "kind": "comparison",
+      "statement": "Export to AutomorphicCongruences L2 the GH.4 CH 2022 scalar regulator identity and GH.7 Castella Theorem 5.3 with their actual coefficients and classes. For a Hida branch I and the character xi in the Castella author copy, set lambda=Psi(Frob_p)-1 and S_I=I[lambda^{-1}] completed tensor W. The family identity is R_Cas(loc_p(Z_{c_0,infty} tensor xi^{-1}))=L_{p,xi}(family) sigma_{-1,p} in S_I[[Gamma_tilde]], where R_Cas includes the printed finite-ring-class corestriction and group restriction. At a permitted specialization nu with nu(lambda) nonzero, the coefficient homomorphism sends the analytic distribution to the CH-convention L_{p,xi_nu}(f_nu) by Castella Theorem 2.11. The class moment is c_0^{1-r_nu} z_{f_nu,c_0,alpha} in the exact range of Theorem 6.5; the weight-two p-old extension uses ordinary-p-old-family and weight-two-reciprocity. For a continuous coefficient/group homomorphism rho defined on S_I[[Gamma_tilde]], the exact family identity transfers to rho(R_Cas(...))=rho(L_{p,xi}(family)) rho(sigma_{-1,p}). The CH identity transfers separately with its -c_0^{r-1} factor and t^{-2r} functional. Identify these source presentations only after the GH.4/GH.7 period, twist, pairing and coefficient diagram is proved.",
+      "hypotheses": [
+        "The family has p not dividing 6N, odd discriminant -D_K<-3, the classical Heegner hypothesis, split p, ordinary and p-distinguished residual representation irreducible on G_K, and residual ramification at primes of (D_K,N) for the comparison. The common CH weight-two comparison imposes the stronger all-tame-primes-split hypothesis.",
+        "Theorem 6.5 requires a reference weight k congruent to 2 modulo p-1, weight 2r_nu>2 congruent to k modulo 2(p-1) and trivial character. At weight two use Remark 6.6 only when the specialization is p-old of prime-to-p level.",
+        "A specialization of I need not extend to S_I. If nu(lambda)=0, GH.7 must construct an integral/regular model and its moment; no evaluation of a pole is allowed.",
+        "The output is the native source identity and its defined transport. L2 constructs the automorphic congruence divisibility and compares its analytic function on the same lattice and character domain. Its Beilinson--Flach classes and its L2s semi-ordinary branch are separate inputs."
+      ],
+      "proofSteps": [
+        "Reuse GH.7 Theorems 2.11 and 5.3, including the xi^{-1} critical twist, omega_family trivialization, lambda localization and completion. Track the local-to-global corestriction and restriction through the finite ring-class component.",
+        "Use GH.7 moments and ordinary-p-old-family to compare the class at admissible weights; use weight-two-reciprocity to compare the elliptic differential functional. Carry the CH and Castella pairings separately until the version diagram commutes.",
+        "Apply a defined continuous ring homomorphism rho to each exact equality. Verify its action on coefficients and group generators, and its commutation with the class/regulator specialization, rather than naming two distributions equal.",
+        "Hand these identities, their coefficient maps and their exact hypothesis ranges to L2. Period units, excluded height-one primes and resulting congruence divisibilities are proved by that consumer; the GH.8 export supplies no universal nonordinary specialization."
+      ],
+      "acceptance": [
+        "If nu(lambda)=0, a proposed map from S_I must be rejected unless a regular model has been proved. A denominator-cleared equality cannot be specialized by cancelling the zero denominator.",
+        "Compare the positive Castella 5.3 sign with the negative CH 2022 sign and their t^{1-2r}/t^{-2r} conventions through actual maps; dropping the difference fails the export.",
+        "Evaluate at a finite ring-class character before taking the anticyclotomic quotient, and check the image of sigma_{-1,p}; the full finite part cannot be replaced silently by a torsion-free group.",
+        "A supersingular weight-two point does not pass the ordinary-family hypotheses. No claim about FW Beilinson--Flach classes follows from this Heegner identity."
+      ],
+      "prerequisites": [
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+        "GeneralizedHeegnerCycles:GH.4",
+        "GeneralizedHeegnerCycles:GH.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "castella-family-author-gh8",
+          "locator": "Theorem 2.11 and proof, pp. 12--13; Proposition 5.2 and Theorem 5.3, pp. 22--23; Theorem 6.5 and Remark 6.6, pp. 28--29",
+          "excerpt": "Theorem 5.3.",
+          "match": "Native family scalar identity, analytic specialization and its range; GH.8 translates the imported data for the congruence consumer."
+        },
+        {
+          "sourceId": "ch-author-2022-gh8",
+          "locator": "Theorem 5.7, p. 25",
+          "excerpt": "Theorem 5.7.",
+          "match": "The distinct revised CH identity retains its negative scalar, group-like term and pairing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.coefficient_reciprocity_transport"
+      }
+    },
+    {
+      "id": "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export",
+      "parentStageId": "GeneralizedHeegnerCycles:GH.8",
+      "realises": [
+        "GeneralizedHeegnerCycles:GH.8"
+      ],
+      "title": "Higher-weight input comparison for the corrected multiplicative BSD proof",
+      "kind": "comparison",
+      "statement": "For each auxiliary ordinary prime-to-p-level newform g_m of even weight k_m>2 in the corrected Castella multiplicative proof, export the GH.2--GH.7 Heegner system with its actual lattice T_{g_m}, Selmer local conditions, character convention and completed unramified coefficients. In the source convention used by the proof, its initial Kolyvagin class agrees with the stabilized Iwasawa class kappa_{g_m,infty} through the explicit unit comparison of HE.8 and GH.3; GH.6 supplies that unit and its inverse, not just a rational nonzero multiple. Export the CH 5.7 scalar regulator formula -c_0^{r_m-1} L_{p,psi}(g_m) sigma_{-1,p}, and GH.7 Castella 2.11/5.3 analytic moments, along their proved normalization maps. Under any specified coefficient reduction R_{g_m} to R_{g_m}/p^m, these exact identities commute with reduction. The source Selmer containment and non-torsion conclusion must be proved under the precise tame-level hypotheses used for g_m. BSD.6a supplies the congruences T_{g_m}/p^m congruent to T_pE/p^m, the analytic-function congruence, control, both divisibilities and the limit argument; GH.8 supplies their source-qualified higher-weight inputs, without claiming a p-old cycle/point comparison for the p-new multiplicative weight-two form.",
+      "hypotheses": [
+        "The corrected source has p>3, split p, an ideal M in O_K with O_K/M congruent to Z/MZ, residual irreducibility on G_K for g_m, a nonsplit q exactly dividing M, the stated nonsplit-special local automorphic type, and 2 exactly dividing M if 2 is nonsplit. The lattice congruence and rigidity arguments deriving these conditions belong to BSD.6a.",
+        "CH standing Hypothesis (H) instead assumes all tame primes split, and its factorial restriction is weight-dependent. Longo--Vigni admissibility and its exceptional set must also be verified. The export in the corrected source range therefore requires an explicit extension/adapter from GH.0--GH.7; the all-split theorem cannot be applied by dropping these conditions.",
+        "GH.2 must supply the CH erratum and the Kobayashi--Ota replacement for the derived local condition, not the original absolutely-unramified-only Lemma 7.5 at ramified conductor.",
+        "For E itself retain the corrected Theorem 1.1 conditions including E(Q_p)[p]=0 and the nonsplit residually ramified multiplicative prime. The transfer to E is congruence/control in BSD.6a, not Theorem 6.5 or Remark 6.6 at a p-new point."
+      ],
+      "proofSteps": [
+        "Read the corrected proof of Theorem 2.3 as an import list: CH (4.7), Section 5.2, Theorems 6.1/5.7, LV 4.7, and the exact unit comparison for the leading Kolyvagin class. Assign these to GH.2, GH.3, GH.4, GH.5 and GH.6 rather than replan the system.",
+        "Prove the source-range adapter for nonsplit tame primes and weight-dependent admissibility in GH.0--GH.7. Until it is supplied, record the export as a target with this gap; the corrected consumer conclusion is not a proof of the adapter.",
+        "Compare the selected integral coefficient lattice, Iwasawa group action (including any inversion from discrete-dual conventions) and local conditions by actual maps. GH.6/HE.8 supply the initial-class unit, and GH.7 the analytic moment identity in a defined coefficient model.",
+        "Apply coefficient reduction to the exact scalar reciprocity identities. Hand the resulting equalities and verified hypothesis packages to BSD.6a; that consumer compares with its Sigma-imprimitive analytic function and proves the congruence/control passage to the multiplicative elliptic curve."
+      ],
+      "acceptance": [
+        "An all-split auxiliary level fails the corrected Theorem 2.3 nonsplit-prime requirement; the CH all-split range and the corrected range need an explicit extension, not a common-range shortcut.",
+        "A merely nonzero lattice multiplier, for example p, cannot replace the asserted p-adic unit relating the leading Kolyvagin class and kappa_{g_m,infty}.",
+        "Reduction modulo p^m respects the displayed scalar equation, but reduction of characteristic ideals is not inferred from it. The congruence and Fitting/control calculation remains in BSD.6a.",
+        "A p-new multiplicative weight-two form fails Remark 6.6. Reject a direct application, while retaining its valid auxiliary higher-weight and family analytic inputs.",
+        "The supersingular BSTW/CLW branch has its own zeta elements and signed reciprocity. This ordinary export supplies none of those conclusions."
+      ],
+      "prerequisites": [
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
+        "HeegnerPointEulerSystems:HE.8/ordinary-stabilized-point",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "GeneralizedHeegnerCycles:GH.0",
+        "GeneralizedHeegnerCycles:GH.2",
+        "GeneralizedHeegnerCycles:GH.3",
+        "GeneralizedHeegnerCycles:GH.4",
+        "GeneralizedHeegnerCycles:GH.5",
+        "GeneralizedHeegnerCycles:GH.6",
+        "GeneralizedHeegnerCycles:GH.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "bsd-multiplicative-erratum-gh8",
+          "locator": "Theorem 2.3 and proof, pp. 3--4; proof of Theorem 1.1 and footnote 1, p. 4",
+          "excerpt": "higher weight extension",
+          "match": "Names the exact higher-weight systems, source theorem calls and congruence route consumed by BSD.6a; its arithmetic main-conjecture conclusions remain consumer-owned."
+        },
+        {
+          "sourceId": "ch-erratum-gh8",
+          "locator": "Lemma 7.5/Proposition 7.8 correction, p. 1",
+          "excerpt": "Perrin-Riou",
+          "match": "Supplies the corrected proof route for derived local conditions; its replacement theorem is GH.2 work."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwo",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwo"
+      },
+      "prototype": {
+        "status": "arithmetic_signature_omitted",
+        "detail": "Actual arithmetic supplier carriers and maps are unavailable at the pins. The suggested file lists this target and any expressible algebraic component explicitly; it does not invent a curve, cohomology, regulator or coefficient ring.",
+        "algebraicComponent": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.coefficient_reciprocity_transport"
       }
     }
   ],
   "requests": [
     {
       "supplier": "GeneralizedHeegnerCycles:GH.0",
-      "need": "Supply the empty fiber-power identification, the correspondence action and q_pi e_f=q_pi for the actual quotient. Do not use the false full symmetric-power/induction display. For a two-sided lattice comparison select a multiplicity-one coefficient factor on which the quotient is a rational isomorphism; a reverse scalar identity on the whole Jacobian is not asserted.",
+      "need": "Supply the empty fiber-power identification, the correspondence action and q_pi e_f=q_pi for the actual quotient. Do not use the false full symmetric-power/induction display. For a two-sided lattice comparison select a multiplicity-one coefficient factor on which the quotient is a rational isomorphism; a reverse scalar identity on the whole Jacobian is not asserted. For corrected-bsd-input-export provide the actual level/projector/cycle construction in the nonsplit tame-prime range of Castella Birch erratum Theorem 2.3; CH standing Hypothesis (H) all-split does not cover it.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound"
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.1",
-      "need": "Supply the finite Picard--Kummer/Gysin sign comparison: at m=p^n, U=C minus the finite support S of the degree-zero divisor D, compare the boundary of (n_s mod m)_s in ker((Z/m)^S -> Z/m) with the Kummer boundary of [D] under J[m]=H^1_et(C_bar,mu_m). Use a division line bundle and its trivialization on U to compute the cocycle, with choices, Galois descent, transitions and the continuous-cochain passage checked. Also supply de Rham quotient compatibility. For the integral tower, construct actual forward/backward coefficient maps on the selected f-factor, with both composites equal to one fixed nonzero scalar, and prove their induced cohomology maps respect all corestrictions.",
+      "need": "Supply the finite Picard--Kummer/Gysin sign comparison: at m=p^n, U=C minus the finite support S of the degree-zero divisor D, compare the boundary of (n_s mod m)_s in ker((Z/m)^S -> Z/m) with the Kummer boundary of [D] under J[m]=H^1_et(C_bar,mu_m). Use a division line bundle and its trivialization on U to compute the cocycle, with choices, Galois descent, transitions and the continuous-cochain passage checked. Also supply de Rham quotient compatibility. For the integral tower, construct actual forward/backward coefficient maps on the selected f-factor, with both composites equal to one fixed nonzero scalar, and prove their induced cohomology maps respect all corestrictions. The Jacobian multiplication sequence and Kummer functoriality for q_pi must use the actual Picard variety, not just the elliptic Kummer theorem. Supply coefficient-map naturality and the crystalline/de Rham duality convention at degree one.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
         "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift"
-      ]
-    },
-    {
-      "supplier": "HeegnerPointEulerSystems:HE.1",
-      "need": "Provide the CM points over their actual level/ring-class fields, degree-zero basepoints, and q_pi induced by the modular parametrization, including translations and descent.",
-      "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
-        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer"
-      ]
-    },
-    {
-      "supplier": "HeegnerPointEulerSystems:HE.2",
-      "need": "Provide the raw weight-two split recurrence for n>=2 after actual torsion/basepoint corrections. At the initial step prove, in the chosen class normalization, u cor(k_1)=a_p k_0-sigma_p(k_0)-sigma_bar_p(k_0), with u the HE.0 unit index. Check the level descent and sigma_p sigma_bar_p action rather than inferring the formula from the positive-conductor recurrence. This is the exact input of initial-corestriction-comparison.",
-      "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
-        "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison"
-      ]
-    },
-    {
-      "supplier": "HeegnerPointEulerSystems:HE.3",
-      "need": "Provide finite and continuous abelian-variety Kummer maps with q_pi, restriction/corestriction and coefficient-map naturality, plus the quotient Galois action. Multiplicative Kummer with mu_m is not this result. A fixed scalar identity between coefficient maps must induce the same identity on the selected cohomology lattices at every level. For primitive-character-stabilization, prove that restriction from K_{n-1} has image fixed by H=Gal(K_n/K_{n-1}) under the actual quotient action, and that q is equivariant on these classes.",
-      "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
-        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
-        "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
-        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
-        "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
-        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity"
       ]
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.3",
-      "need": "Identify the integral normalized tail with the existing Iwasawa-cohomology carrier. Supply uniform, not level-dependent, lattice comparison data and the compatible reverse maps needed by uniform-coherent-lift; the explicit multiple-lifting argument avoids asserting right-exactness of inverse limits. Identify the initial term only after the raw HE.0/HE.2 formulas and source normalization maps have been checked. Supply the finite-character evaluation of the integral inverse-limit class and its coefficient twist/descent, as used in CH Lemma 5.4 via Rubin Lemma 2.4.3. Identify its finite-level value with the unnormalized weighted sum before applying GH.8 primitive-character-stabilization. Do not infer this map from a formal scalar sum, and do not infer a conductor-zero identity from ramified character values without a proved separation/control theorem.",
+      "need": "Identify the integral normalized tail with the existing Iwasawa-cohomology carrier. Supply uniform, not level-dependent, lattice comparison data and the compatible reverse maps needed by uniform-coherent-lift; the explicit multiple-lifting argument avoids asserting right-exactness of inverse limits. Identify the initial term only after the raw HE.0/HE.2 formulas and source normalization maps have been checked. Supply the finite-character evaluation of the integral inverse-limit class and its coefficient twist/descent, as used in CH Lemma 5.4 via Rubin Lemma 2.4.3. Identify its finite-level value with the unnormalized weighted sum before applying GH.8 primitive-character-stabilization. Do not infer this map from a formal scalar sum, and do not infer a conductor-zero identity from ramified character values without a proved separation/control theorem. For the actual finite quotient action, prove that restriction from the lower conductor has image fixed by its last conductor kernel. Identify exact conductor with failure to factor through the preceding ring-class quotient, using HE.0 conductor-change-kernel and ring-class-tower-quotients. The HE.3 node supplies the elliptic Kummer maps and trace compatibility; it does not supply this twisted descent or repair the CH carrier. Extend the actual stabilized integral system to the corrected BSD auxiliary-form tame-level range, with its weight-dependent denominator/admissibility conditions proved.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
         "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
-        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization",
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     },
     {
@@ -865,79 +1172,125 @@
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.4",
-      "need": "Provide version-qualified reciprocity with actual twist, scalar and group-like-factor maps; compare the t^{1-2r} pairing in the family proof with t^{-2r} in the 2022 CH text before transporting equalities.",
+      "need": "Provide version-qualified reciprocity with actual twist, scalar and group-like-factor maps; compare the t^{1-2r} pairing in the family proof with t^{-2r} in the 2022 CH text before transporting equalities. The integrated GH.4 reciprocity node supplies the CH 2022 formula. The additional request is the comparison of source coefficient rings, de Rham duals, Tate-period powers, signs and CM-period generators when transporting that formula to the Castella author-copy conventions. Provide the exact pullback of the elliptic differential functional after psi^{-1} twisting. It must be c_pi times the CH scalar functional in the same completed unramified ring; prove this from pi*omega_E=c_pi omega_f and the CM generator identity (5.3), rather than treating t as a scalar unit. Supply the source-qualified CH reciprocity extension in the corrected BSD auxiliary-form tame-level range. Its all-split theorem alone is insufficient.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family"
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.7",
-      "need": "Supply Hida moments and actual specialization/twist maps for Castella (6.8)--(6.9). Prove the weight-two p-old extension of Lemma 6.4 using Greenberg torsion-freeness, specialization/control, characterwise nonvanishing and rank-one Selmer bounds on every finite ring-class component. For local injectivity, realize LZ14 v3 Proposition 4.11 with its infinite unramified direction, then identify the bounded Iwasawa coefficient ideal and the analytic distribution ideal in the CH Theorem 5.1 descent. For the relative Lubin--Tate map verify the finite unramified base, crystalline nonnegative Hodge--Tate range, absence of a trivial quotient and vanishing of the fixed vectors over the torsion extension, as required by CH Theorem 5.1; prove these for the actual ordinary rank-one representation. Supply the comparison maps and prove that the preimage of the target quotient submodule is exactly the source quotient submodule (or prove the descended kernel zero directly). Finally prove the nonzero pairing on the ordinary crystalline line survives the chosen scalar extension and source-version transport. Retain Yager-module, completion and specialization corrections; the L3 cyclotomic packet does not supply this two-variable descent.",
+      "need": "Supply Hida moments and actual specialization/twist maps for Castella (6.8)--(6.9). Prove the weight-two p-old extension of Lemma 6.4 using Greenberg torsion-freeness, specialization/control, characterwise nonvanishing and rank-one Selmer bounds on every finite ring-class component. For local injectivity, realize LZ14 v3 Proposition 4.11 with its infinite unramified direction, then identify the bounded Iwasawa coefficient ideal and the analytic distribution ideal in the CH Theorem 5.1 descent. For the relative Lubin--Tate map verify the finite unramified base, crystalline nonnegative Hodge--Tate range, absence of a trivial quotient and vanishing of the fixed vectors over the torsion extension, as required by CH Theorem 5.1; prove these for the actual ordinary rank-one representation. Supply the comparison maps and prove that the preimage of the target quotient submodule is exactly the source quotient submodule (or prove the descended kernel zero directly). Finally prove the nonzero pairing on the ordinary crystalline line survives the chosen scalar extension and source-version transport. Retain Yager-module, completion and specialization corrections; the L3 cyclotomic packet does not supply this two-variable descent. Export Theorem 5.3 in S=I[lambda^{-1}] completed tensor W, lambda=Psi(Frob_p)-1, with the exact xi^{-1} twist and finite-ring-class corestriction/restriction maps. Identify the allowed specializations of this localized coefficient ring. If nu(lambda)=0, give a regular integral model or cleared-denominator identity and prove its specialization; direct evaluation of lambda^{-1} is undefined. Prove regulator naturality along the actual weight-two coefficient map and the ensuing ordinary crystalline-line map, including the induced distribution pushforward; cyclotomic naturality alone does not prove this anticyclotomic diagram. The corrected BSD export also needs the precise admissible congruence-weight set and a regular model for analytic moments at the multiplicative point; do not use the excluded p-old class comparison there.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family"
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     },
     {
-      "supplier": "HeegnerPointEulerSystems:HE.0",
-      "need": "Compute the first split ring-class degree for p prime to c: if u=[O_c^x:O_cp^x], prove u [K_cp:K_c]=p-1 for the actual ring-class fields. Identify O_cp^x and distinguish this index from the full unit-group order. Also provide the positive-conductor degree-p calculation used by positive-tail-corestriction. Do not substitute the degree of a larger level field without comparing its trace. For each positive conductor, identify the last conductor kernel and prove that an exact-conductor character is nontrivial on it; nontriviality on the whole class group is weaker.",
+      "supplier": "GeneralizedHeegnerCycles:GH.2",
+      "need": "Supply the corrected Selmer containment for generalized and derived classes in the exact auxiliary higher-weight range of Castella Birch erratum Theorem 2.3, including nonsplit tame primes. Use the CH erratum and KO20 replacement with its actual hypotheses; extend the all-split construction explicitly.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
-        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
-        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
+      ]
+    },
+    {
+      "supplier": "GeneralizedHeegnerCycles:GH.5",
+      "need": "Supply CH Theorem 6.1 non-torsion and rank-one consequences for the actual higher-weight Iwasawa class in the nonsplit tame-prime range of the corrected BSD auxiliary theorem; prove the source-range extension rather than omitting standing Hypothesis (H).",
+      "neededBy": [
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
+      ]
+    },
+    {
+      "supplier": "GeneralizedHeegnerCycles:GH.6",
+      "need": "Supply the actual Longo--Vigni Kolyvagin system and its integral leading-class comparison kappa_1=v kappa_infty with an explicitly identified p-adic unit v. Verify LV admissibility/exceptional primes and justify the nonsplit tame-prime and varying-weight range needed by Castella Birch erratum Theorem 2.3. Preserve integral constants and lattice maps.",
+      "neededBy": [
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     }
   ],
   "coverage": [
     {
       "stageId": "GeneralizedHeegnerCycles:GH.8",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Prove the finite Picard--Kummer/Gysin sign comparison and continuous p-adic realization.",
-        "Repair or bypass the general symmetric-power/induction carrier; the retained direct weight-two route does not by itself identify every source construction.",
-        "Instantiate the new initial-corestriction lemma with actual HE.0/HE.2 degree, trace, inverse-Frobenius and level-descent maps, then reconcile full versus half unit factors without guessing a normalization.",
-        "Construct forward/backward coefficient maps on the correct multiplicity-one f-factor with one uniform nonzero denominator; prove corestriction compatibility and apply the new coherent kernel/lift checks in the existing Iwasawa realization.",
-        "Complete the typed regulator quotient descent and its kernel calculation, nonzero ordinary-line pairing, source-version twist/period comparison, and GH.7 global localization proof chain. Do not infer injectivity from the two-variable theorem alone.",
-        "Construct source-qualified consumer maps to AutomorphicCongruences L2 and RankZeroOneBSD BSD.6a, retaining general endpoint formulation comparisons with ModularIwasawaMainConjectures L6.",
-        "Supply the seven geometric signatures and their actual curve/Jacobian, cycle-class, Tate-module Kummer and Iwasawa interfaces. The previous algebraic prototype was elaborated at the pins; the enlarged prototype has not been compiled here. Neither the earlier elaboration nor the present finite-character calculation closes these geometric obligations.",
-        "Construct the finite-character specialization/descent map and the exact-conductor/last-kernel adapter. The integral finite weighted-sum comparison is proved on its stated inputs, but it does not prove the initial Euler factor or characterwise separation in Iwasawa cohomology."
+        "Realize the degree-one Picard--Kummer/Gysin and de Rham quotient comparisons and the selected uniform integral lattice maps.",
+        "Supply the repaired CM carrier, quotient action and finite-character specialization/descent.",
+        "Instantiate the actual first trace/degree and source-normalization square using the finer HE.0/HE.2/HE.3/HE.8 plans.",
+        "Prove the regulator quotient kernel, global localization chain, source-version pairing/period diagram and legal coefficient specializations.",
+        "Supply the nonsplit tame-level and weight-admissibility adapters and integral Kolyvagin leading-class unit for the corrected BSD auxiliary forms.",
+        "Express the arithmetic signatures once the named supplier APIs exist; the current suggested file checks only algebraic compatibility."
       ]
     }
   ],
   "gaps": [
     {
       "title": "Degree-one realization and uniform integral lattice",
-      "detail": "The finite Picard--Kummer/Gysin comparison remains an exact GH.1 request. The new fixed-denominator lemmas close the elementary tower manipulation only. Supply actual coefficient maps and scalar composite identities on the correct f-factor, not on the full Jacobian. The integral inverse-limit comparison must not be inferred merely from rational levelwise isomorphisms; the new doubling-tower example refutes that inference.",
+      "detail": "Supply GH.1’s finite Picard--Kummer/Gysin sign comparison on the actual curve, Jacobian and multiplication sequence, continuous passage and de Rham duality. Construct the selected f-factor maps with both composites equal to one fixed nonzero scalar and with all corestrictions commuting. A levelwise rational isomorphism does not give an integral Iwasawa isomorphism; unbounded-denominators-counterexample rejects that inference.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
+        "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift"
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity"
       ]
     },
     {
-      "title": "Symmetric-power/induction carrier",
-      "detail": "The published Section 4.4 identification fails the retained dimension test E-GH8-1. The direct divisor/Kummer route avoids it; a general CM-character comparison still needs a repaired carrier and actual maps, not renamed full symmetric powers.",
-      "neededBy": []
+      "title": "CM carrier and finite-character descent",
+      "detail": "Repair or bypass the full symmetric-power/induction display E-GH8-1, including the degree-zero case, in GH.0/GH.3. Realize the quotient Galois action, exact-conductor/last-kernel comparison, restriction-image invariance and the finite-character specialization/descent of CH Lemma 5.4 (Rubin Lemma 2.4.3). The finite integral weighted-sum lemma alone proves none of these arithmetic maps.",
+      "neededBy": [
+        "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization",
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
+      ]
     },
     {
       "title": "Initial conductor and source normalization",
-      "detail": "The conditional initial trace/degree algebra is now specified. The unresolved step is to prove its HE.0/HE.2 inputs for the actual cycle and point conventions, including level descent and basepoints, and transport them to CH versus Castella. CH Definition 5.2 prints full unit order and the family author copy prints half-order. A conditional factor discrepancy is not reported as a second proved source error. Initial-only rescaling cannot fix a nonzero system without a change elsewhere; arithmetic nonvanishing is not assumed by that diagnostic. The exact-conductor calculation deliberately uses n>=1 and the raw lower class. It cannot select a normalization for the conductor-zero expression. Comparison of norm-compatible bottoms is forced only after the actual first-corestriction square is supplied.",
+      "detail": "Instantiate the existing HE.0/HE.2 declaration-level degree and trace results on the actual level curve, basepoint and Kummer normalization. Check geometric versus arithmetic Frobenius and any p-class tower shift. Reconcile the full unit order printed in CH Definition 5.2 with the half-order in Castella (6.7) by actual normalization maps. CH Proposition 4.4 covers n>1; it does not certify the initial input. Compare norm-compatible bottoms only through the proved first-corestriction square. The factor mismatch remains a comparison gap, not an additional established source error.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
-        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family"
+        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity"
       ]
     },
     {
-      "title": "Regulator quotient descent, ordinary-line pairing and global localization",
-      "detail": "The LZ14 v3 Proposition 4.11 proof and CH Theorem 5.1 quotient construction were read. The missing input is now the typed source/target coefficient descent and its zero kernel, followed by the nonzero ordinary-line pairing and version-qualified twist/period map. Pinned quotient algebra gives the required kernel formula, but not the arithmetic equality of submodules. Castella Lemma 6.4 also requires the torsion-free/control/nonvanishing/rank-one chain supplied by GH.7. These are precise supplier gaps, not newly asserted source errors.",
+      "title": "Regulator descent and source-qualified period maps",
+      "detail": "GH.7 must prove the typed coefficient/distribution quotient descent with zero descended kernel, nonzero pairing on the ordinary crystalline line, and the torsion-free/control/nonvanishing/rank-one chain of Castella Lemma 6.4. LZ14 Proposition 4.11 concerns an infinite unramified direction, and does not alone prove injectivity after quotienting it out. GH.4/GH.7 must transport CH 2022 and Castella author-copy twists, signs, t-powers, CM generators and completed-unramified rings by actual maps. Verify which specializations extend over lambda^{-1}; at a zero of lambda construct a regular coefficient model instead of evaluating a pole.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family"
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     },
     {
-      "title": "Consumer maps and complete integration",
-      "detail": "Source-qualified cycle/point and differential maps remain required. General determinant-line, characteristic-ideal and primitive/imprimitive comparisons are owned by ModularIwasawaMainConjectures L6. The relevant accepted AUDIT-24 GH.8 entry and the campaign supplier descriptions were reread in this continuation; the direct aggregate coverage fetch returned no text. Earlier integration/link checks remain historical evidence. The enlarged algebraic prototype is not compiled here. The new finite weighted-sum calculation still needs the actual GH.3 finite-character specialization/descent and HE.0 last-kernel conductor adapter.",
+      "title": "Corrected BSD auxiliary-form range and integral leading class",
+      "detail": "The corrected multiplicative proof uses nonsplit tame primes and varying higher weights. CH standing Hypothesis (H) has all tame primes split and a weight-dependent factorial exclusion; LV also has admissibility restrictions. GH.0--GH.7 must justify the exact extension to this auxiliary-form range, including corrected derived local conditions, non-torsion and the explicit unit relating the leading Kolyvagin class to the stabilized Iwasawa class. This is not supplied by the common all-split p-old comparison. BSD.6a owns the congruence/control transfer to the multiplicative curve; its theorem is not assumed to prove the missing source-range adapter.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
+      ]
+    },
+    {
+      "title": "Arithmetic Lean interfaces",
+      "detail": "The arithmetic targets need the actual curve/Jacobian, Chow group, continuous Tate-module Kummer, Iwasawa cohomology, crystalline-line and completed coefficient APIs named in their supplier contracts. The suggested file gives the expressible algebraic components and identifies the omitted arithmetic signatures individually. No opaque curve/cohomology types or conclusion-bearing fields stand in for them.",
+      "neededBy": [
+        "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
+        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
+        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
+        "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity",
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
       ]
     }
   ],
@@ -953,81 +1306,126 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Castella publication page and HeegnerCycles-print.pdf, in the original checkpoint",
-        "The arXiv 1505.08165v2 text at Section 4.4, in the original checkpoint",
-        "Hsieh 2 July 2022 HCES.pdf at Section 4.4",
-        "The complete one-page erratum2.pdf in the original checkpoint; no correction of this display was found"
+        "Published author-hosted journal PDF, Section 4.4 p. 593; 2026-10-06 parsed and rendered read",
+        "2 July 2022 Hsieh author revision, Section 4.4 p. 17, reread 2026-10-06; same full symmetric-power display",
+        "Entire author erratum2.pdf reread 2026-10-06; it corrects Section 6/7 and does not correct this display",
+        "Castella publication page checked 2026-10-06; no further correction of the display located",
+        "Historical checkpoint checked arXiv:1505.08165v2; this version is not freshly acquired or reread"
       ]
     }
   ],
   "sourceVersions": [
     {
       "kind": "published",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
+      "read": "2026-10-06",
+      "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
+    },
+    {
+      "kind": "published",
       "url": "https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf",
-      "read": "2026-09-26"
+      "read": "2026-10-06",
+      "sha256": "be67ffe80a7fa346e8cb0733f38c776268174eebc6277a85bfa9b91c49073ade",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
-      "read": "2026-09-26"
+      "read": "2026-10-06",
+      "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
     },
     {
-      "kind": "preprint",
-      "url": "https://arxiv.org/html/1505.08165v2",
-      "read": "2026-09-26"
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
+      "read": "2026-10-06",
+      "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf",
-      "read": "2026-09-26"
-    },
-    {
-      "kind": "author copy",
-      "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
-      "read": "2026-09-26"
-    },
-    {
-      "kind": "published",
-      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
-      "read": "2026-09-26"
-    },
-    {
-      "kind": "author copy",
-      "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
-      "read": "2026-09-26",
-      "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d",
-      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
-    },
-    {
-      "kind": "author copy",
-      "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
-      "read": "2026-09-26",
-      "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
-      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
+      "read": "2026-10-06",
+      "sha256": "2a8b615daf100b0f2e8ee5890462a91dde9c860492ec920d2a1a7d5827028678",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1108.5954v3",
-      "read": "2026-09-26",
+      "read": "2026-10-06",
       "sha256": "0da539348716fa2293377bba81b07de3d851f3e98bbc9b244b19e639a5ae5341",
-      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Birch-erratum.pdf",
+      "read": "2026-10-06",
+      "sha256": "c04dff16c27bc3ca4f4e235e366fcd4c95a43cfb9215f75a2584dfeb7114edcf",
+      "note": "Bounded read scope is listed in sources; not a claim to have read the whole paper."
     }
   ],
-  "continuation": {
-    "agent": "ChatGPT Pro — cgp-20260923-h7q4",
-    "date": "2026-09-27",
-    "issue": 740,
-    "inputPacketBlob": "108876813d3f0a965376c69f83fb8a08cbfb35dd",
-    "scope": "One new GH.8 comparison, its arithmetic supplier contracts and regression examples. All twelve inherited node IDs and the inherited source finding are retained. Existing owners are reused; no self-review is added.",
-    "sourceBoundary": "Fresh reads are bounded and separated in sources.continuationReading. Historical source hashes are preserved, not claimed re-downloaded. No new source error is asserted.",
-    "libraryBoundary": "The new scalar character-sum supplier and finite-sum reindexing were read at the exact Mathlib pin. The old baseline checks are explicitly attributed to the prior checkpoint. The current arithmetic comparison is not claimed implemented.",
-    "lean": "The enlarged suggested file has not been compiled in this continuation. The previous file was compiled by the preceding worker, as recorded in its handoff.",
-    "checks": [
-      "Unchanged check_blueprint.py and source_issues.py verified by their exact Git blob hashes. Scoped scratch-mirror CLI: zero errors and zero packet warnings; no full declaration index, so baseline references checked for form only.",
-      "12,187 finite cancellation/comparison cases and explicit boundary regressions passed. Reproducible standard-library code is in the reader; finite diagnostics are not proofs of arithmetic geometry.",
-      "Three inherited file blobs verified. Eleven old node objects and the source finding are unchanged; the old positive-tail node gains one proof step. The entire earlier reader is preserved verbatim.",
-      "No enlarged-file Lean compilation or full repository/intake/regression run claimed.",
-      "Submission follow-up: replaced the baseline index key Equiv.sum_comp by the literal source declaration Equiv.prod_comp, explicitly recording its to_additive counterpart. The source scanner does not enumerate generated declarations. No theorem statement or proof is changed by this index-reference repair."
-    ]
+  "targetInventory": [
+    {
+      "target": "Weight two agrees with HE.3/HE.8",
+      "nodes": [
+        "GeneralizedHeegnerCycles:GH.8/weight-zero-cycle",
+        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
+        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
+        "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+      ]
+    },
+    {
+      "target": "Exact modular-parametrization, differential, twist and period comparisons",
+      "nodes": [
+        "GeneralizedHeegnerCycles:GH.8/differential-evaluation",
+        "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
+        "GeneralizedHeegnerCycles:GH.8/weight-two-reciprocity"
+      ]
+    },
+    {
+      "target": "Integral lattice/Iwasawa comparison without unbounded denominators",
+      "nodes": [
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "GeneralizedHeegnerCycles:GH.8/unbounded-denominators-counterexample",
+        "GeneralizedHeegnerCycles:GH.8/initial-only-rescaling-obstruction"
+      ]
+    },
+    {
+      "target": "Source-qualified GH.4/GH.7 exports to the two main-conjecture consumers",
+      "nodes": [
+        "GeneralizedHeegnerCycles:GH.8/automorphic-reciprocity-export",
+        "GeneralizedHeegnerCycles:GH.8/corrected-bsd-input-export"
+      ]
+    }
+  ],
+  "ownership": [
+    {
+      "owner": "ModularIwasawaMainConjectures:L6",
+      "scope": "Generic canonical coefficient-ring, determinant-line, characteristic-ideal, primitive/imprimitive and BDP square-root-versus-square comparisons. GH.8 supplies its geometric, differential and source-qualified producer maps; L6 is not an early GH.8 prerequisite."
+    },
+    {
+      "owner": "AutomorphicCongruences:L2",
+      "scope": "FW congruence divisibilities, period-integrality and excluded height-one-prime arguments; its Rankin--Eisenstein/Beilinson--Flach system is distinct from GH.8 Heegner exports."
+    },
+    {
+      "owner": "RankZeroOneBSD:BSD.6a",
+      "scope": "Auxiliary-form selection, lattice and analytic congruences, Selmer control, divisibilities, integral ambiguities and arithmetic specialization; separate BSTW/CLW supersingular route."
+    }
+  ],
+  "baselineSearch": {
+    "date": "2026-10-06",
+    "audit": "Accepted AUDIT-24 records in data/library-coverage.json, including every GH layer and the GH.8/L6 overlap, were read. GH.8 is not built. Integrated GH decomposition has no GH.8 nodes; its verified GH.4 node supplies the scalar reciprocity formula.",
+    "pinnedTauCeti": "Searched the f790474 tree for Heegner, Hida, Perrin--Riou, etale Abel--Jacobi, Jacobian, Picard, Tate modules and Kummer. Read TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean at that commit: OrderSystem.weightedAbelJacobiClass is the abstract divisor-class shadow, not a Jacobian variety or étale realization. GaloisCohomology/Kummer concerns multiplicative roots-of-unity coefficients, not E[p^m].",
+    "pinnedMathlib": "Exact checkout 082e2d3. Read all eleven cited declarations with their hypotheses. Searches find Jacobian coordinates, affine Picard groups, general étale sites and Kummer field theory, not the GH.8 curve/Jacobian/Iwasawa comparison. Existing linear/quotient/character algebra is consumed rather than replanned.",
+    "upstreamModels": [
+      "content/tau-ceti/JacobianChallenge/README.md",
+      "content/tau-ceti/GrothendieckEulerForms/README.md"
+    ],
+    "linksAndRestructuring": "Read CFT-L91 and the relevant RS-04/06/08 supplier reroutings: CM, universal family, geometric correspondences and arithmetic Galois duality remain imported through GH.0/GH.1/GH.7. No specific GH.8 link or owned general main-conjecture reformulation is introduced."
   }
 }

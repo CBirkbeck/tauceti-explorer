@@ -1,600 +1,696 @@
-# GH.8 continuation: exact-conductor character comparison
+# Weight-two and main-conjecture consumer comparisons
 
-**Partial; ChatGPT Pro — cgp-20260923-h7q4; 27 September 2026; issue #740.**
+GH.8 compares generalized Heegner classes with the Heegner point system and
+exports the resulting source-qualified inputs to AutomorphicCongruences L2
+and RankZeroOneBSD BSD.6a. The comparison includes the actual modular
+quotient, coefficient lattice, differential, character twist, conductor
+normalization and period maps. Equality of two scalar logarithms is not a
+substitute for equality of global classes.
 
-The packet now has **thirteen targets**: the twelve targets of the preceding
-checkpoint and one new comparison, `GH.8/primitive-character-stabilization`.
-It has eleven cited baseline declarations, forty-nine acceptance checks, three
-planets, ten supplier requests and five gap groups. The preceding roadmap is
-preserved verbatim below under a historical heading. Its compilation and
-reading claims refer to the 26 September checkpoint, not to the enlarged file.
+The definitive specification is this document together with the
+[packet](../packets/GeneralizedHeegnerCycles--GH.8.json). The
+[suggested file](../suggested/GeneralizedHeegnerCycles--GH.8.lean) expresses
+algebraic components and regression examples using the available library
+interfaces. It does not implement the arithmetic comparisons. The target
+pass is complete: **GH.8 is planned, not closed**. Every stated target has a
+node and every unresolved input has an identified supplier or a recorded gap.
+The six gap groups and their precise consuming nodes are in the packet.
 
-## 1. The last conductor kernel is the relevant condition
+## Conventions and imported objects
 
-Write \(K_n=K_{c_0p^n}\), \(G_n=\operatorname{Gal}(K_n/K_0)\), and
-\(H_n=\operatorname{Gal}(K_n/K_{n-1})\), for \(n\geq1\). The positive-level
-weight-two stabilization is
-\[
-z_n^\alpha=z_n-\alpha^{-1}\operatorname{res}(z_{n-1}).
-\]
-For an exact-conductor character \(\chi\), the weighted sum of the second term
-vanishes. The precise condition is \(\chi|_{H_n}\ne1\), not merely
-\(\chi\ne1\) on \(G_n\). The former follows only after identifying the
-actual conductor filtration with this ring-class tower. That adapter remains
-with HE.0. The quotient action and invariance of a restricted class remain
-with HE.3.
+Fix an imaginary quadratic field K and an embedding into the p-adic closure.
+Write p = 𝔭𝔭̄ when p splits. The comparison with the CH sources uses their
+standing hypotheses: odd discriminant −D_K < −3, all primes of the tame
+level N split in K, and p ∤ 2(2r−1)!Nφ(N) at weight 2r. At weight two this
+reduces to p ∤ 2Nφ(N). The form is ordinary and has prime-to-p level. The
+character conductor is prime to N. Conditions needed for a Hida-family or
+BSD application are additional conditions, stated below; they cannot be
+removed by this common-range comparison.
 
-This is the finite-sum step in [CH, Lemma 5.4, printed p. 602](https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf),
-whose hypothesis gives the conductor \(c_0p^n\). The matching statement is
-[the July 2022 revision, Section 5.2, p. 23](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf).
-The shorthand in the proof is justified by that exact-conductor hypothesis;
-this continuation does **not** allege another source error.
+Let C be the actual modular curve of the cycle construction. Its level
+structure can require a field larger than a ring class field. Let x_c be the
+CM point and b a degree-one cusp, both rational over the chosen field L.
+The cycle suppliers own their construction and descent. Let J = Pic⁰(C),
+and let π:C→E be the fixed modular parametrization. Its pointed version is
+x↦π(x)−π(b). The Jacobian universal property gives q_π:J→E with
+q_π([x]−[b])=π(x)−π(b). Translation of π and change of basepoint must be
+tracked through this formula. A normalized cusp is not replaced silently by
+a rational Hodge class whose denominator has been cleared.
 
-## 2. Integral proof, including torsion modules
+For the rational comparison use V_pJ and V_pE. The finite Picard–Kummer
+comparison identifies J[p^m] with H¹_et(C̄,μ_{p^m}), and its continuous
+limit gives
 
-Let \(G\) be finite abelian, \(H\leq G\), and \(R\) a commutative integral
-domain containing the values of \(\chi:G\to R^\times\). Let \(M,N\) be
-arbitrary \(R\)-modules; they need not be torsion-free. Suppose
-\(b:G\to M\) satisfies \(b(th)=b(t)\) for all \(h\in H\), and
-\(\chi|_H\ne1\).
+$$\theta_C:V_pJ\simeq H^1_{\mathrm{et}}(\overline C,\mathbf Q_p(1)).$$
 
-First, scalar character orthogonality gives
-\[
-C_H:=\sum_{h\in H}\chi(h)=0\quad\text{in }R.
-\]
-This theorem already exists at the Mathlib pin as
-`MulChar.sum_eq_zero_of_ne_one` in `Mathlib/NumberTheory/MulChar/Basic.lean`.
-Its domain is a finite commutative monoid, not just a finite field. On the
-commutative group \(H\), the condition of vanishing on nonunits is vacuous,
-so the given group character is an instance of this existing carrier.
-The full statement, context and proof were read at commit
-`082e2d37e8b0463410cdb532e111cd43d5a66174`.
+On the chosen f-factor set γ_π = V_p(q_π)∘θ_C⁻¹. The actual cohomology map
+H¹(γ_π), its topology, twists and field functoriality belong to GH.1 and
+the cohomology suppliers. This notation never denotes an arbitrary map chosen
+to make the desired equality true. The quotient relation q_πe_f=q_π is a
+correspondence identity to prove, not an assumption of multiplicity one on
+the entire Jacobian.
 
-For completeness, its proof reindexes by multiplication by an \(h_0\) with
-\(\chi(h_0)\ne1\). Thus \(\chi(h_0)C_H=C_H\), and cancellation takes place
-in the **domain \(R\)**. It does not take place in \(M\).
+CH writes weight 2r and uses the generalized variety X_{2r−2}; BDP writes a
+fiber-power index equal to k−2 at modular weight k. Thus weight two has CH
+r=1 and BDP index zero. The empty fiber power is C. CM symmetric powers
+have degree zero here. This case needs its own identification and cannot be
+obtained by applying a positive-degree projector-vanishing argument.
 
-Now partition \(G\) into the cosets \(tH\). For each one,
-\[
-\sum_{h\in H}\chi(th)b(th)
- =\chi(t)\left(\sum_{h\in H}\chi(h)\right)b(t)=0.
-\]
-Adding these identities proves \(\sum_g\chi(g)b(g)=0\) even if \(M\) has
-torsion. Temporary coset representatives are eliminated by the finite-sum
-reindexing identity, also already present as `Equiv.sum_comp` at the pin.
-No division by \(|H|\), \(|G|\), or \(\chi(h_0)-1\) is used.
+All Iwasawa classes use the source’s continuous cohomology and its actual
+corestriction inverse system. For c₀ prime to pN put K_n=K_{c₀pⁿ}. These
+are ring class fields in one fixed separable closure. A chosen anticyclotomic
+Z_p quotient may have a shift caused by the p-part of the class group. The
+HE.8 plan specifies that shift. The full finite ring-class component is kept
+until its quotient map has been applied explicitly.
 
-Consequently, for any \(R\)-linear \(q:M\to N\), any \(a:G\to M\), and
-any \(\beta,c\in R\),
-\[
-q\left(c\sum_g\chi(g)(a(g)-\beta b(g))\right)
- =c\sum_g\chi(g)q(a(g)).
-\tag{PC}
-\]
-This is the new comparison node. It does not rebuild general character theory.
-For the arithmetic application take \(a(g)=g z_n\),
-\(b(g)=g\operatorname{res}(z_{n-1})\),
-\(\beta=\alpha^{-1}\), and \(c=\alpha^{-n}\), over a coefficient ring in
-which the ordinary root \(\alpha\) is a unit. The previously specified
-modular-quotient/Kummer square and its equivariance identify \(q(a(g))\)
-with the conjugates of the point class. Thus (PC) is the integral finite-level
-comparison needed after specialization, without discarding torsion by
-rationalization.
+No new abstract curve, Jacobian, cohomology, regulator or input-record type
+is introduced in GH.8. Consequently this packet has no definition or
+construction nodes and no new definition API. The imported objects keep
+their owners’ APIs and tests. The comparison theorems have their own
+acceptance checks and the suggested file supplies diagnostic examples.
 
-## 3. Maps not supplied by a finite sum
+## Baseline and ownership
 
-CH Lemma 5.4 separately invokes Rubin, Lemma 2.4.3, to identify the finite
-weighted expression with the specialization of the Iwasawa class in twisted
-cohomology. That is not a consequence of (PC). GH.3 must supply that
-specialization, its coefficient twist and descent, with the unnormalized
-finite sum and the power \(\alpha^{-n}\) in the same convention. No new
-formal cohomology carrier is introduced here, and the Rubin input has not been
-independently source-decomposed in this claim.
+The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed GH.8
+audit identifies the arithmetic comparison as absent. Pinned Tau Ceti does
+have `OrderSystem.weightedAbelJacobiClass`: an abstract divisor-class map
+whose value is the degree-corrected formal divisor. It is useful evidence for
+the divisor API, but its carrier is an abstract order system, not Pic⁰ of a
+curve or an étale realization. Its multiplicative Kummer theory has
+roots-of-unity coefficients; it does not provide E[p^m] Kummer classes.
+Mathlib’s elliptic Jacobian coordinates likewise do not construct a Jacobian
+variety. These distinctions determine which interfaces need suppliers.
 
-The conductor-zero formula is also untouched. A character inflated from
-\(G_n/H_n\) does not meet (PC)'s hypothesis. Ramified character checks alone
-therefore do not settle the unit factor printed in Definition 5.2, nor do they
-prove equality of arbitrary Iwasawa classes without a separation/control
-theorem. These remain explicit requests, not implicit uses of injectivity.
+The eleven cited baseline declarations supply the comparison algebra:
+`LinearMap`, `Module.Dual`, `LinearMap.dualMap_apply`,
+`LinearMap.dualMap_comp_dualMap`, `Int.natAbs_le_of_dvd_ne_zero`,
+`Submodule.mapQ`, `Submodule.ker_mapQ`, `Submodule.mkQ_map_self`,
+`LinearMap.ker_eq_bot`, `Equiv.prod_comp` and
+`MulChar.sum_eq_zero_of_ne_one`. The additive finite reindexing theorem
+`Equiv.sum_comp` is generated from `Equiv.prod_comp`. The packet cites the
+literal source declaration because the declaration index does not enumerate
+all generated names. These are existing results, not new orthogonality,
+quotient or duality theories.
 
-There is a simple, different way to compare **already constructed** compatible
-bottoms. If \(q_0\mu=\nu q_1\), \(x_0=\mu x_1\), \(y_0=\nu y_1\), and
-\(q_1x_1=y_1\), then
-\[
-q_0x_0=q_0\mu x_1=\nu q_1x_1=\nu y_1=y_0.
-\]
-This supporting check refines the existing `positive-tail-corestriction` node;
-it is not a duplicate new target. It requires the actual first-transition
-square and does not identify an unverified printed bottom formula.
+Use the finer HE supplier nodes rather than replanning their stages:
 
-## 4. Discriminating examples
+| Imported supplier | GH.8 use |
+| --- | --- |
+| HE.0 `conductor-change-kernel` | Exact order-class kernel, unit index and conductor-change degree |
+| HE.0 `ring-class-tower-quotients` | Actual field inclusions, Artin compatibility and quotient groups |
+| HE.1 `heegner-points-of-conductor-m-and-the-modular-parametrisation` | CM points, modular quotient, degree-zero normalization |
+| HE.2 `split-ramified-first-step-recurrence` | Actual first trace, including unit/basepoint factors and reciprocity convention |
+| HE.2 `repeated-conductor-predecessor-recurrence` | Positive-conductor predecessor recurrence |
+| HE.3 `kummer-classes-and-the-modified-selmer-conditions` | Elliptic finite and p-adic Kummer classes; restriction, trace and reduction |
+| HE.8 `ordinary-stabilized-point` | Ordinary positive-tail and initial point normalization |
+| HE.8 `stabilized-corestriction` | True corestriction compatibility at the actual layer indices |
+| HE.8 `anticyclotomic-heegner-class` | Continuous Iwasawa/Shapiro realization of the stabilized point system |
 
-The condition on the last kernel cannot be weakened. In additive notation let
-\(G=C_4\), \(H=\{0,2\}\), \(\chi(g)=(-1)^g\), and \(b(g)=(-1)^g\).
-The character is nontrivial on \(G\), the function is \(H\)-invariant, but
-\(\chi|_H=1\) and the weighted sum is \(4\), not zero.
+The integrated GH.4 node
+`castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity` supplies
+CH Theorems 4.9 and 5.7. GH.8 imports that theorem; it owns the additional
+maps to the point and consumer presentations. GH.7 owns Hida classes,
+moments, Yager modules, family regulator comparison and their actual
+specialization. GH.0–GH.3 own the geometry, realization, local conditions
+and normalized cycle tower. GH.5–GH.6 own nonvanishing and the higher-weight
+Kolyvagin system.
 
-The coefficient-domain condition also matters. In \(R=\mathbf Z/8\), the
-unit \(3\) has order two. The corresponding nontrivial character of \(C_2\)
-has scalar sum \(1+3=4\ne0\). In contrast, with **domain coefficients**
-\(R=\mathbf Z\), the sign-character sum is zero before acting on any
-\(\mathbf Z/t\)-module. These two examples distinguish coefficient
-zero-divisors from module torsion.
+General endpoint comparisons between determinant lines, characteristic
+ideals, primitive/imprimitive statements and BDP’s square-root distribution
+and its square belong to **ModularIwasawaMainConjectures L6**. GH.8 hands it
+its geometric and differential maps. L6 is not an early prerequisite for
+constructing this comparison. The dependency direction runs from producer
+maps to consumer proofs and then to the general endpoint comparison.
 
-A last-kernel example uses \(G=C_9\), \(H=\{0,3,6\}\), and
-\(\chi(g)=4^g\) over \(\mathbf F_{19}\). Here \(4^9=1\),
-\(4^3\ne1\), and every function constant on the three \(H\)-cosets has
-zero weighted sum. The finite diagnostics below test all \(19^3\) profiles.
-The other tests retain \(\alpha^{-n}\) and use \(\alpha^{-1}\), not
-\(p/\alpha\), in the weight-two stabilization.
+## The divisor and Kummer comparison
 
-## 5. Source and validation record for this continuation
+`weight-zero-cycle` identifies the corrected cycle with
 
-Fresh source reading was bounded: CH's standing hypotheses, split recurrence,
-and Section 5.2; the published pages 601 and 602 were inspected as images.
-The 2022 Section 5.2 was compared in parsed text. Castella's family paper,
-Section 6.2, pp. 27--29, was read in parsed text, but this claim's additional
-page-28 screenshot attempt failed. BDP, LZ and the earlier source-error audit
-remain historical readings, not fresh full-paper reads. New PDF downloads to
-scratch failed, so the retained September-26 byte hashes are not presented as
-newly acquired or reverified hashes.
+$$D_c=[x_c]-[b]\in\mathrm{CH}^1(C_L)_{0,\mathbf Q},$$
 
-The two new baseline suppliers were read at the exact Mathlib pin. Their file
-blobs are `5b3f293f24cced8669b6a5cd50efe1252fccdb06` (MulChar) and
-`0eec64f2576f4d449b44b877678fe95678cfc9f0` (finite sums).
-The existing dual-map statements were also reread. No new arithmetic
-implementation is claimed. The accepted `AUDIT-24` GH.8 entry and relevant
-campaign suppliers were reread; the direct aggregate library-coverage fetch
-returned no text. The prior aggregate/integration checks remain historical.
-The two nearby upstream style references were GrothendieckEulerForms and the
-relevant CharacterTheory sections; neither is replanned.
+and its f-component with e_fD_c. BDP Remark 2.6 and Proposition 2.7
+explicitly require the cusp subtraction at index zero. A raw CM point has
+degree one, so it cannot be an input to the homologically trivial
+Abel–Jacobi map. The field L must contain the level point and cusp before
+the divisor is formed. Changing b to b′ changes D_c by [b]−[b′]; the
+comparison retains this change rather than claiming integral independence.
 
-The enlarged suggested file contains **six named signatures, twenty-four
-examples and six baseline checks**, with thirty proof placeholders. It has
-**not been compiled in this continuation**. Only the earlier file's recorded
-compilation is retained. The new signature uses actual modules, `Subgroup`,
-`MonoidHom`, and finite sums, not an invented geometric carrier. The seven
-geometric signatures remain dependent on their actual realization interfaces.
+`modular-quotient-kummer` proves
 
-The unchanged repository checker and its helper were copied to a scratch
-mirror and checked by Git-blob hashing against
-`75ae1b45faadb74ab6f38c6fb10da5ac949e5cd9` and
-`da67776033cefc24d185ffd47b2c74d3e9167099`. The mirror uses only the actual
-stage IDs needed here, read from the atlas/campaign sources; it is not a full
-checkout and contains no full declaration index. Its check is a scoped
-schema/ownership/DAG check. Repository-wide collision and intake checks are
-left to the automatic submission check. No full Lean/library regression suite
-is claimed.
+$$H^1(\gamma_\pi)\bigl(\operatorname{AJ}_{\mathrm{et}}(e_fD_c)\bigr)
+  =\kappa_E\bigl(\pi(x_c)-\pi(b)\bigr).$$
 
-The finite diagnostics produced **12,187 cancellation/comparison cases**, plus
-explicit boundary regressions. These diagnose conventions, not the arithmetic
-realization or source theorems. Reproducible code follows.
+The essential input is the finite Picard–Kummer/Gysin sign comparison.
+For a divisor D=∑n_s[s] of degree zero and m=p^a, let U=C\S, where S is
+its finite support. The residue vector (n_s mod m)_s lies in the kernel of
+the total residue map. Compare its Gysin boundary with the Kummer boundary
+of the line bundle O(D), under J[m]=H¹_et(C̄,μ_m). Compute the cocycle
+using a division line bundle and its trivialization on U, keeping the
+connecting convention σQ−Q. Show independence of choices, descent,
+coefficient transitions and compatibility with q_π. Then perform the
+continuous p-adic passage and apply q_πe_f=q_π.
 
-```python
-"""Finite diagnostics for the GH.8 character comparison, not a proof of geometry."""
-from fractions import Fraction
-from itertools import product
-from math import gcd
+This finite comparison is a specific GH.1 request. General site cohomology
+or an abstract Ext construction alone does not prove it. The rational
+identity has no automatic integral strengthening: a quotient map on the
+full Jacobian may have a kernel, and an f-isotypical piece can have more
+than one copy. A multiplicity-one factor and uniform denominators must be
+identified for the two-sided lattice comparison.
 
-cases = 0
-# C_m is written additively; H is generated by d, with d dividing m.
-# Each b is constant on H-cosets. Check cancellation and the stabilized q-square.
-for prime in (3, 5, 7, 11, 13, 17, 19, 31):
-    for m in range(2, 13):
-        for root in range(1, prime):
-            if pow(root, m, prime) != 1:
-                continue
-            for d in range(1, m + 1):
-                if m % d or pow(root, d, prime) == 1:
-                    continue
-                profiles = product(range(3), repeat=d) if d <= 4 else [
-                    tuple(int(i == j) for i in range(d)) for j in range(d)
-                ]
-                for profile in profiles:
-                    chi = [pow(root, g, prime) for g in range(m)]
-                    lower = [profile[g % d] for g in range(m)]
-                    raw = [(g * g + 2*g + 1) % prime for g in range(m)]
-                    weighted = sum(chi[g] * lower[g] for g in range(m)) % prime
-                    assert weighted == 0
-                    # q(x) = (2x,3x); beta and c are arbitrary coefficients.
-                    beta, c = (m + 2) % prime, (d + 1) % prime
-                    stabilized = c * sum(chi[g] * (raw[g]-beta*lower[g]) for g in range(m))
-                    raw_sum = c * sum(chi[g] * raw[g] for g in range(m))
-                    assert tuple(a*stabilized % prime for a in (2, 3)) == tuple(a*raw_sum % prime for a in (2, 3))
-                    cases += 1
+Acceptance checks include x_c=b giving zero, degree one of the uncorrected
+point, translation of π, change of cusp, and both weight-index conventions.
+The actual modular quotient is tested through q_π([x]−[b]); a generic
+linear-map signature does not certify this geometry.
 
-# A nontrivial character inflated from C4/H does NOT kill H-fixed functions.
-chi4 = [(-1)**g for g in range(4)]
-b4 = chi4.copy()
-assert all(b4[(g+2) % 4] == b4[g] for g in range(4))
-assert chi4[2] == 1 and chi4[1] != 1
-assert sum(chi4[g]*b4[g] for g in range(4)) == 4
+## Finite characters and positive conductor
 
-# Actual last-kernel example C9, coefficient field F19, primitive ninth root 4.
-assert pow(4, 9, 19) == 1 and pow(4, 3, 19) != 1
-for profile in product(range(19), repeat=3):
-    assert sum(pow(4, g, 19)*profile[g % 3] for g in range(9)) % 19 == 0
-    cases += 1
+`character-sum-comparison` transports the **unnormalized** finite weighted
+sum. Let G be the finite abelian ring-class quotient, B a coefficient ring
+containing the character values, χ:G→B×, and γ a G-equivariant coefficient
+map. For a class z,
 
-# Domain coefficients do not require the module to be torsion-free.
-# R=Z, chi=-1 and M=Z/t: cancellation is coefficientwise before acting.
-for torsion in range(2, 41):
-    for x in range(torsion):
-        assert (x + (-1)*x) % torsion == 0
-        cases += 1
+$$\gamma\left(\sum_{g\in G}\chi(g)\,gz\right)
+   =\sum_{g\in G}\chi(g)\,g\gamma(z).$$
 
-# Dropping the coefficient-domain condition is invalid, even when values are units.
-assert gcd(3, 8) == 1 and pow(3, 2, 8) == 1 and 3 != 1
-assert (1 + 3) % 8 == 4  # b=1 on C2; no cancellation.
+The sum is in the χ⁻¹ eigenspace: reindexing by h multiplies it by
+χ(h)⁻¹. The twisted descent uses this convention. There is no averaging
+by |G|, particularly when p divides |G|. GH.3 supplies the actual finite
+cohomology action and specialization/descent; HE.3 supplies the point
+Kummer classes. A formal weighted sum proves neither the Galois descent
+nor the source’s character-specialization map.
 
-# Keep the tower normalization. These are algebraic test values, not Fourier coefficients.
-alpha = Fraction(2)
-raw = [Fraction(5), Fraction(1)]
-lower = [Fraction(3), Fraction(3)]
-for n in range(1, 8):
-    stabilized_sum = alpha**(-n)*sum(chi4[g]*(raw[g]-alpha**(-1)*lower[g]) for g in range(2))
-    assert stabilized_sum == alpha**(-n)*(raw[0]-raw[1])
-    cases += 1
+For a weight-two ordinary newform let α be the unit root of
+X²−a_pX+p. Write z_n for the raw cycle class, k_n for its quotient Kummer
+class and res for the actual field restriction. At positive conductor n≥1,
+`positive-conductor-stabilization` gives
 
-print(f'{cases} finite cancellation/comparison assertions passed; three boundary regressions passed.')
-```
+$$\gamma\bigl(z_n-\alpha^{-1}\operatorname{res}(z_{n-1})\bigr)
+  =k_n-\alpha^{-1}\operatorname{res}(k_{n-1}).$$
 
----
+Both sides retain the same α^{-n} multiplier when normalized. At n=1 the
+lower class is the raw conductor-c₀ class, not the conductor-zero
+stabilized expression. The difference is material at the first trace.
 
-# Preserved twelve-target roadmap, 26 September 2026
+`positive-tail-corestriction` uses the repeated-conductor formula for n≥2:
 
-The following is the preceding reader verbatim. Its references to “new”,
-“this continuation”, source images and a compiled file describe that earlier
-checkpoint. The current counts and validation limits are given above.
+$$\operatorname{cor}(k_n)=a_pk_{n-1}-\operatorname{res}(k_{n-2}),\qquad
+  \operatorname{cor}\operatorname{res}=p.$$
 
-# Weight-two comparisons for generalized Heegner cycles
-
-This partial GH.8 blueprint contains seven geometric targets and five
-initial-conductor and integral-tower comparison declarations. The packet records
-all twelve targets, their supplier requests and remaining obligations. The
-family proof also specifies the regulator quotient-kernel and ordinary-line
-pairing checks needed before scalar reciprocity can identify global classes.
-
-## The divisor and the quotient map
-
-BDP indexes the fiber power by \(k-2\), whereas Castella--Hsieh writes the modular
-weight as \(2r\). Weight two means fiber-power index zero and \(r=1\),
-respectively. The graph construction then gives a CM point on the modular curve,
-not a homologically trivial cycle. For a CM point \(x\) and a rational
-degree-one cusp \(b\), use
-\[
-D=[x]-[b].
-\]
-The field must define both the level point and the cusp. It cannot be replaced
-by a smaller ring class field merely because the CM elliptic curve has a model
-there. BDP Section 2.3, printed p. 1063, supplies the index-zero correction; the
-positive-index projector argument cannot be substituted for it.
-
-Let \(C/L\) be the resulting smooth proper geometrically connected curve,
-\(J=\operatorname{Pic}^0(C)\), and \(\pi:C\to E\) the chosen modular
-parametrization. Its induced map satisfies
-\[
-q_\pi([x]-[b])=\pi(x)-\pi(b).
-\]
-Using the Picard--Kummer identification, set
-\[
-\theta_C:V_pJ\xrightarrow{\sim}H^1_{\mathrm{et}}(C_{\overline L},\mathbf Q_p(1)),
-\qquad \gamma_\pi=V_p(q_\pi)\circ\theta_C^{-1}.
-\]
-The comparison is the commutative Abel--Jacobi/Kummer square for this actual map.
-If \(q_\pi e_f=q_\pi\), it gives
-\[
-H^1(L,\gamma_\pi)(\operatorname{AJ}_{\mathrm{et}}(e_fD))
- =\kappa_E(\pi(x)-\pi(b)).
-\]
-
-At \(m=p^n\), take the support of the entire divisor, including its cusp.
-Its residue vector belongs to the kernel of the degree map on
-\((\mathbf Z/m)^S\). The finite Picard--Kummer/Gysin comparison must compute its
-boundary using an \(m\)-division line bundle and a trivialization on
-\(C\setminus S\), with connecting cocycle \(\sigma(Q)-Q\). Its sign,
-independence of choices, Galois descent, transition in \(n\), and passage to
-continuous cochains are exact GH.1 obligations. Interchanging inverse limits
-and cohomology without a comparison theorem does not discharge them.
-
-The quotient calculation itself is concrete: applying \(q_\pi\) to a division
-point applies it to the same connecting cocycle, and changing the division point
-changes both sides by corresponding coboundaries. Replacing \(b\) by \(b'\)
-adds \(\kappa_E(\pi(b)-\pi(b'))\), not literal integral independence.
-Torsion disappears rationally, not automatically in the integral Tate-module
-class. An isomorphism of rational representations does not by itself identify
-the chosen integral lattices.
-
-## Character sums
-
-For \(G=\operatorname{Gal}(F/L)\) finite abelian and
-\(\chi:G\to B^\times\), a quotient comparison defined over \(L\) commutes with
-\[
-\sum_{g\in G}\chi(g)\,g z.
-\]
-Under the left-action convention this is a \(\chi^{-1}\)-eigenvector, by
-substituting \(g=h^{-1}t\) after applying \(h\). The cyclic group of order
-three is a useful sign test. There is no division by \(|G|\): the trivial
-character gives the trace, not the average. When \(p\mid |G|\), an averaging
-projector is not an integral substitute. Descent to a twisted cohomology group
-requires its own coefficient and inflation--restriction maps. The convention
-is compared with CH Section 5.2, not inferred from the problematic full
-symmetric-power identification discussed below.
-
-## Positive-conductor stabilization
-
-For the ordinary unit root \(\alpha\) of \(X^2-a_pX+p\), put
-\(K_n=K_{c_0p^n}\) and \(k_n=\kappa_E(P_n)\). For \(n\geq1\),
-\[
-k_n^\alpha=k_n-\alpha^{-1}\operatorname{res}(k_{n-1}).
-\]
-Linearity and restriction compatibility transport the same expression on cycle
-classes. Multiplication by \(\alpha^{-n}\) is a further tower normalization.
-
-For \(n\geq2\), the required raw trace and degree give
-\[
-\operatorname{cor}(k_n)=a_pk_{n-1}-\operatorname{res}(k_{n-2}),
-\qquad [K_n:K_{n-1}]=p.
-\]
 Consequently
-\[
-\operatorname{cor}(k_n^\alpha)
- =(a_p-p/\alpha)k_{n-1}-\operatorname{res}(k_{n-2})
- =\alpha k_{n-1}^\alpha.
-\]
-Thus \(y_n=\alpha^{-n}k_n^\alpha\) is a compatible positive tail. Its bottom is
-uniquely determined by \(y_0=\operatorname{cor}(y_1)\). CH Proposition 4.4,
-printed pp. 591--593, states its split recurrence for \(n>1\); this must not be
-used as a proof that the first field degree is also \(p\).
 
-## The initial factor: an explicit conditional comparison
+$$y_n=\alpha^{-n}\bigl(k_n-\alpha^{-1}\operatorname{res}(k_{n-1})\bigr)
+  \quad\text{satisfies}\quad\operatorname{cor}(y_n)=y_{n-1}.$$
 
-The new `initial-corestriction-comparison` isolates the remaining algebra. Work
-with two vector spaces and actual linear restriction/corestriction maps. Write
-\(\sigma,\tau\) for the two endomorphisms of the lower space. Suppose
-\[
- u\,\operatorname{cor}(k_1)=a_pk_0-\sigma k_0-\tau k_0,
- \qquad \operatorname{cor}\operatorname{res}(k_0)=d k_0,
- \qquad ud=p-1,
- \qquad \sigma\tau k_0=k_0.
-\]
-Here \(u\) and \(\alpha\) are nonzero. In the arithmetic application, the
-identification of \(u\), \(d\), the maps and the class normalization is input
-to be proved, not built into an unspecified type of Heegner system. Then
-\[
-\boxed{\quad
-\operatorname{cor}\bigl(\alpha^{-1}
- (k_1-\alpha^{-1}\operatorname{res}(k_0))\bigr)
- =u^{-1}(1-\alpha^{-1}\sigma)(1-\alpha^{-1}\tau)k_0.
-\quad}
-\]
-Indeed, expanding the left side after multiplying by \(u\alpha\) gives
-\[
-(a_p-(p-1)/\alpha)k_0-\sigma k_0-\tau k_0
- =(\alpha+\alpha^{-1})k_0-\sigma k_0-\tau k_0,
-\]
-which is the expansion of the right side with the same multiplier. The root
-identity is the only scalar algebra beyond cancellation. Only
-\(\sigma\tau k_0=k_0\), not an unmentioned global commutation theorem, is needed.
+Expand the left side, use a_p−p/α=α and factor α^{-(n−1)}. This applies
+to the positive tail. The first transition has a different degree and must
+be computed separately. The HE.8 anticyclotomic realization is imported
+only after comparing actual ring-class levels, group quotients and class
+number shifts.
 
-The exact suppliers are now separated. HE.0 must prove the conductor-change
-unit-index and field-degree relation. HE.2 must prove the displayed raw trace
-in the actual point convention, including the two horizontal terms. HE.1--HE.3
-and GH.1 must transport it through level descent, basepoint correction and the
-quotient. These requirements are stronger and more useful than requesting
-an unspecified initial Euler factor.
+`primitive-character-stabilization` isolates the exact-conductor argument
+used in CH Lemma 5.4. Let H be the last conductor kernel in a finite abelian
+G. Let R be a commutative integral domain, M an R-module, χ:G→R a
+multiplicative character nontrivial on H, and a,b:G→M with b constant on
+H-cosets. For any R-linear q:M→N and scalars β,c,
 
-CH Definition 5.2, printed p. 601, writes the full unit-group order in its
-prime-to-\(p\) branch, while the inspected Castella author-copy equation (6.7)
-writes half that order. The formula above supplies a **conditional diagnostic**:
-once the geometric multiplicity in the raw trace is the unit index, that same
-index occurs in the stabilized bottom. It does not, without the actual class
-normalization comparison, prove a second source error.
+$$q\left(c\sum_{g\in G}\chi(g)(a(g)-\beta b(g))\right)
+   =c\sum_{g\in G}\chi(g)q(a(g)).$$
 
-The new `initial-only-rescaling-obstruction` also prevents a false resolution.
-If \(\operatorname{cor}(y_1)=y_0\ne0\), replacing just \(y_0\) by \(t y_0\)
-with \(t\ne1\) breaks the relation. Multiplying every level by \(t\) does not.
-Nonvanishing is essential: this test does not prove that an arithmetic bottom
-class is nonzero.
+Partition into cosets, apply the existing scalar character-sum theorem on
+H and act by that zero scalar on M. Cancellation occurs in R, so M may
+have torsion. No nonzero scalar is cancelled in M and no group order is
+inverted. In the arithmetic application c=α^{-n}, β=α^{-1}, b is the
+restricted lower class and n≥1. GH.3 must show that this restriction image
+is fixed by H and identify exact conductor with failure to factor through
+the preceding quotient. Nontriviality on G alone is insufficient.
 
-As an exact algebraic regression, take \(p=5\), \(\alpha=2\), \(a_p=9/2\),
-\(u=1\), \(d=4\), \(\sigma=\tau=1\), \(k_0=1\), corestriction the identity,
-restriction multiplication by four, and \(k_1=5/2\). The normalized bottom is
-\(1/4\); replacing the index one by the full count two predicts \(1/8\).
-These are vector-space test data, not an assertion that \(9/2\) is an elliptic
-curve Fourier coefficient.
+The boundary tests distinguish these conditions. For C₄ with
+H={0,2}, χ(g)=(−1)^g is nontrivial on C₄ but trivial on H; the
+H-invariant function b(g)=(−1)^g has weighted sum 4, not zero. Over
+Z/8Z, the order-two unit 3 gives scalar sum 1+3=4, so the coefficient
+domain condition cannot be dropped. Over Z, scalar cancellation still
+works when M=Z/8Z. For C₉ over F₁₉ with χ(1)=4, the last kernel
+{0,3,6} has scalar sum 1+4³+4⁶=0 and χ(3)≠1. These are integral
+finite-sum checks, not proofs of arithmetic character descent or
+conductor-zero normalization.
 
-## Differential normalization
+## The first trace and the initial Euler factor
 
-In the good-reduction range and local base of the BDP de Rham construction, let
-\(\pi^*\omega_E=c_\pi\omega_f\). Bloch--Kato naturality, its elliptic
-formal-group comparison, and adjunction of quotient and differential pullback
-give
-\[
-\log_{E,\omega_E}(\pi(x)-\pi(b))
- =c_\pi\operatorname{AJ}_{\mathrm{dR}}(e_fD)(\omega_f).
-\]
-The purely linear step is evaluation after a map, equivalently evaluation
-against its transpose. A squared formula therefore substitutes
-\(c_\pi^{-2}\). For \(c_\pi=3\) this is \(1/9\), not \(1/3\).
-Rational invertibility, or the zero CM-period exponent at weight two, does not
-make \(c_\pi\) an integral unit. The inspected BDP construction uses an
-unramified local base; a larger range needs its comparison theorem.
+`initial-corestriction-comparison` specifies exactly which input forces a
+conductor-zero term. Write u=[O_{c₀}×:O_{c₀p}×] and
+ d=[K_{c₀p}:K_{c₀}]. For split p prime to c₀, the HE.0 nodes give
+ud=p−1. The HE.2 first-step recurrence and HE.3 Kummer map must give,
+in the chosen class normalization,
 
-## Uniform comparison of the integral towers
+$$u\operatorname{cor}(k_1)=a_pk_0-\sigma k_0-\tau k_0,\qquad
+  \operatorname{cor}\operatorname{res}(k_0)=dk_0,$$
 
-A quotient of a Jacobian is not usually an isomorphism on the entire Jacobian
-cohomology. Before asking for inverse maps, choose the actual coefficient
-factor on which the quotient is a rational isomorphism and prove that
-identification, including any multiplicity and projector denominators. The new
-comparison lemmas are not applied to the full Jacobian by coercion.
+where σ and τ are the two source-convention Frobenius operators, with
+στk₀=k₀. Basepoint corrections, arithmetic versus geometric reciprocity
+and any level-field trace are part of identifying these maps.
 
-Let \(M_n,N_n\) be the selected integral cohomology modules, with their actual
-corestrictions \(\mu_n,\nu_n\). The supplier contract asks for maps
-\[
-f_n:M_n\longrightarrow N_n,\qquad g_n:N_n\longrightarrow M_n,
-\qquad g_nf_n=d,\qquad f_ng_n=d
-\]
-for **one fixed nonzero scalar \(d\)** independent of \(n\). Both map families
-must commute with the transitions. These are actual coefficient/realization
-comparisons; arbitrary levelwise rational isomorphisms do not provide them.
+The conditional algebra then proves
 
-`uniform-coherent-kernel-bound` is the componentwise calculation: if all
-\(f_n(x_n)=0\), apply \(g_n\) to obtain \(d x_n=0\). It applies in particular
-to compatible sequences, even when the cohomology modules have torsion.
+$$\operatorname{cor}\!\left(\alpha^{-1}(k_1-\alpha^{-1}\operatorname{res}k_0)\right)
+ =u^{-1}(1-\alpha^{-1}\sigma)(1-\alpha^{-1}\tau)k_0.$$
 
-`uniform-coherent-lift` supplies a compatible lift of a fixed multiple. For a
-compatible target sequence \(y\), choose \(x_n=g_n(y_n)\). Then
-\[
-\mu_n x_{n+1}=g_n\nu_n y_{n+1}=x_n,
-\qquad f_nx_n=d y_n.
-\]
-Thus the kernel and cokernel of the induced map of compatible integral towers
-are annihilated by \(d\). This proof does not assert that inverse limits are
-right exact: it constructs compatible preimages explicitly. After inverting
-\(d\), the comparison becomes an isomorphism. An integral isomorphism needs
-stronger information, for example \(d\) a unit. For constant integer towers,
-\(f=2\), \(g=1\), \(d=2\) meets the scalar identities but does not lift the
-integral element one.
+Indeed the coefficient of k₀ is
+α^{-1}a_p/u−α^{-2}d=(1+α^{-2})/u, using the root equation and ud=p−1.
+The other two coefficients are −α^{-1}/u. The formula requires the unit
+**index** u; replacing it by the full unit-group order changes it. CH
+Definition 5.2 prints the full order |O_c×|, while Castella (6.7) prints
+|O_c×|/2. CH Proposition 4.4 establishes the split recurrence for n>1,
+not this initial input. Its positive-tail formula and a claim of norm
+compatibility do not establish the missing initial normalization map.
 
-These elementary arguments are ready to be instantiated once the geometric
-maps and one denominator bound are supplied. GH.3 and the existing Iwasawa
-cohomology owners retain the realization of compatible classes; no competing
-inverse-limit or cohomology carrier is defined here.
+The comparison keeps this as a precise gap rather than declaring another
+proved source error. In the scalar test p=5, α=2, a_p=9/2, u=1 and d=4,
+with σ=τ=id, k₀=1, cor=id, res=4 and k₁=5/2, the actual first normalized
+trace is 1/4. The formula with a substituted full unit count 2 predicts
+1/8. This is a diagnostic scalar model, not a claimed Fourier coefficient
+of an elliptic curve.
 
-### A counterexample to unbounded levelwise comparison
+`initial-only-rescaling-obstruction` proves that if cor(y₁)=y₀≠0,
+rescaling only y₀ by t≠1 destroys compatibility. Uniform rescaling of the
+whole system does commute with corestriction. Conversely an actual first
+commutative square and equality of positive classes force equality of
+compatible bottoms, without needing injectivity: apply the square to y₁.
+One must prove that square on the actual systems before using it to compare
+the two printed initial expressions.
 
-The new `unbounded-denominators-counterexample` takes
-\[
-M_n=\mathbf Z,\quad \mu_n=2,\qquad
-N_n=\mathbf Z,\quad \nu_n=1,\qquad f_n=2^n.
-\]
-Naturality is \(2^n\cdot2=2^{n+1}\). Each level map becomes an isomorphism over
-\(\mathbf Q\). However, an integral compatible source sequence satisfies
-\(x_n=2^k x_{n+k}\) for every \(k\). If \(x_n\ne0\), divisibility implies
-\(2^k\le |x_n|\), contradicting \(2^k\ge k+1\) for large \(k\). Hence
-\(\varprojlim M_n=0\), whereas \(\varprojlim N_n=\mathbf Z\), and
-\[
-(\varprojlim M_n)\otimes\mathbf Q\longrightarrow
-(\varprojlim N_n)\otimes\mathbf Q
-\]
-is the non-isomorphism \(0\to\mathbf Q\).
+## Integral comparison of towers
 
-In contrast, \(x_n=2^{-n}\) is a compatible sequence in the rationalized source
-levels and maps to the constant one. Its denominators are unbounded. This
-pinpoints the forbidden interchange between integral inverse limit followed by
-coefficient extension, as used in CH Section 5.2, and levelwise rationalization.
-Finite truncations have nonzero integral compatible sequences, so finitely many
-computational checks alone cannot establish the infinite assertion. The proof
-above, not a numerical extrapolation, supplies the counterexample.
+The quotient of the whole Jacobian need not have a rational inverse. The
+comparison selects a multiplicity-one f-factor first. GH.0 provides the
+factor and GH.1 provides its lattices. A rational isomorphism at each
+conductor is only the beginning of the integral argument.
 
-## The ordinary-family boundary
+Write M_n and N_n for the selected cycle and point cohomology modules, with
+corestrictions μ_n and ν_n. Required forward and reverse maps are
+f_n:M_n→N_n and g_n:N_n→M_n. Their scalar composites must have one fixed
+multiplier d, independent of n:
 
-Castella's Theorem 6.5 is higher-weight. Remark 6.6 of the inspected 31-page
-copy extends the comparison to weight-two ordinary \(p\)-stabilizations of
-prime-to-\(p\) newforms, not to weight-two \(p\)-new specializations. The packet
-retains both weight congruences, residual hypotheses, actual lattices,
-specialization and critical-twist maps. The finite ring-class component is not
-silently traced away.
+$$g_nf_n=d\,\mathrm{id}_{M_n},\qquad
+  f_ng_n=d\,\mathrm{id}_{N_n}.$$
 
-The proof compares specialized regulator images and uses both global
-localization injectivity and local regulator injectivity. Equality of scalar
-regulator values alone is not equality of global classes. The family proof and
-the 2022 CH revision have different displayed Tate-period powers; comparing
-versions needs an actual twist/coefficient map. The uniform denominator lemmas
-above supply neither those maps nor either injectivity theorem.
+Both families commute with corestriction. In particular,
+μ_ng_{n+1}=g_nν_n. Such data are requested from GH.1/GH.3 on the actual
+lattices; clearing a different denominator at each level does not provide
+them.
 
-### The regulator kernel after descent
+`uniform-coherent-kernel-bound` gives d x_n=0 whenever f_n(x_n)=0. It
+applies directly to compatible sequences. `uniform-coherent-lift` proves
+that if y=(y_n) is compatible in N, then x_n=g_n(y_n) is compatible in M
+and f_n(x_n)=d y_n. Thus the induced tower comparison has kernel and
+cokernel killed by d. The cokernel assertion uses this explicit coherent
+lift, rather than a claim that inverse limits preserve surjections. After
+inverting d, the two composite identities give inverse maps on the limits.
+An integral isomorphism follows if d is a unit; a nonzero nonunit does not
+suffice. These statements allow torsion modules and do not require
+finite generation.
 
-Loeffler--Zerbes, arXiv v3 Proposition 4.11, proves injectivity with an infinite
-unramified direction. Its proof reduces a Frobenius-fixed element to a compatible
-sequence in stabilized finite-rank invariant lattices, whose transition is
-multiplication by \(p\); divisibility by every power of \(p\) forces zero.
-CH Theorem 5.1 then uses a quotient to reach the relative Lubin--Tate extension.
-The construction and its kernel must be transported together.
+`unbounded-denominators-counterexample` prevents an invalid shortcut. Set
+M_n=ℤ, μ_n=2, N_n=ℤ, ν_n=id and f_n=2^n. Then
+f_nμ_n=ν_nf_{n+1}, and each f_n is an isomorphism over ℚ. Every compatible
+integer sequence in M is zero: x_0 is divisible by arbitrarily large powers
+of 2, and the same argument applies at every index. The compatible
+sequences in N are all constant. Therefore
 
-The relevant algebra is already in the pinned Mathlib. For a linear map
-\(f:M\to N\) and submodules \(P\subseteq f^{-1}(Q)\),
-`Submodule.mapQ` induces \(\bar f:M/P\to N/Q\), and `Submodule.ker_mapQ` gives
-\[
-\ker\bar f=\operatorname{image}\bigl(f^{-1}(Q)\longrightarrow M/P\bigr).
-\]
-In particular, \(f^{-1}(Q)=P\) implies injectivity, using
-`Submodule.mkQ_map_self` and `LinearMap.ker_eq_bot`. In a scalar specialization
-these may be \(P=JM\) and \(Q=JN\), but the Iwasawa and distribution coefficient
-algebras must first be identified by the actual comparison maps. An analytic
-ideal cannot act on a bounded module without that construction.
+$$(\varprojlim M_n)\otimes\mathbf Q=0,\qquad
+  (\varprojlim N_n)\otimes\mathbf Q=\mathbf Q.$$
 
-Injectivity of \(f\) alone is insufficient: multiplication by \(X\) on
-\(\mathbf Q[X]\) is injective, while its induced map on
-\(\mathbf Q[X]/(X)=\mathbf Q\) is zero. This counterexample tests the proposed
-inference; it is not a refutation of either arithmetic theorem.
+The limit of the rationalized M_n does have sequences x_n=2^{-n}x_0.
+Their growing denominators explain why it is a different object. The
+comparison must specify whether scalar extension occurs before or after
+forming the integral Iwasawa class.
 
-GH.7 supplies the local descent, together with a proof of the zero descended
-kernel. Scalar evaluation then needs the nonzero dual vector on the ordinary
-crystalline **line**. CH Section 5.3 identifies that projection and its period
-factor. Projection from \(\mathbf Q^2\) to the first coordinate loses \((0,1)\),
-so a nonzero functional on the full crystalline space is not a substitute.
+Acceptance of the arithmetic tower comparison requires the selected factor,
+one common multiplier, the actual reverse maps and both corestriction
+squares. It also requires preservation of the local conditions carried by
+HE.3 and GH.2. A rational coefficient identification cannot silently be
+used for a statement about integral Selmer groups.
 
-Global localization is a separate GH.7 import. Castella Lemma 6.4 uses integral
-Greenberg torsion-freeness, specialization/control, characterwise nonvanishing
-and rank-one Selmer bounds, retaining each finite ring-class component. These
-steps, the local quotient kernel and the source-version period map are explicit
-open obligations. None is certified by elaborating the algebraic examples.
+## Differential evaluation
 
-## A coefficient identity that cannot be used literally
+`differential-evaluation` uses the same modular quotient as
+`modular-quotient-kummer`. Work over the finite unramified local extension
+L_v/ℚ_p and good-reduction models of BDP Section 3. Choose an invariant
+differential ω_E and the f-differential ω_f, and define c_π by
+π*ω_E=c_πω_f. For the degree-zero CM divisor D_φ=[x_φ]−[b], the target is
 
-In CH Section 4.4, \(B=\operatorname{Res}_{H_K/K}A\). For \(h=[H_K:K]\), the
-full symmetric power of \(T_pB\) and the induced symmetric power of \(T_pA\)
-have dimensions \(1\) and \(h\) in degree zero, and \(h(2h+1)\) and \(3h\)
-in degree two. The displayed identification therefore fails for \(h>1\).
-The retained source issue records that obstruction, not a claim that all later
-theorems are false.
+$$\log_{E,\omega_E}\bigl(\pi(x_\varphi)-\pi(b)\bigr)
+ =c_\pi\,AJ_{\mathrm{dR}}(e_fD_\varphi)(\omega_f).$$
 
-For positive degree the pure-factor symmetric powers form the induced
-submodule; mixed monomials remain in the full symmetric power. Degree zero
-needs a separate treatment. The direct divisor/Kummer route avoids the false
-identification, but comparison with the general CM-character construction
-still requires repaired carriers and actual maps.
+The quotient, f-projection and realization identifications on the right
+are the maps already used in the étale comparison. GH.1 supplies their
+de Rham functoriality; PadicHodgeRegulators L1 supplies the naturality of
+the Bloch–Kato logarithm and its elliptic formal-group comparison. The
+pullback of the differential is then the dual coefficient map. Pinned
+Mathlib's `LinearMap.dualMap_apply` and `dualMap_comp_dualMap` supply the
+ordinary linear algebra, not these arithmetic realization maps.
 
-## Ownership and validation boundary
+Changing either differential changes c_π. Neither the modular
+parametrization nor the equation defining c_π implies c_π=1 or that c_π is
+an integral unit. In a squared Abel–Jacobi formula, substitution of the
+elliptic logarithm gives the factor c_π^{-2}. A single inverse power would
+change the formula. The rational comparison and any integral assertion
+about this factor therefore have separate acceptance checks. BDP's local
+range must also be retained; it cannot establish the multiplicative
+weight-two comparison used in the corrected BSD proof.
 
-GH.0--GH.1 own the cycle geometry and realizations. HE.0--HE.3 own the order,
-field, point, trace and Kummer inputs. GH.3 and HE.8 own the tower realizations.
-GH.8 compares these objects. ModularIwasawaMainConjectures L6 owns the general
-endpoint formulation comparisons, including determinant lines and
-primitive/imprimitive conventions. Source-qualified maps feed the consumers;
-there is no dependency back from the early class comparison to a completed
-main conjecture.
+## Ordinary family specialization
 
-The suggested file uses existing modules, linear maps, duals and integers. It
-contains five named algebraic signatures and seventeen regression examples,
-including four checks of quotient descent and scalar evaluation, plus four
-baseline declaration checks. It elaborates at the pinned baseline with zero
-errors and only the twenty-two intended placeholder warnings. The seven
-geometric signatures still require their actual realization interfaces. The
-reviewed aggregate GH.8 audit and all applicable link-map entries have been
-reconciled; coverage remains partial with ten requests and five gap groups.
+`ordinary-p-old-family` imports the integral Hida branch I, critically
+twisted representation T†, ordinary filtration and Howard class
+Z_{c₀,∞} from GH.7. Use Castella's author-copy conventions. Here p∤6N,
+c₀ is prime to pN, the imaginary quadratic discriminant is odd and less
+than −3, and p splits in K. The residual representation is p-distinguished,
+is irreducible on G_K, and satisfies the source ramification condition at
+primes dividing (D_K,N). For comparison with CH, impose the stronger
+common range in which all tame primes dividing N split; the ramification
+condition is then vacuous. This restricted comparison does not cover every
+ramified-level case in Castella.
 
-## Sources
+Let the reference weight k>2 be even with k≡2 modulo p−1. Castella
+Theorem 6.5 treats arithmetic specializations ν of weight 2r_ν>2 and
+trivial character satisfying 2r_ν≡k modulo 2(p−1). Its class formula is
 
-BDP: Bertolini--Darmon--Prasanna, *Generalized Heegner cycles and p-adic Rankin
-L-series*, Duke Math. J. 162 (2013), especially Section 2.3 and Sections 3.1--3.4.
-The original checkpoint read those passages; this continuation does not claim
-a fresh full read of them.
+$$c_0^{r_\nu-1}\,\nu(Z_{c_0,\infty})
+   =z_{f_\nu,c_0,\alpha},\qquad \alpha=\nu(a_p).$$
 
-CH: Castella--Hsieh, *Heegner cycles and p-adic L-functions*, Math. Ann. 370
-(2018), Sections 4.3--4.4 and 5.2. Definition 5.2 on printed p. 601 was
-independently rechecked in its page image. Distinguish the 2 July 2022 revision
-and one-page erratum. The latter's original read is retained, not represented
-as a new errata search in this continuation.
+Remark 6.6 extends this comparison to weight two and trivial character
+when f_ν is the ordinary p-stabilization of a newform of level prime to p.
+Both congruences on the weights remain relevant: 2≡k modulo 2(p−1)
+is stronger than evenness. The target then reads
 
-Castella: *On the p-adic variation of Heegner points*, inspected 31-page author
-copy, Section 6.2, Lemma 6.4, Theorem 6.5, equations (6.7)--(6.9) and Remark 6.6.
-The current continuation read pp. 27--29 and successfully inspected the image
-of p. 28. It also read CH (2022), pp. 21--25, including its quotient construction
-and ordinary-line pairing, and Loeffler--Zerbes, arXiv:1108.5954v3, pp. 16--18,
-including the proof of Proposition 4.11. CH p. 22 and LZ p. 18 were inspected as
-images. The downloaded source hashes and exact scopes are in the packet.
-The retained source finding and its previous errata search are unchanged; no
-new source error is asserted from the local descent or unit-factor boundary.
+$$\nu(Z_{c_0,\infty})=z_{f_\nu,c_0,\alpha}.$$
+
+The equality lives in the identified Greenberg Iwasawa cohomology of
+T_{f_ν}(1), with the source coefficient-specialization and critical-twist
+maps. It retains the finite ring-class component. A trace to K is a further
+map. A p-new multiplicative form or a nonordinary form fails the stated
+range. The theorem does not identify differently normalized versions of
+CH's class until their comparison maps have been supplied.
+
+The proof has two injectivity obligations and a pairing obligation.
+Castella Lemma 6.4 proves the global localization statement using the
+integral Greenberg module's torsion-freeness, specialization/control of the
+localization kernel, nonvanishing at infinitely many characters on each
+finite ring-class component and the resulting rank-one Selmer bound.
+GH.7 must retain this chain at the weight-two p-old specialization.
+Residual irreducibility by itself is not a proof of injectivity.
+
+For the local step, LZ14 Proposition 4.11 supplies two-variable regulator
+injectivity with an **infinite unramified direction**. CH Theorem 5.1
+passes through a coefficient/distribution quotient in its relative
+Lubin–Tate construction. GH.7 must prove that the actual ordinary
+rank-one representation has the required crystalline nonnegative
+Hodge–Tate range, no trivial quotient and no fixed vectors over the torsion
+extension, with the finite unramified base specified. It must then identify
+the submodules being quotiented.
+
+For a linear map h:M→N descending from M/P to N/Q, Mathlib's
+`Submodule.ker_mapQ` identifies its kernel with the image of h^{-1}(Q)
+in M/P. Thus h^{-1}(Q)=P suffices for descended injectivity; alternatively
+one can prove this kernel is zero directly. Injectivity of h does not
+suffice. Multiplication by X on ℚ[X] is injective but gives the zero map
+on the nonzero quotient ℚ[X]/(X). This regression rejects a general
+inference; it does not refute the arithmetic regulator theorem.
+
+Finally the scalar functional must be nonzero on the one-dimensional
+ordinary crystalline line after the chosen coefficient extension. On a
+line, a nonzero functional is injective. On the full two-dimensional
+crystalline realization, a nonzero functional need not be injective: the
+first-coordinate projection kills (0,1). CH Section 5.3 supplies the
+ordinary-line projection and CM-period identity. GH.7 supplies its actual
+realization and source-version transport. Only after these checks can the
+source scalar identities imply equality of local classes, and global
+localization then imply equality of global classes.
+
+## Weight-two explicit reciprocity
+
+`weight-two-reciprocity` transports the imported CH 2022 Theorem 5.7 to
+the point class. Let f be the ordinary weight-two prime-to-p newform
+attached to E, and retain CH's standing hypotheses. Let ψ have infinity
+type (1,−1) and conductor c₀. In CH's completed unramified coefficient
+Iwasawa algebra S_F on its ring-class quotient, Theorem 5.7 specializes to
+
+$$\bigl\langle\mathcal L_\psi(z_f),
+      \omega_f\otimes t^{-2}\bigr\rangle
+   =-\mathscr L_{p,\psi}(f)\,\sigma_{-1,\mathfrak p}.$$
+
+The factor c₀^{r−1} is 1 at r=1. The minus sign and the group-like
+factor σ_{−1,𝔭} remain. The latter has order dividing two on the full
+ring-class quotient; its image may become trivial on the pro-p
+anticyclotomic quotient. That image must be computed, not assumed.
+
+Let γ_π be the actual quotient coefficient map to V_pE, and let d_γ
+be its ordinary crystalline realization after the ψ^{-1} twist. Write
+ℓ_f for the displayed CH functional. Transport the invariant differential
+and CM generator to an elliptic functional ℓ_E satisfying
+
+$$\ell_E\circ d_\gamma=c_\pi\ell_f.$$
+
+This equation is part of the arithmetic comparison target. CH (5.3)
+relates its CM generator ω_{f,ψ} to ω_f⊗t^{-2r} by the nonzero period
+Ω_ψ. It provides a pairing comparison, not an assertion that Ω_ψ is an
+integral unit. GH.4/GH.7 must realize this identity together with the
+quotient differential and twist maps.
+
+Regulator naturality then yields, for
+y_E=H¹_Iw(γ_π)(z_f),
+
+$$\ell_E\bigl(\mathcal R_E(y_E\otimes\psi^{-1})\bigr)
+   =-c_\pi\mathscr L_{p,\psi}(f)\,\sigma_{-1,\mathfrak p}.$$
+
+The class y_E is identified with the HE.8 Kummer system through the
+positive-tail comparison and actual first-corestriction square. Fixed
+lattice multipliers control the integral comparison. The displayed scalar
+identity alone does not make c_π an integral unit.
+
+For any defined coefficient/group homomorphism ρ, the transported identity
+has right side −ρ(c_π)ρ(𝓛_{p,ψ}(f))ρ(σ_{−1,𝔭}). Its acceptance
+checks verify the differential scalar, twist, coefficient ring, finite
+component and group factor together. They also check the bottom Kummer
+class through the actual normalization square. Ramified-character values
+alone cannot supply a conductor-zero equality without a separation/control
+theorem.
+
+## Export to automorphic congruences
+
+`automorphic-reciprocity-export` supplies the source-qualified ordinary
+inputs for AutomorphicCongruences L2. It imports GH.4's CH scalar identity
+and GH.7's family identity, including their coefficient rings. With the
+notation of Castella Proposition 5.2, put
+
+$$\lambda=\Psi(\operatorname{Frob}_{\mathfrak p})-1,\qquad
+ S_I=I[\lambda^{-1}]\widehat\otimes W.$$
+
+Theorem 5.3 states the native equality
+
+$$\mathcal R_{\mathrm{Cas}}\!left(
+ \operatorname{loc}_{\mathfrak p}(Z_{c_0,\infty}\otimes\xi^{-1})\right)
+ =\mathscr L_{p,\xi}(\text{family})\,
+   \sigma_{-1,\mathfrak p}
+ \quad\text{in }S_I[[\widetilde\Gamma]].$$
+
+Here the scalar regulator includes the printed finite-ring-class
+corestriction and group restriction. The character ξ, critical twist,
+ordinary-line trivialization and completion are the source data. At a
+permitted specialization, Castella Theorem 2.11 compares the analytic
+moment with the corresponding CH-convention p-adic L-function. The class
+moment uses Theorem 6.5 in its higher-weight range and Remark 6.6 in its
+weight-two p-old range.
+
+A homomorphism ν from I does not automatically extend to S_I. It must send
+λ to an invertible element in the target; over a field, this requires
+ν(λ)≠0. If ν(λ)=0, evaluation of λ^{-1} is undefined. GH.7 must provide
+a regular coefficient model or a proved denominator-cleared identity and
+its specialization. Specializing a cleared equation at λ=0 cannot recover
+its former quotient by cancellation. This check applies before naming the
+class/regulator specialization square.
+
+For every defined continuous coefficient/group map ρ on S_I[[Γ̃]],
+apply ρ to the exact native identity. This gives equality of its two
+images with the actual image of σ_{−1,𝔭}. It does not supply a map
+between two distributions merely because both have been called p-adic
+L-functions. The class moment, analytic moment and regulator moment must
+commute with the same coefficient and group maps.
+
+The Castella family equality has a positive sign. CH 2022 Theorem 5.7 has
+−c₀^{r−1} and the functional involving t^{-2r}; the family comparison
+proof uses t^{1−2r}. Keep both equalities with their own classes, periods
+and functionals until the GH.4/GH.7 diagram identifies them. A Tate-period
+power cannot be discarded as an ordinary coefficient unit. The version
+comparison is an explicit request, rather than an informal renaming of
+symbols.
+
+L2 owns the ordinary GU(3,1) congruence construction, its lattice and
+analytic-function comparisons, and its divisibility. Its FW
+Beilinson–Flach input is a separate class. L2s owns the semi-ordinary CLW
+branch. This export supplies the Heegner reciprocity input in the stated
+ordinary range; the consumer verifies period units, excluded height-one
+primes and any primitive/imprimitive or determinant comparisons through
+ModularIwasawaMainConjectures L6. Those comparisons are not prerequisites
+for the GH.8 identity itself.
+
+## Export to the corrected multiplicative BSD proof
+
+`corrected-bsd-input-export` follows Castella's correction to the
+multiplicative anticyclotomic main-conjecture proof. It exports
+higher-weight inputs to RankZeroOneBSD BSD.6a. The corrected argument
+chooses, for each m, an auxiliary ordinary newform g_m of prime-to-p level
+M=N/p, even weight k_m>2 with k_m≡2 modulo p−1, and a lattice congruence
+modulo p^m. It transfers the higher-weight Selmer and analytic data to the
+multiplicative elliptic curve by congruences and control. The weight-two
+p-new point does not pass Remark 6.6.
+
+The auxiliary theorem's range must be recorded exactly. The correction's
+Theorem 2.3 assumes an ideal 𝔐⊂O_K with O_K/𝔐≅ℤ/Mℤ, residual
+irreducibility on G_K, and a nonsplit q exactly dividing M. If 2 is
+nonsplit, 2 exactly divides M. At nonsplit ℓ exactly dividing M, the local
+automorphic representation is special twisted by the unramified character
+sending ℓ to −ℓ^{k_m/2−1}. These conditions are not the all-split CH
+standing Hypothesis (H).
+
+For E itself, corrected Theorem 1.1 assumes multiplicative reduction at
+p>3, split p, the corresponding ideal at level N, irreducibility of E[p]
+on G_ℚ, nonsplit multiplicative reduction at the nonsplit primes exactly
+dividing N, at least one such prime where E[p] is ramified, and
+E(ℚ_p)[p]=0. It also retains the condition at nonsplit 2. BSD.6a owns
+the residual restriction and local rigidity arguments that verify the
+auxiliary forms' hypotheses, as well as the coefficient congruences,
+Σ-imprimitive analytic congruence, Selmer control, both divisibilities and
+the final limit argument.
+
+The GH input consists of the actual GH.2–GH.7 system for each g_m, its
+lattice T_{g_m}, corrected Selmer conditions, ordinary stabilization and
+source-qualified reciprocity. The leading Kolyvagin class must agree with
+κ_{g_m,∞} by an explicitly identified p-adic **unit**. GH.6 and the HE.8
+comparison supply that unit and its inverse. A nonzero rational multiplier
+such as p cannot replace it in an integral divisibility argument.
+
+CH's one-page erratum changes the proof of derived local conditions: the
+original absolutely-unramified-only Lemma 7.5 does not supply the ramified
+conductor case. GH.2 owns the corrected route through the Kobayashi–Ota
+replacement, with its hypotheses. GH.5 owns non-torsion and the rank-one
+consequences; GH.6 owns the Longo–Vigni Kolyvagin system and its
+admissibility conditions. GH.8 requests their exact auxiliary-form range
+and exports the verified input, rather than reconstructing these theories.
+
+There is a concrete supplier gap here. CH's all-split tame-level
+hypothesis does not meet the corrected theorem's nonsplit-prime condition.
+Its exclusion p∤(2r−1)! is also weight-dependent; an unrestricted sequence
+of congruence weights cannot satisfy it automatically. The Longo–Vigni
+exceptional set and admissibility restrictions likewise need checking.
+GH.0–GH.7 must provide the precise tame-level and varying-weight extension
+used by the corrected proof. Neither omitting CH's hypotheses nor assuming
+the consumer's conclusion proves that extension. The gap records missing
+source-range data; it does not assert that the corrected theorem is false.
+
+Once the range adapter and normalization maps exist, export the scalar
+reciprocity formula with −c₀^{r_m−1}, the actual group factor and completed
+unramified coefficients, together with GH.7's analytic moments in a defined
+coefficient model. Reduction R_{g_m}→R_{g_m}/p^m carries an exact scalar
+equality to an exact scalar equality. Reduction of characteristic ideals
+or preservation of Selmer ranks does not follow from that algebraic fact;
+those are BSD.6a's congruence/control work. Its supersingular BSTW/CLW
+branch has separate zeta elements and signed reciprocity.
+
+## Source carrier and build order
+
+The retained source finding `E-GH8-1` concerns the full symmetric-power
+induction display in CH, not a normalization convention. If
+h=[H_K:K]>1, the degree-zero left side has rank 1 and the induced right
+side rank h. In degree two, the full symmetric square of a rank-2h Tate
+module has rank h(2h+1), while induction of the rank-3 symmetric square has
+rank 3h. For h>1 these differ. A pure-component projector may repair a
+positive-degree carrier, but it does not identify the full symmetric
+power, and degree zero requires its own treatment. GH.0/GH.3 own the
+repair or bypass. GH.8's empty-power/divisor comparison avoids using the
+false full-carrier equation. The unit-count and quotient-descent questions
+above remain gaps, rather than additional established source errors.
+
+The plan has sixteen nodes. The first seven targets build the degree-one
+cycle, quotient Kummer, finite character sum, positive stabilization,
+positive corestriction, differential evaluation and p-old family
+comparison. Four algebraic targets control initial normalization and
+uniform lattice bounds; the denominator counterexample and primitive
+character comparison test the boundaries. The three final targets provide
+point reciprocity and the two consumer exports. Dependencies and exact
+statements are in the packet; every target has a chain ending in a named
+library declaration, supplier node/stage or explicit gap.
+
+The four planets are **Weight-two Abel–Jacobi comparison**, **Modular
+differential comparison**, **Weight-two ordinary-family comparison** and
+**Weight-two explicit reciprocity**. They group the geometric comparison,
+its scalar differential, the ordinary specialization and the resulting
+point identity. All nodes have unchecked implementation status. No new
+arithmetic definition or construction is introduced in GH.8, so there is
+no new-definition API or unit-test list. Node acceptance checks include
+scalar calculations, conductor and carrier boundary cases, quotient
+kernel regressions and source-range checks.
+
+The stage is **planned** with six remaining groups: degree-one realization
+and uniform integral lattice maps; CM carrier and finite-character descent;
+initial conductor and source normalization; regulator descent and
+source-qualified period maps; corrected BSD auxiliary-form range and
+integral leading class; and actual arithmetic Lean interfaces. Its planning
+pass is complete at target level. It is not a closed mathematical blueprint.
+Requests name GH.0, GH.1, GH.2, GH.3, GH.4, GH.5, GH.6, GH.7 and
+PadicHodgeRegulators L1. Existing finer HE supplier nodes are imported
+directly rather than replaced by broader stage requests.
+
+The suggested Lean file uses actual Mathlib modules for twelve named
+algebraic signatures, twenty-nine examples and six baseline declaration
+checks. These isolate the first-trace calculation, coherent lattice
+arguments, conductor-character cancellation, linear transport of finite
+sums and stabilizations, differential reciprocity, coefficient reduction
+and the restriction on specialization of an inverse. Proofs remain
+placeholders. The arithmetic signatures individually name their missing
+supplier APIs and are omitted until those APIs exist; generic modules in
+the algebraic checks are not presented as geometric or Iwasawa carriers.
+The proposed arithmetic namespace is
+`TauCeti.GeneralizedHeegnerCycles.WeightTwo`, in the module
+`TauCeti/NumberTheory/HeegnerCycles/WeightTwo`.
+
+## Sources and boundaries of reading
+
+The packet records the exact versions, download hashes and bounded passages
+supporting this part:
+
+- Bertolini–Darmon–Prasanna, *Generalized Heegner cycles and p-adic
+  Rankin L-series*, Duke Mathematical Journal 162 (2013), 1033–1148:
+  [published version](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf),
+  Sections 2.3 and 3.1–3.4 for cycles, étale/de Rham Abel–Jacobi and local
+  evaluation.
+- Castella–Hsieh, *Heegner cycles and p-adic L-functions*,
+  [published version](https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf),
+  standing hypotheses, Sections 4.3–4.4 and 5.2; and the
+  [2 July 2022 author text](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf),
+  standing hypotheses, Sections 4.2–4.4, 5.1–5.3 and the beginning of 6.1.
+  The revised Theorem 5.7 and its proof fix the scalar identity used here.
+- Castella, *On the p-adic variation of Heegner points*,
+  [author copy](https://web.math.ucsb.edu/~castella/Heegner.pdf),
+  introduction, Theorem 2.11's analytic specialization, Sections 5.1–5.2
+  through the statement of Theorem 5.3, and Section 6.2 through Remark 6.6.
+- Loeffler–Zerbes, *Iwasawa theory and p-adic L-functions over
+  ℤ_p²-extensions*, [arXiv v3](https://arxiv.org/pdf/1108.5954v3),
+  Definition 4.6, Theorem 4.7's statement and Propositions 4.9–4.11,
+  including the injectivity proof.
+- Castella–Hsieh, [erratum](https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf),
+  the complete one-page correction to the derived-class local-condition
+  proof.
+- Castella, [multiplicative BSD correction](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf),
+  corrected Theorems 1.1 and 2.3 and their proof route, including the
+  residual/local-type footnote.
+
+These passages justify the GH.8 comparisons and precise supplier requests.
+They do not constitute full new readings of the Hida construction,
+Howard's construction, Rubin's finite-character specialization,
+Kobayashi–Ota's replacement theorem or Longo–Vigni's system. Those source
+proofs belong to the named suppliers. Likewise the FW, CLW and BSD
+main-conjecture proofs remain with their consumers. The packet's source
+locators distinguish a theorem statement from a proof and a published
+normalization from a revised author normalization.
