@@ -1,0 +1,1184 @@
+{
+  "roadmapId": "HabiroNumberFields",
+  "protocol": "blueprint-v1",
+  "part": "HB.7",
+  "scope": [
+    "HabiroNumberFields:HB.7"
+  ],
+  "status": "complete",
+  "summary": "A target-level continuation of the accepted HB.7 packet: compute the half-shifted Pochhammer linear jet and its integral shape; isolate effective global line descent, tensor bijectivity and the Picard character; specify coefficient pullback, semilinear Galois action and multiplicative transfer with their exact supplier contracts. Existing definitions and operations are imported by node id. The stage is planned, not closed: effective descent and arithmetic naturality remain explicit proof inputs.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficientwise ring map; family pullback uses it componentwise.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_one_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient of X in a product is a₀b₁+a₁b₀, including the cross terms needed in the split norm test.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.exp",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+        "provides": "Formal exp X over a rational algebra; exp of a zero-constant series is its substitution.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.log",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Log.lean",
+        "provides": "Formal log(1+X) over a rational algebra, constant coefficient zero and linear coefficient one.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution when the inner constant coefficient is nilpotent; here every formal logarithm substituted has constant zero.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Module.Invertible.left",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "An actual linear equivalence M tensor N to R implies M invertible; it does not turn a merely bilinear multiplication map into an equivalence.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Class of a module already equipped with Module.Invertible; uses the existing Picard group.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_tensor",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Pic.mk of a tensor product is the product of Pic.mk classes, for invertible modules.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mapAlgebra",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "Existing Picard pullback A tensor_R M; the Habiro scalar-extension theorem must identify this with the requested indexed module.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.norm",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "Determinant norm, a multiplicative map. Use only on the finite free rational/local coefficient algebras here; on a module without a finite basis the implementation defaults to one.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_of_equiv_equiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Basic.lean",
+        "provides": "Norm commutes with simultaneous ring equivalences respecting the algebra map; supplies the Frobenius/norm square.",
+        "checked": "Declaration and full hypotheses read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; no target-specific implementation inferred from its name. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_self",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "The class of the ring module is the identity Picard class; the unit step of the character construction.",
+        "checked": "Exact statement Pic.mk R R = 1 read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, PicardGroup.lean, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.7 at the same pin on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CommRing.Pic.mk_eq_mk_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PicardGroup.lean",
+        "provides": "For invertible R-modules M,N, Pic.mk R M = Pic.mk R N iff Nonempty (M ≃ₗ[R] N). Transports the actual tensor/unit/scalar linear equivalences to class equalities.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_norm",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+        "provides": "For a scalar tower of rings A/S/R, R and S commutative, with S free over R and A free over S, norm R (norm S a) = norm R a. Apply here only to finite free full coefficient algebras.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "For R commutative, S a ring and a free R-algebra, norm R (algebraMap R S x) = x ^ Module.finrank R S. The application has finite positive rank [E:F]; no infinite-rank fallback is used.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Basic.lean",
+        "provides": "For a nontrivial ring S finite and free over the commutative base R, norm R (0 : S) = 0. Positive extension rank, rather than a nonzero K₃ degree, is the relevant hypothesis.",
+        "checked": "Exact declaration, ambient variables and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 by REV-HabiroNumberFields--HB.7."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "GSWZ.HB7.v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2, posted 27 August 2025, PDF dated 13 August 2025",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§1.4, Definitions 1.3 and 1.4 in §1.5, Theorems 1 and 2, Proposition 1.5; §2.1 in full, equations (46)-(60); §3.1 regulator setup (174), Theorem 9; §3.2 in full, Lemma 3.4 through Corollary 3.10 including (195), (207)-(210); §3.3 proof of Theorem 2 and proof of Proposition 1.5. These locators are v2, not v1."
+      ]
+    },
+    {
+      "id": "Wagner.Thesis.HB7",
+      "title": "q-Hodge filtrations, Habiro cohomology, and ku",
+      "authors": "Ferdinand Wagner",
+      "edition": "Author-hosted thesis PDF fetched 6 October 2026; this record identifies the exact bytes, not an inferred arXiv version",
+      "url": "https://ferdinand-wagner.github.io/papers/q-Thesis.pdf",
+      "sha256": "d074047f202ee7e64298801b15327a9a634b6f7b6e4bcd5be7b2fda959ad876c",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction §1.5, printed pp.2-3 (PDF pp.6-7), citing the GSWZ Picard map; §2.2, printed pp.30-33 (PDF pp.34-37), proof end of Theorem 2.9, Lemma 2.12 and Corollary 2.13; search for GSWZ/Picard references. The equalizer describes the ring, not effective descent for Definition 1.4 modules. The false irreducibility sentence on printed p.32 is the already confirmed HabiroRings/E5; use the full finite étale residue algebra."
+      ]
+    },
+    {
+      "id": "BouisGazda.Cyclosyntomic.v1",
+      "title": "The cyclosyntomic regulator of a number field",
+      "authors": "Tess Bouis, Quentin Gazda",
+      "edition": "arXiv:2602.21894v1, 25 February 2026",
+      "url": "https://arxiv.org/pdf/2602.21894v1",
+      "sha256": "935eabb416ab0ed0d80b92b4cdfdaa34a43f8f0feb65dec3c1ca3f0fbea0b186",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction, pp.1-3: Definition 1.1, Theorem A and the first Chern class/weight-one regulator. Read to delimit relevance; not used as a K₃ tensor-descent proof."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNumberFields:HB.7/followup-half-shift-coefficient",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Half-shifted Pochhammer linear coefficient",
+      "kind": "definition",
+      "statement": "For a characteristic-zero field L, r ∈ L× and z ∈ L with z ≠ 1, define halfShiftLinearCoeff(z,r) = −z/(24 r(1−z)). In applications r=ζ_m, z is a nontrivial root of unity in a local unramified factor, and the coefficient is the first jet of Ψ/ε_m^{1/m}, not of the unnormalised Kummer-valued section.",
+      "hypotheses": [
+        "L is a characteristic-zero field; r≠0 and z≠1. This rational function is not an extension of the analytic construction at z=1."
+      ],
+      "proofSteps": [
+        "Compute B₂(1/2)=−1/12 from (60).",
+        "Use Li₀(z)=z/(1−z), divide the shifted expansion by m, and convert h=log(1+x/r) to x; the m in the k=2 term cancels."
+      ],
+      "acceptance": [
+        "−1 at level r=1 gives +1/48.",
+        "Changing r rescales the answer by r^{-1}; no residual m factor remains.",
+        "The use at z=1 is excluded even though field division is total as a library operation."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.log"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
+          "excerpt": "B₁(y) = y − 1/2.",
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "halfShiftLinearCoeff",
+          "role": "constructor",
+          "statement": "The displayed rational function with explicit r and z."
+        },
+        {
+          "name": "halfShiftLinearCoeff_map",
+          "role": "functoriality",
+          "statement": "A field homomorphism maps halfShiftLinearCoeff(z,r) to halfShiftLinearCoeff(ιz,ιr)."
+        },
+        {
+          "name": "halfShiftLinearCoeff_scale",
+          "role": "compatibility",
+          "statement": "For a≠0, halfShiftLinearCoeff(z,ar)=halfShiftLinearCoeff(z,r)/a."
+        },
+        {
+          "name": "halfShiftLinearCoeff_neg_one",
+          "role": "simp",
+          "statement": "halfShiftLinearCoeff(−1,r)=1/(48r)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ Theorem 10 with corrected (195)",
+          "how": "Supplies the integral linear coefficient omitted in its one-sentence proof."
+        },
+        {
+          "where": "HB.7 integral-linear-jet",
+          "how": "Finite weighted presentations sum these coefficients after normalising constants."
+        }
+      ],
+      "tests": [
+        {
+          "name": "halfShiftLinearCoeff_minus_one",
+          "statement": "Over ℚ, z=−1 and r=1 give 1/48.",
+          "kind": "computation"
+        },
+        {
+          "name": "halfShiftLinearCoeff_two",
+          "statement": "Over ℚ, z=2 and r=1 give 1/12; detects the sign.",
+          "kind": "computation"
+        },
+        {
+          "name": "halfShiftLinearCoeff_level",
+          "statement": "Over ℚ, z=−1 and r=2 give 1/96; detects failure to rescale x/r.",
+          "kind": "computation"
+        },
+        {
+          "name": "halfShiftLinearCoeff_even_root",
+          "kind": "computation",
+          "statement": "Over ℚ, z=−1 and r=ζ₂=−1 give −1/48. This checks the sign of x/r at an even root order, under the constant-one formal half-power branch."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "First jet of the explicit local sections",
+      "kind": "theorem",
+      "statement": "For p>3 unramified, m≥1 prime to p and ζ≠1 of order prime to p in a factor of K_p, let h=log(1+x/ζ_m) and interpret the half power in (207) as the formal square root of q^m with constant 1, exp(mh/2). The normalized factor U_{ζ,m}=Ψ_{[ζ],p,m}/ε_m([ζ])^{1/m} has constant coefficient 1 and linear coefficient halfShiftLinearCoeff(ζ,ζ_m). Its logarithm is Σ_{k≥2} B_k(1/2)m^{k−2}Li_{2−k}(ζ)h^{k−1}/k!. This statement concerns the formal factor for each allowed ζ; notation [ζ] does not assert that the raw symbol is a Bloch class.",
+      "hypotheses": [
+        "The constant Kummer root is chosen as in HB.2; division by it normalises the section.",
+        "The infinite Pochhammer logarithm means the regularized formal asymptotic expansion (47), not a convergent infinite product at a p-adic root of unity.",
+        "The branch at q^m=1 has half power equal to 1: (q/ζ_m)^{m/2}=exp(mh/2). This is not an identification with the ordinary monomial q^{m/2} at even m, whose constant can be −1."
+      ],
+      "proofSteps": [
+        "Apply −Σ ζ^ℓ exp(mhℓ/2)/(ℓ(1−exp(mhℓ))) from (46), interpreted by the shifted generating function (60).",
+        "The k=0 term is Li₂(ζ)/(m²h); cancel it with (207). B₁(1/2)=0 removes the constant logarithmic term.",
+        "The k=2 term is −Li₀(ζ)h/24. Terms k≥3 have degree at least two in x.",
+        "Exponentiating a zero-constant series leaves its coefficient of x unchanged."
+      ],
+      "acceptance": [
+        "The branch, minus sign, 24, factor ζ_m^{-1}, and cancellation of m are explicit.",
+        "No p-adic integrality of Li₂ is used for this finite jet.",
+        "The same normalized unit for m=1, ζ=−1 is 1+x/48+O(x²).",
+        "For m=2, ζ_m=−1 and ζ=−1, the branch-one unit has coefficient −1/48. The ordinary monomial q gives input −ζ=1 at the expansion point, so it is not this normalized formal factor."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-half-shift-coefficient",
+        "HabiroNumberFields:HB.7/pochhammer-sections",
+        "PadicHodgeRegulators:D.1",
+        "mathlib:PowerSeries.exp",
+        "mathlib:PowerSeries.subst"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
+          "excerpt": "B₁(y) = y − 1/2.",
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Integral shape of the Pochhammer sections",
+      "kind": "theorem",
+      "statement": "Let O be the integer ring of an unramified factor of K_p, p>3, and m prime to p. For a valid finite D.3 presentation ξ̂=Σ a_ζ[ζ] with a_ζ∈Z_p, ζ≠1 of order prime to p, the normalized product U=∏ U_{ζ,m}^{a_ζ}, defined by formal exp(a_ζ log U_{ζ,m}), has constant 1 and linear coefficient −Σ a_ζ ζ/(24 ζ_m(1−ζ))∈O[ζ_m]. Hence Ψ has the corrected shape ε_m^{1/m}(1+xO[ζ_m]+x²K_p[ζ_m][[x]]). Together with the separately imported Frobenius-defect estimate of HB.7/pochhammer-dwork-difference and its half-shift variation, this is the shape input of Theorem 10. This resolves the linear-jet gap only; supplier and higher-defect proofs retain their contracts.",
+      "hypotheses": [
+        "p>3, unramified, m prime to p; all local factors retained.",
+        "Valid finite presentations and the interpretation of coefficient-localized symbols come from D.3, never from an unchecked raw Bloch symbol.",
+        "24, ζ_m and 1−ζ are units; a_ζ is an integral scalar. Higher coefficients need not be integral."
+      ],
+      "proofSteps": [
+        "A nontrivial prime-to-p root in an unramified field has nontrivial reduction, so 1−ζ is a unit. The integers 24 and m are units for p>3 and p∤m.",
+        "Apply the first-jet formula. Finite products of constant-one units add linear coefficients; exp(a log U) has linear coefficient a times that of U.",
+        "Intersect the factorwise integral assertions to get the full product-of-completions assertion.",
+        "Use D.3 and D.4 only to identify the valid presentation with ξ and its constants/regulator; the finite-jet computation itself is elementary."
+      ],
+      "acceptance": [
+        "ζ=−1 has coefficient 1/(48ζ_m), integral for every p>3.",
+        "An empty presentation has U=1, coefficient zero.",
+        "At p=2 or3 the denominator argument fails; no extension of the theorem is claimed. ζ=1 is excluded."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+        "HabiroNumberFields:HB.7/pochhammer-dwork-difference",
+        "HabiroNumberFields:HB.7/dworks-lemma",
+        "PadicHodgeRegulators:D.1",
+        "PadicHodgeRegulators:D.3",
+        "PadicHodgeRegulators:D.4",
+        "mathlib:PowerSeries.coeff_one_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§2.1, (46), (47), (60), pp.18-19; Definition 3.9, (207), p.42",
+          "excerpt": "B₁(y) = y − 1/2.",
+          "match": "Own formal derivation from the half-shifted Bernoulli generating function, not a coefficient formula printed by GSWZ. The half power denotes the formal square root of q^m with constant 1: exp(m log(q/ζ_m)/2). For even m it need not equal the ordinary monomial q^{m/2}; the branch is an explicit hypothesis."
+        },
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "Lemma 3.4, Corollary 3.5 and (195), pp.39-41; Theorem 10, p.42",
+          "excerpt": "f(x) ∈ 1 + xS[ζ_m] + O(x²)",
+          "match": "The corrected shape is what Dwork requires. This node adds the coefficient calculation; it does not silently reprove all of Proposition 2.2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-effective-global-descent",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Effective descent of the indexed global lines",
+      "kind": "theorem",
+      "statement": "For a number field F, Δ divisible by 6 and |disc F|, R=O_F[1/Δ], and ξ∈K₃(F), the set of Definition 1.4 with corrected local sections is an additive H_R-submodule of the rational Kummer family. Its maps to p-completed local modules and to each rational cyclotomic Kummer line identify the corresponding base changes with those lines. It is a finite projective H_R-module of constant rank one, and these charts detect zero modules and equivalences for the modules and tensor products used here. This is the required effective descent theorem; its proof is a recorded gap, not a new assertion that arbitrary intersections of locally free modules are projective.",
+      "hypotheses": [
+        "Full root-order family, every p∤Δ, and the exact nonlinear product (24); no restriction to orders prime to Δ unless expressly indicated.",
+        "The local module is the span of invertible sections; global elements may be zero or non-generators.",
+        "The chart maps and their Kummer/Frobenius transition isomorphisms must be constructed. Local generators are not assumed to be global sections."
+      ],
+      "proofSteps": [
+        "Construct a LINEAR descent datum from the rational Kummer lines and the p-adic lines of Theorem 1, extended by Corollary 3.7.",
+        "Prove its equalizer equals the set cut out by (23)-(24), including addition, not merely multiplication.",
+        "Establish effective descent with finite presentation and projectivity; either give a genuine faithfully flat affine cover and cocycle or a proved arithmetic patching theorem applicable to this exact diagram.",
+        "Prove the base-change identifications and conservativity; mere set-theoretic intersection in the adelic product does not suffice. These are the unresolved input recorded in gap G-global-descent."
+      ],
+      "acceptance": [
+        "A finite dual-basis certificate can be extracted; in particular the inverse-line pairing admits a finite sum of products equal to 1.",
+        "Tensoring with each chart gives the actual local/rational line, not only an injective map into it.",
+        "No assumption of global freeness or a single global generator."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/the-global-module",
+        "HabiroNumberFields:HB.7/local-freeness",
+        "HabiroNumberFields:HB.7/extension-to-all-roots",
+        "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
+        "HabiroNumberFields:HB.6/the-p-completed-ring",
+        "HabiroNumberFields:HB.2/the-exported-interface"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "Definition 1.4 (23)-(24), pp.10-11; §3.3, proof of Theorem 2, p.43",
+          "excerpt": "f(q^γ)^γ f(q^{−1}) ∈ H_{R[1/γ]}|γ",
+          "match": "Motivates the global set. The additive/effective descent claims below are missing proof inputs, not consequences of the multiplicativity argument in the source."
+        },
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (15), p.7",
+          "excerpt": "the universal ring",
+          "match": "The ring intersection motivates a patching approach but does not supply effective descent of indexed line modules."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Bijectivity of global tensor multiplication",
+      "kind": "theorem",
+      "statement": "Under the hypotheses and once the effective-descent target is proved, multiplication μ_{ξ,η}:H_{R,ξ}⊗_{H_R}H_{R,η}→H_{R,ξ+η} is bijective and defines a canonical linear equivalence. The source target is for every ξ,η; it remains conditional on the explicit descent gap. In particular μ_{ξ,−ξ} followed by H_{R,0}=H_R yields an inverse-line equivalence, and finite f_i∈H_{R,ξ}, g_i∈H_{R,−ξ} satisfy Σ f_i g_i=1.",
+      "hypotheses": [
+        "Same F,R,Δ as effective-global-descent.",
+        "Use the actual multiplication map of the accepted packet and its unit identification; no arbitrary chosen isomorphism is substituted."
+      ],
+      "proofSteps": [
+        "After p-completed base change, chosen invertible sections for ξ and η multiply to an invertible section for ξ+η; maps between these free rank-one modules are isomorphisms.",
+        "After each rational cyclotomic base change, tensor multiplication of Kummer lines is an isomorphism by HB.2 multiplicativity.",
+        "Use the proven chart base-change identities and conservativity of effective-global-descent to kill kernel and cokernel of μ.",
+        "For η=−ξ, expand μ^{-1}(1) as a finite sum of pure tensors. This is precisely the global assertion absent from the printed proof."
+      ],
+      "acceptance": [
+        "Both injectivity and surjectivity are proved, including ξ or η zero.",
+        "A local section is never promoted to a global element without descent.",
+        "The ξ=−η test produces a finite sum, not a claimed global generator."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
+        "HabiroNumberFields:HB.2/the-exported-interface"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "Theorem 2 (25)-(26), pp.10-11; proof in §3.3, p.43",
+          "excerpt": "H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}",
+          "match": "Printed target; the short proof proves only the multiplication map. This continuation preserves accepted source issue HabiroNumberFields/E23."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-picard-character",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Picard character and tensor powers",
+      "kind": "construction",
+      "statement": "Once tensor-bijectivity is proved, define k3PicardMap:K₃(F)→Additive(Pic(H_R)) by ξ↦[H_{R,ξ}]. Equip H_{R,ξ} with the existing Module.Invertible using μ_{ξ,−ξ} and H_{R,0}=H_R. The map is additive, its negative is the inverse line, and H_{R,ξ}^{⊗ n}≅H_{R,nξ} for n≥0 via iterated actual multiplication. Module-level unit, associativity and symmetry are induced by multiplication of families, so the construction retains actual line representatives; it is not a claim of freeness.",
+      "hypotheses": [
+        "The zero and tensor linear equivalences are the conclusions of the accepted ring case and followup tensor-bijectivity. This construction is conditional until those proof inputs are discharged."
+      ],
+      "proofSteps": [
+        "Apply Module.Invertible.left to H_{R,ξ}⊗H_{R,−ξ}≃H_R; use CommRing.Pic.mk.",
+        "Use Pic.mk_eq_mk_iff to transport the actual tensor and unit linear equivalences to class equalities; then Pic.mk_tensor proves addition and Pic.mk_self proves the zero case.",
+        "Iterate multiplication for powers, with the zero-fold tensor H_R; prove independence of parenthesization by equality on pure tensors.",
+        "Prove unit/associativity/symmetry diagrams by associativity and commutativity of the ambient family multiplication."
+      ],
+      "acceptance": [
+        "The Picard group and invertible-module theory are imported from Mathlib, never defined again.",
+        "The inverse tensor test is a finite sum of products; no chosen unit section of H_{R,ξ} is part of the input."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "mathlib:Module.Invertible.left",
+        "mathlib:CommRing.Pic.mk",
+        "mathlib:CommRing.Pic.mk_tensor",
+        "mathlib:CommRing.Pic.mk_self",
+        "mathlib:CommRing.Pic.mk_eq_mk_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "Theorem 2 (25)-(26), pp.10-11; proof in §3.3, p.43",
+          "excerpt": "H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}",
+          "match": "Printed target; the short proof proves only the multiplication map. This continuation preserves accepted source issue HabiroNumberFields/E23."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "k3PicardMap",
+          "role": "constructor",
+          "statement": "The additive Picard character using the actual line modules."
+        },
+        {
+          "name": "k3PicardMap_apply",
+          "role": "projection",
+          "statement": "The value is Additive.ofMul(Pic.mk H_R H_{R,ξ})."
+        },
+        {
+          "name": "k3PicardMap_zero",
+          "role": "simp",
+          "statement": "Zero maps to the identity Picard class."
+        },
+        {
+          "name": "k3PicardMap_add",
+          "role": "compatibility",
+          "statement": "The class of ξ+η is the tensor product of the two classes."
+        },
+        {
+          "name": "k3PicardMap_neg",
+          "role": "simp",
+          "statement": "The class of −ξ is the inverse class."
+        },
+        {
+          "name": "HabiroModule.tensorPowerEquiv",
+          "role": "equivalence",
+          "statement": "The n-fold tensor power is canonically H_{R,nξ}, including n=0."
+        },
+        {
+          "name": "HabiroModule.tensorCoherence",
+          "role": "compatibility",
+          "statement": "Unit, associativity and symmetry diagrams agree with multiplication on pure tensors."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GSWZ Theorem 2 (26)",
+          "how": "Exports the Picard character and actual tensor/power comparison."
+        },
+        {
+          "where": "HabiroRings:HR.6",
+          "how": "Provides the actual indexed lines for its cohomological Picard comparison; HR.6 is a consumer, not a prerequisite."
+        }
+      ],
+      "tests": [
+        {
+          "name": "k3PicardMap_zero_test",
+          "statement": "ξ=0 gives the free rank-one ring module and the zero of Additive(Pic).",
+          "kind": "degenerate"
+        },
+        {
+          "name": "k3PicardMap_inverse_test",
+          "statement": "The classes of ξ and −ξ add to zero.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "k3PicardMap_power_test",
+          "statement": "The value at ξ is the actual Mathlib Pic.mk class; when this class is nontrivial the character value is nonzero. The n=2 tensor square has the class of 2ξ, and n=0 gives the unit.",
+          "kind": "compatibility"
+        }
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-field-pullback",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Coefficient pullback of Habiro modules",
+      "kind": "construction",
+      "statement": "For an embedding ι:F→E of number fields, choose a common positive Δ divisible by 6, |disc F| and |disc E|, and put R=O_F[1/Δ], S=O_E[1/Δ]. Define HabiroModule.baseChange by coefficientwise pullback on the full cyclotomic algebras and on the Kummer line torsors, with degree ξ sent to res_ι ξ. It consists of a ring map H_R→H_S and a semilinear additive map H_{R,ξ}→H_{S,res ξ}. It does not initially assert a scalar-extension equivalence. All maps keep the abstract cyclotomic coordinate ζ_m fixed; field coefficients are changed, not roots relabelled by a cyclotomic character.",
+      "hypotheses": [
+        "Every local factor of F⊗Q_p and E⊗Q_p is retained; p∤Δ makes both unramified.",
+        "Finite-Chern torsor naturality and Coleman/regulator scalar naturality are requested; compare torsors canonically rather than choosing unrelated scalar roots.",
+        "Additive structures require effective-global-descent."
+      ],
+      "proofSteps": [
+        "Extend ι to S-integers, cyclotomic coefficient algebras and all p-completions. Frobenius commutes by uniqueness of the unramified lift; the shift ζ_{pm}−ζ_m is unchanged.",
+        "Use naturality of ε_m and D_p to map corrected invertible sections to corrected sections and their spans to spans.",
+        "For (24), coefficients commute with both substitutions, products and the localised restricted-ring map for every γ.",
+        "Restrict the ambient coefficient map to the actual global modules and prove identity/composition; no invertibility of [E:F] is required for pullback."
+      ],
+      "acceptance": [
+        "Index is res ξ, not [E:F]ξ or ξ/[E:F].",
+        "Changing Δ requires comparison of the two actual rings; no automatic equality of Habiro localisation with naive algebraic localisation is assumed.",
+        "When ι=id with the same Δ the map is identity."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroNumberFields:HB.7/operations-on-the-modules",
+        "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
+        "HabiroNumberFields:HB.6/the-gluing-condition",
+        "HabiroNumberFields:HB.2/the-exported-interface",
+        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
+        "PadicHodgeRegulators:D.1",
+        "PadicHodgeRegulators:D.4",
+        "MotivicEtaleKTheory:M.8",
+        "mathlib:PowerSeries.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
+          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
+          "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "HabiroModule.baseChange",
+          "role": "constructor",
+          "statement": "The coefficient ring map and semilinear map with restricted K₃ degree."
+        },
+        {
+          "name": "HabiroModule.baseChange_coeff",
+          "role": "projection",
+          "statement": "Every normalized coefficient maps through the induced full cyclotomic algebra map; the constant term maps through its Kummer torsor."
+        },
+        {
+          "name": "HabiroModule.baseChange_id",
+          "role": "simp",
+          "statement": "Identity field embedding with fixed Δ induces identity."
+        },
+        {
+          "name": "HabiroModule.baseChange_comp",
+          "role": "functoriality",
+          "statement": "Pullbacks compose in a tower, with the canonical index/torsor identifications."
+        },
+        {
+          "name": "HabiroModule.baseChange_smul",
+          "role": "structure",
+          "statement": "baseChange(a f)=baseChangeRing(a) baseChange(f)."
+        },
+        {
+          "name": "HabiroModule.baseChange_zero",
+          "role": "simp",
+          "statement": "In each degree, baseChange(0)=0."
+        },
+        {
+          "name": "HabiroModule.baseChange_add",
+          "role": "simp",
+          "statement": "For f,g of the same degree ξ, baseChange(f+g)=baseChange(f)+baseChange(g) in degree res ξ."
+        },
+        {
+          "name": "HabiroModule.baseChange_mul",
+          "role": "compatibility",
+          "statement": "For f of degree ξ and g of degree η, baseChange(fg)=baseChange(f)baseChange(g) in degree res(ξ+η)=res ξ+res η, with the canonical torsor identifications."
+        },
+        {
+          "name": "HabiroModule.baseChange_ext",
+          "role": "extensionality",
+          "statement": "Two semilinear comparison maps with the same coefficient ring map and torsor identifications are equal if their induced rational cyclotomic component maps agree at every root order."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HB.7 scalar extension and evaluation targets",
+          "how": "Provides the canonical comparison map and its constant-term square."
+        },
+        {
+          "where": "HabiroRings:HR.6",
+          "how": "Supplies the explicit-module side of the scalar comparison without a reverse dependency."
+        }
+      ],
+      "tests": [
+        {
+          "name": "baseChange_identity",
+          "statement": "For F=E, ι=id, fixed Δ, every component and section is unchanged.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "baseChange_zero_index",
+          "statement": "ξ=0 agrees with the coefficient ring map H_R→H_S and maps 1 to 1.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "baseChange_all_factors",
+          "statement": "For ℚ→ℚ(i), Δ divisible by 6·4 and p=5, the local map is Z_5→Z_5×Z_5, a↦(a,a); both factors are kept.",
+          "kind": "computation"
+        }
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-scalar-equivalence",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Scalar extension of the indexed lines",
+      "kind": "theorem",
+      "statement": "Under the common-Δ hypotheses of field-pullback and after its naturality inputs and effective descent are proved, the canonical H_S-linear map H_S⊗_{H_R}H_{R,ξ}→H_{S,res ξ}, b⊗f↦b·baseChange(f), is bijective. Consequently Pic.mapAlgebra takes [H_{R,ξ}] to [H_{S,res ξ}]. The map is not identified with naive coefficient extension S⊗_R H_{R,ξ}: H_R has no canonical R-algebra structure in general.",
+      "hypotheses": [
+        "The H_R-algebra structure on H_S is the coefficient ring map just constructed.",
+        "No assertion for arbitrary coefficient ring maps or ramified p at primes excluded by Δ."
+      ],
+      "proofSteps": [
+        "Compare on the p-adic lines: scalar pullback of an invertible section stays invertible, so it generates the target local line.",
+        "Compare on all rational cyclotomic Kummer lines using finite-Chern naturality.",
+        "Apply effective-descent base-change compatibility and conservative chart detection to the canonical tensor map; do not use completion alone as a faithfulness argument.",
+        "Use the Module.Invertible instances established by followup-picard-character. Apply Mathlib Pic.mapAlgebra to these classes and Pic.mk_eq_mk_iff to the actual scalar linear equivalence."
+      ],
+      "acceptance": [
+        "The tensor is over H_R and the target degree is res ξ.",
+        "The ξ=0 map is the canonical H_S⊗_{H_R}H_R≃H_S.",
+        "No claim of global freeness or of a finite étale H_R→H_S follows without a separate ring comparison proof."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "mathlib:CommRing.Pic.mapAlgebra",
+        "HabiroNumberFields:HB.7/followup-picard-character",
+        "mathlib:CommRing.Pic.mk_eq_mk_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
+          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
+          "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-galois-action",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Semilinear coefficient Galois action",
+      "kind": "construction",
+      "statement": "For σ∈Aut_Q(F), fixed Δ divisible by 6 and |disc F|, define HabiroModule.galois by coefficientwise σ, extended to each full cyclotomic algebra fixing the abstract ζ_m, and transported along ε_m(σ_*ξ)≅σ ε_m(ξ). This is a semilinear equivalence H_{R,ξ}→H_{R,σ_*ξ} over the ring automorphism H_R→H_R. Identity and composition give an action on the disjoint union of all indexed modules. It acts on a fixed degree only when σ_*ξ=ξ, and is H_R-linear only if the coefficient automorphism also acts trivially.",
+      "hypotheses": [
+        "σ may permute p-adic factors; never choose one completion and call its automorphism the global action.",
+        "The required torsor/regulator naturality is the same as field-pullback applied to a field isomorphism."
+      ],
+      "proofSteps": [
+        "Apply field-pullback to σ and σ^{-1}; their compositions are identity with transported degrees.",
+        "Check coefficient and root-coordinate conventions, Frobenius commutation and invariance of the corrected shape.",
+        "Use semilinearity to export the graded action and its tensor compatibility; composition uses the actual canonical torsor identifications."
+      ],
+      "acceptance": [
+        "This coefficient action fixes q and each abstract ζ_m. It is distinct from γ*:q↦q^γ in Proposition 1.5.",
+        "Evaluation at ζ_m commutes in the Kummer line; it need not land in R[ζ_m]."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/operations-on-the-modules",
+        "HabiroNumberFields:HB.7/constant-terms"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
+          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
+          "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "HabiroModule.galois",
+          "role": "constructor",
+          "statement": "Semilinear equivalence from degree ξ to degree σ_*ξ."
+        },
+        {
+          "name": "HabiroModule.galois_coeff",
+          "role": "projection",
+          "statement": "Coefficientwise σ with abstract ζ_m fixed and Kummer torsor transported."
+        },
+        {
+          "name": "HabiroModule.galois_one",
+          "role": "simp",
+          "statement": "The identity automorphism acts identically."
+        },
+        {
+          "name": "HabiroModule.galois_mul",
+          "role": "functoriality",
+          "statement": "(στ) acts as σ after τ, including degree identifications."
+        },
+        {
+          "name": "HabiroModule.galois_smul",
+          "role": "structure",
+          "statement": "σ(a f)=σ(a)σ(f)."
+        },
+        {
+          "name": "HabiroModule.galois_section_mul",
+          "role": "compatibility",
+          "statement": "σ(fg)=σ(f)σ(g), in degree σ_*(ξ+η)=σ_*ξ+σ_*η; this is section multiplication, whereas galois_mul expresses automorphism composition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HB.7 Galois and evaluation targets",
+          "how": "Pins the semilinear action and its degree instead of an unjustified fixed-degree linear representation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "galois_identity",
+          "statement": "Identity is identity on every degree and every coefficient.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "galois_complex_conjugation",
+          "statement": "For F=ℚ(i), conjugation squares to identity; on rational-family scalar i it sends i to −i while leaving ζ_m fixed.",
+          "kind": "computation"
+        },
+        {
+          "name": "galois_changed_index",
+          "statement": "A class with σ_*ξ≠ξ is sent to the distinct degree σ_*ξ; no endomorphism of H_{R,ξ} is asserted.",
+          "kind": "non-example"
+        }
+      ]
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-local-norm-defect",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Norm and Frobenius defect compatibility",
+      "kind": "theorem",
+      "statement": "For F⊂E, common Δ as above, p∤Δ, and m prime to p, use determinant norm and trace on the full finite free rational/local cyclotomic coefficient algebras. They commute with compatible Frobenius and with formal re-expansion: N(φ_E u)=φ_F N(u) and N(u)((ζ_m+x)^p−ζ_m^p)=N(u((ζ_m+x)^p−ζ_m^p)). For a normalized constant-one unit u, log N(u)=Tr log u. Therefore the logarithmic defect of the torsor-norm section, completed with D_p(tr ξ), equals the trace of the defect completed with D_p(ξ). Since trace preserves integral coefficients, (p/x)O_E[ζ_m][[x]] maps into (p/x)O_F[ζ_m][[x]], and the corrected first-jet shape is preserved.",
+      "hypotheses": [
+        "D.4 supplies D_p(tr ξ)=Tr D_p(ξ), with all local factors; M.8 supplies ε_m(tr ξ)=N ε_m(ξ) as Kummer torsors.",
+        "Cyclotomic tensor products are full finite algebras, not a selected compositum; trace and norm use their actual ranks over the base.",
+        "For constants outside 1+pO use the branch/torsor treatment supplied by D.1; the purely formal log identity is stated for constant-one normalized units."
+      ],
+      "proofSteps": [
+        "Use Algebra.norm_eq_of_equiv_equiv for simultaneous Frobenius automorphisms respecting the coefficient inclusion.",
+        "Over rational coefficients, extend a finite basis to formal power series; determinant base change gives substitution/re-expansion compatibility. Check integral coefficients by local finite free models.",
+        "Prove log(det multiplication by u)=Tr(log multiplication by u) as a formal identity, e.g. differentiate with constant zero; split étale descent gives a second proof.",
+        "Use the trace identity for regulators and norm identity for torsors to match completions; the pole remains order at most one and integral trace preserves the factor p.",
+        "Extend to all root orders by the unique compatible lift of Corollary 3.7; prove the Frobenius convention used for (13) separately from the one sending ζ_m to ζ_m^p in (21)."
+      ],
+      "acceptance": [
+        "For a split degree-two coefficient algebra the norm is u₁u₂; it includes cross coefficients and is not coefficientwise norm of individual coefficients.",
+        "No division by [E:F] is used in the trace estimate.",
+        "The pole is p/x, not px."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
+        "HabiroNumberFields:HB.7/invertible-local-sections",
+        "HabiroNumberFields:HB.7/extension-to-all-roots",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+        "PadicHodgeRegulators:D.1",
+        "PadicHodgeRegulators:D.4",
+        "MotivicEtaleKTheory:M.8",
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_eq_of_equiv_equiv",
+        "mathlib:PowerSeries.coeff_one_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
+          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
+          "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
+        },
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "Definition 1.3, (21)-(22), p.9",
+          "excerpt": "log(φ_p f̂(q^p)/f̂(q)^p) ∈ ∏ (p/x) R_p̂[ζ_m][[x]]",
+          "match": "Exact defect to be preserved. The norm/trace comparison is an additional proof target, not a theorem in GSWZ."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNumberFields:HB.7/followup-transfer-norm",
+      "parentStageId": "HabiroNumberFields:HB.7",
+      "realises": [
+        "HabiroNumberFields:HB.7"
+      ],
+      "title": "Multiplicative transfer of indexed sections",
+      "kind": "construction",
+      "statement": "For a finite number-field extension E/F and a common Δ divisible by 6 and both discriminants, define HabiroModule.norm from the total graded family of H_{S,ξ} to H_{R,tr_{E/F}ξ} by the determinant norm of the full E⊗_Q Q(ζ_m) algebra over F⊗_Q Q(ζ_m), transported on the Kummer torsor of degree ξ. The construction is multiplicative in sections and additive on degrees: N(fg)=N(f)N(g) with tr(ξ+η)=tr ξ+tr η. It is not an additive map on sections. For f∈H_{R,ξ}, N(baseChange f)=f^{[E:F]} in degree tr(res ξ)=[E:F]ξ. The global membership and coherent torsor transport are explicit arithmetic input gaps.",
+      "hypotheses": [
+        "Common Δ; finite extension of characteristic-zero fields. Full algebras and all completions, even when cyclotomic polynomials split.",
+        "Use the imported K₃ transfer, not an invented norm on raw Bloch symbols.",
+        "The norm on twisted lines is defined by canonical torsor norm; independent local choices of ε_m^{1/m} are compared before taking scalars."
+      ],
+      "proofSteps": [
+        "First norm the rational Kummer line at each m, using finite-Chern transfer/norm compatibility.",
+        "The local-norm-defect theorem gives the corrected local-section condition; extend uniquely to all roots. For general elements use the local line expression a·s and the ring norm of a.",
+        "Norm commutes with γ* and τ, so norm of (24) lies in the corresponding localised restricted H_R ring. Prove ring-family norm membership by commuting with the Frobenius gluing.",
+        "Use Algebra.norm_norm for tower transitivity and multiplicativity of Algebra.norm for product laws, on finite free full coefficient algebras. Use Algebra.norm_algebraMap for N(baseChange f)=f^{[E:F]}; the imported K-theory projection formula gives tr(res ξ)=[E:F]ξ.",
+        "Global membership and torsor coherence still require the named supplier inputs and effective descent, recorded explicitly."
+      ],
+      "acceptance": [
+        "Identity extension gives identity, and zero section has zero norm when the finite coefficient extension has positive rank [E:F], including K₃ degree zero.",
+        "A split degree-two local test distinguishes norm of series from coefficientwise scalar norm.",
+        "Do not assert a linear transfer on modules or a global generator; no line-norm isomorphism on Picard groups is claimed without a finite-locally-free ring map and its determinant-line theory."
+      ],
+      "prerequisites": [
+        "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroNumberFields:HB.2/the-exported-interface",
+        "HabiroNumberFields:HB.6/the-gluing-condition",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+        "MotivicEtaleKTheory:M.8",
+        "PadicHodgeRegulators:D.4",
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_norm",
+        "mathlib:Algebra.norm_algebraMap",
+        "mathlib:Algebra.norm_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "GSWZ.HB7.v2",
+          "locator": "§1.4, (13)-(15), p.7; §1.5, (16)-(24), pp.8-10",
+          "excerpt": "f_m(x + ζ_{pm} − ζ_m) = (φ_p f_{pm})(x)",
+          "match": "Defines the coefficient gluing to which natural coefficient maps must commute. Scalar extension, coefficient Galois action and K₃ transfer are our requested extensions; no such theorem is attributed to GSWZ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "HabiroModule.norm",
+          "role": "constructor",
+          "statement": "Multiplicative norm of sections with degree changed by K₃ transfer."
+        },
+        {
+          "name": "HabiroModule.norm_mul",
+          "role": "compatibility",
+          "statement": "N(fg)=N(f)N(g) with the summed transferred degree."
+        },
+        {
+          "name": "HabiroModule.norm_one",
+          "role": "simp",
+          "statement": "The ring unit in degree zero maps to the ring unit."
+        },
+        {
+          "name": "HabiroModule.norm_tower",
+          "role": "functoriality",
+          "statement": "Norms compose in a finite tower with fixed common Δ."
+        },
+        {
+          "name": "HabiroModule.norm_res",
+          "role": "compatibility",
+          "statement": "N(baseChange(f))=f^{[E:F]} in transferred degree [E:F]ξ."
+        },
+        {
+          "name": "HabiroModule.norm_eval",
+          "role": "projection",
+          "statement": "Evaluation commutes with the full cyclotomic coefficient/torsor norm whenever the evaluation is integral, in particular (m,Δ)=1."
+        },
+        {
+          "name": "HabiroModule.norm_zero",
+          "role": "simp",
+          "statement": "N(0)=0 in degree tr ξ for every ξ, because [E:F] is positive; this is not a claim that norm is additive."
+        },
+        {
+          "name": "HabiroModule.norm_expandAt",
+          "role": "projection",
+          "statement": "At every root order, expandAt(N f) is the determinant norm of the whole power-series expansion of f over the full finite coefficient algebra, with its canonical Kummer torsor norm. This is not the scalar norm applied separately to each coefficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HB.7 K₃ transfer and Frobenius gluing target",
+          "how": "Connects additive transfer of the degree to multiplicative norm of a section."
+        },
+        {
+          "where": "HB.7 root evaluation",
+          "how": "Keeps the Kummer value and full coefficient algebra in the norm square."
+        }
+      ],
+      "tests": [
+        {
+          "name": "norm_identity",
+          "statement": "Degree-one identity extension gives N(f)=f in every degree.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "norm_res_degree_two",
+          "statement": "For a quadratic extension and a pulled-back section, N(res f)=f², with degree tr(res ξ)=2ξ.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "norm_split_cross_term",
+          "statement": "In a split degree-two local algebra, (1+a x,1+b x) has norm 1+(a+b)x+ab x²; coefficientwise norm would incorrectly give constant 1 and linear ab.",
+          "kind": "computation"
+        },
+        {
+          "name": "norm_zero_test",
+          "kind": "degenerate",
+          "statement": "In the finite free nontrivial coefficient algebra, the norm of zero is zero, including the section of K₃ degree zero. A no-finite-basis norm that defaults to one fails this test."
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNumberFields:HB.7",
+      "status": "planned",
+      "note": "Every HB.7 target is represented by an accepted parent node or a followup node. Local/global definitions, permitted-choice independence, ring case, γ*, τ, restriction and evaluation keep their existing IDs. New nodes close the finite linear-jet calculation and specify descent, tensor/Picard powers, scalar extension, coefficient Galois action and multiplicative transfer. Direct D.1 edges resolve the verified supplier-chain finding.",
+      "remaining": [
+        "Prove G-global-descent, including additive closure, finite projective descent, base-change identities and chart conservativity; then discharge tensor bijectivity and Picard/tensor-power results.",
+        "Deliver D.1/D.3/D.4 and the early finite-Chern M.8 interfaces; complete G-arithmetic-naturality and the actual scalar, Galois and norm gluing comparisons.",
+        "Finish inherited local higher-defect and valid-presentation proofs; the finite linear-jet gap itself is resolved mathematically. E24 corrected shape remains mandatory and E26 is not promoted to a freeness theorem."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-global-descent",
+      "title": "Effective global descent, beyond local freeness",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "HabiroNumberFields:HB.7/followup-picard-character",
+        "HabiroNumberFields:HB.7/followup-scalar-equivalence",
+        "HabiroNumberFields:HB.7/followup-transfer-norm"
+      ],
+      "detail": "Inherited HabiroNumberFields/E23 remains unresolved. Construct a linear descent datum, prove it equals Definition 1.4 including additive closure, prove finite presentation/projectivity, identify actual tensor base changes, and prove charts conservative. A finite sum f_i g_i=1 must follow for every ξ, not just Nahm classes. GSWZ v2 §3.3 only establishes a multiplication map. Wagner thesis §2.2 describes the ring equalizer and cites the Picard map in its introduction but gives no missing indexed-line proof in the passages read. No alternative complete proof was found in the 2026-10-06 source search. This gap prevents claiming any global tensor or scalar equivalence unconditionally."
+    },
+    {
+      "id": "G-arithmetic-naturality",
+      "title": "Arithmetic torsor naturality and coherent norm transport",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-galois-action",
+        "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "HabiroNumberFields:HB.7/followup-transfer-norm"
+      ],
+      "detail": "GSWZ has no scalar-extension, coefficient Galois, or K₃ transfer theorem. Establish requested D.1/D.4 scalar, Frobenius and trace identities and M.8 finite-Chern restriction/corestriction on the full cyclotomic algebras, with ε_m=c_m² and torsor-level coherence at every m. Check integral lattices, p-unit representatives and all factors. Then prove coefficient maps and rational/local series norms preserve the exact gluing; the proof outlines here specify these missing comparisons rather than assigning them to HR.6, which already consumes HB.7."
+    },
+    {
+      "id": "G-inherited-local-inputs",
+      "title": "Uncompleted local analytic and presentation inputs",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+        "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+        "HabiroNumberFields:HB.7/followup-effective-global-descent"
+      ],
+      "detail": "D.1, D.3 and D.4 remain requested stages, not implementations. The accepted pochhammer-dwork-difference and pochhammer-sections nodes retain the half-shift Frobenius-defect proof and presentation-independence obligations; the new finite-jet derivation supplies the integral linear term only. Source issue E24 still requires the corrected shape. E26, the global abelian generator claim, remains unproved and is not used here."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PadicHodgeRegulators:D.1",
+      "need": "Coleman Li₂, log branch and GSWZ D_p(z)=Li₂(z)+(1/2)log(z)log(1−z), with log(root of unity)=0, the exact scalar-extension/Frobenius normalization and log/trace identity used here. Direct D.1 dependency is the disposition of RT-AREA-ktheory-2/15.",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+        "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-local-norm-defect"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.3",
+      "need": "For p>3 and a finite PRODUCT of unramified Q_p extensions, the completed regulator isomorphism to p²O and a valid finite Z_p presentation by permitted nontrivial roots, with coefficient-localized/integral-multiple comparison to the notation [ζ]. Raw [ζ] need not lie in a Bloch kernel.",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-integral-linear-jet"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.4",
+      "need": "Global K₃ localization to all completions and its compatibility with scalar restriction, coefficient automorphisms, Frobenius and finite-extension transfer: D_p(tr ξ)=Tr D_p(ξ), with denominator/torsion control, for the full local products.",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "HabiroNumberFields:HB.7/followup-transfer-norm"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.8",
+      "need": "The early finite-coefficient étale Chern restriction/corestriction identity inducing ε_m=c_m² and canonical Kummer torsor base change/norm at all m used by HB.7, including composition and coefficient automorphism coherence. Only this early Chern interface is requested; do not import the later Euler-system/Selmer-complex bundle, which may consume Habiro theory.",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/followup-field-pullback",
+        "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "HabiroNumberFields:HB.7/followup-transfer-norm"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "upstreamNotes": [],
+  "inheritedSourceIssues": [
+    {
+      "id": "HabiroNumberFields/E23",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Unresolved global-descent/tensor proof input, isolated in G-global-descent."
+    },
+    {
+      "id": "HabiroNumberFields/E24",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Corrected integral linear shape used throughout; new jet calculation supplies the missing shape input for explicit sections."
+    },
+    {
+      "id": "HabiroNumberFields/E26",
+      "packet": "HabiroNumberFields.json",
+      "disposition": "Unproved global abelian generator claim, not used."
+    },
+    {
+      "id": "HabiroRings/E5",
+      "packet": "HabiroRings.json",
+      "disposition": "Independently confirmed the same false irreducibility sentence in Wagner.Thesis.HB7, Lemma 2.12 proof, printed p.32/PDF p.36, and the 14 January 2026 author copy q-Habiro.pdf, p.18. For m=3, ℓ=7, Φ₃=(q−2)(q−4) mod 7. Use the full finite étale residue algebra, not a chosen field factor. Refer to the existing reviewed finding rather than duplicate it; no HB.7 node invokes this ring proof as an indexed-module descent theorem."
+    }
+  ],
+  "sourceSearch": {
+    "date": "2026-10-06",
+    "checked": [
+      "arXiv 2412.04241 listing: v2 latest; §§1.4-1.5,3.2-3.3 of v2",
+      "Garoufalidis author-hosted habiro-ring-number-field.pdf: same relevant proof/shape text, SHA-256 b5684e851c0dd3e7bebd251de667680606f7aaa2a8725a49c36a7a581f28d1af",
+      "Scholze papers page: Habiro preprint linked; the listed erratum belongs to a different paper",
+      "Wagner thesis introduction and §2.2 ring equalizer",
+      "Bouis-Gazda 2602.21894v1 introduction: first Chern/weight-one, not a K₃-module tensor descent theorem",
+      "Repository inherited sourceIssues and public title+erratum/tensor-proof searches",
+      "Independent review: https://ferdinand-wagner.github.io/ and its current thesis link, checked 2026-10-06; no separate erratum listed.",
+      "Independent review: arXiv:2510.04782 listing (v2 latest) and https://ferdinand-wagner.github.io/papers/q-Habiro.pdf, dated 14 January 2026, Lemma 2.12 proof p.18; the false irreducibility sentence persists.",
+      "Independent review: HabiroRings.json, confirmed source issue HabiroRings/E5 and its full-algebra correction; do not create a second finding."
+    ],
+    "result": "No replacement indexed-line descent proof or published correction found in the passages/searches recorded. The supporting thesis repeats the already confirmed HabiroRings/E5; its full-algebra correction is referenced. No new source issue is asserted; inherited verified issues are not duplicated."
+  },
+  "planetPolicy": {
+    "inherited": [
+      {
+        "node": "HabiroNumberFields:HB.7/invertible-local-sections",
+        "name": "Invertible L_p(ξ)-sections"
+      },
+      {
+        "node": "HabiroNumberFields:HB.7/local-freeness",
+        "name": "Free rank one local modules (Theorem 1)"
+      },
+      {
+        "node": "HabiroNumberFields:HB.7/the-global-module",
+        "name": "Habiro module H_{R,ξ}"
+      },
+      {
+        "node": "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
+        "name": "K₃(K) → Pic(H_R) (Theorem 2)"
+      }
+    ],
+    "new": [],
+    "reason": "Retain the four accepted HB.7 planets without duplicate nodes or a second planet for the same Theorem 2. Assembly retains those IDs and replaces their open proof contracts with these refinements; total remains four."
+  },
+  "suggestedPolicy": "The standalone suggested file instantiates the rational coefficient API and the conditional Picard character against existing Mathlib. Actual indexed Habiro modules, Coleman functions and transfer torsors are unavailable at the pins; their exact signatures, API names and tests are recorded as expressly omitted declarations with the missing imported objects named, following PROTOCOL §13. Generic power-series consequences and split-norm tests are elaborated without substituting arbitrary sets or Prop-valued theorem fields for those objects.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.7",
+    "date": "2026-10-06",
+    "notes": "Independently checked all 11 nodes, source locators/excerpts, 16 pinned Mathlib declarations, supplier statements, audit, APIs/tests, standalone suggested file and four inherited planets. Corrected source pagination, formal half-power convention, wrong K-theory functor dependency, Picard prerequisites, norm citations/APIs and test kinds. Reconfirmed inherited HabiroRings/E5 in the supporting thesis without duplicating it. RT-AREA-ktheory-2/15 is handled by direct D.1 edges and the reader document. Complete is a finished target-level planning pass; HB.7 stays planned, not closed, with 3 honest gaps and 4 requests. Every declaration remains unchecked; neither global descent nor arithmetic naturality is claimed proved.",
+    "checked": [
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-half-shift-coefficient",
+        "verdict": "corrected",
+        "note": "Recomputed B₂(1/2)=−1/12 and the rational function, map/scale/sign cases; added all test kinds and the even-root coefficient test; made the formal half-power branch convention explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-half-shift-first-jet",
+        "verdict": "corrected",
+        "note": "Checked (46),(47),(60),(207) against v2. The k=0 pole cancels, B₁(1/2)=0 and exponentiation preserves the coefficient −ζ/(24ζ_m(1−ζ)). Clarified the branch-one formal square root and the even-m distinction; the higher analytic defect remains an imported gap."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-integral-linear-jet",
+        "verdict": "corrected",
+        "note": "Checked reduction of nontrivial prime-to-p roots, unit denominators for p>3 and finite weighted products on every factor. Fixed (195) page range to 39–41; D.3 valid-presentation and higher-defect inputs remain explicit."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-effective-global-descent",
+        "verdict": "verified",
+        "note": "The stated additive closure, finite projectivity, actual chart base changes and conservativity are correctly retained as G-global-descent. Neither GSWZ §3.3 nor the supporting ring equalizer is treated as a proof. No global generator is assumed."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "verdict": "verified",
+        "note": "Conditional on actual descent/base-change and conservative charts, the multiplication map is an isomorphism locally and hence globally. The inverse certificate is a finite sum of products, not a unit section. G-global-descent remains open."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-picard-character",
+        "verdict": "corrected",
+        "note": "Confirmed existing Module.Invertible and Picard APIs. Added mk_eq_mk_iff for transporting linear equivalences; the unit/tensor character, inverses and powers are conditional on tensor bijectivity. Added all test kinds."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-field-pullback",
+        "verdict": "corrected",
+        "note": "Read suppliers and replaced the exact-category K.1 elementary-properties citation by the actual K.2 ring-functor node. Added zero/addition, graded multiplication and componentwise uniqueness APIs plus test kinds. Common Δ, root-coordinate convention and all completion factors are correct; arithmetic naturality remains a gap."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-scalar-equivalence",
+        "verdict": "corrected",
+        "note": "Added the Picard-character prerequisite supplying invertibility and mk_eq_mk_iff for the class comparison. The tensor is over H_R, uses actual chart base changes, and is conditional on descent/naturality; no nonexistent R-algebra structure is assumed."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-galois-action",
+        "verdict": "corrected",
+        "note": "Checked the semilinear changed-degree action from coefficient pullback. Added section-multiplication compatibility separately from group composition and supplied test kinds. σ fixes abstract ζ_m and may permute completions."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-local-norm-defect",
+        "verdict": "verified",
+        "note": "Confirmed norm/Frobenius square against the exact baseline theorem. Finite free determinant base change and the constant-one formal log/trace proof support the target; branch, torsor, integral trace and regulator comparisons remain precisely requested inputs. Full algebras and p/x are retained."
+      },
+      {
+        "nodeId": "HabiroNumberFields:HB.7/followup-transfer-norm",
+        "verdict": "corrected",
+        "note": "Added existing norm transitivity, scalar norm and zero citations, plus whole-expansion/zero APIs and a zero test. Clarified positive extension rank versus K₃ degree. Transfer changes the grade additively but sections map multiplicatively; no linear transfer or unproved global line norm is claimed."
+      }
+    ]
+  }
+}
