@@ -23329,9 +23329,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #704"
+   "note": "claimed on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -23376,8 +23376,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #705"
   },
   {
    "id": "REV-CrystallineCohomology--CR.5",
@@ -25127,12 +25128,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #736"
+   "note": "claimed on GitHub issue #736"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.3",
@@ -26656,8 +26657,9 @@
    ],
    "avoidAccountOf": "BP-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/REV-KatoEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #443"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #443",
+   "finishedAt": "2026-10-06T20:30:18Z"
   },
   {
    "id": "BP-LanglandsParameterStacks",
@@ -28136,8 +28138,9 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R23.1",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R23.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #473"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #473",
+   "finishedAt": "2026-10-06T20:30:21Z"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -30176,7 +30179,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles--B0",
@@ -30194,7 +30197,8 @@
     "BP-ShimuraCompactifications--C0",
     "BP-ShimuraCompactifications--C6"
    ],
-   "note": "claimed on GitHub issue #1016"
+   "note": "deliverables arrived from an external worker on issue #1016",
+   "finishedAt": "2026-10-06T20:30:24Z"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O0",
