@@ -136,10 +136,9 @@ example (k : Type u) [Field k] :
 
 /-- `GlueingDatum.sections_identitySquare` (degenerate): for the identity square and the datum
 `(M, M, M, id, id)` the module of sections is the diagonal. -/
-example (A M : Type u) [CommRing A] [AddCommGroup M] [Module A M]
-    (D : GlueingDatum A A A M M M)
-    (hD : ∀ m : M, D.ψ₁ (1 ⊗ₜ m) = D.ψ₂ (1 ⊗ₜ m)) :
-    ∀ x : M × M, x ∈ D.sections ↔ D.ψ₁ (1 ⊗ₜ x.1) = D.ψ₁ (1 ⊗ₜ x.2) := by
+example (A M : Type u) [CommRing A] [AddCommGroup M] [Module A M] (x : M × M) :
+    x ∈ (⟨TensorProduct.lid A M, TensorProduct.lid A M⟩ : GlueingDatum A A A M M M).sections ↔
+      x.1 = x.2 := by
   sorry
 
 /-- `ExactSquare.zariski_sections_can` (compatibility): for the Zariski square of `D(f), D(g)` and any
@@ -380,13 +379,11 @@ section BdR
 variable (p : ℕ) [Fact p.Prime] (O : Type u) [CommRing O] [Fact ¬ IsUnit (p : O)]
   [IsAdicComplete (Ideal.span {(p : O)}) O]
 
-/-- `RelativeBdRPlus.mathlib_compat` / `RelativeBdRPlus.equiv_mathlib`: the ring `R₂ = B^+_dR(A)` of
+/- `RelativeBdRPlus.mathlib_compat` / `RelativeBdRPlus.equiv_mathlib`: the ring `R₂ = B^+_dR(A)` of
 Kedlaya–Liu 8.9.4 is, in the `p`-typical case, Mathlib's `BDeRhamPlus A⁺ p`, and `R₃ = B_dR(A)` is
-`BDeRham A⁺ p`. Here only the Mathlib side is named; the Kedlaya–Liu side needs `Proj(P_R)`. -/
-noncomputable example : CommRing (BDeRhamPlus O p) := inferInstance
-
-/-- Mathlib's `B_dR` carrier (a localisation of `BDeRhamPlus`). -/
-noncomputable example : Type u := BDeRham O p
+`BDeRham A⁺ p`. The Kedlaya–Liu side needs `Proj(P_R)`, which is not in the pinned libraries, so
+the comparison is recorded in the CONTRACT block of `relative-period-rings-Be-BdR`; the Mathlib
+carriers are `BDeRhamPlus O p` and `BDeRham O p` for `O` as in this section. -/
 
 end BdR
 
@@ -397,13 +394,15 @@ coordinate ring of a torsor under a smooth group is formally smooth over `B⁺`,
 `I_S`-adically complete, so Mathlib's `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete`
 lifts a section modulo `I_S`. -/
 
-/-- `v-descent-and-local-triviality`, lifting step. -/
+/-- Baseline check for `v-descent-and-local-triviality`, lifting step: the pinned Mathlib lemma in the
+form the proof uses (not a unit test of a new definition). -/
 example {B T : Type u} [CommRing B] [CommRing T] [Algebra B T] [Algebra.FormallySmooth B T]
     (I : Ideal B) [IsAdicComplete I B] (s : T →ₐ[B] B ⧸ I) :
     ∃ s' : T →ₐ[B] B, (Ideal.Quotient.mkₐ B I).comp s' = s :=
   Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete s
 
-/-- An `I`-adically complete ring is henselian along `I`, the hypothesis of Gabber–Ramero 5.4.21. -/
+/-- Baseline check: an `I`-adically complete ring is henselian along `I` (Mathlib instance), the
+hypothesis of Gabber–Ramero 5.4.21. -/
 example {B : Type u} [CommRing B] (I : Ideal B) [IsAdicComplete I B] : HenselianRing B I :=
   inferInstance
 

@@ -10,8 +10,8 @@ This run continues the checkpoint of `cc-7b31c4` (PR #2859) and finishes the pas
   7 planets, 32 baseline declarations, 1 gap, 2 requests, 3 structural notes, `sourceIssues: []`.
 - `research/blueprint/readmes/RelativeFarguesFontaine--RF4.md` — about 22,000 words. Its per-node sections are
   generated from the packet, so the two agree.
-- `research/blueprint/suggested/RelativeFarguesFontaine--RF4.lean` — 944 lines,
-  SHA-256 `d97fb791a5453d5e7e6c94e428e184486f6fa461361dc1c7da1e8749a0492253`.
+- `research/blueprint/suggested/RelativeFarguesFontaine--RF4.lean` — 943 lines,
+  SHA-256 `e464fbfcfd40fa6e21964e609c6b1f2b36fff65d6ee5b2bcddfe342f3daa07ef`.
 - This note.
 
 ## Checks run
