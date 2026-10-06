@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3595,
+  "stages": 3599,
   "originalStages": 2098,
-  "sourceRefinements": 1497,
+  "sourceRefinements": 1501,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3494,
+  "mathematicalStars": 3498,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1858,
-  "stageEdges": 9569,
+  "stageEdges": 9576,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -585,6 +585,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "HabiroCohomologyFoundations--HQ.3",
+      "roadmap": "HabiroCohomologyFoundations",
+      "nodes": 3,
+      "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.3"
+    },
+    {
       "file": "HabiroCyclotomicCompletions--HC.4",
       "roadmap": "HabiroCyclotomicCompletions",
       "nodes": 59,
@@ -711,6 +717,12 @@
       "reviewer": "independent-review-REV-K3BlochGroups--V.5"
     },
     {
+      "file": "K3BlochGroups--V.6",
+      "roadmap": "K3BlochGroups",
+      "nodes": 5,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.6"
+    },
+    {
       "file": "K3BlochGroups",
       "roadmap": "K3BlochGroups",
       "nodes": 101,
@@ -760,8 +772,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32408372,
-  "htmlSha256": "e9382ef8c322b7117cb49bdf8afd41cc150d5bb67960708d62f577bd34a01bfe",
+  "htmlBytes": 32419835,
+  "htmlSha256": "eff58c37b08c36c2dbcf10dbb1d9022ea60f0767aa2fe60cafd2acf1e361fa5a",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -792,7 +804,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "29b9127ce93fa145d0e45171e33501325ffcf52624bb7ae43517565df185f724",
+    "data/roadmap-distances.json": "750dffdff6bba40ba6365e484068156355a32588a44eb663cd87373f8875ffae",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -930,6 +942,8 @@
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md": "1234aa3f09946c388578081fe64b6f03e4f617df8bc79dbce4ac41f6c5bef30b",
+    "data/blueprints/HabiroCohomologyFoundations--HQ.3.json": "b0f57a655220df5186e9ec608284ecb7cb5cf7e5fd7066a88b99f2b0c05401a2",
+    "data/blueprints/HabiroCohomologyFoundations--HQ.3.md": "b3c33364038150ba6ccfd835aef86cd337f993c9dbcdb488dc4eb857b6358845",
     "data/blueprints/HabiroCyclotomicCompletions--HC.4.json": "53d6ae5a158df492465829c0d271cfaeb00df95f5efccf1bbddd156cada22cf3",
     "data/blueprints/HabiroCyclotomicCompletions--HC.4.md": "7227244352ade7dc45b72262eac56435104c2c9470fdd56a536c8b6f8595369e",
     "data/blueprints/HabiroCyclotomicCompletions--HC.6.json": "82131cad84d4f13959b9d7b8a38b1ccb605967a60eb47f54804df51245e2a946",
@@ -972,6 +986,8 @@
     "data/blueprints/K3BlochGroups--V.4.md": "1674e59789d5ec26c6a155d03acfcafc0a7d5db980ec930c823aa0243f8144cc",
     "data/blueprints/K3BlochGroups--V.5.json": "9c3ba37f9798e5f101b4870ef4d62c61d2fd073051629ad81ba751377a06fa90",
     "data/blueprints/K3BlochGroups--V.5.md": "8987e6c98c0c8872db75245b2171034be82256bd357e00eb36d429024ecd2736",
+    "data/blueprints/K3BlochGroups--V.6.json": "ec2dc32a5e3382102a7e98b7fb79ec11e6e19308bcb068ef7b340a203c8467ee",
+    "data/blueprints/K3BlochGroups--V.6.md": "e98ab4c661a0423bedf01aec9d836bd867cd230bb57a9301b3e76e9b6f34b4ec",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
