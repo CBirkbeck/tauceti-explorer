@@ -1,6 +1,8 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/VectorBundlesAndIsocrystals--VB0.md` is definitive.
+`research/blueprint/readmes/VectorBundlesAndIsocrystals--VB0.md` awaits the reader
+corrections recorded in the independent review. Until that revision, the corrected
+packet supplies the contracts used by this file; the review is needs_changes.
 These statements suggest Lean forms so that contributors and reviewers can
 converge on names and signatures. They claim no implementation.
 
@@ -184,11 +186,9 @@ example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
       (FiniteIsocrystal.ofWitt p k W) ≃ WittVector.IsocrystalHom p k V W) := by
   sorry
 
--- test: finiteIsocrystal_unramified_frobenius
--- Numeric f=2 specialization of coefficient Frobenius iteration. The field
--- extension and its degree are supplied by Local fields Layer 2, not rebuilt.
-example (a : L) : ((σ.trans σ) a) = σ (σ a) := by
-  sorry
+-- The unramified degree-two coefficient comparison is omitted until the
+-- local-field supplier provides E′/E and its residue-degree normalization.
+-- An identity asserting σ.trans σ = σ² would not test that contract.
 
 end IsocrystalTests
 
@@ -674,7 +674,7 @@ variable (E R M G : Type u) [Field E] [CommRing R] [Algebra E R]
   [TopologicalSpace M] [Group G] [TopologicalSpace G]
 
 structure ContinuousPhiAction (φ : M ≃ₗ[E] M) where
-  coefficients : G →* (R ≃+* R)
+  coefficients : G →* (R ≃ₐ[E] R)
   action : G →* (M ≃ₗ[E] M)
   semilinear : ∀ (g : G) (a : R) (x : M),
     action g (a • x) = coefficients g a • action g x
@@ -710,7 +710,7 @@ def trivial (φ : M ≃ₗ[E] M) : ContinuousPhiAction E R M G φ where
 /-- For a finite discrete group, continuity of every individual action map
 implies joint continuity. No conclusion is drawn about a non-discrete group. -/
 def ofFiniteDiscrete [Finite G] [DiscreteTopology G] (φ : M ≃ₗ[E] M)
-    (τ : G →* (R ≃+* R)) (ρ : G →* (M ≃ₗ[E] M))
+    (τ : G →* (R ≃ₐ[E] R)) (ρ : G →* (M ≃ₗ[E] M))
     (hsem : ∀ (g : G) (a : R) (x : M), ρ g (a • x) = τ g a • ρ g x)
     (hcomm : ∀ (g : G) (x : M), φ (ρ g x) = ρ g (φ x))
     (_hcont : ∀ g, Continuous (ρ g : M → M)) :
@@ -737,7 +737,7 @@ example (φ : M ≃ₗ[E] M) (π : E) :
 
 -- test: continuousPhiAction_finite
 example [Finite G] [DiscreteTopology G] (φ : M ≃ₗ[E] M)
-    (τ : G →* (R ≃+* R)) (ρ : G →* (M ≃ₗ[E] M))
+    (τ : G →* (R ≃ₐ[E] R)) (ρ : G →* (M ≃ₗ[E] M))
     (hsem : ∀ (g : G) (a : R) (x : M), ρ g (a • x) = τ g a • ρ g x)
     (hcomm : ∀ (g : G) (x : M), φ (ρ g x) = ρ g (φ x))
     (hcont : ∀ g, Continuous (ρ g : M → M)) :
@@ -879,7 +879,7 @@ For Q_p the finite subcategory embeds fully faithfully into WittVector.Isocrysta
 TEST finiteIsocrystal_requires_bijective [example specialization]
 The zero Frobenius map on nonzero L is not an isocrystal.
 
-TEST finiteIsocrystal_unramified_frobenius [example specialization]
+TEST finiteIsocrystal_unramified_frobenius [omitted example]
 For the unramified degree-two E′, the coefficient automorphism is σ², not σ.
 
 -/
@@ -942,7 +942,7 @@ Only the actual Witt coefficient specialization above is typed; general E and eq
 Node: VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra
 Division endomorphisms of a simple isocrystal
 THEOREM isocrystalEndDivision [typed Q_p specialization]
-For coprime (s,r), End_Φ(D(s,r)) is a central division algebra over E of dimension r². With E_r/E unramified degree r and arithmetic σ, it has presentation ⊕_{i=0}^{r−1}E_r Π^i, Π^r=π^{−s}, Πx=σ(x)Π. Thus the endomorphism algebra for isocrystal slope a has arithmetic Brauer invariant −a modulo Z. The bundle endomorphism comparison is a separate classification-layer node.
+For coprime (s,r), End_Φ(D(s,r)) is a central division algebra over E of dimension r². With E_r/E unramified degree r and arithmetic σ, it has presentation ⊕_{i=0}^{r−1}E_r Π^i, Π^r=π^{−s}, Πx=σ(x)Π. Its arithmetic Brauer invariant is computed later by the separate brauer-invariant-sign node. The bundle endomorphism comparison is a separate classification-layer node.
 Only the actual Witt coefficient specialization above is typed; general E and equal characteristic are not asserted by those signatures.
 -/
 
@@ -1000,7 +1000,7 @@ Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its s
 Node: VectorBundlesAndIsocrystals:VB0/finite-galois-descent
 Finite Galois descent of isocrystals
 THEOREM isocrystalGaloisDescent [omitted signature]
-Let L′/L be a finite Galois coefficient extension with compatible Frobenius automorphisms. Finite L-isocrystals are equivalent to finite L′-isocrystals carrying semilinear Galois descent data compatible with Φ. The descended module is the Galois-invariant module and Φ descends. This is finite Galois module descent, not a claim that arbitrary perfect residue fields have the algebraically closed Dieudonné–Manin classification.
+Let L′/L be finite Galois and let σ′ be a coefficient automorphism extending σ. Finite L-vector spaces with bijective σ-semilinear Φ are equivalent to finite L′-vector spaces with bijective σ′-semilinear Φ′ and a semilinear Galois descent action ρ satisfying Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′ for every g∈Gal(L′/L). The descended module is the invariant module and Φ′ restricts to a bijective σ-semilinear Φ. Ordinary commutation with each ρ_g is sufficient only when σ′ centralizes the Galois group. This is module descent with Frobenius, not classification over arbitrary perfect residue fields.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
@@ -1036,7 +1036,7 @@ TEST curveBundle_free_two [example specialization]
 O_X⊕O_X is a bundle of rank 2.
 
 TEST curveBundle_not_infinite [example specialization]
-A free sheaf on an infinite constant basis is not finite locally free.
+On a nonempty geometric curve, a free sheaf on an infinite constant basis is not finite locally free; test its nonzero residue-field stalk. The nonempty hypothesis excludes the empty scheme, where the zero sheaf admits every vacuous presentation.
 
 TEST curveBundle_schematic [example specialization]
 For a scheme, forgetting CurveBundle returns its Scheme.Modules object with the pinned finite locally free data.
@@ -1181,7 +1181,7 @@ The exact tensor isocrystal-to-bundle functor
 Infrastructure for omitted parts: The actual analytic curve, quotient sheaves, RF3 rank-one twists and Frobenius descent functor.
 
 API bundleOfIsocrystal [omitted signature]
-The analytic Frobenius-descended bundle E_S(D).
+For S over the fixed k=bar F_q, the analytic Frobenius-descended bundle E_S(D), retaining the coefficient embedding.
 
 API bundleOfIsocrystal.map [omitted signature]
 Descend an intertwining linear map; preserve identity and composition.
@@ -1190,25 +1190,25 @@ API bundleOfIsocrystal.tensorDual [omitted signature]
 Exact tensor structure and dual compatibility.
 
 API standardBundle [omitted signature]
-O(λ)=E_S(D(−d,h)) for λ=d/h reduced.
+For S/F_q, descend the cyclic matrix for (−d,h); over k compare with E_S(D(−d,h)).
 
 API standardBundle.integerTwist [omitted signature]
 O(n) identifies with RF3 rank-one twists, with their tensor laws.
 
 API standardBundle.baseChange [omitted signature]
-Perfectoid pullback fixes λ; coefficient pullback multiplies λ by [E′:E].
+Perfectoid pullback preserves the cyclic standard bundle; general E_S(D) pullback retains the chosen k-embedding. At a geometric point, coefficient pullback multiplies λ by [E′:E], as proved with degree and scalar extension.
 
 TEST standardBundle_zero [omitted example]
 O(0) is the tensor unit of rank 1, rather than the rank-zero bundle.
 
 TEST standardBundle_half_sign [omitted example]
-D(1,2) maps to O(−1/2), rank 2 and degree −1.
+Over geometric C/k, D(1,2) maps to O(−1/2), rank 2; the degree −1 check belongs after geometric degree is constructed.
 
 TEST standardBundle_integer [omitted example]
 D(−2,1) maps to the RF3 twist O(2).
 
 TEST standardBundle_tensor_half [omitted example]
-O(1/2)⊗O(1/2)≅O(1)^{⊕4}, not O(1) of rank 1.
+Over geometric C/k, O(1/2)⊗O(1/2)≅O(1)^{⊕4}; rank 4 detects omission of the tensor multiplicity.
 
 -/
 
@@ -1216,7 +1216,7 @@ O(1/2)⊗O(1/2)≅O(1)^{⊕4}, not O(1) of rank 1.
 Node: VectorBundlesAndIsocrystals:VB1/cohomology-of-twists
 Slope-sensitive cohomology of standard bundles
 THEOREM standardBundleCohomology [omitted signature]
-For λ<0, H⁰(X_S,O(λ))=0 and the v-sheaf H¹(O(λ)) is locally spatial, partially proper and cohomologically smooth. For λ=0, the degree-zero v-sheaf is constant E and the pro-étale sheafification of degree-one cohomology is zero; RΓ_proét(S,E)≃RΓ(X_S,O). For λ>0 and affinoid S, H¹(X_S,O(λ))=0; its H⁰ v-sheaf is locally spatial, partially proper and cohomologically smooth. In mixed characteristic H⁰ is an d-dimensional perfectoid open ball only for 0<λ=d/h≤[E:Q_p]; in equal characteristic every positive λ has this description. Nonaffinoid global H¹ vanishing is not asserted. The negative λ=−1 presentation is (A¹_{S♯})^diamond/E on an untilt cover.
+For λ<0, H⁰(X_S,O(λ))=0 and the v-sheaf H¹(O(λ)) is locally spatial, partially proper and cohomologically smooth. For λ=0, the degree-zero v-sheaf is constant E and the pro-étale sheafification of degree-one cohomology is zero; RΓ_proét(S,E)≃RΓ(X_S,O). For λ>0 and affinoid S, H¹(X_S,O(λ))=0; its H⁰ v-sheaf is locally spatial, partially proper and cohomologically smooth. After base change to the fixed algebraically closed k, the positive H⁰ v-sheaf is a d-dimensional perfectoid open ball in mixed characteristic only for 0<λ=d/h≤[E:Q_p]; in equal characteristic every positive λ has this description. Nonaffinoid global H¹ vanishing is not asserted. The negative λ=−1 presentation is (A¹_{S♯})^diamond/E on an untilt cover.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
@@ -1263,7 +1263,7 @@ The maps for f and g agree on D(fg).
 Node: VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point
 Regular noetherian geometric curve and PID complements
 THEOREM geometricCurveRegular [omitted signature]
-For complete algebraically closed perfectoid C, X_C^alg=Proj(P_C) is connected, regular, noetherian and one-dimensional. Classical points correspond bijectively to its closed points; for every classical x the complement the complement of x in X_C^alg is affine with PID coordinate ring. Degree-one untilt divisor sections cut out Spec(C♯) and their nonvanishing complements give these charts.
+For complete algebraically closed perfectoid C, X_C^alg=Proj(P_C) is connected, regular, noetherian and one-dimensional. Classical points correspond bijectively to its closed points; for every classical x the complement of x in X_C^alg is affine with PID coordinate ring. Degree-one untilt divisor sections cut out Spec(C♯) and their nonvanishing complements give these charts.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
@@ -1578,7 +1578,7 @@ Continuous profinite actions on Frobenius modules
 Infrastructure for omitted parts: Actual Robba LF topology and invariant Banach topologies for KL6.3.18; arbitrary-module topologies do not justify the converse criterion.
 
 API ContinuousPhiAction [typed specialization]
-Frobenius-commuting semilinear G-action with LF-continuous action map.
+Frobenius-commuting semilinear G-action, whose coefficient action fixes E, with a jointly LF-continuous action map.
 Typed for the supplied module topology and coefficient action. Identifying the supplied topology with the Robba LF topology is omitted.
 
 API ContinuousPhiAction.restrictInvariants [typed specialization]
@@ -1589,7 +1589,7 @@ API ContinuousPhiAction.invariantCriterion [omitted signature]
 LF continuity iff every twisted-invariant action is continuous.
 
 API ContinuousPhiAction.baseChange [omitted signature]
-Coefficient-compatible continuous scalar extension preserves the action and its Frobenius commutation.
+Continuous scalar extension along an E-algebra map compatible with the coefficient actions and Frobenius preserves the action.
 
 TEST continuousPhiAction_trivial [example specialization]
 The trivial group action is continuous and commutes with φ.
@@ -1723,7 +1723,7 @@ Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its s
 Node: VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles
 Geometric classification of vector bundles
 THEOREM geometricBundleClassification [omitted signature]
-For complete algebraically closed perfectoid C/F_q, every bundle on X_C is a finite direct sum of O(λ), uniquely up to permutation of reduced rational slopes and multiplicities. The HN filtration splits, and every semistable slope-λ bundle is O(λ)^{⊕m}. The finite-isocrystal functor induces a bijection on isomorphism classes in this geometric setting, but is not fully faithful on all morphisms and is not asserted to classify relative bundles on arbitrary S.
+For complete algebraically closed perfectoid C/F_q, every bundle on X_C is a finite direct sum of O(λ), uniquely up to permutation of reduced rational slopes and multiplicities. The HN filtration splits, and every semistable slope-λ bundle is O(λ)^{⊕m}. After choosing the embedding k=bar F_q→C, the finite-isocrystal functor induces a bijection on isomorphism classes in this geometric setting, but is not fully faithful on all morphisms and is not asserted to classify relative bundles on arbitrary S.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
@@ -1731,7 +1731,7 @@ Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its s
 Node: VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus
 Hom and extension calculus for geometric bundles
 THEOREM bundleHomExt [omitted signature]
-For geometric standard bundles, Hom(O(λ),O(μ))=H⁰(O(λ)∨⊗O(μ)) vanishes for λ>μ, and Ext¹(O(λ),O(μ))=H¹(O(λ)∨⊗O(μ)) vanishes for λ≤μ. The tensor decomposes into h_λh_μ/h_{μ−λ} copies of O(μ−λ). Higher Ext between bundles vanishes. Equal-slope End(O(λ)) is not reduced to E unless the denominator is one.
+For geometric standard bundles on X_C^alg, compute Ext in the abelian category of structure-sheaf modules (equivalently QCoh for these finite locally free inputs), with Ext¹ also classifying bundle extensions. Hom(O(λ),O(μ))=H⁰(O(λ)∨⊗O(μ)) vanishes for λ>μ, and Ext¹(O(λ),O(μ))=H¹(O(λ)∨⊗O(μ)) vanishes for λ≤μ. The tensor decomposes into h_λh_μ/h_{μ−λ} copies of O(μ−λ). Ext^i between these bundles vanishes for i>1. Equal-slope End(O(λ)) need not be E when its denominator exceeds one.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
@@ -1747,7 +1747,7 @@ Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its s
 Node: VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification
 Coherent sheaves on the geometric curve
 THEOREM geometricCoherentClassification [omitted signature]
-Every coherent sheaf F on X_C^alg is, noncanonically, a direct sum T⊕V with T its torsion subsheaf and V a finite sum of O(λ). T has finite support at closed untilt points and each local piece is a finite sum of O_x/(t_x^{n_j}), n_j>0. The torsion-free quotient is locally free because the curve is regular and one-dimensional; the split is not claimed canonical. This specializes CN item 311 at E=Q_p and applies to the general-E geometric curve using its DVR charts.
+Every coherent sheaf F on X_C^alg is, noncanonically, a direct sum T⊕V with T its torsion subsheaf and V a finite sum of O(λ). T has finite support at closed untilt points and each local piece is a finite sum of O_x/(t_x^{n_j}), n_j>0. The torsion-free quotient is locally free because the curve is regular and one-dimensional; the split is not claimed canonical. This specializes CN Theorem 3.9(iii) at E=Q_p and applies to the general-E geometric curve using its DVR charts.
 Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its source-specific descent, degree, coherent-sheaf or diamond comparison. These hypotheses are stated precisely in the packet, not replaced by predicates on arbitrary schemes.
 -/
 
