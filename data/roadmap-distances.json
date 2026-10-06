@@ -2097,12 +2097,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 58,
-     "missingDeclarations": 58,
+     "declarations": 69,
+     "missingDeclarations": 69,
      "depth": 13,
      "layersCovered": 7,
      "layers": 7,
-     "sourcePages": 86
+     "sourcePages": 98
     }
    },
    "measurement": 5.5,
@@ -4472,12 +4472,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 89,
-     "missingDeclarations": 89,
-     "depth": 11,
+     "declarations": 122,
+     "missingDeclarations": 122,
+     "depth": 12,
      "layersCovered": 6,
      "layers": 6,
-     "sourcePages": 56
+     "sourcePages": 115
     }
    },
    "measurement": 5.81,

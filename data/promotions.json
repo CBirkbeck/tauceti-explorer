@@ -549,6 +549,17 @@
     "data/blueprints/EllipticCurveModularity.md"
    ]
   },
+  "research/blueprint/packets/EllipticKTheory--E.5.json": {
+   "promotedAt": "2026-10-06T03:50:36Z",
+   "review": "699bceb00a988101",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-EllipticKTheory--E.5",
+   "sha256": "6526ed374864cacdf490512259f1dec1ec492383d181a065e4674f6c8c65b8e1",
+   "to": [
+    "data/blueprints/EllipticKTheory--E.5.json",
+    "data/blueprints/EllipticKTheory--E.5.md"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory--E.6.json": {
    "promotedAt": "2026-10-06T01:32:08Z",
    "review": "d40edea0017bd029",
@@ -1025,6 +1036,17 @@
    "to": [
     "data/blueprints/Polylogarithms--P.2.json",
     "data/blueprints/Polylogarithms--P.2.md"
+   ]
+  },
+  "research/blueprint/packets/Polylogarithms--P.5.json": {
+   "promotedAt": "2026-10-06T03:50:36Z",
+   "review": "ca7a79f844fa0e93",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-Polylogarithms--P.5",
+   "sha256": "7cde32e9e008a5de8bc1a8a2d0c1ada829549a1c8a9c21029b7dd0cef8dda62f",
+   "to": [
+    "data/blueprints/Polylogarithms--P.5.json",
+    "data/blueprints/Polylogarithms--P.5.md"
    ]
   },
   "research/blueprint/packets/Polylogarithms.json": {
