@@ -21387,8 +21387,9 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology--AI.6",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #339"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #339",
+   "finishedAt": "2026-10-06T21:02:47Z"
   },
   {
    "id": "BP-AbelianSchemesAndArithmeticModuli",
@@ -23450,7 +23451,8 @@
    ],
    "avoidAccountOf": "BP-DeligneWeightsAndPurity--DWP.0",
    "prompt": "research/blueprint/prompts/REV-DeligneWeightsAndPurity--DWP.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #382"
   },
   {
    "id": "BP-DeligneWeightsAndPurity--DWP.7",
@@ -25129,12 +25131,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #736"
+   "note": "deliverables arrived from an external worker on issue #736",
+   "finishedAt": "2026-10-06T21:02:50Z"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.3",
