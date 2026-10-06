@@ -27276,7 +27276,8 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.5d",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.5d.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #456"
   },
   {
    "id": "BP-NeronModelsAndSemistableAbelianVarieties",
