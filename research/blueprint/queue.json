@@ -23454,8 +23454,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.7.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #707"
   },
   {
    "id": "REV-DeligneWeightsAndPurity--DWP.7",
@@ -24490,10 +24491,11 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #724"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems--ES.8",
@@ -28140,9 +28142,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #978"
+   "note": "claimed on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
@@ -29299,9 +29301,10 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1002"
+   "note": "deliverables arrived from an external worker on issue #1002",
+   "finishedAt": "2026-10-06T11:33:27Z"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB0",
@@ -60257,7 +60260,8 @@
     "FIX-RT-AREA-automorphic-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6214"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~2",
