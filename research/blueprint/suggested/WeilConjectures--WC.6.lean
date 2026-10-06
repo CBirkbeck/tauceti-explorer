@@ -90,6 +90,8 @@ example :
 
 -- Reciprocal genus-two numerator, q=2: chi=-2 needs integer powers.
 -- The reader specifies the smooth projective model of y^2+y=x^5 over F_2.
+-- Its supplier route uses AlgebraicCurves Layer 10 (Artin-Schreier),
+-- Layer 7 (different/Hurwitz), and Layer 12 (actual projective model).
 -- This algebraic test does not discharge that model, genus, or cohomology import.
 example :
     let t : RatFunc ℚ := algebraMap ℚ[X] (RatFunc ℚ) X
