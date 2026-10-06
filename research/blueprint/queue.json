@@ -29075,9 +29075,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #998"
+   "note": "claimed on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -34692,8 +34692,9 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.9.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6510"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6510",
+   "finishedAt": "2026-10-06T05:50:37Z"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.9",
