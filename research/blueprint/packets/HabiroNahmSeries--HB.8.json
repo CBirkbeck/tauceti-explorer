@@ -1,0 +1,1252 @@
+{
+  "roadmapId": "HabiroNahmSeries",
+  "protocol": "blueprint-v1",
+  "part": "HB.8",
+  "scope": [
+    "HabiroNahmSeries:HB.8"
+  ],
+  "status": "complete",
+  "summary": "A target-level refinement of the accepted HB.8 plan. The elementary signed-shift and cyclotomic-orbit argument supplies the arbitrary-rank residue lemma and the finite-support proof for every symmetric integral matrix, including negative entries. Existing admissible-series, Pochhammer, Gaussian and congruence-series objects are imported by id. The level-m decomposition is extended to multi-indices. Gaussian normalization, its uniform t-regularity and the corrected level-m pole argument are exposed as precise remaining obligations; they are not used by the proof of Theorem 6.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:LaurentPolynomial",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
+        "provides": "Laurent polynomials, the coefficient objects L_n whose integrality is the whole content of admissibility.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:LaurentSeries",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/LaurentSeries.lean",
+        "provides": "Laurent series K((x)) (l.102): Z((q)) of the product expansion and Q(zeta_m)((x)) of the expansions at roots of unity.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Multivariable formal power series, the ring in which the admissible series and the series F_A live.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/PiTopology.lean",
+        "provides": "Multipliability of 1 + f_i when the order of f_i tends to infinity (l.357): the outer (t-adic) product over n of the product expansion.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.rescale",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+        "provides": "The ring map f(X) -> f(aX) (l.634): the shifts sigma_j t = (t_1,..,q t_j,..,t_N) and prod_i sigma_i^{A_ij}.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Cyclotomic polynomials, which index the denominators allowed in a level m admissible series and appear in the direct proof of the cyclic-dilogarithm identity.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PowerSeries.log",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Log.lean",
+        "provides": "The fixed power series log(1 + X) over a Q-algebra (line 50). The formal logarithm of a one-variable series f with constant term 1 is PowerSeries.logOf f (line 96, added separately); there is no multivariable formal logarithm.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution of a (multivariate) power series with nilpotent constant coefficient into a one-variable power series (l.158): log F = (PowerSeries.log Q).subst (F - 1) and exp for MvPowerSeries, and Li_s(c t^n).",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:RatFunc",
+        "kind": "structure",
+        "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
+        "provides": "The field Q(q) of Definition 1.7 (l.67), with RatFunc.X, RatFunc.C, RatFunc.eval and the algebra map to LaurentSeries.",
+        "checked": "Declaration statement read in the source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:PowerSeries",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "One-variable formal series as MvPowerSeries Unit; the coefficient carrier of the imported formal logarithm and Li_2 series.",
+        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.expand",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Expand.lean",
+        "provides": "For m nonzero, the algebra homomorphism substituting X_i^m into every variable; exactly the t -> t^m substitution in the orbit and residue statements.",
+        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Reduced numerator/denominator evaluation at a scalar after a scalar-field ring homomorphism. Used only when the reduced denominator is nonzero; it is not a ring homomorphism on all rational functions.",
+        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "The predicate zeta^m=1 with m dividing every exponent l for which zeta^l=1; fixes the primitive-root convention.",
+        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "gswz",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Sections 1.6–1.7 and 2.1–2.7, especially Lemma 2.6, Theorems 6–8 and equations (31), (33), (79), (89), (92), (114), (116), (137), (138), (163)–(169)"
+      ],
+      "texUrl": "https://arxiv.org/src/2412.04241v2",
+      "texSha256": "0c107252f75f5edc2c2f067a127b0192f3e32b2b8a653c74faa1c67be408ae26"
+    },
+    {
+      "id": "ks",
+      "title": "Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants",
+      "authors": "Maxim Kontsevich and Yan Soibelman",
+      "edition": "arXiv:1006.2706v2",
+      "url": "https://arxiv.org/pdf/1006.2706v2",
+      "sha256": "112e37646324143b1367c99a77e640e6dee25b959a6869dbefe08822935d7899",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Section 6.1, Definition 19 and Theorem 9; Section 6.9, proof of Theorem 9 and Proposition 13"
+      ]
+    },
+    {
+      "id": "efimov",
+      "title": "Cohomological Hall algebra of a symmetric quiver",
+      "authors": "Alexander I. Efimov",
+      "edition": "arXiv:1103.2736v2",
+      "url": "https://arxiv.org/pdf/1103.2736v2",
+      "sha256": "febf963bf3f0e58f7078f55a770bf46188d98681b35f2a7a5dedeb833aece0c0",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction and Theorem 1.1; the finite primitive generating space for fixed dimension vector"
+      ]
+    },
+    {
+      "id": "gsw",
+      "title": "Perturbative invariants of cusped hyperbolic 3-manifolds",
+      "authors": "Stavros Garoufalidis, Matthias Storzer and Campbell Wheeler",
+      "edition": "arXiv:2305.14884v2",
+      "url": "https://arxiv.org/pdf/2305.14884v2",
+      "sha256": "ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Sections 3.1–3.2, Lemmas 3.1–3.3: affine change of variables, Gaussian recentering and Pochhammer shift"
+      ]
+    },
+    {
+      "id": "aarhus",
+      "title": "The Århus integral of rational homology 3-spheres II: Invariance and universality",
+      "authors": "Dror Bar-Natan, Stavros Garoufalidis, Lev Rozansky and Dylan P. Thurston",
+      "edition": "arXiv:math/9801049v4",
+      "url": "https://arxiv.org/pdf/math/9801049v4",
+      "sha256": "85d15e9e1b4e4f74af4f23096b37262e17f872a3b38cce3321bf9163a5ca9dfa",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Sections 2.1–2.2, Definition 2.6; Proposition 2.13 and its block-matrix proof"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-signed-shifts",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Integral signed shift ratios",
+      "kind": "theorem",
+      "statement": "Write sigma^a(t)_i=q^{a_i}t_i for a in Z^N and R_a=F_A(sigma^a t,q)/F_A(t,q). Every R_a has constant coefficient 1 and coefficients in Z[q,q^{-1}]. In particular G_j=R_{e_j} satisfies 1-G_j=(-q)^{A_jj} t_j R_{A_{*,j}}. Ratios obey R_{a+b}=R_a times sigma^a(R_b), for all signed a,b.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Use the corrected Riccati identity imported from HB.8/ratio-riccati-system, retaining all off-diagonal shifts.",
+        "For a signed coordinate path from 0 to a, telescope R_a as shifted G_i factors for positive steps and inverses of shifted G_i for negative steps. Rescaling by q^b preserves integral Laurent polynomials.",
+        "Induct on total t-degree. The coefficient of degree d in 1-G_j is minus that coefficient of G_j; the factor t_j on the right makes it depend only on coefficients of every G_i of degree less than d. Inversion of a series with constant coefficient 1 preserves integral Laurent coefficients.",
+        "After proving all G_i simultaneously, telescope every R_a. This also proves the cocycle identity without a restriction on the signs of the entries of A."
+      ],
+      "acceptance": [
+        "For A=0, G_j=1-t_j and R_{-e_j}=(1-q^{-1}t_j)^{-1}.",
+        "For A=[[2,1],[1,1]], the t_1 t_2 coefficient of G_1 is -q^3.",
+        "For A=[[-1,2],[2,-2]], all forward and inverse coordinate ratios checked through total degree four have integral Laurent coefficients."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/series-F-A",
+        "HabiroNahmSeries:HB.8/ratio-riccati-system",
+        "mathlib:MvPowerSeries.rescale",
+        "mathlib:LaurentPolynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Proof of Theorem 6, equations (89)–(90), pp. 24–25",
+          "excerpt": "we claim that $G_j(t,q) \\in \\BZ[q^{\\pm 1}][\\![t]\\!]$",
+          "match": "The source motivates the integral recursion; the signed-coordinate path repairs the omitted off-diagonal factor and covers negative entries."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.signedShift_integral",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-orbit-ratio",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Cyclotomic orbit ratios",
+      "kind": "construction",
+      "statement": "For m>=1 and j in {1,...,N}, define U_{j,m}(t,q)=R_{m e_j}=F_A(sigma_j^m t,q)/F_A(t,q). It is an integral Laurent-coefficient series of constant coefficient 1, and U_{j,m}=product_{s=0}^{m-1} G_j(sigma_j^s t,q). Evaluation at any nonzero algebraic q-value is therefore coefficientwise defined.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Construct the finite product of the already imported unit ratios G_j.",
+        "Telescope the adjacent factors to obtain the quotient expression.",
+        "Apply signed-shift integrality to ensure evaluation at roots of unity is legitimate before any pole cancellation theorem is known."
+      ],
+      "acceptance": [
+        "Evaluation is taken on the ratio, not separately on two polar series.",
+        "U_{j,1}=G_j.",
+        "The zero matrix gives U_{j,m}=product_{s=0}^{m-1}(1-q^s t_j)."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-signed-shifts",
+        "HabiroNahmSeries:HB.8/series-F-A",
+        "mathlib:MvPowerSeries.rescale",
+        "mathlib:RatFunc.eval"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Proof of Theorem 6, equation (84), p. 24; compare (33), (89), (98) and (165)",
+          "excerpt": "G(t,q) \\= \\frac{F(qt,q)}{F(t,q)}",
+          "match": "The finite orbit product is a proof refinement assembled from the source’s ratio and higher q-difference operators, not a separately stated source theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.orbitRatio",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio",
+          "role": "constructor",
+          "statement": "The finite product defining U_{j,m}; m=0 is also defined as the empty product 1 for API purposes."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_quotient",
+          "role": "characterisation",
+          "statement": "U_{j,m}=sigma_j^m(F_A)/F_A."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_add",
+          "role": "relation",
+          "statement": "U_{j,m+n}=U_{j,m} sigma_j^m(U_{j,n})."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_integral",
+          "role": "compatibility",
+          "statement": "Each coefficient lies in the image of the pinned LaurentPolynomial Z inside RatFunc Q."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_one",
+          "role": "simp",
+          "statement": "U_{j,1}=G_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_zero",
+          "kind": "degenerate",
+          "statement": "U_{j,0}=1 for every A."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_zeroMatrix",
+          "kind": "computation",
+          "statement": "For A=0, U_{j,2}=(1-t_j)(1-q t_j)."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_root_zeroMatrix",
+          "kind": "computation",
+          "statement": "For A=0 and primitive zeta_m, U_{j,m}(t,zeta_m)=1-t_j^m."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.orbitRatio_rescale",
+          "kind": "compatibility",
+          "statement": "sigma_j^m(F_A)=U_{j,m} F_A, with sigma_j^m exactly Mathlib rescale by q^m in coordinate j."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lemma 2.6 / this packet’s cyclotomic-orbit proof",
+          "how": "Specialising a regular orbit quotient recovers the deformed Nahm solution at every root of unity."
+        },
+        {
+          "where": "Theorem 6",
+          "how": "The orbit quotient determines the residue without a Gaussian regularity hypothesis."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-orbit-nahm",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Nahm equations on a cyclotomic orbit",
+      "kind": "theorem",
+      "statement": "For m>=1 and a primitive m-th root zeta in a characteristic-zero field, U_{j,m}(t,zeta)=z_j(t_1^m,...,t_N^m), where z is the unique constant-one solution of 1-z_j=(-1)^{A_jj}t_j product_i z_i^{A_ij}. Thus the specialisation is invariant under every coordinate rescaling t_i by zeta.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Put H=log F_A. Since log G_i=(q^{n_i}-1)H_n coefficientwise and log G_i has rational Laurent-polynomial coefficients, H_n has only simple nonzero poles, at roots whose orders divide every nonzero n_i. Zero coordinates impose no restriction.",
+        "For U_{j,m}, log U=(q^{m n_j}-1)H_n. At q=zeta the factor vanishes. Its value is zero unless every n_i is divisible by m, and otherwise it is m n_j zeta^{-1} Res_zeta H_n. This proves orbit invariance without admissibility.",
+        "The coefficient formula for F_A gives product_{s=0}^{m-1}(1-q^{-s}sigma_j)F_A=(-1)^{m A_jj}q^{A_jj m(m+1)/2}t_j^m sigma^{m A_{*,j}}F_A. Coefficients with n_j<m vanish on both sides; the others follow by cancelling the last m Pochhammer factors.",
+        "Divide by F_A before evaluation. At q=zeta the operator becomes 1-sigma_j^m, and signed telescoping with orbit invariance identifies the right quotient with product_i U_{i,m}^{A_ij}. The phase (-1)^{m A_jj} zeta^{A_jj m(m+1)/2} equals (-1)^{A_jj}, for both even and odd m.",
+        "The imported Nahm uniqueness proof now identifies the U tuple with z(t^m)."
+      ],
+      "acceptance": [
+        "For A=(1), the answer is (1-t_j^m)^{-1}, independent of m.",
+        "For A=(3) and m=2, the coefficient of t^2 is 1, rather than -1; the corrected phase is essential.",
+        "For N=0, all tuples are empty and the assertion is vacuous."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-orbit-ratio",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "HabiroNahmSeries:HB.8/series-F-A",
+        "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
+        "mathlib:IsPrimitiveRoot",
+        "mathlib:MvPowerSeries.expand"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.6 (79), corrected (98)/(165) and (34)",
+          "excerpt": "This lemma essentially follows from the $q$-difference equations",
+          "match": "This is a new elementary proof route to the source’s residue lemma. Its orbit invariance and matrix-valued recurrence are written out rather than attributed verbatim to the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.orbitRatio_at_root",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cyclotomic orbit equations"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-residue-potential",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "The residue potential",
+      "kind": "construction",
+      "statement": "Define V_A in Q[[t]] by taking the coefficient of (q-1)^{-1} in every coefficient of log F_A(t,q). It has constant coefficient 0 and satisfies Theta_j V_A=log z_j, where Theta_j=t_j partial/partial t_j. This definition precedes admissibility and does not assume a Gaussian representation.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "The signed-shift proof bounds every nonconstant coefficient of log F_A to at most a simple pole at q=1. Apply the imported Laurent expansion map and take its coefficient at exponent -1.",
+        "For m=1, log U_{j,1}|_{q=1}=Theta_j V_A by multiplication with q^{n_j}-1 and extraction of the first derivative. The orbit Nahm theorem identifies U_{j,1}|_{q=1} with z_j.",
+        "The constant coefficient is zero since log F_A has zero constant coefficient. In characteristic zero, the Euler derivatives determine a zero-constant series uniquely: choose a nonzero coordinate of each nonzero multi-index."
+      ],
+      "acceptance": [
+        "V_0=-sum_j Li_2(t_j).",
+        "V_(1)=Li_2(t).",
+        "V_(-1)=t-3t^2/4+10t^3/9-35t^4/16+O(t^5)."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-orbit-nahm",
+        "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
+        "mathlib:LaurentSeries",
+        "mathlib:PowerSeries.log",
+        "mathlib:PowerSeries.subst"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.6 (79); equations (116) and (168)",
+          "excerpt": "t_j \\pt_{t_j} V(t) \\= \\log z_j(t)",
+          "match": "The source supplies the potential and its derivative identity; this construction defines it directly by the residue and proves the derivative noncircularly."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.residuePotential",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nahm potential"
+      },
+      "api": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential",
+          "role": "constructor",
+          "statement": "The coefficientwise residue at q=1 of log F_A."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_constantCoeff",
+          "role": "simp",
+          "statement": "V_A(0)=0."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_euler",
+          "role": "relation",
+          "statement": "Theta_j V_A=log z_j for every j."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_unique",
+          "role": "extensionality",
+          "statement": "If W(0)=0 and Theta_j W=log z_j for every j, then W=V_A."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_coeff",
+          "role": "data",
+          "statement": "For n_j>0, the t^n coefficient of V_A is the t^n coefficient of log z_j divided by n_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_rankZero",
+          "kind": "degenerate",
+          "statement": "For N=0 the potential is zero."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_zeroMatrix",
+          "kind": "computation",
+          "statement": "For A=0, V_A=-sum_j Li_2(t_j), using Polylogarithms P.1’s formal polylogSeries."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_three",
+          "kind": "computation",
+          "statement": "For A=(3), V_A=t+5t^2/4+28t^3/9+165t^4/16+O(t^5)."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.residuePotential_logCompatibility",
+          "kind": "compatibility",
+          "statement": "The coefficient of t_j in V_A is (-1)^{A_jj+1}, which is the residue of (-1)^{A_jj}q^{A_jj}/(1-q)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorem 6, pole cancellation",
+          "how": "Its common value at every root supplies the comparison that excludes new cyclotomic poles."
+        },
+        {
+          "where": "HB.9",
+          "how": "Its critical-value formula connects the formal admissible series to regulator expressions; the p-adic comparison itself belongs to HB.9."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-congruence-uniqueness",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "The multivariable congruence recurrence",
+      "kind": "theorem",
+      "statement": "For m>=1 and 0<=k_j<m, put H=t^k F_{A,m,k}(t,q), with the normalization of the imported congruence-sum node, so its t^k coefficient is 1. For every j, product_{s=0}^{m-1}(1-q^{-s}sigma_j)H=(-1)^{m A_jj}q^{A_jj m(m+1)/2}t_j^m sigma^{m A_{*,j}}H. Over Q(q), or its injective Laurent expansion at any root of unity, this system has a unique solution supported on k+m N^N with that initial coefficient.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "For n=k+m b, the j-th operator has eigenvalue D_j(n,q)=product_{s=0}^{m-1}(1-q^{n_j-s}). If b_j=0 this vanishes because the factor s=k_j occurs.",
+        "If b_j>0, D_j is a nonzero rational function. The right coefficient is the stated phase times q^{m sum_i A_ij(n_i-m delta_ij)} times the coefficient at n-m e_j.",
+        "Induct on |b|, choosing any j with b_j>0. Existence is the imported explicit coefficient formula; it also ensures compatibility when more than one coordinate can be chosen. Uniqueness is obtained by subtracting two solutions and using the recurrence.",
+        "Apply the injective Laurent expansion map: each nonzero D_j remains invertible in the Laurent-series field even when its constant term vanishes at a root of unity. This is uniqueness over K((x)), not over K[[x]]."
+      ],
+      "acceptance": [
+        "m=1,k=0 is the first-order F_A system.",
+        "For m=2,k_j=1 and b_j=0, D_j=0 as required for the initial term.",
+        "A=(1),m=3 has sign -1; the printed sign +1 is rejected."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/congruence-sum-series",
+        "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
+        "HabiroNahmSeries:HB.8/series-F-A"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Theorem 8 proof, equation (165) and the subsequent recurrence, p. 35",
+          "excerpt": "The proof in the general case is identical using",
+          "match": "The source omits the matrix-valued calculation. This node spells out the eigenvalue and compatible multi-index induction, with the corrected sign from HabiroNahmSeries/E33."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.congruenceSolution_unique",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-restricted-adams",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Restricted Adams decomposition in several variables",
+      "kind": "construction",
+      "statement": "For m>=1, let F be a constant-one series in Z[1/m]((q))[[t_1,...,t_N]]. There is a unique family L_n in Z[1/m]((q)), with L_0=0, such that log F=-sum_{n≠0} sum_{ell>=1,gcd(ell,m)=1} L_n(q^ell)t^{ell n}/(ell(1-q^{m ell})). If F has rational-function coefficients, all L_n are rational functions. Divisibility ell|n means divisibility of every coordinate; zero coordinates impose no bound.",
+      "hypotheses": [
+        "N is finite, m>=1, and F has constant coefficient 1.",
+        "The coefficients lie in Z[1/m]((q)); the formal logarithm is taken after embedding in Q((q)).",
+        "For the rational-function signature in the suggested file, F lies in Q(q)[[t]] and is embedded coefficientwise in Q((q))."
+      ],
+      "proofSteps": [
+        "The coefficient at a nonzero n has leading term -L_n/(1-q^m); all other terms have ell>1 and therefore smaller total degree |n/ell|. Solve recursively, giving existence and uniqueness over Q((q)) and preserving Q(q) where applicable.",
+        "For integrality, use the restricted elementary factor E_{n,i}=exp(-sum_{gcd(ell,m)=1} q^{i ell}t^{ell n}/(ell(1-q^{m ell}))). Inclusion-exclusion expresses it as product_{d|m}(q^{di}t^{dn};q^{dm})_infinity^{mu(d)/d}. The rational powers have denominators supported on primes dividing m, and hence coefficients in Z[1/m]((q)).",
+        "Eliminate the coefficients of F in increasing total degree by products of these factors. For each fixed n, its leading coefficient is -q^i/(1-q^m); multiplying by 1-q^m reduces the choice to the unique Laurent expansion in q. Lower q-bounds and the q-adic completion justify each fixed-degree infinite product.",
+        "The argument never chooses a distinguished nonzero coordinate of n, so it applies to mixed monomials and the axes alike. Generic product existence is imported from the parent and Mathlib, not replanned."
+      ],
+      "acceptance": [
+        "The ell=1 term makes the transform triangular; omitting it would destroy uniqueness.",
+        "When m=1 this is the ordinary admissible-series decomposition.",
+        "Mixed monomials t_1 t_2 and t_1^2 t_2^2 obey the same recursion as one-variable t and t^2."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/level-m-admissible-series",
+        "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
+        "HabiroNahmSeries:HB.8/product-expansion-and-dt-exponents",
+        "mathlib:MvPowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.7, equation (92) and its inclusion-exclusion proof, pp. 25–26",
+          "excerpt": "Every $F(t,q)\\in1+t\\,\\BZ[\\tfrac{1}{m}](\\!(q)\\!)[\\![t]\\!]$",
+          "match": "The source states the one-variable version; this construction replaces n by a nonzero multi-index and gives the explicit total-degree proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Restricted Adams coefficients"
+      },
+      "api": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs",
+          "role": "constructor",
+          "statement": "The uniquely normalized family L_0=0 of restricted Adams coefficients."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_log",
+          "role": "characterisation",
+          "statement": "The logarithmic expansion in the statement."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_unique",
+          "role": "extensionality",
+          "statement": "Any family with L_0=0 giving that expansion equals restrictedCoeffs(m,F)."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_recursion",
+          "role": "data",
+          "statement": "L_n=-(1-q^m) times (H_n+sum_{ell>1,ell|n,gcd(ell,m)=1} L_{n/ell}(q^ell)/(ell(1-q^{m ell}))), where H=log F."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_one",
+          "role": "compatibility",
+          "statement": "At m=1 it is the ordinary rational plethystic coefficient family of the imported admissible-series definition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_unit",
+          "kind": "degenerate",
+          "statement": "If F=1, all L_n are zero."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_linear",
+          "kind": "computation",
+          "statement": "For F=1+t_1 t_2, L_(1,1)=-(1-q^m)."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_two",
+          "kind": "computation",
+          "statement": "For m=2 and F=1+t_1 t_2, L_(2,2)=(1-q^2)/2."
+        },
+        {
+          "name": "HabiroNahmSeries.HB8Refinement.restrictedCoeffs_mOne",
+          "kind": "compatibility",
+          "statement": "For m=1 and F=1+t_1 t_2, L_(2,2)=1-q, agreeing with the unrestricted rational decomposition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Corrected GSWZ Theorem 7",
+          "how": "Supplies the multi-index decomposition whose pole bounds must be proved for normalized congruence sums."
+        },
+        {
+          "where": "HB.9, Frobenius congruences",
+          "how": "The restriction gcd(ell,m)=1 is the precise summation convention used in the level-m Dwork quotient."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-gaussian-normalization",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Normalization of the Gaussian local factor",
+      "kind": "comparison",
+      "statement": "Let q=zeta_m exp(h), u a formal variable, k an integer, and P=(q^{k+1}u exp(w);q)_infinity interpreted by the Bernoulli expansion (59). A local remainder which removes h^{-1}w^0, h^{-1}w^1, h^{-1}w^2 and h^0w^0 must have log psi=log P-Li_2(u^m)/(m^2 h)-Li_1(u^m)w/(m h)-Li_0(u^m)w^2/(2h)+sum_{s=0}^{m-1}((k+s+1)/m-1/2)log(1-zeta_m^{k+s+1}u). Its remaining terms belong to the augmentation ideal in the completion generated by w, h and w^3/h. This repairs the local normalization of (114); propagating it through the global prefactor (118) is recorded as gap G1.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Apply (59) after splitting P into m Pochhammer factors with base q^m. The h^{-1} term is Li_2(u^m exp(mw))/(m^2 h), by the imported polylogarithm distribution identity.",
+        "Taylor expansion gives the three coefficients Li_2(u^m)/m^2, Li_1(u^m)/m and Li_0(u^m)/2. The h^0,w^0 coefficient of log P is -sum_s((k+s+1)/m-1/2)log(1-zeta_m^{k+s+1}u).",
+        "Subtract exactly these four coefficients. All residual pairs (b,r), with h-exponent b-1 and w-exponent r, satisfy b=0,r>=3, or b=1,r>=1, or b>=2,r>=0. Thus each has positive weight for weight(h)=1 and weight(w)=1/2.",
+        "Compare the printed formula coefficientwise; it fails the quadratic and constant subtraction already at m=1. The correction is a local identity, not a claimed completed repair of Theorem 8."
+      ],
+      "acceptance": [
+        "m=1,k=0: the printed residual h^{-1}w^2 coefficient is -Li_0(u)/2, while the corrected residual is zero.",
+        "m=1,k=0: the printed residual h^0w^0 is -log(1-u), while the corrected residual is zero.",
+        "m=2: the required linear subtraction is Li_1(u^2)w/(2h), not Li_1(u^2)w/(4h).",
+        "The remaining cubic term h^{-1}w^3 rules out the printed ideal 1+x times the whole completion."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "Polylogarithms:P.1/classical-distribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Equation (114) and the sentence immediately after it, p. 29; compare (59)",
+          "excerpt": "from which we remove four terms",
+          "match": "The four-term removal is the stated intent; the printed coefficients and the claimed completion fail it. See HabiroNahmSeries/EHB8-1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.gaussianLocal_normalization",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-gaussian-shifts",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "The affine shift of refined Gaussian integrals",
+      "kind": "theorem",
+      "statement": "For the normalized refined integrals I_{A,M,ell} with M=mmprime and the corrected local factor, the required identities are M-periodicity in ell, gamma_j I_ell=I_{ell+e_j} on the chosen M-th roots, and I_ell(t,x)-I_ell(sigma_j t,x)=(-1)^{A_jj} t_j q^{A_jj} I_{ell-e_j}(sigma^{A_{*,j}}t,x). These give the corrected order-m system for CS_{A,m,k}. This node is a proof obligation conditional on reconciling the global prefactors in gap G1, not a claim that (114) as printed defines these integrals.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Use the single Gaussian operator imported from HB.4, not a second operator. Its precise affine identity is <exp(-b^T Lambda w) f(w+h b)>_{Lambda,h}=exp(h b^T Lambda b/2)<f(w)>_{Lambda,h}, where the bracket has covariance h Lambda^{-1}. GSW Lemma 3.1(b) supplies this after w=h^{1/2}x.",
+        "Prove the affine identity algebraically by evaluating exponential generating functions, or Wick contractions, and then extend it in positive h-weight. GSW Lemma 3.2 supplies the determinant ratio needed when the shifted Nahm solution changes Lambda.",
+        "Apply Pochhammer’s shift identity (1-u)(qu;q)_infinity=(u;q)_infinity to the single vertex associated to j, keeping all polynomial prefactors and the corrected normalizer. Translate w_j by h to account for ell-e_j.",
+        "Iterate the first-order identity m times using the q-binomial theorem. The phase is (-1)^{m A_jj} q^{A_jj m(m+1)/2}; apply periodicity and the refined congruence weights. Full reconciliation of the changed prefactors is G1."
+      ],
+      "acceptance": [
+        "A constant integrand gives the affine exponential factor, not strict translation invariance.",
+        "N=2,A=[[2,1],[1,1]] shifts both Gaussian coordinates on the right.",
+        "The m=3,A=(1) sign is negative."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-gaussian-normalization",
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8/periodicity-of-the-gaussian-integrals",
+        "HabiroNahmSeries:HB.4/formal-gaussian-integration",
+        "HabiroNahmSeries:HB.8/q-difference-for-the-gaussian-collection"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.15, equations (137)–(139), p. 33",
+          "excerpt": "a simple change of coordinates",
+          "match": "The source-specific affine calculation, now traced to the two original sources."
+        },
+        {
+          "sourceId": "gsw",
+          "locator": "Lemma 3.1(b), equation (23); Lemma 3.2, equation (25), pp. 10–11",
+          "excerpt": "Part (b) follows from the fact the integration is unchanged under an affine change of",
+          "match": "The exact affine Gaussian rule, read directly in the cited original."
+        },
+        {
+          "sourceId": "aarhus",
+          "locator": "Proposition 2.13, pp. 8–9",
+          "excerpt": "If the block A is invertible",
+          "match": "Block Fubini supports recentering; it is not itself a proof of t-regularity."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.gaussianAffine_system",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Regularity in the Nahm deformation variables",
+      "kind": "theorem",
+      "statement": "For every symmetric integral A, m>=1, 0<=k_j<m and mprime coprime to m, the normalized CS_{A,m,k}(t,zeta_{mmprime}+x) belongs coefficientwise to Q(zeta_{mmprime})((x))[[t]], has support on ordinary nonnegative multi-indices and constant coefficient 1. This is the regularity input needed for Theorem 8; its proof remains gap G2 after the normalization repair G1.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Write d_j=(1-z_j)/z_j; each d_j is t_j times a unit. Then Lambda^{-1}=-(I+D A)^{-1}D, D=diag(d_j). This gives covariance control entry by entry, which is stronger and more relevant than a determinant bound.",
+        "Expand the normalized vertices in Wick graphs. Each pole of Li_{2-b-r}(z_j) and each contraction must be counted against the separate t_j-orders; expand at fixed loop order before claiming a bound.",
+        "The source’s one-sentence argument does not establish this: for A=0,z=1-t, the no-leg h Li_0(z)/12 term has t^{-1} before graph contributions are combined. The needed cancellation and its preservation under the congruence sum must be proved, not replaced by a termwise nonnegative-order assertion.",
+        "Establish uniform lower bounds after summing graphs at each loop order, then justify changing the completion from x-first to t-first. These exact two conclusions constitute G2."
+      ],
+      "acceptance": [
+        "For A=0,m=1, the final target is product_j (t_j;q)_infinity^{-1}, whose t-coefficients are Laurent in x.",
+        "The identity Lambda^{-1}=-(I+D A)^{-1}D includes the sign and both indices.",
+        "A proof must bound mixed negative powers t_1^{-a}t_2^{-b}, not just total degree."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-gaussian-normalization",
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8/gaussian-pieces-are-power-series-in-t",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "HabiroNahmSeries:HB.4/formal-gaussian-integration"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Proof of Theorem 8, p. 35",
+          "excerpt": "the\nfact that $\\det(\\Lambda^{-1})=O(t)$ dominates",
+          "match": "This is the asserted regularity argument. The determinant alone does not control the separate vertex poles; the missing cancellation is recorded as G2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.gaussianCS_regular",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Gaussian identification in arbitrary rank",
+      "kind": "comparison",
+      "statement": "With normalized Gaussian prefactors reconciled as in G1 and mprime coprime to m, the target equality is F_{A,m,k}(t^{1/m},zeta_{mmprime}+x)=CS_{A,m,k}(t,zeta_{mmprime}+x) in Q(zeta_{mmprime})((x))[[t]]. The arbitrary-rank uniqueness step is established here; the comparison still requires G1 and G2. It recovers the source’s Lemma 2.6 via Gaussian integration when m=1, while that residue lemma is already proved independently by the orbit route.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Apply the affine-shift node to obtain the corrected m-th order system.",
+        "Apply the regularity node to place both candidates in the same supported coefficient space. The refined normalization gives constant coefficient 1.",
+        "Before rescaling variables, multiply by t^k and use the multivariable congruence uniqueness theorem. Substitution t_j by t_j^m identifies the supported subspace with an ordinary power-series ring.",
+        "The equality of critical values V follows independently from the critical-value node; equality of determinant and cyclotomic prefactors must not be inferred until G1 and G2 are discharged."
+      ],
+      "acceptance": [
+        "The m=1 statement gives the full F_A comparison.",
+        "For A=0 the two-variable comparison factors into the rank-one Pochhammer identities.",
+        "Uniqueness uses nonzero D_j in K((x)); evaluating D_j at x=0 prematurely would invalidate it."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-congruence-uniqueness",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-shifts",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+        "HabiroNahmSeries:HB.8/refinement-critical-value",
+        "HabiroNahmSeries:HB.8/identification-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Theorem 8, equations (163)–(166), pp. 35–36",
+          "excerpt": "The proof of this equality uses crucially the fact",
+          "match": "The exact identification target with the definition’s coprimality restriction and its unresolved inputs displayed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.gaussianIdentification",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-level-residues",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Residues of congruence sums in arbitrary rank",
+      "kind": "theorem",
+      "statement": "For c=m a with gcd(a,m)=1 and every permitted residue class k, log F_{A,m,k}(t,zeta_c+x)=zeta_c V_A(t^c)/(c^2 x)+O(x^0). This is the restricted all-root residue input required by corrected Theorem 7. The restriction matches the current definition of CS; no assertion at orders m a with gcd(a,m)>1 is imported from Theorem 8.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Use Gaussian identification and read the exponential potential in the corrected version of (118); the refined sum has constant-one regular factor, which contributes no negative Laurent powers to its logarithm.",
+        "Replace the Gaussian critical value by the residue potential using the critical-value node.",
+        "Alternatively split a congruence sum into classes modulo c and compare their common exponential potential; this also needs the regularity and nonvanishing conclusions of G1–G2.",
+        "Keep the coprimality condition visible because CS in (126) is defined only for mprime coprime to m. This theorem inherits G1–G2, whereas the unrefined residue theorem has neither gap."
+      ],
+      "acceptance": [
+        "For m=1 this is the all-root residue lemma already proved independently.",
+        "For A=0,m=2,c=2, the coefficient of t^2 in the residue is 1/4.",
+        "c=4,m=2 is outside the imported comparison and must not be used to remove Phi_4 poles."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "HabiroNahmSeries:HB.8/refinement-critical-value",
+        "HabiroNahmSeries:HB.8/residues-of-congruence-sums"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.9, equation (95), p. 26; proof after Theorem 8",
+          "excerpt": "These follow from Theorem~\\ref{thm.fgi.is.admis}",
+          "match": "The source derives the congruence residue from Gaussian identification; HabiroNahmSeries/E39 restricts the extra root order."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.congruenceRoot_residue",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Corrected level-m admissibility",
+      "kind": "theorem",
+      "statement": "For m>=1 and 0<=k_j<m, write B(s,q)=F_{A,m,k}(s^{1/m},q), an ordinary series in s. Its restricted Adams coefficients L_n from this packet’s multi-index construction belong to R_m=Z[1/m,q,q^{-1},Phi_d(q)^{-1} : m does not divide d, or m divides d and gcd(d/m,m)>1], and L_n(zeta_m) belongs to Z[1/m]. This is the corrected Theorem 7 target. It remains G3, together with the inherited Gaussian inputs G1–G2; the false printed smaller ring is never used.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Use the multi-index restricted decomposition; ordinary integrality of B follows directly from the normalized coefficient formula.",
+        "For each coordinate apply the corrected m-step recurrence to the ratio sigma_j H/H, including its leading q^{k_j}. Linearization at this constant gives product_{s!=k_j,0<=s<m}(1-q^{k_j+m n_j-s}), up to a Laurent unit, rather than the k=0 formula for every k.",
+        "These factors have no root of order divisible by m. Prove the simultaneous ratio recurrence and its denominator bounds. Track every Adams pullback Phi_d(q^ell) under gcd(ell,m)=1 to show the allowed set of cyclotomic denominators is preserved.",
+        "At a forbidden root of order m a with gcd(a,m)=1, use the congruence residue theorem and subtract all proper-divisor contributions. Write the full multi-index equality, including the coefficient of the potential and evaluation at conjugate primitive m-th roots. This is the missing proof G3; the source’s rank-one paragraph does not by itself prove the corrected ring.",
+        "At primitive m-th roots the shared residue fixes the L_n values and their Z[1/m] denominators. Apply restricted uniqueness. G3 explicitly includes this value claim, not just pole removal."
+      ],
+      "acceptance": [
+        "At m=1 it is the proved finite-support theorem.",
+        "A=0,m=2,k=0 has L_2=-(q^3+2q-1)/(2(q-1)^3(1+q^2)(1+q+q^2)); its Phi_4 pole is allowed by R_2 and excluded by the printed ring.",
+        "A proof must handle k_j nonzero; replacing its linearization by the k=0 product loses factors."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-restricted-adams",
+        "HabiroNahmSeries:HB.8/refinement-congruence-uniqueness",
+        "HabiroNahmSeries:HB.8/refinement-level-residues",
+        "HabiroNahmSeries:HB.8/level-m-admissible-series",
+        "HabiroNahmSeries:HB.8/congruence-sums-are-level-m-admissible"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Theorem 7, equation (96) and proof (98)–(104), pp. 26–27",
+          "excerpt": "we use\nsimilar methods to the proof of Theorem~\\ref{thm.DT}",
+          "match": "The source proves only a rank-one sketch with a false denominator ring. This records the corrected target and the exact general-rank proof obligations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.congruenceSum_correctedLevel",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Level-m admissibility"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-all-root-residue",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "The arbitrary-rank residue lemma",
+      "kind": "theorem",
+      "statement": "For every symmetric integral A, m>=1 and primitive m-th root zeta, log F_A(t,zeta+x)=zeta V_A(t^m)/(m^2 x)+O(x^0), coefficientwise in t. All Laurent coefficients at x^k for k<-1 vanish. The same rational potential V_A works for all m.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "The logarithmic pole bound in the orbit Nahm proof already kills every Laurent coefficient below -1.",
+        "Let R(t)=Res_zeta log F_A. Evaluation of log U_{j,m} gives m zeta^{-1}Theta_j R=log z_j(t^m), by the derivative m n_j zeta^{-1} of q^{m n_j}-1.",
+        "The Euler derivative of zeta V_A(t^m)/m^2 is zeta log z_j(t^m)/m. Both candidate residues have constant coefficient zero. The residue-potential uniqueness argument therefore proves equality.",
+        "The coordinatewise divisibility statement proves the residue is supported on m-multiples of multi-indices. No prior assertion that L_n is Laurent polynomial enters the proof."
+      ],
+      "acceptance": [
+        "For A=0 and m=2, the t_j^2 residue at q=-1 is 1/4.",
+        "A=(3), m=2 has residue -t^2/4-5t^4/16+O(t^6).",
+        "For every n having a coordinate not divisible by m the residue is zero."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-orbit-nahm",
+        "HabiroNahmSeries:HB.8/refinement-residue-potential",
+        "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
+        "mathlib:IsPrimitiveRoot",
+        "mathlib:MvPowerSeries.expand"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Lemma 2.6, equation (79), p. 23",
+          "excerpt": "\\log(F_{A}(t,\\z_m+x)) \\= \\frac{\\z_mV(t^m)}{m^2x}+O(x^0)",
+          "match": "Exactly Lemma 2.6, proved by a cyclotomic orbit argument instead of the source’s Gaussian synthesis."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.allRoot_residue",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Residue lemma"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-critical-value",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "The critical value equals the residue potential",
+      "kind": "comparison",
+      "statement": "For the constant-one Nahm solution z, V_A=-sum_j Li_2(1-z_j)-one-half sum_{i,j} A_ij log z_i log z_j, with each formal Li_2 composed with the zero-constant series 1-z_j. This agrees with the critical potential in GSWZ (116), independently of the equality of the full Gaussian series.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Differentiate the displayed expression using d Li_2(u)=-log(1-u) du/u in the formal power-series sense.",
+        "Differentiate the Nahm equations to get d log(1-z_j)=d log t_j+sum_i A_ij d log z_i; logarithmic derivatives of t_j mean Euler derivatives, so no log t_j series is introduced.",
+        "Symmetry of A cancels the double quadratic terms, leaving dV=sum_j log z_j d log t_j.",
+        "All constant coefficients vanish. Apply uniqueness from the residue-potential node."
+      ],
+      "acceptance": [
+        "For A=0 it is -sum_j Li_2(t_j).",
+        "For A=[[2,1],[1,1]], the t_1 t_2 coefficient is -1.",
+        "All analytic branch choices disappear because 1-z_j has zero constant coefficient."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-residue-potential",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "Polylogarithms:P.1/classical-polylogarithm",
+        "mathlib:PowerSeries"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Equation (116), p. 29; equation (168), p. 36",
+          "excerpt": "-\\sum_{j=1}^N \\Li_2(1-z_j(t))",
+          "match": "The exact critical value; the derivative calculation replaces reliance on full Gaussian identification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.residuePotential_criticalValue",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.8/refinement-finite-support",
+      "parentStageId": "HabiroNahmSeries:HB.8",
+      "realises": [
+        "HabiroNahmSeries:HB.8"
+      ],
+      "title": "Finite support in arbitrary rank",
+      "kind": "theorem",
+      "statement": "For every symmetric integral A, the unique rational plethystic coefficients L_n of F_A belong to Z[q,q^{-1}] for all nonzero n. Consequently F_A=product_{n≠0,i in Z}(q^i t^n;q)_infinity^{c_{n,i}} with c_{n,i} in Z and finitely many nonzero i for each fixed n; L_n=sum_i c_{n,i}q^i. This is GSWZ Theorem 6, not merely integrality of an unrestricted infinite product.",
+      "hypotheses": [
+        "The number of variables N is finite; A is symmetric with entries in Z. No positivity or nonnegative-entry assumption is used.",
+        "All expansions are coefficientwise in t, in the augmentation topology."
+      ],
+      "proofSteps": [
+        "Apply the imported integral plethystic logarithm to every G_j from signed-shift integrality. Uniqueness identifies its coefficient M_{j,n} with [n_j]_q L_n, since log G_j=(sigma_j-1)log F_A. This equality is also valid when n_j=0, with both sides zero.",
+        "Use the imported pole-location lemma on all j with n_j>0. An L_n outside Z[q^{±1}] must have a simple pole at a primitive a-th root zeta, where a>1 divides every coordinate of n. There is no pole at 1 because [n_j]_1=n_j.",
+        "Induct on total degree |n|. Write n=a b. In H_n=-sum_{ell|n} L_{n/ell}(q^ell)/(ell(1-q^ell)), every proper-divisor L_{n/ell} is already integral Laurent. The terms with a|ell contribute zeta/a^2 sum_{d|b} L_{b/d}(1)/d^2 to the residue, and the other proper-divisor terms contribute zero.",
+        "The all-root residue theorem predicts precisely that same sum: the coefficient V_b is sum_{d|b} L_{b/d}(1)/d^2, by taking the q=1 residue of H_b. The only extra possible contribution is -Res_zeta L_n/(1-zeta), from ell=1. It is forced to vanish, contradicting the pole.",
+        "The monic q-integer denominator and integral numerator in the pole-location lemma give integral Laurent coefficients by monic polynomial division once all possible poles are removed. This step excludes rational constant denominators.",
+        "Apply the imported product-expansion equivalence. The finite support is the finite Laurent support of L_n; it is not inferred just from integer exponents in Z((q))."
+      ],
+      "acceptance": [
+        "A=(1): L_1=q and L_n=0 for n>1.",
+        "A=0: L_{e_j}=-1 and all other L_n=0.",
+        "For A=[[2,1],[1,1]], L_(1,1)=-q^3; dropping off-diagonal shifts would give the false value 0.",
+        "The wrong sign variant of A=(1) gives L_2=q^2/(1+q), so it is not admissible."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.8/refinement-signed-shifts",
+        "HabiroNahmSeries:HB.8/refinement-all-root-residue",
+        "HabiroNahmSeries:HB.8/integral-plethystic-logarithm",
+        "HabiroNahmSeries:HB.8/pole-location-lemma",
+        "HabiroNahmSeries:HB.8/admissible-series",
+        "HabiroNahmSeries:HB.8/product-expansion-and-dt-exponents"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz",
+          "locator": "Theorem 6 and equations (87)–(92), pp. 24–25",
+          "excerpt": "have finite support, i.e. for fixed $n$ all but finitely many $i$ satisfy $c_{n,i}=0$.",
+          "match": "The exact theorem, with the simultaneous coordinate induction and complete proper-divisor residue sum supplied."
+        },
+        {
+          "sourceId": "ks",
+          "locator": "Section 6.1, Theorem 9; Section 6.9",
+          "excerpt": "For a given symmetric integer matrix B",
+          "match": "Original attribution covers arbitrary signed symmetric integer matrices; it is not used as an unplanned black box."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Admissibility",
+        "namespace": "HabiroNahmSeries.HB8Refinement"
+      },
+      "declaration": "HabiroNahmSeries.HB8Refinement.seriesFA_finiteSupport",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite support theorem"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "HabiroNahmSeries:HB.8",
+      "status": "planned",
+      "remaining": [
+        "G1 — Reconcile the corrected local Gaussian remainder with global prefactors: The four subtractions in (114) are inconsistent with (59). The locally corrected expression is established, but its propagation through (118), the square-root/cyclotomic normalizers and the refined CS sum is not established. Recompute these from the same Pochhammer expansion and prove the affine shift with the resulting full prefactor. Imported parent Gaussian nodes are specifications with this gap, not facts used in the elementary Theorem 6 chain.",
+        "G2 — Uniform t-regularity of the corrected refined Gaussian sum: Prove cancellation of vertex poles at z_j=1 after Wick contractions and congruence summation, at every loop order and separately in each t_j. Then justify t-first expansion in K((x))[[t]] and constant coefficient 1. The determinant estimate in the source is insufficient; e.g. the uncontracted h Li_0(1-t)/12 term has a t^{-1} pole.",
+        "G3 — Corrected level-m cyclotomic cancellation in arbitrary rank: Complete the signed, multi-index ratio induction at arbitrary k; prove the Adams-stable denominator ring R_m and the forbidden-root residue cancellation for c=m a, gcd(a,m)=1. Prove the L_n(zeta_m) in Z[1/m] value claim. This gap does not concern existence/uniqueness of the restricted decomposition, which is supplied here."
+      ],
+      "note": "Every stated HB.8 target is an imported reviewed object or a declaration-sized refinement. The elementary Lemma 2.6 / Theorem 6 proof chain is supplied in arbitrary rank. Gaussian identification and the corrected level-m extension have precise recorded gaps, so the stage is planned rather than closed."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G1 — Reconcile the corrected local Gaussian remainder with global prefactors",
+      "neededBy": [
+        "HabiroNahmSeries:HB.8/refinement-gaussian-shifts",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "HabiroNahmSeries:HB.8/refinement-level-residues",
+        "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility"
+      ],
+      "detail": "The four subtractions in (114) are inconsistent with (59). The locally corrected expression is established, but its propagation through (118), the square-root/cyclotomic normalizers and the refined CS sum is not established. Recompute these from the same Pochhammer expansion and prove the affine shift with the resulting full prefactor. Imported parent Gaussian nodes are specifications with this gap, not facts used in the elementary Theorem 6 chain."
+    },
+    {
+      "title": "G2 — Uniform t-regularity of the corrected refined Gaussian sum",
+      "neededBy": [
+        "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "HabiroNahmSeries:HB.8/refinement-level-residues",
+        "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility"
+      ],
+      "detail": "Prove cancellation of vertex poles at z_j=1 after Wick contractions and congruence summation, at every loop order and separately in each t_j. Then justify t-first expansion in K((x))[[t]] and constant coefficient 1. The determinant estimate in the source is insufficient; e.g. the uncontracted h Li_0(1-t)/12 term has a t^{-1} pole."
+    },
+    {
+      "title": "G3 — Corrected level-m cyclotomic cancellation in arbitrary rank",
+      "neededBy": [
+        "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility"
+      ],
+      "detail": "Complete the signed, multi-index ratio induction at arbitrary k; prove the Adams-stable denominator ring R_m and the forbidden-root residue cancellation for c=m a, gcd(a,m)=1. Prove the L_n(zeta_m) in Z[1/m] value claim. This gap does not concern existence/uniqueness of the restricted decomposition, which is supplied here."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroNahmSeries/EHB8-1",
+      "source": "gswz",
+      "kind": "error",
+      "locator": "Equation (114) and the sentence after it, p. 29, arXiv:2412.04241v2 (PDF and TeX both inspected)",
+      "printed": "The subtractions have coefficients Li_1(z^m)/(m^2 h) and Li_0(z^m)/(m^2 h); the added constant is sum_s(1/2-(k+s+1)/m) log(1-zeta_m^{k+s+1}z), and the remainder is asserted to lie in 1+x Q(z,zeta_m)[[w,w^3 x^{-1},x]].",
+      "correction": "For the printed argument z exp(w), the linear and quadratic subtractions are Li_1(z^m)w/(m h) and Li_0(z^m)w^2/(2h); the constant added to remove the h^0w^0 term has the opposite sign. The normalized remainder lies in the unit group of the augmentation completion generated by w,h,w^3/h, rather than in 1+x times the full completion. Global prefactors must be reconciled before asserting Theorem 8 for this repaired factor.",
+      "reason": "The leading term of log P is Li_2(z^m exp(mw))/(m^2 h), from (59) and polylogarithm distribution. Its Taylor coefficients give the stated linear/quadratic factors. At m=1,k=0 the printed log remainder has h^{-1}w^2 coefficient -Li_0(z)/2 and h^0w^0 coefficient -log(1-z), contrary to the stated four-term removal; the cubic h^{-1}w^3 term also disproves the claimed x-divisibility.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv abstract/version history: v2 remains latest on 2026-10-06; no journal reference or corrigendum listed",
+        "Don Zagier author publication page and MPIM preprint record; searched the title with errata/corrigendum",
+        "GSW arXiv:2305.14884v2, equation (28), has the one-half quadratic normalization; the accepted HabiroNahmSeries packet has no correction of (114)"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "citation": "The Habiro ring of a number field, arXiv:2412.04241v2, 27 August 2025",
+      "read": "2026-10-06",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1006.2706v2",
+      "citation": "Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants, arXiv:1006.2706v2",
+      "read": "2026-10-06",
+      "sha256": "112e37646324143b1367c99a77e640e6dee25b959a6869dbefe08822935d7899"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1103.2736v2",
+      "citation": "Cohomological Hall algebra of a symmetric quiver, arXiv:1103.2736v2",
+      "read": "2026-10-06",
+      "sha256": "febf963bf3f0e58f7078f55a770bf46188d98681b35f2a7a5dedeb833aece0c0"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2305.14884v2",
+      "citation": "Perturbative invariants of cusped hyperbolic 3-manifolds, arXiv:2305.14884v2",
+      "read": "2026-10-06",
+      "sha256": "ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/9801049v4",
+      "citation": "The Århus integral of rational homology 3-spheres II: Invariance and universality, arXiv:math/9801049v4",
+      "read": "2026-10-06",
+      "sha256": "85d15e9e1b4e4f74af4f23096b37262e17f872a3b38cce3321bf9163a5ca9dfa"
+    }
+  ],
+  "importedTargets": [
+    {
+      "target": "Admissible multivariable series and unique integer product expansion",
+      "nodes": [
+        "HabiroNahmSeries:HB.8/admissible-series",
+        "HabiroNahmSeries:HB.8/product-expansion-and-dt-exponents",
+        "HabiroNahmSeries:HB.8/formal-pochhammer-symbol"
+      ],
+      "note": "Import the reviewed definitions and their APIs. The coefficientwise product topology is supplied by Mathlib and QSeriesPartitionsAndMockModularForms:QM.0; finite i-support is supplied below."
+    },
+    {
+      "target": "The series F_A and its defining q-difference system",
+      "nodes": [
+        "HabiroNahmSeries:HB.8/series-F-A",
+        "HabiroNahmSeries:HB.8/ratio-riccati-system",
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations"
+      ],
+      "note": "No second definition of F_A or the deformed Nahm solution is planned."
+    },
+    {
+      "target": "Gaussian route to Lemma 2.6 and refined congruence sums",
+      "nodes": [
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8/congruence-sum-series",
+        "HabiroNahmSeries:HB.4/formal-gaussian-integration"
+      ],
+      "note": "Import the objects, refine the proof and correct the local remainder normalization explicitly. Full Gaussian equality retains recorded gaps."
+    }
+  ],
+  "libraryAudit": {
+    "input": "data/library-coverage.json",
+    "stage": "HabiroNahmSeries:HB.8",
+    "verdict": "not built",
+    "checked": "Reviewed AUDIT14; generic product existence is a Mathlib baseline fact and overlaps QSeriesPartitionsAndMockModularForms:QM.0. No Nahm series, plethystic finite-support theorem or formal Gaussian all-orders comparison was found in a full Tau Ceti source search at f790474. Analytic probability Gaussians and computable cyclotomic polynomials are near misses, not substitutes."
+  },
+  "inheritedSourceIssues": [
+    "HabiroNahmSeries/E28",
+    "HabiroNahmSeries/E29",
+    "HabiroNahmSeries/E30",
+    "HabiroNahmSeries/E31",
+    "HabiroNahmSeries/E32",
+    "HabiroNahmSeries/E33",
+    "HabiroNahmSeries/E34",
+    "HabiroNahmSeries/E35",
+    "HabiroNahmSeries/E38",
+    "HabiroNahmSeries/E39",
+    "HabiroNahmSeries/E40"
+  ],
+  "boundaries": {
+    "parent": "research/blueprint/packets/HabiroNahmSeries.json",
+    "genericGaussianOwner": "HabiroNahmSeries:HB.4/formal-gaussian-integration",
+    "polylogOwner": "Polylogarithms:P.1/classical-polylogarithm",
+    "genericProductsOwner": "QSeriesPartitionsAndMockModularForms:QM.0",
+    "scope": "Formal coefficientwise t-series only; no analytic specialisation at t=1, modularity, general cohomological Hall algebra, or Habiro module membership is proved here."
+  },
+  "inheritedGapDisposition": [
+    {
+      "gap": "General rank of three GSWZ theorems omitted",
+      "result": "Theorem 6 and Lemma 2.6 have an explicit signed/multi-index proof. Theorem 8 uniqueness is explicit in all ranks; its Gaussian inputs remain G1–G2. Corrected Theorem 7 is G3."
+    },
+    {
+      "gap": "Periodicity cites unread Gaussian sources",
+      "result": "GSW Lemmas 3.1–3.3 and Aarhus Proposition 2.13 read and hashed. The generic Gaussian operator and translation API are imported from HB.4; the exact affine/recentering source rules and their specialized use are spelled out in the proof sketch. Prefactor reconciliation remains G1."
+    },
+    {
+      "gap": "Original KS / Efimov theorem unread",
+      "result": "KS Definition 19, Theorem 9 and Section 6.9 read; Efimov Theorem 1.1 read. KS admits arbitrary symmetric integer twists; Efimov alone concerns nonnegative arrow counts. Neither theorem is a prerequisite of the elementary proof."
+    },
+    {
+      "gap": "False printed level-m ring",
+      "result": "Use the accepted correction HabiroNahmSeries/E28; the exact proof is G3 and depends on G1–G2."
+    },
+    {
+      "gap": "One-sentence Gaussian t-integrality assertion",
+      "result": "Refined as G2 with covariance matrix, no-leg countercheck and completion change explicitly separated."
+    },
+    {
+      "gap": "Multivariable level-m decomposition",
+      "result": "Supplied by refinement-restricted-adams, including total-degree induction, q-adic product justification, API and mixed-monomial tests."
+    }
+  ]
+}
