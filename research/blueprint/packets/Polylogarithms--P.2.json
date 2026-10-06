@@ -16,84 +16,84 @@
         "kind": "def",
         "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
         "provides": "The signed Bochner interval integral; reverses sign when endpoints are reversed.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:intervalIntegrable_log_sin",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrability/LogMeromorphic.lean",
         "provides": "log(sin t) is interval integrable on every real interval; Real.log uses absolute value on negative inputs.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:integral_log_sin_zero_pi",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean",
         "provides": "Integral from 0 to pi of log(sin x) is -pi log 2.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Complex",
         "kind": "structure",
         "module": "Mathlib/Basic/Complex/Basic.lean",
         "provides": "Native complex numbers with real and imaginary coordinates.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.mul_re",
         "kind": "theorem",
         "module": "Mathlib/Basic/Complex/Basic.lean",
         "provides": "Real coordinate of multiplication is ac-bd.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.mul_im",
         "kind": "theorem",
         "module": "Mathlib/Basic/Complex/Basic.lean",
         "provides": "Imaginary coordinate of multiplication is ad+bc.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.norm_def",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Norm.lean",
         "provides": "The norm is the square root of the sum of the squares of the two coordinates.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Complex.arg",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean",
         "provides": "Principal argument in (-pi,pi], with arg 0 = 0.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Real.summable_nat_pow_inv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/PSeries.lean",
         "provides": "The real natural p-series is summable exactly when p>1.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:sum_Ioc_inv_sq_le_sub",
         "kind": "theorem",
         "module": "Mathlib/Analysis/PSeries.lean",
         "provides": "For nonzero natural k<=n in an ordered field, sum over k<i<=n of i^-2 is at most k^-1-n^-1.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.trace",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "The sum of diagonal entries of a square matrix.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       },
       {
         "ref": "mathlib:Matrix.trace_mul_comm",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Trace AB equals trace BA, including compatible rectangular matrices.",
-        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05."
+        "checked": "Actual declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; scope and hypotheses checked, 2026-10-05. Independently confirmed at the same commit by REV-Polylogarithms--P.2, 2026-10-06."
       }
     ]
   },
@@ -108,6 +108,10 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Appendix, pp.17–20: definition, Lemma 1 and Fourier equation (2), Lemma 2 and its complete half-space integral proof."
+      ],
+      "independentlyRead": "2026-10-06",
+      "independentReviewSections": [
+        "Appendix pp.17–20, definition, Lemmas 1–2 and Fourier identity."
       ]
     },
     {
@@ -121,6 +125,10 @@
       "readSections": [
         "I.3, pp.10–11: D, Kummer equation (2), unit-circle Fourier series, symmetries and five-term identity.",
         "I.4, pp.13–14: ideal tetrahedra, cross-ratio convention, equations (5)–(8)."
+      ],
+      "independentlyRead": "2026-10-06",
+      "independentReviewSections": [
+        "I.3 pp.10–11, Kummer equation (2) and circle series; I.4 pp.13–14, metric, cross-ratio and volume."
       ]
     },
     {
@@ -135,6 +143,10 @@
         "Introduction, weight-two formula (11); section 2 definition of unnormalized Alt.",
         "Section 5.1–5.6, pp.32–42: boundary cohomology, beta_DR, trace class, equations (63)–(74), complete proof of Theorem 5.7.",
         "Appendix 7.1–7.2, pp.55–57: Theorem 7.1, its proof and distributional volume calculation."
+      ],
+      "independentlyRead": "2026-10-06",
+      "independentReviewSections": [
+        "Section 2 unnormalized Alt convention; Section 5.5 equations (66)–(67) and Theorem 5.7 proof, pp.38–39; Appendix 7.1–7.2, pp.55–57, including visual formula checks."
       ]
     },
     {
@@ -147,6 +159,10 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Sections 5.4–5.6 and Appendix 7; compared with the published version at the elementary-matrix calibration."
+      ],
+      "independentlyRead": "2026-10-06",
+      "independentReviewSections": [
+        "Section 5.5 calibration passage, pp.43–44; Appendix 7.1–7.2, pp.64–66, collated with the published normalization formulas."
       ]
     }
   ],
@@ -155,25 +171,29 @@
       "kind": "published",
       "url": "https://www.ams.org/journals/bull/1982-06-01/S0273-0979-1982-14958-8/S0273-0979-1982-14958-8.pdf",
       "read": "2026-10-05",
-      "sha256": "d444d7a61af54c7c3be374149917560103b614bd2afa02c6d0cb54fb06c4063f"
+      "sha256": "d444d7a61af54c7c3be374149917560103b614bd2afa02c6d0cb54fb06c4063f",
+      "independentlyRead": "2026-10-06"
     },
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
       "read": "2026-10-05",
-      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0"
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "independentlyRead": "2026-10-06"
     },
     {
       "kind": "published",
       "url": "https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf",
       "read": "2026-10-05",
-      "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be"
+      "sha256": "36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be",
+      "independentlyRead": "2026-10-06"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0207036v3",
       "read": "2026-10-05",
-      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db"
+      "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db",
+      "independentlyRead": "2026-10-06"
     }
   ],
   "nodes": [
@@ -273,12 +293,12 @@
         },
         {
           "name": "lobachevsky_half_period",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Lambda(pi/2)=0."
         },
         {
           "name": "lobachevsky_catalan_half",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Lambda(pi/4)=(1/2) sum_{k>=0} (-1)^k/(2k+1)^2."
         },
         {
@@ -536,7 +556,7 @@
       "tests": [
         {
           "name": "unit_shapes_i",
-          "kind": "value",
+          "kind": "computation",
           "statement": "At (0,1), (W0,W1,W2)=((-1,0),(0,1),(0,1))."
         },
         {
@@ -546,7 +566,7 @@
         },
         {
           "name": "unit_shapes_real_two",
-          "kind": "value",
+          "kind": "computation",
           "statement": "At (2,0) every shape is (1,0)."
         },
         {
@@ -663,7 +683,7 @@
       "tests": [
         {
           "name": "fourier_sum_i_three",
-          "kind": "value",
+          "kind": "computation",
           "statement": "S_3(0,1)=8/9."
         },
         {
@@ -673,7 +693,7 @@
         },
         {
           "name": "fourier_sum_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "S_7(1,0)=0."
         },
         {
@@ -794,12 +814,12 @@
       "tests": [
         {
           "name": "approx_i_precision_zero",
-          "kind": "value",
+          "kind": "computation",
           "statement": "A((0,1),0)=8/9."
         },
         {
           "name": "approx_i_precision_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "A((0,1),1)=209/225."
         },
         {
@@ -809,7 +829,7 @@
         },
         {
           "name": "approx_real_two",
-          "kind": "value",
+          "kind": "computation",
           "statement": "A((2,0),p)=0 for every p."
         },
         {
@@ -865,7 +885,7 @@
       ],
       "title": "Milnor’s ideal-tetrahedron angle formula",
       "kind": "theorem",
-      "statement": "Let T be a nondegenerate ideal geodesic tetrahedron in the explicit curvature -1 hyperbolic 3-space metric imported from GeometricTopology. For its three distinct dihedral angles alpha,beta,gamma (opposite edges have equal angles), alpha,beta,gamma>0 and alpha+beta+gamma=pi. Its unoriented Riemannian volume is finite and equals Lambda(alpha)+Lambda(beta)+Lambda(gamma). Ordered volume is its orientation sign times this value. Under r(infinity,0,1,z)=z, Im z>0 is positive and these angles are arg z, arg(1/(1-z)), arg(1-1/z). Combined with the inherited lobachevsky-identity, this proves the inherited hyperbolic-volume target.",
+      "statement": "Let T be a nondegenerate ideal geodesic tetrahedron in the explicit curvature -1 hyperbolic 3-space metric imported from GeometricTopology. For its three dihedral angles at any one vertex alpha,beta,gamma (opposite edges have equal angles), alpha,beta,gamma>0 and alpha+beta+gamma=pi. Its unoriented Riemannian volume is finite and equals Lambda(alpha)+Lambda(beta)+Lambda(gamma). Ordered volume is its orientation sign times this value. Under r(infinity,0,1,z)=z, Im z>0 is positive and these angles are arg z, arg(1/(1-z)), arg(1-1/z). Combined with the inherited lobachevsky-identity, this proves the inherited hyperbolic-volume target.",
       "hypotheses": [],
       "proofSteps": [
         "Import the explicit hyperbolic metric, model isometries and Riemannian volume from GeometricTopology layers 7–8. The early Part II ideal-boundary, measurable region and orientation interface remains a precise supplier gap.",
@@ -898,7 +918,7 @@
         {
           "sourceId": "goncharov-jams",
           "locator": "Appendix 7.2, p.57, equation (100)",
-          "match": "Provides a second distributional route; its c3 derivation is not imported as a proved calibration."
+          "match": "Provides a second distributional route; its c3 derivation is not imported as a proved calibration. Independent review also found the factor-six error in the preceding Theorem 7.1 (source issue E24); Milnor supplies the volume scale."
         }
       ],
       "acceptance": [
@@ -1030,7 +1050,12 @@
         "Published AMS PDF, pp.38–40 and publisher article search, 2026-10-05.",
         "arXiv math/0207036 revision history: v3 remains the latest; compared its Section 5.5 calculation, 2026-10-05.",
         "Author website https://sasha-goncharov.github.io/ and targeted title/Theorem 5.7 erratum searches; no correction found, 2026-10-05."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published definitions of Alt, Cn in (66), En in (67), and the p.39 evaluation, then computed all six n=2 terms independently. Even terms are zero; odd terms each have trace one. Thus C2(E2)=-3/2. The same passage appears in arXiv v3, pp.43–44. This proves the displayed calibration wrong, without determining a replacement regulator coefficient.",
+        "by": "REV-Polylogarithms--P.2"
+      }
     },
     {
       "id": "Polylogarithms/E23",
@@ -1045,7 +1070,33 @@
       "searched": [
         "Published Section 7.1–7.2 and arXiv v3 Appendix 7, read in full at the relevant passage.",
         "Author website and publisher/title correction search, 2026-10-05; no supplied derivation found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Published pp.55–57 introduce the specialized 3c3 coefficient and use c3=-1/(6pi) without deriving that conversion. The preceding printed boundary-volume coefficient also fails an independent small-simplex check (E24). The missing powers/orientation/calibration calculation must therefore be supplied; this finding does not invalidate the Milnor/D volume identity.",
+        "by": "REV-Polylogarithms--P.2"
+      }
+    },
+    {
+      "id": "Polylogarithms/E24",
+      "source": "goncharov-jams",
+      "kind": "error",
+      "locator": "Published JAMS 18 (2005), Appendix 7.1, Theorem 7.1, equation (99), p.55; volume-form normalization immediately before it and Lemma 7.3/proof on p.56. Same formula in arXiv math/0207036v3, equation (97), pp.64–65.",
+      "printed": "((n−1)^n vol(S^{n−1})/n) · vol I(y0,…,yn) = integral_{∂H^n} log|mu_y1/mu_y0| dlog|mu_y2/mu_y0| wedge … wedge dlog|mu_yn/mu_y0|.",
+      "correction": "In dimension n=3, the magnitude of the coefficient on the left must be 64pi, six times the printed 32pi/3, for the volume form normalized to dy1 wedge dy2 wedge dy3 at the origin. The general small-simplex calculation inserts a factor n!; the orientation convention fixes its sign. Do not infer the Appendix 7.2 constant or a Borel scalar merely by rescaling this formula.",
+      "reason": "Use the projective unit-ball (Klein) model from the source, with y0=0 and yi=epsilon e_i, i=1,2,3. Choose lifts (yi,1) and boundary lift (x,1), x in S^2. Then mu_yi/mu_y0=(1−epsilon x_i)^−2. With outward boundary orientation the integral is 8 epsilon^3 integral_{S^2} x1 dx2 wedge dx3 + O(epsilon^4) = (32pi/3) epsilon^3 + O(epsilon^4). The geodesic simplex is the Euclidean coordinate tetrahedron; the normalized volume density tends to 1, so its volume is epsilon^3/6 + o(epsilon^3). Their ratio tends to 64pi, contradicting the printed 32pi/3. Lemma 7.3 computes the leading exterior-form coefficient but transferring it to simplex volume needs the factor 3!. Reversing orientation cannot remove a factor six.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher version of record obtained directly from AMS and visually checked at pp.55–57; targeted AMS/title/Theorem 7.1 erratum searches, 2026-10-06, found no correction.",
+        "arXiv math/0207036 submission history lists v3 (17 June 2004) as latest; inspected the corresponding equation (97) and proof in v3, 2026-10-06.",
+        "Author website https://sasha-goncharov.github.io/ and targeted title/boundary-volume/factorial correction searches, 2026-10-06, found no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent small-simplex asymptotic gives the factor six using the volume normalization printed on p.55. As a numerical cross-check, sphere and Klein-simplex quadrature at epsilon=0.1, 0.03 and 0.01 each give integral/volume=201.061929829747, agreeing with 64pi rather than 32pi/3. The asymptotic argument, not the numerical check, establishes the contradiction.",
+        "by": "REV-Polylogarithms--P.2"
+      }
     }
   ],
   "restructure": [
@@ -1083,5 +1134,83 @@
     "method": "Read reviewed library-coverage Polylogarithms:P.2; case-insensitive full pinned Mathlib source search and git grep at the pinned Tau Ceti commit for dilogarithm, polylogarithm, Lobachevsky, Bloch–Wigner, ideal tetrahedron and Borel regulator. Read the listed declaration statements at their pinned source paths.",
     "result": "The twelve cited foundations exist. No target dilogarithm, Lobachevsky function, Bloch–Wigner regulator or ideal-tetrahedron formula was found. LogTrigonometric mentions Li_2 only in documentation; it does supply the cited log-sine integral.",
     "linkAudit": "Read all 28 examined records mentioning Polylogarithms in link packets: negative screens only, no stage-level positive link/overlap. Read the atlas stageEdges and P.2 supplier/consumer contracts."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-Polylogarithms--P.2",
+    "date": "2026-10-06",
+    "notes": "Independent source and supplier review of all 14 added nodes and all eight inherited P.2 target contracts; all 12 baseline declarations confirmed at the pins. Corrected nine test categories, literal source excerpts and the angle wording; strengthened three suggested signatures. Confirmed E22/E23 and added the independently checked published normalization error E24. All three confirmed red-team findings are handled by the stated single-owner boundaries. P.2 is planned, not closed: the exact regulator calibration and canonical ideal-region supplier remain explicit gaps. Assembly must apply the ownership/proof-route updates to the inherited parent contracts; this review changes no supplier or upstream roadmap.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.2/lobachevsky-function",
+        "verdict": "corrected",
+        "note": "Verified Milnor normalization, signed integral, all eight APIs and four tests; replaced a nonliteral excerpt and classified the two value tests as computations."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/lobachevsky-fourier",
+        "verdict": "corrected",
+        "note": "Verified the Abel-limit proof and reciprocal-square majorant at every real angle; the suggested signature now includes absolute summability as well as HasSum and uniform convergence."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/lobachevsky-duplication",
+        "verdict": "verified",
+        "note": "The n=2 distribution identity follows by cancelling odd Fourier terms; the factors agree with Milnor Lemma 1."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/unit-circle-fourier",
+        "verdict": "corrected",
+        "note": "Verified Zagier I.3, the radial-limit argument and w=1 endpoint; made absolute summability explicit in the suggested signature."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/unit-circle-fourier-tail",
+        "verdict": "verified",
+        "note": "The pinned finite Ioc bound with N nonzero and passage to the infinite tail gives 1/N uniformly."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/kummer-unit-reduction",
+        "verdict": "corrected",
+        "note": "Verified Zagier equation (2), nonzero denominators, both half-planes and real-axis extension; the suggested signature now includes the three unit norms."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-unit-shapes",
+        "verdict": "corrected",
+        "note": "Exact rational calculations verify all three ratios, the W1 sign, exceptions and conjugation; reclassified its two value tests as computations."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-unit-shapes-correct",
+        "verdict": "verified",
+        "note": "Clearing nonzero rational denominators gives the native complex ratios and norm one; independent rational samples confirm the signs."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-fourier-sum",
+        "verdict": "corrected",
+        "note": "Verified the coordinate power recurrence, finite coercion and five APIs; reclassified its two value tests as computations."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-fourier-compatibility",
+        "verdict": "verified",
+        "note": "Induction using the actual pinned multiplication coordinates proves the finite-sum comparison without a norm assumption."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-fourier-approximation",
+        "verdict": "corrected",
+        "note": "The exact total construction yields 8/9 and 209/225 at i and zero at exceptional/real inputs; reclassified its three value tests as computations."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/rational-fourier-error",
+        "verdict": "verified",
+        "note": "Three circle tails with coefficient 1/2 give 3/(2N)=1/(2*2^p); strict sign, separation and integer-weighted error claims are sound."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/milnor-angle-volume",
+        "verdict": "corrected",
+        "note": "Verified the h^-3 density, sector factor, signed obtuse extension and cross-ratio orientation; replaced two excerpt strings and removed the unintended requirement that the angle values be distinct. The canonical region carrier remains an explicit gap."
+      },
+      {
+        "nodeId": "Polylogarithms:P.2/goncharov-elementary-calibration",
+        "verdict": "verified",
+        "note": "Independently expanded all six traces: Alt=-3, printed C2=-3/2 and Burgos Phi3=1/2. This is a cochain evaluation and does not settle the class scalar."
+      }
+    ]
   }
 }
