@@ -27263,8 +27263,9 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.1",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #455"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #455",
+   "finishedAt": "2026-10-06T21:11:15Z"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.5d",
