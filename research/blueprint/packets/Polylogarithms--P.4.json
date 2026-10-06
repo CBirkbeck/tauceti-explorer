@@ -16,91 +16,91 @@
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
         "provides": "Q-linear evaluation of raw finite symbol sums in a function space.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:Submodule.liftQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "Native quotient lift of a linear map vanishing on a submodule.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:LinearMap.ker",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "Native kernel submodule, not a substitute for cohomology.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:LinearMap.range",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
         "provides": "Native image submodule for the cycle-lifting obstruction.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:TensorProduct.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
         "provides": "Tensor products of linear maps, evaluated on pure tensors.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:TensorProduct.lift",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Bilinear-to-linear map used by the tensor residue.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:exteriorPower.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Functorial native exterior powers.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:exteriorPower.ιMulti",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
-        "provides": "Native alternating insertion, including the uniformizer-first residue convention.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "provides": "Native alternating insertion used to express uniformizer-first wedges; the residue map itself is imported from P.3.",
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:CochainComplex.of",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Native complex from specified objects, differentials and square-zero proofs.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:CochainComplex.ofHom",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Native map of cochain complexes from the adjacent commuting squares.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:quasiIso_iff",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/QuasiIso.lean",
         "provides": "Characterizes the existing global QuasiIso predicate, left conjectural for the weight-four residue map.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:Matrix.det",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Native determinant including the empty matrix.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       },
       {
         "ref": "mathlib:Matrix.det_mul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinant multiplicativity for rational basis changes.",
-        "checked": "Statement read in pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 source tree on 2026-10-06; supplied declaration index checked."
+        "checked": "Independently read the declaration statement at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06 for REV-Polylogarithms--P.4; its actual hypotheses and conventions supply the cited infrastructure."
       }
     ]
   },
@@ -130,7 +130,7 @@
       "accessed": "2026-10-06",
       "readSections": [
         "§1.9 published pp. 220–225, especially Lemma 1.16, Proposition 1.18, Corollary 1.19 and quotient model",
-        "§1.15 residues and Conjecture 1.39 published pp. 237–241"
+        "§1.14–1.15 residues and Conjecture 1.39, published pp. 236–241"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19",
       "accessed": "2026-10-06",
       "readSections": [
-        "Introduction pp. 391–394, especially formula (2) and completed-zeta conventions p. 393",
+        "Introduction pp. 391–394: completed-zeta equation (1) and polylogarithm series (2), p. 392; Borel rank equation (3) and subsequent unnumbered regulator/period formula, p. 393",
         "§7 pp. 410–415: polynomial/Bernoulli normalization, Proposition 3, endpoint convention",
         "§8 pp. 415–417: two relation models and final regulator-compatible conjecture"
       ]
@@ -495,14 +495,14 @@
       ],
       "proofSteps": [
         "For n=2 use dL₂(f)=−log|1−f|darg f+log|f|darg(1−f). This factors through δ₂ by r₂(f∧g)=−log|f|darg g+log|g|darg f.",
-        "For n≥3 put L̂_n=L_n for odd n and iL_n for even n and β_k=2^k B_k/k!. Off 0,1,∞, dL̂_n(z)=L̂_(n−1)(z)i darg z−Σ_(k=2)^(n−2)β_k log^(k−1)|z| L̂_(n−k)(z)dlog|z|−β_(n−1)log^(n−2)|z|[log|z|dlog|1−z|−log|1−z|dlog|z|]. Derive this from the imported Li derivative and Bernoulli coefficient identities. The last exponent is n−2, correcting G95 (1.28c).",
+        "For n≥3 put L̂_n=L_n for odd n and iL_n for even n and β_k=2^k B_k/k!. Off 0,1,∞, dL̂_n(z)=L̂_(n−1)(z)i darg z−Σ_(k=2)^(n−2)β_k log^(k−1)|z| L̂_(n−k)(z)dlog|z|−β_(n−1)log^(n−2)|z|[log|z|dlog|1−z|−log|1−z|dlog|z|]. Derive this from the imported Li derivative and Bernoulli coefficient identities. The final coefficient is β_(n−1) and its exponent is n−2, correcting both the coefficient index and exponent in G95 (1.28c).",
         "Factor the first term through B_(n−1) using induction. Factor each log-power term through repeated lower δ maps and the symmetric multilinear product of log|·|; the last term factors through δ₂, r₂ and the remaining logarithms. These factors give the well-defined r_n of G94 p. 9 with dÊ_n=r_n δ_n.",
         "Since δ_nα=0, the derivative vanishes off a finite bad set. The punctured complex sphere is connected; the finite-sum evaluation is therefore constant there. Imported projective continuity extends that same constant to every missing point, including 0,1,∞.",
         "Kill the span of defining relations and use the native quotient universal property. Higher real Deligne complexes and current maps stay with P.5/M.8; no such complex is required for this scalar constancy proof."
       ],
       "acceptance": [
         "The derivative assertion excludes the bad points; only the final equality is global.",
-        "At n=3 and real x=1/2 the derivative is 4(log 2)²/3, detecting the printed exponent error.",
+        "At n=3 and real x=1/2 the derivative is 4(log 2)²/3. The literal printed (1.28c) instead gives zero because β₃=0; correcting only its coefficient index would still give −4(log 2)³/3, detecting the independent exponent error.",
         "The quotient lift composes with the quotient map to the original finite-sum L_n evaluation and is unique."
       ],
       "sources": [
@@ -514,7 +514,7 @@
         {
           "sourceId": "G95",
           "locator": "Proposition 1.18 and Corollary 1.19, pp. 223–224",
-          "match": "Published descent statement; its unified derivative display has the recorded exponent misprint."
+          "match": "Published descent statement; its unified derivative display has the recorded coefficient-index and exponent misprints."
         }
       ],
       "library": {
@@ -606,7 +606,7 @@
       "sources": [
         {
           "sourceId": "Z90",
-          "locator": "Introduction (2), p. 393; §8 final Main Conjecture, p. 417",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393; §8 final Main Conjecture, p. 417",
           "match": "The numerical rational proportionality and its distinction from K-theoretic comparison."
         },
         {
@@ -838,7 +838,7 @@
         },
         {
           "sourceId": "GR5",
-          "locator": "Theorem 1.2(a),(b), p. 5",
+          "locator": "Theorem 1.2, its two assertions, p. 5",
           "match": "Existence and all-family numerical forms."
         }
       ],
@@ -878,13 +878,13 @@
       ],
       "acceptance": [
         "For Q and odd n, e=0 and d=1; for Q and even n, e=n and d=0.",
-        "For Q(i), d=1 in either parity; e=n in odd weight and 2n in even weight.",
+        "For Q(i), N=2 and d=1 in either parity, so e=n in both odd and even weight.",
         "Using R.4 coordinates without the π^(n−1) conversion produces the wrong determinant exponent; a universal factor 2 cannot repair it."
       ],
       "sources": [
         {
           "sourceId": "Z90",
-          "locator": "Introduction formula (2), p. 393",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393",
           "match": "Original parity, period and discriminant factor checked in the scan."
         },
         {
@@ -1232,7 +1232,11 @@
       ],
       "prerequisites": [
         "Polylogarithms:P.4/explicit-weight-four-complex",
-        "Polylogarithms:P.4/period-calibration",
+        "Polylogarithms:P.4/zagier-determinant",
+        "BorelRegulators:R.5/leading-term-functional-equation",
+        "BorelRegulators:R.5/borel-zeta-proportionality",
+        "BorelRegulators:R.7",
+        "mathlib:Matrix.det_mul",
         "Polylogarithms:P.4/cycle-constancy",
         "BorelRegulators:R.4/regulator-real-isomorphism",
         "BorelRegulators:R.4/regulator-lattice"
@@ -1241,7 +1245,7 @@
         "The Part II owner supplies GR Theorem 1.14, Corollary 1.15, Theorem 1.13’s motivic-correlator realization, and the flag/configuration cocycle of Theorems 7.6 and 9.1, with §9.3’s regulator comparison.",
         "For all explicit cycles, use the motivic realization and its Hodge periods to place their scalar periods in the rational K₇ regulator image. This is an image-containment requirement and must be verified separately from κ’s construction.",
         "Compare the source’s single-valued period L₄*=(5L₄+(1/3)L₂ log²|z|)/16 with L₄ on cycles. Do not assert they are scalar multiples pointwise: the lower-weight/log correction is killed using the cycle boundary and period-map factorization.",
-        "Apply Borel’s real isomorphism for existence and its lattice/period formula for every-family rationality; no H¹Γ≃K₇ conjecture is assumed."
+        "Apply Borel’s real isomorphism for existence and its R.5 lattice/positive-value formula for every-family rationality, using the R.7 cycle-level scalar conversion. Multiplying the covolume by π^(3r₂) gives exponent (3r₂)+r₂−4N=−4(r₁+r₂). This arithmetic uses the regulator formula directly and does not assume the equivalence premise of period-calibration; no H¹Γ≃K₇ conjecture is assumed."
       ],
       "acceptance": [
         "The source’s Conjecture 1.4 remains a conjecture even at weight four.",
@@ -1294,7 +1298,7 @@
       "sources": [
         {
           "sourceId": "GR5",
-          "locator": "Theorem 1.2(a),(b), p. 5; (44), p. 16; §9.3, p. 94",
+          "locator": "Theorem 1.2, its two assertions, p. 5; (44), p. 16; §9.3, p. 94",
           "match": "Refines the published statement’s presentation boundary without claiming the missing lift proof."
         }
       ],
@@ -1334,12 +1338,12 @@
       "sources": [
         {
           "sourceId": "Z90",
-          "locator": "Introduction (2), p. 393",
+          "locator": "Introduction, regulator/period paragraph following (3), p. 393",
           "match": "Original rational factor survives empty determinant size."
         },
         {
           "sourceId": "GR5",
-          "locator": "Theorem 1.2(a), p. 5, inherited parent E2",
+          "locator": "Theorem 1.2, first assertion, p. 5, inherited parent E2",
           "match": "Parent’s already recorded empty-case correction is reused, not reported as a new finding."
         }
       ],
@@ -1384,8 +1388,8 @@
       "sources": [
         {
           "sourceId": "G95",
-          "locator": "§1.15, (1.45)–(1.48) and Conjecture 1.39, pp. 237–240",
-          "match": "General residue construction and the finite-place quotient map."
+          "locator": "§1.14 (1.45)–(1.47), pp. 236–238; §1.15 (1.48) and Conjecture 1.39, pp. 239–240",
+          "match": "Residue formulas and finite-place quotient map in the all-smooth-curve model. The rational-curve analogue here needs its own relation descent; no equivalence of the models is asserted."
         }
       ],
       "library": {
@@ -1450,7 +1454,7 @@
       "uses": [
         {
           "where": "G95 Conjecture 1.39 and following transfer discussion",
-          "how": "Supplies the actual residue map whose quasi-isomorphism would produce derived transfers."
+          "how": "Supplies the rational-curve analogue of the finite-place residue map needed for conditional derived transfers; direct identification with Gon95’s model requires a compatible comparison."
         },
         {
           "where": "Polylogarithms:P.3/conditional-complex-transfer",
@@ -1466,7 +1470,7 @@
       ],
       "kind": "comparison",
       "title": "Weight-four polylogarithmic homotopy conjecture",
-      "statement": "For every characteristic-zero field F, with the finite-place residue map ρ₄ of weight-four-residue-map, PolylogHomotopy₄(F) is the concrete proposition QuasiIso(ρ₄): Γ_ind(F(t),4)/Γ_ind(F,4)→⊕_(monic irreducible p)Γ_ind(k_p,3)[−1]. It is a conjecture, not an instance supplied to typeclass inference. The codomain has Γ(k_p,3) in degrees 2–4 and no degree-one term. This is Gon95 Conjecture 1.39 at n=4. Even under this hypothesis, independence of the primitive-element choice, compatibility with towers and agreement with top-degree Milnor transfer must be established for P.3’s derived-transfer construction.",
+      "statement": "For every characteristic-zero field F, with the finite-place residue map ρ₄ of weight-four-residue-map, PolylogHomotopy₄(F) is the concrete proposition QuasiIso(ρ₄): Γ_ind(F(t),4)/Γ_ind(F,4)→⊕_(monic irreducible p)Γ_ind(k_p,3)[−1]. It is a conjecture, not an instance supplied to typeclass inference. The codomain has Γ(k_p,3) in degrees 2–4 and no degree-one term. This is the rational-curve analogue of Gon95 Conjecture 1.39 at n=4. Gon95 uses the all-smooth-curve quotient; identifying the two homotopy assertions requires a chain-compatible comparison, which is not supplied or assumed here. Even under this hypothesis, independence of the primitive-element choice, compatibility with towers and agreement with top-degree Milnor transfer must be established for P.3’s derived-transfer construction.",
       "hypotheses": [
         "F has characteristic zero; ρ4 is the specified descended finite-place quotient map. QuasiIso(ρ4) is conjectural, not asserted as an instance."
       ],
@@ -1481,13 +1485,19 @@
       ],
       "acceptance": [
         "The higher homotopy assertion is not a consequence of the scalar L₄ determinant theorem.",
-        "The P.3 consumer may use this only as an explicit hypothesis, and cannot infer tower independence automatically."
+        "The P.3 consumer may use this only as an explicit hypothesis, and cannot infer tower independence automatically.",
+        "No equivalence with Gon95 Conjecture 1.39 is claimed without a comparison of curve models commuting with differentials, field maps and finite-place residues."
       ],
       "sources": [
         {
           "sourceId": "G95",
           "locator": "Conjecture 1.39, p. 240; subsequent paragraph p. 241",
-          "match": "Exact conjecture and its conditional transfer application."
+          "match": "Conjecture and conditional transfer application in Gon95’s all-smooth-curve model; the displayed rational-curve assertion is its analogue, not an established equivalent formulation."
+        },
+        {
+          "sourceId": "G94",
+          "locator": "Definition 1.19 and following comparison discussion, manuscript p. 10",
+          "match": "Distinguishes the rational-curve groups from the all-smooth-curve groups and describes their comparison as conjectural."
         }
       ],
       "library": {
@@ -1563,7 +1573,7 @@
         "Polylogarithms:P.4/homotopy-conjecture",
         "Polylogarithms:P.3/conditional-complex-transfer"
       ],
-      "detail": "Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement."
+      "detail": "The rational-curve analogue of Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. To deduce it from Gon95’s all-smooth-curve assertion, also supply a comparison of the two curve models compatible with the complexes, field inclusions and finite-place residue maps; G94 Definition 1.19 does not establish that comparison. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement."
     }
   ],
   "coverage": [
@@ -1575,7 +1585,7 @@
         "Explicit weight-four correlator and regulator proof owner: The named Polylogarithms Part II must supply GR Theorem 1.14(a),(c), Corollary 1.15, motivic-correlator realization (Theorem 1.13), the configuration/flag cocycles (Theorems 7.6,9.1), the cycle-level L₄* to L₄ period adapter and §9.3 regulator comparison. For part (b) include the explicit-cycle period-image containment, not only the map κ from K₇. This P.4 job owns the exact objects/statements and interface; it does not claim to have decomposed the full §§2–10 proof or invented an already-live extension id.",
         "Inductive weight-four every-family determinant: Prove all ω:ker δ₄^ind→ker(p₃⊗id)/δ₄^exp(ker p₄) vanish, or prove directly that embedding-wise periods of all inductive cycles lie in the calibrated rational K₇ regulator image. The explicit-to-inductive group surjections and GR complex (44) do not supply either assertion. Full p₃ bijectivity is a stronger conjectural sufficient condition, not a premise silently granted here.",
         "Finite-place symbol descent and signed residues: Extend the rational-point relation-preservation proof to polynomial-place residue fields k_p and prove the displayed residue maps descend through inductive relations and satisfy the signed native-shift chain squares. Parent P.3 exterior residue supplies only the unit wedge map. A proof must retain uniformizer-first orientation and finite support; neither follows merely from the scalar period theorem.",
-        "Weight-four homotopy and derived transfer independence: Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement.",
+        "Weight-four homotopy and derived transfer independence: The rational-curve analogue of Gon95 Conjecture 1.39 at n=4 remains conjectural. Once ρ₄ exists, prove its quasi-isomorphism or keep it as an explicit hypothesis. To deduce it from Gon95’s all-smooth-curve assertion, also supply a comparison of the two curve models compatible with the complexes, field inclusions and finite-place residue maps; G94 Definition 1.19 does not establish that comparison. A separate proof of primitive-element and tower independence, plus agreement with top Milnor cohomology, is still required for derived transfers. GR Corollary 1.15 is a different comparison and does not prove this homotopy statement.",
         "Resolve the three exact supplier exports (V.4 rigidity, R.7 scalar coordinate calibration, S.6 number-field Adams purity). General-weight motivic comparison and homotopy remain conjectures, not unfinished formal proofs claimed by this packet."
       ]
     }
@@ -1636,22 +1646,33 @@
         "G94 author-hosted Lemma 1.11 and analytic descent proof",
         "GR arXiv v5 inductive relation definition",
         "Author publications page and web search for Geometry of configurations errata"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected published pp. 221–222. The printed zero-on-nonunits rule on the tensor unit factor fails the t·(2/t)=2 bilinearity test over C(t), with the nonzero {1}₃ factor detected by ζ(3). Angular components fix this tensor defect but do not establish relation descent or identify the two curve models.",
+        "by": "REV-Polylogarithms--P.4"
+      }
     },
     {
       "id": "Polylogarithms/E-P4-02",
       "source": "G95",
       "kind": "misprint",
       "locator": "Published Advances in Mathematics 114 (1995), Proposition 1.18, p. 223, final term of unified equation (1.28c)",
-      "correction": "Replace this exponent by n−2, retaining β_(n−1) and the bracketed logarithmic differential.",
-      "reason": "The adjacent odd formula (1.28b) has exponent 2m−1 for weight n=2m+1, namely n−2. G94 equation (14), p. 8, also has n−2. At weight three and real x=1/2, differentiating L₃=Li₃−log x Li₂−(log²x/3)log(1−x) gives 4(log2)²/3, whereas the printed unified term gives −4(log2)³/3.",
+      "printed": "−β_n log^(n−1)|z| [log|z| dlog|1−z|−log|1−z| dlog|z|]",
+      "correction": "Replace β_n log^(n−1)|z| by β_(n−1) log^(n−2)|z|, retaining the minus sign and bracketed logarithmic differential.",
+      "reason": "The adjacent odd formula (1.28b) at weight n=2m+1 uses β_(2m) log^(2m−1), namely coefficient β_(n−1) and exponent n−2. G94 (14), p. 8, agrees. At weight three on the real interval, the literal printed (1.28c) has β₃=0 and predicts zero derivative, whereas differentiating L₃=Li₃−log x Li₂−(log²x/3)log(1−x) at x=1/2 gives 4(log 2)²/3. Fixing the coefficient index alone would give −4(log 2)³/3, so both printed indices need correction.",
       "affects": "nothing",
-      "known": "Correct exponent is already in the same published page (1.28b) and in the G94 author manuscript (14); no separate publisher erratum located.",
+      "known": "Both correct indices are already in the adjacent published formula (1.28b) and G94 author manuscript (14); no separate publisher erratum located in the inspected author copies and targeted correction search.",
       "searched": [
         "G95 published p. 223 (1.28a)–(1.28c)",
         "G94 manuscript p. 8 (14)",
         "Author-hosted publications page and search for Proposition 1.18 errata"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected published p. 223: the final term actually prints β_n as well as exponent n−1. Expanded the finding to both misprints and corrected its literal weight-three diagnostic. The adjacent odd formula and G94 (14) give the intended term.",
+        "by": "REV-Polylogarithms--P.4"
+      }
     }
   ],
   "sourceVersions": [
@@ -1703,6 +1724,10 @@
     {
       "where": "Polylogarithms:P.4/higher-bloch-group",
       "correction": "The fixed GR/G94 rational-curve recursion is not the all-smooth-curve quotient of Gon95 §1.9. Do not use Gon95 constant-field rigidity to identify the models without an adapter."
+    },
+    {
+      "where": "research/blueprint/readmes/Polylogarithms--P.4.md",
+      "correction": "Apply this review’s scoped reader corrections during assembly: Q(i) has e=n in both parities; G95 (1.28c) misprints both β_n and log exponent n−1; the literal weight-three printed term gives zero; Zagier’s period formula is the unnumbered paragraph after (3), p. 393, not equation (2); the inductive homotopy assertion is the rational-curve analogue of Gon95’s all-smooth-curve Conjecture 1.39, without an assumed compatible model equivalence. See REV-Polylogarithms--P.4 report. The reader file is outside this review issue’s deliverables."
     }
   ],
   "restructure": [
@@ -1726,5 +1751,103 @@
       "detail": "The three requests retain their original owners: V.4 rational-function rigidity, R.7 real scalar coordinate calibration, and S.6 rational Adams/gamma operations with a number-field purity adapter. Existing exact-sequence, factor-two and weight-decomposition nodes are imported.",
       "proposal": "Use named Part II exports in those directions where the existing layers lack the exact interface; the maintainer assigns ids. No general valuation, motivic category, Deligne complex or abstract regulator lattice is defined in P.4."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-Polylogarithms--P.4",
+    "date": "2026-10-06",
+    "notes": "Independent Codex session codex-2vYPtb checked all 18 nodes, 47 API items, 32 tests, five public source hashes/passages, 13 pinned Mathlib declaration statements, inherited and supplier statements, reviewed library audit, four target chains and six total P.4 planets. Corrected source locators/excerpts, G95 derivative erratum diagnosis, Q(i) exponent, two Lean API signatures, the weaker regulator-interface prerequisites and homotopy model attribution. Both source issues confirmed. No nodes added or baseline references removed. Complete target-level pass accepted with five honest gaps and three precise supplier requests; P.4 is planned, not closed. Reader corrections are recorded for assembly because its path is outside this issue. See the review report for validation and orchestrator actions.",
+    "checked": [
+      {
+        "nodeId": "Polylogarithms:P.4/relation-specialization-induction",
+        "verdict": "verified",
+        "note": "Exact infinite-field rational-curve specialization target; the non-routine two-variable degeneration and relation-descent induction is expressly a gap. Angular components alone are not treated as a proof."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/complex-specialization",
+        "verdict": "corrected",
+        "note": "Tensor/exterior components and native chain-map square checked. Replaced the unattested G95 excerpt by a word on p. 222; uniformizer dependence and relation-descent gap remain explicit."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/higher-symbol-inversion",
+        "verdict": "verified",
+        "note": "Matches G94 Example 1.13, with rational even-endpoint vanishing and the odd complex endpoint detected by Example 1.18. Its algebraic descent dependency is listed."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-evaluation",
+        "verdict": "verified",
+        "note": "Finite Q-linear evaluation, projective pole convention and four endpoint/cancellation tests checked. Native Finsupp evaluation and conditional analytic prototypes have the stated scope."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-constancy",
+        "verdict": "corrected",
+        "note": "Read G94 differential/factorization/continuity proof. G95 (1.28c) misprints both coefficient index and exponent; corrected the diagnosis and literal weight-three test. Lower relation-specialization input remains a named gap."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/suslin-rigidity-adapter",
+        "verdict": "verified",
+        "note": "Suslin Corollary 5.6 and GR footnote checked. Exact infinite-field Bloch-kernel invariance and compatible specializers are requested from V.4; V.3 antisymmetric/exterior rationalization and the negative boundary sign are retained."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/rational-existence",
+        "verdict": "corrected",
+        "note": "Nonzero rational coefficient, positive-size column normalization and separate empty determinant checked against all API/test signatures. Corrected the Zagier introduction locator; equation (2) is the Li series."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/regulator-comparison",
+        "verdict": "corrected",
+        "note": "Equivalence plus nonzero rational calibration checked as a stronger, concrete predicate. Corrected Lean regulatorComparison_rescale to scale r, with inverse calibration, as the API requires. R.7 conversion remains a requested input."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/assertion-logic",
+        "verdict": "corrected",
+        "note": "Rank plus every-family rationality and the converse under finite rational dimension are sound; zero ratios are allowed only in every-family. Corrected the GR v5 locator/excerpt to its actual two unlettered assertions."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/period-calibration",
+        "verdict": "corrected",
+        "note": "R.4/R.5 supplier formulas checked. Determinant exponent arithmetic is correct; fixed Q(i) acceptance from even 2n to n and corrected the Zagier locator. Full comparison and S.6 purity remain explicit hypotheses."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/explicit-weight-four-complex",
+        "verdict": "corrected",
+        "note": "GR (44) has the four stated terms and explicit B3, without a Λ²B2 summand. Extended Lean explicitComplex_d to all three adjacent maps. Square-zero source proof remains assigned to the named Part II."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/presentation-chain-map",
+        "verdict": "verified",
+        "note": "Termwise maps, generator surjectivity and period compatibility checked against parent presentation statements. No cycle surjectivity, p3 injectivity or quasi-isomorphism is inferred."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/cycle-obstruction",
+        "verdict": "verified",
+        "note": "The square gives a(ker p) inside ker q; quotient class is independent of lift, vanishes exactly for cycle lifts and has the claimed kernel/image. Native module quotient API and the Q-to-zero counterexample discriminate group from cycle surjectivity."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-regulator-input",
+        "verdict": "corrected",
+        "note": "κ and all-explicit-cycle period-image containment are separate sufficient inputs. Replaced the full-comparison conditional prerequisite by direct R.5 formulas, R.7 calibration and determinant infrastructure. GR (191) lower-weight correction and the Part II proof gap are retained."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-determinant-lifting",
+        "verdict": "corrected",
+        "note": "Existence pushes forward by period preservation; arbitrary columns need zero obstruction or independent period-image containment. Positive-size rational rescaling and empty-size exception are retained. Corrected the GR two-assertion locator."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-totally-real",
+        "verdict": "corrected",
+        "note": "R.5 and R.7 rank-zero supplier statements give the rational factor with empty determinant 1; Q factor 90 is preserved. Corrected Zagier and GR locators/excerpts; no new parent erratum is asserted."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/weight-four-residue-map",
+        "verdict": "corrected",
+        "note": "Read G95 residue formulas: uniformizer-first orientation gives the native shifted anticommuting square. Corrected section/page locator and clarified that applying these formulas to the rational-curve quotient requires its own descended maps."
+      },
+      {
+        "nodeId": "Polylogarithms:P.4/homotopy-conjecture",
+        "verdict": "corrected",
+        "note": "Corrected exact attribution to the rational-curve analogue of G95 Conjecture 1.39. G94 Definition 1.19 makes model comparison conjectural. Strengthened the existing gap with chain/residue-compatible model comparison; no QuasiIso instance or transfer independence is supplied."
+      }
+    ]
+  }
 }

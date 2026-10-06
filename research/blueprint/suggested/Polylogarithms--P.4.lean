@@ -252,7 +252,7 @@ theorem regulatorComparison_forget {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
 
 theorem regulatorComparison_rescale {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
     (r : K →ₗ[ℚ] (Fin d → ℝ)) (A : ℝ) (q : ℚ) (hq : q ≠ 0)
-    (h : regulatorComparison p r A) : regulatorComparison (q • p) r A := by
+    (h : regulatorComparison p r A) : regulatorComparison p (q • r) A := by
   sorry
 
 theorem regulatorComparison_injective {d : ℕ} (p : M →ₗ[ℚ] (Fin d → ℝ))
@@ -353,7 +353,10 @@ theorem explicitComplex_X (i : ℕ) :
     (explicitComplex a b c hba hcb).X i = explicitTerms B4 B3 B2 U i := by
   sorry
 
-theorem explicitComplex_d : (explicitComplex a b c hba hcb).d 1 2 = ModuleCat.ofHom a := by
+theorem explicitComplex_d :
+    (explicitComplex a b c hba hcb).d 1 2 = ModuleCat.ofHom a ∧
+    (explicitComplex a b c hba hcb).d 2 3 = ModuleCat.ofHom b ∧
+    (explicitComplex a b c hba hcb).d 3 4 = ModuleCat.ofHom c := by
   sorry
 
 theorem explicitComplex_first_kernel :
@@ -573,6 +576,8 @@ end Residue
 -- of shifted residue-field complexes; rho must be its finite-place map.
 -- Constructing these requires the finite-place descent gap, so they are explicit
 -- parameters here. This does not assert the conjecture for arbitrary complexes.
+-- The parent's rational-curve model gives an analogue of Gon95 Conjecture 1.39;
+-- identifying it with Gon95's all-smooth-curve model needs a compatible comparison.
 def polylogHomotopyFour {Q T : CochainComplex (ModuleCat ℚ) ℕ}
     [∀ i, Q.HasHomology i] [∀ i, T.HasHomology i] (rho : Q ⟶ T) : Prop := QuasiIso rho
 
