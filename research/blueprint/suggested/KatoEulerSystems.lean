@@ -22,6 +22,17 @@ The prototypes use actual Units, LinearMap, Submodule, Polynomial and modules.
 Unexpressible geometry, continuity and analytic hypotheses are OMITTED, with
 section-specific explanations, never replaced by opaque proposition fields.
 These conditional algebraic signatures do not establish geometric existence.
+
+Independent review REV-KatoEulerSystems: needs_changes. Several named theorem
+signatures below give only an algebraic consequence, not the packet's theorem.
+In particular integralZetaFiniteIndex omits finiteness; heckeDualTwistDictionary
+omits the operators and their transport. The two unconstrained complex-value
+formulas are false as universal statements (take all maps/classes zero and the
+right-hand value/vector one). Section 13 permits these omitted hypotheses;
+that omission alone is not a reason for rejection. Missing source conclusions
+and essential maps in the named signatures remain revision requirements.
+Integral full-level coefficients must be literal duals; symmetric-power
+self-duality is available only with (k-2)! invertible (source issue E7).
 -/
 
 namespace TauCeti.KatoBlueprint
@@ -63,6 +74,36 @@ theorem cTheta_isogeny (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → R
     (hn : ∀ a u, norm' a (transfer u) = transfer (norm a u)) :
     transfer (cTheta c divisor norm wanted h) = cTheta c divisor' norm' wanted' h' := by sorry
 
+-- Geometry supplies the common divisor and norm conditions for the two
+-- c,d-smoothing expressions on E \ E[cd]; no opaque condition is introduced.
+theorem cTheta_auxiliary (c d : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
+    (wantedC wantedD wanted : D)
+    (hc : ∃! u, thetaCondition c divisor norm wantedC u)
+    (hd : ∃! u, thetaCondition d divisor norm wantedD u)
+    (pullC pullD : Rˣ →* Rˣ)
+    (hcommon : ∃! u, thetaCondition (c*d) divisor norm wanted u)
+    (hleft : thetaCondition (c*d) divisor norm wanted
+      ((cTheta c divisor norm wantedC hc)^(d^2) /
+        pullD (cTheta c divisor norm wantedC hc)))
+    (hright : thetaCondition (c*d) divisor norm wanted
+      ((cTheta d divisor norm wantedD hd)^(c^2) /
+        pullC (cTheta d divisor norm wantedD hd))) :
+    (cTheta c divisor norm wantedC hc)^(d^2) /
+        pullD (cTheta c divisor norm wantedC hc) =
+      (cTheta d divisor norm wantedD hd)^(c^2) /
+        pullC (cTheta d divisor norm wantedD hd) := by sorry
+
+theorem cTheta_baseChange (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
+    (wanted : D) (h : ∃! u, thetaCondition c divisor norm wanted u)
+    (divisor' : R'ˣ → D') (norm' : ℕ → R'ˣ → R'ˣ) (wanted' : D')
+    (h' : ∃! u, thetaCondition c divisor' norm' wanted' u)
+    (base : R →+* R') (pullDiv : D →+ D')
+    (hdiv : ∀ u, divisor' (Units.map base u) = pullDiv (divisor u))
+    (hw : pullDiv wanted = wanted')
+    (hn : ∀ a u, norm' a (Units.map base u) = Units.map base (norm a u)) :
+    Units.map base (cTheta c divisor norm wanted h) =
+      cTheta c divisor' norm' wanted' h' := by sorry
+
 -- theta_divisor
 example (zero torsion : D) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
     (h : ∃! u, thetaCondition 5 divisor norm (25 • zero - torsion) u) :
@@ -99,7 +140,9 @@ example (g : U) : rationalSmoothing 5 g g = (24 : ℚ) • g := by sorry
 example (g : U) : (48 : ℚ) • rationalSmoothing 5 g g =
     (24 : ℚ) • rationalSmoothing 7 g g := by sorry
 -- siegel_integral_not_equal
-example : ((5 : ℚ)^2-1) ≠ ((7 : ℚ)^2-1) := by sorry
+example : rationalSmoothing 5 (1 : ℚ) 1 ≠ rationalSmoothing 7 (1 : ℚ) 1 := by sorry
+-- siegel_identity_pullback
+example (theta : Rˣ) : siegelUnit (RingHom.id R) theta = theta := by sorry
 
 -- Distribution's analytic/geometric hypotheses are omitted; maps preserve its sum.
 theorem siegelGaloisDistribution {I : Type*} (s : Finset I) (g : I → U)
@@ -121,6 +164,13 @@ variable [AddCommGroup K] [AddCommGroup K'] [Module ℚ K] [Module ℚ K']
 def beilinsonElement (symbol : Rˣ → Rˣ → K) (first second : Rˣ) : K := by sorry
 theorem beilinsonElement_symbol (symbol : Rˣ → Rˣ → K) (first second : Rˣ) :
     beilinsonElement symbol first second = symbol first second := by sorry
+theorem beilinsonElement_bilinear (symbol : Rˣ → Rˣ → K)
+    (hfirst : ∀ u u' v, symbol (u*u') v = symbol u v + symbol u' v)
+    (hsecond : ∀ u v v', symbol u (v*v') = symbol u v + symbol u v')
+    (u u' v v' : Rˣ) :
+    beilinsonElement symbol (u*u') (v*v') =
+      beilinsonElement symbol u v + beilinsonElement symbol u v' +
+        beilinsonElement symbol u' v + beilinsonElement symbol u' v' := by sorry
 -- Omitted: integral/rational regulator identification; explicit diamond factors.
 theorem beilinsonElement_smoothing (c d : ℚ) (A B : K →ₗ[ℚ] K) (z : K) :
     (c^2 • (LinearMap.id : K →ₗ[ℚ] K) - A)
@@ -138,8 +188,9 @@ example {H : Type*} [AddCommGroup H] (symbol : Rˣ → Rˣ → K)
     (h : ∀ u v, chern (symbol u v) = cup u v) (first second : Rˣ) :
     chern (beilinsonElement symbol first second) = cup first second := by sorry
 -- beilinson_identity_entry
-example (symbol : Rˣ → Rˣ → K) (h : ∀ v, symbol 1 v = 0) (v : Rˣ) :
-    beilinsonElement symbol 1 v = 0 := by sorry
+example (symbol : Rˣ → Rˣ → K)
+    (hfirst : ∀ v, symbol 1 v = 0) (hsecond : ∀ u, symbol u 1 = 0) (u v : Rˣ) :
+    beilinsonElement symbol 1 v = 0 ∧ beilinsonElement symbol u 1 = 0 := by sorry
 -- beilinson_bilinearity
 example (symbol : Rˣ → Rˣ → K)
     (h : ∀ u u' v, symbol (u*u') v = symbol u v + symbol u' v) (u u' v : Rˣ) :
@@ -171,6 +222,10 @@ def chernMoment (chern : K →ₗ[F] C) (moment : C →ₗ[F] M)
 theorem chernMoment_factorization (chern : K →ₗ[F] C) (moment : C →ₗ[F] M)
     (trace : M →ₗ[F] Tr) (edge : Tr →ₗ[F] H) (x : K) :
     chernMoment chern moment trace edge x = edge (trace (moment (chern x))) := by sorry
+theorem chernMoment_ext (chern : K →ₗ[F] C) (moment : C →ₗ[F] M)
+    (trace : M →ₗ[F] Tr) (edge : Tr →ₗ[F] H) (other : K →ₗ[F] H)
+    (h : ∀ x, other x = edge (trace (moment (chern x)))) :
+    other = chernMoment chern moment trace edge := by sorry
 theorem chernMoment_twist (k r : ℤ) : 2-r+(k-2) = k-r := by sorry
 theorem chernMoment_coefficients (chern : K →ₗ[F] C) (moment : C →ₗ[F] M)
     (trace : M →ₗ[F] Tr) (edge : Tr →ₗ[F] H)
@@ -186,6 +241,9 @@ example : (2 : ℤ)-1+(4-2) = 3 := by sorry
 -- moment_monomial_degree
 example (k r' : ℤ) (hlo : 1 ≤ r') (hhi : r' ≤ k-1) :
     0 ≤ r'-1 ∧ 0 ≤ k-r'-1 ∧ (r'-1)+(k-r'-1) = k-2 := by sorry
+-- moment_identity_maps
+example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+    LinearMap.id LinearMap.id LinearMap.id 1 = 1 := by sorry
 theorem chernHeckeDiamond (Ch : K →ₗ[F] H) (A : K →ₗ[F] K)
     (B : H →ₗ[F] H) (scalar : F) (h : B.comp Ch = scalar • (Ch.comp A))
     (z : K) : B (Ch z) = scalar • Ch (A z) := by sorry
@@ -223,7 +281,14 @@ example : ((3 : ℚ)^(-(1 : ℤ)), (3 : ℚ)^((2 : ℤ)-1-2*1)) = (1/3,1/3) := b
 -- zeta_bad_prime_r_one: the linear coefficient is retained in the two-term case.
 example : (3 : ℚ)^(-(1 : ℤ)) ≠ 1 := by sorry
 -- zeta_p_direction: no new Euler operator for the repeated p-direction.
-example (z : H) : (LinearMap.id : H →ₗ[ℚ] H) z = z := by sorry
+example (ChHigh ChLow : (ℕ → K) →ₗ[ℚ] H)
+    (cor : H →ₗ[ℚ] H) (transfer : (ℕ → K) →ₗ[ℚ] (ℕ → K))
+    (hcor : cor.comp ChHigh = ChLow.comp transfer) (high low : ℕ → K)
+    (h : transfer high = low) :
+    cor (padicZeta ChHigh high) = padicZeta ChLow low := by sorry
+-- zeta_identity_moment
+example : padicZeta (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ))
+    (fun _ => 1) 0 = 1 := by sorry
 end Zeta
 
 section EulerAdapter
@@ -235,6 +300,11 @@ def katoEulerAdapter (component : ES → ℕ → H) (classes : ℕ → H)
 theorem katoEulerAdapter_component (component : ES → ℕ → H) (classes : ℕ → H)
     (h : ∃ e, ∀ m, component e m = classes m) (m : ℕ) :
     component (katoEulerAdapter component classes h) m = classes m := by sorry
+theorem katoEulerAdapter_ext (component : ES → ℕ → H) (classes : ℕ → H)
+    (h : ∃ e, ∀ m, component e m = classes m)
+    (hext : Function.Injective component) (other : ES)
+    (hother : ∀ m, component other m = classes m) :
+    other = katoEulerAdapter component classes h := by sorry
 def katoEulerPolynomial (ell a epsilon : ℚ) (k r : ℤ) : Polynomial ℚ := by sorry
 theorem katoEulerPolynomial_def (ell a epsilon : ℚ) (k r : ℤ) :
     katoEulerPolynomial ell a epsilon k r =
@@ -250,9 +320,11 @@ example (ell a epsilon : ℚ) : katoEulerPolynomial ell a epsilon 2 1 =
     1 - Polynomial.C (a * ell^(-(1 : ℤ))) * Polynomial.X +
       Polynomial.C (epsilon * ell^(-(1 : ℤ))) * Polynomial.X^2 := by sorry
 -- euler_repeated_prime
-example (classes : ℕ → H) (cor : H →ₗ[ℚ] H) (m m' : ℕ)
-    (h : cor (classes m') = classes m) :
-    cor (classes m') = (LinearMap.id : H →ₗ[ℚ] H) (classes m) := by sorry
+example (component : ES → ℕ → H) (classes : ℕ → H)
+    (h : ∃ e, ∀ m, component e m = classes m)
+    (cor : H →ₗ[ℚ] H) (m m' : ℕ) (hn : cor (classes m') = classes m) :
+    cor (component (katoEulerAdapter component classes h) m') =
+      component (katoEulerAdapter component classes h) m := by sorry
 -- euler_polynomial_constant
 example (ell a epsilon : ℚ) (k r : ℤ) :
     (katoEulerPolynomial ell a epsilon k r).eval 0 = 1 := by sorry
@@ -265,6 +337,9 @@ variable [Module F V] [Module F H]
 def fullLevelZeta (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) : V →ₗ[F] H := by sorry
 theorem fullLevelZeta_moment (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) (v : V) :
     fullLevelZeta Ch symbolMoment v = Ch (symbolMoment v) := by sorry
+theorem fullLevelZeta_ext (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H)
+    (other : V →ₗ[F] H) (h : ∀ v, other v = Ch (symbolMoment v)) :
+    other = fullLevelZeta Ch symbolMoment := by sorry
 theorem fullLevelZeta_hecke (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H)
     (A : V →ₗ[F] V) (B : H →ₗ[F] H)
     (hCh : B.comp Ch = Ch.comp B) (hs : B.comp symbolMoment = symbolMoment.comp A) :
@@ -281,8 +356,14 @@ example (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) (v w : V) :
     fullLevelZeta Ch symbolMoment (v+w) =
       fullLevelZeta Ch symbolMoment v + fullLevelZeta Ch symbolMoment w := by sorry
 -- fullLevel_new_prime
-example (ell : F) (A B : H →ₗ[F] H) (z : H) :
-    ((LinearMap.id : H →ₗ[F] H) - A + ell • B) z = z - A z + ell • B z := by sorry
+example (ChHigh ChLow : H →ₗ[F] H) (momentHigh momentLow : V →ₗ[F] H)
+    (cor A B : H →ₗ[F] H) (ell : F)
+    (h : cor.comp (fullLevelZeta ChHigh momentHigh) =
+      (LinearMap.id - A + ell • B).comp (fullLevelZeta ChLow momentLow)) (v : V) :
+    cor (fullLevelZeta ChHigh momentHigh v) = fullLevelZeta ChLow momentLow v -
+      A (fullLevelZeta ChLow momentLow v) + ell • B (fullLevelZeta ChLow momentLow v) := by sorry
+-- fullLevel_identity_moment
+example : fullLevelZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 1 := by sorry
 -- Omitted: full-level dual sheaf and Γ₁ Poincaré transport.
 theorem heckeDualTwistDictionary (ell : ℚ) (k : ℤ) :
     ell^(2*(k-2)) = ell^(k-2) * ell^(k-2) := by sorry
@@ -298,6 +379,10 @@ def katoZetaMap {I : Type*} (generators : I → V) (values : I → H)
 theorem katoZetaMap_generator {I : Type*} (generators : I → V) (values : I → H)
     (h : ∃! z : V →ₗ[F] H, ∀ i, z (generators i) = values i) (i : I) :
     katoZetaMap generators values h (generators i) = values i := by sorry
+theorem katoZetaMap_unique {I : Type*} (generators : I → V) (values : I → H)
+    (h : ∃! z : V →ₗ[F] H, ∀ i, z (generators i) = values i)
+    (other : V →ₗ[F] H) (hother : ∀ i, other (generators i) = values i) :
+    other = katoZetaMap generators values h := by sorry
 theorem katoZetaMap_conjugation {I : Type*} (generators : I → V) (values : I → H)
     (h : ∃! z : V →ₗ[F] H, ∀ i, z (generators i) = values i)
     (involution : V →ₗ[F] V) (sigma : H →ₗ[F] H)
@@ -320,8 +405,18 @@ example {I : Type*} (generators : I → V) (values : I → H)
     katoZetaMap generators values h (v+w) =
       katoZetaMap generators values h v + katoZetaMap generators values h w := by sorry
 -- katoMap_sign
-example {H' : Type*} [AddCommGroup H'] [Module ℚ H'] (x : H') (hx : x ≠ 0) :
-    -x ≠ x := by sorry
+example {I V' H' : Type*} [AddCommGroup V'] [AddCommGroup H']
+    [Module ℚ V'] [Module ℚ H'] (generators : I → V') (values : I → H')
+    (h : ∃! z : V' →ₗ[ℚ] H', ∀ i, z (generators i) = values i)
+    (involution : V' →ₗ[ℚ] V') (v : V')
+    (hsign : katoZetaMap generators values h (involution v) =
+      -katoZetaMap generators values h v)
+    (hn : katoZetaMap generators values h v ≠ 0) :
+    katoZetaMap generators values h (involution v) ≠
+      katoZetaMap generators values h v := by sorry
+-- katoMap_generator_one
+example (h : ∃! z : ℚ →ₗ[ℚ] ℚ, ∀ _i : Unit, z 1 = 1) :
+    katoZetaMap (fun _ : Unit => (1 : ℚ)) (fun _ => (1 : ℚ)) h 1 = 1 := by sorry
 -- Omitted: lattice comparison and finite quotient; the inclusion part is typed.
 theorem integralZetaFiniteIndex (Z ZT : Submodule Λ H) (inclusion : Z ≤ ZT) :
     ∀ x, x ∈ Z → x ∈ ZT := by sorry
@@ -340,6 +435,13 @@ theorem modularFiltration_endpoint (k : ℤ) (M : Submodule F D) (i : ℤ)
     (hk : 2 ≤ k) (hi : k ≤ i) : modularFiltration k M i = ⊥ := by sorry
 def modularDualExp (expStar : H →ₗ[F] D) (M : Submodule F D)
     (lands : ∀ x, expStar x ∈ M) : H →ₗ[F] M := by sorry
+theorem modularDualExp_coe (expStar : H →ₗ[F] D) (M : Submodule F D)
+    (lands : ∀ x, expStar x ∈ M) (x : H) :
+    (modularDualExp expStar M lands x : D) = expStar x := by sorry
+-- dualExp_coercion
+example (expStar : H →ₗ[F] D) (M : Submodule F D)
+    (lands : ∀ x, expStar x ∈ M) (x : H) :
+    (modularDualExp expStar M lands x : D) = expStar x := by sorry
 -- filtration_interior
 example (M : Submodule F D) :
     modularFiltration 4 M 1 = M ∧ modularFiltration 4 M 2 = M ∧
@@ -389,6 +491,10 @@ def twistedKatoZeta (sourceTwist : Vdual →ₗ[F] V) (z : V →ₗ[F] H)
 theorem twistedKatoZeta_def (sourceTwist : Vdual →ₗ[F] V) (z : V →ₗ[F] H)
     (outputTwist : H →ₗ[F] Htw) (v : Vdual) :
     twistedKatoZeta sourceTwist z outputTwist v = outputTwist (z (sourceTwist v)) := by sorry
+theorem twistedKatoZeta_ext (sourceTwist : Vdual →ₗ[F] V) (z : V →ₗ[F] H)
+    (outputTwist : H →ₗ[F] Htw) (other : Vdual →ₗ[F] Htw)
+    (h : ∀ v, other v = outputTwist (z (sourceTwist v))) :
+    other = twistedKatoZeta sourceTwist z outputTwist := by sorry
 theorem twistedKatoZeta_conjugation (sourceTwist : Vdual →ₗ[F] V)
     (z : V →ₗ[F] H) (outputTwist : H →ₗ[F] Htw)
     (iotaDual : Vdual →ₗ[F] Vdual) (iota : V →ₗ[F] V)
@@ -414,7 +520,12 @@ example (k : ℤ) : (1-k)+k = 1 := by sorry
 example (sourceTwist : Vdual →ₗ[F] V) (z : V →ₗ[F] H) (outputTwist : H →ₗ[F] Htw) :
     twistedKatoZeta sourceTwist z outputTwist 0 = 0 := by sorry
 -- twisted_positive_sign
-example (z : V →ₗ[F] H) (x : V) : -z (-x) = z x := by sorry
+example (z : V →ₗ[F] H) (x : V) :
+    twistedKatoZeta (-LinearMap.id : V →ₗ[F] V) z
+      (-LinearMap.id : H →ₗ[F] H) x = z x := by sorry
+-- twisted_identity_maps
+example : twistedKatoZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+    LinearMap.id LinearMap.id 1 = 1 := by sorry
 -- Omitted: parabolic carrier, rational splitting and the injectivity theorem.
 theorem parabolicFullLevelCharacterisation (expStar : H →ₗ[F] Htw)
     (injective : Function.Injective expStar) (x y : H)
@@ -436,6 +547,11 @@ theorem katoScalarRegulator_linear (regulator : H →ₗ[F] D)
     katoScalarRegulator regulator projection (a • x+y) =
       a • katoScalarRegulator regulator projection x +
         katoScalarRegulator regulator projection y := by sorry
+theorem katoScalarRegulator_projection_add (regulator : H →ₗ[F] D)
+    (projection other : D →ₗ[F] Dist) (x : H) :
+    katoScalarRegulator regulator (projection + other) x =
+      katoScalarRegulator regulator projection x +
+        katoScalarRegulator regulator other x := by sorry
 theorem katoScalarRegulator_scale (regulator : H →ₗ[F] D)
     (projection : D →ₗ[F] Dist) (a b : F) (ha : a ≠ 0) (x : H) :
     katoScalarRegulator regulator (a⁻¹ • projection) (b • x) =
@@ -451,6 +567,8 @@ example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x y : H) :
 example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x : H) :
     katoScalarRegulator regulator ((2 : F) • projection) ((3 : F) • x) =
       (6 : F) • katoScalarRegulator regulator projection x := by sorry
+-- scalar_identity_maps
+example : katoScalarRegulator (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 1 := by sorry
 -- Omitted: interpolation/growth uniqueness; R10 supplies the separated evaluations.
 theorem noncriticalAnalyticArithmeticComparison {I A : Type*}
     (evaluate : Dist → I → A) (separates : Function.Injective evaluate)

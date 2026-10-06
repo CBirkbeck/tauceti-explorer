@@ -110,7 +110,8 @@
         "Page-image verification: printed pp. 124, 163, 184, 187, 221, 224–225 and 269. The text layer is not the authority for the displays.",
         "Sections 6.3–6.6: Hecke quotient, period map and dual form; Sections 13.5–13.8: analytic nonvanishing and the non-CM use of 12.8.2; Sections 16.1–16.6: scalar regulator and small-slope interpolation. Sections 7, 10–11 read at their reduction statements and key compatibility passages, not a full verification of all underlying proofs.",
         "§§15.12–15.17: the CM induction, elliptic-unit specialization, contained-cyclotomic variant, and separate derivations of 12.4 and 12.5(3). The early elliptic-unit theorem and exact all-prime exceptional branch remain a supplier gap.",
-        "Additional page-image verification: pp.142–143, the explicit Eisenstein-product definition, weight-two regularization and piecewise smoothing exponents of 4.2.4; compared again with 6.6 on p.163."
+        "Additional page-image verification: pp.142–143, the explicit Eisenstein-product definition, weight-two regularization and piecewise smoothing exponents of 4.2.4; compared again with 6.6 on p.163.",
+        "Independent review: all forty node locators and excerpts collated, including §§13.9–13.14 and 17.11–17.13. Further page-image checks: pp.126, 131–132, 141, 222, 227, 234, 273–274. Full [KK3] and the unstaged all-prime CM supplier proofs remain unverified."
       ],
       "accessed": "2026-10-06"
     },
@@ -118,7 +119,7 @@
       "id": "rubin-euler-systems-draft",
       "title": "Euler systems (author's course draft of the Annals of Mathematics Studies 147 monograph)",
       "authors": "Karl Rubin",
-      "edition": "Author draft distributed with the 1999 Arizona Winter School notes (inspected 2026-09-15); chapter/section numbering agrees with the published monograph",
+      "edition": "Public author draft distributed with the 1999 Arizona Winter School notes; inspected independently 6 October 2026. No line-by-line collation with the published AMS 147 book is claimed.",
       "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
       "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
       "readSections": [
@@ -138,12 +139,14 @@
       "sha256": "47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4",
       "accessed": "2026-10-06",
       "readSections": [
-        "§3.1–3.2, especially Lemma 3.1, Theorem 3.2, Lemma 3.4 and Corollary 3.6, pp. 204–222; Appendix A, pp. 265–269. Universal deformation constructions in §4 are outside this packet."
+        "§3.1–3.2, especially Lemma 3.1, Theorem 3.2, Lemma 3.4 and Corollary 3.6, pp. 204–222; Appendix A, pp. 265–269. Universal deformation constructions in §4 are outside this packet.",
+        "Independent review: §2.3 Lemma 2.10 (completed Borel–Moore to classical coefficients), §3.1.2 pp.205–206 (literal dual lattice), §3.1.3–3.2 and Appendix A displays checked against page images.",
+        "§5.1, Theorem 5.2 pp.253–254 checked separately: odd p, residual absolute irreducibility and free rank-one τ quotient. Its two erroneous cross-reference indices are recorded in E10."
       ]
     },
     {
       "id": "burungale-tian-2025-v2",
-      "title": "The rank zero p-converse for CM elliptic curves",
+      "title": "A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
       "authors": "Ashay A. Burungale and Ye Tian",
       "edition": "arXiv:2506.03465v2, 11 October 2025 (7 pages), author version of Annals of Mathematics 203 (2026), 1–14",
       "url": "https://arxiv.org/pdf/2506.03465v2",
@@ -234,6 +237,16 @@
           "name": "cTheta_isogeny",
           "role": "functoriality",
           "statement": "For an isogeny E→E′ of degree prime to c, its norm sends cTheta_E c to cTheta_E′ c."
+        },
+        {
+          "name": "cTheta_auxiliary",
+          "role": "relation",
+          "statement": "On E\\E[cd], cTheta_c^(d²)/[d]*cTheta_c = cTheta_d^(c²)/[c]*cTheta_d (Kato 1.3(2)); common divisor and norm conditions characterize the two expressions."
+        },
+        {
+          "name": "cTheta_baseChange",
+          "role": "functoriality",
+          "statement": "Base change of the elliptic curve pulls back the normalized theta unit, by the divisor and multiplication-norm characterization."
         }
       ],
       "tests": [
@@ -286,7 +299,7 @@
       ],
       "acceptance": [
         "Verify that Q(zeta_N) sits in the constant field of Y(N) and that the complex embedding used in the cohomology construction is the one determined by the points nu(tau) for tau in the upper half plane, with zeta_N = exp(2*pi*i/N) (Kato 1.8).",
-        "Verify on q-expansions (1.9) that the pullback of g_{a/N,b/N} is q^w times the two displayed infinite products, and hence is not a root of unity for (a,b) not (0,0). Kato PRINTS the exponent as w = 1/12 - a/2N + (1/2)(a/N^2) (checked on a rendering of p. 124, not merely in the text layer). Read literally that is a/N^2; the Bernoulli-consistent reading is (1/2)(a/N)^2 = a^2/(2N^2), which is what makes w = B_2(a/N)/2. This packet records the printed form and flags the ambiguity rather than silently choosing; a consumer that needs the exponent must resolve it against [KL] (Kubert-Lang) or against a clean edition.",
+        "Use the q-product of 1.9 with the corrected leading exponent w=B₂(a/N)/2=1/12−a/(2N)+a²/(2N²). E1 is a confirmed missing-square misprint, repeated after 3.10 on p.141; at a=2,N=5 the exponent is −11/300 rather than −23/300. The nonconstant products also distinguish the rational Siegel unit from a root of unity.",
         "Verify that the descent to the algebraic curve is the pullback of c-theta_E and not an analytically defined function: the algebraic definition comes first, and 1.9 identifies the analytic pullback."
       ],
       "prerequisites": [
@@ -314,7 +327,7 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter I, 1.9, printed p. 124 (read from a page rendering)",
-          "match": "Gives the q-expansion and the exponent exactly as printed, including the ambiguous (1/2)(a/N^2), where the page was rendered because the text layer is unreadable at this display."
+          "match": "Faithful transcription of the printed erroneous exponent; apply the independently confirmed correction E1. This is a misprint, not an unresolved ambiguity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -362,7 +375,12 @@
         {
           "name": "siegel_integral_not_equal",
           "kind": "non-example",
-          "statement": "Auxiliary independence asserts equality after division by c²−1 in rational units; it does not assert 5-g=7-g integrally."
+          "statement": "For the nonzero rationalized value g=1 in Q, rationalSmoothing 5 g g differs from rationalSmoothing 7 g g; testing just the two coefficients would not exercise the smoothing construction."
+        },
+        {
+          "name": "siegel_identity_pullback",
+          "kind": "compatibility",
+          "statement": "Pullback along the identity ring map sends the actual unit θ to θ, so a constant unit construction fails on θ≠1."
         }
       ],
       "uses": [
@@ -501,7 +519,8 @@
         "SchemeKTheoryOperations:S.2/tensor-product-pairings",
         "SchemeKTheoryOperations:S.3/unit-loop-class",
         "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
-        "ModularCurvesPartII:R12.2"
+        "ModularCurvesPartII:R12.2",
+        "KatoEulerSystems:L0/siegel-unit-galois-action-and-distribution"
       ],
       "sources": [
         {
@@ -549,6 +568,11 @@
           "name": "beilinsonElement_pullback",
           "role": "functoriality",
           "statement": "Pullback takes this symbol to the symbol of the pulled-back indexed units."
+        },
+        {
+          "name": "beilinsonElement_bilinear",
+          "role": "structure",
+          "statement": "The Beilinson symbol is additive in both unit slots under multiplicative products; expand {uu′,vv′} into its four symbols."
         }
       ],
       "tests": [
@@ -588,8 +612,9 @@
       ],
       "title": "Projection formula for K_2-norms and the level-change norm relation",
       "kind": "theorem",
-      "statement": "Let M | M', N | N' with M', N' >= 2, and assume prime(M) = prime(M') and prime(N) = prime(N'). Then the norm homomorphism K_2(Y(M',N')) -> K_2(Y(M,N)) sends c,d-z_{M',N'} to c,d-z_{M,N} for all c, d with (c,6M) = 1 and (d,6N) = 1 -- the coprimality is imposed at the LOWER level as printed, which under prime(M) = prime(M') and prime(N) = prime(N') is the same condition as at the higher level; after tensoring with Q it sends z_{M',N'} to z_{M,N}. The proof rests on the projection formula for the K_2-norm along a finite locally free morphism f: U -> V, namely f_*({u, f^*v}) = {f_*u, v} for u in O(U)^x and v in O(V)^x.",
+      "statement": "Under M,N≥2 and M+N≥5, let M | M', N | N' with M', N' >= 2, and assume prime(M) = prime(M') and prime(N) = prime(N'). Then the norm homomorphism K_2(Y(M',N')) -> K_2(Y(M,N)) sends c,d-z_{M',N'} to c,d-z_{M,N} for all c, d with (c,6M) = 1 and (d,6N) = 1 -- the coprimality is imposed at the LOWER level as printed, which under prime(M) = prime(M') and prime(N) = prime(N') is the same condition as at the higher level; after tensoring with Q it sends z_{M',N'} to z_{M,N}. The proof rests on the projection formula for the K_2-norm along a finite locally free morphism f: U -> V, namely f_*({u, f^*v}) = {f_*u, v} for u in O(U)^x and v in O(V)^x.",
       "hypotheses": [
+        "Standing §2 hypotheses: M,N≥2 and M+N≥5 (hence also M′,N′≥2 and M′+N′≥5). Proposition 2.3 does not remove the lower-level fine-moduli condition.",
         "prime(M) = prime(M') and prime(N) = prime(N') -- equality of the sets of prime divisors, not merely divisibility; this is used to choose coset representatives of the shape (1 + M*u, M*v; 0, 1)",
         "M', N' >= 2; the coprimality hypotheses are printed as (c,6M) = 1 and (d,6N) = 1, at the lower level, and are equivalent to the same conditions at M', N' precisely because the prime sets agree",
         "the norm is the K_2 transfer along the finite locally free covering Y(M',N') -> Y(M,N)"
@@ -726,8 +751,9 @@
         "KatoEulerSystems:L1/chern-symbol-normalization-and-denominators",
         "KatoEulerSystems:L1/K2-norm-projection-formula-and-level-norm-relation",
         "SelmerIwasawaCohomology:L0",
-        "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive",
-        "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing"
+        "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+        "KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology",
+        "ModularCurvesPartII:R14.3"
       ],
       "sources": [
         {
@@ -743,12 +769,12 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.4, printed p. 182",
-          "match": "Confirms the source of the twist (2-k) in step (iii), recorded in the hypotheses as a duality-dictated normalisation."
+          "match": "Mathematical transcription from the page image. Equivalently Sym^(k−2)(T_pE)=Sym^(k−2)(H_p)(k−2), so the output twist is 2−r+(k−2)=k−r."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "The moment map Ch(k,r,r prime)"
+        "name": "Étale Chern moment map"
       },
       "api": [
         {
@@ -770,6 +796,11 @@
           "name": "chernMoment_coefficients",
           "role": "functoriality",
           "statement": "Reduction/extension of coefficients commutes with each map in the composite."
+        },
+        {
+          "name": "chernMoment_ext",
+          "role": "extensionality",
+          "statement": "Two proposed moment maps agreeing on every source class are equal as linear maps; use the factorization to compare coefficient/trace constructions."
         }
       ],
       "tests": [
@@ -787,6 +818,11 @@
           "name": "moment_monomial_degree",
           "kind": "characterisation",
           "statement": "For 1≤r′≤k−1, (r′−1)+(k−r′−1)=k−2."
+        },
+        {
+          "name": "moment_identity_maps",
+          "kind": "computation",
+          "statement": "With all four supplied linear maps equal to id on Q, chernMoment sends 1 to 1, excluding a zero composite."
         }
       ],
       "uses": [
@@ -988,7 +1024,12 @@
         {
           "name": "zeta_p_direction",
           "kind": "compatibility",
-          "statement": "The p-level corestriction is the identity relation, without introducing a new away-from-p Euler factor."
+          "statement": "For compatible high/low moment maps and a transfer carrying high symbols to low symbols, corestriction of the constructed high padicZeta equals the constructed low class with no new Euler factor."
+        },
+        {
+          "name": "zeta_identity_moment",
+          "kind": "computation",
+          "statement": "With Ch=id on Q-valued sequences and symbols the constant-one sequence, the resulting class has value 1 at index zero."
         }
       ],
       "uses": [
@@ -1072,6 +1113,11 @@
           "name": "katoEulerAdapter_norm",
           "role": "compatibility",
           "statement": "The component family obeys the imported corestriction equation with that evaluated polynomial."
+        },
+        {
+          "name": "katoEulerAdapter_ext",
+          "role": "extensionality",
+          "statement": "The imported Euler-system extensionality theorem identifies any ES.2 datum with these conductor components with katoEulerAdapter."
         }
       ],
       "tests": [
@@ -1083,7 +1129,7 @@
         {
           "name": "euler_repeated_prime",
           "kind": "compatibility",
-          "statement": "A prime already dividing the conductor adds no Euler factor."
+          "statement": "On the actual katoEulerAdapter components, the repeated-prime relation is corestriction to the lower component with the identity factor."
         },
         {
           "name": "euler_polynomial_constant",
@@ -1118,9 +1164,10 @@
         "the conclusion is finiteness of the quotient, not equality: the integrally defined submodule Z is in general strictly smaller than Z(f,T)"
       ],
       "proofSteps": [
-        "Z consists of explicitly constructed classes, so it is manifestly contained in H^1 of the integral lattice; Z(f,T) is defined through the F_lambda-linear map gamma -> z_gamma^{(p)} of Thm. 12.5(1).",
-        "The inclusion Z in Z(f,T) follows from the construction of z_gamma^{(p)} as an F_lambda-linear combination of the listed elements.",
-        "Finiteness of the index uses the generation statement of Thm. 13.6 (Ash-Stevens) that V_{k,Z}(Y(L)) is generated over Z by the classes sigma^* delta_{1,L}(k,j)."
+        "Construct canonical z_γ first in the total fraction module as in 13.9. Lemma 13.10 expresses EACH GEOMETRIC smoothed generator as a Λ-linear combination of canonical z_γ; this gives Z⊂Z(f,T). The reverse expression with denominators alone would not prove this inclusion.",
+        "Ash–Stevens 13.6 and 13.10(2) produce a non-zero-divisor μ with μZ(f,T)⊂Z and Λ/μΛ p-torsion-free. Consequently μ is a unit at height-one primes over p, so the two modules agree there.",
+        "At each height-one prime away from p, use 13.11(1)–(2), analytic nonvanishing and suitable auxiliary c,d after finite coefficient extension to obtain Z(f,T)_q=Z_q. This is the substantive argument of 13.12, not just the generator theorem.",
+        "The finitely generated quotient is killed by μ and has support in codimension at least two. Apply the full cyclotomic semilocal finite-support theorem to deduce that it is a finite group. This also proves rational membership Z(f,T)⊂H¹(T)⊗Q. The canonical-map construction and this membership argument are joint parts of 13.9–13.12, not a dependence on its later cohomological divisibility."
       ],
       "acceptance": [
         "Check that the two families are genuinely different data: family (1) carries the auxiliary parameter A and the bad-Euler-factor information, family (2) carries the delicate integrality but cannot see bad Euler factors (Kato's remark in 8.1).",
@@ -1130,8 +1177,10 @@
       "prerequisites": [
         "KatoEulerSystems:L2/rational-kato-zeta-morphism",
         "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
-        "KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero",
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "KatoEulerSystems:L4/analytic-twist-nonvanishing",
+        "ModularSymbolsPadicLFunctions:L0",
+        "PadicMeasuresIwasawaAlgebras:L4"
       ],
       "sources": [
         {
@@ -1148,6 +1197,11 @@
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter II, 8.1, printed p. 180",
           "match": "Explains the distinct roles of the two families, recorded in the first acceptance item."
+        },
+        {
+          "sourceId": "kato-2004-asterisque-295",
+          "locator": "13.10–13.12, pp.230–232",
+          "match": "The rest of 13.12 treats primes over p with μ and every height-one prime away from p using 13.11. Spanning alone proves neither inclusion in this direction nor finite index."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1183,10 +1237,10 @@
       "prerequisites": [
         "PadicHodgeRegulators:L1/dual-exponential",
         "PadicHodgeRegulators:L1/twist-and-change-of-field",
-        "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive",
         "ModularCurvesPartII:R12.3",
         "mathlib:Submodule",
-        "mathlib:ModularForm"
+        "mathlib:ModularForm",
+        "ModularCurvesPartII:R14.3"
       ],
       "sources": [
         {
@@ -1207,7 +1261,7 @@
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "The dual exponential map"
+        "name": "Modular dual exponential"
       },
       "api": [
         {
@@ -1234,6 +1288,11 @@
           "name": "modularDualExp",
           "role": "projection",
           "statement": "The imported exp* followed by the filtration-step/modular-form equivalence."
+        },
+        {
+          "name": "modularDualExp_coe",
+          "role": "compatibility",
+          "statement": "For the subtype-valued modular dual exponential, coercion to D gives the imported exp* value."
         }
       ],
       "tests": [
@@ -1251,6 +1310,11 @@
           "name": "filtration_weight_two",
           "kind": "computation",
           "statement": "At k=2,i=1 the filtration is the modular-form step."
+        },
+        {
+          "name": "dualExp_coercion",
+          "kind": "compatibility",
+          "statement": "The value of modularDualExp as an element of D equals the supplied exp* value, excluding a zero subtype map when exp* is nonzero."
         }
       ],
       "uses": [
@@ -1355,7 +1419,8 @@
         "KatoEulerSystems:L2/rational-kato-zeta-morphism",
         "KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements",
         "KatoEulerSystems:L3/archimedean-period-quotient-and-critical-values",
-        "PadicHodgeRegulators:L2/local-iwasawa-twist"
+        "SelmerIwasawaCohomology:L3/iwasawa-twist",
+        "SelmerIwasawaCohomology:L3"
       ],
       "sources": [
         {
@@ -1437,12 +1502,13 @@
       ],
       "title": "The generic bound applied to the modular Euler system",
       "kind": "theorem",
-      "statement": "For non-CM f and the concrete L2 conductor Euler system, apply ES.8/rubin-rational-iwasawa-divisibility with the verified Hyp(Q_∞,V) and Hyp(Q_∞/Q). If its Iwasawa component is non-torsion, the restricted dual Selmer module X_strict is torsion and char_Λ(X_strict) divides p^t ind_Λ(c) for some t≥0. After inverting p this is an exact divisibility. With p odd and the full integral package Hyp(Q_∞,T), apply ES.8/rubin-iwasawa-divisibility to remove p^t. The modular purity hypothesis of Kato 13.4(ii) is imported from strict compatibility. R07 Poitou–Tate identifies X_strict with the global-to-local H² kernel at the height-one localization used; the evaluation ideal equals the index of the generated zeta submodule in rank-one free H¹. These are modular instantiations of existing machines, not a second definition or proof of an abstract Euler-system bound.",
+      "statement": "For non-CM f and the concrete L2 conductor Euler system, apply ES.8/rubin-rational-iwasawa-divisibility with the verified Hyp(Q_∞,V) and Hyp(Q_∞/Q). If its Iwasawa component is non-torsion, the restricted dual Selmer module X_strict is torsion and char_Λ(X_strict) divides p^t ind_Λ(c) for some t≥0. After inverting p this is an exact divisibility. With p odd and the full integral package Hyp(Q_∞,T), apply ES.8/rubin-iwasawa-divisibility to remove p^t. The modular purity hypothesis of Kato 13.4(iii) is imported from strict compatibility. R07 Poitou–Tate identifies X_strict with the global-to-local H² kernel at the height-one localization used; the evaluation ideal equals the index of the generated zeta submodule in rank-one free H¹. These are modular instantiations of existing machines, not a second definition or proof of an abstract Euler-system bound.",
       "hypotheses": [
         "T a stable O_λ-lattice, Λ on a cyclotomic character component; no ordinary assumption for the cohomological bound.",
         "Non-torsion is proved by the analytic node and L3; it is not inferred from an unspecified ES member.",
         "The integral package includes residual irreducibility and the FREE rank-one τ quotient; x≠0 alone does not give it.",
-        "The Poitou–Tate and evaluation-index comparison is localized as stated, retaining the local H² correction."
+        "The Poitou–Tate and evaluation-index comparison is localized as stated, retaining the local H² correction.",
+        "Kato 13.4(ii) is dim(V⁺)=dim(V⁻)=1 (oddness); purity is (iii), irreducibility (iv), and the rational rank-one τ quotient (v). Use the R19.1 newform realization for parity, not purity in its place."
       ],
       "proofSteps": [
         "Apply the existing ES.8 theorem to the L2 adapter and the rational or integral hypothesis package verified by the unipotent node. Work on Q_∞ components and transport finite tame-character components with the supplier’s twisting/descent API.",
@@ -1465,7 +1531,8 @@
         "SelmerIwasawaCohomology:L2/selmer-poitou-tate-limit",
         "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
-        "KatoEulerSystems:L4/analytic-twist-nonvanishing"
+        "KatoEulerSystems:L4/analytic-twist-nonvanishing",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
       ],
       "sources": [
         {
@@ -1545,7 +1612,7 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 13.6, printed p. 227",
-          "match": "Gives the generation theorem used in the first proofStep."
+          "match": "Page-image transcription: the full-level generating vector is δ_{L,L}(k,j), not δ_{1,L}(k,j)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
@@ -1584,7 +1651,7 @@
       "proofSteps": [
         "For non-CM f apply the modular ES.8 bound after verifying the rational or integral image conditions. For CM the separate elliptic-unit comparison of 15.13–15.17 is a supplier gap; module structure alone does not imply this bound.",
         "Compare the geometric zeta span and the Kato map’s span using 12.6 and its finite-index smoothing theorem.",
-        "The localized exact sequence 0→H²_0→H²→H²_loc adds the local length. Kato 12.2/13.5 identifies the exceptional local rank-one term in configuration 12.5.1.",
+        "The localized exact sequence 0→H²_0→H²→H²_loc adds the local length. Kato 12.2/13.13 identifies the exceptional local rank-one term in configuration 12.5.1.",
         "Use characteristic-ideal multiplicativity to translate lengths: length H²≤length(H¹/Z)+length H²_loc. Under full integral conditions obtain the exact inequality off the exceptional prime; otherwise retain the p-power error at primes over p.",
         "Transport the argument by Appendix A’s twists for Nakamura 5.2; do not enlarge its residual-absolute-irreducibility hypothesis."
       ],
@@ -1613,7 +1680,7 @@
         {
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter III, Thm. 12.5(4) and (12.5.2), printed p. 222",
-          "match": "Gives statement (b) with its large-image hypothesis and the p not equal to 2 requirement stated just before it."
+          "match": "Faithful mathematical transcription of the printed RATIONAL inequality. The intended integral lattice inequality in (b) is the contextual correction E8, established in proof 13.14 via integral 13.4(3)."
         },
         {
           "sourceId": "kato-2004-asterisque-295",
@@ -1624,6 +1691,11 @@
           "sourceId": "nakamura-2023-published",
           "locator": "Theorem 5.2, pp.253–254",
           "match": "The twist-one integral restatement bounds the H² kernel with the additional residual and τ hypotheses."
+        },
+        {
+          "sourceId": "kato-2004-asterisque-295",
+          "locator": "13.14, p.234",
+          "match": "The printed 12.5(4) inequality uses rational V; the proof uses H¹(T), Z(f,T) and integral 13.4(3). The lattice inequality in this node is the contextual correction E8, not a verbatim transcription of the erroneous display."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1640,12 +1712,12 @@
       ],
       "title": "The good-ordinary Selmer divisibility against the p-adic zeta function",
       "kind": "theorem",
-      "statement": "Suppose f has good ordinary reduction at lambda, i.e. (Prop. 17.1) p does not divide N and a_p is a unit in O_lambda; equivalently V_{F_lambda}(f) is crystalline at p and contains a unique one-dimensional Gal(Qbar_p/Q_p)-stable subspace V'_{F_lambda}(f) which is unramified. Let T be a Gal(Qbar/Q)-stable O_lambda-lattice, T' = T intersect V'_{F_lambda}(f), T'' = T/T', and define Sel_infinity(T) = lim_n Sel(Q(zeta_{p^n}), T(r))(-r) (independent of r for 1 <= r <= k-1 by Prop. 17.2) and X(T) = Hom_{O_lambda}(Sel_infinity(T), F_lambda/O_lambda), a finitely generated Lambda-module. Then (Thm. 17.4): (1) X(T) is a torsion Lambda-module; (2) for alpha as in 17.1, omega a nonzero element of S(f^*) and gamma in V_F(f^*) with the two sign components nonzero, L_{p-adic,alpha,omega,gamma}(f) lies in Lambda tensor Q and length_{Lambda_p}(X(T)_p) <= ord_p(L_{p-adic,alpha,omega,gamma}(f)) for every height-one prime p not containing p; (3) if in addition omega and gamma are good for some stable lattice in the sense of 17.5, p is not 2, and condition (12.5.2) holds, then L_{p-adic,alpha,omega,gamma}(f) lies in Lambda and the same length inequality holds for every height-one prime p.",
+      "statement": "Suppose f has good ordinary reduction at lambda, i.e. (Prop. 17.1) p does not divide N and a_p is a unit in O_lambda; equivalently V_{F_lambda}(f) is crystalline at p and contains a unique one-dimensional Gal(Qbar_p/Q_p)-stable subspace V'_{F_lambda}(f) which is unramified. Let T be a Gal(Qbar/Q)-stable O_lambda-lattice, T' = T intersect V'_{F_lambda}(f), T'' = T/T', and define Sel_infinity(T) = lim_n Sel(Q(zeta_{p^n}), T(r))(-r) (independent of r for 1 <= r <= k-1 by Prop. 17.2) and X(T) = Hom_{O_lambda}(Sel_infinity(T), F_lambda/O_lambda), a finitely generated Lambda-module. Then (Thm. 17.4): (1) X(T) is a torsion Lambda-module; (2) for alpha as in 17.1, omega a nonzero element of S(f^*) and gamma in V_F(f^*) with the two sign components nonzero, L_{p-adic,alpha,omega,gamma}(f) lies in Lambda tensor Q and length_{Lambda_p}(X(T)_p) <= ord_p(L_{p-adic,alpha,omega,gamma}(f)) for every height-one prime p not containing p; (3) if in addition omega and gamma are good for the stable dual lattice U≅T^*(1−k) in V_Fλ(f*) in the sense of 17.5 (correcting E9), p is not 2, and condition (12.5.2) holds, then L_{p-adic,alpha,omega,gamma}(f) lies in Lambda and the same length inequality holds for every height-one prime p.",
       "hypotheses": [
         "good ordinary reduction at lambda in the precise sense of Prop. 17.1: p does not divide N AND a_p is a lambda-adic unit; the two conditions together are equivalent to the crystalline-plus-unramified-line condition (iii)",
         "Prop. 17.2's independence of r holds for 1 <= r <= k-1 and is what makes Sel_infinity(T) well defined; it is proved by identifying the Selmer group with an explicit kernel",
         "in (2) the p-adic L-function depends on the choices of alpha (the unit root), omega in S(f^*) and gamma in V_F(f^*), and lies a priori only in Lambda tensor Q",
-        "in (3) omega and gamma must be GOOD for the lattice in the sense of 17.5: the image of omega under the composite S(f) tensor_F F_lambda -> D_dR(V_{F_lambda}(f)) -> D_dR(V''_{F_lambda}(f)) must be an O_lambda-basis of H^0(Q_p, Z_p^{ur-hat} tensor T''(k-1)). For weight 2 and T = T_pE(-1) this says omega is a Z_p-basis of the invariant differentials of the Neron model",
+        "For (3), put U≅T^*(1−k)⊂V_Fλ(f*). Apply 17.5 to f*,U: ω∈S(f*) maps to an O_λ-basis of H⁰(Q_p,Z_p^{ur-hat}⊗U″(k−1)), and γ⁺,γ⁻ are bases of U⁺,U⁻. The integral Selmer module in the conclusion is X(T). The printed V(f) in 17.4(3) is the f/f* misprint E9; 17.6 and 17.13 fix the dual-lattice relation.",
         "condition (12.5.2) is again the large-image hypothesis, and p not equal to 2 is required"
       ],
       "proofSteps": [
@@ -1671,7 +1743,8 @@
         "SelmerIwasawaCohomology:L2/selmer-poitou-tate-limit",
         "PadicHodgeRegulators:L3/scalar-projection",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicHodgeRegulators:L3"
       ],
       "sources": [
         {
@@ -1693,11 +1766,16 @@
           "sourceId": "kato-2004-asterisque-295",
           "locator": "Chapter IV, Prop. 17.2, printed pp. 272-273",
           "match": "Gives the ordinary filtration and the independence-of-r statement recorded in the second proofStep."
+        },
+        {
+          "sourceId": "kato-2004-asterisque-295",
+          "locator": "17.6 p.274; proof 17.13 pp.279–280",
+          "match": "Mathematical transcription of the corrected dual-lattice condition from 17.6. The proof works with a lattice U in V(f*) and concludes for X(U*(1−k)); no good period in S(f) is substituted for the chosen ω in S(f*)."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "One divisibility, ordinary Selmer"
+        "name": "Ordinary Selmer divisibility"
       },
       "leanName": "ordinarySelmerDivisibility"
     },
@@ -1841,19 +1919,19 @@
       "kind": "construction",
       "statement": "For N≥3,k≥2, n≥1, prime(Np)=Σ, (n,Np)=1 and c≥2 prime to 6Nnp, construct c-z^Iw_{N,n}(k,−):Sym^(k−2)(Z_p²)^*→H¹_Iw(Z[1/Σ_n,ζ_n],H¹(Y(N),V_k^*)(2)) from c,c-z_N. The finite levels use the torsion scheme μ⁰_{np^m} and Shapiro, then the p-direction corestriction limit. It is Z_p-linear in the moment v and commutes with coefficient extension and the full-level Hecke actions before any newform quotient. For ell∉Σ, Cor∘c-z^Iw_{N,nell}=c-z^Iw_{N,n} if ell|n and (1−T′_ell σ_ell^(−1)+ell S′_ell σ_ell^(−2))c-z^Iw_{N,n} otherwise. This is the modular/Hecke-level input of Nakamura’s universal deformation map, whose construction is owned by AutomorphicCongruences:L3.",
       "hypotheses": [
-        "The full-level coefficient sheaf is dual: V_k^*=Sym^(k−2)(T_pE), with the explicit Kato/Nakamura twist dictionary.",
+        "V_k=Sym^(k−2)(R¹λ_*Z_p), and V_k^*=Hom_Zp(V_k,Z_p) is its LITERAL integral dual. Via T_pE=H_p(1), this is the divided-power lattice Γ^(k−2)(T_pE), not in general Sym^(k−2)(T_pE). The symmetric-power identification is used only after inverting (k−2)!, in particular rationally (E7).",
         "n is prime to Np; c must be prime to 6Nnp at each conductor used."
       ],
       "proofSteps": [
-        "Use the L1 regulator and moment maps on the equal-auxiliary pair c,c-z_N. Trace to the torsion scheme realizes the conductor variable.",
+        "Use the equal-auxiliary K₂ symbol and its étale Chern class. Nakamura §3.1.4 uses the completed Borel–Moore coefficient map of Lemma 2.10 to pair a literal dual moment with the torsion-scheme class. Request this map with its Hecke, coefficient-change and conductor compatibilities; the ordinary Kato Tate-monomial construction is not an integral replacement.",
         "Shapiro identifies torsion-scheme cohomology with arithmetic cohomology over Q(ζ_np^m); the p-norm equations define the Iwasawa class.",
-        "Translate the unramified operator through Nakamura Lemma 3.1, without changing the original T′ normalization. The projective moment maps and Hecke maps commute by functoriality."
+        "The integral norm equation uses the original T′,S′ actions on the literal dual sheaf as in equations (13)–(16). Lemma 3.1 identifies its polynomial with the cohomological normalization only on the rational coefficient domain of the dictionary node. No integral symmetric-power self-duality is invoked."
       ],
       "prerequisites": [
         "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
         "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
         "SelmerIwasawaCohomology:L0",
-        "KatoEulerSystems:L2/hecke-dual-twist-dictionary"
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.2"
       ],
       "sources": [
         {
@@ -1865,7 +1943,8 @@
       "acceptance": [
         "Use the two-term identity for a repeated conductor prime, and the quadratic polynomial for a new unramified prime.",
         "The class precedes the eigenform projection; its target retains the full Hecke module.",
-        "Reversing BOTH Siegel-unit entries preserves their K₂ product, resolving Nakamura’s theta sign slip without changing c,c-z_N."
+        "Reversing BOTH Siegel-unit entries preserves their K₂ product, resolving Nakamura’s theta sign slip without changing c,c-z_N.",
+        "At k=4,p=2 keep the literal dual lattice; no GL₂(Z₂)-equivariant isomorphism Sym²(Z₂²)≅Sym²(Z₂²)^*⊗det² exists (E7)."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -1891,6 +1970,11 @@
           "name": "fullLevelZeta_corestriction",
           "role": "functoriality",
           "statement": "Conductor corestriction is identity at a repeated prime and the stated quadratic operator at a new prime."
+        },
+        {
+          "name": "fullLevelZeta_ext",
+          "role": "extensionality",
+          "statement": "Two full-level moment morphisms with the same values on every dual moment agree as linear maps."
         }
       ],
       "tests": [
@@ -1907,7 +1991,12 @@
         {
           "name": "fullLevel_new_prime",
           "kind": "characterisation",
-          "statement": "At a new prime the linear Hecke coefficient is −T′_ell and the quadratic coefficient ell S′_ell."
+          "statement": "When the constructed high and low fullLevelZeta maps satisfy the transfer equation, their values obey 1−T′u+ell S′u²; the test uses the constructed maps, not just an unrelated operator expansion."
+        },
+        {
+          "name": "fullLevel_identity_moment",
+          "kind": "computation",
+          "statement": "With Ch and the supplied moment both id on Q, fullLevelZeta sends 1 to 1; zero/additivity alone would permit the zero morphism."
         }
       ],
       "uses": [
@@ -1930,13 +2019,14 @@
       ],
       "title": "Kato and Nakamura Hecke conventions",
       "kind": "comparison",
-      "statement": "On the full-level V_k cohomology, T_ell=T(ell)diag(ell,1)^*=T*(ell)diag(1,ell)^*, S_ell=ell^(k−2)diag(ell,ell)^*. The dual-sheaf transport V_k≅V_k^*(2−k) gives T′_ell=T*(ell)diag(ell^(−1),1)^*=ell^(k−2)T_ell S_ell^(−1), S′_ell=ell^(k−2)diag(ell^(−1),ell^(−1))^*=ell^(2(k−2))S_ell^(−1). Thus Nakamura’s full-level polynomial is 1−T′_ell u+ell S′_ell u². On the Γ₁ eigenquotient V′₁(f)=V₁(f)^*, T′_ell and S′_ell have eigenvalues a_ell and ell^(k−2)ε_f(ell). Poincaré duality gives V′₁(f)(1−k)≅V₁(f*).",
+      "statement": "With rational coefficients (or with (k−2)! inverted), on the full-level V_k cohomology, T_ell=T(ell)diag(ell,1)^*=T*(ell)diag(1,ell)^*, S_ell=ell^(k−2)diag(ell,ell)^*. The dual-sheaf transport V_k≅V_k^*(2−k) gives T′_ell=T*(ell)diag(ell^(−1),1)^*=ell^(k−2)T_ell S_ell^(−1), S′_ell=ell^(k−2)diag(ell^(−1),ell^(−1))^*=ell^(2(k−2))S_ell^(−1). Thus Nakamura’s full-level polynomial is 1−T′_ell u+ell S′_ell u². On the Γ₁ eigenquotient V′₁(f)=V₁(f)^*, T′_ell and S′_ell have eigenvalues a_ell and ell^(k−2)ε_f(ell). Poincaré duality gives V′₁(f)(1−k)≅V₁(f*).",
       "hypotheses": [
         "ell∤Np for the invertible central/full-level Hecke dictionary.",
-        "V_k is the cohomological sheaf, whereas V_k^* is its dual; the displayed 2−k is on the dual-sheaf side."
+        "V_k is the cohomological sheaf, whereas V_k^* is its dual; the displayed 2−k is on the dual-sheaf side.",
+        "The symmetric-power self-duality used in equations (7)–(8) requires (k−2)! invertible in the coefficient algebra, for example Q_p or F_λ. This packet asserts the displayed transport rationally at every prime; it does not assert it on arbitrary Z_p lattices (E7)."
       ],
       "proofSteps": [
-        "Use the definitions (5)–(8) and the central action on the Tate twist in Lemma 3.1.",
+        "Use definitions (5)–(8) and the central action in Lemma 3.1 after making (k−2)! invertible. The integral dual is kept literal; the published assertion for arbitrary Z_p-algebras in (7) has counterexample E7.",
         "The two central inverse operators introduce different powers of ell; retain both.",
         "Use the Γ₁ Poincaré pairing of Appendix A, Lemma A.3. Correct the printed full-level Y(N_f) to Y₁(N_f); a full-level isotypic piece need not be rank two."
       ],
@@ -1977,7 +2067,7 @@
       "proofSteps": [
         "Use the actual geometric zeta elements and their smoothing relations to define values on the modular-symbol generators in the fraction module.",
         "Kato Lemmas 13.10–13.11 identify the relations and signs using complex periods and infinitely many nonzero twists.",
-        "The finite-index argument in 13.12 proves rational membership and auxiliary independence; the interpolation characterization is L3. The construction is conditional on 12.4(2) where its CM supplier has not yet been staged."
+        "Prove rational membership within the construction, as in 13.12: 13.6 and 13.10 give μ times the fractional generator span inside the geometric integral span with Λ/μ p-torsion-free; 13.11 and nonvanishing give equality at the other height-one primes. The finite-support theorem then makes the quotient finite and places the fractional map in H¹(T)⊗Q. The separate finite-index node records this joint argument as a consequence; no already-integral canonical map is assumed to prove its own membership. CM remains conditional on the early 12.4(2) supplier."
       ],
       "prerequisites": [
         "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
@@ -1985,7 +2075,10 @@
         "KatoEulerSystems:L3/archimedean-period-quotient-and-critical-values",
         "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
         "mathlib:LinearMap",
-        "mathlib:Submodule.span"
+        "mathlib:Submodule.span",
+        "KatoEulerSystems:L4/analytic-twist-nonvanishing",
+        "ModularSymbolsPadicLFunctions:L0",
+        "PadicMeasuresIwasawaAlgebras:L4"
       ],
       "sources": [
         {
@@ -2033,6 +2126,16 @@
           "name": "katoZetaSubmodule_mem",
           "role": "projection",
           "statement": "Every z(γ) belongs to Z(f)."
+        },
+        {
+          "name": "katoZetaMap_unique",
+          "role": "universal-property",
+          "statement": "Any F_λ-linear map with the specified generator values equals the canonical map."
+        },
+        {
+          "name": "katoZetaSubmodule_eq_span",
+          "role": "characterisation",
+          "statement": "The generated Λ-submodule is Submodule.span Λ of the image of the canonical map."
         }
       ],
       "tests": [
@@ -2049,7 +2152,12 @@
         {
           "name": "katoMap_sign",
           "kind": "non-example",
-          "statement": "The untwisted conjugation relation has a minus sign; it differs from Nakamura’s twist-one map."
+          "statement": "On a nonzero canonical-map value over Q, the untwisted minus-conjugation relation differs from the positive relation: z(ιv)=−z(v) implies z(ιv)≠z(v). The test uses the actual constructed morphism."
+        },
+        {
+          "name": "katoMap_generator_one",
+          "kind": "characterisation",
+          "statement": "On Q with the single specified generator 1 and specified value 1, the canonical map sends 1 to 1."
         }
       ],
       "uses": [
@@ -2180,7 +2288,8 @@
         "KatoEulerSystems:L2/rational-kato-zeta-morphism",
         "KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes",
         "KatoEulerSystems:L2/hecke-dual-twist-dictionary",
-        "PadicHodgeRegulators:L2/local-iwasawa-twist"
+        "SelmerIwasawaCohomology:L3/iwasawa-twist",
+        "SelmerIwasawaCohomology:L3"
       ],
       "sources": [
         {
@@ -2218,6 +2327,11 @@
           "name": "twistedKatoZeta_norm",
           "role": "functoriality",
           "statement": "Conductor corestriction is identity for a repeated prime and P_ell(σ_ell^(−1)) for a new prime."
+        },
+        {
+          "name": "twistedKatoZeta_ext",
+          "role": "extensionality",
+          "statement": "Equality on every input of the twisted morphism is equality of the linear maps."
         }
       ],
       "tests": [
@@ -2234,7 +2348,12 @@
         {
           "name": "twisted_positive_sign",
           "kind": "non-example",
-          "statement": "The twist-one morphism has positive conjugation equivariance."
+          "statement": "Composing an arbitrary linear z with −id on the input and −id on the output gives twistedKatoZeta(−id,z,−id)(x)=z(x), exercising both sign changes in the construction."
+        },
+        {
+          "name": "twisted_identity_maps",
+          "kind": "computation",
+          "statement": "With all three maps id on Q, twistedKatoZeta sends 1 to 1."
         }
       ],
       "uses": [
@@ -2274,7 +2393,8 @@
         "PadicHodgeRegulators:L3/scalar-projection",
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "PadicHodgeRegulators:L3/growth",
-        "AutomorphicGaloisRepresentations:R19.5"
+        "AutomorphicGaloisRepresentations:R19.5",
+        "PadicHodgeRegulators:L3"
       ],
       "sources": [
         {
@@ -2312,6 +2432,11 @@
           "name": "katoScalarRegulator_scale",
           "role": "compatibility",
           "statement": "Replacing ω by aω and γ by bγ multiplies the result by a^(−1)b."
+        },
+        {
+          "name": "katoScalarRegulator_projection_add",
+          "role": "structure",
+          "statement": "The scalar regulator is additive in the projection η as well as linear in the cohomology class."
         }
       ],
       "tests": [
@@ -2329,6 +2454,11 @@
           "name": "scalar_period_scale",
           "kind": "characterisation",
           "statement": "Scaling the normalized η-projection by a^(−1) and the class by b scales the output by a^(−1)b."
+        },
+        {
+          "name": "scalar_identity_maps",
+          "kind": "computation",
+          "statement": "With regulator and projection id on Q, katoScalarRegulator sends 1 to 1."
         }
       ],
       "uses": [
@@ -2369,7 +2499,8 @@
         "ModularSymbolsPadicLFunctions:L1/period-lines",
         "PadicHodgeRegulators:L3/ramified-interpolation",
         "PadicHodgeRegulators:L3/unramified-interpolation",
-        "ModularSymbolsPadicLFunctions:L1"
+        "ModularSymbolsPadicLFunctions:L1",
+        "PadicHodgeRegulators:L3"
       ],
       "sources": [
         {
@@ -2401,7 +2532,8 @@
       "hypotheses": [
         "Critical arithmetic section and its specialization are a precise unresolved input, not inferred from Kato 16.6.",
         "The generic analytic critical distribution and comparison principle remain R10-owned.",
-        "The de Rham containment in 16.4.1 and every kernel/cokernel correction at a singular Euler operator remain visible."
+        "The de Rham containment in 16.4.1 and every kernel/cokernel correction at a singular Euler operator remain visible.",
+        "For the inspected R10 family principle, the chosen critical refinement is a DECENT point with the supplied affinoid neighborhood, a Zariski-dense noncritical locus and compatible periods whose normalization factors do not vanish there. The arithmetic section must exist on that same neighborhood. Mere existence of an unspecified family is weaker than the supplier hypothesis."
       ],
       "proofSteps": [
         "Import the R10 critical family principle and its exact hypotheses.",
@@ -2437,7 +2569,7 @@
       ],
       "title": "Analytic twists detect the modular zeta classes",
       "kind": "theorem",
-      "statement": "For normalized f of weight k≥2 and ξ∈SL₂(Z), Ash–Stevens says the vectors δ(f,j,ξ), 1≤j≤k−1, span V_F(f). Jacquet–Shalika gives L(f*,k−1)≠0 for k≥3; Rohrlich gives nonvanishing of the weight-two L(f*,χ,1) for all but finitely many p-power conductor characters χ. More generally Kato 13.5(2) gives nonvanishing of the critical twists needed for 1≤r≤k−1, allowing a finite exceptional set in the central case. After fixing a sign component and auxiliary c,d, infinitely many finite χ avoid both that exceptional set and the finitely many zeros of the smoothing operators. The L3 period equation then detects a nonzero localized/global zeta class in each height-zero component.",
+      "statement": "For normalized f of weight k≥2 and ξ∈SL₂(Z), Ash–Stevens says the vectors δ(f,j,ξ), 1≤j≤k−1, span V_F(f). Jacquet–Shalika gives L(f*,k−1)≠0 for k≥3; Rohrlich gives nonvanishing of the weight-two L(f*,χ,1) for all but finitely many p-power conductor characters χ. For other critical integers, Kato 13.5(1) and the functional equation give nonvanishing off the center. Theorem 13.5(2) concerns only even weight and the central value k/2, with a finite exceptional set among characters whose conductor primes lie in a fixed finite S. After fixing a sign component and auxiliary c,d, infinitely many finite χ avoid both that exceptional set and the finitely many zeros of the smoothing operators. The L3 period equation then detects a nonzero localized/global zeta class in each height-zero component.",
       "hypotheses": [
         "Use the entire modular L-function and its functional equation from the upstream ModularForms roadmap; LSeries by itself is a total sum, not analytic continuation.",
         "The normalization of f*, δ and the sign is the one in L3.",
@@ -2509,7 +2641,7 @@
       "sources": [
         {
           "sourceId": "kato-2004-asterisque-295",
-          "locator": "Theorem 12.4, p.220; §§13.7–13.8 and 15.14",
+          "locator": "Theorem 12.4, p.221; §§13.7–13.8 and 15.14",
           "match": "The lattice statements precede 12.5; the CM proof has a separate exceptional all-prime branch."
         },
         {
@@ -2586,7 +2718,7 @@
       "proofSteps": [
         "Verify Hyp(Q,V) and rational irreducibility by the explicit open-image unipotent, as in III.5.8.",
         "Apply the imported finite-level rational bound to each χ after the actual twist of the conductor family; use the elliptic period formula to show the singular localization is nonzero.",
-        "Rohrlich gives only finitely many possible growing character components. Descend all such components to a finite layer, and use finite torsion and finite-level Mordell–Weil."
+        "Rohrlich bounds the rank, and Serre gives finite torsion T₀. Choose a finite layer spanning E(Q∞)⊗Q and containing T₀. For σ in its procyclic Galois group and any P, σP−P belongs to T₀ and is a continuous homomorphism in σ because T₀ is fixed. If e annihilates T₀, every such homomorphism kills eΓ. Thus all points are fixed in one uniformly enlarged finite layer, where the imported Mordell–Weil theorem gives finite generation. Bounded rank and finite torsion alone, without this uniform descent, would not suffice."
       ],
       "prerequisites": [
         "KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period",
@@ -2640,7 +2772,8 @@
         "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
         "EulerSystemsAndKolyvaginSystems:ES.8/true-iwasawa-selmer-and-singular-quotient",
         "EulerSystemsAndKolyvaginSystems:ES.8/true-selmer-iwasawa-divisibility",
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicHodgeRegulators:L3"
       ],
       "sources": [
         {
@@ -2760,7 +2893,9 @@
         "Obtain precise supplier export: ModularCurvesPartII:R12.2",
         "Obtain precise supplier export: ModularCurvesPartII:R12.3",
         "Obtain precise supplier export: ModularCurvesPartII:R12.6",
-        "Obtain precise supplier export: ModularCurvesPartII:R13.3"
+        "Obtain precise supplier export: ModularCurvesPartII:R13.3",
+        "Revision required: make the named suggested signatures state their packet conclusions: siegelGaloisDistribution, siegelDegeneracyProduct, siegelAnalyticProduct.",
+        "Revision required: synchronize the independent review corrections, APIs/tests, gaps and sourceIssues into the reader."
       ]
     },
     {
@@ -2772,7 +2907,11 @@
         "Obtain precise supplier export: tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
         "Obtain precise supplier export: tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
         "Obtain precise supplier export: ModularCurvesPartII:R12.2",
-        "Obtain precise supplier export: SelmerIwasawaCohomology:L0"
+        "Obtain precise supplier export: SelmerIwasawaCohomology:L0",
+        "Resolve proof-closure gap: Open modular-curve coefficient comparison",
+        "Obtain precise supplier export: ModularCurvesPartII:R14.3",
+        "Revision required: make the named suggested signatures state their packet conclusions: k2NormProjection, k2AuxiliaryEulerFactor, chernSymbolNormalization.",
+        "Revision required: synchronize the independent review corrections, APIs/tests, gaps and sourceIssues into the reader."
       ]
     },
     {
@@ -2782,7 +2921,16 @@
       "remaining": [
         "Resolve proof-closure gap: All-prime CM module-structure supplier is not staged",
         "Obtain precise supplier export: SelmerIwasawaCohomology:L0",
-        "Obtain precise supplier export: ArithmeticGaloisDuality:D7"
+        "Obtain precise supplier export: ArithmeticGaloisDuality:D7",
+        "Resolve proof-closure gap: Completed Borel–Moore classical moment export",
+        "Resolve proof-closure gap: Global-to-local twist compatibility",
+        "Resolve proof-closure gap: Finite-support theorem for the full cyclotomic algebra",
+        "Obtain precise supplier export: CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
+        "Obtain precise supplier export: SelmerIwasawaCohomology:L3",
+        "Obtain precise supplier export: PadicMeasuresIwasawaAlgebras:L4",
+        "Obtain precise supplier export: ModularSymbolsPadicLFunctions:L0",
+        "Revision required: make the named suggested signatures state their packet conclusions: cyclotomicLimitIntegral, integralZetaFiniteIndex, heckeDualTwistDictionary.",
+        "Revision required: synchronize the independent review corrections, APIs/tests, gaps and sourceIssues into the reader."
       ]
     },
     {
@@ -2803,7 +2951,14 @@
         "Obtain precise supplier export: MotivicEtaleKTheory:M.8",
         "Obtain precise supplier export: ModularCurvesPartII:R12.3",
         "Obtain precise supplier export: AutomorphicGaloisRepresentations:R19.5",
-        "Obtain precise supplier export: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+        "Obtain precise supplier export: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "Resolve proof-closure gap: Open modular-curve coefficient comparison",
+        "Resolve proof-closure gap: Dyadic regulator and Coleman domain",
+        "Resolve proof-closure gap: Global-to-local twist compatibility",
+        "Obtain precise supplier export: ModularCurvesPartII:R14.3",
+        "Obtain precise supplier export: SelmerIwasawaCohomology:L3",
+        "Revision required: make the named suggested signatures state their packet conclusions: generalizedExplicitReciprocity, beilinsonArchimedeanRegulator, ellipticLocalLattice.",
+        "Revision required: synchronize the independent review corrections, APIs/tests, gaps and sourceIssues into the reader."
       ]
     },
     {
@@ -2820,7 +2975,10 @@
         "Obtain precise supplier export: SelmerIwasawaCohomology:L3",
         "Obtain precise supplier export: ModularSymbolsPadicLFunctions:L0",
         "Obtain precise supplier export: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "Obtain precise supplier export: tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+        "Obtain precise supplier export: tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "Resolve proof-closure gap: Dyadic regulator and Coleman domain",
+        "Revision required: make the named suggested signatures state their packet conclusions: nonCmLargeImage, rationalIwasawaStructure, ellipticCyclotomicFiniteGeneration, ellipticOrdinaryMultiplicativeDivisibility, ellipticNoFiniteSubmodule.",
+        "Revision required: synchronize the independent review corrections, APIs/tests, gaps and sourceIssues into the reader."
       ]
     }
   ],
@@ -2880,6 +3038,48 @@
       "detail": "The Kato 16.2 formulas were checked in the PDF; R10’s differently indexed weight, Mellin character and period bases must be compared by the exact L1 request. Equality is conditional on that dictionary, not on the two spaces both being one-dimensional.",
       "neededBy": [
         "KatoEulerSystems:L3/noncritical-analytic-arithmetic-comparison"
+      ]
+    },
+    {
+      "title": "Open modular-curve coefficient comparison",
+      "detail": "Export finite-coefficient étale H¹ and affine-curve higher-degree vanishing for OPEN Y(M,N), trace and quotient descent, and the log de Rham/étale comparison for its smooth compactification with cusp boundary and Sym^(k−2)H coefficients. Identify F^i with M_k(X), including Eisenstein forms, for 1≤i<k. R19.1/parabolic-realisation-premotive supplies only parabolic cohomology and cannot supply this open-curve comparison.",
+      "neededBy": [
+        "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
+        "KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system"
+      ]
+    },
+    {
+      "title": "Completed Borel–Moore classical moment export",
+      "detail": "Export Nakamura Lemma 2.10 and §3.1.4: the Z_p-linear map Sym^(k−2)(Z_p²)^* ⊗_{Z_p[[K_m]]} H₁^BM(K^p(N₀))(1) → H¹(Y(N),V^*_{k/Z_p})(2), with literal dual coefficients, compatible Hecke action, coefficient change and the torsion-scheme/conductor maps. Build on CompletedCohomologyPartII:CC.6 classical evaluation and CC.7 boundary/duality. No integral isomorphism or integral symmetric-power self-duality is required.",
+      "neededBy": [
+        "KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes"
+      ]
+    },
+    {
+      "title": "Dyadic regulator and Coleman domain",
+      "detail": "The inspected L3 crystalline, growth, interpolation and Rubin Coleman exports assume odd p. Export the corresponding p=2 regulator on its precise weight/domain hypotheses, interpolation and growth, and the integral ordinary/multiplicative image when asserted. If that cannot be supplied, restrict the affected comparison conclusions to odd p in a revision; do not infer all-prime Kato 16.2/17.4 or Rubin rational divisibility from an odd-prime export. The scalar comparison also needs the separate de Rham extension already requested.",
+      "neededBy": [
+        "KatoEulerSystems:L3/refined-scalar-regulator-of-the-kato-class",
+        "KatoEulerSystems:L3/noncritical-analytic-arithmetic-comparison",
+        "KatoEulerSystems:L3/critical-and-bad-reduction-comparison-domain",
+        "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+        "KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility"
+      ]
+    },
+    {
+      "title": "Global-to-local twist compatibility",
+      "detail": "Export compatibility of the all-prime semilinear Iwasawa twist tw_κ^(−j) with finite-level specialization and loc_p: global twist, then specialization, then localization agrees with local twisting using the same compatible roots. The R07 iwasawa-twist node states the global κ convention; the odd-prime R09 local node is not an all-prime substitute.",
+      "neededBy": [
+        "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values",
+        "KatoEulerSystems:L2/nakamura-twisted-zeta-morphism"
+      ]
+    },
+    {
+      "title": "Finite-support theorem for the full cyclotomic algebra",
+      "detail": "For Λ=O_λ[[Gal(Q(ζ_p∞)/Q)]], including its semilocal full tame part at p=2, export: a finitely generated module killed by a non-zero-divisor μ with Λ/μΛ p-torsion-free and vanishing at every height-one prime is finite as an abelian group. This is the support argument used in Kato 13.12; a characteristic ideal equal to one alone must not be confused with an equality of lattices.",
+      "neededBy": [
+        "KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index",
+        "KatoEulerSystems:L2/rational-kato-zeta-morphism"
       ]
     }
   ],
@@ -3069,6 +3269,48 @@
       "neededBy": [
         "KatoEulerSystems:L4/elliptic-cyclotomic-mordell-weil-finiteness"
       ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R14.3",
+      "need": "Export finite-coefficient étale H¹ and affine-curve higher-degree vanishing for OPEN Y(M,N), trace and quotient descent, and the log de Rham/étale comparison for its smooth compactification with cusp boundary and Sym^(k−2)H coefficients. Identify F^i with M_k(X), including Eisenstein forms, for 1≤i<k. R19.1/parabolic-realisation-premotive supplies only parabolic cohomology and cannot supply this open-curve comparison.",
+      "neededBy": [
+        "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
+        "KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system"
+      ]
+    },
+    {
+      "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
+      "need": "Export Nakamura Lemma 2.10 and §3.1.4: the Z_p-linear map Sym^(k−2)(Z_p²)^* ⊗_{Z_p[[K_m]]} H₁^BM(K^p(N₀))(1) → H¹(Y(N),V^*_{k/Z_p})(2), with literal dual coefficients, compatible Hecke action, coefficient change and the torsion-scheme/conductor maps. Build on CompletedCohomologyPartII:CC.6 classical evaluation and CC.7 boundary/duality. No integral isomorphism or integral symmetric-power self-duality is required.",
+      "neededBy": [
+        "KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:L3",
+      "need": "The inspected L3 crystalline, growth, interpolation and Rubin Coleman exports assume odd p. Export the corresponding p=2 regulator on its precise weight/domain hypotheses, interpolation and growth, and the integral ordinary/multiplicative image when asserted. If that cannot be supplied, restrict the affected comparison conclusions to odd p in a revision; do not infer all-prime Kato 16.2/17.4 or Rubin rational divisibility from an odd-prime export. The scalar comparison also needs the separate de Rham extension already requested.",
+      "neededBy": [
+        "KatoEulerSystems:L3/refined-scalar-regulator-of-the-kato-class",
+        "KatoEulerSystems:L3/noncritical-analytic-arithmetic-comparison",
+        "KatoEulerSystems:L3/critical-and-bad-reduction-comparison-domain",
+        "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+        "KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "need": "Export compatibility of the all-prime semilinear Iwasawa twist tw_κ^(−j) with finite-level specialization and loc_p: global twist, then specialization, then localization agrees with local twisting using the same compatible roots. The R07 iwasawa-twist node states the global κ convention; the odd-prime R09 local node is not an all-prime substitute.",
+      "neededBy": [
+        "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values",
+        "KatoEulerSystems:L2/nakamura-twisted-zeta-morphism"
+      ]
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L4",
+      "need": "For Λ=O_λ[[Gal(Q(ζ_p∞)/Q)]], including its semilocal full tame part at p=2, export: a finitely generated module killed by a non-zero-divisor μ with Λ/μΛ p-torsion-free and vanishing at every height-one prime is finite as an abelian group. This is the support argument used in Kato 13.12; a characteristic ideal equal to one alone must not be confused with an equality of lattices.",
+      "neededBy": [
+        "KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index",
+        "KatoEulerSystems:L2/rational-kato-zeta-morphism"
+      ]
     }
   ],
   "restructure": [],
@@ -3086,7 +3328,12 @@
       "searched": [
         "Numdam published PDF, printed pp.124 and the Bernoulli explanation in §3.10, read 6 October 2026.",
         "Bounded web search for Kato 2004 Siegel-unit/1.9 errata on 6 October 2026 found no correction; no claim of exhaustive novelty."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the page images at 1.9 p.124 and after 3.10 p.141; the theta product requires B₂/2. The rational computation gives −11/300 versus −23/300 at 2/5.",
+        "by": "REV-KatoEulerSystems"
+      }
     },
     {
       "id": "KatoEulerSystems/E2",
@@ -3101,7 +3348,12 @@
       "searched": [
         "Public AWS 1999 draft, III.5.1 proof, read 6 October 2026.",
         "Bounded web search for Rubin Euler Systems Proposition 5.1 and p=2 errata, 6 October 2026; no standalone erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the AWS p.48 display and formal-logarithm proof. For y²+xy=x³+1, Δ=−433 and log(2u)∈4Z₂, while log(E₂)=4Z₂, so E₁ has image 4Z₂. This finding is restricted to the downloaded public draft.",
+        "by": "REV-KatoEulerSystems"
+      }
     },
     {
       "id": "KatoEulerSystems/E3",
@@ -3116,7 +3368,12 @@
       "searched": [
         "Public AWS 1999 draft, III.5.8 proof, read 6 October 2026.",
         "Bounded web search for Rubin Proposition 5.8 dyadic cohomology correction, 6 October 2026; no standalone erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read AWS p.50 and reproduced the finite GL₂(Z/4) cocycle calculation: group order 96, Z¹ dimension 3, B¹ dimension 2. Inflation and the multiplication-by-two sequence give a nonzero class in H¹(GL₂(Z₂),(Q₂/Z₂)²). Only the asserted integral vanishing at two is rejected.",
+        "by": "REV-KatoEulerSystems"
+      }
     },
     {
       "id": "KatoEulerSystems/E4",
@@ -3131,7 +3388,12 @@
       "searched": [
         "Kato published Proposition 1.3 p.121 compared with Nakamura published §3.1.3 p.207 on 6 October 2026.",
         "Bounded web search Nakamura zeta morphisms erratum theta divisor, 6 October 2026; no correction notice found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently compared published Nakamura p.207 with Kato 1.3: the divisor is reversed. Bilinearity gives {u⁻¹,v⁻¹}={u,v}, so the equal-auxiliary symbol is unaffected.",
+        "by": "REV-KatoEulerSystems"
+      }
     },
     {
       "id": "KatoEulerSystems/E5",
@@ -3147,7 +3409,12 @@
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
       ],
-      "source": "nakamura-2023-published"
+      "source": "nakamura-2023-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the published p.267 image: μ₁ has d² and μ_n loses that square although only the conductor algebra changes. Confirmed without relying on the prior extraction verdict.",
+        "by": "REV-KatoEulerSystems"
+      }
     },
     {
       "id": "KatoEulerSystems/E6",
@@ -3163,7 +3430,92 @@
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
       ],
-      "source": "nakamura-2023-published"
+      "source": "nakamura-2023-published",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published p.268, Appendix A setup and §3.3: the two-dimensional Γ₁ quotient requires Y₁(N_f). The full-level eigenspace includes the finite-level automorphic multiplicity.",
+        "by": "REV-KatoEulerSystems"
+      }
+    },
+    {
+      "id": "KatoEulerSystems/E7",
+      "source": "nakamura-2023-published",
+      "kind": "error",
+      "locator": "Published Invent. Math. 234 (2023), §3.1.2 pp.205–206, equation (7) and preceding symmetric-power pairing",
+      "printed": "The source asserts the isomorphism Sym^(k−2)(A²)≅Sym^(k−2)(A²)^*⊗det^(k−2) in the category of A[GL₂(Z_p)]-modules.",
+      "correction": "Require (k−2)! invertible for this symmetric-power self-duality, in particular use rational coefficients. Integrally retain the literal dual, which corresponds to a divided-power lattice; do not replace it by the symmetric-power Tate lattice.",
+      "reason": "Take p=2,k=4,A=Z₂ and the ordinary quotient Sym² with basis x²,xy,y². Equivariance under diag(3,1) forces B to have antidiagonal entries a,b,c. The unipotent matrix U=[[1,1,1],[0,1,2],[0,0,1]] forces UᵗBU=B, hence a=c=−2b. Its determinant is −4b³, never a unit of Z₂. Thus no such perfect equivariant pairing exists. This invalidates the arbitrary integral identification used in the proof, but not the rational dictionary or a theorem restated using literal duals.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published pp.205–206 and the coefficient conventions in §3.1.1 checked on 6 October 2026.",
+        "Bounded searches on Springer Link for the exact DOI with correction/erratum and arXiv for Nakamura symmetric dual zeta morphisms, 6 October 2026, found no applicable correction; no exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take p=2,k=4,A=Z₂ and the ordinary quotient Sym² with basis x²,xy,y². Equivariance under diag(3,1) forces B to have antidiagonal entries a,b,c. The unipotent matrix U=[[1,1,1],[0,1,2],[0,0,1]] forces UᵗBU=B, hence a=c=−2b. Its determinant is −4b³, never a unit of Z₂. Thus no such perfect equivariant pairing exists. This invalidates the arbitrary integral identification used in the proof, but not the rational dictionary or a theorem restated using literal duals.",
+        "by": "REV-KatoEulerSystems"
+      }
+    },
+    {
+      "id": "KatoEulerSystems/E8",
+      "source": "kato-2004-asterisque-295",
+      "kind": "misprint",
+      "locator": "Published Astérisque 295 (2004), Theorem 12.5(4), p.222; proof 13.14, p.234",
+      "printed": "length_(Λ_𝔭)(H²(V_Fλ(f))_𝔭) ≤ length_(Λ_𝔭)(H¹(V_Fλ(f))_𝔭/Z(f)_𝔭)",
+      "correction": "In the stronger integral clause use H²(T)_𝔭 and H¹(T)_𝔭/Z(f,T)_𝔭. Keep the rational display as the literal printed excerpt and distinguish it from this contextual correction.",
+      "reason": "The clause first establishes Z(f,T)⊂H¹(T) and quantifies every height-one prime, including those over p. Rational modules make the latter inequality vacuous over p. Proof 13.14 reduces T to a scalar multiple of V_Oλ(f), proves integral membership using finite index and integral freeness, and invokes integral Theorem 13.4(3). This fixes the intended lattice statement without claiming that the weaker printed rational inequality itself is false.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam published pp.222 and 234 inspected independently, 6 October 2026.",
+        "Bounded Numdam/Kato searches for 12.5 and errata on 6 October 2026 found no applicable correction; no exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The clause first establishes Z(f,T)⊂H¹(T) and quantifies every height-one prime, including those over p. Rational modules make the latter inequality vacuous over p. Proof 13.14 reduces T to a scalar multiple of V_Oλ(f), proves integral membership using finite index and integral freeness, and invokes integral Theorem 13.4(3). This fixes the intended lattice statement without claiming that the weaker printed rational inequality itself is false.",
+        "by": "REV-KatoEulerSystems"
+      }
+    },
+    {
+      "id": "KatoEulerSystems/E9",
+      "source": "kato-2004-asterisque-295",
+      "kind": "misprint",
+      "locator": "Published Astérisque 295 (2004), Theorem 17.4(3), p.273; compared with 17.6 p.274 and proof 17.13 pp.279–280",
+      "printed": "The source claims the existence of a stable O_λ-lattice in V_Fλ(f) for which ω and γ are both good.",
+      "correction": "The periods belong to f*: goodness is for U⊂V_Fλ(f*) with U≅T*(1−k), so the bound is on X(T).",
+      "reason": "In 17.4(2), ω∈S(f*) and γ∈V_F(f*). Definition 17.5 for f cannot apply to those vectors. Conjecture 17.6 explicitly puts goodness in V(f*) and identifies its lattice with T*(1−k); proof 17.13 starts with a lattice U in V(f*) and concludes for X(U*(1−k)). Thus the f in the goodness condition is a dual-form/lattice misprint.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam published pp.273–274 and 279–280 inspected, 6 October 2026.",
+        "Bounded Numdam/Kato searches for 17.4 good lattice errata, 6 October 2026, found no applicable correction; no exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In 17.4(2), ω∈S(f*) and γ∈V_F(f*). Definition 17.5 for f cannot apply to those vectors. Conjecture 17.6 explicitly puts goodness in V(f*) and identifies its lattice with T*(1−k); proof 17.13 starts with a lattice U in V(f*) and concludes for X(U*(1−k)). Thus the f in the goodness condition is a dual-form/lattice misprint.",
+        "by": "REV-KatoEulerSystems"
+      }
+    },
+    {
+      "id": "KatoEulerSystems/E10",
+      "source": "nakamura-2023-published",
+      "kind": "misprint",
+      "locator": "Published Invent. Math. 234 (2023), §5.1 p.254, proof of Theorem 5.2 and paragraph before Conjecture 5.3",
+      "printed": "The source cites [28], Theorem 12.4(4), and also states that Conjecture 5.2 is decomposed into the η-component.",
+      "correction": "Theorem 12.5(4) of Kato; Conjecture 5.1 is decomposed into its η-components.",
+      "reason": "Theorem 12.4 has clauses (1)–(3), while the large-image integral inequality is 12.5(4), and §5.1 labels the global characteristic-ideal equality Conjecture 5.1. Theorem 5.2 is the one-direction bound, not a conjecture. These are cross-reference slips with uniquely identifiable intended statements.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published p.254 compared with Kato pp.221–222 and Nakamura p.253, 6 October 2026.",
+        "Bounded Springer/arXiv correction searches for the article on 6 October 2026 found no applicable correction notice; no exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 12.4 has clauses (1)–(3), while the large-image integral inequality is 12.5(4), and §5.1 labels the global characteristic-ideal equality Conjecture 5.1. Theorem 5.2 is the one-direction bound, not a conjecture. These are cross-reference slips with uniquely identifiable intended statements.",
+        "by": "REV-KatoEulerSystems"
+      }
     }
   ],
   "sourceVersions": [
@@ -3179,7 +3531,8 @@
       "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
       "read": "2026-10-06",
       "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
-      "citation": "Author draft distributed with the 1999 Arizona Winter School notes (inspected 2026-09-15); chapter/section numbering agrees with the published monograph"
+      "citation": "Public author draft distributed with the 1999 Arizona Winter School notes; inspected independently 6 October 2026. No line-by-line collation with the published AMS 147 book is claimed.",
+      "accessNote": "The AWS public draft was obtained. An additional public book-copy download returned HTTP 403; the published AMS 147 book was not obtained or collated. E2–E3 concern exclusively the AWS draft."
     },
     {
       "kind": "published",
@@ -3204,6 +3557,218 @@
     {
       "title": "CM early supplier and critical-family cycle boundary",
       "detail": "PAPER-BURUNGALE-TIAN-26 route 7 needs an early all-prime elliptic-unit stage before Kato 12.5. No such owner stage is presently resolvable, so the CM proof gap is named without inventing a stage id. PadicFamilies:L4 consumes Kato L3/L4 and cannot be a prerequisite for constructing its geometric classes; the compatible critical arithmetic section remains an explicit comparison input."
+    },
+    {
+      "title": "Review reader synchronization and supplier ownership",
+      "detail": "REV-KatoEulerSystems may edit only the packet, suggested file and review/handoff; the reader is read-only for this issue. A revision must synchronize the corrected excerpts, literal integral dual, rational dictionary domain, dual good-period lattice, new supplier requests and sourceIssues E7–E10 into the reader. Generic open/log comparison, completed Borel–Moore evaluation, dyadic regulators and finite-support algebra remain with their named owners."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-KatoEulerSystems",
+    "date": "2026-10-06",
+    "notes": "Completed independent review of all 40 nodes, all twelve pinned declaration statements, the seven specified red-team repairs, supplier statements, APIs/tests, planets and source versions. Corrected 25 nodes, added eleven API items and eight construction-sensitive tests, strengthened seven existing tests, added five precise supplier gaps/requests and confirmed all ten source issues (E7–E10 added). No new mathematical nodes or baseline removals. Named suggested signatures identified as unverifiable omit substantial source conclusions, particularly finite index, reciprocity, coefficient/operator transport, local lattices and finite generation. Explicitly omitted unexpressible hypotheses are allowed by §13 and are not by themselves the reason for rejection. The read-only reader requires synchronization by the revision job. Packet complete/planned status describes this finished planning pass, not proof closure; all implementation statuses remain unchecked.",
+    "checked": [
+      {
+        "nodeId": "KatoEulerSystems:L0/theta-function-c-normalised",
+        "verdict": "corrected",
+        "note": "Kato 1.3/1.10, Cartier divisor, norm uniqueness and pushforward proof checked; base change and c,d compatibility APIs added. Conditional uniqueness prototype is honest about missing geometry."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L0/siegel-units-and-c-independent-rationalisation",
+        "verdict": "corrected",
+        "note": "Kato 1.1/1.4/1.9 and total/full-level constant-field conventions checked; E1 acceptance conflict resolved; identity-pullback and actual smoothing tests exclude constant constructions."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L0/siegel-unit-galois-action-and-distribution",
+        "verdict": "unverifiable",
+        "note": "Source action and distribution formulas checked. The suggested declaration only applies a linear map to an already-assumed sum identity; it states neither indexed Galois action nor the distribution identity."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L0/siegel-unit-degeneracy-product-formula",
+        "verdict": "unverifiable",
+        "note": "The α/β level-degeneracy product and root choices were checked against Kato 1.6. The suggested declaration is only preservation of a finite product by a ring map, with no degeneracy formula."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N",
+        "verdict": "corrected",
+        "note": "Kato 2.1–2.2 checked with M,N≥2, M+N≥5, two separate auxiliaries and both units on the same curve. Added direct descent edge and bilinearity API; both identity entries tested."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/K2-norm-projection-formula-and-level-norm-relation",
+        "verdict": "unverifiable",
+        "note": "Source 2.3/2.11 and standing levels corrected. The generic projection identity is a useful part, but the named signature omits the level-change norm relation for the actual two-index elements. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/euler-factor-norm-relation-at-auxiliary-primes",
+        "verdict": "unverifiable",
+        "note": "The good/bad auxiliary-prime cases of 2.4/2.12 are correct in the packet. The suggested declaration merely expands an operator; it has no transfer between levels or norm relation."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
+        "verdict": "corrected",
+        "note": "Kato 8.4–8.5 composite and k−r twist checked. Reversed source excerpt corrected; open-curve and integrality inputs explicit; extensionality and nonzero composite test added."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/hecke-and-diamond-equivariance-of-the-moment-map",
+        "verdict": "verified",
+        "note": "Kato 8.8–8.9 equivariance checked against the two-index correspondence request; the conditional linear-map compatibility signature retains the operator scaling."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology",
+        "verdict": "unverifiable",
+        "note": "Lemma 8.5 and the dual residue-H¹ argument checked. The signature assumes restriction is zero and dualizes into Q; this loses finite p-primary Pontryagin duality and states no S-integral lifting conclusion."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
+        "verdict": "corrected",
+        "note": "Kato 8.1/8.7 and 9.5 normalizations checked, retaining ℓ^(−r), ℓ^(k−1−2r), bad-level cases and repeated p-direction. Tests now use constructed classes and a nonzero moment."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/euler-system-datum-for-the-modular-lattice",
+        "verdict": "corrected",
+        "note": "Kato 13.1–13.3 arithmetic-Frobenius convention and the ES.2 carrier/conductor/Euler-factor-change statements checked. Extensionality added; repeated-prime test uses adapter components."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index",
+        "verdict": "unverifiable",
+        "note": "The inclusion direction and 13.12 height-one argument were corrected. The named Lean theorem gives only membership under an assumed inclusion; it has no finite quotient conclusion. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system",
+        "verdict": "corrected",
+        "note": "Kato 9.2–9.4 filtration steps and endpoint checked; open/log comparison requested. Generic exp* stays imported, with a coercion API/test rather than a second definition."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements",
+        "verdict": "unverifiable",
+        "note": "The p^(−r) and bad-level cases of 9.5 are source-correct; KK3 is an honest gap. The suggested signature only expands id−p^(−r)A, with neither exp* of a zeta class nor the Eisenstein-product value."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values",
+        "verdict": "corrected",
+        "note": "Kato 12.5 and Burungale–Tian 2.4 formula checked: global twist k−r precedes specialization, loc_p and exp*. Replaced odd-prime local twist supplier; missing actual arithmetic hypotheses in the formal formula are explicitly permitted omissions under §13."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/beilinson-regulator-and-the-archimedean-zeta-value",
+        "verdict": "unverifiable",
+        "note": "Kato 2.5–2.7 uses the derivative at zero and the actual Deligne regulator. The signature only distinguishes two arbitrary complex numbers and omits the regulator-value equation."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra",
+        "verdict": "corrected",
+        "note": "Kato 13.4 and Rubin II.3 packages checked with parity (ii), purity (iii), cyclotomic irreducibility, rational/integral τ distinction and strict-H² adapter. Natural-length prototype captures only the explicitly described inequality consequence."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero",
+        "verdict": "corrected",
+        "note": "Kato 13.5–13.7 and Burungale–Tian 2.4 checked; δ_{L,L} excerpt fixed. Source theorem concerns actual canonical-map span at every component; generic nonzero-span prototype is explicitly conditional."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/cohomological-divisibility-one-direction",
+        "verdict": "corrected",
+        "note": "Kato 12.5(3)–(4), 13.13–13.14 and Nakamura 5.2 checked; E8 distinguishes literal rational display from intended integral lattice inequality. Exceptional local length and stronger image hypotheses retained."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+        "verdict": "corrected",
+        "note": "Kato 17.1–17.6 and proof 17.13 checked; E9 corrects goodness to f* and the dual lattice U≅T*(1−k). Dyadic/integral regulator and strict-Selmer suppliers remain explicit conditions."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment",
+        "verdict": "unverifiable",
+        "note": "Rational unipotents, integral full-image hypotheses and the CM exclusion checked. Cancellation x*b=0 iff b=0 supplies neither the representation-image theorem nor its rational/integral rank-one quotient."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L0/analytic-product-cusp-divisor-and-integrality",
+        "verdict": "unverifiable",
+        "note": "Bernoulli exponent, cusp-width conversion and integrality hypotheses checked, with E1 confirmed. The named signature contains only one numerical leading-exponent value and no q-product, cusp divisor or integrality statement."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L1/chern-symbol-normalization-and-denominators",
+        "verdict": "unverifiable",
+        "note": "Imported finite Chern sign and denominator hypotheses checked. Negating an arbitrary additive map does not state c_(2,2)=−cup or ch_(2,2)=cup on scheme K₂ symbols."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes",
+        "verdict": "corrected",
+        "note": "Nakamura equations (9)–(16) checked. Integral coefficients are literal duals; the completed BM moment export is requested; rational self-duality no longer supplies this construction. Extensionality and nonzero-map tests added."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/hecke-dual-twist-dictionary",
+        "verdict": "unverifiable",
+        "note": "The dictionary is corrected to the rational/factorial-invertible domain, preserving the two different central powers. Its named signature is just a power identity, with no Hecke operators, dual coefficients or transport. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/rational-kato-zeta-morphism",
+        "verdict": "corrected",
+        "note": "Kato 12.5(1)–(2), 13.9–13.12 checked. Fractional construction and rational membership are a joint argument, with direct generator, nonvanishing and finite-support inputs; uniqueness and nonzero/sign tests added."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/archimedean-period-quotient-and-critical-values",
+        "verdict": "verified",
+        "note": "Kato 4.2.4, 6.3–6.6 and the §7 reduction checked, including f*, signs, exclusions, product/smoothing exponents and E¹=F¹. The formal formula omits its unexpressible geometric inputs as §13 allows; it is not a theorem for arbitrary periods."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/parabolic-full-level-characterisation",
+        "verdict": "verified",
+        "note": "Nakamura Lemma 3.4/Corollary 3.6 checked: only rational parabolic cohomology with Drinfeld–Manin splitting and inverse-limit exp* injectivity, never the open curve. Prototype records the conditional uniqueness implication."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L2/nakamura-twisted-zeta-morphism",
+        "verdict": "corrected",
+        "note": "Nakamura Appendix A checked with actual source/output twists and positive conjugation, after the Γ₁/dual-form dictionary; all-prime global twist and localization compatibility now explicit. Extensionality and constructed-map sign tests added."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/refined-scalar-regulator-of-the-kato-class",
+        "verdict": "corrected",
+        "note": "Kato 16.4–16.6 refinement and normalized η pairing checked. Added projection additivity/nonzero identity test; de Rham and dyadic domains explicitly requested from the regulator owner."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/noncritical-analytic-arithmetic-comparison",
+        "verdict": "corrected",
+        "note": "Kato 16.2/16.6 interpolation and small-slope uniqueness checked against R10/R09, with precise period and dyadic requests. The abstract separating-evaluation implication is a conditional core, not a completed arithmetic comparison."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/critical-and-bad-reduction-comparison-domain",
+        "verdict": "corrected",
+        "note": "R10 family statement read; decency, common affinoid domain, dense noncritical locus and nonvanishing periods restored. Compatible arithmetic family remains an explicit condition; no cycle through PadicFamilies L4."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/analytic-twist-nonvanishing",
+        "verdict": "corrected",
+        "note": "Kato 13.5–13.7 and AWS III.5.6 checked. Corrected 13.5(2) to even-weight central values; use functional equation off the center and nonvanishing at k−1 for k≥3."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/rational-iwasawa-module-structure",
+        "verdict": "unverifiable",
+        "note": "All-prime Kato 12.4, including its separate CM proof supplier, checked. A rank-one basis is an input to the prototype; H² torsion and integral H¹ torsion-freeness are absent, and rational freeness is not stated as a conclusion of the arithmetic inputs. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period",
+        "verdict": "unverifiable",
+        "note": "AWS III.5.1–5.3 and the odd-prime correction E2 checked. The identity localIndex*p⁻¹*p=localIndex states neither the exp* image lattice nor the Kato period equation."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/elliptic-cyclotomic-mordell-weil-finiteness",
+        "verdict": "unverifiable",
+        "note": "Source application checked and uniform finite-layer descent supplied. The prototype only gives membership under fixedLayer=top; finite generation does not occur in its conclusion. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility",
+        "verdict": "unverifiable",
+        "note": "Coleman and ordinary/multiplicative bounds checked, keeping the split augmentation factor and precise dyadic supplier gap. The prototype simply unfolds an assumed divisibility and omits torsion, rational/integral cases and the Coleman image. Clear packet corrections are retained; the signature revision remains required."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/elliptic-no-finite-iwasawa-submodule",
+        "verdict": "unverifiable",
+        "note": "The local torsion exclusions and Greenberg/norm-freeness requests match AWS III.5.17. The prototype assumes the desired no-finite-submodule criterion itself; it does not state the elliptic theorem under its arithmetic hypotheses."
+      },
+      {
+        "nodeId": "KatoEulerSystems:L4/elliptic-rank-zero-p-part-upper-bound",
+        "verdict": "verified",
+        "note": "AWS III.5.11/5.18 checked: nonzero L-value, odd good p, full image, bad unit/local-torsion exclusions and exact control cancellation retained. Conclusion is an upper bound only."
+      }
+    ]
+  }
 }
