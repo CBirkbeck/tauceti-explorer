@@ -379,9 +379,12 @@ what ties this layer's two halves together.
 
 **Source.** Kbook.2013, VI.2.4.1 (PDF p. 466): “Kummer proved that p is irregular if and only
 if p divides the numerator of one of the Bernoulli numbers B_k, k at most (p-3)/2 (see
-Washington). By Kummer's congruences, p does not divide the numerator of any B_k/k (but 5
-divides B_5). Thus only irregular primes can divide the numerator of B_k/k.” — The criterion
-and its consequence, verbatim, with the source’s own reference for the proof.
+Washington).” — The criterion, verbatim, with the source’s own reference for the proof.
+
+**Source.** Kbook.2013, VI.2.4.1, the sentence after the criterion (PDF p. 466): “By Kummer's
+congruences, p does not divide the numerator of any B_k/k (but 5 divides B_5). Thus only
+irregular primes can divide the numerator of B_k/k.” — Its consequence through Kummer's
+congruences, verbatim, with the source's reference.
 
 **Source.** Kbook.2013, VI.2.4.1, the historical remark (PDF p. 466): “The historical interest
 in regular primes is Kummer's 1847 proof of Fermat's Last Theorem (case I) for regular primes:
@@ -1126,9 +1129,12 @@ quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].” — The sta
 Tate, verbatim.
 
 **Source.** Browkin.2000, §1, Introduction (p. 1667): “J. Tate [T] has determined the tame
-kernel of all quadratic imaginary Euclidean fields F and of F = Q(√−15). He proved that all
-mappings ∂v (see notation below) are isomorphisms if the norm of the prime ideal v of the field
-F is sufficiently large. Then he investigated the remaining v’s (with small norms) performing
+kernel of all quadratic imaginary Euclidean fields F and of F = Q(√−15).” — The attribution of
+the Gaussian case to Tate, verbatim: ℤ[i] is a Euclidean imaginary quadratic ring.
+
+**Source.** Browkin.2000, §1, Introduction (p. 1667): “He proved that all mappings ∂v (see
+notation below) are isomorphisms if the norm of the prime ideal v of the field F is
+sufficiently large. Then he investigated the remaining v’s (with small norms) performing
 necessary computations with symbols.” — The shape of Tate's argument, verbatim. Tate's own
 computation for ℤ[i] (in his appendix to Bass–Tate) was not obtained: the sets C, G and W of
 steps 2–4 and the inequalities are this packet's application of N.8/tate-criterion, written out

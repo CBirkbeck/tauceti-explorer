@@ -78,6 +78,7 @@ commutators are deliberately not prescribed. -/
 def relations (n : ℕ) (R : Type u) [Ring R] : Set (FreeGroup (Gen n R)) := by
   sorry
 
+set_option linter.dupNamespace false in
 /-- Finite-rank presentation, with the source's n >= 3 convention. -/
 abbrev Steinberg (n : ℕ) (_hn : 3 ≤ n) (R : Type u) [Ring R] : Type u :=
   PresentedGroup (relations n R)
@@ -520,18 +521,18 @@ constructs its cokernel. V.2 is not a prerequisite for constructing that map.
 
 /-! Representative tests in addition to the packet's full object-level tests. -/
 example (r s : R) :
-    ⁅x (n := 3) (by decide) (i := 0) (j := 1) (by decide) r,
-      x (n := 3) (by decide) (i := 1) (j := 2) (by decide) s⁆ =
-      x (n := 3) (by decide) (i := 0) (j := 2) (by decide) (r*s) := by
+    ⁅x (n := 3) le_rfl (i := 0) (j := 1) (by decide) r,
+      x (n := 3) le_rfl (i := 1) (j := 2) (by decide) s⁆ =
+      x (n := 3) le_rfl (i := 0) (j := 2) (by decide) (r*s) := by
   sorry
 
 example (r s : R) :
-    ⁅x (n := 3) (by decide) (i := 0) (j := 1) (by decide) r,
-      x (n := 3) (by decide) (i := 2) (j := 0) (by decide) s⁆ =
-      x (n := 3) (by decide) (i := 2) (j := 1) (by decide) (-(s*r)) := by
+    ⁅x (n := 3) le_rfl (i := 0) (j := 1) (by decide) r,
+      x (n := 3) le_rfl (i := 2) (j := 0) (by decide) s⁆ =
+      x (n := 3) le_rfl (i := 2) (j := 1) (by decide) (-(s*r)) := by
   sorry
 
-example : x (R := ℤ) (n := 3) (by decide) (i := 0) (j := 1) (by decide) 0 = 1 := by
+example : x (R := ℤ) (n := 3) le_rfl (i := 0) (j := 1) (by decide) 0 = 1 := by
   sorry
 
 /-
@@ -629,9 +630,9 @@ theorem transgression_lift (q : E →* Q) (hq : Function.Surjective q)
     (boundary : (barKernel q).X 1)
     (hboundary : (kernel.ι (barMap q)).f 1 boundary = (integralBar E).d 2 1 lift) :
     transgression q hq ((integralBar Q).homologyπ 2
-      ((integralBar Q).cyclesMk z 1 (by decide) hz)) =
+      ((integralBar Q).cyclesMk z 1 (ChainComplex.next_nat_succ 1) hz)) =
       barKernelH1Equiv q ((barKernel q).homologyπ 1
-        ((barKernel q).cyclesMk boundary 0 (by decide) (by sorry))) := by sorry
+        ((barKernel q).cyclesMk boundary 0 (ChainComplex.next_nat_succ 0) (by sorry))) := by sorry
 
 theorem fiveTerm_exact (q : E →* Q) (hq : Function.Surjective q) :
     (intHomologyMap q 2).range = (transgression q hq).ker ∧
@@ -661,9 +662,9 @@ example (q : E →* Q) (hq : Function.Surjective q)
     (boundary : (barKernel q).X 1)
     (hb : (kernel.ι (barMap q)).f 1 boundary = (integralBar E).d 2 1 lift) :
     transgression q hq ((integralBar Q).homologyπ 2
-      ((integralBar Q).cyclesMk z 1 (by decide) hz)) =
+      ((integralBar Q).cyclesMk z 1 (ChainComplex.next_nat_succ 1) hz)) =
       barKernelH1Equiv q ((barKernel q).homologyπ 1
-        ((barKernel q).cyclesMk boundary 0 (by decide) (by sorry))) := by sorry
+        ((barKernel q).cyclesMk boundary 0 (ChainComplex.next_nat_succ 0) (by sorry))) := by sorry
 
 def mixedMap (q : E →* Q) (q' : E' →* Q') (a : E →* E') (b : Q →* Q')
     (hsq : q'.comp a = b.comp q) : mixedCoinvariants q →+ mixedCoinvariants q' := by sorry

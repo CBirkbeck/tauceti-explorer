@@ -1,3 +1,6 @@
+import TauCeti.CategoryTheory.GrothendieckGroup.Exact
+import TauCeti.Algebra.Category.ModuleCat.CartanMap
+
 /-
 Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541.
 Codex codex-5ebb6f, 2026-10-02. Unchecked; NOT COMPILED; awaits independent review.
@@ -22,8 +25,6 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 Not compiled: no existing build at both pins was identified.
 -/
-import TauCeti.CategoryTheory.GrothendieckGroup.Exact
-import TauCeti.Algebra.Category.ModuleCat.CartanMap
 
 noncomputable section
 namespace TauCeti.HigherK

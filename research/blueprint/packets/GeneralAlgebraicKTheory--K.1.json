@@ -5938,43 +5938,13 @@
     {
       "status": "pending",
       "notes": "Post-review fix checkpoint; prior independent verdict is preserved in reviewHistory. Awaiting independent review of this revision."
-    },
-    {
-      "status": "needs_changes",
-      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-      "date": "2026-09-30",
-      "notes": "Codex session codex-J6LwjP; follows pending revision following independent-review-REV-GeneralAlgebraicKTheory--K.1. Corrected the Q maximal tree, cofinality counterexample, relative-S zero term (source issue), invalid general Waldhausen group-completion assertion, and proper ring-transfer hypotheses/source. The fix still relies on unread plus-equals-Q and fibration/localization proof inputs and proposed, unapplied stage ordering; construction/product and late cofinality contracts need resolution. /4, /15, /18–/21 are not all closed. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
     }
   ],
   "review": {
-    "status": "pending",
-    "reviewer": null,
-    "notes": "FIX-RT-AREA-ktheory-1~2 changes await independent REV-FIX review. Earlier decisions are preserved in reviewHistory; no acceptance or proof closure is asserted for this revision."
-  },
-  "revision": {
-    "job": "FIX-RT-AREA-ktheory-1~2",
-    "issue": 5541,
-    "agent": "Codex",
-    "session": "codex-5ebb6f",
-    "date": "2026-10-02",
-    "status": "awaiting independent review",
-    "note": "Declaration-sized source proof inputs and concrete supplier contracts for the 38 confirmed high/medium findings. The roadmap remains partial; implementation is unchecked and suggested Lean was not elaborated.",
-    "previous": {
-      "job": "FIX-RT-AREA-ktheory-1",
-      "agent": "Claude Code",
-      "session": "cc-c2c06b",
-      "date": "2026-09-30",
-      "status": "awaiting independent review",
-      "note": "Completes the checkpoint's partial repairs of RT-AREA-ktheory-1 findings 4, 15, 19, 20 and 21 in this packet, adds the K.5 part of finding 18, and verifies finding 31 without changing it. The earlier accepted review applies to the earlier text only. These planning corrections are not Lean proofs.",
-      "previous": {
-        "job": "FIX-RT-AREA-ktheory-1",
-        "agent": "Codex",
-        "session": "codex-5ebb6f",
-        "date": "2026-09-29",
-        "status": "awaiting independent review",
-        "note": "Earlier accepted review applies to the earlier text only. These planning corrections are not Lean proofs."
-      }
-    }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+    "date": "2026-09-30",
+    "notes": "Codex session codex-J6LwjP; follows pending revision following independent-review-REV-GeneralAlgebraicKTheory--K.1. Corrected the Q maximal tree, cofinality counterexample, relative-S zero term (source issue), invalid general Waldhausen group-completion assertion, and proper ring-transfer hypotheses/source. The fix still relies on unread plus-equals-Q and fibration/localization proof inputs and proposed, unapplied stage ordering; construction/product and late cofinality contracts need resolution. /4, /15, /18–/21 are not all closed. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   },
   "sourceVersions": [
     {
