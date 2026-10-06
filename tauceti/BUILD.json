@@ -180,6 +180,12 @@
       "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.7"
     },
     {
+      "file": "DiamondEtaleCohomology--C8",
+      "roadmap": "DiamondEtaleCohomology",
+      "nodes": 65,
+      "reviewer": "independent-review-REV-DiamondEtaleCohomology--C8"
+    },
+    {
       "file": "DirichletPadicLFunctions--L0",
       "roadmap": "DirichletPadicLFunctions",
       "nodes": 80,
@@ -324,6 +330,12 @@
       "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums"
     },
     {
+      "file": "GL2AutomorphicRepresentationsAndTransfer--R17.3",
+      "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+      "nodes": 57,
+      "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
+    },
+    {
       "file": "GeneralAlgebraicKTheory--K.1",
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 33,
@@ -334,6 +346,12 @@
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 22,
       "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6"
+    },
+    {
+      "file": "GeneralizedHeegnerCycles--GH.8",
+      "roadmap": "GeneralizedHeegnerCycles",
+      "nodes": 16,
+      "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.8"
     },
     {
       "file": "GenericDoublePointInterpolation",
@@ -564,10 +582,22 @@
       "reviewer": "independent-review-REV-DESIGN-LV~2"
     },
     {
+      "file": "MotivicEtaleKTheory--M.1",
+      "roadmap": "MotivicEtaleKTheory",
+      "nodes": 82,
+      "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.1"
+    },
+    {
       "file": "NeronModelsAndSemistableAbelianVarieties",
       "roadmap": "NeronModelsAndSemistableAbelianVarieties",
       "nodes": 78,
       "reviewer": "independent-review-REV-NeronModelsAndSemistableAbelianVarieties"
+    },
+    {
+      "file": "OverconvergentAutomorphicForms--O8",
+      "roadmap": "OverconvergentAutomorphicForms",
+      "nodes": 18,
+      "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O8"
     },
     {
       "file": "PadicHodgeRegulators--L3",
@@ -661,8 +691,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 12035275,
-  "htmlSha256": "1aa62a99b905ea58c0b6d0debe3648e1bdeef14a9278813797808ec6269baa98",
+  "htmlBytes": 12037349,
+  "htmlSha256": "2f908f4dc60dbb17f5286298e864b1be6cad13359eda644c8d9a6da3bb615d5a",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -682,7 +712,7 @@
     "src/app.js": "d7c71df704e82afbfa6cddb2bf3eff67dd0a98ba68138895f0a5952af92566a8",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "d14f1689f9af266de7daba3f41553d0592a112bc9801e94872f9aaa5801d54a5",
+    "data/tauceti-progress.json": "ec0783c6b5cbbc826ca03fbc4a74a10559fd1ebea819ce23efced85a20fb9085",
     "data/tauceti-new-roadmaps.json": "c7f3f1944428628aaa2330ea78f3e6441b750599f57d107e4ccfdffaf048d1b2",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -694,7 +724,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "34d06e2aa9348f95d8dad3e78f43e8d106427a9651f9f7e6d2f0e4140a8e1ca5",
+    "data/roadmap-distances.json": "3a4ffdc6b761c5f0dcd65f8b535ea7c430ff3bfdcd6252e7111f667728aa1060",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -800,6 +830,8 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json": "6cfde71a1c71c36ed5063e937131fd4a3db302c7a9adf980b980286795e53140",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
+    "data/blueprints/DiamondEtaleCohomology--C8.json": "d996232364ba0d0ace9760ea92ace0a9dff3cf7493a9c732d2df793ad1327ede",
+    "data/blueprints/DiamondEtaleCohomology--C8.md": "283cd6c3f9c75db4c08d0c53877e7522630f1501f5b73ba0b9dc698af3699c52",
     "data/blueprints/DirichletPadicLFunctions--L0.json": "f2445a2a9748de37d37916a1138dffa2d71c1c77e7cef8e643898bf87fd990f5",
     "data/blueprints/DirichletPadicLFunctions--L0.md": "f4b72a43a58c23643a880c6de3d4ace1819e28d4618955d8616bddb74d9ef25c",
     "data/blueprints/DirichletPadicLFunctions--L1.json": "d8af3bdf180b010dd961ecb66a26232856dfc4a083cbc1f2f4cd7b1a0036be54",
@@ -848,10 +880,14 @@
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": "709249a3f59fff67bbca04dce74a947a6aa9f7c15c327c884ba043de873026e3",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md": "9fd9a231c1e609034020ca69e533b1df2651e6e0a83a27d2bfebff357ed84e49",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md": "acccd72a10a82d52e7b0981a1975476cefb9578c8a2b876a1491e53c808a8f8f",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.json": "6d3427fcbc206780362639c9b720de2c7c6a31e27b584cc8a7764d49267e8a4c",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.8.md": "86378323be2194b15d677548c2c9c031d79422f226c27a3f06d2782661f65ea3",
     "data/blueprints/GenericDoublePointInterpolation.json": "6b2d11b9013fe9fc19322c11361357ca7210f074ab175b2aa701702ee7ee09c8",
     "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
     "data/blueprints/GlobalGaloisDeformations.json": "31cbc73148a71345a8573de74fde1a1e01cc909b37ad94469327c9b23546846a",
@@ -928,8 +964,12 @@
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/MordellLawrenceVenkatesh.json": "a9fdcac3320533c99d3bef90a631d698d65ae6bc66de1722f40ead00361eb2df",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
+    "data/blueprints/MotivicEtaleKTheory--M.1.json": "c4fe089798da4f8efc35d750a076140c44e15c15e8ff605308f9a2eea70cad1e",
+    "data/blueprints/MotivicEtaleKTheory--M.1.md": "3c2342293af4616c8357c8d87d4672d02942ca39d474c8c38538c1cd1c1762de",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
+    "data/blueprints/OverconvergentAutomorphicForms--O8.json": "0784beb7e46d97c3b18dce630405ba3884804a9aa80c71ec33c9d2f31ae7b7f9",
+    "data/blueprints/OverconvergentAutomorphicForms--O8.md": "7a5fc90512b7767e1f2ec288ff063618496f9613a88f47c441ebcaf9de6e0fd8",
     "data/blueprints/PadicHodgeRegulators--L3.json": "505bfd2c0cbc830506f8d5b89c0094bf45d6f29a7c154584ed6b137e824ea621",
     "data/blueprints/PadicHodgeRegulators--L3.md": "8dd3fc2f5600687e571a3d03889bc9118e77d2f48a033d17456898cacce5ea61",
     "data/blueprints/PerfectoidSpaces--P8.json": "0dd66671f24d7eb8736b68ac49e379af83e80008b3093e4474048417c7be67df",
@@ -1064,13 +1104,13 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-06T16:16:51Z",
+    "exportedAt": "2026-10-06T22:52:43Z",
     "roadmaps": 70,
     "unplaced": 0,
     "layers": {
       "done": 296,
-      "partial": 214,
-      "untouched": 69,
+      "partial": 215,
+      "untouched": 68,
       "unassessed": 13,
       "total": 592
     },
