@@ -85,11 +85,12 @@
       "edition": "Publications Mathematiques de l'IHES 43 (1974), 273-307",
       "url": "https://numdam.org/item/PMIHES_1974__43__273_0.pdf",
       "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
         "1.1-1.14.3, printed 273-279: point counts, rational descent, 1.7 implies 1.6 with its proof, and sheaf L-functions. The projective purity proof is an imported DWP result, not reverified here.",
         "2026-10-06: freshly re-read 1.5.4 and the full 1.7 implies 1.6 proof, printed 276-277; fresh download has the recorded hash.",
-        "2026-10-06: 1.2-1.5.4 and all of 2.1-2.6, printed 274-276 and 280-282, freshly read for the Tate orientation, equivariant perfect pairing, q^d reciprocity and sign."
+        "2026-10-06: 1.2-1.5.4 and all of 2.1-2.6, printed 274-276 and 280-282, freshly read for the Tate orientation, equivariant perfect pairing, q^d reciprocity and sign.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 1.3-1.15 including the proof of 1.7 implies 1.6, printed 274-279; 2.3-2.6, printed 281-282. The projective-purity proof remains at DWP. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -99,10 +100,11 @@
       "edition": "Publications Mathematiques de l'IHES 52 (1980), 137-252",
       "url": "https://numdam.org/item/PMIHES_1980__52__137_0.pdf",
       "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
         "3.3.1-3.3.11, statements and proofs, printed 203-207; rendered printed 206 to read the valuation diagram. The heavy inputs 1.8.4 and 3.2.3 remain DWP supplier proof obligations, not closed in this packet.",
-        "2026-10-06: freshly read 3.3.2-3.3.11, printed 204-207; full displayed homology-manifold condition, not an inference from a theorem name. Fresh download has the recorded hash."
+        "2026-10-06: freshly read 3.3.2-3.3.11, printed 204-207; full displayed homology-manifold condition, not an inference from a theorem name. Fresh download has the recorded hash.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 3.3.2-3.3.11, printed 204-207, including the rendered valuation diagram on printed p.206. Heavy preceding weight-theory inputs remain supplier obligations. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -112,9 +114,10 @@
       "edition": "SGA 4 1/2, Lecture Notes in Mathematics 569 (1977), author-hosted scan",
       "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
       "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
-        "Rapport 2.11 and 3.1-3.7, including the proof deriving 3.1 from 3.2, determinant/trace Proposition 3.3, cyclic-block Corollary 3.4, finite-etale Remark 3.5 and compactification 3.6. The geometric proof of 3.2 in section 4 is imported, not read here. In 3.1 use T=t^f for q=p^f."
+        "Rapport 2.11 and 3.1-3.7, including the proof deriving 3.1 from 3.2, determinant/trace Proposition 3.3, cyclic-block Corollary 3.4, finite-etale Remark 3.5 and compactification 3.6. The geometric proof of 3.2 in section 4 is imported, not read here. In 3.1 use T=t^f for q=p^f.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Rapport 2.11 and 3.1-3.7, including determinant/logarithmic-derivative and cyclic-block proofs. The geometric proof of 3.2 remains at the supplier. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -124,9 +127,10 @@
       "edition": "arXiv:1606.01321v6",
       "url": "https://arxiv.org/pdf/1606.01321v6",
       "sha256": "7fa7ab3126dcb5b25a77b97b5d7930983e2305fbfebc71b2e5f92697e6cab886",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
-        "8.1-8.8 and 9.1-9.7, printed 20-22: actual cohomology, Ogus comparison statement, finite-field coefficients and trace conventions; 10.1-10.3 and its cited-proof boundary, printed 27. The Ogus original proof was not read."
+        "8.1-8.8 and 9.1-9.7, printed 20-22: actual cohomology, Ogus comparison statement, finite-field coefficients and trace conventions; 10.1-10.3 and its cited-proof boundary, printed 27. The Ogus original proof was not read.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 8.1-8.8, 9.1-9.7, and 10.1-10.3 with the cited-proof boundary. The cited Ogus original proof was not read. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -136,9 +140,10 @@
       "edition": "arXiv:math/0210149v3; distinct from the published paper",
       "url": "https://arxiv.org/pdf/math/0210149v3",
       "sha256": "b678f13ceb5b0d0b528e927a20187e344f2fd40552819a5d528f7d52ab3f1599",
-      "accessed": "2026-09-26",
+      "accessed": "2026-10-06",
       "readSections": [
-        "6.6, printed 50-52: theorem 6.6.2 and its proof, remark 6.6.3, and the Weil-conjecture consequences. Collated with published section 5.3."
+        "6.6, printed 50-52: theorem 6.6.2 and its proof, remark 6.6.3, and the Weil-conjecture consequences. Collated with published section 5.3.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: 6.6.2 proof and 6.6(a)-(c), printed 50-52, collated against published 5.3. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -147,10 +152,11 @@
       "authors": "Kiran S. Kedlaya",
       "edition": "Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9084E895C148851EC7422B716B2F6E65/S0010437X06002338a.pdf/fourier-transforms-and-dollarpdollar-adic-weil-ii.pdf",
-      "sha256": "5fb0b647f89a06156fadfdeb353048ff5c8f0f9170d9181b4b65c7dc5bf2cc46",
-      "accessed": "2026-09-26",
+      "sha256": "482b4e20d0b950a67444ef835ef11971645cf5e9ea62bdf081a2449e71a34529",
+      "accessed": "2026-10-06",
       "readSections": [
-        "5.3, printed 1445-1446: Proposition 5.3.1, Theorem 5.3.2 and its whole proof, Remark 5.3.3 and consequences (a)-(c). Earlier geometric/Fourier proof inputs remain RD supplier obligations."
+        "5.3, printed 1445-1446: Proposition 5.3.1, Theorem 5.3.2 and its whole proof, Remark 5.3.3 and consequences (a)-(c). Earlier geometric/Fourier proof inputs remain RD supplier obligations.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Section 5.3, printed 1445-1446, including the full 5.3.2 proof and consequences (a)-(c). Earlier Fourier/geometric inputs remain supplier obligations. Fresh PDF bytes differ from the historical receipt; historical hash retained in sourceVersions. The reviewed printed passages are unchanged."
       ]
     },
     {
@@ -162,7 +168,8 @@
       "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
       "accessed": "2026-10-06",
       "readSections": [
-        "Introduction and Proposition 3.1 with its proof, pp.1-6; Proposition 4.2 proof, p.7, for the purity/invariant-cohomology uses. The stack purity assertion is a prerequisite used there, not a separately proved general theorem in this paper. Other sections belong to the separately routed WC.1-WC.5 and moduli jobs."
+        "Introduction and Proposition 3.1 with its proof, pp.1-6; Proposition 4.2 proof, p.7, for the purity/invariant-cohomology uses. The stack purity assertion is a prerequisite used there, not a separately proved general theorem in this paper. Other sections belong to the separately routed WC.1-WC.5 and moduli jobs.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Proposition 3.1 and its proof, p.6; Proposition 4.2 proof, p.7. These consume stack purity; the published Annals text was not collated. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -174,7 +181,8 @@
       "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61",
       "accessed": "2026-10-06",
       "readSections": [
-        "All of section 7, printed 19-21: definitions, Tate/Frobenius conventions, Proposition 7.1 and proof, Corollaries 7.2 and 7.3 with their proofs. The surrounding surface classification is imported from the paper routes, not reverified."
+        "All of section 7, printed 19-21: definitions, Tate/Frobenius conventions, Proposition 7.1 and proof, Corollaries 7.2 and 7.3 with their proofs. The surrounding surface classification is imported from the paper routes, not reverified.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: All of section 7, printed 19-21, including Proposition 7.1 and Corollaries 7.2-7.3 proofs. The published Annals text was not collated. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -186,7 +194,8 @@
       "sha256": "46559f0499ac0c96192bcee9ec11f1d4933bff2285c6d29e97e008f8a8442b3b",
       "accessed": "2026-10-06",
       "readSections": [
-        "Introduction, Theorem 2.1 and section 3 through Lemma 3.2 and Proposition 3.3, pp.1-5. Lemma 3.2 is explicitly over characteristic zero; the finite-characteristic comparison needed here is recorded as a supplier gap, not claimed to follow from its written hypotheses."
+        "Introduction, Theorem 2.1 and section 3 through Lemma 3.2 and Proposition 3.3, pp.1-5. Lemma 3.2 is explicitly over characteristic zero; the finite-characteristic comparison needed here is recorded as a supplier gap, not claimed to follow from its written hypotheses.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Section 3, especially Lemma 3.2 and its proof on printed p.5 and its characteristic-zero hypothesis. Fresh bytes match the recorded SHA-256."
       ]
     },
     {
@@ -199,7 +208,20 @@
       "accessed": "2026-10-06",
       "readSections": [
         "Layers 11-15, worked examples, design notes and scope boundaries read at the pinned PR head. This is a supplier specification, not a formalized library result.",
-        "Introduction, conventions and dependency map; layers 4-15, worked examples, design and scope. Layers 0-3 are unchanged upstream inputs, not re-planned. In particular layers 7,8,12,13,15 construct the finite-etale, curve, projective-space and compact-support examples independently of RH."
+        "Introduction, conventions and dependency map; layers 4-15, worked examples, design and scope. Layers 0-3 are unchanged upstream inputs, not re-planned. In particular layers 7,8,12,13,15 construct the finite-etale, curve, projective-space and compact-support examples independently of RH.",
+        "Independent review REV-WeilConjectures--WC.6, 2026-10-06: Introduction/conventions, supplier/source map, Layers 7-15 and worked acceptance examples at the pinned PR head. This is an upstream plan, not formalization. Fresh bytes match the recorded SHA-256."
+      ]
+    },
+    {
+      "id": "upstream-algebraic-curves",
+      "title": "Algebraic function fields and curves",
+      "authors": "Tau Ceti Project",
+      "edition": "Merged AlgebraicCurves README at commit fa4d0309ae1d68d274091a647f7cd7fe80608205",
+      "url": "https://raw.githubusercontent.com/TauCetiProject/TauCetiRoadmap/fa4d0309ae1d68d274091a647f7cd7fe80608205/TauCetiRoadmap/AlgebraicCurves/README.md",
+      "sha256": "8696d432a66c7a374619fc5ccb139248c0a1cf41bf7cba6d55a6af2f1fb1a7a5",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Layers 7 (different and Hurwitz), 10 (Artin-Schreier reduced representatives, ramification, genus and model classes), and 12A-12E (normalization, projective model, places/points dictionary and cohomological genus comparison). An upstream specification, not an implemented library result."
       ]
     }
   ],
@@ -418,7 +440,7 @@
         },
         {
           "sourceId": "vdbe05-v3",
-          "locator": "Section 3, Lemma 3.2, pp.4-5",
+          "locator": "Section 3, Lemma 3.2 and its proof, printed p.5 (characteristic zero)",
           "match": "The written coarse comparison has a narrower base than the desired finite-field application; it cannot be used without an additional theorem."
         }
       ],
@@ -530,7 +552,7 @@
       "sources": [
         {
           "sourceId": "pr196-trace",
-          "locator": "Layer 12 affine-space/Kunneth test and Layer 13 determinant formula",
+          "locator": "Layer 11 products/Kunneth compatibility; Layer 12 compact-support Kunneth and Layer 13 determinant formula",
           "match": "The supplier gives geometric tensor compatibility; its consumer computes degree factors and all-power counts."
         }
       ],
@@ -643,6 +665,11 @@
           "sourceId": "pr196-trace",
           "locator": "Layer 15 curve factors, combined with the Artin-Schreier supplier contract",
           "match": "The supplied curve factor and trace statements prove the zeta assertion after the explicitly requested geometric-model/genus computation; these are not assumed fields of a cohomology structure."
+        },
+        {
+          "sourceId": "upstream-algebraic-curves",
+          "locator": "Layer 10 Artin-Schreier covers (reduced local invariant, different and genus); Layer 7 Hurwitz; Layer 12B-12E model/places/genus dictionary",
+          "match": "The unchanged owner specifies the reduced-pole characteristic-p calculus and actual normalized projective model. WC.7 specializes its exports through FA.3 instead of defining a second ramification or curve-model theory."
         }
       ],
       "acceptance": [
@@ -907,7 +934,7 @@
       "title": "Maximal count and constant Picard group for rational surfaces",
       "kind": "theorem",
       "declarationName": "TauCeti.AlgebraicGeometry.WeilZeta.constant_picard_iff_maximal_count_rational_surface",
-      "statement": "Let X_0/F_q be smooth projective geometrically rational, with rho=rank Pic(X_Fbarq). Then its etale Picard local system is constant if and only if #X_0(F_q)=1+rho q+q^2. The associated Frobenius action on the finite-rank free Picard group has finite order. This criterion is for rational surfaces; it is not an assertion about arbitrary Picard schemes with nonzero Pic^0 or torsion.",
+      "statement": "Let X_0/F_q be a smooth projective geometrically rational surface (dimension two), with rho=rank Pic(X_Fbarq). Then its etale Picard local system is constant if and only if #X_0(F_q)=1+rho q+q^2. The associated Frobenius action on the finite-rank free Picard group has finite order. This criterion is for rational surfaces; it is not an assertion about arbitrary Picard schemes with nonzero Pic^0 or torsion.",
       "hypotheses": [],
       "proofSteps": [
         "Import the rational-surface Picard/free-lattice and H^2(1) comparison from the pending numerical-Picard/surface owners; b_1=b_3=0 and b_0=b_4=1. The all-power trace formula gives N_1=1+q Tr(F|Pic tensor Q_ell)+q^2.",
@@ -1081,7 +1108,7 @@
     },
     {
       "supplier": "FunctionFieldArithmetic:FA.3",
-      "need": "For the existing F_2(x,y), y^2+y=x^5 model, export degree two/separability/nontriviality from its odd reduced pole, the unique rational place over infinity, no finite ramification and different exponent 6, and Riemann-Hurwitz genus 2. Reuse AlgebraicCurves Layer 7 Artin-Schreier local invariants over perfect residue fields, rather than proving a second ramification theory here.",
+      "need": "For the existing F_2(x,y), y^2+y=x^5 model, export degree two/separability/nontriviality from its odd reduced pole, the unique rational place over infinity, no finite ramification and different exponent 6, and Riemann-Hurwitz genus 2. Reuse AlgebraicCurves Layer 10 Artin-Schreier covers and reduced local invariants over perfect residue fields, together with Layer 7 different/Hurwitz theory, rather than proving a second ramification theory here.",
       "neededBy": [
         "WeilConjectures:WC.7/genus-two-negative-euler-example"
       ]
@@ -1242,8 +1269,14 @@
       "known": "Already recorded in the integrated WeightsInEtaleCohomology source-gap discussion; no published correction located in the searches below.",
       "searched": [
         "Numdam journal record for Weil II, opened 2026-09-26",
-        "Web search Deligne Weil II errata 3.3.5 and the published source mirror, 2026-09-26"
-      ]
+        "Web search Deligne Weil II errata 3.3.5 and the published source mirror, 2026-09-26",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read published Weil II p.206: the proof of 3.3.5 literally refers to 3.3.3 while using upper weights for the dual. The dual need not be integral; 3.3.4 (or the general 3.3.1) supplies the bound. This is a reference misprint, not a failure of the lower-weight theorem.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-2",
@@ -1258,8 +1291,15 @@
       "searched": [
         "Published Cambridge PDF, printed 1446, downloaded and read 2026-09-26",
         "Kedlaya papers page and web search Fourier transforms p-adic Weil II errata, 2026-09-26; no correction found",
-        "RD packet E63, read 2026-09-26"
-      ]
+        "RD packet E63, read 2026-09-26",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason.",
+        "Kedlaya papers page https://kskedlaya.org/papers/ checked 2026-10-06: the Fourier transforms entry links journal/arXiv versions and describes abbreviation, with no erratum link on that entry."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Collated preprint v3 p.52 with the freshly fetched published p.1446: both display the unscaled reciprocal argument. P^1 gives a direct counterexample. Equivariant duality requires q^-n T^-1 with the stated determinant multiplier. The published fresh-byte receipt is in sourceVersions.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-3",
@@ -1274,8 +1314,15 @@
       "searched": [
         "Published Cambridge PDF 5.3, printed 1446, read 2026-09-26",
         "Kedlaya papers page and errata web search, 2026-09-26; no correction found",
-        "RD packet E64 and Deligne Weil I 1.7 implies 1.6"
-      ]
+        "RD packet E64 and Deligne Weil I 1.7 implies 1.6",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason.",
+        "Kedlaya papers page https://kskedlaya.org/papers/ checked 2026-10-06: the Fourier transforms entry links journal/arXiv versions and describes abbreviation, with no erratum link on that entry."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read both versions of consequence (a): trace/finiteness gives an alternating product but does not prove integrality of its degree factors. Equal nonintegral factors can cancel to one. Rational-series descent/Fatou closes existential integral rationality; all-conjugates purity and separation are additionally needed for canonical smooth-proper factors. Confirmed as an omitted proof argument, not a disproof of existential rationality.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-4",
@@ -1289,8 +1336,14 @@
       "known": "Corrected in the published Compositio 142 (2006) proof of Theorem 5.3.2, p.1446; this resolves the version question for RD packet E62.",
       "searched": [
         "arXiv v3 6.6.2 and Cambridge version of record 5.3.2, both read 2026-09-26",
-        "RD packet E62"
-      ]
+        "RD packet E62",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Collated preprint v3 p.51 and published p.1446: the erroneous f_*E^vee coefficient in the final injection/conclusion is replaced by E in the published proof. Confirmed for the preprint and already corrected in the version of record.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-S10",
@@ -1304,8 +1357,14 @@
       "known": "PAPER-SCHROER-23/E10; not a new discovery claim. Published persistence was not checked by this worker.",
       "searched": [
         "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E10, read 2026-10-06.",
-        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated."
-      ]
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 section 7 p.20. The universal integrality assertion includes positive Tate twists; the point with Q_ell(1) has eigenvalue q^-1 and refutes it. Confirmed for this preprint only; no assertion that it persists in the uncollated published Annals text.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-S11",
@@ -1319,8 +1378,14 @@
       "known": "PAPER-SCHROER-23/E11; not a new discovery claim. Published persistence was not checked by this worker.",
       "searched": [
         "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E11, read 2026-10-06.",
-        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated."
-      ]
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 Corollary 7.2 p.21 and its proof. Setup is F_q, q=p^f, while the count prints F_p; the correct field is F_q. A q=4 specialization distinguishes them. Confirmed for the read preprint, not extrapolated to uncollated publication.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     },
     {
       "id": "WeilConjectures/EWC6-S35",
@@ -1334,8 +1399,14 @@
       "known": "PAPER-SCHROER-23/E35; not a new discovery claim. Published persistence was not checked by this worker.",
       "searched": [
         "Public arXiv v3 section 7 and existing extraction sourceIssue PAPER-SCHROER-23/E35, read 2026-10-06.",
-        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated."
-      ]
+        "Annals article page, 2026-10-06, bibliography only; no accessible full published text collated.",
+        "Independent review on 2026-10-06: fresh public source at its stated locator; version scope and persistence checked as described in review.reason."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read arXiv v3 Corollary 7.2 proof p.21. Poincare duality must supply b_3=0 from the assumed b_1=0; the printed repeated b_1=0 does not record the required degree-three vanishing. Confirmed as a misprint for the read preprint only.",
+        "by": "REV-WeilConjectures--WC.6"
+      }
     }
   ],
   "sourceVersions": [
@@ -1374,6 +1445,12 @@
       "url": "https://arxiv.org/pdf/math/0505178v3",
       "read": "2026-10-06",
       "sha256": "46559f0499ac0c96192bcee9ec11f1d4933bff2285c6d29e97e008f8a8442b3b"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9084E895C148851EC7422B716B2F6E65/S0010437X06002338a.pdf/fourier-transforms-and-dollarpdollar-adic-weil-ii.pdf",
+      "read": "2026-10-06",
+      "sha256": "482b4e20d0b950a67444ef835ef11971645cf5e9ea62bdf081a2449e71a34529"
     }
   ],
   "targetCoverage": [
@@ -1465,5 +1542,113 @@
       ],
       "note": "Bookkeeping is prose only; Betti comparison retains genuine lifting-family hypotheses."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-WeilConjectures--WC.6",
+    "date": "2026-10-06",
+    "notes": "Independent target-level review of all 20 nodes, all nine exact-pin Mathlib baseline declarations, four imported endpoints, fifteen requests, source locators/excerpts, seven source issues, the reviewed library audit, accepted RS-17 scope and the reader/suggested file. Corrected the explicit surface hypothesis, upstream Artin-Schreier owner request and two supplier locators; added one immutable upstream source receipt and fresh published-PDF receipt. Verified independent finite-field counts. Both stages remain planned, not closed, with four honest gaps and twenty omitted geometric signatures. All nodes justified as planning targets; no implementation or original supplier-proof closure is claimed. Suggested file elaborates on the exact pinned Mathlib with only eighteen expected proof-placeholder warnings. See the independent report for limitations.",
+    "checked": [
+      {
+        "nodeId": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.9 and the Weil I 1.7-to-1.6 descent proof. Properness, smoothness, all-conjugates purity, empty factors and multiplicities are correct without projectivity. The generic WC.3 export is requested rather than assumed supplied by its projective-only integrated node."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/mixed-l-function-divisor-weights",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.4 and Rapport 3.1-3.6. Compact-support degree i gives weight at most n+i, hence n+2d for surviving reduced-divisor roots. Algebraicity/all embeddings and cancellation are retained; there is no false integral mixed-factor claim."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/smooth-proper-functional-equation",
+        "verdict": "verified",
+        "note": "Read Weil I 2.3-2.6. The equivariant pairing gives reciprocal eigenvalues q^d/alpha. Reversing det(1-TF) yields (-1)^chi Delta T^chi and Delta^2=q^(d chi), including negative integer Euler powers and rational nonzero Delta. General signed pairing/determinant exports remain precise requests."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/homology-manifold-weil-assembly",
+        "verdict": "verified",
+        "note": "Read Weil II 3.3.11 and its duality argument. The genuine Frobenius-equivariant a!Q_ell=Q_ell(d)[2d] condition is explicit; it supplies the lower bound opposite to compact-support upper weights. No purity assumption or proposition-field replacement is smuggled into the statement."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks",
+        "verdict": "corrected",
+        "note": "Read BFP v2 Proposition 3.1 proof and Proposition 4.2 proof, and vdBE v3 Lemma 3.2. BFP consumes purity; vdBE writes characteristic zero. The finite-field coarse pushforward, quotient dualizing normalization and algebraic-space extension are therefore honestly open supplier contracts, not results obtained by applying that lemma outside its scope. Tightened its locator to printed p.5."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/projective-space-degree-factors",
+        "verdict": "verified",
+        "note": "Read PR196 TraceFormula Layer 12 and Layer 13. Hyperplane/Kummer generators give even factors 1-q^j T, agreeing with the canonical WC factors; odd factors are one. The independent point-count sum and nonprime q tests fix the Tate orientation."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/finite-etale-permutation-factors",
+        "verdict": "verified",
+        "note": "Read PR196 TraceFormula Layer 7 and Rapport 3.4-3.5. A Frobenius orbit of length m gives 1-T^m and m fixed points exactly when m divides r; disjoint orbits give the stated products and all-power counts."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/kunneth-product-agreement",
+        "verdict": "corrected",
+        "note": "The tensor-product degree decomposition and multiplicities are correct. PR196 Layer 11 expressly supplies products/Kunneth; Layer 12 specializes compact-support Kunneth and Layer 13 supplies the determinant formula. Corrected the locator to include the general Layer 11 contract. The P^1 times P^1 factors pass and zeta functions are not multiplied."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/curve-zeta-jacobian-agreement",
+        "verdict": "verified",
+        "note": "Read PR196 Layers 8 and 15 and Weil I duality. Actual Jacobian H^1, degree 2g, extremal factors and q^g T^(2g) reciprocity agree. All-power Newton/trace recurrence remains at WC.5; no new curve or Jacobian carrier is introduced."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/elliptic-curve-over-f5",
+        "verdict": "verified",
+        "note": "Confirmed the pinned Weierstrass coefficients, discriminant and affine Equation carrier. Independently enumerated seven affine F_5 points and thirty-one affine F_25 points, giving projective counts 8 and 32 using the separately supplied infinity point. Trace -2, determinant 5 and squared trace -6 have the correct signs; the scheme/cohomology bridge stays requested."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/genus-two-negative-euler-example",
+        "verdict": "corrected",
+        "note": "Independently counted 2,4,8,32 affine points over F_2,F_4,F_8,F_16. The reduced odd pole five yields different exponent six and genus two through the upstream contracts. Read AlgebraicCurves Layers 7,10,12; corrected the FA.3 request to use Layer 10 for the Artin-Schreier local invariant and Layer 7 for Hurwitz, and added that source receipt. Reciprocity/first two traces force 1+4T^4 and chi=-2 gives Delta=1/2. Model and infinity-point assertions remain imports."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/projective-plane-functional-equation-sign",
+        "verdict": "verified",
+        "note": "Weil I 2.6 and projective-space factors give chi=3, Delta=q^3 and negative multiplier -q^3 T^3. Direct rational-function substitution confirms the sign, including q=2."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/multiplicative-group-compact-support-agreement",
+        "verdict": "verified",
+        "note": "Read PR196 Layer 12 localization and the DWP.10 supplier scope. H_c^1 has scalar one and H_c^2 scalar q, giving (1-T)/(1-qT); the ordinary quotient is its inverse. Twist (1) scales by q^-1 and weight -2, without integrality or automatic semisimplicity claims."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/scalar-frobenius-from-base-field-cycles",
+        "verdict": "verified",
+        "note": "Read Schroer v3 section 7 and Proposition 7.1 proof. Frobenius fixes base-defined cycle classes in H^(2j)(j); surjectivity makes the actual twisted endomorphism identity and untwisting gives q^j. Geometric cycle surjectivity alone fails, as the finite-etale permutation counterexample shows."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/zeta-from-base-field-algebraic-cycles",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Proposition 7.1 and proof. Smooth proper geometry, odd vanishing and surjective base-cycle maps imply the stated even scalar factors and zeta product. Geometric connectedness fixes b_0=1; ell independence uses WC.6 rather than a conjectural numerical/homological identification."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/all-extension-counts-from-cycles",
+        "verdict": "verified",
+        "note": "The printed Proposition 7.1 gives r=1. Its proof supplies scalar Frobenius, so taking its r-th power and the all-power trace formula rigorously gives the stated extension for every r>=1. The extrapolation is explicitly marked as a derivation rather than a printed theorem."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/surface-count-constant-numerical-picard",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Corollary 7.2. The F_q count and b_3=b_1=0 repair the two source misprints. The Num/H^2 injection, divisor descent and b_2=rho surjectivity are surface-specific supplier obligations; the proper/projective Hodge-index scope mismatch is recorded as a gap, not silently resolved."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/twenty-five-point-surfaces",
+        "verdict": "verified",
+        "note": "Read Schroer v3 Corollary 7.3 and proof. The two stated surface classes need b_1=0 and b_2=rho=10 from their owners, not as consequences of purity. Given those imports, all-power counts 1+10q^r+q^(2r) give 25 and 57 at q=2,r=1,2."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/rational-surface-picard-count-criterion",
+        "verdict": "corrected",
+        "note": "Made surface (dimension two) explicit in the leading hypothesis. The rational-surface free Picard lattice, H^2(1) comparison and finite-order Galois action are owner-recorded inputs. Finite order gives semisimplicity; maximal complex trace forces identity and faithful tensoring returns identity on the lattice. This is a proved derived supplement, not a printed iff proposition or a general purity-to-semisimplicity claim."
+      },
+      {
+        "nodeId": "WeilConjectures:WC.7/geometric-weil-assembly",
+        "verdict": "verified",
+        "note": "Checked each component against WC.1/WC.3 requests, WC.6 nodes, RD.7 imports and the actual-family WC.4 request. The smooth proper finite-field theorem assembles canonical integral factors, all-conjugates weights, signed integer-power functional equation and all-power counts. Betti comparison retains genuine comparison-family hypotheses; mixed L-functions remain a separate API."
+      }
+    ]
+  }
 }
