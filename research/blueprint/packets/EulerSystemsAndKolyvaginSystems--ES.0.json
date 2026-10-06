@@ -12,7 +12,7 @@
   "EulerSystemsAndKolyvaginSystems:ES.6",
   "EulerSystemsAndKolyvaginSystems:ES.7"
  ],
- "status": "complete",
+ "status": "partial",
  "summary": "Target-level blueprint of layers ES.0–ES.7 of the general descent roadmap. ES.0: Selmer triples, cartesian local conditions, the core rank with its Euler-characteristic formula and independence of the modulus, the canonical Selmer structure, and the Mazur–Rubin hypothesis records of 2004 (over ℚ) and 2016 (over number fields) with their implications and worked examples. ES.1: the fields K(q), the ideals I_n and groups G_n, Kolyvagin primes, the finite, singular and transverse conditions, the finite–singular comparison with its tensor factor, the modified structures F_a^b(c), the Chebotarev selection theorems, and the error-tolerant inputs (reducibility depth, saturation, abundant tuples) of Liu–Tian–Xiao–Zhang–Zhu in corrected form. ES.2: Euler polynomials and their conventions, the module of Euler systems as an equaliser, conductor presentations, twisting, change of Euler factors, the universal Euler system, and the rigidity, finite-depth and anticyclotomic variants. ES.3: derivative operators, Kolyvagin's derivative classes and their local behaviour, the congruence, Kolyvagin systems (ordinary, weak, generalised), and the Mazur–Rubin map from Euler systems with its correction terms. ES.4: the Selmer sheaf, hubs and monodromy, core vertices, the stub sheaf, the Kolyvagin-system bound, Rubin's bound with the error terms n_W and n_W^*, bounds for the variants, and descent with explicit error constants. ES.5: divisibility invariants, primitivity, the rank-one module theorem, the structure theorem, the Kolyvagin-constructed dual Selmer group, and Howard's self-dual theory (hypotheses H.0–H.5, the Cassels-type structure theorem and the bound over a discrete valuation ring). ES.6: exterior biduals with contraction and coefficient change, Rubin's lattice, Stark systems over principal artinian rings, discrete valuation rings and Gorenstein orders, Kolyvagin systems of rank r and the regulator isomorphism. ES.7: Euler systems of rank r, the higher Kolyvagin derivative, Fitting-ideal control, and the Rubin–Brumer–Stark element with Rubin's conjecture as a proposition. Continuous cohomology, local and global duality, Selmer structures and their Poitou–Tate sequence are imported from ArithmeticGaloisDuality and SelmerIwasawaCohomology; Gorenstein orders and Fitting ideals from PadicMeasuresIwasawaAlgebras L6; class field theory and Chebotarev from Tau Ceti.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -275,10 +275,70 @@
  ],
  "sourceVersions": [
   {
-   "kind": "preprint",
-   "url": "https://arxiv.org/abs/1805.08448v1",
+   "sourceId": "mr-ks",
+   "kind": "author copy",
+   "url": "https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf",
    "read": "2026-10-06",
-   "sha256": "2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429"
+   "sha256": "4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f",
+   "notes": "Archived author copy only. AMS version-of-record download https://www.ams.org/memo/0799/memo0799.pdf returned HTTP 403; Proposition 3.4.4 finding is scoped to this copy."
+  },
+  {
+   "sourceId": "rubin-es",
+   "kind": "author copy",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "read": "2026-10-06",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
+  },
+  {
+   "sourceId": "mr-higher",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1312.4052v1",
+   "read": "2026-10-06",
+   "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8"
+  },
+  {
+   "sourceId": "bss2",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1805.08448v1",
+   "read": "2026-10-06",
+   "sha256": "2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429",
+   "notes": "arXiv lists only v1. The KCL accepted manuscript PDF https://kclpure.kcl.ac.uk/portal/files/345599305/bss-acceptedversion.pdf returned HTTP 403; accepted/published collation remains open."
+  },
+  {
+   "sourceId": "howard",
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf",
+   "read": "2026-10-06",
+   "sha256": "89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7"
+  },
+  {
+   "sourceId": "dk",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2010.00657v3",
+   "read": "2026-10-06",
+   "sha256": "c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099"
+  },
+  {
+   "sourceId": "ltxzz",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1912.11942",
+   "read": "2026-10-06",
+   "sha256": "84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86"
+  },
+  {
+   "sourceId": "cgls",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2008.02571v2",
+   "read": "2026-10-06",
+   "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59"
+  },
+  {
+   "sourceId": "rubin-es-book-copy",
+   "kind": "author copy",
+   "url": "https://www.wstein.org/people/rubin/book/hEulerSystems.pdf",
+   "read": "2026-10-06",
+   "sha256": "1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4",
+   "notes": "233-page book-format author copy mirrored by William Stein, inspected visually at title, contents and §9.1 p.175 (PDF p.181); same outside-N wording as the course draft. It has no publisher imprint, so is not certified as the version of record. Other numbered nodes still use the 1999 draft."
   }
  ],
  "nodes": [
@@ -366,7 +426,7 @@
     {
      "name": "TauCeti.KolyvaginSystems.SelmerTriple.dual",
      "role": "constructor",
-     "statement": "(T^*, F^*, P) is a Selmer triple, and Σ(F^*) = Σ(F)."
+     "statement": "The Cartier dual data (T^*, F^*, P) use the imported discrete Selmer carrier, with Σ(F^*) = Σ(F). For a DVR lattice T, T^* = Hom(T, μ_{p^∞}) is discrete torsion, not a finite free lattice and hence not an object of the same lattice-triple type. Over a principal artinian ring, the finite Cartier dual is free of the same rank after the coefficient duality identification."
     }
    ],
    "tests": [
@@ -778,7 +838,7 @@
    ],
    "title": "The core rank of a cartesian Selmer structure",
    "kind": "definition",
-   "statement": "Let R be principal artinian of length k, F a cartesian Selmer structure on T, and T^{G_K} = (T^*)^{G_K} = 0. There is a unique integer r such that H¹_F(K, T) ≅ H¹_{F^*}(K, T^*) ⊕ R^r if r ≥ 0 and H¹_F(K, T) ⊕ R^{−r} ≅ H¹_{F^*}(K, T^*) if r ≤ 0 (noncanonically). The core rank is χ(T, F) = max(r, 0), and χ(T^*, F^*) = max(−r, 0); one of the two is zero. For R a discrete valuation ring and F cartesian, χ(T, F) is the common value of χ(T/m^kT, F) for k ≥ 1.",
+   "statement": "Let R be principal artinian of length k, F a cartesian Selmer structure on T, and T^{G_K} = (T^*)^{G_K} = 0. There is a unique integer r such that H¹_F(K, T) ≅ H¹_{F^*}(K, T^*) ⊕ R^r if r ≥ 0 and H¹_F(K, T) ⊕ R^{−r} ≅ H¹_{F^*}(K, T^*) if r ≤ 0 (noncanonically). Mazur–Rubin 2016 Definition 3.4 calls the signed integer r the core rank. In the convention of Mazur–Rubin 2004 Definition 4.1.11, the nonnegative core ranks are χ(T, F) = max(r, 0) and χ(T^*, F^*) = max(−r, 0); one of these is zero. Higher-rank systems use the signed r and require r ≥ 1. For R a discrete valuation ring and F cartesian, χ(T, F) is the common value of χ(T/m^kT, F) for k ≥ 1.",
    "hypotheses": [
     "R principal artinian (or a discrete valuation ring)",
     "F cartesian",
@@ -791,7 +851,7 @@
    ],
    "acceptance": [
     "χ(T, F) = 1 for T = μ_{p^k} ⊗ ρ^{-1} with ρ even and nontrivial and F the unit-root structure of Mazur–Rubin 2004 §6.1; χ = 0 for ρ odd, ρ ≠ ω.",
-    "The core rank is not the R-rank of T: for T = E[p^k], a module of rank 2, χ(T, F_can) = 1 and χ(T, F) = 0 for the classical Selmer structure."
+    "The core rank is not the R-rank of T: Under the hypotheses of example-elliptic, for T = E[p^k], a module of rank 2, χ(T, F_can) = 1 and χ(T, F) = 0 for the classical Selmer structure."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
@@ -850,7 +910,7 @@
     {
      "name": "TauCeti.KolyvaginSystems.selmer_equiv_dual_prod_free",
      "role": "equivalence",
-     "statement": "If χ(T) ≥ 0 there is an R-linear isomorphism H¹_F(K, T) ≃ H¹_{F^*}(K, T^*) × R^{χ(T)}."
+     "statement": "If coreRankInt(T,F) = r ≥ 0, there is a noncanonical R-linear isomorphism H¹_F(K,T) ≃ H¹_{F^*}(K,T^*) × R^r. For r ≤ 0 the free factor occurs on the other side."
     },
     {
      "name": "TauCeti.KolyvaginSystems.coreRank_field",
@@ -867,7 +927,7 @@
     {
      "name": "coreRank_elliptic_classical",
      "kind": "computation",
-     "statement": "For T = E[p^k] with the classical Selmer structure (images of the Kummer maps), F^* = F under the Weil pairing and χ(T, F) = 0, while χ(T, F_can) = 1."
+     "statement": "For E/ℚ and p ≥ 5 with surjective mod-p representation, T = E[p^k] has rank two, χ(T,F) = 0 for the classical Kummer structure, and χ(T,F_can) = 1 for the structure propagated from T_pE."
     },
     {
      "name": "coreRank_field_strict_relaxed",
@@ -877,7 +937,7 @@
     {
      "name": "coreRank_ne_rank",
      "kind": "non-example",
-     "statement": "χ(T, F) is not rank_R T: T = E[p^k] has rank 2 and core rank 1 for F_can and 0 for the classical structure."
+     "statement": "For E/ℚ and p ≥ 5 with surjective mod-p representation, T = E[p^k] has rank two, χ(T,F) = 0 for the classical Kummer structure, and χ(T,F_can) = 1 for the structure propagated from T_pE."
     }
    ],
    "planet": {
@@ -1035,12 +1095,17 @@
     {
      "name": "canonicalStructure_quotient_ne_relaxed",
      "kind": "non-example",
-     "statement": "For T = ℤ_p(1) ⊗ ρ^{-1} with ρ(p) = 1, H⁰(ℚ_p, T^*) is not divisible after reduction and H¹_{F_can}(ℚ_p, T/p^kT) ≠ H¹(ℚ_p, T/p^kT) in general: the structure on T/p^kT is not the relaxed one."
+     "statement": "Local counterexample: p odd, T = ℤ_p(1) ⊗ ψ^{-1}, with ψ unramified at p and ψ(Fr_p) = 1+p. Then H⁰(ℚ_p,T^*) ≅ ℤ/p is finite nondivisible, H²(ℚ_p,T)[p] ≠ 0, and the image of H¹(ℚ_p,T) in H¹(ℚ_p,T/pT) is proper. This is a local continuous character, not a finite-order character with ρ(p)=1."
     },
     {
      "name": "canonicalStructure_elliptic",
      "kind": "computation",
-     "statement": "For T = T_pE the structure F_can is the classical Selmer structure relaxed at p, and F_can^* ≤ F ≤ F_can."
+     "statement": "For T=T_pE over ℚ and p odd, F_can is the classical lattice Kummer structure relaxed at p, with F_can^* ≤ F ≤ F_can under the Weil-pairing dictionary. On E[p^k] use the image of H¹(ℚ_p,T_pE); it is the full local group when E(ℚ_p)[p^∞]=0 and may be proper otherwise."
+    },
+    {
+     "name": "canonicalStructure_quotient_finite_order_trivial_local",
+     "kind": "computation",
+     "statement": "For T = ℤ_p(1) ⊗ ρ^{-1} with ρ finite order prime to p, unramified at p, and ρ(p)=1, T^* is locally ℚ_p/ℤ_p. Its invariants are divisible, so the propagated canonical condition on T/p^kT is all H¹(ℚ_p,T/p^kT). The unit condition on the lattice remains proper."
     }
    ],
    "planet": {
@@ -1323,16 +1388,16 @@
    ],
    "title": "Implications between the hypothesis records",
    "kind": "lemma",
-   "statement": "(a) (H.0)–(H.4) of 2004 are stable under R → R′ surjective, and (H.6) under T → T/m^jT. (b) For R a discrete valuation ring, torsion-freeness of H¹(K_q, T)/H¹_F(K_q, T) for q ∈ Σ(F) implies (H.6)/(H.5) for every T/m^kT. (c) 2004 (H.3) implies T̄^{G_ℚ} = (T̄^*)^{G_ℚ} = 0, hence 2016 (H.1) given (H.1) of 2004; 2004 (H.3) implies 2016 (H.3) for K = ℚ, because ℚ(T, μ_M) ⊆ ℚ(T, μ_{p^∞}) and inflation is injective on H¹. (d) 2016 (H.1)–(H.6) for artinian R give (H.7) for the prime set P(H_M, τ). (e) Rubin's Hyp(K, T) (ES.4/rubin-hypotheses) gives the τ of 2016 (H.2) and irreducibility of T̄; it does not give (H.3), whose failure is measured by Rubin's error terms n_W and n_W^*.",
+   "statement": "(a) (H.0)–(H.4) of 2004 are stable under R → R′ surjective, and (H.6) under T → T/m^jT. (b) For R a discrete valuation ring, torsion-freeness of H¹(K_q, T)/H¹_F(K_q, T) for q ∈ Σ(F) implies (H.6)/(H.5) for every T/m^kT. (c) 2004 (H.3) implies T̄^{G_ℚ} = (T̄^*)^{G_ℚ} = 0, hence 2016 (H.1) given (H.1) of 2004; 2004 (H.3) implies 2016 (H.3) for K = ℚ, because ℚ(T, μ_M) ⊆ ℚ(T, μ_{p^∞}) and inflation is injective on H¹. (d) 2016 (H.1)–(H.6) for artinian R give (H.7) for the prime set P(H_M, τ). (e) Rubin's Hyp(K, T) (ES.4/rubin-hypotheses) gives residual irreducibility and a rank-one τ fixing the maximal p-Hilbert class extension K(1), cyclotomic p-power roots and p-power roots of units. It gives the τ of 2016 (H.2) only with the additional condition that this τ fixes the full Hilbert class field H (and the specified finite extension L); absolute residual irreducibility in 2016 (H.1) is also an additional condition; it does not give (H.3), whose failure is measured by Rubin's error terms n_W and n_W^*.",
    "hypotheses": [
     "as in the two records"
    ],
    "proofSteps": [
     "(a), (b): Mazur–Rubin 2004, Remark 3.5.1, Lemmas 3.7.1(i) and 3.7.3. (c): Lemma 3.5.2 and inflation–restriction for ℚ(T, μ_M) ⊆ ℚ(T, μ_{p^∞}) (ArithmeticGaloisDuality R02.2/compact-five-term).",
-    "(d): Mazur–Rubin 2016, Lemma 4.5. (e): compare Rubin's Hyp(K, T)(i) with (H.2): τ fixes μ_{p^∞}, (O_K^×)^{1/p^∞} and K(1), which contains the p-part of H; the comparison of (c) and (e) is derived here from the two texts, which do not state it."
+    "(d): Mazur–Rubin 2016, Lemma 4.5. (e): compare Rubin's Hyp(K, T)(i) with (H.2): τ fixes μ_{p^∞}, (O_K^×)^{1/p^∞} and only the p-part K(1) of H. Fixing all of H and L must be separately checked; the comparison of (c) and (e) is derived here from the two texts, which do not state it."
    ],
    "acceptance": [
-    "Each implication is checked on T = ℤ_p(1) ⊗ ρ^{-1}: (H.2) holds with τ = 1 in all three records."
+    "For a rank-one twist the rank-one coinvariant condition alone holds with τ=1 in all three records. This checks that condition only; vanishing, absolute irreducibility and prime-set hypotheses still require their own verifications."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
@@ -1378,7 +1443,7 @@
    ],
    "acceptance": [
     "The computed core rank matches core-rank-formula: rank T^− + corank H⁰(ℚ_p, T^*) for F_can.",
-    "The propagated condition at p for F_can on T/p^k is the image of H¹(ℚ_p, T), not all of H¹(ℚ_p, T/p^k), when ρ(p) = 1."
+    "For finite-order ρ unramified at p with ρ(p)=1, the propagated condition at p for F_can on T/p^k is all H¹(ℚ_p,T/p^k), since the dual invariants on the lattice are divisible (Lemma A.1). It differs from the unit structure F."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
@@ -1406,7 +1471,7 @@
    ],
    "title": "Worked example: the Tate module of an elliptic curve",
    "kind": "application",
-   "statement": "Let E/ℚ be an elliptic curve and p ≥ 5 a prime with G_ℚ → Aut(E[p]) surjective, T = E[p^k] or T_pE, and F the classical Selmer structure (images of the local Kummer maps at the bad primes, p and ∞). Then F^* = F under the Weil pairing, H¹_F(ℚ, E[p^k]) is the p^k-Selmer group, T satisfies (H.0)–(H.4), F and F_can satisfy (H.6), χ(T, F) = 0 and χ(T, F_can) = 1, where F_can is F relaxed at p and F_can^* ≤ F ≤ F_can.",
+   "statement": "Let E/ℚ be an elliptic curve and p ≥ 5 a prime with G_ℚ → Aut(E[p]) surjective, T = E[p^k] or T_pE, and F the classical Selmer structure (images of the local Kummer maps at the bad primes, p and ∞). Then F^* = F under the Weil pairing, H¹_F(ℚ, E[p^k]) is the p^k-Selmer group, T satisfies (H.0)–(H.4), F and F_can satisfy (H.6), χ(T, F) = 0 and χ(T, F_can) = 1, where on T_pE, F_can is F relaxed at p and F_can^* ≤ F ≤ F_can. On E[p^k], F_can is propagated from T_pE; its local condition at p is the image of H¹(ℚ_p,T_pE), which may be proper if E(ℚ_p)[p^∞] ≠ 0.",
    "hypotheses": [
     "p ≥ 5",
     "surjective mod-p representation"
@@ -1502,7 +1567,7 @@
     "K(r) is contained in, and in general not equal to, the maximal p-extension of K in the ray class field modulo r."
    ],
    "prerequisites": [
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
     "tauceti:TauCeti.GlobalNumberFields.RayClassGroup"
    ],
    "sources": [
@@ -1721,7 +1786,7 @@
    "proofSteps": [
     "If τ satisfies (H.2) and the Frobenius class of ℓ in Gal(ℚ(T/m^kT, μ_{p^d})/ℚ) is that of τ (p^d generating the kernel of ℤ_p → R/m^k), then ℓ ∈ P_k (Mazur–Rubin 2004, Lemma 3.5.6(i)).",
     "M | [K(q) : K(1)] iff q splits completely in K(μ_M̄, (O_K^×)^{1/M̄}); and if Fr_q is conjugate to τ on F(1)(μ_M̄, (O_K^×)^{1/M̄}, W_M) with T^{τ=1} ≠ 0 then q ∈ R_{F,M} (Rubin, Lemmas IV.1.2–1.3).",
-    "Each set is a Frobenius set of a finite Galois extension, so has positive density by Chebotarev and remains infinite after removing any finite set."
+    "P(L,τ) is a nonempty conjugacy-class Frobenius set and has positive density. For the unrestricted 2004 P_k, (H.2) provides a nonempty Frobenius subset by Lemma 3.5.6(i). For P_k restricted to a chosen P, require the containment hypothesis (H.5), or 2016 (H.7) and k large enough as specified there. An arbitrary P, including P=∅, need not have positive density. Rubin’s prime-selection hypotheses similarly supply a nonempty Frobenius subset of the allowed primes."
    ],
    "acceptance": [
     "For ℓ ∈ P_k with R principal artinian of length k: H¹_f(ℚ_ℓ, T), H¹_s(ℚ_ℓ, T) and their duals are free of rank one and φ^fs_ℓ is an isomorphism (Lemma 3.5.6(ii)).",
@@ -1800,7 +1865,7 @@
     {
      "name": "TauCeti.KolyvaginSystems.kolyvaginPrimes_infinite",
      "role": "other",
-     "statement": "Under (H.2), P_k minus any finite set is infinite, with positive density."
+     "statement": "For the unrestricted 2004 P_k, (H.2) implies positive density and infinitude after removing a finite set. For the definition restricted to P, also require P to contain that Frobenius subset, as ensured by the stated (H.5)/(H.7) bounds."
     }
    ],
    "tests": [
@@ -1852,7 +1917,8 @@
    "prerequisites": [
     "SelmerIwasawaCohomology:L2/unramified-condition",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-    "ArithmeticGaloisDuality:R02.2/compact-five-term"
+    "ArithmeticGaloisDuality:R02.2/compact-five-term",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ],
    "sources": [
     {
@@ -2061,7 +2127,7 @@
     {
      "name": "TauCeti.KolyvaginSystems.finiteSingular_map",
      "role": "functoriality",
-     "statement": "For T → T′ equivariant between such modules, φ^fs commutes with the induced maps on H¹_f and H¹_s ⊗ 𝔽^×; in particular with T/I → T/J."
+     "statement": "The comparison is natural under equivariant maps compatible with the chosen quotient polynomials: f ∘ Q_T(Fr_T^{-1}) = Q_T′(Fr_T′^{-1}) ∘ f. In particular, for reductions of one fixed finite free lattice under R/I → R/J, characteristic and quotient polynomials reduce together, so φ^fs commutes with the coefficient-reduction maps. Arbitrary equivariant maps between representations with different characteristic polynomials need not commute."
     },
     {
      "name": "TauCeti.KolyvaginSystems.finiteSingular_generator",
@@ -2088,7 +2154,12 @@
     {
      "name": "finiteSingular_quotient",
      "kind": "compatibility",
-     "statement": "For R = ℤ/p², T free of rank one with Fr = 1 + p·u and I = (p): the map φ^fs on T/pT is the reduction of Q(Fr^{-1}) computed over R/p, and the square with T/pT → T/pT is commutative by functoriality."
+     "statement": "For R=ℤ/p² and T=R with Fr=1, compare the finite–singular maps for T over R and T/pT over R/p: both quotient polynomials are Q=−1, and the maps on finite and singular terms commute with reduction."
+    },
+    {
+     "name": "finiteSingular_not_natural_inclusion",
+     "kind": "non-example",
+     "statement": "Over 𝔽₅ include the rank-one representation with Fr=1 into the first summand of Fr=diag(1,2). On the fixed line the source Q(1)=−1=4, whereas the target Q(1)=−(1−2)=1. Thus the induced inclusion does not commute with φ^fs; equivariance alone is insufficient."
     }
    ],
    "planet": {
@@ -2235,7 +2306,8 @@
     "EulerSystemsAndKolyvaginSystems:ES.1/transverse-condition",
     "ArithmeticGaloisDuality:R02.4/unramified-exact-annihilators",
     "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ],
    "sources": [
     {
@@ -2407,12 +2479,12 @@
    "sources": [
     {
      "sourceId": "ltxzz",
-     "locator": "Definition 2.3.2, arXiv v3 p. 13",
+     "locator": "Definition 2.3.2, arXiv v3 p. 14",
      "match": "Definition of the reducibility depth."
     },
     {
      "sourceId": "ltxzz",
-     "locator": "Lemma 2.3.3, arXiv v3 p. 13",
+     "locator": "Lemma 2.3.3, arXiv v3 p. 14",
      "match": "The uniform bound."
     }
    ],
@@ -2518,12 +2590,12 @@
    "sources": [
     {
      "sourceId": "ltxzz",
-     "locator": "Lemma 2.3.4, arXiv v3 p. 14",
+     "locator": "Lemma 2.3.4, arXiv v3 p. 15",
      "match": "The saturation statement."
     },
     {
      "sourceId": "ltxzz",
-     "locator": "Lemma 2.3.5, arXiv v3 p. 14",
+     "locator": "Lemma 2.3.5, arXiv v3 pp. 15–16",
      "match": "The two criteria for injectivity of restriction."
     }
    ],
@@ -2562,7 +2634,7 @@
    "sources": [
     {
      "sourceId": "ltxzz",
-     "locator": "Definition 2.6.5, arXiv v3 p. 19",
+     "locator": "Definition 2.6.5, arXiv v3 p. 20",
      "match": "Definition of abundant tuples."
     },
     {
@@ -2959,7 +3031,7 @@
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
     "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
    ],
    "sources": [
     {
@@ -2994,7 +3066,7 @@
    ],
    "acceptance": [
     "Twisting by the trivial character is the identity.",
-    "c ↦ c^χ is O-linear and (c^χ)^{χ′} = c^{χχ′} up to the generator ξ."
+    "Twisting is O-linear after choosing compatible generators. For finite-order χ,ψ, the iterated twist is obtained by corestriction from FL_χL_ψ, while the direct χψ-twist uses FL_{χψ}. Comparing these by the Euler relation introduces the Euler factors for primes ramifying in the former and not the latter outside N. In particular (c^χ)^{χ^{-1}}_F = Cor_{FL_χ/F}(c_{FL_χ}), after cancelling generators; this equals the applicable Euler-factor product times c_F and need not equal c_F. Both families are compared in the common conductor f_χ f_ψ N."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
@@ -3064,7 +3136,12 @@
     {
      "name": "EulerSystem.twist_conductor",
      "kind": "non-example",
-     "statement": "c^χ is not an Euler system for (T ⊗ χ, 𝒦, N) when 𝔣 ∤ N: at q | 𝔣 the relation for F ⊆ F′ with q ramified in F′ but not F fails, which is why N is replaced by 𝔣N."
+     "statement": "Twisting changes the defining bad modulus to f_χN. It is not guaranteed to satisfy the relations for N: for χ with a new ramified prime q, the construction proves the relation with that q excluded. The zero system does satisfy both sets of relations, so conductor enlargement is not a nonexistence assertion for every c."
+    },
+    {
+     "name": "EulerSystem.twist_inverse_norm",
+     "kind": "characterisation",
+     "statement": "With compatible character generators, (c^χ)^{χ^{-1}}_F=Cor_{FL_χ/F}(c_{FL_χ})=∏_{q∈Σ(FL_χ/F)}P_q(Fr_q^{-1})c_F. This can differ from c_F when f_χ has primes outside N; no extra degree factor occurs."
     }
    ],
    "library": {
@@ -3233,7 +3310,7 @@
    ],
    "title": "Variants: rigidity conditions, finite depth and anticyclotomic systems",
    "kind": "definition",
-   "statement": "(a) Rigidity. Without condition (ii) of an admissible tower the class c_K can be unconstrained: if K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for every q ∤ N and 𝒦 is the maximal abelian extension unramified outside N, the only relations involving c_K are Cor_{F/K}c_F = ∏_{q ∈ Σ(F/K)} P(Fr_q^{-1} | T^*; 1)c_K = 0, and the family c_F = 0 (F ≠ K), c_K arbitrary is an Euler system. Condition (ii) is therefore replaced by (ii)′: at least one of (a) 𝒦 contains a ℤ_p^d-extension of K in which no finite prime splits completely; (b) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, and there is γ ∈ G_K with γ = 1 on K(1)(μ_{p^∞}, (O_K^×)^{1/p^∞}) and γ − 1 injective on T; (c) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, Fr_q^n − 1 is injective on T for every prime q ∤ N and every power n of p, and the family {c_{K(r)}} satisfies the congruence of Corollary IV.8.1. Under (ii)′ and T^{G_{K(1)}} = 0, Theorems II.2.2, II.2.3 and II.2.10 hold as stated. (b) Finite depth. For 0 ≠ M ∈ O an Euler system for W_M (of depth M) is a family as in the definition with c_F ∈ H¹(F, W_M). (c) Anticyclotomic. For a character χ of Gal(K′/K) of order d and an abelian extension 𝒦′/K′ on which Gal(K′/K) acts through χ, a χ-anticyclotomic Euler system for (T, 𝒦′, N) is a family c_F ∈ H¹(F, T), K′ ⊂_f F ⊆ 𝒦′, with the corestriction relations for primes q of K and one of the three rigidity conditions adapted to χ. (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F, T) for all F.",
+   "statement": "(a) Rigidity. Without condition (ii) of an admissible tower the class c_K can be unconstrained: if K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for every q ∤ N and 𝒦 is the maximal abelian extension unramified at every prime dividing N, the only relations involving c_K are Cor_{F/K}c_F = ∏_{q ∈ Σ(F/K)} P(Fr_q^{-1} | T^*; 1)c_K = 0, and the family c_F = 0 (F ≠ K), c_K arbitrary is an Euler system. Condition (ii) is therefore replaced by (ii)′: at least one of (a) 𝒦 contains a ℤ_p^d-extension of K in which no finite prime splits completely; (b) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, and there is γ ∈ G_K with γ = 1 on K(1)(μ_{p^∞}, (O_K^×)^{1/p^∞}) and γ − 1 injective on T; (c) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, Fr_q^n − 1 is injective on T for every prime q ∤ N and every power n of p, and the family {c_{K(r)}} satisfies the congruence of Corollary IV.8.1. Under (ii)′ and T^{G_{K(1)}} = 0, Theorems II.2.2, II.2.3 and II.2.10 hold as stated. (b) Finite depth. For 0 ≠ M ∈ O an Euler system for W_M (of depth M) is a family as in the definition with c_F ∈ H¹(F, W_M). (c) Anticyclotomic. For a character χ of Gal(K′/K) of order d and an abelian extension 𝒦′/K′ on which Gal(K′/K) acts through χ, a χ-anticyclotomic Euler system for (T, 𝒦′, N) is a family c_F ∈ H¹(F, T), K′ ⊂_f F ⊆ 𝒦′, with the corestriction relations for primes q of K and one of the three rigidity conditions adapted to χ. (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F, T) for all F.",
    "hypotheses": [
     "as in each variant"
    ],
@@ -3323,7 +3400,7 @@
     {
      "name": "not_isRigid_isolated_class",
      "kind": "non-example",
-     "statement": "If K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for all q ∤ N and 𝒦 is the maximal abelian extension of K unramified outside N, the family c_K = x, c_F = 0 for F ≠ K is an Euler system for every x ∈ H¹(K, T); for x ∉ S^{Σ_p}(K, T) it satisfies none of (a), (b), (c)."
+     "statement": "If K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for all q ∤ N and 𝒦 is the maximal abelian extension of K unramified at every prime dividing N, the family c_K = x, c_F = 0 for F ≠ K is an Euler system for every x ∈ H¹(K, T); for x ∉ S^{Σ_p}(K, T) it satisfies none of (a), (b), (c)."
     },
     {
      "name": "AnticyclotomicEulerSystem.heegner_shape",
@@ -4253,7 +4330,7 @@
    ],
    "title": "Locally cyclic sheaves, hubs, monodromy and primitive sections",
    "kind": "definition",
-   "statement": "Let S be a sheaf of R-modules on a graph X. S is locally free of rank r if all S(v), S(e) are free of rank r and all ψ_v^e are isomorphisms; locally cyclic if all S(v), S(e) are cyclic and all ψ_v^e are surjective. For S locally cyclic, a surjective path from v to w is a path (v = v₁, …, v_k = w) such that each ψ_{v_{i+1}}^{e_i} is an isomorphism; it induces a surjection ψ_P : S(v) → S(w). A vertex v is a hub if every vertex is reached from v by a surjective path. S has trivial monodromy if for surjective paths P, P′ from v to w, w′ joined by an edge e, ψ_w^e ∘ ψ_P = ψ_{w′}^e ∘ ψ_{P′}. A global section κ is primitive if κ_v generates S(v) for every v. Proposition: if S is locally cyclic and v is a hub, then Γ(S) → S(v), κ ↦ κ_v, is injective, and surjective iff S has trivial monodromy; Γ(S) is isomorphic to an ideal of R; and if κ_u ≠ 0 generates m^iS(u) for some u then κ_w generates m^iS(w) for every w.",
+   "statement": "Let S be a sheaf of R-modules on a graph X. S is locally free of rank r if all S(v), S(e) are free of rank r and all ψ_v^e are isomorphisms; locally cyclic if all S(v), S(e) are cyclic and all ψ_v^e are surjective. For S locally cyclic, a surjective path from v to w is a path (v = v₁, …, v_k = w) such that each ψ_{v_{i+1}}^{e_i} is an isomorphism; it induces a surjection ψ_P : S(v) → S(w). A vertex v is a hub if every vertex is reached from v by a surjective path. S has trivial monodromy if for surjective paths P, P′ from v to w, w′ joined by an edge e, ψ_w^e ∘ ψ_P = ψ_{w′}^e ∘ ψ_{P′}. A global section κ is primitive if κ_v generates S(v) for every v. Proposition: if S is locally cyclic and v is a hub, then Γ(S) → S(v), κ ↦ κ_v, is injective, and surjective iff S has trivial monodromy; Γ(S) is isomorphic to a submodule of the cyclic hub stalk S(v). It is isomorphic to an ideal of R if the hub stalk is free of rank one, or if R is principal artinian (every cyclic module is then isomorphic to an ideal). The ideal conclusion is false for a general complete noetherian local R; and if κ_u ≠ 0 generates m^iS(u) for some u then κ_w generates m^iS(w) for every w.",
    "hypotheses": [
     "R local with maximal ideal m"
    ],
@@ -4262,7 +4339,7 @@
    ],
    "acceptance": [
     "A locally free sheaf of rank one on a connected graph is locally cyclic and every vertex is a hub.",
-    "A locally cyclic sheaf has a primitive section iff it has trivial monodromy."
+    "A locally cyclic sheaf with a hub has a primitive section iff it has trivial monodromy."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf"
@@ -4342,6 +4419,11 @@
      "name": "isPrimitive_zero_module",
      "kind": "degenerate",
      "statement": "If all stalks are 0 the zero section is primitive."
+    },
+    {
+     "name": "sections_cyclic_not_ideal_dvr",
+     "kind": "non-example",
+     "statement": "On the one-vertex graph, take R=ℤ_p and S(v)=ℤ_p/p. The vertex is a hub and monodromy is trivial, but Γ(S)=ℤ/p cannot be isomorphic to any ideal of the domain ℤ_p. Injectivity into S(v) does not identify S(v) with an ideal."
     }
    ],
    "library": {
@@ -4590,12 +4672,12 @@
     },
     {
      "sourceId": "mr-ks",
-     "locator": "Theorem 4.3.4, p. 42",
+     "locator": "Theorem 4.3.4, p. 41",
      "match": "Local cyclicity and hubs."
     },
     {
      "sourceId": "mr-ks",
-     "locator": "Theorem 4.4.1, p. 46",
+     "locator": "Theorem 4.4.1, p. 45",
      "match": "Kolyvagin systems are stub sections."
     },
     {
@@ -4689,7 +4771,7 @@
    ],
    "title": "The Kolyvagin system bound",
    "kind": "theorem",
-   "statement": "(a) (R principal artinian of length k, (H.0)–(H.6), and one of the conditions of Theorem 4.4.1, or κ sufficiently liftable.) For κ ∈ KS(T): length H¹_{F^*}(ℚ, T^*) ≤ max{i : κ_1 ∈ m^iH¹_F(ℚ, T)}. (b) (R a discrete valuation ring, (H.0)–(H.5), H¹(ℚ_ℓ, T)/H¹_F(ℚ_ℓ, T) torsion-free for ℓ ∈ Σ(F), P = P_1.) For κ ∈ KS(T) put ∂^{(0)}(κ) = max{j : κ_1 ∈ m^jH¹_F(ℚ, T)} ≤ ∞. Then length_R H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ); in particular if κ_1 ≠ 0 then H¹_{F^*}(ℚ, T^*) is finite. The same holds for κ̄ ∈ K̄S(T). The bound concerns the whole dual Selmer group H¹_{F^*}(ℚ, T^*) of the discrete module T^* = Hom(T, μ_{p^∞}), not a cotorsion quotient; for κ_1 = 0 it is vacuous (∂^{(0)} = ∞).",
+   "statement": "(a) (R principal artinian of length k, (H.0)–(H.6), and one of the conditions of Theorem 4.4.1, or κ sufficiently liftable.) For κ ∈ KS(T): length H¹_{F^*}(ℚ, T^*) ≤ sup{i : κ_1 ∈ m^iH¹_F(ℚ, T)} ∈ ℕ∞ (∞ when κ_1=0). (b) (R a discrete valuation ring, (H.0)–(H.5), H¹(ℚ_ℓ, T)/H¹_F(ℚ_ℓ, T) torsion-free for ℓ ∈ Σ(F), P = P_1.) For κ ∈ KS(T) put ∂^{(0)}(κ) = max{j : κ_1 ∈ m^jH¹_F(ℚ, T)} ≤ ∞. Then length_R H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ); in particular if κ_1 ≠ 0 then H¹_{F^*}(ℚ, T^*) is finite. The same holds for κ̄ ∈ K̄S(T). The bound concerns the whole dual Selmer group H¹_{F^*}(ℚ, T^*) of the discrete module T^* = Hom(T, μ_{p^∞}), not a cotorsion quotient; for κ_1 = 0 it is vacuous (∂^{(0)} = ∞).",
    "hypotheses": [
     "as stated in (a), (b)"
    ],
@@ -4699,7 +4781,7 @@
    ],
    "acceptance": [
     "Kato's Kolyvagin system gives length Sel(E[p^∞]) ≤ the divisibility of the Kato class, under the hypotheses of §6.2.",
-    "Scaling κ by π raises the bound by one; the zero system gives no information."
+    "Over a DVR, scaling a nonzero initial class by π raises the bound by one; the zero system gives no information."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.4/stub-sheaf",
@@ -4899,7 +4981,7 @@
     },
     {
      "sourceId": "rubin-es",
-     "locator": "Appendix A, Corollary 2.6, p. 149",
+     "locator": "Appendix A, Corollary 2.6, p. 148",
      "match": "The kernel and cokernel of q(σ) on W_M are bounded."
     }
    ],
@@ -4963,14 +5045,14 @@
    ],
    "title": "Localisation at abundant tuples with bounded loss",
    "kind": "theorem",
-   "statement": "Setting of ES.1/abundant-tuples. (a) (Uniform annihilation.) Let R be a lattice with R_ℚ^𝔠 ≅ R_ℚ^∨(1), pure of weight −1 at every nonarchimedean place not above ℓ. For every finite set Σ of places there is m_Σ ≥ 1 such that for every saturated free submodule S of the Bloch–Kato Selmer module with images S^{(m)} modulo λ^m and every m > m_Σ, loc_w(λ^{m_Σ}S^{(m)}) = 0 for every nonarchimedean w ∈ Σ not above ℓ. (b) (Corrected Proposition 2.6.7.) Let S be free of rank r over O_λ/λ^{m−m₀} and (Ψ₁, …, Ψ_r) an (S, γ)-abundant tuple realised by γ-associated places w_i. Put c = 𝔣(r)r_R and let A be the matrix of s ↦ (θ_S(Ψ_i)(s))_i in a basis e₁, …, e_r of S, after identifying the λ^{m−m₀}-torsion of (R̄^{(m)})^{h_γ} with O_λ/λ^{m−m₀}; abundance says that the image of A contains λ^c(O_λ/λ^{m−m₀})^r. Then there is an integral matrix C with AC = λ^c·I, and the elements s_j = Ce_j ∈ S satisfy loc_{w_i}(s_j) = 0 for i ≠ j and exp_λ(loc_{w_i}(s_i), H¹_ns(F_{w_i}, R̄^{(m)})) ≥ m − m₀ − 𝔣(r)r_R; the s_j span a submodule containing λ^{𝔣(r)r_R}S and form a basis of S when 𝔣(r)r_R = 0. For r = 2 and a primitive v ∈ S one can moreover choose a primitive t ∈ S with loc_{w₁}(t) = 0 and exp_λ(loc_{w₂}(t)) ≥ m − m₀ − 𝔣(2)r_R after possibly interchanging the two places. The printed statement (a basis for every abundant tuple) is false when the loss is positive.",
+   "statement": "Setting of ES.1/abundant-tuples. (a) (Uniform annihilation.) Let R be a lattice with R_ℚ^𝔠 ≅ R_ℚ^∨(1), pure of weight −1 at every nonarchimedean place not above ℓ. For every finite set Σ of places there is m_Σ ≥ 1 such that for every saturated free submodule S of the Bloch–Kato Selmer module with images S^{(m)} modulo λ^m and every m > m_Σ, loc_w(λ^{m_Σ}S^{(m)}) = 0 for every nonarchimedean w ∈ Σ not above ℓ. (b) (Corrected Proposition 2.6.7.) Let S be free of rank r over O_λ/λ^{m−m₀} and (Ψ₁, …, Ψ_r) an (S, γ)-abundant tuple realised by γ-associated places w_i. Put c = 𝔣(r)r_R and let A be the matrix of s ↦ (θ_S(Ψ_i)(s))_i in a basis e₁, …, e_r of S, after identifying the λ^{m−m₀}-torsion of (R̄^{(m)})^{h_γ} with O_λ/λ^{m−m₀}; abundance says that the image of A contains λ^c(O_λ/λ^{m−m₀})^r. Then there is an integral matrix C with AC = CA = λ^c·I in the finite coefficient ring, and the elements s_j = Ce_j ∈ S satisfy loc_{w_i}(s_j) = 0 for i ≠ j and exp_λ(loc_{w_i}(s_i), H¹_ns(F_{w_i}, R̄^{(m)})) ≥ m − m₀ − 𝔣(r)r_R; the s_j span a submodule containing λ^{𝔣(r)r_R}S and form a basis of S when 𝔣(r)r_R = 0. For r = 2 and a primitive v ∈ S one can moreover choose a primitive t ∈ S with loc_{w₁}(t) = 0 and exp_λ(loc_{w₂}(t)) ≥ m − m₀ − 𝔣(2)r_R after possibly interchanging the two places. The printed statement (a basis for every abundant tuple) is false when the loss is positive.",
    "hypotheses": [
     "as in ES.1/abundant-tuples",
     "for (a): the purity and polarisation hypotheses"
    ],
    "proofSteps": [
     "(a): local cohomology H¹_ns at w ∤ ℓ of a pure weight −1 lattice is finite, of exponent bounded independently of m; saturation makes S^{(m)} free and its localisation factor through the torsion of the local group.",
-    "(b): linear algebra over the discrete valuation ring: a square matrix whose reduction has image containing λ^c has an integral scaled inverse C = λ^c A^{-1}; for r = 2 take t = (−u₂, u₁) from the first row π^a(u₁, u₂) of A. The localisation statement follows because loc_{w_i} on S factors through θ_S(Ψ_i) (evaluation at Frobenius, ES.1/finite-singular-decomposition)."
+    "(b): linear algebra over the discrete valuation ring: use Smith normal form over the DVR: if c < m−m₀, each nonzero diagonal exponent is at most c, giving an integral scaled inverse of a suitable lift and a reduction C with AC=CA=λ^cI; if c ≥ m−m₀ take C=0. An arbitrary matrix over the finite quotient need not be invertible there; for r = 2 take t = (−u₂, u₁) from the first row π^a(u₁, u₂) of A. The localisation statement follows because loc_{w_i} on S factors through θ_S(Ψ_i) (evaluation at Frobenius, ES.1/finite-singular-decomposition)."
    ],
    "acceptance": [
     "With r_R = 0: a basis of S diagonalising the localisations, with exp ≥ m − m₀: the clean statement.",
@@ -4984,7 +5066,7 @@
    "sources": [
     {
      "sourceId": "ltxzz",
-     "locator": "Proposition 2.4.6(2), arXiv v3 p. 16",
+     "locator": "Proposition 2.4.6(2), arXiv v3 p. 17",
      "match": "Uniform annihilation of localisations."
     },
     {
@@ -5058,17 +5140,18 @@
    ],
    "title": "Divisibility indices, elementary divisors and primitivity",
    "kind": "definition",
-   "statement": "Let (T, F, P) be a Selmer triple and κ ∈ KS(T). (a) R principal artinian of length k: ∂^{(r)}(κ) = min{k − length(Rκ_n) : n ∈ N, ν(n) = r} and e_i(κ) = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for i ≥ 0. (b) R a discrete valuation ring: ∂^{(r)}(κ) = max{j : κ_n ∈ m^j H¹_{F(n)}(K, T/I_nT) ⊗ G_n for every n ∈ N with ν(n) = r} ∈ ℕ ∪ {∞}, ∂^{(0)}(κ) = max{j : κ_1 ∈ m^jH¹_F(K, T)}, e_i(κ) = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for i ≥ ord(κ), and ∂^{(∞)}(κ) = min{∂^{(r)}(κ) : r ≥ 0}. κ is primitive if its image in KS(T/mT) is nonzero. The index of κ is ∂^{(0)}(κ), the divisibility of the initial class; it is ∞ when κ_1 = 0.",
+   "statement": "Let (T, F, P) be a Selmer triple and κ ∈ KS(T). (a) R principal artinian of length k: ∂^{(r)}(κ) = min{k − length(Rκ_n) : n ∈ N, ν(n) = r} and e_i(κ) = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for i ≥ 0. (b) R a discrete valuation ring: ∂^{(r)}(κ) = max{j : κ_n ∈ m^j H¹_{F(n)}(K, T/I_nT) ⊗ G_n for every n ∈ N with ν(n) = r} ∈ ℕ ∪ {∞}, ∂^{(0)}(κ) = max{j : κ_1 ∈ m^jH¹_F(K, T)}, e_i(κ) = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for i ≥ ord(κ), and ∂^{(∞)}(κ) = min{∂^{(r)}(κ) : r ≥ 0}. κ is primitive if its image in KS(T/mT) is nonzero. In the DVR case, the index ∂^{(0)}(κ) is ∞ when κ_1=0. In the artinian case use the truncated definition k−length(Rκ_1), which equals k for κ_1=0, not ∞. The two conventions agree through limits for nonzero DVR systems under the rank-one admissibility hypotheses.",
    "hypotheses": [
-    "R principal artinian or a discrete valuation ring"
+    "For the definitions: R principal artinian (length k) or a DVR, with its specified Kolyvagin-system carrier.",
+    "For monotonicity, scaling, elementary-divisor and order characterisations: the admissibility hypotheses of rank-one-module-theorem and χ(T)=1; use nonzero κ for DVR elementary divisors."
    ],
    "proofSteps": [
     "In the artinian case length(Rκ_n) = k − (largest j with κ_n ∈ m^j of a free stalk); the two definitions agree in the limit: ∂^{(s)}(κ) = lim_k ∂^{(s)}(κ^{(k)}) (Theorem 5.2.12(i)).",
     "Primitivity uses the reduction map KS(T) → KS(T/mT) of ES.3/kolyvagin-system-module; for core rank one it is equivalent to κ generating KS(T), and to κ_n generating the stub stalk ℋ′(n) for one n with ℋ′(n) ≠ 0, or for all n (Corollary 4.5.4)."
    ],
    "acceptance": [
-    "∂^{(r)}(πκ) = ∂^{(r)}(κ) + 1 for all r, so e_i(πκ) = e_i(κ) and πκ is not primitive.",
-    "ord(κ) = min{r : ∂^{(r)}(κ) < ∞}."
+    "Over a DVR under rank-one admissibility, ∂^{(r)}(πκ)=∂^{(r)}(κ)+1 and e_i(πκ)=e_i(κ) for their finite range. Over length-k artinian rings the values truncate at k, so elementary divisors need not remain unchanged.",
+    "The order uses threshold ∞ over a DVR and k over an artinian ring."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
@@ -5132,7 +5215,7 @@
     {
      "name": "TauCeti.KolyvaginSystems.KolyvaginSystem.divIndex_smul",
      "role": "relation",
-     "statement": "∂^{(r)}(π·κ) = ∂^{(r)}(κ) + 1 for a uniformiser π."
+     "statement": "Under the rank-one admissibility hypotheses, over a DVR ∂^{(r)}(πκ)=∂^{(r)}(κ)+1 with ∞+1=∞. Over a principal artinian ring of length k, ∂^{(r)}(πκ)=min(k,∂^{(r)}(κ)+1)."
     },
     {
      "name": "TauCeti.KolyvaginSystems.KolyvaginSystem.not_isPrimitive_smul",
@@ -5142,19 +5225,19 @@
     {
      "name": "TauCeti.KolyvaginSystems.KolyvaginSystem.ord_eq",
      "role": "characterisation",
-     "statement": "ord(κ) = min{r : ∂^{(r)}(κ) ≠ ⊤}."
+     "statement": "For nonzero κ under the rank-one admissibility hypotheses: over a DVR ord(κ)=min{r:∂^{(r)}(κ)<∞}; over a principal artinian ring ord(κ)=min{r:∂^{(r)}(κ)<k}. Set ord(0)=∞ in both cases."
     }
    ],
    "tests": [
     {
      "name": "divIndex_zero_system",
      "kind": "degenerate",
-     "statement": "For κ = 0: ∂^{(r)}(κ) = ⊤ for all r, ord(κ) = ⊤, and κ is not primitive."
+     "statement": "For κ=0 over a DVR, ∂^{(r)}=∞ for all r; over a principal artinian ring of length k, ∂^{(r)}=k. In both cases ord(κ)=∞ and κ is not primitive."
     },
     {
      "name": "divIndex_scaling",
      "kind": "computation",
-     "statement": "If κ is primitive with ∂^{(0)}(κ) = 3 then ∂^{(0)}(π²κ) = 5 and π²κ is not primitive."
+     "statement": "For a DVR rank-one admissible triple and primitive κ with ∂^{(0)}=3, ∂^{(0)}(π²κ)=5. Over an artinian ring of length k the value is min(k,5). If k=4 it equals 4 and (π²κ)_1=0. The scaled system is not primitive."
     },
     {
      "name": "isPrimitive_field",
@@ -5164,7 +5247,7 @@
     {
      "name": "isPrimitive_ne_nonzero_initial",
      "kind": "non-example",
-     "statement": "κ_1 ≠ 0 does not imply primitivity: for a primitive κ₀ with (κ₀)_1 ≠ 0, the system πκ₀ has nonzero initial class and is not primitive."
+     "statement": "Over a DVR, for primitive κ₀ with (κ₀)_1≠0, πκ₀ has nonzero initial class and is not primitive. In an artinian quotient the initial class can be killed by π, so nonvanishing must be checked separately."
     }
    ],
    "planet": {
@@ -5385,7 +5468,7 @@
    ],
    "title": "Scaling, vanishing leading class and a non-primitive arithmetic system",
    "kind": "application",
-   "statement": "(a) Scaling: for κ primitive with κ_1 ≠ 0 over a discrete valuation ring (χ(T) = 1), length H¹_{F^*}(ℚ, T^*) = ∂^{(0)}(κ); for κ′ = πκ, ∂^{(0)}(κ′) = ∂^{(0)}(κ) + 1 > length H¹_{F^*}(ℚ, T^*), the e_i are unchanged and κ′ is not primitive: the bound for κ′ is true and not sharp. (b) A Kolyvagin system with κ_1 = 0 is a valid element of KS(T); for it ∂^{(0)} = ∞, the bound is vacuous, and by the structure theorem H¹_{F^*}(ℚ, T^*) is infinite when χ(T) = 1. (c) Kato's Kolyvagin system for T_pE: if L(E, 1) ≠ 0, p satisfies the hypotheses of Mazur–Rubin 2004 Theorem 6.2.4(ii) and p divides a Tamagawa factor c_ℓ for some ℓ ≠ p, then κ^{Kato} is not primitive: it is a Kolyvagin system for the finer structure F_u with unramified conditions away from p, whose dual Selmer group is larger by the Tamagawa defect. The defect is recorded as a length.",
+   "statement": "(a) Scaling: for κ primitive with κ_1 ≠ 0 over a discrete valuation ring (χ(T) = 1), length H¹_{F^*}(ℚ, T^*) = ∂^{(0)}(κ); for κ′ = πκ, ∂^{(0)}(κ′) = ∂^{(0)}(κ) + 1 > length H¹_{F^*}(ℚ, T^*), the e_i are unchanged and κ′ is not primitive: the bound for κ′ is true and not sharp. (b) A nonzero Kolyvagin system with κ_1 = 0 is a valid element of KS(T); for it ∂^{(0)} = ∞, the bound is vacuous, and by the structure theorem H¹_{F^*}(ℚ, T^*) is infinite when χ(T) = 1. For κ=0 the bound remains vacuous and gives no finiteness conclusion. (c) Kato's Kolyvagin system for T_pE: if L(E, 1) ≠ 0, p satisfies the hypotheses of Mazur–Rubin 2004 Theorem 6.2.4(ii) and p divides a Tamagawa factor c_ℓ for some ℓ ≠ p, then κ^{Kato} is not primitive: it is a Kolyvagin system for the finer structure F_u with unramified conditions away from p, whose dual Selmer group is larger by the Tamagawa defect. The defect is recorded as a length.",
    "hypotheses": [
     "χ(T) = 1; for (c) the hypotheses of Theorem 6.2.4(ii) of the source"
    ],
@@ -5404,7 +5487,7 @@
    "sources": [
     {
      "sourceId": "mr-ks",
-     "locator": "Proposition 6.2.6, p. 76",
+     "locator": "Proposition 6.2.6, p. 75",
      "match": "A naturally occurring non-primitive system."
     }
    ],
@@ -5422,7 +5505,7 @@
    ],
    "title": "Howard's self-dual Selmer triples and hypotheses H.0–H.5",
    "kind": "definition",
-   "statement": "Let K be an imaginary quadratic field, τ a complex conjugation, R a coefficient ring (complete noetherian local, finite residue field of characteristic p; in §1.5 principal artinian, in §1.6 a discrete valuation ring) and T an R-module with continuous G_K-action. 𝓛₀ is the set of rational primes ℓ inert in K (prime to p and to the ramification of T), λ the prime of K above ℓ; I_ℓ is the smallest ideal of R containing ℓ + 1 for which Fr_λ acts trivially on T/I_ℓT; 𝓛_k = {ℓ ∈ 𝓛₀ : I_ℓ ⊆ p^kℤ_p}; G_ℓ = k_λ^×/k_ℓ^×; I_n = Σ_{ℓ | n} I_ℓ and G_n = ⊗_{ℓ | n} G_ℓ. The transverse condition at λ is defined by the maximal p-subextension of K[ℓ]_λ/K_λ, K[ℓ] the ring class field of conductor ℓ. A Selmer triple (T, F, 𝓛) has 𝓛 ⊆ 𝓛₀ disjoint from Σ(F); Kolyvagin systems κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n, n ∈ N(𝓛), satisfy the finite–singular relations at every ℓ with nℓ ∈ N(𝓛). Hypotheses: H.0 T is free of rank two. H.1 T̄ is absolutely irreducible. H.2 there is a Galois extension F/ℚ containing K with G_F acting trivially on T and H¹(F(μ_{p^∞})/K, T̄) = 0. H.3 F is cartesian on Quot(T) at every v ∈ Σ(F). H.4 there is a perfect symmetric R-bilinear pairing ( , ) : T × T → R(1) with (s^σ, t^{τστ^{-1}}) = (s, t)^σ, and F is its own exact orthogonal complement under the induced pairings H¹(K_v, T) × H¹(K_{v̄}, T) → R. H.5 (a) the action of G_K on T̄ extends to G_ℚ and τ splits T̄ into one-dimensional eigenspaces T̄^±; (b) F on T̄ is stable under G_ℚ; (c) the residual pairing satisfies (s^τ, t^τ) = (s, t)^τ.",
+   "statement": "Let K be an imaginary quadratic field, τ a complex conjugation, R a coefficient ring (complete noetherian local, finite residue field of characteristic p; in §1.5 principal artinian, in §1.6 a discrete valuation ring) and T an R-module with continuous G_K-action. 𝓛₀ is the set of rational primes ℓ inert in K (prime to p and to the ramification of T), λ the prime of K above ℓ; I_ℓ is the smallest ideal of R containing ℓ + 1 for which Fr_λ acts trivially on T/I_ℓT; 𝓛_k = {ℓ ∈ 𝓛₀ : I_ℓ ⊆ p^kR}; G_ℓ = k_λ^×/k_ℓ^×; I_n = Σ_{ℓ | n} I_ℓ and G_n = ⊗_{ℓ | n} G_ℓ. The transverse condition at λ is defined by the maximal p-subextension of K[ℓ]_λ/K_λ, K[ℓ] the ring class field of conductor ℓ. A Selmer triple (T, F, 𝓛) has 𝓛 ⊆ 𝓛₀ disjoint from Σ(F); Kolyvagin systems κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n, n ∈ N(𝓛), satisfy the finite–singular relations at every ℓ with nℓ ∈ N(𝓛). Hypotheses: H.0 T is free of rank two. H.1 T̄ is absolutely irreducible. H.2 there is a Galois extension F/ℚ containing K with G_F acting trivially on T and H¹(F(μ_{p^∞})/K, T̄) = 0. H.3 F is cartesian on Quot(T) at every v ∈ Σ(F). H.4 there is a perfect symmetric R-bilinear pairing ( , ) : T × T → R(1) with (s^σ, t^{τστ^{-1}}) = (s, t)^σ, and F is its own exact orthogonal complement under the induced pairings H¹(K_v, T) × H¹(K_{v̄}, T) → R. H.5 (a) the action of G_K on T̄ extends to G_ℚ and τ splits T̄ into one-dimensional eigenspaces T̄^±; (b) F on T̄ is stable under G_ℚ; (c) the residual pairing satisfies (s^τ, t^τ) = (s, t)^τ.",
    "hypotheses": [
     "K imaginary quadratic",
     "p odd"
@@ -5693,7 +5776,7 @@
     },
     {
      "sourceId": "dk",
-     "locator": "§1.2, p. 9",
+     "locator": "§1.2, p. 8",
      "match": "The lattice form over ℤ[G], in Rubin's original normalisation."
     }
    ],
@@ -5804,7 +5887,9 @@
    "kind": "theorem",
    "statement": "(a) If ι : X → Y is injective and Ext¹_R(coker ι, R) = 0, then ⋂^r X → ⋂^r Y is injective for all r. (b) If Y is free of rank r + s and Y → R^s → Z → 0 is exact with components φ₁, …, φ_s, then Fitt⁰_R(Z) is generated by the images im(F) of the elements F in the image of ⋀_{i} φ_i : ⋂^{r+s} Y → ⋂^r Y. (c) If R is self-injective and 0 → X → Y → R^s is exact with components φ_i, then im(⋀_i φ_i : ⋂^{r+s} Y → ⋂^r Y) ⊆ ⋂^r X, so ⋀φ_i induces ⋂^{r+s} Y → ⋂^r X. (d) (Rank reduction.) If R is self-injective and Y ⊆ X, then ⋂^r Y = {x ∈ ⋂^r X : Φ(x) ∈ ⋂^1 Y = Y for all Φ ∈ ⋀^{r−1}X^*}. (e) If R is self-injective and f : X → R, then ⋂^r ker(f) = ker(f : ⋂^r X → ⋂^{r−1} X). (f) For a surjection R → S of self-injective rings, a free R-module F of finite rank, an R-module X with a map X → F and an S-module Y with an injection Y ↪ F ⊗_R S, in a commutative square with X → Y and the projection π : F → F ⊗_R S, there is a natural map ⋂^r_R X → ⋂^r_S Y for r ≥ 1. Over a self-injective ring Hom_R(−, R) is exact and finitely generated modules are reflexive.",
    "hypotheses": [
-    "R self-injective (zero-dimensional Gorenstein) for (c)–(f)"
+    "R commutative noetherian; all modules in the duality/reflexivity assertions finitely generated.",
+    "R self-injective (zero-dimensional Gorenstein) for (c)–(f).",
+    "r≥1 in (d),(e); in (c) r≥0 and s≥1, with contraction from degree r+s to degree r."
    ],
    "proofSteps": [
     "(a): dualising 0 → X → Y → coker gives X^* ↞ Y^* surjective when Ext¹ vanishes, so ⋀^r Y^* → ⋀^r X^* is surjective and its dual injective.",
@@ -5973,10 +6058,10 @@
    ],
    "title": "Freeness of Stark systems and control of the dual Selmer group",
    "kind": "theorem",
-   "statement": "(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) SS_r(T) is free of rank one over R, and the image of SS_r(T) → Y_n is Y′_n = m^{length H¹_{(F^*)_n}(K, T^*)} Y_n; for R a discrete valuation ring with (H.1)–(H.6), SS_r(T, P) is free of rank one, generated by ε with nonzero image in SS_r(T/mT), and SS_r(T, P) → SS_r(T/m^k, P_k) is surjective. With φ_ε(n) = max{j : ε_n ∈ m^jY_n}, ∂φ_ε(i) = min{φ_ε(n) : ν(n) = i}, ord(ε) = min{ν(n) : ε_n ≠ 0} and d_ε(i) = ∂φ_ε(i) − ∂φ_ε(i + 1): for R a discrete valuation ring and ε ≠ 0, corank H¹_{F^*}(K, T^*) = ord(ε), H¹_{F^*}(K, T^*)/div ≅ ⊕_{i ≥ ord ε} R/m^{d_ε(i)}, ε is primitive iff ∂φ_ε(∞) = 0, and length H¹_{F^*}(K, T^*) ≤ ∂φ_ε(0) = max{s : ε_1 ∈ m^s ⋀^r H¹_F(K, T)} with equality iff ε is primitive. (b) (Burns–Sakamoto–Sano; Hypothesis 4.2.) For n with H¹_{(F^*)_n}(K, A^*(1)) = 0, SS_r(A, F) → ⋂^{r+ν(n)}H¹_{F^n}(K, A) is bijective, so SS_r(A, F) is free of rank one; for all ε and i: I_i(ε) ⊆ I_{i+1}(ε), I_∞(ε) = R iff ε is a basis, and I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, A^*(1))^*). For a local Gorenstein order under Hypothesis 4.7, SS_r(T, F) is free of rank one with I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, T^∨(1))^∨). The regulator and the ideals commute with the admissible scalar reductions R → R/(p^m) and R → S of bidual-functoriality(f).",
+   "statement": "(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) SS_r(T) is free of rank one over R, and the image of SS_r(T) → Y_n is Y′_n = m^{length H¹_{(F^*)_n}(K, T^*)} Y_n; for R a discrete valuation ring with (H.1)–(H.6), SS_r(T, P) is free of rank one, generated by ε with nonzero image in SS_r(T/mT), and SS_r(T, P) → SS_r(T/m^k, P_k) is surjective. With φ_ε(n) = max{j : ε_n ∈ m^jY_n}, ∂φ_ε(i) = min{φ_ε(n) : ν(n) = i}, ord(ε) = min{ν(n) : ε_n ≠ 0} and d_ε(i) = ∂φ_ε(i) − ∂φ_ε(i + 1): for R a discrete valuation ring and ε ≠ 0, corank H¹_{F^*}(K, T^*) = ord(ε), H¹_{F^*}(K, T^*)/div ≅ ⊕_{i ≥ ord ε} R/m^{d_ε(i)}, ε is primitive iff ∂φ_ε(∞) = 0, and length H¹_{F^*}(K, T^*) ≤ ∂φ_ε(0) = max{s : ε_1 ∈ m^s ⋀^r H¹_F(K, T)} with equality iff ε is primitive. (b) (Burns–Sakamoto–Sano; Hypothesis 4.2.) For n with H¹_{(F^*)_n}(K, A^*(1)) = 0, SS_r(A, F) → ⋂^{r+ν(n)}H¹_{F^n}(K, A) is bijective, so SS_r(A, F) is free of rank one; for all ε and i: I_i(ε) ⊆ I_{i+1}(ε), I_∞(ε) = R iff ε is a basis, and I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, A^*(1))^*). For a local Gorenstein order under Hypothesis 4.7 and Hypothesis 4.2 of fixed rank r for (T/p^mT,F,P_m) at every m≥1, SS_r(T, F) is free of rank one with I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, T^∨(1))^∨). The regulator and the ideals commute with the admissible scalar reductions R → R/(p^m) and R → S of bidual-functoriality(f).",
    "hypotheses": [
     "(H.1)–(H.7) of ES.0/hypotheses-mr2016 for (a)",
-    "Hypothesis 4.2 (finite level) and 4.7 (orders) of ES.6/bss-hypotheses for (b)"
+    "Hypothesis 4.2 (finite level) and 4.7 plus 4.2 for every T/p^mT with the same r (orders) of ES.6/bss-hypotheses for (b)"
    ],
    "proofSteps": [
     "(a): Y_n is free of rank one when H¹_{(F^*)_n} = 0 (Corollary 3.5), such n exist and are cofinal (ES.1/chebotarev-nonvanishing), and Ψ_{n,m}(Y_n) = Y′_m (Lemma 6.9); the structure theorem follows from ∂μ(t) = Σ_{i>t} e_i for H¹_{F^*} ≅ ⊕R/m^{e_i}.",
@@ -6238,7 +6323,7 @@
     {
      "name": "TauCeti.StarkSystems.stub_ne_all",
      "kind": "non-example",
-     "statement": "For core rank χ(T) > 1 over a field, KS_r(T) for r = 1 is infinite-dimensional while KS′_χ(T) is one-dimensional: the stub systems are a proper submodule of all sections."
+     "statement": "For χ(T)>1 over a field, the rank-one module KS_1(T) is infinite-dimensional whereas the stub module KS′_χ(T)(T) is one-dimensional. They concern different exterior ranks; this is a comparison of two modules, not a claim that the latter is a proper submodule of the former. A same-rank strict-inclusion non-example needs a separate calculation."
     }
    ],
    "library": {
@@ -6254,7 +6339,7 @@
    ],
    "title": "The regulator isomorphism and structure of Kolyvagin systems of rank r",
    "kind": "theorem",
-   "statement": "(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) There are core vertices; any two are joined by a path through core vertices along which all vertex-to-edge maps are isomorphisms; S′ is locally cyclic with every core vertex a hub and trivial monodromy; KS′_r(T) is free of rank one and κ ↦ κ_n is an isomorphism onto S′(n) at core vertices; Π : SS_r(T) → KS′_r(T) is an isomorphism. For R a discrete valuation ring ((H.1)–(H.6)), KS′_r(T, P) ≅ lim_k KS′_r(T/m^k, P_k) is free of rank one, and for 0 ≠ κ ∈ KS′_r(T) the conclusions of ES.6/stark-structure(a) hold with ε replaced by κ; in particular length H¹_{F^*}(K, T^*) ≤ max{s : κ_1 ∈ m^s ⋀^r H¹_F(K, T)}, with equality iff κ is primitive. (b) (Burns–Sakamoto–Sano; Hypotheses 3.2, 3.3, 4.2 and p > 3.) Reg_r : SS_r(A, F) → KS_r(A, F) is an isomorphism, so KS_r(A, F) is free of rank one; for κ ∈ KS_r(A, F) and n ∈ N, im(κ_n) ⊆ Fitt⁰_R(H¹_{F(n)^*}(K, A^*(1))^*), with equality if κ is a basis; and I_i(κ) ⊆ Fitt^i_R(H¹_{F^*}(K, A^*(1))^*), with equality if R is a principal ideal ring and κ is a basis. The same holds over a local Gorenstein order under Hypothesis 4.7 and p > 3 for KS_r(T, F) and H¹_{F^*}(K, T^∨(1))^∨. The restriction p > 3 is part of the statements for Kolyvagin systems; it is not needed for Stark systems.",
+   "statement": "(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) There are core vertices; any two are joined by a path through core vertices along which all vertex-to-edge maps are isomorphisms; S′ is locally cyclic with every core vertex a hub and trivial monodromy; KS′_r(T) is free of rank one and κ ↦ κ_n is an isomorphism onto S′(n) at core vertices; Π : SS_r(T) → KS′_r(T) is an isomorphism. For R a discrete valuation ring ((H.1)–(H.6)), KS′_r(T, P) ≅ lim_k KS′_r(T/m^k, P_k) is free of rank one, and for 0 ≠ κ ∈ KS′_r(T) the conclusions of ES.6/stark-structure(a) hold with ε replaced by κ; in particular length H¹_{F^*}(K, T^*) ≤ max{s : κ_1 ∈ m^s ⋀^r H¹_F(K, T)}, with equality iff κ is primitive. (b) (Burns–Sakamoto–Sano; Hypotheses 3.2, 3.3, 4.2 and p > 3.) Reg_r : SS_r(A, F) → KS_r(A, F) is an isomorphism, so KS_r(A, F) is free of rank one; for κ ∈ KS_r(A, F) and n ∈ N, im(κ_n) ⊆ Fitt⁰_R(H¹_{F(n)^*}(K, A^*(1))^*), with equality if κ is a basis; and I_i(κ) ⊆ Fitt^i_R(H¹_{F^*}(K, A^*(1))^*), with equality if R is a principal ideal ring and κ is a basis. The same holds over a local Gorenstein order under Hypothesis 4.7, Hypothesis 4.2 of fixed rank r for every (T/p^mT,F,P_m), and p > 3 for KS_r(T, F) and H¹_{F^*}(K, T^∨(1))^∨. The restriction p > 3 is part of the statements for Kolyvagin systems; it is not needed for Stark systems.",
    "hypotheses": [
     "as stated; p > 3 in (b)"
    ],
@@ -6327,12 +6412,12 @@
    "sources": [
     {
      "sourceId": "dk",
-     "locator": "§1.2, (8)–(10), p. 9",
+     "locator": "§1.2, (8)–(10), p. 8",
      "match": "The unit group and the order map."
     },
     {
      "sourceId": "dk",
-     "locator": "§1.2, p. 9",
+     "locator": "§1.2, p. 8",
      "match": "Rubin's lattice."
     }
    ],
@@ -6397,7 +6482,7 @@
     {
      "name": "TauCeti.RubinStark.rubinLattice_ne_exteriorPower",
      "kind": "non-example",
-     "statement": "For G of order 2 acting trivially on a rank-two lattice the bidual is ½·⋀² (ES.6/exterior-bidual tests): 𝓛 is not the image of the exterior power in general."
+     "statement": "Algebraic minus-part test: let G=C₂=⟨σ⟩ act by −1 on X=ℤ². Then Hom_{ℤ[G]}(X,ℤ[G]) has values in ℤ(1−σ), and (1−σ)²=2(1−σ). Thus the determinant-integrality lattice in ⋀²_{ℚ[G]}ℚX is (1/2)⋀²_ℤX, strictly larger than the exterior-power image. This tests the minus-part normalization without claiming X is a specific arithmetic unit lattice."
     }
    ],
    "library": {
@@ -6413,7 +6498,7 @@
    ],
    "title": "Euler systems of rank r",
    "kind": "definition",
-   "statement": "Let R be a semilocal Gorenstein O-order in a finite-dimensional semisimple commutative algebra over a finite extension of ℚ_p, T a free R-module of finite rank with continuous R-linear G_K-action, S ⊇ S_∞ ∪ S_p ∪ S_ram(T) finite, P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) for q ∉ S, 𝒦/K an abelian pro-p extension in which all archimedean places split completely, Ω(𝒦/K) the set of finite subextensions, S(F) = S ∪ S_ram(F/K) and 𝒢_F = Gal(F/K). Hypothesis 6.1: (i) H¹(O_{F,S(F)}, T) is a reflexive R[𝒢_F]-module for every F (equivalently free over O); (ii) H⁰(F, T) = 0 for every F. An Euler system of rank r for (T, 𝒦) is a family c_F ∈ ⋂^r_{R[𝒢_F]} H¹(O_{F,S(F)}, T), F ∈ Ω(𝒦/K), with Cor_{F′/F}(c_{F′}) = (∏_{q ∈ S(F′)∖S(F)} P_q(Fr_q^{-1})) c_F in ⋂^r_{R[𝒢_F]} H¹(O_{F,S(F′)}, T) for F ⊆ F′. ES_r(T, 𝒦) is the R[[Gal(𝒦/K)]]-module of such families. Hypothesis 6.7: 𝒦 contains K(q) for every q ∉ S and a ℤ_p^d-extension of K in which no finite place splits completely. For r = 1 under Hypothesis 6.1(i), ⋂^1 H¹ = H¹ and ES_1(T, 𝒦) is ES.2/euler-system-module with coefficients R.",
+   "statement": "Let R be a semilocal Gorenstein O-order in a finite-dimensional semisimple commutative algebra over a finite extension of ℚ_p, T a free R-module of finite rank with continuous R-linear G_K-action, S ⊇ S_∞ ∪ S_p ∪ S_ram(T) finite, P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) for q ∉ S, 𝒦/K an abelian pro-p extension in which all archimedean places split completely, Ω(𝒦/K) the set of finite subextensions, S(F) = S ∪ S_ram(F/K) and 𝒢_F = Gal(F/K). Hypothesis 6.1: (i) H¹(O_{F,S(F)}, T) is a reflexive R[𝒢_F]-module for every F (equivalently free over O); (ii) H⁰(F, T) = 0 for every F. An Euler system of rank r for (T, 𝒦) is a family c_F ∈ ⋂^r_{R[𝒢_F]} H¹(O_{F,S(F)}, T), F ∈ Ω(𝒦/K), with Cor_{F′/F}(c_{F′}) = (∏_{q ∈ S(F′)∖S(F)} P_q(Fr_q^{-1})) c_F in ⋂^r_{R[𝒢_F]} H¹(O_{F,S(F′)}, T) for F ⊆ F′. ES_r(T, 𝒦) is the R[[Gal(𝒦/K)]]-module of such families. Hypothesis 6.7: 𝒦 contains K(q) for every q ∉ S and a ℤ_p^d-extension of K in which no finite place splits completely. For r = 1 on the common towers satisfying Hypothesis 6.7, under Hypothesis 6.1(i) and the universal-norm/unramified comparison, ⋂^1 H¹ = H¹ and ES_1(T, 𝒦) is ES.2/euler-system-module with coefficients R.",
    "hypotheses": [
     "R a semilocal Gorenstein order",
     "Hypothesis 6.1 for the comparison with rank one"
@@ -6469,7 +6554,7 @@
     {
      "name": "TauCeti.EulerSystems.HigherEulerSystem.rank_one_equiv",
      "role": "equivalence",
-     "statement": "Under Hypothesis 6.1(i), ES_1(T, 𝒦) ≃ ES(T, 𝒦, N) for N the product of the primes of S."
+     "statement": "On common towers satisfying 6.7, under 6.1 and the universal-norm/unramified comparison, ES_1(T,𝒦)≃ES(T,𝒦,N), with N containing the finite primes of S. The comparison includes the transport from S(F)-ramified cohomology to global H¹ and the coefficient/Euler-polynomial dictionaries."
     },
     {
      "name": "TauCeti.EulerSystems.BSSHypothesis61",
@@ -6520,7 +6605,7 @@
    ],
    "title": "The higher Kolyvagin derivative",
    "kind": "construction",
-   "statement": "Assume Hypotheses 6.1, 6.7 and 6.11 (Fr_q^{p^k} − 1 is injective on T for every q ∈ P and k ≥ 0). Fix a power M of p, a field E ∈ Ω(𝒦/K) unramified outside S with K(1) ⊆ E, and put R̄ = R/(M), ℛ = R̄[Gal(E/K)], A = Ind_{G_E}^{G_K}(T/MT), a free ℛ-module. For n ∈ N let E(n) = E·K(n), H_n = Gal(E(n)/E), c_n = c_{E(n)} and c̄_n its image in ⋂^r_{ℛ[H_n]} H¹(O_{E(n),S_n}, A)-coefficients. Then D_n·c̄_n is H_n-invariant and defines the Kolyvagin derivative κ′(c_n) = D_n·c̄_n ∈ ⋂^r_ℛ H¹(O_{K,S_n}, A). With 𝓘_n the augmentation ideal of ℤ[H_n] and G_n ≅ ⟨∏_{q | n}(σ_q − 1)⟩ ⊆ 𝓘_n^{ν(n)}/𝓘_n^{ν(n)+1}, the corrected classes κ(c)_n are obtained from the κ′(c_d), d | n, by the determinant/permutation correction, and Theorem: κ(c)_n ∈ ⋂^r_ℛ H¹_{F_can(n)}(K, A) ⊗ ⟨∏_{q | n}(σ_q − 1)⟩ and v_q(κ(c)_n) = φ^fs_q(κ(c)_{n/q}) for every q | n; so κ(c) ∈ KS_r(A, F_can). For a subfield F of E/K and A_F = Ind_{G_F}^{G_K}(T/MT) this gives the canonical homomorphism D_r = D_r^F : ES_r(T, 𝒦) → KS_r(A_F, F_can), independent of E and of the generators σ_q, with D_r(c)_1 = c_F (mod M).",
+   "statement": "Assume Hypotheses 6.1, 6.7 and 6.11 (Fr_q^{p^k} − 1 is injective on T for every q ∈ P and k ≥ 0). Fix a power M of p, a field E ∈ Ω(𝒦/K) unramified outside S with K(1) ⊆ E, and put R̄ = R/(M), ℛ = R̄[Gal(E/K)], A = Ind_{G_E}^{G_K}(T/MT), a free ℛ-module. For n ∈ N let E(n) = E·K(n), H_n = Gal(E(n)/E), B=T/MT (uninduced), c_n=c_{E(n)}, and c̄_n its image in ⋂^r_{R̄[Gal(E(n)/K)]} H¹(O_{E(n),S_n},B). The reduction is the map (9) of §6.3. The full Galois group ring is used; no splitting Gal(E(n)/K)≃Gal(E/K)×H_n is assumed. H_n-invariant descent identifies the resulting class with ⋂^r_ℛ H¹(O_{E,S_n},B), then with ⋂^r_ℛ H¹(O_{K,S_n},A) by Shapiro. Then D_n·c̄_n is H_n-invariant and defines the Kolyvagin derivative κ′(c_n) = D_n·c̄_n ∈ ⋂^r_ℛ H¹(O_{K,S_n}, A). With 𝓘_n the augmentation ideal of ℤ[H_n] and G_n ≅ ⟨∏_{q | n}(σ_q − 1)⟩ ⊆ 𝓘_n^{ν(n)}/𝓘_n^{ν(n)+1}, write P_q^m for the image of P_q(Fr_q^{-1}) in R̄⊗𝓘_m/𝓘_m² when q∤m. For m=q₁⋯q_t define Δ_m=det(B_m), where (B_m)_{ij}=0 if i=j and P_{q_j}^{q_i} otherwise; put Δ_1=1 (empty determinant) and Δ_q=0. Define κ(c)_n=Σ_{d|n}(κ′(c_d)⊗∏_{q|d}(σ_q−1))Δ_{n/d}, transporting κ′(c_d) to S_n and multiplying the disjoint augmentation factors. This is the explicit correction formula of §6.4, p.41; and Theorem: κ(c)_n ∈ ⋂^r_ℛ H¹_{F_can(n)}(K, A) ⊗ ⟨∏_{q | n}(σ_q − 1)⟩ and v_q(κ(c)_n) = φ^fs_q(κ(c)_{n/q}) for every q | n; so κ(c) ∈ KS_r(A, F_can). For a subfield F of E/K and A_F = Ind_{G_F}^{G_K}(T/MT) this gives the canonical homomorphism D_r = D_r^F : ES_r(T, 𝒦) → KS_r(A_F, F_can), independent of E and of the generators σ_q, with D_r(c)_1 = c_F (mod M).",
    "hypotheses": [
     "Hypotheses 6.1, 6.7, 6.11",
     "M a power of p"
@@ -6618,12 +6703,17 @@
     {
      "name": "TauCeti.EulerSystems.higherDerivative_needs_611",
      "kind": "non-example",
-     "statement": "For T = O with trivial action Fr_q − 1 = 0 is not injective: Hypothesis 6.11 fails, and the correction terms of the construction are not defined."
+     "statement": "For T=O with trivial action, Fr_q−1=0 is not injective and 6.11 fails (6.1(ii) also fails). The determinant expression still exists as an expression in the raw classes; Theorem 6.12 cannot be invoked to prove the local Kolyvagin relations. In particular its zero expression is well-defined."
     },
     {
      "name": "TauCeti.EulerSystems.higherDerivative_one_prime",
      "kind": "computation",
      "statement": "For n = q: κ(c)_q = κ′(c_q) ⊗ (σ_q − 1), with singular part φ^fs_q(c_F mod M) at q."
+    },
+    {
+     "name": "TauCeti.EulerSystems.higherDerivative_two_primes",
+     "kind": "computation",
+     "statement": "For n=q₁q₂, Δ_n=−P_{q₂}^{q₁}P_{q₁}^{q₂} and Δ_{q_i}=0. Hence κ(c)_n=κ′(c_n)⊗(σ_{q₁}−1)(σ_{q₂}−1)−κ′(c_1)⊗P_{q₂}^{q₁}P_{q₁}^{q₂}. This detects both the sign and the missing rank-r correction."
     }
    ],
    "planet": {
@@ -6642,7 +6732,7 @@
    ],
    "title": "Fitting-ideal control from higher-rank Euler systems",
    "kind": "theorem",
-   "statement": "Let p > 3, r ≥ 1, c ∈ ES_r(T, 𝒦), F = F_can, F a subfield of E/K and A_F = Ind_{G_F}^{G_K}(T/MT). Assume Hypotheses 6.1, 6.7, 6.11 and Hypotheses 3.2, 3.3, 4.2 for A_F and F_can, and let κ(c) = D_r^F(c). Then (i) for n ∈ N, im(κ(c)_n) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F(n)^*}(K, A_F^*(1))^*); in particular im(c_F) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*); (ii) for every i ≥ 0, I_i(κ(c)) ⊆ Fitt^i_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*). Equalities hold for a basis of KS_r when R̄[𝒢_F] is a principal ideal ring. These are containments of ideals of the group ring R̄[𝒢_F], which is not a domain: they are not valuation formulas and do not reduce to orders of underlying groups.",
+   "statement": "Let p > 3, r ≥ 1, c ∈ ES_r(T, 𝒦), F = F_can, F a subfield of E/K and A_F = Ind_{G_F}^{G_K}(T/MT). Assume Hypotheses 6.1, 6.7, 6.11 and Hypotheses 3.2, 3.3, 4.2 for A_F and F_can, and let κ(c) = D_r^F(c). Then (i) for n ∈ N, im(κ(c)_n) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F(n)^*}(K, A_F^*(1))^*); in particular im(c_F) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*); (ii) for every i ≥ 0, I_i(κ(c)) ⊆ Fitt^i_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*). In (i), equality holds whenever κ(c) is a basis of KS_r, without a principal-ring assumption. For the higher I_i in (ii), equality for a basis is asserted when R̄[𝒢_F] is a principal ideal ring. These are containments of ideals of the group ring R̄[𝒢_F], which is not a domain: they are not valuation formulas and do not reduce to orders of underlying groups.",
    "hypotheses": [
     "p > 3",
     "Hypotheses 6.1, 6.7, 6.11; 3.2, 3.3, 4.2 for A_F"
@@ -6704,12 +6794,12 @@
    "sources": [
     {
      "sourceId": "dk",
-     "locator": "§1.2, p. 9",
+     "locator": "§1.2, p. 8",
      "match": "Definition of u_RBS."
     },
     {
      "sourceId": "dk",
-     "locator": "Conjecture 1.5, p. 9",
+     "locator": "Conjecture 1.5, p. 8",
      "match": "Rubin's conjecture."
     },
     {
@@ -6770,7 +6860,7 @@
     {
      "name": "TauCeti.RubinStark.rubinConjecture_not_exteriorPower",
      "kind": "non-example",
-     "statement": "RubinConjecture is not the statement u_RBS ∈ image of ⋀^r_{ℤ[G]} U_{S,T}^−: for r ≥ 2 the lattice 𝓛 is larger, and the stronger statement is not what is conjectured."
+     "statement": "RubinConjecture is not the statement u_RBS ∈ image of ⋀^r_{ℤ[G]} U_{S,T}^−: exterior-bidual integrality can be weaker when r≥2. Use the explicit minus-part lattice computation of rubin-lattice as an algebraic witness; strictness is not asserted for every arithmetic unit lattice."
     }
    ],
    "planet": {
@@ -6789,9 +6879,10 @@
    ],
    "title": "Rank-one specialisation of the higher-rank theory",
    "kind": "comparison",
-   "statement": "Under Hypothesis 6.1, ES_1(T, 𝒦) is the module of ES.2/euler-system-module with coefficients R, with the dictionary P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) = Rubin's P(Fr_q^{-1} | T^*; x); KS_1(A, F) is ES.3/kolyvagin-system-module for A; D_1 is the map of ES.3/euler-to-kolyvagin modulo M (over ℚ) and supplies that map over a general number field K under Hypotheses 6.1, 6.7 and 6.11; and for R a discrete valuation ring the bound I_0(κ) ⊆ Fitt⁰ is length H¹_{F^*} ≤ ∂^{(0)}(κ) of ES.4/kolyvagin-bound. The conventions differ in two places, both explicit: the Euler factor (ES.2/euler-polynomial) and the identification G_q ≅ ⟨σ_q − 1⟩ ⊆ 𝓘/𝓘² (Mazur–Rubin's ρ_q).",
+   "statement": "On common admissible towers satisfying 6.7, under Hypothesis 6.1 and the universal-norm/unramified comparison, ES_1(T, 𝒦) is the module of ES.2/euler-system-module with coefficients R, with the dictionary P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) = Rubin's P(Fr_q^{-1} | T^*; x); KS_1(A, F) is ES.3/kolyvagin-system-module for A; D_1 is the map of ES.3/euler-to-kolyvagin modulo M (over ℚ) and supplies that map over a general number field K under Hypotheses 6.1, 6.7 and 6.11; and for R a discrete valuation ring the bound I_0(κ) ⊆ Fitt⁰ is length H¹_{F^*} ≤ ∂^{(0)}(κ) of ES.4/kolyvagin-bound. The conventions differ in two places, both explicit: the Euler factor (ES.2/euler-polynomial) and the identification G_q ≅ ⟨σ_q − 1⟩ ⊆ 𝓘/𝓘² (Mazur–Rubin's ρ_q).",
    "hypotheses": [
-    "Hypothesis 6.1"
+    "Hypotheses 6.1 and 6.7 on a common tower, plus the cohomology/unramified and coefficient dictionaries.",
+    "Hypothesis 6.11 for the derivative comparison; rank-one admissibility and a DVR for the length/Fitting comparison."
    ],
    "proofSteps": [
     "⋂^1 = identity on reflexive modules (ES.6/exterior-bidual); compare definitions termwise.",
@@ -6822,7 +6913,7 @@
  ],
  "requests": [
   {
-   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
    "need": "Existence of the ray class field of K modulo a prime q, with Gal(K[q]/K) ≅ the ray class group Cl_q(K), and the description of its ramification; used to define K(q), K(1) and Γ_q.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
@@ -6831,7 +6922,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-   "need": "The local Artin map for K_v with its identification of the tame inertia quotient with the residue field units, and local Tate duality for finite unramified modules; used for H¹_s ≅ Hom(I, T^{Fr=1}), the transverse condition and its self-duality.",
+   "need": "The absolute local Artin map, normalized by arithmetic Frobenius, and its restriction to finite tame extensions, identifying the p-primary tame inertia quotient with residue-field units (or the relative residue-unit quotient at Howard’s inert primes). Local Tate duality is supplied separately by Layer 5.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
     "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality"
@@ -6850,34 +6941,62 @@
   },
   {
    "supplier": "PadicMeasuresIwasawaAlgebras:L6",
-   "need": "For a Gorenstein order R over a complete discrete valuation ring and its quotients R/(p^m): self-injectivity of R/(p^m); exactness of Hom(−, R/(p^m)) and reflexivity of finitely generated modules; Fitting ideals Fitt^i_R with their determinantal description from a presentation and their behaviour under base change; and the identification X^∨ ≅ X^* for R/(p^m)-modules.",
+   "need": "For a Gorenstein order R over a complete discrete valuation ring and its quotients R/(p^m): self-injectivity of R/(p^m); exactness of Hom(−, R/(p^m)) and reflexivity of finitely generated modules; Fitting ideals Fitt^i_R with their determinantal description from a presentation and their behaviour under base change; and the identification X^∨ ≅ X^* for R/(p^m)-modules. Also the general exterior-bidual scalar/group-ring change maps and transfer/norm comparison, in particular BSS II §6.3 map (9), invariants descent and Lemma 6.9’s corestriction-versus-group-norm identity. Pure exterior-bidual algebra is owned by L6 and must be imported here; ES.6 keeps its Selmer/Stark specialization.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
     "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
     "EulerSystemsAndKolyvaginSystems:ES.6/bss-hypotheses",
     "EulerSystemsAndKolyvaginSystems:ES.6/regulator-isomorphism",
     "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
-    "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds"
+    "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds",
+    "EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual",
+    "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative"
    ]
   },
   {
    "supplier": "SelmerIwasawaCohomology:L2",
-   "need": "Selmer structures over a number field with coefficients in a complete noetherian local ring R (not only the integers of a p-adic field): the nodes L2/dual-selmer-structure and L2/selmer-structure-poitou-tate are stated for O; the artinian and Gorenstein cases of Mazur–Rubin Theorem 2.3.4 and Burns–Sakamoto–Sano Theorem 3.1 (the five-term global duality sequence for F₁ ≤ F₂ over a self-injective ring) are needed in the same form.",
+   "need": "Selmer structures over a number field with coefficients in a complete noetherian local ring R (not only the integers of a p-adic field): the nodes L2/dual-selmer-structure and L2/selmer-structure-poitou-tate are stated for O; the artinian and Gorenstein cases of Mazur–Rubin Theorem 2.3.4 and Burns–Sakamoto–Sano Theorem 3.1 (the five-term global duality sequence for F₁ ≤ F₂ over a self-injective ring) are needed in the same form. Supply the actual Selmer/cohomology carrier and Cartier-dual coefficient dictionaries at that generality, propagation and orthogonal-complement compatibility, global and local duality with the signed length convention. For the CGLS error route provide the Cassels pairing under vanishing residual invariants, cartesian local conditions and Howard’s symmetric self-duality, without assuming residual absolute irreducibility; see CGLS Proposition 3.3.2.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
     "EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer",
     "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
-    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure"
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
+    "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
+    "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+    "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
+    "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+   "need": "Perfect local Tate pairings for finite p-primary unramified coefficients at places of residue characteristic different from p, with the cup/invariant normalization, restriction-corestriction adjointness and the exact-annihilator statement used for the transverse condition. Mixed-characteristic p-adic lattice/discrete extensions are requested from SelmerIwasawaCohomology L1/L2.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+    "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality"
    ]
   }
  ],
  "coverage": [
   {
    "stageId": "EulerSystemsAndKolyvaginSystems:ES.0",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "Lemma level: the proof of Mazur–Rubin 2004 Lemma 3.7.1 (torsion-free quotient implies cartesian, with the bounded cokernel in (ii)) and of Theorem 5.2.15 at the prime p.",
-    "State the Selmer-structure carrier over a general complete noetherian local ring once SelmerIwasawaCohomology L2 provides it (request recorded)."
+    "State the Selmer-structure carrier over a general complete noetherian local ring once SelmerIwasawaCohomology L2 provides it (request recorded).",
+    "Provide the actual general-R Selmer/Cartier-dual carrier signatures, including the signed core-rank dictionary; the generic module prototype is not this carrier."
    ]
   },
   {
@@ -6907,12 +7026,13 @@
   },
   {
    "stageId": "EulerSystemsAndKolyvaginSystems:ES.4",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "Lemma level: Mazur–Rubin 2004 Lemmas 4.3.8–4.3.9, Propositions 4.3.10–4.3.11, Theorem 4.3.12, Theorem 4.4.3 (sufficiently liftable systems) and Appendix B (Howard's proof of Theorem 4.3.3).",
     "Rubin Theorem II.2.10 is included in rubin-bound(c); Rubin Chapter V §2 general case of Lemma 2.5 at lemma level.",
     "Requests of HeegnerPointEulerSystems HE.7 not planned here because their sources are not sources of this roadmap and were not read: Nekovář's error-tolerant two-prime descent ('The Euler system method for CM points on Shimura curves', §§6.4, 7.5) and Kolyvagin's Theorem A (cardinality/square-index form). They need their own nodes under ES.4 after those texts are read.",
-    "Castella–Grossi–Lee–Skinner Lemmas 3.3.10 and Proposition 3.3.11 are cited inside howard-descent-with-errors; they become nodes at lemma level."
+    "Castella–Grossi–Lee–Skinner Lemmas 3.3.10 and Proposition 3.3.11 are cited inside howard-descent-with-errors; they become nodes at lemma level.",
+    "The generic CGLS residual-reducible error route needs its weak-hypothesis Cassels pairing; source-qualified Nekovář/Kolyvagin classical all-prime descent targets remain to be stated, with uniform error hypotheses."
    ]
   },
   {
@@ -6925,20 +7045,23 @@
   },
   {
    "stageId": "EulerSystemsAndKolyvaginSystems:ES.6",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "The comparison of Mazur–Rubin's and Burns–Sakamoto–Sano's Stark systems (recorded as a gap).",
     "Lemma level: Mazur–Rubin 2016 Appendix A (exterior algebra: Propositions A.1, A.3), §14; Burns–Sakamoto–Sano II Lemmas 2.5, 3.5–3.10, 4.4, 4.10 and §5.4.",
-    "Burns–Sano's basic (determinantal) Euler and Stark systems (arXiv:1612.06187) are a further supplier of systems; that paper was downloaded and not read, so no node is planned for it."
+    "Burns–Sano's basic (determinantal) Euler and Stark systems (arXiv:1612.06187) are a further supplier of systems; that paper was downloaded and not read, so no node is planned for it.",
+    "Resolve exterior-bidual ownership with PadicMeasuresIwasawaAlgebras L6 and import its exact scalar/group-ring change contracts.",
+    "Supply a same-exterior-rank discriminating test for the stub systems."
    ]
   },
   {
    "stageId": "EulerSystemsAndKolyvaginSystems:ES.7",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Display the exact correction formula for κ(c)_n in rank r from Burns–Sakamoto–Sano II §6.5 (recorded as a gap).",
     "Corollaries 6.17 and 6.18 (the ideals I′_i and the Λ-adic consequences) and Theorem 7.1 parts (i)–(ii) are applications to be planned with ES.8 and with the class-group application.",
-    "The modified (Σ-modified) cohomology variant that avoids Hypothesis 6.1(i) needs its own comparison (Remark 6.3 of the source)."
+    "The modified (Σ-modified) cohomology variant that avoids Hypothesis 6.1(i) needs its own comparison (Remark 6.3 of the source).",
+    "State the conditional Rubin–Stark class-group/Fitting application as a node with its exact hypotheses and its comparison with the specialized DK minus-unit construction.",
+    "Discharge the bidual reduction, norm/transfer and invariant-descent supplier contract."
    ]
   }
  ],
@@ -6965,7 +7088,7 @@
     "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative",
     "EulerSystemsAndKolyvaginSystems:ES.6/regulator-isomorphism"
    ],
-   "detail": "Burns–Sakamoto–Sano II §5.4 (Lemmas 5.4–5.23, where p > 3 enters) and §6.5 (proof of Theorem 6.12, with the exact determinant/permutation correction formula in rank r) were read only in their statements. The formula for the corrected classes κ(c)_n in rank r is therefore described, not displayed, in ES.7/higher-kolyvagin-derivative. The 2025 accepted version of the paper was not compared with arXiv v1; theorem numbers are those of v1."
+   "detail": "The exact correction formula in BSS II §6.4 p.41 has now been read and displayed, with one- and two-prime tests. The complete arguments of §5.4 (core-graph connectivity) and §6.5 (local compatibility) remain statement-level source citations in this target-level pass, not a lemma-level decomposition. The separate bidual-transfer gap names the non-routine supplier input. The inaccessible 2025 accepted version was not collated with arXiv v1."
   },
   {
    "title": "Kolyvagin's article was not read",
@@ -6974,6 +7097,163 @@
     "EulerSystemsAndKolyvaginSystems:ES.2/rigidity-variants"
    ],
    "detail": "V. A. Kolyvagin, 'Euler systems', The Grothendieck Festschrift II (1990), is not publicly available. As in the reviewed extraction PAPER-KOLYVAGIN-90, Rubin's book is used as the public statement of the method; no claim is made about the wording of Kolyvagin's article."
+  },
+  {
+   "title": "Actual arithmetic Lean signatures and adapters are missing",
+   "detail": "The suggested file lists most arithmetic definitions, API items, tests and all named arithmetic theorems only in block comments. The typed SelmerTriple, Tower and InverseSystem are generic module presentations, not instantiated Galois/Selmer constructions. Give signatures/examples against the supplier carriers and explicit specialization/transport maps; do not fill the missing hypotheses with arbitrary Prop fields. Preserve the pinned discrete corestriction and add its R-linearity, field-subgroup and compact-coefficient adapters from ArithmeticGaloisDuality R02.1/R02.2 and SelmerIwasawaCohomology L1. Compilation of the algebraic portion alone does not meet PROTOCOL §13.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
+    "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
+    "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-length-linearity",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
+    "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2016",
+    "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-implications",
+    "EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist",
+    "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
+    "EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible",
+    "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
+    "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
+    "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+    "EulerSystemsAndKolyvaginSystems:ES.1/transverse-condition",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
+    "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-nonvanishing",
+    "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-prescribed-kernels",
+    "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
+    "EulerSystemsAndKolyvaginSystems:ES.1/selmer-field-saturation",
+    "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuples",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
+    "EulerSystemsAndKolyvaginSystems:ES.2/classes-unramified-outside-p",
+    "EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation",
+    "EulerSystemsAndKolyvaginSystems:ES.2/twisting",
+    "EulerSystemsAndKolyvaginSystems:ES.2/euler-factor-change",
+    "EulerSystemsAndKolyvaginSystems:ES.2/universal-euler-system",
+    "EulerSystemsAndKolyvaginSystems:ES.2/rigidity-variants",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-invariance",
+    "EulerSystemsAndKolyvaginSystems:ES.3/lifting-to-induced-module",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
+    "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
+    "EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.3/euler-to-kolyvagin",
+    "EulerSystemsAndKolyvaginSystems:ES.3/two-prime-test",
+    "EulerSystemsAndKolyvaginSystems:ES.3/anticyclotomic-derivative",
+    "EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf",
+    "EulerSystemsAndKolyvaginSystems:ES.4/sheaf-monodromy",
+    "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
+    "EulerSystemsAndKolyvaginSystems:ES.4/core-vertices",
+    "EulerSystemsAndKolyvaginSystems:ES.4/leading-vertices",
+    "EulerSystemsAndKolyvaginSystems:ES.4/stub-sheaf",
+    "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds",
+    "EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization",
+    "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors",
+    "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+    "EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer",
+    "EulerSystemsAndKolyvaginSystems:ES.5/sharpness-examples",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-stub",
+    "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual",
+    "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
+    "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.6/bss-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.6/kolyvagin-systems-rank-r",
+    "EulerSystemsAndKolyvaginSystems:ES.6/regulator-isomorphism",
+    "EulerSystemsAndKolyvaginSystems:ES.6/rubin-lattice",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative",
+    "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds",
+    "EulerSystemsAndKolyvaginSystems:ES.7/rubin-brumer-stark",
+    "EulerSystemsAndKolyvaginSystems:ES.7/rank-one-comparison"
+   ]
+  },
+  {
+   "title": "General coefficient Selmer duality is still only an open supplier request",
+   "detail": "The cited SelmerIwasawaCohomology L1/L2 duality and Cartier-dual nodes use O-adic lattices/discrete modules. The abstract L2/selmer-data carrier alone does not prove MR04 artinian/global-length identities or BSS self-injective-ring duality. Fulfil the enlarged L2 request and link each generalized coefficient consumer to it; no O-only theorem may discharge a general-R hypothesis.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
+    "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
+    "EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
+    "EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
+    "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
+    "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+    "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
+    "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
+    "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
+    "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+    "EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer",
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure"
+   ]
+  },
+  {
+   "title": "Single ownership of exterior-bidual algebra",
+   "detail": "PadicMeasuresIwasawaAlgebras L6 owns the general exterior-bidual, integral-lattice and scalar-change algebra. ES.6/exterior-bidual and bidual-functoriality currently repeat that general theory. Reconcile with the L6 owner, replace generic ES nodes by exact supplier node IDs/request contracts and retain only the arithmetic contraction/Selmer transition specialization. The split proposal must respect this owner. No supplier packet is edited by this review.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual",
+    "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
+    "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative"
+   ]
+  },
+  {
+   "title": "Bidual norm, transfer and invariant descent have no direct supplier contract",
+   "detail": "BSS II Lemma 6.9, p.40 explicitly omits the delicate comparison of bidual corestriction with the group norm and points to [21, Remark 2.12]. Ordinary covariant bidual functoriality does not supply change from R[Gal(E(n)/K)] to R[Gal(E/K)] or map (9). The precise L6 request now names these maps; add its exact supplier nodes and verify the identities before claiming this proof sketch closes.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
+    "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative"
+   ]
+  },
+  {
+   "title": "Cassels pairing for the residual-reducible error route",
+   "detail": "ES.4/howard-descent-with-errors claims to use ES.5/cassels-structure without irreducibility, but the latter currently assumes Howard H.1 (absolute residual irreducibility). CGLS Proposition 3.3.2 is the intended weaker statement. Add its precise weak-hypothesis pairing/structure statement, including the residual-invariant and cartesian/self-duality requirements; then route the error proof through it. Until then the advertised direct prerequisite does not suffice.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors"
+   ]
+  },
+  {
+   "title": "Same-rank non-example for stub Kolyvagin systems",
+   "detail": "The corrected stub_ne_all test compares KS_1 at core rank χ>1 with KS′_χ and cannot witness strict inclusion at the same exterior rank. Produce an admissible same-rank example or replace this test by another discriminating non-example. The regulator theorem uses rank r=χ, not the higher-core-rank KS_1 module.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.6/kolyvagin-systems-rank-r"
+   ]
+  },
+  {
+   "title": "Rubin–Stark application and Rubin–Brumer–Stark comparison",
+   "detail": "ES.7 gives the DK minus-unit construction and a conditional reference to BSS Theorem 7.1, but does not provide a node stating that theorem’s class-group conclusions or a comparison identifying its Rubin–Stark elements with the DK minus-part construction. Read and state the application with all character, tower, coefficient and norm/integrality hypotheses; distinguish general Rubin–Stark systems from the specialized Rubin–Brumer–Stark theorem owned by IntegralIwasawaTheory I.7.",
+   "neededBy": [
+    "EulerSystemsAndKolyvaginSystems:ES.7/rubin-brumer-stark",
+    "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds",
+    "EulerSystemsAndKolyvaginSystems:ES.7/rank-one-comparison"
+   ]
   }
  ],
  "sourceIssues": [
@@ -6989,8 +7269,57 @@
    "known": "new",
    "searched": [
     "arXiv listing of 1805.08448 (only v1 exists, checked 2026-10-06)",
-    "the accepted journal version was not available to the worker and was not compared"
-   ]
+    "the accepted journal version was not available to the worker and was not compared",
+    "https://arxiv.org/abs/1805.08448 submission history (v1 only)",
+    "https://davidburnsmaths.github.io/newdbpublist.html and KCL accepted-manuscript record; no accessible correction located",
+    "Web search for BSS II Hypothesis 4.7 errata, 2026-10-06; no explicit correction located"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In arXiv v1, K(T) is the trivializing field. Every element of the printed subgroup acts trivially on T, so its coinvariants have the rank of T. Hypothesis 3.2(ii) and Remark 4.9 instead require the cyclotomic/unit field subgroup. Confirmation is scoped to v1; the accepted version was inaccessible.",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.0"
+   }
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E2",
+   "source": "rubin-es",
+   "kind": "misprint",
+   "locator": "1999 course draft Chapter IX §1, p.133; also book-format author copy §9.1 p.175 (PDF p.181)",
+   "printed": "The source takes the largest abelian extension of K with ramification confined to N.",
+   "correction": "For the isolated-initial-class example take the maximal abelian extension unramified at every prime dividing N.",
+   "reason": "The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Rubin Euler systems errata Chapter IX rigidity, 2026-10-06; no explicit correction located",
+    "1999 SWC draft and https://www.wstein.org/people/rubin/book/hEulerSystems.pdf §9.1: wording persists in both author copies; publisher version not certified"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked both public author copies. The empty Euler-factor product for extensions ramified only at N contradicts the stated family. Reversing the ramification restriction restores the example; no conclusion about a certified publisher copy is made.",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.0"
+   }
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E3",
+   "source": "mr-ks",
+   "kind": "error",
+   "locator": "Archived author copy, Proposition 3.4.4(ii), p.27 (PDF p.33)",
+   "printed": "The source asserts that Γ(S) admits an isomorphism, without a canonical choice, to an ideal of R.",
+   "correction": "Evaluation identifies Γ(S) with a submodule of the cyclic hub stalk. It is isomorphic to an ideal if the hub stalk is free of rank one, or if R is principal artinian. The unrestricted complete noetherian local assertion needs such additional hypotheses.",
+   "reason": "Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Mazur Rubin Kolyvagin systems errata Proposition 3.4.4, 2026-10-06; no explicit correction located",
+    "https://sites.harvard.edu/barry-mazur/projects/ search result; direct fetch failed (502)",
+    "https://www.ams.org/memo/0799/memo0799.pdf version-of-record download attempted; HTTP 403, not collated"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The one-vertex Z_p/p stalk satisfies Definition 3.4.2 and contradicts (ii) at the coefficient scope fixed in Chapter 2. The later principal-artinian application remains valid. This finding is scoped to the archived author copy.",
+    "by": "REV-EulerSystemsAndKolyvaginSystems--ES.0"
+   }
   }
  ],
  "restructure": [
@@ -7020,7 +7349,7 @@
     "EulerSystemsAndKolyvaginSystems"
    ],
    "detail": "ES.4 and ES.6 are each too broad to read as one star.",
-   "proposal": "ES.4 into three sub-layers: 'Selmer sheaf and core vertices' (selmer-sheaf, sheaf-monodromy, vertex-step, core-vertices, leading-vertices, stub-sheaf, kolyvagin-bound); 'Rubin's error-tolerant bound' (rubin-hypotheses, rubin-bound, variant-bounds); 'Bounded-error localisation' (abundant-localization, howard-descent-with-errors). ES.6 into two: 'Exterior biduals and Rubin's lattice' (exterior-bidual, bidual-functoriality, rubin-lattice) and 'Stark systems and the regulator' (stark-systems, stark-structure, bss-hypotheses, kolyvagin-systems-rank-r, regulator-isomorphism). ES.1 may likewise separate 'Error-tolerant Chebotarev inputs' (reducibility-depth, selmer-field-saturation, abundant-tuples) from the clean theory."
+   "proposal": "ES.4 into three sub-layers: 'Selmer sheaf and core vertices' (selmer-sheaf, sheaf-monodromy, vertex-step, core-vertices, leading-vertices, stub-sheaf, kolyvagin-bound); 'Rubin's error-tolerant bound' (rubin-hypotheses, rubin-bound, variant-bounds); 'Bounded-error localisation' (abundant-localization, howard-descent-with-errors). ES.6 into two: 'Rubin lattice and arithmetic bidual adapters' (rubin-lattice and the arithmetic specializations of exterior-bidual/bidual-functoriality, importing generic algebra from PadicMeasuresIwasawaAlgebras L6) and 'Stark systems and the regulator' (stark-systems, stark-structure, bss-hypotheses, kolyvagin-systems-rank-r, regulator-isomorphism). ES.1 may likewise separate 'Error-tolerant Chebotarev inputs' (reducibility-depth, selmer-field-saturation, abundant-tuples) from the clean theory."
   }
  ],
  "upstreamNotes": [
@@ -7028,7 +7357,435 @@
    "roadmaps": [
     "tauceti:TauCetiRoadmap/ClassFieldTheory"
    ],
-   "note": "The atlas records the dependency of EulerSystemsAndKolyvaginSystems:ES.1 on class field theory through the alias UPSTREAM:ClassFieldTheory; the statements actually needed are existence of ray class fields (layer 12) and the local Artin map on tame inertia (layer 7). Likewise UPSTREAM:Chebotarev stands for layer 10 (Dirichlet-density Chebotarev)."
+   "note": "The atlas alias UPSTREAM:ClassFieldTheory needs native Layer 13 for Hilbert/ray/ring class fields (applications of Layer 12’s global existence), Layer 7 for the absolute local Artin map and Layer 5 for finite local Tate duality. Chebotarev’s alias resolves to native Layer 10. These are upstream observations; the upstream documents and edges were not edited."
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems--ES.0",
+  "date": "2026-10-06",
+  "notes": "Independent target-level review of all 84 nodes, 175 excerpts and all 19 declarations at the exact pins. Clear statement/API/test/locator errors corrected; source findings E1–E3 reviewed. Remaining general-R duality, L6 ownership, weak-hypothesis Cassels pairing and bidual-transfer contracts prevent acceptance. The compilable algebraic seed does not provide the arithmetic signatures/examples required by PROTOCOL §13. ES.0, ES.4, ES.6 and ES.7 remain partial; red-team findings 10 and 36 retain their correct generic/application ownership. Reader document is outside this review’s write scope; synchronized updates are listed in the report.",
+  "checked": [
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+    "verdict": "unverifiable",
+    "note": "Actual general-R Selmer/Cartier-dual carriers and supplier coefficient extension remain open. Corrections: The DVR Cartier dual is not a lattice."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-length-linearity",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation",
+    "verdict": "unverifiable",
+    "note": "General-R orthogonal propagation needs the enlarged supplier contract."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference",
+    "verdict": "unverifiable",
+    "note": "General-R length duality is not supplied by the cited O-adic L1/L2 nodes."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
+    "verdict": "corrected",
+    "note": "Distinguish the signed 2016 convention from the positive-part 2004 convention. The condition χ ≥ 0 was tautological and did not exclude negative signed core rank. Carry the admissibility hypotheses of the elliptic example into its tests. Carry the elliptic example hypotheses."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
+    "verdict": "unverifiable",
+    "note": "General coefficient propagation/duality contract remains unfulfilled."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+    "verdict": "corrected",
+    "note": "The finite-order example in the original test has divisible dual invariants and gives equality. Add the positive test that disproves the original counterexample. Relaxing on the lattice and then propagating need not relax the finite quotient."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2016",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-implications",
+    "verdict": "corrected",
+    "note": "Rubin fixes the p-Hilbert class field and assumes irreducibility, not the stronger 2016 hypotheses. Do not infer the stronger full-Hilbert-field condition. The original acceptance conflated one hypothesis with every implication."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist",
+    "verdict": "corrected",
+    "note": "Use the lattice dual invariants before reduction."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
+    "verdict": "corrected",
+    "note": "Separate the lattice and finite-level canonical conditions."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+    "verdict": "corrected",
+    "note": "Chebotarev needs a nonempty allowed Frobenius subset, not an arbitrary prime set. Respect the distinction between unrestricted and chosen prime sets."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+    "verdict": "corrected",
+    "note": "Separate local reciprocity from its duality supplier."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/transverse-condition",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+    "verdict": "corrected",
+    "note": "Functoriality fails when the characteristic polynomial changes. Add a counterexample to the overbroad functoriality claim. Replace the identity square by a genuine coefficient-reduction square."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
+    "verdict": "corrected",
+    "note": "Separate local reciprocity from its duality supplier."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-nonvanishing",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-prescribed-kernels",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
+    "verdict": "corrected",
+    "note": "Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/selmer-field-saturation",
+    "verdict": "corrected",
+    "note": "Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuples",
+    "verdict": "corrected",
+    "note": "Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/classes-unramified-outside-p",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/twisting",
+    "verdict": "corrected",
+    "note": "Twisting composition can introduce Euler factors when character conductors cancel. The universal non-example was false for the zero Euler system. State the exact cancellation computation."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-factor-change",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/universal-euler-system",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/rigidity-variants",
+    "verdict": "corrected",
+    "note": "Correct the reversed ramification condition in the isolated-class example (source issue E2)."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-invariance",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/lifting-to-induced-module",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/euler-to-kolyvagin",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/two-prime-test",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/anticyclotomic-derivative",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/sheaf-monodromy",
+    "verdict": "corrected",
+    "note": "Correct the general-ring ideal claim (source issue E3). Make the hub hypothesis explicit in the primitive-section consequence. Add a discriminating test for the ring restriction."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/core-vertices",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/leading-vertices",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/stub-sheaf",
+    "verdict": "corrected",
+    "note": "Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+    "verdict": "corrected",
+    "note": "Use the untruncated supremum for a vacuous zero-class bound, not a nonexistent maximum. Qualify scaling for the DVR case."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+    "verdict": "corrected",
+    "note": "Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization",
+    "verdict": "corrected",
+    "note": "Both scaled-inverse identities are needed for the spanning assertion. Make the finite-ring scaled-inverse argument sound. Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors",
+    "verdict": "unverifiable",
+    "note": "The direct Howard Cassels prerequisite has absolute residual irreducibility; CGLS’s weak-hypothesis pairing is missing."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+    "verdict": "corrected",
+    "note": "The artinian invariant is truncated at the ring length. Do not apply the structure theorem to arbitrary systems. Scaling in an artinian ring saturates at k. Replace the artinian threshold ∞ by k. Respect the two zero conventions. Add a boundary case detecting truncation. Avoid asserting nonvanishing after every artinian scaling. Keep finite-length and DVR invariants separate."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/sharpness-examples",
+    "verdict": "corrected",
+    "note": "The zero system alone cannot imply an infinite dual Selmer group. Explicitly cover the zero system. Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+    "verdict": "corrected",
+    "note": "Extend the p-power scalar ideal to the coefficient ring R; the published notation uses ℤ_p."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-stub",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual",
+    "verdict": "unverifiable",
+    "note": "Generic algebra duplicates the L6 owner; replace by imports and arithmetic adapters. Corrections: Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
+    "verdict": "unverifiable",
+    "note": "The L6 ownership and exact change-of-rings supplier contracts remain unresolved. Corrections: Restore the standing noetherian convention and the range where contractions are defined. Remove the unnecessary r≥s condition: Proposition 2.3 allows every nonnegative r."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
+    "verdict": "unverifiable",
+    "note": "Arithmetic Y_n and transitions are not instantiated; only a generic inverse-system prototype exists."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
+    "verdict": "corrected",
+    "note": "The order theorem assumes a finite-level core vertex at every level, not 4.7 alone. Restore the all-level hypothesis from the paragraph before Definition 4.11."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/bss-hypotheses",
+    "verdict": "verified",
+    "note": "Locator/excerpt and hypotheses checked in the recorded primary version; target-level statement, API/tests where present, and prerequisite scope checked. This is not a Lean-signature or full-proof certification; see the shared arithmetic-signature gap."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/kolyvagin-systems-rank-r",
+    "verdict": "unverifiable",
+    "note": "The advertised same-rank strict-inclusion test remains missing after removing the false comparison. Corrections: The original test compared different exterior ranks to assert a submodule inclusion."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/regulator-isomorphism",
+    "verdict": "corrected",
+    "note": "Restore the all-level hypothesis of §5.5."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/rubin-lattice",
+    "verdict": "corrected",
+    "note": "A trivial-action lattice has zero minus part and could not test the asserted minus lattice. Correct source page locators against the printed page headers."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
+    "verdict": "corrected",
+    "note": "The literal equality with the Rubin carrier also needs the admissible tower and ramification comparison. The reflexive degree-one bidual identity alone is insufficient for the whole module equality."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative",
+    "verdict": "unverifiable",
+    "note": "The exact determinant formula is corrected, but bidual transfer/norm/descent has no fulfilled direct supplier contract. Corrections: Fix the coefficient module and ring before invariant descent. Supply the actual determinant formula, available before §6.5. The correction formula is defined independently of the local theorem’s injectivity hypothesis. Add a two-prime determinant test."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds",
+    "verdict": "corrected",
+    "note": "Retain the stronger source equality for the zeroth Fitting bound."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rubin-brumer-stark",
+    "verdict": "unverifiable",
+    "note": "The conditional BSS Rubin–Stark class-group application and its relation to the specialized DK construction have no statement node. Corrections: Correct source page locators against the printed page headers. Qualify strictness of the Rubin lattice rather than assert it for every rank≥2 arithmetic lattice."
+   },
+   {
+    "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rank-one-comparison",
+    "verdict": "corrected",
+    "note": "Carry the ramification comparison into the summary. Give each asserted comparison its own hypotheses."
+   }
+  ]
+ }
 }
