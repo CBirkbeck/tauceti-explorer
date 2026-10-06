@@ -1215,6 +1215,17 @@
     "data/blueprints/K3BlochGroups.md"
    ]
   },
+  "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.7.json": {
+   "promotedAt": "2026-10-06T17:42:36Z",
+   "review": "7355d2cc6afaf854",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-LefschetzPencilsAndVanishingCycles--LPV.7",
+   "sha256": "8e8f17198cf6a46062ac51a506d5ff5bf7593de105d361b5bb298deb07c3c98d",
+   "to": [
+    "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json",
+    "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md"
+   ]
+  },
   "research/blueprint/packets/MordellLawrenceVenkatesh.json": {
    "promotedAt": "2026-10-06T13:40:04Z",
    "review": "d6f0d2ebe3b2c311",
