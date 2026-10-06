@@ -1,8 +1,8 @@
 {
   "roadmaps": 232,
-  "stages": 3956,
+  "stages": 3990,
   "originalStages": 2129,
-  "sourceRefinements": 1827,
+  "sourceRefinements": 1861,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -313,14 +313,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3855,
+  "mathematicalStars": 3889,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1954,
-  "stageEdges": 10437,
+  "roadmapEdges": 1957,
+  "stageEdges": 10525,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -864,6 +864,12 @@
       "reviewer": "independent-review-REV-DESIGN-LV~2"
     },
     {
+      "file": "MotivicEtaleKTheory--M.1",
+      "roadmap": "MotivicEtaleKTheory",
+      "nodes": 82,
+      "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.1"
+    },
+    {
       "file": "NeronModelsAndSemistableAbelianVarieties",
       "roadmap": "NeronModelsAndSemistableAbelianVarieties",
       "nodes": 78,
@@ -967,8 +973,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 33950497,
-  "htmlSha256": "97ece90f7eee88046182a953d94988a2dd46dfa907d7ce239f00562e2b4bf568",
+  "htmlBytes": 34074078,
+  "htmlSha256": "c567963c2fe02842505b0df562df9395a91649e97b2de40c057ed2b9ce168c9f",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1000,7 +1006,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "a69add75deb323662eb362af9a3f6cee3f86cad3dcdb67255518bad65454b0f4",
+    "data/roadmap-distances.json": "345e142198fa5c141043d7de31bb761b08df026d7b4315ed964d0b31a31bf3c7",
     "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1238,6 +1244,8 @@
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/MordellLawrenceVenkatesh.json": "a9fdcac3320533c99d3bef90a631d698d65ae6bc66de1722f40ead00361eb2df",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
+    "data/blueprints/MotivicEtaleKTheory--M.1.json": "c4fe089798da4f8efc35d750a076140c44e15c15e8ff605308f9a2eea70cad1e",
+    "data/blueprints/MotivicEtaleKTheory--M.1.md": "3c2342293af4616c8357c8d87d4672d02942ca39d474c8c38538c1cd1c1762de",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "ecfc3d666e01fb13072267aead918ad3926a2d766f5718558a3a7da9e7e56e5a",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/OverconvergentAutomorphicForms--O8.json": "0784beb7e46d97c3b18dce630405ba3884804a9aa80c71ec33c9d2f31ae7b7f9",

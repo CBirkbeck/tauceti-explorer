@@ -1260,6 +1260,17 @@
     "data/blueprints/roadmaps/MordellLawrenceVenkatesh.json"
    ]
   },
+  "research/blueprint/packets/MotivicEtaleKTheory--M.1.json": {
+   "promotedAt": "2026-10-06T21:11:32Z",
+   "review": "6bade2fe0e77c947",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.1",
+   "sha256": "c4fe089798da4f8efc35d750a076140c44e15c15e8ff605308f9a2eea70cad1e",
+   "to": [
+    "data/blueprints/MotivicEtaleKTheory--M.1.json",
+    "data/blueprints/MotivicEtaleKTheory--M.1.md"
+   ]
+  },
   "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json": {
    "promotedAt": "2026-10-05T02:04:11Z",
    "review": "f87636458b1a2046",

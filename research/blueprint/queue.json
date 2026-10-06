@@ -23677,8 +23677,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondSixOperations.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #711"
   },
   {
    "id": "REV-DiamondSixOperations",
@@ -24428,9 +24429,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #722"
+   "note": "deliverables arrived from an external worker on issue #722",
+   "finishedAt": "2026-10-06T21:29:47Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -24450,7 +24452,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #399"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -25157,8 +25160,9 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R32.3",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #413",
+   "finishedAt": "2026-10-06T21:39:51Z"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory--K.1",
@@ -26741,9 +26745,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #768"
+   "note": "deliverables arrived from an external worker on issue #768",
+   "finishedAt": "2026-10-06T21:17:16Z"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -26763,7 +26768,8 @@
    ],
    "avoidAccountOf": "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #445"
   },
   {
    "id": "BP-LefschetzPencilsAndVanishingCycles--LPV.7",
@@ -27263,8 +27269,9 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.1",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #455"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #455",
+   "finishedAt": "2026-10-06T21:11:15Z"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.5d",
@@ -62733,8 +62740,8 @@
     "REV-FIX-RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5541"
+   "state": "external",
+   "note": "claimed on GitHub issue #5541"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1~2",
