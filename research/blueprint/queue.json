@@ -22114,8 +22114,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #680"
   },
   {
    "id": "REV-AutomorphicBundles--B0",
@@ -25544,8 +25545,9 @@
    ],
    "avoidAccountOf": "BP-GrossZagierAndArithmeticHeights--GZ.8",
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #422"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #422",
+   "finishedAt": "2026-10-06T10:13:25Z"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.1",
@@ -29286,9 +29288,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #1002"
+   "note": "claimed on GitHub issue #1002"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB0",
@@ -29578,8 +29580,9 @@
    ],
    "avoidAccountOf": "BP-ComplexMultiplicationAndExplicitReciprocity",
    "prompt": "research/blueprint/prompts/REV-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #512"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #512",
+   "finishedAt": "2026-10-06T10:13:29Z"
   },
   {
    "id": "BP-DrinfeldModulesAndTModules--DM.0",
