@@ -24424,8 +24424,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #722"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -26732,9 +26733,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #768"
+   "note": "claimed on GitHub issue #768"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -27229,11 +27230,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #957"
+   "note": "deliverables arrived from an external worker on issue #957",
+   "finishedAt": "2026-10-06T20:08:50Z"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.1",
