@@ -814,6 +814,16 @@ representation `ρ_L`) are not declared here. Where a statement needs one of the
 explicitly with Mathlib's principal-branch `cpow` (`(denom γ τ) ^ (1 / 2 : ℂ)`), Mathlib's
 `jacobiSym`, or it is left out with a comment saying so; the formalisation imports MP.7's
 declarations once they exist.
+
+The Jacobi group, its action of given weight and index, Jacobi forms with multiplier systems and the
+theta decomposition are owned by MetaplecticAutomorphicForms (request to
+`MetaplecticAutomorphicForms:MP.6`, finding RT-AREA-automorphic-1/20) and are not declared here
+either. The declarations `jacobiModularSlash`, `jacobiEllipticSlash`,
+`jacobiModularSlash_jacobiEllipticSlash`, `JacobiForm`, `JacobiCuspForm`, `jacobiThetaIndex` and
+`eq_sum_thetaDecompositionCoeff_mul` below are their scalar-index case (`n = 1`, `F = m`), written
+out in the coordinates `(τ, z)` because the supplier's declarations do not exist at the pinned
+commits. Once they exist, the formalisation defines these as specialisations and proves the
+formulas written here as their unfolding (node `QM.1/jacobi-rank-one-specialisation`).
 -/
 
 
@@ -1321,10 +1331,14 @@ example (z : ℂ) : Tendsto (fun τ : ℍ ↦ cexp (-π * I * τ / 4) * oddJacob
 `jacobiTheta₂`): `ϑ(-1/4; i) ≠ ϑ(1/4; i)`. -/
 example : oddJacobiTheta (-1 / 4) UpperHalfPlane.I ≠ oddJacobiTheta (1 / 4) UpperHalfPlane.I := sorry
 
-/-! ## Jacobi forms (Eichler–Zagier; Dabholkar–Murthy–Zagier §4; Zwegers Chapter 3) -/
+/-! ## Jacobi forms (Eichler–Zagier; Dabholkar–Murthy–Zagier §4; Zwegers Chapter 3)
+
+The scalar-index case of the Jacobi theory owned by MetaplecticAutomorphicForms (request to
+`MetaplecticAutomorphicForms:MP.6`); see the note at the head of this section. -/
 
 /-- The modular slash of weight `k` and index `m` (`k, m ∈ ½ℤ`, principal branch):
-`(φ|_{k,m} γ)(τ, z) = (cτ + d)^{-k} e(-mcz²/(cτ + d)) φ(γτ, z/(cτ + d))`. -/
+`(φ|_{k,m} γ)(τ, z) = (cτ + d)^{-k} e(-mcz²/(cτ + d)) φ(γτ, z/(cτ + d))`. It is the `SL(2, ℤ)`-part
+of the action of the Jacobi group that MetaplecticAutomorphicForms owns, at `n = 1`, `F = m`. -/
 def jacobiModularSlash (k m : ℚ) (γ : SL(2, ℤ)) (φ : ℍ → ℂ → ℂ) : ℍ → ℂ → ℂ :=
   fun τ z ↦ denom γ τ ^ (-(k : ℂ)) *
     cexp (-2 * π * I * m * (γ 1 0 : ℂ) * z ^ 2 / denom γ τ) * φ (γ • τ) (z / denom γ τ)
@@ -1344,7 +1358,10 @@ theorem jacobiModularSlash_neg_one (k : ℤ) (m : ℚ) (φ : ℍ → ℂ → ℂ
 theorem jacobiModularSlash_index_zero (k : ℤ) (γ : SL(2, ℤ)) (f : ℍ → ℂ) (τ : ℍ) (z : ℂ) :
     jacobiModularSlash k 0 γ (fun τ _ ↦ f τ) τ z = (f ∣[k] γ) τ := sorry
 
-/-- The elliptic slash of index `m` (`2m ∈ ℤ`): `(φ|_m [l, μ])(τ, z) = e(m(l²τ + 2lz)) φ(τ, z + lτ + μ)`. -/
+/-- The elliptic slash of index `m` (`2m ∈ ℤ`): `(φ|_m [l, μ])(τ, z) = e(m(l²τ + 2lz)) φ(τ, z + lτ + μ)`.
+It is the lattice part of the action of the Jacobi group that MetaplecticAutomorphicForms owns, at
+`n = 1`, `F = m`; for `m ∈ ½ + ℤ` it differs from the Heisenberg operator by the factor
+`e(mlμ) = ±1`. -/
 def jacobiEllipticSlash (m : ℚ) (l μ : ℤ) (φ : ℍ → ℂ → ℂ) : ℍ → ℂ → ℂ :=
   fun τ z ↦ cexp (2 * π * I * m * ((l : ℂ) ^ 2 * τ + 2 * l * z)) * φ τ (z + l * τ + μ)
 
@@ -1357,7 +1374,8 @@ theorem jacobiEllipticSlash_add (m : ℚ) (hm : ∃ n : ℤ, 2 * m = n) (l μ l'
 theorem jacobiEllipticSlash_zero (m : ℚ) (φ : ℍ → ℂ → ℂ) : jacobiEllipticSlash m 0 0 φ = φ := sorry
 
 /-- The Jacobi-group law (Eichler–Zagier Theorem 1.4): `(φ|_m X)|_{k,m} γ = (φ|_{k,m} γ)|_m (Xγ)`,
-`X = (l, μ)` a row vector; the index must be integral. -/
+`X = (l, μ)` a row vector; the index must be integral. It is the composition law of the Jacobi
+group `SL(2, ℤ) ⋉ ℤ²` that MetaplecticAutomorphicForms owns, read on the two slash operators. -/
 theorem jacobiModularSlash_jacobiEllipticSlash (k m : ℚ) (hm : ∃ n : ℤ, m = n)
     (γ : SL(2, ℤ)) (l μ : ℤ)
     (φ : ℍ → ℂ → ℂ) :
@@ -1392,7 +1410,8 @@ example (l μ : ℤ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
 /-- Holomorphic Jacobi forms of weight `k`, index `m` (`k, m ∈ ½ℤ`), multiplier `v` on
 `SL(2, ℤ)` and character `χ` on `ℤ²`: holomorphic on `ℍ × ℂ`, `φ|_{k,m}γ = v(γ)φ`,
 `φ|_m[l, μ] = χ(l, μ)φ`, and `e(mα²τ) φ(τ, ατ + β)` is bounded at `i∞` for all `α, β ∈ ℚ`. The
-Eichler–Zagier space `J_{k,m}` is `v = 1`, `χ = 1`, `k, m ∈ ℤ`. -/
+Eichler–Zagier space `J_{k,m}` is `v = 1`, `χ = 1`, `k, m ∈ ℤ`. These classical spaces are the
+scalar-index, full-level case of the Jacobi forms that MetaplecticAutomorphicForms owns. -/
 def JacobiForm (k m : ℚ) (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) : Submodule ℂ (ℍ → ℂ → ℂ) where
   carrier := {φ | DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im} ∧
     (∀ γ, jacobiModularSlash k m γ φ = v γ • φ) ∧
@@ -1403,7 +1422,8 @@ def JacobiForm (k m : ℚ) (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) : 
   zero_mem' := sorry
   smul_mem' := sorry
 
-/-- Jacobi cusp forms: as `JacobiForm`, with `e(mα²τ) φ(τ, ατ + β) → 0` at `i∞`. -/
+/-- Jacobi cusp forms: as `JacobiForm`, with `e(mα²τ) φ(τ, ατ + β) → 0` at `i∞`: the scalar-index
+case of the cusp forms that MetaplecticAutomorphicForms owns. -/
 def JacobiCuspForm (k m : ℚ) (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) : Submodule ℂ (ℍ → ℂ → ℂ) where
   carrier := {φ | DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im} ∧
     (∀ γ, jacobiModularSlash k m γ φ = v γ • φ) ∧
@@ -1580,7 +1600,9 @@ theorem exists_modularForm_eq_jacobiForm_zero (k m : ℤ) {φ : ℍ → ℂ → 
 
 /-! ## Theta decomposition (Zwegers Theorem 3.1; DMZ §4.2) -/
 
-/-- The index-`m` theta function `ϑ_{m,μ}(τ, z) = ∑_{r ≡ μ (2m)} q^{r²/4m} ζ^r`. -/
+/-- The index-`m` theta function `ϑ_{m,μ}(τ, z) = ∑_{r ≡ μ (2m)} q^{r²/4m} ζ^r`: the theta functions
+of the theta decomposition that MetaplecticAutomorphicForms owns, for the lattice `(ℤ, mx²)` and
+the classes `μ/2m` of its discriminant module. -/
 def jacobiThetaIndex (m : ℕ) (μ : ℤ) (τ : ℍ) (z : ℂ) : ℂ :=
   ∑' n : ℤ, cexp (2 * π * I * (((2 * m * n + μ : ℤ) : ℂ) ^ 2 * τ / (4 * m) +
     ((2 * m * n + μ : ℤ) : ℂ) * z))
@@ -1670,7 +1692,9 @@ example : Tendsto (fun τ : ℍ ↦ cexp (2 * π * I * τ / 4) *
 example (τ : ℍ) : thetaDecompositionCoeff 2 (jacobiThetaIndex 2 1) 1 τ = 1 := sorry
 
 /-- **Theta decomposition** (Zwegers Theorem 3.1): a function holomorphic in `z` with the index-`m`
-elliptic law is `∑_{μ mod 2m} h_μ(τ) ϑ_{m,μ}(τ, z)`. -/
+elliptic law is `∑_{μ mod 2m} h_μ(τ) ϑ_{m,μ}(τ, z)`. It is the case `n = 1`, `F = m` of the theta
+decomposition that MetaplecticAutomorphicForms owns, stated for every function with the elliptic
+law because QM.4 applies it to functions that are not Jacobi forms. -/
 theorem eq_sum_thetaDecompositionCoeff_mul (m : ℕ) (hm : 0 < m) (φ : ℍ → ℂ → ℂ)
     (hφ : ∀ τ, Differentiable ℂ (φ τ)) (hE : ∀ l μ : ℤ, jacobiEllipticSlash m l μ φ = φ)
     (τ : ℍ) (z : ℂ) :
@@ -1716,6 +1740,14 @@ theorem jacobiModularSlash_sum_thetaIndex (k : ℤ) (m : ℕ) (hm : 0 < m) (h : 
 -- (node `QM.1/theta-decomposition-weil-representation`) but not here: `Mp₂(ℤ)` and `ρ_L` are
 -- requested from `MetaplecticAutomorphicForms:MP.7` and have no Mathlib counterpart to state it
 -- against.
+
+-- The comparison of the declarations above with the Jacobi theory of MetaplecticAutomorphicForms
+-- (node `QM.1/jacobi-rank-one-specialisation`: the group `J₁(SL(2, ℤ))`, the action `|_{k,m}`, the
+-- spaces `J_{k,m}(Mp₂(ℤ), ℂ(ψ))` with `ψ(A, ±w_A) = (±1)^{2k} v(A)`, the passage `φ(τ, z) ↦ φ(τ, 2z)`
+-- from half-integral index `m` to index `4m`, and the theta functions `ϑ_{F,x}` at `F = m`) is
+-- stated in the roadmap document but not here: the Jacobi group, its action and its spaces of
+-- Jacobi forms are requested from `MetaplecticAutomorphicForms:MP.6`, and neither Mathlib nor
+-- Tau Ceti has them at the pinned commits. The node is a comparison and has no API or unit tests.
 
 /-! ## Examples: `ϑ` and `φ_{-2,1}` -/
 
@@ -5692,7 +5724,7 @@ asymptotic expansion. -/
 theorem mellin_asymptotic_transfer {F : ℝ → ℂ} (hF : ContinuousOn F (Set.Ioi 0)) {α β r : ℝ}
     (hβ : β < α) (hr : 1 < r) {G : ℂ → ℂ} (poles : Finset ℂ) (res : ℂ → ℂ)
     (habs : ∀ s : ℂ, α < s.re →
-      IntegrableOn (fun x : ℝ => (x : ℂ) ^ (s - 1) * F x) (Set.Ioi 0))
+      MeasureTheory.IntegrableOn (fun x : ℝ => (x : ℂ) ^ (s - 1) * F x) (Set.Ioi 0))
     (hconv : ∀ s : ℂ, α < s.re → mellin F s = G s)
     (hmero : DifferentiableOn ℂ G ({s : ℂ | β ≤ s.re} \ (poles : Set ℂ)))
     (hpoles : ∀ a ∈ poles, β < a.re ∧
