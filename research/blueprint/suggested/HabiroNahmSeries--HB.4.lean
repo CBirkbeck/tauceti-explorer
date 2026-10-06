@@ -6,6 +6,8 @@ import Mathlib.Analysis.Matrix.PosDef
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.FieldTheory.Galois.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Algebra.MvPolynomial.Degrees
 import Mathlib.MeasureTheory.Constructions.Pi
@@ -145,6 +147,46 @@ lemma radialKummerField.eq_theta_adjoin (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
         Set.range (fun i ↦ (Real.rpow (z i) (1 / (m : ℝ)) : ℂ))) := by
   sorry
 
+-- Minimality permits using the fields without unfolding either construction.
+lemma radialBaseField_le_iff (d : ℕ) (z : Fin N → ℝ) (ζ : ℂ)
+    (L : IntermediateField ℚ ℂ) :
+    radialBaseField d z ζ ≤ L ↔
+      (∀ i, (Real.rpow (z i) (1 / (d : ℝ)) : ℂ) ∈ L) ∧ ζ ∈ L := by
+  sorry
+
+lemma radialKummerField_le_iff (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ)
+    (L : IntermediateField ℚ ℂ) :
+    radialKummerField d m z ζ ≤ L ↔ radialBaseField d z ζ ≤ L ∧
+      ∀ i, (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ∈ L := by
+  sorry
+
+lemma radialKummerField.radical_pow (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (i : Fin N) :
+    (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ^ m =
+        (Real.rpow (z i) (1 / (d : ℝ)) : ℂ) ∧
+      (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ^ d =
+        (Real.rpow (z i) (1 / (m : ℝ)) : ℂ) := by
+  sorry
+
+lemma radialKummerField.finite_galois (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m) :
+    let E := radialBaseField d z ζ
+    let H := radialKummerField d m z ζ
+    letI : Algebra E H :=
+      (IntermediateField.inclusion (radialKummerField.base_le d m z ζ)).toRingHom.toAlgebra
+    FiniteDimensional E H ∧ IsGalois E H := by
+  sorry
+
+lemma radialKummerField.automorphism_radical (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m)
+    (σ : radialKummerField d m z ζ ≃+* radialKummerField d m z ζ)
+    (hfix : ∀ x : radialKummerField d m z ζ,
+      (x : ℂ) ∈ radialBaseField d z ζ → σ x = x) :
+    ∀ (i : Fin N) (x : radialKummerField d m z ζ),
+      (x : ℂ) = (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) →
+      ∃ s : Fin m, (σ x : ℂ) = ζ ^ (s : ℕ) * (x : ℂ) := by
+  sorry
+
 -- radialFields_order_one (degenerate).
 example (d : ℕ) (hd : 0 < d) (z : Fin N → ℝ) :
     radialKummerField d 1 z 1 = radialBaseField d z 1 := by
@@ -183,6 +225,11 @@ theorem analytic_nahm_convergence (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDe
     Summable (fun n : Fin N → ℕ ↦
       Complex.exp (2 * Real.pi * Complex.I * τ * (Qreal A B C n : ℂ)) /
         ∏ i, qFinite (Complex.exp (2 * Real.pi * Complex.I * τ)) (n i)) := by
+  sorry
+
+theorem analytic_nahm_holomorphic (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef)
+    (B : Fin N → ℝ) (C : ℝ) :
+    DifferentiableOn ℂ (nahmFunction A B C) {τ : ℂ | 0 < τ.im} := by
   sorry
 
 theorem nahm_C_shift (A : Matrix (Fin N) (Fin N) ℝ) (B : Fin N → ℝ)
@@ -235,6 +282,29 @@ theorem poisson_covolume_comparison (H : Matrix (Fin N) (Fin N) ℝ) (hH : H.Pos
                   (2 * m)) : ℂ)) -
           (∫ x : Fin N → ℝ, MvPolynomial.eval (fun i ↦ (x i : ℂ)) P *
             (Real.exp (-quadratic H x / (2 * m)) : ℂ))‖ ≤ C * ε ^ K := by
+  sorry
+
+-- The parent CRT subsums have concrete signatures even before its carrier API exists.
+theorem cancellation_safe_congruence_remainder (A : Matrix (Fin N) (Fin N) ℚ)
+    (hA : (A.map (fun x ↦ (x : ℝ))).PosDef) (B : Fin N → ℚ)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i ∧ z i < 1)
+    (hNahm : ∀ i, 1 - z i = ∏ j, Real.rpow (z j) (A i j : ℝ))
+    (d m D : ℕ) (hd : 0 < d) (hm : 0 < m) (hD : 0 < D)
+    (hodd : Odd m) (hcop : Nat.Coprime m D) (hdD : d ∣ D)
+    (hden : ∀ v : Fin N → ℤ,
+      ∃ r : ℤ, (d : ℚ) * ((∑ i, ∑ j, (v i : ℚ) * A i j * v j) / 2 +
+        ∑ i, B i * v i) = r)
+    (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m)
+    (k : Fin N → Fin m) (k' : Fin N → Fin D) (K : ℕ) :
+    (fun ε : ℝ ↦ (Real.exp (-growth z / (m * ε)) : ℂ) *
+      ((∑' n : Fin N → ℕ,
+          if (∀ i, n i % m = (k i : ℕ)) ∧ (∀ i, n i % D = (k' i : ℕ)) then
+            phaseFreeTerm (A.map (fun x ↦ (x : ℝ))) (fun i ↦ (B i : ℝ)) 0 ζ m ε n
+          else 0) - (D : ℂ)⁻¹ ^ N *
+        (∑' n : Fin N → ℕ,
+          if ∀ i, n i % m = (k i : ℕ) then
+            phaseFreeTerm (A.map (fun x ↦ (x : ℝ))) (fun i ↦ (B i : ℝ)) 0 ζ m ε n
+          else 0))) =O[𝓝[>] (0 : ℝ)] (fun ε : ℝ ↦ ε ^ K) := by
   sorry
 
 -- radial-analytic-remainder-comparison: existence part of the analytic target.
@@ -294,10 +364,9 @@ J=12(K+1), P=4(K+1) give an absolute polynomial-Gaussian error whose
 lattice-scaled sum is O(epsilon^K); odd p vanishes under the parent bracket.
 
 cancellation-safe-congruence-remainder / cancellation_safe_congruence_remainder:
-For the parent concrete CRT subsums,
-exp[-Lambda/(m epsilon)](f^[k,k']-D^(-N)f^[k])=O(epsilon^K) for every K.
-The subsums are restricted tsums of the displayed phaseFreeTerm. The full
-congruence carrier and Gauss-sum API remain the parent's construction.
+The signature above states the flat difference for the concrete restricted tsums.
+Its estimate is independent of the strong-denominator phase used later in CRT;
+the full congruence carrier and Gauss-sum API remain the parent's construction.
 
 radial-analytic-remainder-comparison / radial_analytic_remainder:
 The coefficients in the existence signature above equal those of
@@ -319,15 +388,18 @@ Phi=G product(theta_i^B_i (1-z_i)^(-1/m))S; mu=chi^N.
 Then the radial formula is mu*omega*exp(Lambda/(m epsilon))*(Phi+O).
 Conditional on the missing automorphism identity, Phi^m has coefficients
 in Q(y,zeta,zeta_D). The constant near-unit class and eigenspace need the
-exact arithmetic compatibility described in the packet; they are not
-unconditional extra hypotheses hidden in an empty structure.
+exact arithmetic compatibility described in the packet: F_G=Q(y,zeta_D),
+K=F_G(zeta), H_G=K(eta), and the cyclotomic character of Aut_{F_G}(K).
+The constant class is formed in H_G^*/H_G^{*m}; its descended class, when
+proved, must be in the inverse-character eigenspace of K^*/K^{*m}.
 
 nonzero-unit-series-descent-comparison / nonzero_unit_series_descent:
 The compiled signature states the recursion component. Given the actual
 near-unit representative epsilon_beta and a compatible root with
 root(epsilon_beta)*Phi_0 in K, its product with Phi also has coefficients
 in K. The nonzero constant, representative and arithmetic supplier
-conditions, including gcd(m,w_K)=1 when used, must all be retained.
+conditions, including gcd(m,w_F)=1 for the base F before adjoining zeta
+(F=F_G in the Gauss-enlarged application), must all be retained.
 
 andrews-gordon-owner-and-acceptance-comparison / andrews_gordon_owner_comparison:
 For odd n=2r+3, A_ij=2min(i,j), B=0, import the existing QM.0 identities:
