@@ -21364,9 +21364,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #665"
+   "note": "deliverables arrived from an external worker on issue #665",
+   "finishedAt": "2026-10-06T18:49:47Z"
   },
   {
    "id": "REV-AInfCohomology--AI.6",
@@ -24393,7 +24394,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #398"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -25014,9 +25016,10 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #734"
+   "note": "deliverables arrived from an external worker on issue #734",
+   "finishedAt": "2026-10-06T18:49:48Z"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
@@ -28492,8 +28495,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #984"
   },
   {
    "id": "REV-RefinedTraceMethods--RT.5",
@@ -30212,7 +30216,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles--B0",
@@ -30230,7 +30234,8 @@
     "BP-ShimuraCompactifications--C0",
     "BP-ShimuraCompactifications--C6"
    ],
-   "note": "claimed on GitHub issue #1017"
+   "note": "deliverables arrived from an external worker on issue #1017",
+   "finishedAt": "2026-10-06T18:49:49Z"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O8",
