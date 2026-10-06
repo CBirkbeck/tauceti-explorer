@@ -1,0 +1,2796 @@
+{
+  "roadmapId": "ClassicalAdicEtaleCohomology",
+  "protocol": "blueprint-v1",
+  "part": "H4",
+  "scope": [
+    "ClassicalAdicEtaleCohomology:H4",
+    "ClassicalAdicEtaleCohomology:H5"
+  ],
+  "status": "complete",
+  "summary": "Target-level plan of classical curve-family constructibility, radial cohomology, algebraic/analytic comparison, analytic finiteness and smooth-curve compactification. Geometry and general sheaf machinery stay with their canonical owners under accepted RS-05. Both reviewed H5 comparison identifiers are preserved; the relative duality input in every dimension is explicitly requested. Source-access and compactification-generalization gaps remain visible. Strict radial inequalities retain all ranks and are not declared to be adic open immersions.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.spa",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+        "provides": "Continuous valuations bounded by one on the explicit plus subring; only a set of valuation-spectrum points.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.mem_spa_iff",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+        "provides": "Membership iff continuity and sub-unit values on every element of the plus subring.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.rationalSubset",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+        "provides": "R(T/s) inside spa(Aplus), with finite numerator set and denominator outside the support.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.mem_rationalSubset_iff",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+        "provides": "Exact membership rule: spa membership, numerator inequalities, and nonvanishing denominator.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.closedPolydisc",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+        "provides": "Spa of weighted restricted series with weights one and power-bounded plus ring, as a set; no analytic site.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "tauceti:TauCeti.ValuationSpectrum.classicalPoint_vle",
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+        "provides": "Valuation comparisons at a classical point are comparisons after convergent evaluation, for complete Hausdorff nonarchimedean rings.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.H",
+        "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+        "provides": "Cohomology of an abelian sheaf on an existing site, as Ext from the constant integer sheaf, with HasSheafify and HasExt.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.H.map",
+        "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+        "provides": "Additive map on cohomology induced by a sheaf morphism on the same existing site; not analytification comparison.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      },
+      {
+        "ref": "mathlib:ValuativeRel.vlt",
+        "module": "Mathlib/RingTheory/Valuation/ValuativeRel/Basic.lean",
+        "provides": "Strict valuation inequality is the negation of the reverse weak inequality, valid at every rank.",
+        "checked": "Actual declaration and surrounding hypotheses read in the pinned source tree on 2026-10-06."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ECD",
+      "title": "Étale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Author PDF dated 14 April 2026",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Theorem 19.5 proof, pp. 110–112",
+        "Theorem 24.1 proof, pp. 151–153",
+        "Proposition 25.3 proof, pp. 159–160",
+        "Proposition 27.2 proof, pp. 163–164"
+      ],
+      "access": "Public text read",
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1"
+    },
+    {
+      "id": "Ito20",
+      "title": "Uniform local constancy of étale cohomology of rigid analytic varieties",
+      "authors": "Kazuhiro Ito",
+      "edition": "arXiv:2008.07794 public PDF retrieved 2026-10-06",
+      "url": "https://arxiv.org/pdf/2008.07794",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Theorem 6.8 and Remark 6.9, p. 35",
+        "Definitions of B(ε), B(a,b), D(ε), pp. 35, 37; Lemma 6.12",
+        "Introduction on smooth constructibility",
+        "Appendix A.1, pp.46–47: rank-two endpoint refinements and Example A.1"
+      ],
+      "access": "Public text read",
+      "sha256": "0cb1bef955cc91e2572d3337e3b19cb55fe359c58a32744acd70f7cc4cb3ddc5"
+    },
+    {
+      "id": "Ber93",
+      "title": "Étale cohomology for non-Archimedean analytic spaces",
+      "authors": "Vladimir G. Berkovich",
+      "edition": "Publ. Math. IHÉS 78 (1993), 5–161, digitized author copy",
+      "url": "https://www.wisdom.weizmann.ac.il/~vova/IHES_1993_78_etale.pdf",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§6.2 trace and coefficient caveat",
+        "§6.3 tame covers of discs and annuli",
+        "§6.4 Remark 6.4.2",
+        "§7.1 proper-support comparison",
+        "§§7.2–7.4 relative trace and duality",
+        "§7.5 comparison proof and Corollaries 7.5.3–7.5.4"
+      ],
+      "access": "Public text read",
+      "sha256": "beaa3630015b5bd8eda365b0e420f57e4ce2daa04a71a8e28dc3bd92b0f8d759"
+    },
+    {
+      "id": "Zav25",
+      "title": "Mod-p Poincaré Duality in p-adic analytic geometry",
+      "authors": "Bogdan Zavyalov",
+      "edition": "Public arXiv:2111.01830 PDF; Annals of Mathematics 201 (2025)",
+      "url": "https://arxiv.org/pdf/2111.01830",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Theorem 1.1.3 and its coefficient distinction",
+        "§5.3 Theorem 5.3.3 (relative trace)",
+        "Appendix A, taut-space scope, Theorem A.15, Definition A.17, Lemmas A.18–A.19"
+      ],
+      "access": "Public text read",
+      "sha256": "a984d973782649972a835b302e20ec91fc9c1abc5e5b43c7eccc5934b9c2c951"
+    },
+    {
+      "id": "Lut95",
+      "title": "The structure of proper rigid groups",
+      "authors": "Werner Lütkebohmert",
+      "edition": "J. Reine Angew. Math. 468 (1995), 167–219; GDZ public page transcription",
+      "url": "https://gdz.sub.uni-goettingen.de/id/PPN243919689_0468",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§5 pp. 196–203: smooth curve fibration, Theorem 5.3, Proposition 5.4, Lemma 5.5, Proposition 5.7, Lemma 5.8 and proof of 5.3",
+        "Definition5.6 p.200; §7.1 relative compactness, pp.211–212; Theorem7.4 and Proposition7.5 pp.212–213"
+      ],
+      "access": "Public OCR pp.196–203 and selected §7 passages read; public IIIF images pp.197,198,200,201,202,212,213 inspected. The scan confirms the divisor clauses and d≥2g−1 in Lemma5.8.",
+      "verifiedScans": [
+        {
+          "page": "197",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000201/full/1800,/0/default.jpg",
+          "sha256": "b61c8e14e4ba500950e97fd60716b58c05b61635dfd201c0ca796a2e0acd622c"
+        },
+        {
+          "page": "198",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000202/full/1800,/0/default.jpg",
+          "sha256": "c03e30a7334c2c91cc0ca6136e7d7d76bc7157476671f0483ed61239fc60c244"
+        },
+        {
+          "page": "200",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000204/full/1800,/0/default.jpg",
+          "sha256": "0896396cbb4d775b9085f98a81ac0fe01229718d29926456c3fcd04ddf3c640c"
+        },
+        {
+          "page": "201",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000205/full/1800,/0/default.jpg",
+          "sha256": "7084b3e5bc4eb45da0541412fca627ad4eb65431c1f9dfdebab317b09313b6ef"
+        },
+        {
+          "page": "202",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000206/full/1800,/0/default.jpg",
+          "sha256": "66d018980230254249469f38fae258f0d816a6209d801534d5676019ab596c12"
+        },
+        {
+          "page": "212",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000216/full/1800,/0/default.jpg",
+          "sha256": "d24cbc62fd2a9c6bd4616153335fd5d412d8b12eec6fa9c25bd64c07dde17edb"
+        },
+        {
+          "page": "213",
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN243919689_0468:00000217/full/1800,/0/default.jpg",
+          "sha256": "280de3cd2161e50c421085a5e8e01667aaac78bfb0fd50b0e96f639c2ee11822"
+        }
+      ]
+    },
+    {
+      "id": "Huber-EtaleCohomology-1996",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "Aspects of Mathematics E30 (1996)",
+      "url": "https://link.springer.com/book/10.1007/978-3-663-09991-8",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "No book pages newly accessed. Reviewed integrated decomposition supplies inherited §3.7–§3.8 locators; ECD supplies the specific §6.1.1 use; Ito supplies the §6.2.2 statement."
+      ],
+      "access": "Publisher full-PDF request returned HTML, not the book. No copied private-scan hash is asserted. Proof interiors and exact maximal generality remain recorded gaps."
+    },
+    {
+      "id": "Mieda-Zelevinsky",
+      "title": "Zelevinsky involution and ℓ-adic cohomology of the Rapoport–Zink tower",
+      "authors": "Yoichi Mieda",
+      "edition": "Public author PDF retrieved 6 October 2026",
+      "url": "https://www.ms.u-tokyo.ac.jp/~mieda/pdf/RZ-Zel.pdf",
+      "accessed": "2026-10-06",
+      "sha256": "dcbfd4e881cb847962d4e3f912f4c01e2a8bd09320ce8f7e59ed789fb383b631",
+      "readSections": [
+        "§3.3.1 p.12: base field, adic finite-type scope, prime-to-residue truncated-DVR coefficients",
+        "Proposition3.38 and proof, pp.19–20: intermediate qc-open finiteness assertion and exact inverse-limit sequence"
+      ],
+      "access": "Public author PDF read. The finiteness assertion is an intermediate claim in the proof of Proposition3.38; it is not the proposition’s conclusion, which assumes finiteness on a possibly non-qc U."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/radial-regions",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The closed-disc radial locus",
+      "kind": "construction",
+      "statement": "For a commutative topological ring A, an explicit plus subring A⁺, coordinate T and outer radius representative b, closedDisc(A⁺,T,b) is the set of continuous valuations bounded by one on A⁺ and satisfying T≤ᵥb. It is a subset of the pinned Spa set. With b a unit it agrees with the pinned rationalSubset(A⁺,{T},b). For a Tate-algebra coordinate and a nonzero constant radius it is the underlying set of the analytic closed disc supplied by A2. Valuative comparison retains every rank.",
+      "hypotheses": [
+        "A commutative topological ring and an explicit plus subring for the set-level construction; sheafiness, completeness and the Huber hypotheses belong to R0.",
+        "For analytic discs and annuli: C complete nontrivially valued, nonzero a,b∈C, |a|≤|b|; for a nonempty open annulus require strict |a|<|b|."
+      ],
+      "proofSteps": [
+        "Intersect the pinned Spa set with T≤ᵥb.",
+        "For unit b the rational-subset denominator is outside every valuation support, giving the pinned rationalSubset equality.",
+        "A continuous plus-preserving ring map gives the comap identity inside its domain Spa; R0/A2 supplies the geometric interpretation."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.ValuationSpectrum.spa",
+        "tauceti:TauCeti.ValuationSpectrum.mem_rationalSubset_iff",
+        "mathlib:ValuativeRel.vlt",
+        "AdicEtaleGeometry:A2/relative-closed-polydisc"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "pp. 35,37: B(ε), B(a,b), D(ε)",
+          "match": "Concrete radial domains; the prototype states their set-level core."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, before Theorem 6.3.5, p. 121",
+          "match": "Closed annuli include r=R; all-rank adic interpretation comes from A2."
+        }
+      ],
+      "acceptance": [
+        "Check weak versus strict boundaries on a rank-two valuation; compare the closed unit disc with the pinned closedPolydisc set."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.closedDisc"
+      ],
+      "planet": {
+        "name": "Discs and annuli"
+      },
+      "api": [
+        {
+          "name": "Radial.mem_closedDisc",
+          "role": "characterisation",
+          "statement": "x belongs iff x∈Spa(A,A⁺) and T≤ᵥb."
+        },
+        {
+          "name": "Radial.closedDisc_eq_rational",
+          "role": "compatibility",
+          "statement": "For a unit b, closedDisc equals the pinned rationalSubset(A⁺,{T},b)."
+        },
+        {
+          "name": "Radial.baseChange",
+          "role": "functoriality",
+          "statement": "For a continuous plus-preserving ring map φ:A→B, comap(φ)⁻¹(closedDisc(A⁺,T,b))∩Spa(B,B⁺)=closedDisc(B⁺,φ(T),φ(b)); the intersection specifies the domain Spa."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.zero_coordinate",
+          "kind": "degenerate",
+          "statement": "For v∈Spa(A,A⁺) and unit b, v∈closedDisc(A⁺,0,b)."
+        },
+        {
+          "name": "Radial.unit_radius",
+          "kind": "compatibility",
+          "statement": "closedDisc(A⁺,T,1) equals rationalSubset(A⁺,{T},1)."
+        },
+        {
+          "name": "Radial.classical_point",
+          "kind": "computation",
+          "statement": "For the pinned classicalPoint at a power-bounded coordinate c over a complete Hausdorff nonarchimedean ring, unit-disc membership is the base point comparison c≤ᵥ1. The exact evaluation comparison is the pinned classicalPoint_vle; no field assumption is needed for this disc test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/punctured-disc-region",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The punctured-disc radial locus",
+      "kind": "construction",
+      "statement": "puncturedDisc(A⁺,T,b) is closedDisc(A⁺,T,b) intersected with the complement of support(T): T is not ≤ᵥ0. In a geometric one-variable disc this removes the closed analytic origin. It is an open analytic subspace once A2 identifies the locus; it is not the complement of an entire reduction fibre.",
+      "hypotheses": [
+        "A commutative topological ring and an explicit plus subring for the set-level construction; sheafiness, completeness and the Huber hypotheses belong to R0.",
+        "For analytic discs and annuli: C complete nontrivially valued, nonzero a,b∈C, |a|≤|b|; for a nonempty open annulus require strict |a|<|b|."
+      ],
+      "proofSteps": [
+        "Intersect the ambient Spa with the indicated valuative inequalities; exclude support(T) for punctured and annular regions.",
+        "Apply the pinned rationalSubset membership API for the closed disc and both rational inequalities of a closed annulus.",
+        "Transport a radius by rescaling T using a chosen nonzero constant; obtain the analytic ring and open subspace from A2/R0."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "pp. 35,37: B(ε), B(a,b), D(ε)",
+          "match": "Concrete radial domains; the prototype states their set-level core."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, before Theorem 6.3.5, p. 121",
+          "match": "Closed annuli include r=R; all-rank adic interpretation comes from A2."
+        }
+      ],
+      "acceptance": [
+        "Check weak versus strict boundaries on a rank-two valuation; compare the closed unit disc with the pinned closedPolydisc set."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.puncturedDisc"
+      ],
+      "api": [
+        {
+          "name": "Radial.mem_puncturedDisc",
+          "role": "characterisation",
+          "statement": "Membership is closed-disc membership and T outside the valuation support."
+        },
+        {
+          "name": "Radial.puncturedDisc_subset_closedDisc",
+          "role": "relation",
+          "statement": "The punctured-disc locus is contained in its outer closed disc."
+        },
+        {
+          "name": "Radial.puncturedDisc_eq_diff",
+          "role": "compatibility",
+          "statement": "It equals closedDisc minus {v | T≤ᵥ0}, the support locus defined by the pinned valuative relation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.puncture_zero",
+          "kind": "degenerate",
+          "statement": "puncturedDisc(A⁺,0,b) is empty for every b."
+        },
+        {
+          "name": "Radial.puncture_unit",
+          "kind": "computation",
+          "statement": "puncturedDisc(A⁺,1,1)=Spa(A,A⁺)."
+        },
+        {
+          "name": "Radial.puncture_support",
+          "kind": "non-example",
+          "statement": "A valuation with T≤ᵥ0 does not belong to puncturedDisc, even if it satisfies the outer bound."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The closed-annulus radial locus",
+      "kind": "construction",
+      "statement": "closedAnnulus(A⁺,T,a,b) consists of v∈Spa(A,A⁺) with a≤ᵥT≤ᵥb and T outside support. For units a,b it is R({T}/b)∩R({a}/T). Standard analytic annuli have nonzero constant representatives with 0<|a|≤|b|. Equality of radii gives a boundary circle and is allowed. The affinoid presentation is imported from A2.",
+      "hypotheses": [
+        "A commutative topological ring and an explicit plus subring for the set-level construction; sheafiness, completeness and the Huber hypotheses belong to R0.",
+        "For analytic discs and annuli: C complete nontrivially valued, nonzero a,b∈C, |a|≤|b|; for a nonempty open annulus require strict |a|<|b|."
+      ],
+      "proofSteps": [
+        "Intersect the ambient Spa with the indicated valuative inequalities; exclude support(T) for punctured and annular regions.",
+        "Apply the pinned rationalSubset membership API for the closed disc and both rational inequalities of a closed annulus.",
+        "Transport a radius by rescaling T using a chosen nonzero constant; obtain the analytic ring and open subspace from A2/R0."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-region",
+        "tauceti:TauCeti.ValuationSpectrum.mem_rationalSubset_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "pp. 35,37: B(ε), B(a,b), D(ε)",
+          "match": "Concrete radial domains; the prototype states their set-level core."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, before Theorem 6.3.5, p. 121",
+          "match": "Closed annuli include r=R; all-rank adic interpretation comes from A2."
+        }
+      ],
+      "acceptance": [
+        "Check weak versus strict boundaries on a rank-two valuation; compare the closed unit disc with the pinned closedPolydisc set."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.closedAnnulus"
+      ],
+      "api": [
+        {
+          "name": "Radial.mem_closedAnnulus",
+          "role": "characterisation",
+          "statement": "Membership is Spa membership, both weak inequalities and T outside support."
+        },
+        {
+          "name": "Radial.closedAnnulus_eq_inter",
+          "role": "compatibility",
+          "statement": "For units a,b, the locus is rationalSubset(A⁺,{T},b)∩rationalSubset(A⁺,{a},T)."
+        },
+        {
+          "name": "Radial.closedAnnulus_subset_puncturedDisc",
+          "role": "relation",
+          "statement": "Every closed-annulus point lies in the punctured outer disc."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.annulus_zero",
+          "kind": "non-example",
+          "statement": "closedAnnulus(A⁺,0,a,b) is empty."
+        },
+        {
+          "name": "Radial.annulus_unit_circle",
+          "kind": "computation",
+          "statement": "closedAnnulus(A⁺,1,1,1)=Spa(A,A⁺)."
+        },
+        {
+          "name": "Radial.annulus_rational",
+          "kind": "compatibility",
+          "statement": "For unit a,b, compare the locus exactly with the intersection of the two pinned rational subsets."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/strict-annulus-region",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The strict-valuative annulus locus",
+      "kind": "construction",
+      "statement": "strictAnnulus(A⁺,T,a,b) imposes a<ᵥT<ᵥb and T outside support on Spa(A,A⁺); strict means the negation of the reverse weak comparison, as in Mathlib ValuativeRel.vlt. It is the locus with strict bounds at every rank. A strict-valuative locus is not asserted to be an open subset of the adic topology: topology and the corresponding pseudo-adic/support convention are supplied by A2/H0. In geometric Berkovich or rigid terminology the associated region is called an open annulus; the words open and closed in radial terminology do not determine adic topological openness.",
+      "hypotheses": [
+        "A commutative topological ring and an explicit plus subring for the set-level construction; sheafiness, completeness and the Huber hypotheses belong to R0.",
+        "For analytic discs and annuli: C complete nontrivially valued, nonzero a,b∈C, |a|≤|b|; for a nonempty open annulus require strict |a|<|b|."
+      ],
+      "proofSteps": [
+        "Intersect the ambient Spa with the indicated valuative inequalities; exclude support(T) for punctured and annular regions.",
+        "Apply the pinned rationalSubset membership API for the closed disc and both rational inequalities of a closed annulus.",
+        "Transport a radius by rescaling T using a chosen nonzero constant; obtain the analytic ring and open subspace from A2/R0."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "mathlib:ValuativeRel.vlt"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "pp. 35,37: B(ε), B(a,b), D(ε)",
+          "match": "Concrete radial domains; the prototype states their set-level core."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, before Theorem 6.3.5, p. 121",
+          "match": "Closed annuli include r=R; all-rank adic interpretation comes from A2."
+        }
+      ],
+      "acceptance": [
+        "Check weak versus strict boundaries on a rank-two valuation; compare the closed unit disc with the pinned closedPolydisc set."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.strictAnnulus"
+      ],
+      "api": [
+        {
+          "name": "Radial.mem_strictAnnulus",
+          "role": "characterisation",
+          "statement": "Membership is Spa membership, both strict comparisons and T outside support."
+        },
+        {
+          "name": "Radial.strictAnnulus_subset_closedAnnulus",
+          "role": "relation",
+          "statement": "The strict-annulus locus lies in the weak-annulus locus."
+        },
+        {
+          "name": "Radial.strictAnnulus_vlt",
+          "role": "compatibility",
+          "statement": "Membership equals Spa membership, a<ᵥT and T<ᵥb in the pinned ValuativeRel.vlt convention, and T outside support."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.equal_radii",
+          "kind": "degenerate",
+          "statement": "strictAnnulus(A⁺,T,a,a)=∅; equality of radii must not produce the weak circle."
+        },
+        {
+          "name": "Radial.strict_annulus_zero",
+          "kind": "non-example",
+          "statement": "strictAnnulus(A⁺,0,a,b)=∅."
+        },
+        {
+          "name": "Radial.strict_annulus_boundary",
+          "kind": "compatibility",
+          "statement": "A valuation equivalent in value on T and a is excluded by the inner strict bound, including a higher-rank refinement with that exact equivalence."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/open-annulus-region",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The analytic open-annulus exhaustion",
+      "kind": "construction",
+      "statement": "Given inner and outer radius representatives a_j,b_j, define openAnnulus(A⁺,T,a,b)=⋃_j closedAnnulus(A⁺,T,a_j,b_j). Under 0<r<|a_j|≤|b_j|<R, with inner radii decreasing to r and outer radii increasing to R and nested domains, this is the inherited analytic open annulus, including every rank allowed by its union topology. It is not defined as the single strict-valuative locus r<|T|<R. Rank-two points infinitesimally inside an endpoint can satisfy the latter while their rank-one generalization lies at that endpoint and they are absent from this union.",
+      "hypotheses": [
+        "Set-level construction: A commutative topological ring, plus subring A⁺ and explicit radius representatives indexed by ℕ.",
+        "Analytic interpretation: C complete nontrivially valued, the nested strict radii in |C×| converge to the asserted endpoints; A2 supplies the corresponding open immersion."
+      ],
+      "proofSteps": [
+        "Take the union of the existing rational closed radial domains.",
+        "Import the A2 identification of this union with the analytic open region; use the union topology rather than the strict-valuative predicate at a single endpoint."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "AdicEtaleGeometry:A2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "Appendix A.1, pp.46–47; definitions of η(r),η(r)′ and Example A.1",
+          "match": "Rank-two refinements distinguish strict-value subsets from analytic open unions."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, disc and annulus conventions",
+          "match": "Berkovich radial terminology is transported through the geometric supplier."
+        }
+      ],
+      "acceptance": [
+        "Check the rank-two specialization η(r) in Ito20 Appendix A: strict valuation comparison at an endpoint can include a point that no strictly interior rational radius captures."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.openAnnulus"
+      ],
+      "api": [
+        {
+          "name": "Radial.mem_openAnnulus",
+          "role": "characterisation",
+          "statement": "Membership means membership in one closed-annulus stage."
+        },
+        {
+          "name": "Radial.closedAnnulus_subset_openAnnulus",
+          "role": "relation",
+          "statement": "Every stage is contained in the union."
+        },
+        {
+          "name": "Radial.openAnnulus_constant",
+          "role": "simp",
+          "statement": "Constant inner and outer representative families give the same closed-annulus locus, not an automatically strict annulus."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.open_annulus_constant",
+          "kind": "degenerate",
+          "statement": "With a_j=b_j=1 and T=1 the union is Spa(A,A⁺), so the family hypotheses cannot be omitted from analytic openness."
+        },
+        {
+          "name": "Radial.open_annulus_zero",
+          "kind": "non-example",
+          "statement": "The open-annulus union with coordinate T=0 is empty."
+        },
+        {
+          "name": "Radial.open_annulus_stage",
+          "kind": "compatibility",
+          "statement": "A point belongs to this union iff one of the exact pinned rational annulus intersections contains it, when each a_j,b_j is a unit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/open-disc-region",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The analytic open-disc exhaustion",
+      "kind": "construction",
+      "statement": "For a radius family b_j, define openDisc(A⁺,T,b)=⋃_j closedDisc(A⁺,T,b_j). If 0<|b_j|<R increases cofinally to R with nested rational domains, A2 identifies this union with the analytic open disc of outer radius R. A predicate |T|<R at every valuation rank is a different pseudo-adic subset and is not substituted for this open space.",
+      "hypotheses": [
+        "Set-level construction: A commutative topological ring, plus subring A⁺ and explicit radius representatives indexed by ℕ.",
+        "Analytic interpretation: C complete nontrivially valued, the nested strict radii in |C×| converge to the asserted endpoints; A2 supplies the corresponding open immersion."
+      ],
+      "proofSteps": [
+        "Take the union of the existing rational closed radial domains.",
+        "Import the A2 identification of this union with the analytic open region; use the union topology rather than the strict-valuative predicate at a single endpoint."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "AdicEtaleGeometry:A2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "Appendix A.1, pp.46–47; definitions of η(r),η(r)′ and Example A.1",
+          "match": "Rank-two refinements distinguish strict-value subsets from analytic open unions."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3, disc and annulus conventions",
+          "match": "Berkovich radial terminology is transported through the geometric supplier."
+        }
+      ],
+      "acceptance": [
+        "Check the rank-two specialization η(r) in Ito20 Appendix A: strict valuation comparison at an endpoint can include a point that no strictly interior rational radius captures."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "Radial.openDisc"
+      ],
+      "api": [
+        {
+          "name": "Radial.mem_openDisc",
+          "role": "characterisation",
+          "statement": "Membership is membership in one closed-disc stage."
+        },
+        {
+          "name": "Radial.closedDisc_subset_openDisc",
+          "role": "relation",
+          "statement": "Every closed-disc stage lies in the union."
+        },
+        {
+          "name": "Radial.openDisc_constant",
+          "role": "simp",
+          "statement": "A constant radius family gives the associated closed-disc locus."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Radial.open_disc_constant",
+          "kind": "degenerate",
+          "statement": "A constant radius-one family gives the unit closed-disc locus."
+        },
+        {
+          "name": "Radial.open_disc_zero",
+          "kind": "computation",
+          "statement": "For a nonzero unit radius family and v∈Spa, T=0 lies in every stage and hence in the union."
+        },
+        {
+          "name": "Radial.open_disc_rational",
+          "kind": "compatibility",
+          "statement": "For unit representatives b_j the union equals ⋃_j rationalSubset(A⁺,{T},b_j)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5 proof",
+          "how": "Annulus inequalities and roots of its invertible coordinate determine the base-field tower calculation."
+        },
+        {
+          "where": "ECD Theorem 24.1; Proposition 27.2",
+          "how": "Identify balls and their actual inclusions without turning higher-rank valuation inequalities into real radii."
+        },
+        {
+          "where": "H5 curve-boundary calculation",
+          "how": "Distinguish a boundary circle from the strict annulus it bounds."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/tame-radial-covers",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Tame covers of discs and annuli",
+      "kind": "theorem",
+      "statement": "Over algebraically closed complete nonarchimedean C with residue characteristic exponent p, every tame finite étale Galois cover of a geometric disc is trivial. Tameness is required at all geometric points; arbitrary finite étale covers need not be tame.",
+      "hypotheses": [
+        "C algebraically closed; standard strict radii are in |C×|.",
+        "Tame means the geometric ramification indices are prime to the residue characteristic, not merely that e is nonzero in C."
+      ],
+      "proofSteps": [
+        "Use Berkovich 6.3.2 to split the disc branches.",
+        "Apply 6.3.5 to the boundary circle and extend across the skeleton and disc branches.",
+        "Translate only overconvergent finite locally constant sheaves through the taut adic/Berkovich comparison imported from H3."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "ClassicalAdicEtaleCohomology:H4/open-disc-region",
+        "ClassicalAdicEtaleCohomology:H3/berkovich-taut-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorems 6.3.2,6.3.5, pp. 119–122",
+          "match": "Precisely the tame Galois classification, not classification of every étale cover."
+        }
+      ],
+      "acceptance": [
+        "Degree-one cover is the identity; z↦z^ℓ is nontrivial for ℓ≠p; do not infer triviality of wild disc covers."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "tameDiscCover_trivial"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/tame-annulus-covers",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Tame Kummer covers of closed annuli",
+      "kind": "theorem",
+      "statement": "Over the same C, every connected tame finite étale Galois cover of a strict closed annulus A(r,R), 0<r≤R, is a standard Kummer cover z↦z^e from A(r^(1/e),R^(1/e)), with e prime to p. Equality r=R is allowed. This classifies tame Galois covers, not all finite étale covers.",
+      "hypotheses": [
+        "C algebraically closed; standard strict radii are in |C×|.",
+        "Tame means the geometric ramification indices are prime to the residue characteristic, not merely that e is nonzero in C."
+      ],
+      "proofSteps": [
+        "Use Berkovich 6.3.2 to split the disc branches.",
+        "Apply 6.3.5 to the boundary circle and extend across the skeleton and disc branches.",
+        "Translate only overconvergent finite locally constant sheaves through the taut adic/Berkovich comparison imported from H3."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/tame-radial-covers",
+        "ClassicalAdicEtaleCohomology:H3/berkovich-taut-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorems 6.3.2,6.3.5, pp. 119–122",
+          "match": "Precisely the tame Galois classification, not classification of every étale cover."
+        }
+      ],
+      "acceptance": [
+        "Degree-one cover is the identity; z↦z^ℓ is nontrivial for ℓ≠p; do not infer triviality of wild disc covers."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "tameAnnulusCover_kummer"
+      ],
+      "planet": {
+        "name": "Tame annulus coverings"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/annulus-kummer-generator",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The annulus Kummer generator",
+      "kind": "construction",
+      "statement": "For a strict closed annulus A over C and n≥1 prime to the residue characteristic, define annulusKummer(T)=δ_n(T)∈H¹(A,μ_n), using the H0 Kummer connecting map and the invertible annulus coordinate. The degree map identifies H¹(A,μ_n) with ℤ/n, sending δ_n(T) to 1. This identification is canonical with a coordinate and μ_n coefficients; identifying H¹(A,ℤ/n) with ℤ/n requires a trivialization of μ_n. The prototype accepts the imported connecting homomorphism; it does not define the étale Kummer sequence anew.",
+      "hypotheses": [
+        "C algebraically closed complete; coordinate invertible on A; n prime to residue characteristic.",
+        "Only the additive homomorphism core can be typed before A1/H0 supplies the analytic site and δ_n."
+      ],
+      "proofSteps": [
+        "Import δ_n and its naturality from H0.",
+        "Use the tame cover classification and the circle degree/residue API from H3 to identify the coordinate class.",
+        "Apply functoriality to powers and multiplication by n-th powers; constants have roots over C."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/tame-radial-covers",
+        "ClassicalAdicEtaleCohomology:H0/kummer-sequence",
+        "ClassicalAdicEtaleCohomology:H3/local-residue-degree-formula",
+        "mathlib:CategoryTheory.Sheaf.H.map",
+        "ClassicalAdicEtaleCohomology:H4/tame-annulus-covers"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "The coordinate class is killed by extracting roots."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.2 circle-unit and degree calculation, pp. 113–118",
+          "match": "Use H3-owned degree and residue normalization, including its boundary signs."
+        }
+      ],
+      "acceptance": [
+        "The class with μ_n coefficients is independent of a chosen primitive root; untwisting changes the basis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "annulusKummer"
+      ],
+      "api": [
+        {
+          "name": "annulusKummer_natural",
+          "role": "functoriality",
+          "statement": "For an annulus map g, pullback δ_n(T)=δ_n(g* T)."
+        },
+        {
+          "name": "annulusKummer_pow",
+          "role": "compatibility",
+          "statement": "δ_n(S^e)=e·δ_n(S)."
+        },
+        {
+          "name": "annulusKummer_mul_nthPower",
+          "role": "simp",
+          "statement": "δ_n(T·u^n)=δ_n(T)."
+        },
+        {
+          "name": "annulusKummer_degree",
+          "role": "characterisation",
+          "statement": "Under the degree isomorphism to ℤ/n, δ_n(T) maps to 1."
+        },
+        {
+          "name": "annulusKummer_coordinateScale",
+          "role": "compatibility",
+          "statement": "Replacing T by cT for c∈C× leaves the μ_n class unchanged since c has an n-th root."
+        }
+      ],
+      "tests": [
+        {
+          "name": "annulusKummer_one",
+          "kind": "degenerate",
+          "statement": "The class of the unit coordinate 1 is zero."
+        },
+        {
+          "name": "annulusKummer_power",
+          "kind": "computation",
+          "statement": "Under T=S^e, the pulled back coordinate class is e times the S-class; for e=n it is zero."
+        },
+        {
+          "name": "annulusKummer_nthPower",
+          "kind": "compatibility",
+          "statement": "Multiplying the coordinate by an n-th power preserves its class."
+        },
+        {
+          "name": "annulusKummer_disc_origin",
+          "kind": "non-example",
+          "statement": "The coordinate on an unpunctured disc is not a unit at the origin, so this annulus construction cannot take it as input."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Theorem 19.5",
+          "how": "Controls the maps in the field-extension colimit."
+        },
+        {
+          "where": "H4 annulus restriction and H5 boundary contributions",
+          "how": "Fixes the basis, Tate twist and degree of the transition maps."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/disc-cohomology",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Prime-to-residue-characteristic disc cohomology",
+      "kind": "theorem",
+      "statement": "For a nonempty geometric closed disc D over Spa(C,O_C), C algebraically closed complete nontrivially valued and Λ=ℤ/n with n invertible in O_C, H⁰(D,Λ)=Λ and H^q(D,Λ)=0 for q>0. The geometric analytic open-disc union has the same groups by compatible exhaustion and derived continuity. The strict-valuative pseudo-adic subset at a fixed endpoint is not identified with that open union.",
+      "hypotheses": [
+        "C algebraically closed complete nontrivially valued; nonzero strict radius; Λ=ℤ/n, n invertible in O_C."
+      ],
+      "proofSteps": [
+        "Use trivial tame disc covers and H3 cohomological vanishing to obtain the closed-disc calculation.",
+        "Use exhaustion by closed subdiscs, the derived inverse-limit/continuity supplier and constant restriction maps for the open disc.",
+        "Import relative-ball compact support and the H3 trace; apply rescaling and the compatible exhaustion for open discs."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "ClassicalAdicEtaleCohomology:H4/open-disc-region",
+        "ClassicalAdicEtaleCohomology:H4/tame-radial-covers",
+        "ClassicalAdicEtaleCohomology:H3/curve-cohomology-finiteness",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorem 6.3.2; Remark 6.2.10; §6.4",
+          "match": "Prime-to-residue assumption is essential; H3 supplies the cohomological step, not π1 alone."
+        }
+      ],
+      "acceptance": [
+        "For Λ=Fℓ the dimensions are (1,0,…) and compact dimensions (0,0,1); mixed characteristic ℓ=p is excluded."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "disc_cohomology"
+      ],
+      "planet": {
+        "name": "Disc cohomology"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/disc-compact-support",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Disc cohomology with proper support",
+      "kind": "theorem",
+      "statement": "Under the same geometric disc and prime-to-residue coefficient hypotheses, H^q_c(D,Λ)=Λ(−1) for q=2 and zero otherwise, for the H3 relative proper-support convention. The trace on μ_n identifies degree two with Λ. The analytic open-disc version uses the genuine rational exhaustion. Compact support here is not compact support in a compact Hausdorff space.",
+      "hypotheses": [
+        "C algebraically closed complete nontrivially valued; nonzero strict radius; Λ=ℤ/n, n invertible in O_C."
+      ],
+      "proofSteps": [
+        "Use trivial tame disc covers and H3 cohomological vanishing to obtain the closed-disc calculation.",
+        "Use exhaustion by closed subdiscs, the derived inverse-limit/continuity supplier and constant restriction maps for the open disc.",
+        "Import relative-ball compact support and the H3 trace; apply rescaling and the compatible exhaustion for open discs."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H3/relative-ball-compact-support",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-quasi-compact-exhaustion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorem 6.3.2; Remark 6.2.10; §6.4",
+          "match": "Prime-to-residue assumption is essential; H3 supplies the cohomological step, not π1 alone."
+        }
+      ],
+      "acceptance": [
+        "For Λ=Fℓ the dimensions are (1,0,…) and compact dimensions (0,0,1); mixed characteristic ℓ=p is excluded."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "disc_compactSupport"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Prime-to-residue-characteristic annulus cohomology",
+      "kind": "theorem",
+      "statement": "For a nonempty strict closed annulus A(r,R) over Spa(C,O_C), including r=R, H⁰(A,Λ)=Λ, H¹(A,Λ)=Λ(−1) and H^q(A,Λ)=0 for q>1, where Λ=ℤ/n and n is invertible in O_C. With μ_n coefficients the coordinate Kummer generator maps to 1 under degree. A geometric analytic open annulus, formed as the union of rational subannuli strictly inside its two endpoints, has the same cohomology by derived continuity. Arbitrary plus rings require the separate valuation export.",
+      "hypotheses": [
+        "C algebraically closed complete, Λ=ℤ/n, n invertible in O_C; 0<r≤R strict radii, r<R for open annuli.",
+        "The result over an arbitrary higher-rank plus ring is not inferred from the maximal-plus-ring result alone; see valuation radial export and its gap."
+      ],
+      "proofSteps": [
+        "Use the Kummer degree identification and affinoid-curve higher vanishing to compute H⁰,H¹ and the zero range.",
+        "Naturality sends the coordinate class to the identical coordinate class under radius restriction; connectedness gives the degree-zero identity.",
+        "Use H3 curve duality and finiteness for compact-support groups and their twists; for open annuli use the two distinct exhaustion functors."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/open-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/annulus-kummer-generator",
+        "ClassicalAdicEtaleCohomology:H3/curve-cohomology-finiteness",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Verified explicit constant Fℓ annulus calculation."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorem 6.3.5; §§6.2,7.3",
+          "match": "Proof ingredients; duality and degree live at H3."
+        }
+      ],
+      "acceptance": [
+        "For Fℓ the dimensions are (1,1,0,…); choosing a primitive root only untwists the generator; the circle case is retained."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "annulus_cohomology"
+      ],
+      "planet": {
+        "name": "Annulus cohomology"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/annulus-compact-support",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Annulus cohomology with proper support",
+      "kind": "theorem",
+      "statement": "For a nonempty geometric annulus and Λ=ℤ/n prime to residue characteristic, H¹_c(A,Λ)=Λ and H²_c(A,Λ)=Λ(−1), with all other proper-support groups zero. Use the H3 trace and curve duality convention, including the boundary residue signs. For analytic open annuli use the genuine rational exhaustion and the lower-shriek colimit theorem.",
+      "hypotheses": [
+        "C algebraically closed complete, Λ=ℤ/n, n invertible in O_C; 0<r≤R strict radii, r<R for open annuli.",
+        "The result over an arbitrary higher-rank plus ring is not inferred from the maximal-plus-ring result alone; see valuation radial export and its gap."
+      ],
+      "proofSteps": [
+        "Use the Kummer degree identification and affinoid-curve higher vanishing to compute H⁰,H¹ and the zero range.",
+        "Naturality sends the coordinate class to the identical coordinate class under radius restriction; connectedness gives the degree-zero identity.",
+        "Use H3 curve duality and finiteness for compact-support groups and their twists; for open annuli use the two distinct exhaustion functors."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H3/curve-duality-perfect-pairing",
+        "ClassicalAdicEtaleCohomology:H3/curve-cohomology-finiteness",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-quasi-compact-exhaustion"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Verified explicit constant Fℓ annulus calculation."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorem 6.3.5; §§6.2,7.3",
+          "match": "Proof ingredients; duality and degree live at H3."
+        }
+      ],
+      "acceptance": [
+        "For Fℓ the dimensions are (1,1,0,…); choosing a primitive root only untwists the generator; the circle case is retained."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "annulus_compactSupport"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Restriction between concentric annuli",
+      "kind": "theorem",
+      "statement": "With the preceding geometric and coefficient hypotheses, restriction from a closed annulus to any nonempty concentric closed subannulus is an isomorphism in every cohomological degree. In degree one with μ_n coefficients it preserves the class δ_n(T) of the same coordinate. The coordinate degree, rather than abstract equality of dimensions, determines this actual map.",
+      "hypotheses": [
+        "C algebraically closed complete, Λ=ℤ/n, n invertible in O_C; 0<r≤R strict radii, r<R for open annuli.",
+        "The result over an arbitrary higher-rank plus ring is not inferred from the maximal-plus-ring result alone; see valuation radial export and its gap."
+      ],
+      "proofSteps": [
+        "Use the Kummer degree identification and affinoid-curve higher vanishing to compute H⁰,H¹ and the zero range.",
+        "Naturality sends the coordinate class to the identical coordinate class under radius restriction; connectedness gives the degree-zero identity.",
+        "Use H3 curve duality and finiteness for compact-support groups and their twists; for open annuli use the two distinct exhaustion functors."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-kummer-generator"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Verified explicit constant Fℓ annulus calculation."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "Theorem 6.3.5; §§6.2,7.3",
+          "match": "Proof ingredients; duality and degree live at H3."
+        }
+      ],
+      "acceptance": [
+        "For Fℓ the dimensions are (1,1,0,…); choosing a primitive root only untwists the generator; the circle case is retained."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "annulus_restrict_isIso"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/punctured-disc-cohomology",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Punctured-disc cohomology and the localization map",
+      "kind": "theorem",
+      "statement": "For D×=D∖{0}, with D a nonempty geometric disc containing the closed analytic origin and Λ=ℤ/n invertible in O_C, H⁰(D×,Λ)=Λ, H¹(D×,Λ)=Λ(−1) and H^q=0 for q>1. The degree-one class is δ_n(T). Also H¹_c(D×,Λ)=Λ and H²_c(D×,Λ)=Λ(−1), with other degrees zero. Compute by annular exhaustion and the H3 support triangle, keeping the analytic puncture rather than an entire reduction fibre.",
+      "hypotheses": [
+        "C algebraically closed complete, Λ=ℤ/n with n invertible in O_C."
+      ],
+      "proofSteps": [
+        "Exhaust the punctured disc by nonempty concentric closed annuli.",
+        "Apply annulus restriction isomorphisms and the derived inverse-limit supplier.",
+        "Use H3 open/closed proper-support triangle, the closed-point calculation, and disc compact support to calculate the boundary map."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-region",
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/disc-compact-support",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3 Corollary 6.3.6 and annulus classification",
+          "match": "Radial punctured regions; the stated puncture computation follows by annular exhaustion and localization."
+        }
+      ],
+      "acceptance": [
+        "The added origin kills ordinary H¹, and compact support has a nonzero connecting map from that point."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "puncturedDisc_cohomology"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/punctured-disc-localization",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The puncture localization map",
+      "kind": "theorem",
+      "statement": "In the H3 localization triangle for the closed origin {0}⊂D, with D a geometric disc and prime-to-residue Λ, the canonical boundary H⁰_c({0},Λ)=Λ→H¹_c(D∖{0},Λ)=Λ is an isomorphism. The disc proper-support groups vanish in degrees zero and one, so exactness determines this map.",
+      "hypotheses": [
+        "C algebraically closed complete, Λ=ℤ/n with n invertible in O_C."
+      ],
+      "proofSteps": [
+        "Exhaust the punctured disc by nonempty concentric closed annuli.",
+        "Apply annulus restriction isomorphisms and the derived inverse-limit supplier.",
+        "Use H3 open/closed proper-support triangle, the closed-point calculation, and disc compact support to calculate the boundary map."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/disc-compact-support",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ber93",
+          "locator": "§6.3 Corollary 6.3.6 and annulus classification",
+          "match": "Radial punctured regions; the stated puncture computation follows by annular exhaustion and localization."
+        }
+      ],
+      "acceptance": [
+        "The added origin kills ordinary H¹, and compact support has a nonzero connecting map from that point."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "puncturedDisc_localization"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/tame-tower-annulus-acyclicity",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Tame-root towers kill the annulus class",
+      "kind": "theorem",
+      "statement": "Let ℓ be prime to residue characteristic p and let an annular coordinate t acquire an ℓ-th root at a higher stage. On H¹(−,Fℓ), pullback multiplies the coordinate generator by ℓ, hence is zero. In a filtered tower cofinal in adjoining such roots, the colimit cohomology is Fℓ in degree 0 and zero in positive degrees. For the ECD 19.5 field tower, the finite extensions L of k((t^(1/p∞))) supply these ℓ-power roots; the limit has trivial positive Fℓ cohomology by H0 continuity. A tower that only adjoins p-power roots has invertible degree-one transitions modulo ℓ and does not kill H¹.",
+      "hypotheses": [
+        "Annuli over a geometric pair; ℓ≠p; transitions contain tame ℓ-root stages.",
+        "Use the locally colimit-presented tilde-limit or explicitly imported site-continuity theorem, not just an inverse limit of underlying spaces."
+      ],
+      "proofSteps": [
+        "Apply annulusKummer_pow to the root-coordinate map.",
+        "Every degree-one class dies after an ℓ-root extension; constant degree-zero classes persist.",
+        "Apply H0 tilde-limit cohomological continuity. For the ECD higher-rank field-pair realization use the valuation radial export."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-kummer-generator",
+        "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+        "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+        "ClassicalAdicEtaleCohomology:H2/finite-type-approximation-of-perfectoid-affinoids",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support",
+        "ClassicalAdicEtaleCohomology:H4/annulus-geometric-plus-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Exact mechanism in the finite-extension tower."
+        }
+      ],
+      "acceptance": [
+        "Compare an ℓ-root transition (zero on H¹) with a p-root transition (automorphism on H¹)."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "tameRootTower_annulus_acyclic"
+      ],
+      "planet": {
+        "name": "Tame-root acyclicity"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/smooth-family-constructibility",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Constructibility of smooth proper-support direct images",
+      "kind": "theorem",
+      "statement": "Let K be algebraically closed and let f:X→Y be a smooth separated quasi-compact morphism of classical adic spaces over Spa(K,O_K) in Huber’s locally noetherian analytic scope, and F a constructible ℤ/n-sheaf with n invertible in O_K. Then R^q f_!F is constructible for every q≥0. In particular this holds for the relative ball B¹_Y→Y at every finite-type approximating base Y. Constructible means the H0 all-point pseudo-adic locally closed stratification, not merely Zariski-constructible or finite geometric fibres. Finite relative dimension gives the H3 uniform vanishing bound.",
+      "hypotheses": [
+        "K algebraically closed complete nontrivially valued, as fixed in Ito20 §6; locally noetherian analytic classical spaces; f smooth separated qc. General K in ECD24.1 is a separate supplier/source-generalization contract.",
+        "F Huber-constructible, n≥1 invertible in O_K."
+      ],
+      "proofSteps": [
+        "Use Huber 6.2.2 in the precisely restated public form Ito Theorem 6.8. Its book proof is a source-access gap, so the node does not claim proof closure.",
+        "Specialize to the relative ball using A2 smoothness and compactifiability.",
+        "Apply H3 proper-support base change for finite-type changes of base and finite relative cohomological dimension."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H0/classical-constructible-sheaves",
+        "ClassicalAdicEtaleCohomology:H3/proper-support-direct-image",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-base-change",
+        "ClassicalAdicEtaleCohomology:H3/lower-shriek-cohomological-dimension",
+        "AdicEtaleGeometry:A2/relative-closed-polydisc"
+      ],
+      "sources": [
+        {
+          "sourceId": "Ito20",
+          "locator": "Theorem 6.8 and Remark 6.9, p. 35",
+          "match": "Public restatement of Huber 6.2.2; smoothness cannot be dropped."
+        },
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 24.1 proof, p. 153",
+          "match": "Exactly the finite-stage ball use."
+        }
+      ],
+      "acceptance": [
+        "Over a geometric point obtain finite groups; a finite constructible stratification is required on a finite-type base; do not claim this for arbitrary nonsmooth maps."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "smooth_pushforwardShriek_constructible"
+      ],
+      "planet": {
+        "name": "Smooth constructibility"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Constructibility transfer to perfectoid bases",
+      "kind": "theorem",
+      "statement": "Let Y be a strictly totally disconnected affinoid perfectoid base with a colimit-presented finite-type approximation Y∼lim Y_i and a constructible coefficient descended to the relative ball at stage i. Once the finite-stage smooth constructibility theorem applies over its actual base field, the pullback to Y of every R^qf_{i!}F_i is constructible, by H0 pullback stability. Ito20 verifies the geometric base-field form; the general-K form used in ECD24.1 is explicitly requested. This statement is about the pullback sheaf, and does not yet identify it with a nonnoetherian classical direct image.",
+      "hypotheses": [
+        "Y strictly totally disconnected affinoid perfectoid; actual colimit-presented approximation with descended F_i.",
+        "Identification with the limit direct image is conditional on the requested nonnoetherian classical support theorem; the pullback constructibility assertion is unconditional with these data."
+      ],
+      "proofSteps": [
+        "Import finite-type approximation and coefficient descent from P6/H0.",
+        "Apply finite-stage smooth constructibility when the base is geometric, or the general-K extension explicitly requested from H3/Hub96; then apply pullback stability of constructibility.",
+        "Use the requested extension of classical proper-support comparison to identify the pullback image when available. S5 may instead use its own diamond base change after the classical input has been supplied."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/smooth-family-constructibility",
+        "ClassicalAdicEtaleCohomology:H0/constructible-sheaves-stability",
+        "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+        "PerfectoidSpaces:P6",
+        "ClassicalAdicEtaleCohomology:H3"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 24.1 proof, pp. 152–153",
+          "match": "The published proof uses diamond base change; this node separates its classical finite-stage input."
+        }
+      ],
+      "acceptance": [
+        "Descended strata pull back to genuine constructible locally closed subsets of the spectral base; no appeal to S5, diamonds or v-descent in the classical proof."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "perfectoidBase_pullback_constructible"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/perfectoid-support-image-comparison",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "The perfectoid proper-support image contract",
+      "kind": "theorem",
+      "statement": "For the same descended relative ball family, the desired canonical isomorphism g*R^qf_{i!}F_i≅R^qf_!g*F_i over the perfectoid base is conditional on the requested classical proper-support base-change/continuity theorem admitting nonnoetherian bases. H3’s current locally noetherian base-change theorem does not cover this case. ECD24.1 uses diamond base change, which belongs to S5 and cannot prove the requested classical contract.",
+      "hypotheses": [
+        "Y strictly totally disconnected affinoid perfectoid; actual colimit-presented approximation with descended F_i.",
+        "Identification with the limit direct image is conditional on the requested nonnoetherian classical support theorem; the pullback constructibility assertion is unconditional with these data."
+      ],
+      "proofSteps": [
+        "Import finite-type approximation and coefficient descent from P6/H0.",
+        "Apply finite-stage smooth constructibility when the base is geometric, or the general-K extension explicitly requested from H3/Hub96; then apply pullback stability of constructibility.",
+        "Use the requested extension of classical proper-support comparison to identify the pullback image when available. S5 may instead use its own diamond base change after the classical input has been supplied."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer",
+        "ClassicalAdicEtaleCohomology:H4/smooth-family-constructibility",
+        "ClassicalAdicEtaleCohomology:H0/constructible-sheaves-stability",
+        "ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity",
+        "PerfectoidSpaces:P6",
+        "ClassicalAdicEtaleCohomology:H3"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 24.1 proof, pp. 152–153",
+          "match": "The published proof uses diamond base change; this node separates its classical finite-stage input."
+        }
+      ],
+      "acceptance": [
+        "Descended strata pull back to genuine constructible locally closed subsets of the spectral base; no appeal to S5, diamonds or v-descent in the classical proof."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "perfectoidBase_image_comparison"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Radial exports over geometric field pairs",
+      "kind": "application",
+      "statement": "Let Spa(C′,C′⁺)→Spa(C,C⁺) be a surjective extension of geometric affinoid field pairs, with C′⁺∩C=C⁺. H2 invariance for finite-type affinoids identifies prime-to-residue cohomology of the pulled-back radial affinoids and their inherited support sheaves. Passage from C⁺ to O_C is not generally a surjective extension and is not this theorem.",
+      "hypotheses": [
+        "C,C′ algebraically closed complete; coefficient torsion prime to residue p.",
+        "Surjective extensions satisfy C′⁺∩C=C⁺; passage to maximal plus ring has a different hypothesis and justification."
+      ],
+      "proofSteps": [
+        "Import the exact H2 invariance-for-affinoids statement and its supports.",
+        "Apply it to the same radial inequalities pulled back along the field extension.",
+        "Obtain the extra specialization-invariance contract from H1 valuation exports/H3 overconvergent radial sheaves; keep its verification gap visible."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "ClassicalAdicEtaleCohomology:H2/invariance-for-affinoids-of-finite-type",
+        "ClassicalAdicEtaleCohomology:H2/surjectivity-criterion-for-field-pair-extensions"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Annulus computation over an arbitrary geometric plus ring; it must not be justified by nonsurjective base extension."
+        }
+      ],
+      "acceptance": [
+        "A proper rank-two plus subring and O_C are different bases; the map to the rank-two spectrum is not automatically surjective."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "radial_surjectiveFieldPair_invariance"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H4/annulus-geometric-plus-ring",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H4",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H4"
+      ],
+      "title": "Annulus cohomology over a geometric plus ring",
+      "kind": "application",
+      "statement": "For a geometric annulus over Spa(C,C⁺) with arbitrary admissible open bounded valuation plus ring and prime-to-residue constant coefficients, the needed annulus cohomology agrees with the maximal-plus-ring calculation only after the H1/H3 specialization-invariance and support contract is proved. That contract is an explicit gap. It is required by the actual field tower in ECD19.5 and is not inferred from H2 surjective field-pair invariance.",
+      "hypotheses": [
+        "C,C′ algebraically closed complete; coefficient torsion prime to residue p.",
+        "Surjective extensions satisfy C′⁺∩C=C⁺; passage to maximal plus ring has a different hypothesis and justification."
+      ],
+      "proofSteps": [
+        "Import the exact H2 invariance-for-affinoids statement and its supports.",
+        "Apply it to the same radial inequalities pulled back along the field extension.",
+        "Obtain the extra specialization-invariance contract from H1 valuation exports/H3 overconvergent radial sheaves; keep its verification gap visible."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support",
+        "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+        "ClassicalAdicEtaleCohomology:H3"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Theorem 19.5 proof, p. 112",
+          "match": "Annulus computation over an arbitrary geometric plus ring; it must not be justified by nonsurjective base extension."
+        }
+      ],
+      "acceptance": [
+        "A proper rank-two plus subring and O_C are different bases; the map to the rank-two spectrum is not automatically surjective."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H4",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "annulus_geometricPlusRing"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Proper algebraic/analytic direct-image comparison",
+      "kind": "theorem",
+      "statement": "In the setup of the reviewed Huber 3.7.1–3.7.2 statement, let R be an adic space satisfying the geometric supplier’s hypotheses, S a scheme and R_→S a morphism of locally ringed spaces. Let X,Y be locally finite-type S-schemes, f:X→Y proper, X^ad=X×_S R, Y^ad=Y×_S R and φ_X,φ_Y their étale-site morphisms. For a torsion ring Λ, the canonical base-change transformation φ_Y* R⁺f_*→R⁺f^ad_* φ_X* on D⁺(X_ét,Λ) is an isomorphism. Here φ* denotes inverse image, not direct image. No constructibility or prime-to-residue restriction is imposed. The generality of R is limited by the existence contract of R1; no nonnoetherian extension is silently added.",
+      "hypotheses": [
+        "f proper; Λ torsion ring; X,Y locally finite type over S.",
+        "Fibre products and strict localizations exist under the R1/H1 contracts."
+      ],
+      "proofSteps": [
+        "Import the universal scheme/adic fibre product and the commuting étale-site square.",
+        "Reduce to affine S=Spec O_R(R) and affinoid R using scheme proper base change.",
+        "At a geometric point use the strict localization Spa(B,B⁺) with B strictly henselized at its support, not the original affinoid ring.",
+        "Use qcqs of f^ad and the H0 higher-image stalk formula; apply H1 proper henselian comparison 3.2.10. Book proof interiors are inherited, not newly verified."
+      ],
+      "prerequisites": [
+        "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+        "ClassicalAdicEtaleCohomology:H1:henselian/relative-comparison-3-2-9-3-2-12",
+        "ClassicalAdicEtaleCohomology:H0",
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "Theorem 3.7.2, p. 226; proof and Lemma 3.7.3, p. 227 (inherited reviewed locators)",
+          "match": "Preserved reviewed ID and statement; book pages inaccessible in this run."
+        }
+      ],
+      "acceptance": [
+        "Proper p-torsion over a mixed-characteristic field is allowed; analytification of the identity gives the identity comparison; no coherent GAGA theorem is substituted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "proper_analyticComparison"
+      ],
+      "planet": {
+        "name": "Proper comparison"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/proper-open-excision",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Excision for a proper map and an open isomorphism",
+      "kind": "theorem",
+      "statement": "For a commutative triangle of k-schemes U→^j X→^g Y with g proper, h=g∘j:U→Y an open immersion, j an open immersion and j(U)=g⁻¹(h(U)), every abelian sheaf F on U^rig_ét has a canonical isomorphism h^rig_!F→Rg^rig_* j^rig_!F. No constructibility, invertibility or finite-stalk condition on F is added. The equality of opens ensures g is an isomorphism above h(U), so the comparison is the identity there.",
+      "hypotheses": [
+        "k complete nonarchimedean; schemes locally finite type; g proper; two open immersions with inverse-image equality."
+      ],
+      "proofSteps": [
+        "On h(U), restrict to the isomorphism g⁻¹(h(U))≅U.",
+        "At a geometric point outside h(U), the strict localization remains in the complement, so j_!F pulls back to zero.",
+        "Use the qcqs higher-image stalk formula from H0; all stalks in the complement vanish."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero",
+        "ClassicalAdicEtaleCohomology:H0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "Lemma 3.8.2 and proof, pp. 228–229 (inherited)",
+          "match": "Reviewed localization argument retained, with explicit inverse-image equality."
+        }
+      ],
+      "acceptance": [
+        "For g=id, recover extension by zero; omit the inverse-image equality and the statement is not asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "proper_open_excision"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Finite-type algebraic/analytic comparison",
+      "kind": "theorem",
+      "statement": "Let k be a complete nonarchimedean field, X,Y schemes locally of finite type over k, f:X→Y of finite type, n≥1 prime to char(k) when char(k)>0, and F a constructible ℤ/n-sheaf on X_ét. For every q≥0 the canonical map φ_Y* R^q f_*F→R^q f^rig_* φ_X*F is an isomorphism. Unlike smooth analytic duality, this comparison in characteristic zero allows residue-characteristic torsion. The positive-characteristic proof consumes relative smooth duality in every dimension, not merely smooth proper absolute duality or the H3 curve theorem.",
+      "hypotheses": [
+        "Finite-type f; constructible F; n nonzero and prime to field characteristic if positive.",
+        "Analytification and étale-site comparison are R1/A1; no properness assumption on f."
+      ],
+      "proofSteps": [
+        "Characteristic zero: the recorded Huber proof follows SGA 4 XVI §4 using proper comparison, analytic purity 3.9.1(b), and proper-open excision; request the exact purity/reduction input from H0/H3.",
+        "Characteristic p: use Berkovich §7.5 generic constructibility and compact-support comparison, then relative analytic duality for smooth pure dimension d, all d, including the locally constant Rf_! condition of 7.4.9.",
+        "Transfer the Berkovich statement to taut adic spaces for overconvergent analytified sheaves through Zavyalov A.15,A.18,A.19; extend the compactifiable case with H3’s factorization.",
+        "Stratify and perform noetherian induction as in Berkovich 7.5.1–7.5.3; import scheme finiteness and smooth purity from EDC/L2. The book’s full characteristic-zero reduction remains a gap."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/proper-open-excision",
+        "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+        "ClassicalAdicEtaleCohomology:H3",
+        "ClassicalAdicEtaleCohomology:H0",
+        "AdicCoefficientsAndComparisons:L2",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-EtaleCohomology-1996",
+          "locator": "Theorem 3.8.1 and proof routes, pp. 227–228 (inherited)",
+          "match": "Reviewed full statement retained; book interiors unverified."
+        },
+        {
+          "sourceId": "Ber93",
+          "locator": "§7.3 Theorem 7.3.1; §7.4 Theorem 7.4.9; §7.5 Corollary 7.5.3, pp. 134–150",
+          "match": "Public characteristic-p proof route, where field and residue characteristics coincide."
+        },
+        {
+          "sourceId": "Zav25",
+          "locator": "Appendix A Theorem A.15, Definition A.17, Lemmas A.18–A.19",
+          "match": "Transport is through taut spaces/overconvergent sheaves, not equality of all topoi."
+        }
+      ],
+      "acceptance": [
+        "Apply to A^m_C→Spec C for every m≥0, char C=p, ℓ≠p; m=2 must consume the all-dimension supplier.",
+        "In mixed characteristic compare an algebraic constructible p-torsion sheaf without claiming that an analytic p-torsion disc has the same small cohomology."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "finiteType_analyticComparison"
+      ],
+      "planet": {
+        "name": "Algebraic–analytic comparison"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/smooth-analytic-cohomology-finiteness",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Constructible cohomology of smooth analytic spaces",
+      "kind": "theorem",
+      "statement": "Let C be a separably closed complete nonarchimedean field, X a quasi-compact quasi-separated smooth adic space locally of finite type over Spa(C,C⁺), and ℓ a prime distinct from the residue characteristic of C⁺. For every Huber-constructible Fℓ-sheaf F and q≥0, H^q(X,F) is a finite-dimensional Fℓ-vector space. Mieda’s Proposition3.38 proof explicitly supplies this finite-generation assertion for its quasi-compact opens, citing Hub96 Proposition6.1.1 and (1.7.7). The statement concerns each degree; total bounded cohomology on the ECD balls is supplied by the separate verified ball instance. Non-smooth generality is not inferred.",
+      "hypotheses": [
+        "C complete nonarchimedean and separably closed; X qcqs smooth and locally of finite type over the explicit geometric field pair.",
+        "ℓ prime to residue characteristic; F constructible in Huber’s all-point sense. Specialize Mieda’s truncated DVR Λ to Fℓ."
+      ],
+      "proofSteps": [
+        "Apply the finite-generation assertion for quasi-compact opens in the proof of Mieda Proposition3.38, with the trivial group action and X itself as the quasi-compact stage.",
+        "Finite generation over Fℓ is finite vector-space dimension. The proposition’s separate assumption about a countable non-qc union is not used to prove this finite-stage claim.",
+        "The underlying Huber proof remains a source-access leaf; no conclusion about arbitrary nonsmooth spaces or an unbounded total dimension follows from this statement alone."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H0/classical-constructible-sheaves",
+        "AdicEtaleGeometry:A2",
+        "ClassicalAdicEtaleCohomology:H0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mieda-Zelevinsky",
+          "locator": "§3.3.1 p.12; proof of Proposition3.38 p.20",
+          "match": "Explicit intermediate finiteness assertion for every quasi-compact open, in the smooth/separably-closed and prime-to-residue coefficient scope."
+        }
+      ],
+      "acceptance": [
+        "Constant coefficients on a geometric point give a one-dimensional degree-zero group; smooth relative dimension is unrestricted. No non-qc finiteness is concluded."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "smoothAnalytic_cohomology_finite"
+      ],
+      "planet": {
+        "name": "Analytic finiteness"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Finite total cohomology on analytic polydiscs",
+      "kind": "theorem",
+      "statement": "For C the completed algebraic closure of F_p((t)), ℓ≠p, m finite and a constructible Fℓ-sheaf A pulled back from finite-dimensional algebraic affine space over F_p, the cohomology of its analytic pullback to each strict closed m-ball over C has finite total Fℓ dimension: each H^q is finite-dimensional and only finitely many q are nonzero. Perfecting coordinates preserves these groups by the requested finite universal-homeomorphism/tilde-limit comparison. This is the exact verified use of Huber Proposition 6.1.1 in ECD 27.2. The maximal statement for all constructible sheaves on general finite-type analytic spaces has a separate source-access gap, so it is not generalized from this use.",
+      "hypotheses": [
+        "m∈ℕ finite; ℓ prime, ℓ≠p; finite constructible algebraic coefficients; strict positive radii."
+      ],
+      "proofSteps": [
+        "Apply the Huber Proposition 6.1.1 instance explicitly cited in ECD 27.2; inspect the book proof and generality as recorded remaining work.",
+        "Use H0 continuity and purely inseparable étale invariance to remove p-power roots of coordinates without changing cohomology.",
+        "Use H3 cohomological-dimension bounds to retain a uniform bounded degree range for the radius argument."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H3",
+        "AdicEtaleGeometry:A2/relative-closed-polydisc",
+        "ClassicalAdicEtaleCohomology:H5/smooth-analytic-cohomology-finiteness"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.2 proof, p. 164, citing Hub96 Proposition 6.1.1",
+          "match": "Verified special case, not a claimed reading of the full book proposition."
+        }
+      ],
+      "acceptance": [
+        "m=0 gives Fℓ in degree zero for constant coefficients; finite in each degree alone is insufficient for simultaneous stabilization."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "closedBall_finiteTotalCohomology"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/ball-exhaustion",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "The ball exhaustion of analytic affine space",
+      "kind": "construction",
+      "statement": "For m finite, C complete nontrivially valued and 0<|t|<1, let B_n^m⊂(A^m_C)^ad be the closed ball defined by |t^n X_i|≤1 for all i, n≥1. These balls increase with n and cover analytic affine space. In characteristic p one also uses positive n∈ℤ[1/p], choosing compatible p-power roots of t, and perfections C⟨(t^n X_i)^(1/p∞)⟩; those roots are part of the input, not formal real powers. The suggested radiusBall signature gives the valuation-set core inside the imported ambient point set X. The full analytification and perfectoid ball are supplied by R1/P5; no set is promoted to an adic space by declaration.",
+      "hypotheses": [
+        "m finite, C complete, t topologically nilpotent and nonzero; coordinate functions on the inherited analytification.",
+        "Rational-power indices need compatible roots; infinite-dimensional balls belong to the C6/L3 consumer reduction, not the finite-dimensional source definition."
+      ],
+      "proofSteps": [
+        "Use R1 affine-chart analytification and A2’s closed polydisc after rescaling coordinates.",
+        "Monotonicity follows from |t|<1; any finitely many coordinates are bounded by some |t|^−n, giving the exhaustion.",
+        "Import the perfectoid completed-series algebra and the étale comparison along coordinate perfection before using the ℤ[1/p] system."
+      ],
+      "prerequisites": [
+        "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+        "AdicEtaleGeometry:A2/relative-closed-polydisc",
+        "PerfectoidSpaces:P5",
+        "tauceti:TauCeti.ValuationSpectrum.closedPolydisc",
+        "mathlib:ValuativeRel.vlt"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.2 proof, pp. 163–164",
+          "match": "Radius and coordinate-perfection conventions; finite dimension after descent."
+        }
+      ],
+      "acceptance": [
+        "Increasing exponent enlarges the ball; check the union covers rank-two points using the actual affine-chart topology."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "radiusBall"
+      ],
+      "planet": {
+        "name": "Ball exhaustion"
+      },
+      "api": [
+        {
+          "name": "radiusBall_mem",
+          "role": "characterisation",
+          "statement": "x∈radiusBall(X,t,T,n) iff x∈X and every t^n T_i≤ᵥ1."
+        },
+        {
+          "name": "radiusBall_zero",
+          "role": "simp",
+          "statement": "At n=0 the coordinate inequalities are T_i≤ᵥ1."
+        },
+        {
+          "name": "radiusBall_mono",
+          "role": "relation",
+          "statement": "If every x∈X satisfies t≤ᵥ1, radiusBall n⊂radiusBall(n+1)."
+        },
+        {
+          "name": "radiusBall_dimensionZero",
+          "role": "simp",
+          "statement": "With no coordinates the ball is exactly X."
+        },
+        {
+          "name": "radiusBall_polydisc",
+          "role": "compatibility",
+          "statement": "For n=0 and X the pinned closedPolydisc set with its weightedX coordinates, the radiusBall set equals that closedPolydisc. This set equality does not provide the missing affine-space site."
+        },
+        {
+          "name": "radiusBall_baseChange",
+          "role": "functoriality",
+          "statement": "Pullback along a compatible point map that preserves coordinate valuation comparisons gives the ball formed from pulled-back t and T."
+        },
+        {
+          "name": "radiusBall_exhaustive",
+          "role": "characterisation",
+          "statement": "Under the full analytic affine-space hypotheses and topological nilpotence, the union over n≥1 is the whole analytification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "radiusBall_no_coordinates",
+          "kind": "degenerate",
+          "statement": "For Fin 0 coordinates, every ball equals X."
+        },
+        {
+          "name": "radiusBall_unit_scale",
+          "kind": "non-example",
+          "statement": "If t=1, radiusBall n is independent of n; it need not exhaust affine space."
+        },
+        {
+          "name": "radiusBall_unit_polydisc",
+          "kind": "compatibility",
+          "statement": "At n=0 on closedPolydisc, the set is exactly the existing Tau Ceti closedPolydisc."
+        },
+        {
+          "name": "radiusBall_first_step",
+          "kind": "computation",
+          "statement": "For one coordinate, n=1 membership is exactly tT≤ᵥ1; the outer radius is |t|⁻¹, not |t|."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ECD Proposition 27.2",
+          "how": "Provides actual inclusions for radius-stability and derived-limit calculations."
+        },
+        {
+          "where": "AdicCoefficientsAndComparisons L3/L6",
+          "how": "Exports the classical finite-dimensional calculation that the algebraic/diamond comparison consumes."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Stabilization of actual radius restriction maps",
+      "kind": "theorem",
+      "statement": "With C=completed algebraic closure of F_p((t)), ℓ≠p, m finite and constructible coefficients descended from F_p affine space, the restriction RΓ(B_n,A)→RΓ(B_1,A) is an equivalence for some n>1 in ℤ[1/p] sufficiently close to 1 and for the cofinal geometric sequence of radii n^j obtained by scaling. The proof requires both finite total cohomology and overconvergent neighborhood continuity: colim_{n>1,n→1} H^q(B_n,A)≅H^q(B_1,A). Automorphisms over F_p sending t to t^n yield equal finite dimensions, but they alone do not prove that the restriction maps are isomorphisms. Uniform surjectivity in the finitely many degrees, followed by equal finite cardinality, does.",
+      "hypotheses": [
+        "Coefficient object is pulled back from F_p; scaling of C fixes those coefficients.",
+        "Positive rational p-power indices and their chosen roots; overconvergence of the analytified sheaf; finite total Fℓ cohomology."
+      ],
+      "proofSteps": [
+        "Import neighborhood continuity for overconvergent analytic sheaves; use finite total dimension to choose one neighborhood stage surjective in all nonzero degrees.",
+        "Scaling automorphisms give equal finite Fℓ dimensions at that stage and B_1; actual surjective restriction maps are therefore bijective.",
+        "Apply the scaling automorphisms to these maps, retaining their direction, to obtain the cofinal n^j sequence of isomorphisms."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/ball-exhaustion",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H3",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.2 proof, p. 164",
+          "match": "The finite-dimensional step concerns the actual restriction maps."
+        }
+      ],
+      "acceptance": [
+        "Abstractly isomorphic vector spaces with zero transition maps fail the statement; m=0 and constant coefficients produce identity maps."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "ballRadius_restriction_isIso"
+      ],
+      "planet": {
+        "name": "Radius stability"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Affine-space cohomology from the stable ball system",
+      "kind": "theorem",
+      "statement": "Under the preceding F_p descent, finite-dimension and overconvergence hypotheses, RΓ((A^m_C)^ad,A^ad)≅Rlim_j RΓ(B_(n^j),A^ad)≅RΓ(B_1,A^ad). Finite-type algebraic/analytic comparison then identifies RΓ(A^m_C,A) with the last object. Coordinate perfection is admitted only through the imported étale equivalence/continuity. The first limit is derived and inverse, coming from restriction on an increasing open cover; it is distinct from the filtered direct limit over shrinking neighborhoods used to prove stabilization. ECD 27.2’s scheme/diamond fully faithful functor is a consumer theorem, not this node.",
+      "hypotheses": [
+        "All hypotheses of radius stabilization; actual exhaustion of analytic affine space; constructible algebraic coefficients."
+      ],
+      "proofSteps": [
+        "Apply the E1 derived sheaf descent theorem for an increasing countable open cover by these balls.",
+        "Use actual quasi-isomorphic transitions to evaluate the derived inverse limit; no unexamined R¹lim term remains.",
+        "Apply comparison 3.8.1 and H0 universal-homeomorphism invariance; export the canonical map and its compatibility, not just equality of dimensions."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+        "ClassicalAdicEtaleCohomology:H5/ball-exhaustion",
+        "EnhancedDerivedSheaves:E1",
+        "ClassicalAdicEtaleCohomology:H0"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 27.2 proof, p. 164",
+          "match": "Derived-limit proof; the diamond functor remains owned by L3/C6."
+        }
+      ],
+      "acceptance": [
+        "Test m=2 to detect the missing relative duality input; maintain canonical coefficient and coordinate functoriality."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "affineSpace_ballCohomology"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/s-compactifiable-formal-curve",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "S-compactifiable formal curves",
+      "kind": "definition",
+      "statement": "Let X→S be a flat admissible formal morphism with smooth rigid curve generic fibre. It is S-compactifiable if, writing U⊂S for its open image, there is an open U-immersion X→C into a flat projective formal U-curve with smooth rigid generic fibre. The property remembers the actual U; projectivity is over U, not automatically over S.",
+      "hypotheses": [
+        "Complete DVR R; X→S flat admissible formal morphism whose rigid generic fibre is a smooth curve fibration.",
+        "The open image U of X→S is part of the statement; do not require the completion to be projective over all of S when U is smaller."
+      ],
+      "proofSteps": [
+        "Use the R2 category of admissible formal schemes and its projective/flat/generic-fibre predicates.",
+        "Package only the curve-specific existence property; retain the open image of X→S as part of the data."
+      ],
+      "prerequisites": [
+        "AdicSpacesPartII:R2",
+        "ClassicalAdicEtaleCohomology:H3/proper-support-direct-image"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lut95",
+          "locator": "Definition5.6, p.200, public scan",
+          "match": "The curve-specific existential property with open image U and smooth projective generic fibre."
+        }
+      ],
+      "acceptance": [
+        "Boundary is smooth and contained in the ample divisor; distinguish completion along a stratum from the original topology."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "FormalCurve.IsSCompactifiable"
+      ],
+      "api": [
+        {
+          "name": "FormalCurve.compactification_data",
+          "role": "projection",
+          "statement": "Extract U, the flat projective formal U-curve C, the open immersion and smooth rigid fibres."
+        },
+        {
+          "name": "FormalCurve.compactifiable_baseChange",
+          "role": "functoriality",
+          "statement": "Admissible formal base change preserves the property when the pulled-back flat morphism and open image satisfy the same contracts."
+        },
+        {
+          "name": "FormalCurve.compactifiable_genericFibre",
+          "role": "compatibility",
+          "statement": "The generic-fibre map factors as an open immersion into a smooth proper relative rigid curve over U_rig, agreeing with H3 compactifiability."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FormalCurve.projective_curve",
+          "kind": "degenerate",
+          "statement": "A flat projective formal curve with smooth rigid fibres and image S is compactifiable via its identity immersion."
+        },
+        {
+          "name": "FormalCurve.affine_chart",
+          "kind": "computation",
+          "statement": "An affine open chart of the projective formal line over S is S-compactifiable by its given embedding."
+        },
+        {
+          "name": "FormalCurve.generic_factorization",
+          "kind": "compatibility",
+          "statement": "The resulting generic-fibre open/proper factorization satisfies the H3 compactifiable-morphism contract; a merely proper special fibre without that formal embedding is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lut95 Proposition5.7 and proof of Theorem5.3",
+          "how": "Identifies which formal chart compactifications can be enlarged and assembled near the special-fibre strata."
+        },
+        {
+          "where": "H5 compactification/boundary reduction",
+          "how": "Separates formal local compactifiability from a global rigid embedding over a geometric nondiscrete field."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Infinitesimal compactification of relative curves",
+      "kind": "theorem",
+      "statement": "In Lütkebohmert’s §5 setting over a complete discrete valuation ring R, let X→S be a flat affine morphism of admissible formal schemes with geometrically reduced fibres of pure dimension one. There is a finite locally closed stratification of S_0 and a rig-étale cover S′→S such that the base-changed relative curve has a projective compactification over the completion along every stratum, smooth at infinity. It carries an ample relative Cartier divisor containing infinity, lying in the smooth locus. The generic-fibre meaning of rig-étale and formal completions are imported from R2. These stratum-wise formal compactifications are not yet a rigid compactification of the whole family. Over each completed stratum choose coherent projective flat models on all thickenings: reduced geometric fibres, relative density of the original curve, smooth boundary, and a relative Cartier divisor containing the boundary and lying in the smooth locus (Lemma5.5).",
+      "hypotheses": [
+        "Complete DVR base; admissible formal schemes; flat affine pure curve with reduced geometric fibres."
+      ],
+      "proofSteps": [
+        "Use Lemma 5.5: compactify after a finite radicial residue-field extension, make the boundary étale, and lift the smooth boundary chart and ample Cartier divisor through formal thickenings.",
+        "Import algebraic normalization/projective curve completion and formal lifting from the named suppliers.",
+        "Use noetherian induction on the special fibre to obtain the stratification and rig-étale cover, as the proof of 5.4 states."
+      ],
+      "prerequisites": [
+        "AdicSpacesPartII:R2",
+        "AdicCoefficientsAndComparisons:L2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lut95",
+          "locator": "Proposition 5.4 and Lemma 5.5, pp. 197–199; public pages 00000201–00000203",
+          "match": "Curve-specific theorem at H5; formal geometry and algebraic curve completion are imports."
+        }
+      ],
+      "acceptance": [
+        "Boundary is smooth and contained in the ample divisor; distinguish completion along a stratum from the original topology."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "formalCurve_infinitesimalCompactification"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/locally-s-compactifiable-formal-curve",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Locally S-compactifiable formal curves",
+      "kind": "definition",
+      "statement": "A flat admissible formal curve X→S with smooth rigid generic fibre is locally S-compactifiable if every closed point x₀ of X₀ has an open formal neighborhood V⊂X that is S-compactifiable in Definition5.6. This is a neighborhood property at closed special-fibre points, not existence of one global projective completion of X.",
+      "hypotheses": [
+        "Complete DVR R; X→S flat admissible formal morphism whose rigid generic fibre is a smooth curve fibration.",
+        "The open image U of X→S is part of the statement; do not require the completion to be projective over all of S when U is smaller."
+      ],
+      "proofSteps": [
+        "Use the R2 category of admissible formal schemes and its projective/flat/generic-fibre predicates.",
+        "Package only the curve-specific existence property; retain the open image of X→S as part of the data."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/s-compactifiable-formal-curve",
+        "AdicSpacesPartII:R2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lut95",
+          "locator": "Definition5.6, p.200, public scan",
+          "match": "The curve-specific existential property with open image U and smooth projective generic fibre."
+        }
+      ],
+      "acceptance": [
+        "Boundary is smooth and contained in the ample divisor; distinguish completion along a stratum from the original topology."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "FormalCurve.IsLocallySCompactifiable"
+      ],
+      "api": [
+        {
+          "name": "FormalCurve.local_compactification_at",
+          "role": "projection",
+          "statement": "At every closed special-fibre point choose an open neighborhood and its S-compactification."
+        },
+        {
+          "name": "FormalCurve.compactifiable_isLocal",
+          "role": "relation",
+          "statement": "A global S-compactification implies the local property by restricting its open immersion to neighborhoods."
+        },
+        {
+          "name": "FormalCurve.local_compactifiable_open",
+          "role": "functoriality",
+          "statement": "The local property restricts to a formal open subcurve, with its inherited open base image."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FormalCurve.global_to_local",
+          "kind": "degenerate",
+          "statement": "A projective smooth formal curve is locally compactifiable."
+        },
+        {
+          "name": "FormalCurve.local_chart",
+          "kind": "computation",
+          "statement": "For an affine open of the formal projective line, the original projective line supplies the neighborhood completion."
+        },
+        {
+          "name": "FormalCurve.local_cover",
+          "kind": "characterisation",
+          "statement": "A formal open cover by S-compactifiable subcurves supplies a witness around every closed special-fibre point; the definition must not demand one common projective completion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lut95 Proposition5.7 and proof of Theorem5.3",
+          "how": "Identifies which formal chart compactifications can be enlarged and assembled near the special-fibre strata."
+        },
+        {
+          "where": "H5 compactification/boundary reduction",
+          "how": "Separates formal local compactifiability from a global rigid embedding over a geometric nondiscrete field."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/extend-curve-compactifications",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Extension of curve compactifications by approximation",
+      "kind": "theorem",
+      "statement": "Let R be a complete DVR with fraction field K, X→S a flat affine morphism of admissible formal schemes whose rigid generic fibre is a smooth curve fibration. Let V=Spf B⊂X be faithfully flat over an affine open U=Spf A⊂S, and suppose V is S-compactifiable in the sense of §5. Then after an admissible formal blow-up of S there are an admissible blow-up X′ of the base-changed X and an open formal subscheme V′⊂X′ whose special fibre contains the schematic closure of the inverse image of V_0 and which is S-compactifiable. The use of Hilbert schemes, formal GAGA and Elkik approximation is geometric; those general tools are requested, not redefined at H5.",
+      "hypotheses": [
+        "Exactly the complete-DVR, flat affine, faithfully flat chart and smooth generic-fibre hypotheses of Proposition 5.7.",
+        "S-compactifiable means an open formal immersion into a flat projective formal S-curve with smooth rigid fibres, as used in its proof."
+      ],
+      "proofSteps": [
+        "Use an ample embedding of the known compactification, keep its Hilbert polynomial fixed, and algebraize it by formal GAGA.",
+        "Choose the embedding degree d≥2g−1 so the smooth-curve Hilbert parameter open H(d,g,N) is smooth over ℤ (Lemma5.8); the deformation/Serre-duality input is imported from the upstream extension.",
+        "Apply R2’s requested Lut95 Theorem7.4 and Proposition7.5: retain the relatively compact image and Weierstrass-domain hypotheses, approximate modulo a prescribed uniformizer power and extend after admissible blow-ups, preserving an open immersion on generic fibres."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+        "AdicSpacesPartII:R2",
+        "PerfectoidSpaces:P3/elkik-noetherian-henselian-approximation",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "ClassicalAdicEtaleCohomology:H5/s-compactifiable-formal-curve",
+        "ClassicalAdicEtaleCohomology:H5/locally-s-compactifiable-formal-curve"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lut95",
+          "locator": "Proposition 5.7, pp. 200–201, Lemma 5.8, p. 202",
+          "match": "Public scans verify the extension statement and d≥2g−1; general formal approximation and deformation remain precise imports."
+        }
+      ],
+      "acceptance": [
+        "The blow-ups do not change the rigid generic fibre; the new special-fibre closure lies inside the compactifiable chart."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "formalCurve_extendCompactification"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/smooth-curve-local-compactification",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Local projective compactification of smooth rigid curves",
+      "kind": "theorem",
+      "statement": "Let K be the fraction field of a complete DVR R and f:X→S a smooth rigid curve fibration, meaning smooth qcqs with purely one-dimensional fibres. Étale locally on S and locally on X, there is a smooth projective S-compactification: for charts S′→S and an open U⊂X×_S S′, U admits an open immersion into a smooth projective S′-curve. This is the exact scope of Lütkebohmert Theorem 5.3. It does not state a global compactification of X, and it does not directly cover a nondiscretely valued algebraically closed field.",
+      "hypotheses": [
+        "Complete discrete valuation base; smooth quasi-compact quasi-separated rigid morphism with pure one-dimensional fibres.",
+        "Locality on the source and étale locality on the base are part of the conclusion."
+      ],
+      "proofSteps": [
+        "Import the reduced-fibre theorem to obtain a flat formal model with geometrically reduced fibres after the allowed changes of base/model.",
+        "Apply infinitesimal compactification on finitely many special-fibre strata.",
+        "Use the extension/approximation theorem successively to cover neighborhoods of those strata; pass to generic fibres, where admissible blow-ups are invisible."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+        "ClassicalAdicEtaleCohomology:H5/extend-curve-compactifications",
+        "AdicSpacesPartII:R2",
+        "ClassicalAdicEtaleCohomology:H5/s-compactifiable-formal-curve",
+        "ClassicalAdicEtaleCohomology:H5/locally-s-compactifiable-formal-curve"
+      ],
+      "sources": [
+        {
+          "sourceId": "Lut95",
+          "locator": "Theorem 5.3, p. 197; proof pp. 202–203; public pages 00000201,00000206–00000207",
+          "match": "Verified discrete-base local conclusion."
+        }
+      ],
+      "acceptance": [
+        "A proper smooth projective curve is already its own compactification; source charts and base cover remain explicit in a nonproper family."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "smoothRigidCurve_localCompactification"
+      ],
+      "planet": {
+        "name": "Smooth curve compactification"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "The geometric curve compactification export used by biduality",
+      "kind": "theorem",
+      "statement": "For a quasi-compact separated smooth rigid curve X over an algebraically closed complete nonarchimedean C, the ECD 25.3 proof uses an open embedding X→X′ into a proper smooth rigid curve. This export is planned with a source-generalization gap: one must establish descent/approximation to discrete valuation data and globalization of Lütkebohmert’s local compactifications, or obtain a primary theorem covering this exact field and global scope. Until then the assertion is conditional on that recorded supplier/gap; Theorem 5.3 alone is not its proof. Only the compactification needed by this curve proof is planned; proper coherent GAGA and general formal models remain R1/R2.",
+      "hypotheses": [
+        "X qc separated smooth pure curve, C algebraically closed complete nontrivially valued.",
+        "The exact global embedding is the stated target; no claim that every smooth family globally compactifies."
+      ],
+      "proofSteps": [
+        "Obtain an applicable compactification theorem with these field and locality hypotheses; current discrete local result is a starting point, not a completed implication.",
+        "Verify the needed descent of the curve, admissible open charts and smoothness, then glue the finite chart compactifications with compatible boundary data.",
+        "Import R1 properness/GAGA and R2 model invariance only where their actual hypotheses suffice."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/smooth-curve-local-compactification",
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 25.3 proof, p. 160",
+          "match": "Verified consumer assertion with an insufficiently justified cited generalization; source issue E1 records the missing bridge."
+        }
+      ],
+      "acceptance": [
+        "Closed unit disc embeds into P¹; a nondiscrete C and a whole qc curve must be covered by the chosen theorem, not only one neighborhood."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "geometricCurve_properCompactification"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Finite frontier support contributions",
+      "kind": "theorem",
+      "statement": "Let X be a quasi-compact separated smooth rigid curve over Spa(C,O_C), C geometric, and j:U→X a quasi-compact open. The adic frontier B=closure(U)∖U is finite and discrete in this curve setting, by the requested A2 topology theorem. For constant M∈D(Fℓ), ℓ invertible in O_C, define the canonical map j!M→RHom(Rj_*Fℓ,M) as the transpose of j!M⊗Rj_*Fℓ→M obtained from j*Rj_*Fℓ=Fℓ and extension-by-zero adjunction. Its cone is supported on B and its global sections split as the finite sum of the point-supported contributions. The statement uses H0/E1 analytic sheaf operations; the diamond biduality target remains S6.",
+      "hypotheses": [
+        "C geometric with maximal plus ring O_C; X qc separated smooth pure curve; j qc open; ℓ invertible in O_C.",
+        "Finite discrete frontier topology from A2 and actual H0/E1 analytic internal-Hom operations; no global compactification is required for this support statement."
+      ],
+      "proofSteps": [
+        "On U the canonical pairing is the identity; outside closure(U) both terms vanish. Thus the cone is supported on the frontier.",
+        "Import the exact finite discrete frontier theorem from A2; use H0/E1 decomposition of sheaves supported on a finite discrete closed set.",
+        "Export the actual pairing and support decomposition to S6 rather than defining diamond Verdier duality."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H3/curve-poincare-duality",
+        "ClassicalAdicEtaleCohomology:H3/curve-duality-perfect-pairing",
+        "ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero",
+        "AdicEtaleGeometry:A2",
+        "EnhancedDerivedSheaves:E1",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 25.3 proof, pp. 159–160",
+          "match": "Boundary support and compactification reduction, with the consumer six-operation statement excluded."
+        }
+      ],
+      "acceptance": [
+        "For U=X the frontier is empty and its supported cone is zero; for a radial annular boundary preserve generator signs and twists."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "curveFrontier_finite"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/curve-compactification-duality",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "Proper-curve local duality reduction",
+      "kind": "application",
+      "statement": "On the proper geometric curve X′, take M=N(1)[2] for N∈D(Fℓ), the H3 smooth-curve dualizing normalization. Proper support equals ordinary global sections on X′. H3 curve duality identifies RHom_D(X′)(Rj_*Fℓ,M) with RHom_D(Fℓ)(RΓ(U,Fℓ),N), while RΓ(X′,j!M)=RΓ_c(U,N(1)[2]). The H3 finite curve pairing makes the canonical map between these objects an isomorphism. Finite cohomological dualizability and the E1 colimit theorem extend the bounded/coefficient-generator case to all N. This is an application of H3 curve duality for the compactification reduction; it does not plan a second duality theorem.",
+      "hypotheses": [
+        "C algebraically closed complete; ℓ prime to residue characteristic; qc smooth curve and qc open; actual compactification as above.",
+        "Frontier is the adic topological frontier; do not confuse it with algebraic boundary points or all rank-one ends.",
+        "Arbitrary coefficient complexes M∈D(Fℓ) are admitted only after the finite-cohomology dualizability and commutation-with-colimits checks."
+      ],
+      "proofSteps": [
+        "Use the H3 trace normalization f!Fℓ=Fℓ(1)[2] and properness to identify the actual left and right adjunction maps.",
+        "Import H3 curve duality and finiteness for U; dualizable finite complexes identify a dual with its double dual.",
+        "Use E1 commutation with colimits to pass from the coefficient generator to every N; apply the frontier direct summand to reduce the canonical cone on X."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions",
+        "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export",
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H3/curve-poincare-duality",
+        "ClassicalAdicEtaleCohomology:H3/curve-duality-perfect-pairing",
+        "ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero",
+        "AdicEtaleGeometry:A2",
+        "EnhancedDerivedSheaves:E1",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support",
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-direct-summand"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 25.3 proof, pp. 159–160",
+          "match": "Boundary support and compactification reduction, with the consumer six-operation statement excluded."
+        }
+      ],
+      "acceptance": [
+        "For U=X the frontier is empty and its supported cone is zero; for a radial annular boundary preserve generator signs and twists."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "curveCompactification_dualityReduction"
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H5/curve-boundary-direct-summand",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H5",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H5"
+      ],
+      "title": "The compactification direct summand",
+      "kind": "theorem",
+      "statement": "Assume additionally an open embedding i:X→X′ into a proper smooth geometric curve. Write α_X:j!M→RHom(Rj_*Fℓ,M) for the preceding canonical map, and α_X′ for the same open U⊂X′ and constant coefficient M. Restriction identifies i*cone(α_X′) with cone(α_X). Their frontier supports are finite and discrete. Decomposition over those supports gives explicit inclusion and projection making RΓ(X,cone(α_X)) a direct summand of RΓ(X′,cone(α_X′)). This is a cone/support comparison, not an equality of dimensions.",
+      "hypotheses": [
+        "C algebraically closed complete; ℓ prime to residue characteristic; qc smooth curve and qc open; actual compactification as above.",
+        "Frontier is the adic topological frontier; do not confuse it with algebraic boundary points or all rank-one ends.",
+        "Arbitrary coefficient complexes M∈D(Fℓ) are admitted only after the finite-cohomology dualizability and commutation-with-colimits checks."
+      ],
+      "proofSteps": [
+        "Use exact open restriction, open base change for Rj_* and locality of internal RHom to identify the restricted canonical map.",
+        "Decompose the finite frontier supports; retain those points lying in X.",
+        "The inclusion and projection on these finite support summands compose to the identity. The global embedding remains the separate compactification gap."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions",
+        "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export",
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H3/curve-poincare-duality",
+        "ClassicalAdicEtaleCohomology:H3/curve-duality-perfect-pairing",
+        "ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero",
+        "AdicEtaleGeometry:A2",
+        "EnhancedDerivedSheaves:E1",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 25.3 proof, pp. 159–160",
+          "match": "Boundary support and compactification reduction, with the consumer six-operation statement excluded."
+        }
+      ],
+      "acceptance": [
+        "For U=X the frontier is empty and its supported cone is zero; for a radial annular boundary preserve generator signs and twists."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdicSpace/ClassicalEtale/H5",
+        "namespace": "TauCeti.ClassicalAdic"
+      },
+      "declarations": [
+        "curveBoundary_directSummand"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PerfectoidSpaces:P6",
+      "need": "A finite-type affinoid approximation of a strictly totally disconnected perfectoid base over K, with descended qc étale objects, constructible coefficients and rational-ball coordinates; specify the colimit-presented tilde-limit and finite-stage morphisms.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer",
+        "ClassicalAdicEtaleCohomology:H4/tame-tower-annulus-acyclicity"
+      ]
+    },
+    {
+      "supplier": "PerfectoidSpaces:P5",
+      "need": "Completed perfectoid coordinate-root balls and their underlying inverse-limit topology, including all-rank compatibility of the ℤ[1/p] radius system; no real powers without roots.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/ball-exhaustion"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H0",
+      "need": "Constructible coefficient descent along the relevant colimit-presented analytic tilde-limits; higher-image stalk formula 2.6.1; universal-homeomorphism/purely inseparable coordinate invariance; overconvergent neighborhood continuity colim H^q(V,F)=H^q(B,F) for the ball B and shrinking strict neighborhoods V. The last contract needs topology at all ranks, not just scheme continuity. For the general smooth finite-type finiteness refinement, provide the ordinary analytic cohomological-dimension/boundedness theorem with its exact dimension and field-pair hypotheses; lower-shriek dimension bounds alone are not ordinary-site bounds.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/proper-open-excision",
+        "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+        "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls",
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H3",
+      "need": "Add the suffix H3:smooth-duality required by RT-AREA-etale/5. Export algebraic/analytic proper-support comparison Hub96 5.7.2 for finite-type separated scheme maps, and the Hub96 7.2.2 curve trace normalization as an input to relative traces and duality Hub96 7.5.3 for smooth separated pure dimension d, EVERY d≥0, with n invertible in O_K. The duality morphism Rf_*RHom(G,f*F(d)[2d])→RHom(Rf_!G,F) must be an isomorphism (G bounded above, F bounded below), compatible with base change, composition, étale trace at d=0 and the existing curve trace at d=1. Include Berkovich 7.4.9 with finite locally constant F and R^qf_!F∨ and the correct twist. Transport by Zavyalov A.15,A.18,A.19 only in their taut/overconvergent scope. Keep H3 curve trace/duality as the early prefix consumed by S4/S5; H5 depends on the suffix.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+      "need": "Algebraic smooth purity and trace in every finite relative dimension, with the exact torsion-invertibility and constructibility domains used in Ber93 §7.5 comparison.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H3",
+      "need": "General-K smooth constructibility in Hub96 6.2.2: Ito20 §6 fixes algebraically closed K, while ECD24.1 applies the result over a perfectoid field K. Verify the book statement or justify descent from a geometric extension, with all-point constructibility and proper-support base change. Classical proper-support base change admitting a nonnoetherian perfectoid base for the finite-type relative-ball family, proved via compactification and H0 continuity. The existing lower-shriek-base-change node only admits locally noetherian analytic base changes and is insufficient.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H3",
+      "need": "Analytic purity Hub96 3.9.1(b) and the exact SGA4 XVI §4 comparison reduction in characteristic zero, retaining all hypotheses and allowing field-characteristic-invertible torsion when residue characteristic divides n. Do not substitute prime-to-residue smooth duality.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "need": "For constant prime-to-p radial cohomology over Spa(C,C⁺), prove the specialization/overconvergent-sheaf comparison to the maximal-rank-one base under the precise hypotheses, and proper-support compatibility; distinguish it from surjective field-pair invariance C′⁺∩C=C⁺.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+        "ClassicalAdicEtaleCohomology:H4/tame-tower-annulus-acyclicity"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:R1",
+      "need": "Properness and qcqs of the relative scheme/adic fibre product in Hub96 3.7.3, with the exact noetherian-type hypotheses; full affine analytification/exhaustion charts and compatible étale-site morphisms. Geometry/GAGA is not cohomology comparison.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/ball-exhaustion",
+        "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:R2",
+      "need": "Reduced Fibre Theorem over a complete DVR and admissible blow-up invariance; formal completion along special-fibre strata, rig-étale morphisms, formal GAGA/algebraization of projective formal curves and approximation of Hilbert-parameter maps. Match the precise hypotheses of Lut95 5.4–5.8. Also Lut95 §7.1 relative S-compactness via proper schematic closure on formal models, and Theorem7.4: separated rig-smooth target over Spf(A), affinoid Z_rig, U_rig a Weierstrass domain, relatively S-compact image; after a blow-up finite over U, an enlarged U′ containing the special-fibre closure and a map agreeing to prescribed level λ₀, preserving generic-fibre open immersion. Proposition7.5 supplies a uniform λ₁ for lifting a modulo-π^λ map to an actual map agreeing modulo π^(λ−λ₁), for a rig-smooth affine formal target. These statements cannot be replaced by abstract Elkik approximation without the model/topology hypotheses.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+        "ClassicalAdicEtaleCohomology:H5/extend-curve-compactifications",
+        "ClassicalAdicEtaleCohomology:H5/smooth-curve-local-compactification"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "need": "Use the existing algebraic-curve/Jacobian direction for normalization and smooth projective completion after finite residue-field extension, high-degree divisor vanishing and deformation of smooth curves/embeddings. The additional general smooth Hilbert-scheme parameter contract needed by Lut95 Lemma 5.8 is proposed as a Part II extension rather than re-planned here; public Lemma5.8 gives d≥2g−1 for the open Hilbert scheme H(d,g,N) of smooth genus-g degree-d embedded curves to be smooth over ℤ; import smooth-curve and embedding deformations, relative Cartier-divisor lifting, and H¹(C,O_C(Δ))=0 by Serre duality.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+        "ClassicalAdicEtaleCohomology:H5/extend-curve-compactifications"
+      ]
+    },
+    {
+      "supplier": "AdicCoefficientsAndComparisons:L2",
+      "need": "Scheme compactification and coefficient extensions in their general qcqs domain, plus the constructible/generic base-change finiteness used in Ber93 7.5.1–7.5.3. Import existing EDC finite-type cohomology results when they suffice.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
+      "need": "Scheme proper base change, bounded constructible direct images and generic finiteness in the exact domains used by the Huber/Berkovich comparison; EDC owns ordinary algebraic étale formalism.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E1",
+      "need": "Derived global sections for countable increasing open covers as Rlim, acyclicity of a tower with quasi-isomorphic transitions, filtered-neighborhood continuity under coherent-site hypotheses, and finite-dimensional Fℓ dualizability/colimit extension. Supply actual canonical maps and hypotheses.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+        "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls",
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions"
+      ]
+    },
+    {
+      "supplier": "AdicEtaleGeometry:A2",
+      "need": "Finite discrete adic frontier of a quasi-compact open in a quasi-compact separated smooth rigid curve, with all rank points and topology specified; radial inclusions and smooth/proper geometric contracts supplied by R0.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H4",
+      "status": "planned",
+      "remaining": [
+        "Retrieve and decompose Hub96 §6.3 proof of smooth constructibility at target/key-theorem granularity. Verify the general non-geometric base-field version; Ito20 §6 alone fixes algebraically closed K.",
+        "Verify the arbitrary-plus-ring radial specialization contract and nonnoetherian proper-support transfer; satisfy the exact H0/H1/H3/P6 requests.",
+        "Replace analytic omission comments with typed signatures when the owning geometric/site carriers exist."
+      ]
+    },
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H5",
+      "status": "planned",
+      "remaining": [
+        "Read full Hub96 Proposition6.1.1 and characterize its general analytic finiteness domain; close the book/purity proof leaves.",
+        "Supply H3:smooth-duality and its edge before claiming characteristic-p comparison proof closure in dimensions greater than one.",
+        "Close the nondiscrete global compactification bridge.",
+        "Satisfy formal geometry, algebraic curve parameter and derived-continuity requests; type the analytic theorem signatures after their carriers exist."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Huber book proof and full finiteness statement inaccessible",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/smooth-family-constructibility",
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/proper-open-excision",
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/smooth-analytic-cohomology-finiteness"
+      ],
+      "detail": "The public publisher request returned HTML. The reviewed 3.7/3.8 locators are preserved, Ito20 proves the exact statement attribution for 6.2.2, and ECD verifies the finite-ball use of Proposition 6.1.1. Read Hub96 §§3.7–3.9,6.1–6.3 before claiming proof closure or the maximal analytic finiteness statement. In particular extract the definitions and key theorems in the proof of smooth constructibility §6.3 and add/import them in a refinement pass; the present theorem is a source-backed closure leaf, not a proof of that book theorem."
+    },
+    {
+      "title": "Maximal analytic finiteness statement and nonsmooth scope",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/smooth-analytic-cohomology-finiteness"
+      ],
+      "detail": "The ball finite-total-dimension instance is verified in ECD27.2; the smooth qcqs per-degree finiteness assertion is verified in Mieda Proposition3.38’s proof. Retrieve Hub96 Proposition6.1.1 and its proof for the maximal domain and boundedness, and Hub98a Proposition3.1 if using the nonsmooth characteristic-zero extension named there. Do not infer finite total dimension just from per-degree finite generation, or general nonsmooth finiteness from the smooth theorem."
+    },
+    {
+      "title": "Nondiscrete global smooth-curve compactification bridge",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export",
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions"
+      ],
+      "detail": "Lut95 Theorem5.3 is discrete-base and local on X/étale-local on S. ECD25.3 uses a global embedding of a qc smooth curve over algebraically closed complete C. Provide a primary general compactification theorem or prove descent, source globalization and admissible gluing; the local DVR result alone is insufficient. Source issue E1 concerns the cited proof step, not a counterexample to the target."
+    },
+    {
+      "title": "Overconvergent radial cohomology over arbitrary plus rings",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+        "ClassicalAdicEtaleCohomology:H4/tame-tower-annulus-acyclicity"
+      ],
+      "detail": "ECD19.5 uses annuli over Spa(C,C⁺). H2 surjective-extension invariance does not compare Spa(C,O_C) to Spa(C,C⁺) when C⁺ is smaller. Verify the required specialization invariance and support comparisons via H1/H3; retain all-rank topology and coefficient restrictions."
+    },
+    {
+      "title": "Book characteristic-zero reduction and purity domain",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1"
+      ],
+      "detail": "The full recorded Hub96 comparison permits residue-characteristic torsion in characteristic zero. Read 3.9.1(b), its characteristic/invertibility and generalization-closure clauses, and SGA4 XVI §4; the all-dimension prime-to-residue duality route closes only characteristic p here."
+    },
+    {
+      "title": "All-dimension relative duality supplier not yet planned",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls"
+      ],
+      "detail": "The existing H3 curve theorem and Zavyalov absolute proper theorem do not cover smooth relative dimension d>1. The detailed H3 request and proposed suffix/edge are the explicit boundary. No out-of-scope H3 nodes are edited or supplied by this packet."
+    },
+    {
+      "title": "Suggested file lacks analytic geometric carriers",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H4/radial-regions",
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-region",
+        "ClassicalAdicEtaleCohomology:H4/closed-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/strict-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/open-annulus-region",
+        "ClassicalAdicEtaleCohomology:H4/open-disc-region",
+        "ClassicalAdicEtaleCohomology:H4/tame-radial-covers",
+        "ClassicalAdicEtaleCohomology:H4/tame-annulus-covers",
+        "ClassicalAdicEtaleCohomology:H4/annulus-kummer-generator",
+        "ClassicalAdicEtaleCohomology:H4/disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/disc-compact-support",
+        "ClassicalAdicEtaleCohomology:H4/annulus-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/annulus-compact-support",
+        "ClassicalAdicEtaleCohomology:H4/annulus-restriction",
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-cohomology",
+        "ClassicalAdicEtaleCohomology:H4/punctured-disc-localization",
+        "ClassicalAdicEtaleCohomology:H4/tame-tower-annulus-acyclicity",
+        "ClassicalAdicEtaleCohomology:H4/smooth-family-constructibility",
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-base-constructibility-transfer",
+        "ClassicalAdicEtaleCohomology:H4/perfectoid-support-image-comparison",
+        "ClassicalAdicEtaleCohomology:H4/valuation-radial-exports",
+        "ClassicalAdicEtaleCohomology:H4/annulus-geometric-plus-ring",
+        "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+        "ClassicalAdicEtaleCohomology:H5/proper-open-excision",
+        "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
+        "ClassicalAdicEtaleCohomology:H5/smooth-analytic-cohomology-finiteness",
+        "ClassicalAdicEtaleCohomology:H5/finite-polydisc-cohomology",
+        "ClassicalAdicEtaleCohomology:H5/ball-exhaustion",
+        "ClassicalAdicEtaleCohomology:H5/radius-restriction-stabilization",
+        "ClassicalAdicEtaleCohomology:H5/affine-space-cohomology-from-balls",
+        "ClassicalAdicEtaleCohomology:H5/s-compactifiable-formal-curve",
+        "ClassicalAdicEtaleCohomology:H5/infinitesimal-curve-compactification",
+        "ClassicalAdicEtaleCohomology:H5/locally-s-compactifiable-formal-curve",
+        "ClassicalAdicEtaleCohomology:H5/extend-curve-compactifications",
+        "ClassicalAdicEtaleCohomology:H5/smooth-curve-local-compactification",
+        "ClassicalAdicEtaleCohomology:H5/geometric-curve-compactification-export",
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-contributions",
+        "ClassicalAdicEtaleCohomology:H5/curve-compactification-duality",
+        "ClassicalAdicEtaleCohomology:H5/curve-boundary-direct-summand"
+      ],
+      "detail": "The pinned baseline has valuation spectra/rational subsets and generic Sheaf.H, but lacks the category of ringed adic spaces, its analytic étale site, pseudo-adic support functors, formal schemes and the comparison square. The suggested file elaborates only genuine valuation-set and additive-homomorphism cores. All unstatable full definitions, API tests and theorem signatures are named in explicit omission comments, with suppliers; there are no placeholder propositions or theorem-valued data records. These omissions do not establish formalization. The shared build has no compiled Spa.Polydisc object; the exact pinned closedPolydisc/classicalPoint compatibility signatures are retained as named omission comments. Available valuation-set and additive-map signatures can be checked with the supplied lean-check wrapper."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ClassicalAdicEtaleCohomology/E1",
+      "kind": "gap",
+      "affects": "the proof",
+      "locator": "ECD author PDF 14 April 2026, Proposition25.3 proof p.160; comparison with Lut95 Theorem5.3 p.197",
+      "correction": "Supply a theorem or argument extending the cited local discrete-valuation compactification to a global embedding of the quasi-compact smooth curve over the algebraically closed complete field used here. Keep Lut95’s actual locality and discrete-base hypotheses.",
+      "reason": "The public Lut95 statement assumes K is the fraction field of a complete DVR and concludes only étale-local-on-base/local-on-source compactification. An algebraically closed nontrivially valued C is nondiscrete, and a local source chart is not the full X. The assertion might be correct, but the cited theorem by itself does not justify this application.",
+      "known": "new: no correction found in the current author PDF or the public digitization; this is an attribution/proof bridge finding, not an assertion that biduality is false.",
+      "searched": [
+        "ECD author PDF dated 14 April2026, §25 and bibliography",
+        "Lut95 public GDZ §5 pp.196–203",
+        "Public searches for a nondiscrete/global version of Lut95 Theorem5.3"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "RT-AREA-etale/5: existing H3 is curve-only, while Huber3.8.1 in characteristic p and ECD27.2 need relative duality in every smooth dimension. Absolute smooth proper duality is insufficient.",
+      "proposal": "Keep H3’s current curve trace/duality prefix and its existing edges to S4/S5. Add H3:smooth-duality, containing proper-support algebraic comparison5.7.2, the curve trace normalization7.2.2 and relative trace/Poincaré duality7.5.3 for pure smooth dimension d≥0, with Ber93 7.2.1,7.3.1,7.4.9 and taut/overconvergent transport Zav25 A.15,A.18,A.19. Add H3:smooth-duality→H5. Until the atlas accepts the suffix, the existing H3 stage plus this exact request is the valid prerequisite; the proposed suffix is not claimed as an existing supplier node."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "H5’s finiteness and radius comparison serve all finite dimensions, while curve compactification has separate discrete local and geometric global scopes.",
+      "proposal": "Within H5 display comparison/finiteness/radius nodes separately from curve-compactification/boundary nodes. Preserve both reviewed comparison IDs and current stage edges; do not move geometric definitions away from R1/R2. No new stage IDs are assumed in this packet."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge",
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "Lut95 extension of compactifications needs smooth Hilbert parameter spaces and deformation of high-degree curve embeddings beyond the existing Jacobian roadmap’s explicit contracts.",
+      "proposal": "Request “Jacobian challenge, Part II: deformation and projective parameter spaces for smooth curves”, building on the existing JacobianChallenge direction, for the Hilbert smoothness for d≥2g−1 and normalization inputs used by H5. Do not re-plan the existing upstream algebraic-curve definitions or Jacobian results. The maintainer must choose the exact owner after checking upstream scope."
+    }
+  ]
+}
