@@ -341,7 +341,7 @@
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1858,
-  "stageEdges": 9563,
+  "stageEdges": 9565,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -693,6 +693,12 @@
       "reviewer": "independent-review-REV-K3BlochGroups--V.3"
     },
     {
+      "file": "K3BlochGroups--V.4",
+      "roadmap": "K3BlochGroups",
+      "nodes": 16,
+      "reviewer": "independent-review-REV-K3BlochGroups--V.4"
+    },
+    {
       "file": "K3BlochGroups--V.5",
       "roadmap": "K3BlochGroups",
       "nodes": 18,
@@ -748,8 +754,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32398837,
-  "htmlSha256": "69db5af86ae4477d5f68998f7723e2052a710c205cce289950255688cff435bb",
+  "htmlBytes": 32402080,
+  "htmlSha256": "551425993a31e342d3612bae758935547c99dbb90f9d3aa023f980290b71d48c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -780,7 +786,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "4404e714b33ca5f442d6e24a0c9425269d2ccdb0031f7fd6e77a290bd670885f",
+    "data/roadmap-distances.json": "aa4db8d37fc326e61ce629f8f60f76442c59be620fa22b73ebb08ef3ed4a37d6",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -954,6 +960,8 @@
     "data/blueprints/K3BlochGroups--V.2.md": "69e5d9a1117d150c734117fd58fe3453e6d8a8ac5833cee819c3e58fb7073b47",
     "data/blueprints/K3BlochGroups--V.3.json": "0f36159529d71d2ef3575835f799af6b4c6f864187a1b46f7f39a8966d307e79",
     "data/blueprints/K3BlochGroups--V.3.md": "1af1cdffd17617f7da3501f86f0775d65fd2fc703cfe480502d6ea057c8d30ea",
+    "data/blueprints/K3BlochGroups--V.4.json": "bba4b8473dccd69c33240c6f763580c7820af255110a43e1ef5eb13ee7988f24",
+    "data/blueprints/K3BlochGroups--V.4.md": "1674e59789d5ec26c6a155d03acfcafc0a7d5db980ec930c823aa0243f8144cc",
     "data/blueprints/K3BlochGroups--V.5.json": "9c3ba37f9798e5f101b4870ef4d62c61d2fd073051629ad81ba751377a06fa90",
     "data/blueprints/K3BlochGroups--V.5.md": "8987e6c98c0c8872db75245b2171034be82256bd357e00eb36d429024ecd2736",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
