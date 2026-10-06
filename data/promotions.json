@@ -1337,6 +1337,17 @@
     "data/blueprints/PadicHodgeRegulators--L3.md"
    ]
   },
+  "research/blueprint/packets/PerfectoidQuotients.json": {
+   "promotedAt": "2026-10-06T23:42:39Z",
+   "review": "b5fb9ab9f14c8ac8",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-PerfectoidQuotients",
+   "sha256": "f0533cd66bdd1cd6fc975e38fc19418da573eb4d3a247132602c16c64ec3aafc",
+   "to": [
+    "data/blueprints/PerfectoidQuotients.json",
+    "data/blueprints/PerfectoidQuotients.md"
+   ]
+  },
   "research/blueprint/packets/PerfectoidSpaces--P8.json": {
    "promotedAt": "2026-10-06T15:33:23Z",
    "review": "58460b1ec7a51a82",
