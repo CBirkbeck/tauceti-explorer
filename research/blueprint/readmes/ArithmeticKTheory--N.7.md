@@ -5,25 +5,48 @@ Blueprint for the roadmap `ArithmeticKTheory`, stages **N.7** and **N.8**, job `
 `research/blueprint/suggested/ArithmeticKTheory--N.7.lean`. Handoff:
 `research/blueprint/handoff/BP-ArithmeticKTheory--N.7.md`.
 
-**N.7 is `source_decomposed`; N.8 is `partial`** (two certificate upper bounds are recorded
-gaps). 15 nodes (3 definitions, 1 construction, 1 lemma, 4 theorems, 1 comparison, 5 applications), 24
-API items, 18 unit tests, 6 planets; 37 pinned declarations cited, 4 gaps, 10 requests, 3
-structural proposals. No layer is `closed`: source gaps and supplier requests remain. Planning closure is not Lean formalisation; nothing here is formalised.
+**N.7 and N.8 are `source_decomposed`**; the packet is `complete`. 20 nodes (4 definitions,
+1 construction, 1 lemma, 8 theorems, 1 comparison, 5 applications), 34 API items, 25 unit
+tests, 10 planets; 44 pinned declarations cited, 3 gaps, 10 requests, 4 structural proposals.
+No layer is `closed`: source gaps and supplier requests remain. Planning closure is not Lean
+formalisation; nothing here is formalised. Round two of the red-team fix
+(FIX-RT-BP-ArithmeticKTheory--N.7~2, issue #5713) adds the two generation proofs of N.8: Tate's
+method gives K₂(ℤ[i]) = 0, and restriction to ℚ(ζ₅) with transfer, together with Tate's
+description of two-torsion, shows that {−1, −1} and {−1, ε} generate K₂ of the integers of
+ℚ(√5). Report: `research/blueprint/redteam/RT-BP-ArithmeticKTheory--N.7.fixes-2.md`.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-## The source
+## The sources
 
 - **`Kbook.2013`** — Charles A. Weibel, *The K-book: An Introduction to Algebraic K-theory*. Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)
   <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf>, read 2026-09-24. SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
+- **`Tate.1976`** — John Tate, *Relations between K₂ and Galois cohomology*. Inventiones mathematicae 36 (1976), 257–274; the journal pages as scanned by the Göttingen digitisation centre (GDZ), without a text layer
+  <https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0036/LOG_0020.pdf>, read 2026-10-06. SHA-256 `5d1ee68e3f9cc49ba6cac8269e1c9ca510411c6a154f36b559290849a72db7b7`.
+- **`Browkin.2000`** — Jerzy Browkin, with an appendix by Karim Belabas and Herbert Gangl, *Computing the tame kernel of quadratic imaginary fields*. Mathematics of Computation 69 (2000), no. 232, 1667–1683; the publisher's PDF, free on the AMS site
+  <https://www.ams.org/journals/mcom/2000-69-232/S0025-5718-00-01182-0/S0025-5718-00-01182-0.pdf>, read 2026-10-06. SHA-256 `99001ec60a5df5be749f6122877f944545b24e00513051f6dd8b2ddc2e2f7028`.
+- **`ZhangXu.2016`** — Long Zhang and Kejian Xu, *The tame kernel of ℚ(ζ₅) is trivial*. Mathematics of Computation 85 (2016), no. 299, 1523–1538, electronically published 11 August 2015; the publisher's PDF, free on the AMS site
+  <https://www.ams.org/journals/mcom/2016-85-299/S0025-5718-2015-03003-8/S0025-5718-2015-03003-8.pdf>, read 2026-10-06. SHA-256 `08576560a20ee5c8a45b3993d314d8d3818e4e98e4e99e724d0d94f5fd511ed3`.
 
-One source, freely available, and **the same file three other packets of this programme already
-cite**: the hash reproduces the one recorded by `K2SymbolsBrauer--T.3.json`,
+The K-book is the main source, freely available, and **the same file three other packets of
+this programme already cite**: the hash reproduces the one recorded by `K2SymbolsBrauer--T.3.json`,
 `Polylogarithms.json` and `MotivesAndAlgebraicCycles.json`. What was read for this job is
 listed in the packet; in outline, III.5.2.2 and III.6.1–III.6.5.3 for the second K-groups and
 the symbols, VI.2.4–VI.2.4.1 for the Bernoulli numbers and the regular primes, VI.5.3 for the
 third K-group of a number field, VI.8.1–VI.8.6 for the classical data and Birch–Tate, and
 VI.10.1–VI.10.8.2 for the tables, the regular-prime torsion and Vandiver.
+
+The generation proofs of N.8 (round two of the fix) use three further sources, all freely
+readable. Tate's 1976 Inventiones paper, read from the page images of the Göttingen scan,
+supplies Theorem (6.1) (an element of order l of K₂F is {z, a} when F contains a primitive l-th
+root of unity z) and Theorem (6.2) (the structure of K₂O_S/l), both imported from
+MotivicEtaleKTheory M.3. Browkin's 2000 paper states Tate's criterion (Tate's Proposition 1 and
+Lemma 1) and the notation of Tate's method; Zhang and Xu's 2016 paper proves that the tame
+kernel of ℚ(ζ₅) is trivial by that method. Tate's own appendix to Bass–Tate (Lecture Notes in
+Mathematics 342), where the criterion and the Gaussian computation first appear, and Skalba's
+generalised Thue theorem, which Zhang–Xu use, were not obtained; the proof of the criterion and
+its application to ℤ[i] are written out in full in the packet, and Skalba's theorem is a
+recorded gap.
 
 ## What the pinned libraries have, and what they do not
 
@@ -42,6 +65,14 @@ nothing, and so does a grep for *Vandiver*. There is no Herbrand–Ribet, no Kum
 tame kernel, and no K-group above the zeroth in either library. So the definition of a regular
 prime — a composition of pinned objects — is one of the cheapest genuinely new definitions in
 this area, and a structural proposal records it as an early library target.
+
+For N.8's generation proofs the pin also has what Tate's method needs on the arithmetic side:
+Mathlib's S-units (`Set.unit`) and absolute norm (`Ideal.absNorm`); the Euclidean division of
+ℤ[i] (`GaussianInt.norm_mod_lt`, whose proof, though not its statement, contains the factor one
+half the method uses); class number one of ℚ(ζ₅) (`IsCyclotomicExtension.Rat.five_pid`) and its
+degree (`IsCyclotomicExtension.finrank`); and Minkowski's criterion
+(`RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt`), which gives class number one for
+ℚ(√5). There is no K₂, no tame symbol and no transfer in either library.
 
 **The three duplications, and the fix.** AUDIT-27 records that `SpecialValuesBirchTate:B.3`
 asks for the same base examples as its independent test of Birch–Tate; that
@@ -647,34 +678,48 @@ and only started using this assumption circa 1920.” — The historical remark,
 
 ## N.8 — Certified examples
 
-**Coverage: partial.** 6 nodes.
+**Coverage: source_decomposed.** 11 nodes.
 
-Six nodes (RT-AREA-ktheory-1/9, /11). The format of a certified example
-(certified-example-format), which instantiates ArithmeticKTheory N.6's certificate engine — a
-presentation with span and an independent lower bound — and carries the labelling rule that an
-order deduced from Birch-Tate is a corollary and not a test of it; the first five K-groups of
-the integers, imported from their owners (K₀ from KTheoryLowDegrees Z.6, K₁ from U.6, K₂ from
-K2SymbolsBrauer T.5, K₃ from K3BlochGroups V.5) with the two consistency checks; the Gaussian
-case, where N.8 owns the certificate K₂(ℤ[i]) = 0 (Tate's vanishing, whose span obligation is a
-recorded gap) and the third K-group is the integers plus a cyclic group of order twenty-four by
-V.5's structure theorem; the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree, with T.5's
-relative sequence in degree two; the check that K₂(ℚ) is infinite while the tame kernel has
-order two (T.5's computations); and the certified tame kernel of ℚ(√5), K₂ ≅ (ℤ/2)² with the
-sign symbols as lower bound, which N.8 owns and exports to SpecialValuesBirchTate B.3 (atlas
-edge N.8 → B.3, maintainer). The stage text's 'before checking Birch–Tate' is met in that
-order: the Birch–Tate check is B.3's, which combines N.8's certificate with its own w₂ and
-ζ-value and must not supply the certificate's bounds. The former node birch-tate-status is
-deleted: the status of the Birch–Tate formula (Wiles's odd part, the two-primary part for
-abelian fields) is SpecialValuesBirchTate's (B.4, B.5), and what an example may claim is the
-labelling rule of certified-example-format.
+Eleven nodes (RT-AREA-ktheory-1/9, /11; FIX-RT-BP-ArithmeticKTheory--N.7~2). The format of a
+certified example (certified-example-format), which instantiates ArithmeticKTheory N.6's
+certificate engine — a presentation with span and an independent lower bound — and carries the
+labelling rule that an order deduced from Birch-Tate is a corollary and not a test of it; the
+first five K-groups of the integers, imported from their owners (K₀ from KTheoryLowDegrees Z.6,
+K₁ from U.6, K₂ from K2SymbolsBrauer T.5, K₃ from K3BlochGroups V.5) with the two consistency
+checks; Tate's method for the span obligations: the filtration of K₂(F) by symbols of S_m-units
+with the graded tame symbol (tate-norm-filtration) and Tate's criterion for the graded symbol
+to be bijective, with Tate's Lemma 1 and the descent to step 0 (tate-criterion); the Gaussian
+case, where Tate's criterion holds at every place and K₂(ℤ[i]) = 0
+(gaussian-tame-kernel-vanishes), so that N.8's certificate K₂(ℤ[i]) = 0 is complete, and the
+third K-group is the integers plus a cyclic group of order twenty-four by V.5's structure
+theorem; the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree, with T.5's relative sequence
+in degree two; the check that K₂(ℚ) is infinite while the tame kernel has order two (T.5's
+computations); Zhang and Xu's theorem that the tame kernel of ℚ(ζ₅) is trivial
+(tame-kernel-of-q-zeta-five), whose construction of small residue generators rests on Skalba's
+generalised Thue theorem (recorded gap); the generation theorem for ℚ(√5), by restriction to
+ℚ(ζ₅), transfer and Tate's description of two-torsion (real-quadratic-upper-generation); and
+the certified tame kernel of ℚ(√5), K₂ ≅ (ℤ/2)² with the sign symbols as lower bound, which N.8
+owns and exports to SpecialValuesBirchTate B.3 (atlas edge N.8 → B.3, maintainer). No
+certificate bound uses a zeta value: the Birch–Tate check is B.3's, which combines N.8's
+certificate with its own w₂ and ζ-value. The former node birch-tate-status is deleted: the
+status of the Birch–Tate formula (Wiles's odd part, the two-primary part for abelian fields) is
+SpecialValuesBirchTate's (B.4, B.5), and what an example may claim is the labelling rule of
+certified-example-format.
 
-Remaining:
+**Planets (5):** *Certified example*, *Tate's criterion for the tame symbol*, *K₂ of the Gaussian integers vanishes*, *Trivial tame kernel of ℚ(ζ₅)*, *Generators of the tame kernel of ℚ(√5)*.
 
-- The span (upper-bound) obligation of the ℚ(√5) certificate: a generation theorem for
-  K₂(𝓞_{ℚ(√5)}) (gap).
-- The span obligation of the ℤ[i] certificate, Tate's vanishing (gap).
-
-**Planets (1):** *Certified example*.
+How the two span proofs fit together. Tate's method orders the finite places by norm and
+filters K₂(F) by the symbols of S_m-units (`tate-norm-filtration`); Tate's criterion
+(`tate-criterion`) gives three conditions on finite sets W, C, G of S_{m−1}-units under which
+the graded tame symbol at v_m is bijective, and when it is bijective at every place the tame
+kernel is generated by symbols of units. For ℤ[i] the conditions hold at every place with
+explicit sets, and the unit symbol {i, i} is trivial (`gaussian-tame-kernel-vanishes`). For
+ℚ(√5) the method is not run directly: Zhang and Xu ran it for ℚ(ζ₅) ⊃ ℚ(√5)
+(`tame-kernel-of-q-zeta-five`), and restriction followed by transfer kills K₂(𝓞_{ℚ(√5)}) by 2,
+after which Tate's Theorem (6.1), class number one and the units leave only {−1, −1} and {−1,
+ε} (`real-quadratic-upper-generation`). Neither argument uses a zeta value, so
+SpecialValuesBirchTate B.3 can use the ℚ(√5) certificate as an independent test of the
+Birch–Tate formula.
 
 ### `certified-example-format` — What a certified example is ★
 
@@ -741,6 +786,13 @@ supply either bound of a certificate that SpecialValuesBirchTate B.3 uses as tha
   independently.
 - `data_from_libraries` — For the small fields used here the arithmetic data can be discharged
   from the pinned libraries.
+- `gaussian_certified` — The Gaussian example is certified: no generators, span by
+  N.8/gaussian-tame-kernel-vanishes, lower bound onto the trivial group; its tame-kernel order
+  1 is tagged computed.
+- `sqrt_five_certified` — The ℚ(√5) example is certified: generators {−1, −1}, {−1, ε} with
+  relations 2g = 0, span by N.8/real-quadratic-upper-generation, lower bound the two sign
+  symbols onto (ℤˣ)²; its order 4 is tagged computed, and the Birch–Tate identity 1/30 = 4/120
+  is tagged as B.3's test of it.
 
 **Acceptance.**
 
@@ -750,6 +802,10 @@ supply either bound of a certificate that SpecialValuesBirchTate B.3 uses as tha
   not an order.
 - The arithmetic data half can be discharged from the pinned libraries for the small fields
   this layer uses, which is why those are the required first examples.
+- The tame-kernel certificates of this layer carry both bounds: K₂(ℤ) (span by K2SymbolsBrauer
+  T.5's Silvester argument, lower bound the real sign symbol), K₂(ℤ[i]) = 0 (span by
+  N.8/gaussian-tame-kernel-vanishes, trivial lower bound) and K₂(𝓞_{ℚ(√5)}) ≅ (ℤ/2)² (span by
+  N.8/real-quadratic-upper-generation, lower bound the two sign symbols).
 
 **Depends on.** **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`, `mathlib:NumberField.InfinitePlace.nrComplexPlaces`.
 
@@ -812,6 +868,272 @@ group, conjecturally zero, whose order is a product of irregular primes > 10^8.�
 column of the table (transcribed) and its note, verbatim. Prose verbatim from the text layer of
 the author-hosted PDF; formulas transcribed.
 
+### `tate-norm-filtration` — Tate's filtration of K₂ by symbols of S_m-units
+
+*definition*
+
+Let F be a number field. List its finite places as v₁, v₂, … with N v_{m−1} ≤ N v_m, where N v
+= #k(v) is the absolute norm of the prime, and put S_m = {v₁, …, v_m}, S₀ = ∅. Let U_m be the
+group of S_m-units, the a ∈ F^× with v(a) = 0 at every finite place v ∉ S_m (so U₀ = 𝓞_F^×),
+and let K₂^{S_m}(F) be the subgroup of K₂(F) generated by the symbols {a, b} with a, b ∈ U_m.
+Then K₂^{S_0}(F) ⊆ K₂^{S_1}(F) ⊆ ⋯ exhausts K₂(F), the tame symbol ∂_{v_m} vanishes on
+K₂^{S_{m−1}}(F), and it induces the graded residue ∂_{v_m} : K₂^{S_m}(F)/K₂^{S_{m−1}}(F) →
+k(v_m)^×. When the prime of 𝓞_{S_{m−1}} at v_m is principal, generated by π, put U = U_{m−1};
+then U_m = U × π^ℤ, and there are homomorphisms α : U → K₂^{S_m}(F)/K₂^{S_{m−1}}(F), u ↦ {u,
+π}, onto, and β : U → k(v_m)^×, u ↦ u mod v_m, with ∂_{v_m} ∘ α = β in the convention of
+K2SymbolsBrauer T.3/tame-symbol (∂_v{u, t} = ū). Finally U₁ ⊆ U is the subgroup generated by (1
++ πU) ∩ U; it lies in ker β, and α kills it. This is the notation of Tate's method as Browkin
+and Zhang–Xu state it; the only data are the ordering of the places and, at a principal place,
+the generator π.
+
+**Hypotheses.**
+
+- F is a number field; places of equal norm are ordered arbitrarily, and every statement below
+  holds for any such ordering.
+- α, β and U₁ are defined at a place v_m whose prime in 𝓞_{S_{m−1}} is principal; every field
+  this layer uses (ℚ(i), ℚ(√5), ℚ(ζ₅)) has class number one, so π can be taken in 𝓞_F.
+- K₂(F) is described by Matsumoto's presentation (K2SymbolsBrauer T.2/matsumoto); the tame
+  symbols are T.3's.
+
+**Construction and proof.**
+
+1. Order the finite places by the absolute norm of their primes (mathlib:Ideal.absNorm); only
+   finitely many places have a given norm, so the enumeration exists. Take U_m to be Mathlib's
+   S-units (mathlib:Set.unit) for S = S_m.
+1. Define K₂^{S_m}(F) as the subgroup generated by the symbols of U_m. It is monotone in m, and
+   it exhausts K₂(F) because K₂(F) is generated by symbols (T.2/matsumoto) and each a ∈ F^× has
+   non-zero valuation at only finitely many places (T.3/finite-support).
+1. ∂_{v_m} vanishes on K₂^{S_{m−1}}(F): a symbol of two v_m-units has tame symbol 1 by
+   T.3/tame-symbol. Hence the graded residue is defined on the quotient.
+1. At a principal v_m with generator π, every element of U_m is uπ^r with u ∈ U. By
+   bimultiplicativity {uπ^r, u′π^s} is a product of {u, u′}, powers of {u, π} and {u′, π}^{±1},
+   and {π, π}^{rs} = {π, −1}^{rs} (T.2/symbol-consequences); modulo K₂^{S_{m−1}}(F) this is a
+   power product of values of α, so α is onto.
+1. ∂_{v_m}{u, π} = ū for a v_m-unit u and the uniformiser π (T.3/tame-symbol), so ∂_{v_m} ∘ α =
+   β.
+1. U₁ ⊆ ker β because 1 + πx ≡ 1 mod π. α kills U₁: for x ∈ U with 1 + πx ∈ U, the Steinberg
+   identity {1 + πx, −πx} = 1 (T.2/steinberg-identity, since −πx = 1 − (1 + πx)) gives {1 + πx,
+   π} = {1 + πx, −x}^{−1}, a symbol of two elements of U, hence in K₂^{S_{m−1}}(F).
+1. K₂^{S_0}(F) is generated by symbols of units of 𝓞_F and lies in the unramified subgroup of
+   T.5/unramified-subgroup (symbol_mem_unramifiedSubgroup).
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `tateFiltration` | data | For a number field F and an enumeration v : ℕ → finite places of F with nondecreasing absolute norm, m ↦ K₂^{S_m}(F), the subgroup of K₂(F) generated by the symbols of the S_m-units (Set.unit with S = {v₁, …, v_m}). |
+| `tateFiltration_mono` | relation | Monotone in m. |
+| `iSup_tateFiltration` | characterisation | ⨆ m, tateFiltration F v m = ⊤: every element of K₂(F) lies in some step. |
+| `tameSymbol_eq_one_of_mem_tateFiltration` | simp | ∂_{v_m} x = 1 for x in step m − 1. |
+| `tateGradedResidue` | constructor | The homomorphism step m ⧸ step (m − 1) → k(v_m)ˣ induced by ∂_{v_m}. |
+| `tateAlpha` | constructor | For a generator π of the prime at v_m: u ↦ {u, π} from the S_{m−1}-units to step m ⧸ step (m − 1); surjective. |
+| `tateGradedResidue_comp_tateAlpha` | compatibility | tateGradedResidue ∘ tateAlpha = β, reduction modulo v_m, in T.3's convention ∂_v{u, t} = ū. |
+| `tateUnitSubgroup` | data | U₁, the subgroup of the S_{m−1}-units generated by (1 + πU) ∩ U. |
+| `tateAlpha_tateUnitSubgroup` | relation | tateAlpha kills tateUnitSubgroup, and tateUnitSubgroup ≤ ker β. |
+| `tateFiltration_zero_le_unramified` | compatibility | Step 0, generated by symbols of units of 𝓞_F, lies in K2SymbolsBrauer's unramifiedSubgroup. |
+
+**Used by.** *N.8/tate-criterion*: Tate's criterion is a statement about the graded residue of one step, through α, β and U₁. *N.8/gaussian-tame-kernel-vanishes and N.8/tame-kernel-of-q-zeta-five*: both proofs show that every graded residue is bijective and conclude that the tame kernel equals step 0, generated by symbols of units. *ArithmeticKTheory N.6/order-certificate*: the span field of a tame-kernel certificate is discharged through this filtration in N.8's examples; N.6's format itself is not changed.
+
+**Unit tests.**
+
+- `tateFiltration_zero_rat` — For F = ℚ, step 0 is generated by the single unit symbol {−1,
+  −1}.
+- `tateUnitSubgroup_gaussian_one_add_i` — For F = ℚ(i) at v₁ = (1 + i): i = 1 + (1 + i)·i, so
+  tateUnitSubgroup = ⟨i⟩ = U₀.
+- `tateFiltration_units_not_integers` — Over ℚ, {−1, 3} is not in step 1 (S₁ = {2}), since
+  ∂₃{−1, 3} = −1 ≠ 1 in 𝔽₃^×; a filtration generated by symbols of S_m-integers instead of
+  S_m-units would put it in step 0, among the symbols of integers.
+- `tateFiltration_zero_le_unramified_rat` — For F = ℚ, step 0 lies in the unramified subgroup
+  of K2SymbolsBrauer T.5, which T.5/tame-kernel-sequence identifies with K₂(ℤ).
+- `tateGradedResidue_surjective_rat_five` — For F = ℚ at v = (5): β(2) = 2 generates 𝔽₅^×, so
+  the graded residue is onto, and {2, 5} maps to 2.
+
+**Acceptance.**
+
+- For F = ℚ(i) the first place is v₁ = (1 + i), of norm 2, followed by the two places of norm
+  5, (2 + i) and (2 − i), in either order; U₀ = ⟨i⟩ and U₁ = ⟨i⟩ × (1 + i)^ℤ.
+- At v₁ = (1 + i) one has i = 1 + (1 + i)·i ∈ (1 + πU) ∩ U, so the subgroup U₁ of this node
+  (not to be confused with the group of S₁-units) is all of U = ⟨i⟩.
+- For F = ℚ the filtration step at the prime p is generated, modulo the previous step, by the
+  symbols {u, p} with u ∈ ⟨−1⟩ × ∏_{q<p} q^ℤ, and β is reduction mod p.
+
+**Depends on.** **other roadmaps** `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.2/steinberg-identity`, `K2SymbolsBrauer:T.2/symbol-consequences`, `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.5/unramified-subgroup`; **libraries** `mathlib:Set.unit`, `mathlib:Ideal.absNorm`.
+
+**Source.** Browkin.2000, §2, Notation (p. 1668): “Let K2^{S_m}(F) be the subgroup of K2F
+generated by symbols {a, b}, where a, b ∈ U_{S_m}. Then K2F = ⋃_{m=1}^∞ K2^{S_m}(F). Let
+∂_{v_m} : K2F −→ k*_{v_m} be the tame symbol corresponding to v_m. Then
+∂_{v_m}(K2^{S_{m−1}}(F)) = 0, and we have the induced homomorphism (also denoted by ∂_{v_m})” —
+The filtration, its exhaustion and the induced graded residue. Prose verbatim from the
+publisher's text layer; sub- and superscripts transcribed.
+
+**Source.** Browkin.2000, §2, Notation (p. 1668): “where α(u) = {u, π_m} (mod K2^{S_{m−1}}(F))
+and β(u) = u (mod π_m), for u ∈ U_{S_{m−1}}. … Moreover, we denote by U1 the group generated by
+(1 + πU) ∩ U.” — The maps α, β and the group U₁. The facts that α is onto and kills U₁ are not
+stated there; proof steps 4 and 6 prove them from the Steinberg relations.
+
+**Source.** ZhangXu.2016, §2, Preliminaries (p. 1524): “Now, we order all places according to
+the values of their norms, i.e., we have v1, v2, v3, . . . , vn, . . . with N vi ≤ N vi+1, for
+i = 1, 2, 3, · · · .” — The ordering of the places by norm. Verbatim from the publisher's text
+layer.
+
+### `tate-criterion` — Tate's criterion: when the graded tame symbol is bijective ★
+
+*theorem* · planet **Tate's criterion for the tame symbol**
+
+In the notation of N.8/tate-norm-filtration, let v = v_m (m ≥ 1) be a place whose prime is
+principal, generated by π, and put U = U_{m−1}, β : U → k(v)^× and U₁ = ⟨(1 + πU) ∩ U⟩. (a)
+Tate's Proposition 1. If W, C, G ⊆ U satisfy (1) W ⊆ C·U₁ and W generates U, (2) C·G ⊆ C·U₁ and
+β(G) generates k(v)^×, and (3) 1 ∈ C and C ∩ ker β ⊆ U₁, then the graded residue ∂_v :
+K₂^{S_m}(F)/K₂^{S_{m−1}}(F) → k(v)^× is bijective. (b) Tate's Lemma 1. If a, b ∈ 𝓞_F ∩ U, a ≡ b
+mod v and |N_{F/ℚ}(a − b)| < (N v)², then a/b ∈ U₁; for an imaginary quadratic F it suffices
+that |a| + |b| < N v. (c) Descent. If ∂_{v_j} is bijective for every j > m₀, then the tame
+kernel K₂(𝓞_F) is contained in K₂^{S_{m₀}}(F); if this holds with m₀ = 0, then K₂(𝓞_F) =
+K₂^{S_0}(F), the subgroup generated by the symbols of units of 𝓞_F.
+
+**Hypotheses.**
+
+- F is a number field with its finite places ordered by norm (N.8/tate-norm-filtration); v =
+  v_m is principal, generated by π.
+- W, C and G are arbitrary subsets of U; in the applications they are finite and explicit.
+- In (b) the elements a and b are integral, and N_{F/ℚ} is the field norm; in (c) the tame
+  kernel is the unramified subgroup, identified with K₂(𝓞_F) by K2SymbolsBrauer
+  T.5/tame-kernel-sequence.
+
+**Construction and proof.**
+
+1. Reduction to β. By N.8/tate-norm-filtration, α : U → K₂^{S_m}(F)/K₂^{S_{m−1}}(F) is onto,
+   ∂_v ∘ α = β, and α and β both kill U₁. So ∂_v ∘ ᾱ = β̄ on U/U₁ with ᾱ onto, and it suffices
+   to prove ker β ⊆ U₁: then β̄ is injective, hence ᾱ is injective, hence bijective, and ∂_v =
+   β̄ ∘ ᾱ^{−1} is injective. ∂_v is onto because β(G) generates the finite group k(v)^×.
+1. β̄ is injective on the image C̄ of C. In the finite group k(v)^× every element is a product
+   of elements of the generating set β(G), inverses included. Given c, c′ ∈ C with β(c) =
+   β(c′), choose g₁, …, g_r ∈ G with β(c·g₁⋯g_r) = 1. Applying (2) r times gives c·g₁⋯g_r ∈
+   c_r·U₁ with c_r ∈ C and β(c_r) = 1, so c_r ∈ U₁ by (3) and c·g₁⋯g_r ∈ U₁. The same word
+   gives c′·g₁⋯g_r ∈ U₁, hence c/c′ ∈ U₁. (Browkin's Remark 1 records the related consequence
+   β(C) = k^× of (2).)
+1. C̄ = U/U₁. C̄ is finite, since β̄ is injective on it. By (2), multiplication by ḡ (g ∈ G)
+   maps C̄ into itself, injectively, hence bijectively; so C̄ is stable under the subgroup ⟨Ḡ⟩
+   and contains it, because 1 ∈ C. As β̄ is injective on C̄ and β̄(⟨Ḡ⟩) = k(v)^×, C̄ = ⟨Ḡ⟩ is a
+   subgroup. By (1) it contains W̄, which generates U/U₁. Hence β̄ is injective on U/U₁, which
+   is (a).
+1. (b): if a ≠ b, write a − b = πd with d ∈ 𝓞_F. Then |N(d)| = |N(a − b)|/N v < N v, so every
+   prime factor of d has norm < N v and is one of v₁, …, v_{m−1}; hence d ∈ U, and a/b = 1 +
+   π·(d/b) with d/b ∈ U and a/b ∈ U, so a/b ∈ (1 + πU) ∩ U ⊆ U₁. For imaginary quadratic F,
+   |N(a − b)| = |a − b|² ≤ (|a| + |b|)² < (N v)².
+1. (c): every x ∈ K₂(F) lies in some K₂^{S_m}(F). If x is unramified and m > m₀, then
+   ∂_{v_m}(x) = 1 and bijectivity put x in K₂^{S_{m−1}}(F); descend to m₀. With m₀ = 0,
+   conversely K₂^{S_0}(F) ⊆ K₂(𝓞_F), since symbols of units are unramified
+   (T.5/unramified-subgroup).
+
+**Acceptance.**
+
+- For F = ℚ(i) and v = (1 + i): W = {i} and C = G = {1} satisfy (1)–(3), because i = 1 + (1 +
+  i)·i lies in (1 + πU) ∩ U; so the graded residue at the place of norm 2 is bijective onto the
+  trivial group 𝔽₂^×.
+- For F = ℚ(i) at every place of norm at least 5 the sets of N.8/gaussian-tame-kernel-vanishes
+  satisfy (1)–(3), and for ℚ(ζ₅) at every place those of Zhang–Xu do
+  (N.8/tame-kernel-of-q-zeta-five); in both cases (c) holds with m₀ = 0.
+- (c) with m₀ = 0 for ℚ(ζ₅) is Zhang–Xu's reduction of K₂(ℤ[ζ₅]) to the six symbols {−1, −1},
+  {−1, ζ}, {−1, ξ}, {ζ, ζ}, {ζ, ξ}, {ξ, ξ}.
+- The criterion concerns one place at a time: Browkin notes that the number of places of small
+  norm that must be treated individually grows quickly with the discriminant, which is why this
+  layer uses the method only for fields of small discriminant.
+
+**Depends on.** **inside this packet** `tate-norm-filtration`; **other roadmaps** `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`.
+
+**Source.** Browkin.2000, §3, Theorem 1 (p. 1668): “Theorem 1 ([T], Proposition 1). Suppose
+that W, C and G are subsets of U satisfying (1) W ⊂ CU1 and W generates U. (2) CG ⊂ CU1 and
+β(G) generates k∗. (3) 1 ∈ C ∩ ker β ⊂ U1. Then ∂v is bijective.” — Part (a), verbatim. Browkin
+states it without proof and cites Tate's appendix to Bass–Tate (Lecture Notes in Mathematics
+342, 1973, pp. 429–446), which was not obtained; proof steps 1–3 are written for this packet
+from the statement, using Browkin's Remark 1 (β(C) = k^×) as the first half of step 2.
+
+**Source.** Browkin.2000, §3.2, Lemma 4 (p. 1671): “Lemma 4 ([T], Lemma 1). If a, b ∈ U ∩ OF,
+β(a) = β(b) and |a| + |b| < N v, then a ∈ bU1.” — Part (b) in the imaginary quadratic form,
+verbatim; stated without proof.
+
+**Source.** ZhangXu.2016, §2, Lemma 2.2 (p. 1525): “Lemma 2.2. Suppose that the elements a, b ∈
+OF ∩ Um satisfy the conditions a ≡ b (mod Pm+1) and N(a − b) < N²(Pm+1). Then a/b ∈ U′1.” —
+Part (b) for a general number field, verbatim (Zhang–Xu index the place as v_{m+1}); they cite
+Tate's letter to Iwasawa for the proof, which step 4 writes out.
+
+**Source.** Browkin.2000, §2, Notation (p. 1668): “Therefore if we prove, for some m and all j
+≥ m, that ∂vj is an isomorphism, then ker ∂ ⊂ K2^{S_{m−1}}(F).” — Part (c), verbatim.
+
+### `gaussian-tame-kernel-vanishes` — K₂ of the Gaussian integers vanishes, by Tate's method ★
+
+*theorem* · planet **K₂ of the Gaussian integers vanishes**
+
+K₂(ℤ[i]) = 0. More precisely, for F = ℚ(i) with its places ordered by norm, the graded residue
+∂_{v_m} : K₂^{S_m}(F)/K₂^{S_{m−1}}(F) → k(v_m)^× is bijective for every m ≥ 1, and K₂^{S_0}(F)
+is generated by {i, i}, which is trivial; so the tame kernel, which is K₂(ℤ[i])
+(K2SymbolsBrauer T.5/tame-kernel-sequence), vanishes. At a place of norm at least 5 Tate's
+criterion applies with C = G = the non-zero Gaussian integers c with 2N(c) ≤ N v, and W = {i}
+together with generators of the earlier primes; at the place 1 + i of norm 2 it applies with W
+= {i} and C = G = {1}. This is the span obligation of the Gaussian certificate of
+N.8/gaussian-and-imaginary-quadratic: the empty presentation generates.
+
+**Hypotheses.**
+
+- F = ℚ(i), 𝓞_F = ℤ[i], a Euclidean domain (mathlib:GaussianInt.norm_mod_lt) and so a principal
+  ideal domain, with unit group ⟨i⟩ of order 4; N(x) = |x|² = x·x̄.
+- The places are the Gaussian primes up to units, of norms 2 (the prime 1 + i), p for p ≡ 1 mod
+  4 (two places) and p² for p ≡ 3 mod 4; every place other than 1 + i has norm at least 5.
+- The vanishing is unconditional and uses no zeta value.
+
+**Construction and proof.**
+
+1. Small representatives. For π ≠ 0 every residue class mod π contains an r with 2N(r) ≤ N(π):
+   round x/π to the nearest Gaussian integer, with error at most 1/2 in each coordinate. This
+   is the intermediate bound normSq ≤ normSq(1/2 + i/2) = 1/2 in the proof of
+   mathlib:GaussianInt.normSq_div_sub_div_lt_one, whose stated conclusion is only < 1; the
+   suggested file states it as gaussian_two_mul_norm_mod_le.
+1. Places of norm at least 5. Let v = v_m = (π), U = U_{m−1} = ⟨i⟩ × ∏_{j<m} π_j^ℤ. Put C = G =
+   {c ∈ ℤ[i] : c ≠ 0, 2N(c) ≤ N v} and W = {i, π₁, …, π_{m−1}}, which generates U. Each c ∈ C
+   has N(c) < N v, so its prime factors precede v and C ⊆ U ∩ ℤ[i]; and β(C) = k(v)^× by step
+   1.
+1. Check (1)–(3) of N.8/tate-criterion with its part (b) in the form |a| + |b| < N v. (3): 1 ∈
+   C, and for c ∈ C ∩ ker β, |c| + 1 ≤ √(N v/2) + 1 < N v. (2): for c, c′ ∈ C choose c″ ∈ C
+   with β(c″) = β(cc′); then |cc′| + |c″| ≤ N v/2 + √(N v/2) < N v because N v > 2. (1): for w
+   ∈ W choose c ∈ C with β(c) = β(w); then |c| + |w| ≤ (1 + 1/√2)·√(N v) < N v because N v ≥ 5
+   > (1 + 1/√2)² ≈ 2.91. So ∂_v is bijective.
+1. The place 1 + i. Here N v = 2, U = ⟨i⟩ and k(v)^× = 1. Take W = {i} and C = G = {1}: i = 1 +
+   (1 + i)·i lies in (1 + πU) ∩ U ⊆ U₁, so (1)–(3) hold and ∂_{v₁} is bijective, that is
+   K₂^{S_1}(F) = K₂^{S_0}(F). Directly: the Steinberg identity {i, 1 − i} = 1, 1 − i = −i(1 +
+   i) and {i, −i} = 1 give {i, 1 + i} = 1.
+1. Step 0. K₂^{S_0}(F) is generated by {i, i}, and {i, i} = {i, −1} = {i, i²} = {i, i}²
+   (K2SymbolsBrauer T.2/symbol-consequences), so {i, i} = 1 and K₂^{S_0}(F) = 1.
+1. By N.8/tate-criterion (c) with m₀ = 0, K₂(ℤ[i]) = K₂^{S_0}(F) = 1.
+
+**Acceptance.**
+
+- {−1, −1} = {i², i²} = {i, i}⁴ = 1 in K₂(ℚ(i)), whereas {−1, −1} is the non-trivial element of
+  K₂(ℤ) (K2SymbolsBrauer T.5/k2-of-the-integers): restriction to ℚ(i) kills it.
+- At v = (2 + i), N v = 5: ℤ[i]/(2 + i) ≅ 𝔽₅ with i ↦ −2, the elements ±1, ±i already map onto
+  𝔽₅^× = {1, 4, 3, 2}, and C = {±1, ±i, ±1 ± i}.
+- The bound N v ≥ 5 in step 3 is used: at the place of norm 2 the inequality |c| + |w| < N v
+  fails for c = w = 1, and that place is treated by the explicit unit identity i = 1 + (1 +
+  i)·i.
+- With this theorem the Gaussian certificate is complete: empty presentation, span by this
+  node, trivial lower bound; no zeta value and no Birch–Tate statement enters.
+
+**Depends on.** **inside this packet** `tate-criterion`, `tate-norm-filtration`; **other roadmaps** `K2SymbolsBrauer:T.2/symbol-consequences`, `K2SymbolsBrauer:T.2/steinberg-identity`, `K2SymbolsBrauer:T.2:symbols/symbol-negative-unit`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`; **libraries** `mathlib:GaussianInt.normSq_div_sub_div_lt_one`, `mathlib:GaussianInt.norm_mod_lt`.
+
+**Source.** Kbook.2013, III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226): “Tate has used
+the same Euclidean algorithm type techniques to show that K2(Z[√−7]) and K2(Z[√−15]) are also
+cyclic of order 2, generated by the symbol {−1, −1}, while K2(R) = 1 for the imaginary
+quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].” — The statement and its attribution to
+Tate, verbatim.
+
+**Source.** Browkin.2000, §1, Introduction (p. 1667): “J. Tate [T] has determined the tame
+kernel of all quadratic imaginary Euclidean fields F and of F = Q(√−15). He proved that all
+mappings ∂v (see notation below) are isomorphisms if the norm of the prime ideal v of the field
+F is sufficiently large. Then he investigated the remaining v’s (with small norms) performing
+necessary computations with symbols.” — The shape of Tate's argument, verbatim. Tate's own
+computation for ℤ[i] (in his appendix to Bass–Tate) was not obtained: the sets C, G and W of
+steps 2–4 and the inequalities are this packet's application of N.8/tate-criterion, written out
+in full.
+
 ### `gaussian-and-imaginary-quadratic` — The Gaussian integers: a vanishing tame kernel and a third K-group of order twenty-four
 
 *application*
@@ -822,8 +1144,8 @@ The first is Tate's computation, recorded by the source together with the other 
 quadratic rings of class number one for which the same vanishing holds; this node owns it as a
 certified example in N.6's format (RT-AREA-ktheory-1/9): the tame kernel K₂(ℤ[i]) — T.5's
 unramified subgroup of K₂(ℚ(i)) — is certified trivial by the empty presentation, whose span
-obligation is the statement that every element of K₂(ℤ[i]) is trivial, proved by Tate's
-Euclidean-algorithm method (recorded gap), the lower bound being trivial. The second follows
+obligation, that every element of K₂(ℤ[i]) is trivial, is N.8/gaussian-tame-kernel-vanishes
+(Tate's method, through N.8/tate-criterion), the lower bound being trivial. The second follows
 from the general structure theorem for the third K-group of a number field: for a totally
 imaginary field with r_2 complex places the group is the direct sum of r_2 copies of the
 integers and a cyclic group of order the invariant w_2; the Gaussian rationals have one complex
@@ -841,9 +1163,11 @@ place and no real place, and their invariant w_2 is twenty-four, so the group is
 
 **Construction and proof.**
 
-1. Certify the tame kernel of the Gaussian integers in N.6's format: no generators, span =
-   Tate's vanishing (gap), trivial lower bound; K₂(ℤ[i]) is the tame kernel by
-   T.5/tame-kernel-sequence. Record the other imaginary quadratic rings the source lists.
+1. Gaussian certificate in N.6's format: no generators and no relations, span by
+   N.8/gaussian-tame-kernel-vanishes, lower bound the trivial group; equivalently the complete
+   kernel argument OrderCertificate.ofIsPresentation with B = A = 0. Identify the tame kernel
+   with K₂(ℤ[i]) through T.5/tame-kernel-sequence, and record the other imaginary quadratic
+   cases in the source.
 1. State the structure theorem for the third K-group of a number field in both cases, totally
    imaginary and with a real place.
 1. Compute the signature of the Gaussian rationals and its invariant w_2.
@@ -859,11 +1183,13 @@ place and no real place, and their invariant w_2 is twenty-four, so the group is
   the difference is the absence of a real place.
 - The third K-group of the Gaussian rationals has torsion of order twenty-four and that of the
   rationals of order forty-eight, and both are instances of the same formula.
-- The vanishing is Tate's computation, owned here as a certificate whose span obligation is the
-  recorded gap; a formalisation may not derive it from the structure theorem, which does not
-  give the tame kernel.
+- The vanishing is Tate's computation, proved in N.8/gaussian-tame-kernel-vanishes by Tate's
+  criterion at every place; a formalisation may not derive it from the structure theorem, which
+  does not give the tame kernel.
+- The certificate is complete: the presented group and the lower-bound group are both trivial,
+  so soundness gives K₂(ℤ[i]) = 0 with no appeal to a zeta value.
 
-**Depends on.** **inside this packet** `k-groups-of-the-integers`, `certified-example-format`, `w-invariant`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K3BlochGroups:V.5`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/unramified-subgroup`.
+**Depends on.** **inside this packet** `gaussian-tame-kernel-vanishes`, `k-groups-of-the-integers`, `certified-example-format`, `w-invariant`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K3BlochGroups:V.5`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/unramified-subgroup`.
 
 **Source.** Kbook.2013, VI.5.3 (Corollary 5.3), printed p. 488 (PDF p. 496): “Corollary 5.3.
 Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F).
@@ -1003,23 +1329,207 @@ the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ⊕ Fp^×.” — The decom
 check, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas
 transcribed.
 
-### `real-quadratic-example-and-birch-tate` — The certified tame kernel of a real quadratic field: ℚ(√5)
+### `tame-kernel-of-q-zeta-five` — The tame kernel of ℚ(ζ₅) is trivial (Zhang–Xu) ★
+
+*theorem* · planet **Trivial tame kernel of ℚ(ζ₅)**
+
+Let E = ℚ(ζ), ζ = ζ₅, with 𝓞_E = ℤ[ζ]. Then K₂(𝓞_E) = 0. Zhang and Xu prove it by Tate's
+method: the graded residue is bijective at every finite place of E, so K₂(𝓞_E) is generated by
+the symbols of the units −ζ and ζξ, ξ = 1 + ζ + ζ², that is by {−1, −1}, {−1, ζ}, {−1, ξ}, {ζ,
+ζ}, {ζ, ξ}, {ξ, ξ}; K₂(𝓞_E) has no element of order 2, so the symbols of order dividing two
+vanish, and {ζ, ξ} = 1 by the Steinberg identity. N.8 uses the theorem only through restriction
+and transfer to the real subfield ℚ(√5) (N.8/real-quadratic-upper-generation), where it
+supplies the odd and the four-torsion part of the upper bound without the Birch–Tate formula.
+
+**Hypotheses.**
+
+- 𝓞_E = ℤ[ζ] is a principal ideal domain (mathlib:IsCyclotomicExtension.Rat.five_pid); [E : ℚ]
+  = 4 (mathlib:IsCyclotomicExtension.finrank); E is totally complex with two complex places.
+- The unit group is ⟨−ζ⟩ × (ζξ)^ℤ (Zhang–Xu, from Dirichlet's unit theorem; the unit rank is 1
+  by mathlib:NumberField.Units.rank).
+- 2 is inert in E (2 has order 4 modulo 5), with residue field 𝔽₁₆; 5 is totally ramified, (5)
+  = (1 − ζ)⁴; 11, 31, 41, 61 and 71 split completely.
+- Zhang–Xu's finite verifications at the places of norm at most 364 were made with GP/Pari;
+  their tables give the data (generators of the primes, the sets C and G, the bounds M₁, M₂ and
+  t) that a formal proof checks.
+
+**Construction and proof.**
+
+1. Generators. Each place v_{m+1} = (α) has a generator with |σ(ξ)| ≤ |σ(α)/α| ≤ |ξ| (Lemma
+   3.1, multiplying by powers of the unit ξ); W_m = {α₁, …, α_m} ∪ {−1, ζ, ξ} generates U_m.
+1. Representatives. Coordinate rounding in the basis 1, ζ, ζ², ζ³ (Lemma 3.2, with the norm
+   formula of Lemma 2.3) gives in every residue class a c with N(c) ≤ (25/16)·N(P_{m+1}) and
+   both archimedean sizes at most |ξ| times those of α_{m+1}; C_m is a set of such
+   representatives containing 1, and condition (3) of N.8/tate-criterion holds by Lemma 2.2,
+   which is part (b) of that node.
+1. Generators of the residue group. G_m consists of elements of small size whose residues
+   generate k(v)^×: from Skalba's generalised Thue theorem when N(P_{m+1}) ≥ (2/π)⁴·|D| ≈ 20.53
+   (D = 125, recorded gap: the theorem was not obtained), and by the explicit lists of Tables 1
+   and 2 otherwise.
+1. Condition (1): Theorem 3.3 for N(P_{m+1}) ≥ 90, from (N(w)^{1/2} + |wσ(c)| + |cσ(w)| +
+   N(c)^{1/2})² ≤ 86.25·N(P_{m+1}) and Lemma 2.2; Theorem 3.4 for the places of norm below 90
+   (norms 5, 11, 16, 31, 41, 61, 71, 81), from explicit generators and a machine check.
+1. Condition (2): Theorem 3.5 for N(P_m) > 364 by the analogous estimate (3.4); Theorem 3.6 for
+   the places of norm at most 364 by the explicit data of Tables 1 and 2, machine-checked.
+1. By N.8/tate-criterion (a) at every place and (c) with m₀ = 0, K₂(𝓞_E) = K₂^{S_0}(E),
+   generated by the six symbols of −1, ζ and ξ; in particular K₂(𝓞_E) is finitely generated.
+1. No element of order 2. Tate's Theorem (6.2) with l = 2 and S = {(2)} ∪ {the two complex
+   places} (MotivicEtaleKTheory M.3): Pic(𝓞_{E,S}) = 0, a localisation of the principal ideal
+   domain ℤ[ζ], and (∐_{v∈S−S_c} μ₂)₀ = 0, as only one place of S is not complex; so
+   K₂(𝓞_{E,S})/2 = 0. The relative sequence 0 → K₂(𝓞_E) → K₂(𝓞_{E,S}) → 𝔽₁₆^× → 0
+   (K2SymbolsBrauer T.5/relative-s-integer-sequence) has cokernel of odd order 15, so K₂(𝓞_E)/2
+   = 0, and a finitely generated abelian group A with A = 2A is finite of odd order. Zhang–Xu
+   quote this as the 2-rank formula r₁ + g₂ − 1 + rank₂ Cl(𝓞_E[1/2]) = 0 + 1 − 1 + 0 = 0, after
+   Browkin.
+1. Hence {−1, −1}, {−1, ζ} = {ζ, ζ} and {−1, ξ} = {ξ, ξ}, each of order dividing 2
+   (K2SymbolsBrauer T.2/symbol-consequences), vanish, and {ζ, ξ} = {ζ, 1 − ζ}·{ζ, ξ} = {ζ, 1 −
+   ζ³} = {ζ⁶, 1 − ζ³} = {ζ³, 1 − ζ³}² = 1 (K2SymbolsBrauer T.2/steinberg-identity). So K₂(𝓞_E)
+   = 0.
+
+**Acceptance.**
+
+- The unit symbols reduce to six, and all six vanish: K₂(ℤ[ζ₅]) = 0.
+- The 2-rank formula gives 0 + 1 − 1 + 0 = 0 for ℚ(ζ₅) (no real place, one prime above 2, class
+  number one) and 2 + 1 − 1 + 0 = 2 for ℚ(√5); the second agrees with the two sign symbols of
+  N.8/real-quadratic-example-and-birch-tate.
+- The proof uses no zeta value and no Birch–Tate or Lichtenbaum statement: Browkin had
+  conjectured the result assuming Lichtenbaum's conjecture, and Zhang–Xu prove it without that
+  assumption.
+- The machine-checked cases are finite: Theorems 3.4 and 3.6 concern the places of norm at most
+  364, and a formalisation reproduces them from the data printed in the paper.
+
+**Depends on.** **inside this packet** `tate-criterion`, `tate-norm-filtration`; **other roadmaps** `MotivicEtaleKTheory:M.3`, `K2SymbolsBrauer:T.5/relative-s-integer-sequence`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.2/steinberg-identity`, `K2SymbolsBrauer:T.2/symbol-consequences`; **libraries** `mathlib:IsCyclotomicExtension.Rat.five_pid`, `mathlib:IsCyclotomicExtension.finrank`, `mathlib:NumberField.Units.rank`.
+
+**Source.** ZhangXu.2016, §3, Theorem 3.7 (p. 1536): “Theorem 3.7. For the cyclotomic field F =
+Q(ζ), the tame kernel K2OF is trivial. Proof. By Lemma 2.1, Theorem 3.3, 3.4, 3.5 and 3.6, K2OF
+is generated by {x, y} where x, y ∈ O*F. This implies that K2OF is generated by {−1, −1}, {−1,
+ζ}, {−1, ξ}, {ζ, ζ}, {ζ, ξ}, {ξ, ξ}.” — The theorem and the reduction to unit symbols, verbatim
+from the publisher's text layer.
+
+**Source.** ZhangXu.2016, §3, proof of Theorem 3.7 (p. 1537): “It is well known that Cl(Z[ζ]) =
+1 and that there is only one prime in Z[ζ] lying over 2. So this formula in our case takes the
+form 2-rankK2OF = 0 + 1 − 1 + 0 = 0. So in K2OF there is no element of order 2.” — The 2-rank
+step, verbatim; proof step 7 derives the formula's value from Tate's Theorem (6.2).
+
+**Source.** ZhangXu.2016, §3.4, Theorem 3.3 (p. 1529): “Theorem 3.3. If N(Pm+1) ≥ 90, then Wm ⊆
+CmU1.” — Condition (1) for the large places, verbatim; Theorems 3.4–3.6 are summarised in proof
+steps 4–5.
+
+**Source.** Tate.1976, §6, Theorem (6.2), printed p. 270 (PDF p. 15): “Let S be a finite
+non-empty set of places of F containing the archimedean ones and the ones above l in the number
+field case. Let Sc denote the set of complex places of F. Suppose μl ⊂ F. Then there is a
+natural exact sequence 0 → μl ⊗ Pic OS → K2OS/lK2OS → (∐_{v∈S−Sc} μl)0 → 0” — Transcribed from
+the page image; the subscript 0 denotes the elements with product 1.
+
+### `real-quadratic-upper-generation` — {−1, −1} and {−1, ε} generate K₂ of the integers of ℚ(√5) ★
+
+*theorem* · planet **Generators of the tame kernel of ℚ(√5)**
+
+Let F = ℚ(√5), 𝓞_F = ℤ[ε], ε = (1 + √5)/2. Every element of K₂(𝓞_F) lies in the subgroup
+generated by {−1, −1} and {−1, ε}; in particular 2·K₂(𝓞_F) = 0 and #K₂(𝓞_F) ≤ 4. Two inputs
+give this. First, K₂(𝓞_F) is killed by 2: restriction to E = ℚ(ζ₅) ⊇ F lands in K₂(𝓞_E) = 0
+(N.8/tame-kernel-of-q-zeta-five), and transfer after restriction is multiplication by [E : F] =
+2. Second, an element of order dividing 2 is a symbol {−1, b} by Tate's Theorem (6.1), and
+unramifiedness, class number one and the unit group force b ∈ ±ε^ℤ·2^ℤ·(F^×)², so {−1, b} is a
+product of {−1, −1} and {−1, ε}. This is the span obligation of the certificate of
+N.8/real-quadratic-example-and-birch-tate. Neither input uses a zeta value or the Birch–Tate
+formula.
+
+**Hypotheses.**
+
+- F = ℚ(√5) ⊆ E = ℚ(ζ₅), since √5 = ζ − ζ² − ζ³ + ζ⁴ (the quadratic Gauss sum), and [E : F] =
+  2, as [E : ℚ] = 4 (mathlib:IsCyclotomicExtension.finrank).
+- 𝓞_F = ℤ[ε] is a principal ideal domain
+  (mathlib:RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt: |d_F| = 5 < 16), its unit group
+  is {±ε^n : n ∈ ℤ}, and 2 is inert, with residue field 𝔽₄.
+- K₂(𝓞_F) is identified with the unramified subgroup of K₂(F) by K2SymbolsBrauer
+  T.5/tame-kernel-sequence, and likewise for E.
+
+**Construction and proof.**
+
+1. Arithmetic of F. Class number one from
+   mathlib:RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt with n = 2 and r₂ = 0: the bound
+   is (2·2²/2!)² = 16 > 5 = |d_F|. The prime 2 is inert because X² − X − 1, the minimal
+   polynomial of ε, has no root modulo 2. The units are ±ε^n: the unit rank is 1
+   (mathlib:NumberField.Units.rank), and a unit (a + b√5)/2 > 1 has conjugate of absolute value
+   < 1, so a = u + ū > 0 and b√5 = u − ū > 0, whence a, b ≥ 1 and u ≥ ε; so ε is the least unit
+   greater than 1.
+1. Killed by two. E = F(ζ) has degree 2 over F. For x ∈ K₂(𝓞_F) ⊆ K₂(F), res_{E/F}(x) is
+   unramified at every finite place of E (T.5/unramified-subgroup, restriction), so it lies in
+   K₂(𝓞_E) = 0 (N.8/tame-kernel-of-q-zeta-five). By K2SymbolsBrauer
+   T.4/restriction-transfer-degree, applied to K₂ = K^M_2 through T.2/matsumoto, 2x =
+   N_{E/F}(res_{E/F}(x)) = 0.
+1. Two-torsion is a symbol. By Tate's Theorem (6.1) with l = 2 and z = −1 (MotivicEtaleKTheory
+   M.3), x = {−1, b} for some b ∈ F^×.
+1. Unramified condition. For a prime 𝔭 ∤ 2, ∂_𝔭{−1, b} = (−1)^{v_𝔭(b)} in k(𝔭)^×
+   (K2SymbolsBrauer T.3/tame-symbol), and −1 ≠ 1 there, so v_𝔭(b) is even. At the inert prime
+   (2) the residue field 𝔽₄ has −1 = 1, and there is no condition.
+1. Class number one. b𝓞_F = (2)^k·𝔞² with 𝔞 = ∏_{𝔭∤2} 𝔭^{v_𝔭(b)/2} = (c); then u = b/(2^k c²)
+   has valuation 0 everywhere, so u ∈ 𝓞_F^× = {±ε^n}.
+1. Reduction. {−1, c²} = {−1, c}² = {1, c} = 1; {−1, 2} = {−1, 1 − (−1)} = 1 by the Steinberg
+   identity (K2SymbolsBrauer T.2/steinberg-identity); {−1, ±ε^n} = {−1, ±1}·{−1, ε}^n. Hence x
+   ∈ ⟨{−1, −1}, {−1, ε}⟩.
+1. The subgroup is generated by two elements of order dividing 2, so it has at most 4 elements.
+   This discharges the span field of ArithmeticKTheory N.6/order-certificate for the
+   presentation with generators {−1, −1}, {−1, ε} and relations 2g = 0; the independent lower
+   bound is the pair of sign symbols of N.8/real-quadratic-example-and-birch-tate.
+
+**Acceptance.**
+
+- Cross-check by Tate's Theorem (6.2) with l = 2 and S = {the two real places, (2)}:
+  K₂(𝓞_F[1/2])/2 ≅ (μ₂³)₀ ≅ (ℤ/2)², and the relative sequence with cokernel 𝔽₄^× of order 3
+  gives K₂(𝓞_F)/2 ≅ (ℤ/2)², the 2-rank r₁ + g₂ − 1 + rank₂ Cl(𝓞_F[1/2]) = 2 + 1 − 1 + 0 = 2.
+- Consistency with the source: the K-book lists ℚ(√p), p ≡ 3, 5 mod 8, among the 2-regular
+  fields, whose K₂(𝓞_F) is (ℤ/2)^{r₁} plus a finite group of odd order; for ℚ(√5) the odd part
+  is excluded by step 2.
+- The argument never mentions ζ_F(−1) or w₂(F): the Birch–Tate identity 1/30 = 4/120 of
+  SpecialValuesBirchTate B.3 is a test this certificate passes, not an input.
+- Other candidate b give nothing new: {−1, 5} = {−1, √5}² = 1 and {−1, 2} = 1 in K₂(F).
+- Without step 2 the argument bounds only the 2-torsion subgroup; elements of odd order or of
+  order 4 are excluded by restriction to ℚ(ζ₅) and transfer.
+
+**Depends on.** **inside this packet** `tame-kernel-of-q-zeta-five`; **other roadmaps** `K2SymbolsBrauer:T.4/restriction-transfer-degree`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.2/steinberg-identity`, `MotivicEtaleKTheory:M.3`; **libraries** `mathlib:RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt`, `mathlib:NumberField.Units.rank`, `mathlib:IsCyclotomicExtension.finrank`.
+
+**Source.** Tate.1976, §6, Theorem (6.1), printed p. 270 (PDF p. 15): “(6.1) Theorem. The top
+row of diagram (3.3) is exact, i.e., the image of the map γ in diagram (3.3) is (K2F)l. In
+particular, if F contains a primitive l-th root of unity z, then every element of order l in
+K2F is of the form {z, a} for some a ∈ F*.” — The two-torsion step with l = 2 and z = −1.
+Transcribed from the page image.
+
+**Source.** Kbook.2013, III.6.8 (Theorem 6.8), printed p. 239 (PDF p. 247): “Theorem 6.8. If F
+contains a primitive nth root of unity ζ, then every element of K2(F) of exponent n has the
+form {ζ, x} for some x ∈ F×.” — The same statement for every field, proved there through
+Hilbert's Theorem 90 for K₂; this packet imports the number-field case from MotivicEtaleKTheory
+M.3, Tate's arithmetic route. Prose verbatim from the text layer.
+
+**Source.** Kbook.2013, VI.9.9.2 (Example 9.9.2), printed p. 523 (PDF p. 531): “In this case,
+we see from 9.9 that K8k+2(OF) is the sum of (Z/2)^{r1} and a finite odd group” — The
+two-primary part for 2-regular fields; the example lists ℚ(√p) with p ≡ 3, 5 mod 8 among them.
+Used only as a consistency check (acceptance 2).
+
+**Source.** ZhangXu.2016, title and abstract (p. 1523): “In this paper, we prove that the tame
+kernel of the cyclotomic field Q(ζ5) is trivial, which confirms a conjecture of Browkin.” — The
+input of the restriction–transfer step. The deduction for the real subfield (step 2) is not in
+the paper; it is written for this packet from T.4/restriction-transfer-degree.
+
+### `real-quadratic-example-and-birch-tate` — An independent tame-kernel certificate for ℚ(√5), exported to SpecialValuesBirchTate B.3
 
 *application*
 
 The required real quadratic example is F = ℚ(√5), with 𝓞_F = ℤ[(1 + √5)/2] and fundamental unit
-ε = (1 + √5)/2 of norm −1. Its arithmetic data are certified (degree 2, signature (2, 0), class
-number 1, unit rank 1 with fundamental unit ε), and its tame kernel is certified in N.6's
-format as K₂(𝓞_F) ≅ (ℤ/2)², generated by {−1, −1} and {−1, ε}. Lower bound: the sign symbols at
-the two real places, σ₁(√5) > 0 and σ₂(√5) < 0, give a homomorphism K₂(𝓞_F) → K₂(F) → (ℤˣ)²
-sending {−1, −1} to (−1, −1) and {−1, ε} to (1, −1) (σ₁(ε) > 0 > σ₂(ε)), hence onto a group of
-order 4; both symbols are symbols of units and so lie in the tame kernel. Upper bound: a finite
+ε = (1 + √5)/2 of norm −1. The arithmetic data to certify are degree 2, signature (2, 0), class
+number 1 and unit rank 1 with fundamental unit ε. The tame-kernel certificate in N.6's format
+is K₂(𝓞_F) ≅ (ℤ/2)², generated by {−1, −1} and {−1, ε}. Lower bound: the sign symbols at the
+two real places, σ₁(√5) > 0 and σ₂(√5) < 0, give a homomorphism K₂(𝓞_F) → K₂(F) → (ℤˣ)² sending
+{−1, −1} to (−1, −1) and {−1, ε} to (1, −1) (σ₁(ε) > 0 > σ₂(ε)), hence onto a group of order 4;
+both symbols are symbols of units and so lie in the tame kernel. Upper bound: the finite
 presentation with generators {−1, −1}, {−1, ε} and relations 2g = 0 for each, whose span
-obligation — that the two symbols generate K₂(𝓞_F) — is to be discharged by an explicit
-generation argument (recorded gap). The certificate uses neither the Birch–Tate formula nor a
-zeta value: N.8 owns it and exports it to SpecialValuesBirchTate B.3, which combines it with
-its own computations of ζ_F(−1) = 1/30 and w₂(F) = 120 for the Birch–Tate check 1/30 = 4/120
-(RT-AREA-ktheory-1/11); that check is B.3's and must not supply either bound here.
+obligation — that the two symbols generate K₂(𝓞_F) — is N.8/real-quadratic-upper-generation
+(restriction to ℚ(ζ₅) and transfer, with Zhang–Xu's vanishing there, and Tate's description of
+the two-torsion). The certificate uses neither the Birch–Tate formula nor a zeta value: N.8
+owns it and exports it to SpecialValuesBirchTate B.3, which combines it with its own
+computations of ζ_F(−1) = 1/30 and w₂(F) = 120 for the Birch–Tate check 1/30 = 4/120
+(RT-AREA-ktheory-1/11); that check is B.3's and supplies neither bound here.
 
 **Hypotheses.**
 
@@ -1028,9 +1538,11 @@ its own computations of ζ_F(−1) = 1/30 and w₂(F) = 120 for the Birch–Tate
 - The format is N.6/order-certificate; the sign symbols are K2SymbolsBrauer
   T.5/real-sign-symbol at the two real embeddings, and the tame kernel is T.5's unramified
   subgroup, identified with K₂(𝓞_F) by T.5/tame-kernel-sequence.
-- The upper bound is the part not in the libraries: it needs a generation theorem for K₂(𝓞_F)
-  (the source cites Browkin and Schinzel's work on K₂ of quadratic fields; not obtained,
-  recorded gap). Until it is discharged the example certifies #K₂(𝓞_F) ≥ 4 only, and says so.
+- The upper bound is N.8/real-quadratic-upper-generation, whose inputs are Zhang–Xu's theorem
+  K₂(ℤ[ζ₅]) = 0 (N.8/tame-kernel-of-q-zeta-five), restriction and transfer (K2SymbolsBrauer
+  T.4/restriction-transfer-degree) and Tate's Theorem (6.1) (MotivicEtaleKTheory M.3). Browkin
+  and Schinzel's paper, which the K-book cites for 2-torsion in K₂ of quadratic fields, is not
+  used.
 - Although the Birch–Tate formula is a theorem for this abelian field (Wiles, with the
   two-primary part; SpecialValuesBirchTate), reading #K₂(𝓞_F) = 4 off it would be a corollary,
   labelled as such, and not a certificate.
@@ -1043,23 +1555,28 @@ its own computations of ζ_F(−1) = 1/30 and w₂(F) = 120 for the Birch–Tate
 1. Lower bound: compute the two sign symbols of {−1, −1} and {−1, ε} (T.5/real-sign-symbol;
    K-book Ex. III.6.4 for the surjection K₂(F) → {±1}^{r_1}) and conclude that K₂(𝓞_F) → (ℤˣ)²
    is onto.
-1. Upper bound: present K₂(𝓞_F) by the two generators with relations 2g = 0 and discharge the
-   span obligation by an explicit generation argument (gap).
+1. Upper bound: present K₂(𝓞_F) by the two generators with relations 2g = 0; the span
+   obligation is N.8/real-quadratic-upper-generation.
 1. Fill N.6/order-certificate: the presented group (ℤ/2)² and the lower-bound group (ℤˣ)² have
-   the same order 4, so soundness gives K₂(𝓞_F) ≅ (ℤ/2)².
-1. Export: SpecialValuesBirchTate B.3 imports the certificate for its independent Birch–Tate
-   check; the ζ-value and w₂(F) are B.3's.
+   order 4, so certificate soundness gives K₂(𝓞_F) ≅ (ℤ/2)², with the two symbols as a basis.
+1. Export the certificate to SpecialValuesBirchTate B.3 as the independent input of its
+   Birch–Tate check; its ζ-value and w₂(F) computations are B.3's and fill neither bound.
 
 **Acceptance.**
 
 - The two sign symbols separate {−1, −1} and {−1, ε}: their images (−1, −1) and (1, −1)
   generate (ℤˣ)².
-- Without the generation argument the example reports #K₂(𝓞_F) ≥ 4, not an order.
+- Without the generation argument the example would report #K₂(𝓞_F) ≥ 4 only; with
+  N.8/real-quadratic-upper-generation it reports the order 4 and the isomorphism K₂(𝓞_F) ≅
+  (ℤ/2)².
 - The Birch–Tate identity 1/30 = (+1)·4/120 is SpecialValuesBirchTate B.3's check, which uses
   this certificate as its independent input; an order read off from the formula would be tagged
   as a corollary and could not fill either bound.
+- Every number in the example is tagged: degree, signature, class number and units are computed
+  (Mathlib's Minkowski criterion and the unit argument of N.8/real-quadratic-upper-generation),
+  the order 4 is computed from two independent bounds, and none is deduced from Birch–Tate.
 
-**Depends on.** **inside this packet** `certified-example-format`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K2SymbolsBrauer:T.5/real-sign-symbol`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`.
+**Depends on.** **inside this packet** `real-quadratic-upper-generation`, `certified-example-format`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K2SymbolsBrauer:T.5/real-sign-symbol`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`.
 
 **Source.** Kbook.2013, Ex. III.6.4 (PDF p. 251; book p. 243): “If F is a number ﬁeld with r1
 distinct embeddings F֒ →R, show that the r1 symbols ( , )∞on F deﬁne a surjection K2(F)
@@ -1083,7 +1600,10 @@ may therefore not supply its bounds.
   (T.5/k2-of-the-integers) and K₂(ℚ) ≅ K₂(ℤ) ⊕ ⊕_p 𝔽_p^×, infinite (T.5/k2-of-the-rationals),
   which N.8 imports and does not recompute (RT-AREA-ktheory-1/9). The certificate format is no
   longer requested from T.5: it is ArithmeticKTheory N.6/order-certificate, and T.5 drops its
-  competing certificate paragraph.
+  competing certificate paragraph. N.8's two generation proofs also use
+  T.5/relative-s-integer-sequence for ℚ(ζ₅), the restriction clause of T.5/unramified-subgroup
+  (unramifiedSubgroup_map_le) for ℚ(ζ₅)/ℚ(√5), and, from the same packet,
+  T.4/restriction-transfer-degree and T.3/tame-symbol with its convention ∂_v{u, t} = ū.
 - `K2SymbolsBrauer:T.7` — The twisted coefficient modules and the norm residue symbol. The
   invariant w_i is defined with the twisted modules. Tate's comparison K₂/m ≅ H² is no longer
   requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's
@@ -1094,12 +1614,26 @@ may therefore not supply its bounds.
 - `MotivicEtaleKTheory:M.3` — The Galois symbol and Tate's comparison K₂/m ≅ H²(μ_m^{⊗2}) for
   local and global fields and for rings of S-integers with the primes above m inverted, M.3
   being its single owner (RT-AREA-ktheory-1/8): the first of the three inputs of N.7's
-  tame-kernel vanishing theorem.
+  tame-kernel vanishing theorem. N.8 also needs two consequences that Tate proves in §6 of
+  'Relations between K₂ and Galois cohomology' (Invent. Math. 36, 1976): Theorem (6.1), that
+  for a global field F containing a primitive l-th root of unity z every element of order l of
+  K₂F is {z, a} (used with l = 2, z = −1 for ℚ(√5)); and Theorem (6.2), the exact sequence 0 →
+  μ_l ⊗ Pic O_S → K₂O_S/l → (∐_{v∈S−S_c} μ_l)_0 → 0 for S containing the archimedean places and
+  those above l, with μ_l ⊆ F (used with l = 2 for ℚ(ζ₅) and ℚ(√5)). The general-field form of
+  (6.1), K-book III.6.8 through Hilbert's Theorem 90 for K₂, has no owner
+  (KTheoryFiniteLocalFields records the proposal of a K2SymbolsBrauer part for it); N.8 needs
+  only the number-field case. Needed by:
+  `ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime`,
+  `ArithmeticKTheory:N.8/tame-kernel-of-q-zeta-five`,
+  `ArithmeticKTheory:N.8/real-quadratic-upper-generation`.
 - `ArithmeticKTheory:N.5` — The odd K-groups with their Harris-Segal summands, which is where
   the torsion consequences of N.7 live.
 - `K2SymbolsBrauer:T.2` — Matsumoto's presentation of the second K-group of a field by
   Steinberg symbols, the skew-symmetry and the relation between the symbol of an element with
-  itself and with minus one, all used by the computations N.8 imports.
+  itself and with minus one, all used by the computations N.8 imports. Tate's method in N.8
+  (N.8/tate-norm-filtration, N.8/gaussian-tame-kernel-vanishes) uses the Steinberg identity
+  (T.2/steinberg-identity), {a, a} = {a, −1} (T.2/symbol-consequences) and {r, −r} = 1
+  (T.2:symbols/symbol-negative-unit).
 - `KTheoryLowDegrees:U.6` — K₁(ℤ) = {±1} by the determinant (SK₁(ℤ) = 0), and K₁(ℤ[1/p]) =
   ℤ[1/p]^× ≅ ℤ/2 ⊕ ℤ with the p-adic valuation as boundary, which N.8 imports for the first
   K-groups of the integers and the degree-one row of the ℤ[1/p] sequence (RT-AREA-ktheory-1/9).
@@ -1124,9 +1658,7 @@ may therefore not supply its bounds.
 
 **The Herbrand-Ribet theorem is quoted from a remark.** The eigenspace statement, that l divides the k-th Bernoulli number exactly when the eigenspace of index l-2k of the modulo-l class group is non-zero, appears in the K-book as a remark with a reference to the original papers of Herbrand and of Ribet. Neither was obtained. The node states the theorem in the form the remark gives and records the numerical statement that among irregular primes below four thousand at most three values of k occur. NEXT SOURCE ACTION: obtain Ribet's 1976 Inventiones paper and Herbrand's original, or Washington chapter 6, and decompose the proof; Ribet's half uses modular forms and is a substantial piece of work in its own right.
 
-**The tame-kernel presentations of quadratic fields are in a paper that was not obtained.** The required real quadratic example is ℚ(√5) (the field SpecialValuesBirchTate B.3 checks), and its tame kernel is certified in N.6's format: the lower bound #K₂(𝓞_F) ≥ 4 comes from the two real sign symbols and is complete; the upper bound needs a generation theorem, that {−1, −1} and {−1, ε} generate K₂(𝓞_F). The K-book cites Browkin and Schinzel's 1982 paper in Crelle on the second K-groups of quadratic number fields for such computations; it was not obtained. The Birch–Tate formula may not be used to supply this bound. NEXT SOURCE ACTION: obtain Browkin–Schinzel, or a later rigorous computation of tame kernels of real quadratic fields, and decompose the generation argument for ℚ(√5).
-
-**The vanishing of the tame kernel of the Gaussian integers is cited, not proved.** The K-book records that Tate computed the second K-groups of the imaginary quadratic rings of small discriminant, obtaining the trivial group for the Gaussian integers, and attributes the method to the same Euclidean-algorithm techniques that Milnor uses for the integers. No proof is given there and none is given here. NEXT SOURCE ACTION: obtain Tate's computation, or Milnor's section 10 for the method, and decompose the argument for at least the Gaussian case; the argument is elementary and is a good candidate for an early formalisation.
+**Skalba's generalised Thue theorem, an input of Zhang–Xu's proof, was not obtained.** Zhang and Xu construct the sets G_m of small elements whose residues generate k(v)^× at the places of ℚ(ζ₅) of norm at least (2/π)⁴·125 ≈ 20.53 from M. Skalba's generalisation of Thue's theorem (J. Number Theory 46 (1994), 303–322), and their Theorem 3.5, condition (2) of Tate's criterion for the places of norm above 364, rests on it. The publisher's page refused access (HTTP 403) on 6 October 2026, and Browkin's Mathematics of Computation paper states the theorem only for imaginary quadratic fields. Everything else in N.8/tame-kernel-of-q-zeta-five is decomposed from the paper, which also prints the data of its machine-checked cases. NEXT SOURCE ACTION: obtain Skalba's paper, state the generalised Thue theorem for ℚ(ζ₅) with its constant, and decompose the construction of G_m (the proof of Skalba's Lemma 1.2 that Zhang–Xu cite).
 
 ## Structural proposals
 
@@ -1141,6 +1673,10 @@ may therefore not supply its bounds.
 ### N.8's real-quadratic certificate feeds SpecialValuesBirchTate B.3
 
 *kind: `ownership`.* RT-AREA-ktheory-1/11 (confirmed): N.8 and B.3 both planned the certified real-quadratic tame kernel, and no edge made N.8 available to B.3, while N.8 imported B.3. N.8/real-quadratic-example-and-birch-tate now owns the certificate for ℚ(√5) (with N.6's engine) and no longer imports B.3; N.8/birch-tate-status, which imported B.3, is deleted. Proposal: add the atlas edge ArithmeticKTheory:N.8 → SpecialValuesBirchTate:B.3 (acyclic once N.8's imports of B.3 are gone, checked against the current packets) and let B.3/sqrt-five-birch-tate-check import the N.8 node instead of requesting the certificate from K2SymbolsBrauer T.5. B.3 keeps the w₂ computation, the L-function factorisation and the check, and must not supply the order bound.
+
+### Tate's method is planned in N.8, its only consumer
+
+*kind: `ownership`.* No roadmap plans Tate's method for computing tame kernels: the filtration of K₂(F) by symbols of S_m-units, the graded tame symbol and Tate's criterion (Tate's Proposition 1 and Lemma 1, in Browkin's and Zhang–Xu's statements). A search of the packets for Tate's method, Bass–Tate and the filtration K₂^{S_m} finds only other Bass–Tate results — the Milnor ring of a global field (K2SymbolsBrauer T.2:symbols) and the exact sequence for a rational function field (T.4/bass-tate-sequence) — which are different statements. N.8 needs the method for the span proofs of its two certificates and plans it there (N.8/tate-norm-filtration, N.8/tate-criterion), in the generality of an arbitrary number field. Proposal: if another layer comes to need explicit tame kernels (for instance further fields for SpecialValuesBirchTate, or the imaginary quadratic tables of Browkin and of Belabas–Gangl), move the two nodes to ArithmeticKTheory N.6, beside the certificate engine whose span field they discharge, and let N.8 import them; their ids and statements need no change.
 
 ## Suggested signatures and checks
 
@@ -1157,22 +1693,22 @@ defined. The global conjecture at all odd primes, not a condition at one
 prime, is equivalent to joint vanishing of K_{4i}(ℤ) for i≥2. K₄(ℤ)=0 stays
 unconditional.
 
-The N.8 suggested comments, N.6 OrderCertificate ownership, all six N.8 nodes,
-the four source/certificate gaps and the independent needs_changes review
-are preserved. This signature fix does not certify the incomplete Gaussian
-or real-quadratic examples.
+FIX-RT-BP-ArithmeticKTheory--N.7~2 adds to the N.8 section genuine signatures for the
+arithmetic inputs of the two generation proofs, which the pinned Mathlib can state: Tate's
+group U₁ (`tateUnitSubgroup`, on Mathlib's S-units `Set.unit`); the factor one half of Gaussian
+division (`gaussian_two_mul_norm_mod_le`), the set of small residues (`gaussianResidueReps`)
+with the three inequalities of Tate's criterion and the unit identity i = 1 + (1 + i)·i at the
+place of norm 2; for ℚ(ζ₅) the class number (Mathlib's `IsCyclotomicExtension.Rat.five_pid`),
+the degree, the inertness of 2 and the Gauss sum √5 = ζ − ζ² − ζ³ + ζ⁴; and for a quadratic
+field containing √5 the class number, the inertness of 2, the units ±εⁿ, the two real places
+and Minkowski's numerical bound. The K₂ statements of the new nodes (the filtration with its
+API and tests, Tate's criterion, the three vanishing or generation theorems) are `not stated
+here` comments naming their suppliers, since neither library has K₂.
 
-The packet is checked by the repository's actual `scripts/check_blueprint.py`
-at the immutable audit tree, with the shared pinned declaration index. The
-result is **0 errors, 0 warnings**. Regression checks preserve all six N.8
-nodes and the N.8 suggested section byte-for-byte, as well as the gaps and review.
-The actual assembler, comparing hypothetical promotion of the current research
-packet before and after this fix, retains every old dependency pair and adds
-only L3 → N.7 (8624 → 8625 pairs), with no return path or skipped route.
-These are checks of the proposed dependency, not promotion or acceptance.
-The
-suggested Lean file is **not compiled**: the available Tau Ceti checkout is
-at another commit and has no existing pinned library build. No Lake setup,
-cache download, library build or language server is run. Every
-implementationStatus remains unchecked. Independent REV-FIX review is
-required before these changes may go live.
+The packet is checked by the repository's `scripts/check_blueprint.py` with the shared pinned
+declaration index: **0 errors, 0 warnings** (20 nodes, 44 baseline declarations, 34 API items,
+25 unit tests, 10 planets, 3 gaps, 10 requests). The suggested file imports Mathlib only and
+was elaborated with `lake env lean` in an existing build at the Mathlib pin on 6 October 2026:
+its only warnings are the 36 placeholder proofs, one for each stated declaration that is left
+unproved. Every implementationStatus remains unchecked. The independent review REV-FIX-RT-BP-ArithmeticKTheory--N.7~2 decides whether these
+changes go live.
