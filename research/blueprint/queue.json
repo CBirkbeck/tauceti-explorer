@@ -27227,10 +27227,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #957"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.1",
