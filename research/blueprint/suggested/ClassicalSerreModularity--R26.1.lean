@@ -1,4 +1,5 @@
 import Mathlib.Data.Nat.MaxPrimeFac
+import Mathlib.Data.Int.ModEq
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.GroupTheory.OrderOfElement
 import Mathlib.Algebra.Group.End
@@ -9,8 +10,9 @@ import Mathlib.Algebra.Order.Floor.Semiring
 /-!
 # Suggested Lean forms: ClassicalSerreModularity, part R26.1
 
-This file is not the roadmap and is not exhaustive. The reader document
-`ClassicalSerreModularity--R26.1.md` is definitive. These signatures suggest names and
+This file is not exhaustive. The independently reviewed packet supplies the mathematical
+statements; the reader document awaits the synchronization recorded in the review.
+These signatures suggest names and
 interfaces; every theorem and example is deliberately unproved. No implementation is claimed.
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti:
 f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib declarations are imported.
@@ -88,7 +90,27 @@ theorem conjugate (B : Matrix.GeneralLinearGroup (Fin 2) K) :
       IsGoodDihedralPrime ρ ι p N q := by
   sorry
 
+theorem locallyGood (h : IsGoodDihedralPrime ρ ι p N q) :
+    IsLocallyGoodDihedral ρ ι p N := by
+  sorry
+
 end IsGoodDihedralPrime
+
+namespace IsLocallyGoodDihedral
+
+variable {ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K}
+  {ι : ∀ q, I q →* G} {p N : ℕ}
+
+theorem exists_good (h : IsLocallyGoodDihedral ρ ι p N) :
+    ∃ q, IsGoodDihedralPrime ρ ι p N q := by
+  sorry
+
+theorem conjugate (B : Matrix.GeneralLinearGroup (Fin 2) K) :
+    IsLocallyGoodDihedral ((MulAut.conj B⁻¹).toMonoidHom.comp ρ) ι p N ↔
+      IsLocallyGoodDihedral ρ ι p N := by
+  sorry
+
+end IsLocallyGoodDihedral
 
 -- goodDihedral_congruence_fails
 example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) (inertia : ∀ q, I q →* G)
@@ -113,6 +135,25 @@ example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) (inertia : ∀ q, I q 
     (p N q : ℕ) (B : Matrix.GeneralLinearGroup (Fin 2) K) :
     IsGoodDihedralPrime ((MulAut.conj B⁻¹).toMonoidHom.comp ρ) inertia p N q ↔
       IsGoodDihedralPrime ρ inertia p N q := by
+  sorry
+
+-- locallyGood_single_witness: one witness suffices even though the candidate 13 fails.
+example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) (inertia : ∀ q, I q →* G)
+    (p N q : ℕ) (h : IsGoodDihedralPrime ρ inertia p N q) :
+    IsLocallyGoodDihedral ρ inertia p N ∧ ¬ IsGoodDihedralPrime ρ inertia p N 13 := by
+  sorry
+
+-- locallyGood_trivial_inertia_fails
+example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) (inertia : ∀ q, I q →* G)
+    (p N : ℕ) (htriv : ∀ q x, ρ (inertia q x) = 1) :
+    ¬ IsLocallyGoodDihedral ρ inertia p N := by
+  sorry
+
+-- locallyGood_basis_change
+example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) (inertia : ∀ q, I q →* G)
+    (p N : ℕ) (B : Matrix.GeneralLinearGroup (Fin 2) K) :
+    IsLocallyGoodDihedral ((MulAut.conj B⁻¹).toMonoidHom.comp ρ) inertia p N ↔
+      IsLocallyGoodDihedral ρ inertia p N := by
   sorry
 
 -- Arithmetic portions of the four HypL/HypW/HypD tests in the omission ledger.
@@ -163,10 +204,27 @@ theorem odd_auxiliary_prime (p : ℕ) (hp : p.Prime) (h31 : 31 ≤ p) :
 
 /-- R26.3: both returned weights lie in the already proved interval. -/
 theorem weight_interval_containment (m P p j : ℚ)
-    (h : (m + 1) * P + m ≤ (2 * m + 1) * p) (hm : 0 ≤ m)
+    (h : (m + 1) * P + m ≤ (2 * m + 1) * p) (hm : 1 ≤ m) (hP : 2 ≤ P)
     (hlo : m * (P - 1) / (2 * m + 1) < j)
     (hhi : j ≤ (m + 1) * (P - 1) / (2 * m + 1)) :
-    j + 2 ≤ p + 1 ∧ P + 1 - j ≤ p + 1 := by
+    (2 ≤ j + 2 ∧ j + 2 ≤ p + 1) ∧ (2 ≤ P + 1 - j ∧ P + 1 - j ≤ p + 1) := by
+  sorry
+
+/-- R26.3: positive integral length gives one representative of every residue class.
+Specialize a=mL to the half-open interval in the weight argument. -/
+theorem half_open_interval_residue (L : ℕ) (hL : 0 < L) (a c : ℤ) :
+    ∃! j : ℤ, a < j ∧ j ≤ a + L ∧ Int.ModEq (L : ℤ) j c := by
+  sorry
+
+/-- R26.2 / E13: the source's commutation and determinant relations give a plus sign. -/
+theorem local_frobenius_quadratic {R : Type*} [CommRing R]
+    (α β γ c ψ : R) (hcomm : α - β = γ * (c - 1)) (hdet : α * β = ψ) :
+    β ^ 2 + β * γ * (c - 1) - ψ = 0 := by
+  sorry
+
+-- E13: an exact counterexample to the printed minus sign.
+example : (2 : ℚ)^2 + 2 * 1 * (2 - 1) - 6 = 0 ∧
+    (2 : ℚ)^2 - 2 * 1 * (2 - 1) - 6 = -4 := by
   sorry
 
 /-- R27.2: dyadic bound; its exponent e is distinct from the fixed conductor count r. -/
@@ -188,6 +246,10 @@ example : 22 % 4 = 14 % 4 ∧ 26 % 4 = 14 % 4 ∧ 20 % 4 = 16 % 4 ∧
   sorry
 -- E2: the printed exponent 16 is inadmissible, while 18 lies in (12,18].
 example : ¬ (6 ∣ 16) ∧ 6 ∣ 18 ∧ 2 * 30 < 18 * 5 ∧ 18 * 5 ≤ 3 * 30 := by
+  sorry
+-- R27.2: the small dyadic case is strict, not equality.
+example : (2 ^ (4 - 1) + 2) * 17 + (2 ^ (4 - 1) - 2) = 176 ∧
+    (2 ^ 4 * 13 : ℕ) = 208 ∧ (176 : ℕ) < 208 := by
   sorry
 example : 257 = 2 ^ 8 + 1 ∧ (263 : ℚ) / 251 ≤ 3 / 2 - 1 / 30 := by
   sorry
