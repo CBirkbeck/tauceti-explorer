@@ -33849,7 +33849,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6488"
   },
   {
    "id": "REV-EllipticRegulators--ER.7",
@@ -35779,8 +35780,9 @@
    ],
    "revisionOf": "BP-HabiroCohomologyFoundations--HQ.8",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6492"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6492",
+   "finishedAt": "2026-10-06T05:40:00Z"
   },
   {
    "priority": 2,
