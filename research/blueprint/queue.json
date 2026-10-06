@@ -24448,10 +24448,11 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #723"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -28788,8 +28789,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraCompactifications--C6",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications--C6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #488"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #488",
+   "finishedAt": "2026-10-06T12:00:52Z"
   },
   {
    "id": "BP-ShimuraData",
@@ -60264,8 +60266,9 @@
     "FIX-RT-AREA-automorphic-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6214"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6214",
+   "finishedAt": "2026-10-06T12:00:56Z"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~2",
