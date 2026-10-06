@@ -108,6 +108,30 @@
       "readSections": [
         "Introduction pp.94–97, especially TheoremA on p.95, which quotes the uniform classical square-index theorem from Euler Systems. The quoted result is distinguished from the proof in that earlier paper; no whole-paper read claim."
       ]
+    },
+    {
+      "id": "skinner",
+      "title": "Multiplicative reduction and the cyclotomic main conjecture for GL₂",
+      "authors": "Christopher Skinner",
+      "edition": "arXiv:1407.1093v1, 4 July 2014; published Pacific J. Math.283 (2016),171–200; locators use the arXiv pagination",
+      "url": "https://arxiv.org/pdf/1407.1093v1",
+      "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Introduction pp.1–3 (Theorems A, B and C, footnote1, and the paragraph on Zhang’s paper), §2.5 pp.15–16 (Theorem2.5.2 and the discussion of hypothesis (*) after it) and the opening of §3.2 pp.20–21 (the reduction of TheoremB to TheoremA). The rest of the paper, and the published version, were not read."
+      ]
+    },
+    {
+      "id": "zanarella",
+      "title": "On Howard’s main conjecture and the Heegner point Kolyvagin system",
+      "authors": "Murilo Zanarella",
+      "edition": "arXiv:1908.09197v1, 24 August 2019; locators use the arXiv pagination",
+      "url": "https://arxiv.org/pdf/1908.09197v1",
+      "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "Hypotheses (H.0)–(H.5) in §2.1 p.11 and §2.3 pp.19–20: Definition2.3.2, Proposition2.3.3, Remark2.3.5 and Theorem2.3.6 with its proof. The lemmas of §2.2 on which that proof rests were not read, nor was the rest of the paper."
+      ]
     }
   ],
   "gaps": [
@@ -159,15 +183,16 @@
     },
     {
       "title": "Missing generic level-raising stage",
-      "detail": "Confirmed RT-AREA-iwasawa-1/2 is applied as an exact-contract extension. The current packet does contain R20.2/level-raising-diamond, and it is imported here. That weight-range Frobenius criterion supplies a raised form whose level is divisible by q, but not Zhang2.1’s exact Nq form preserving all original local inertia types with trivial nebentypus. Request that stronger Diamond–Taylor variant and propose its distinct owner stage; never claim all level raising is absent.",
+      "detail": "RT-AREA-iwasawa-1/2. No declaration of the atlas supplies Ribet/Diamond–Taylor level raising in the exact-level form of Zhang2.1, and neither library has it. SerreWeightAndLevelOptimisation R20.2 is titled “Lowering level away from p”; its packet has R20.2/level-raising-diamond, Diamond’s criterion, which is imported here and gives a form new at q, not a newform of exact level Nq with the original local types and trivial nebentypus. The nearest other declarations are GL2ModularityLifting:R22.1/prescribed-level-raising-step, a quaternionic step over totally real fields, and OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic, Ihara’s lemma for definite quaternionic forms; neither gives Zhang2.1 or Ihara’s lemma for Shimura curves. The same owner is asked for the quaternionic transports of Zhang §§3–4. The request is routed through R20.2 and a separate stage is proposed under Structure proposals. Until one of them exists the Zhang branch of HE.6 is not closed.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
-        "HeegnerPointEulerSystems:HE.6/zhang-indivisibility"
+        "HeegnerPointEulerSystems:HE.6/zhang-indivisibility",
+        "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value"
       ]
     },
     {
       "title": "Zhang auxiliary rank-zero and degree supplier scope",
-      "detail": "The extension from elliptic to GL₂-type ordinary control and the nonsquarefree degree comparison are source-verified proof dependencies, not proofs supplied by this packet. ModularIwasawaL1/KatoL4/SelmerL4 must certify their exact coefficient/base/ramification scope. The BSD owner is requested to add the independent early BSD.3a definite period export; neither BSD.5 nor BSD.6 supplies a prerequisite, since both consume HE.6. The full proposed early contract is recorded separately.",
+      "detail": "RT-AREA-iwasawa-1/8. Zhang7.1 needs, for g and g_K, the main conjecture in its Skinner–Urban form, Kato’s divisibility and the rank-zero specialisation with coefficients O (Skinner’s Theorems A and B). ModularIwasawaMainConjectures has no blueprint yet and its L1 text states only the Fouquet–Wan form, so the Skinner–Urban form is an open request; Kato’s Theorem17.4 is a cited declaration, with its integral bound under Skinner’s two conditions requested; SelmerIwasawa L4 is asked for the specialisation. The definite period identity is a declaration of the BSD owner, RankZeroOneBSD:BSD.3a/definite-congruence-period, cited here; its packet is not yet accepted, and its proof route does not yet cover nonsquarefree N. Neither BSD.5’s index formula nor BSD.6 is a prerequisite, since both consume HE.6.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
@@ -176,7 +201,7 @@
     },
     {
       "title": "Missing general Serre/Ribet open-image layer",
-      "detail": "Confirmed RT-AREA-iwasawa-1/9: the current R28.4 Tate-isogeny and R01.4 representation layers do not supply Serre’s non-CM open-image or Ribet’s GL₂-type theorem. Propose R28.7 after R28.6 and retain this open request rather than re-proving the generic theorem in HE.7. The integral route also requests Bogomolov/Serre homotheties and the precise GL₂-type endomorphism/residual-irreducibility exports of Nekovář6.1–6.2; full non-CM GL₂ image is not used in the CM branch.",
+      "detail": "RT-AREA-iwasawa-1/9. No layer of the atlas proves Serre’s open-image theorem. Its owner is the Part II of FaltingsFinitenessAndIsogenyTheorems on ℓ-adic and residual images of abelian varieties (Serre’s open-image theorems), an accepted paper route whose roadmap is not yet written; the R28.7 stage proposed earlier is withdrawn in its favour. The route’s brief covers surjectivity modulo p and the full p-adic image for large p. It does not cover what HE.7 also uses: the open p-adic image at every p, which the atlas states only as the cited leaf AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image; homotheties for GL₂-type quotients with index bounded across coefficient primes; Ribet’s GL₂-type theorem; and the endomorphism/residual-irreducibility exports of Nekovář6.1–6.2. These are requested through R28.4 and R01.4 and are not re-proved in HE.7. Full non-CM GL₂ image is not used in the CM branch.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "HeegnerPointEulerSystems:HE.7/almost-all-primary-sha-vanishing",
@@ -314,7 +339,7 @@
     },
     {
       "title": "Independent review: definite period supplier must precede HE.6",
-      "detail": "A concrete early export BSD.3a/definite-congruence-period is proposed with the complete odd-definite, full-♥, GL₂-type and nonsquarefree contract. The source route is Zhang6.4/Pollack–Weston6.2–6.8 plus the specified Ribet–Takahashi/Khare/Helm variant. It is not an existing export: BSD.5 is only the owner routing identifier and has no prerequisite edge into HE.6. Its integration is an open supplier action.",
+      "detail": "The early export now exists as RankZeroOneBSD:BSD.3a/definite-congruence-period, with the odd-definite, full-♥, GL₂-type and nonsquarefree contract in its statement, and HE.6 cites it. Four things remain open. Its packet is not yet accepted. Its proof route is the squarefree one. Its t_g(ℓ) must be stated for the geometric component group. It is planned under BSD.5, so once both packets are live the derived stage link BSD.5 → HE.6 and the link HE.6 → BSD.5 of BSD.5’s index formula cannot both be drawn; either sub-layer, BSD.3a or HE.6z, removes the conflict.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
       ],
@@ -397,7 +422,7 @@
     },
     {
       "title": "CM conductor and integral image supplier contracts",
-      "detail": "The classical CM application derives M≠K from |D_M| dividing the elliptic conductor. CM.4/R01.3 must provide that exact induced-character conductor and endomorphism-field dictionary. R28.7 must provide the general homothety and absolute-irreducibility consequences stated in the request. The Heegner application and its bounds are sourced; these general theorems are imported, not rebuilt here.",
+      "detail": "The classical CM application derives M≠K from |D_M| dividing the elliptic conductor. CM.4/R01.3 must provide that exact induced-character conductor and endomorphism-field dictionary. The open-image Part II of FaltingsFinitenessAndIsogenyTheorems must provide the general homothety and absolute-irreducibility consequences stated in the request. The Heegner application and its bounds are sourced; these general theorems are imported, not rebuilt here.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/cm-heegner-field-disjointness",
         "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors"
@@ -433,7 +458,7 @@
     "HeegnerPointEulerSystems:HE.7"
   ],
   "status": "complete",
-  "summary": "Target-level plan for HE.0–HE.7, preserving all 70 prior node IDs and adding the actual Zhang V/k₀ specializations and source-backed integral CM-point descent. All stages are planned, with precise supplier/prototype and quantitative-size gaps; no closed or implemented claim. The independent review object is preserved for the next reviewer.",
+  "summary": "Target-level plan for HE.0–HE.7, preserving all 70 prior node IDs and adding the actual Zhang V/k₀ specializations and source-backed integral CM-point descent. All stages are planned, with precise supplier/prototype and quantitative-size gaps; no closed or implemented claim. After the accepted review, the fix of the area red team’s findings cites the supplier declarations that now exist for Howard’s self-dual theory, the Jacquet–Langlands transfer, Kato’s divisibility and the definite period identity, states Zhang’s rank-zero input through Skinner’s theorems, names the owner of Serre’s open-image theorem, and proposes the sub-layer HE.6z.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2482,7 +2507,7 @@
       ],
       "title": "Corrected Heegner Kolyvagin system",
       "kind": "construction",
-      "statement": "For the actual descended Heegner family κ_n, construct commuting global cohomology automorphisms χ_ℓ inducing the specified local Howard correction. Let χ_n=∏_{ℓ|n}χ_ℓ. Define κ′_n=χ_n⁻¹(κ_n)⊗σ_n in the cyclic tensor target. Then κ′ satisfies the strong ES1/3 edge relation and κ′_1=κ_1. A local non-G_K-linear coefficient automorphism alone cannot be postcomposed with global cocycles; a legitimate change-of-group action and its localization comparison must be supplied.",
+      "statement": "For the actual descended Heegner family κ_n, construct commuting global cohomology automorphisms χ_ℓ inducing the specified local Howard correction. Let χ_n=∏_{ℓ|n}χ_ℓ. Define κ′_n=χ_n⁻¹(κ_n)⊗σ_n in the cyclic tensor target. Then κ′ satisfies the strong ES1/3 edge relation and κ′_1=κ_1, so κ′ is a Kolyvagin system for the Selmer triple (T,F,𝓛) in the sense of EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses (Howard Definition1.2.3 and Theorem1.7.5). A local non-G_K-linear coefficient automorphism alone cannot be postcomposed with global cocycles; a legitimate change-of-group action and its localization comparison must be supplied.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
@@ -2497,7 +2522,8 @@
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.5/local-heegner-chi-automorphism",
         "HeegnerPointEulerSystems:HE.4/generator-tensor-choice-independence",
-        "EulerSystemsAndKolyvaginSystems:ES.3"
+        "EulerSystemsAndKolyvaginSystems:ES.3",
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses"
       ],
       "sources": [
         {
@@ -2577,7 +2603,7 @@
       ],
       "title": "Tate coefficient and big-image hypotheses",
       "kind": "theorem",
-      "statement": "Under Howard TheoremA’s full G_K→GL₂(Z_p) surjectivity, p odd and p∤DN, T=T_pE is free rank two (H0), T/pT is absolutely irreducible (H1), and the auxiliary extension F/Q containing K used in H2 trivializes T and has H¹(F(μ_p∞)/K,T/pT)=0. The central scalar subgroup of order p−1 kills this cohomology. Full Tate-image surjectivity is stronger than residual irreducibility or residual surjectivity and is stated separately.",
+      "statement": "Under Howard TheoremA’s full G_K→GL₂(Z_p) surjectivity, p odd and p∤DN, T=T_pE is free rank two (H0), T/pT is absolutely irreducible (H1), and the auxiliary extension F/Q containing K used in H2 trivializes T and has H¹(F(μ_p∞)/K,T/pT)=0. The central scalar subgroup of order p−1 kills this cohomology. Full Tate-image surjectivity is stronger than residual irreducibility or residual surjectivity and is stated separately. H.0–H.2 are those of the hypothesis record EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
@@ -2592,7 +2618,8 @@
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.4/ring-class-torsion-invariants",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
-        "ArithmeticGaloisDuality:R02.2"
+        "ArithmeticGaloisDuality:R02.2",
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses"
       ],
       "sources": [
         {
@@ -2623,7 +2650,7 @@
       ],
       "title": "Cartesian, self-dual and conjugation local conditions",
       "kind": "theorem",
-      "statement": "For the same actual T, verify H3 cartesian propagation at every quotient of the DVR, H4 the symmetric twisted Weil pairing (s,t)=e(s,τt) and exact orthogonality at conjugate places, and H5 extension of the residual representation to G_Q with one-dimensional τ± eigenspaces, G_Q-stability of local conditions and the required pairing/conjugation identity. Use the rational finite local conditions and their exact integral/torsion propagation; this does not define or reprove Howard’s abstract H0–H5 theorem.",
+      "statement": "For the same actual T, verify H3 cartesian propagation at every quotient of the DVR, H4 the symmetric twisted Weil pairing (s,t)=e(s,τt) and exact orthogonality at conjugate places, and H5 extension of the residual representation to G_Q with one-dimensional τ± eigenspaces, G_Q-stability of local conditions and the required pairing/conjugation identity. Use the rational finite local conditions and their exact integral/torsion propagation; the hypothesis record H.0–H.5 is EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses, and Howard’s abstract theorem is not defined or reproved here.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
@@ -2639,7 +2666,7 @@
         "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
         "HeegnerPointEulerSystems:HE.3/coefficient-prime-local-condition",
         "HeegnerPointEulerSystems:HE.3/saturated-integral-kummer-lattice",
-        "EulerSystemsAndKolyvaginSystems:ES.5",
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
         "SelmerIwasawaCohomology:L1",
         "SelmerIwasawaCohomology:L2/lattice-passage",
         "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
@@ -2853,13 +2880,13 @@
       ],
       "title": "Howard’s Heegner rank-one theorem",
       "kind": "theorem",
-      "statement": "Assume E/Q conductor N, imaginary quadratic K discriminant D≠−3,−4 with all N-primes split, p odd, p,D,N pairwise coprime, and full Tate representation G_K→GL₂(Z_p) surjective. If the actual bottom Heegner Kummer class κ_1≠0, the compact Selmer group is free rank one and the discrete Selmer group is Q_p/Z_p⊕M⊕M for a finite Z_p-module M with length M≤length(H¹_F(K,T_pE)/Z_pκ_1). This is Howard TheoremA after the actual arithmetic H0–H5 checks and corrected system construction; the abstract self-dual theorem is ES5’s responsibility.",
+      "statement": "Assume E/Q conductor N, imaginary quadratic K discriminant D≠−3,−4 with all N-primes split, p odd, p,D,N pairwise coprime, and full Tate representation G_K→GL₂(Z_p) surjective. If the actual bottom Heegner Kummer class κ_1≠0, the compact Selmer group is free rank one and the discrete Selmer group is Q_p/Z_p⊕M⊕M for a finite Z_p-module M with length M≤length(H¹_F(K,T_pE)/Z_pκ_1). This is Howard TheoremA after the actual arithmetic H0–H5 checks and corrected system construction; the abstract self-dual theorem is EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem (Howard Theorem1.6.1), imported and not reproved here.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
         "Use HE5’s actual coefficient/local hypothesis verification and corrected Heegner system.",
-        "Apply imported ES5 Howard Theorem1.6.1 to the actual family.",
+        "Apply the imported theorem EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem (Howard Theorem1.6.1) with R=Z_p, T=T_pE, the propagated Kummer structure F and 𝓛=𝓛_1, to the corrected system κ′. Its hypotheses H.0–H.5 are the two HE.5 verification nodes, as in Howard Theorem1.6.5.",
         "Identify compact/discrete Selmer carriers with the exact Kummer sequences; keep paired finite summands and the direction of the inequality."
       ],
       "acceptance": [
@@ -2870,7 +2897,7 @@
         "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
         "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
         "HeegnerPointEulerSystems:HE.3/saturated-integral-kummer-lattice",
-        "EulerSystemsAndKolyvaginSystems:ES.5"
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem"
       ],
       "sources": [
         {
@@ -3091,12 +3118,12 @@
       ],
       "title": "Primitivity and sharpness comparison",
       "kind": "theorem",
-      "statement": "A nonzero κ_1 yields an upper bound, not equality. Residual primitivity of the actual corrected system, together with the imported ES5 core/self-duality/local hypotheses, gives the corresponding equality of finite length and corrected index. Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index, so cannot preserve an unsupported sharpness assertion. Zhang’s indivisibility conclusion proves a stronger property only under its enumerated hypotheses.",
+      "statement": "A nonzero κ_1 yields an upper bound, not equality. Residual primitivity of the actual corrected system, under the self-dual hypotheses H.0–H.5 and for p≥5, gives the corresponding equality of finite length and corrected index (Zanarella Theorem2.3.6). Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index, so cannot preserve an unsupported sharpness assertion. Zhang’s indivisibility conclusion proves a stronger property only under its enumerated hypotheses.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Apply the exact ES5 primitivity theorem, with its local saturation assumptions.",
+        "Apply the self-dual primitivity equality: for p≥5, the bound of EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem is an equality exactly when the system is primitive, that is has nonzero reduction modulo the maximal ideal as in ES.5/divisibility-invariants (Zanarella Theorem2.3.6). This equality is requested from EulerSystemsAndKolyvaginSystems:ES.5. Howard Theorem1.6.1 is an inequality, and the Mazur–Rubin nodes of ES.5 assume core rank one and are not the self-dual setting.",
         "Compare coefficient reduction of the actual corrected system to its primitive leading/core component.",
         "Use a p-scaling test on the actual point map."
       ],
@@ -3106,7 +3133,9 @@
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
         "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
-        "EulerSystemsAndKolyvaginSystems:ES.5"
+        "EulerSystemsAndKolyvaginSystems:ES.5",
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+        "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants"
       ],
       "sources": [
         {
@@ -3118,6 +3147,11 @@
           "sourceId": "zhang",
           "locator": "Theorem9.3 p.243; §10 pp.245–246.",
           "match": "Zhang proves this stronger indivisibility under his enumerated hypotheses; the excerpt belongs to Zhang, not Howard."
+        },
+        {
+          "sourceId": "zanarella",
+          "locator": "Theorem2.3.6, with Definition2.3.2 and Proposition2.3.3, arXiv v1 pp.19–20",
+          "match": "Under H.0–H.5 for (T,F) and its dual, p>4 and 𝓛⊇𝓛_s(T), Zanarella refines Howard’s inequality to length M=length(H¹_F(K,T)/Rκ_1)−d(κ), with d(κ)=0 exactly for a primitive system."
         }
       ],
       "library": {
@@ -3144,8 +3178,8 @@
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Import Ribet–Diamond–Taylor level raising (Zhang2.1), with exact level Nm and trivial nebentypus.",
-        "Import residual multiplicity one and the definite eigenfunction; use HE2’s matched reduction/specialization.",
+        "Import Ribet–Diamond–Taylor level raising in the form of Zhang2.1: for each admissible q a newform of exact level Nq with trivial nebentypus and the same residual representation over k₀; iterate over m to get g_m of exact level Nm. SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond, Diamond’s criterion, gives a form that is new at q; the exact level, the prescribed inertial types at every ℓ≠p and the trivial nebentypus are requested from SerreWeightAndLevelOptimisation:R20.2.",
+        "Transfer g_m to the definite and indefinite quaternion algebras by GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl, with multiplicity one from R17.3/multiplicity-one; g_m is an unramified twist of Steinberg at each prime dividing N⁻m and discrete series of weight two at infinity. The identification of the transferred forms with functions on the Shimura set, norm-factor forms removed, is requested from HilbertModularVarietiesAndShimuraCurves:R18.3. Import the integral inputs with the level raising: J(X_m)[𝔪]≃V (Zhang Lemma3.3; Helm for Shimura curves), multiplicity one on the Shimura set by Mazur’s principle (4.8), and the identity (4.9) between the reduced eigenfunction and the local Kummer map, which rests on Ihara’s lemma for Shimura curves over Q. Use HE2’s matched reduction/specialization.",
         "Compute the finite Kummer map and component-group singular Kummer map via the same eigenfunction, then apply compatible derivatives."
       ],
       "acceptance": [
@@ -3155,14 +3189,21 @@
         "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
         "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
         "SerreWeightAndLevelOptimisation:R20.2",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-        "SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
+        "SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
+        "HilbertModularVarietiesAndShimuraCurves:R18.3"
       ],
       "sources": [
         {
           "sourceId": "zhang",
           "locator": "Theorem4.3 and proof, pp.218–221; Lemma3.3 p.215",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+        },
+        {
+          "sourceId": "zhang",
+          "locator": "§2, Theorem2.1 and proof, pp.203–204; (4.7)–(4.9), pp.218–219",
+          "match": "Theorem2.1 is the imported level-raising statement: exact level Nq, trivial nebentypus, the same residual representation. (4.8) and (4.9) are the multiplicity-one and eigenfunction/Kummer inputs of the congruence."
         }
       ],
       "library": {
@@ -3232,22 +3273,27 @@
       ],
       "title": "Auxiliary rank-zero formula over K",
       "kind": "theorem",
-      "statement": "For a weight-two newform g and its GL₂-type A_g/Q with coefficient prime 𝔭|p≥3, K as in Zhang’s Notations, good ordinary p, residual image containing SL₂(F_p), and a residually ramified ℓ||N, L(g/K,1)≠0 iff Sel_𝔭∞(A_g/K) is finite. When finite, v_𝔭(L(g/K,1)/Ω_g^can)=length_O𝔭 Sel_𝔭∞(A_g/K)+Σ_{ℓ|N}t_g(ℓ). This is over A_g/K, not E/Q. Derive it using the separately imported ordinary main-conjecture and Kato divisibilities for g and its quadratic twist, with the GL₂-type control/period comparison.",
+      "statement": "For a weight-two newform g and its GL₂-type A_g/Q with coefficient prime 𝔭|p≥3, K as in Zhang’s Notations with p∤D_K, good ordinary p, residual image containing SL₂(F_p), and a residually ramified ℓ||N, L(g/K,1)≠0 iff Sel_𝔭∞(A_g/K) is finite. When finite, v_𝔭(L(g/K,1)/Ω_g^can)=length_O𝔭 Sel_𝔭∞(A_g/K)+Σ_{ℓ|N}t_g(ℓ). This is over A_g/K, not E/Q. It is derived from the rank-zero formula over Q for g and for its quadratic twist g_K (Skinner TheoremB) and the GL₂-type period comparison. That formula follows, by control at the trivial character, from the ordinary main conjecture in its Skinner–Urban form with Kato’s divisibility. These inputs need residual irreducibility and the residually ramified ℓ||N, and no image containing SL₂(Z_p).",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Apply ModularIwasawaL1 and KatoL4 to both g and g_K under their exact image/ramification hypotheses.",
-        "Import GL₂-type control and canonical-period product comparison.",
-        "Combine base/twist Selmer and local factors to obtain the K-base formula; no circular import from BSD6 is permitted."
+        "Import from ModularIwasawaMainConjectures:L1 the Skinner–Urban form of the weight-two cyclotomic main conjecture, as an equality of ideals in the Iwasawa algebra over O (Skinner TheoremA for level prime to p, his Theorem2.5.2): for a newform f of trivial character and level M prime to p, ordinary at 𝔭, with ρ̄_f irreducible and ramified at some prime q||M. Apply it to f=g with M=N and to f=g_K with M=N·D_K², taking q=ℓ. The Fouquet–Wan form (their Theorem1.6) also requires ρ̄_f to have no invariants under the decomposition group at q, and does not suffice.",
+        "Kato’s divisibility for g and g_K, KatoEulerSystems:L4/ordinary-selmer-divisibility, is the upper bound inside that equality, and by itself gives the direction from L(g/K,1)≠0 to finiteness. That node states its integral bound for an image containing SL₂(Z_p). The integral bound under Skinner’s two conditions, (a) ρ̄_f irreducible and (b) an element of Gal(Q̄/Q(μ_p∞)) acting on the lattice with free rank-one coinvariants, is requested from KatoEulerSystems:L4; a generator of tame inertia at ℓ gives (b).",
+        "Specialise at the trivial character by Greenberg’s method, with coefficients O: #O/(L^alg(f,1))=#Sel_L(f)·∏_ℓ c_ℓ(T_f) for f=g and f=g_K (Skinner TheoremB, proved in his §3.2; its condition (iii) is empty when p∤M). This GL₂-type control statement is requested from SelmerIwasawaCohomology:L4.",
+        "Combine base/twist Selmer and local factors to obtain the K-base formula, with the canonical-period product comparison; no circular import from BSD6 is permitted."
       ],
       "acceptance": [
         "The field K and GL₂-type auxiliary variety are retained in both the statement and supplier request.",
-        "Ordinariness is used here; it is not introduced into Gross’s clean mod-p theorem."
+        "Ordinariness is used here; it is not introduced into Gross’s clean mod-p theorem.",
+        "The twist g_K has level N·D_K², prime to p; for p|D_K the statement is not claimed.",
+        "No step passes from the residual image to an image containing SL₂(Z_p): that fails at p=3, and at p=5 when O_𝔭 is ramified over Z_5.",
+        "Zhang’s rank-one case uses only the inequality v_𝔭(L(g/K,1)/Ω_g^can)≤length Sel_𝔭∞(A_g/K)+Σt_g(ℓ) (Remark 15)."
       ],
       "prerequisites": [
         "ModularIwasawaMainConjectures:L1",
         "KatoEulerSystems:L4",
+        "KatoEulerSystems:L4/ordinary-selmer-divisibility",
         "SelmerIwasawaCohomology:L4",
         "GrossZagierAndArithmeticHeights:GZ.0"
       ],
@@ -3256,6 +3302,11 @@
           "sourceId": "zhang",
           "locator": "Theorem7.1 and proof, pp.231–232",
           "match": "The passage gives the stated construction or result; the proof outline separates imported general theory from its arithmetic application."
+        },
+        {
+          "sourceId": "skinner",
+          "locator": "Introduction, TheoremB, arXiv v1 p.2; §2.5, discussion after Theorem2.5.2, pp.15–16; §3.2, pp.20–21",
+          "match": "TheoremB is the rank-zero formula over Q for a weight-two newform with coefficients O, for p≥3, under residual irreducibility and a prime q||N at which ρ̄_f is ramified. §2.5 shows that integrality in the Skinner–Urban main conjecture needs only those conditions. This replaces the SL₂(Z_p) step in the proof of Zhang’s Theorem7.1."
         }
       ],
       "library": {
@@ -3283,7 +3334,7 @@
       ],
       "proofSteps": [
         "Import the explicit definite special-value formula from GZ5 with all u_K and discriminant factors.",
-        "Use matched supersingular reduction and the residual multiplicity-one eigenfunction to compute loc_q c(1).",
+        "Use matched supersingular reduction and the residual multiplicity-one eigenfunction to compute loc_q c(1). The eigenfunction is the transfer of g′ by GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl and R17.3/multiplicity-one, realised on the Shimura set (HilbertModularVarietiesAndShimuraCurves:R18.3) and normalised integrally; its multiplicity one modulo 𝔭′ is among the transports requested from SerreWeightAndLevelOptimisation:R20.2.",
         "Apply Corollary6.2 and Theorem6.5, allowing only proved p-adic-unit factors."
       ],
       "acceptance": [
@@ -3292,7 +3343,10 @@
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "GrossZagierAndArithmeticHeights:GZ.5",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
+        "HilbertModularVarietiesAndShimuraCurves:R18.3",
+        "SerreWeightAndLevelOptimisation:R20.2"
       ],
       "sources": [
         {
@@ -3320,26 +3374,25 @@
       ],
       "title": "Ribet–Takahashi period and Tamagawa comparison",
       "kind": "theorem",
-      "statement": "For g of weight2 and trivial nebentypus, p≥5 with p∤ND_K and surjective ρ_g,𝔭:G_Q→GL₂(k₀), K as in Zhang’s Notations, N⁻ squarefree of odd prime count, and all three clauses of Hypothesis♥, let η_g(N) be the full-level Hecke congruence ideal generator and ξ_g(N⁺,N⁻) the pairing norm of a primitive integral definite quaternionic eigenfunction. The period ratio is η_g,N⁺,N⁻=η_g(N)/ξ_g(N⁺,N⁻), not the raw congruence ideal. Then v_𝔭(η_g,N⁺,N⁻)=Σ_{ℓ|N⁻}t_g(ℓ), where t_g(ℓ)=length_O𝔭 Φ(A_g/K_ℓ)_𝔭. For nonsquarefree N require Ram(ρ)≠∅ and either a ramified ℓ||N⁻ or at least two primes ℓ||N⁺, as in ♥(2). The last clause does not itself assert residual ramification of both primes. At split additive ℓ²|N⁺, ♥(3) and finite-residue cohomology eliminate the rational component factor; decomposition-invariant vanishing is not inertia-invariant vanishing.",
+      "statement": "For g of weight2 and trivial nebentypus, p≥5 with p∤ND_K and surjective ρ_g,𝔭:G_Q→GL₂(k₀), K as in Zhang’s Notations, N⁻ squarefree of odd prime count, and all three clauses of Hypothesis♥, let η_g(N) be the full-level Hecke congruence ideal generator and ξ_g(N⁺,N⁻) the pairing norm of a primitive integral definite quaternionic eigenfunction. The period ratio is η_g,N⁺,N⁻=η_g(N)/ξ_g(N⁺,N⁻), not the raw congruence ideal. Then v_𝔭(η_g,N⁺,N⁻)=Σ_{ℓ|N⁻}t_g(ℓ), where t_g(ℓ)=length_O𝔭 Φ(A_g/K_ℓ)_𝔭. The identity is RankZeroOneBSD:BSD.3a/definite-congruence-period and is imported. K_ℓ is the unramified quadratic extension of Q_ℓ, since ℓ|N⁻ is inert in K, so t_g(ℓ) is the length of the geometric component group and not of its Q_ℓ-rational points. For nonsquarefree N require Ram(ρ)≠∅ and either a ramified ℓ||N⁻ or at least two primes ℓ||N⁺, as in ♥(2). The last clause does not itself assert residual ramification of both primes. At split additive ℓ²|N⁺, ♥(3) and finite-residue cohomology eliminate the rational component factor; decomposition-invariant vanishing is not inertia-invariant vanishing.",
       "hypotheses": [
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Request independent export BSD.3a/definite-congruence-period from the BSD owner, between geometric degree theory and HE.6. Its contract is exactly this identity for the stated coefficient ring and odd definite discriminant. It must not require HE.6, BSD.5’s final index formula, Jochnowitz or rank-zero BSD.",
-        "The export uses R11.4/R11.6 monodromy/component and degeneracy-map presentations, R17.3 integral definite/indefinite transfer and residual multiplicity one, and full-level Hecke congruence ideals. In the squarefree case follow Pollack–Weston6.2–6.8: character lattices, the monodromy degree formula, definite pairing and degree/congruence comparison.",
-        "For nonsquarefree N import the exact Ribet–Takahashi/Khare modular-degree comparison and Helm multiplicity-one variant identified in Zhang6.4, retaining Ram≠∅ and the two alternative level conditions. The squarefree preprint cannot be used as the sole supplier for this variant.",
+        "Import the identity from RankZeroOneBSD:BSD.3a/definite-congruence-period, reading its t_g(ℓ) as the length of the geometric component group, which is the group over K_ℓ used here. The export has no prerequisite in HE.6, in the final Heegner-index formula, in a Jochnowitz congruence or in rank-zero BSD.",
+        "The export’s route, recorded for the contract and not re-proved here, uses R11.4/R11.6 monodromy/component and degeneracy-map presentations, R17.3 integral definite/indefinite transfer and residual multiplicity one, and full-level Hecke congruence ideals. In the squarefree case follow Pollack–Weston6.2–6.8: character lattices, the monodromy degree formula, definite pairing and degree/congruence comparison.",
+        "For nonsquarefree N import the exact Ribet–Takahashi/Khare modular-degree comparison and Helm multiplicity-one variant identified in Zhang6.4, retaining Ram≠∅ and the two alternative level conditions. The squarefree preprint cannot be used as the sole supplier for this variant. The variant is part of the same export.",
         "Normalize Ω_can=〈g,g〉_Pet/η_g(N), and the definite special value with ξ_g; only then cancel the N⁻ local lengths in the separate rank-zero application. Prove the other rational component factors are units using the corrected additive-prime finite-residue argument."
       ],
       "acceptance": [
-        "The independent early export must have its own declaration and no path through HE.6.",
+        "The imported export has its own declaration and no prerequisite in HE.6.",
         "η_g,N⁺,N⁻ is the ratio η_g(N)/ξ_g, with a primitive definite pairing and odd N⁻.",
         "Do not extend Pollack–Weston’s squarefree Theorem6.8 by dropping its hypotheses; retain the stated nonsquarefree comparison."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4",
-        "NeronModelsAndSemistableAbelianVarieties:R11.6",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-        "GrossZagierAndArithmeticHeights:GZ.3"
+        "GrossZagierAndArithmeticHeights:GZ.3",
+        "RankZeroOneBSD:BSD.3a/definite-congruence-period"
       ],
       "sources": [
         {
@@ -3523,7 +3576,7 @@
         "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
       ],
       "proofSteps": [
-        "Request the missing general open-image layer under the existing Faltings/R01 owners.",
+        "Import Serre’s theorems from their owner, the Part II of FaltingsFinitenessAndIsogenyTheorems on ℓ-adic and residual images of abelian varieties (Serre’s open-image theorems).",
         "For E/Q combine the almost-all residual image with the previous prime-divisibility lemma.",
         "For exceptional primes use only the exported finite index/cohomological bounds and their exact field/endomorphism hypotheses."
       ],
@@ -4592,10 +4645,9 @@
     },
     {
       "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.6",
-      "need": "Quaternionic semistable integral model and specialization to the correct reduction-graph vertex, with Frobenius/Atkin–Lehner actions. Also expose degeneracy-map functoriality of the character-group exact sequences at Zhang’s level for the Ribet–Takahashi geometric comparison; this does not itself supply the period/congruence theorem.",
+      "need": "Quaternionic semistable integral model and specialization to the correct reduction-graph vertex, with Frobenius/Atkin–Lehner actions.",
       "neededBy": [
-        "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization",
-        "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
+        "HeegnerPointEulerSystems:HE.2/quaternionic-reduction-specialization"
       ]
     },
     {
@@ -4682,13 +4734,6 @@
       ]
     },
     {
-      "supplier": "EulerSystemsAndKolyvaginSystems:ES.5",
-      "need": "Missing generic Howard self-dual DVR package H0–H5, Proposition1.5.9 and Theorem1.6.1. Its current title “primitivity” is not a sufficient contract; the application verifies H0–H5 here, and imports the general theorem there (RT-AREA-iwasawa-1/10).",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5"
-      ]
-    },
-    {
       "supplier": "EulerSystemsAndKolyvaginSystems:ES.3",
       "need": "Strong-system correction interface and cyclic tensor target; the Howard arithmetic χ action is verified in this packet.",
       "neededBy": [
@@ -4747,9 +4792,8 @@
     },
     {
       "supplier": "EulerSystemsAndKolyvaginSystems:ES.5",
-      "need": "General Howard self-dual DVR rank-one bound with H0–H5 and exact discrete paired-module conclusion, distinct from MR primitivity equality.",
+      "need": "The self-dual primitivity equality. For a Selmer triple satisfying H.0–H.5 of ES.5/howard-hypotheses, with its dual, p≥5 and 𝓛⊇𝓛_s(T), and a Kolyvagin system κ with κ_1≠0: length M=length(H¹_F(K,T)/Rκ_1)−d(κ) for an integer d(κ)≥0 that vanishes exactly when κ is primitive, that is has nonzero image in KS(T/mT) as in ES.5/divisibility-invariants (Zanarella, arXiv:1908.09197v1, Theorem2.3.6 with Proposition2.3.3). Howard’s Theorem1.6.1 gives only the inequality, and ES.5’s Mazur–Rubin rank-one and structure theorems assume core rank one over Q. The hypothesis record and the DVR theorem themselves are now ES.5 nodes and are cited by id (RT-AREA-iwasawa-1/10).",
       "neededBy": [
-        "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
         "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero"
       ]
     },
@@ -4772,14 +4816,7 @@
     },
     {
       "supplier": "SerreWeightAndLevelOptimisation:R20.2",
-      "need": "Extend the existing level-raising-diamond criterion to Zhang2.1 Ribet/Diamond–Taylor exact-level raising N→Nq with all original local inertia types retained, trivial nebentypus and the prescribed admissible-prime Steinberg type. Import the existing criterion; it alone does not guarantee exact Nq or preservation of local types.",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence"
-      ]
-    },
-    {
-      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-      "need": "Definite and indefinite Jacquet–Langlands transfer, integral residual multiplicity one (Helm), Ihara and the matching eigenfunction/Kummer congruence; R17.5 Langlands–Tunnell is not the supplier.",
+      "need": "Level raising in the form of Zhang Theorem2.1, with its quaternionic transports (RT-AREA-iwasawa-1/2). (i) For a weight-two newform g of level N and trivial nebentypus, a prime 𝔭|p≥5 with ρ̄_g irreducible, and a prime q∤Np with p∤q²−1 and a_q(g)≡±(q+1) mod 𝔭: a newform g′ of exact level Nq and trivial nebentypus with ρ̄_g′≃ρ̄_g over a common residue field; iterate over squarefree products m. The proof prescribes the inertial type at every ℓ≠p, an unramified twist of Steinberg at q (Diamond–Taylor, Duke Math. J.74 (1994), Theorem1; Invent. Math.115 (1994), TheoremB), and reads off the exact level and the trivial nebentypus. R20.2/level-raising-diamond is imported for the q-new step and does not give the exact level or the local types. (ii) For the definite and indefinite quaternion algebras of discriminant N⁻m: J(X_m)[𝔪]≃V of dimension two over k₀ (Zhang Lemma3.3; Mazur, Ribet and Wiles for modular curves, Helm, Israel J. Math.160 (2007), Corollary8.11 for Shimura curves under Hypothesis♥); multiplicity one for the Hecke module of the Shimura set by Mazur’s principle (Zhang (4.8), by the proof of Pollack–Weston Theorem6.2); and the identity (4.9): on points of the Shimura curve reducing to supersingular points at q, the reduced Jacquet–Langlands eigenfunction composed with reduction is the local Kummer map into H¹(K_q,k₀) (Zhang states it for Heegner points, from Bertolini–Darmon, Ann. of Math.162 (2005), Theorem9.2), which rests on Ihara’s lemma for Shimura curves over Q (Diamond–Taylor, Invent. Math.115). The transfer of automorphic representations is GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl. Conditions that involve K, such as q inert in K, stay in HE.6.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value"
@@ -4787,21 +4824,21 @@
     },
     {
       "supplier": "ModularIwasawaMainConjectures:L1",
-      "need": "Ordinary main-conjecture/rank-zero formula for GL₂-type A_g and its quadratic twist over Q, sufficient to derive Zhang7.1 over K; retain image containing SL₂(F_p), good ordinary p and a residually ramified ℓ||N.",
+      "need": "The Skinner–Urban form of the weight-two cyclotomic main conjecture, with equality in the Iwasawa algebra over O: for p≥3 and a newform f of weight two, trivial character and level M prime to p, ordinary at 𝔭|p, with ρ̄_f irreducible and ramified at some prime q||M, the dual Selmer group over the cyclotomic Z_p-extension is torsion and its characteristic ideal is generated by the p-adic L-function (Skinner, Pacific J. Math.283 (2016), Theorem A for p∤N, that is Theorem2.5.2; Skinner–Urban Theorem1 with the integrality of Skinner §2.5). It is applied to g and to its quadratic twist g_K of level N·D_K². This is not the Fouquet–Wan Theorem1.6 form now in the layer’s text, whose auxiliary prime must also have no invariants under the decomposition group (RT-AREA-iwasawa-1/14). HE.6 derives Zhang7.1 over K from it; an image containing SL₂(Z_p) is not assumed.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K"
       ]
     },
     {
       "supplier": "KatoEulerSystems:L4",
-      "need": "Opposite rank-zero divisibility/nonvanishing for the same g and g_K with coefficient prime 𝔭 and GL₂-type representation, feeding Zhang7.1 over K.",
+      "need": "Kato’s integral divisibility under Skinner’s conditions. KatoEulerSystems:L4/ordinary-selmer-divisibility is cited for Kato Theorem17.4; its integral part assumes condition (12.5.2), an image containing SL₂(Z_p). Requested: the same integral bound with (12.5.2) replaced by (a) ρ̄_f irreducible and (b) an element of Gal(Q̄/Q(μ_p∞)) acting on the lattice with free rank-one coinvariants (Skinner §2.5, through Kato Theorem15.5(4)), for the newform g with coefficient prime 𝔭 and for its twist g_K. It is needed where a residual image containing SL₂(F_p) does not give (12.5.2): at p=3, and at p=5 for a ramified coefficient ring.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K"
       ]
     },
     {
       "supplier": "SelmerIwasawaCohomology:L4",
-      "need": "GL₂-type ordinary control and comparison of Selmer lengths over K with g/g_K; verify the variant used in Zhang7.1 rather than importing an E/Q-only BSD endpoint.",
+      "need": "The rank-zero special-value formula for GL₂-type coefficients, by control at the trivial character. For p≥3 and a newform f of weight two, trivial character and level M prime to p, ordinary at 𝔭, with ρ̄_f irreducible and ramified at some q||M: #O/(L^alg(f,1))=#Sel_L(f)·∏_ℓ c_ℓ(T_f), where L^alg(f,1)=L(f,1)/(−2πiΩ_f⁺), Sel_L(f) is the Bloch–Kato Selmer group of the lattice T_f and c_ℓ(T_f) its Tamagawa factors (Skinner, TheoremB; proved in his §3.2 from the main conjecture by Greenberg’s method, using surjectivity of the global-to-local map and the absence of finite submodules). HE.6 applies it to g and g_K and compares with Selmer groups and component groups over K; an E/Q-only BSD endpoint is not this statement.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K"
       ]
@@ -4822,14 +4859,13 @@
     },
     {
       "supplier": "RankZeroOneBSD:BSD.5",
-      "need": "Proposed early export BSD.3a/definite-congruence-period: exactly the HE.6 period node’s GL₂-type valuation identity for η_g(N)/ξ_g, p≥5, surjective V/k₀, odd squarefree N⁻ and full ♥ (including the nonsquarefree alternatives). Prerequisites only R11.4/R11.6 monodromy and degeneracy maps, R17.3 integral transfer/multiplicity one and the exact Ribet–Takahashi/Khare degree/congruence module theory; no HE.6, rank-zero BSD, Jochnowitz or final Heegner-index result. BSD.3a is a proposal, not an existing stage or an import from BSD.5. The present request uses BSD.5 solely as the owner routing identifier and is not a graph prerequisite.",
+      "need": "Addressed to the declaration RankZeroOneBSD:BSD.3a/definite-congruence-period, which now exists under this layer and is cited as the prerequisite. Three things remain. (i) Its statement writes t_g(ℓ)=length Φ(A_g/Q_ℓ)_𝔭 and calls it the Tamagawa factor; state it as the length of the 𝔭-part of the geometric component group, equivalently of Φ over the unramified quadratic extension of Q_ℓ, as Zhang (6.7) does. At a non-split multiplicative prime the Q_ℓ-rational points of the component group are killed by 2, so their 𝔭-part vanishes. (ii) Its statement covers nonsquarefree N, but its proof route is Pollack–Weston’s, which assumes N squarefree; plan the nonsquarefree case as Zhang’s proof of Theorem6.4 indicates: Helm’s multiplicity one without squarefreeness, and the modular-degree comparison of Ribet–Takahashi (second assertion of their Theorem1) and Khare under Hypothesis♥(2). (iii) Keep its prerequisites free of HE.6, the final Heegner-index formula, Jochnowitz congruences and rank-zero BSD.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
       ],
-      "proposedExport": "RankZeroOneBSD:BSD.3a/definite-congruence-period",
+      "export": "RankZeroOneBSD:BSD.3a/definite-congruence-period",
       "forbiddenPrerequisites": [
         "HeegnerPointEulerSystems:HE.6",
-        "RankZeroOneBSD:BSD.5",
         "RankZeroOneBSD:BSD.6"
       ]
     },
@@ -4842,7 +4878,7 @@
     },
     {
       "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-      "need": "Missing Serre open-image theorem for non-CM elliptic curves over number fields and exact Ribet GL₂-type big-image variant, with adelic index/determinant and uniform cohomological consequences. Confirmed RT-AREA-iwasawa-1/9 proposes a new R28.7, extending R28.4/R01.4; the Tate isogeny theorem alone is not this supplier.",
+      "need": "Serre’s open-image theorems, owned by the Part II of FaltingsFinitenessAndIsogenyTheorems on ℓ-adic and residual images of abelian varieties (Serre’s open-image theorems): accepted route 5 of PAPER-CALEGARI-GERAGHTY-20, carried by the design job DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII. R28.4 is only the routing identifier until that roadmap exists; no R28.7 is proposed any longer (RT-AREA-iwasawa-1/9). Needed for a non-CM elliptic curve over a number field: (i) ρ̄_{E,p} surjective for all but finitely many p, and then image GL₂(Z_p) on T_pE, which the route’s brief plans; (ii) the p-adic image open for every p and the adelic image of finite index, with the cyclotomic determinant (Serre, Invent. Math.15 (1972)), which the brief puts out of scope as “small ℓ” and which is stated in the atlas only as a cited leaf, AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image; (iii) Ribet’s big-image theorem for the non-CM GL₂-type quotients used by the Kolyvagin–Logachev branch. The Tate isogeny theorem alone is not this supplier.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application"
       ]
@@ -4927,7 +4963,7 @@
     },
     {
       "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.4",
-      "need": "For Zhang’s definite quaternionic newform and the adjacent indefinite Shimura curve, expose the regular semistable Jacobian character lattice, graph monodromy pairing and component-group presentation with the exact level and localization hypotheses. This is geometric input only; the independent period/congruence identity is a separate requested export.",
+      "need": "For Zhang’s definite quaternionic newform and the adjacent indefinite Shimura curve, expose the regular semistable Jacobian character lattice, graph monodromy pairing and component-group presentation with the exact level and localization hypotheses. It is used here to identify t_g(ℓ) over K_ℓ with the geometric component group and for the additive-prime component argument; the period/congruence identity itself is the cited declaration RankZeroOneBSD:BSD.3a/definite-congruence-period.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison"
       ]
@@ -4950,7 +4986,7 @@
     },
     {
       "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-      "need": "Proposed R28.7 integral GL₂-type image exports: Bogomolov/Serre homothety openness with bounded indices across coefficient primes; condition(?) absolute-irreducibility/self-twist dictionary via Faltings and CM; residual absolute irreducibility almost everywhere (Dimitrov in the Hilbert case), Clifford and trace comparison over the specified quadratic K. Exact consequences are C₂,C₃ of Nekovář6.1–6.2. Full GL₂ residual surjectivity is neither required nor asserted for CM.",
+      "need": "Integral GL₂-type image exports, to be owned with Serre’s theorems by the open-image Part II of FaltingsFinitenessAndIsogenyTheorems and routed through R28.4 until it exists (its brief plans Bogomolov’s homothety theorem on one route for abelian surfaces, and puts uniformity out of scope): Bogomolov/Serre homothety openness with bounded indices across coefficient primes; condition(?) absolute-irreducibility/self-twist dictionary via Faltings and CM; residual absolute irreducibility almost everywhere (Dimitrov in the Hilbert case), Clifford and trace comparison over the specified quadratic K. Exact consequences are C₂,C₃ of Nekovář6.1–6.2. Full GL₂ residual surjectivity is neither required nor asserted for CM.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/integral-tate-image-errors",
         "HeegnerPointEulerSystems:HE.7/integral-cm-prime-detection"
@@ -4969,6 +5005,14 @@
       "need": "Classical cardinality/square-index theorem of Kolyvagin Euler Systems, TheoremA quoted in Kolyvagin1991 p.95: #Sha divides d_E·[E(K):Zy_K]², d_E independent of K and supported outside the precisely defined full O_ℓ-linear Tate-image B(E) over Q_O=End_overlineQ(E)⊗Q. Distinguish the CM field from Q and full Tate from residual image, especially at3. The original proof, not obtained from the public Springer endpoint, must be read for this generic size export; Nekovář’s uniform exponent bound alone is insufficient.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "need": "For the definite quaternion algebra over Q of discriminant N⁻m and an Eichler order of level N⁺: the identification of its automorphic forms of trivial weight, norm-factor forms removed, with functions on the Shimura set X_m, compatibly with Hecke operators, so that the transfer of a weight-two newform by R17.3/global-jl and R17.3/multiplicity-one is an eigenfunction on X_m, unique up to a scalar, with values in the ring of integers. R17.3/definite-infinity assigns this identification to this layer.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+        "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value"
       ]
     }
   ],
@@ -5134,6 +5178,39 @@
         "by": "REV-HeegnerPointEulerSystems--HE.0~2",
         "reason": "The preceding dimension count kills loc_{ℓ_{ν+i}}d for1≤i≤ν. For ν≥1 this includes ℓ_{ν+1}, so the printed nonvanishing there contradicts that choice. Lemma8.1 instead re-chooses ℓ_{2ν+1} to detect both d and c(n_{ν+1}); pairing with c(n_{ν+1}ℓ_{2ν+1}) supplies the one surviving local term. At ν=0 the two indices coincide."
       }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E9",
+      "source": "zhang",
+      "kind": "error",
+      "locator": "Proof of Theorem7.1, third bullet, printed p.232 (PDF42), version of record; the theorem, printed p.231, is stated for p≥3.",
+      "printed": "The source claims that ρ̄_{A_g,𝔭} having image ⊃ SL₂(𝔽_p) forces the image of ρ_{A_g,𝔭} to be ⊃ SL₂(ℤ_p), and states that this condition is needed for Kato’s result [37].",
+      "correction": "Delete the step. The implication is false at p=3, and at p=5 it does not follow from the residual image when the coefficient ring O_𝔭 is ramified over Z_5. The condition is not needed: by Skinner, Multiplicative reduction and the cyclotomic main conjecture for GL₂ (arXiv:1407.1093v1), §2.5, integrality in the Skinner–Urban main conjecture needs only (a) ρ̄ irreducible and (b) an element g of Gal(Q̄/Q(μ_p∞)) with T/(ρ(g)−1)T free of rank one, and the third hypothesis of Theorem7.1 gives (b) with g a generator of tame inertia at ℓ. Skinner’s TheoremB is the resulting rank-zero formula for a weight-two newform with coefficients O and p≥3, which is what this proof needs for A and its twist.",
+      "reason": "p=3: Elkies, Elliptic curves with 3-adic Galois representation surjective mod 3 but not mod 9 (arXiv:math/0612734), gives a genus-zero modular curve of such elliptic curves over Q; the simplest are y²=x³−27x−42 of conductor 1944 and y²+y=x³−135x−604 of conductor 6075. The LMFDB lists 1944.f1, with coefficients [0,0,0,−27,−42], with 3-adic image 9.27.0.1, of index 27 in GL₂(Z₃). Its determinant is surjective, so the image meets SL₂(Z₃) in a subgroup of index 27, while its reduction modulo 3 is GL₂(F₃). These curves have additive reduction at 3, so they refute the implication and are not themselves instances of Theorem7.1; no curve meeting all three hypotheses at p=3 was looked for. p=5: the binary icosahedral group, of order 120, has a faithful two-dimensional representation with character field Q(√5) which is realised over Q₅(√5), because the icosian quaternion algebra over Q(√5) is ramified only at the two real places. It stabilises a lattice, so it lies in SL₂(Z₅[√5]) after conjugation. The kernel of reduction modulo √5 is a normal 5-subgroup, hence trivial, so the group maps isomorphically onto SL₂(F₅). Being finite, it contains no conjugate of SL₂(Z₅). This is an example of closed subgroups, not of a Galois image. The general lifting theorem (Manoharmayum, arXiv:1304.1196v2, Main Theorem) excludes residue field F₅ for 2×2 matrices and gives the implication for p≥7; for O_𝔭=Z_p and p≥5 it is Serre’s lemma. Zhang applies Theorem7.1 to level-raised forms, whose coefficient rings are not specified (proof of Theorem7.2, p.233), and Theorem1.1 allows p=5, so its proof needs the same replacement there. The statements of Theorems1.1 and 7.1 are not in question.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Wei Zhang’s publication page https://math.mit.edu/~wz2113/math/pub.html read 2026-10-06: the paper is listed with no correction.",
+        "arXiv title search for “indivisibility of Heegner points”, 2026-10-06: the paper is not on arXiv, so there is no later version to compare.",
+        "International Press article pages for Camb. J. Math.2(2), 2026-10-06: both addresses tried returned a browser challenge (HTTP 403); the archive PDF of the version of record was read instead.",
+        "Skinner, arXiv:1407.1093v1, read 2026-10-06 (introduction, §2.5, opening of §3.2): the note says it was written in part to give a reference for the special-value formula that Zhang’s paper needs (its reference [22], cited as a 2013 preprint), and removes the SL₂(Z_p) hypothesis from the Skinner–Urban theorem. It supplies the repair and does not mention the printed step."
+      ]
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E10",
+      "source": "zhang",
+      "kind": "gap",
+      "locator": "Theorem7.1, statement, printed p.231 (PDF41), with Notations (i) p.200 and (x) p.202; version of record.",
+      "printed": "The source assumes good ordinary reduction at p.",
+      "correction": "Add the hypothesis p∤D_K, as Theorems1.1, 9.1, 9.3 and 10.2 have it (“p∤D_KN”). The Notations assume (p,N)=1 and (D,N)=1 only.",
+      "reason": "The proof applies the rank-zero formula to A and to its quadratic twist A^K separately. The twist g^K has level N·D_K². If p divides D_K, this level is divisible by p² and g^K is not ordinary at p, so the theorems of Kato and Skinner–Urban that the proof cites do not apply to it. The main theorems of the paper assume p∤D_KN.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Wei Zhang’s publication page https://math.mit.edu/~wz2113/math/pub.html read 2026-10-06: the paper is listed with no correction.",
+        "arXiv title search for “indivisibility of Heegner points”, 2026-10-06: the paper is not on arXiv, so there is no later version to compare.",
+        "International Press article pages for Camb. J. Math.2(2), 2026-10-06: both addresses tried returned a browser challenge (HTTP 403); the archive PDF of the version of record was read instead."
+      ]
     }
   ],
   "restructure": [
@@ -5142,8 +5219,8 @@
       "roadmaps": [
         "SerreWeightAndLevelOptimisation"
       ],
-      "detail": "RT-AREA-iwasawa-1/2, extended exact-contract audit: the existing R20.2/level-raising-diamond criterion is weaker than the prescribed-local-type Diamond–Taylor theorem used by Zhang2.1.",
-      "proposal": "Retain/import that criterion. Add a general admissible-prime level-raising stage adjacent to R20.2, supplying exact raised level, local Steinberg/inertia and nebentypus control for definite/indefinite applications. This packet requests the extension via current R20.2; it does not modify that roadmap."
+      "detail": "RT-AREA-iwasawa-1/2: no declaration supplies Ribet/Diamond–Taylor level raising in the form used as Zhang2.1. R20.2/level-raising-diamond is Diamond’s criterion and is weaker.",
+      "proposal": "Add a stage beside R20.2, “Raising the level with prescribed local types, and its quaternionic transports”. It states Zhang2.1 (exact level Nq, trivial nebentypus, same residual representation; Diamond–Taylor, Duke Math. J.74, Theorem1 and Invent. Math.115, TheoremB) and the transports of Zhang §§3–4 (Helm Corollary8.11, Mazur’s principle on the Shimura set, Bertolini–Darmon Theorem9.2 with Ihara’s lemma for Shimura curves). It requires R20.2, GL2AutomorphicRepresentationsAndTransfer R17.3 and R17.6, and HilbertModularVarietiesAndShimuraCurves R18.6, and its consumer is the Zhang branch of HE.6 (HE.6z below). It imports R20.2/level-raising-diamond for the q-new step, and it should import or be compared with GL2ModularityLifting:R22.1/prescribed-level-raising-step and OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic rather than repeat them. This packet requests it through R20.2 and does not modify that roadmap."
     },
     {
       "action": "rescope",
@@ -5151,8 +5228,8 @@
         "FaltingsFinitenessAndIsogenyTheorems",
         "ArithmeticGaloisRepresentations"
       ],
-      "detail": "RT-AREA-iwasawa-1/9: neither the Tate isogeny theorem nor Heegner-specific error verification owns the general Serre/Ribet image theorem.",
-      "proposal": "Add Faltings R28.7 after R28.6 for Serre open image over number fields and the precise Ribet GL₂-type variant, extending R28.4/R01.4. HE.7 owns only application to uniform Heegner error constants; requests use existing owner stages until the new stage is accepted. Include the general Bogomolov/Serre scalar-image and GL₂-type residual-irreducibility/endomorphism exports needed for the integral argument; distinguish the valid CM semilinear branch from full GL₂ surjectivity."
+      "detail": "RT-AREA-iwasawa-1/9: neither the Tate isogeny theorem nor the Heegner error verification owns Serre’s open-image theorem. Its owner is now decided: the Part II of FaltingsFinitenessAndIsogenyTheorems on ℓ-adic and residual images (accepted route 5 of PAPER-CALEGARI-GERAGHTY-20, which names the roadmap OpenImageTheoremsForAbelianVarieties, joined by the Qian and Boxer–Calegari–Gee–Pilloni routes). The design job DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII carries these routes together with the quantitative-isogeny ones. The brief expects HE.7 to import the large-p theorems and to keep the rest; HE.7 plans none of the general theorems.",
+      "proposal": "Withdraw the stage R28.7 proposed earlier. Add to the Part II what HE.7 uses and its brief leaves out: the open p-adic image at every p and the finite adelic index, which AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image now states as a cited leaf and should import from there; homotheties (Bogomolov, Serre) for GL₂-type quotients with index bounded across coefficient primes; Ribet’s GL₂-type big-image theorem and the residual-irreducibility/endomorphism exports of Nekovář6.1–6.2. The CM semilinear branch stays with ComplexMultiplicationAndExplicitReciprocity CM.4. Link the Part II’s elliptic-curve layer to HE.7 when it exists; HE.7 owns only the application to uniform Heegner error constants. Until then the requests use R28.4 and R01.4."
     },
     {
       "action": "rescope",
@@ -5160,8 +5237,8 @@
         "EulerSystemsAndKolyvaginSystems",
         "HeegnerPointEulerSystems"
       ],
-      "detail": "RT-AREA-iwasawa-1/10: the generic Howard H0–H5 self-dual DVR argument is not a Heegner arithmetic theorem.",
-      "proposal": "Expand ES.5 to own Howard Proposition1.5.9/Theorem1.6.1 and the generic paired-summand bound. HE.5–HE.6 verify H0–H5 for the actual Tate module and apply it. Put the generic Λ statement Theorem2.2.10 in ES.8; propose ES.5→GeneralizedHeegnerCycles:GH.5, ES.8→GeneralizedHeegnerCycles:GH.5 and HE.6→HE.8 links for maintainer review. No Λ or HE.8 target is planned in this part."
+      "detail": "RT-AREA-iwasawa-1/10: the generic Howard H0–H5 self-dual argument is not a Heegner theorem. It now has its owner: ES.5/howard-hypotheses, ES.5/cassels-structure, ES.5/howard-stub and ES.5/howard-dvr-theorem, and ES.8/self-dual-lambda-adic-kolyvagin-bound for Howard Theorem2.2.10. HE.5–HE.6 verify H0–H5 for T_pE and cite those declarations.",
+      "proposal": "Two links remain for the maintainer: ES.5 → GeneralizedHeegnerCycles:GH.5 and ES.8 → GeneralizedHeegnerCycles:GH.5, absent from the stage graph. The third edge the finding asked for, HE.6 → HE.8, is not needed with the present declarations: what Howard Proposition2.1.3 reuses is the verification of H.0–H.5, which is planned in HE.5, and HE.5 → HE.8 is an edge of the atlas. No declaration of HE.8, HE.8b or HE.8c in the roadmap’s other packet has a prerequisite in HE.6. If the edge is added nevertheless, because HE.8’s text lists HE.3–HE.7, it closes the cycle HE.8 → GeneralizedHeegnerCycles:GH.8 → AutomorphicCongruences:L2 → ModularIwasawaMainConjectures:L1 → HE.6 unless the sub-layer HE.6z proposed below exists. No Λ or HE.8 target is planned in this part."
     },
     {
       "action": "rescope",
@@ -5170,15 +5247,16 @@
         "GL2AutomorphicRepresentationsAndTransfer"
       ],
       "detail": "RT-AREA-iwasawa-1/8: R17.5 Langlands–Tunnell is the wrong Zhang supplier; BSD.6 would be circular and over the wrong base/variety.",
-      "proposal": "Use R17.3 Jacquet–Langlands, ModularIwasawaMainConjectures:L1, KatoEulerSystems:L4, GZ.5 and the exact GL₂-type rank-zero/degree contracts in this packet. Remove the HE.6→R17.5 requirement when the maintainer applies the link changes; no atlas or link-map file is edited here."
+      "proposal": "The Zhang nodes use R17.3/global-jl and R17.3/multiplicity-one, ModularIwasawaMainConjectures:L1, KatoEulerSystems:L4, GZ.5 and the exact GL₂-type rank-zero/degree contracts in this packet. Remove the stage edge R17.5 → HE.6 of the base atlas, and with it the link from the Tau Ceti InductionRestriction layer 7 to HE.6 that accepted RS-21 added as a component of that edge: no HE.6 declaration uses either. No atlas or link-map file is edited here."
     },
     {
       "action": "rescope",
       "roadmaps": [
-        "RankZeroOneBSD"
+        "RankZeroOneBSD",
+        "HeegnerPointEulerSystems"
       ],
-      "detail": "Independent review found that BSD.5, as well as BSD.6, consumes HE.6.",
-      "proposal": "Add independent early BSD.3a/definite-congruence-period with the exact HE.6 odd-definite η(N)/ξ valuation contract and geometric/transfer/modular-degree prerequisites stated in the request. It precedes HE.6; retain the final Heegner-index formula in BSD.5 downstream. The proposed identifier is not currently importable. No supplier file is edited."
+      "detail": "BSD.5, as well as BSD.6, consumes HE.6, while HE.6 needs the definite congruence-period identity that the BSD roadmap owns. The BSD packet now plans it as RankZeroOneBSD:BSD.3a/definite-congruence-period under BSD.5 and proposes the sub-layer BSD.3a; HE.6/ribet-takahashi-tamagawa-comparison cites that declaration.",
+      "proposal": "Create the sub-layer RankZeroOneBSD:BSD.3a as the BSD packet proposes, requiring NeronModelsAndSemistableAbelianVarieties R11.4 and R11.6, GL2AutomorphicRepresentationsAndTransfer R17.3 and GrossZagierAndArithmeticHeights GZ.3, with consumers the Zhang branch of HE.6 (HE.6z) and BSD.5. Without BSD.3a or HE.6z, once both packets are live, promotion derives BSD.5 → HE.6 from this packet and HE.6 → BSD.5 from the BSD packet, and skips whichever comes second. The final Heegner-index formula stays in BSD.5, downstream of HE.6. No supplier file is edited."
     },
     {
       "action": "rescope",
@@ -5188,6 +5266,14 @@
       ],
       "detail": "The classical CM integral proof must run over the disjoint Heegner field, not a field over which CM is defined.",
       "proposal": "Clarify HE.7’s CM-character sentence: compare the characters over KM, retain the degree-two integral errors, and recombine over K to verify condition(?) before the actual explicit-cocycle descent. Replace the unsourced plan to apply non-CM descent over the CM field with this Nekovář3.2/6.2/7.5 specialization."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "HeegnerPointEulerSystems"
+      ],
+      "detail": "RT-AREA-iwasawa-1/8: HE.6 holds two developments with different suppliers. Howard’s TheoremA applies the self-dual theorem of the Euler-system roadmap to the corrected system of HE.5, and Gross’s clean descent is a direct argument modulo p from HE.5’s class detection; HE.7, HE.8b and the BSD roadmap build on them. Zhang’s indivisibility theorem rests on the main conjecture, Kato, the Gross formula, level raising and the definite period identity, and no other declaration uses it. Kept in one layer, Zhang’s import ModularIwasawaMainConjectures:L1 → HE.6 places all of HE.6 after HE.8, GeneralizedHeegnerCycles:GH.8 and AutomorphicCongruences:L2 in the stage order, and its import of the period identity conflicts with BSD.5’s use of HE.6.",
+      "proposal": "Two sub-layers of HE.6. HE.6 “Clean rank-one descent and index bounds” keeps clean-rank-one-descent-theorem-A, gross-clean-mod-p-descent, gross-opposite-eigenspace-vanishing, gross-same-eigenspace-generation, sha-square-index-bound, primitivity-versus-nonzero. HE.6z “Zhang’s indivisibility of Heegner points” takes zhang-cohomological-congruence, zhang-local-conditions-rank-lowering, zhang-rank-zero-over-K, zhang-jochnowitz-special-value, ribet-takahashi-tamagawa-comparison, zhang-triangular-selmer-basis, zhang-indivisibility, heegner-vanishing-order, heegner-base-locus, zhang-residual-local-pairing, zhang-residual-heegner-relations, zhang-two-class-prime-detection, zhang-prescribed-ramification-class. HE.6z requires HE.2, HE.3 and HE.4 inside the roadmap, and from other roadmaps SerreWeightAndLevelOptimisation R20.2 (or the level-raising stage proposed above), GL2AutomorphicRepresentationsAndTransfer R17.3, HilbertModularVarietiesAndShimuraCurves R18.3, ModularIwasawaMainConjectures L1, KatoEulerSystems L4, SelmerIwasawaCohomology L1 and L4, GrossZagierAndArithmeticHeights GZ.0, GZ.3 and GZ.5, NeronModelsAndSemistableAbelianVarieties R11.4, EulerSystemsAndKolyvaginSystems ES.1 and ES.3, ArithmeticGaloisDuality R02.2, the Tau Ceti Chebotarev layer 10, and RankZeroOneBSD BSD.5 (BSD.3a once that sub-layer exists). No declaration outside HE.6z has a prerequisite in it. After the split the supplier layers of HE.6 proper are not reachable from HE.8, and the links BSD.5 → HE.6z and HE.6 → BSD.5 do not conflict. The declaration ids do not change; the declarations keep HE.6 as parent until the sub-layer is a stage."
     }
   ],
   "coverage": [
@@ -5230,22 +5316,23 @@
       "stageId": "HeegnerPointEulerSystems:HE.5",
       "status": "planned",
       "remaining": [
-        "Global χ localization and generic Howard ES5 supplier remain explicit gaps; arithmetic hypothesis and error targets are recorded."
+        "The global χ localization comparison remains an explicit gap. Howard’s hypothesis record and DVR theorem are imported by declaration id from EulerSystemsAndKolyvaginSystems ES.5, whose packet is not yet accepted; arithmetic hypothesis and error targets are recorded."
       ]
     },
     {
       "stageId": "HeegnerPointEulerSystems:HE.6",
       "status": "planned",
       "remaining": [
-        "Independent early BSD.3a definite period/congruence export, exact local-type level raising, GL₂-type ordinary rank-zero control and generic ES.1/ES.5 interfaces are requested with complete contracts.",
-        "Typed V/k₀ continuous cohomology/local comparison and the global Howard χ localization remain prototype/supplier gaps; arithmetic specializations and triangular proof route are now explicit."
+        "Exact local-type level raising with its quaternionic transports, the Shimura-set realisation of the transfer, the Skinner–Urban form of the main conjecture with its rank-zero specialisation for GL₂-type coefficients, Kato’s integral bound under Skinner’s conditions, the self-dual primitivity equality and generic ES.1 interfaces are requested with complete contracts. Howard’s DVR theorem, the primitivity definition, Kato’s Theorem17.4 and the definite period export are cited declarations of packets not yet accepted.",
+        "Typed V/k₀ continuous cohomology/local comparison and the global Howard χ localization remain prototype/supplier gaps; arithmetic specializations and triangular proof route are now explicit.",
+        "The Zhang branch is the proposed sub-layer HE.6z. Until it is a stage, the link ModularIwasawaMainConjectures L1 → HE.6 derived from Zhang7.1 places Howard’s and Gross’s theorems after HE.8 and the main conjecture in the stage order."
       ]
     },
     {
       "stageId": "HeegnerPointEulerSystems:HE.7",
       "status": "planned",
       "remaining": [
-        "R28.7 homothety/endomorphism/residual-irreducibility, CM.4/R01.3 conductor dictionary, GL₂-type finite Selmer and generic ES.4 pairing/two-prime exports remain requested.",
+        "Serre’s open-image theorems and the homothety/endomorphism/residual-irreducibility exports of the open-image Part II, CM.4/R01.3 conductor dictionary, GL₂-type finite Selmer and generic ES.4 pairing/two-prime exports remain requested.",
         "The classical square-index cardinality export requires the original Kolyvagin Euler Systems proof; the read primary author quotes are distinguished from Nekovář’s fully read integral annihilator proof.",
         "Production arithmetic carriers, nonmaximal-order isogeny extensions and the separately specified analytic RM height certificate remain precise prototype/supplier refinements."
       ]
@@ -5408,6 +5495,42 @@
       "sha256": "f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9",
       "by": "REV-HeegnerPointEulerSystems--HE.0~2",
       "detail": "Independent retrieval and cited-passage/hypothesis check; historical receipts are retained. Only Lemma5.8/Remark5.9, PDF p.36, checked for E5."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1407.1093v1",
+      "citation": "arXiv:1407.1093v1, 4 July 2014; published Pacific J. Math.283 (2016),171–200",
+      "read": "2026-10-06",
+      "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988",
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "detail": "Introduction, §2.5 and the opening of §3.2 only; the published version was not obtained."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1908.09197v1",
+      "citation": "arXiv:1908.09197v1, 24 August 2019",
+      "read": "2026-10-06",
+      "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f",
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "detail": "Hypotheses (H.0)–(H.5) and §2.3 (Definition2.3.2 to Theorem2.3.6) only."
+    },
+    {
+      "kind": "published",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+      "citation": "Cambridge Journal of Mathematics2(2) (2014),191–253, version of record",
+      "read": "2026-10-06",
+      "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "detail": "Retrieved again; same bytes as the earlier receipts. Notations, §2 (Theorem2.1 and proof), Lemma3.3, the proof of Theorem4.3 around (4.7)–(4.9), §6.3, Theorems6.4–6.5 and §7 through the proof of Theorem7.2 were read for this round; pp.231–232 also as page images."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1202.6340",
+      "citation": "arXiv:1202.6340v1, 28 February 2012; original article Compositio Math.140 (2004),1439–1472",
+      "read": "2026-10-06",
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "detail": "Retrieved again; same bytes. TheoremA, Definition1.2.3, H.0–H.5, Theorems1.6.1, 1.6.5 and 1.7.5 and the opening of §1.7 were reread. In Chapter 2 only the statement of Proposition2.1.3 and the first lines of its proof were read."
     }
   ],
   "supplierAudit": {
@@ -5416,12 +5539,19 @@
     "importedNodes": [
       "ArithmeticGaloisDuality:R02.2/five-term-transgression",
       "EllipticCurveModularity:R29.5/modular-parametrisation",
+      "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+      "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+      "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+      "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
+      "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
       "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention",
+      "KatoEulerSystems:L4/ordinary-selmer-divisibility",
       "ModularCurvesPartII:R14.6/neron-hecke-extension",
       "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
       "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
       "NeronModelsAndSemistableAbelianVarieties:R11.2/component-group",
       "NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration",
+      "RankZeroOneBSD:BSD.3a/definite-congruence-period",
       "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
       "SelmerIwasawaCohomology:L2/condition-propagation",
       "SelmerIwasawaCohomology:L2/elliptic-selmer-instance",
@@ -5445,6 +5575,11 @@
       "by": "REV-HeegnerPointEulerSystems--HE.0~2",
       "date": "2026-10-06",
       "detail": "Independently read all 17 imported fine-node statements and the 37 proposed supplier-stage contracts, plus eight upstream stage anchors. The 64 request contracts remain requests where the supplier lacks the exact export. Checked full-image versus residual hypotheses, arithmetic versus geometric Frobenius, finite-flat versus away-from-p local conditions, component rationality, exact local-type level raising and the independent early period export."
+    },
+    "redTeamFix": {
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "date": "2026-10-06",
+      "detail": "Read the complete statements, hypotheses and prerequisites of the seven newly imported nodes and of ES.5/cassels-structure, ES.5/howard-stub, ES.4/howard-descent-with-errors, ES.8/self-dual-lambda-adic-kolyvagin-bound, BSD.5/ribet-takahashi-degree-comparison, five further R17.3 nodes (definite-infinity, indefinite-parity, invariant-exchange, rational-models, local-factors) and four further Kato L4 nodes (cohomological-divisibility-one-direction, cm-exclusion-and-the-separate-treatment, elliptic-ordinary-and-multiplicative-divisibility, elliptic-rank-zero-p-part-upper-bound). Howard’s hypothesis record and DVR theorem, the global Jacquet–Langlands correspondence with its multiplicity one, and Kato’s Theorem17.4 are supplied exactly. The BSD export is supplied for squarefree N, with one wording to settle (which component group t_g(ℓ) measures). No node title or text of R17.3’s accepted packet states integral multiplicity one or Ihara’s lemma, and its definite-infinity and indefinite-parity nodes assign the Shimura-set identification and integral realisations to other layers, so those inputs are requested from R18.3 and with the level raising. No declaration supplies Zhang2.1, a proof of Serre’s open-image theorem, the Skinner–Urban form of the main conjecture or the self-dual primitivity equality; these stay requests."
     }
   },
   "verification": {
@@ -5780,6 +5915,41 @@
           "missing": [],
           "mathematicalStatementComments": "All 78 packet statements present"
         }
+      }
+    },
+    "redTeamFix": {
+      "by": "FIX-RT-AREA-iwasawa-1~2",
+      "date": "2026-10-06",
+      "packetChecker": {
+        "errors": 0,
+        "warnings": 0,
+        "index": "declaration index from the exact pinned baseline"
+      },
+      "sourceIssueChecker": {
+        "result": "ok",
+        "method": "check_issues and versions_checked of check_errata.py on the ten findings and the version receipts"
+      },
+      "graph": {
+        "nodeCycles": 0,
+        "atlasDryRun": "assembled with this packet in a scratch copy of the promoted blueprints; no skipped link",
+        "detail": "No declaration outside the proposed HE.6z has a prerequisite in it; the period export has no prerequisite in this roadmap; the suppliers of HE.6 proper are not reachable from HE.8; no declaration of HE.8, HE.8b or HE.8c has a prerequisite in HE.6.",
+        "derivedLinks": "With the supplier packets promoted on this date, two derived links are no longer produced and one is new. EulerSystemsAndKolyvaginSystems:ES.5 → HE.5 returns when the cited ES.5 declarations are promoted. NeronModelsAndSemistableAbelianVarieties:R11.6 → HE.6 belonged to the period export’s route. HilbertModularVarietiesAndShimuraCurves:R18.3 → HE.6 is new."
+      },
+      "lean": {
+        "result": "elaborated",
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 114,
+        "warningKind": "admission only",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "89ba28887681f163dc39ff99a4f533250c4fb48c0e02c7d5ebf8c99575131625",
+        "limitations": "Mathlib-only signature check, as before; 7 statement comments changed, no name or signature."
+      },
+      "nameCoverage": {
+        "nodes": 78,
+        "apiItems": 24,
+        "unitTests": 18,
+        "missing": []
       }
     }
   },
