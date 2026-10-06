@@ -9,9 +9,11 @@ power series, matrices, and representations. A template with omitted conditions
 is NOT a theorem for arbitrary inputs of those carrier types. The packet and reader
 state its complete mathematics. No template claims an implementation.
 
-Not compiled in this session: no existing shared build has BOTH pinned revisions.
-The algebraic core retains the earlier reviewed signatures. All new signatures
-remain unchecked. Every test is a named comment followed by an example with sorry.
+Independent review: the signatures use only Mathlib declarations at 082e2d3.
+The unused TauCeti integral-closure import has been removed; its pinned theorem
+is checked as a source-level prerequisite in the packet. Compilation of these
+signatures does not verify omitted supplier conditions or prove any target.
+Every packet test is a named comment followed by an example with sorry.
 -/
 import Mathlib.Algebra.Algebra.Subalgebra.Lattice
 import Mathlib.Algebra.Module.LocalizedModule.Submodule
@@ -26,7 +28,6 @@ import Mathlib.RingTheory.Ideal.GoingDown
 import Mathlib.RingTheory.Support
 import Mathlib.RingTheory.Valuation.Discrete.IsDiscreteValuationRing
 import Mathlib.RingTheory.Valuation.ValuationSubring
-import TauCeti.RingTheory.DedekindDomain.IntegralClosure
 import Mathlib.Data.Finset.Prod
 import Mathlib.Data.Finset.Image
 import Mathlib.Tactic.Ring
@@ -39,6 +40,8 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.Topology.Algebra.Module.Basic
 import Mathlib.Algebra.CharP.Frobenius
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.Basic.Complex.Basic
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.AlgebraicGeometry.Scheme
 
@@ -105,7 +108,7 @@ example (r : k →ₐ[k] Module.End k k)
 -- The action formula determines the ordinary diagonal action completely.
 example (r : (k × k) →ₐ[k] Module.End k (k × k))
     (hr : ∀ h x : k × k, r h x = (h.1 * x.1, h.2 * x.2))
-    (h₁ : (1, 0 : k × k) ≠ 0) (h₂ : (0, 1 : k × k) ≠ 0)
+    (h₁ : ((1, 0) : k × k) ≠ 0) (h₂ : ((0, 1) : k × k) ≠ 0)
     (s₁ : ∀ h : k × k, ∃ a : k, r h (1, 0) = a • (1, 0))
     (s₂ : ∀ h : k × k, ∃ a : k, r h (0, 1) = a • (0, 1)) :
     eigencharacter r (1, 0) h₁ s₁ (1, 0) = 1 ∧
@@ -241,24 +244,24 @@ variable {D : Type*} [CommRing D] [IsDomain D]
 /-- Matrix [[0,pi],[0,0]] over any domain: every nonzero eigenvector has y=0.
 Specialize to a dominating DVR; its reduction therefore cannot be e_2. -/
 lemma nilpotent_eigenvector_nonlifting (π : D) (hπ : π ≠ 0)
-    (λ x y : D) (hv : x ≠ 0 ∨ y ≠ 0)
-    (hfirst : π * y = λ * x) (hsecond : 0 = λ * y) :
-    λ = 0 ∧ y = 0 := by
+    (eigenvalue x y : D) (hv : x ≠ 0 ∨ y ≠ 0)
+    (hfirst : π * y = eigenvalue * x) (hsecond : 0 = eigenvalue * y) :
+    eigenvalue = 0 ∧ y = 0 := by
   sorry
 
 -- Residually the same operator is zero and e_2 has eigenvalue zero.
 example {k : Type*} [Field k] :
-    (0 * (1 : k), 0) = (0 : k) • (0, 1 : k × k) := by
+    (0 * (1 : k), 0) = (0 : k) • ((0, 1) : k × k) := by
   sorry
 
 /-- A nonzero eigenvector of [[0,pi],[1,0]] forces lambda^2=pi. -/
-lemma ramified_eigenvalue_equation (π λ x y : D) (hv : x ≠ 0 ∨ y ≠ 0)
-    (hfirst : π * y = λ * x) (hsecond : x = λ * y) : λ ^ 2 = π := by
+lemma ramified_eigenvalue_equation (π eigenvalue x y : D) (hv : x ≠ 0 ∨ y ≠ 0)
+    (hfirst : π * y = eigenvalue * x) (hsecond : x = eigenvalue * y) : eigenvalue ^ 2 = π := by
   sorry
 
 -- The root gives the promised eigenvector, with second coordinate 1.
 example (π α : D) (hα : α ^ 2 = π) :
-    (π * 1, α) = α • (α, 1 : D × D) := by
+    (π * 1, α) = α • ((α, 1) : D × D) := by
   sorry
 
 -- A DVR uniformizer is not a square even in the fraction field.
@@ -270,7 +273,7 @@ example {O K : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
 
 -- Nonsquareness gives the obstruction over the original fraction field.
 example {K : Type*} [Field K] (π : K) (hπ : ∀ a : K, a ^ 2 ≠ π) :
-    ¬ ∃ λ x y : K, (x ≠ 0 ∨ y ≠ 0) ∧ π * y = λ * x ∧ x = λ * y := by
+    ¬ ∃ eigenvalue x y : K, (x ≠ 0 ∨ y ≠ 0) ∧ π * y = eigenvalue * x ∧ x = eigenvalue * y := by
   sorry
 
 /-- First-projection action of k x k cannot realize the second character. -/
@@ -441,7 +444,7 @@ variable {A : Type*} [CommRing A]
 
 /-- q-expansion fragment; c is l^(k-1), d is the diamond scalar.
 The general full-level formula also changes the two level structures. -/
-def heckeT (l : ℕ) (c d : A) (f : PowerSeries A) : PowerSeries A :=
+noncomputable def heckeT (l : ℕ) (c d : A) (f : PowerSeries A) : PowerSeries A :=
   PowerSeries.mk (fun n => PowerSeries.coeff (l * n) f +
     if l ∣ n then c * d * PowerSeries.coeff (n / l) f else 0)
 
@@ -628,9 +631,10 @@ example (T : Module.End O V) (q : V →ₗ[O] PowerSeries O)
     q (T f) = TauCeti.KatzModularForms.heckeT x c d (q f) := by sorry
 
 -- TauCeti.GeometricHecke.heckeCohomology_boundary
--- Missing CG18 Remark3.4's nonzero mod-p boundary common eigensystem with
--- diamond character epsilon for ALL allowed primes, not a single cusp vector.
-example {k : Type*} [Field k] [AddCommGroup B] [Module k B]
+-- Missing the actual boundary common eigensystem, supported on the diamond
+-- orbit of infinity, with character epsilon. CG18 Remark3.4's unrestricted
+-- all-cusp formula is false (packet E4 / reviewed PAPER-CG18 E23).
+example {k : Type*} [Field k] [Module k B]
     (T : Module.End k B) (x : kˣ) (epsilon : k) (n : ℤ) (f : B) (hf : f ≠ 0) :
     T f = (1 + epsilon * (x : k) ^ (n-1)) • f := by sorry
 
@@ -700,6 +704,22 @@ example {M : Type*} [AddCommGroup M] [Module ℚ M] [Nontrivial M]
 theorem cuspidalExactSequenceEquivariance (T : Module.End O V)
     (TC : Module.End O B) (restriction : V →ₗ[O] B) :
     restriction.comp T = TC.comp restriction := by sorry
+-- R15.2/boundary-eigensystems-are-eisenstein.
+-- Missing the finite cusp-type decomposition and its two multiplicative cusp
+-- actions. psi1 and psi2 must be the finite Dirichlet characters from those
+-- actions; their natural-number carriers below omit the character laws and
+-- the class-field identifications. No diamond transitivity is assumed.
+theorem boundaryEigensystemsEisenstein {K M : Type*} [Field K]
+    [AddCommGroup M] [Module K M] (p N Q : ℕ) (n : ℤ)
+    (T : ℕ → Module.End K M) (epsilon : ℕ → K)
+    (f : M) (hf : f ≠ 0) :
+    ∃ psi1 psi2 : ℕ → K, ∀ l : ℕ, l.Prime → ¬ l ∣ p*N*Q →
+      T l f = (psi1 l + psi2 l * (l : K)^(n-1)) • f ∧
+      psi1 l * psi2 l = epsilon l := by sorry
+
+-- Regression for the distinct zero/infinity cusp types in packet E4.
+example : ((-1 + 3^2 : ℤ) : ZMod 5) = 3 ∧
+    ((1 - 3^2 : ℤ) : ZMod 5) = 2 := by sorry
 end Cohomology
 end TauCeti.GeometricHecke
 
@@ -709,7 +729,7 @@ variable {A : Type*} [CommRing A]
 
 /-- Exact series shadow of theta. Preservation of modular forms is a separate
 geometric statement requiring the Igusa construction and extension across A=0. -/
-def theta (f : PowerSeries A) : PowerSeries A :=
+noncomputable def theta (f : PowerSeries A) : PowerSeries A :=
   PowerSeries.mk (fun n => (n : A) * PowerSeries.coeff n f)
 
 /-- qU selects coefficients; it does not assert geometric preservation. -/
@@ -778,6 +798,69 @@ lemma theta_hecke (p l : ℕ) [Fact p.Prime] [CharP A p]
     TauCeti.KatzModularForms.heckeT l ((l : A)^2*c) d (theta f) =
       (l : A) • theta (TauCeti.KatzModularForms.heckeT l c d f) := by sorry
 end Series
+
+section Supersingular
+variable {K ι : Type*} [Field K]
+
+/-- R15.3/supersingular-section-space. The finite set ι must be the actual
+supersingular locus, and L i the Hodge weight-k fibre. These identifications,
+finiteness and the one-dimensional fibre structures are omitted. For finite
+ι this Pi carrier is the finite direct sum; it permits negative Hodge powers. -/
+abbrev supersingularForms (L : ι → Type*) := ∀ i, L i
+
+variable (L : ι → Type*) [∀ i, AddCommGroup (L i)] [∀ i, Module K (L i)]
+
+def supersingularForms_eval (i : ι) : supersingularForms L →ₗ[K] L i :=
+  LinearMap.proj i
+
+lemma supersingularForms_ext (f g : supersingularForms L)
+    (h : ∀ i, supersingularForms_eval (K := K) L i f = supersingularForms_eval (K := K) L i g) :
+    f = g := by sorry
+
+/-- Missing that the supplied component maps are actual restriction to the
+Hodge fibres of the global modular form on X_1(N). -/
+def supersingularRestriction {V : Type*} [AddCommGroup V] [Module K V]
+    (restrict : ∀ i, V →ₗ[K] L i) : V →ₗ[K] supersingularForms L :=
+  LinearMap.pi restrict
+
+/-- The supplied bilinear maps are the actual tensor-product identifications
+omega^a_i tensor omega^b_i = omega^(a+b)_i. -/
+def supersingularForms_mul {M P : ι → Type*}
+    [∀ i, AddCommGroup (M i)] [∀ i, Module K (M i)]
+    [∀ i, AddCommGroup (P i)] [∀ i, Module K (P i)]
+    (mul : ∀ i, L i →ₗ[K] M i →ₗ[K] P i)
+    (f : supersingularForms L) (g : supersingularForms M) :
+    supersingularForms P := fun i => mul i (f i) (g i)
+
+-- TauCeti.ModPModularForms.supersingularForms_empty
+example [IsEmpty ι] (f : supersingularForms L) : f = 0 := by sorry
+
+-- TauCeti.ModPModularForms.supersingularForms_weight_zero
+-- After omega^0 trivialization, two points allow different values.
+example : ∃ f : supersingularForms (fun (_ : Bool) => K),
+    f false = 0 ∧ f true = 1 := by sorry
+
+-- TauCeti.ModPModularForms.supersingularForms_negative
+-- Missing that these trivialized fibres are omega^k at a nonempty locus,
+-- k<0. They have sections even when the global negative-weight space is zero.
+example [Nonempty ι] (k : ℤ) (hk : k < 0) :
+    ∃ f : supersingularForms (fun (_ : ι) => K), f ≠ 0 := by sorry
+
+/-- R15.3/supersingular-hecke-twisted-periodicity. Missing the simple-zero
+Hasse divisor and KS identification constructing a nowhere-zero weight-(p+1)
+section B, the actual weights k and k+p+1, and their Hecke actions. The scalar
+Pi modules below use chosen trivializations of those two Hodge fibres. This
+is not an existence theorem for arbitrary supplied operators T and T'. -/
+theorem supersingularHeckePeriodicity (p : ℕ) [Fact p.Prime] [CharP K p]
+    (T T' : ℕ → Module.End K (supersingularForms (fun (_ : ι) => K))) :
+    ∃ B : ι → Kˣ,
+      Function.Bijective (fun f : supersingularForms (fun (_ : ι) => K) =>
+        fun i => (B i : K) * f i) ∧
+      ∀ l : ℕ, l.Prime → l ≠ p →
+        ∀ f : supersingularForms (fun (_ : ι) => K),
+          T' l (fun i => (B i : K) * f i) =
+            fun i => (l : K) * (B i : K) * T l f i := by sorry
+end Supersingular
 
 section Hasse
 variable {A : Type*} [CommRing A] (p : ℕ) [Fact p.Prime] [CharP A p]
@@ -916,6 +999,15 @@ theorem twistedSerreDualityHecke {K V W : Type*} [Field K]
     (Phi : V ≃ₗ[K] W) (T : Module.End K V) (dualT : Module.End K W)
     (x : Kˣ) (n : ℤ) :
     Phi.toLinearMap.comp T = (↑(x^(1-n)) : K) • dualT.comp Phi.toLinearMap := by sorry
+-- Field boundary specialization of R15.3/twisted-serre-duality-hecke.
+-- Missing that V=S(N,k), W=S_cusp(N,p+1-k)^dual, and Phi is the Hasse
+-- connecting map followed by Serre duality, KS and root-Fricke. The cusp
+-- twist belongs on the dual target; Phi need not be bijective.
+theorem supersingularBoundaryHecke {K V W : Type*} [Field K]
+    [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
+    (Phi : V →ₗ[K] W) (T : Module.End K V) (dualT : Module.End K W)
+    (l : Kˣ) (k : ℤ) :
+    Phi.comp T = (↑(l^(k-1)) : K) • dualT.comp Phi := by sorry
 end TauCeti.ModPModularForms
 
 /-! R15.4. This is the complete *arithmetic* recipe on classified local data.
@@ -1103,6 +1195,8 @@ lemma isSType_baseChange {K' : Type*} [Field K'] [IsAlgClosed K']
     (u : K ≃+* K') (rho : G →* Matrix.GeneralLinearGroup (Fin 2) K) (c : G) :
     IsSType rho c ↔
       IsSType ((Matrix.GeneralLinearGroup.map u.toRingHom).comp rho) c := by sorry
+
+instance : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
 
 -- TauCeti.ResidualModularity.isSType_11a1_three
 -- Missing E=11a1 (y²+y=x³-x²-10x-20), its E[3] representation, conductor
