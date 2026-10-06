@@ -538,6 +538,17 @@
     "data/blueprints/EllipticCurveModularity.md"
    ]
   },
+  "research/blueprint/packets/EllipticKTheory--E.6.json": {
+   "promotedAt": "2026-10-06T01:32:08Z",
+   "review": "d40edea0017bd029",
+   "reviewDate": "2026-10-06",
+   "reviewer": "independent-review-REV-EllipticKTheory--E.6",
+   "sha256": "f2ee8a49aa585b0168b658d8ee883677dcf7eab96b1585ea952466b0136298e0",
+   "to": [
+    "data/blueprints/EllipticKTheory--E.6.json",
+    "data/blueprints/EllipticKTheory--E.6.md"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "1f540a8f0f3fa1f9",
