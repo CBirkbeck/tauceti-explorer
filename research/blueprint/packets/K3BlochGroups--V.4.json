@@ -1,0 +1,1942 @@
+{
+  "roadmapId": "K3BlochGroups",
+  "protocol": "blueprint-v1",
+  "part": "V.4",
+  "scope": [
+    "K3BlochGroups:V.4"
+  ],
+  "status": "complete",
+  "summary": "Follow-up proof inputs for Suslin stability, its ordered torus/Milnor normalization, coefficient-change for the existing cross-ratio, and finite-coefficient torsion detection. The accepted parent supplies the configuration, monomial and exact-sequence targets; no parent object is defined twice. General homology and early Chern-class supplier boundaries remain explicit. All inherited V.4 targets are imported and mapped explicitly; planned coverage is not closed coverage.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:groupHomology",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+        "provides": "groupHomology A n : ModuleCat k, the n-th homology of inhomogeneousChains A, for a k-linear representation A : Rep k G, in every degree. Integral homology with trivial coefficients, H_n(G, ℤ), is groupHomology (Rep.trivial ℤ G ℤ) n. The file fixes {k G : Type u} and A : Rep.{u} k G, so over ℤ the group must live in Type: St(A), GL(F) and their subgroups are then groups of a ring or field in Type. There is no hyperhomology with coefficients in a complex of representations; V.4/hyperhomology-map constructs it.",
+        "kind": "def",
+        "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean:230)"
+      },
+      {
+        "ref": "mathlib:groupHomology.indIso",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Shapiro.lean",
+        "provides": "Shapiro's lemma for group homology: for S ≤ G and A : Rep k S, H_n(G, Ind_S^G A) ≅ H_n(S, A) in every degree. The configuration-complex computations of V.4 (coinvariants-p1-homology, gl2-spectral-sequence, hyperhomology-map's test shapiro_terms) use it without citing it.",
+        "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Shapiro.lean:66)",
+        "kind": "def"
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The free abelian group on a type, with FreeAbelianGroup.of and FreeAbelianGroup.lift (FreeAbelianGroup.lean:108, 112): the carrier of P(F) and of five-term certificates. For the chain modules of the configuration complex the form Mathlib's homology API uses is Finsupp, or Rep.ofMulAction ℤ G X for the G-action.",
+        "kind": "def",
+        "checked": "statement read at the pinned commit (Mathlib/GroupTheory/FreeAbelianGroup.lean:96)"
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "GL n R := (Matrix n n R)ˣ for a finite index type: GL_2(F), GL_3(F) and their diagonal, Borel and monomial subgroups in V.4. The stable GL(F), a colimit, is not in Mathlib (KTheoryLowDegrees U.1). Matrix.GeneralLinearGroup.toLin (Defs.lean:121) identifies it with LinearMap.GeneralLinearGroup R (n → R). Not yet cited by any node; V.4/coinvariants-p1-homology, gl2-spectral-sequence, psi-gl2 and psi-gl3 use it.",
+        "kind": "abbrev",
+        "checked": "statement read at the pinned commit (Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:43)"
+      },
+      {
+        "ref": "mathlib:Representation.Coinvariants",
+        "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+        "provides": "The coinvariants V/⟨ρ g x − x⟩ of a representation",
+        "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Coinvariants.lean:57)"
+      },
+      {
+        "ref": "mathlib:HomologicalComplex₂.total",
+        "module": "Mathlib/Algebra/Homology/TotalComplex.lean",
+        "provides": "The total complex of a bicomplex (HomologicalComplex₂, HomologicalBicomplex.lean:38), with the sign convention of ComplexShape.π: the construction V.4/hyperhomology-map uses for the hyperhomology of G with coefficients in the configuration complex.",
+        "checked": "statement read at the pinned commit (Mathlib/Algebra/Homology/TotalComplex.lean:265)",
+        "kind": "def"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution",
+        "module": "Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean",
+        "provides": "Projective resolutions as ℕ-indexed complexes of projectives with a quasi-isomorphism to the object",
+        "checked": "statement read at the pinned commit (Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean:41)"
+      },
+      {
+        "ref": "mathlib:Rep.FiniteCyclicGroup.resolution",
+        "module": "Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean",
+        "provides": "For a finite cyclic group G generated by g, the periodic projective resolution … → k[G] --N--> k[G] --(ρ(g) − 1)--> k[G] → k of the trivial representation: the 'standard periodic free resolution' that K-book Lemma VI.5.14 compares with the configuration complex (V.4/symmetric-group-image).",
+        "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean:243)",
+        "kind": "def"
+      },
+      {
+        "ref": "mathlib:OnePoint.equivProjectivization",
+        "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+        "provides": "OnePoint K ≃ ℙ K (Fin 2 → K) for a division ring with decidable equality, ∞ ↦ [1 : 0] and t ↦ [t : 1]. For a field the GL (Fin 2) K action on OnePoint K by Möbius transformations is OnePoint.instGLAction (ProjectiveLine.lean:126), equivariant by OnePoint.equivProjectivization_smul (ProjectiveLine.lean:129), with the formulas smul_infty_eq_ite and smul_some_eq_ite (ProjectiveLine.lean:140, 149).",
+        "kind": "def",
+        "checked": "statement read at the pinned commit (Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean:84)"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Tor",
+        "module": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+        "provides": "Tor C n : C ⥤ C ⥤ C, the left-derived functors of X ⊗ − in the second variable, for a monoidal abelian category with MonoidalPreadditive and projective resolutions. For C = ModuleCat ℤ the instances exist (MonoidalPreadditive at Mathlib/Algebra/Category/ModuleCat/Monoidal/Basic.lean:449; enough projectives at Mathlib/Algebra/Category/ModuleCat/Projective.lean:58; resolutions at Mathlib/CategoryTheory/Abelian/Projective/Resolution.lean:340), so it gives Tor_n^ℤ of abelian groups. It has no computations ('For now we have almost nothing to say about it!'): Tor_1^ℤ(ℤ/n, B) ≅ B[n], the comparison with Tor' and compatibility with filtered colimits, which Tor_1(μ, μ) ≅ μ needs, are proved in V.4/tor-form-comparison.",
+        "kind": "def",
+        "checked": "statement read at the pinned commit (Mathlib/CategoryTheory/Monoidal/Tor.lean:44)"
+      },
+      {
+        "ref": "mathlib:groupHomology.map",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Covariant homology map for a group homomorphism and a compatible coefficient morphism; identity and composition laws in this module.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearIndependent",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
+        "provides": "Injectivity of the Finsupp linear-combination map; use this predicate for the projected vector family.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Rep",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "Bundled representation with its underlying module and action; the existing abelian category supplies homology representations.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Rep.trivial",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "Trivial integral or finite-coefficient representations, with no private model of group homology.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SpectralSequence",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
+        "provides": "Pages as homological complexes and the next-page homology isomorphisms in any abelian category. This definition alone supplies neither the frame resolution spectral sequence nor convergence.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:AddCommGrpCat.injective_of_divisible",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/Grp/Injective.lean",
+        "provides": "A divisible abelian group, expressed using DivisibleBy A Z, is an injective object in AddCommGrpCat; hence an embedded divisible group splits.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CommGroup.torsion",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "The torsion subgroup of a commutative group and its generated additive declaration AddCommGroup.torsion; the latter elaborates in the suggested file although the declaration index omits generated names. The detector uses this genuine subgroup as its intermediate target.",
+        "checked": "Actual declaration statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Su84",
+      "title": "Гомологии GLₙ, характеристические классы и K-теория Милнора",
+      "authors": "А. А. Суслин (A. A. Suslin)",
+      "edition": "Trudy Mat. Inst. Steklov. 165 (1984), 188–204; Russian version of record. Numbering and printed pages refer to this edition, not the separate Springer stability paper.",
+      "url": "https://www.mathnet.ru/links/f1b6f2237fb5532fea1b7116cb2dacc9/tm2280.pdf",
+      "sha256": "4080b087bff4d8842995691ba23b0960c5de81b62e032aeeabe82204d765ee4d",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "§1 pp188–191, especially 1.1–1.9",
+        "§2 pp191–196, independent-vector complexes, presentation and products",
+        "§3 pp196–198, spectral sequence and Theorem 3.4; formulas visually checked on scan pages6–11"
+      ]
+    },
+    {
+      "id": "Su91",
+      "title": "K₃ of a field, and the Bloch group",
+      "authors": "A. A. Suslin",
+      "edition": "Proc. Steklov Inst. Math. 183 (1991), 217–239; public scan of the English translation.",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf",
+      "sha256": "ef16d5d93f6f9f6509f93e9b748f5cf06bda2a2a2da852404375638bab12994c",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "§2 pp221–223, visually read scan pages5–7; Lemma2.4 explicitly omits its computation",
+        "§5 pp233–239, OCR then critical formulas visually checked on p236; Lemmas5.5–5.8 and Theorem5.2"
+      ]
+    },
+    {
+      "id": "KV",
+      "title": "The K-book, Chapter V",
+      "authors": "Charles Weibel",
+      "edition": "Author public chapter; printed chapter page numbers.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "§11 Definition11.5, Examples11.9–11.10, Lemma11.10.1; Exercise11.5 p89"
+      ]
+    },
+    {
+      "id": "KVI",
+      "title": "The K-book, Chapter VI",
+      "authors": "Charles Weibel",
+      "edition": "Author public chapter; printed chapter page numbers.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "accessDate": "2026-10-06",
+      "readSections": [
+        "§1 Corollary1.3.1 and Proposition1.4; §2 Definition2.1",
+        "§5 Lemma5.19 and Corollary5.20 pp34–35; adjacent configuration and stability discussion",
+        "§1 Definition1.7 and Proposition1.7.1, weight-two Tate action and finite Bott proof"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K3BlochGroups:V.4/scalar-homology-vanishing",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Scalar acyclicity for additive coefficients",
+      "kind": "theorem",
+      "statement": "For an infinite field F, an F-vector space V, a prime field k, j>0 and i≥0, Hᵢ(Fˣ,Hⱼ(V_add,k))=0, where Fˣ acts by scalar multiplication on V and hence on its additive-group homology. V need not be finite-dimensional. This is coefficient homology, not the assertion that Hⱼ(V_add,k) itself vanishes.",
+      "hypotheses": [
+        "F infinite; k=Q or F_p; j>0."
+      ],
+      "proofSteps": [
+        "Su84 1.1–1.6: the diagonal tensor-power scalar action has zero coinvariants, including mixed symmetric/exterior powers. A maximal-ideal argument would otherwise give embeddings of F whose product is identically1, forcing F finite. The symmetric-invariant algebra filtration extends this to the mixed powers.",
+        "Su84 1.7–1.8: in matching positive characteristic use the exterior/symmetric decomposition of elementary-abelian homology (Sym in degree1 at p=2). In characteristic zero use exterior powers and the central scalar annihilator. In mismatching positive characteristic positive homology is zero. Pass through finite-dimensional subspaces.",
+        "Use that the scalar elements act trivially on their own group homology with coefficients and that the ideal of scalar-minus-one elements is the unit ideal. The precise general homology inputs are requested at H.1 Part II."
+      ],
+      "acceptance": [
+        "j=0 is excluded: H₀(Fˣ,k)=k for the trivial action.",
+        "For F₂ with V=F₂ and k=F₂, H₀(F₂ˣ,H₁(V,k))=F₂, so dropping infinitude is false."
+      ],
+      "prerequisites": [
+        "StableHomotopyKTheory:H.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "Corollary1.8, p191",
+          "excerpt": "Пусть F — произвольное поле",
+          "match": "The printed formula is read with the standing infinite-field convention in the introduction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/affine-block-homology",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Homology invariance under affine blocks",
+      "kind": "theorem",
+      "statement": "Let G₁≤GLₙ(F), G₂≤GLₘ(F), and M≤Matₙ,ₘ(F) be an F-linear subspace stable under left G₁ and right G₂ multiplication. If F is infinite and either G₁ or G₂ contains every scalar matrix, the block-diagonal inclusion G₁×G₂→{(g₁ u;0 g₂):u∈M} induces an isomorphism on integral homology in every degree. The stronger all-diagonal hypothesis printed in Su84 implies this sufficient scalar hypothesis.",
+      "hypotheses": [
+        "n,m≥1; F infinite; scalar containment in at least one block; M stable."
+      ],
+      "proofSteps": [
+        "The upper-block group is M_add⋊(G₁×G₂). In the matching central scalar subgroup, the induced action on M is t or t⁻¹, both covered by scalar-homology-vanishing.",
+        "Apply LHS first to the central scalar subgroup of G₁×G₂, then to M_add⋊(G₁×G₂). All positive-M rows vanish over every prime field. The split inclusion and projection are inverse on homology.",
+        "Detect an integral homology equivalence from rational and all F_p coefficient equivalences, using UCT on the mapping cone. No averaging by |Fˣ| is allowed."
+      ],
+      "acceptance": [
+        "M=0 gives the product-group identity.",
+        "For F₂ the scalar group is trivial and the one-by-one unipotent group is C₂, whose H₁ is nonzero: the infinite-field qualification is essential."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/scalar-homology-vanishing",
+        "StableHomotopyKTheory:H.1",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "Theorem1.9 and proof, p191",
+          "excerpt": "является гомологическим изоморфизмом.",
+          "match": "The source requires all diagonal matrices; its proof only uses the central scalars, yielding the stated refinement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/unimodular-vector-chains",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Independent-vector chain complex",
+      "kind": "construction",
+      "statement": "For a field F and n,m≥0, C₀ⁿ,ᵐ=Z and C_qⁿ,ᵐ is the free abelian group on ordered q-tuples (vᵢ,wᵢ)∈Fⁿ⊕Fᵐ with the projected family vᵢ linearly independent, q≥1. The boundary is alternating deletion, d(v,w)=1 in degree1. Thus C_q=0 for q>n. This is the shifted augmented complex of Um(Fⁿ,Fᵐ), not the projective configuration complex. It carries the natural action of Aₙ,ₘ={ (g 0;u 1):g∈GLₙ(F),u∈Hom(Fⁿ,Fᵐ)}.",
+      "hypotheses": [
+        "F any field, n,m≥0; no infinitude required for construction."
+      ],
+      "proofSteps": [
+        "Use LinearIndependent for the projected family, free abelian groups and the usual deletion boundary. Pairwise face cancellation proves d²=0.",
+        "Represent Aₙ,ₘ by the displayed block subgroup of the existing general linear group; its action preserves projected independence. The m=0 action gives a chain complex in Rep Z GLₙ.",
+        "The empty tuple is the augmentation generator in degree0. Keep the q versus simplex-dimension shift explicit."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "mathlib:FreeAbelianGroup",
+        "mathlib:LinearIndependent",
+        "mathlib:Rep",
+        "mathlib:Matrix.GeneralLinearGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "§2 definitions, Lemmas2.1–2.2, pp191–192",
+          "excerpt": "Следующее утверждение является частным случаем",
+          "match": "The source shifts the augmented complex so the empty tuple has degree0."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      },
+      "uses": [
+        {
+          "where": "Su84 §3 spectral sequence",
+          "how": "Ordered frames have affine stabilizers; their homology calculates the E¹ page."
+        },
+        {
+          "where": "K3BlochGroups:V.4/homological-stability",
+          "how": "Its top homology and connecting map supply the stability proof."
+        }
+      ],
+      "api": [
+        {
+          "name": "unimodularChains",
+          "role": "constructor",
+          "statement": "The complex Cⁿ,ᵐ with the stated augmentation, differential and action."
+        },
+        {
+          "name": "unimodularChains.frame",
+          "role": "constructor",
+          "statement": "An independent ordered q-frame gives a basis chain in degreeq, including the empty frame."
+        },
+        {
+          "name": "unimodularChains.frame_d",
+          "role": "simp",
+          "statement": "For q≥1, the boundary of a basis frame is the alternating sum of its q deleted frames."
+        },
+        {
+          "name": "unimodularChains.basisEquiv",
+          "role": "equivalence",
+          "statement": "The degreeq underlying module is linearly equivalent to the free abelian group on the projected-independent q-frames."
+        },
+        {
+          "name": "unimodularChains.glRepresentation",
+          "role": "structure",
+          "statement": "For m=0 the complex is a complex in Rep Z GLₙ; forgetting the action recovers Cⁿ,⁰."
+        },
+        {
+          "name": "unimodularChains.mapField",
+          "role": "functoriality",
+          "statement": "A field embedding acts on both coordinate blocks and induces a chain map, commuting with augmentation; identity and composite embeddings induce identity and composite maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "unimodularChains_rank_zero",
+          "kind": "degenerate",
+          "statement": "C⁰,ᵐ has degree0 Z and zero positive terms, even when m>0."
+        },
+        {
+          "name": "unimodularChains_rank_one",
+          "kind": "value",
+          "statement": "For n=1,m=0, d(a)=1 for a≠0, so d((2)−(1))=0 over Q; there are no degree2 independent frames."
+        },
+        {
+          "name": "unimodularChains_ordered_boundary",
+          "kind": "value",
+          "statement": "For the standard frame (e₁,e₂) in F², d(e₁,e₂)=(e₂)−(e₁); forgetting the order or using an all-positive boundary fails."
+        },
+        {
+          "name": "unimodularChains_linear_independence",
+          "kind": "non-example",
+          "statement": "The distinct vectors e₁ and 2e₁ in Q² are not a degree2 generator. Distinctness alone is insufficient."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.4/unimodular-acyclic-range",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Acyclic range of independent frames",
+      "kind": "theorem",
+      "statement": "For infinite F, H_q(Cⁿ,ᵐ)=0 for q≠n. Equivalently Um(Fⁿ,Fᵐ) is (n−2)-acyclic in reduced homology; the only possible homology of the shifted augmented complex is its top group Uₙ,ₘ=H_n(Cⁿ,ᵐ). For n=0 the empty augmentation Z is precisely that top group.",
+      "hypotheses": [
+        "F infinite; n,m≥0."
+      ],
+      "proofSteps": [
+        "Su84 Lemma2.2: a finite-support cycle in the general-position vector complex can be coned by a new projected vector avoiding finitely many proper subspaces. Prove this finite-subspace avoidance over an infinite field, not merely avoidance of finitely many vectors.",
+        "The q≤n skeleton of general position is exactly independent tuples. Hence the cone kills homology below n; there are no terms above n. For n=0 inspect C₀ directly."
+      ],
+      "acceptance": [
+        "For n=1, U₁,₀ is the augmentation kernel of Z[Fˣ]→Z; C itself is not acyclic in degree1."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/unimodular-vector-chains"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "Lemmas2.1–2.2, pp191–192",
+          "excerpt": "ациклично.",
+          "match": "Vector general position, distinct from the parent’s projective general-position complex."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/stability-coinvariants",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Coinvariants of top frame homology",
+      "kind": "construction",
+      "statement": "Define Sₙ(F)=H₀(GLₙ(F),Uₙ,₀) using integral coefficient homology and the representation on top frame homology. For n≥1, ⟨a₁,…,aₙ⟩ is the coinvariant class of d(e₁,…,eₙ,Σaᵢeᵢ), aᵢ∈Fˣ. Direct-sum concatenation of independent frames induces associative products Sₙ⊗Sₘ→Sₙ₊ₘ, with S₀=Z as unit. This is Suslin’s frame-homology algebra, not Milnor K-theory itself.",
+      "hypotheses": [
+        "F infinite for the generator presentation; the underlying coinvariants are defined for any field."
+      ],
+      "proofSteps": [
+        "Take top homology of the m=0 Rep-valued complex and then the existing H₀ group homology.",
+        "The acyclic general-position complex presents U by degree n+1 boundaries. Transitive GL-orbit normalization yields the generators and the precise relation stated below.",
+        "For a direct-sum decomposition concatenate frames; use the shifted Leibniz sign d(xy)=dx·y+(−1)^deg(x)x·dy to descend the product through homology and coinvariants. In the affine variant use affine-block-homology and Shapiro to identify the same coinvariants."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/unimodular-vector-chains",
+        "K3BlochGroups:V.4/unimodular-acyclic-range",
+        "K3BlochGroups:V.4/affine-block-homology",
+        "mathlib:groupHomology",
+        "mathlib:groupHomology.indIso",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "mathlib:Representation.Coinvariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "§2.3–2.5, pp192–195",
+          "excerpt": "Обозначим",
+          "match": "Top frame homology coinvariants and the associative direct-sum product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      },
+      "uses": [
+        {
+          "where": "Su84 Theorem3.4",
+          "how": "The edge filtration splits off the degree-two class ⟨1,1⟩."
+        },
+        {
+          "where": "K3BlochGroups:V.4/h3-gl3-generation",
+          "how": "The symbol quotient is normalized through S₃ and its Milnor retraction."
+        }
+      ],
+      "api": [
+        {
+          "name": "stabilityCoinvariants",
+          "role": "constructor",
+          "statement": "The existing H₀ of the top-homology representation."
+        },
+        {
+          "name": "stabilityCoinvariants.gen",
+          "role": "constructor",
+          "statement": "For n≥1 and nonzero entries, the specified boundary class ⟨a⟩."
+        },
+        {
+          "name": "stabilityCoinvariants.ext",
+          "role": "extensionality",
+          "statement": "Two additive homomorphisms out of Sₙ agreeing on every ⟨a⟩ agree, n≥1."
+        },
+        {
+          "name": "stabilityCoinvariants.relation",
+          "role": "relation",
+          "statement": "For pairwise distinct λᵢ∈Fˣ, ⟨λ₁a₁,…,λₙaₙ⟩−⟨a₁,…,aₙ⟩=Σᵢ(−1)ⁱ⁺ⁿ⟨a₁(λ₁−λᵢ),…, omit aᵢ(λᵢ−λᵢ),…,aₙ(λₙ−λᵢ),λᵢ⟩, with indices1,…,n."
+        },
+        {
+          "name": "stabilityCoinvariants.mul",
+          "role": "structure",
+          "statement": "Associative bilinear direct-sum product, with S₀=Z acting by integer multiplication; the product uses ordered concatenation."
+        },
+        {
+          "name": "stabilityCoinvariants.milnorRetraction",
+          "role": "compatibility",
+          "statement": "The unique homomorphism Sₙ→Kₙᴹ(F) sends every ⟨a⟩ to {a₁,…,aₙ}, using T.2’s Milnor-symbol presentation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "stabilityCoinvariants_zero",
+          "kind": "degenerate",
+          "statement": "S₀(F) is Z, not the zero group."
+        },
+        {
+          "name": "stabilityCoinvariants_one",
+          "kind": "compatibility",
+          "statement": "S₁(F)≅Fˣ written additively, and ⟨a⟩ maps to a; in particular ⟨1⟩=0."
+        },
+        {
+          "name": "stabilityCoinvariants_two_unit",
+          "kind": "non-example",
+          "statement": "Under S₂(F)≅K₂ᴹ(F)⊕Z, ⟨1,1⟩ maps to (0,1), so S₂ is not just K₂ᴹ and this class is nonzero."
+        },
+        {
+          "name": "stabilityCoinvariants_product_two",
+          "kind": "value",
+          "statement": "⟨a⟩·⟨b⟩=⟨a,b⟩−⟨1,b⟩−⟨a,1⟩+⟨1,1⟩; the Milnor retraction sends it to {a,b}."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.4/frame-connecting-map",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Iterated frame connecting homomorphism",
+      "kind": "construction",
+      "statement": "For infinite F and n≥1, the exact augmented frame complex defines δₙ:Hₙ(GLₙ(F),Z)→Sₙ(F) by n successive connecting homomorphisms. Its restriction along GLₙ₋₁→GLₙ is zero. With ordered block-sum homology products, δₙ₊ₘ(x×y)=δₙ(x)·δₘ(y). The connecting-map convention is pinned by δ₁([a])=⟨a⟩, so the Milnor symbol comparison has no unspecified sign.",
+      "hypotheses": [
+        "F infinite; n≥1; integral homology; stabilization is diag(g,1)."
+      ],
+      "proofSteps": [
+        "Use unimodular-acyclic-range to get the exact coefficient sequence 0→Uₙ→Cₙ→⋯→C₁→Z→0. Compose the standard homology connecting maps with the augmentation convention just stated.",
+        "After restriction to GLₙ₋₁, the augmentation has the fixed-vector section 1↦eₙ, making δ vanish.",
+        "The concatenation chain pairing and its shifted Leibniz rule compare the iterated connecting maps with the homological cross product. This is Su84 2.6.1, not a Quillen K-theory product calculation."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/unimodular-acyclic-range",
+        "K3BlochGroups:V.4/stability-coinvariants",
+        "StableHomotopyKTheory:H.1",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "§2.6 and Lemma2.6.1, p195",
+          "excerpt": "итерированный связывающий гомоморфизм",
+          "match": "The connecting homomorphism and its stabilization/product identities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      },
+      "uses": [
+        {
+          "where": "Su84 3.2.2 and Theorem3.4",
+          "how": "Identify the E∞ edge map with this connecting homomorphism."
+        },
+        {
+          "where": "K3BlochGroups:V.4/h3-gl3-generation",
+          "how": "Pin the normalization of the Milnor quotient on ordered torus products."
+        }
+      ],
+      "api": [
+        {
+          "name": "frameConnecting",
+          "role": "constructor",
+          "statement": "The homomorphism δₙ defined from the exact augmented complex."
+        },
+        {
+          "name": "frameConnecting_stabilization",
+          "role": "relation",
+          "statement": "δₙ vanishes on the image of Hₙ(GLₙ₋₁), not on all of Hₙ(GLₙ)."
+        },
+        {
+          "name": "frameConnecting_product",
+          "role": "compatibility",
+          "statement": "δₙ₊ₘ sends the ordered block-sum product to the S-algebra product."
+        },
+        {
+          "name": "frameConnecting_one",
+          "role": "simp",
+          "statement": "On H₁(GL₁)=Fˣ written additively, δ₁([a])=⟨a⟩."
+        },
+        {
+          "name": "frameConnecting_field",
+          "role": "functoriality",
+          "statement": "The connecting map commutes with field embeddings and the induced maps on group homology and Sₙ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "frameConnecting_one_test",
+          "kind": "compatibility",
+          "statement": "δ₁([2])=⟨2⟩ over Q under the abelianisation identification."
+        },
+        {
+          "name": "frameConnecting_old_rank",
+          "kind": "degenerate",
+          "statement": "Every H₃(GL₂) class maps to zero under δ₃ after stabilization."
+        },
+        {
+          "name": "frameConnecting_torus_three",
+          "kind": "value",
+          "statement": "The Milnor retraction of δ₃([a]×[b]×[c]) is {a,b,c}, including the order of the three factors."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.4/frame-algebra-splitting",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Splitting of the frame coinvariant algebra",
+      "kind": "theorem",
+      "statement": "For infinite F, S₂(F)≅K₂ᴹ(F)⊕Z with ⟨a,b⟩↦({a,b},1). For n≥2, Sₙ is the internal sum of the embedded Kₙᴹ and the image of multiplication by e=⟨1,1⟩ from Sₙ₋₂; the intersection is zero. Multiplication by e is injective once the stability induction below is established. For n≥3 all Sₙ are generated by products of positive-degree classes.",
+      "hypotheses": [
+        "F infinite; use the normalized Milnor section θ through δ and the Milnor retraction."
+      ],
+      "proofSteps": [
+        "Su84 2.7.1–2.7.4 proves the ordered homology product respects multilinearity and Steinberg relations. The delicate rank-two Steinberg step uses the SL₂ universal-central-extension presentation and its Fˣ-coinvariants; this precise input is a gap in the current T.2 supplier.",
+        "Su84 3.3.1 changes one coordinate at a time: the difference of generators is decomposable by an explicit cone/concatenation calculation. Thus every generator is congruent to ⟨1,…,1⟩ modulo decomposables.",
+        "Use the defining relation for pairwise distinct λ’s in odd degree, and multiply ⟨1,…,1⟩ by e in even degree, to show Sₙ is decomposable for n≥3. The degree-two calculation gives K₂ᴹ⊕Z.",
+        "The section/retraction is the identity on Milnor symbols. Since e retracts to zero and commutes with degree-one elements (Su84 3.3.5), induction gives Sₙ=Kₙᴹ⊕eSₙ₋₂. Injectivity of e belongs to the simultaneous spectral-sequence induction, so it is not assumed here."
+      ],
+      "acceptance": [
+        "The e summand must survive even when K₂ᴹ(F)=0; no integral identification S₂=K₂ᴹ is permitted."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/stability-coinvariants",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K2SymbolsBrauer:T.2:symbols",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2/matsumoto",
+        "StableHomotopyKTheory:H.1",
+        "K3BlochGroups:V.4/milnor-frame-retraction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "2.7.4, 3.3.1–3.3.5, pp196–198",
+          "excerpt": "является тождественным отображением.",
+          "match": "Splitting, decomposability and the commuting degree-two class; displayed formulas transcribed from the scan."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Suslin’s stability induction",
+      "kind": "theorem",
+      "statement": "For infinite F and n≥1, the frame hyperhomology spectral sequence has E¹_{p,q}=H_p(GLₙ₋q(F),Z), 0≤q≤n, and abuts to H_{p+q−n}(GLₙ(F),Uₙ) with the finite frame filtration. The d¹ in odd q is stabilization and in even q is zero. Its dʳ vanish for every r≥2. Multiplication by e:Sₙ₋₂→Sₙ is injective for n≥2. The degree-n edge has kernel im Hₙ(GLₙ₋₁) and its Milnor retraction identifies the quotient with Kₙᴹ. Consequently the finite-step stabilization H_i(GLₙ₋₁)→H_i(GLₙ) is an isomorphism for i≤n−1. These assertions are proved simultaneously, rather than invoking the parent stability theorem to prove itself.",
+      "hypotheses": [
+        "F infinite; GL₀ is the trivial group; homological indexing p=group degree, q=augmented frame length."
+      ],
+      "proofSteps": [
+        "Resolve the coefficient complex by the existing bar/projective resolution. Shapiro and affine-block-homology identify each frame orbit stabilizer with GLₙ₋q; the frame filtration has finite length, so no unbounded convergence assertion is used.",
+        "The alternating q face maps are conjugate stabilization maps, giving stabilization for oddq and zero for evenq. Its total-degree-n edge is exactly frameConnecting.",
+        "Su84 Theorem3.4 chooses a degree-two cycle mapping to e and constructs the shifted comparison from the (n−2)-rank affine complex to the n-rank frame complex by concatenation. On q≥2 the E¹ comparison is an isomorphism; the shifted source has no q<2 terms. With induction this kills all higher differentials and makes e injective on the abutment.",
+        "The finite filtration separates the Milnor section from the e summand. Its E∞ terms give both the quotient isomorphism in degree n and the absence of a kernel in degree n−1. Induct over all n before extracting n≤3 or passing to GL∞ via filtered-colimit homology."
+      ],
+      "acceptance": [
+        "The abutment is top-frame homology with shift n, not H_{p+q}(GLₙ,Z).",
+        "Taking rank4 gives H₃(GL₃)≅H₃(GL₄); the stated range does not assert H₃(GL₂)≅H₃(GL₃)."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/affine-block-homology",
+        "K3BlochGroups:V.4/unimodular-acyclic-range",
+        "K3BlochGroups:V.4/frame-algebra-splitting",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "mathlib:groupHomology.indIso",
+        "mathlib:HomologicalComplex₂.total",
+        "mathlib:CategoryTheory.ProjectiveResolution",
+        "StableHomotopyKTheory:H.1",
+        "mathlib:CategoryTheory.SpectralSequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "§3.1–3.2 and Theorem3.4(a–d), pp196–198",
+          "excerpt": "равны нулю.",
+          "match": "The degeneration, e-injectivity, finite-step stability and Milnor quotient are proved together; formulas read visually."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/normalized-milnor-homology-map",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Ordered Milnor-to-homology quotient map",
+      "kind": "construction",
+      "statement": "For infinite F and n≥1 define θₙ:Kₙᴹ(F)→Hₙ(GLₙ(F),Z)/im Hₙ(GLₙ₋₁(F),Z) by {a₁,…,aₙ}↦the quotient class of the ordered block-diagonal product [a₁]×⋯×[aₙ]. It is the unique homomorphism with this generator formula. Multilinearity and the Steinberg relation make it well-defined before stability is proved.",
+      "hypotheses": [
+        "F infinite; n≥1; ordered homology cross products, not Quillen products."
+      ],
+      "proofSteps": [
+        "Su84 2.7.1 proves multilinearity. The rank-two Steinberg/SL₂ presentation input in the T.2 gap kills the pair a,1−a modulo the old-rank image; ordered block multiplication kills the corresponding relation in all degrees.",
+        "Descend the tensor-algebra presentation of Milnor K-theory. Uniqueness follows from its symbols generating the group. No stability theorem is used to construct θ."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K2SymbolsBrauer:T.2:symbols",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2:symbols/milnor-real",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "StableHomotopyKTheory:H.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "2.7.1–2.7.4 and Theorem3.4(d), pp195–198",
+          "excerpt": "является тождественным отображением",
+          "match": "The retraction composite is the identity, fixing the normalization without a factorial."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      },
+      "uses": [
+        {
+          "where": "K3BlochGroups:V.4/h3-gl3-generation and psi-gl3",
+          "how": "Generate the stable degree-three map from rank2 and diagonal-torus inputs."
+        },
+        {
+          "where": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+          "how": "Distinguish the ordered homological symbol map from the Quillen/Milnor comparison with factorial coefficients."
+        }
+      ],
+      "api": [
+        {
+          "name": "milnorHomologyTheta",
+          "role": "constructor",
+          "statement": "The symbol-induced additive map θₙ to the quotient by the stabilization image."
+        },
+        {
+          "name": "milnorHomologyTheta_symbol",
+          "role": "simp",
+          "statement": "A Milnor symbol maps to the quotient class of the ordered degree-one homology product."
+        },
+        {
+          "name": "milnorHomologyTheta_field",
+          "role": "functoriality",
+          "statement": "θ commutes with field embeddings and their maps on Milnor K-theory, GL homology and stabilization quotients."
+        },
+        {
+          "name": "milnorHomologyTheta_unique",
+          "role": "universal-property",
+          "statement": "Every additive map from Kₙᴹ to the stabilization quotient with the ordered-product formula on symbols equals θₙ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "milnorHomologyTheta_one",
+          "kind": "degenerate",
+          "statement": "θ₁ is Fˣ≅H₁(GL₁) because H₁(GL₀)=0."
+        },
+        {
+          "name": "milnorHomologyTheta_steinberg",
+          "kind": "relation",
+          "statement": "The ordered torus product [a]×[1−a]×[b] has zero class modulo im H₃(GL₂), for a≠0,1 and b≠0."
+        },
+        {
+          "name": "milnorHomologyTheta_real_sign",
+          "kind": "non-example",
+          "statement": "Over R, {-1,-1,-1} maps to a nonzero quotient class of order2. An erroneous multiplication-by-2 normalization would kill it."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.4/cross-ratio-coefficient-change",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Field naturality of the cross-ratio",
+      "kind": "theorem",
+      "statement": "For a field embedding f:F→E and an ordered injective quadruple t in P¹(F), the parent cross-ratio satisfies cr_E(P¹(f)t)=f(cr_F(t)). It induces the corresponding square between degree-three configuration coinvariants and P(F)→P(E), so the maps ψ₂ and the rank-comparison ψ₃ commute with field embeddings. Use cr(0,∞,1,x)=x, not the reciprocal convention of the polylogarithm cocycle.",
+      "hypotheses": [
+        "F,E fields; f a unital field embedding; t consists of four distinct points. Infinitude is needed for ψ from acyclic configurations, not for the cross-ratio identity."
+      ],
+      "proofSteps": [
+        "Import the parent cross-ratio construction, its determinant formula and five-face API. Coordinatewise f preserves determinants and nonzero denominators, including points at infinity.",
+        "The alternating faces of (0,∞,1,x,y) give, in order, (1−x)/(1−y), (1−x⁻¹)/(1−y⁻¹), y/x, y, x. Their alternating sum is the parent V.3 five-term relation. This existing relation, rather than an unordered quadruple, makes the coefficient-change square descend.",
+        "Use naturality of bar resolution comparison and the parent hyperhomology and rank-comparison maps for ψ. Polylogarithms:P.2 imports r=1/cr, so r(∞,0,1,x)=x."
+      ],
+      "acceptance": [
+        "For x=2,y=3 over Q the ordered face values are 1/2,3/4,3/2,3,2.",
+        "Over F₃ the unique admissible cross-ratio is −1; a map that needs an infinite field for the ratio itself is too restrictive."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/cross-ratio",
+        "K3BlochGroups:V.4/coinvariants-p1-homology",
+        "K3BlochGroups:V.4/hyperhomology-map",
+        "K3BlochGroups:V.4/psi-compatibility",
+        "K3BlochGroups:V.3/pre-bloch-group",
+        "K3BlochGroups:V.3/five-term-relation",
+        "mathlib:OnePoint.equivProjectivization",
+        "mathlib:groupHomology.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su91",
+          "locator": "Lemma2.2, p221",
+          "excerpt": "Lemma 2.2.",
+          "match": "Field naturality is an algebraic consequence of the printed orbit normalization and face formula, not an additional claim quoted from Suslin."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/milnor-frame-retraction",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Milnor retraction of the symbol section",
+      "kind": "theorem",
+      "statement": "The composite Kₙᴹ(F)→θₙ Hₙ(GLₙ)/im Hₙ(GLₙ₋₁)→δₙ Sₙ(F)→Kₙᴹ(F) is the identity, for infinite F and n≥1. In particular θₙ and its lift into Sₙ are injective. This statement is established before the stability spectral-sequence induction.",
+      "hypotheses": [
+        "F infinite; n≥1; the connecting convention δ₁([a])=⟨a⟩."
+      ],
+      "proofSteps": [
+        "Evaluate on a Milnor symbol using the product compatibility of δ. Expand the product of degree-one frame classes by Su84 2.5.3: the term with no entries replaced by1 is ⟨a₁,…,aₙ⟩, all other terms have an entry1.",
+        "The Milnor retraction sends the first term to {a₁,…,aₙ} and the remaining terms to zero. Symbols generate, proving identity and injectivity."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/normalized-milnor-homology-map",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K3BlochGroups:V.4/stability-coinvariants",
+        "K2SymbolsBrauer:T.2/milnor-k-theory"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "Corollary2.7.4, p196",
+          "excerpt": "является тождественным отображением",
+          "match": "The section/retraction identity precedes Theorem3.4."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/degree-three-torus-quotient",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Degree-three torus generation with normalization",
+      "kind": "theorem",
+      "statement": "For infinite F, θ₃ is an isomorphism with inverse the descended Milnor retraction of δ₃. If t₃:H₃((Fˣ)³)→H₃(GL₃) is induced by diagonal matrices and s₂:H₃(GL₂)→H₃(GL₃) by diag(g,1), then im t₃+im s₂=H₃(GL₃). The quotient sends the ordered degree-one product for (a,b,c) to {a,b,c}, with coefficient +1. This supplies the proof interface of the parent h3-gl3-generation; it does not change the parent’s ψ₃.",
+      "hypotheses": [
+        "F infinite; all homology integral; order of factors fixed."
+      ],
+      "proofSteps": [
+        "The pre-stability left-inverse identity and the edge-kernel/surjectivity in frame-spectral-sequence-collapse give a two-sided inverse of θ₃.",
+        "Every Milnor class is a finite sum of symbols. Lift the symbols through the three-factor torus cross product. Subtract the lift from an arbitrary H₃(GL₃) class; its quotient is zero, hence the difference belongs to im H₃(GL₂).",
+        "Use the parent psi-compatibility and psi3-torus-vanishing to extend the rank-two Bloch map uniquely through stable H₃. This is the use of generation, not an independent redefinition of ψ."
+      ],
+      "acceptance": [
+        "The same proof does not identify the Quillen-to-Milnor product comparison with coefficient1: its factorial is a different map.",
+        "Over R the repeated symbol of −1 remains nonzero of order2."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/normalized-milnor-homology-map",
+        "K3BlochGroups:V.4/milnor-frame-retraction",
+        "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+        "K3BlochGroups:V.4/monomial-subgroups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su84",
+          "locator": "Theorem3.4(d), p198",
+          "excerpt": "является изоморфизмом.",
+          "match": "The displayed map is transcribed; its n=3 consequence gives torus generation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Stability",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/closure-torsion-detector",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Torsion detector through algebraic closure",
+      "kind": "construction",
+      "statement": "For infinite F choose an algebraic closure Ω and let µ(F) be its roots-of-unity subgroup in Fˣ. The parent δ:H₃(µ(F),Z)→π₃ⁱⁿᵈ(BM(F)⁺)→K₃ⁱⁿᵈ(F), followed by scalar extension to Ω, lands in the torsion of K₃ⁱⁿᵈ(Ω). Uniquely divisible Milnor K₃ and its split embedding identify that torsion with K₃(Ω)_tors. Compose with e_Ω to obtain D_F:H₃(µ(F),Z)→µ_Ω(2)^{Aut(Ω/F)}. Here µ_Ω(2) is the second Tate twist, naturally Tor₁^Z(µ(Ω),µ(Ω)); it is not the ordinary tensor product µ(Ω)⊗Zµ(Ω). This construction uses the e-invariant only on torsion.",
+      "hypotheses": [
+        "F infinite; Ω algebraically closed over F; roots have order prime to the characteristic. The chosen closure is transported along embeddings, with independence of the transport on the invariant target."
+      ],
+      "proofSteps": [
+        "The source is locally cyclic; its H₃ is torsion, naturally Tor₁(µ(F),µ(F)), so its image after scalar extension is torsion. The locally-cyclic homology comparison with its natural transition maps is requested at H.1.",
+        "Use T.2’s unique divisibility of K₃ᴹ(Ω), the existing V.2/milnor-k3-injective, and the pinned injectivity of divisible abelian groups to split its embedding in K₃(Ω). The resulting torsion isomorphism with K₃ⁱⁿᵈ(Ω) is canonical: the divisible torsion-free kernel contributes no torsion and multiplication by m is bijective on it. A splitting need not be chosen naturally.",
+        "Apply KVI Definition2.1 to the torsion class in the closure. Naturality makes its image fixed by all Ω/F automorphisms. The Tate-twist module and coefficient Chern normalization are the early M interface in the recorded gap."
+      ],
+      "acceptance": [
+        "Use the exact hypotheses and normalization in the statement."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/pi3ind-definition",
+        "K3BlochGroups:V.4/delta-squaring",
+        "K3BlochGroups:V.2/k3-indecomposable",
+        "K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed",
+        "KTheoryFiniteLocalFields:L.2",
+        "MotivicEtaleKTheory:M.7",
+        "StableHomotopyKTheory:H.1",
+        "mathlib:CategoryTheory.Tor",
+        "mathlib:CommGroup.torsion",
+        "K3BlochGroups:V.2/milnor-k3-injective",
+        "mathlib:AddCommGrpCat.injective_of_divisible"
+      ],
+      "sources": [
+        {
+          "sourceId": "KVI",
+          "locator": "Definition2.1 p6; Lemma5.19 p34",
+          "excerpt": "We shall call e the e-invariant.",
+          "match": "The declared domain is torsion. The construction applies e after passage to the closure and the torsion identification."
+        },
+        {
+          "sourceId": "Su91",
+          "locator": "Lemma5.7, p236",
+          "excerpt": "Lemma 5.7.",
+          "match": "The closure reduction uses injectivity of Tor on roots of unity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Torsion",
+        "namespace": "TauCeti.SuslinV4"
+      },
+      "uses": [
+        {
+          "where": "K3BlochGroups:V.4/e-invariant-detection",
+          "how": "Give that target a torsion-correct, natural detector without extending e to every K₃ⁱⁿᵈ class."
+        },
+        {
+          "where": "K3BlochGroups:V.4/enhanced-tor and suslin-exact-sequence",
+          "how": "Detect the order-two kernel and prove injectivity of the enhanced Tor arrow."
+        }
+      ],
+      "api": [
+        {
+          "name": "closureTorsionDetector",
+          "role": "constructor",
+          "statement": "The additive homomorphism D_F given by this composite through closure torsion."
+        },
+        {
+          "name": "closureTorsionDetector_formula",
+          "role": "compatibility",
+          "statement": "On every H₃(µ(F)) class it equals e_Ω of the torsion class obtained from the parent δ and scalar extension."
+        },
+        {
+          "name": "closureTorsionDetector_field",
+          "role": "functoriality",
+          "statement": "Under F→E and compatible closures, D_E∘H₃(µ(F)→µ(E)) is the Tate-twist restriction of D_F; the equality is independent of the closure embedding on the invariant target."
+        },
+        {
+          "name": "closureTorsionDetector_fixed",
+          "role": "characterisation",
+          "statement": "Every value is fixed by Aut(Ω/F) under its weight-two action; an automorphism acting on µ_m by ζ↦ζᵃ acts on the detected m-torsion by a²."
+        }
+      ],
+      "tests": [
+        {
+          "name": "closureTorsionDetector_alg_closed",
+          "kind": "compatibility",
+          "statement": "For Ω algebraically closed the detector identifies H₃(µ(Ω)) with the entire second Tate twist. The ordinary tensor product of the divisible torsion root group with itself is zero and cannot be its target."
+        },
+        {
+          "name": "closureTorsionDetector_two",
+          "kind": "non-example",
+          "statement": "For F=Q, H₃(µ(Q))=H₃(C₂)=Z/2 has nonzero detected image; the square of the projection back to Tor multiplies by2 and therefore cannot serve as this detector."
+        },
+        {
+          "name": "closureTorsionDetector_weight_two",
+          "kind": "value",
+          "statement": "For a root group µ₇, the automorphism ζ↦ζ² acts on H₃ and the detector target by4, rather than by2."
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.4/cyclic-chern-evaluation",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Chern evaluation on the determinant-one torus",
+      "kind": "theorem",
+      "statement": "Let Ω be algebraically closed, m≥2 prime to char Ω, and ρ_m:µ_m→SL₂(Ω) be ζ↦diag(ζ,ζ⁻¹). If λ is the tautological character and u=c₁(λ), then c₂(ρ_m)=−u∪u in H⁴(µ_m,µ_m^{⊗2}). Evaluation gives an isomorphism H₄(µ_m,Z/m)→µ_m^{⊗2}. The finite-level cyclic resolution fixes its generator and the negative sign. This evaluates the supplier’s Chern class; it does not construct Chern classes in V.4.",
+      "hypotheses": [
+        "Ω algebraically closed; m invertible; finite-level coefficient tensor products over Z/m, with the cyclic generator specified."
+      ],
+      "proofSteps": [
+        "Import the early Chern-class interface: c₁ of a character is its Kummer boundary, c₁ of the inverse is −c₁, and the total Chern class satisfies Whitney sum. Thus (1+u)(1−u)=1−u².",
+        "Use the pinned finite cyclic resolution for the homology groups. Its cohomological product/periodicity and the pairing with H₄ are requested at H.1; the degree-two Kummer class is a periodicity generator.",
+        "The generator maps to minus a generator of µ_m⊗µ_m. This is still an isomorphism, including evenm. Do not introduce the m≠2 mod4 restriction here; that restriction belongs to the Bott-product route."
+      ],
+      "acceptance": [
+        "For m=3, c₂ evaluates a generator to −ζ⊗ζ; negating c₂, as in the e normalization, gives +ζ⊗ζ.",
+        "For m=2 the sign is invisible, so m=3 is required as a discriminating test."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7",
+        "StableHomotopyKTheory:H.1",
+        "mathlib:Rep.FiniteCyclicGroup.resolution"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su91",
+          "locator": "Lemma5.7 proof, p236",
+          "excerpt": "Lemma 5.7.",
+          "match": "The minus sign follows from the two inverse characters; formula visually checked."
+        },
+        {
+          "sourceId": "KV",
+          "locator": "Exercise11.5, p89",
+          "excerpt": "is an isomorphism",
+          "match": "The exercise’s conclusion is used with the corrected sign in its hint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Torsion",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/chern-bockstein-square",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Finite-coefficient comparison square",
+      "kind": "theorem",
+      "statement": "For algebraically closed Ω and m≥2 invertible with m≢2 mod4, K₄(Ω;Z/m) has generator β², ∂β=ζ, and its Bockstein identifies it with K₃(Ω)[m] and K₃ⁱⁿᵈ(Ω)[m]. Under the early Chern interface c₁,₂(β)=ζ and c₂,₄(β²)=−ζ⊗ζ, so e_Ω=−c₂,₄ after that Bockstein identification. The square from H₄(µ(Ω);Z/m), through the parent monomial/SL homology maps, to c₂,₄ commutes with its integral Bockstein and the parent δ arrow to K₃ⁱⁿᵈ(Ω)[m].",
+      "hypotheses": [
+        "Ω algebraically closed; m invertible; m≢2 mod4 for the multiplicative Bott presentation. The m=2 case is covered by the compatible m=4 square, not by an unsupported mod2 product rule."
+      ],
+      "proofSteps": [
+        "Import the algebraically-closed finite-coefficient K-theory calculation from the L.2 Part II request. The Milnor torsion comparison follows from closure-torsion-detector. Import the finite-coefficient K-theory object and Bockstein, already planned at L.1/H.6.",
+        "The early Chern supplier gives its Bott value, product rule and Hurewicz/Bockstein factorization. Evaluate on β²; the normalized e value is +ζ⊗ζ and the c₂ value is its negative.",
+        "Naturality of the group-homology Bockstein gives the displayed KVI5.19 square. These are the actual maps, including the parent determinant-one torus map, not a comparison of orders. For even torsion use m=2ʳ with r≥2, whose torsion subgroups contain the order-two elements."
+      ],
+      "acceptance": [
+        "The order-two detector follows via m=4; discarding m=2 must not discard all 2-primary torsion.",
+        "The integral Bockstein lands in m-torsion, not in the quotient K₃/m."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/cyclic-chern-evaluation",
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+        "KTheoryFiniteLocalFields:L.1/bott-element",
+        "KTheoryFiniteLocalFields:L.2",
+        "StableHomotopyKTheory:H.6",
+        "MotivicEtaleKTheory:M.7",
+        "K3BlochGroups:V.2/k3-to-h3-sl-field",
+        "K3BlochGroups:V.4/delta-squaring"
+      ],
+      "sources": [
+        {
+          "sourceId": "KVI",
+          "locator": "Lemma5.19 proof and diagram, p34",
+          "excerpt": "Lemma 5.19.",
+          "match": "The finite coefficient product restriction belongs to this proof, with e=−c₂,₄."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Torsion",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.4/closure-detector-injectivity",
+      "parentStageId": "K3BlochGroups:V.4",
+      "realises": [
+        "K3BlochGroups:V.4"
+      ],
+      "title": "Injectivity of the closure torsion detector",
+      "kind": "theorem",
+      "statement": "For every infinite field F the detector D_F is injective. For algebraically closed F it is an isomorphism onto the second Tate twist. In particular the parent composite H₃(µ(F))→π₃ⁱⁿᵈ(BM(F)⁺)→K₃ⁱⁿᵈ(F) is injective. The assertion concerns ordinary Tor; the parent enhanced-Tor exact kernel additionally uses its AHSS and extension argument.",
+      "hypotheses": [
+        "F infinite; all finite root orders are prime to the characteristic."
+      ],
+      "proofSteps": [
+        "For the algebraic closure apply chern-bockstein-square and cyclic-chern-evaluation on every prime-to-characteristic finite torsion level. Take m divisible by4 for the 2-primary levels. Filtered-colimit compatibility passes from µ_m to µ(Ω).",
+        "Identify H₃(µ(F)) with Tor(µ(F),µ(F)) naturally, and use the injective locally-cyclic transition to Tor(µ(Ω),µ(Ω)). This is weight-two functoriality, so an arbitrary one-root identification is inadequate.",
+        "The naturality square and the isomorphism at Ω force D_F to be injective. Use the parent AHSS/delta-squaring/enhanced-tor argument to obtain the enhanced kernel and then the imported suslin-exact-sequence. This final use preserves the parent’s characteristic-two and infinite-field conditions."
+      ],
+      "acceptance": [
+        "For F=Q the ordinary Tor detected here has order2, while the enhanced kernel in the Suslin sequence has order4. The two groups cannot be substituted for one another."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.4/chern-bockstein-square",
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "StableHomotopyKTheory:H.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Su91",
+          "locator": "Lemma5.7 and Lemma5.8, pp236–237",
+          "excerpt": "is injective",
+          "match": "First ordinary Tor is detected; the enhanced-Tor extension is then treated separately."
+        },
+        {
+          "sourceId": "KVI",
+          "locator": "Lemma5.19, p34",
+          "excerpt": "If F is algebraically closed it is an isomorphism.",
+          "match": "The detector in this packet spells out its torsion domain and normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Bloch/Torsion",
+        "namespace": "TauCeti.SuslinV4"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "StableHomotopyKTheory:H.1",
+      "need": "Part II after H.1’s classifying-space/bar/local-coefficient comparison: LHS for group extensions with coefficients, projective-resolution double-complex hyperhomology spectral sequences with finite filtrations and edge/connectors, integral UCT detection from Q and all F_p, ordered products and filtered colimits for group homology, the trivial action of central coefficient operators on homology, mixed exterior/symmetric elementary-abelian homology in all characteristics, finite cyclic cohomology periodicity/cup evaluation, and natural H₃(A)=Tor₁(A,A) for locally cyclic A with injective root-group transitions. Existing Mathlib SpectralSequence, total complexes, resolutions and cyclic resolutions are inputs, not new definitions.",
+      "neededBy": [
+        "K3BlochGroups:V.4/scalar-homology-vanishing",
+        "K3BlochGroups:V.4/affine-block-homology",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K3BlochGroups:V.4/frame-algebra-splitting",
+        "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+        "K3BlochGroups:V.4/normalized-milnor-homology-map",
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "K3BlochGroups:V.4/cyclic-chern-evaluation",
+        "K3BlochGroups:V.4/closure-detector-injectivity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "need": "Apply the existing AW/EZ ordered chain product, general-ring Künneth spectral sequence/PID exact sequence and Serre/Cartan–Leray tools to the bar/classifying-space comparison. No new upstream product or spectral-sequence definition is requested.",
+      "neededBy": [
+        "K3BlochGroups:V.4/affine-block-homology",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K3BlochGroups:V.4/normalized-milnor-homology-map"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.6",
+      "need": "The planned cofiber finite-coefficient Bockstein, including naturality with Hurewicz and the integral group-homology Bockstein, in the degree-four/degree-three square. This is the existing finite-coefficient remit, not a request for all ordinary group homology.",
+      "neededBy": [
+        "K3BlochGroups:V.4/chern-bockstein-square"
+      ]
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.2:symbols",
+      "need": "The existing integral symbol identities and product presentation. Additional input needed for Su84 Proposition2.7.2: the unstable H₂(SL₂(F)) coinvariant presentation used to kill the ordered degree-two Steinberg product modulo H₂(GL₁). Stable Matsumoto/UCE is insufficient; propose T.2 Part II for this presentation.",
+      "neededBy": [
+        "K3BlochGroups:V.4/frame-algebra-splitting",
+        "K3BlochGroups:V.4/normalized-milnor-homology-map"
+      ]
+    },
+    {
+      "supplier": "KTheoryFiniteLocalFields:L.2",
+      "need": "Part II extending the henselian/local finite-coefficient remit to algebraically closed fields: K₄(Ω) uniquely divisible, K₄(Ω;Z/m) cyclic with Bott-square generator for m invertible and m≢2 mod4, and Bockstein isomorphism to K₃(Ω)[m], with natural coefficient changes. Current henselian finite-residue-field rigidity does not state this input.",
+      "neededBy": [
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "K3BlochGroups:V.4/chern-bockstein-square"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "An early supplier interface adjacent to M.7: prime-to-characteristic Tate twists and invariants; finite-coefficient étale c₁,c₂, Kummer/Whitney and Bott values, and their group-homology/Hurewicz/Bockstein factorization. The full M.8 regulator stage is not usable here: M.8→BorelRegulators:R.7→Polylogarithms:P2→V.4 gives a stage cycle. Split off the early Chern slice without those regulator prerequisites.",
+      "neededBy": [
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "K3BlochGroups:V.4/cyclic-chern-evaluation",
+        "K3BlochGroups:V.4/chern-bockstein-square"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K3BlochGroups:V.4",
+      "status": "planned",
+      "remaining": [
+        "General homology supplier closure: Part II after H.1’s classifying-space/bar/local-coefficient comparison: LHS for group extensions with coefficients, projective-resolution double-complex hyperhomology spectral sequences with finite filtrations and edge/connectors, integral UCT detection from Q and all F_p, ordered products and filtered colimits for group homology, the trivial action of central coefficient operators on homology, mixed exterior/symmetric elementary-abelian homology in all characteristics, finite cyclic cohomology periodicity/cup evaluation, and natural H₃(A)=Tor₁(A,A) for locally cyclic A with injective root-group transitions. Existing Mathlib SpectralSequence, total complexes, resolutions and cyclic resolutions are inputs, not new definitions. The H.1 packet and upstream stage5 already provide the entry points; the extra results are a Part II, not presumed to follow from the name of H.1.",
+        "Unstable SL₂ Steinberg input: The existing integral symbol identities and product presentation. Additional input needed for Su84 Proposition2.7.2: the unstable H₂(SL₂(F)) coinvariant presentation used to kill the ordered degree-two Steinberg product modulo H₂(GL₁). Stable Matsumoto/UCE is insufficient; propose T.2 Part II for this presentation. Su84 Proposition2.7.2 cites its unstable symbols source; that proof input has not been obtained and read in this pass.",
+        "Algebraically closed finite-coefficient K-theory: Part II extending the henselian/local finite-coefficient remit to algebraically closed fields: K₄(Ω) uniquely divisible, K₄(Ω;Z/m) cyclic with Bott-square generator for m invertible and m≢2 mod4, and Bockstein isomorphism to K₃(Ω)[m], with natural coefficient changes. Current henselian finite-residue-field rigidity does not state this input. The calculation is stated in KVI1.3.1/1.4; its cited proof has not been decomposed. Milnor injectivity is imported from V.2, not requested anew.",
+        "Early Chern supplier and regulator cycle: An early supplier interface adjacent to M.7: prime-to-characteristic Tate twists and invariants; finite-coefficient étale c₁,c₂, Kummer/Whitney and Bott values, and their group-homology/Hurewicz/Bockstein factorization. The full M.8 regulator stage is not usable here: M.8→BorelRegulators:R.7→Polylogarithms:P2→V.4 gives a stage cycle. Split off the early Chern slice without those regulator prerequisites.",
+        "The source omits the GL₂ d³ calculation: Su91 Lemma2.4 p222 states the boundary formula and explicitly omits the long calculation. Acquisition of the original paper therefore does not close the parent’s chain-level sign/computation gap. Need an actual bar-chain proof in the parent conventions, not a citation saying the computation was read.",
+        "Inherited ψ₃ and symmetric-group proof inputs: Retain the accepted parent nodes and their gaps. Su91 §§3–4 chain construction, torus boundary and rank-two-kernel arguments are not fully read in this pass. The symmetric/alternating-group image needs the distinct GL₃ homology source cited as [184], including its 2-primary calculation; Su84 [183] stability is not that source. Need those source proofs and the monomial Künneth summand identifications.",
+        "Inherited plus-construction and enhanced Tor closure: Retain the parent’s BPQ/low stable stems, η³, homology-to-AHSS comparison and extension-class gaps. Ordinary Tor detection in this packet does not itself prove the enhanced extension is nonsplit in characteristic≠2. Need exact early H suppliers with no downstream V.4 cycle and the source’s 2-primary AHSS/extension computation. Infinite-field scope is retained; V.5 owns the independent finite-field route."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "General homology supplier closure",
+      "neededBy": [
+        "K3BlochGroups:V.4/scalar-homology-vanishing",
+        "K3BlochGroups:V.4/affine-block-homology",
+        "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+        "K3BlochGroups:V.4/closure-detector-injectivity"
+      ],
+      "detail": "Part II after H.1’s classifying-space/bar/local-coefficient comparison: LHS for group extensions with coefficients, projective-resolution double-complex hyperhomology spectral sequences with finite filtrations and edge/connectors, integral UCT detection from Q and all F_p, ordered products and filtered colimits for group homology, the trivial action of central coefficient operators on homology, mixed exterior/symmetric elementary-abelian homology in all characteristics, finite cyclic cohomology periodicity/cup evaluation, and natural H₃(A)=Tor₁(A,A) for locally cyclic A with injective root-group transitions. Existing Mathlib SpectralSequence, total complexes, resolutions and cyclic resolutions are inputs, not new definitions. The H.1 packet and upstream stage5 already provide the entry points; the extra results are a Part II, not presumed to follow from the name of H.1."
+    },
+    {
+      "title": "Unstable SL₂ Steinberg input",
+      "neededBy": [
+        "K3BlochGroups:V.4/normalized-milnor-homology-map"
+      ],
+      "detail": "The existing integral symbol identities and product presentation. Additional input needed for Su84 Proposition2.7.2: the unstable H₂(SL₂(F)) coinvariant presentation used to kill the ordered degree-two Steinberg product modulo H₂(GL₁). Stable Matsumoto/UCE is insufficient; propose T.2 Part II for this presentation. Su84 Proposition2.7.2 cites its unstable symbols source; that proof input has not been obtained and read in this pass."
+    },
+    {
+      "title": "Algebraically closed finite-coefficient K-theory",
+      "neededBy": [
+        "K3BlochGroups:V.4/chern-bockstein-square"
+      ],
+      "detail": "Part II extending the henselian/local finite-coefficient remit to algebraically closed fields: K₄(Ω) uniquely divisible, K₄(Ω;Z/m) cyclic with Bott-square generator for m invertible and m≢2 mod4, and Bockstein isomorphism to K₃(Ω)[m], with natural coefficient changes. Current henselian finite-residue-field rigidity does not state this input. The calculation is stated in KVI1.3.1/1.4; its cited proof has not been decomposed. Milnor injectivity is imported from V.2, not requested anew."
+    },
+    {
+      "title": "Early Chern supplier and regulator cycle",
+      "neededBy": [
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "K3BlochGroups:V.4/cyclic-chern-evaluation",
+        "K3BlochGroups:V.4/chern-bockstein-square"
+      ],
+      "detail": "An early supplier interface adjacent to M.7: prime-to-characteristic Tate twists and invariants; finite-coefficient étale c₁,c₂, Kummer/Whitney and Bott values, and their group-homology/Hurewicz/Bockstein factorization. The full M.8 regulator stage is not usable here: M.8→BorelRegulators:R.7→Polylogarithms:P2→V.4 gives a stage cycle. Split off the early Chern slice without those regulator prerequisites."
+    },
+    {
+      "title": "The source omits the GL₂ d³ calculation",
+      "neededBy": [
+        "K3BlochGroups:V.4/gl2-d3-boundary",
+        "K3BlochGroups:V.4/coinvariants-p1-homology",
+        "K3BlochGroups:V.4/psi-gl2"
+      ],
+      "detail": "Su91 Lemma2.4 p222 states the boundary formula and explicitly omits the long calculation. Acquisition of the original paper therefore does not close the parent’s chain-level sign/computation gap. Need an actual bar-chain proof in the parent conventions, not a citation saying the computation was read."
+    },
+    {
+      "title": "Inherited ψ₃ and symmetric-group proof inputs",
+      "neededBy": [
+        "K3BlochGroups:V.4/psi3-map",
+        "K3BlochGroups:V.4/psi3-torus-vanishing",
+        "K3BlochGroups:V.4/dupont-sah-identity",
+        "K3BlochGroups:V.4/symmetric-group-image",
+        "K3BlochGroups:V.4/alternating-group-image"
+      ],
+      "detail": "Retain the accepted parent nodes and their gaps. Su91 §§3–4 chain construction, torus boundary and rank-two-kernel arguments are not fully read in this pass. The symmetric/alternating-group image needs the distinct GL₃ homology source cited as [184], including its 2-primary calculation; Su84 [183] stability is not that source. Need those source proofs and the monomial Künneth summand identifications."
+    },
+    {
+      "title": "Inherited plus-construction and enhanced Tor closure",
+      "neededBy": [
+        "K3BlochGroups:V.4/pi3-bm-plus",
+        "K3BlochGroups:V.4/pi3ind-ahss",
+        "K3BlochGroups:V.4/pi3ind-sequence",
+        "K3BlochGroups:V.4/enhanced-tor",
+        "K3BlochGroups:V.4/suslin-exact-sequence"
+      ],
+      "detail": "Retain the parent’s BPQ/low stable stems, η³, homology-to-AHSS comparison and extension-class gaps. Ordinary Tor detection in this packet does not itself prove the enhanced extension is nonsplit in characteristic≠2. Need exact early H suppliers with no downstream V.4 cycle and the source’s 2-primary AHSS/extension computation. Infinite-field scope is retained; V.5 owns the independent finite-field route."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "K3BlochGroups:V.4/configuration-complex",
+      "providedBy": [
+        "K3BlochGroups:V.4/configuration-complex"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/configuration-acyclicity",
+      "providedBy": [
+        "K3BlochGroups:V.4/configuration-acyclicity"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/hyperhomology-map",
+      "providedBy": [
+        "K3BlochGroups:V.4/hyperhomology-map"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/coinvariants-p1-homology",
+      "providedBy": [
+        "K3BlochGroups:V.4/coinvariants-p1-homology"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/gl2-spectral-sequence",
+      "providedBy": [
+        "K3BlochGroups:V.4/gl2-spectral-sequence"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi-gl2",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi-gl2"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/cyclic-complex-d",
+      "providedBy": [
+        "K3BlochGroups:V.4/cyclic-complex-d"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi-gl3",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi-gl3"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi-compatibility",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi-compatibility"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/homological-stability",
+      "providedBy": [
+        "K3BlochGroups:V.4/homological-stability"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up.",
+      "refinedBy": [
+        "K3BlochGroups:V.4/scalar-homology-vanishing",
+        "K3BlochGroups:V.4/affine-block-homology",
+        "K3BlochGroups:V.4/unimodular-vector-chains",
+        "K3BlochGroups:V.4/unimodular-acyclic-range",
+        "K3BlochGroups:V.4/stability-coinvariants",
+        "K3BlochGroups:V.4/frame-connecting-map",
+        "K3BlochGroups:V.4/frame-algebra-splitting",
+        "K3BlochGroups:V.4/frame-spectral-sequence-collapse",
+        "K3BlochGroups:V.4/normalized-milnor-homology-map",
+        "K3BlochGroups:V.4/milnor-frame-retraction"
+      ]
+    },
+    {
+      "target": "K3BlochGroups:V.4/symmetric-group-image",
+      "providedBy": [
+        "K3BlochGroups:V.4/symmetric-group-image"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/monomial-sequence",
+      "providedBy": [
+        "K3BlochGroups:V.4/monomial-sequence"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/pi3-bm-plus",
+      "providedBy": [
+        "K3BlochGroups:V.4/pi3-bm-plus"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/enhanced-mu",
+      "providedBy": [
+        "K3BlochGroups:V.4/enhanced-mu"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/pi3ind-bm-plus",
+      "providedBy": [
+        "K3BlochGroups:V.4/pi3ind-bm-plus"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/suslin-exact-sequence",
+      "providedBy": [
+        "K3BlochGroups:V.4/suslin-exact-sequence"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/tor-form-comparison",
+      "providedBy": [
+        "K3BlochGroups:V.4/tor-form-comparison"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/suslin-functoriality",
+      "providedBy": [
+        "K3BlochGroups:V.4/suslin-functoriality"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/cross-ratio",
+      "providedBy": [
+        "K3BlochGroups:V.4/cross-ratio"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up.",
+      "refinedBy": [
+        "K3BlochGroups:V.4/cross-ratio-coefficient-change"
+      ]
+    },
+    {
+      "target": "K3BlochGroups:V.4/monomial-subgroups",
+      "providedBy": [
+        "K3BlochGroups:V.4/monomial-subgroups"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi-map",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi-map"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/torus-borel-homology",
+      "providedBy": [
+        "K3BlochGroups:V.4/torus-borel-homology"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/gl2-d1-involution",
+      "providedBy": [
+        "K3BlochGroups:V.4/gl2-d1-involution"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/gl2-d3-boundary",
+      "providedBy": [
+        "K3BlochGroups:V.4/gl2-d3-boundary"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/general-position-complex",
+      "providedBy": [
+        "K3BlochGroups:V.4/general-position-complex"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi3-map",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi3-map"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/psi3-torus-vanishing",
+      "providedBy": [
+        "K3BlochGroups:V.4/psi3-torus-vanishing"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/h3-gl3-generation",
+      "providedBy": [
+        "K3BlochGroups:V.4/h3-gl3-generation"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up.",
+      "refinedBy": [
+        "K3BlochGroups:V.4/degree-three-torus-quotient"
+      ]
+    },
+    {
+      "target": "K3BlochGroups:V.4/dupont-sah-identity",
+      "providedBy": [
+        "K3BlochGroups:V.4/dupont-sah-identity"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/alternating-group-image",
+      "providedBy": [
+        "K3BlochGroups:V.4/alternating-group-image"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/pi3ind-definition",
+      "providedBy": [
+        "K3BlochGroups:V.4/pi3ind-definition"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/pi3ind-sequence",
+      "providedBy": [
+        "K3BlochGroups:V.4/pi3ind-sequence"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/pi3ind-ahss",
+      "providedBy": [
+        "K3BlochGroups:V.4/pi3ind-ahss"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/delta-squaring",
+      "providedBy": [
+        "K3BlochGroups:V.4/delta-squaring"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    },
+    {
+      "target": "K3BlochGroups:V.4/e-invariant-detection",
+      "providedBy": [
+        "K3BlochGroups:V.4/e-invariant-detection"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up.",
+      "refinedBy": [
+        "K3BlochGroups:V.4/closure-torsion-detector",
+        "K3BlochGroups:V.4/cyclic-chern-evaluation",
+        "K3BlochGroups:V.4/chern-bockstein-square",
+        "K3BlochGroups:V.4/closure-detector-injectivity"
+      ]
+    },
+    {
+      "target": "K3BlochGroups:V.4/enhanced-tor",
+      "providedBy": [
+        "K3BlochGroups:V.4/enhanced-tor"
+      ],
+      "mode": "import",
+      "note": "Retain the accepted parent statement, API, tests and direct prerequisites; its unresolved proof inputs are not declared closed by this follow-up."
+    }
+  ],
+  "planetSelection": {
+    "new": [],
+    "retained": [
+      "K3BlochGroups:V.4/configuration-complex",
+      "K3BlochGroups:V.4/enhanced-mu",
+      "K3BlochGroups:V.4/suslin-exact-sequence",
+      "K3BlochGroups:V.4/cross-ratio",
+      "K3BlochGroups:V.4/psi-map",
+      "K3BlochGroups:V.4/psi3-map"
+    ],
+    "reason": "The accepted V.4 already has six planets. Retain them through imports; no seventh is added. The split proposal gives stability and finite-coefficient detection coherent sublayers before any additional planets are chosen."
+  },
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "K3BlochGroups"
+      ],
+      "detail": "V.4 combines projective configurations, integral GL stability, monomial plus constructions and finite-coefficient torsion detection, with six planets already selected.",
+      "proposal": "Three sublayers under V.4: Configuration and cross-ratio (parent configuration/cross-ratio/ψ₂/ψ₃ nodes and coefficient-change); Stability and Milnor homology (all new scalar/affine/frame/S/δ/θ nodes and degree-three-torus-quotient, with parent stability and h3 generation); Monomial homotopy and Suslin kernel (remaining parent monomial/BPQ/AHSS/enhanced-Tor/exact-sequence nodes and the four detector/Chern nodes). Retain current stage and parent planets until the structure is accepted."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "StableHomotopyKTheory",
+        "K2SymbolsBrauer",
+        "KTheoryFiniteLocalFields"
+      ],
+      "detail": "General proof inputs exceed the currently stated supplier targets; assigning them silently to stage names would conceal gaps.",
+      "proposal": "Stable homotopy and K-theory, Part II: ordinary group homology and resolution spectral sequences, after H.1 and upstream AlgebraicTopology stages5–6; K₂ symbols and Brauer groups, Part II: unstable SL₂ H₂ symbols, after T.2; K-theory of finite and local fields, Part II: algebraically closed finite-coefficient K-theory, after L.1/L.2. Exact briefs are the requests, with V.4 as consumer. Do not construct these notions in V.4."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "MotivicEtaleKTheory"
+      ],
+      "detail": "The needed finite-coefficient Chern interface is buried in M.8, whose full regulator prerequisites create a cycle through V.4.",
+      "proposal": "Separate early finite-coefficient Chern classes (Tate twists, Kummer, Whitney, Bott and Hurewicz/Bockstein) adjacent to M.7, without R.7 or Polylogarithms, from M.8’s regulator/Riemann–Roch/norm applications. Keep the current M.7 placeholder request and explicit gap until this split has an exact supplier node."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+      ],
+      "note": "Both complete documents were read for density and supplier boundaries. AlgebraicTopology stage5 already owns AW/EZ/Künneth and Serre tools; stage6 owns cohomology products. The requested ordinary group-homology refinement is a proposed-roadmap Part II, and no upstream document or link is changed."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.mathnet.ru/links/f1b6f2237fb5532fea1b7116cb2dacc9/tm2280.pdf",
+      "citation": "Trudy Mat. Inst. Steklov. 165 (1984), 188–204; Russian version of record. Numbering and printed pages refer to this edition, not the separate Springer stability paper.",
+      "read": "2026-10-06",
+      "sha256": "4080b087bff4d8842995691ba23b0960c5de81b62e032aeeabe82204d765ee4d"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf",
+      "citation": "Proc. Steklov Inst. Math. 183 (1991), 217–239; public scan of the English translation.",
+      "read": "2026-10-06",
+      "sha256": "ef16d5d93f6f9f6509f93e9b748f5cf06bda2a2a2da852404375638bab12994c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "citation": "Author public chapter; printed chapter page numbers.",
+      "read": "2026-10-06",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "citation": "Author public chapter; printed chapter page numbers.",
+      "read": "2026-10-06",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K3BlochGroups/E-V4-1",
+      "source": "KV",
+      "kind": "misprint",
+      "locator": "Exercise11.5 p89, author public Chapter V copy with the recorded hash; finding scoped to that copy",
+      "printed": "c₂,₂ = c₁,₁(λ)²",
+      "correction": "For ρ=λ⊕λ⁻¹ the formula is c₂(ρ)=−c₁(λ)². The exercise’s isomorphism conclusion is unchanged.",
+      "reason": "Whitney sum gives (1+u)(1−u)=1−u²; Su91 p236 prints the negative sign. At m=3 the signs differ, while at m=2 they agree.",
+      "affects": "the proof",
+      "known": "No correction located; this is not a claim about a separately inspected print edition.",
+      "searched": [
+        "Author K-book homepage and public Chapter V copy",
+        "Homepage-linked Kbook.errata.pdf at both www.math.rutgers.edu and sites.math.rutgers.edu returned404 on2026-10-06",
+        "Web search for Exercise V.11.5 and Chern-sign errata on2026-10-06"
+      ]
+    },
+    {
+      "id": "K3BlochGroups/E-V4-2",
+      "source": "Su91",
+      "kind": "gap",
+      "locator": "Lemma2.4 p222, public English published scan",
+      "printed": "The proof is direct but a very long and tedious calculation, and we omit it.",
+      "correction": "Supply the bar-chain calculation with the displayed d³ signs and the parent spectral-sequence indexing. No contrary statement or false theorem is alleged.",
+      "reason": "The source itself says the proof is omitted. A plan requiring proof closure cannot treat this as a checked calculation.",
+      "affects": "the proof",
+      "known": "Explicitly acknowledged in the source; no supplied calculation located in this pass.",
+      "searched": [
+        "Published English scan, §2 pp221–223",
+        "Web search for Suslin Lemma2.4 omitted calculation on2026-10-06"
+      ]
+    }
+  ],
+  "signatureConventions": {
+    "field": "F is a Type with Field; construction of frames needs no Infinite instance. Positive indices in δ and θ are represented by n+1.",
+    "supplierParameters": "The suggested file uses explicitly interpreted section parameters for future Milnor, block-inclusion, ordered-product, cross-ratio, frame-spectral-sequence, closure-torsion and Chern interfaces. It omits the conditions whose supplier syntax is not available; it does not declare arbitrary maps to be implementations of those interfaces.",
+    "theorems": "Each new theorem has a named signature. Multiclause statements have their available typed conclusion; internal-sum/product, finite convergence and Chern normalization clauses remain in the definitive mathematical packet until the supplier API can express them."
+  },
+  "imports": [
+    {
+      "nodeId": "K3BlochGroups:V.4/configuration-complex",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a set X let C_n(X) be the free abelian group on the ordered tuples of n + 1 pairwise distinct points of X, with the alternating-sum differential that deletes one entry, and with the augmentation sending each singleton to 1. When a group acts on X this is a complex of modules over the group ring. The tuples are ordered and the entries are required to be distinct; both are part of the definition.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/configuration-acyclicity",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "If X is an infinite set, the augmented configuration complex C_*(X) → ℤ is exact; equivalently the augmentation is a quasi-isomorphism. The identification of hyperhomology with group homology that the K-book deduces (Corollary VI.5.5.2) is part of V.4/hyperhomology-map, and the finite case (Exercise VI.5.1) is not planned, since it is used only for finite fields.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/hyperhomology-map",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a group G acting on a set X, construct the hyperhomology H_n(G, C_*(X)) as the homology of the total complex of P ⊗_G C_*(X) for a projective resolution P of ℤ over ℤ[G], prove that it does not depend on P and that a G-equivariant quasi-isomorphism of bounded-below complexes induces an isomorphism, and construct the canonical map H_n(G, C_*(X)) → H_n(C_G), where C_G = C_*(X) ⊗_G ℤ. When X is infinite the augmentation gives H_n(G, C_*(X)) ≅ H_n(G, ℤ) (K-book Corollary VI.5.5.2), and hence a map H_n(G, ℤ) → H_n(C_G).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/coinvariants-p1-homology",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be a field, G the group of invertible two by two matrices over F acting on the projective line of F, and C_G the coinvariant complex. Then the degree-zero homology is the integers, the homology vanishes in degrees one and two, and the degree-three homology is the pre-Bloch group P(F). The identification sends the class of the tuple consisting of 0, infinity, 1 and x to the generator [x].",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/gl2-spectral-sequence",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be an infinite field and G = GL_2(F) act on X = ℙ¹(F). The hyperhomology spectral sequence E^1_{p,q} = H_q(G, C_p(X)) ⇒ H_{p+q}(G, ℤ) has E^1_{0,q} = H_q(B, ℤ), E^1_{1,q} = H_q(T_2, ℤ) and E^1_{2,q} = H_q(Δ, ℤ), where B is the upper triangular group (the stabiliser of 0), T_2 the diagonal torus (the stabiliser of (0, ∞)) and Δ = {(a, a)} the centre (the stabiliser of (0, ∞, 1)); its row q = 0 is the coinvariant complex, so E^2_{p,0} = H_p(C_G), which is ℤ, 0, 0, P(F) for p = 0, 1, 2, 3. The differential d^1 : H_q(Δ) → H_q(T_2) is induced by the inclusion and is split injective, so E^2_{2,q} = 0; with the d^1 involution lemma, E^2_{0,q} = H_q(T_2)_σ, E^2_{1,q} = H_q(T_2)^σ / H_q(Δ), E^2_{0,1} = F^× and E^2_{1,1} = 0.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi-gl2",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For every infinite field F, H_1(GL_2(F), ℤ) ≅ F^×, H_2(GL_2(F), ℤ) ≅ ∧²F^× ⊕ K_2(F), and the sequence H_3(M_2, ℤ) → H_3(GL_2(F), ℤ) −ψ→ B(F) → 0 is exact, where M_2 is the monomial subgroup and ψ is the map of V.4/psi-map.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/cyclic-complex-d",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let C_* be the configuration complex C_*(X), or the general-position complex of ℙ²(F). The rotations t_n(x_0, …, x_n) = (x_n, x_0, …, x_{n−1}) preserve the generators and satisfy t_n^{n+1} = 1, ∂_0 t_n = ∂_n and ∂_i t_n = t_{n−1} ∂_{i−1} for i ≥ 1: C_* is a precyclic abelian group (faces and rotations, no degeneracies; duplicating an entry leaves the complex). Construct C^a_*, with the same terms and differential d^a = Σ_{i=0}^{n−1} (−1)^i ∂_i (the last face omitted), the norm N = Σ_{i=0}^{n} ((−1)^n t_n)^i : C_n → C^a_n, which is a chain map, and the mapping cone D_* of the truncated morphism N : C_{≥1} → C^a_{≥1}: D_0 = C^a_1 and D_n = C^a_{n+1} ⊕ C_n for n > 0, with differential (x, y) ↦ (d^a x − N y, −d y). For X infinite (for the general-position complex, F infinite), C^a_* is acyclic and ε : D_0 → ℤ, (x_0, x_1) ↦ 1, induces a quasi-isomorphism D_* → ℤ.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi-gl3",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F the image of the map ψ : H_3(GL_3(F), ℤ) → P(F) of V.4/psi3-map is B(F), and the sequence H_3(M_2, ℤ) ⊕ H_3(T_3, ℤ) → H_3(GL_3(F), ℤ) −ψ→ B(F) → 0 is exact.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi-compatibility",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "The composite of the map induced by the inclusion of the two by two matrices into the three by three matrices with the map psi of the rank-three construction is the map psi of the rank-two theorem, followed by the inclusion of B(F) into P(F).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/homological-stability",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F and r ≥ n, the map H_n(GL_r(F), ℤ) → H_n(GL(F), ℤ) is an isomorphism, and there is a canonical isomorphism H_n(GL_n(F), ℤ)/im H_n(GL_{n−1}(F), ℤ) ≅ K^M_n(F) (Suslin). Only n ≤ 3 is used: H_3(GL_3(F)) ≅ H_3(GL(F)) extends ψ to the stable group (Remark VI.5.12.1), and the quotient statement gives V.4/h3-gl3-generation.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/symmetric-group-image",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be an infinite field and regard Σ_∞ as the group of permutation matrices in GL(F). The image of H_3(Σ_∞, ℤ) −ι_*→ H_3(GL(F), ℤ) −ψ→ B(F) is the subgroup generated by 2c, which is trivial or cyclic of order three.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/monomial-sequence",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be an infinite field, M = ⋃_n M_n ⊂ GL(F) the monomial group and ι : Σ_∞ → GL(F) the permutation matrices. The sequence H_3(M, ℤ) → H_3(GL(F), ℤ) ⊕ H_3(Σ_∞, ℤ) −(ψ, −ψι_*)→ B(F) → 0 is exact, where the first map is (inclusion_*, π_*) for the projection π : M = F^× ≀ Σ_∞ → Σ_∞.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/pi3-bm-plus",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F the cokernel of π_3(BM^+) → K_3(F) is B(F)/⟨2c⟩, and there is an exact sequence π_3(BM^+) → K_3(F) ⊕ π^s_3 −(ψ, −ψι_*)→ B(F) → 0. The indecomposable reformulation (Corollary 5.16.1) is the separate node V.4/pi3ind-sequence.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/enhanced-mu",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a finite cyclic group A of even order there is a unique nontrivial extension Ã of A by ℤ/2 (0 → ℤ/2 → Ã → A → 0, with Ã cyclic of twice the order); for A of odd order set Ã = A. The K-book defines μ̃(F) as the union of the μ̃_n(F). A union needs transition maps, and these are not canonical (an extension of A = ℤ/m, m even, by ℤ/2 has the automorphism x ↦ (1 + m)x over A and ℤ/2), so define μ̃(F) by the choice-free model μ̃(F) = {ζ ∈ F̄^× : ζ² ∈ μ(F)} in a fixed algebraic closure, with the surjection ζ ↦ ζ² onto μ(F). Its kernel is μ_2(F̄) = {±1}, so μ̃(F) is the nontrivial extension when char F ≠ 2 (μ(F) contains −1 and has even order), and squaring is bijective when char F = 2, where μ̃(F) = μ(F). The group μ̃(F) is abstractly isomorphic to Tor_1^ℤ(μ(F), μ(F))~, but not naturally in F (V.4/tor-form-comparison).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/pi3ind-bm-plus",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For every field F, π_3^ind(BM^+) ≅ T̃(F) ⊕ ℤ/12, where T̃(F) = ker(π_3^ind(BM^+) → ℤ/12) is the enhanced torsion term (V.4/enhanced-tor) and ℤ/12 is the image of the unit π^s_3 → π_3(BM^+); abstractly T̃(F) ≅ μ̃(F), which is the K-book's form π_3^ind(BM^+) ≅ μ̃(F) ⊕ ℤ/12.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/suslin-exact-sequence",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For every infinite field F there is an exact sequence 0 → T̃(F) → K_3^ind(F) → B(F) → 0 (its naturality is V.4/suslin-functoriality), where T̃(F) is the enhanced torsion term of V.4/enhanced-tor (Suslin's Tor_1^ℤ(μ(F), μ(F))~) and B(F) is the Bloch group in Suslin's convention of V.3. Abstractly T̃(F) ≅ μ̃(F), which is the K-book's form 0 → μ̃(F) → K_3^ind(F) → B(F) → 0; that isomorphism is not natural in F.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/tor-form-comparison",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Compare the enhanced torsion term T̃(F) = Tor_1^ℤ(μ(F), μ(F))~ (V.4/enhanced-tor) with μ̃(F) (V.4/enhanced-mu). (i) They are isomorphic as abstract groups: both are locally cyclic, with Tor_1(A, A) ≅ A for a locally cyclic torsion group A, and both are the nontrivial extension by ℤ/2 exactly when char F ≠ 2. (ii) No isomorphism is natural in F: an automorphism acting on μ(F) by ζ ↦ ζ^k acts on Tor_1(μ(F), μ(F)) by k² (Ex. VI.5.9(b)), so Galois groups act on T̃ through the square of the cyclotomic character and on μ̃ through the character itself. (iii) The ordinary Tor group cannot replace T̃: for F = ℚ there is no exact sequence 0 → Tor_1(μ(ℚ), μ(ℚ)) → K_3^ind(ℚ) → B(ℚ) → 0, since 2 · 6 ≠ 24.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/suslin-functoriality",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "The Suslin sequence 0 → T̃(F) → K_3^ind(F) → B(F) → 0 is natural for all homomorphisms of infinite fields, and the composite K_3(F) → B(F) agrees with h : K_3(F) → H_3(GL(F), ℤ) (the Hurewicz map, equivalently the composite through V.1's H_3(St(F), ℤ)) followed by the stable ψ of V.4/psi3-map, and it vanishes on the image of K^M_3(F), so it factors through K_3^ind(F).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/cross-ratio",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F and pairwise distinct points (a, b, c, d) of ℙ¹(F), let cr(a, b, c, d) = g(d) ∈ F − {0, 1}, where g is the unique element of PGL_2(F) with g(a) = 0, g(b) = ∞ and g(c) = 1; in homogeneous coordinates cr(a, b, c, d) = [d, a][c, b] / ([d, b][c, a]) with [u, v] = u₀v₁ − u₁v₀. Then cr is GL_2(F)-invariant, cr(0, ∞, 1, x) = x, cr induces a bijection from the GL_2(F)-orbits of injective 4-tuples onto F − {0, 1}, and the stabiliser in GL_2(F) of every injective triple is the centre.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/monomial-subgroups",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F and n ≥ 1 let T_n ⊂ GL_n(F) be the diagonal matrices, Σ_n ⊂ GL_n(F) the permutation matrices and M_n = T_n ⋊ Σ_n ≅ F^× ≀ Σ_n the monomial matrices (one nonzero entry in each row and column). Let M = ⋃_n M_n ≅ F^× ≀ Σ_∞ and Σ_∞ = ⋃_n Σ_n inside GL(F), with M_n ⊂ M_{n+1} by block sum with 1.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi-map",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F construct ψ : H_3(GL_2(F), ℤ) → B(F) as the edge map H_3(GL_2(F), ℤ) → E^∞_{3,0} of the configuration spectral sequence for ℙ¹(F), where E^∞_{3,0} ⊆ E^1_{3,0} = H_3(C_G) = P(F) and E^∞_{3,0} = B(F) by the identification of d^3 with the Bloch boundary.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/torus-borel-homology",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F the inclusion of the diagonal torus T_2 into the upper triangular group B_2 of GL_2(F) induces an isomorphism H_*(T_2, ℤ) → H_*(B_2, ℤ).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/gl2-d1-involution",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be infinite and σ(a, b) = (b, a) on T_2. Under the Shapiro identifications E^1_{1,q} ≅ H_q(T_2, ℤ) and E^1_{0,q} ≅ H_q(B_2, ℤ) ≅ H_q(T_2, ℤ), the differential d^1 : E^1_{1,q} → E^1_{0,q} of the configuration spectral sequence of GL_2(F) on ℙ¹(F) is induced by 1 − σ.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/gl2-d3-boundary",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For F infinite, in the configuration spectral sequence of GL_2(F) on ℙ¹(F), E^2_{0,2} = H_2(T_2)_σ ≅ ∧²F^× ⊕ ∧̃²(F^×) (Künneth: σ exchanges the two copies of H_2(F^×) = ∧²F^× and acts on F^× ⊗ F^× by x ⊗ y ↦ −y ⊗ x), and d^3 : E^3_{3,0} = P(F) → E^3_{0,2} is the boundary [x] ↦ x ⊗ (1 − x) of V.3 followed by the split inclusion of ∧̃²(F^×). Hence E^∞_{3,0} = B(F) and E^∞_{0,2} ≅ ∧²F^× ⊕ K_2(F).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/general-position-complex",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F let GP_n ⊆ C_n(ℙ²(F)) be spanned by the (n + 1)-tuples of points of ℙ²(F) no three of which are collinear. GP_* is a subcomplex of the configuration complex, stable under GL_3(F) and under the rotations t_n. For F infinite, GP_* → ℤ, and hence GP_* → C_*(ℙ²(F)), is a quasi-isomorphism.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi3-map",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be infinite, D_* the cone complex of V.4/cyclic-complex-d for the general-position complex of ℙ²(F), and D_G = D_* ⊗_{GL_3(F)} ℤ. Then (D_G)_3 = ℤP ⊕ ⊕ ℤ[a; x], with P = (p_1, p_2, q, p_3) in the C_3 summand and [a; x] = (p_1, p_2, q, (1 : a : x), p_3) in the C^a_4 summand (a, x ∉ {0, 1}, a ≠ x), and d : (D_G)_3 → (D_G)_2 is zero. Define ψ′ : (D_G)_3 → P(F) by ψ′([a; x]) = [a] (the cross-ratio of the projection from the last point) and ψ′(P) = −2c. Then ψ′ vanishes on d((D_G)_4), so it induces ψ : H_3(GL_3(F), ℤ) ≅ H_3(GL_3(F), D_*) → H_3(D_G) → P(F). The K-book prints ψ′([a; x]) = a and ψ′(P) = 2c; with its displayed cone differential the sign of the P-value must be −2c (source issues).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/psi3-torus-vanishing",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be infinite and T_3 ⊂ GL_3(F) the diagonal torus. For n > 0 the map H_n(T_3, ℤ) → H_n(D_* ⊗_{T_3} ℤ) is zero; hence ψ vanishes on the image of H_3(T_3, ℤ) in H_3(GL_3(F), ℤ).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/h3-gl3-generation",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F, H_3(GL_3(F), ℤ) is generated by the images of H_3(T_3, ℤ) and H_3(GL_2(F), ℤ).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/dupont-sah-identity",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be a field with at least four elements and x ∈ F − {0, 1, −1}. Then (i) [x²] = 2([x] + [−x] + [−1]) in P(F), and (ii) [x²] + 2[−x^{−1}] − 2[x − 1] − [(1 − x)^{−2}] = 2c. The K-book's Exercise VI.5.5 prints (ii) as [x²] + 2[−x²] − 2[x − 1] − [1/x²] = 2c, which is false (source issues).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/alternating-group-image",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let F be an infinite field and A_3 ⊂ GL_3(F) the even permutation matrices. The image of H_3(A_3, ℤ) ≅ ℤ/3 under H_3(A_3) → H_3(GL_3(F)) −ψ→ B(F) is the subgroup generated by 2c.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/pi3ind-definition",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F let M = F^× ≀ Σ_∞ be the monomial group and BM^+ its plus construction with respect to the perfect commutator subgroup P = [M, M]. Define π_3^ind(BM^+) as the quotient of π_3(BM^+) by the image of the products π_1(BM^+) ⊗ π_2(BM^+) → π_3(BM^+) in the graded ring π_*(ℤ × BM^+) ≅ π_*K(F^×-Sets_fin), together with the natural maps π_3^ind(BM^+) → π^s_3/(η³) ≅ ℤ/12 and π_3^ind(BM^+) → K_3^ind(F).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/pi3ind-sequence",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For an infinite field F the sequence of Theorem 5.16 induces an exact sequence π_3^ind(BM^+) → K_3^ind(F) ⊕ ℤ/12 → B(F) → 0.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/pi3ind-ahss",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F there is a natural exact sequence 0 → μ_2(F) → π_3^ind(BM^+) −γ→ Tor_1^ℤ(μ(F), μ(F)) ⊕ ℤ/12 → 0, where the Tor term is H_3(F^×, ℤ)/∧³F^× (Ex. VI.5.9(a)). The K-book writes μ(F) for that term; the two are isomorphic, but not naturally in F (Ex. VI.5.9(b)).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/delta-squaring",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "Let δ : H_3(μ(F), ℤ) → H_3(P, ℤ) → π_3^ind(BM^+) be induced by x ↦ diag(x, x^{−1}). Then the μ-component of γ ∘ δ is twice the canonical isomorphism H_3(μ(F), ℤ) ≅ Tor_1(μ(F), μ(F)). The K-book states this as 'μ(F) → μ(F), x ↦ x²' after identifying H_3(μ(F)) with μ(F).",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/e-invariant-detection",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F the composite H_3(μ(F), ℤ) −δ→ π_3^ind(BM^+) → K_3^ind(F) −e→ H^0(F, μ^{⊗2}) is injective, and it is an isomorphism when F is algebraically closed.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    },
+    {
+      "nodeId": "K3BlochGroups:V.4/enhanced-tor",
+      "packet": "research/blueprint/packets/K3BlochGroups.json",
+      "provides": "For a field F define the enhanced torsion term T̃(F) = ker(π_3^ind(BM^+) → ℤ/12), natural for all field homomorphisms. By V.4/pi3ind-ahss it is an extension 0 → μ_2(F) → T̃(F) → Tor_1^ℤ(μ(F), μ(F)) → 0, and T̃(F) ≅ Tor_1(μ(F), μ(F)) when char F = 2 (μ_2(F) = 1); that the extension does not split when char F ≠ 2 is proved in V.4/pi3ind-bm-plus. This is Suslin's Tor_1^ℤ(μ(F), μ(F))~ with its characteristic-dependent convention, in a form in which naturality is visible.",
+      "checked": "Accepted parent statement, prerequisites, API and tests read; preserved without adding a duplicate node."
+    }
+  ]
+}
