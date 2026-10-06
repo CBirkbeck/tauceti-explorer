@@ -1,71 +1,59 @@
-# Handoff: BP-GL2ModularityLifting--R32.3 (second checkpoint)
+# Handoff: BP-GL2ModularityLifting--R32.3
 
-Agent: Claude Code, session cc-fb70e5. Refs #736; the bot confirmed the claim. Date: 29 September 2026. **Status: partial.** RS-08 keeps all four stages unchanged.
+Agent: Codex (GPT-6), session codex-aAQwqQ. Refs #736. Date: 6 October 2026. The claim bot confirmed this session's claim. **Status: complete at target level.** This continues the two merged Claude checkpoints and retains all nine prior node identifiers. RS-08 is accepted and keeps all four scope stages unchanged.
 
-## Checkpoint 2: wired to part 1's R32.1–R32.2 (no new nodes)
+## Result and coverage
 
-Part 1 (`GL2ModularityLifting--R22.1`, PR #3885, merged) now plans R32.1 (the statement table) and R32.2 (odd-prime de Rham lifting, p = 3 included). This checkpoint connects the two parts:
-- **R32.3–R32.5.** `dyadic-de-rham-modularity-lifting`, `pan-residually-reducible-fontaine-mazur` and `p-three-residually-reducible-branch` now cite `R32.1/lifting-statement-table` and say which proposition they prove: (b), (c) and (d).
-  - The dyadic node replaces its stage prerequisite R32.2 by `R32.1/non-solvable-residual-image`.
-- **R32.6/transfer-residually-irreducible-odd.** It now cites `R32.2/odd-prime-statement-over-q` and `R32.1/quadratic-cyclotomic-irreducibility` in place of the stage R32.2, with Tung's Theorem 4.7 (p. 15) as a source. The remaining item "p = 3 rests on Tung, statement only" is closed.
-- **R32.6/globalisation-dependency-audit** gains (e) and (f):
-  - (e) the odd-prime theorem is used only in its forms that assume ρ̄ modular: Kisin (2.2.18), Hu–Tan 6.3 and Tung 4.7.
-  - (f) Emerton's §7.3 uses Serre's conjecture, for promodularity only, and is not used. His §7.4, which completes Theorem 3.3.22, uses only an auxiliary CM-induced modular ρ̄ and the weight part of Serre's conjecture for it.
-  - New sources: Emerton lg.pdf (sha bf4f855…) and Hu–Tan arXiv v2 (sha d36f237…).
-- **Gap narrowed** to Tung's global inputs ([CEG+16], Emerton–Paškūnas, BLGG13 A.4.1) and Gee's Theorem 4.4.12, which Kisin's proof uses. The R31.6 request is narrowed to match, and a request to SerreWeightAndLevelOptimisation R20.6 is added.
-- **Locator corrected.** Checkpoint 1 recorded Tung's (ANT 2021) Theorem 1.2 as pp. 1–2. It is on p. 4. The source record now lists the pages read: pp. 1–2, 4 and 14–15.
-- **Finding resolved.** The OrdinaryAutomorphicFormsAndModularityLifting R21.5 finding below was fixed in PR #3881 (checkpoint 9 of that job).
+The packet has 28 nodes: 23 theorems, three definitions, one construction and one comparison. It includes 16 API items, 13 unit tests, 12 planets, six pinned Mathlib declarations, 24 supplier requests and two explicit gaps. Every node keeps `implementationStatus: unchecked`. The reader contains the same statements, proof steps, prerequisites, API and tests.
 
-Checks: `check_blueprint` with the pinned index gives 0 errors and 0 warnings; `check-files` gives 0 problems; every new excerpt was checked by script against its page's text. The Lean file is unchanged.
+| Stage | Status | What is planned |
+| --- | --- | --- |
+| R32.3 | planned | Typed-component specialization, Tung's totally real dyadic lifting theorem, and its de Rham consequence over ℚ. Ordinary and nonordinary component support are separate supplier inputs. |
+| R32.4 | planned | Nice and potentially nice primes, the localized nilpotent-kernel bridge, large components, generic/scalar/cyclotomic branches, good components, extension-component geometry and propagation, and Pan's nonordinary Hilbert theorem. |
+| R32.5 | planned | The existing exact ordinary theorem at three, finite-order normalization by the actual ordinary quotient character, and the crystalline weights-two/four application within 2≤k≤p+1. |
+| R32.6 | planned | Three residual transfer branches, all-member geometric compatible-system transfer, ramified reducible coefficient-prime transfer, normalized ordinary transfer at three, and the source-independence comparison. |
 
-## Checkpoint 1
+No stage is closed: the supplier exports and the two recorded gaps require verification. No local target-level refinement remains in R32.5, whose prerequisite proofs belong to its suppliers. The stage `remaining` lists specify the other obligations. The pass is complete under PROTOCOL's target-level stopping rule; it is not a checkpoint caused by the run's time limit.
 
-## Done (9 nodes, 4 planets)
+The old residually irreducible node now exports Pan Theorem 8.0.1 at ℚ with residual modularity, cyclotomic absolute irreducibility and local irreducibility. Pan's unconditional Theorem 1.0.4 and Remark 8.0.4 are retained as a source comparison, excluded from the independent R33 input cone. This avoids using the full Serre endpoint to prove Serre.
 
-- **R32.3:** the 2-adic de Rham modularity lifting theorem (Tung's Theorem A).
-  - Paškūnas' earlier Theorem 1.1 and its local hypothesis (iv) are recorded; Tung removes (iv).
-  - It is kept distinct from Kisin's potentially Barsotti–Tate theorem of the classical proof, which is part 1's node.
-- **R32.4:** Pan's Theorems 1.0.2 and 1.0.4.
-  - 1.0.2 is the residually reducible theorem: p odd, excluding p = 3 when χ̄₁χ̄₂⁻¹|_{G_{ℚ₃}} = ω.
-  - 1.0.4 is the residually irreducible theorem; by Pan's Remark 8.0.4 it uses Khare–Wintenberger's Serre conjecture.
-- **R32.5:** the p = 3 branch is imported from OrdinaryAutomorphicFormsAndModularityLifting R21.5. This part adds:
-  - the precise reason Pan does not cover it: the excluded case is exactly ρ̄^{ss} ≅ 1 ⊕ χ̄₃;
-  - the twisting normalisation.
-- **R32.6:**
-  - the three transfer statements (Dieulefait–Pacetti Theorems 1.4–1.6);
-  - why de Rham lifting suffices at members of almost strictly compatible systems;
-  - the globalisation dependency audit of the read sources.
+## Ownership and the handed finding
 
-## Findings for other packets (not edited here; they belong to other jobs)
+**RT-AREA-langlands-2/21:** `R32.6/ramified-reducible-coefficient-prime` is the sole modern-route transfer owner. Its input includes the all-member de Rham and common-weight clauses of DP Definition 1.10, plus oddness and characteristic-zero irreducibility. A historical KW almost-strict carrier needs the additional de Rham hypothesis. The missing bad coefficient-prime Weil–Deligne equality is not used; recognition compares good Frobenius polynomials with the modular-form system.
 
-- **OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-at-three** says Pan's theorem "needs p ≥ 5". Pan's Theorem 1.0.2 is for all odd p. It excludes, at p = 3, the case χ̄₁χ̄₂⁻¹|_{G_{ℚ₃}} = ω, which is the case of that node. The conclusion is right, but the stated reason should be corrected.
-- **ClassicalSerreModularity--R27.3,** gap "DP Theorem 1.7: the second hypothesis and its check in Paso 6". This is resolved by Skinner–Wiles' Theorem (printed p. 6), whose hypothesis (i) is χ|_{D_p} ≠ 1, and it is already recorded as OrdinaryAutomorphicFormsAndModularityLifting/E9. The gap can be closed at the next checkpoint of that packet.
-- **ClassicalSerreModularity:R33.5/globalisation-dependency-check** can now point to `R32.6/globalisation-dependency-audit`. For the read sources, no statement used by Dieulefait–Pacetti depends on the general Serre theorem. Pan's Theorem 1.0.4 does depend on it, and it is not used.
+The packet's restructure proposal asks the maintainer to leave R24.6 with reduction, specialization and local-compatibility-hypothesis lemmas and remove its duplicated modern-route sentence. Only this issue's four authorized files were edited. R24.6's existing bundled transfer node imports this part's transfer nodes, so this part consumes the earlier R24.5 carrier and R01.5 recognition instead of importing that bundle back. A traversal through existing explicit node prerequisites found no cycle in the 1,317-node dependency cone. This is a node-graph check, not a certificate of every future stage-level request.
 
-## Remaining
+The maintainer-added BCDT wild-three paper is assigned to R22.5, outside this part's four-stage scope. Its extended-type theorems and CDT corrigenda remain obligations of part R22.1 and are not replanned here.
 
-- The proofs of Kisin (JAMS 2009), Emerton (2011), Hu–Tan (2015) and Tung (p = 3, ANT 2021) are not read. Their globalisation audit is requested from CompletedCohomologyAndLocalGlobalCompatibility R31.6.
-- The local p-adic Langlands inputs are requested from PadicLocalLanglandsForGL2Qp R30.6. The patched completed modules are requested from CompletedCohomologyAndLocalGlobalCompatibility R31.5.
-- Pan's pseudo-deformation and classicality arguments, and Tung's Theorems B and C, are summarised at the level of their strategy. A continuation should decompose them once R30.6 and R31.5 exist.
+## Supplier exports and what remains
 
-## Checks
+All 24 requests give exact source locators and consumers in the packet and reader. The grouped work is:
 
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- The intake's `file_problems`: 0 problems.
-- Every excerpt was located on its stated page. Skinner–Wiles' Theorem was read on the page image, and Dieulefait–Pacetti's Theorem 1.7 on its page image.
+- **R31.2–R31.6:** finite typed classical modules; Hecke/Galois reconstruction; Pan's equality of local pseudo-ring actions, finite faithful block multiplicities and nonordinary classicality; localized one-dimensional-prime patching with nilpotent kernel; Tung's ordinary and nonordinary typed-component support; restricted auxiliary-globalization certification.
+- **R04.1–R04.4 and IHG.1:** determinant-fixed pseudo/representation deformation functors, prime-point reconstruction, trace/completion comparisons, multiplicity-free global generalized matrix algebras and reducibility ideals, off-diagonal height bounds, global dimension and finite-inertia statements, exact solvable restriction problems. The local scalar pair is not treated as globally multiplicity-free.
+- **R08.6 and R21.3–R21.5:** all three local pseudo-ring geometries; chosen-character ordinary covers; finite Λ-algebras and dense correctly oriented arithmetic points; Pan Theorems 5.1.2 and 6.1.2 as extensions of the ordinary owner. The existing Skinner–Wiles theorem and crystalline ordinarity node are imported by exact identifiers.
+- **R02.6 and R03.6:** the exact extension cohomology restriction isomorphism, including Lichtenbaum vanishing with the extra S-places, and connectedness-dimension bounds. Existing R03.6 near-faithfulness nodes are reused. Its P7 derived Nakayama input does not establish finite generation of raw completed homology.
+- **R20.6, R01.1/R01.2/R01.5, R06.3, R19.3 and R17.3/R17.4:** restricted weight-change independence, character/lattice/twist conventions, good-prime recognition, p-adic monodromy, modular-form systems, Jacquet–Langlands and solvable automorphic descent.
 
-## Suggested Lean file
+**Gap 1, auxiliary proof independence:** Tung §4.3 identifies Calegari Theorem 3.2, Snowden Theorem 8.2.1, KW II's dyadic HBAV construction and Paškūnas' weight change. The odd-prime path also has CEG+16, Emerton–Paškūnas, BLGG13 and Gee 4.4.12 leaves. Their independent proofs have not all been read in this job. R31.6/R20.6 must provide the restricted constructions or expose the full-Serre dependence. The displayed residual-modularity hypothesis by itself does not certify this independence. Resume with those exact requests before declaring R33's independent proof closed.
 
-It imports Mathlib only. It was compiled with `lake env lean` against Mathlib 082e2d3: exit code 0, no warnings.
+**Gap 2, arithmetic signatures:** pinned libraries lack the combined Galois, pseudodeformation, Hecke-point and local Hodge carriers required by the full arithmetic signatures. The suggested file has concrete `panGoodComponent` and `panExtensionComponents` definitions, all eight API signatures and seven examples, with proofs admitted. The other two definitions, eight API items, six tests and all 23 arithmetic theorem statements are indexed by exact name in its omission manifest. No unexpressible condition is replaced by an arbitrary proposition parameter. Instantiate those signatures only after the listed supplier carriers are supplied.
 
-## Sources
+## Sources and source finding
 
-The PDFs were downloaded and their SHA-256 hashes are recorded in the packet:
+Fresh source reads are recorded in the packet with URLs, sections, dates and PDF SHA-256 hashes: Pan arXiv:1901.07166v2 (§§2.2–2.4 comparison statements, 3.5, 4.1, 5.1, 6.1 and all three §7 proof branches, plus 8.0.1/8.0.4); Tung arXiv:1908.06174v3 (§§4.3, 5.3, 6.3, 7.2–7.3 and 8); Paškūnas arXiv:1509.00332v2 (introduction/global strategy); DP arXiv:2108.07577v2 and the publisher's 2023 PDF (lifting statements, compatible-system definition/remark and Paso 6); Skinner–Wiles' introduction theorem on the Numdam page image. The Paškūnas edition date is corrected to 25 April 2016, matching its first page and arXiv record. Prior checkpoint readings of Tung's odd-prime paper, Hu–Tan and Emerton retain their historical dates and are not represented as fresh complete proof audits.
 
-- Tung, arXiv:1908.06174v3 and 1803.07451v4;
-- Paškūnas, arXiv:1509.00332v2;
-- Pan, arXiv:1901.07166v2;
-- Dieulefait–Pacetti, arXiv:2108.07577v2, the same hash as the other packets;
-- Skinner–Wiles (Numdam), the same hash as OrdinaryAutomorphicFormsAndModularityLifting.
+**GL2ModularityLifting/E1:** published DP Theorem 1.7 does not repeat finite-order ψ in its determinant hypothesis; the cited Skinner–Wiles theorem requires it. Nodes retain the qualification. Both published and preprint versions are recorded in `sourceVersions`; the finding belongs against the published PDF. No correction was located on the publisher page, arXiv record or exact-title erratum search. Pacetti's homepage/papers-page text was inaccessible, so no author-page clearance is claimed. Independent review must check this finding. The ordinary supplier's distinct E9 finding on the redundant residual nontriviality bullet is not duplicated.
 
-The arXiv ids were found by web search, because the arXiv API returned nothing.
+Two complete upstream roadmaps, Multiquadratic and SemisimpleAlgebras, supplied the density model. The reviewed library coverage has no direct R32.3–R32.6 entry. Absence claims are therefore supported by pinned source searches; all six positive baseline citations were read in their Lean files. All link maps were screened for touching scope-stage entries; none was found.
+
+## Validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/GL2ModularityLifting--R32.3.json`: zero errors, zero warnings, all four stages planned.
+- `research/blueprint/intake.py check-files` on all four deliverables: zero problems.
+- Section-18 source issue/version validation, exact packet/reader/manifest agreement, and preservation of all nine checkpoint identifiers: pass.
+- Explicit-node prerequisite-cone traversal: no cycles, including the compatible-system boundary.
+- `git diff --check`: pass.
+- `lean-check research/blueprint/suggested/GL2ModularityLifting--R32.3.lean`: exit zero against Mathlib 082e2d3, with exactly 15 expected admitted-proof warnings and no other warnings/errors. Available memory was 97 GB before compiling. Only Mathlib is imported; no Tau Ceti build was needed. No language server, library build, update or cache fetch was run.
+
+The suggested fragment's compilation checks its types, not the truth of the admitted statements or the omitted arithmetic theorems. Source PDFs and extracted text stay outside the repository; all information needed to resume is in these deliverables. The next step is independent review and the supplier follow-ups above.
