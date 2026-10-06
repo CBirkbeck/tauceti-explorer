@@ -21,49 +21,49 @@
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
         "provides": "In a Tate ring every Spa point is analytic; use chartwise only, not as an already built FF space.",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "mathlib:WittVector.map",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Basic.lean",
         "provides": "Coefficientwise Witt-vector ring map induced by a ring homomorphism.",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "mathlib:WittVector.fontaineTheta",
         "kind": "def",
         "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
         "provides": "Algebraic theta W(PreTilt(R,p))→R for a commutative ring with prime p, Fact(not IsUnit p), and IsAdicComplete(span{p}) R; no continuity or primitive-kernel conclusion.",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "mathlib:WittVector.fontaineTheta_teichmuller",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
         "provides": "Under theta’s same hypotheses, theta([x])=PreTilt.untilt(x).",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "mathlib:WittVector.frobeniusEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
         "provides": "Witt Frobenius is a ring equivalence for CharP R p and PerfectRing R p, not an adic-space automorphism by itself.",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "mathlib:CategoryTheory.Equivalence",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Equivalence.lean",
         "provides": "Bundled equivalence with functor, inverse, unit, counit and triangle identity; reused in the categorical prototypes.",
-        "checked": "Full statement and local hypotheses read in source at the recorded pinned commit."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       },
       {
         "ref": "tauceti:TauCeti.ValuationSpectrum",
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/ValuationSpectrum.lean",
         "provides": "The existing valuation spectrum as a distinct type of valuative relations, with support prime ideal. Used in the F0 product-open prototype.",
-        "checked": "Structure and support definition read at the Tau Ceti pin; directly imported Spa.Basic source is unchanged in the shared build."
+        "checked": "Independently confirmed by REV-FarguesFontaineDiamonds at the recorded pinned commit, including surrounding variables and local hypotheses; see the per-declaration table in the review report."
       }
     ]
   },
@@ -107,10 +107,10 @@
       "accessDate": "2026-10-06",
       "readSections": [
         "Definition 15.5 and Lemma 15.6, including proof and preceding rational-open comparison, pp.91–92",
-        "Definition 14.13 and Propositions 14.15–16, pp.88–89",
-        "Definitions 26.1 and Proposition 26.2 including proof, and §26 introductory tensor/completion discussion, pp.161–162",
+        "Definition 14.13, Remark 14.14 and Propositions 14.15–16, p.88 (bounded-below agreement is Remark 14.14; left completion is Proposition 14.15)",
+        "Definition 26.1, Proposition 26.2 including proof, and Remark 26.3 with the tensor/completion discussion, pp.161–162",
         "Definition 11.1 and Proposition 11.3 with proof, pp.54–55, for the imported effective quotient convention",
-        "Proposition 10.11(iii) and its proof, pp.52–53; Proposition 9.7 and proof through its first general-case reduction, pp.47–48, for the imported v-local finite étale descent"
+        "Proposition 10.11(iii) and its proof, pp.52–53; Proposition 9.7 and its proof, pp.47–48, for the imported v-local finite étale descent"
       ]
     },
     {
@@ -403,6 +403,11 @@
           "name": "TauCeti.FFDiamond.affinoid_product_inverse_formula",
           "role": "characterisation",
           "statement": "The inverse’s ring map sends [x] to f(x)^sharp for every x∈O_F."
+        },
+        {
+          "name": "TauCeti.FFDiamond.affinoid_product_ext",
+          "role": "extensionality",
+          "statement": "For z,z′ in Y^diamond(T), z=z′ if and only if their alpha_T images have equal tilted base maps and equal marked Q_p-untilts. Both coordinates are required."
         }
       ],
       "tests": [
@@ -420,6 +425,11 @@
           "name": "TauCeti.FFDiamond.affinoid_product_teichmuller",
           "kind": "computation",
           "statement": "For the inverse of (f,u), [varpi] maps to f(varpi)^sharp, a unit in the untilt Tate ring; its plus-ring membership does not assert that it is a plus-ring unit."
+        },
+        {
+          "name": "TauCeti.FFDiamond.affinoid_product_compatible_roots",
+          "kind": "computation",
+          "statement": "For F=completion(F_p((t^{1/p^infty}))), choose the Q_p(p^{1/p^infty})-completion untilt with t^sharp=p and compatible roots. The inverse of (id_S,u) sends every [t^{1/p^m}] to p^{1/p^m}, with the p-power relations retained and both p and [t] invertible in the untilt Tate field. No algebraic-closedness assumption is used."
         }
       ],
       "uses": [
@@ -532,6 +542,11 @@
           "name": "TauCeti.FFDiamond.product_iso_over_qp",
           "role": "compatibility",
           "statement": "alpha_F followed by the second projection equals the diamond of the structural Q_p map."
+        },
+        {
+          "name": "TauCeti.FFDiamond.product_iso_ext",
+          "role": "extensionality",
+          "statement": "For any v-sheaf Z and h,k:Z→Y^diamond, h=k if and only if h and k followed by alpha_F have equal first projections and equal second projections."
         }
       ],
       "tests": [
@@ -578,7 +593,8 @@
       "statement": "The alpha_F diagram commutes over Spd Q_p. For a continuous isometric characteristic-p field embedding F→F′ carrying O_F into O_F′, the induced maps S′→S and Y_F′→Y_F satisfy alpha_F ∘ (Y_F′→Y_F)^diamond = ((S′→S)×id) ∘ alpha_F′. The same statement holds for continuous bounded field maps with the corresponding admissible topology and plus-ring hypotheses. Choice transport intertwines these diagrams.",
       "hypotheses": [
         "p is prime; F is a complete rank-one characteristic-p perfectoid field; S = Spa(F, O_F).",
-        "Y, X, q, Frobenius and interval pairs are the actual objects and maps supplied by AdicSpaces Layer 6."
+        "Y, X, q, Frobenius and interval pairs are the actual objects and maps supplied by AdicSpaces Layer 6.",
+        "F′ is also a complete rank-one characteristic-p perfectoid field with its valuation ring; both fixed-field constructions use the same prime p. Field maps have the stated continuity and plus-ring boundedness."
       ],
       "proofSteps": [
         "Prove the structural projection formula affinoid-locally by retaining the untilt structure in both directions.",
@@ -615,10 +631,11 @@
       "title": "Equivariance for the chosen Frobenius generator",
       "kind": "theorem",
       "declaration": "TauCeti.FFDiamond.frobenius_equivariance",
-      "statement": "With phi_Y induced contravariantly by Witt Frobenius and phi_S induced by x↦x^p, alpha_F ∘ phi_Y^diamond = (phi_S×id) ∘ alpha_F. On an affinoid point represented by theta_u ∘ W(f), postcomposition with phi_Y changes f to f∘Frob_O_F, while retaining u. The radius kappa=log|[varpi]|/log|p| satisfies kappa(phi_Y x)=p·kappa(x).",
+      "statement": "With phi_Y induced contravariantly by Witt Frobenius and phi_S induced by x↦x^p, alpha_F ∘ phi_Y^diamond = (phi_S×id) ∘ alpha_F. On an affinoid point represented by theta_u ∘ W(f), postcomposition with phi_Y changes f to f∘Frob_O_F, while retaining u. The radius kappa=log|[varpi]|/log|p|, evaluated on the unique rank-one generalization of an analytic point, satisfies kappa(phi_Y x)=p·kappa(x).",
       "hypotheses": [
         "p is prime; F is a complete rank-one characteristic-p perfectoid field; S = Spa(F, O_F).",
-        "Y, X, q, Frobenius and interval pairs are the actual objects and maps supplied by AdicSpaces Layer 6."
+        "Y, X, q, Frobenius and interval pairs are the actual objects and maps supplied by AdicSpaces Layer 6.",
+        "The real-valued radius uses rank-one generalizations; higher-rank chart inequalities retain the anchor’s order-theoretic power-comparison convention."
       ],
       "proofSteps": [
         "Evaluate the composed ring map on [a], where Witt Frobenius sends [a] to [a^p] and fixes p.",
@@ -1107,13 +1124,13 @@
       "title": "Frobenius descent of étale sheaves",
       "kind": "construction",
       "declaration": "TauCeti.FFDiamond.sheaf_descent",
-      "statement": "For any coefficient category for which étale sheaf descent is defined (in particular sets and modules over a discrete commutative ring), construct the equivalence between sheaves on X^diamond_et and pairs (M,c) with M a sheaf on Y^diamond_et and c:phi_Y^{diamond,*}M≅M. The induced c_n:phi_Y^{diamond,n,*}M≅M satisfy c_0=id and c_{m+n}=c_n∘phi^{n,*}(c_m), with the chosen pullback associators. Morphisms intertwine c. This is the graph-relation Cech descent category supplied by D0, not a private replacement for descent data.",
+      "statement": "For any coefficient category for which étale sheaf descent is defined (in particular sets and modules over a discrete commutative ring), construct the equivalence between sheaves on X^diamond_et and pairs (M,c) with M a sheaf on Y^diamond_et and c:phi_Y^{diamond,*}M≅M. The induced c_n:phi_Y^{diamond,n,*}M≅M satisfy c_0=id and c_{m+n}=c_n∘phi^{n,*}(c_m), with the chosen pullback associators. Morphisms intertwine c. Use D0’s graph-relation Cech descent category, with the explicitly requested specialization to étale sheaves. Its quotient-stack API alone does not establish that the étale-sheaf pseudofunctor is a stack.",
       "hypotheses": [
         "p is prime; F is a complete rank-one characteristic-p perfectoid field; S = Spa(F, O_F).",
         "Y, X, q, Frobenius and interval pairs are the actual objects and maps supplied by AdicSpaces Layer 6."
       ],
       "proofSteps": [
-        "Apply étale sheaf descent along the surjective étale map q^diamond.",
+        "Apply the requested effective descent theorem for étale sheaves along the surjective étale map q^diamond. The abstract quotient-stack descent API must first be specialized to this sheaf pseudofunctor.",
         "Identify the Cech relation by its integer-indexed graphs, with composition n+m. Recover all c_n from the generator and inverse.",
         "Transport to the product description through alpha_F, where pullback is on the S factor."
       ],
@@ -1125,14 +1142,15 @@
         "FarguesFontaineDiamonds:F2/diamond_quotient_cover",
         "FarguesFontaineDiamonds:F3/chart_site_compatibility",
         "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "mathlib:CategoryTheory.Equivalence"
+        "mathlib:CategoryTheory.Equivalence",
+        "DiamondsAndVStacks:D0"
       ],
       "sources": [
         {
           "sourceId": "ECD",
           "locator": "Definition 15.5; Lemma 15.6 and proof, pp.91–92",
           "excerpt": "Then Y ♢ is a locally spatial diamond,",
-          "match": "Lemma 15.6 supplies the site identification. The cyclic descent statement is its application together with the imported D0 effective sheaf-descent theorem and the F2 graph relation, rather than a separately stated result of Lemma 15.6."
+          "match": "Lemma 15.6 supplies the site identification. Cyclic descent then uses the F2 graph relation and the explicitly requested D0 effective descent theorem for étale sheaves; the abstract quotient-stack node does not itself state this specialization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1213,7 +1231,8 @@
         "FarguesFontaineDiamonds:F3/site_equiv",
         "FarguesFontaineDiamonds:F3/sheaf_descent",
         "DiamondsAndVStacks:D3/v-local-nature-of-morphism-classes",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products"
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0"
       ],
       "sources": [
         {
@@ -1869,9 +1888,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 14.13; Propositions 14.15–16, pp.88–89",
+          "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
           "excerpt": "left-completion",
-          "match": "Propositions 14.15–16 identify the diamond D_et category with the left completion of the ordinary étale-derived category and give bounded-below agreement. Compose this general theorem, through C2, with the F3 exact module-topos equivalence."
+          "match": "Proposition 14.15 identifies diamond D_et with the left completion of the ordinary étale-derived category; Remark 14.14 gives bounded-below agreement. Compose these general results, through C2, with the F3 exact module-topos equivalence. Proposition 14.16 detects membership on cohomology sheaves and is not the bounded-below comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1918,7 +1937,7 @@
       ],
       "uses": [
         {
-          "where": "ECD Proposition 14.16",
+          "where": "ECD Proposition 14.15 and Remark 14.14",
           "how": "Identify the left-completed site-derived category with D_et."
         },
         {
@@ -1955,9 +1974,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 14.13; Propositions 14.15–16, pp.88–89",
+          "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
           "excerpt": "left-completion",
-          "match": "Use the bounded-below agreement of Proposition 14.16 and the exact F3 module-topos equivalence. The ordinary derived equivalence itself holds in all degrees; only its comparison with diamond D_et needs left completion."
+          "match": "Use the bounded-below agreement of Remark 14.14 and the exact F3 module-topos equivalence. The ordinary derived equivalence itself holds in all degrees; only its unbounded comparison with diamond D_et needs the left completion of Proposition 14.15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1997,9 +2016,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 14.13; Propositions 14.15–16, pp.88–89",
+          "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
           "excerpt": "left-completion",
-          "match": "This is a formal application of the C2 enhanced left-completion and global-sections right-adjoint contracts to the F3 site equivalence; the cited propositions provide the category comparison, not a separately stated FF global-sections formula."
+          "match": "Formal application of the C2 enhanced left-completion and global-sections right-adjoint contracts to the F3 site equivalence. Proposition 14.15 provides the category comparison and Remark 14.14 its bounded-below range, not a separately stated FF global-sections formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2037,9 +2056,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 14.13; Propositions 14.15–16, pp.88–89",
+          "locator": "Definition 14.13; Remark 14.14; Proposition 14.15, p.88",
           "excerpt": "left-completion",
-          "match": "Use the C2 enhanced monoidal and pullback contracts in the left-completed category described here. The FF chart square is supplied by F3; coherence is requested from C2 and is not inferred from a bare triangulated equivalence."
+          "match": "Use the C2 enhanced monoidal and pullback contracts in the left-completed category of Proposition 14.15, with bounded-below input from Remark 14.14. F3 supplies the FF chart square; coherence is requested from C2, not inferred from a bare triangulated equivalence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2078,9 +2097,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 26.1; Proposition 26.2 and proof, pp.161–162",
+          "locator": "Definition 26.1; Proposition 26.2 and proof; Remark 26.3, pp.161–162",
           "excerpt": "derived I-complete",
-          "match": "Definition 26.1 and Proposition 26.2 give derived-complete coefficients and finite-level limit detection for the displayed regular-sequence ideals. The requested L0 enhancement on the adic site allows the F3/F5 finite-level comparisons to be taken in a coherent limit."
+          "match": "Definition 26.1 and Proposition 26.2 give derived-complete coefficients and enhanced finite-level limit detection under the displayed regular-sequence hypotheses. Remark 26.3 supplies completed tensor, pullback and right-adjoint compatibility with coefficient reduction. The L0 request extends these contracts to the adic site."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2166,9 +2185,9 @@
       "sources": [
         {
           "sourceId": "ECD",
-          "locator": "Definition 26.1; Proposition 26.2 and proof, pp.161–162",
+          "locator": "Definition 26.1; Proposition 26.2 and proof; Remark 26.3, pp.161–162",
           "excerpt": "derived I-complete",
-          "match": "Apply the derived-completion and finite-level detection of Proposition 26.2 through the L0 global-sections/reduction/tensor contracts. The actual comparison map comes from the coherent finite-level site maps, not from an abstract equality of cohomology groups."
+          "match": "Apply Proposition 26.2 and Remark 26.3 through the L0 global-sections/reduction/tensor contracts. Regular-sequence devissage supplies the right-adjoint compatibility; the actual comparison map is the coherent limit of finite-level site maps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2226,6 +2245,14 @@
         "FarguesFontaineDiamonds:F5/adic_derived_equiv",
         "FarguesFontaineDiamonds:F5/adic_global_sections"
       ]
+    },
+    {
+      "supplier": "DiamondsAndVStacks:D0",
+      "need": "Effective Cech descent for the pseudofunctor U↦Sh(U_et,A) on locally spatial diamonds, for sets and modules over a discrete commutative ring (or a coefficient category with a specified sheaf theory), along surjective étale maps. Give the descent equivalence on objects and morphisms, pullback associators, restriction compatibility and its graph-relation specialization. Also give effective quotient descent for morphisms of sheaves in the chosen Grothendieck topos. D0/groupoid-quotients-and-two-fibre-products supplies an abstract quotient-stack descent API, but does not explicitly establish the stack condition for this étale-sheaf pseudofunctor. Do not substitute pointwise invariant sections or reconstruct the cyclic specialization outside F3.",
+      "neededBy": [
+        "FarguesFontaineDiamonds:F3/sheaf_descent",
+        "FarguesFontaineDiamonds:F3/finite_cover_descent"
+      ]
     }
   ],
   "coverage": [
@@ -2254,7 +2281,8 @@
       "stageId": "FarguesFontaineDiamonds:F3",
       "status": "planned",
       "remaining": [
-        "Reconcile D6’s older site description with ECD v4/KL15 and instantiate the actual site and descent categories."
+        "Reconcile D6’s older site description with ECD v4/KL15 and instantiate the actual site and descent categories.",
+        "Obtain the explicit D0 étale-sheaf Cech-descent specialization; the abstract quotient-stack descent API alone is insufficient."
       ]
     },
     {
@@ -2322,7 +2350,7 @@
         "FarguesFontaineDiamonds:F5/adic_derived_equiv",
         "FarguesFontaineDiamonds:F5/adic_global_sections"
       ],
-      "detail": "No FarguesFontaineDiamonds F0–F5 entries occur in the reviewed data/library-coverage.json. Direct pinned source/index checks were performed instead. The imported DiamondsAndVStacks, PerfectoidSpaces--P0 and RelativeFarguesFontaine--RF0 packets are drafts or have unresolved review findings; exact supplier nodes are contracts, not established implementations. In particular D6’s site interface must be reconciled with ECD v4’s public KL15 definitions. Independent review must check this contract rather than infer correctness from a matching name."
+      "detail": "No FarguesFontaineDiamonds F0–F5 entries occur in the reviewed data/library-coverage.json. Direct pinned source/index checks were performed instead. The supplier DiamondsAndVStacks and PerfectoidSpaces--P0 packets are drafts or have unresolved review findings; RelativeFarguesFontaine--RF0 is read only as a consumer, not imported; exact supplier nodes are contracts, not established implementations. In particular D6’s site interface must be reconciled with ECD v4’s public KL15 definitions. Independent review must check this contract rather than infer correctness from a matching name."
     },
     {
       "title": "Geometric and enhanced supplier types unavailable at the Lean baseline",
@@ -2385,9 +2413,9 @@
   "sourceIssues": [
     {
       "id": "FarguesFontaineDiamonds/E1",
-      "source": "FS; SW",
+      "source": "FS",
       "kind": "gap",
-      "locator": "FS proof of II.1.4, p.50, recorded author-PDF hash; Berkeley author draft March 27 2020, proof of 11.3.1, p.95",
+      "locator": "FS proof of II.1.4, p.50, recorded author-PDF hash; compare Berkeley author draft March 27 2020, proof of 11.3.1, p.95, whose wording differs",
       "printed": "it is well-known that the maximum is taken on the Shilov boundary.",
       "correction": "Supply the classical one-variable boundary theorem for the indicated affinoid subdomains and the argument preserving norm detection through finite-root approximation and geometric fibers. No change to the claimed closed Cartier theorem is proposed.",
       "reason": "The read proofs name the classical maximum principle but give no locator for the exact boundary statement or proof of the perfected-disc approximation. This is an unverified proof-detail finding for independent review, recorded also as the boundary_supremum prerequisite gap; it does not establish a false theorem.",
@@ -2397,7 +2425,12 @@
         "FS II.1.4 proof and its citation to Berkeley Proposition 11.3.1",
         "Berkeley Proposition 11.3.1 proof and its surrounding Cartier-divisor discussion",
         "The reference lists of the two recorded author PDFs for the asserted maximum-modulus input"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The quoted sentence is in the recorded FS author PDF; SW p.95 states the corresponding perfected-disc boundary reduction in different words. Both give a reduction to a named standard one-variable maximum principle. The extraction has not exhibited a false step or shown that this use is mathematically inadequate; the absence of an implementation-ready locator is insufficient to establish a published source defect. Keep the exact classical-boundary, finite-root approximation and geometric-fiber obligations as planning gaps. Rejection is not a proof that those obligations are closed.",
+        "by": "REV-FarguesFontaineDiamonds"
+      }
     }
   ],
   "sourceRouting": [
@@ -2417,5 +2450,198 @@
       "item": "PAPER-SCHOLZE-WEINSTEIN-20/92",
       "disposition": "F0 imports Definition 13.5.1’s actual quotient from AdicSpaces Layer 6; F2 adds the categorical relation comparison. Vector-bundle equivalences and algebraic curves do not enter these targets."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FarguesFontaineDiamonds",
+    "date": "2026-10-06",
+    "notes": "Independent complete target-level review of all 37 nodes, all seven pinned baseline statements, four public source texts and hashes, exact supplier statements, reviewed audit, RS-20 and RT-AREA-padic-1/8. Corrected six F5 source routes, made field/radius hypotheses explicit, added two extensionality API items, the compatible-root-field test and a precise D0 étale-sheaf descent request. E1 rejected as an established source defect while its formalisation gap remains. All six stages are planned, none closed, with three honest gaps and six requests. The suggested file is assessed under section 13’s explicit permission to omit unavailable supplier conditions; its generic signatures are shapes requiring specialization before implementation. Reader synchronization is an orchestrator task because it is outside this review issue’s editable deliverables.",
+    "checked": [
+      {
+        "nodeId": "FarguesFontaineDiamonds:F0/analytic_interface",
+        "verdict": "verified",
+        "note": "FS II.1.1/15–16 and the imported interval Tate pairs justify chartwise analyticity. The pinned Spa theorem supplies exactly that conclusion; the product-open condition excludes the characteristic-p boundary."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F0/qp_factorisation",
+        "verdict": "verified",
+        "note": "The generic charts invert p; localization, continuity on chart rings and gluing give the unique Q_p structural map. Witt Frobenius fixes p, so q and Frobenius are over Q_p."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F0/chart_category_interface",
+        "verdict": "verified",
+        "note": "Read the two A1 supplier statements: the embedding is fully faithful on sheafy analytic spaces and analytic products are available in the Yoneda category. Actual chart morphisms, plus rings and valuations remain anchor inputs."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F0/choice_transport",
+        "verdict": "verified",
+        "note": "Cofinality of the anchor topologies and identity on Witt vectors give the canonical changes; uniqueness of Q_p factorization and D6 functoriality give the diagrams and composition."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F1/bounded_witt_theta",
+        "verdict": "verified",
+        "note": "FS II.1.2 proof gives the continuous bounded correspondence. P1 supplies plus-ring tilt/theta contracts; Mathlib supplies only the actual algebraic map and Teichmuller formula with all its hypotheses."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F1/affinoid_product",
+        "verdict": "corrected",
+        "note": "Checked both affinoid point constructions against FS II.1.2 and the generic restriction II.1.17. Added two-coordinate extensionality and the explicitly required compatible-root-field test, with native theta fragments in the prototype."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F1/point_naturality",
+        "verdict": "verified",
+        "note": "Witt/theta naturality and the P2 perfectoid slice equivalence supply pullback of marked untilts. Affinoid equality glues; no arbitrary perfectoid adic fibre-product assertion is used."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F1/product_iso",
+        "verdict": "corrected",
+        "note": "Naturality and inverse point maps glue on the affinoid basis of the supplied v-sheaves. Added morphism extensionality through both product projections; local spatiality stays a D6 contract."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F1/projection_field_naturality",
+        "verdict": "corrected",
+        "note": "Made the F′ setting explicit: the same prime and complete rank-one characteristic-p perfectoid hypotheses. The contravariant field-map square follows from Witt/theta naturality with continuity and plus-ring conditions retained."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/frobenius_equivariance",
+        "verdict": "corrected",
+        "note": "Evaluating Witt Frobenius on [a] gives [a^p] and fixes p, so the action is positive Frobenius on S. Specified rank-one generalization for the real radius; higher-rank windows keep order-theoretic inequalities."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/adic_graph_relation",
+        "verdict": "verified",
+        "note": "On actual wandering-chart products the unique translate gives the integer-labelled graph; overlap labels and addition supply the cocycle. A1 products and the anchor maps are explicit imports."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/diamond_graph_relation",
+        "verdict": "verified",
+        "note": "The D6 restriction/product comparisons apply locally; disjoint-union labels are locally constant on tests. This local proof does not require preservation of arbitrary colimits."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/diamond_quotient_cover",
+        "verdict": "verified",
+        "note": "The two quotient-window images cover X and the anchor restrictions are isomorphisms. D6 preserves these opens and their underlying spaces, giving surjective étale q without a quasi-compactness assumption."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/effective_quotient",
+        "verdict": "verified",
+        "note": "The graph relation and effective sheaf cover give the quotient universal property in the sheaf topos. The free-action case of the D0 quotient API supplies the contract; labels may vary locally."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/quotient_iso",
+        "verdict": "verified",
+        "note": "Equivariance descends alpha and its inverse through the two effective quotients; the defining square and uniqueness prove inverse composites and the over-Q_p API."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F2/quotient_spatiality_choices",
+        "verdict": "verified",
+        "note": "FS II.1.16 supplies qcqs in the affinoid-base case. The two-window finite cover and finite translate overlaps justify the stronger fixed-field claim; choice compatibility follows after q."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F3/site_equiv",
+        "verdict": "verified",
+        "note": "ECD Lemma 15.6 and its proof give both sites and the forward diamond functor. KL Definitions 8.2.16/19 and Lemma 8.2.17 fix maps, plus rings and set-theoretic covers; the D6 convention remains an explicit reconciliation task."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F3/chart_site_compatibility",
+        "verdict": "verified",
+        "note": "D6 canonical product/open comparisons compute the restriction square on objects. Their associators and the beta square give overlap and nested-chart coherence."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F3/sheaf_descent",
+        "verdict": "corrected",
+        "note": "The cyclic Cech reduction is correct, including pullback in the cocycle. Added a precise D0 request and direct prerequisite: its abstract quotient-stack API does not explicitly prove the étale-sheaf pseudofunctor stack condition."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F3/finite_cover_descent",
+        "verdict": "corrected",
+        "note": "ECD Proposition 10.11(iii), using Proposition 9.7, supplies v-local finite étaleness after effective sheaf descent. Added the requested D0 specialization as a direct contract; the represented-sheaf and eta_f comparisons retain the sheet action."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/section_untilt_equiv",
+        "verdict": "verified",
+        "note": "FS II.1.4/18 and Berkeley 11.3.1 identify the product sections with marked Q_p-untilts. P1 owns their classification. The section graph keeps its marking and gives no structural map from X to S."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/primitive_equation_interface",
+        "verdict": "verified",
+        "note": "The exact P1 kernel/primitive/classification nodes supply the algebra. FS II.1.4 chooses varpi and a with theta(a)=p/varpi^sharp; theta gives the actual map into the generic domain before the analytic Cartier argument."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/root_extension_frame",
+        "verdict": "verified",
+        "note": "FS II.1.1 uses a split topological root extension. The R0 tensor and R5 split-completion suppliers have the needed adic scalar-map and continuous retraction hypotheses; the coefficient projection passes to completion."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/root_annulus_tilt",
+        "verdict": "verified",
+        "note": "The root relations, p/[varpi] coordinate and small root pi with pi^p=[varpi] agree with FS II.1.1. The Q0 request explicitly covers the integral recognition missing from its p-complete criterion; P1 supplies inversion."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/boundary_supremum",
+        "verdict": "verified",
+        "note": "The boundary reduction matches FS II.1.4 and Berkeley 11.3.1. Its classical maximum principle, finite-root norm passage and geometric-fiber step remain the exact recorded gap; renormalization matches P1’s 1/2 convention."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/multiplication_lower_bound",
+        "verdict": "verified",
+        "note": "On the boundary, multiplicativity and the normalization give p^(-n). The rational cover away from xi=0 and the small-neighborhood argument extend the bound. This proof chain retains the boundary prerequisite gap."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/rational_strict_exactness",
+        "verdict": "verified",
+        "note": "A positive lower bound makes multiplication injective and its image closed in a complete normed chart ring. The theta quotient and plus integral closure identify every rational intersection; empty intersections give the zero quotient."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/untilt_closed_divisor",
+        "verdict": "verified",
+        "note": "Berkeley 5.3.8–9 requires closedness on all open affinoids; the R0 request and rational basis checks supply exactly this criterion. Unit changes and choice transport preserve the ideal and actual immersion."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/untilt_sheaf_exactness",
+        "verdict": "verified",
+        "note": "The rational strict quotient sequences glue on a basis to the stated analytic sheaf sequence with the actual untilt restriction map. Unit rescaling identifies the first arrows."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/curve_untilt_divisor",
+        "verdict": "verified",
+        "note": "FS II.1.18 supplies the descended Cartier statement. Fixed-field radii separate translates; bounded windows meet finitely many. Quotient chart transport glues local ideals and retains the untilt residue field."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F4/untilt_orbit_invariance",
+        "verdict": "verified",
+        "note": "Checked the two graph conventions separately: positive phi_Y acts by phi_S on the product, while resetting the first graph coordinate uses phi_S inverse. The closed immersion is orbit invariant; the Div^1 moduli quotient remains distinct."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/completed_derived_equiv",
+        "verdict": "corrected",
+        "note": "Corrected the general comparison to Proposition 14.15 and bounded-below agreement to Remark 14.14. The C2 request supplies the enhanced t-structure, coherent completion and monoidal data, beyond a bare equivalence."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/ordinary_bounded_below",
+        "verdict": "corrected",
+        "note": "Corrected the claimed Proposition 14.16 bounded-below attribution to Remark 14.14. Exact module-topos equivalence applies to ordinary derived categories in all degrees; the diamond comparison keeps its completed range."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/completed_global_sections",
+        "verdict": "corrected",
+        "note": "Corrected the category/range citation. Terminal-object sections and exact site equivalence give the actual bounded-below map; C2’s right adjoint and compatible truncation tower give the completed comparison."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/derived_pullback_tensor",
+        "verdict": "corrected",
+        "note": "Corrected the category/range citation. F3’s coherent chart square and C2’s enhanced completed monoidal contract supply the pullback/tensor comparison, without commuting arbitrary limits with ordinary tensor."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/adic_derived_equiv",
+        "verdict": "corrected",
+        "note": "Added Remark 26.3 for operation/reduction compatibility. Proposition 26.2 is enhanced; the L0 request has the regular-sequence and prime-to-p integer hypotheses on both sites, and C2 covers the finite-level coefficient devissage."
+      },
+      {
+        "nodeId": "FarguesFontaineDiamonds:F5/adic_global_sections",
+        "verdict": "corrected",
+        "note": "Added Remark 26.3 for right-adjoint finite-level compatibility. The coherent limit of actual finite-level maps gives global sections; regular-sequence devissage justifies reduction and the completed tensor convention."
+      }
+    ]
+  }
 }
