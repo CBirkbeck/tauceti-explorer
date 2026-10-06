@@ -26412,9 +26412,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #763"
+   "note": "claimed on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -31855,7 +31855,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.3",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6403"
   },
   {
    "id": "BP-Polylogarithms--P.4",
@@ -31878,7 +31879,8 @@
    ],
    "followUpOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6389"
   },
   {
    "id": "REV-Polylogarithms--P.4",
@@ -31943,8 +31945,9 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms--P.5",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6405"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6405",
+   "finishedAt": "2026-10-06T03:50:07Z"
   },
   {
    "id": "BP-Polylogarithms--P.6",
@@ -33308,8 +33311,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6429"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6429",
+   "finishedAt": "2026-10-06T03:50:10Z"
   },
   {
    "id": "BP-ColemanPowerSeries--L0",
@@ -33485,8 +33489,9 @@
    ],
    "avoidAccountOf": "BP-EllipticKTheory--E.5",
    "prompt": "research/blueprint/prompts/REV-EllipticKTheory--E.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6432"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6432",
+   "finishedAt": "2026-10-06T03:50:15Z"
   },
   {
    "id": "BP-EllipticKTheory--E.6",
@@ -33920,8 +33925,9 @@
    ],
    "followUpOf": "BP-HabiroCohomologyFoundations--HQ.1",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6490"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6490",
+   "finishedAt": "2026-10-06T03:50:20Z"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.1-2",
@@ -34603,7 +34609,8 @@
    ],
    "followUpOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6509"
   },
   {
    "id": "REV-HabiroNahmSeries--HB.8",
