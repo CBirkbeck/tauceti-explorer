@@ -28,6 +28,7 @@ import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
 import Mathlib.RingTheory.Polynomial.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.PowerSeries.Derivative
@@ -390,9 +391,26 @@ theorem isPure_baseChange_iff {E' : Type*} [Field E'] [Algebra E E'] [Algebra �
     IsPure q n (F.baseChange E') ↔ IsPure q n F := by sorry
 
 theorem iotaWeights_twist (ι : AlgebraicClosure E →+* ℂ) (q : ℝ) (b : Eˣ)
-    (F : V →ₗ[E] V) :
+    (F : V →ₗ[E] V) (hF : Function.Bijective F) :
     iotaWeights ι q (twist b F) =
       (iotaWeights ι q F).image (· + iotaWeight ι q (algebraMap E (AlgebraicClosure E) b)) := by sorry
+
+/-- Exterior roots count subsets of eigenvalue positions, including repeated roots. -/
+theorem eigenvalues_exteriorPower (F : V →ₗ[E] V) (k d : ℕ)
+    (a : Fin d → AlgebraicClosure E)
+    (ha : eigenvalues F = (↑(List.ofFn a) : Multiset (AlgebraicClosure E))) :
+    eigenvalues (exteriorPower.map k F) =
+      ((Finset.univ : Finset (Fin d)).powersetCard k).val.map
+        (fun s => ∏ i ∈ s, a i) := by sorry
+
+theorem IsPure.exteriorPower {q : ℝ} {n : ℤ} {F : V →ₗ[E] V}
+    (hF : IsPure q n F) (k : ℕ) :
+    IsPure q ((k : ℤ) * n) (exteriorPower.map k F) := by sorry
+
+/-- Test `iotaWeights_singular_twist_rejection`: the total logarithm at zero has no weight shift. -/
+example (ι : AlgebraicClosure ℚ →+* ℂ) :
+    iotaWeights ι 2 (0 : ℚ →ₗ[ℚ] ℚ) = {0} ∧
+    iotaWeights ι 2 ((2 : ℚ) • (0 : ℚ →ₗ[ℚ] ℚ)) ≠ {2} := by sorry
 
 /-- Test `isPure_zero_space`: the zero-dimensional module has no eigenvalues. -/
 example (q : ℝ) (n : ℤ) : IsPure q n (LinearMap.id : (Fin 0 → E) →ₗ[E] (Fin 0 → E)) := by sorry
@@ -752,7 +770,7 @@ end TauCeti.Weights
 
 This ledger distinguishes elaborated signatures from names awaiting real owner
 interfaces (PROTOCOL section 13). An omitted statement is not replaced by a
-proposition-valued field. The packet and reader specify it mathematically.
+proposition-valued field. The corrected packet specifies it mathematically; the reader requires the revision recorded by this review.
 
 The API declarations for WeilGroup are its actual group-theoretic pullback
 core, not the arithmetic fundamental group or its topology. The punctual and
@@ -760,6 +778,9 @@ real predicates accept genuine closed-stalk data; identifying those data with
 constructible sheaves needs SF.2/EDC.0. The Newton core accepts the actual
 characteristic-root multiset and a valuation with positive finite value on q.
 These are honest abstractions over existing mathematics, not geometric objects.
+The exterior-power signatures use the actual Mathlib exterior construction.
+The numeric iotaWeights_twist signature requires invertibility; the total
+logarithm at zero does not satisfy the weight-translation formula.
 The mixed_two_tate_weights example checks the point spectrum {0,2}; its global
 mixed-sheaf assertion additionally needs the subsheaf-filtration interface.
 
@@ -801,7 +822,7 @@ OMITTED API TauCeti.Weights.WeilSheaf.frobenius
 OMITTED API TauCeti.Weights.WeilSheaf.ofEtale
   Restrict an étale sheaf to Weil descent.
 OMITTED API TauCeti.Weights.WeilSheaf.etaleDescent_iff
-  Étale descent means extension to a continuous arithmetic fundamental-group representation.
+  For a lisse Weil sheaf, étale descent means extension to a continuous arithmetic fundamental-group representation. Constructible non-lisse sheaves instead use sheaf descent data; a single representation does not describe them.
 OMITTED API TauCeti.Weights.WeilSheaf.pullback
   Pull back descent along an 𝔽_q-morphism, preserving identity and composition.
 OMITTED EXAMPLE TauCeti.Weights.weilSheaf_nonunit
@@ -832,7 +853,7 @@ OMITTED API TauCeti.Weights.mixed_iff_finite_filtration
 
 /-
 DeligneWeightsAndPurity:DWP.5/determinantal-weights — Determinantal weights of irreducible constituents
-Owner inputs: DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals
+Owner inputs: DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights
 
 OMITTED API TauCeti.Weights.determinantalWeight
   For an irreducible of rank r>0, the determinant weight divided by r.
@@ -876,6 +897,10 @@ OMITTED EXAMPLE TauCeti.Weights.compact_elliptic
   For full SL₂ geometric monodromy of H¹ of a nonisotrivial elliptic family, G_R is SU(2)×ℤ and (g,n) acts by q^(n/2)g.
 OMITTED EXAMPLE TauCeti.Weights.compact_jordan_part
   A unipotent Jordan arithmetic Frobenius of weight zero contributes its semisimple class 1; its unipotent part is not declared unitary.
+OMITTED API TauCeti.Weights.compactWeilForm.normExponent_weight
+  With ω₁=q^(−deg) as in (2.1.1), an irreducible norm exponent Re(r) gives sheaf weight −2Re(r). In particular ω₁ is the Tate line of weight −2.
+OMITTED EXAMPLE TauCeti.Weights.compact_normCharacter_sign
+  The norm character ω₁=q^(−deg) has Re(ω₁)=1 but the associated Tate line has weight −2, excluding the printed +2Re formula.
 -/
 
 /-!
@@ -917,7 +942,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers
 Compact cohomology and the L-function of ⊗^{2k}F
 Under the hypotheses of Theorem 3.2, with U affine and F₀ ≠ 0: H⁰_c(U, ⊗^{2k}F) = 0, H²_c(U, ⊗^{2k}F) ≅ ℚ_ℓ(−kβ − 1)^N with N ≥ 1 as Frobenius modules, and Z(U₀, ⊗^{2k}F₀, t) = det(1 − F^*t, H¹_c(U, ⊗^{2k}F)) / (1 − q^{kβ+1}t)^N. So Z(U₀, ⊗^{2k}F₀, t) is the Taylor expansion of a rational function whose only poles are at t = q^{−kβ−1}.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves, DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense, DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves, DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense, DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -971,7 +996,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology
 Corollary 3.8: the coarse bound on H¹_c(U, F)
 Under the hypotheses of Theorem 3.2, with U affine, every eigenvalue α of F^* on H¹_c(U, F) is an algebraic number, and every complex conjugate of α satisfies |α| ≤ q^{β/2 + 1}.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2, DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves, DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2, DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves, DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -980,7 +1005,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line
 Corollary 3.9: the two-sided coarse bound on H¹(ℙ¹, j_*F)
 Let j : U → ℙ¹ be the inclusion. Under the hypotheses of Theorem 3.2, every eigenvalue α of F^* on H¹(ℙ¹, j_*F) is an algebraic number, and every complex conjugate of α satisfies q^{β/2} ≤ |α| ≤ q^{β/2 + 1}; in Deligne's notation q^{(β+1)/2 − 1/2} ≤ |α| ≤ q^{(β+1)/2 + 1/2}.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology, DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology, DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues, EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1025,7 +1050,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties
 Point counts of abelian varieties over 𝔽_{q^m}, and their bounds
 Let A be an abelian variety of dimension g over 𝔽_q with P_{π_A}(X) = ∏_{i=1}^{2g}(X − a_i). Then for all m ≥ 1, N_m = #A(𝔽_{q^m}) = deg(1 − π^m) = P_{π^m}(1) = ∏_i(1 − a_i^m), and |N_m − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)·q^{m(g−1)}. The zeta function is Z(A, t) = ∏_{r=0}^{2g} P_r(t)^{(−1)^{r+1}}, where P_r(t) = ∏(1 − a_{i_1}⋯a_{i_r}t) over 1 ≤ i_1 < … < i_r ≤ 2g, the characteristic polynomial of π on ∧^r T_ℓA.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties, DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field, AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism, AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism, DeligneWeightsAndPurity:DWP.0/spectra-of-polynomials-in-an-endomorphism, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties, DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field, AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism, AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism, DeligneWeightsAndPurity:DWP.0/spectra-of-polynomials-in-an-endomorphism, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1078,8 +1103,8 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 /-
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves
 Weil I Lemma 6.4: geometrically constant lisse sheaves come from 𝔽_q
-Let 𝒢₀ be a lisse ℚ_ℓ-sheaf on U₀ whose pullback 𝒢 to U is constant. Then there are ℓ-adic units α_i ∈ ℚ̄_ℓ with det(1 − F_x t^{deg x}, 𝒢₀) = ∏_i(1 − α_i^{deg x} t^{deg x}) for every x ∈ |U₀|. In fact 𝒢₀ is the pullback of its direct image to Spec 𝔽_q, a representation G₀ of Gal(𝔽̄_q/𝔽_q), and ∏(1 − α_i t) = det(1 − F t, G₀).
-Direct mathematical inputs: LefschetzPencilsAndVanishingCycles:LPV.4, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights
+Let U₀ be geometrically connected over 𝔽_q and let 𝒢₀ be a lisse ℚ_ℓ-sheaf on U₀ whose pullback 𝒢 to U is constant. Then there are ℓ-adic units α_i ∈ ℚ̄_ℓ with det(1 − F_x t^{deg x}, 𝒢₀) = ∏_i(1 − α_i^{deg x} t^{deg x}) for every x ∈ |U₀|. In fact 𝒢₀ is the pullback of its direct image to Spec 𝔽_q, a representation G₀ of Gal(𝔽̄_q/𝔽_q), and ∏(1 − α_i t) = det(1 − F t, G₀).
+Direct mathematical inputs: LefschetzPencilsAndVanishingCycles:LPV.4, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights, InverseGaloisAndArithmeticFundamentalGroups:IG.1
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1124,7 +1149,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero
 The Frobenius elements landing in a Haar-null set have density zero
 Let δ_1, …, δ_Q be ℓ-adic units. The set L of x ∈ |U₀| such that some δ_j^{deg x} is an eigenvalue of F_x on ℱ₀ has Dirichlet density 0. More precisely, the proportion of the closed points of degree n that lie in L tends to 0 as n → ∞. In particular, for every sufficiently large n there are closed points of degree n outside L.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus, DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group, FunctionFieldArithmetic:FA.5
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus, DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group, FunctionFieldArithmetic:FA.5, tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1160,7 +1185,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil
 Weil I Corollary 6.3: the coarse bound on H¹(D, j_*ℱ)
 Let j : U → D be the inclusion. Every eigenvalue α of F^* on H¹(D, j_*ℱ) is an algebraic number, and every complex conjugate satisfies q^{(n+1)/2 − 1/2} ≤ |α| ≤ q^{(n+1)/2 + 1/2}.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors, DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system, DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2, DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line, LefschetzPencilsAndVanishingCycles:LPV.5
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors, DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system, DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2, DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line, LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1232,7 +1257,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/rank-one-normalization
 Finite geometric monodromy and rank-one normalization
 For normal geometrically connected X₀/𝔽_q, the image of π₁(X) in the abelianization of W(X₀) is an extension of a finite prime-to-p group by a pro-p group. Consequently every rank-one ℓ-adic Weil representation (ℓ≠p, finite coefficient model) has finite geometric image and is a constant Weil character times a finite-order character; it is punctually ι-pure. An irreducible rank-r system becomes finite-determinant after a rank-one Weil twist. Choosing a twist of arbitrary real weight uses Weil lines and does not assert that it is a motivic Tate twist.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/weil-group, DeligneWeightsAndPurity:DWP.5/weil-sheaf, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, FunctionFieldArithmetic:FA.4, InverseGaloisAndArithmeticFundamentalGroups:IG.1, LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups, DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/weil-group, DeligneWeightsAndPurity:DWP.5/weil-sheaf, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, FunctionFieldArithmetic:FA.4, InverseGaloisAndArithmeticFundamentalGroups:IG.1, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1241,7 +1266,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/determinantal-weights
 Determinantal weights of irreducible constituents
 For a lisse Weil sheaf on normal connected X₀, an irreducible constituent ℱ of rank r has determinantal ι-weight β when det ℱ is punctually ι-pure of weight rβ. The determinantal-weight multiset of any lisse sheaf lists these β with constituent multiplicities. It is independent of a Jordan–Hölder filtration. It is not the multiset of all stalk weights until purity of constituents has been proved.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1256,10 +1281,19 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
 
 /-
+UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality
+Functoriality of determinantal weights
+For a dominant morphism f:X′₀→X₀ of normal connected finite-type schemes over 𝔽_q, a lisse Weil sheaf has only determinantal ι-weight β if and only if its pullback does. Tensor products of sheaves having only determinantal weights β and γ have only weight β+γ. If n(β) is the sum of ranks of constituents of weight β, the determinantal weights occurring in ∧^aℱ are exactly Σ_β a(β)β with Σ a(β)=a and 0≤a(β)≤n(β), as a set of occurring weights (not constituent multiplicities).
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, InverseGaloisAndArithmeticFundamentalGroups:IG.1
+The full geometric/representation signature awaits the real owner carriers;
+the packet retains its hypotheses, proof and tests.
+-/
+
+/-
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/generalized-majoration
 Deligne’s generalized majoration theorem
 For a normal connected X₀ of finite type over 𝔽_q, the irreducible constituents of a lisse ι-real sheaf are punctually ι-pure. More precisely, on a smooth curve let r be its maximal determinantal weight; every stalk eigenvalue has ι-weight ≤r, and each irreducible constituent of determinantal weight β is punctually pure of weight β. No open symplectic-image or rational-coefficient hypothesis is imposed.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, EtaleDualityAndPerverseSheaves:EDC.2, LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1268,7 +1302,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds
 Initial cohomological and boundary weight bounds
 For j:U₀→C₀ with C₀ smooth projective over 𝔽_q and ℱ lisse punctually ι-pure of real weight β, boundary eigenvalues of j_*ℱ have ι-weight ≤β, and those on H¹_c(U,ℱ) have weight ≤β+2. These initial non-strict bounds precede the strict analytic bound and the sharp curve theorem.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/generalized-majoration, DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products, EtaleDualityAndPerverseSheaves:EDC.2, SchemeAndStackFoundations:SF.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/generalized-majoration, DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1277,7 +1311,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/local-monodromy-purity
 The local weight–monodromy theorem on a curve
 Let U₀ be a smooth curve over 𝔽_q and ℱ lisse punctually ι-pure of real weight β. At a missing point of its smooth completion take the local Weil representation V and the monodromy filtration M centered at zero after the quasi-unipotent inertia reduction. Then GrᵢᴹV is pure of weight β+i relative to the residue cardinality. With N:V→V(−1), geometric F satisfies FNF⁻¹=q_x⁻¹N in untwisted coordinates. The inertia invariants have only weights ≤β. This is an equal-characteristic curve theorem.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, LefschetzPencilsAndVanishingCycles:LPV.1, LefschetzPencilsAndVanishingCycles:LPV.0, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, LefschetzPencilsAndVanishingCycles:LPV.1, LefschetzPencilsAndVanishingCycles:LPV.0
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1286,7 +1320,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/local-weight-corollaries
 Boundary mixedness and extension of purity
 For an ι-mixed local system on a smooth curve, the relative monodromy filtration exists and agrees with the local weight filtration on pure graded pieces. Along a smooth divisor, the relative construction is lisse and compatible with transverse curves and fibres under the tame hypotheses of (1.8.6)–(1.8.7). For an open immersion of finite-type 𝔽_q schemes, underived j_* takes ι-mixed sheaves with weights ≤β to ι-mixed sheaves with weights ≤β. A lisse sheaf pure on a dense open is pure everywhere; on normal X a lisse ι-mixed sheaf has a finite filtration by lisse pure sheaves. On connected X an ι-mixed lisse sheaf pure of weight β at one closed point is pure of weight β everywhere.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, LefschetzPencilsAndVanishingCycles:LPV.1, EtaleDualityAndPerverseSheaves:EDC.0, SchemeAndStackFoundations:SF.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, LefschetzPencilsAndVanishingCycles:LPV.1, EtaleDualityAndPerverseSheaves:EDC.0, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.0/tate-twist
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1295,7 +1329,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/stalk-newton-polygon
 Newton polygons of Frobenius stalks
 Fix a rational-valued additive nonarchimedean valuation v on the coefficient algebraic closure normalized by v(p)=1. For a rank-r closed stalk at x with geometric Frobenius eigenvalues α₁,…,αᵣ, let s₁≤…≤sᵣ be v(αᵢ)/v(N(x)), counted with multiplicity. Its Newton polygon has vertices (k,Σ_{i≤k}sᵢ), k=0,…,r, and linear interpolation. Equivalently the kth ordinate is the minimum normalized valuation of products of k distinct eigenvalue positions, the spectrum of the kth exterior power. This is the stalk specialization of the general Newton-polygon convention, not a new p-adic cohomology theory.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, mathlib:AddValuation, mathlib:Multiset.sort
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, mathlib:AddValuation, mathlib:Multiset.sort, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1304,7 +1338,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/nonarchimedean-boundary-bounds
 Nonarchimedean bounds at the boundary
 Fix an embedding ι of the coefficient field into an algebraically closed nonarchimedean valued field of characteristic zero. For a lisse Weil sheaf on a smooth curve, a normalized nonarchimedean bound b^(deg x)≤|ια|≤c^(deg x) at closed points extends to every eigenvalue of its local boundary Weil representations. Generic ℓ′-adic units remain units at the boundary. For valuations with v(p)>0, if almost all stalk Newton polygons agree, the boundary polygon lies on or above that polygon with the same endpoint. If local normalized slopes lie in [β,γ], N^(⌊γ−β⌋+1)=0.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/stalk-newton-polygon, DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/stalk-newton-polygon, DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/rank-one-normalization, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1330,7 +1364,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 /-
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/compact-weil-form
 The compact form of Weil monodromy
-Let X₀ be a normal geometrically connected scheme over 𝔽_q and G an algebraic-by-ℤ group satisfying Weil II (2.2.4): (a) its algebraic degree-zero kernel G⁰ is an extension of a finite group by a semisimple group; (b) a finite coefficient field E/ℚ_ℓ models G⁰ and the geometric Weil-group homomorphism is continuous and Zariski dense; (c) an algebraic representation gives an ι-mixed Weil sheaf and its restriction to G⁰ has finite kernel. Fix ι. Write Z_c for the center and choose a maximal compact subgroup U of the complex algebraic quotient G/Z_c. Define G_R as its inverse image in G_ℂ, with discrete degree; its degree-zero kernel is compact. Every local ιF_x has semisimple part conjugate to an element of G_R, uniquely up to G_R conjugacy. Restriction gives an equivalence between algebraic finite-dimensional representations of G and continuous finite-dimensional complex representations of G_R. For an irreducible representation r the associated sheaf is ι-pure of weight 2Re(r), where Re(r) is the source’s central norm exponent (a positive scalar q^(τ deg) has weight 2Re(τ)).
+Let X₀ be a normal geometrically connected scheme over 𝔽_q and G an algebraic-by-ℤ group satisfying Weil II (2.2.4): (a) its algebraic degree-zero kernel G⁰ is an extension of a finite group by a semisimple group; (b) a finite coefficient field E/ℚ_ℓ models G⁰ and the geometric Weil-group homomorphism is continuous and Zariski dense; (c) an algebraic representation gives an ι-mixed Weil sheaf and its restriction to G⁰ has finite kernel. Fix ι. Write Z_c for the center and choose a maximal compact subgroup U of the complex algebraic quotient G/Z_c. Define G_R as its inverse image in G_ℂ, with discrete degree; its degree-zero kernel is compact. Every local ιF_x has semisimple part conjugate to an element of G_R, uniquely up to G_R conjugacy. Restriction gives an equivalence between algebraic finite-dimensional representations of G and continuous finite-dimensional complex representations of G_R. For an irreducible representation r, use the source’s convention ω₁(g)=q^(−deg g) and |r(z)|=ω₁(z)^Re(r) for positive-degree central z. Its associated sheaf is ι-pure of weight −2Re(r), correcting the printed sign in (2.2.8)(i) and (3.5.1). Thus the scalar q^(τ deg) has Re(r)=−τ and weight 2τ.
 Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.5/generalized-majoration, DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups, tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
@@ -1340,7 +1374,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound
 The strict initial H¹ bound
 For a smooth curve U₀/𝔽_q and a lisse sheaf punctually ι-pure of real weight β, every eigenvalue on H¹_c(U,ℱ) has ι-weight strictly less than β+2. This bound does not assert β+1; it is the analytic input to the square-improvement argument.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds, DeligneWeightsAndPurity:DWP.5/hadamard-de-la-vallee-poussin, DeligneWeightsAndPurity:DWP.5/compact-weil-form, DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds, DeligneWeightsAndPurity:DWP.5/hadamard-de-la-vallee-poussin, DeligneWeightsAndPurity:DWP.5/compact-weil-form, DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1367,7 +1401,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.6/real-cohomological-factors
 Reality of curve cohomological factors
 If U₀ is a smooth finite-field curve and ℱ₀ is lisse, punctually ι-pure of real weight β and ι-real, then each polynomial ι det(1−tF,Hⁱ_c(U,ℱ)) has real coefficients. Geometric connectedness is unnecessary after component and finite-extension descent.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound, DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound, DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1376,7 +1410,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.6/square-improvement
 Square improvement on the product of a curve
 For a smooth finite-field curve U₀ and lisse punctually ι-pure weight-zero ℱ₀, every eigenvalue α of H¹_c(U,ℱ) satisfies w_ι(α)≤1+2^(−k), for every integer k≥0. The step k→k+1 is proved on a pencil in the compactified surface U₀×U₀ and uses the three coefficient-specific vanishing-cycle cases; it is not a direct application of the general direct-image theorem.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.6/coefficient-specific-vanishing-cycles, DeligneWeightsAndPurity:DWP.6/real-cohomological-factors, DeligneWeightsAndPurity:DWP.5/generalized-majoration, DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights, LefschetzPencilsAndVanishingCycles:LPV.3, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2, EtaleDualityAndPerverseSheaves:EDC.4
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.6/coefficient-specific-vanishing-cycles, DeligneWeightsAndPurity:DWP.6/real-cohomological-factors, DeligneWeightsAndPurity:DWP.5/generalized-majoration, DeligneWeightsAndPurity:DWP.5/local-monodromy-purity, DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights, LefschetzPencilsAndVanishingCycles:LPV.3, SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.4, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/

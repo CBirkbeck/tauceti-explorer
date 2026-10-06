@@ -1,0 +1,13 @@
+# Handoff: REV-DeligneWeightsAndPurity--DWP.0
+
+Completed independent review of issue #382 on 2026-10-06 by Codex, session `codex-fH0uPG`. This is a completed review with verdict **needs_changes**, not a checkpoint. No second job was claimed.
+
+The packet and suggested file are corrected in place. The review report records every correction and the required next action. All 83 nodes were checked: 47 verified, 34 corrected, 2 added. All 29 Mathlib baseline statements were confirmed at `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti supplier statements were checked at `f790474821cf4256814db967cb154e7af3d0c369`. All eight source issues have independent confirmed verdicts. The target-level pass remains complete with eight planned stages, two explicit gaps and 28 supplier requests; nothing is formalized.
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/DeligneWeightsAndPurity--DWP.0.json` passes with zero errors and warnings. `lean-check research/blueprint/suggested/DeligneWeightsAndPurity--DWP.0.lean` exits 0 against the existing pinned Mathlib build; its 89 warnings are exclusively uses of `sorry`. Every API/test name is represented by an elaborated signature/example or an explicitly documented omission for unavailable real owner interfaces. The Lean pass does not certify those omitted geometric signatures. No library build, cache operation or language server was used.
+
+Resume with a **blueprint revision**, editing its authorised reader path: synchronize `research/blueprint/readmes/DeligneWeightsAndPurity--DWP.0.md` with the corrected packet and suggested file, then submit it for a fresh independent review. The current review issue did not authorise reader edits. The submitted reader still has the wrong differential at line 814, circular exact-purity induction at line 1544, and wrong norm-exponent sign at line 2105. The report lists all additional synchronization work, including both added theorems, exact supplier references, source locators, tests and E7–E8. The existing explicit gaps alone do not prevent acceptance.
+
+The orchestrator should retain the RT-AREA-etale/1 and /9 ownership proposals: later equidistribution belongs to a DWP.8 child, full Schiffmann density stays with LPV Part II, and RD.6 imports only the shared numeric DWP.0 predicates. Apply these through authorised restructuring/assembly, after acceptance; this review did not alter the live atlas or other packets.
+
+Public source URLs, versions, hashes and the full correction record are committed in the packet and report. No scratch-only evidence is needed to resume. The run’s scratch files may be deleted after submission.
