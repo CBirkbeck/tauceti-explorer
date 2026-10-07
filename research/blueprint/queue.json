@@ -60821,8 +60821,9 @@
     "FIX-RT-AREA-iwasawa-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6218"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6218",
+   "finishedAt": "2026-10-07T00:32:37Z"
   },
   {
    "id": "REV-FIX-RT-AREA-iwasawa-2~2",
