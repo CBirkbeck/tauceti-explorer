@@ -22550,9 +22550,10 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #688"
+   "note": "deliverables arrived from an external worker on issue #688",
+   "finishedAt": "2026-10-07T06:21:22Z"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -22654,8 +22655,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #690"
   },
   {
    "id": "REV-AutomorphicSpectralTheory",
