@@ -516,6 +516,18 @@
     "data/blueprints/roadmaps/ConformalMappingPartII.json"
    ]
   },
+  "research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json": {
+   "promotedAt": "2026-10-07T18:03:19Z",
+   "review": "0c0352a37fb1f14a",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-DESIGN-CrystallineLocalGlobalCompatibilityCM",
+   "sha256": "5427466186be9689931def7912b14e5b342491c1fb6f925e40e19a83f3909f99",
+   "to": [
+    "data/blueprints/CrystallineLocalGlobalCompatibilityCM.json",
+    "data/blueprints/CrystallineLocalGlobalCompatibilityCM.md",
+    "data/blueprints/roadmaps/CrystallineLocalGlobalCompatibilityCM.json"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json": {
    "promotedAt": "2026-10-05T14:43:43Z",
    "review": "258c5fdf030ba23b",
