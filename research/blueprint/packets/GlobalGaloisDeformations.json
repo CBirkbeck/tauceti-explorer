@@ -238,7 +238,8 @@
       "read": "2026-09-28",
       "readSections": [
         "§2.4 Theorem 2.22 (statement)",
-        "§3.1 Lemma 3.2, Proposition 3.3, Example 3.4, pp. 41–43"
+        "§3.1 Lemma 3.2, Proposition 3.3, Example 3.4, pp. 41–43",
+        "2026-10-07 (Codex codex-t0EaB3, REV-FIX-RT-AREA-langlands-2~3): §§1.17–1.23 (Cayley–Hamilton quotient, pp.16–19), Definition2.19 and Theorem2.22 with proof/Corollary2.23 (pp.33–35), Example3.4 (p.42), for the explicit quotient and residual comparison."
       ]
     },
     {
@@ -447,12 +448,12 @@
       "tests": [
         {
           "name": "lift_trivial_char_Zp",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For G = ℤ_p, n = 1, ρ̄ = 1: Lift(A) ≅ 1 + m_A, via ρ ↦ ρ(1)."
         },
         {
           "name": "lift_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Lift_ρ̄(𝔽) is a singleton."
         },
         {
@@ -543,12 +544,12 @@
       "tests": [
         {
           "name": "moddef_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Def^mod_ρ̄(𝔽) is a singleton."
         },
         {
           "name": "moddef_rank_one",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For n = 1 and ρ̄ = χ̄, Def^mod(A) = {χ̃ψ : ψ ∈ Hom_cont(G, 1 + m_A)} for a fixed lift χ̃."
         },
         {
@@ -645,12 +646,12 @@
       "tests": [
         {
           "name": "def_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Def_ρ̄(𝔽) is a singleton."
         },
         {
           "name": "def_rank_one_eq_lift",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For n = 1, Def = Lift."
         },
         {
@@ -858,12 +859,12 @@
       "tests": [
         {
           "name": "liftDet_rank_one",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For n = 1, Lift_{ρ̄,χ}(A) is the singleton {χ_A}."
         },
         {
           "name": "liftDet_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Lift_{ρ̄,χ}(𝔽) = {ρ̄}."
         },
         {
@@ -953,7 +954,7 @@
       "tests": [
         {
           "name": "changeCoeff_id",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For 𝒪 = 𝒪′ the change of coefficients is the identity."
         },
         {
@@ -1039,12 +1040,12 @@
       "tests": [
         {
           "name": "detDef_rank_one",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For n = 1 the functor is Lift_{χ̄}."
         },
         {
           "name": "detDef_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Def_{D̄}(𝔽) = {D̄}."
         },
         {
@@ -1078,7 +1079,7 @@
       ],
       "acceptance": [
         "For n = 1 the transformation is the identity.",
-        "For ρ̄ = 1 ⊕ 1 the transformation forgets the extension data and is not injective on 𝔽[ε]-points.",
+        "For G = ℤ_p and ρ̄ = 1 ⊕ 1 over a finite field 𝔽 of characteristic p, a nonzero continuous additive x : ℤ_p → 𝔽 gives ρ_x(g) = (1 εx(g); 0 1) over 𝔽[ε]. Its determinant law equals that of the constant deformation, but it is not strictly equivalent to the constant identity representation. Non-injectivity is not asserted when H¹(G, 𝔽) = 0.",
         "Two classes e, e′ outside 𝔽·[b] with e − e′ ∈ 𝔽·[b] give strictly equivalent deformations; the non-injectivity is measured in Ext¹(χ₂, χ₁)/𝔽·[b]."
       ],
       "prerequisites": [
@@ -1232,7 +1233,7 @@
       "tests": [
         {
           "name": "phiP_Zp",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "ℤ_p satisfies Φ_p."
         },
         {
@@ -1422,12 +1423,12 @@
       "tests": [
         {
           "name": "univLift_rank_one_trivial",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For n = 1, ρ̄ = 1, ρ^□ is the tautological character into 𝒪[[G^{ab,(p)}]]^×."
         },
         {
           "name": "univLift_residue",
-          "kind": "simp",
+          "kind": "compatibility",
           "statement": "ρ^□ reduces to ρ̄."
         },
         {
@@ -1605,24 +1606,25 @@
       "statement": "Let ρ̄ : G → GL_n(𝔽) be absolutely irreducible. Then δ : Def_ρ̄ → Def_{det∘ρ̄} (R04.1/determinant-comparison) is an isomorphism of functors on Art_𝒪, and on C_𝒪 by passage to the limit. Consequently, when Def_ρ̄ is represented by R_ρ̄ (R04.2/universal-deformation-ring), the determinant deformation functor is represented by the same ring, with universal determinant det ∘ ρ^univ.",
       "hypotheses": [
         "Absolute irreducibility of ρ̄ is used twice: the residual determinant det∘ρ̄ is then split and absolutely irreducible in Chenevier's sense, and Carayol's theorem applies.",
-        "Surjectivity uses Chenevier's Theorem 2.22(i): over a henselian local ring, a determinant whose residual determinant is split and absolutely irreducible is det∘ρ for a representation ρ into M_n, unique up to conjugation. An Artinian local ring is henselian. The theorem is imported from IntegralHeckeAndGaloisDeterminants IHG.0.",
+        "Surjectivity uses Chenevier's Theorem 2.22(i) on the Cayley–Hamilton quotient R_D = A[G]/CH(D), with its induced determinant. The printed theorem assumes a Cayley–Hamilton determinant, henselian locality of A, and split absolutely irreducible residual determinant. Artinian local A is henselian. Import the quotient and reconstruction from IntegralHeckeAndGaloisDeterminants IHG.1/henselian-irreducible; IHG.0 supplies the determinant laws.",
         "The statement is for the functors of R04.1 (strict equivalence); no fixed-determinant condition in the sense of R04.1/fixed-determinant-functors is involved."
       ],
       "proofSteps": [
-        "Surjectivity: for A ∈ Art_𝒪 and a continuous determinant D lifting det∘ρ̄, Chenevier's Theorem 2.22(i) gives ρ_D : A[G] → M_n(A) with det∘ρ_D = D; its reduction is a representation over 𝔽 with determinant det∘ρ̄, hence conjugate to ρ̄ by the uniqueness part of the same theorem over 𝔽, and conjugating ρ_D by a lift of the conjugating matrix gives a lift of ρ̄. Continuity: ρ_D(A[G]) = M_n(A) by Burnside and Nakayama, so there are g_1, …, g_{n²} ∈ G with ρ_D(g_i) a basis of M_n(A), and ρ_D(g) is determined through the perfect trace pairing by the functions g ↦ tr ρ_D(g g_i), which are coefficients of the continuous determinant.",
+        "Surjectivity: for A ∈ Art_𝒪 and a continuous determinant D lifting det∘ρ̄, form R_D = A[G]/CH(D). Chenevier's Theorem 2.22(i) identifies R_D with M_n(A), compatibly with the induced determinant; composing with A[G] → R_D yields ρ_D. Both its reduction and ρ̄ factor through the residual Cayley–Hamilton quotient M_n(𝔽). Two 𝔽-algebra identifications of this quotient with M_n(𝔽) differ by an inner automorphism (matrix-unit reconstruction), so the reductions are conjugate. Lift the conjugating matrix to GL_n(A) to arrange reduction exactly ρ̄. Continuity: Burnside and Nakayama give ρ_D(A[G]) = M_n(A); choose g_1, …, g_{n²} whose images form a basis. The perfect trace pairing recovers the matrix coordinates of ρ_D(g) from g ↦ tr ρ_D(g g_i), which are coefficients of the continuous determinant.",
         "Injectivity: two lifts with the same determinant have the same traces, and R04.2/carayol-trace-theorem (2) makes them strictly equivalent.",
         "The representing rings agree by Yoneda; the limit to C_𝒪 is formal."
       ],
       "acceptance": [
         "For ρ̄ absolutely irreducible, the universal rings agree: R_ρ̄ represents Def_{det∘ρ̄}.",
-        "For ρ̄ = χ₁ ⊕ χ₂ the statement does not apply, and R04.1/determinant-comparison gives the failure of injectivity.",
+        "For reducible ρ̄ = χ₁ ⊕ χ₂ the absolute-irreducibility hypothesis fails. R04.1/determinant-comparison supplies a concrete failure example for G = ℤ_p and χ₁ = χ₂ = 1; failure is not asserted for every reducible representation.",
         "n = 1: every ρ̄ is absolutely irreducible, a determinant is a character, and δ is the identity."
       ],
       "prerequisites": [
         "GlobalGaloisDeformations:R04.1/determinant-comparison",
         "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
         "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
-        "IntegralHeckeAndGaloisDeterminants:IHG.0"
+        "IntegralHeckeAndGaloisDeterminants:IHG.0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Determinants",
@@ -1633,6 +1635,11 @@
           "sourceId": "CHENEVIER-2014",
           "locator": "§3.1, Example 3.4, p. 42",
           "match": "The comparison under absolute irreducibility."
+        },
+        {
+          "sourceId": "CHENEVIER-2014",
+          "locator": "Theorem 2.22(i), p. 34; Cayley–Hamilton quotient construction §1.17",
+          "match": "Apply the theorem to A[G]/CH(D), rather than to the raw group algebra. Residual splitness and absolute irreducibility are additional hypotheses in clause (i)."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1795,7 +1802,7 @@
       "tests": [
         {
           "name": "defProblem_unrestricted",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "All lifts form a deformation problem."
         },
         {
@@ -1933,12 +1940,12 @@
       "tests": [
         {
           "name": "tframed_empty_T",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For T = ∅ the functor is unframed deformations of type 𝒮."
         },
         {
           "name": "tframed_residue",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The functor is a point on 𝔽."
         },
         {
@@ -2074,7 +2081,7 @@
       "tests": [
         {
           "name": "rloc_empty",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "R^loc_{S,∅} = 𝒪."
         },
         {
@@ -2348,7 +2355,7 @@
       "tests": [
         {
           "name": "resRing_id",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Restriction along the identity is the identity map."
         },
         {
@@ -2586,7 +2593,7 @@
       "tests": [
         {
           "name": "diagGroup_int_points",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "(ℤ)*(A) = 1 + 𝔪_A."
         },
         {
@@ -2797,7 +2804,7 @@
       "tests": [
         {
           "name": "twistAction_one",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The trivial character acts as the identity."
         },
         {
@@ -2945,7 +2952,7 @@
       "tests": [
         {
           "name": "detMap_trivial_group",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "If G_V = 1, the two rings coincide."
         },
         {
@@ -3149,7 +3156,7 @@
       "tests": [
         {
           "name": "twDatum_empty",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The empty set is a datum of every level."
         },
         {
@@ -3240,7 +3247,7 @@
       "tests": [
         {
           "name": "sl2F4_not_solvable",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "SL_2(𝔽_4) ≅ A_5 is not solvable."
         },
         {
@@ -3655,7 +3662,7 @@
       "tests": [
         {
           "name": "relDim_Q",
-          "kind": "example",
+          "kind": "computation",
           "statement": "F = ℚ, S = {∞, p}: relative dimension 6."
         },
         {
@@ -3747,7 +3754,7 @@
       "tests": [
         {
           "name": "framingVars_one_place",
-          "kind": "example",
+          "kind": "computation",
           "statement": "|S| = 1 gives 3 framing variables."
         },
         {
@@ -3899,7 +3906,7 @@
       "tests": [
         {
           "name": "twSystem_h_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "h = 0: the system is constant."
         },
         {
@@ -4046,7 +4053,7 @@
       "tests": [
         {
           "name": "dyadic_t_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "t = 0: T is trivial and R′_n = R_n."
         },
         {
@@ -4136,7 +4143,7 @@
       "tests": [
         {
           "name": "problem_unrestricted",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "With all D_v unrestricted, type 𝒮 is no condition."
         },
         {
@@ -4368,7 +4375,7 @@
       "tests": [
         {
           "name": "polarized_rank_one",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "n = 1: conjugate-self-dual characters."
         },
         {
@@ -4766,7 +4773,7 @@
     },
     {
       "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.0",
-      "need": "Chenevier's determinants (multiplicative polynomial laws of degree n on A[G]), continuity, base change, characteristic polynomials, and Theorem 2.22 (a determinant over a henselian local ring with split absolutely irreducible residue is det∘ρ).",
+      "need": "Chenevier's determinants (multiplicative polynomial laws of degree n on A[G]), continuity, base change and characteristic polynomials. The separate henselian reconstruction is imported from IHG.1/henselian-irreducible.",
       "neededBy": [
         "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
         "GlobalGaloisDeformations:R04.1/determinant-comparison",
@@ -4917,6 +4924,15 @@
       "neededBy": [
         "GlobalGaloisDeformations:G7/polarized-presentation"
       ]
+    },
+    {
+      "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible",
+      "need": "Chenevier Theorem 2.22(i), including the Cayley–Hamilton quotient A[G]/CH(D), residual split absolute irreducibility, reconstruction over a henselian local coefficient ring and residual conjugacy via matrix units.",
+      "neededBy": [
+        "GlobalGaloisDeformations:R04.2/determinant-comparison-isomorphism"
+      ],
+      "status": "open",
+      "note": "This exact supplier node already plans the theorem; import it rather than replan it here. Its packet currently has a needs_changes review, so this is a requested planned interface, not an implemented or accepted library theorem."
     }
   ],
   "coverage": [
@@ -5037,7 +5053,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~3",
     "date": "2026-10-07",
-    "notes": "Independent review by Claude (session claude-hd6PQ0) of FIX-RT-AREA-langlands-2~3 (Claude claude-c9TlsS, issue #5870, PR #6724), for issue #5871. This session wrote, reviewed, red-teamed or verified none of RT-AREA-langlands-2, its fix rounds and their reviews, FIX-RT-BP-ClassicalSerreModularity--R27.3, FIX-RT-BP-GlobalGaloisDeformations or any version of this packet. It follows the not_reviewed object written by FIX-RT-BP-GlobalGaloisDeformations (#5719) and REV-FIX-RT-AREA-langlands-2~2 (needs_changes, 2026-10-02); both are now in reviewHistory, after REV-GlobalGaloisDeformations and REV-FIX-RT-AREA-langlands-1~2, which accepted the packet. Round 3's fixes are right, and no correction was needed: R04.1/determinant-comparison states the determinant map and its non-injectivity (the conjugation by 1 + εA was redone: it forces c₀ = 0 and reaches exactly the classes of 𝔽·[b]), with no prerequisite in R04.2; the isomorphism for absolutely irreducible ρ̄ is the new R04.2/determinant-comparison-isomorphism (Chenevier Theorem 2.22(i), continuity by Burnside and Nakayama, Carayol), so the R04.2 → R04.1 back-edge REV-FIX-RT-AREA-langlands-2~2 named is gone and R04.1 is source_decomposed; the sourceVersions kinds pass check_errata.versions_checked. The reader already prints #T − 1. /15, /22 and /37 rechecked, unchanged; /22's links L7, L8, G8 → PA.3 are outside this packet. This acceptance also promotes the edits of FIX-RT-BP-GlobalGaloisDeformations to five nodes, which have no review of their own yet. I read them and found no error: R04.3's complex compared with Gee v2 §3.23, p. 16 (SHA-256 878f83e1..., reproduced); the integral S₃ conjugator example and its ℤ/25 counterpart, the rank-one framing count k²/diag(k) and the p = 5 S₃ sign line recomputed. Their disposition remains with REV-FIX-RT-BP-GlobalGaloisDeformations (#5720). check_blueprint with the pinned index: 0 errors, 0 warnings; lean-check of the suggested file at Mathlib 082e2d3: no errors, 18 unproved-declaration warnings. Noted for the maintainer, outside these findings and unchanged since the base acceptance: 131 of the 162 API and test names of the definitions and constructions do not appear in the suggested file (PROTOCOL §13). Implementation statuses stay unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md"
+    "notes": "Independent completed review by Codex codex-t0EaB3 of FIX-RT-AREA-langlands-2~3 (#5870, Claude claude-c9TlsS, PR #6724), Refs #5871. Follows the Claude claude-hd6PQ0 continuation in PR #7024 and earlier REV-FIX-RT-AREA-langlands-2~2/accepted base reviews; previous objects are preserved verbatim. Read the new determinant-comparison isomorphism, changed comparison and five FIX-RT-BP-GlobalGaloisDeformations nodes; rechecked Chenevier §§1.17–1.23,2.19–2.23 and Example3.4, Gee §3.23, KW II 4.3–4.6/5.2, all 26 baseline records and exact pinned statements. Corrected the unrestricted reducible acceptance examples to G=Z_p with a nonzero additive cocycle; Theorem 2.22(i) now explicitly applies to A[G]/CH(D), with residual matrix-unit conjugacy and trace-pairing continuity, not a nonexistent uniqueness clause. Imported/requested the existing IHG.1/henselian-irreducible owner node, leaving determinant laws at IHG.0; supplier remains requested while its review needs_changes. Reclassified thirty test kinds. No R04.2 prerequisite in R04.1; both graph assemblies are acyclic and skip no links. accepted as a fix review; legacy suggested API/test omissions and the separate own-fix review #5720 remain explicitly noted. Packet checker: zero errors/warnings. Suggested Mathlib-only file: zero errors and 18 unproved-declaration warnings. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md"
   },
   "sourceVersions": [
     {
@@ -5438,6 +5454,12 @@
     {
       "status": "not_reviewed",
       "notes": "FIX-RT-BP-GlobalGaloisDeformations (#5719), Codex — codex-a71f92, 2026-10-02, repairs confirmed findings/1–/3. Historical reviews and the existing area-fix amendment are preserved unchanged in reviewHistory/fixAmendment. Independent REV-FIX-RT-BP-GlobalGaloisDeformations must check these changes; the fixer does not certify acceptance or unrelated PA.3 stage handoffs."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~3",
+      "date": "2026-10-07",
+      "notes": "Independent review by Claude (session claude-hd6PQ0) of FIX-RT-AREA-langlands-2~3 (Claude claude-c9TlsS, issue #5870, PR #6724), for issue #5871. This session wrote, reviewed, red-teamed or verified none of RT-AREA-langlands-2, its fix rounds and their reviews, FIX-RT-BP-ClassicalSerreModularity--R27.3, FIX-RT-BP-GlobalGaloisDeformations or any version of this packet. It follows the not_reviewed object written by FIX-RT-BP-GlobalGaloisDeformations (#5719) and REV-FIX-RT-AREA-langlands-2~2 (needs_changes, 2026-10-02); both are now in reviewHistory, after REV-GlobalGaloisDeformations and REV-FIX-RT-AREA-langlands-1~2, which accepted the packet. Round 3's fixes are right, and no correction was needed: R04.1/determinant-comparison states the determinant map and its non-injectivity (the conjugation by 1 + εA was redone: it forces c₀ = 0 and reaches exactly the classes of 𝔽·[b]), with no prerequisite in R04.2; the isomorphism for absolutely irreducible ρ̄ is the new R04.2/determinant-comparison-isomorphism (Chenevier Theorem 2.22(i), continuity by Burnside and Nakayama, Carayol), so the R04.2 → R04.1 back-edge REV-FIX-RT-AREA-langlands-2~2 named is gone and R04.1 is source_decomposed; the sourceVersions kinds pass check_errata.versions_checked. The reader already prints #T − 1. /15, /22 and /37 rechecked, unchanged; /22's links L7, L8, G8 → PA.3 are outside this packet. This acceptance also promotes the edits of FIX-RT-BP-GlobalGaloisDeformations to five nodes, which have no review of their own yet. I read them and found no error: R04.3's complex compared with Gee v2 §3.23, p. 16 (SHA-256 878f83e1..., reproduced); the integral S₃ conjugator example and its ℤ/25 counterpart, the rank-one framing count k²/diag(k) and the p = 5 S₃ sign line recomputed. Their disposition remains with REV-FIX-RT-BP-GlobalGaloisDeformations (#5720). check_blueprint with the pinned index: 0 errors, 0 warnings; lean-check of the suggested file at Mathlib 082e2d3: no errors, 18 unproved-declaration warnings. Noted for the maintainer, outside these findings and unchanged since the base acceptance: 131 of the 162 API and test names of the definitions and constructions do not appear in the suggested file (PROTOCOL §13). Implementation statuses stay unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md"
     }
   ],
   "consumerContracts": [

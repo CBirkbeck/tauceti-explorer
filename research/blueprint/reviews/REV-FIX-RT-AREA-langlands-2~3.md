@@ -1,120 +1,68 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Independent review of FIX-RT-AREA-langlands-2~3 (Claude, session `claude-c9TlsS`, issue #5870, PR #6724), for
-issue #5871.
-
-Reviewer: Claude, session `claude-hd6PQ0`, 7 October 2026. Review base: `origin/main` at `221b05de`. I did not
-write, review, red-team or verify any of: RT-AREA-langlands-2 and its verification; the fix rounds
-FIX-RT-AREA-langlands-2, ~2 and ~3 and their reviews; FIX-RT-BP-ClassicalSerreModularity--R27.3 and its review;
-FIX-RT-BP-GlobalGaloisDeformations; or any version of the three packets.
+Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
+Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
+PR #6724 (`ea48bbee`). I did none of the fixes or red-team work. This continues the merged
+Claude `claude-hd6PQ0` checkpoint, PR #7024, after rechecking its evidence and correcting its report.
 
 ## Verdicts
 
-| Packet | Verdict | In one line |
+| Packet | Verdict | Reason |
 | --- | --- | --- |
-| ClassicalSerreModularity--R27.3 | **accepted** | Every round-3 fix is right; no correction needed. |
-| GlobalGaloisDeformations | **accepted** | Every round-3 fix is right; no correction needed. The unreviewed edits of FIX-RT-BP-GlobalGaloisDeformations were read too, and no error was found. |
-| GL2ModularityLifting--R22.1 | **needs_changes** | Every round-3 fix is right after two corrections. The packet as a whole has never passed its own review, and what that review asked for (PROTOCOL §13, typed signatures; §4, API promotion and the named splits) is still open. |
+| ClassicalSerreModularity--R27.3 | **accepted** | Round-three corrections are right; corrected six test classifications and the suggested positive-level newform parameter. |
+| GlobalGaloisDeformations | **accepted** | Round-three corrections are right after specifying the Cayley–Hamilton quotient and exact reconstruction owner, narrowing the reducible examples, and correcting thirty test classifications. |
+| GL2ModularityLifting--R22.1 | **needs_changes** | Round-three mathematics is right after correcting the final dyadic field step. Its never-accepted base review still requires typed APIs/tests and promotion of API lemmas used elsewhere. |
 
-Nothing of RT-AREA-langlands-2 remains to be fixed inside these three packets. What remains of the findings lies in
-other packets, in stage texts and in links, and is listed below for the maintainer and for the jobs that own it.
+These are fix-review verdicts. They do not close unread-source gaps, certify implementation, or
+certify corrections outside the three allowed packets. Eleven findings have correct local repairs;
+twenty-nine remain routed to other jobs. Five of the eleven also have an external part.
+The review job is complete even though GL2 needs another revision.
 
-## What I reviewed
+## Scope and evidence
 
-- The 40 findings of `redteam/RT-AREA-langlands-2.result.json`, their 40 confirmations in
-  `RT-AREA-langlands-2.review.json`, the round-2 review `reviews/REV-FIX-RT-AREA-langlands-2~2.md`, the fix report
-  `redteam/RT-AREA-langlands-2.fixes-3.md` and the packets' own reviews (`REV-GL2ModularityLifting--R22.1.md`,
-  `REV-FIX-RT-BP-ClassicalSerreModularity--R27.3.md`).
-- The round-3 diff (`ea48bbee`) of the three packets and suggested files, node by node: 4 new and 11 changed nodes in
-  ClassicalSerreModularity--R27.3, 5 new and 14 changed in GL2ModularityLifting--R22.1, 1 new and 1 changed in
-  GlobalGaloisDeformations, with their requests, gaps, coverage, restructure entries, sources and sourceVersions.
-  Since round 3 only the R27.3 packet changed, through REV-FIX-RT-BP-ClassicalSerreModularity--R27.3 (`7b17677c`).
-- Every supplier node the new nodes cite, in its packet or integrated decomposition.
-- For GlobalGaloisDeformations, everything that differs from the version now live in `data/blueprints/` (identical,
-  apart from its review objects, to the version accepted on 1 October at `873aa30c`): REV-FIX-RT-AREA-langlands-2~2's
-  baseline wording, the five nodes edited by FIX-RT-BP-GlobalGaloisDeformations (#5719, merged as `c9fbf255`), and
-  round 3.
+Read WORKERS, both binding protocols, UPSTREAM_GUIDE and BROWSER_AGENTS; used the complete
+SemisimpleAlgebras and InductionRestriction upstream documents as the planning-density examples.
+Read the forty findings and confirmations, round-two review, round-three fix report, the merged
+checkpoint report/handoff and the GL2/CSM own reviews. Compared the round-three commit node by node:
+CSM four new/eleven changed nodes; GL2 five new/fourteen changed; Global one new/one changed.
+Also checked the subsequent CSM R33.3 correction and the five Global nodes changed by #5719.
+Read the concrete suppliers of the changed declarations and the stage-only supplier requests;
+an open request is not a supplied formal theorem.
 
-## Sources
+All thirty-six baseline records were checked against exact declaration statements and section
+hypotheses at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. In particular: Maschke needs a field,
+finite group and invertible group order; the simple-root Hensel argument needs completeness,
+locality and the nonzero residual derivative, not just Polynomial.Splits; the cohomology B1
+carrier is an algebraic range and acquires continuous coboundaries only under the action hypotheses.
+Read the relevant reviewed library-audit rows for CSM and its algebra/quaternionic suppliers;
+that audit has no GL2/Global rows. No missing arithmetic is replaced by a baseline ingredient.
 
-All were downloaded afresh with ordinary certificate validation; each hash equals the one recorded in the packets.
+Sources were fetched afresh with certificate validation. All six hashes reproduce the packets' records.
 
-| Source | Passages read | SHA-256 |
+| Source | Passages checked | SHA-256 |
 | --- | --- | --- |
-| [Khare–Wintenberger I, author's preprint](https://www.math.ucla.edu/~shekhar/papers/results.pdf) | Theorem 4.1 (p. 7); Theorem 3.1 (p. 6); Lemma 8.2 with its proof and §8.4 (pp. 17–18); Theorem 10.1, its proof and Corollary 10.2 with §10.2 (pp. 20–21) | `3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82` |
-| [Khare–Wintenberger II, authors' final version](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) | Proof of Theorem 6.1, solvable case (p. 54); §7.6.2–7.6.3, Definition 7.9, Lemma 7.10 and proof (pp. 68–69); §8 opening, Lemma 8.1, §8.1–8.2, Theorem 8.2 and its proof (pp. 69–73); §10.2 with its Remark (p. 92); bibliography [3], [12], [16], [20], [21], [24], [27], [36], [38], [64], [66] (pp. 95–97) | `53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4` |
-| [Clozel–Harris–Taylor, Publ. Math. IHÉS 108](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf) | Lemmas 4.1.1 and 4.1.2 with their proofs (pp. 116–117) | `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c` |
-| [Gee, Modularity lifting theorems, arXiv:2202.05818v2](https://arxiv.org/pdf/2202.05818v2) | §3.23, the complexes and the long exact sequence (p. 16) | `878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5` |
-| [Dieulefait–Pacetti, arXiv:2108.07577v2](https://arxiv.org/pdf/2108.07577v2) | Fetched and hash checked; no passage re-read | `0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6` |
+| [Khare–Wintenberger I](https://www.math.ucla.edu/~shekhar/papers/results.pdf), author preprint | Theorems 3.1/4.1, Lemma 8.2 and §8.4, §9 and §10, pp. 6–7, 17–21 | `3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82` |
+| [Khare–Wintenberger II](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), author final | Lemmas 4.3/4.4/4.6 and Proposition 4.5; Lemmas 5.2/5.3; soluble branch of Theorem 6.1; §7.6 and §8 statements/proofs; Theorem 9.7; §10.2, pp. 40–44, 47–48, 54, 68–78, 89–92 | `53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4` |
+| [Clozel–Harris–Taylor](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf), published | Lemmas 4.1.1/4.1.2 and proofs, pp. 116–117 | `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c` |
+| [Chenevier, arXiv:0809.0415v2](https://arxiv.org/pdf/0809.0415v2) | §§1.17–1.23, Definition 2.19, Theorem 2.22/proof and Corollary 2.23, Example 3.4, pp. 16–19, 33–35, 42 | `f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953` |
+| [Gee, arXiv:2202.05818v2](https://arxiv.org/pdf/2202.05818v2) | §3.23 complexes/long exact sequence and §3.24, pp. 16–18 | `878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5` |
+| [Dieulefait–Pacetti, arXiv:2108.07577v2](https://arxiv.org/pdf/2108.07577v2) | Theorem 1.9 and Paso 2, pp. 6, 10–11 | `0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6` |
 
-Every excerpt that round 3 added or changed (7 in the R27.3 packet, 15 in the GL2 packet) was compared with the text
-layer after NFKC normalisation and removal of whitespace and overlines: all 22 occur verbatim. Their page locators
-were checked on the PDF pages: KW I pp. 7, 17, 20, 21; KW II pp. 54, 68, 69, 92; CHT p. 116.
+Compared the seven CSM and fifteen GL2 new/changed excerpts verbatim after NFKC normalization,
+whitespace and overline removal. Checked occurrences on their individual PDF text pages and
+locators: KW I pp. 7, 20–21; KW II pp. 54, 68, 92; CHT p. 116. Also verified the reused
+Global Example 3.4 quotation on p. 42 and the new Theorem 2.22 hypothesis quotation on p. 34.
+No claim of checking the published KW pagination or every PDF page image is made.
 
-Not read, as in the fix: Khare's IMRN note and its corrigendum; Gross; Coleman–Voloch; Edixhoven; Taylor, "On
-icosahedral Artin representations II"; Kisin's Durham paper; Diamond's Annals paper. The packets record these as
-gaps or as unread in node hypotheses.
-
-## Checks
-
-- `python3 scripts/check_blueprint.py <packet> --index <baseline>/declarations.tsv` on each packet, before and after
-  my edits: 0 errors, 0 warnings (37, 73 and 67 nodes).
-- `check_errata.versions_checked` on the three packets: no errors (the three Global `sourceVersions` kinds that
-  round 3 corrected are now `preprint` or `author copy`).
-- The one new baseline declaration, `mathlib:MonoidAlgebra.Submodule.exists_isCompl`, read at Mathlib `082e2d3` in
-  `Mathlib/RepresentationTheory/Maschke.lean`: line 162, under the section variables of line 139 (`Field k`,
-  `Finite G`, `NeZero (Nat.card G : k)`). The packet's record of it is accurate.
-- `lean-check` on the three suggested files (`lake env lean` in the shared build at Mathlib `082e2d3`; no language
-  server, no `lake build`), before and after the header lines I added: no errors; the only warnings are
-  `declaration uses sorry`, 13 (GL2), 23 (R27.3) and 18 (Global). No axiom and no `Prop`-valued placeholder; the
-  stand-ins for other roadmaps' objects are data types and functions, in the form of the reviewed precedent.
-- Declaration graph over every packet and integrated decomposition, the three packets overriding, under both
-  precedences (packets over decompositions, and the reverse): no cycle reachable from the 177 nodes of the three
-  packets.
-- An in-memory assembly of the atlas (`build.assemble(require_distances=False)` with `blueprints.load_promoted`
-  patched; nothing written): with all three packets swapped in, 65 links are added to the stage graph (47 between
-  layers, 18 between planets of GL2ModularityLifting), none is skipped, and the graph has no cycle. With only the
-  two accepted packets swapped in, which is what promotion will do, one link is added, IntegralHeckeAndGaloisDeterminants
-  IHG.0 → GlobalGaloisDeformations R04.2, and nothing is skipped.
-
-## The three packets' review histories, and why GL2 is not accepted
-
-- **ClassicalSerreModularity--R27.3** was accepted by its own review and is live, in its current form:
-  REV-FIX-RT-BP-ClassicalSerreModularity--R27.3 accepted it on 7 October after reading round 3's edits. This review
-  follows that one; its object is now the last entry of `reviewHistory`.
-- **GlobalGaloisDeformations** was accepted by REV-GlobalGaloisDeformations and by REV-FIX-RT-AREA-langlands-1~2,
-  and its 1 October version is live. Acceptance here also promotes the edits of FIX-RT-BP-GlobalGaloisDeformations to
-  five nodes, whose own review (REV-FIX-RT-BP-GlobalGaloisDeformations, #5720) has not been done. I read them (below)
-  and found no error; their disposition stays with #5720.
-- **GL2ModularityLifting--R22.1** has never been accepted. Its own review, REV-GL2ModularityLifting--R22.1 (Codex
-  `codex-a71f92`, 30 September), returned needs_changes and called the missing typed signatures "a substantive
-  blocker". Only fix reviews have looked at it since. Accepting it here would make 73 nodes live on the strength of a
-  review of one fix round. All three packets are planned at target level (`detail.json`, distance ≥ 7), so the base
-  review's wish for declaration-sized nodes goes beyond PROTOCOL §2. Two of its requests are protocol rules and are
-  still open:
-  1. **PROTOCOL §13.** Fifteen definitions and constructions, those in the `neededBy` of the gap "Typed suggested
-     signatures and tests are incomplete", have 53 API items and 45 unit tests that are neither declarations nor
-     examples of the suggested file. They are: R22.1/minimal-level-data, deformation-to-hecke-map,
-     framed-hecke-module; R22.2/auxiliary-level-groups, auxiliary-hecke-algebra, taylor-wiles-module-system,
-     dyadic-twists-of-forms; R22.3/arithmetic-patching-data; R22.4/ihara-avoidance-comparison;
-     R22.5/strong-residual-modularity; R22.6/dyadic-patched-ring; R32.1/lifting-statement-table,
-     dyadic-lifting-proposition, residually-reducible-lifting-proposition, ordinary-three-lifting-proposition.
-     Round 3 showed how: typed stand-ins for the suppliers' objects, the API items as lemma signatures under their
-     packet names, the tests as examples named in their docstrings, and each docstring saying what cannot be stated.
-  2. **PROTOCOL §4, last paragraph.** API items that another node uses become lemma nodes, and the three bundles the
-     base review named (R22.2/auxiliary-hecke-algebra, R22.1/framed-hecke-module,
-     R22.2/delta-freeness-at-taylor-wiles-level) are split as it asked. The packet records this as the gap
-     "Declaration granularity and API promotion still required".
-
-  The other open items of the base review are recorded as gaps with their exact missing inputs, which a partial
-  packet may carry.
+Not independently read here: Khare's IMRN paper/corrigendum, Gross, Coleman–Voloch,
+Edixhoven, Taylor's icosahedral paper, Kisin's Durham paper and Diamond's paper.
+Their imported contracts and recorded gaps remain explicit.
 
 ## Every confirmed finding
 
-"Right" means the three packets now carry the correct correction for the part of the finding that lies in them.
-"Handed on" means no part of the finding lies in these packets; I checked that the packets cite the supplier where
-they use it and restate nothing, but I did not re-adjudicate the mathematics of the other packets, and nothing is
-claimed about their state.
+“Right” certifies the repair inside these packets. “Handed on” records its correct external
+owner from the verified finding and fix report; it does not independently accept that owner's work.
 
 | Finding | Verdict | Reason |
 | --- | --- | --- |
@@ -123,14 +71,14 @@ claimed about their state.
 | /3 (high) | Handed on | BP-PotentialModularityAndCompatibleSystems--R23.1. Its Theorem 8.2 input is R22.1/theorem-8-2-minimal-modular-lifts. |
 | /4 | Handed on | BP-GL2AutomorphicRepresentationsAndTransfer--R17.3 and BP-AutomorphicGaloisRepresentations. GL2's base-change uses go through the exact R17.4 request. |
 | /5 | Handed on | BP-AutomorphicGaloisRepresentations (R19.1). |
-| /6 | Handed on | BP-AutomorphicGaloisRepresentations (R19.6) or IntegralHeckeAndGaloisDeterminants, whichever owns the reconstruction. Global's new R04.2 node already reads Chenevier's Theorem 2.22(i) as the finding asks (a henselian local ring, here Artinian, and a split, absolutely irreducible residual determinant, split because it is det∘ρ̄), through the existing IHG.0 request, and does not use Theorem B. |
+| /6 | Handed on; related consumer corrected | The AGR reconstruction remains outside scope. Global now explicitly applies Theorem 2.22(i) to A[G]/CH(D), with henselian A and split absolutely irreducible residue. Its exact planned supplier is IHG.1/henselian-irreducible, rather than IHG.0 or Theorem B; the supplier remains an open request while its own review needs changes. |
 | /7 | Handed on | BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory (R07.5) and part R26.1. |
 | /8 | Right; ML.1's side remains | Corollary 10.2(ii) is planned in full in R27.6, from layers before it, and nothing is imported from ML.1. I checked the four new declarations step by step: (a)–(d) of artin-reductions-of-serre-type, including exactness of invariants and Maschke for ℓ ∤ |G|, equality of conductors from equal invariants of the ramification groups, k(ρ̄_λ) = ℓ and Edixhoven weight 1, and P_c; the weight-one step, with ordinarity from Fontaine's supersingular form, the Frobenius eigenvalues from Deligne's ordinary form, and Gross's companion form at k = ℓ under a_ℓ² ≠ ε(ℓ) (R20.3/companion-forms states that case); finiteness of the torsion of H¹ of the cusp sheaf and flat base change; and the descent (Deligne–Serre lifting, restriction of eigensystems, pigeonhole over primes of 𝒪_{E′}[1/N′], weight-one newforms, Chebotarev). The suppliers in R15.1, R15.2, R15.4, R15.5, R15.6, R19.1, R20.3, R01.1, R01.3 and R01.5 state what is used, and the three new requests ask for what they do not. The acceptance items for the S₃ representation of conductor 23 are right. ML.1's narrowing is BP-ModularityAndLanglandsExtensions'. |
 | /9 | Handed on | BP-ModularCurvesPartII--R14.3 and BP-AutomorphicGaloisRepresentations. |
 | /10 | Handed on | BP-PotentialModularityAndCompatibleSystems--R24.3, BP-WeightsInEtaleCohomology, BP-AutomorphicGaloisRepresentations. |
 | /11 | Handed on | Part R26.1 (R26.3 and R27.2 are not in these packets). |
 | /12 | Right; R24.4 and stage texts remain | The three new GL2 nodes are right against KW I Theorem 4.1 (p. 7) and KW II §10.2 with its Remark (p. 92): Theorem 9.7 covers (2)(i) except k = p + 1 with k(ρ̄) = 2, and (2)(ii) when ρ restricted to ℚ_p(μ_p) is semistable of weight 2. The node's own reduction of the case N ≠ 0 is right: the Weil–Deligne representation is sp(2) ⊗ η, η\|_{I_p} comes from a Dirichlet character of p-power conductor, and the twist by its inverse is semistable non-crystalline of weight 2, so of type (C). Potentially crystalline weight 2 is potentially Barsotti–Tate (Kisin's node). The ordinary weight-p + 1 case is requested from R21.4, where KW II cite Diamond [16]; the non-ordinary case, Kisin's Durham paper [38], is an honest gap, and none of the four consumers in R27.3 needs it (Theorem 3.1 works with k(ρ̄) = 2, and the strong form uses lifts of weight k(ρ̄)). alpha-beta-from-modularity-over-q follows KW II p. 54 and p. 92. The R24.4 nodes, the RS-08 keeps and the R22.5 stage text are outside these packets; the GL2 `restructure` entry records them. |
-| /13 | Right, after one correction | The §7.6/§8 nodes match KW II pp. 68–73. allowable-base-change-existence is proved correctly from CHT Lemma 4.1.2 (with the real places, E_v = ℝ, and one auxiliary place with the unramified quadratic extension for evenness), and its quadratic clause (5) correctly by weak approximation and a place z split completely in D; disjointness from K(μ_p) gives both image conditions. Lemma 8.1's construction gives every bullet of KW II's statement; an absolutely irreducible or weight-p + 1 ρ̄\|_{D_p} is ramified, so E_p = ℚ_p there. alpha-beta-under-allowable-base-change is right (cuspidality from absolute irreducibility; conductor exponents ≤ 1 are kept along unramified extensions). Lemma 7.10's dyadic branch is right, given a finite-order character from CHT Lemma 4.1.1; the correction (below) makes the request say where finite order comes from. Theorem 8.2's field step agrees with KW II p. 72. The definitions are typed in the suggested file with every API item and test under their packet names. The Kisin and Gee prescribed-type contracts remain open requests, as before. |
+| /13 | Right after review corrections | The §7.6/§8 nodes match KW II pp. 68–73. allowable-base-change-existence is proved correctly from CHT Lemma 4.1.2 (with the real places, E_v = ℝ, and one auxiliary place with the unramified quadratic extension for evenness), and its quadratic clause (5) correctly by weak approximation and a place z split completely in D; disjointness from K(μ_p) gives both image conditions. Lemma 8.1's construction gives every bullet of KW II's statement; an absolutely irreducible or weight-p + 1 ρ̄\|_{D_p} is ramified, so E_p = ℚ_p there. alpha-beta-under-allowable-base-change is right (cuspidality from absolute irreducibility; conductor exponents ≤ 1 are kept along unramified extensions). Lemma 7.10's dyadic branch is right, given a finite-order character from CHT Lemma 4.1.1; the correction (below) makes the request say where finite order comes from. Theorem 8.2's initial field step agrees with KW II p. 72; I corrected its final dyadic U-eigenvalue step to a further allowable extension, not a necessarily split extension above 2 (p. 73). The definitions are typed in the suggested file with every API item and test under their packet names. The Kisin and Gee prescribed-type contracts remain open requests, as before. |
 | /14 | Handed on | BP-AutomorphicGaloisRepresentations and BP-LocalGaloisDeformationRings. GL2 requests KW II Lemma 7.7 from R19.5. |
 | /15 | Right (round 2); rechecked | R01.4 is a prerequisite of three R04.5 nodes, and the R01.4 request names the exact KW II Lemma 4.3 content. |
 | /16 | Handed on | BP-LocalGaloisDeformationRings (R08.1). |
@@ -140,11 +88,18 @@ claimed about their state.
 | /20 | Right (round 2); rechecked | The three R27.5 nodes that need (H) cite R22.6/hypothesis-h; the RS-06 keeps for R27.5 are the maintainer's. |
 | /21 | Handed on | Part R32.3 of GL2ModularityLifting (R32.6) and BP-PotentialModularityAndCompatibleSystems--R24.3. |
 | /22 | Right (round 2); links remain | The three G8 nodes name PA.3 as their consumer and `consumerContracts` gives the contract. The links L7, L8, G8 → PA.3 and L7's text are outside this packet. |
-| /23–/25 | Handed on | BP-PotentialModularityAndCompatibleSystems--R23.1. |
+| /23 | Handed on | R23.2 applies H6's twisted moduli; remove its duplicate construction and retired R10 reference at that owner. |
+| /24 | Handed on | Narrow R23.5 to its field-selection application, importing solvable base change/descent from R17.4/R17.6. |
+| /25 | Handed on | R23.1 needs Moret–Bailly with the separate split, unramified and algebraic-local-open conditions, not only split places. |
 | /26 | Right on the consumer side; R23.1 remains | The request to R23.1 states CHT Lemmas 4.1.1–4.1.2 as printed (checked on pp. 116–117), with its refinements; the stage prerequisite R23.1 → R22.1 is acyclic (R23.1's only stage requirement is AlgebraicModuliForArithmeticGeometry R09.3), and the dry assembly adds it without skipping. R23.1's packet has to plan the two lemmas. |
-| /27–/29 | Handed on | BP-PotentialModularityAndCompatibleSystems--R23.1 (R24.1 for /29). |
+| /27 | Handed on | R23.1 needs its Chebotarev finite-avoidance/Frobenius-generator input. The CSM density request is a different consumer. |
+| /28 | Handed on | The BCGP route needs Snowden's potential residual modularity over arbitrary totally real fields at R23.2/R23.3/H6; a conditional α/β witness is not that theorem. |
+| /29 | Handed on | R24.1's CG application needs the Thorne/ordinary finiteness theorem beyond the KW local-ring scope, or a precise unplanned gap. |
 | /30 | Handed on | BP-PotentialModularityAndCompatibleSystems--R24.3. |
-| /31–/34 | Handed on | BP-OrdinaryAutomorphicFormsAndModularityLifting (with IntegralIwasawaTheory L4 for /32). |
+| /31 | Handed on | Coordinate the Wach/(φ,Γ) input PG.6 → the early local BLZ owner R06.4 with /17. |
+| /32 | Handed on | IntegralIwasawaTheory L4 owns Washington's non-p cyclotomic class-group bound, distinct from Ferrero–Washington μ = 0; R21.5 consumes it. |
+| /33 | Handed on | Add the actual R17.4 solvable totally real automorphic descent input to the R21.5 application. |
+| /34 | Handed on | R21.6 needs the BLGG13 ordinary prescribed modular lift, retaining local and cyclotomic hypotheses; ordinary R=T alone does not construct it. |
 | /35 | Handed on | BP-AutomorphicCongruences--L5b. |
 | /36 (low) | Handed on | Part R26.1 and the PotentialModularityAndCompatibleSystems parts. |
 | /37 (low) | Right (round 2); rechecked | R04.3 cites KW II Lemma 4.4, Lemma 4.6 and Proposition 4.5, and its two mentions of Corollary 4.7 attribute that application to R24.2 with R03.4. |
@@ -152,86 +107,133 @@ claimed about their state.
 | /39 (low) | Right (round 2); rechecked | The R33.2 node is Paso 2 only, with R24.3, R24.6 and Paso 1 as prerequisites. |
 | /40 (low) | Handed on | The extraction PAPER-LE-LEHUNG-LEVIN-ETAL-20, item `cited-base-change`. |
 
-Counts: right in these packets, 11 (/1, /8, /12, /13, /15, /19, /20, /22, /26, /37, /39, of which /1, /8, /12, /22
-and /26 also have a part elsewhere); handed on, 29.
+Counts: eleven local repairs (/1, /8, /12, /13, /15, /19, /20, /22, /26, /37, /39),
+twenty-nine external handoffs. The finding identifiers above cover 1–40 exactly once.
 
-### The two back-edges of the round-2 review
+## Corrections in this continuation
 
-- **R04.2 → R04.1 (Global).** Removed. R04.1/determinant-comparison now states the map and its non-injectivity and
-  cites nothing in R04.2. I redid the computation: conjugating the constant deformation by 1 + εA, A = (a b₀; c₀ d),
-  forces c₀ = 0 and adds ε((a − d)b + b₀(χ₂ − χ₁)), so exactly the classes of 𝔽·[b] are reached, and a class outside
-  that line gives a deformation with the constant determinant that is not strictly equivalent. The isomorphism for
-  absolutely irreducible ρ̄ is R04.2/determinant-comparison-isomorphism, correctly proved from Chenevier's
-  Theorem 2.22(i), Burnside and Nakayama, and Carayol's theorem. R04.1 is `source_decomposed`.
-- **R33.3 → R32.2 (GL2 and CSM).** Removed. R32.2/application-requirements is the contract an application of
-  Theorem 1.4 must verify, with no prerequisite in ClassicalSerreModularity, and R33.1/dp-modularity-lifting-inputs
-  cites it. The dry assembly adds GL2ModularityLifting R32.2 → ClassicalSerreModularity R33.1 and no cycle.
+1. **Global R04.2 determinant comparison.** Theorem 2.22(i) assumes a Cayley–Hamilton
+   determinant. Apply it to `A[G]/CH(D)` with its induced determinant; the raw group algebra
+   need not be Cayley–Hamilton. Residual splitness comes from the given representation.
+   The two residual representations factor through the same matrix-algebra quotient and
+   differ by an inner matrix-unit identification; a lifted conjugator fixes the reduction.
+   Trace-pairing coordinates give continuity, and Carayol gives strict injectivity.
+   Removed the unsupported appeal to a “uniqueness part” of Theorem 2.22.
+2. **Exact reconstruction owner.** IHG.0 owns determinant laws. The existing
+   `IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible` node already plans this
+   quotient/reconstruction theorem. Added its fine prerequisite and an open supplier request,
+   rather than planning it again. Its packet currently needs changes, so this remains a
+   requested planned interface. The dry accepted assembly adds no new IHG.1 stage link because
+   the existing graph already has it; it adds the IHG.0 law-input link to Global R04.2.
+3. **Reducible acceptance examples.** The old unconditional `1 ⊕ 1` non-injectivity claim
+   fails for groups with vanishing H¹, including the trivial group. Specified `G = ℤ_p`,
+   a nonzero continuous additive `x : ℤ_p → 𝔽`, and the lift
+   `ρ_x(g) = [[1, εx(g)], [0, 1]]`. Every characteristic polynomial of an element of the
+   group algebra agrees with the constant lift (upper-triangular diagonal entries agree),
+   hence so does the determinant law. Conjugation fixes the constant identity representation,
+   so the nonconstant lift cannot be strictly equivalent to it.
+4. **GL2 Theorem 8.2.** The final dyadic U-eigenvalue adjustment uses further allowable base
+   change (KW II p. 73). A suitable nontrivial unramified local degree removes a quadratic
+   sign; requiring that extension to split above 2 would not do so. Corrected the proof step.
+5. **GL2 sketch and missing-test count.** Removed the stale claim that noncrystalline
+   potentially semistable weight-two lifts are an additional gap: the packet supplies the
+   finite-order Weil–Deligne twist to type (C). The genuine unread nonordinary
+   `k = p + 1`, `k(ρ̄) = 2` Durham case remains a gap. Corrected the typed-interface gap to
+   **53 APIs and 46 tests**; `dyadicDet_smul` occurs only in a comment, so it was wrongly
+   counted as present in the checkpoint's 45-test total.
+6. **Protocol §12.** Corrected all 56 invalid test kinds to the permitted classifications:
+   six CSM, twenty GL2, thirty Global. Computations remain computations; empty/identity cases
+   are degenerate; transport/comparison tests are compatibility; other structural cases are
+   characterisation. This classification repair does not turn an untyped test into Lean code.
+7. **CSM newform sketch.** The pinned Tau Ceti Newform takes a level with `NeZero N`.
+   The dependent-sum comment now uses `N : ℕ+`, rather than an unrestricted natural level.
+8. **Reviews and receipts.** Preserved the previous review objects verbatim in reviewHistory,
+   replaced the current objects with this session's verdicts, and added final suggested-file
+   receipts. Preserved the checkpoint's correct finite-order-character and typed-p-star fixes.
 
-### The edits of FIX-RT-BP-GlobalGaloisDeformations that this acceptance promotes
+## Prior reviews and outstanding work
 
-Read for errors only; the verdicts on RT-BP-GlobalGaloisDeformations /1–/3 belong to REV-FIX-RT-BP-GlobalGaloisDeformations.
+CSM follows its accepted own-fix review of 7 October and the merged checkpoint. Global follows
+its accepted base reviews and the checkpoint. I checked the five #5719 edits for mathematical
+errors: locality/strict conjugacy, the integral S₃ matrix example, Gee's full-adjoint mapping
+fibre and rank-one two-framing count, and the KW image/adjoint hypotheses. Their separate
+red-team-fix review #5720 retains its own finding verdicts.
 
-- R04.1/strict-vs-full-conjugacy and R04.2/carayol-trace-theorem now carry the locality of the coefficient ring. The
-  integral example is right: a = (2 5; 5 12) has determinant −1 and reduces to 2·I modulo 5, the integral centraliser
-  of the S₃ image is {±I}, so every conjugator is ±a and reduces to 2·I or 3·I; over ℤ/25 the unit 13 rescales a to
-  reduce to I.
-- R04.3/relative-tangent-space now states Gee's complex exactly as on p. 16 of arXiv:2202.05818v2: full adjoint in
-  global and framed local degree zero, ad⁰ elsewhere, the quotients by L̃_v at S ∖ T in degree one, and the mapping
-  fibre with d(φ, ψ) = (∂φ, φ\|_{G_v} − ∂ψ_v). The rank-one count with two framings, k²/diag(k) of dimension 1 =
-  #T − 1, is right.
-- R04.5/image-hypotheses and odd-taylor-wiles-primes: the p = 5 S₃ example (splitting field of X³ − 2, quadratic
-  subfield ℚ(√−3) not in ℚ(ζ₅)) satisfies KW's cyclotomic hypothesis while ad⁰ = sign ⊕ standard has an invariant
-  line, so whole-adjoint spanning is not available in the KW branch, as the node now says.
+GL2 follows the never-accepted own review of 30 September and the needs_changes round-two
+review. Its fifteen remaining definitions/constructions are still supplier-dependent comments.
+A lexer excluding the large supplier-sketch block shows that all **53 APIs and 46 tests** below
+lack active signatures/examples. The four typed §8 definitions and arithmetic p-star are excluded.
 
-## Corrections made
+| Node suffix | Missing APIs | Missing tests |
+| --- | ---: | ---: |
+| R22.1/minimal-level-data | 4 | 3 |
+| R22.1/deformation-to-hecke-map | 4 | 3 |
+| R22.1/framed-hecke-module | 4 | 3 |
+| R22.2/auxiliary-level-groups | 4 | 3 |
+| R22.2/auxiliary-hecke-algebra | 5 | 4 |
+| R22.2/taylor-wiles-module-system | 3 | 3 |
+| R22.2/dyadic-twists-of-forms | 4 | 3 |
+| R22.3/arithmetic-patching-data | 3 | 3 |
+| R22.4/ihara-avoidance-comparison | 3 | 3 |
+| R22.5/strong-residual-modularity | 3 | 3 |
+| R22.6/dyadic-patched-ring | 4 | 3 |
+| R32.1/lifting-statement-table | 3 | 3 |
+| R32.1/dyadic-lifting-proposition | 3 | 3 |
+| R32.1/residually-reducible-lifting-proposition | 3 | 3 |
+| R32.1/ordinary-three-lifting-proposition | 3 | 3 |
+| Total | 53 | 46 |
 
-In `research/blueprint/packets/GL2ModularityLifting--R22.1.json`:
+Resume those exact nodes under PROTOCOL §13 using real supplier types or explicitly scoped
+stand-ins, packet-named APIs and discriminating examples. Under §4, promote API lemmas used
+by other nodes into prerequisites: e.g. the auxiliary `γ_α(π_v) ↦ U_v` comparison used by
+delta-actions-agree, and framed ring/module properties consumed in patching. The recorded
+three bundles (auxiliary-hecke-algebra, framed-hecke-module, delta-freeness-at-taylor-wiles-level)
+identify the unsplit constructors/properties. All three roadmaps are target-level plans;
+§2 does not require blanket declaration-sized splitting. Only actual imported API lemmas
+and the typed-interface obligation are protocol blockers here.
 
-1. The request to PotentialModularityAndCompatibleSystems R23.1 for CHT Lemmas 4.1.1–4.1.2 asked for refinement (a),
-   the p-primary component of the global character, but CHT's Lemma 4.1.1 as printed produces only a continuous
-   character, for which a p-primary component is not defined. The request now says that what is used is a
-   finite-order χ, that the printed proof gives one once S contains the infinite places (χ is first defined on an
-   open subgroup of finite index, the quotient being a ray class group, with finite image, and a finite-order
-   character of a finite-index subgroup of an abelian group extends with finite order), and refinement (a) is
-   stated for finite-order χ. R22.1/lemma-7-10-determinant-adjustment, which takes S to contain the real places of a
-   totally real F, already uses it in that form.
-2. `R32.1/p-star` is removed from the `neededBy` of the gap "Typed suggested signatures and tests are incomplete":
-   its three API items and four tests are declarations and examples of the suggested file, as the gap's own text
-   says. The coverage of R32.1 still lists the gap, for its other four nodes.
+CSM and Global also have legacy supplier-dependent API/test sketches predating this fix.
+These accepted fix verdicts do not certify a fresh exhaustive base-plan review. The checkpoint's
+exact “131 of 162” Global missing-name count is not repeated: substring occurrence in comments
+is not evidence of an active stub. The legacy correspondence needs its own revision or assembly.
 
-In the three packets the top-level `review` object is replaced by this review's, and the previous object is
-appended, unchanged, to `reviewHistory`. In the three suggested files the header gains a line recording this review;
-no declaration changed.
+Maintainer/external tasks remain explicit: /1 remove the R26.6 → R27.1 stage edge and apply
+any R27.1a/b split; /12 narrow R24.4 and remove the “assembled in R24” R22.5/RS-08 text;
+/20 reconcile R27.5's RS-06 keep; /22 add L7/L8/G8 → PA.3; /37 reconcile the R04.3 RS-08 keep.
+R23.1 must plan CHT's character/completion lemmas, including the finite-order refinement;
+other CSM parts must repoint their old KW references; ML.1 must consume R27.6's weight-one chain.
+The twenty-nine other owners and /40's exact paper target are in the table. No upstream Tau Ceti
+roadmap, source graph or ownership record is modified by this job.
 
-## What remains
+## Validation
 
-**For the next fix round (GL2ModularityLifting--R22.1 only).** The two items in "Why GL2 is not accepted": typed
-signatures, API lemma signatures and test examples for the fifteen definitions and constructions listed there, and
-the API promotion and three splits of the gap "Declaration granularity and API promotion still required". Nothing
-of RT-AREA-langlands-2 remains to be fixed in the packet. The other open items of the base review are recorded gaps.
+- Three `check_blueprint.py` runs with the pinned declaration index: **zero errors and warnings**;
+  37 CSM, 73 GL2, 67 Global nodes. Source-version validation and all test-kind checks pass.
+- Final `lean-check` for all three Mathlib-only files at the pinned Mathlib: **zero errors**,
+  only `declaration uses sorry` warnings: CSM 23, GL2 13, Global 18. Checked memory before
+  each, compiled sequentially, and ran no language server or Lake build/cache/update.
+  Supplier sketches in comments were not elaborated.
+- Declaration registry under both precedence orders, overriding all 177 reviewed nodes:
+  27,694 nodes; 2,120 concrete ancestors reached with packets first, 1,024 with decompositions
+  first; **no reachable cycles** and no forbidden concrete R26/R27 ancestors of R33.1–R33.4.
+  Stage-only references and open requests are not thereby discharged.
+- Read-only atlas assembly with all three packets swapped in: 65 added links, no skipped
+  links and no cycle. With only accepted CSM/Global swapped in: one added IHG.0 → Global R04.2
+  link, no skipped links and no cycle. Nothing was written to the atlas.
+- R04.2 → R04.1 and R33.3 → R32.2 back-edges are absent. The coarse R26.6 → R27.1 edge
+  still gives R26.1–R26.6 ancestors to R33.2–R33.5. Removing it in memory removes all six
+  there, while R33.6 retains them as intended.
+- Prior review objects preserved verbatim; forty findings covered exactly once; node IDs,
+  partial packet statuses, source-issue verdicts and unchecked implementation statuses retained.
+  Final path/intake checks and `git diff --check` pass. No link map or restructuring proposal
+  is an issue deliverable, so their dedicated checkers are inapplicable.
 
-**For the maintainer**, as the fix report's "For the maintainer" says, and unchanged by this review:
-1. /1: delete ClassicalSerreModularity:R26.6 from the requires of R27.1; then, if wanted, the R27.1a/R27.1b split of
-   the two ClassicalSerreModularity packets' entries, with RS-06's links R27.1 → R33.2, R33.3, R33.6 re-pointed to
-   R27.1a.
-2. /12: remove "assembled in R24" from the R22.5 text and the RS-08 keeps; narrow R24.4 to importing the theorem.
-3. /22: the links L7, L8, G8 → PotentialAutomorphyInfrastructure PA.3.
-4. /20 and /37: the RS-06 keeps for R27.5 and the RS-08 keeps for R04.3.
+## Automation scope mismatch
 
-**For other jobs**, as listed in the fix report: R23.1 plans CHT Lemmas 4.1.1–4.1.2 (with the finite-order remark
-of correction 1); the two R24.4 nodes of PotentialModularityAndCompatibleSystems--R24.3 cite the R22.5/R22.6
-exports; part R26.1 re-points R26.6/corollary-8-1-ii-and-the-statement-W1 and R27.2/theorem-3-2-weight-reduction;
-part R33.5 re-points its two nodes that cite the mixed KW I §6 node; ML.1 cites R27.6.
-
-**Notes for the maintainer, outside these findings.**
-- The base review's send-back of GL2ModularityLifting--R22.1 never produced a revision round: `plan_sent_back` in
-  `research/blueprint/make_queue.py` reads the packet's current `review`, and the fix reviews replaced it within
-  days. Its open requests have since travelled only as gaps of the packet. If a BP-…~2 round is wanted for them, it
-  has to be queued by hand; otherwise the next fix round is where they are done.
-- GlobalGaloisDeformations: 131 of the 162 API and test names of its definitions and constructions do not appear in
-  its suggested file (PROTOCOL §13). This has been so at every version since the base acceptance and is not part of
-  these findings, so it does not hold up this acceptance; it is work for the roadmap's next revision or assembly.
-- ClassicalSerreModularity--R27.3: the three API items and six tests of R33.2/dp-lift-existence-and-good-dihedral-insertion
-  are not in its suggested file. They predate round 3.
-- Many tests in all three packets have `kind` `example`, which is not one of the five kinds of PROTOCOL §12, and the
-  checker does not test kinds.
+The live issue #5871 and its full instructions authorize the seven deliverables reviewed here.
+The committed queue entry still lists **27 outputs**: thirteen packets, thirteen suggested files
+and this report. `issues.deliverables_complete` consequently returns false against the committed
+queue, as it did for PR #7024. The same function returns true with the live issue's seven outputs.
+This is a completed review of the authorized scope; automatic completion is blocked by the stale
+queue definition. A maintainer must reconcile that entry with issue #5871 before intake can mark
+this job complete. Editing other jobs' review objects or the queue is outside this issue's allowlist.

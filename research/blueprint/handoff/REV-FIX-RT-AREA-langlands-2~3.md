@@ -1,35 +1,71 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-Issue #5871. Claude, session `claude-hd6PQ0`, 7 October 2026; base `221b05de`. Independent review of
-FIX-RT-AREA-langlands-2~3 (Claude `claude-c9TlsS`, PR #6724). This session did none of the fix rounds, the red team
-or its verification. The review is complete; the report is `research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md`.
+Issue #5871, Codex session `codex-t0EaB3`, 7 October 2026; base `5f858d95`.
+Completed independent review of FIX-RT-AREA-langlands-2~3 (#5870, Claude `claude-c9TlsS`, PR #6724),
+continuing and rechecking the merged Claude `claude-hd6PQ0` checkpoint PR #7024.
+The review report is [REV-FIX-RT-AREA-langlands-2~3](../reviews/REV-FIX-RT-AREA-langlands-2~3.md).
+No review work remains for the live issue's authorized scope. Negative packet verdicts are completed review outcomes.
 
-Verdicts written into the packets' `review` objects (earlier objects appended verbatim to `reviewHistory`):
+Final packet verdicts:
 
-- `ClassicalSerreModularity--R27.3`: **accepted**, no correction.
-- `GlobalGaloisDeformations`: **accepted**, no correction. This also promotes the five nodes edited by
-  FIX-RT-BP-GlobalGaloisDeformations (#5719), which I read without finding an error. Their own review,
-  REV-FIX-RT-BP-GlobalGaloisDeformations (#5720), is still to do and keeps the verdict on those findings.
-- `GL2ModularityLifting--R22.1`: **needs_changes**. Every round-3 fix is right, after two corrections in place: the
-  R23.1 request now says where CHT Lemma 4.1.1's finite-order character comes from, and `R32.1/p-star` left the
-  `neededBy` of the typed-signature gap. The packet has never passed its own review (REV-GL2ModularityLifting--R22.1),
-  and two of that review's requests are protocol rules still open.
+- CSM R27.3: **accepted** for this fix round. Corrected six test classifications and the positive-level
+  Newform parameter in its suggested-file comment.
+- Global: **accepted** for this fix round. Explicit Cayley–Hamilton quotient in Chenevier reconstruction,
+  exact existing IHG.1 supplier/request, conditional reducible counterexample, thirty test classifications.
+- GL2 R22.1: **needs_changes**. Corrected the final dyadic base-change step (allowable, not necessarily split
+  above 2), the stale potentially-semistable sketch gap, twenty test classifications and the missing-test count.
+  Its never-accepted base review still requires the typed APIs/tests and used-API promotion listed below.
 
-Where the next round resumes (FIX-RT-AREA-langlands-2~4, GL2 packet only):
+Previous review objects are preserved verbatim in reviewHistory. Node IDs, partial statuses, source-issue
+verdicts and unchecked implementation statuses are retained. No source graph or upstream roadmap was edited.
 
-1. PROTOCOL §13: give typed signatures, API lemma signatures and test examples, under the packet's names, for the
-   fifteen definitions and constructions in the `neededBy` of the gap "Typed suggested signatures and tests are
-   incomplete" (53 API items, 45 tests). Use stand-ins for suppliers' objects as round 3 did for §8, and let each
-   docstring say what cannot be stated.
-2. PROTOCOL §4: promote API items that other nodes use to lemma nodes, and split R22.2/auxiliary-hecke-algebra,
-   R22.1/framed-hecke-module and R22.2/delta-freeness-at-taylor-wiles-level, as in the gap "Declaration granularity
-   and API promotion still required".
+The next GL2 revision resumes at the gap **Typed suggested signatures and tests are incomplete**:
 
-Nothing of RT-AREA-langlands-2 remains inside the three packets. The maintainer's stage edits (/1, /12, /20, /22,
-/37) and the other jobs' parts (/8 ML.1; /12 R24.4; /26 R23.1; the 29 handed-on findings) are listed in the report.
+| Definition/construction node suffix | APIs | Tests |
+| --- | ---: | ---: |
+| R22.1/minimal-level-data | 4 | 3 |
+| R22.1/deformation-to-hecke-map | 4 | 3 |
+| R22.1/framed-hecke-module | 4 | 3 |
+| R22.2/auxiliary-level-groups | 4 | 3 |
+| R22.2/auxiliary-hecke-algebra | 5 | 4 |
+| R22.2/taylor-wiles-module-system | 3 | 3 |
+| R22.2/dyadic-twists-of-forms | 4 | 3 |
+| R22.3/arithmetic-patching-data | 3 | 3 |
+| R22.4/ihara-avoidance-comparison | 3 | 3 |
+| R22.5/strong-residual-modularity | 3 | 3 |
+| R22.6/dyadic-patched-ring | 4 | 3 |
+| R32.1/lifting-statement-table | 3 | 3 |
+| R32.1/dyadic-lifting-proposition | 3 | 3 |
+| R32.1/residually-reducible-lifting-proposition | 3 | 3 |
+| R32.1/ordinary-three-lifting-proposition | 3 | 3 |
+| Total | 53 | 46 |
 
-Checks: `check_blueprint.py` with the pinned index, 0 errors and 0 warnings on all three packets;
-`check_errata.versions_checked` clean; `lean-check` on the three suggested files at Mathlib `082e2d3`, no errors and
-only `declaration uses sorry` warnings (13, 23, 18); an in-memory atlas assembly with the packets swapped in
-assembles, skips no link and has no cycle. No language server was started and no Lake build was run. Scratch files
-are discarded; nothing else needs them.
+Give these real typed supplier interfaces or explicitly scoped stand-ins, packet-named API signatures and
+meaningful examples under PROTOCOL §13. The corrected total is 46: dyadicDet_smul is inside an unelaborated
+block comment. The four typed §8 definitions and p-star are already covered; do not re-add them to this gap.
+Under §4 promote API lemmas used elsewhere, including the auxiliary U_v comparison and framed-module
+properties consumed by delta-actions/patching. The three recorded bundles identify constructors and
+properties needing separation; target-level planning does not require every theorem to be split further.
+Retain the existing prescribed-type and Durham source gaps until their exact source hypotheses are supplied.
+
+All forty confirmed findings have a disposition in the report: eleven local repairs, twenty-nine routed
+externally. The maintainer's stage/ownership edits remain /1, /12, /20, /22, /37; external CHT suppliers,
+R24.4 consumers, other CSM parts and ML.1 are explicitly listed. IHG.1/henselian-irreducible is an existing
+planned node whose packet needs changes, so Global imports it as an open request, not an accepted formal theorem.
+The separate Global own-fix review #5720 retains its own verdicts. Legacy CSM/Global suggested-interface
+omissions predate this fix; this acceptance does not certify a fresh exhaustive base-plan review.
+
+Validation: all three pinned-index packet checks have zero errors/warnings; source-version and test-kind
+checks pass; all three final lean-check runs have zero errors and only sorry warnings (CSM 23, GL2 13,
+Global 18). Both declaration-graph precedences and trial atlas assemblies are acyclic and skip no links.
+The inherited R26.6 → R27.1 stage edge still needs the maintainer's edit; its removal in memory clears the
+unwanted R26 ancestors of R33.2–R33.5 while R33.6 retains them. Forty findings covered exactly once;
+review-history preservation and final intake/path checks pass. The public source URLs, hashes and locators
+are in the report. Scratch is discarded after the PR opens; no subsequent worker needs it.
+
+Automation blocker: queue.json lists 27 outputs (13 packets, 13 suggested files and the report),
+while live issue #5871 lists seven (three packets, three suggested files and the report).
+The queue completion check is false even after the authorized work is complete; scoped to the
+live issue's outputs it is true. This explains PR #7024's checkpoint classification. The maintainer
+must reconcile the queue entry; do not edit other jobs' reviews merely to satisfy the stale list.
+This PR submits the completed authorized review and identifies this external completion blocker.
