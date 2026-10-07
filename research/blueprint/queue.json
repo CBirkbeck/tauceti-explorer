@@ -16817,8 +16817,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6905"
+   "state": "external",
+   "note": "claimed on GitHub issue #6905"
   },
   {
    "id": "DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -39806,8 +39806,9 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6975"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6975",
+   "finishedAt": "2026-10-07T17:46:51Z"
   },
   {
    "priority": 2,
