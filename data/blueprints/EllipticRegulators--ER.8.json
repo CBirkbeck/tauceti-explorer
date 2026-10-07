@@ -263,7 +263,6 @@
         {
           "sourceId": "BdJ2012",
           "locator": "Introduction, Remark 1.10, p. 4",
-          "excerpt": "syntomic regulator",
           "match": "Public restatement of the K2 Coleman–de Shalit formula, with the constant-term and closed-point conventions on pp. 3–4; no K4 theorem is imported."
         }
       ],
@@ -309,13 +308,11 @@
         {
           "sourceId": "AC2023AM",
           "locator": "§6, footnote 10",
-          "excerpt": "regsyn",
           "match": "States the identity (1-p^(-2)Phi)log(reg_f)=reg_syn and its eigenvector pairing."
         },
         {
           "sourceId": "AC2023VOR",
           "locator": "Public publisher preview, footnote 10",
-          "excerpt": "Proposition 9.11",
           "match": "The published preview independently confirms the correction identity; its body was not read."
         }
       ],
@@ -359,7 +356,6 @@
         {
           "sourceId": "AC2023AM",
           "locator": "§3.4, definition before Conjecture 3.3",
-          "excerpt": "linearly independent",
           "match": "Pins the cup/trace quotient, (1-p/gamma), eigenvector independence and the forbidden dependent case."
         }
       ],
@@ -479,13 +475,11 @@
         {
           "sourceId": "AC2023AM",
           "locator": "§2.2 and §3.4",
-          "excerpt": "Néron",
           "match": "The Néron periods and weight-two specialisation; interpolation uses the corrected reviewed supplier convention."
         },
         {
           "sourceId": "AC2020",
           "locator": "§2.3, critical-slope discussion",
-          "excerpt": "critical slope",
           "match": "Explains why the theta-critical refinement is excluded."
         }
       ],
@@ -531,7 +525,6 @@
         {
           "sourceId": "AC2023AM",
           "locator": "§3.4, Conjecture 3.3 and preceding rationality sentence",
-          "excerpt": "rational",
           "match": "The cross-field equality is recorded through its common rational scalar and sign."
         }
       ],
@@ -630,7 +623,6 @@
         {
           "sourceId": "AC2023AM",
           "locator": "§3.4, Conjecture 3.3 at n=0",
-          "excerpt": "non-zero element",
           "match": "Pins the integral motivic witness, slope alternatives and the ratio; the predicate also records the real Beilinson rationality component."
         }
       ],
@@ -689,13 +681,11 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.5/the-class-U; ER.8/the-CM-worked-example",
-          "excerpt": "The rational class U",
           "match": "Specialises the accepted U and its index set, without defining U again."
         },
         {
           "sourceId": "MathlibDivision",
           "locator": "Ψ and preΨ_even definitions and recurrence",
-          "excerpt": "division polynomials",
           "match": "The polynomial is a computation of existing division polynomials, not a new general theory."
         }
       ],
@@ -749,7 +739,6 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.5/the-L-value-theorem and its corrected 36a1 constants",
-          "excerpt": "Bloch's theorem",
           "match": "Uses the accepted correction rather than repeating the restricted book statement as if newly checked."
         }
       ],
@@ -804,7 +793,6 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.8/the-nonrational-torsion-example",
-          "excerpt": "non-rational torsion point",
           "match": "The explicit construction fills the accepted target. The displayed functions and residue table are this packet's direct algebraic computation; the general correction is E.7."
         }
       ],
@@ -1005,7 +993,6 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.8/the-nonrational-torsion-example, transfer acceptance",
-          "excerpt": "transfer",
           "match": "This packet computes the target transfer; residue-field norms and rational torsion are owned by E.7."
         }
       ],
@@ -1098,7 +1085,6 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.4/transfer-and-the-trace-formula; ER.8/the-nonrational-torsion-example",
-          "excerpt": "TRACE FORMULA",
           "match": "Instantiates the reviewed constant-field transfer theorem and divisor convention with the new beta."
         }
       ],
@@ -1150,7 +1136,6 @@
         {
           "sourceId": "ERparent",
           "locator": "ER.8/the-integrality-worked-example, revised acceptance",
-          "excerpt": "integral",
           "match": "Imports the complete positive and negative examples and specialises their arithmetic eligibility without rebuilding models or K-theory."
         }
       ],

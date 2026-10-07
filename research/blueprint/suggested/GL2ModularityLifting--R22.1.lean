@@ -38,6 +38,15 @@ formalised.
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 Independent review REV-GL2ModularityLifting--R22.1 returned needs_changes.
 Fix revision (round 3): Claude claude-c9TlsS, 6 October 2026, Refs #5870.
+Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
+needs_changes. Its declarations are unchanged by that review. The file elaborates with `lake env lean` against
+Mathlib `082e2d3` with no errors; its only warnings are 13 `declaration uses sorry`. The fifteen
+definitions and constructions in the packet's gap "Typed suggested signatures and tests are
+incomplete" still have no typed signature here.
+Completed continuation: Codex codex-t0EaB3, 7 October 2026, Refs #5871; needs_changes.
+Source and test-classification corrections are recorded in the review report. The active Mathlib-only
+file was checked with lean-check: no errors, 13 declaration-uses-sorry warnings. Supplier sketches
+inside comments remain unelaborated; this receipt does not certify their APIs or arithmetic.
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only. At the
 pinned Mathlib the whole file elaborates; its only warnings are `declaration uses sorry`.
@@ -137,8 +146,9 @@ theorem kw_i_4_1_odd (hp : 2 < p) (hirr : AbsIrred (ρbar.restrict ℚ⟮ζ_p⟯
     (ρ : GaloisRep ℚ 𝒪 2) (hlift : ρ.reduce ≅ ρbar) (hfin : FinitelyRamified ρ)
     (h : (∃ k, 2 ≤ k ∧ k ≤ p + 1 ∧ CrystallineOfWeight ρ p k) ∨ PotSemistableOfWeight ρ p 2) :
     IsModular ρ
--- Gap recorded in the packet: k = p + 1 with k(ρbar) = 2 non-ordinary, and potentially
--- semistable, not potentially crystalline, not semistable over ℚ_p(μ_p).
+-- Gap recorded in the packet: k = p + 1 with k(ρbar) = 2 and a non-ordinary lift.
+-- The N ≠ 0 potentially semistable case reduces by a finite-order twist to type (C),
+-- as explained in the packet; it is not an additional uncovered case.
 -- R22.6/kw-i-theorem-4-1-dyadic (KW I Theorem 4.1(1)), not elaborated for the same reason.
 theorem kw_i_4_1_dyadic (hns : ¬ IsSolvable ρbar.image) (hmod : IsModular ρbar)
     (ρ : GaloisRep ℚ 𝒪 2) (hlift : ρ.reduce ≅ ρbar) (hodd : det ρ c = -1) (hfin : FinitelyRamified ρ)

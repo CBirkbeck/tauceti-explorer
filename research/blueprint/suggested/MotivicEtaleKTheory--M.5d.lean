@@ -11,6 +11,9 @@ import Mathlib.LinearAlgebra.Complex.Module
 import Mathlib.GroupTheory.Torsion
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.CategoryTheory.Iso
+import Mathlib.RingTheory.Norm.Basic
+import Mathlib.LinearAlgebra.Complex.FiniteDimensional
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -35,13 +38,16 @@ No arbitrary proposition substitutes for a missing mathematical carrier.
 The later sections give the M.5d–M.8 named-theorem, construction, API and
 test signatures. Their genuine spectrum, cohomology, Witt and realization
 carriers are supplier parameters until those roadmaps are implemented.
-Independent review records remaining coefficient/filtered/weight/test signature
-defects in the packet; elaboration alone does not validate those claims.
+The typed tower, exact-couple, page-action and determinant interfaces below
+are stand-ins for the named suppliers, not new owned generic machinery.
+Elaboration alone does not validate the geometric comparison claims.
 Conditions not currently expressible are omitted, as PROTOCOL §13 requires;
 all mathematical hypotheses in the packet/reader remain binding. These
 parametric prototypes prove neither the theorems nor supplier existence.
 -/
 
+-- These are planning prototypes. Keep placeholder warnings visible and nonfatal.
+set_option warningAsError false
 noncomputable section
 open scoped TensorProduct
 universe u v w
@@ -516,42 +522,148 @@ theorem k_theory_well_connected (semilocalSupport : Spectrum) (m : ℤ) (hm : m 
 theorem coniveau_cycle_layer (layer : ℕ → Spectrum) (cycleEM : ℕ → Spectrum) (p : ℕ) :
     Nonempty (Iso (layer p) (cycleEM p)) := by sorry
 
-/-- Review gap: this levelwise prototype still needs transitions and
-augmentation to state the filtered equivalence requested by the packet. -/
-theorem global_model_comparison (HC FS : ℕ → Spectrum) :
-    Nonempty (∀ p, Iso (HC p) (FS p)) := by sorry
 end Coniveau
 
+open CategoryTheory
+
+/-- Typed stand-in for the E3/E5 augmented filtered-spectrum diagram. -/
+structure AugmentedTower (Spectrum : Type u) [Category.{v} Spectrum] (KX : Spectrum) where
+  level : ℕ → Spectrum
+  transition : ∀ p, level (p+1) ⟶ level p
+  augmentation : ∀ p, level p ⟶ KX
+  augmentation_transition : ∀ p, transition p ≫ augmentation p = augmentation (p+1)
+
+/-- A comparison of the actual filtered diagrams, including their common K augmentation. -/
+structure AugmentedTowerIso {Spectrum : Type u} [Category.{v} Spectrum] {KX : Spectrum}
+    (HC FS : AugmentedTower Spectrum KX) where
+  levelIso : ∀ p, HC.level p ≅ FS.level p
+  transition_commutes : ∀ p,
+    HC.transition p ≫ (levelIso p).hom = (levelIso (p+1)).hom ≫ FS.transition p
+  augmentation_commutes : ∀ p, (levelIso p).hom ≫ FS.augmentation p = HC.augmentation p
+
+/-- HC and FS denote the constructed models on the admitted smooth quasi-projective X.
+The scheme/moving hypotheses remain binding in the reader. The missing geometric proof
+must produce this coherent comparison (or a zigzag of such comparisons), not just E₂. -/
+theorem global_model_comparison {Spectrum : Type u} [Category.{v} Spectrum] {KX : Spectrum}
+    (HC FS : AugmentedTower Spectrum KX) : Nonempty (AugmentedTowerIso HC FS) := by sorry
+
+/-- Typed stand-in for a filtered endomorphism, including its action on K(X). -/
+structure TowerEndomorphism {Spectrum : Type u} [Category.{v} Spectrum] {KX : Spectrum}
+    (tower : AugmentedTower Spectrum KX) where
+  levelMap : ∀ p, tower.level p ⟶ tower.level p
+  baseMap : KX ⟶ KX
+  transition_commutes : ∀ p,
+    tower.transition p ≫ levelMap p = levelMap (p+1) ≫ tower.transition p
+  augmentation_commutes : ∀ p,
+    levelMap p ≫ tower.augmentation p = tower.augmentation p ≫ baseMap
+
+/-- H.6's raw exact-couple interface. Exactness is range=kernel for the actual i,j,k. -/
+structure RawCoupleMaps (D E : ℤ → ℤ → Type u)
+    [∀ p m, AddCommGroup (D p m)] [∀ p m, AddCommGroup (E p m)] where
+  i : ∀ p m, D (p+1) m →+ D p m
+  j : ∀ p m, D p m →+ E p m
+  k : ∀ p m, E p m →+ D (p+1) (m-1)
+  exact_i_j : ∀ p m, (i p m).range = (j p m).ker
+  exact_j_k : ∀ p m, (j p m).range = (k p m).ker
+  exact_k_i : ∀ p m, (k p m).range = (i p (m-1)).ker
+
+def coupleDifferential {D E : ℤ → ℤ → Type u}
+    [∀ p m, AddCommGroup (D p m)] [∀ p m, AddCommGroup (E p m)]
+    (c : RawCoupleMaps D E) (p m : ℤ) : E p m →+ E (p+1) (m-1) :=
+  (c.j (p+1) (m-1)).comp (c.k p m)
+
+/-- Homology at E(p+1,m−1): cycles modulo the incoming j∘k boundaries.
+H.6 owns the quotient/derived-couple construction; this is its carrier stand-in.
+Keeping this target indexing explicit avoids concealing group-instance transports. -/
+abbrev coupleHomology {D E : ℤ → ℤ → Type u}
+    [∀ p m, AddCommGroup (D p m)] [∀ p m, AddCommGroup (E p m)]
+    (c : RawCoupleMaps D E) (p m : ℤ) :=
+  (coupleDifferential c (p+1) (m-1)).ker ⧸
+    AddSubgroup.comap (coupleDifferential c (p+1) (m-1)).ker.subtype
+      (coupleDifferential c p m).range
+
+/-- H.6 page morphism: maps commute with the actual differential. -/
+structure PageMap {Sequence : Type u}
+    (Page : Sequence → ℕ → ℤ → ℤ → Type v)
+    [∀ s r a b, AddCommGroup (Page s r a b)]
+    (d : ∀ s r a b, Page s r a b →+ Page s r (a+r) (b-r+1))
+    (X Y : Sequence) where
+  map : ∀ r a b, Page X r a b →+ Page Y r a b
+  differential_commutes : ∀ r a b,
+    (d Y r a b).comp (map r a b) = (map r (a+r) (b-r+1)).comp (d X r a b)
+
+/-- Rational pages in raw weight/total-degree coordinates. The weight formula
+on later pages is inherited through the actual homology identifications from E₂. -/
+structure RationalAdamsPages (Page : ℕ → ℕ → ℤ → Type u)
+    [∀ r j m, AddCommGroup (Page r j m)] [∀ r j m, Module ℚ (Page r j m)]
+    (d : ∀ r j m, Page r j m →ₗ[ℚ] Page r (j+r-1) (m-1)) where
+  action : ∀ (_k : ℕ) r j m, Page r j m →ₗ[ℚ] Page r j m
+  differential_commutes : ∀ k r j m, 2 ≤ k → 2 ≤ r →
+    (d r j m).comp (action k r j m) =
+      (action k r (j+r-1) (m-1)).comp (d r j m)
+  weight : ∀ k r j m, 2 ≤ k → 2 ≤ r → ∀ x,
+    action k r j m x = (k : ℚ)^j • x
+
 section MotivicPages
-variable {Spectrum Couple Sequence : Type u}
+variable {Spectrum Couple Sequence Scheme : Type u}
+    [Category.{w} Spectrum] {KX : Spectrum}
 variable (π : ℤ → Spectrum → Type v) [∀ m E, AddCommGroup (π m E)]
-    (D E : Couple → ℕ → ℤ → Type v)
+    (D E : Couple → ℤ → ℤ → Type v)
     [∀ c p m, AddCommGroup (D c p m)] [∀ c p m, AddCommGroup (E c p m)]
 /-- H.6 exact-couple functor instantiated on the already constructed tower. -/
-def motivicCouple (tower : ℕ → Spectrum) (coupleFunctor : (ℕ → Spectrum) → Couple) :
+def motivicCouple (tower : AugmentedTower Spectrum KX)
+    (coupleFunctor : AugmentedTower Spectrum KX → Couple) :
     Couple := coupleFunctor tower
 
-theorem motivicCouple_D (tower : ℕ → Spectrum) (coupleFunctor : (ℕ → Spectrum) → Couple)
+theorem motivicCouple_D (tower : AugmentedTower Spectrum KX)
+    (coupleFunctor : AugmentedTower Spectrum KX → Couple)
+    (identifyD : ∀ (p : ℕ) m,
+      D (motivicCouple tower coupleFunctor) p m ≃+ π m (tower.level p))
     (p : ℕ) (m : ℤ) :
-    Nonempty (D (motivicCouple tower coupleFunctor) p m ≃+ π m (tower p)) := by sorry
+    Nonempty (D (motivicCouple tower coupleFunctor) p m ≃+ π m (tower.level p)) := ⟨identifyD p m⟩
 
-theorem motivicCouple_E (tower layer : ℕ → Spectrum)
-    (coupleFunctor : (ℕ → Spectrum) → Couple) (p : ℕ) (m : ℤ) :
-    Nonempty (E (motivicCouple tower coupleFunctor) p m ≃+ π m (layer p)) := by sorry
+theorem motivicCouple_E (tower : AugmentedTower Spectrum KX) (layer : ℕ → Spectrum)
+    (coupleFunctor : AugmentedTower Spectrum KX → Couple)
+    (identifyE : ∀ (p : ℕ) m, E (motivicCouple tower coupleFunctor) p m ≃+ π m (layer p))
+    (p : ℕ) (m : ℤ) :
+    Nonempty (E (motivicCouple tower coupleFunctor) p m ≃+ π m (layer p)) := ⟨identifyE p m⟩
 
-theorem motivicCouple_differential (c : Couple) (s p : ℕ) (m : ℤ) :
-    Nonempty (E c p m →+ E c (p+s) (m-1)) := by sorry
+/-- Raw first differential, which is motivic d₂. Derived H.6 couples give all d_r. -/
+theorem motivicCouple_differential (c : Couple) (maps : RawCoupleMaps (D c) (E c))
+    (p m : ℤ) :
+    coupleDifferential maps p m = (maps.j (p+1) (m-1)).comp (maps.k p m) ∧
+      (coupleDifferential maps (p+1) (m-1)).comp (coupleDifferential maps p m) = 0 := by
+  constructor
+  · rfl
+  · ext x
+    have cycle : maps.j (p+1) (m-1) (maps.k p m x) ∈
+        (maps.j (p+1) (m-1)).range := ⟨maps.k p m x, rfl⟩
+    rw [maps.exact_j_k (p+1) (m-1)] at cycle
+    change maps.k (p+1) (m-1) (maps.j (p+1) (m-1) (maps.k p m x)) = 0 at cycle
+    simp only [coupleDifferential, AddMonoidHom.comp_apply, cycle, map_zero,
+      AddMonoidHom.zero_apply]
+
+/-- The supplied H.6 derived-couple functor is bound to this same couple.
+The raw derived indexing shifts j; the explicit reindexing is part of identifyHomology. -/
+theorem motivicCouple_derived (c : Couple) (maps : RawCoupleMaps (D c) (E c))
+    (derive : Couple → Couple)
+    (identifyHomology : ∀ p m, E (derive c) (p+1) (m-1) ≃+ coupleHomology maps p m)
+    (p m : ℤ) : Nonempty (E (derive c) (p+1) (m-1) ≃+ coupleHomology maps p m) :=
+  ⟨identifyHomology p m⟩
 
 -- motivicCouple_test_indices: a=p-m,b=-p; raw s becomes page r=s+1.
 example (m p s : ℤ) :
     (p+s-(m-1), -(p+s)) = ((p-m)+(s+1), (-p)-(s+1)+1) := by sorry
 -- motivicCouple_test_boundary
-example (c : Couple) (p : ℕ) (m : ℤ)
-    (j : D c p m →+ E c p m) (k : E c p m →+ D c (p+1) (m-1)) :
-    k.comp j = 0 := by sorry
+example (c : Couple) (maps : RawCoupleMaps (D c) (E c)) (p m : ℤ) :
+    (coupleDifferential maps (p+1) (m-1)).comp (coupleDifferential maps p m) = 0 :=
+  (motivicCouple_differential D E c maps p m).2
 -- motivicCouple_test_zero_weight
-example (weightZero : Type v) [AddCommGroup weightZero] :
-    Nonempty (weightZero ≃+ ℤ) := by sorry
+example (c : Couple) (maps : RawCoupleMaps (D c) (E c)) (m : ℤ)
+    (negativeWeightVanishes : ∀ x : E c (-1) (m+1), x = 0) :
+    coupleDifferential maps (-1) (m+1) = 0 := by
+  ext x
+  rw [negativeWeightVanishes x, map_zero, AddMonoidHom.zero_apply]
 
 /-- Same sequence assembled from the same couple; generic machinery is imported. -/
 def motivicSequence (c : Couple) (sequenceFunctor : Couple → Sequence) : Sequence :=
@@ -559,27 +671,71 @@ def motivicSequence (c : Couple) (sequenceFunctor : Couple → Sequence) : Seque
 
 variable (Page : Sequence → ℕ → ℤ → ℤ → Type v)
     [∀ s r a b, AddCommGroup (Page s r a b)]
-    (HM : ℤ → ℤ → Type v) [∀ a j, AddCommGroup (HM a j)]
-    (K : ℤ → Type v) [∀ m, AddCommGroup (K m)]
+    (d : ∀ s r a b, Page s r a b →+ Page s r (a+r) (b-r+1))
+    (HM : Scheme → ℤ → ℤ → Type v) [∀ X a j, AddCommGroup (HM X a j)]
+    (K : Scheme → ℤ → Type v) [∀ X m, AddCommGroup (K X m)]
 
-theorem motivicSequence_pageTwo (c : Couple) (f : Couple → Sequence) (a b : ℤ) :
-    Nonempty (Page (motivicSequence c f) 2 a b ≃+ HM (a-b) (-b)) := by sorry
+theorem motivicSequence_pageTwo (X : Scheme) (c : Couple) (f : Couple → Sequence)
+    (cycleIdentification : ∀ a b,
+      Page (motivicSequence c f) 2 a b ≃+ HM X (a-b) (-b)) (a b : ℤ) :
+    Nonempty (Page (motivicSequence c f) 2 a b ≃+ HM X (a-b) (-b)) :=
+  ⟨cycleIdentification a b⟩
 
 theorem motivicSequence_abutment (c : Couple) (f : Couple → Sequence) (a b : ℤ)
     (gradedK : ℤ → ℤ → Type v) [∀ m p, AddCommGroup (gradedK m p)]
-    (pageInfinity : ℤ → ℤ → Type v) [∀ a b, AddCommGroup (pageInfinity a b)] :
-    Nonempty (pageInfinity a b ≃+ gradedK (-a-b) (-b)) := by sorry
+    (pageInfinity : Sequence → ℤ → ℤ → Type v) [∀ s a b, AddCommGroup (pageInfinity s a b)]
+    (convergence : ∀ a b, pageInfinity (motivicSequence c f) a b ≃+ gradedK (-a-b) (-b)) :
+    Nonempty (pageInfinity (motivicSequence c f) a b ≃+ gradedK (-a-b) (-b)) := ⟨convergence a b⟩
 
-theorem motivicSequence_pullback (Xseq Yseq : Sequence)
-    (pullback : ∀ r a b, Page Xseq r a b →+ Page Yseq r a b) :
-    Nonempty (Page Xseq 2 0 (-1) →+ Page Yseq 2 0 (-1)) := by sorry
+theorem motivicSequence_pullback (X Y : Scheme) (Xseq Yseq : Sequence)
+    (pullback : PageMap Page d Xseq Yseq)
+    (cycleX : ∀ a b, Page Xseq 2 a b ≃+ HM X (a-b) (-b))
+    (cycleY : ∀ a b, Page Yseq 2 a b ≃+ HM Y (a-b) (-b))
+    (cyclePullback : ∀ q j, HM X q j →+ HM Y q j)
+    (cycle_naturality : ∀ a b,
+      (cycleY a b).toAddMonoidHom.comp (pullback.map 2 a b) =
+        (cyclePullback (a-b) (-b)).comp (cycleX a b).toAddMonoidHom)
+    (r : ℕ) (a b : ℤ) :
+    (d Yseq r a b).comp (pullback.map r a b) =
+      (pullback.map r (a+r) (b-r+1)).comp (d Xseq r a b) ∧
+    (cycleY a b).toAddMonoidHom.comp (pullback.map 2 a b) =
+      (cyclePullback (a-b) (-b)).comp (cycleX a b).toAddMonoidHom :=
+  ⟨pullback.differential_commutes r a b, cycle_naturality a b⟩
+
+/-- Identity/composition are supplied by the same H.6 functor on tower maps. -/
+theorem motivicSequence_pullback_id_comp (X Y Z : Sequence)
+    (idMap : ∀ S, PageMap Page d S S)
+    (pullXY : PageMap Page d X Y) (pullYZ : PageMap Page d Y Z)
+    (pullXZ : PageMap Page d X Z)
+    (hid : ∀ r a b, (idMap X).map r a b = AddMonoidHom.id _)
+    (hcomp : ∀ r a b, pullXZ.map r a b =
+      (pullYZ.map r a b).comp (pullXY.map r a b)) (r : ℕ) (a b : ℤ) :
+    (idMap X).map r a b = AddMonoidHom.id _ ∧
+      pullXZ.map r a b = (pullYZ.map r a b).comp (pullXY.map r a b) :=
+  ⟨hid r a b, hcomp r a b⟩
+
+variable (fieldScheme : (F : Type u) → [Field F] → Scheme)
+    (fieldSequence : (F : Type u) → [Field F] → Sequence)
 
 -- motivicSequence_test_field_diagonal
-example {F : Type u} [Field F] (j : ℕ) : Nonempty (HM j j ≃+ Milnor F j) := by sorry
+example {F : Type u} [Field F] (j : ℕ)
+    (cycleE2 : Page (fieldSequence F) 2 0 (-(j : ℤ)) ≃+
+      HM (fieldScheme F) j j)
+    (fieldDiagonal : HM (fieldScheme F) j j ≃+ Milnor F j) :
+    Nonempty (Page (fieldSequence F) 2 0 (-(j : ℤ)) ≃+ Milnor F j) :=
+  ⟨cycleE2.trans fieldDiagonal⟩
 -- motivicSequence_test_weight_zero
-example : Nonempty (HM 0 0 ≃+ ℤ) := by sorry
+example {F : Type u} [Field F]
+    (cycleE2 : Page (fieldSequence F) 2 0 0 ≃+ HM (fieldScheme F) 0 0)
+    (constantCycles : HM (fieldScheme F) 0 0 ≃+ ℤ) :
+    Nonempty (Page (fieldSequence F) 2 0 0 ≃+ ℤ) := ⟨cycleE2.trans constantCycles⟩
 -- motivicSequence_test_finite_field: q=3,j=1 has K₁=Z/2.
-example : Nonempty (K 1 ≃+ ZMod 2) := by sorry
+example {F : Type u} [Field F] [Fintype F] (hcard : Fintype.card F = 3)
+    (quillenKOne : K (fieldScheme F) 1 ≃+ Additive Fˣ)
+    (finiteFieldUnits : Additive Fˣ ≃+ ZMod (Fintype.card F - 1)) :
+    Nonempty (K (fieldScheme F) 1 ≃+ ZMod (Fintype.card F - 1)) ∧
+      Fintype.card F - 1 = 2 :=
+  ⟨⟨quillenKOne.trans finiteFieldUnits⟩, by omega⟩
 
 theorem motivic_strong_convergence (tower : ℕ → Spectrum) (d m p : ℕ)
     (hp : d+m < p) (x : π m (tower p)) : x = 0 := by sorry
@@ -588,14 +744,42 @@ theorem filtered_motivic_products (tower : ℕ → Spectrum)
     (Smash : Spectrum → Spectrum → Spectrum) (Hom : Spectrum → Spectrum → Type v)
     (p q : ℕ) : Nonempty (Hom (Smash (tower p) (tower q)) (tower (p+q))) := by sorry
 
-theorem filtered_adams_operations (s : Sequence) (k j : ℕ) (a : ℤ)
-    (ψ : Page s 2 a (-(j : ℤ)) →+ Page s 2 a (-(j : ℤ)))
-    (x : Page s 2 a (-(j : ℤ))) : ψ x = (k ^ j) • x := by sorry
+theorem filtered_adams_operations {Spectra : Type u} [Category.{w} Spectra] {KX : Spectra}
+    (tower : AugmentedTower Spectra KX) (X : Scheme) (s : Sequence)
+    (adams : ℕ → TowerEndomorphism tower)
+    (schemeAdams : ℕ → (KX ⟶ KX))
+    (augmentation_action : ∀ k, 2 ≤ k → (adams k).baseMap = schemeAdams k)
+    (spectralAction : TowerEndomorphism tower → PageMap Page d s s)
+    (cycleAction : ∀ k q j, HM X q j →+ HM X q j)
+    (cycleIdentification : ∀ a b, Page s 2 a b ≃+ HM X (a-b) (-b))
+    (action_naturality : ∀ k a b,
+      (cycleIdentification a b).toAddMonoidHom.comp ((spectralAction (adams k)).map 2 a b) =
+        (cycleAction k (a-b) (-b)).comp (cycleIdentification a b).toAddMonoidHom)
+    (cycle_weight : ∀ (k j : ℕ) (q : ℤ), 2 ≤ k → ∀ x : HM X q j,
+      cycleAction k q j x = k^j • x)
+    (k j : ℕ) (hk : 2 ≤ k) (a : ℤ) (x : Page s 2 a (-(j : ℤ))) :
+    (spectralAction (adams k)).map 2 a (-(j : ℤ)) x = k^j • x ∧
+      (adams k).baseMap = schemeAdams k ∧
+      ∀ r a b, (d s r a b).comp ((spectralAction (adams k)).map r a b) =
+        ((spectralAction (adams k)).map r (a+r) (b-r+1)).comp (d s r a b) := by sorry
 
-theorem rational_motivic_degeneration (s : Sequence) (r : ℕ) (hr : 2 ≤ r)
-    [∀ a b, Module ℚ (Page s r a b)]
-    (dr : ∀ a b, Page s r a b →+ Page s r (a+r) (b-r+1)) (a b : ℤ) :
-    dr a b = 0 := by sorry
+/-- Equivariance forces distinct scalar weights 2^j and 2^(j+r−1) on the
+same image. This applies to the actual rational differential, not an arbitrary map. -/
+theorem rational_motivic_degeneration (QPage : ℕ → ℕ → ℤ → Type v)
+    [∀ r j m, AddCommGroup (QPage r j m)] [∀ r j m, Module ℚ (QPage r j m)]
+    (dr : ∀ r j m, QPage r j m →ₗ[ℚ] QPage r (j+r-1) (m-1))
+    (adamsPages : RationalAdamsPages QPage dr) (r : ℕ) (hr : 2 ≤ r) (j : ℕ) (m : ℤ) :
+    dr r j m = 0 := by
+  ext x
+  have commute := LinearMap.congr_fun
+    (adamsPages.differential_commutes 2 r j m (by omega) hr) x
+  simp only [LinearMap.comp_apply, adamsPages.weight 2 r j m (by omega) hr,
+    adamsPages.weight 2 r (j+r-1) (m-1) (by omega) hr, map_smul, Nat.cast_ofNat] at commute
+  have different : (2 : ℚ)^j ≠ (2 : ℚ)^(j+r-1) :=
+    ne_of_lt (pow_lt_pow_right₀ (by norm_num) (by omega))
+  have annihilates : ((2 : ℚ)^j - (2 : ℚ)^(j+r-1)) • dr r j m x = 0 := by
+    rw [sub_smul, commute, sub_self]
+  exact (smul_eq_zero.mp annihilates).resolve_left (sub_ne_zero.mpr different)
 
 variable (Kweight : ℕ → ℕ → Type v) [∀ m j, AddCommGroup (Kweight m j)]
     [∀ m j, Module ℚ (Kweight m j)] (HMQ : ℤ → ℕ → Type v)
@@ -785,6 +969,13 @@ variable (K : ℕ → Type u) [∀ n, AddCommGroup (K n)] [∀ n, Module ℚ (K 
 /-- Rational total character; K₀ uses Newton polynomials rather than additive c_i. -/
 def motivicChern (i n : ℕ) : K n →ₗ[ℚ] H (2*(i : ℤ)-n) i := sorry
 
+/-- S.6's simultaneous rational Adams eigenspace, as an explicit carrier stand-in. -/
+def adamsWeightSpace (ψ : ∀ (_k m : ℕ), K m →ₗ[ℚ] K m) (m j : ℕ) : Submodule ℚ (K m) where
+  carrier := {x | ∀ k, 2 ≤ k → ψ k m x = (k : ℚ)^j • x}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
 theorem motivicChern_positive (i n : ℕ) (hi : 1 ≤ i) (hn : 1 ≤ n)
     (rationalChern : K n →+ H (2*(i : ℤ)-n) i) (x : K n) :
     (Nat.factorial (i-1) : ℚ) • motivicChern K H i n x =
@@ -798,10 +989,19 @@ theorem motivicChern_product (m n i : ℕ) (x : K m) (y : K n)
       ∑ a ∈ Finset.range (i+1), cup a (i-a)
         (motivicChern K H a m x) (motivicChern K H (i-a) n y) := by sorry
 
-theorem motivicChern_weight (m j i : ℕ) (x : K m)
-    (weightComparison : K m →ₗ[ℚ] H (2*(j : ℤ)-m) j) :
-    motivicChern K H j m x = weightComparison x ∧
-      (i ≠ j → motivicChern K H i m x = 0) := by sorry
+/-- The independent M.6 comparison is normalized on the actual cycle generators.
+Linearity extends that normalization to the eigenspace; equivariance kills other weights. -/
+theorem motivicChern_weight (ψ : ∀ (_k m : ℕ), K m →ₗ[ℚ] K m)
+    (chernAdams : ∀ k m i, 2 ≤ k → ∀ x : K m,
+      motivicChern K H i m (ψ k m x) = (k : ℚ)^i • motivicChern K H i m x)
+    (m j i : ℕ) (x : adamsWeightSpace K ψ m j)
+    (weightComparison : adamsWeightSpace K ψ m j ≃ₗ[ℚ] H (2*(j : ℤ)-m) j)
+    {CycleGenerators : Type w} (generators : CycleGenerators → adamsWeightSpace K ψ m j)
+    (span_generators : Submodule.span ℚ (Set.range generators) = ⊤)
+    (generator_normalization : ∀ g,
+      motivicChern K H j m (generators g).1 = weightComparison (generators g)) :
+    motivicChern K H j m x.1 = weightComparison x ∧
+      (i ≠ j → motivicChern K H i m x.1 = 0) := by sorry
 
 -- motivicChern_test_rank
 example (rank : K 0 →ₗ[ℚ] H 0 0) : motivicChern K H 0 0 = rank := by sorry
@@ -919,6 +1119,29 @@ theorem tate_elliptic_realization_dictionary (q : ℚ) (hq : q ≠ 0) (a : ℚ) 
     (∀ T, ellipticEuler T = 1-a*q^(-j)*T+q^(1-2*j)*T^2) := by sorry
 end RealizationDictionary
 
+/-- The H.6 coefficient-product and M.1 unit/Bott inputs at each cyclotomic
+extension A_n, with degree recorded. No unital Moore product at excluded levels
+is assumed: the supplier uses admissible cofinal levels and coefficient reduction. -/
+structure UnitBottModel (ExtK : ℕ → ℕ → Type u) where
+  unit : ∀ n, ExtK n 1
+  bott : ∀ n, ExtK n 2
+  one : ∀ n, ExtK n 0
+  product : ∀ n a b, ExtK n a → ExtK n b → ExtK n (a+b)
+  unit_product_one : ∀ n, product n 1 0 (unit n) (one n) = unit n
+  one_product_bott : ∀ n, product n 0 2 (one n) (bott n) = bott n
+
+def bottPower {ExtK : ℕ → ℕ → Type u} (model : UnitBottModel ExtK) (n : ℕ) :
+    (t : ℕ) → ExtK n (2*t)
+  | 0 => model.one n
+  | t+1 => by
+      simpa only [Nat.mul_add, Nat.mul_one] using
+        model.product n (2*t) 2 (bottPower model n t) (model.bott n)
+
+def unitBottClass {ExtK : ℕ → ℕ → Type u} (model : UnitBottModel ExtK)
+    (i n : ℕ) (hi : 1 ≤ i) : ExtK n (2*i-1) := by
+  have degree : 1 + 2*(i-1) = 2*i-1 := by omega
+  exact degree ▸ model.product n 1 (2*(i-1)) (model.unit n) (bottPower model n (i-1))
+
 section NormFamilies
 variable (K : ℕ → Type u) [∀ n, AddCommGroup (K n)]
     (transition : ∀ n, K (n+1) →+ K n)
@@ -939,29 +1162,76 @@ theorem normFamilies_regulator (H : ℕ → Type v) [∀ n, AddCommGroup (H n)]
     (x : normFamilies K transition) (n : ℕ) :
     corestriction n (reg (n+1) (x.1 (n+1))) = reg n (x.1 n) := by sorry
 
-/-- The particular unit/Bott norm family, with compatibility supplied by the
-projection formula. K n here is the coefficient-level group in K-degree 2i−1. -/
-def souleFamily (unitBottPower : ∀ n, K n) (norm : ∀ n, K n →+ K n)
-    (hcompat : ∀ n, transition n (norm (n+1) (unitBottPower (n+1))) =
-      norm n (unitBottPower n)) : normFamilies K transition :=
-  ⟨fun n ↦ norm n (unitBottPower n), hcompat⟩
+end NormFamilies
 
-theorem normFamilies_soule (i n : ℕ) (_hi : 1 ≤ i)
-    (unitBottPower : ∀ n, K n) (norm : ∀ n, K n →+ K n)
-    (hcompat : ∀ n, transition n (norm (n+1) (unitBottPower (n+1))) =
-      norm n (unitBottPower n)) :
-    (souleFamily K transition unitBottPower norm hcompat).1 n =
-      norm n (unitBottPower n) := by rfl
+section SouleFamilies
+variable (ExtK BaseK : ℕ → ℕ → Type u)
+    [∀ n d, AddCommGroup (ExtK n d)] [∀ n d, AddCommGroup (BaseK n d)]
+    (model : UnitBottModel ExtK)
+    (normToBase : ∀ n d, ExtK n d →+ BaseK n d)
+    (baseReduce : ∀ n d, BaseK (n+1) d →+ BaseK n d)
+    (extensionTransition : ∀ n d, ExtK (n+1) d →+ ExtK n d)
+    (transfer_square : ∀ n d,
+      (baseReduce n d).comp (normToBase (n+1) d) =
+        (normToBase n d).comp (extensionTransition n d))
+    (unit_norm : ∀ n, extensionTransition n 1 (model.unit (n+1)) = model.unit n)
+    (projection_formula : ∀ n t (u : ExtK (n+1) 1),
+      extensionTransition n (1+2*t)
+        (model.product (n+1) 1 (2*t) u (bottPower model (n+1) t)) =
+      model.product n 1 (2*t) (extensionTransition n 1 u) (bottPower model n t))
+
+/-- Soulé §4.3: the output lives over the FIXED base A=O_F[1/p].
+Extension transition is norm after reduction; base transition is only reduction.
+The source treats i≥2. Exponent zero also gives the elementary i=1 unit family. -/
+def souleFamily (i : ℕ) (hi : 1 ≤ i) :
+    normFamilies (fun n ↦ BaseK n (2*i-1)) (fun n ↦ baseReduce n (2*i-1)) :=
+  ⟨fun n ↦ normToBase n (2*i-1) (unitBottClass model i n hi), by
+    -- Use transfer_square, projection_formula and unit_norm on the actual product.
+    have transfer := transfer_square
+    have units := unit_norm
+    have products := projection_formula
+    sorry⟩
+
+theorem normFamilies_soule (i n : ℕ) (hi : 1 ≤ i) :
+    (souleFamily ExtK BaseK model normToBase baseReduce extensionTransition
+      transfer_square unit_norm projection_formula i hi).1 n =
+      normToBase n (2*i-1) (unitBottClass model i n hi) := rfl
 
 -- normFamilies_test_constant
 example {A : Type v} [AddCommGroup A] :
     Nonempty (normFamilies (fun _ ↦ A) (fun _ ↦ AddMonoidHom.id A) ≃+ A) := by sorry
 -- normFamilies_test_degree
-example : 2*1-1 = (1 : ℕ) ∧ 2*2-1 = (3 : ℕ) := by sorry
--- normFamilies_test_transfer: actual transition compatibility, not restriction.
-example (H : ℕ → Type v) [∀ n, AddCommGroup (H n)]
-    (corestriction : ∀ n, H (n+1) →+ H n) (reg : ∀ n, K n →+ H n) (n : ℕ) :
-    (reg n).comp (transition n) = (corestriction n).comp (reg (n+1)) := by sorry
+example (n : ℕ) :
+    (souleFamily ExtK BaseK model normToBase baseReduce extensionTransition
+      transfer_square unit_norm projection_formula 1 (by omega)).1 n =
+      normToBase n 1 (model.unit n) ∧
+    (souleFamily ExtK BaseK model normToBase baseReduce extensionTransition
+      transfer_square unit_norm projection_formula 2 (by omega)).1 n =
+      normToBase n 3 (model.product n 1 2 (model.unit n) (model.bott n)) := by sorry
+-- normFamilies_test_transfer: the actual extension-to-base norm/corestriction square.
+example (ExtH BaseH : ℕ → Type v)
+    [∀ n, AddCommGroup (ExtH n)] [∀ n, AddCommGroup (BaseH n)] (i : ℕ) (hi : 1 ≤ i)
+    (corestrictionToBase : ∀ n, ExtH n →+ BaseH n)
+    (regExtension : ∀ n, ExtK n (2*i-1) →+ ExtH n)
+    (regBase : ∀ n, BaseK n (2*i-1) →+ BaseH n)
+    (htransfer : ∀ n, (regBase n).comp (normToBase n (2*i-1)) =
+      (corestrictionToBase n).comp (regExtension n)) (n : ℕ) :
+    regBase n ((souleFamily ExtK BaseK model normToBase baseReduce extensionTransition
+      transfer_square unit_norm projection_formula i hi).1 n) =
+      corestrictionToBase n (regExtension n (unitBottClass model i n hi)) := by
+  exact congrArg (fun f : ExtK n (2*i-1) →+ BaseH n ↦ f (unitBottClass model i n hi))
+    (htransfer n)
+
+-- normFamilies_test_norm_not_restriction: actual degree-two field norm on a base unit.
+example : Algebra.norm ℝ ((algebraMap ℝ ℂ) 2) = 4 ∧
+    Algebra.norm ℝ ((algebraMap ℝ ℂ) 2) ≠ (2 : ℝ) := by
+  rw [Algebra.norm_algebraMap]
+  norm_num [Complex.finrank_real_complex]
+end SouleFamilies
+
+section NormFamilies
+variable (K : ℕ → Type u) [∀ n, AddCommGroup (K n)]
+    (transition : ∀ n, K (n+1) →+ K n)
 
 theorem euler_factor_regulator_compatibility (H : ℕ → Type v) [∀ n, AddCommGroup (H n)]
     (corestriction : ∀ n, H (n+1) →+ H n) (reg : ∀ n, K n →+ H n)
@@ -980,12 +1250,19 @@ abbrev fundamentalLine (C : Cpx) := detInv C
 
 theorem fundamentalLine_baseChange (C : Cpx)
     (S : Type v) [CommRing S] [Algebra R S]
-    (baseChangedLine : Type w) [AddCommGroup baseChangedLine] [Module S baseChangedLine] :
-    Nonempty ((S ⊗[R] fundamentalLine detInv C) ≃ₗ[S] baseChangedLine) := by sorry
+    {CpxS : Type u} (baseChange : Cpx → CpxS)
+    (detInvS : CpxS → Type w) [∀ D, AddCommGroup (detInvS D)] [∀ D, Module S (detInvS D)]
+    (detBaseChange : ∀ D, (S ⊗[R] detInv D) ≃ₗ[S] detInvS (baseChange D)) :
+    Nonempty ((S ⊗[R] fundamentalLine detInv C) ≃ₗ[S] detInvS (baseChange C)) :=
+  ⟨detBaseChange C⟩
 
-theorem fundamentalLine_triangle (A B C : Cpx) :
+theorem fundamentalLine_triangle (Triangle : Cpx → Cpx → Cpx → Type u)
+    (detTriangle : ∀ A B C, Triangle A B C →
+      detInv B ≃ₗ[R] (detInv A ⊗[R] detInv C))
+    (A B C : Cpx) (triangle : Triangle A B C) :
     Nonempty (fundamentalLine detInv B ≃ₗ[R]
-      (fundamentalLine detInv A ⊗[R] fundamentalLine detInv C)) := by sorry
+      (fundamentalLine detInv A ⊗[R] fundamentalLine detInv C)) :=
+  ⟨detTriangle A B C triangle⟩
 
 theorem fundamentalLine_basis (C : Cpx) (z : fundamentalLine detInv C)
     (multiply : R →ₗ[R] fundamentalLine detInv C) (hm : ∀ a, multiply a = a • z) :
@@ -993,10 +1270,13 @@ theorem fundamentalLine_basis (C : Cpx) (z : fundamentalLine detInv C)
       ∃ e : R ≃ₗ[R] fundamentalLine detInv C, ∀ a, e a = a • z := by sorry
 
 -- fundamentalLine_test_zero
-example (zeroComplex : Cpx) : Nonempty (fundamentalLine detInv zeroComplex ≃ₗ[R] R) := by sorry
+example (zeroComplex : Cpx) (detZero : detInv zeroComplex ≃ₗ[R] R) :
+    Nonempty (fundamentalLine detInv zeroComplex ≃ₗ[R] R) := ⟨detZero⟩
 -- fundamentalLine_test_shift
-example (C shiftedC : Cpx) :
-    Nonempty (fundamentalLine detInv shiftedC ≃ₗ[R] Module.Dual R (fundamentalLine detInv C)) := by sorry
+example (shift : Cpx → Cpx)
+    (detShift : ∀ C, detInv (shift C) ≃ₗ[R] Module.Dual R (detInv C)) (C : Cpx) :
+    Nonempty (fundamentalLine detInv (shift C) ≃ₗ[R] Module.Dual R (fundamentalLine detInv C)) :=
+  ⟨detShift C⟩
 -- fundamentalLine_test_nonunit: p has become invertible over the fraction field only.
 example (p : ℕ) [Fact p.Prime] :
     IsUnit (p : ℚ_[p]) ∧ ¬ IsUnit (p : ℤ_[p]) := by sorry
@@ -1010,8 +1290,15 @@ theorem selmer_regulator_factorization {K Global Selmer : Type u}
 
 theorem regulator_determinant_comparison (C : Cpx)
     (Q : Type v) [Field Q] [Algebra R Q]
-    (periodLine : Type w) [AddCommGroup periodLine] [Module Q periodLine] :
-    Nonempty ((Q ⊗[R] fundamentalLine detInv C) ≃ₗ[Q] periodLine) := by sorry
+    (realizationLine periodLine : Type w)
+    [AddCommGroup realizationLine] [Module Q realizationLine]
+    [AddCommGroup periodLine] [Module Q periodLine]
+    (regulatorDet : (Q ⊗[R] fundamentalLine detInv C) →ₗ[Q] realizationLine)
+    (regulator_quasiIso : Function.Bijective regulatorDet)
+    (earlyPeriodComparison : realizationLine ≃ₗ[Q] periodLine) :
+    ∃ e : (Q ⊗[R] fundamentalLine detInv C) ≃ₗ[Q] periodLine,
+      e.toLinearMap = earlyPeriodComparison.toLinearMap.comp regulatorDet := by
+  exact ⟨(LinearEquiv.ofBijective regulatorDet regulator_quasiIso).trans earlyPeriodComparison, rfl⟩
 end FundamentalLines
 
 end TauCeti.MotivicEtale

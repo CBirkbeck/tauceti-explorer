@@ -1,0 +1,417 @@
+{
+ "id": "PotentialAutomorphyInfrastructurePartII",
+ "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: polarized automorphy lifting and finiteness of deformation rings",
+ "area": "automorphic",
+ "parent": "PotentialAutomorphyInfrastructure",
+ "summary": "This Part II of Reusable infrastructure for potential automorphy over CM fields adds the polarized theory. It plans automorphic forms on definite unitary groups and their spherical, Iwahori and ordinary Hecke algebras, Taylor–Wiles primes under adequacy, and the patching R = T theorems of Clozel–Harris–Taylor, Thorne and Geraghty. On these it builds the minimal, ordinary and potentially diagonalizable automorphy lifting and finiteness theorems of Thorne and Barnet-Lamb–Gee–Geraghty–Taylor, and the residually reducible lifting theorems of Thorne and Allen–Newton–Thorne. It also plans the vanishing of adjoint Bloch–Kato Selmer groups of unitary type (Newton–Thorne), and the integral R = T and generic-local-domain lifting theorems of Liu–Tian–Xiao–Zhang–Zhu and Le–Le Hung–Levin–Morra.",
+ "readme": "The definitive document is research/blueprint/readmes/PotentialAutomorphyInfrastructurePartII.md. It starts where PotentialAutomorphyInfrastructure stops. The parent follows Allen et al. (ACC+) and treats unpolarized representations through the cohomology of locally symmetric spaces. This roadmap treats polarized (conjugate self-dual) representations through algebraic modular forms on definite unitary groups. PL.0–PL.1 fix the automorphy and local vocabulary. PL.2–PL.3 build the definite unitary Hecke algebras, Taylor–Wiles primes and patching. PL.4–PL.5 prove the residually irreducible lifting theorems; PL.6–PL.7 the residually reducible ones. PL.8 plans adjoint Selmer vanishing and PL.9 the integral R = T theorems. Consumers: ModularityAndLanglandsExtensions ML.2 and ML.3, and the level-one change of weight of Boxer–Calegari–Gee. The independent review records needs_changes: the reader must be reconciled with the corrected packet in the next revision, whose allowed deliverables must include it.",
+ "prerequisites": [
+  "PotentialAutomorphyInfrastructure",
+  "AdelicAlgebraicGroups",
+  "ArithmeticGaloisDuality",
+  "ArithmeticGaloisRepresentations",
+  "AutomorphicFormsOnReductiveGroups",
+  "AutomorphicGaloisRepresentationsPartII",
+  "DeformationAndDerivedPatchingAlgebra",
+  "EndoscopicTransferAndUnitaryTraceComparison",
+  "GlobalGaloisDeformations",
+  "IntegralHeckeAndGaloisDeterminants",
+  "LocalGaloisDeformationRings",
+  "PadicFamilies",
+  "PadicHodgeTheory",
+  "PotentialModularityAndCompatibleSystems",
+  "SelmerIwasawaCohomology",
+  "tauceti:TauCetiRoadmap/Chebotarev",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "InverseGaloisAndArithmeticFundamentalGroups"
+ ],
+ "stages": [
+  {
+   "key": "PL.0",
+   "title": "Polarized automorphy: ordinarity, twisting and soluble descent",
+   "description": "**Objects.** For a CM or totally real field F with maximal totally real subfield F⁺, a prime l and ι : Q̄_l ≅ ℂ: (i) a continuous ρ : G_F → GL_n(Q̄_l) is *ordinary of weight λ* ∈ (ℤⁿ₊)^{Hom(F,Q̄_l)} if for every v | l, ρ|G_{F_v} is conjugate to an upper triangular representation with diagonal characters ψ_{v,1}, …, ψ_{v,n} such that x ↦ ψ_{v,i}(Art_{F_v}(x)) ∏_τ τ(x)^{λ_{τ,n−i+1}+i−1} has finite order on O_{F_v}^× (Thorne 2015, Definition 2.5); with the ss- and cr-ordinary refinements of BLGGT14 §1.4. (ii) A regular algebraic polarized cuspidal (π, χ) of weight a is *ι-ordinary* if at every v | l some Iwahori level Iw(v^{b,b}) of ι⁻¹π_v has a nonzero ordinary part for the rescaled operators U^{(j)}_{ι*a,ϖ_v} (BLGGT14 §2.1), equivalently π_v is a subquotient of a normalized induction of characters with prescribed valuations (Thorne 2015, Lemma 2.3). (iii) A polarized l-adic representation (r, µ) is *automorphic*, *of level prime to l*, *ordinarily automorphic* or *potentially diagonalizably automorphic* when (r, µ) ≅ (r_{l,ι}(π), ε_l^{1−n} r_{l,ι}(χ)) for a regular algebraic cuspidal polarized (π, χ) with the corresponding property (BLGGT14 §2.1).\n\n**Theorems.** ι-ordinary implies ordinary of weight ιλ (Thorne 2015, Corollary 2.6); ordinary with level potentially prime to l implies ι-ordinary (BLGGT14 §2.1(7)); weight zero and Steinberg at every place above p implies ι-ordinary (Newton–Thorne 2026, Lemma 2.6); a two-term regular algebraic isobaric sum is ι-ordinary exactly when its shifted summands are ordinary and its infinity-type interleaving depends only on the coefficient-prime place (Clozel–Thorne 2014, Lemma 2.6); automorphy is invariant under algebraic twists (BLGGT14 Lemma 2.2.1), descends along soluble CM or totally real extensions when r|G_M is irreducible (Lemma 2.2.2), and descends from Ind_{G_M}^{G_F} r for M/F soluble (Lemma 2.2.4); the auxiliary fields and characters of BLGGT14 Appendix A.2 (Lemma A.2.1, Corollary A.2.3, Lemma A.2.5).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.6",
+    "AutomorphicGaloisRepresentationsPartII:AG2.7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "PadicHodgeTheory:R06.2",
+    "PotentialModularityAndCompatibleSystems:R23.1",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+    "ArithmeticGaloisRepresentations:R01.5",
+    "ArithmeticGaloisRepresentations:G7"
+   ]
+  },
+  {
+   "key": "PL.1",
+   "title": "Connecting local lifts and potential diagonalizability",
+   "description": "**Objects.** For K/Q_p finite and continuous ρ₁, ρ₂ : G_K → GL_n(O_{Q̄_l}): the relation *ρ₁ connects to ρ₂* (ρ₁ ∼ ρ₂): equal reductions and points on a common irreducible component of Spec(R^□_{ρ̄₁} ⊗ Q̄_l) when l ≠ p, of the potentially crystalline lifting ring with the common labelled Hodge–Tate weights when l = p; *strong connection* ρ₁ ⇝ ρ₂ (moreover a unique component); *diagonalizable* (crystalline and connected to a sum of crystalline characters) and *potentially diagonalizable* (diagonalizable after a finite extension) representations (BLGGT14 §§1.3–1.4).\n\n**Theorems.** The listed properties of ∼ and ⇝ (BLGGT14 §1.3 remarks (1)–(12), Lemmas 1.3.4, 1.3.5; §1.4 remarks (1)–(7)), including equality of (r|_{I_K}, N) under mutual strong connection and strong connection from H⁰(G_K, (ad ρ₁)(1)) = 0; generic smooth representations and the density of robustly smooth points (Lemma 1.3.2); potential diagonalizability of representations with an invariant full flag with crystalline graded pieces after restriction, and of Fontaine–Laffaille representations (Lemma 1.4.3); of potentially Barsotti–Tate representations of dimension two at l>2 in the read Gee–Kisin argument (Gee–Kisin, Lemma 4.4.1); stability of potential diagonalizability under restriction, direct sums, tensor products and symmetric powers.\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisRepresentations:G7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "GlobalGaloisDeformations:R04.3",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.2",
+    "LocalGaloisDeformationRings:R08.3",
+    "LocalGaloisDeformationRings:R08.4",
+    "PadicHodgeTheory:R06.2"
+   ]
+  },
+  {
+   "key": "PL.2",
+   "title": "Definite unitary groups, algebraic modular forms and their Hecke algebras",
+   "description": "**Objects.** For an imaginary CM field L with L/L⁺ unramified at all finite places and 4 | n[L⁺ : ℚ]: the definite unitary group G/O_{L⁺} quasi-split at every finite place and isomorphic to U_n(ℝ) at every infinite place, with ι_w : G(O_{L⁺_v}) ≅ GL_n(O_{L_w}) at split v = ww^c (Clozel–Harris–Taylor §3.3, as in Thorne 2012 §6); the spaces S_{λ,{χ_v}}(U, A) of algebraic modular forms with integral weight-λ coefficients and characters χ_v at Iwahori places, specializing AutomorphicFormsOnReductiveGroups:AF.5; the Hecke operators T_w^j and the Hecke algebras T^T_{λ,{χ_v}}(U, O); Iwahori levels Iw(ṽ^{b,c}) at l, the rescaled operators U^j_{λ,ϖ_ṽ}, the ordinary idempotent and the big ordinary Hecke algebra T^{T,ord}(U(l^∞), O) over Λ = O⟦T(l)⟧ (Geraghty, as in Thorne 2012 §8 and Allen–Newton–Thorne §§4.1–4.2); Taylor–Wiles levels U₁(Q) ⊂ U₀(Q).\n\n**Theorems.** Exactness of A ↦ S(U, A) and freeness of S(V, O) over O[U/V] for l-torsion-free stabilizers (Thorne 2012, Lemmas 6.3–6.4); Galois representations attached to constituents (Theorem 6.5); the 𝒢_n-valued Hecke-algebra Galois representation r_m of type 𝒮 at a non-Eisenstein m (Propositions 6.6–6.7, 8.4–8.5); freeness of ordinary forms over Λ (Proposition 8.2, Newton–Thorne 2021 Proposition 6.5) and Hida classicality; base change and descent between G and GL_n (Labesse; Clozel–Thorne 2014 Proposition 2.9; a Hecke-algebra point is automorphic, Geraghty Lemma 2.25 with Labesse Corollaire 5.3).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "AdelicAlgebraicGroups:AA.0",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicFormsOnReductiveGroups:AF.5",
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.6",
+    "AutomorphicGaloisRepresentationsPartII:AG2.7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "GlobalGaloisDeformations:R04.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:L8",
+    "PadicFamilies:L0a"
+   ]
+  },
+  {
+   "key": "PL.3",
+   "title": "Taylor–Wiles primes under adequacy and the patching R = T theorems",
+   "description": "**Objects.** For a polarized global deformation problem 𝒮 = (F/F⁺, S, S̃, O, r̄, χ, {D_v}) of GlobalGaloisDeformations:G7: the Taylor–Wiles data (Q, Q̃, {ψ̄_v}) of Thorne 2012 Definition 4.1, with the local problems D_v of lifts 1 + M_n(m_R)-conjugate to s_v ⊕ ψ_v with s_v unramified and inertia acting through scalars on ψ_v (Lemma 4.2).\n\n**Theorems.** Existence of Taylor–Wiles data of level N with #Q = q and the generator count over R^loc when r̄(G_{F⁺(ζ_l)}) is adequate (Thorne 2012, Proposition 4.4), and in the corrected form needed when F ⊂ F⁺(ζ_l): ζ_l ∉ F and ρ̄(G_{F(ζ_l)}) adequate in the sense of Guralnick–Herzig–Tiep (Thorne 2017, Proposition 7.1; at p = 2 and F = F⁺(√−1), Proposition 2.21); the patching theorems: r_m is of type 𝒮 and any lift of type 𝒮 whose local components lie on the components of a Hecke point comes from T_m (Thorne 2012, Theorem 6.8, Corollary 6.9); the ordinary version with Taylor's Ihara avoidance over Λ (Theorem 8.6, Corollary 8.7); and both with the revised adequacy (Thorne 2017, Proposition 7.2).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.1",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "ArithmeticGaloisDuality:R02.4",
+    "ArithmeticGaloisRepresentations:G7",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.3",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.2",
+    "LocalGaloisDeformationRings:R08.3",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+   ]
+  },
+  {
+   "key": "PL.4",
+   "title": "Minimal and ordinary automorphy lifting and finiteness with adequate image",
+   "description": "**Theorems.** Minimal automorphy lifting for (ρ, µ) polarized with ρ̄ absolutely irreducible, ρ̄(G_{F(ζ_l)}) adequate, ζ_l ∉ F and a RAECSDC (π, χ) with matching residual representation and local components connected at every finite place (Thorne 2012, Theorem 7.1 = BLGGT14 Theorem 2.3.1; Thorne 2017 Corollary 7.3); automorphy lifting at every prime p, including p = 2 and p | n, with adequacy in the sense of Thorne 2017 Definition 2.20 and strong residual oddness when p = 2 and n is even (Thorne 2017, Theorem 5.1); the relaxation of Definition 2.20 to H¹(H, ad) = 0 (Boxer–Calegari–Gee); ordinary automorphy lifting over CM or totally real fields with level prime to l for crystalline ρ (Thorne 2012 Theorem 9.1 = BLGGT14 Theorem 2.4.1); finiteness of the universal ring for fixed components (Thorne 2012 Theorem 10.1 = BLGGT14 Theorem 2.3.2) and for ss-ordinary local conditions (Theorem 10.2 = BLGGT14 Theorem 2.4.2); the Khare–Wintenberger passage from finiteness and Krull dimension at least one to a characteristic-zero lift.\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.1",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.3",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "DeformationAndDerivedPatchingAlgebra:R03.4",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.4",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1"
+   ]
+  },
+  {
+   "key": "PL.5",
+   "title": "Potential ordinary automorphy and potentially diagonalizable lifting",
+   "description": "**Theorems.** Potential ordinary automorphy of a symplectic mod l representation over a totally real field through the Dwork family and Moret-Bailly's theorem (BLGGT14 Theorem 3.1.2); ordinary crystalline lifts with prescribed local behaviour by the Khare–Wintenberger method (Proposition 3.2.1); Harris's tensor product trick: automorphy of a potentially diagonalizable (r, µ) congruent to an automorphic representation of level prime to l with potentially diagonalizable local components and Hodge–Tate regular tensor product (Proposition 4.1.1); automorphy lifting for potentially diagonalizable representations with r̄|G_{F(ζ_l)} irreducible and l ≥ 2(d + 1) (BLGGT14 Theorem 4.2.1), in the form used by Newton–Thorne, Clozel–Thorne and Boxer–Calegari–Gee.\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.1",
+    "PotentialAutomorphyInfrastructurePartII:PL.4",
+    "ArithmeticGaloisRepresentations:G7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "GlobalGaloisDeformations:R04.4",
+    "PotentialModularityAndCompatibleSystems:R23.1"
+   ]
+  },
+  {
+   "key": "PL.6",
+   "title": "Residually reducible deformation rings: Schur representations, pseudodeformations and generic primes",
+   "description": "**Objects.** Schur 𝒢_n-valued residual representations (Thorne 2015, Definition 3.2) and primitive representations; the pseudodeformation ring P_𝒮 ⊂ R^univ_𝒮 generated by characteristic polynomials (Thorne 2015, Definitions 3.25–3.27; Allen–Newton–Thorne Proposition 3.2); the ideal of reducibility and reducible deformations (Thorne 2015, Definition 3.31); generic primes of an ordinary deformation ring (Allen–Newton–Thorne, Definition 3.7); the connectedness dimension of a complete local ring (Thorne 2015, Definition 1.7).\n\n**Theorems.** Grothendieck's connectedness bound c(R/I) ≥ c(R) − r(I) − 1 (Thorne 2015, Proposition 1.8); sums of characters with large ratios are primitive (Newton–Thorne 2021, Lemma 5.1); finiteness of restriction of pseudodeformations (Lemma 5.3, Chenevier); the dimension bound for the reducible locus in the presence of Steinberg places (Allen–Newton–Thorne, Lemma 3.6); large quotients contain generic primes (Lemmas 3.8–3.9, Thorne 2015 Lemma 1.9); genericity is preserved under restriction to open subgroups (Thorne 2015, Proposition 5.3); the generic R_𝔭 = T_𝔭 theorem J·R^univ ⊂ Q, with J = ker(P_𝒮 → T_m), for every prime Q below a generic prime (Thorne 2015, Theorem 4.19, Corollary 4.20; Allen–Newton–Thorne, Theorem 4.1), with the twisting and soluble base change of Hecke algebras it uses (Thorne 2015, Lemmas 3.36, 3.38, 3.40, Proposition 4.18).\n\nSplit polarized deformation ideals (Tho15 Proposition 3.32) and determinant reducibility ideals (the product over partitions in ANT20) are distinct constructions; use the determinant ideal in prime and dimension criteria.\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.3",
+    "ArithmeticGaloisRepresentations:G7",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.1",
+    "GlobalGaloisDeformations:R04.2",
+    "GlobalGaloisDeformations:R04.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.2",
+    "AdelicAlgebraicGroups:AA.0",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+   ]
+  },
+  {
+   "key": "PL.7",
+   "title": "Residually reducible automorphy lifting",
+   "description": "**Theorems.** Finiteness over Λ of ordinary, locally Steinberg deformation rings of a Schur residual representation (Allen–Newton–Thorne, Theorem 6.2, with the weakening of Thorne 2024, Theorem 7.5, used by Newton–Thorne 2026); automorphy lifting for ordinary conjugate self-dual ρ with ρ̄^ss a sum of pairwise distinct absolutely irreducible conjugate self-dual constituents, primitive, with a Steinberg place and an ι-ordinary RACSDC seed (Allen–Newton–Thorne, Theorem 1.1 = 6.1; Thorne 2015, Theorem 7.1 for two adequate constituents); Newton–Thorne 2021 §5: finiteness of ordinary deformation rings of sums of characters (Theorem 5.2), ordinary lifts of every weight (Corollary 5.4, with source issue E4), the dimension bound of Corollary 5.5, smallness of the reducible locus (Proposition 5.6), generic primes in large quotients (Theorem 5.7), and automorphic lifts of prescribed type from residual automorphy over a soluble extension (Proposition 5.8, with Bellovin–Gee's Corollary 5.1.1 in the Schur form).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.4",
+    "PotentialAutomorphyInfrastructurePartII:PL.5",
+    "PotentialAutomorphyInfrastructurePartII:PL.6",
+    "ArithmeticGaloisRepresentations:G7",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.4",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.2",
+    "LocalGaloisDeformationRings:R08.3",
+    "AdelicAlgebraicGroups:AA.0",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+   ]
+  },
+  {
+   "key": "PL.8",
+   "title": "Adjoint Bloch–Kato Selmer groups and semistable pseudodeformation rings of unitary type",
+   "description": "**Objects.** Generic Weil–Deligne representations (no nonzero map (r, N) → (r(1), N); Newton–Thorne 2023, Definition 1.1, after Allen); the adjoint Bloch–Kato Selmer group H¹_f(F⁺, ad r) of a 𝒢_n-valued representation of G_{F⁺}; the conjugate self-dual semistable pseudodeformation ring R^{[a,b]}_{D,S} representing continuous group determinants lifting D̄ that admit a Cayley–Hamilton model whose finite quotients are subquotients of lattices in semistable representations with Hodge–Tate weights in [a, b] (Newton–Thorne 2023 §§2.3–2.4, after Wake–Wang-Erickson).\n\n**Theorems.** H¹_f = H¹_g at generic places above l and H¹_f = H¹ at generic places away from l (Allen, as used by Newton–Thorne 2021 §2.3.1); the comparison of the tangent space of R^{[a,b]}_{D,S} with H¹_f up to bounded torsion (Newton–Thorne 2023, Propositions 2.15–2.17); vanishing of the adjoint Bloch–Kato Selmer group of r_{π,ι} for π regular algebraic cuspidal of unitary type with enormous image over F(ζ_{p^∞}) (Newton–Thorne 2023, Theorem A = Theorem 4.1), and its consequence that the pseudodeformation ring is its residue field at the automorphic point; ordinary tangent vectors with trivial weight lie in H¹_g (Geraghty, Lemma 3.9, as used by Newton–Thorne 2021).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisRepresentations:G7",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.6",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.1",
+    "GlobalGaloisDeformations:R04.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.3",
+    "PadicHodgeTheory:R06.2",
+    "SelmerIwasawaCohomology:L2",
+    "SelmerIwasawaCohomology:L4",
+    "ArithmeticGaloisDuality:R02.2"
+   ]
+  },
+  {
+   "key": "PL.9",
+   "title": "Integral R = T for rigid residual representations and lifting from generic local domains",
+   "description": "**Objects.** A residual conjugate self-dual r̄ rigid for (Σ⁺_min, Σ⁺_lr): every lift at Σ⁺_min minimally ramified, the pair {‖v‖^{−N}, ‖v‖^{−N+2}} occurring exactly once among the generalized Frobenius eigenvalues at Σ⁺_lr, regular Fontaine–Laffaille at the places above ℓ and unramified elsewhere (Liu–Tian–Xiao–Zhang–Zhu, Definition 3.6.1).\n\n**Theorems.** The almost minimal R = T theorem: under (D1) ℓ ≥ 2(N + 1), (D2) absolute irreducibility over F(ζ_ℓ), (D3) rigidity and (D4) concentration of the localized cohomology of the unitary Shimura varieties in the middle degree, R^univ_𝒮 ≅ T_𝔪 is a local complete intersection and the middle cohomology is free over it (Liu–Tian–Xiao–Zhang–Zhu, Theorem 3.6.3); rigidity for almost all ℓ in the families they study (Corollary 4.1.2, Proposition 4.2.3(1), Theorem 4.2.6); modularity lifting for potentially crystalline r of polynomially generic tame type (λ + η, τ) with adequate residual image and a residually automorphic RACSDC seed of the same weight and K-type (Le–Le Hung–Levin–Morra, Theorem 9.2.1), and its change-of-weight relaxation (Remark 9.2.2).\n\nIndependent review: this target-level plan is partial; the packet coverage and review list its missing signatures and mathematical inputs.",
+   "requires": [
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.3",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+    "AutomorphicGaloisRepresentationsPartII:AG2.6",
+    "AutomorphicGaloisRepresentationsPartII:AG2.7",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "GlobalGaloisDeformations:G7",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.2",
+    "LocalGaloisDeformationRings:R08.3"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BLGGT14",
+   "title": "Potential automorphy and change of weight",
+   "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+   "edition": "Annals of Mathematics 179 (2014), 501–609; read in arXiv:1010.2561v4 (9 December 2013)",
+   "url": "https://arxiv.org/abs/1010.2561v4",
+   "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+   "readSections": [
+    "§1.1–1.5 (the group 𝒢_n, abstract deformation theory, local theory l ≠ p and l = p, global theory)",
+    "§2.1–2.4 (terminology, lemmas on automorphy, minimal and ordinary lifting)",
+    "§3.1–3.2 (statements of Proposition 3.1.1, Theorem 3.1.2, Proposition 3.2.1 and its proof)",
+    "§4.1–4.2 (Proposition 4.1.1 with proof, Theorem 4.2.1)",
+    "Appendix A.2 (Lemmas A.2.1–A.2.5)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "Tho12",
+   "title": "On the automorphy of l-adic Galois representations with small residual image",
+   "authors": "Jack Thorne",
+   "edition": "Journal of the Institute of Mathematics of Jussieu 11 (2012), 855–920; read in arXiv:1107.5989v1 (29 July 2011)",
+   "url": "https://arxiv.org/abs/1107.5989v1",
+   "sha256": "537af0053745f4206157c0441365218285624d95a25ae408149f287372d9ba55",
+   "readSections": [
+    "§1 (RAECSDC representations, Theorem 1.1, Lemma 1.2)",
+    "§2 (Definitions 2.1–2.3, Lemma 2.4)",
+    "§3 (Definitions 3.1–3.3, Theorems 3.10–3.11, Proposition 3.16, statements)",
+    "§4 (Definition 4.1, Lemmas 4.2–4.3, Proposition 4.4 with proof)",
+    "§6 (the definite unitary group, Definition 6.1, Proposition 6.2, Lemmas 6.3–6.4, Theorem 6.5, Propositions 6.6–6.7, Theorem 6.8)",
+    "§7 (Theorem 7.1)",
+    "§8 (Definitions 8.1–8.3, Propositions 8.2, 8.4–8.5, Theorem 8.6, Corollary 8.7)",
+    "§9 (Theorem 9.1)",
+    "§10 (Theorems 10.1, 10.2 and the proof of 10.1)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "Tho17",
+   "title": "A 2-adic automorphy lifting theorem for unitary groups over CM fields",
+   "authors": "Jack A. Thorne",
+   "edition": "Mathematische Zeitschrift 285 (2017), 1–38; read in the author's accepted manuscript dated 16 March 2016 (Apollo, University of Cambridge repository)",
+   "url": "https://www.repository.cam.ac.uk/handle/1810/254922",
+   "sha256": "f7b706eb2eb69354f5be3ce846193dc75f73ed46a7437eb54451b8f177af74c9",
+   "readSections": [
+    "§1 (Theorem 1.1)",
+    "§2.4 (Definitions 2.18, 2.20, Proposition 2.21)",
+    "§3 (Definitions 3.1, 3.3, Theorem 3.2, Lemma 3.4)",
+    "§5 (Theorem 5.1 and the start of its proof)",
+    "§7 (the erratum to Tho12: Propositions 7.1, 7.2, Corollary 7.3)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "Tho15",
+   "title": "Automorphy lifting for residually reducible l-adic Galois representations",
+   "authors": "Jack A. Thorne",
+   "edition": "Journal of the American Mathematical Society 28 (2015), 785–870; read in the author's accepted manuscript dated 16 April 2014 (Apollo, University of Cambridge repository)",
+   "url": "https://www.repository.cam.ac.uk/items/2796d161-598e-44da-83fd-2015c26f1dbc",
+   "sha256": "76393fcb9a31931789fa4f7c6de9a64275fb02e81e5a3b98c53b8aa1a1834928",
+   "readSections": [
+    "§1 (Definitions 1.1, 1.2, 1.7, Proposition 1.8, Lemma 1.9, statements)",
+    "§2 (Definition 2.1, Lemma 2.3, Definition 2.5, Corollary 2.6, Lemma 2.7)",
+    "§3 (Definition 3.2, Lemmas 3.3–3.4, Propositions 3.8–3.9, 3.14–3.17, 3.26, 3.29, Definitions 3.25, 3.27, 3.31, Lemmas 3.36, 3.40, statements)",
+    "§4 (Definitions 4.1–4.2, Propositions 4.3, 4.12, 4.18, Theorem 4.19 with the discussion of its hypotheses, Corollary 4.20)",
+    "§5 (Proposition 5.3 statement)",
+    "§7 (Theorem 7.1 and the discussion of its hypotheses)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "ANT20",
+   "title": "Automorphy lifting for residually reducible l-adic Galois representations, II",
+   "authors": "Patrick B. Allen, James Newton and Jack A. Thorne",
+   "edition": "Compositio Mathematica 156 (2020), 2399–2422; read in arXiv:1912.11269v2 (13 August 2020)",
+   "url": "https://arxiv.org/abs/1912.11269v2",
+   "sha256": "077a344352c80389ce75d5c61a69fba90413303aca911a616fe46dbeb8514bfa",
+   "readSections": [
+    "§1 (Theorem 1.1 and its discussion)",
+    "§2 (Definitions 2.1–2.2, Proposition 2.5)",
+    "§3 (Propositions 3.1–3.2, Lemmas 3.3–3.9, Definition 3.7, with the proof of Lemma 3.6)",
+    "§4 (Theorem 4.1 and the start of its proof)",
+    "§5 (Theorem 5.1, Lemma 5.2, Proposition 5.3, Corollary 5.4)",
+    "§6 (Theorems 6.1, 6.2)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "NT23",
+   "title": "Adjoint Selmer groups of automorphic Galois representations of unitary type",
+   "authors": "James Newton and Jack A. Thorne",
+   "edition": "Journal of the European Mathematical Society 25 (2023), 1919–1967; read in arXiv:1912.11265v3 (30 June 2023), whose numbering is used here",
+   "url": "https://arxiv.org/abs/1912.11265v3",
+   "sha256": "286597946a3efcac15b1f1d610370ca0cb52619b20954f3c5bd7f224c12bcf5f",
+   "readSections": [
+    "Introduction (Theorems A, B)",
+    "§1 (Definition 1.1 of generic Weil–Deligne representations, the Bloch–Kato subspaces)",
+    "§2.1–2.4 (pseudocharacters and group determinants, Propositions 2.12–2.17, the condition (2.3) defining the semistable subfunctor, Lemma 2.19, Definition 2.23)",
+    "§4 (Theorem 4.1 and its set-up)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "NT21",
+   "title": "Symmetric power functoriality for holomorphic modular forms",
+   "authors": "James Newton and Jack A. Thorne",
+   "edition": "Publications mathématiques de l'IHÉS 134 (2021), 1–116; read in arXiv:1912.11261v3 (27 September 2021)",
+   "url": "https://arxiv.org/abs/1912.11261v3",
+   "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379",
+   "readSections": [
+    "§1.23 (Hecke operators on definite unitary groups)",
+    "§2.3.1 (generic Weil–Deligne representations and Bloch–Kato conditions, as used)",
+    "§5 (Lemma 5.1, Theorem 5.2, Lemma 5.3, Corollaries 5.4–5.5, Proposition 5.6, Theorem 5.7, Proposition 5.8), statements and proof outlines",
+    "§6 (the deformation data D, Proposition 6.5)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "NT21B",
+   "title": "Symmetric power functoriality for holomorphic modular forms, II",
+   "authors": "James Newton and Jack A. Thorne",
+   "edition": "Publications mathématiques de l'IHÉS 134 (2021), 117–152; read in arXiv:2009.07180v2 (27 September 2021)",
+   "url": "https://arxiv.org/abs/2009.07180v2",
+   "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf",
+   "readSections": [
+    "§2 (the pseudodeformation ring P and its regularity at an automorphic point)",
+    "§3 (the uses of BLGGT14 Theorem 4.2.1, of potential diagonalisability and of Gee–Kisin Lemma 4.4.1 in Propositions 3.9–3.10 and Theorem 3.1)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "NT26",
+   "title": "Symmetric power functoriality for Hilbert modular forms",
+   "authors": "James Newton and Jack A. Thorne",
+   "edition": "Annals of Mathematics 203 (2026); read in arXiv:2212.03595v2",
+   "url": "https://arxiv.org/abs/2212.03595v2",
+   "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
+   "readSections": [
+    "§2 (Definition 2.5, Lemma 2.6)",
+    "§3 (uses of CT14 Lemma 2.6, ANT20 Theorem 6.2 with Tho24 Theorem 7.5, Ger19 Lemma 2.25 and Lab11 Corollaire 5.3)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "BCG25",
+   "title": "Cuspidal cohomology classes for GL_n(Z)",
+   "authors": "George Boxer, Frank Calegari and Toby Gee",
+   "edition": "Journal of the American Mathematical Society 38 (2025), 509–520; read in arXiv:2309.15944v3 (mathematically identical to the published text, as the extraction PAPER-BOXER-CALEGARI-GEE-25 records)",
+   "url": "https://arxiv.org/abs/2309.15944v3",
+   "sha256": "abfa9eac9984aa5d0bd5e1700a08993bc3baa6f8435d18f5f0e37f5a84769684",
+   "readSections": [
+    "Proof of Theorem 3.1 (the relaxation of Tho17 Definition 2.20 and the application of Tho17 Theorem 7.1 = Theorem 5.1 with Proposition 7.2)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "LTXZZ",
+   "title": "Deformation of rigid conjugate self-dual Galois representations",
+   "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
+   "edition": "Acta Mathematica Sinica, English Series 40 (2024); read in arXiv:2108.06998v1, the version cited by Liu et al., Invent. Math. 228 (2022)",
+   "url": "https://arxiv.org/abs/2108.06998v1",
+   "sha256": "fce1c9ae227dc1fcbc2fa712ae0034f7454b77595f63b927a7bdc7237f81292a",
+   "readSections": [
+    "§3.6 (Definition 3.6.1, Remark 3.6.2, Theorem 3.6.3 statement)",
+    "§4.1–4.2 (statements of Corollary 4.1.2, Proposition 4.2.3, Theorem 4.2.6 as cited)",
+    "accessed 2026-10-07"
+   ]
+  },
+  {
+   "id": "LLHLM23",
+   "title": "Local models for Galois deformation rings and applications",
+   "authors": "Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra",
+   "edition": "Inventiones mathematicae 231 (2023), 1277–1488; read in arXiv:2007.05398v2",
+   "url": "https://arxiv.org/abs/2007.05398v2",
+   "sha256": "3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af",
+   "readSections": [
+    "§9.2 (Theorem 9.2.1 and Remark 9.2.2)",
+    "accessed 2026-10-07"
+   ]
+  }
+ ],
+ "status": "draft"
+}

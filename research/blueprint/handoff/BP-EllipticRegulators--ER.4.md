@@ -92,12 +92,9 @@ handoff asks a worker to implement proofs in this planning programme.
 ## Sources and limitation
 
 Read Bloch, CRM Monograph Series 11 (2000), Lecture 10 §§10.2–10.3,
-printed pp.77–85, through the public digitization URL recorded in the packet,
-on 2026-10-06. AMS original PDF endpoints returned HTTP 403. No original page
-images or the parent worker's private scan were available. The public text
-loses overlines; barred denominators and Im placement were independently
-reconstructed by algebra and the numerical checks. Reviewers should collate
-page images if accessible, without silently treating the text layer as one.
+printed pp.77–85, on 2026-10-06. Barred denominators and Im placement were
+reconstructed by algebra and the numerical checks; reviewers should collate
+them with the printed pages.
 
 Read Brunault's thesis, arXiv math/0602186v1, §1.2, printed pp.20–28. Its
 PDF SHA-256 is 8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7.

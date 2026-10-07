@@ -570,7 +570,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, pp. 6–7",
-     "excerpt": "For ϕ in Hom(∆0, V), we say that ϕ is a V-valued modular symbol on Γ if ϕ|γ = ϕ for all γ ∈ Γ; we denote the space of all V-valued modular symbols by SymbΓ(V).",
      "match": "The definition, with ϕ ∈ SymbΓ(V) ⟺ ϕ(γD) = ϕ(D)|γ⁻¹."
     }
    ],
@@ -645,7 +644,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.2, p. 8",
-     "excerpt": "Z[G] is a free Z[Γ]-module; a basis is given by a complete set of right coset representatives of Γ\\G",
      "match": "The statement."
     }
    ],
@@ -696,7 +694,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§3.4, p. 17",
-     "excerpt": "We endow the space Vk with the structure of a right GL2(Qp)-module by (P|γ)(X, Y ) = P((X, Y ) · γ∗) = P(dX −cY, −bX + aY )",
      "match": "The action."
     }
    ],
@@ -779,7 +776,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, p. 7",
-     "excerpt": "S0(p) := {(a b; c d) ∈ M2(Z) such that (a, p) = 1, p|c and ad − bc ≠ 0}",
      "match": "The monoid (for N = p)."
     }
    ],
@@ -864,7 +860,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, p. 7",
-     "excerpt": "ϕ|Tℓ = ϕ|(ℓ 0; 0 1) + Σ_{a=0}^{ℓ−1} ϕ|(1 a; 0 ℓ). If q|N, we write Uq for Tq, and we have ϕ|Uq = Σ_{a=0}^{q−1} ϕ|(1 a; 0 q).",
      "match": "The formulas."
     }
    ],
@@ -954,7 +949,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, p. 7",
-     "excerpt": "We further remark that when (−1 0; 0 1) normalizes Γ, this matrix acts as an involution on SymbΓ(V).",
      "match": "The statement."
     }
    ],
@@ -1032,7 +1026,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, p. 7",
-     "excerpt": "When 2 acts invertibly on V, we then have a natural decomposition SymbΓ(V) ≅ SymbΓ(V)+ ⊕ SymbΓ(V)−",
      "match": "The statement."
     }
    ],
@@ -1076,13 +1069,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.2, p. 8",
-     "excerpt": "Z[G] is a free Z[Γ]-module; a basis is given by a complete set of right coset representatives of Γ\\G, say g1, . . . , gr. The ideal I then gives Z[Γ]-relations between these generators. For instance, gi(1 + σ) = gi + giσ = gi + γijgj ∈ I",
      "match": "The Hom-side description by coset values and the two-term and three-term relations."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§5.1, Definition 5.6 and Theorem 5.7, p. 56",
-     "excerpt": "Elements in M/(MNσ + MNτ) are called Manin symbols over R (for the subgroup Γ ⊆ PSL2(Z)",
      "match": "The homological Manin-symbol presentation, of which this lemma is the Hom-side dual."
     }
    ],
@@ -1125,19 +1116,16 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "Theorem 2.6 and Corollary 2.7, p. 12; Theorem 2.9 and Corollary 2.10, pp. 13–14",
-     "excerpt": "Then there is a unique modular symbol ϕ ∈ SymbΓ(V) such that for each i ϕ(Di) = vi and ϕ(D′i) = v′i. Conversely, every modular symbol ϕ ∈ SymbΓ(V) arises in this manner.",
      "match": "The statement, with the D_∞ condition corrected from the printed v_∞|Δ = Σ v_i|(γ_i − 1) + Σ v′_i (sourceIssues E1)."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.4, p. 11",
-     "excerpt": "Σ_{e∈∂E} e = (1 − (1 −1; 0 1)) e∞ + Σ_{i=1}^t (1 − γi^{−1}) ei + Σ_{i=1}^s e′i ∈ J.",
      "match": "The boundary relation from which the corrected sign follows."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.6, footnote 10, p. 8",
-     "excerpt": "(1 − (1 −1; 0 1))({0} − {∞}) + (1 − (7 2; −11 −3))({−1/3} − {0}) + (1 − (8 3; −11 −4))({−1/2} − {−1/3}) = 0.",
      "match": "An independent worked relation with the corrected sign."
     }
    ],
@@ -1180,13 +1168,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, Definition 1.5(b)–(e), pp. 7–8",
-     "excerpt": "We call the Γ-coinvariants BR(Γ, V) := BR(V)Γ the space of (Γ, V)-boundary symbols. ... The image of the boundary map inside BR(Γ, V) is denoted by ER(Γ, V) and is called the space of (Γ, V)-Eisenstein symbols.",
      "match": "The homological boundary and Eisenstein symbols; this node is their Hom-side dual."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§4.3, Lemma 4.13, p. 49",
-     "excerpt": "The cusps P1(Q) lie in a single PSL2(Z)-orbit. The stabiliser group of ∞ for the PSL2(Z)-action is ⟨T⟩",
      "match": "The orbit and stabiliser description behind the cusp decomposition."
     }
    ],
@@ -1291,13 +1277,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§6.2, proof of Proposition 6.7(a), p. 63",
-     "excerpt": "For checking that the map is well-deﬁned, it suﬃces to compute that γ ↦ If(z0, γz0) is a 1-cocycle",
      "match": "The same base-point cocycle and base-point independence, for period integrals."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§5.1, Lemma 5.2, p. 55",
-     "excerpt": "The sequence of R-modules 0 → MR --{α,β}↦β−α--> R[P1(Q)] --α↦1--> R → 0 is exact.",
      "match": "The short exact sequence whose connecting map δ is."
     }
    ],
@@ -1393,13 +1377,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§4.4, Proposition 4.14, p. 50",
-     "excerpt": "0 → H1par(Γ, V) → H1(Γ, V) --res--> Π_{g∈Γ\\PSL2(Z)/⟨T⟩} H1(Γ ∩ ⟨gTg−1⟩, V) → VΓ → 0",
      "match": "The cusp-restriction sequence and its identification of the cusp terms, used for the last map."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§2.1, p. 7",
-     "excerpt": "there is a canonical isomorphism SymbΓ(V) ≅ H1c(H/Γ, Ṽ), provided that the order of any torsion element of Γ acts invertibly on V (see [2, Prop 4.2]).",
      "match": "The topological form of the comparison, requested from ModularCurvesPartII R14.3; the algebraic sequence here needs no hypothesis."
     }
    ],
@@ -1443,7 +1425,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§6.3, Definition 6.12, p. 66",
-     "excerpt": "The parabolic 1-cocycles are deﬁned as Z1par(Γ, M) = ker(Z1(Γ, M) --res--> Π_{g∈Γ\\PSL2(Z)/⟨T⟩} Z1(Γ ∩ ⟨gTg−1⟩, M)).",
      "match": "The definition, at the level of cocycles; the cohomology version is the kernel in Proposition 4.14."
     }
    ],
@@ -1539,7 +1520,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§5.2, Theorem 5.9, p. 57",
-     "excerpt": "Suppose that the orders of all stabiliser subgroups of Γ for the action on H are invertible in R. Then we have isomorphisms: H1(Γ, V) ≅ MR(Γ, V) and H1par(Γ, V) ≅ CMR(Γ, V).",
      "match": "The homological counterpart (cuspidal symbols = parabolic cohomology); the Hom-side statement here follows from the exact sequence without the invertibility hypothesis."
     }
    ],
@@ -1584,13 +1564,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§6.2, Proposition 6.8, p. 64",
-     "excerpt": "Let Γ ≤ SL2(Z) be a subgroup of ﬁnite index and let R be a ring in which 2 is invertible. Let V be a left R[Γ]-module. Assume that either −1 ∉ Γ or −1 ∈ Γ acts trivially on V. Then the inﬂation map H1(PSL2(Z), HomR[Γ](R[PSL2(Z)], V)) --inﬂ--> H1(SL2(Z), HomR[Γ](R[SL2(Z)], V)) is an isomorphism.",
      "match": "The same inflation–restriction mechanism, with the invertibility it needs made explicit."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§4.5, Proposition 4.16, p. 51",
-     "excerpt": "Let K be a ﬁeld of characteristic 0 and Γ ≤ SL2(Z) be a congruence subgroup of ﬁnite index µ such that Γy = {1} for all y ∈ H (e.g. Γ = Γ1(N) with N ≥ 4).",
      "match": "The torsion-free auxiliary levels used for descent."
     }
    ],
@@ -1636,13 +1614,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, Hecke operators, p. 10",
-     "excerpt": "If a is an integer coprime to N, we deﬁne the diamond operator as ⟨a⟩x = σax with σa as in equation (1.2).",
      "match": "The definition on (homological) modular symbols; here transported to Hom-side symbols."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§7.3, Definition 7.23, p. 76",
-     "excerpt": "The diamond operator ⟨a⟩ is deﬁned as τα for the matrix σa ∈ Γ0(N), deﬁned in Equation 1.2",
      "match": "The same operator on group cohomology."
     }
    ],
@@ -1749,13 +1725,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§7.1, Proposition 7.9(b), p. 72",
-     "excerpt": "We have the decomposition ∆n1(N) = ⊔a ⊔b Γ1(N)σa (a b; 0 d) with a, b",
      "match": "The coset representatives for Γ₁(N)."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.9, p. 10",
-     "excerpt": "if ℓ is a prime, then the Hecke operator Tℓ is given by the double coset Γ (1 0; 0 ℓ) Γ.",
      "match": "The double-coset definition on Hom-side symbols."
     }
    ],
@@ -1845,7 +1819,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, The modules Vn(R) and Vχn(R), pp. 8–9",
-     "excerpt": "We let Vχn(R) := Vn(R) ⊗R Rχ ... We deﬁne Mk(N, χ ; R) := MR(Γ0(N)/{±1}, Vχk−2(R))",
      "match": "Symbols with character as symbols for Γ₀(N) with twisted coefficients (homological version)."
     }
    ],
@@ -1938,7 +1911,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, equation (1.8), p. 8",
-     "excerpt": "Mk(N, χ ; C) = (Mk(Γ1(N) ; C) ⊗C Cχ)(Z/NZ)×",
      "match": "The corresponding decomposition for forms; the symbol version is the same idempotent argument."
     }
    ],
@@ -1983,13 +1955,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, Definition 1.5(a), p. 7",
-     "excerpt": "We call the Γ-coinvariants MR(Γ, V) := MR(V)Γ = MR(V)/⟨(x − gx)|g ∈ Γ, x ∈ MR(V)⟩ the space of (Γ, V)-modular symbols.",
      "match": "The homological symbol module, the other side of the duality."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.9, p. 10",
-     "excerpt": "We deﬁne a right action of Γ on Hom(∆0, V) by (ϕ|γ)(D) := ϕ(γD)|γ ... we say that ϕ is a V-valued modular symbol on Γ if ϕ|γ = ϕ for all γ ∈ Γ",
      "match": "The Hom-side symbols."
     }
    ],
@@ -2032,13 +2002,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, The modules Vn(R) and Vχn(R), p. 8",
-     "excerpt": "Fortunately, both actions are isomorphic due to the fact that the transpose of (a b; c d)ι (X; Y) is equal to (X, Y)σ−1 (a b; c d) σ, where σ = (0 1; −1 0).",
      "match": "The relation between the adjugate and the plain matrix actions on binary forms."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.7, p. 9",
-     "excerpt": "(P|γ)(X, Y) = P((X, Y) · γ∗) = P(dX − cY, −bX + aY) where γ = (a b; c d), γ∗ = (d −b; −c a)",
      "match": "The right action on V_k."
     }
    ],
@@ -2087,19 +2055,16 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.7, p. 9",
-     "excerpt": "We then deﬁne ψf({s} − {r}) = 2πi ∫_r^s f(z)(zX + Y)^{k−2} dz ∈ Vk−2(C) which gives an element of Hom(∆0, Vk−2(C)).",
      "match": "The definition (weight k there is weight k + 2 here)."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.7, p. 9",
-     "excerpt": "A simple computation (do it!), which again uses the modularity of f, yields that ψf ∈ HomΓ(∆0, Vk−2(C))",
      "match": "Γ-invariance; the computation is written out in the proof steps."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§6.2, Proposition 6.9, p. 65",
-     "excerpt": "In particular, the image of Sk(Γ ; C) ⊕ Sk(Γ ; C) under the Eichler-Shimura map lies in the parabolic cohomology H1par(Γ, Vk−2(C)).",
      "match": "Cuspidality of the cohomology class."
     }
    ],
@@ -2208,7 +2173,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§4.5, Proposition 4.16, pp. 51–52",
-     "excerpt": "Then dimK H1(Γ, Vk−2(K)) = (k − 1)µ/6 + δk,2 and dimK H1par(Γ, Vk−2(K)) = (k − 1)µ/6 − ν∞ + 2δk,2, where ν∞ is the number of cusps of Γ",
      "match": "The statement, with Wiese's weight k equal to our k + 2."
     }
    ],
@@ -2260,13 +2224,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§6.4, Theorem 6.15, p. 70",
-     "excerpt": "Let N ≥ 4 and k ≥ 2. The Eichler-Shimura map and the induced Eichler-Shimura map (Proposition 6.7) are isomorphisms for Γ = Γ1(N). The image of Sk(Γ1(N) ; C) ⊕ Sk(Γ1(N) ; C) is isomorphic to the parabolic subspace.",
      "match": "The theorem for Γ₁(N), N ≥ 4."
     },
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§7.5, Corollary 7.33, pp. 79–80",
-     "excerpt": "The maps Sk(Γ ; C) → H1par(Γ, Vk−2(C))+, f ↦ (1 + τη).(γ ↦ If(z0, γz0)) and Sk(Γ ; C) → H1par(Γ, Vk−2(C))−, f ↦ (1 − τη).(γ ↦ If(z0, γz0)) are isomorphisms compatible with the Hecke operators",
      "match": "The plus/minus versions."
     }
    ],
@@ -2309,7 +2271,6 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.2, Proposition 1.8, p. 10",
-     "excerpt": "Let R be a Noetherian ring and R → S a ﬂat ring homomorphism. (a) The natural map TR(Mk(Γ1(N) ; R)) ⊗R S ≅ TS(Mk(Γ1(N) ; S)) is an isomorphism of S-algebras.",
      "match": "The homological analogue; the finite-presentation argument is the same."
     }
    ],
@@ -2358,13 +2319,11 @@
     {
      "sourceId": "WIESE-CAMF-2018",
      "locator": "§1.3, Theorem 1.9, p. 12",
-     "excerpt": "There are isomorphisms respecting the Hecke operators (a) Mk(N, χ ; C)) ⊕ Sk(N, χ ; C)∨ ≅ Mk(N, χ ; C), (b) Sk(N, χ ; C)) ⊕ Sk(N, χ ; C)∨ ≅ CMk(N, χ ; C), (c) Sk(N, χ ; C) ≅ CMk(N, χ ; C)+.",
      "match": "Eichler–Shimura with character: (a) places the Eisenstein eigenvalues on the boundary part and (c) gives the one-dimensionality of the plus eigenspace over ℂ."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.3, p. 4",
-     "excerpt": "Returning to the example of f ∈ S2(Γ0(11)), we have a C-",
      "match": "The worked level-11 example of the plus eigensymbol."
     }
    ],
@@ -2406,7 +2365,6 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2 (after 2.10), p. 13",
-     "excerpt": "Set ϕ± f = ψ± f Ω± f which is a modular symbol taking values in Q.",
      "match": "Periods as scalars relating ψ_f^± to rational symbols."
     }
    ],
@@ -2510,7 +2468,6 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2 (after 2.10), p. 13",
-     "excerpt": "Set ϕ± f = ψ± f Ω± f which is a modular symbol taking values in Q.",
      "match": "Pollack normalizes by a period so that the values are rational; the saturated integral choice refines this up to 𝒪^×."
     }
    ],
@@ -2600,13 +2557,11 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.8, p. 9",
-     "excerpt": "Generalizing equation (1), we have the following relation between L-values and period integrals:",
      "match": "The untwisted case 2πi∫_{i∞}^0 f(z)z^j dz = j!/(−2πi)^j·L(f, j+1), 0 ≤ j ≤ k."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2.1, formula (2), p. 3",
-     "excerpt": "The period lattice also contains the information of all twisted L-values. Namely, if χ is a Dirichlet character of conductor N, we have",
      "match": "(2): L(f, χ, 1) = τ(χ)/N·Σ_{a mod N} χ̄(a)·2πi∫_{i∞}^{−a/N} f(z)dz, the case k = j = 0 in the −a/N form. The bar is printed but lost in text extraction; read on the page image."
     }
    ],
@@ -2652,13 +2607,11 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2 (after 2.10), p. 13",
-     "excerpt": "From equation (2), it follows that the L-values L(f, χ, 1) Ω± f are all algebraic. (Here the sign of the period depends on whether χ is even or odd.)",
      "match": "The case k = j = 0."
     },
     {
      "sourceId": "RJW-2024",
      "locator": "Appendix B.2.1, p. 79",
-     "excerpt": "his criterion says the critical values of L(f, s) are L(f, χ, j + 1) for χ any Dirichlet character and 0 ≤j ≤k.",
      "match": "The range 0 ≤ j ≤ k of critical values."
     }
    ],
@@ -2700,7 +2653,6 @@
     {
      "sourceId": "RJW-2024",
      "locator": "Appendix B.2, p. 79",
-     "excerpt": "Let f be a cuspidal Hecke eigenform of weight k + 2 and level Γ0(N), with p|N, and let L(f, s) be its attached L-function.",
      "match": "RJW's f is already p-stabilized."
     }
    ],
@@ -2744,19 +2696,16 @@
     {
      "sourceId": "RJW-2024",
      "locator": "Theorem B.1, pp. 79–80",
-     "excerpt": "Theorem B.1. — Let αp denote the Up eigenvalue of f. If vp(αp) < k + 1, then there exists a unique locally analytic distribution Lan p (f) ∈Dla(Z× p ) on Z× p such that",
      "match": "The statement compared (formula read on the page image)."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6, interpolation property (1), p. 27",
-     "excerpt": "where α is the Up-eigenvalue of f, τ(χ−1) is a Gauss sum, and Ω± f are complex periods.",
      "match": "The −a/p^n-normalized form."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§2 (after 2.10), p. 13; §5.1 formula (7), p. 24",
-     "excerpt": "With this deﬁnition, the p-adic L-function µf satisﬁes the following interpolation property: for χ a non-trivial ﬁnite order character of conductor pn, we have",
      "match": "The +a/p^n-normalized form."
     }
    ],
@@ -2805,7 +2754,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§8, the example of X₀(11) at p = 3, p. 35",
-     "excerpt": "By p-stabilizing, we see that there are two modular forms fα and fβ of level 33 with the same eigenvalues as f away from 3",
      "match": "The two p-stabilizations and their U_p-eigenvalues."
     }
    ],
@@ -2897,13 +2845,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§5.3, p. 24",
-     "excerpt": "note that ordp(λ) = h where h lies between 0 and k + 1.",
      "match": "Slopes of U_p-eigensymbols lie in [0, k + 1]."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§8, the example of X₀(11) at p = 3, p. 35",
-     "excerpt": "By p-stabilizing, we see that there are two modular forms fα and fβ of level 33 with the same eigenvalues as f away from 3",
      "match": "The two p-stabilizations and their U_p-eigenvalues."
     }
    ],
@@ -2997,7 +2943,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.3, p. 28",
-     "excerpt": "To this end, we ﬁrst note that the f-isotypic subspace of SymbΓ0(Vk)± ⊗Qp is one-dimensional.",
      "match": "The refined eigenline, for the U_p-eigenform f of level Γ₀."
     }
    ],
@@ -3037,13 +2982,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§3.1–3.3 and Proposition 3.1, pp. 15–17",
-     "excerpt": "For each non-negative integer k, we deﬁne a weight k action of Σ0(p) on A[r] by",
      "match": "The weight-k action; the spaces and Proposition 3.1 precede it."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.1, proof of Lemma 6.2, p. 27",
-     "excerpt": "The second to last inequality follows from the fact that for any µ ∈D[r] and any γ ∈Σ0(p)",
      "match": "The contraction ‖μ|γ‖_{r/p^n} ≤ ‖μ‖_r for det γ = p^n."
     }
    ],
@@ -3134,13 +3077,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§3.4, p. 17",
-     "excerpt": "For Dk = Dk(Zp), Dk or D† k, there is an Σ0(p)-equivariant map",
      "match": "The map ρ_k."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§5, opening, p. 20",
-     "excerpt": "Note that ρ∗ k is Hecke-equivariant as ρk is Σ0(p)-equivariant.",
      "match": "Hecke equivariance of ρ*_k."
     }
    ],
@@ -3235,7 +3176,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§4.2 Theorem 4.5, p. 20; §5.1 Theorem 5.1, Lemma 5.3 and Corollary 5.4, pp. 21–22",
-     "excerpt": "The specialization map ρ∗ k : SymbΓ0(D† k) →SymbΓ0(Vk) is surjective.",
      "match": "Theorem 5.1 (printed label T5.1 in the text layer)."
     }
    ],
@@ -3279,7 +3219,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§5.2–5.3, Lemma 5.5 and Propositions 5.6–5.7, pp. 23–25",
-     "excerpt": "There is a unique decomposition Xϕ ∼= X(=h) ϕ ⊕X(>h) ϕ where λ−1Up is topologically nilpotent on X(>h) ϕ",
      "match": "Proposition 5.7."
     }
    ],
@@ -3324,7 +3263,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§5.3–5.4, Theorem 5.9, Lemma 5.10, Theorem 5.12 and its proof, pp. 25–26",
-     "excerpt": "That is, the specialization map restricted to the subspace where Up acts with slope strictly less than k + 1 is an isomorphism.",
      "match": "Theorem 5.12."
     }
    ],
@@ -3366,7 +3304,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.1, Definition 6.1 and Lemma 6.2, p. 27",
-     "excerpt": "If Φ ∈SymbΓ0(D(Zp)) is a Up-eigensymbol of slope h, then all of the values of Φ are h-admissible distributions.",
      "match": "Lemma 6.2."
     }
    ],
@@ -3413,13 +3350,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.3, Proposition 6.3 and its proof, pp. 28–29",
-     "excerpt": "the p-adic L-function of f computed with respect to the periods Ω± f .",
      "match": "Proposition 6.3: Φ_f({∞} − {0})|_{ℤ_p^×} = μ_f (the restriction bar is lost in the text layer)."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.2, (2), p. 27",
-     "excerpt": "Explicitly, this distribution is given by",
      "match": "Formula (2), read on the page image."
     }
    ],
@@ -3521,7 +3456,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.2, (1) and (2), p. 27",
-     "excerpt": "Since h < k + 1 and µf is h-admissible, the above interpolation property uniquely determines µf.",
      "match": "Interpolation and uniqueness; (1) and (2) read on the page image."
     }
    ],
@@ -3568,7 +3502,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.3, p. 28",
-     "excerpt": "normalized so that ϕ± f takes on only integral values and at least one unit value.",
      "match": "The integral normalisation of φ^±."
     }
    ],
@@ -3611,13 +3544,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.4, Definition 6.4, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
-     "excerpt": "In light of Proposition 6.3, we make the following deﬁnition of the p-adic L-function of a critical slope form.",
      "match": "Pollack–Stevens' definition (with the weight misprint recorded as E7)."
     },
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.2, p. 7 (arXiv v1; printed page = PDF page)",
-     "excerpt": "When fβ is non-critical, this p-adic L-function is the same as the usual one, deﬁned by Mazur-Tate-Teitelbaum in the non-critical slope case, and by Stevens-Pollack in the critical slope non-θ-critical case.",
      "match": "The agreement with Bellaïche's L±."
     }
    ],
@@ -3705,7 +3636,6 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.4, Proposition 6.5, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
-     "excerpt": "The following proposition describes the interpolation property of this critical p-adic L-function.",
      "match": "Proposition 6.5."
     }
    ],
@@ -3743,13 +3673,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§6.4, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
-     "excerpt": "In this case, the interpolation property (1) does not uniquely determine a (k + 1)-admissible distribution.",
      "match": "The failure of uniqueness."
     },
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.3, p. 7 (arXiv v1; printed page = PDF page)",
-     "excerpt": "This is not true however in the critical-slope case vp(β) = k + 1.",
      "match": "Bellaïche's remark."
     }
    ],
@@ -3787,13 +3715,11 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§5.4, Remark 5.15, p. 26 (Numdam PDF page 27; printed page = PDF page − 1)",
-     "excerpt": "Thus, by Theorem 5.14, the specialization map is not an isomorphism on f-isotypic subspaces.",
      "match": "The CM case."
     },
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.5, p. 11 (arXiv v1; printed page = PDF page)",
-     "excerpt": "If i = e −1, then L± e−1(fβ, σ) satisﬁes the interpolation property (4).",
      "match": "The top secondary L-function interpolates."
     }
    ],
@@ -3829,7 +3755,6 @@
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.4, Theorem 3, p. 10 (arXiv v1; printed page = PDF page)",
-     "excerpt": "There exists an aﬃnoid neighborhood V of x in C, and for any choice of the sign ±, a two-variables p-adic L-function L±(y, σ)",
      "match": "The two-variable function used for the comparison."
     }
    ],
@@ -3866,25 +3791,21 @@
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§8.4, Example 8.6, p. 35 (Numdam PDF page 36; printed page = PDF page − 1)",
-     "excerpt": "For Γ0 = Γ0(33), the slope one subspace of SymbΓ0(Q3) is three-dimensional.",
      "match": "Example 8.6."
     },
     {
      "sourceId": "POLLACK-STEVENS-2011",
      "locator": "§8.4, Example 8.8, p. 36 (Numdam PDF page 37; printed page = PDF page − 1)",
-     "excerpt": "In this case, the critical slope eigenform arising from this elliptic curve does not satisfy the hypotheses of Theorem 5.14.",
      "match": "Example 8.8."
     },
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.1, Remark 1, p. 6 (arXiv v1; printed page = PDF page)",
-     "excerpt": "For example, for the modular form attached to the CM elliptic curve X0(32) with p = 5",
      "match": "Bellaïche's explanation of Example 8.8."
     },
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.1, Remark 1, p. 6 (arXiv v1; printed page = PDF page)",
-     "excerpt": "slope CM forms are always critical, while critical slope Eisenstein series are never critical",
      "match": "Critical-slope CM refinements are critical."
     }
    ],
@@ -3920,13 +3841,11 @@
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§6, p. 27",
-     "excerpt": "Let’s begin by once again letting f denote the unique normalized newform in S2(Γ0(11))",
      "match": "The level-11 example."
     },
     {
      "sourceId": "POLLACK-AWS-2011",
      "locator": "§6, p. 28",
-     "excerpt": "Thus, the µ-invariant of f is 0 and the λ-invariant is 1.",
      "match": "μ and λ at p = 11."
     }
    ],
@@ -3962,7 +3881,6 @@
     {
      "sourceId": "BELLAICHE-CRITICAL-2012",
      "locator": "§1.4.3, (5), p. 8 (arXiv v1; printed page = PDF page)",
-     "excerpt": "Ω± are the two archimedean periods of f, τ(ϕ−1) is the Gauss sum of ϕ−1 and",
      "match": "The Euler factor (5) as printed (with the misprint E9)."
     }
    ],
@@ -4005,13 +3923,11 @@
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§2.2, the measures and Proposition 2.8, p. 530",
-     "excerpt": "If h = ord p (α) < k − 1, then µ±f,α is an h-admissible measure",
      "match": "Admissibility for either allowable root."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§2.3, Proposition 2.11, p. 532",
-     "excerpt": "Furthermore, L p ( f, α, χ ) is uniquely characterized by this interpolation property",
      "match": "Interpolation and uniqueness with a tame twist."
     }
    ],
@@ -4057,19 +3973,16 @@
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§3, Theorem 3.3, p. 533",
-     "excerpt": "THEOREM 3.3 (Mazur)",
      "match": "Different slopes."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§3, Theorem 3.5, p. 534",
-     "excerpt": "THEOREM 3.5 (Perrin-Riou)",
      "match": "a_p = 0."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§3, Corollary 3.6 and its proof, p. 535",
-     "excerpt": "In these four cases, α1 /α2 is not −1 but rather is a fourth or sixth root of unity",
      "match": "Elliptic curves at p = 2 and 3."
     }
    ],
@@ -4168,25 +4081,21 @@
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§4.1, Lemma 4.1, p. 536",
-     "excerpt": "converge and define power series in Q p [[T ]] which are convergent on the open unit",
      "match": "The definition and the zeros."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§4.1, proof of Lemma 4.1, p. 537",
-     "excerpt": "Since log p (γ − j (1 + T )) has simple zeros at γ j · ζn − 1 for n ≥ 0 and no other zeros",
      "match": "The product formula behind Corollary 4.3."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§4.2, Lemma 4.5, p. 538",
-     "excerpt": "LEMMA 4.5",
      "match": "The growth."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§4.4, Lemma 4.7, p. 539",
-     "excerpt": "LEMMA 4.7",
      "match": "The values at ζ − 1."
     }
    ],
@@ -4237,19 +4146,16 @@
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§5.1, Theorem 5.1, p. 540",
-     "excerpt": "If p is odd and a p = 0, then",
      "match": "The decomposition."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§5.2.2, Theorem 5.6, p. 542",
-     "excerpt": "Let E/Q be an elliptic curve with a p = 0. If p is odd, we have",
      "match": "Integrality for elliptic curves."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§5.2.2, Remark 5.7, p. 543",
-     "excerpt": "The extra factor of 1/2 appearing when p = 2 is necessary",
      "match": "The factor 1/2 at p = 2."
     }
    ],
@@ -4298,13 +4204,11 @@
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§3, Corollary 3.6 and its proof, p. 535",
-     "excerpt": "For p > 3, we have a p = 0 since p | a p and a p < 2 p",
      "match": "Why supersingular means a_p = 0 for p ≥ 5; p = 2 is the exception here."
     },
     {
      "sourceId": "POLLACK-SS-2003",
      "locator": "§5.2.1, Remark 5.4, p. 542",
-     "excerpt": "take E = X 0 (11) and p = 5",
      "match": "Pollack's own use of X₀(11), for the periods."
     }
    ],
@@ -4353,13 +4257,11 @@
     {
      "sourceId": "ELKIK-MANIN-DRINFELD-1990",
      "locator": "§III, pp. 64–66, especially (3), (6) and the final characteristic-polynomial argument",
-     "excerpt": "Cette majoration des valeurs propres",
      "match": "The weight-two disjoint-spectrum argument, and only that coefficient case."
     },
     {
      "sourceId": "SHARIFI-AWS-2018",
      "locator": "§3.4, Theorem 3.4.16 and its proof paragraph, Remark 3.4.17, p. 38",
-     "excerpt": "There exists a canonical, Hecke-equivariant splitting",
      "match": "The general-weight rational conclusion and the explicit Shokurov proof input; the source proof boundary is retained."
     }
    ],
@@ -4408,7 +4310,6 @@
     {
      "sourceId": "NAKAMURA-ZETA-2023",
      "locator": "§3.2, p. 220, opening paragraph and (20)–(21); §3.1.2, Lemma 3.1, p. 206",
-     "excerpt": "over Q, not over Z",
      "match": "The unique rational Hecke-equivariant retraction and its usual/adjoint, real and p-adic arithmetic compatibilities. The mathematical formulas were checked on the published PDF."
     }
    ],

@@ -38,55 +38,28 @@ namespace TauCeti.GL2Transfer
 
 open Matrix
 
-section GlobalJL
-variable {DClass FClass V LD LF H C : Type*}
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+Global JL is an equivalence only between the supplied non-norm quaternionic discrete spectrum and the D-compatible cuspidal GL₂ spectrum over the same number field and central character. All actual local JL, Hecke, twisting and inverse maps are required; an arbitrary pair of types need not be equivalent.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.globalJL, TauCeti.GL2Transfer.globalJL_local, TauCeti.GL2Transfer.globalJL_central, TauCeti.GL2Transfer.globalJL_inverse, TauCeti.GL2Transfer.globalJL_twist, TauCeti.GL2Transfer.globalJL_split.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.jl_split_test, TauCeti.GL2Transfer.jl_steinberg_test, TauCeti.GL2Transfer.jl_eisenstein_excluded_test, TauCeti.GL2Transfer.jl_inverse_test.
 
-/-- Missing: F a number field, quaternion algebra D, fixed central character;
-DClass is the non-norm spectrum and FClass the D-compatible cuspidal spectrum,
-with the exact finite/infinite localRep hypotheses of R17.3/global-jl. -/
-noncomputable def globalJL (DClass FClass : Type*) : DClass ≃ FClass := by sorry
-
-lemma globalJL_local (d : DClass) (v : V)
-    (localD : DClass → V → LD) (localF : FClass → V → LF)
-    (localJL : V → LD → LF) :
-    localF (globalJL DClass FClass d) v = localJL v (localD d v) := by sorry
-
-lemma globalJL_central (d : DClass) (ωD : DClass → C) (ωF : FClass → C) :
-    ωF (globalJL DClass FClass d) = ωD d := by sorry
-
-lemma globalJL_inverse (d : DClass) (π : FClass) :
-    (globalJL DClass FClass).symm (globalJL DClass FClass d) = d ∧
-    globalJL DClass FClass ((globalJL DClass FClass).symm π) = π := by sorry
-
-lemma globalJL_twist (d : DClass) (χ : H)
-    (twistD : H → DClass → DClass) (twistF : H → FClass → FClass) :
-    globalJL DClass FClass (twistD χ d) = twistF χ (globalJL DClass FClass d) := by sorry
-
--- Missing: the quaternion algebra is split and all localRep identifications are identity.
-lemma globalJL_split (π : FClass) : globalJL FClass FClass π = π := by sorry
-
--- TauCeti.GL2Transfer.jl_split_test
-example (π : FClass) : globalJL FClass FClass π = π := by sorry
-
--- TauCeti.GL2Transfer.jl_steinberg_test
--- Missing: D/Q ramified at {p,infinity}, π weight two with π_p=St⊗χ;
--- charNrd is the supplied division-place character class χ∘Nrd.
-example (π : FClass) (p : V) (localD : DClass → V → LD) (charNrd : LD) :
-    localD ((globalJL DClass FClass).symm π) p = charNrd := by sorry
-
--- TauCeti.GL2Transfer.jl_eisenstein_excluded_test
--- Missing: D = M₂(Q); Eis is the supplier's set of Eisenstein constituents π(μ,ν)
--- of GL₂(A_Q), and inclE, inclF the inclusions of Eisenstein and cuspidal classes
--- into all automorphic classes. An Eisenstein constituent does not factor through
--- det, yet it is not the image of any discrete-series class under global JL.
-example {Eis : Type*} (e : Eis) (inclE : Eis → LF) (inclF : FClass → LF) :
-    ∀ d : DClass, inclF (globalJL DClass FClass d) ≠ inclE e := by sorry
-
--- TauCeti.GL2Transfer.jl_inverse_test
-example (π : FClass) :
-    globalJL DClass FClass ((globalJL DClass FClass).symm π) = π := by sorry
-end GlobalJL
-
+GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl
+TauCeti.GL2Transfer.globalJL
+Let F be a number field, D/F a quaternion algebra with ramification set S (finite and real places; complex places are split), fixed isomorphisms D⊗F_v ≅ M₂(F_v) for v ∉ S, and ω a unitary character of F^×\A_F^×. Let DS_D(ω) be the set of isomorphism classes of irreducible subrepresentations of the right regular representation of D×(A_F) on L²(D×(F)A_F^×\D×(A_F), ω). For nonsplit D the quotient is compact and DS_D(ω) consists of all irreducible automorphic representations with central character ω. For D = M₂(F) it consists of the cuspidal representations and the characters χ∘det with χ² = ω. There is a bijection JL_D from the members of DS_D(ω) that are not one-dimensional (not of the form χ∘Nrd) onto the cuspidal automorphic representations π of GL₂(A_F) with central character ω such that π_v is square-integrable modulo the centre at every v ∈ S. At a finite v ∈ S this means a Steinberg twist or a supercuspidal representation; at a real v ∈ S, a discrete series D_k⊗χ (k ≥ 2), whose partner is the algebraic D_v× type of dimension k−1. At v ∉ S the components agree via the fixed isomorphisms; at v ∈ S they match by the R17.1 correspondence JL_v. For D = M₂(F) it is the identity on cuspidal classes. The inverse is part of the assertion. For a non-unitary central quasi-character, twist by a real power of |Nrd| (resp. |det|); the correspondence commutes with such twists. For split D the restriction to the discrete spectrum is essential: Eisenstein constituents are automorphic, do not factor through det, and are not in the domain.
+Hypotheses: F is a number field. D is a quaternion algebra over F with ramification set S (finite and real places, |S| even; complex places split); S = ∅ (D = M₂(F)) is allowed. Isomorphisms D ⊗_F F_v ≅ M₂(F_v) are fixed for every v ∉ S. ω is a unitary character of F^×\A_F^×, identified with the central characters on D×(A_F) and GL₂(A_F); a non-unitary quasi-character is reduced to this case by twisting with |Nrd|^s and |det|^s. Domain: the irreducible subrepresentations of L²(D×(F)A_F^×\D×(A_F), ω) that are not one-dimensional (not of the form χ∘Nrd). Codomain: cuspidal automorphic representations π of GL₂(A_F) with central character ω and π_v square-integrable modulo the centre at every v ∈ S. At v ∈ S the local matching is the R17.1 correspondence JL_v; at v ∉ S it is the fixed isomorphism.
+TauCeti.GL2Transfer.globalJL_local: For every place v, local(GL₂,JL_D π′,v) equals the R17.1 local transfer of local(D,π′,v), using the split-place identification at split v.
+TauCeti.GL2Transfer.globalJL_central: The central character of JL_D π′ is the central character of π′.
+TauCeti.GL2Transfer.globalJL_inverse: The inverse of JL_D recovers every non-one-dimensional discrete series π′ of D×(A_F). JL_D of the inverse recovers every cuspidal π with π_v square-integrable at all v ∈ S.
+TauCeti.GL2Transfer.globalJL_twist: For a unitary Hecke character χ of F, JL_D(π′⊗χ∘Nrd) = JL_D(π′)⊗χ∘det; the central character becomes ωχ². For a non-unitary χ this holds after the twist reduction to unitary central character.
+TauCeti.GL2Transfer.globalJL_split: For D=M₂(F), using the identity identifications, JL_D is the identity equivalence on cuspidal classes.
+TauCeti.GL2Transfer.jl_split_test: For D=M₂(Q), JL_D fixes every cuspidal isomorphism class.
+TauCeti.GL2Transfer.jl_steinberg_test: For D/Q ramified at {p,∞} and an allowed weight-two cuspidal π with π_p=St⊗χ_p, local(JL_D inverse π,p)=χ_p∘Nrd under R17.1; local characters are not discarded.
+TauCeti.GL2Transfer.jl_inverse_test: For every D-compatible cuspidal π, JL_D(JL_D inverse π)=π, and the split-place components of its inverse equal π_v.
+TauCeti.GL2Transfer.jl_eisenstein_excluded_test: For D = M₂(Q) and unitary Hecke characters μ, ν of Q, the irreducible automorphic representation π(μ,ν) induced from μ⊗ν is not one-dimensional and does not factor through det. It is not in the domain of JL_D, because it does not occur in L²_disc(GL₂(Q)A^×\GL₂(A), μν).
+-/
 section Satake
 variable {K L : Type*} [CommRing K] [CommRing L]
 
@@ -245,132 +218,67 @@ example {H : Type*} (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
     solvableBaseChange FClass EClass (ai θ) = isobaricSum θ (σ θ) := by sorry
 end Solvable
 
-section Adjoint
-variable {FClass GL3Class V LF L3 H : Type*}
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The Gelbart–Jacquet construction needs the genuine unitary cuspidal GL₂ and isobaric GL₃ carriers, all-place local factors/LLC and the distinct highly ramified T-converse input. The matrix component below does not construct an automorphic lift.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.adjointLift, TauCeti.GL2Transfer.adjointLift_local, TauCeti.GL2Transfer.adjointLift_unramified, TauCeti.GL2Transfer.adjointLift_twist, TauCeti.GL2Transfer.adjointLift_central.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.adjoint_diagonal_test, TauCeti.GL2Transfer.adjoint_scalar_test, TauCeti.GL2Transfer.adjoint_twist_test, TauCeti.GL2Transfer.adjoint_not_sym_square_test.
 
-/-- Missing: π unitary cuspidal over a number field, and the supplier-owned
-isobaric rank-three carrier. This is Ad=Sym²⊗ω⁻¹, not untwisted Sym². -/
-noncomputable def adjointLift (FClass GL3Class : Type*) : FClass → GL3Class := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift
+TauCeti.GL2Transfer.adjointLift
+For a unitary cuspidal GL₂ automorphic representation π over a number field F, the adjoint lift Ad(π)=Sym²(π)⊗ω_π^{-1} (the Gelbart–Jacquet lift) is an isobaric automorphic GL₃ representation with trivial central character, self-dual, whose component at every place is the Gelbart–Jacquet local lift: L(s,Ad(π)_v⊗χ_v)=L(s,(π_v⊗χ_v)×π̃_v)/L(s,χ_v), with the matching ε-factors, for every character χ_v. Through the GL₂ local Langlands correspondence and its pair-factor compatibility these are the factors of the adjoint of the rank-two LLC parameter. At an unramified v with eigenvalues α,β its eigenvalues are α/β,1,β/α. It is invariant under character twist of π. It is cuspidal exactly when π has no nontrivial self-twist (GJ78 Theorem 9.3 and Remark 9.9). If π≅π⊗η with η≠1, then η=η_{E/F} is quadratic, π=AI_{E/F}(θ), and Ad(π)=η_{E/F}⊞AI_{E/F}(θ/θ^σ), with the rank-two induction interpreted isobarically if its character is invariant. The adjoint of a Galois or Weil–Deligne parameter is taken from ArithmeticGaloisRepresentations G7.
+Hypotheses: F is a number field (§9 and Theorem 9.3 are stated for number fields). π is a unitary cuspidal automorphic representation of GL₂(A_F). Cuspidal branch: π⊗χ≇π for every Hecke character χ≠1 (GJ78 Theorem 9.3). Self-twist branch: π≅π⊗η with η≠1; then η=η_{E/F} is quadratic and π=AI_{E/F}(θ) (GJ78 §3.7, Remark 9.9). Normalisation: Ad(π)=Sym²(π)⊗ω_π^{-1} is the GJ78 lift, characterised at every place by trivial central character, self-duality and L(s,Ad(π)_v⊗χ_v)=L(s,(π_v⊗χ_v)×π̃_v)/L(s,χ_v) with matching ε; unitary normalisation. The identification of local components with the adjoint of the rank-two LLC parameter uses the GL₂ LLC with pair-factor compatibility (R16.3, ET.6) and the GL₃ local converse theorem; GJ78 does not prove it for extraordinary π_v.
+TauCeti.GL2Transfer.adjointLift_local: Each local component of Ad(π) is the Gelbart–Jacquet local lift of π_v; under the GL₂ LLC its parameter is the adjoint of the local parameter of π.
+TauCeti.GL2Transfer.adjointLift_unramified: Satake eigenvalues (α,β) become (α/β,1,β/α).
+TauCeti.GL2Transfer.adjointLift_twist: Ad(π⊗χ)=Ad(π) for every Hecke character χ.
+TauCeti.GL2Transfer.adjointLift_central: The central character of Ad(π) is trivial.
+TauCeti.GL2Transfer.adjoint_diagonal_test: The Satake class diag(2,3) gives diag(2/3,1,3/2) in GL₃(Q).
+TauCeti.GL2Transfer.adjoint_scalar_test: Scalar Satake input diag(a,a), a≠0, gives the identity class.
+TauCeti.GL2Transfer.adjoint_twist_test: Multiplying both input eigenvalues by any u≠0 does not change the three adjoint eigenvalues.
+TauCeti.GL2Transfer.adjoint_not_sym_square_test: For diag(2,3), the adjoint output differs from diag(4,6,9); forgetting ω^{-1} gives the wrong lift.
+-/
+section AdjointMatrix
+variable {K : Type*} [Field K]
+/-- The diagonal matrix formula only; automorphic existence is the omitted
+`adjointLift` interface. Nonzero Satake roots are required in comparisons. -/
+def adjointSatakeDiagonal (α β : K) : Matrix (Fin 3) (Fin 3) K :=
+  diagonal ![α / β, 1, β / α]
 
-lemma adjointLift_local (π : FClass) (v : V)
-    (local2 : FClass → V → LF) (local3 : GL3Class → V → L3) (adjoint : LF → L3) :
-    local3 (adjointLift FClass GL3Class π) v = adjoint (local2 π v) := by sorry
+-- TauCeti.GL2Transfer.adjoint_diagonal_test (matrix component)
+example : adjointSatakeDiagonal (2 : ℚ) 3 =
+    !![2/3, 0, 0; 0, 1, 0; 0, 0, 3/2] := by sorry
+-- TauCeti.GL2Transfer.adjoint_scalar_test (matrix component)
+example (a : K) (ha : a ≠ 0) : adjointSatakeDiagonal a a = 1 := by sorry
+-- TauCeti.GL2Transfer.adjoint_twist_test (matrix component)
+example (α β u : K) (hu : u ≠ 0) :
+    adjointSatakeDiagonal (u * α) (u * β) = adjointSatakeDiagonal α β := by sorry
+-- TauCeti.GL2Transfer.adjoint_not_sym_square_test (matrix component)
+example : adjointSatakeDiagonal (2 : ℚ) 3 ≠ diagonal ![4, 6, 9] := by sorry
+end AdjointMatrix
 
-lemma adjointLift_unramified {K : Type*} [Field K] (π : FClass) (v : V)
-    (α β : K) (hα : α ≠ 0) (hβ : β ≠ 0)
-    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) K)
-    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) K)
-    (hsat : sat2 π v = diagonal ![α, β]) :
-    sat3 (adjointLift FClass GL3Class π) v = diagonal ![α / β, 1, β / α] := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+Non-normal cubic base change requires an actual separable cubic number-field extension, its places/residue degrees, the weak JPSS automorphic transfer and isobaric uniqueness. Its original construction and the stronger Carayol all-place upgrade remain separate source-proof gaps. No arbitrary function between carriers is a transfer.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.cubicBaseChange, TauCeti.GL2Transfer.cubicBaseChange_unramified, TauCeti.GL2Transfer.cubicBaseChange_twist, TauCeti.GL2Transfer.cubicBaseChange_central, TauCeti.GL2Transfer.cubicBaseChange_unique.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.cubic_split_test, TauCeti.GL2Transfer.cubic_one_two_test, TauCeti.GL2Transfer.cubic_inert_test, TauCeti.GL2Transfer.cubic_not_three_test.
 
-lemma adjointLift_twist (π : FClass) (χ : H) (twist : H → FClass → FClass) :
-    adjointLift FClass GL3Class (twist χ π) = adjointLift FClass GL3Class π := by sorry
-
-lemma adjointLift_central {C : Type*} [Monoid C] (π : FClass) (ω : GL3Class → C) :
-    ω (adjointLift FClass GL3Class π) = 1 := by sorry
-
--- The next four examples evaluate adjointLift through the suppliers' unramified
--- Satake projections sat2/sat3 (missing: v unramified for π); they do not
--- assert global existence of a form with a chosen Satake class.
--- TauCeti.GL2Transfer.adjoint_diagonal_test
-example (π : FClass) (v : V)
-    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) ℚ)
-    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) ℚ)
-    (hsat : sat2 π v = diagonal ![2, 3]) :
-    sat3 (adjointLift FClass GL3Class π) v = !![2/3, 0, 0; 0, 1, 0; 0, 0, 3/2] := by sorry
-
--- TauCeti.GL2Transfer.adjoint_scalar_test
-example {K : Type*} [Field K] (π : FClass) (v : V) (a : K) (ha : a ≠ 0)
-    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) K)
-    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) K)
-    (hsat : sat2 π v = diagonal ![a, a]) :
-    sat3 (adjointLift FClass GL3Class π) v = 1 := by sorry
-
--- TauCeti.GL2Transfer.adjoint_twist_test
--- Missing: twistBy u is the supplied twist by an unramified character with value
--- u at v, so the Satake class of the twist is u times that of π.
-example {K : Type*} [Field K] (π : FClass) (v : V) (α β u : K)
-    (hα : α ≠ 0) (hβ : β ≠ 0) (hu : u ≠ 0) (twistBy : K → FClass → FClass)
-    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) K)
-    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) K)
-    (hsat : sat2 π v = diagonal ![α, β])
-    (htw : sat2 (twistBy u π) v = diagonal ![u * α, u * β]) :
-    sat3 (adjointLift FClass GL3Class (twistBy u π)) v =
-      sat3 (adjointLift FClass GL3Class π) v := by sorry
-
--- TauCeti.GL2Transfer.adjoint_not_sym_square_test
--- The untwisted symmetric square diag(4,6,9) is not the adjoint lift.
-example (π : FClass) (v : V)
-    (sat2 : FClass → V → Matrix (Fin 2) (Fin 2) ℚ)
-    (sat3 : GL3Class → V → Matrix (Fin 3) (Fin 3) ℚ)
-    (hsat : sat2 π v = diagonal ![2, 3]) :
-    sat3 (adjointLift FClass GL3Class π) v ≠ diagonal ![4, 6, 9] := by sorry
-end Adjoint
-
-section Cubic
-variable {FClass EClass V W HF HE C K : Type*} [CommRing K]
-
-/-- Missing: separable non-Galois cubic K/F, its S₃ closure, the JPSS
-construction and strong localRep upgrade; this is not a prime-cyclic tower. -/
-noncomputable def cubicBaseChange (FClass EClass : Type*) : FClass → EClass := by sorry
-
-lemma cubicBaseChange_unramified (π : FClass) (v : V) (w : W) (f : ℕ)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) K)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) K) :
-    satE (cubicBaseChange FClass EClass π) w = unramifiedBaseChange (satF π v) f := by sorry
-
-lemma cubicBaseChange_twist (π : FClass) (χ : HF) (normPullback : HF → HE)
-    (twistF : HF → FClass → FClass) (twistE : HE → EClass → EClass) :
-    cubicBaseChange FClass EClass (twistF χ π) =
-      twistE (normPullback χ) (cubicBaseChange FClass EClass π) := by sorry
-
-lemma cubicBaseChange_central (π : FClass) (ωF : FClass → HF) (ωE : EClass → HE)
-    (normPullback : HF → HE) :
-    ωE (cubicBaseChange FClass EClass π) = normPullback (ωF π) := by sorry
-
--- Missing: sat is the actual unramified localRep class projection on isobaric classes.
-lemma cubicBaseChange_unique (Pi Ψ : EClass) (S : Finset W)
-    (sat : EClass → W → C) (h : ∀ w, w ∉ S → sat Pi w = sat Ψ w) : Pi = Ψ := by sorry
-
--- In the four tests below satF/satE are the suppliers' unramified Satake
--- projections and w, w₁, w₂ are places of K above an unramified v of F
--- (missing: the cubic field K/F and the splitting type of v).
--- TauCeti.GL2Transfer.cubic_split_test
--- Missing: v splits completely in K as w₁, w₂, w₃.
-example (π : FClass) (v : V) (w₁ w₂ w₃ : W)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) K)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) K) :
-    (satE (cubicBaseChange FClass EClass π) w₁, satE (cubicBaseChange FClass EClass π) w₂,
-      satE (cubicBaseChange FClass EClass π) w₃) = (satF π v, satF π v, satF π v) := by sorry
-
--- TauCeti.GL2Transfer.cubic_one_two_test
--- Missing: v = w₁ w₂ in K with residue degrees 1 and 2.
-example (π : FClass) (v : V) (w₁ w₂ : W)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
-    (hA : (satF π v).val = !![2, 0; 0, 3]) :
-    ((satE (cubicBaseChange FClass EClass π) w₁).val,
-      (satE (cubicBaseChange FClass EClass π) w₂).val) =
-      (!![2, 0; 0, 3], !![4, 0; 0, 9]) := by sorry
-
--- TauCeti.GL2Transfer.cubic_inert_test
--- Missing: v inert in K, w the place above it.
-example (π : FClass) (v : V) (w : W)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
-    (hA : (satF π v).val = !![2, 0; 0, 3]) :
-    (satE (cubicBaseChange FClass EClass π) w).val = !![8, 0; 0, 27] := by sorry
-
--- TauCeti.GL2Transfer.cubic_not_three_test
--- Missing: v = w₁ w₂ with residue degrees 1 and 2, as in cubic_one_two_test.
-example (π : FClass) (v : V) (w₁ w₂ : W)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
-    (hA : (satF π v).val = !![2, 0; 0, 3]) :
-    (satE (cubicBaseChange FClass EClass π) w₁, satE (cubicBaseChange FClass EClass π) w₂) ≠
-      (unramifiedBaseChange (satF π v) 3, unramifiedBaseChange (satF π v) 3) := by sorry
-end Cubic
-
+GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change
+TauCeti.GL2Transfer.cubicBaseChange
+Let K/F be a separable non-Galois cubic extension of number fields, with S₃ normal closure. The Jacquet–Piatetski-Shapiro–Shalika cubic transfer associates to a cuspidal GL₂ automorphic π over F an automorphic GL₂ representation BC_{K/F}(π) over K, taken isobaric, whose Satake class at almost every w|v is A_v^{f(w/v)}. In Tunnell's statement of [JPSS], Π_w=π(Res ρ_v) whenever π_v=π(ρ_v), for almost all v. For an isobaric π=π(μ,ν) the transfer is π(μ∘N_{K/F},ν∘N_{K/F}). This stage constructs only this weak transfer. Carayol §12.2.1 also records local lifts for extensions of degree at most three (for non-Galois cubic extensions defined by L- and ε-factors) and states that the global lift has these local lifts as components at every place. That all-place statement, which Carayol's extraordinary comparison (AutomorphicGaloisRepresentations R19.2/carayol-cubic-base-change-of-extraordinary) needs, together with the correspondence of the local lift of a principal series, special or ordinary cuspidal π_v with the restriction of its Weil–Deligne parameter (asserted by Carayol §12.2.2 without reference), is an explicit source-proof gap and not part of these construction steps. The transfer respects twists via the norm and preserves the central character by norm pullback. A cuspidal input can cease to be cuspidal; for the primitive tetrahedral/octahedral dyadic parameters of Carayol §12.2.2, the restricted local parameter is irreducible. The original JPSS note and its GL₃/GL₂×GL₃ proof have not been obtained: the theorem rests on Tunnell's and Carayol's consumer statements.
+Hypotheses: K/F is a separable cubic extension of number fields that is not Galois (normal closure with group S₃); the source theorem also covers Galois K/F. The input π is a cuspidal automorphic representation of GL₂(A_F) (both sources). The isobaric input π(μ,ν) is handled by composing the characters with N_{K/F}. Compatibility is asserted only at almost all places (unramified v with π_v=π(ρ_v)); the output is determined up to isomorphism among isobaric representations. Unitary normalisation; A_v is the Satake class of π_v and the output class at w|v is A_v^{f(w/v)}.
+TauCeti.GL2Transfer.cubicBaseChange_unramified: At unramified w|v the output Satake class is the f(w/v)-power of the input class.
+TauCeti.GL2Transfer.cubicBaseChange_twist: BC_{K/F}(π⊗χ)=BC_{K/F}(π)⊗(χ∘N_{K/F}).
+TauCeti.GL2Transfer.cubicBaseChange_central: The central character is ω_π∘N_{K/F}.
+TauCeti.GL2Transfer.cubicBaseChange_unique: The isobaric global output is uniquely determined by its almost-everywhere local Satake powers.
+TauCeti.GL2Transfer.cubic_split_test: At a completely split place the three outputs are all the original Satake class A.
+TauCeti.GL2Transfer.cubic_one_two_test: For splitting type (1,2) and A=diag(2,3), the two outputs are diag(2,3) and diag(4,9).
+TauCeti.GL2Transfer.cubic_inert_test: For residue degree three and A=diag(2,3), the output is diag(8,27).
+TauCeti.GL2Transfer.cubic_not_three_test: At splitting type (1,2), replacing every output by A³ gives the wrong local components.
+-/
 section QuadraticInduction
 variable {FClass EClass H V L2 L1 HF C : Type*}
 
@@ -431,62 +339,72 @@ example {CuspidalClass : Type*} (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
     ∃ π : CuspidalClass, forget π = quadraticInduction H FClass θ := by sorry
 end QuadraticInduction
 
-/-! R17.3 theorem interfaces. Each abstract projection must be its named supplier
-operation; the number-field/quaternion data and eligible spectra of GlobalJL are
-still omitted. These are not assertions about arbitrary sets of classes. -/
-section JLTheorems
-variable {DClass FClass DFull H V C : Type*}
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The non-norm JL domain, eligible cuspidal range, actual Hecke/local-factor maps, compatible rational models and prescribed infinity/globalization hypotheses are required. Equality of rationality fields does not itself provide those models.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.norm_exception, TauCeti.GL2Transfer.split_hecke, TauCeti.GL2Transfer.local_factors, TauCeti.GL2Transfer.strong_multiplicity_one, TauCeti.GL2Transfer.multiplicity_one, TauCeti.GL2Transfer.coefficient_conjugation, TauCeti.GL2Transfer.rational_models, TauCeti.GL2Transfer.definite_infinity, TauCeti.GL2Transfer.indefinite_parity, TauCeti.GL2Transfer.invariant_exchange, TauCeti.GL2Transfer.supercuspidal_globalization.
 
-theorem norm_exception (forget : DClass → DFull) (normChar : H → DFull)
-    (d : DClass) (χ : H) : forget d ≠ normChar χ := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/norm-exception
+TauCeti.GL2Transfer.norm_exception
+Let D/F be a nonsplit quaternion algebra with ramification set S and χ a Hecke character of F^×\A_F^×. The one-dimensional automorphic representation χ∘Nrd of D×(A_F) is not in the domain of the cuspidal JL bijection. Its classical local transfers are: St_v⊗χ_v at finite v ∈ S, the weight-two discrete series twisted by χ_v at real v ∈ S, and the one-dimensional χ_v∘det at v ∉ S. Their restricted tensor product therefore has one-dimensional components at almost all places and is not cuspidal. JL70 notes that it acts on no subspace of the automorphic forms on GL₂(A_F), and leaves open whether it is a constituent. In Badulescu–Renard's extended discrete-spectrum correspondence (χ unitary), χ∘Nrd corresponds instead to the residual one-dimensional discrete series χ∘det of GL₂(A_F). There the local map |LJ_v| sends χ_v∘det to χ_v∘Nrd. So |LJ_v| agrees with classical JL_v on square-integrable representations but is not injective on all compatible unitary ones, since both χ_v∘det and St_v⊗χ_v go to χ_v∘Nrd. The two branches must not be identified.
+Hypotheses: D/F is a nonsplit quaternion algebra over a number field F, with ramification set S ≠ ∅. χ is a Hecke character of F^×\A_F^×; for the Badulescu–Renard comparison χ is unitary. Local transfers at v ∈ S are the R17.1 correspondence; at v ∉ S the fixed isomorphisms are used.
 
-theorem split_hecke (d : DClass) (v : V) (T S : DClass → V → C)
-    (T' S' : FClass → V → C) :
-    T' (globalJL DClass FClass d) v = T d v ∧
-    S' (globalJL DClass FClass d) v = S d v := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/split-hecke
+TauCeti.GL2Transfer.split_hecke
+Let π′ and π = JL_D π′ be as in global-jl. At every finite v ∉ S the fixed algebra identification identifies their local representations, hence their K_v-invariant modules for every compact open K_v and the action of the local Hecke algebra on them. In particular, at a spherical v the eigenvalues t_v of T_v = [K_v diag(ϖ_v,1)K_v] and s_v of S_v = [K_v diag(ϖ_v,ϖ_v)K_v] agree. Consequently the arithmetic degree-two Euler polynomial 1 − a_v X + b_v X², with a_v = t_v and b_v = q_v s_v, agrees; its reciprocal is the polynomial X² − T_vX + N(v)S_v of CDN23. This does not assert an integral global Hecke-module isomorphism, equality of multiplicities at unrelated levels, or spherical vectors at division places.
+Hypotheses: π′ is in the domain of global-jl and π = JL_D π′. v is a finite place of F not in the ramification set S, with D⊗F_v ≅ M₂(F_v) fixed, and K_v ⊂ D_v× corresponds to GL₂(O_{F_v}) (or any compact open subgroup transported by the same isomorphism). Hecke operators are the unnormalized double cosets T_v = [K_v diag(ϖ_v,1)K_v] and S_v = [K_v diag(ϖ_v,ϖ_v)K_v] (R16.2 arithmetic normalization); q_v is the residue cardinality.
 
-theorem local_factors (d : DClass) (v : V) (s : ℂ) (χ : H)
-    (L ε : DClass → V → H → ℂ → ℂ) (L' ε' : FClass → V → H → ℂ → ℂ) :
-    L' (globalJL DClass FClass d) v χ s = L d v χ s ∧
-    ε' (globalJL DClass FClass d) v χ s = ε d v χ s := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/local-factors
+TauCeti.GL2Transfer.local_factors
+For π′ in the domain of global-jl, π = JL_D π′, a fixed nontrivial additive character ψ = ⊗ψ_v of F\A_F, every place v and every quasi-character ω_v of F_v^×: L(s, ω_v⊗π_v) = L(s, ω_v⊗π′_v), L(s, ω_v^{-1}⊗π̃_v) = L(s, ω_v^{-1}⊗π̃′_v) and ε(s, ω_v⊗π_v, ψ_v) = ε(s, ω_v⊗π′_v, ψ_v). Here, at v ∈ S, the factors of π′_v are JL70's and the GL₂ factors are in the R16.3 normalization; at v ∉ S the equalities are the fixed identification. In this normalization the local functional equation of the zeta integrals on D_v carries the extra sign h_v = −1 for v ∈ S. If instead the constant of that functional equation is taken as the ε-factor of π′_v, then ε(s, ω_v⊗π′_v, ψ_v) = −ε(s, ω_v⊗π_v, ψ_v) at each v ∈ S, and the global product of these signs is (−1)^{|S|} = 1. Hence for every Hecke character ω the completed L-functions agree, L(s, ω⊗π′) = L(s, ω⊗π), as do the global ε-factors and the functional equations, with compatible measures and the same ψ.
+Hypotheses: π′ is in the domain of global-jl and π = JL_D π′; S is the ramification set of D. ψ = ⊗ψ_v is a fixed nontrivial additive character of F\A_F, and the same ψ_v is used on D_v× and on GL₂(F_v). ω_v ranges over all quasi-characters of F_v^×, and ω over all Hecke characters of F. At v ∈ S the factors of π′_v are JL70's; at v ∉ S they are those of the GL₂-representation via the fixed isomorphism; the GL₂ factors are in the R16.3 normalization.
 
-theorem strong_multiplicity_one (d e : DClass) (S : Finset V)
-    (localRep : DClass → V → C) (h : ∀ v, v ∉ S → localRep d v = localRep e v) : d = e := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/strong-multiplicity-one
+TauCeti.GL2Transfer.strong_multiplicity_one
+Let π′ and σ′ be discrete series of D×(A_F): irreducible subrepresentations of L²(D×(F)A_F^×\D×(A_F), ω) for a unitary ω. For nonsplit D these are, up to a twist by |Nrd|^s, all irreducible automorphic representations. Assume they are not one-dimensional. If π′_v ≅ σ′_v for all finite v outside a finite set, then π′ ≅ σ′. In particular their components away from a finite set of places determine the components in that set, for example at a distinguished ramified place. This is a theorem about global representations, not a statement that one local Hecke scalar determines a local type.
+Hypotheses: F is a number field and D/F a quaternion algebra. π′ and σ′ are discrete series of D×(A_F) (irreducible subrepresentations of L²(D×(F)A_F^×\D×(A_F), ω) for unitary ω), not one-dimensional; for nonsplit D this covers every irreducible automorphic representation up to a twist by |Nrd|^s. π′_v ≅ σ′_v for all finite places v outside a finite set.
 
-theorem multiplicity_one (d : DClass) (multiplicity : DClass → ℕ) :
-    multiplicity d = 1 := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one
+TauCeti.GL2Transfer.multiplicity_one
+For a fixed unitary central character ω, every non-one-dimensional discrete series π′ of D×(A_F) occurs with multiplicity exactly one in L²_disc(D×(F)A_F^×\D×(A_F), ω). Together with local invariant-vector dimensions this computes its contribution at any fixed finite level; it does not say that the full level space is one-dimensional.
+Hypotheses: F is a number field and D/F a quaternion algebra. ω is a fixed unitary character of F^×\A_F^× and the spectrum is L²_disc(D×(F)A_F^×\D×(A_F), ω). π′ is a discrete series of D×(A_F) with central character ω, not one-dimensional.
 
--- Missing: cohomological infinity types, rational structures and their conjugates.
-theorem coefficient_conjugation (d : DClass) (conjD : DClass → DClass)
-    (conjF : FClass → FClass) :
-    globalJL DClass FClass (conjD d) = conjF (globalJL DClass FClass d) := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/coefficient-conjugation
+TauCeti.GL2Transfer.coefficient_conjugation
+Let F be totally real, D/F a quaternion algebra with ramification set S, and π = JL_D π′ cohomological: π_v is a discrete series of weight k_v ≥ 2 at every real place, all k_v of the same parity. Suppose, by the R16.4 rationality interface, that for σ ∈ Aut(C) the conjugate σπ_f is the finite part of a cuspidal cohomological π^σ, whose weights are those of π permuted by σ acting on the real embeddings. Then π^σ is again D-compatible: square-integrability at finite places of S is preserved by σ, and all real components are discrete series. Its inverse transfer π′^σ := JL_D^{-1}(π^σ) has finite part σπ′_f, the σ-conjugated algebraic infinity type, and central character with finite part σ∘ω_f. Hence Q(π′_f) = Q(π_f), and both equal the field generated by the arithmetic away-S Hecke eigenvalues (a_v, b_v). This holds only in the cohomological setting supplied by R16.4; it is not a claim of rationality for Maass forms or weight-one Artin forms.
+Hypotheses: F is a totally real number field, D/F a quaternion algebra with ramification set S. π = JL_D π′ is cohomological: at every real place v, π_v is a discrete series of weight k_v ≥ 2, all k_v of the same parity; at real v ∈ S, π′_v is the matching algebraic D_v× type. The R16.4 rationality interface: for σ ∈ Aut(C), σπ_f is the finite part of a cuspidal cohomological π^σ with weights permuted by σ. Hecke eigenvalues are in the arithmetic normalization of split-hecke (a_v = t_v, b_v = q_v s_v), v ∉ S finite.
 
--- The supplied coefficient models may require a finite extension; this prototype
--- compares their Hecke scalars, rather than promising arbitrary whole-module descent.
-theorem rational_models {K L : Type*} [Field K] [Field L] (φ : K →+* L)
-    (d : DClass) (v : V) (aD : DClass → V → K) (aF : FClass → V → K) :
-    φ (aF (globalJL DClass FClass d) v) = φ (aD d v) := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models
+TauCeti.GL2Transfer.rational_models
+Let (π′, π) be the cohomological JL pair of coefficient-conjugation, and L ⊂ C a field containing Q(π_f) = Q(π′_f). A p-adic coefficient field such as CDN20's is used through a fixed isomorphism C ≅ Q̄_p. (i) If π′_f and π_f have L-models, then at every finite v ∉ S the fixed identification gives an L-linear isomorphism of the L-models of π′_v and π_v, hence of their K_v-invariants with Hecke actions; the arithmetic Hecke eigensystems agree in L and after every extension of L. The models are absolutely irreducible, so isomorphism over C descends to L. (ii) Equality of the fields of rationality does not by itself give an L-model of π′_f: a Schur/descent obstruction at places of S may force a finite extension of L. Consumers therefore fix L large enough. CDN20 §5.2.1 requires the Shimura-curve representation to be defined over its coefficient field L and allows a finite extension of L (footnote 21).
+Hypotheses: (π′, π) is a cohomological JL pair as in coefficient-conjugation. L ⊂ C is a field containing Q(π_f) = Q(π′_f); a p-adic coefficient field is reached through a fixed isomorphism C ≅ Q̄_p. Models: L-structures on π′_f and π_f stable under the group actions, when they exist; for GL₂ they are supplied, with any descent condition, by the R16.4 interface. Hecke eigenvalues are in the arithmetic normalization of split-hecke.
 
--- Missing: D/Q ramified at p,infinity; coefficient type W(-k,0); d non-norm.
--- The excluded k=0 norm branch has weight zero, as stated in the packet.
-theorem definite_infinity (d : DClass) (k : ℕ) (weight : FClass → ℕ) :
-    weight (globalJL DClass FClass d) = k + 2 := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.3/definite-infinity
+TauCeti.GL2Transfer.definite_infinity
+Let F be totally real and D ramified at every real place. A representation π′ in the domain of global-jl whose real components are irreducible algebraic representations of D_v× ≅ H× (of the highest weights normalized by R17.1) transfers to a cuspidal π whose real components are discrete series with the same infinitesimal characters (Sym^{k−2} ↔ D_k). Over Q with D ramified exactly at {p,∞}, take Pan's space A_{(k,0)} = A_{D,−χ}, χ = (−k,0), of W^{(k,0)}-valued quaternionic forms. Here W^{(k,0)} has highest weight (k,0) and is the dual of the irreducible algebraic D_p×-representation of highest weight (0,−k). For k ≥ 1, A_{(k,0)} decomposes under T_S into eigenspaces indexed by cuspidal π of GL₂(A_Q) such that π_∞ has the infinitesimal character of the algebraic GL₂-representation of highest weight (0,−k), (π^∞)^{K^p} ≠ 0, and π_p is special or supercuspidal. So the spectrum lies in σ^{K^p}_{k+2,1}, the T_S-spectrum on M_{k+2}(K^p)·t, where GL₂(A_f) acts on t through the cyclotomic character. For k = 0, A_{(0,0)} = A^c ⊕ A^1 with A^1 the forms factoring through Nrd: norm-factor eigenforms have weight-zero spectrum σ_0^{K^p}, and the weight-two cuspidal branch σ^{K^p}_{2,1} lives on A^c. So the norm-factor subspace must be removed to get the weight-two cuspidal branch. Construction of the algebraic form space and its identification with automorphic representations of D×(A_Q) remain the R18.3 owner's work.
+Hypotheses: F is totally real and D/F is ramified at every real place. π′ is in the domain of global-jl and its real components are irreducible algebraic representations of D_v× ≅ H× (up to the fixed twist), with highest weights normalized by R17.1. For the Pan specialisation: F = Q, D ramified exactly at {p,∞}, χ = (−k,0) with k ≥ 0, K^p ⊂ GL₂(A_f^p) ≅ (D⊗A_f^p)× via Pan's identification (main involution), and T_S = Z_p[T_ℓ, S_ℓ : ℓ ∉ S]. Pan's coefficient field is the p-adic C (completion of Q̄_p); the algebraic form space and its comparison with complex automorphic forms are supplied by R18.3.
 
--- Apply imported Hilbert reciprocity to the actual finite ramification set first.
+GL2AutomorphicRepresentationsAndTransfer:R17.3/indefinite-parity
+TauCeti.GL2Transfer.indefinite_parity
+For totally real F of degree d, a quaternion algebra B split at exactly one real place and ramified at the other d−1 has a ramification set of even cardinality, so its number of ramified finite places has the parity of d−1. In CDN20 §5.2.1, B̌ is split at ∞₀, compact modulo the centre at the other real places and ramified at 𝔭; CDN20 puts no degree condition on F, and the parity of the remaining finite ramification is forced by the product formula. Given such B and a cuspidal π of GL₂(A_F) that is square-integrable at every place of Ram(B), the inverse transfer JL_B^{-1}(π) is the automorphic representation used on the associated Shimura curve. It has the same components, hence the same Hecke data, at every split finite place. The geometry and integral/cohomological realization belong to R18/R22. Parity is applied from ClassFieldTheory Layer 14, not reproved.
+Hypotheses: F is totally real of degree d. B/F is a quaternion algebra split at exactly one real place and ramified at the other d−1 real places (d = 1 allowed: B split at the real place of Q). B is given by the quaternion/class-field suppliers; the parity is applied from ClassFieldTheory Layer 14. π is a cuspidal representation of GL₂(A_F) with π_v square-integrable at every place of Ram(B), including the d−1 ramified real places.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.3/invariant-exchange
+TauCeti.GL2Transfer.invariant_exchange
+In CDN23 §4.1 (F = Q_p, p > 2), E is a totally real field of even degree in which p splits completely, supplied by a globalization (Prop. 4.5), with a place 𝔭 | p (so E_𝔭 = Q_p) and a real place ∞₀. D⁰ is a quaternion algebra over E ramified exactly at the real places. D has the invariants of D⁰ exchanged at {𝔭,∞₀}: it is ramified at 𝔭 and at the real places other than ∞₀, and split at ∞₀. Both ramification sets have [E:Q] elements. The algebras are identified away from {𝔭,∞₀} by the fixed isomorphism (4.6). Any cuspidal π of GL₂(A_E) that is square-integrable at all real places and at 𝔭 lies in the image of both global-jl correspondences. This gives π⁰ = JL_{D⁰}^{-1}(π) and π^D = JL_D^{-1}(π), whose components away from {𝔭,∞₀} correspond under (4.6), with equal Hecke actions on invariants under any compact open U^𝔭 transported by (4.6). At 𝔭, π⁰_𝔭 is the special or supercuspidal π_𝔭 (via the fixed identification) and π^D_𝔭 = JL_𝔭^{-1}(π_𝔭). At ∞₀, π⁰_{∞₀} is the algebraic type matching the discrete series π_{∞₀} = π^D_{∞₀}. In particular CDN23's tame level U^𝔭, with U_v = GL₂(O_{E_v}) for v ≠ w₁ and U_{w₁} = {g ≡ (1 *; 0 1) mod ϖ_{w₁}}, is carried to D× through (4.6). Here w₁ is CDN23's auxiliary place: N(w₁) is prime to 2Np and not ≡ 1 mod p, and the ratio of the eigenvalues of ρ̄(Frob_{w₁}) is not 1 or N(w₁)^{±1}. N is the product of the orders of the finite groups (U_max A_f^× ∩ t_iG(E)t_i^{-1})/E^×. Existence of w₁ and the small-level geometry are separate supplied inputs, not consequences of JL.
+Hypotheses: Setting of CDN23 §4: F = Q_p with p > 2; E totally real of even degree in which p splits completely (Prop. 4.5), with a place 𝔭 | p (E_𝔭 = Q_p) and a real place ∞₀. D⁰ and D are given quaternion algebras over E: D⁰ ramified exactly at the real places, and D ramified at 𝔭 and at the real places other than ∞₀. Both ramification sets have [E:Q] elements, which is even (consistency by ClassFieldTheory Layer 14). The isomorphism (4.6) D⁰⊗A^{𝔭,∞₀} ≅ D⊗A^{𝔭,∞₀} and the maximal-order identifications (O_{D⁰})_v ≅ M₂(O_{E_v}) are fixed. π is a cuspidal representation of GL₂(A_E) that is square-integrable at every real place and at 𝔭. w₁ and the level U are CDN23's (existence of w₁ is a supplied input, [25, Lemma 8.2]).
+
+GL2AutomorphicRepresentationsAndTransfer:R17.3/supercuspidal-globalization
+TauCeti.GL2Transfer.supercuspidal_globalization
+Let F₀ be a finite extension of Q_p, L a finite extension of Q_p (CDN20's coefficient field; complex representations are viewed over Q̄_p through a fixed isomorphism C ≅ Q̄_p), and τ = LL(M) an irreducible supercuspidal representation of GL₂(F₀) whose central character is trivial on a fixed uniformizer ϖ. The setting is CDN20 §5.2.1: E totally real with a place 𝔭 | p and E_𝔭 = F₀, a real place ∞₀, B̌ split at ∞₀, compact modulo the centre at the other real places and ramified at 𝔭, and B with the invariants of B̌ exchanged at {𝔭,∞₀}. The globalization sought is an automorphic Π̌ of B̌×(A_E), defined over L, with Π̌_∞ containing σ₂ and Π̌_𝔭 ≅ JL(τ). Here σ₂ is trivial at the real places other than ∞₀ and is the holomorphic discrete series of weight 2 with trivial central character at ∞₀. By footnote 21 this may require adjusting the central character, hence twisting everything by a character: τ by η∘det and JL(τ) by η∘Nrd for a character η of F₀^×, which changes ϖ. It may also require replacing L by a finite extension. The result is stated for the twisted data over the extended field. Given Π̌, global JL through GL₂ gives Π on B×(A_E) with Π^𝔭_f ≅ Π̌^𝔭_f under the fixed identifications and Π_𝔭 ≅ τ (twisted as above). Π̌^𝔭_f determines Π̌_𝔭 by quaternionic strong multiplicity one. The existence of Π̌ (Clozel's limit multiplicities, CDN20's [9]) is an explicit unresolved supplier gap, not a consequence of local transfer.
+Hypotheses: F₀ is a finite extension of Q_p and τ = LL(M) is an irreducible supercuspidal representation of GL₂(F₀) whose central character is trivial on a fixed uniformizer ϖ (CDN20's ϖ-compatibility). L is a finite extension of Q_p (CDN20's coefficient field), with complex representations viewed over Q̄_p through a fixed isomorphism C ≅ Q̄_p. E, 𝔭 (E_𝔭 = F₀), ∞₀, B̌ and B are chosen as in CDN20 §5.2.1 and are given data. The existence of the globalization Π̌ (Clozel's limit-multiplicity theorem) is the recorded gap 'Clozel prescribed-supercuspidal globalization'. Twisting τ by a character of F₀^× and finitely extending L are allowed, as footnote 21 permits.
+-/
+
+-- Pure parity consequence of the supplied ramification parity.
 theorem indefinite_parity (d t : ℕ) (hd : 1 ≤ d) (h : Even ((d - 1) + t)) :
     t % 2 = (d - 1) % 2 := by sorry
-
--- Missing CDN23's even-degree totally real E and the common representation
--- compatible with both invariant-exchanged quaternion algebras, plus level data.
-theorem invariant_exchange {D0Class : Type*} (π : FClass) :
-    ∃ d0 : D0Class, ∃ d : DClass,
-      globalJL D0Class FClass d0 = π ∧ globalJL DClass FClass d = π := by sorry
-
--- Missing the precise Clozel limit-multiplicity hypotheses, compatible central
--- character after the permitted twist, and the specified infinity type.
-theorem supercuspidal_globalization (v : V) (τ : C) (localRep : DClass → V → C) :
-    ∃ d : DClass, localRep d v = τ := by sorry
-end JLTheorems
 
 /-! R17.4 theorem interfaces. The cyclic extension, the real automorphic class
 carriers, the action and the localRep restriction maps are supplied, not recreated. -/
@@ -542,16 +460,32 @@ theorem prescribed_local_base_change (π : FClass) (v : V) (w : W)
     (localF : FClass → V → C) (localE : EClass → W → C) :
     localE (solvableBaseChange FClass EClass π) w = localF π v := by sorry
 
--- Missing: cyclic cubic E/F, the localRep induction operation and Hecke character.
--- Only existence is prototyped; the orbit-size-three criterion is in the document.
-theorem cubic_character_induction {GL3Class : Type*} (θ : H)
-    (inducedLocal : H → V → C) (local3 : GL3Class → V → C) :
-    ∃ Pi : GL3Class, ∀ v, local3 Pi v = inducedLocal θ v := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+Cubic induction requires a cyclic degree-three number-field extension and its continuous Hecke-character carrier, actual Weil induction and local-factor maps. The non-invariant orbit is the cuspidal branch; an invariant character gives the three rank-one summands.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.cubic_character_induction.
 
--- Missing: generic AL converse, all Hecke-character twists with dual entireness,
--- functional equations and strip bounds; GL₃ isobaric uniqueness/pole criterion.
-theorem gl3_recognition {GL3Class : Type*} (Pi Ψ : GL3Class) (S : Finset V)
-    (localRep : GL3Class → V → C) (h : ∀ v, v ∉ S → localRep Pi v = localRep Ψ v) : Pi = Ψ := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction
+TauCeti.GL2Transfer.cubic_character_induction
+For a cyclic cubic extension E/F of number fields and a unitary Hecke character θ of E, there is an isobaric automorphic GL₃ representation AI_{E/F}(θ) whose local parameter at every place is Ind_{W_{E_w}}^{W_{F_v}}(θ_w) (the direct sum over w|v at a split place), in the sense of equal GL₁-twisted L- and ε-factors, and whose standard L-function is L_E(s,θ). It is cuspidal if and only if θ,θ^σ,θ^{σ²} are pairwise distinct, i.e. θ≠θ^σ. If θ=χ∘N_{E/F}, the output is χ⊞χη⊞χη² for the order-three character η associated to E/F. This rank-three character case is the exact monomial input to the tetrahedral proof; the general GL_n automorphic-induction theory is not redeveloped here.
+Hypotheses: F is a number field and E/F a cyclic cubic extension whose Galois group is generated by σ. θ is a unitary Hecke character of E (a quasi-character is reduced to this by a twist by |·|^s); JPSS Theorem (14.2) assumes unitarity. Cuspidal branch: θ≠θ^σ, which is equivalent to irreducibility of Ind_{W_E}^{W_F}θ (Mackey). Invariant branch: θ=θ^σ; then θ=χ∘N_{E/F} by class field theory for the cyclic extension, and η generates the characters of A_F^×/F^×N_{E/F}(A_E^×). Unitary normalisation; at finite places the local component is characterised by GL₁-twisted L- and ε-factors equal to those of Ind θ_w.
+-/
+/-
+Signature omission: TauCeti.GL2Transfer.gl3_recognition.
+The analytic input is AL.3/gln-converse-reduced-rank at n=3: all GL1 twists
+(or twists unramified at the specified finite S), dual entireness, strip bounds
+and the functional equation. Nonempty S gives agreement outside S only.
+The highly ramified T variant remains an acquisition gap. The second input is
+AL.3/rs-global-poles with rs-boundary-nonvanishing and the omitted-local-factor
+regularity from AL.2/jacquet-shalika-satake-bound, including infinity, for two unitary cuspidal GL3
+representations and equality of their Rankin–Selberg factors against the first
+dual, not equality of arbitrary objects or an isobaric uniqueness theorem.
+The actual representation, twist, completed L/epsilon and pole carriers are
+missing; no theorem signature is counted here. See the named packet gap and
+AL G16. This application also uses adjoint-lift and cubic-character-induction.
+-/
 
 -- Carayol's extraordinary dyadic comparison (his §12.2.2 Proposition) is planned in
 -- AutomorphicGaloisRepresentations R19.2 (R19.2/carayol-cubic-base-change-of-extraordinary),
@@ -608,55 +542,55 @@ types are parameters for them, not a new global Langlands-parameter definition.
 Missing in every theorem below: G=G_F for a number field, continuity, irreducibility,
 the specified projective image and the arithmetic LLC normalization; all localRep
 monodromies of the finite-image Artin parameter are zero. -/
-section Artin
-variable {G V FClass : Type*} [Group G] (W : V → Type*) [∀ v, Group (W v)]
-    (emb : ∀ v, W v →* G)
-    (rec : FClass → ∀ v, W v →* GeneralLinearGroup (Fin 2) ℂ)
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The continuous finite-image irreducible Galois representation, actual projective-image classification, local Weil data and automorphic parameter maps must be typed. The dihedral/tetrahedral/octahedral/solvable source hypotheses cannot be discarded from the existential automorphy statement.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.dihedral_artin, TauCeti.GL2Transfer.tetrahedral_artin, TauCeti.GL2Transfer.octahedral_artin, TauCeti.GL2Transfer.solvable_artin.
 
-theorem dihedral_artin (ρ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (hfinite : Set.Finite (Set.range ρ)) :
-    ∃ π : FClass, ∀ v, rec π v = ρ.comp (emb v) := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.5/dihedral-artin
+TauCeti.GL2Transfer.dihedral_artin
+Let ρ:G_F→GL₂(C) be continuous, irreducible and finite-image, with dihedral projective image. The imported classification gives a quadratic K/F and a finite-order character θ of G_K with ρ≅Ind_{G_K}^{G_F} θ. Reciprocity identifies θ with a finite-order Hecke character, and quadraticInduction(θ) is the unique cuspidal GL₂ automorphic representation whose normalized local parameter is ρ|_{W_{F_v}} at every place. Over totally real F, total oddness makes the infinite components the holomorphic parallel-weight-one parameters; this archimedean consequence is separate from finite-place automorphy.
+Hypotheses: F is a number field. ρ:G_F→GL₂(C) is continuous, irreducible and has finite image. The projective image is dihedral D_n with n≥2 (including V₄), so ρ≅Ind_{G_K}^{G_F}θ for a quadratic K/F and a finite-order character θ≠θ^σ of G_K. Local parameters are normalised (unitary); holomorphic weight one needs F totally real and ρ totally odd.
 
-theorem tetrahedral_artin (ρ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (hfinite : Set.Finite (Set.range ρ)) :
-    ∃ π : FClass, ∀ v, rec π v = ρ.comp (emb v) := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.5/tetrahedral-artin
+TauCeti.GL2Transfer.tetrahedral_artin
+Let F be a number field and ρ:G_F→GL₂(C) be continuous finite-image irreducible with projective image A₄. There is a unique cuspidal GL₂ automorphic representation π with normalized all-place local parameters ρ. Over the cyclic cubic field E fixed by the preimage of the normal V₄, the restriction P is dihedral and therefore automorphic. Its automorphic representation is Galois-stable, and cyclic descent gives a finite twist fiber over F. Matching the determinant removes the cubic twist ambiguity, giving π_ps(ρ). The adjoint Ad(π_ps) is cuspidal because π_ps has no self-twist, and it is identified with the cyclic cubic induction of the V₄ character θ (Ad ρ=Ind θ) by the Jacquet–Shalika Rankin–Selberg pole criterion. At places inert in E this leaves A(π_v)=diag(ξa,ξ²b) with ξ³=1, and ξ≠1 would give an element of order 6 in A₄. Langlands proves π_v=π(ρ_v) for almost all v (Theorem 3.3 records the consequence that L(s,ρ) is entire); the all-place statement uses his equivalence of the two definitions of π(ρ), whose proof he only sketches. The GL₃ inputs are recorded in the GL₃ supplier gap.
+Hypotheses: F is a number field. ρ:G_F→GL₂(C) is continuous, irreducible and has finite image with projective image A₄ (Langlands allows any Weil-group representation of tetrahedral type). E/F is the cyclic cubic extension cut out by the preimage of V₄, P=ρ|_{W_E}, and θ is the character of the Galois group over E with Ad ρ=Ind θ. Normalisation: π_ps(ρ) is chosen with ω_π=det ρ; local parameters are in the unitary normalisation.
 
--- Missing the original Tunnell/JPSS comparison as well as the S₄ image hypothesis.
-theorem octahedral_artin (ρ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (hfinite : Set.Finite (Set.range ρ)) :
-    ∃ π : FClass, ∀ v, rec π v = ρ.comp (emb v) := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-artin
+TauCeti.GL2Transfer.octahedral_artin
+For a number field F and a continuous irreducible finite-image ρ:G_F→GL₂(C) with projective image S₄, there is a unique cuspidal automorphic π with π_v≅π(ρ_v) for almost all v (Tunnell). By the same all-place upgrade as in the tetrahedral case, π has normalized local parameter ρ|_{W_{F_v}} at every place. Let E/F be the quadratic field cut out by the preimage of A₄, K/F the non-Galois cubic field cut out by the preimage of a Sylow-2 subgroup, and M=EK. The tetrahedral theorem over E gives π(ρ_E), which is the base change of exactly two cuspidal π₁ and π₂=π₁⊗ω_{E/F}. These have the same central character, so determinant matching cannot choose between them. Tunnell's lemma: exactly one i has BC_{K/F}(π_i)≅π(ρ_K), where ρ_K is monomial. Both BC_{K/F}(π_i) base change to π(ρ_M); they differ by ω_{M/K}=ω_{E/F}∘N_{K/F} and are distinct because ρ_M is irreducible, so they are the two quadratic descents of π(ρ_M), one of which is π(ρ_K). For this π, a place w|v of K with [K_w:F_v]∈{1,3} shows that the Satake class of π_v is that of ρ_v: the only alternative gives an element of order 6 in S₄. GL₃ and GL₂×GL₃ theory enters only through the JPSS cubic transfer, which Tunnell quotes without proof. Langlands's earlier octahedral results (Theorems 3.4–3.5, over Q with conditions on complex conjugation) are not substituted for Tunnell's theorem.
+Hypotheses: F is a number field. ρ:G_F→GL₂(C) is continuous, irreducible and has finite image with projective image S₄. E/F is the quadratic extension cut out by the preimage of A₄, K/F the non-Galois cubic extension cut out by the preimage of a Sylow-2 subgroup (dihedral of order 8), and M=EK. Tunnell's conclusion holds almost everywhere (π(ρ) in the JL70 §12 sense at almost all v); the all-place clause needs the separate upgrade. Inputs: the tetrahedral theorem over E, quadratic descent and its fibers, the dihedral theorem over K and M, and the weak JPSS cubic transfer.
 
-theorem solvable_artin (ρ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (hfinite : Set.Finite (Set.range ρ)) :
-    ∃! π : FClass, ∀ v, rec π v = ρ.comp (emb v) := by sorry
-end Artin
+GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin
+TauCeti.GL2Transfer.solvable_artin
+Let F be a number field and ρ:G_F→GL₂(C) be continuous finite-image irreducible with solvable projective image. There is a unique cuspidal GL₂ automorphic representation π such that, in the fixed Artin/LLC normalization, rec_Fv(π_v)≅ρ|_{W_Fv} for every place v. Equivalently (Jacquet–Langlands §12), the L- and ε-factors of all character twists agree at every place, so L(s,π)=L(s,ρ). The finite-image projective classification leaves dihedral, A₄ and S₄; a cyclic projective image would make the representation reducible. Solvability of linear and projective finite images is equivalent because their scalar kernel is abelian. Over totally real F, total oddness gives holomorphic parallel weight one; automorphy itself has no oddness requirement. This is the strong rank-two theorem, not merely holomorphy of the Artin L-function. Rogawski–Tunnell §4 state it as the strong Artin conjecture (cuspidal π(σ) with L(s,π(σ))=L(s,σ)), known for solvable image by Langlands and Tunnell. The published proofs give almost-everywhere equality; the all-place and ε-factor clause rests on Langlands's equivalence of the two definitions of π(ρ) (§3, proof sketched).
+Hypotheses: F is a number field. ρ:G_F→GL₂(C) is continuous, irreducible and has finite solvable image, so its projective image is dihedral, A₄ or S₄. Unitary normalisation of local parameters; uniqueness is up to isomorphism. For the weight-one clause, F is totally real and ρ is totally odd (det ρ(c_v)=−1 at every real place).
+-/
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+Use the actual G_Q or totally-real G_F, finite-image irreducible odd representation, its solvable image and the genuine weight-one classical/adelic dictionary. Conductor, nebentypus and all-place infinity-type hypotheses remain. The totally real extension is still requested from R16.6.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.q_weight_one, TauCeti.GL2Transfer.tr_weight_one, TauCeti.GL2Transfer.residual_lt_application.
 
-section WeightOne
-variable {G Form V C : Type*} [Group G]
+GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one
+TauCeti.GL2Transfer.q_weight_one
+For ρ as in solvable-artin over Q with det ρ(c)=−1, the R16.6 dictionary yields a normalized holomorphic cuspidal weight-one newform f with exact Artin conductor N(ρ), nebentypus det ρ under reciprocity, L(s,f)=L(s,ρ), and, for ℓ∤N(ρ) and arithmetic Frobenius, characteristic polynomial X²−a_ℓ(f)X+det ρ(Frob_ℓ) of ρ(Frob_ℓ). This is the Weil–Langlands theorem (Deligne–Serre Théorème 4.10); its hypothesis that every L(s,ρ⊗χ) is entire follows here from cuspidality of the Langlands–Tunnell representation. Its coefficients lie in a number field. To reduce modulo p choose a place λ above p, an embedding of its residue field into a common algebraic closure, and a stable lattice in a coefficient realization of ρ. Weight one here is not the weight≥2 cohomological construction used in Hilbert varieties.
+Hypotheses: ρ: G_Q→GL₂(C) is continuous, irreducible and of finite image with solvable projective image, so solvable-artin supplies a cuspidal π with π_v matching ρ at every place. ρ is odd: det ρ(c)=−1 for complex conjugation c. Frobenius normalization is arithmetic (Artin's convention, as in Deligne–Serre), and det ρ is identified with a Dirichlet character by class field theory. For reduction: a number field E realizing ρ, a place λ of E above p, an embedding of its residue field into F̄_p, and a G_Q-stable O_{E,λ}-lattice.
 
--- Missing: G=G_Q, solvable finite irreducible ρ, odd at c; Form is the actual
--- normalized weight-one newform carrier. S excludes the bad primes, and N is
--- the Artin conductor. Coefficient field, λ and lattice are supplier data.
-theorem q_weight_one (ρ : G →* GeneralLinearGroup (Fin 2) ℂ) (c : G)
-    (hodd : GeneralLinearGroup.det (ρ c) = -1) (N : ℕ) (S : Finset V)
-    (Frob : V → G) (weight level : Form → ℕ) (a : Form → V → ℂ) :
-    ∃ f : Form, weight f = 1 ∧ level f = N ∧
-      ∀ v, v ∉ S → a f v = (ρ (Frob v)).val.trace := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R17.5/tr-weight-one
+TauCeti.GL2Transfer.tr_weight_one
+For F totally real and ρ as in solvable-artin with det ρ(c_v)=−1 at every real place, the automorphic π is holomorphic parallel-weight-one Hilbert cuspidal in the R16.6 extended dictionary. At every real place π_v is Rogawski–Tunnell's π₁, the representation of GL₂(R) unitarily induced from the Borel character (a b;0 d)↦sign(a) (isomorphic to π(1,sign)), whose parameter is 1⊕sign; it is a limit of discrete series, not a cohomological weight≥2 discrete-series representation. The finite conductor, central character and local Artin factors are those of ρ. This node exports the weight-one input to residual modularity arguments, without duplicating Hilbert Shimura-variety geometry or claiming a missing weight-one cohomological Galois construction.
+Hypotheses: F is a totally real number field. ρ: G_F→GL₂(C) is continuous, irreducible and of finite image with solvable projective image, and π is the cuspidal representation given by solvable-artin, with rec(π_v)≅ρ|W_{F_v} at every place. ρ is totally odd: det ρ(c_v)=−1 for every real place v. Weight one is meant in Rogawski–Tunnell's sense for GL₂ (D=M₂(F)): π_v≅π₁ at every real place v.
 
--- Missing: G=G_F, F totally real, Form the holomorphic parallel-weight-one
--- Hilbert carrier; real c's all have the weight-one (1,sign) Weil parameter.
-theorem tr_weight_one {J : Type*} (ρ : G →* GeneralLinearGroup (Fin 2) ℂ)
-    (c : J → G) (hodd : ∀ j, GeneralLinearGroup.det (ρ (c j)) = -1)
-    (weight : Form → J → ℕ) : ∃ f : Form, ∀ j, weight f j = 1 := by sorry
-
--- Missing: the data produced by odd_residual_lift/tr_weight_one with the chosen
--- coefficient place and lattice; this is a supplied residual witness, not its definition.
-theorem residual_lt_application {k Witness : Type*} [Field k]
-    (r : G →* GeneralLinearGroup (Fin 2) k)
-    (realize : Witness → G →* GeneralLinearGroup (Fin 2) k) :
-    ∃ w : Witness, realize w = r := by sorry
-end WeightOne
-
+GL2AutomorphicRepresentationsAndTransfer:R17.5/residual-lt-application
+TauCeti.GL2Transfer.residual_lt_application
+For F,p,r̄ as in odd-residual-lift, apply Langlands–Tunnell to its totally odd finite-image lift and obtain a parallel-weight-one Hilbert cuspidal form whose chosen λ-adic reduction realizes r̄. This is the qualitative residual modularity input of the solvable case in the proof of BCGP Proposition 10.1.3 (there over a totally real quadratic extension E of the base field, with p=3 or 5). The proof of Theorem 10.2.6 uses it only through Proposition 10.1.3(1). Subsequent ordinary weight-two lifts, auxiliary solvable extensions and GSp₄ transfer in those arguments require their own lifting/weight-change owners and are not consequences of Langlands–Tunnell alone. No unchanged conductor or ordinary local condition is promised by this application.
+Hypotheses: F, p, r̄ as in odd-residual-lift: F totally real, p>2, r̄:G_F→GL₂(F̄_p) continuous, absolutely irreducible, totally odd, with solvable image. The characteristic-zero lift ρ, the place λ above p, the residue-field embedding and the stable lattice are those produced by odd-residual-lift. The output form is holomorphic of parallel weight one in the sense of tr-weight-one; no level, conductor or ordinarity condition is claimed.
+-/
 /-! Nodes added by the review (REV-GL2AutomorphicRepresentationsAndTransfer--R17.3):
 Tunnell's globalisation, Carayol's prescribed-local induction and the octahedral mod-3
 application. The local Weil groups, Hecke characters and weight-one forms are the

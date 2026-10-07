@@ -535,7 +535,10 @@
           "statement": "The value at ξ is the actual Mathlib Pic.mk class; when this class is nontrivial the character value is nonzero. The n=2 tensor square has the class of 2ξ, and n=0 gives the unit.",
           "kind": "compatibility"
         }
-      ]
+      ],
+      "planet": {
+        "name": "K₃-graded Picard character"
+      }
     },
     {
       "id": "HabiroNumberFields:HB.7/followup-field-pullback",

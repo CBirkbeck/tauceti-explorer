@@ -1161,13 +1161,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Remark 2, p. 3 (arXiv v2)",
-          "excerpt": "Note that because of the division by i + 1 in the formula for the integral, we are unable to integrate on closed discs or annuli.",
           "match": "The division by i + 1 is the only source of radius loss in termwise integration; this lemma bounds |1/(i+1)| polynomially."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, p. 5 (author copy)",
-          "excerpt": "Integration reduces the radius of convergence, but only slightly - if the original power series converges to radius r the integral will no longer converge to radius r but will converge to any smaller radius, hence still overconverges.",
           "match": "The loss is 'only slightly' because |1/n| grows at most polynomially, which is the bound proved here."
         }
       ],
@@ -1203,13 +1201,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.2, Algorithm 8, step 2, p. 6 (arXiv v2)",
-          "excerpt": "Formally integrate the power series in t: int_P^Q omega_i = int_P^Q x^i dx/2y = int_0^1 x(t)^i/(2y(t)) dx(t)/dt dt.",
           "match": "Tiny Coleman integrals are computed by formal termwise integration of a power series in a local parameter: the operation defined here."
         },
         {
           "sourceId": "mccallum-poonen",
           "locator": "Section 5.2, item (3), p. 6",
-          "excerpt": "(3) The function eta on the residue class is represented by a series I(t) in Q_p[[t]] (usually no longer in Z_p[[t]]) whose derivative is w(t).",
           "match": "The integral on a residue class is the formal primitive I(t) of the expansion w(t); its coefficients leave Z_p[[t]] because of the division by n."
         }
       ],
@@ -1335,7 +1331,6 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, p. 5",
-          "excerpt": "This cokernel is infinite as one can write down a power series sum a_i t^i such that the a_i converge to 0 sufficiently slowly to make the coefficients of the integral sum a_i t^(i+1)/(i+1) not converge to 0.",
           "match": "The integral of sum a_i t^i is sum a_i t^(i+1)/(i+1), the normalised primitive whose derivative is the original series."
         }
       ],
@@ -1368,7 +1363,6 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z. To integrate it one needs to introduce a logarithm",
           "match": "On a disc the primitive exists and, being a power series, is unique once its constant term is fixed."
         }
       ],
@@ -1410,13 +1404,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, p. 5",
-          "excerpt": "Integration reduces the radius of convergence, but only slightly - if the original power series converges to radius r the integral will no longer converge to radius r but will converge to any smaller radius, hence still overconverges.",
           "match": "States (a)-(c): no loss of the radius itself, loss of convergence on the boundary, preservation of overconvergence."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Remark 2, p. 3 (arXiv v2)",
-          "excerpt": "Note that because of the division by i + 1 in the formula for the integral, we are unable to integrate on closed discs or annuli.",
           "match": "The failure on closed discs, part (b) at r = rho."
         }
       ],
@@ -1455,13 +1447,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, p. 5",
-          "excerpt": "This cokernel is infinite as one can write down a power series sum a_i t^i such that the a_i converge to 0 sufficiently slowly to make the coefficients of the integral sum a_i t^(i+1)/(i+1) not converge to 0.",
           "match": "The cokernel of d on the Tate algebra is nonzero because of slowly decaying coefficients; the example here is one such series."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Remark 2, p. 3 (arXiv v2)",
-          "excerpt": "Note that because of the division by i + 1 in the formula for the integral, we are unable to integrate on closed discs or annuli.",
           "match": "Integration is impossible on closed discs."
         }
       ],
@@ -1508,19 +1498,16 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 3.39, p. 24 (arXiv v2)",
-          "excerpt": "An L-valued function on B(0, 1) is rigid analytic if it can be written as a power series sum_{n>=0} a_n T^n in L[[T]] that is everywhere convergent on B(0, 1) (i.e. |a_n|r^n -> 0 as n -> infinity for all r < 1)",
           "match": "The case a = 0, r = 1: rigid analytic functions on the open unit ball are the everywhere convergent power series R^+."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.1, pp. 4-5",
-          "excerpt": "O(B°_n) = { sum a_I t^I , lim_{I -> infinity} |a_I| r^|I| = 0 for any r < 1 }",
           "match": "The ring of functions of the open polydisc; the one-variable case is this node."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z. To integrate it one needs to introduce a logarithm",
           "match": "A(U_x) for a residue disc U_x is this ring, on which d is surjective."
         }
       ],
@@ -1661,13 +1648,11 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z. To integrate it one needs to introduce a logarithm",
           "match": "d is surjective on the functions of a residue disc: existence of the primitive."
         },
         {
           "sourceId": "mccallum-poonen",
           "locator": "Section 5.2, item (3), p. 6",
-          "excerpt": "(3) The function eta on the residue class is represented by a series I(t) in Q_p[[t]] (usually no longer in Z_p[[t]]) whose derivative is w(t).",
           "match": "On a residue class the integral is a power series with prescribed derivative; the constant is fixed by a base value."
         }
       ],
@@ -1708,13 +1693,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, p. 2",
-          "excerpt": "In the p-adic world, we immediately realize that such a strategy will not work because two open discs of radius 1 are either identical or completely disjoint. Thus, there is no obvious way of fixing simultaneously the constants of integration.",
           "match": "The disjointness of residue discs is why locally analytic primitives are not determined by a base value."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 3.1, before Theorem 3.3, p. 15 (arXiv v2)",
-          "excerpt": "because P^1(C_p) minus {0,1,infinity} is topologically totally disconnected, the equation (KZ^p) does not have a unique solution on P^1(C_p) minus {0,1,infinity} even locally as in the complex analytic function case.",
           "match": "Total disconnectedness destroys uniqueness of solutions even for unipotent equations; uniqueness holds only in the Coleman class."
         }
       ],
@@ -1753,13 +1736,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 1, p. 3 (arXiv v2)",
-          "excerpt": "For sum_{i in Z} c_i t^i dt in Omega^1_{A(I)/C_p} and P, Q in A(I), define int_P^Q sum c_i t^i dt = c_{-1} Log(Q/P) + sum_{i != -1} c_i/(i+1) (Q^(i+1) - P^(i+1)). This is easily shown not to depend on the choice of the coordinate t.",
           "match": "The coefficient c_(-1) is the residue; the integral formula is coordinate independent, which is the invariance recorded in the API."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z. To integrate it one needs to introduce a logarithm",
           "match": "On an annulus dz/z has no integral: its residue is 1."
         }
       ],
@@ -1886,13 +1867,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 1 and Remark 2, p. 3 (arXiv v2)",
-          "excerpt": "For sum_{i in Z} c_i t^i dt in Omega^1_{A(I)/C_p} and P, Q in A(I), define int_P^Q sum c_i t^i dt = c_{-1} Log(Q/P) + sum_{i != -1} c_i/(i+1) (Q^(i+1) - P^(i+1)). This is easily shown not to depend on the choice of the coordinate t.",
           "match": "The terms with i != -1 integrate to c_i t^(i+1)/(i+1); the term i = -1 needs Log."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z. To integrate it one needs to introduce a logarithm",
           "match": "On an annulus dz/z has no integral, so d is not surjective on O(A)."
         }
       ],
@@ -1932,13 +1911,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, opening paragraph, p. 3 (arXiv v2; the sign is corrected in ColemanIntegration/E1)",
-          "excerpt": "Choose once and for all a branch of the p-adic logarithm, i.e., a homomorphism Log : C_p^x -> C_p whose restriction to the disc {x in C_p : |x - 1| < 1} is given by the logarithm series log(x) = sum_{i=1}^infinity (1-x)^i/i.",
           "match": "The branch restricts to the logarithm series on the disc |x - 1| < 1, which must converge there."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "We note that log^a(z_x) is a locally analytic function defined on ]x[ cap Y(C_p) whose derivation is 1/z_x and it is transcendental over ind-lim_{r->1} A(]x[ cap U_r)",
           "match": "The derivative of log is 1/z."
         }
       ],
@@ -1973,7 +1950,6 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, opening paragraph, p. 3 (arXiv v2)",
-          "excerpt": "Choose once and for all a branch of the p-adic logarithm, i.e., a homomorphism Log : C_p^x -> C_p whose restriction to the disc {x in C_p : |x - 1| < 1} is given by the logarithm series log(x) = sum_{i=1}^infinity (1-x)^i/i.",
           "match": "A branch is a homomorphism restricting to the series; the series itself must therefore be a homomorphism on the disc."
         }
       ],
@@ -2013,7 +1989,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "Fix a in C_p. It determines a branch of p-adic logarithm log^a : C_p^x -> C_p ([Bes1]Definition 2.6) which is characterized by log^a(p) = a. We call this a in C_p the branch parameter of p-adic logarithm.",
           "match": "A branch is characterised by its value at p; this uses that every element of C_p^x is, up to taking powers, p^m times a principal unit."
         }
       ],
@@ -2055,19 +2030,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "Fix a in C_p. It determines a branch of p-adic logarithm log^a : C_p^x -> C_p ([Bes1]Definition 2.6) which is characterized by log^a(p) = a. We call this a in C_p the branch parameter of p-adic logarithm.",
           "match": "The branch parameter a with log^a(p) = a, exactly as defined here."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, opening paragraph, p. 3 (arXiv v2)",
-          "excerpt": "Choose once and for all a branch of the p-adic logarithm, i.e., a homomorphism Log : C_p^x -> C_p whose restriction to the disc {x in C_p : |x - 1| < 1} is given by the logarithm series log(x) = sum_{i=1}^infinity (1-x)^i/i.",
           "match": "A branch is a homomorphism C_p^x -> C_p restricting to the series (sign corrected, ColemanIntegration/E1)."
         },
         {
           "sourceId": "rjw",
           "locator": "Proof of Theorem 6.1(ii), p. 38 (arXiv v2)",
-          "excerpt": "To complete the proof, we simply evaluate the expression F~_theta(0) (and use that log_p(x) = log_p(-x) for x in C_p^x) to find, for all N, that",
           "match": "RJW use log_p(x) = log_p(-x), a property of every branch recorded in the API."
         }
       ],
@@ -2221,13 +2193,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 8 (arXiv v2)",
-          "excerpt": "Consider the isomorphisms iota_{a,b} : A^a_loc -> A^b_loc and tau_{a,b} : Omega^a_loc -> Omega^b_loc obtained by replacing each log^a(z_{e_i}) by log^b(z_{e_i}) for 1 <= i <= s.",
           "match": "Branch change replaces log^a by log^b; this lemma is the formula for the difference."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, p. 3 (arXiv v2)",
-          "excerpt": "(The choice of branch has no effect on the integrals on differentials of the second kind, i.e., everywhere meromorphic differentials with all residues zero.)",
           "match": "The branch enters integrals only through residues, i.e. through the term (b - a) v_p."
         }
       ],
@@ -2262,7 +2232,6 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.1(ii), p. 36 (arXiv v2)",
-          "excerpt": "(ii) (p-adic value at s = 1). We have L_p(theta, 1) = -(1 - theta(p)p^-1) (1/G(theta^-1)) sum_{c in (Z/NZ)^x} theta^-1(c) log_p(1 - eps_N^c).",
           "match": "The formula takes values in Q_p(mu_N), which needs part (b); compatibility across extensions is needed to compare conductors."
         }
       ],
@@ -2298,13 +2267,11 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.1(ii), p. 36 (arXiv v2)",
-          "excerpt": "(ii) (p-adic value at s = 1). We have L_p(theta, 1) = -(1 - theta(p)p^-1) (1/G(theta^-1)) sum_{c in (Z/NZ)^x} theta^-1(c) log_p(1 - eps_N^c).",
           "match": "RJW's log_p, used without a definition of the branch (ColemanIntegration/E9); the notes' L-value formulas are read with this branch."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "Fix a in C_p. It determines a branch of p-adic logarithm log^a : C_p^x -> C_p ([Bes1]Definition 2.6) which is characterized by log^a(p) = a. We call this a in C_p the branch parameter of p-adic logarithm.",
           "match": "The branch parameter a = 0 gives the branch with log(p) = 0."
         }
       ],
@@ -2422,13 +2389,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "We note that log^a(z_x) is a locally analytic function defined on ]x[ cap Y(C_p) whose derivation is 1/z_x and it is transcendental over ind-lim_{r->1} A(]x[ cap U_r)",
           "match": "log^a(z_x) is locally analytic with derivative 1/z_x."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 1, p. 3 (arXiv v2)",
-          "excerpt": "For sum_{i in Z} c_i t^i dt in Omega^1_{A(I)/C_p} and P, Q in A(I), define int_P^Q sum c_i t^i dt = c_{-1} Log(Q/P) + sum_{i != -1} c_i/(i+1) (Q^(i+1) - P^(i+1)). This is easily shown not to depend on the choice of the coordinate t.",
           "match": "The term c_(-1) Log(Q/P) is the primitive of c_(-1) dt/t between two points."
         }
       ],
@@ -2469,13 +2434,11 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "define A_log(U_x) to be A(U_x) if U_x is a disc and to be the polynomial ring in the function log(z) over A(U_x) if U_x is an annulus with local parameter z (the choice of the local parameter z does not matter).",
           "match": "A_log(U_x) is the polynomial ring in log(z) over A(U_x) for an annulus, independent of the local parameter."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "We note that log^a(z_x) is a locally analytic function defined on ]x[ cap Y(C_p) whose derivation is 1/z_x and it is transcendental over ind-lim_{r->1} A(]x[ cap U_r)",
           "match": "At an end x, A^a_log is the germ ring with log^a(z_x) adjoined; log^a(z_x) is transcendental over it."
         }
       ],
@@ -2606,7 +2569,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "We note that log^a(z_x) is a locally analytic function defined on ]x[ cap Y(C_p) whose derivation is 1/z_x and it is transcendental over ind-lim_{r->1} A(]x[ cap U_r)",
           "match": "Furusho asserts the transcendence of log^a(z_x) over the germ ring; this node proves it."
         }
       ],
@@ -2643,13 +2605,11 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential A_log(U_x) -> Omega^1_log(U_x) is surjective also for the annuli, as one easily discovers by doing integration by parts of polynomials in logs with power series coefficients.",
           "match": "d is surjective on A_log of an annulus by integration by parts."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 1, p. 3 (arXiv v2)",
-          "excerpt": "For sum_{i in Z} c_i t^i dt in Omega^1_{A(I)/C_p} and P, Q in A(I), define int_P^Q sum c_i t^i dt = c_{-1} Log(Q/P) + sum_{i != -1} c_i/(i+1) (Q^(i+1) - P^(i+1)). This is easily shown not to depend on the choice of the coordinate t.",
           "match": "The realised definite integral on annuli."
         }
       ],
@@ -2687,13 +2647,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, p. 3 (arXiv v2)",
-          "excerpt": "(The choice of branch has no effect on the integrals on differentials of the second kind, i.e., everywhere meromorphic differentials with all residues zero.)",
           "match": "The branch affects only differentials with nonzero residues."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 8 (arXiv v2)",
-          "excerpt": "Consider the isomorphisms iota_{a,b} : A^a_loc -> A^b_loc and tau_{a,b} : Omega^a_loc -> Omega^b_loc obtained by replacing each log^a(z_{e_i}) by log^b(z_{e_i}) for 1 <= i <= s.",
           "match": "Branch change replaces log^a by log^b at the ends."
         }
       ],
@@ -2734,19 +2692,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Assumption 2.1, p. 7 (arXiv v2)",
-          "excerpt": "Suppose that X/O_Cp is a smooth projective and surjective scheme over the ring O_Cp of integers of C_p, of relative dimension 1 with its generic fiber X_Cp and its special fiber X_Fp. Let Y = X - D where D is a closed subscheme of X which is relatively etale over O_Cp.",
           "match": "The same hypotheses over O_Cp; here the base is a finite extension of Q_p, as needed for the finiteness input."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 3, p. 4 (arXiv v2)",
-          "excerpt": "By a curve over O, we will mean a smooth proper connected scheme X over O of relative dimension 1.",
           "match": "The curve part of the hypotheses."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 17-18 (arXiv v1)",
-          "excerpt": "The only essential difficulty in extending the general theory to this case is that the Frobenius behavior of rigid cohomology (indeed, even finite dimensionality) is not known in this case.",
           "match": "Why the base is taken discretely valued: finiteness and Frobenius behaviour of rigid cohomology are needed."
         }
       ],
@@ -2874,19 +2829,16 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "A \"basic wide open\" U, in Coleman's terminology (see [Col-de88, 2.1]), is simply a strict neighborhood of ]X[_P in ]Y[_P and its \"underlying affinoid\" is just ]X[_P.",
           "match": "Coleman's basic wide opens are strict neighbourhoods of the tube; this node takes the cofinal system W_r."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 4, p. 4 (arXiv v2)",
-          "excerpt": "By a wide open subspace of X_Q, we will mean a rigid analytic subspace of X_Q of the form {x in X_Q : |f(x)| < lambda} for some f in K(X) of absolute value 1 and some lambda > 1.",
           "match": "The same spaces described by one function f."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "U_r stands for the rigid analytic space obtained by removing all closed discs of radius r around e_i from X(C_p) (1 <= i <= s)",
           "match": "Furusho's U_r is W_r."
         }
       ],
@@ -3020,25 +2972,21 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Definition 3, p. 4 (arXiv v2)",
-          "excerpt": "There is a natural specialization map from X_Q to X-bar; the inverse image of any point of X-bar is a subspace of X_Q isomorphic to an open unit disc. We call such a disc a residue disc of X.",
           "match": "Residue discs are open unit discs."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "while for x in {e_1,...,e_n} these are the intersections of U with the usual discs and are isomorphic to an open annulus {r<|z|<1}.",
           "match": "The pieces of a basic wide open at the points of D are annuli {r < |z| < 1}."
         },
         {
           "sourceId": "mccallum-poonen",
           "locator": "Section 5.2, item (1), p. 6",
-          "excerpt": "(1) The function t maps the residue class bijectively to pZ_p. (This is related to Hensel's lemma.)",
           "match": "The parameter identifies a residue class with a disc."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.3, Definition 2, p. 6",
-          "excerpt": "will be called the residue disc of x, denoted U_x in X^geo. By Hensel's Lemma and the smoothness assumption on A-bar it is easy to see that U_x is naturally isomorphic to the space of geometric points of a unit polydisc.",
           "match": "Residue discs are polydiscs by Hensel's lemma; dimension one here."
         }
       ],
@@ -3080,19 +3028,16 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "Then one defines locally analytic functions and one forms on U by A_loc(U) := prod_x A_log(U_x), Omega^1_loc(U) := prod_x Omega^1_log(U_x).",
           "match": "The definition of A_loc and Omega_loc as products over residue classes."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.3, Definition 3, p. 6",
-          "excerpt": "restricted to each residue disc they are defined by a convergent power series.",
           "match": "Locally analytic functions are power series on each residue disc."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Lemma 2.2, p. 8 (arXiv v2)",
-          "excerpt": "These maps, iota_{a,b} and tau_{a,b}, are independent of any choice of a local parameter z_{e_i}.",
           "match": "Independence of the local parameters."
         }
       ],
@@ -3229,19 +3174,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, p. 6",
-          "excerpt": "The Frobenius morphism varphi(x) = x^p of A-bar can be lifted, by Proposition 1, to a sigma linear morphism phi : A+ -> A+",
           "match": "Frobenius lifts to the dagger algebra exist by the lifting property of weak completions."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "An endomorphism phi : T -> T lifting a Frobenius endomorphisms X -> X is what we called in loc. cit., following Coleman, a Frobenius endomorphism of U. A theorem of Coleman [Col-de88, Theorem 2.2.] guarantees such a Frobenius endomorphism always exists.",
           "match": "Coleman's Frobenius endomorphisms of a wide open and their existence."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Algorithm 10, step 1, p. 7 (arXiv v2)",
-          "excerpt": "Since K is an unramified extension of Q_p, it carries a unique automorphism phi_K lifting the Frobenius automorphism x |-> x^p on its residue field. Extend phi_K to a Frobenius lift on A+ by setting phi(x) = x^p,",
           "match": "An explicit Frobenius lift for hyperelliptic curves."
         }
       ],
@@ -3375,19 +3317,16 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Definition 14, p. 8 (arXiv v2)",
-          "excerpt": "A Teichmueller point of X_Q is a point fixed by some power of phi. Each non-Weierstrass residue disc contains a unique such point",
           "match": "Teichmueller points are the fixed points of powers of the Frobenius lift, one per residue disc."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, p. 3",
-          "excerpt": "Suppose now that alpha satisfies the relation alpha^(p^k) = alpha. Then we immediately obtain F_omega(alpha) = F_omega(alpha^(p^k)) = p^k F_omega(alpha) => F_omega(alpha) = 0.",
           "match": "The Teichmueller points of the circle for phi(x) = x^p are the roots of unity alpha with alpha^(p^k) = alpha."
         },
         {
           "sourceId": "mccallum-poonen",
           "locator": "Remark 8.3 (2), p. 13",
-          "excerpt": "(2) Coleman's theory of p-adic integration [Col85a] gives a method for setting the constant of integration directly in terms of calculations on X, through the notion of a Teichmueller point.",
           "match": "The constant of integration is set at Teichmueller points."
         }
       ],
@@ -3424,13 +3363,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Proof of Theorem 2, p. 8",
-          "excerpt": "Put all the forms above into a column vector omega. Then we have a matrix M in M_{n x n}(K) such that phi omega = M omega + dg where g in (A+_K)^n.",
           "match": "The matrix M and the functions g of the datum."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "When P has no roots of unity as roots this condition fixes F_omega up to a constant.",
           "match": "Hypothesis (Hw): the Frobenius polynomial has no roots of unity among its roots."
         }
       ],
@@ -3553,13 +3490,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, Theorem 1, p. 6",
-          "excerpt": "Theorem 1. The eigenvalues of the kappa-linear Frobenius phi^r on H^1_MW(A-bar) are Weil numbers of weights 1 and 2.",
           "match": "The weights are 1 and 2; this lemma turns that into hypothesis (Hw)."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Algorithm 11, step 2, p. 8 (arXiv v2; wording corrected in ColemanIntegration/E2)",
-          "excerpt": "As the eigenvalues of the matrix M are algebraic integers of C_p-norm p^(m/2) != 1 (see [21, Section 2]), the matrix M - I is invertible, and we may solve (7) to obtain the integrals int_P^Q omega_i.",
           "match": "The invertibility of M - I from the absolute values of the eigenvalues."
         }
       ],
@@ -3604,19 +3539,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, Definition 1 and the following sentence, p. 6",
-          "excerpt": "It is a consequence of the work of Berthelot that H^i_MW(A-bar) is a finite dimensional K-vector space.",
           "match": "Finite dimensionality of Monsky-Washnitzer cohomology."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, Theorem 1, p. 6",
-          "excerpt": "Theorem 1. The eigenvalues of the kappa-linear Frobenius phi^r on H^1_MW(A-bar) are Weil numbers of weights 1 and 2.",
           "match": "The weights of Frobenius on H^1."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, pp. 17-18 (arXiv v1)",
-          "excerpt": "The only essential difficulty in extending the general theory to this case is that the Frobenius behavior of rigid cohomology (indeed, even finite dimensionality) is not known in this case.",
           "match": "Why the base field must be discretely valued: finiteness and Frobenius behaviour of rigid cohomology."
         }
       ],
@@ -3655,13 +3587,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Proof of Theorem 2, Lemma 1, p. 8",
-          "excerpt": "Lemma 1. The map sigma - M : K^n -> K^n is bijective",
           "match": "The semilinear version; its proof iterates sigma around the finite order and inverts I - M_r."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Algorithm 11, step 2, p. 8 (arXiv v2)",
-          "excerpt": "As the eigenvalues of the matrix M are algebraic integers of C_p-norm p^(m/2) != 1 (see [21, Section 2]), the matrix M - I is invertible, and we may solve (7) to obtain the integrals int_P^Q omega_i.",
           "match": "The linear system solved in practice."
         }
       ],
@@ -3700,19 +3630,16 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, p. 7 (arXiv v2)",
-          "excerpt": "The method of tiny integrals is not available; we instead employ Dwork's principle of analytic continuation along Frobenius, in the form of Kedlaya's algorithm [21] for calculating the action of Frobenius on de Rham cohomology.",
           "match": "Dwork's principle of analytic continuation along Frobenius."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "If int has already been defined on some space W, and omega in Omega^1_loc(U) is such that there is a polynomial P(t) with K-coefficients such that P(phi^*)omega = eta in W, then the conditions on the integral force the equality P(phi^*)F_omega = F_eta + Const.",
           "match": "Coleman's polynomial principle, part (c)."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Proof of Theorem 2, pp. 8-9",
-          "excerpt": "We claim that now the vector of functions F_omega is completely determined. Indeed, since dF_omega = omega it is sufficient to determine it on a single point on each residue disc.",
           "match": "Constants are fixed by one equation per residue disc, which is the orbit-wise linear algebra."
         }
       ],
@@ -3753,19 +3680,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5, equation (1.4), pp. 9-10",
-          "excerpt": "is a solution of the system of differential equations dy0 = 0, dy1 = omega1 y0, . . . dyn = omegan yn-1",
           "match": "Iterated integrals are the components of solutions of this unipotent system; U packages all of them."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Remark 5.6, p. 17 (arXiv v1)",
-          "excerpt": "The connection depends on the n x n upper triangular matrix B with entries in Omega^1(T) and diagonal entries 0 and is given by nabla(x_1,...,x_n) = (dx_1,...,dx_n) + (x_1,...,x_n) . B.",
           "match": "Unipotent isocrystals with free underlying module are M_B with B strictly triangular, as U_(<= n) is."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 2, p. 3 (arXiv v1)",
-          "excerpt": "A connection is called unipotent if it is a successive extension of trivial connections.",
           "match": "The unipotence assumption of the layer."
         }
       ],
@@ -3898,13 +3822,11 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Theorem 4.15, p. 14 (arXiv v1)",
-          "excerpt": "Suppose (F, nabla_F) is a unipotent isocrystal on T. Then the Coleman de Rham complex of (F, nabla_F) is exact at the one forms. In particular, the sequence A_Col(T) -> Omega^1_Col(T) -> Omega^2_Col(T) is exact.",
           "match": "Exactness at one-forms; here proved directly for the word algebra."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "One defines recursively M_{i+1}(U) := A(U) . int(W_i(U)) and W_{i+1}(U) := M_{i+1}(U) . Omega^1(U) = (int(W_i(U))) . Omega^1(U) and checks that the principle above permits extending int uniquely to W_{i+1}(U).",
           "match": "Coleman's recursion M_(i+1) = A . int(W_i): the depth filtration of U."
         }
       ],
@@ -3944,19 +3866,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.4, p. 18",
-          "excerpt": "It terms of the parameter t one easily sees that it has a full set of solutions in the ring K[[t]][log(t)].",
           "match": "A unipotent equation with a logarithmic singularity has a full set of solutions in K[[t]][log(t)]."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.4, p. 19",
-          "excerpt": "Define the constant term (with respect to t) of an element in K[[t]][log(t)] by formally setting log(t) = 0 and then evaluating at 0.",
           "match": "The constant term used to normalise at an end."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.1, p. 11",
-          "excerpt": "one can integrate power series converging on the unit open polydisc to power series with the same property (Remark 1)",
           "match": "Horizontal sections on residue discs exist because integration preserves the open disc."
         }
       ],
@@ -4090,13 +4009,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.2, p. 13",
-          "excerpt": "is a solution of the system of differential equations dy0 = 0, dy1 = omega1 y0, . . . dyn = omegan yn-1",
           "match": "Frobenius pullback transforms the unipotent system for omega into the one for f^* omega; phi^# is this transformation on U."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Proof of Theorem 2, p. 8",
-          "excerpt": "Put all the forms above into a column vector omega. Then we have a matrix M in M_{n x n}(K) such that phi omega = M omega + dg where g in (A+_K)^n.",
           "match": "The depth-one case: phi omega = M omega + dg."
         }
       ],
@@ -4217,19 +4134,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Theorem 2 and its proof, pp. 7-9",
-          "excerpt": "there exists a unique K-linear integration map int : (Omega^1_{A+} (x) K)_{d=0} -> A_loc/K satisfying the following conditions: 1. The map d o int is the canonical map (Omega^1_{A+} (x) K)_{d=0} -> Omega^1_loc. 2. The map int o d is the canonical map A+_K -> A_loc/K. 3. One has phi o int = int o phi",
           "match": "The depth-one case; the induction runs the same argument at every depth."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Theorem 5.7, p. 18 (arXiv v1)",
-          "excerpt": "In the situation above there exists a ring isomorphism theta~ : A_Col(T) -> M(U) and an isomorphism theta~ : Omega^1_Col(T) -> W(U) compatible with the isomorphism on functions",
           "match": "Coleman's recursively constructed M(U) is identified with the functions of algebraic (unipotent) origin, which is what rho produces."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Section 2, proof of Proposition, p. 2 (arXiv v1)",
-          "excerpt": "According to [Col82], the function Li^(p)_n(z) can be computed as Li^(p)_n(z) = int_{Z_p^x} x^(-n) d mu_z(x), where mu_z is the measure on Z_p defined by mu_z(a + p^m Z_p) = z^a/(1 - z^(p^m))",
           "match": "The measure formula used for the numerical check of the depth-two realisation."
         }
       ],
@@ -4267,19 +4181,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 8 (arXiv v2)",
-          "excerpt": "In [C], Coleman constructed an A+-subalgebra A^a_Col of A^a_loc, which we call the ring of Coleman functions attached to a branch parameter a in C_p, and a C_p-linear map int_(a) : A^a_Col (x)_{A+} Omega+ -> A^a_Col / C_p . 1 satisfying d|_{A^a_Col} o int_(a) = id",
           "match": "Coleman's ring of Coleman functions A^a_Col with its integration map; this node constructs it."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "One defines recursively M_{i+1}(U) := A(U) . int(W_i(U)) and W_{i+1}(U) := M_{i+1}(U) . Omega^1(U) = (int(W_i(U))) . Omega^1(U) and checks that the principle above permits extending int uniquely to W_{i+1}(U).",
           "match": "Coleman's recursive construction of M(U); the depth filtration."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.3, p. 17",
-          "excerpt": "Corollary 3. If dF = 0 then F is a constant function.",
           "match": "Coleman functions with dF = 0 are constant, part of the API."
         }
       ],
@@ -4436,19 +4347,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.4 (Uniqueness Principle), p. 8 (arXiv v2)",
-          "excerpt": "Let f in A^a_Col be a Coleman function which is defined on an admissible open subset U of X(C_p). Suppose that f|_U = 0. Then f = 0 on X(C_p).",
           "match": "The statement, attributed to Coleman Ch. IV."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.3, Proposition 7, p. 17",
-          "excerpt": "Proposition 7. Suppose that the Coleman function F is 0 on one residue disc. Then it is identically 0.",
           "match": "The identity principle for one residue disc."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Corollary 4.13, p. 14 (arXiv v1)",
-          "excerpt": "The uniqueness principle holds for Coleman functions, i.e., if theta(f) vanishes on an open subset of ]X[_P, then f = 0 and therefore theta(f) vanishes identically.",
           "match": "Vanishing on an open subset of the tube forces vanishing."
         }
       ],
@@ -4493,25 +4401,21 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Theorem 5 (Coleman), p. 4 (arXiv v2)",
-          "excerpt": "We may assign to each curve X over O and each wide open subspace W of X_Q a map mu_W : Div^0(W) x Omega^1_{W/C_p} -> C_p, subject to the following conditions.",
           "match": "The integration map on wide opens with linearity, compatibility with Definition 1, change of variables and the fundamental theorem."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Theorem 5 (d), p. 4 (arXiv v2)",
-          "excerpt": "(d) (Fundamental theorem of calculus) For any Q = sum_i c_i (P_i) in Div^0(W) and any f in O(W), mu_W(Q, df) = sum_i c_i f(P_i).",
           "match": "Property (h)."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Notation 2.6, p. 9 (arXiv v2)",
-          "excerpt": "When we let y vary, we regard int_x^y omega as the Coleman function which is characterized by dF_omega = omega and F_omega(x) = 0.",
           "match": "The based primitive int_x^z as a Coleman function."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The map int is characterized by three properties: 1. It is a primitive for the differential in the sense that dF_omega = omega. 2. It is Frobenius equivariant in the sense that int(phi^* omega) = phi^* int(omega). 3. If g in A(U), then F_dg = g + K.",
           "match": "Properties (a), (b), (c) characterise the integral."
         }
       ],
@@ -4655,19 +4559,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Theorem 2, p. 7",
-          "excerpt": "there exists a unique K-linear integration map int : (Omega^1_{A+} (x) K)_{d=0} -> A_loc/K satisfying the following conditions: 1. The map d o int is the canonical map (Omega^1_{A+} (x) K)_{d=0} -> Omega^1_loc. 2. The map int o d is the canonical map A+_K -> A_loc/K. 3. One has phi o int = int o phi",
           "match": "The characterisation, stated for Monsky-Washnitzer algebras over finite extensions of Q_p."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The map int is characterized by three properties: 1. It is a primitive for the differential in the sense that dF_omega = omega. 2. It is Frobenius equivariant in the sense that int(phi^* omega) = phi^* int(omega). 3. If g in A(U), then F_dg = g + K.",
           "match": "Coleman's three properties."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, pp. 2-3",
-          "excerpt": "we take the map phi : X -> X given by phi(x) = x^p . which is a lift of the p-power map. One notices immediately that phi^* omega = p omega.",
           "match": "The example phi(x) = x^p on the circle."
         }
       ],
@@ -4707,13 +4608,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, Proposition 1, p. 5",
-          "excerpt": "Any two maps A+ -> B+ with the same reduction induce homotopic maps Omega._{A+} (x) K -> Omega._{B+} (x) K",
           "match": "Two lifts with the same reduction are homotopic; the homotopy is the Taylor expansion."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Proof of Theorem 2, p. 9",
-          "excerpt": "one can show that the function H(x, y) = int_x^y omega is in fact an analytic function in two variables on the space of pairs (x, y) reducing to the same point, and that then the function h may be taken to be the pullback of H via the map (phi, phi') (we do not give full details here).",
           "match": "Besser's sketch through the two-variable function H(x, y); this lemma supplies the details (ColemanIntegration/E5)."
         }
       ],
@@ -4756,19 +4655,16 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Theorem 2, p. 7",
-          "excerpt": "In addition, the map is independent of the choice of phi.",
           "match": "The independence statement for single integrals."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The entire theory turns out to be independent of the choice of phi.",
           "match": "Independence for Coleman's whole theory."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Proof of Corollary 3.2, p. 8 (arXiv v1)",
-          "excerpt": "Any two Frobenius endomorphisms have a common power so that it is sufficient to prove the result for a single Frobenius endomorphism.",
           "match": "Part (c): Frobenius endomorphisms with a common power."
         }
       ],
@@ -4817,19 +4713,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.5 (Functorial Property), p. 8 (arXiv v2)",
-          "excerpt": "Suppose that f : X' -> X is a morphism defined over O_Cp such that f(Y') in Y. Then the pull-back morphism f# : A^a_loc -> A'^a_loc induces the morphism f^* : A^a_Col -> A'^a_Col of rings of Coleman functions",
           "match": "Functoriality of Coleman functions along morphisms, attributed to Coleman's Theorem 5.11."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 2, Theorem 5 (c), p. 4 (arXiv v2)",
-          "excerpt": "(c) (Change of variables) Let X' be another curve over O, let W' be a wide open subspace of X', and let psi : W -> W' be any morphism of rigid spaces relative to an automorphism of C_p. Then mu_W'(psi(.), .) = mu_W(., psi^*(.)).",
           "match": "Change of variables for Coleman integrals."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Definition 4.7, p. 13 (arXiv v1)",
-          "excerpt": "Let f : T' -> T be a map of triples. Then there is a pullback functor f^* : A_abs(T, F) -> A_abs(T', f^* F) given by f^*(E, s, y) = (f^* E, f^* s, f^* y).",
           "match": "Pullback of Coleman functions along maps of triples."
         }
       ],
@@ -4866,13 +4759,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.3 (Branch Independency Principle), p. 8 (arXiv v2)",
-          "excerpt": "Suppose that a, b in C_p. Then iota_{a,b}(A^a_Col) = A^b_Col, tau_{a,b}(A^a_Col (x) Omega+) = A^b_Col (x) Omega+ and iota_{a,b} o int_(a) = int_(b) o tau_{a,b} mod C_p . 1.",
           "match": "The statement."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proof of Theorem 3.10, p. 17 (arXiv v2)",
-          "excerpt": "Since ]P^1_Fp - {0, 1, inf}[ is a branch independent region, the special value of G^a_0(u) at u = z0 actually does not depend on any choice of branch parameter a in C_p.",
           "match": "The tube of P^1 minus {0, 1, infinity} is a branch-independent region."
         }
       ],
@@ -4909,13 +4800,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Remark 13, p. 8 (arXiv v2)",
-          "excerpt": "By change of variables, int_{phi^m(P)}^{phi^m(Q)} omega_i = int_P^Q (phi^m)^* omega_i",
           "match": "Change of variables along Frobenius, the analytic side of the fundamental linear system."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.3.2, Proposition 1, p. 5",
-          "excerpt": "Any two maps A+ -> B+ with the same reduction induce homotopic maps Omega._{A+} (x) K -> Omega._{B+} (x) K",
           "match": "The cohomological pullback depends only on the reduction."
         }
       ],
@@ -4951,13 +4840,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.2, before Definition 2.9, p. 9 (arXiv v2)",
-          "excerpt": "we fix a branch parameter a in C_p and employ Coleman's p-adic integration theory attached to this branch parameter a in C_p for X = P^1_{O_Cp} and Y = Spec O_Cp[t, 1/t, 1/(1-t)].",
           "match": "The case N = 1 is Furusho's setting for p-adic multiple polylogarithms."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, pp. 2-3",
-          "excerpt": "we take the map phi : X -> X given by phi(x) = x^p . which is a lift of the p-power map. One notices immediately that phi^* omega = p omega.",
           "match": "The circle |z| = 1 with phi(x) = x^p, the tube of U_1 minus the disc of 1."
         }
       ],
@@ -5084,13 +4971,11 @@
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3, Definition 7, p. 5 (arXiv v2)",
-          "excerpt": "The Monsky-Washnitzer (MW) weak completion of A is the ring A+ consisting of infinite sums of the form {sum_{i=-inf}^{inf} B_i(x)/y^i, B_i(x) in K[x], deg B_i <= 2g}, further subject to the condition that v_p(B_i(x)) grows faster than a linear function of i as i -> +-inf.",
           "match": "The weak completion as infinite sums of simple elements with overconvergence conditions; for the punctured line these are the Mittag-Leffler pieces."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.1, p. 7 (arXiv v2)",
-          "excerpt": "U_r stands for the rigid analytic space obtained by removing all closed discs of radius r around e_i from X(C_p) (1 <= i <= s)",
           "match": "The wide opens U_r of P^1 from which the pieces are read."
         }
       ],
@@ -5130,13 +5015,11 @@
         {
           "sourceId": "besser-tannakian",
           "locator": "Section 5, p. 18 (arXiv v1)",
-          "excerpt": "The differential d:A(U_x) -> Omega^1(U_x) is surjective when U_x is a disc. On the other hand, when U_x is an annulus there is no integral to dz/z.",
           "match": "dz/z and dz/(z - zeta) carry the residues at the ends, which are the H^1 coordinates."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.1, p. 6 (arXiv v2)",
-          "excerpt": "That is, the omega_i form a basis of the odd part of the de Rham cohomology of A+.",
           "match": "The analogue for hyperelliptic curves: a basis of de Rham cohomology of the weak completion by explicit forms."
         }
       ],
@@ -5176,13 +5059,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, pp. 2-3",
-          "excerpt": "we take the map phi : X -> X given by phi(x) = x^p . which is a lift of the p-power map. One notices immediately that phi^* omega = p omega.",
           "match": "phi(x) = x^p and phi^* (dz/z) = p dz/z."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "Section 3.3, Algorithm 10, step 1, p. 7 (arXiv v2)",
-          "excerpt": "Since K is an unramified extension of Q_p, it carries a unique automorphism phi_K lifting the Frobenius automorphism x |-> x^p on its residue field. Extend phi_K to a Frobenius lift on A+ by setting phi(x) = x^p,",
           "match": "phi(x) = x^p as the Frobenius lift on the x-line."
         }
       ],
@@ -5220,13 +5101,11 @@
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.2, p. 3",
-          "excerpt": "Suppose now that alpha satisfies the relation alpha^(p^k) = alpha. Then we immediately obtain F_omega(alpha) = F_omega(alpha^(p^k)) = p^k F_omega(alpha) => F_omega(alpha) = 0.",
           "match": "The Frobenius equation with eigenvalue p fixes the constants at Teichmueller points."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Section 2.2, p. 9 (arXiv v2)",
-          "excerpt": "we fix a branch parameter a in C_p and employ Coleman's p-adic integration theory attached to this branch parameter a in C_p for X = P^1_{O_Cp} and Y = Spec O_Cp[t, 1/t, 1/(1-t)].",
           "match": "Coleman's theory applied to P^1 minus {0, 1, infinity}."
         }
       ],
@@ -5267,19 +5146,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Definition 2.9, p. 9 (arXiv v2)",
-          "excerpt": "Li^a_1(z) = -log^a(1 - z) := int_0^z dt/(1 - t).",
           "match": "Li_1 = -log^a(1 - z) = int_0^z dt/(1 - t) and the recursive definition of p-adic polylogarithms in A^a_Col."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.4, p. 19",
-          "excerpt": "One replaces the condition Li_n(0) = 0 by the equivalent condition that the constant term there is 0.",
           "match": "The normalisation at 0 is by the constant term (tangential base point)."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Section 1, p. 1 (arXiv v1)",
-          "excerpt": "Coleman defined p-adic polylogarithms, Li_n : C_p -> C_p. These functions are locally analytic in the sense that they are given by a convergent power series on each residue disc in C_p.",
           "match": "Coleman's p-adic polylogarithms are locally analytic, given by a power series on each residue disc."
         }
       ],
@@ -5426,13 +5302,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Notation 2.6, p. 9 (arXiv v2)",
-          "excerpt": "When we let y vary, we regard int_x^y omega as the Coleman function which is characterized by dF_omega = omega and F_omega(x) = 0.",
           "match": "The based primitive characterised by its derivative and its value at the base point."
         },
         {
           "sourceId": "besser-heidelberg",
           "locator": "Section 1.5.4, p. 19",
-          "excerpt": "One replaces the condition Li_n(0) = 0 by the equivalent condition that the constant term there is 0.",
           "match": "The normalisation at the singular point 0 by the constant term."
         }
       ],
@@ -5550,13 +5424,11 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.11, p. 10 (arXiv v2)",
-          "excerpt": "Li^a_{k1,...,km}(t)|_{]0[} in A(]0[), Li^a_{k1,...,km}(t)|_{]1[} in A(]1[)[log^a(t - 1)] and Li^a_{k1,...,km}(t)|_{]inf[} in A(]inf[)[log^a(1/t)].",
           "match": "The expansions of p-adic multiple polylogarithms on ]0[, ]1[ and ]infinity[."
         },
         {
           "sourceId": "rjw",
           "locator": "Remark 6.6, p. 39 (arXiv v2)",
-          "excerpt": "Coleman constructed p-adic analogues Li_{k,p}(z), which are locally analytic functions on C_p minus {1}, and showed:",
           "match": "Coleman's Li_(k,p) are locally analytic on C_p minus {1}, including the disc of 1 minus the point 1."
         }
       ],
@@ -5600,19 +5472,16 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, (2.1), Lemma 2.7 and Lemma 2.8, p. 9 (arXiv v2)",
-          "excerpt": "Lemma 2.7. This series Li_{k1,···,km}(z) converges on the open unit disk D(0 : 1) = {z ∈ C_p | |z|_p < 1} around 0 with radius 1.",
           "match": "The series and its radius (the case m = 1 is Li_k^ser); Lemma 2.8 is the derivative formula d/dz Li_k = Li_{k−1}/z."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, p. 869 (Ann. Sci. ENS 36 (2003)); p. 3 of arXiv v2",
-          "excerpt": "It is shown in [11] that those functions are locally analytic in the naive topology on C_p, and that Li_n(z) is given by a convergent power series Σ_{k=1}^∞ z^k/k^n on the open unit disc in C_p.",
           "match": "The series as the restriction of Coleman's Li_n to the open unit disc."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "§1, (1.1), p. 1 (arXiv v2)",
-          "excerpt": "The classical polylogarithm functions Li_k(t) for integers k ≥ 0 are complex holomorphic functions defined by the convergent power series Li_k(t) := Σ_{n=1}^∞ t^n/n^k, |t| < 1.",
           "match": "The same series; its p-adic reading is the definition here."
         }
       ],
@@ -5760,19 +5629,16 @@
         {
           "sourceId": "bhyy-polylog",
           "locator": "§3.1, p. 14 (arXiv v2)",
-          "excerpt": "Note that ξ lies in Û^a_{αK} if and only if ξ(α) ≢ 1 modulo the maximal ideal of O_{K(ξ)}. In particular, any torsion point ξ ∈ T^a(Q̄) which is not of p-power order lies in Û^a_K.",
           "match": "Roots of unity of order not a power of p lie outside the residue disc of 1."
         },
         {
           "sourceId": "rjw",
           "locator": "Proof of Lemma 6.4, p. 38 (arXiv v2)",
-          "excerpt": "If (N, p) = 1, we know that (ε_N^c − 1) is a p-adic unit;",
           "match": "The unit case (N prime to p)."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proof of Corollary 2.2, p. 2 (arXiv v1)",
-          "excerpt": "Since α ∈ X ⊂ W the order of α is prime to p and we have α^{p^k} = α for some k.",
           "match": "Tame roots of unity are fixed by a power of Frobenius."
         }
       ],
@@ -5820,31 +5686,26 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, p. 869 (Ann. Sci. ENS 36 (2003)); p. 3 of arXiv v2",
-          "excerpt": "We follow Coleman to recursively define, using his integration theory, functions Li_n(z) for n ⩾ 2. The defining relations are d Li_n(z) = Li_{n−1}(z) dlog z and lim_{z→0} Li_n(z) = 0, and they have a unique solution in the class of functions defined by Coleman.",
           "match": "The theorem, as stated there (proof by Coleman integration)."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 875 (published)",
-          "excerpt": "Here we take ω_1 = −dlog(1 − z) and ω_i = dlog z for i > 1. Notice that dlog z has a simple pole at 0. However, if we normalize Li_r(z) at each step to vanish at 0 this zero will cancel with the pole and we will obtain a form which is also integrable at the residue disc of 0.",
           "match": "The inductive construction and why the normalisation at 0 makes sense."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Remark 2.10(2), p. 10 (arXiv v2)",
-          "excerpt": "Because we get dt/t, dt/(1−t) ∈ A^a_Col and we know that Li^a_{k1,···,km}(z) is analytic on |z|_p < 1 and takes value 0 at z = 0, it is easy to see that each p-adic MPL is well defined in A^a_Col.",
           "match": "The same argument for multiple polylogarithms (the case m = 1 is Li^a_k)."
         },
         {
           "sourceId": "besser-tannakian",
           "locator": "Corollary 4.14 and Theorem 4.15, p. 14 (arXiv v1)",
-          "excerpt": "Corollary 4.14. The kernel of d on A_Col(T) is K.",
           "match": "Uniqueness of Coleman integrals up to a constant (Theorem 4.15 gives existence: the Coleman de Rham complex is exact at the one-forms)."
         },
         {
           "sourceId": "wojtkowiak-functional",
           "locator": "§0, Theorem A', p. 345",
-          "excerpt": "Then there exists a logarithmic F-crystal M(D) on D = C_p \\ {0,1} such that the system of differential equations (*_1) has a unique solution ℓ_1(z), ..., ℓ_n(z) in M(D) which satisfies the initial condition (**_2).",
           "match": "Existence and uniqueness in Coleman's framework, with the initial condition lim_{z→0} ℓ_1(z) = 0."
         }
       ],
@@ -5891,25 +5752,21 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.11, p. 10 (arXiv v2)",
-          "excerpt": "Proposition 2.11. The p-adic MPL Li^a_{k1,···,km}(t) is locally analytic on P¹(C_p)\\{1, ∞}. More precisely, Li^a(t)|_]0[ ∈ A(]0[), Li^a(t)|_]1[ ∈ A(]1[)[log^a(t − 1)] and Li^a(t)|_]∞[ ∈ A(]∞[)[log^a(1/t)].",
           "match": "Statements (b) and the qualitative form of (a); the proof there is 'by construction ... inductively'."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proof of Theorem 2.13, p. 10 (arXiv v2)",
-          "excerpt": "its A^a_log(]1[)-component can be written as follows. Li^a_{k1,···,km}(z) = f_0(z − 1) + f_1(z − 1)log^a(z − 1) + f_2(z − 1)(log^a(z − 1))^2 + ··· + f_m(z − 1)(log^a(z − 1))^m, where f_i(z) ∈ A(D(0 : 1))",
           "match": "Coefficients analytic on the whole disc and independent of the branch (via Proposition 2.3)."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Proof of Proposition 2.6, p. 877 (published)",
-          "excerpt": "According to [11, Proposition 7.1], Li_{n,a}(z) − (1/(n−1)) Li_{n−1,a}(z) log(z) extends to an analytic function on |1 − z| < 1. (Note that B(0, 1) should be replaced with B(1, 1) everywhere in the formulation and the proof of loc. cit.)",
           "match": "An equivalent form of (a): Li_n − log(z)Li_{n−1}/(n−1) = λ_n − log(z)λ_{n−1}/(n−1) is analytic on D⁻(1,1)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, class of functions (1)-(2), p. 19 (arXiv v2)",
-          "excerpt": "(2) for 0 < |z − 1|_p < 1 (resp. |z|_p > 1) f(z) is given by a polynomial in log_p(z − 1) (resp. log_p(1/z)) with coefficients that are Laurent series in z − 1 (resp. 1/z), convergent for 0 < |z − 1|_p < 1 (resp. |z|_p > 1).",
           "match": "The shape of Li_{n,p} on the punctured discs of 1 and ∞."
         }
       ],
@@ -5949,31 +5806,26 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, p. 869 (Ann. Sci. ENS 36 (2003)); p. 3 of arXiv v2",
-          "excerpt": "Let Li_1(z) = − log(1 − z) for z ≠ 0 or 1. We follow Coleman to recursively define, using his integration theory, functions Li_n(z) for n ⩾ 2.",
           "match": "The definition, with the branch fixed by log(π) = 0 (equivalent to fixing a = log(p))."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 876 (published); p. 10 of arXiv v2",
-          "excerpt": "The functions Li_n(z) are defined on C_p \\ {1}. If L is a complete finitely ramified extension of Q_p then the limit lim_{z→1, z∈L} Li_n(z) exists for n ⩾ 2, and is independent of L. Using this limit as the value for Li_n at 1, Li_n extends to a function on C_p",
           "match": "Domain C_p ∖ {1} and the value at 1 for n ≥ 2."
         },
         {
           "sourceId": "rjw",
           "locator": "Remark 6.6, p. 40 (arXiv v2)",
-          "excerpt": "Coleman constructed p-adic analogues Li_{k,p}(z), which are locally analytic functions on C_p\\{1}, and showed:",
           "match": "The function used in Theorem 6.7."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Definition 2.9 and Remark 2.10(3), pp. 9-10 (arXiv v2)",
-          "excerpt": "Our construction of p-adic MPL is just a multiple analogue of Coleman's construction [C] of p-adic polylogarithm ℓ_k(z). His p-adic polylogarithm ℓ_k(z) can be written as Li^a_k(z) in our notation.",
           "match": "The branch-parameter notation Li^a_k."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proposition 2.1, p. 2 (arXiv v1)",
-          "excerpt": "Proposition 2.1. Let Li_n^{(p)}(z) := Li_n(z) − Li_n(z^p)/p^n. Then Li_n^{(p)}(X) ⊂ W and the function Li_n^{(p)} reduces modulo p to (1 − z^p)^{−1} li_n(z).",
           "match": "The modified polylogarithm Li^{(p)}."
         }
       ],
@@ -6152,25 +6004,21 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Theorem 3.3, p. 15 (arXiv v2)",
-          "excerpt": "Theorem 3.3. Fix a ∈ C_p. Then there exists a unique (invertible) solution G^a_0(u) ∈ A^a_Col ⊗̂ A^∧_{C_p} of (KZ^p) which is defined and locally analytic on P¹(C_p)\\{0, 1, ∞} and satisfies G^a_0(u) ≈ u^A (u → 0).",
           "match": "The tangential normalisation at 0 of the generating series of the polylogarithms."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Examples 3.25, p. 21 (arXiv v2)",
-          "excerpt": "G^a_0(A,B)(z) = 1 + (log^a z)A + log^a(1 − z)B + ((log^a z)^2/2)A^2 − Li^a_2(z)AB",
           "match": "The coefficient of AB is −Li^a_2 (and −Li^a_3 at A²B on the next line)."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Notation 2.6, p. 9 (arXiv v2)",
-          "excerpt": "When we let y vary, we regard ∫_x^y ω as the Coleman function which is characterized by dF_ω = ω and F_ω(x) = 0.",
           "match": "The base-point normalisation ∫_0^z used in Definition 2.9."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 875 (published)",
-          "excerpt": "Notice that dlog z has a simple pole at 0. However, if we normalize Li_r(z) at each step to vanish at 0 this zero will cancel with the pole and we will obtain a form which is also integrable at the residue disc of 0.",
           "match": "Why the value at 0 is an admissible normalisation for Li_k but not for log z."
         }
       ],
@@ -6210,19 +6058,16 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, properties (1)-(3), p. 19 (arXiv v2)",
-          "excerpt": "(1) Li_{0,p}(z) = z/(1−z); (2) Li_{n,p}(0) = 0 for n ≥ 0; (3) dLi_{n+1,p}(z) = Li_{n,p}(z) dz/z for n ≥ 0;",
           "match": "The differential recursion as a defining property."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Lemma 2.8, p. 9 (arXiv v2)",
-          "excerpt": "Lemma 2.8. Let z ∈ C_p such that |z|_p < 1. Then d/dz Li_{k1,···,km}(z) = (1/z) Li_{k1,···,km−1}(z) (km ≠ 1), (1/(1−z)) Li_{k1,···,km−1}(z) (km = 1)",
           "match": "The recursion on the disc of 0 (case m = 1)."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proof of Theorem 1.1, p. 4 (arXiv v1)",
-          "excerpt": "D Li_k(z) = z(1 − z) d/dz Li_k(z) = z(1 − z) Li_{k−1}(z) (1/z) = (1 − z) Li_{k−1}(z)",
           "match": "The recursion used pointwise on residue discs."
         }
       ],
@@ -6276,19 +6121,16 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, (2.4), p. 876 (published); p. 10 of arXiv v2",
-          "excerpt": "If m and n are integers at least equal to 2, then on C_p Li_n(z^m) = m^{n−1} Σ_{ζ^m=1} Li_n(ζz). (2.4) Clearly the same formula holds for n = 1 provided 1 − z^m ≠ 0.",
           "match": "The theorem (quoted from Coleman, Proposition 6.1, as corrected)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, (4.11), p. 20 (arXiv v2)",
-          "excerpt": "Li_{n,p}(z^m) = m^{n−1} Σ_{ζ^m=1} Li_{n,p}(ζz) when m ≥ 1 and z^m ≠ 1.",
           "match": "The same relation for all n ≥ 0 with the hypothesis z^m ≠ 1 used here."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "§3, p. 6 (arXiv v1)",
-          "excerpt": "This determines Li_n up to a locally constant function and a Frobenius condition replaces this by a globally constant function ambiguity. As remarked by Kontsevich the distribution relation removes the ambiguity completely.",
           "match": "The role of the relation in characterising Li_n (see ColemanIntegration:L2/locally-analytic-antiderivatives-and-a-non-example)."
         }
       ],
@@ -6337,19 +6179,16 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, (1.2), p. 869 (published); p. 3 of arXiv v2",
-          "excerpt": "These functions satisfy the functional equation (1.2) Li_n(z) + (−1)^n Li_n(1/z) = −(1/n!) log^n(z), see Proposition 6.4 of [11].",
           "match": "The theorem as stated (quoted from Coleman)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, p. 20 (arXiv v2)",
-          "excerpt": "the Li_{n,p}(z) for n ≥ 0 and z in C_p \\ {1} satisfy Li_{n,p}(z) + (−1)^n Li_{n,p}(1/z) = −(1/n!) log^n_p(z) when z ≠ 0",
           "match": "Range of validity: all n ≥ 0 and z ∉ {0, 1}."
         },
         {
           "sourceId": "wojtkowiak-functional",
           "locator": "§4, (*) before Lemma 4.2, p. 362",
-          "excerpt": "The p-adic k-th polylogarithm satisfies the functional equation (*) Li_k(1/z) = (−1)^{k+1}Li_k(z) + (−1)^{k+1}(1/k!)log^k z (see [C], Proposition 6.4).",
           "match": "The same relation, solved for Li_k(1/z)."
         }
       ],
@@ -6397,25 +6236,21 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, (2.5) and Proposition 2.6, p. 876 (published); p. 10 of arXiv v2",
-          "excerpt": "Let β = log_a p − log_b p, and let v be the valuation such that v(p) = 1. Note that (2.5) log_a(z) − log_b(z) = v(z)β. Proposition 2.6. We have (2.7) Li_{n,a}(z) − Li_{n,b}(z) = −(1/n!) v(1 − z)β (log_a^{n−1} z + log_a^{n−2} z log_b z + ··· + log_b^{n−1} z).",
           "match": "The theorem."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Proof of Proposition 2.6, p. 876 (published)",
-          "excerpt": "the polylogarithm depends on the branch of the log chosen only on residue discs where one of the forms involved in the definition, i.e., dz/z and dz/(z − 1), has a pole. This means that Li_{n,a} and Li_{n,b} can differ at most on the residue discs of 0, 1 and ∞",
           "match": "Consequence (i) and the first step of the proof."
         },
         {
           "sourceId": "gswz",
           "locator": "§3.1, before (174), p. 37 (arXiv v2)",
-          "excerpt": "(The values of the dilogarithm only depend on this choice in the residue discs around 1 and ∞ and importantly the primes we consider will never require us to evaluate here.)",
           "match": "Consequence (i) for k = 2, as used by the consumers."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proposition 2.3, p. 8 (arXiv v2)",
-          "excerpt": "Proposition 2.3 (Branch Independency Principle). Suppose that a, b ∈ C_p. Then ι_{a,b}(A^a_Col) = A^b_Col, τ_{a,b}(A^a_Col ⊗ Ω†) = A^b_Col ⊗ Ω† and ι_{a,b} ∘ ∫_(a) = ∫_(b) ∘ τ_{a,b} mod C_p · 1.",
           "match": "The transport of Coleman functions between branches used in the proof."
         }
       ],
@@ -6459,25 +6294,21 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Remark 2.3, pp. 875-876 (published); p. 9 of arXiv v2",
-          "excerpt": "is Galois equivariant in the sense that for every automorphism σ of C_p over L we have that f(z^σ) = (f(z))^σ for every z in U. In particular, if z is defined over L then f(z) is in L.",
           "match": "The Galois equivariance of iterated Coleman integrals defined over L with a branch defined over L."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Remark 2.3, p. 876 (published)",
-          "excerpt": "For Li_n, since the forms are either dlog z or dlog(1 − z), which are all defined over Q_p, this means that if we take a branch log_π, with π in Q_p, then Li_n is Galois equivariant over Q_p.",
           "match": "The case a ∈ Q_p."
         },
         {
           "sourceId": "bbk-explicit",
           "locator": "§2, Theorem 5 (Coleman), (c), p. 4 (arXiv v2)",
-          "excerpt": "(c) (Change of variables) Let X′ be another curve over O, let W′ be a wide open subspace of X′, and let ψ : W → W′ be any morphism of rigid spaces relative to an automorphism of C_p. Then µ_{W′}(ψ(·), ·) = µ_W(·, ψ*(·)).",
           "match": "Coleman integration is compatible with automorphisms of C_p."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Proof of Theorem 2.25, p. 13 (arXiv v2)",
-          "excerpt": "Then from the Galois equivariancy stated in [BdJ] Remark 2.3, it follows that Li^a_{k1,···,km}(z) is Gal(Q̄_p/Q_p)-invariant for z ∈ P¹(Q_p)\\{1, ∞} if we take a ∈ Q_p.",
           "match": "Use of the equivariance for values at Q_p-points."
         }
       ],
@@ -6519,31 +6350,26 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Notation 2.12 and Theorem 2.13, p. 10 (arXiv v2)",
-          "excerpt": "Moreover if it converges on C_p, this limit value is independent of any choice of branch parameter a ∈ C_p.",
           "match": "Branch independence of lim′_{z→1} (Theorem 2.13); lim′ is the limit along sequences in finitely ramified fields (Notation 2.12)."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Lemma 2.14, p. 11 (arXiv v2)",
-          "excerpt": "Lemma 2.14. For n ⩾ 0, lim′_{ǫ→0} ǫ(log^a ǫ)^n = 0.",
           "match": "The estimate used in (a)."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Theorem 2.18 and Examples 2.19(a), pp. 11-12 (arXiv v2)",
-          "excerpt": "(a) When n is even (i.e. n = 2k for some k ⩾ 1), by (2.3) we get the equality ζ_p(2k) = 0.",
           "match": "(b); Furusho derives it from Coleman's formula (2.3), here it is derived from the inversion relation."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 876 (published); p. 10 of arXiv v2",
-          "excerpt": "If L is a complete finitely ramified extension of Q_p then the limit lim_{z→1, z∈L} Li_n(z) exists for n ⩾ 2, and is independent of L. Using this limit as the value for Li_n at 1, Li_n extends to a function on C_p",
           "match": "(a) and the definition of Li_n(1)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Proof of Proposition 4.17 (case N = 2), p. 23 (arXiv v2)",
-          "excerpt": "Coleman proves that L_p(n, ω_p^{1−n}, Q) = (1 − p^{−n}) lim′_{x→1} Li_{n,p}(x) where the limit is taken in any subfield of C_p that is of finite ramification degree over Q_p.",
           "match": "The limit ζ_p(n) and its role for the trivial character (used by ColemanIntegration L3)."
         }
       ],
@@ -6583,19 +6409,16 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 875 (published); p. 8 of arXiv v2",
-          "excerpt": "Each ω ∈ Ω¹_loc(U) can be integrated in A_loc(U) in many ways, because we can choose a different constant of integration for each U_y. Coleman's theory finds a subclass of forms for which one can assign canonically an integral in A_loc(U) defined up to a global constant.",
           "match": "Statement (a) and the role of Coleman's theory in (b)."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "§3, p. 6 (arXiv v1)",
-          "excerpt": "This determines Li_n up to a locally constant function and a Frobenius condition replaces this by a globally constant function ambiguity. As remarked by Kontsevich the distribution relation removes the ambiguity completely.",
           "match": "Statement (b), the distribution characterisation."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§3.1, before Theorem 3.3, p. 15 (arXiv v2)",
-          "excerpt": "Unfortunately, because P¹(C_p)\\{0, 1, ∞} is topologically totally disconnected, the equation (KZ^p) does not have a unique solution on P¹(C_p)\\{0, 1, ∞} even locally as in the complex analytic function case.",
           "match": "Why a local differential equation does not determine the solution."
         }
       ],
@@ -6641,25 +6464,21 @@
         {
           "sourceId": "gswz",
           "locator": "Lemma 2.1 and its proof, p. 19 (arXiv v2)",
-          "excerpt": "Lemma 2.1. For every integer n and prime number p we have Li^(p)_n(t) ∈ Z[t, 1/(1−t)]^∧_p.",
           "match": "The main statement (with Z[t, 1/(1 − t)]^∧_p = 𝒜)."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "Lemma 3.3, proof, pp. 14-15 (arXiv v2)",
-          "excerpt": "In particular, we have f_m(t) ≡ f_n(t) (mod p^m B̂_α) for any integer n ≥ m, hence the sequence (f_m(t))_{m∈N} is a Cauchy sequence in B̂_α for the p-adic topology.",
           "match": "The limit construction; for F = Q and a = Z, B_α = O_K[t][1/(1 − t)]."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proposition 2.1 and proof, p. 2 (arXiv v1)",
-          "excerpt": "Since for z ∈ X μ_z takes integral values, this shows the first statement. Reducing modulo p we may replace the function x ↦ x^{−k} by the function x ↦ a^{−k} if x ≡ a (mod p)",
           "match": "Integrality on X and the reduction mod p, via the measure μ_z(a + p^mZ_p) = z^a/(1 − z^{p^m}) whose Riemann sums are the f_{k,m}."
         },
         {
           "sourceId": "gswz",
           "locator": "§2.1, p. 18 (arXiv v2)",
-          "excerpt": "In [11, Prop.6.2] Coleman proves (working with the variable 1/t) that Li^(p)_n(t) ∈ Z_(p)[[t]] is convergent for |t/(1 − t)| < p^{(p−1)^{−1}} and consequently lies in the ring Z[t/(1−t)]^∧_p",
           "match": "The restricted-power-series form in s = t/(1 − t), and Coleman's stronger radius (next node)."
         }
       ],
@@ -6814,19 +6633,16 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, property (4), p. 20 (arXiv v2)",
-          "excerpt": "(4) for every n ≥ 0 there is a power series g_n(v), convergent for |v|_p < p^{1/(p−1)}, such that g_n(1/(1 − z)) = Li_{n,p}(z) − (1/p^n) Li_{n,p}(z^p) when |z − 1|_p > p^{−1/(p−1)}.",
           "match": "The statement (with the identification of ColemanIntegration:L2/frobenius-relation)."
         },
         {
           "sourceId": "gswz",
           "locator": "§2.1, p. 18 (arXiv v2)",
-          "excerpt": "In [11, Prop.6.2] Coleman proves (working with the variable 1/t) that Li^(p)_n(t) ∈ Z_(p)[[t]] is convergent for |t/(1 − t)| < p^{(p−1)^{−1}}",
           "match": "The radius p^{1/(p−1)} in the variable t/(1 − t) = v − 1, attributed to Coleman."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "§1, p. 2 (arXiv v2)",
-          "excerpt": "The functions Li^(p)_k(t) extend to rigid analytic functions on the rigid analytic space Û_{Q_p} associated to the p-adic completion Û_{Z_p} of the scheme U := P¹ \\ {0, 1, ∞} = G_m \\ {1}",
           "match": "Rigid analyticity (on the tube of the special fibre); the present node gives the larger domain."
         }
       ],
@@ -6875,25 +6691,21 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, property (4), p. 20 (arXiv v2)",
-          "excerpt": "(4) for every n ≥ 0 there is a power series g_n(v), convergent for |v|_p < p^{1/(p−1)}, such that g_n(1/(1 − z)) = Li_{n,p}(z) − (1/p^n) Li_{n,p}(z^p) when |z − 1|_p > p^{−1/(p−1)}.",
           "match": "The theorem as stated there (without proof; attributed to Coleman)."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proposition 2.1, p. 2 (arXiv v1)",
-          "excerpt": "Proposition 2.1. Let Li_n^{(p)}(z) := Li_n(z) − Li_n(z^p)/p^n. Then Li_n^{(p)}(X) ⊂ W and the function Li_n^{(p)} reduces modulo p to (1 − z^p)^{−1} li_n(z).",
           "match": "Integrality and reduction on X = {z ∈ W : |z| = |z − 1| = 1}."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, rules (1)-(3), p. 875 (published)",
-          "excerpt": "(1) The integral is additive. (2) When g ∈ A(U), ∫dg = g + C, for some constant C. (3) We have φ*∫ω = ∫φ*ω + C.",
           "match": "Frobenius equivariance of Coleman integration, the mechanism behind the relation."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "§1, p. 2 (arXiv v2)",
-          "excerpt": "The functions Li^(p)_k(t) extend to rigid analytic functions on the rigid analytic space Û_{Q_p} associated to the p-adic completion Û_{Z_p} of the scheme U := P¹ \\ {0, 1, ∞} = G_m \\ {1}",
           "match": "Rigid analyticity of Li^{(p)} (citing Coleman Prop. 6.2)."
         }
       ],
@@ -6940,19 +6752,16 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, p. 19 (arXiv v2)",
-          "excerpt": "Coleman first produced the p-adic polylogarithm out of a more extensive theory of what is now called Coleman integration. For the p-adic polylogarithm it is, however, possible to give a more elementary and explicit theory.",
           "match": "The elementary theory."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, pp. 19-20 (arXiv v2)",
-          "excerpt": "The p-adic polylogarithms are functions Li_{n,p}(z) (n ≥ 0) in this class with the following properties: (1) Li_{0,p}(z) = z/(1−z); (2) Li_{n,p}(0) = 0 for n ≥ 0; (3) dLi_{n+1,p}(z) = Li_{n,p}(z) dz/z for n ≥ 0;",
           "match": "Properties (i)-(iii); (iv) is the next item in the source."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, class (1), p. 19 (arXiv v2)",
-          "excerpt": "(1) for any a ∈ C_p with |a − 1|_p = 1 we have a power series expansion for f(z) in z − a that converges for |z − a|_p < 1;",
           "match": "Condition (1) of the class."
         }
       ],
@@ -7001,19 +6810,16 @@
         {
           "sourceId": "gswz",
           "locator": "§3.1, (174), p. 37 (arXiv v2)",
-          "excerpt": "Then Coleman obtains a well-defined function Li_2 : C_p \\ {1} → C_p and defines D_p : C_p \\ {0, 1} → C_p, z ↦ Li_2(z) + ½ log(z) log(1 − z).",
           "match": "The consumers' normalisation (GSWZ D_p = D^a with a the chosen branch, e.g. the Iwasawa branch)."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, p. 870 (published); p. 3 of arXiv v2",
-          "excerpt": "L_2(z) + ½ log(z)L_1(z) = Li_2(z) − ½ log(z)Li_1(z), which is studied in Section 6 and beyond in [11], where it is called D(z).",
           "match": "Identification with Coleman's D."
         },
         {
           "sourceId": "wojtkowiak-functional",
           "locator": "§4, Example 3, p. 363",
-          "excerpt": "Observe that dim V_{n+1} = n. Hence for n = 1 there is only one function (up to a multiplication by a constant) such that its sequence of coefficients belongs to V_2. This is the Rogers function Li_2(z) + ½ log(z)·log(1 − z).",
           "match": "D as the unique combination anti-invariant under z ↦ 1/z."
         }
       ],
@@ -7048,7 +6854,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7090,7 +6895,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7136,7 +6940,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7179,7 +6982,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7227,7 +7029,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7267,7 +7068,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7331,25 +7131,21 @@
         {
           "sourceId": "gswz",
           "locator": "§3.1, after (174), p. 38 (arXiv v2)",
-          "excerpt": "This function also satisfies equation (173). Therefore, this gives homomorphisms from the Bloch group in a completely analogous way to the Bloch-Wigner dilogarithm but for finite places",
           "match": "The statement, as used by the consumers (equation (173) is the five-term relation)."
         },
         {
           "sourceId": "wojtkowiak-functional",
           "locator": "Proposition 4.4 and proof (case n = 1), pp. 364-365",
-          "excerpt": "Proof. — Let n = 1. The space V_2 is one-dimensional generated generated by (1, −½). Then for P_2(z) = Li_2(z) + ½ log z log(1 − z) we have",
           "match": "The proof of constancy of Σ n_k P_2(f_k(z)) for elements of ker b_2, from the vanishing differential."
         },
         {
           "sourceId": "wojtkowiak-functional",
           "locator": "Lemma 4.3, p. 362",
-          "excerpt": "LEMMA 4.3. — Let P_{n+1}(z) be such that (α_0, ..., α_n) ∈ V_{n+1}. Then lim′_{z→0} P_{n+1}(z) = 0 and lim′_{z→∞} P_{n+1}(z) = 0.",
           "match": "The evaluation of the constant by limits at 0 and ∞."
         },
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p. 6 Proposition 2.10; p. 14 paragraph before its proof",
-          "excerpt": "with corrected signs",
           "match": "Public normalization of the p-adic five-term target. The coefficient-bounded local proof here is a worker-derived elaboration, not a proof quoted from de Jeu."
         }
       ],
@@ -7393,25 +7189,21 @@
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Corollary 2.2, p. 2 (arXiv v1)",
-          "excerpt": "Corollary 2.2. Let α ∈ X be a root of unity. Then we have Li_n(α) ∈ p^n W and p^{−n} Li_n(α) ≡ −li_n(σ(α))/(1 − α) (mod p).",
           "match": "(b) and (c), with W = W(F̄_p) and σ the inverse of the Frobenius of F̄_p."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Proof of Corollary 2.2, pp. 2-3 (arXiv v1)",
-          "excerpt": "Since α^{p^k} = α we may move the last term to the left hand side of the equation and obtain Li_n(α) = (1/(1 − p^{−kn})) Σ_{i=0}^{k−1} p^{−in} Li_n^{(p)}(α^{p^i})",
           "match": "The telescoping formula (a)."
         },
         {
           "sourceId": "gswz",
           "locator": "Proof of Lemma 3.1, (175), p. 37 (arXiv v2)",
-          "excerpt": "Proof. From [8, Cor. 4.9] we know that Li_2(ζ) ∈ p²Z_p[ζ] and Li_1(ζ) ∈ pZ_p[ζ] .",
           "match": "The cases k = 1, 2 of (b), used by the consumers."
         },
         {
           "sourceId": "gswz",
           "locator": "Proposition 3.2, (178), p. 38 (arXiv v2)",
-          "excerpt": "Proposition 3.2. [6, Cor. 2.2] For a prime p and ζ ∈ µ(Q_{p^s}) with ζ ≠ 1, we have p^{−2}D_p(ζ^p) = (1/(ζ − 1)^p) li_{2,p}(ζ) (mod p).",
           "match": "The second form of (c) for k = 2 (D_p = Li_2 at roots of unity); for p odd (ζ − 1)^p = −(1 − ζ)^p, matching the sign here."
         }
       ],
@@ -7461,13 +7253,11 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§1, p. 870 (published); p. 3 of arXiv v2",
-          "excerpt": "It is easily deduced from Coleman's theory (see Remark 2.3) that Li_n is Galois equivariant. In particular, if K ⊂ C_p is a complete subfield, then Li_n, and as a result also L_n and L_mod,n, send K to K provided log was defined such that log(π) = 0 with π ∈ K.",
           "match": "The statement (for complete subfields; here proved for finite extensions without Ax–Sen–Tate)."
         },
         {
           "sourceId": "furusho-pmzv1",
           "locator": "Theorem 2.25, p. 13 (arXiv v2)",
-          "excerpt": "Theorem 2.25. All p-adic MZV's are p-adic numbers, i.e. ζ_p(k1, ···, km) ∈ Q_p.",
           "match": "ζ_p(k) ∈ Q_p (case m = 1)."
         }
       ],
@@ -7514,19 +7304,16 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.7, p. 40 (arXiv v2)",
-          "excerpt": "Theorem 6.7 ([Col82]). — Let θ be a non-trivial Dirichlet character of conductor N, let k ≥ 1 be an integer, and let ε_N denote a primitive Nth root of unity.",
           "match": "The theorem uses Li_{k,p}(ε_N^c) for every conductor N, including N = p^r."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Proof of Proposition 2.6, p. 876 (published)",
-          "excerpt": "It remains to consider the case |z − 1| < 1. Note that here log(z) is independent of the branch so the formula to be proved reads Li_{n,a}(z) − Li_{n,b}(z) = −(1/(n − 1)!) v(1 − z)β log^{n−1} z.",
           "match": "Branch dependence on the residue disc of 1, which vanishes at roots of unity for n ≥ 2."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, property (4), p. 20 (arXiv v2)",
-          "excerpt": "(4) for every n ≥ 0 there is a power series g_n(v), convergent for |v|_p < p^{1/(p−1)}, such that g_n(1/(1 − z)) = Li_{n,p}(z) − (1/p^n) Li_{n,p}(z^p) when |z − 1|_p > p^{−1/(p−1)}.",
           "match": "(c) for r ≥ 2."
         }
       ],
@@ -7577,25 +7364,21 @@
         {
           "sourceId": "rjw",
           "locator": "Lemma 6.4 and its proof, pp. 37-38 (arXiv v2)",
-          "excerpt": "If (N, p) = 1, we know that (ε_N^c − 1) is a p-adic unit; then the coefficient of T^n has p-adic valuation bounded below by −v_p(n). This means the coefficients in F̃_θ(T) have logarithmic growth, and in particular F̃_θ(T) ∈ R^+.",
           "match": "The case k = 1 of (a)-(b) for N prime to p."
         },
         {
           "sourceId": "rjw",
           "locator": "Remark 3.39, p. 24 (arXiv v2)",
-          "excerpt": "An L-valued function on B(0, 1) is rigid analytic if it can be written as a power series Σ_{n≥0} a_n T^n ∈ L[[T]] that is everywhere convergent on B(0, 1) (i.e. |a_n|r^n → 0 as n → ∞ for all r < 1); write R^+ ⊂ L[[T]] for the space of such functions.",
           "match": "The space R^+."
         },
         {
           "sourceId": "rjw",
           "locator": "Lemma 5.12, p. 34 (arXiv v2)",
-          "excerpt": "Lemma 5.12. — The Mahler transform of µ_θ is F_θ(T) := A_{µ_θ}(T) = (−1/G(θ^{−1})) Σ_{c∈(Z/Dp^nZ)^×} θ(c)^{−1}/((1 + T)ε^c_{Dp^n} − 1).",
           "match": "The series F_θ that ∂^k F̃_{θ,k} recovers."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Lemma 2.4, p. 3 (arXiv v1)",
-          "excerpt": "Lemma 2.4. In the situation above we have v_p(a_k) ≥ −v_p(k!), where v_p is the p-adic valuation and a_k is the k-th coefficient in the power series expansion with respect to u of any of the functions f_n.",
           "match": "A coefficient bound for Li_n(α + u) at a tame root α obtained from the same recursion (weaker than the logarithmic bound here)."
         }
       ],
@@ -7637,13 +7420,11 @@
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "§2, p. 876 (published); p. 10 of arXiv v2",
-          "excerpt": "If m and n are integers at least equal to 2, then on C_p Li_n(z^m) = m^{n−1} Σ_{ζ^m=1} Li_n(ζz).",
           "match": "The relation behind (b) and (c), including z = 1."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Proof of Proposition 4.17, p. 22 (arXiv v2)",
-          "excerpt": "the τ-component of R_{n,p}(M^E_π) equals (n−1)! |G|^{−1} Σ′_{a=1}^N χ_τ^{−1}(a)P_{n,p}(η_p^a) by Remark 4.15, independent of our assumption on χ(−1).",
           "match": "Sums over the Galois conjugates ψ_a(ζ) = ζ^a, a ∈ (Z/NZ)^×, weighted by a character."
         }
       ],
@@ -7690,19 +7471,16 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.7(ii), p. 40 (arXiv v2)",
-          "excerpt": "(ii) (p-adic value at s = k). We have L_p(θ, k) = (1 − θ(p)p^{−k}) (1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c)Li_{k,p}(ε_N^c).",
           "match": "The twisted sum and Euler factor as consumed by ColemanIntegration L3."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "Theorem 1.1, p. 2 (arXiv v2)",
-          "excerpt": "Theorem 1.1. Suppose N is not a power of p, and let ξ be a primitive N-th root of unity. Then for any integer k ∈ Z, we have L_p(χω_p^{1−k}, k) = (g(χ,ξ)/N) Σ_{β∈(Z/NZ)^×} χ(β)^{−1} Li^(p)_k(ξ^β),",
           "match": "The same formula with Li^{(p)}; (d) is the bridge."
         },
         {
           "sourceId": "rjw",
           "locator": "Proof of Theorem 6.1(ii), p. 39 (arXiv v2)",
-          "excerpt": "Here, we used that, since p ∤ N, the assignment c ↦ c′ = pc defines an automorphism of (Z/NZ)^×.",
           "match": "The reindexing in (d) for p ∤ N (there for k = 1)."
         }
       ],
@@ -7748,19 +7526,16 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 6.6 and Theorem 6.7(i), p. 40 (arXiv v2)",
-          "excerpt": "More precisely, for s, z ∈ C, let Li_s(z) := Σ_{n≥1} z^n/n^s be the polylogarithm fuction; recall that it admits a unique analytic continuation to C\\{z ∈ R : z ≥ 1}. In particular, one sees that Li_s(1) = ζ(s), and Li_1(z) = − log(1 − z).",
           "match": "The complex polylogarithm used in Theorem 6.7(i)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Proof of Proposition 4.17, p. 22 (arXiv v2)",
-          "excerpt": "because P_n(η^a) = (Li_n(η^a) + χ_σ^{−1}(−1)Li_n(η^{−a}))/2 by our assumption on χ(−1), where Li_n is computed using the power series in (4.1).",
           "match": "Complex values at roots of unity as convergent series, and the parity pairing of ζ and ζ^{−1}."
         },
         {
           "sourceId": "besser-dejeu-syntomic",
           "locator": "Remark 1.5, p. 870 (published)",
-          "excerpt": "Note that this formula is different from the classical case, where one uses the real or imaginary part of the functions Σ_{j=0}^{n−1} (B_j 2^j/j!) Li_{n−j}(z) log^j|z|",
           "match": "The p-adic and complex normalisations differ."
         }
       ],
@@ -7798,19 +7573,16 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 5.19, (5.7), p. 35 (arXiv v2); p. 147 of the version of record",
-          "excerpt": "An equivalent definition is L_p(θ,s) = ∫_{Z_p^×} χω^{−1}(x)⟨x⟩^{−s}·μ_η = ∫_{Z_p^×} χω^{s−1}(x)x^{−s}·μ_η.",
           "match": "The identity of step 1, used at the integer s = k."
         },
         {
           "sourceId": "rjw",
           "locator": "(6.2), p. 37 (arXiv v2)",
-          "excerpt": "L_p(θ,1) := ∫_{Z_p^×} χ(x)x^{−1}·μ_η = ∫_{Z_p^×} x^{−1}·μ_θ.",
           "match": "The case k = 1, where no Teichmueller twist appears."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "proof of Theorem 5.8, p. 30 (arXiv v2)",
-          "excerpt": "L_p(χω_p^{1−k},k) = ∫ ω_p^{−1}(x)⟨N̂(x)⟩^{−k} dμ_{χω_p^{1−k}}(x) = ∫ ω_p^{−k}(x)⟨N̂(x)⟩^{−k} dμ_χ(x) = ∫ N̂(x)^{−k} dμ_χ(x)",
           "match": "The same computation for Hecke characters of a totally real field; F = Q is this lemma."
         }
       ],
@@ -7851,19 +7623,16 @@
         {
           "sourceId": "rjw",
           "locator": "Definition 5.18, p. 35 (arXiv v2)",
-          "excerpt": "Let θ = χη be a Dirichlet character, where η has conductor D prime to p and χ has conductor p^n for n ≥ 0. Define L_p(θ,s) := ∫_{Z_p^×} χ(x)⟨x⟩^{1−s}·ζ_η, s ∈ Z_p.",
           "match": "With D = 1, zeta_eta is the pseudo-measure zeta_p."
         },
         {
           "sourceId": "rjw",
           "locator": "(3.11), §3.6, p. 22 (arXiv v2)",
-          "excerpt": "∫_G χ·λ := (χ(g) − 1)^{−1} ∫_G χ·([g] − [1])λ, where g ∈ G is any element such that χ(g) ≠ 1.",
           "match": "Evaluation of a pseudo-measure at a nontrivial character, used with g = b."
         },
         {
           "sourceId": "rjw",
           "locator": "Definitions 4.5 and 4.10, pp. 27-28 (arXiv v2)",
-          "excerpt": "Let µ_a be the measure on Z_p whose Mahler transform is F_a(T). ... Let a be a topological generator of Z_p^×. The p-adic zeta function is ζ_p := x^{−1}Res_{Z_p^×}(µ_a)/θ_a",
           "match": "The smoothed measure and the pseudo-measure zeta_p."
         }
       ],
@@ -7903,19 +7672,16 @@
         {
           "sourceId": "besser-finite-polylog",
           "locator": "proof of Proposition 2.1, p. 2 (arXiv v1)",
-          "excerpt": "where µ_z is the measure on Z_p defined by µ_z(a + p^mZ_p) = z^a/(1 − z^{p^m}), a = 0, 1, …, p^m − 1.",
           "match": "The same measure up to the Dirac mass at 0 (Besser's a = 0 term is 1/(1 - z^{p^m}), ours is z^{p^m}/(1 - z^{p^m}))."
         },
         {
           "sourceId": "rjw",
           "locator": "(3.6), §3.5.3, p. 20 (arXiv v2)",
-          "excerpt": "A_{Res_{b+p^nZ_p}(μ)}(T) = (1/p^n) Σ_{ξ∈μ_{p^n}} ξ^{−b} A_μ((1+T)ξ − 1).",
           "match": "Formula for the values on residue classes."
         },
         {
           "sourceId": "rjw",
           "locator": "Theorem 3.25, p. 18 (arXiv v2)",
-          "excerpt": "The Mahler transform gives an O_L-algebra isomorphism M(Z_p, O_L) → O_L[[T]].",
           "match": "Existence and uniqueness of mu_w from its bounded transform."
         }
       ],
@@ -8056,13 +7822,11 @@
         {
           "sourceId": "rjw",
           "locator": "Lemma 5.12, p. 33 (arXiv v2); p. 145 of the version of record",
-          "excerpt": "The Mahler transform of μ_θ is F_θ(T) := A_{μ_θ}(T) = (−1/G(θ^{−1})) Σ_{c∈(Z/Dp^nZ)^×} θ(c)^{−1}/((1+T)ε_{Dp^n}^c − 1).",
           "match": "The input formula for F_theta."
         },
         {
           "sourceId": "rjw",
           "locator": "proof of Lemma 6.5, p. 38 (arXiv v2)",
-          "excerpt": "∂ log((1+T)ε_D^c − 1) = (1+T)ε_D^c/((1+T)ε_D^c − 1) = 1 + 1/((1+T)ε_D^c − 1) and the fact that Σ_{c∈(Z/DZ)^×} θ^{−1}(c) = 0.",
           "match": "The same cancellation of constants, used by RJW at k = 1."
         }
       ],
@@ -8104,13 +7868,11 @@
         {
           "sourceId": "rjw",
           "locator": "Lemma 5.4, p. 30 (arXiv v2)",
-          "excerpt": "The Mahler transform of μ_χ is A_{μ_χ}(T) = (1/G(χ^{−1})) Σ_{c∈(Z/p^nZ)^×} χ(c)^{−1} A_μ((1+T)ε_{p^n}^c − 1).",
           "match": "Applied to mu = mu_b."
         },
         {
           "sourceId": "rjw",
           "locator": "§3.5.2, p. 20 (arXiv v2)",
-          "excerpt": "Of particular interest is the measure z^xμ, for z ∈ O_L such that |z − 1| < 1. We claim the Mahler transform of z^xμ is A_{z^xμ}(T) = A_μ((1+T)z − 1).",
           "match": "The rotated measures (eps^c)^x mu_b."
         }
       ],
@@ -8155,25 +7917,21 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 3.43, p. 25 (arXiv v2)",
-          "excerpt": "The Mahler transform induces a bijection D^la(Z_p, L) → R^+ ⊂ L[[T]].",
           "match": "Existence and uniqueness of the distribution with transform Ftilde^{(k)}_w."
         },
         {
           "sourceId": "rjw",
           "locator": "Lemma 3.29, p. 19, and Remark 3.45, p. 25 (arXiv v2)",
-          "excerpt": "We have A_{xμ} = ∂A_μ, where ∂ denotes the differential operator (1+T) d/dT. ... every part of our ‘measure-theoretic toolbox’ from §3.5 ... carries over identically to the setting of locally analytic distributions.",
           "match": "Multiplication by x on distributions is (1+T) d/dT on transforms."
         },
         {
           "sourceId": "rjw",
           "locator": "§6.2, p. 37 (arXiv v2)",
-          "excerpt": "if we define F̃_θ(T) = −(1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) log((1+T)ε_N^c − 1), then formally ∂F̃_θ = F_θ",
           "match": "The case k = 1, combined over c, which this construction generalises to every k."
         },
         {
           "sourceId": "besser-finite-polylog",
           "locator": "§1, p. 1 (arXiv v1)",
-          "excerpt": "Coleman defined p-adic polylogarithms, Li_n : C_p → C_p. These functions are locally analytic in the sense that they are given by a convergent power series on each residue disc in C_p.",
           "match": "The analyticity on residue discs that (a) uses."
         }
       ],
@@ -8310,19 +8068,16 @@
         {
           "sourceId": "rjw",
           "locator": "§7, (7.5), p. 42 (arXiv v2)",
-          "excerpt": "F̃_a(T) = log( T/((1+T)^a − 1) · (1+T)^{a−1} ).",
           "match": "The case k = 1 of Phi^{(k)}_a(1+T), used by RJW for the residue of zeta_p at s = 1."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§2, p. 10 (arXiv v2)",
-          "excerpt": "According to [Col82, Proposition 7.1], Li_{n,a}(z) − Li_{n−1,a}(z) log(z) extends to an analytic function on |1−z| < 1. (Note that B(0,1) should be replaced with B(1,1) everywhere in the formulation and the proof of loc. cit.)",
           "match": "The local behaviour of Li_n at 1 that step 1 uses, in the corrected form with the factor 1/(n-1) (ColemanIntegration/E10)."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Proposition 2.6, p. 10 (arXiv v2)",
-          "excerpt": "Li_{n,a}(z) − Li_{n,b}(z) = −(1/n!) v(1−z) β (log_a^{n−1}z + log_a^{n−2}z log_b z + ⋯ + log_b^{n−1}z).",
           "match": "Branch dependence, which cancels in Phi^{(k)}_b."
         }
       ],
@@ -8448,13 +8203,11 @@
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§2, (2.4), p. 10 (arXiv v2)",
-          "excerpt": "If m and n are integers at least equal to 2, then on C_p Li_n(z^m) = m^{n−1} Σ_{ζ^m=1} Li_n(ζz). Clearly the same formula holds for n = 1 provided 1 − z^m ≠ 0.",
           "match": "The distribution relation for Coleman's polylogarithms (Coleman's Proposition 6.1 as corrected), used with m = p."
         },
         {
           "sourceId": "rjw",
           "locator": "proof of Lemma 7.5, p. 42 (arXiv v2)",
-          "excerpt": "Here we simplify both terms of the fraction using Π_{ξ∈μ_p}(Xξ − 1) = X^p − 1, in the denominator noting that as a is a topological generator of Z_p^×, we have {ξ^a : ξ ∈ μ_p} = μ_p.",
           "match": "The case k = 1, where the relation is the product formula for X^p - 1."
         }
       ],
@@ -8490,19 +8243,16 @@
         {
           "sourceId": "rjw",
           "locator": "Lemma 6.5, p. 38 (arXiv v2)",
-          "excerpt": "We have x μ̃_θ = μ_θ. In particular, Res_{Z_p^×}(μ̃_θ) = x^{−1}Res_{Z_p^×}(μ_θ).",
           "match": "The case k = 1, which RJW prove through division by x on Z_p^x; step 2 avoids that operation."
         },
         {
           "sourceId": "rjw",
           "locator": "(6.5), p. 38 (arXiv v2)",
-          "excerpt": "L_p(θ,1) = A_{x^{−1}Res_{Z_p^×}(μ_θ)}(0) = A_{Res_{Z_p^×}(μ̃_θ)}(0) = ((1 − φ∘ψ)F̃_θ)(0),",
           "match": "The chain of equalities generalised here to every k."
         },
         {
           "sourceId": "rjw",
           "locator": "(3.8) and (3.9), p. 21 (arXiv v2)",
-          "excerpt": "Res_{Z_p^×}(μ) = (1 − φ∘ψ)(μ). ... φ∘ψ(F)(T) = (1/p) Σ_{ξ∈μ_p} F((1+T)ξ − 1).",
           "match": "Restriction to units on Amice transforms."
         }
       ],
@@ -8543,19 +8293,16 @@
         {
           "sourceId": "besser-finite-polylog",
           "locator": "proof of Proposition 2.1, p. 2 (arXiv v1)",
-          "excerpt": "According to [Col82], the function Li_n^{(p)}(z) can be computed as Li_n^{(p)}(z) = ∫_{Z_p^×} x^{−n} dμ_z(x),",
           "match": "The statement, for z with |z| = |z - 1| = 1, attributed to Coleman."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "Theorem 5.5, p. 27 (arXiv v2)",
-          "excerpt": "Let ξ be a torsion point lying in Û^a_K for a ∈ I. Then we have Li_k^{(p)}(ξ) = ∫_{Δ̄∖(a⊗Z_p)^×} N̂_a(x)^{−k} dμ_{ξΔ}(x) for any integer k ∈ Z.",
           "match": "BHYY's version for torsion points, with their rigid Li_k^{(p)}; compared in ColemanIntegration:L3/comparison-with-bhyy-measure-argument."
         },
         {
           "sourceId": "rjw",
           "locator": "proof of Theorem 6.1(ii), case (2), pp. 38-39 (arXiv v2)",
-          "excerpt": "= (−1/G(θ^{−1}))·(1/p) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) Σ_{ξ∈μ_p} log_p(ξε_N^c − 1) = (−1/G(θ^{−1}))·(1/p) Σ_c θ^{−1}(c) log_p(ε_N^{pc} − 1)",
           "match": "The k = 1 case of step 3 (the distribution relation for the logarithm)."
         }
       ],
@@ -8595,7 +8342,6 @@
         {
           "sourceId": "rjw",
           "locator": "Lemma 7.5, p. 42 (arXiv v2)",
-          "excerpt": "We have ((1 − φ∘ψ)F̃_a)(0) = −(1 − p^{−1}) log_p(a).",
           "match": "The case k = 1, w = 1."
         }
       ],
@@ -8630,13 +8376,11 @@
         {
           "sourceId": "besser-finite-polylog",
           "locator": "proof of Proposition 2.1, p. 2 (arXiv v1)",
-          "excerpt": "Reducing modulo p we may replace the function x ↦ x^{−k} by the function x ↦ a^{−k} if x ≡ a (mod p), which is congruent to it modulo p on Z_p^×.",
           "match": "The approximation argument at level r = 1."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "proof of Lemma 3.3, pp. 14-15 (arXiv v2)",
-          "excerpt": "f_m(t) := (1/Π_{i=1}^g(1 − t^{α_ip^m})) Σ_{α∈R_m, α∈(a⊗Z_p)^×} (uα)^{−k} t^α ... Thus the p-adic limit u^{−k}Li^{(p)}_{k,σ}(t) = lim_{m→∞} f_m(t) gives an element in B̂_α, as desired.",
           "match": "The same finite sums define BHYY's rigid Li_k^{(p)}."
         }
       ],
@@ -8674,13 +8418,11 @@
         {
           "sourceId": "rjw",
           "locator": "proof of Theorem 6.1(ii), case (1), p. 38 (arXiv v2)",
-          "excerpt": "First assume that n > 1, so that χ ≠ 1; then, as χ|_{pZ_p} = 0, we see μ̃_θ = (μ̃_η)_χ is automatically supported on Z_p^× by (5.1).",
           "match": "RJW obtain the vanishing of the p-part by support on units; this lemma is the elementary form used in the polylogarithm computation."
         },
         {
           "sourceId": "rjw",
           "locator": "Remark 5.3(ii), p. 30 (arXiv v2)",
-          "excerpt": "(ii) G(χ) = χ(a) Σ_{c∈(Z/p^nZ)^×} χ(c)ε_{p^n}^{ac} for any a ∈ Z_p^×.",
           "match": "The Gauss-sum identity whose non-unit case (mathlib:gaussSum_mulShift_of_isPrimitive) is equivalent to this vanishing."
         }
       ],
@@ -8714,7 +8456,6 @@
         {
           "sourceId": "rjw",
           "locator": "proof of Theorem 6.1(ii), case (2), p. 39 (arXiv v2); p. 153 of the version of record",
-          "excerpt": "Here, we used that, since p ∤ N, the assignment c ↦ c' = pc defines an automorphism of (Z/NZ)^×.",
           "match": "The tame case of the reindexing."
         }
       ],
@@ -8749,7 +8490,6 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 5.3, p. 30 (arXiv v2)",
-          "excerpt": "(i) G(χ)G(χ^{−1}) = χ(−1)p^n. (ii) G(χ) = χ(a) Σ_{c∈(Z/p^nZ)^×} χ(c)ε_{p^n}^{ac} for any a ∈ Z_p^×.",
           "match": "The two Gauss-sum identities, stated for p-power conductor; DirichletPadicLFunctions:L0 supplies them for every conductor."
         }
       ],
@@ -8811,19 +8551,16 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.7(ii), p. 39 (arXiv v2); p. 154 of the version of record",
-          "excerpt": "Let θ be a non-trivial Dirichlet character of conductor N, let k ≥ 1 be an integer, and let ε_N denote a primitive Nth root of unity. Then: ... (ii) (p-adic value at s=k). We have L_p(θ,k) = (1 − θ(p)p^{−k}) (1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) Li_{k,p}(ε_N^c).",
           "match": "The target statement; its left side must be read as L_p(theta omega^{1-k}, k) (ColemanIntegration/E15)."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "Theorem 1.1, p. 2 (arXiv v2)",
-          "excerpt": "Suppose N is not a power of p, and let ξ be a primitive N-th root of unity. Then for any integer k ∈ Z, we have L_p(χω_p^{1−k},k) = (g(χ,ξ)/N) Σ_{β∈(Z/NZ)^×} χ(β)^{−1} Li_k^{(p)}(ξ^β),",
           "match": "Coleman's theorem as quoted and reproved by BHYY, with g(chi, xi)/N = 1/G(chi^{-1}) and Li_k^{(p)}(z) = Li_k(z) - p^{-k} Li_k(z^p)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "proof of Proposition 4.17, p. 22 (arXiv v2)",
-          "excerpt": "By (3) on page 172 of [Col82] we have L_p(n, χ_τω_p^{1−n}, Q) = (n−1)!^{−1} Eul_p(k,χ_τ,Q) R_{n,p}(M_π^E)_τ / D(M_π^E)_τ^{1/2,p}.",
           "match": "The same twist omega_p^{1-n} in the regulator form of Coleman's formula."
         }
       ],
@@ -8863,13 +8600,11 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 5.19 and Theorem 5.20, p. 35 (arXiv v2)",
-          "excerpt": "For all k ≥ 1, we have L_p(θ,1−k) = (1 − θω^{−k}(p)p^{k−1}) L(θω^{−k},1−k).",
           "match": "The interpolation property fixes RJW's normalisation: the value at s = k involves theta omega^{k-1}."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§1, p. 3 (arXiv v2)",
-          "excerpt": "For the p-adic L-functions one has to consider χ ⊗ ω_p^{1−n} with ω_p the Teichmüller character for the prime number p.",
           "match": "The twist needed at s = n."
         }
       ],
@@ -8909,13 +8644,11 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "proof of Proposition 4.17, p. 23 (arXiv v2)",
-          "excerpt": "Coleman proves that L_p(n, ω_p^{1−n}, Q) = (1 − p^{−n}) lim'_{x→1} Li_{n,p}(x) where the limit is taken in any subfield of C_p that is of finite ramification degree over Q_p.",
           "match": "The statement, quoted from Coleman; this node proves it from the smoothed measure."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§2, p. 10 (arXiv v2)",
-          "excerpt": "If L is a finitely ramified extension of Q_p then the limit lim_{z→1, z∈L} Li_n(z) exists for n ≥ 2, and is independent of L.",
           "match": "Definition of Li_k(1)."
         }
       ],
@@ -8950,13 +8683,11 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 6.6, p. 39 (arXiv v2)",
-          "excerpt": "let Li_s(z) := Σ_{n≥1} z^n/n^s be the polylogarithm function; recall that it admits a unique analytic continuation to C∖{z ∈ R : z ≥ 1}. In particular, one sees that Li_s(1) = ζ(s), and Li_1(z) = −log(1−z).",
           "match": "The complex polylogarithm of Theorem 6.7(i) and its value at 1."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, (4.1), p. 17 (arXiv v2)",
-          "excerpt": "Li_n(z) = Σ_{k≥1} z^k/k^n (n ≥ 0) for z in C with |z| < 1 if n = 0 or 1, and |z| ≤ 1 if n ≥ 2.",
           "match": "Convergence on the closed disc for n >= 2."
         }
       ],
@@ -9005,19 +8736,16 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.7(i), p. 39 (arXiv v2)",
-          "excerpt": "(i) (Classical value at s=k). We have L(θ,k) = (1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) Li_k(ε_N^c).",
           "match": "The target statement."
         },
         {
           "sourceId": "rjw",
           "locator": "proof of Theorem 6.1(i), p. 36 (arXiv v2)",
-          "excerpt": "Here the penultimate equality uses the standard identity G(θ)G(θ^{−1}) = θ(−1)cond(θ) of Gauss sums (cf. Remark 5.3(i)) and that θ^{−1}(c) = 0 if (c, N) ≠ 1, and the last equality follows from the change of variables c ↦ −c.",
           "match": "The Gauss-sum steps of step 2, for Re s > 1."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "proof of Proposition 4.17, p. 22 (arXiv v2)",
-          "excerpt": "according to (2) on page 172 of [Col82] with the correct sign in the exponent of the Gauss sum as used here (cf. [Zag91, p. 421]).",
           "match": "The complex formula in Coleman's paper, with a sign correction recorded by BBdJR."
         }
       ],
@@ -9059,13 +8787,11 @@
         {
           "sourceId": "rjw",
           "locator": "Theorem 6.1, p. 36 (arXiv v2)",
-          "excerpt": "(i) ... L(θ,1) = −(1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) log(1 − ε_N^c). (ii) ... L_p(θ,1) = −(1 − θ(p)p^{−1}) (1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) log_p(1 − ε_N^c).",
           "match": "The statement recovered at k = 1."
         },
         {
           "sourceId": "rjw",
           "locator": "Remark 6.6, p. 39 (arXiv v2)",
-          "excerpt": "Theorem 6.1 has been generalised by Coleman in [Col82] for every positive integer value s = k ≥ 1.",
           "match": "The relation between the two theorems."
         }
       ],
@@ -9108,19 +8834,16 @@
         {
           "sourceId": "rjw",
           "locator": "proof of Lemma 6.4, p. 37 (arXiv v2)",
-          "excerpt": "log((1 + T)ε_N^c − 1) = log_p(ε_N^c − 1) + log(1 + ε_N^cT/(ε_N^c − 1)) = log_p(ε_N^c − 1) + Σ_{n=1}^∞ ((−1)^{n−1}/n)·(ε_N^{cn}/(ε_N^c − 1)^n) T^n.",
           "match": "The expansion compared in step 1."
         },
         {
           "sourceId": "rjw",
           "locator": "proof of Lemma 6.4, p. 38 (arXiv v2); p. 152 of the version of record",
-          "excerpt": "Then, as in Lemma 5.4 or Lemma 5.12, we have F̃_θ(T) = (F̃_η)_χ(T) = −(1/G(χ^{−1})) Σ_{c∈(Z/p^nZ)^×} χ^{−1}(c) F̃_η((1+T)ε_{p^n}^c − 1). As F̃_η(T) ∈ R^+, the same holds for F̃_θ(T).",
           "match": "The step that needs Ftilde_eta in R^+, unavailable for eta = 1."
         },
         {
           "sourceId": "rjw",
           "locator": "§7, (7.5), p. 42 (arXiv v2)",
-          "excerpt": "F̃_a(T) = log( T/((1+T)^a − 1) · (1+T)^{a−1} ).",
           "match": "RJW's smoothed primitive, used in §7 and here for pure p-power conductor."
         }
       ],
@@ -9158,13 +8881,11 @@
         {
           "sourceId": "bhyy-polylog",
           "locator": "proof of Proposition 5.6, p. 28 (arXiv v2)",
-          "excerpt": "Hence we have N̂_a(x)^{−k} = lim_{r→∞} N̂_a(x)^{−k+(p−1)p^r} uniformly as functions on (a⊗Z_p)^×. ... Hence our assertion for the case of k > 0 follows from the result for k ≤ 0.",
           "match": "BHYY's passage from k <= 0 to k > 0."
         },
         {
           "sourceId": "bhyy-polylog",
           "locator": "§1, p. 2 (arXiv v2)",
-          "excerpt": "The functions Li_k^{(p)}(t) extend to rigid analytic functions on the rigid analytic space Û_{Q_p} associated to the p-adic completion Û_{Z_p} of the scheme U := P^1∖{0,1,∞} = G_m∖{1}",
           "match": "BHYY's rigid function, independent of Coleman integration."
         }
       ],
@@ -9203,13 +8924,11 @@
         {
           "sourceId": "besser-finite-polylog",
           "locator": "Section3, remark after Proposition3.1, preprint p6",
-          "excerpt": "This determines Li_n up to a locally constant function and a Frobenius condition replaces this by a globally constant function ambiguity. As remarked by Kontsevich the distribution relation removes the ambiguity completely.",
           "match": "Parts (a) and (b)."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§2, p. 9 (arXiv v2)",
-          "excerpt": "Each ω ∈ Ω^1_loc(U) can be integrated in A_loc(U) in many ways, because we can choose a different constant of integration for each U_y.",
           "match": "The ambiguity of local integration that Coleman's theory removes."
         }
       ],
@@ -9249,13 +8968,11 @@
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Proposition 2.6, p. 10 (arXiv v2)",
-          "excerpt": "Li_{n,a}(z) − Li_{n,b}(z) = −(1/n!) v(1−z) β (log_a^{n−1}z + log_a^{n−2}z log_b z + ⋯ + log_b^{n−1}z).",
           "match": "Branch dependence of Li_n, which vanishes at roots of unity for n >= 2."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§2, p. 9 (arXiv v2)",
-          "excerpt": "The fact that these rules suffice to carry out the integration process uniquely and that it is independent of the choice of φ is the main result of Coleman (see [Col82] and [Col-de88]).",
           "match": "Independence of the Frobenius lift."
         }
       ],
@@ -9293,19 +9010,16 @@
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Remark 1.5, pp. 3-4 (arXiv v2)",
-          "excerpt": "Then the functions L_mod,n(z) defined by Σ_{j=0}^{n−1} (B_j/j!) Li_{n−j}(z) log^j(z) satisfy the above requirements as B_0 = 1, and the other identity holds by definition of the B_j if n ≥ 2.",
           "match": "The definition with the Bernoulli coefficients."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "§4, (4.12), p. 20 (arXiv v2)",
-          "excerpt": "P_{n,p}(z) = Σ_{j=0}^{n−1} c_j log_p^j(z) Li_{n−j}(z) (n ≥ 2) for any c_j in C_p satisfying c_0 = 1 and Σ_{j=0}^{n−1} c_j/(n−j)! = 0, so that P_{n,p}(z) + (−1)^n P_{n,p}(1/z) = 0.",
           "match": "The same function (BBdJR write P_{n,p}); BBdJR take c_j = b_j, the Bernoulli numbers."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "§1, (1.2), p. 3 (arXiv v2)",
-          "excerpt": "These functions satisfy the functional equation Li_n(z) + (−1)^n Li_n(1/z) = (−1/n!) log^n(z), see Proposition 6.4 of [Col82].",
           "match": "The inversion relation used in step 2."
         }
       ],
@@ -9433,19 +9147,16 @@
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Theorem 1.12, p. 6 (arXiv v2)",
-          "excerpt": "Under the assumptions of Theorem 1.10, the regulator map reg_σ : H^1(M̃_n(F)) → K_{2n−1}^{(n)}(F) ≅ K_{2n−1}^{(n)}(O) → K_{2n−1}^{(n)}(R) → K maps [ζ]_n to ±(n−1)! L_mod,n(σ(ζ)) if ζ is any root of unity in F^*.",
           "match": "The statement."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Remark 1.13, p. 6 (arXiv v2)",
-          "excerpt": "The result of Gros is that the element [ζ]_n is mapped under the syntomic regulator to Li_n^{(p)}(ζ), where Li_n^{(p)}(z) = Li_n(z) − (1/p^n) Li_n(z^p).",
           "match": "Gros's normalisation."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Remark 4.15, p. 21 (arXiv v2)",
-          "excerpt": "This is known to hold for N[ζ]_n if ζ is any N-th root of unity other than 1 (see Theorem 1.12 of loc. cit.).",
           "match": "BBdJR's use of the theorem."
         }
       ],
@@ -9485,19 +9196,16 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Conjecture 3.18, p. 14 (arXiv v2)",
-          "excerpt": "With notation as above, if dim_E(E[G]π) = dim_E(πK_{2n−1}(k)_E) for some n ≥ 2, then (1) in E ⊗_Q C we have L(n, χ_π⊗id, Q) D(M_π^E)^{1/2,∞} = e(n, M_π^E) R_{n,∞}(M_π^E) for some e(n, M_π^E) in (E ⊗_Q Q)^*;",
           "match": "The conjecture, parts (1)-(4); this node records it as a proposition."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Definition 3.6, p. 11 (arXiv v2)",
-          "excerpt": "If dim_E(E[G]π) equals dim(K_{2n−1}(M_π^E)) then for ∗ = ∞ or p we let R_{n,∞}(M_π^E) be the determinant of the pairing [·,·]_∗, computed with respect to our fixed bases of E[G]π and K_{2n−1}(M_π^E).",
           "match": "The regulators (the printed R_{n,infinity} is R_{n,*}, ColemanIntegration/E24)."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Proposition 3.12, p. 12 (arXiv v2)",
-          "excerpt": "Then for n ≥ 2 the equality dim_E(E[G]π) = dim_E(K_{2n−1}(M_π^E)) holds precisely in the following cases: (1) k′ is totally real and n is odd; (2) k′ is a CM field, n is even, and the complex conjugation of k′ acts on E[G]π as multiplication by −1.",
           "match": "When the proposition is formed."
         }
       ],
@@ -9618,13 +9326,11 @@
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Proposition 4.17, p. 22 (arXiv v2)",
-          "excerpt": "Let N ≥ 2, k = Q(μ_N), G = Gal(k/Q) = (Z/NZ)^* ... Then parts (1), (2) and (3) of Conjecture 3.18 hold for π and n ≥ 2 if χ(−1) = (−1)^{n−1}.",
           "match": "The statement."
         },
         {
           "sourceId": "bbdjr-beilinson",
           "locator": "Remark 4.19, p. 23 (arXiv v2)",
-          "excerpt": "for the 470 primitive characters χ of Gal(Q(μ_N)/Q) = (Z/NZ)^* with 2 ≤ N ≤ 50, L_p(n, χ ⊗ ω_p^{1−n}, Q) lies in (E ⊗ Q_p)^* for those values of p and n = 2,…,20 whenever χ(−1) = (−1)^{n−1}.",
           "match": "Numerical evidence for part (4)."
         }
       ],
@@ -9660,13 +9366,11 @@
         {
           "sourceId": "rjw",
           "locator": "Remark 6.8, p. 39 (arXiv v2)",
-          "excerpt": "this gives formulas for the values of L_p(θ, k) in terms of p-adic regulators of the cyclotomic units, special elements that we will see later; the right-hand sides of Theorems 6.1(ii) and 6.7(ii) can be reinterpreted in such terms",
           "match": "RJW's statement that the right side is a regulator."
         },
         {
           "sourceId": "besser-dejeu-syntomic-arxiv",
           "locator": "Remark 1.13, p. 6 (arXiv v2)",
-          "excerpt": "The result of Gros is that the element [ζ]_n is mapped under the syntomic regulator to Li_n^{(p)}(ζ), where Li_n^{(p)}(z) = Li_n(z) − (1/p^n) Li_n(z^p).",
           "match": "Gros's normalisation, matching BHYY's form of the formula."
         }
       ],
@@ -9704,7 +9408,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -9839,7 +9542,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -9879,7 +9581,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -9919,7 +9620,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -9959,7 +9659,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10000,7 +9699,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10039,7 +9737,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10078,7 +9775,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10122,7 +9818,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10165,7 +9860,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10208,7 +9902,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10257,7 +9950,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10303,7 +9995,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10343,7 +10034,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof.",
-          "excerpt": "with corrected signs",
           "match": "Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there."
         }
       ],
@@ -10379,7 +10069,6 @@
         {
           "sourceId": "rjw",
           "locator": "§4, Proposition 4.4 and Definition 4.5, arXiv v2 pp.26–27; §3.5.2, p.20",
-          "excerpt": "Multiplication by z^x.",
           "match": "The unrotated bounded smoothing series and rotation domain. The finite-polynomial norm calculation is a worker-derived specialization."
         }
       ],
@@ -10431,7 +10120,6 @@
         {
           "sourceId": "rjw",
           "locator": "Proposition 4.4 and Definition 4.5, arXiv v2 pp.26–27; (7.5)–(7.8), p.42; published (7-7)–(7-8), printed p.157",
-          "excerpt": "−log_p(a)",
           "match": "Pole cancellation precedes evaluation at zero. The explicit finite quotient and coefficient-bound proof are worker-derived, and repair a prototype translation error, not a source error."
         }
       ],
@@ -10579,7 +10267,6 @@
         {
           "sourceId": "rjw",
           "locator": "Proposition 4.4, arXiv v2 p.27 and §3.5.2, p.20",
-          "excerpt": "Multiplication by z^x.",
           "match": "The coefficient recurrence gives this worker-derived rotated version of bounded smoothing."
         }
       ],
@@ -10617,7 +10304,6 @@
         {
           "sourceId": "rjw",
           "locator": "§3.5.2, arXiv v2 p.20; Proposition 4.4, p.27",
-          "excerpt": "Multiplication by z^x.",
           "match": "Bounded coefficient growth justifies the whole-disc convergence needed by rotation."
         }
       ],
@@ -10657,7 +10343,6 @@
         {
           "sourceId": "rjw",
           "locator": "(7.7)–(7.8), arXiv v2 p.42; published printed p.157",
-          "excerpt": "−log_p(a)",
           "match": "Evaluation follows pole cancellation. The finite quotient evaluation is worker-derived."
         }
       ],
@@ -10696,7 +10381,6 @@
         {
           "sourceId": "rjw",
           "locator": "§3.5.2, p.20; Lemma 4.3, p.27 (arXiv v2)",
-          "excerpt": "Multiplication by z^x.",
           "match": "The scalar rational notation is valid as separate formal inverses only away from zero constant terms. This is the exact algebraic comparison for nontrivial root-of-unity rotations."
         }
       ],
@@ -10741,7 +10425,6 @@
         {
           "sourceId": "rjw",
           "locator": "§3.5.2, arXiv v2 p.20; Definition 4.5, p.27; (7.7)–(7.8), p.42",
-          "excerpt": "−log_p(a)",
           "match": "The bounded rotation formula and regularized centre. The exact integral coefficient extension remains a supplier request."
         }
       ],
@@ -10780,7 +10463,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -10875,7 +10557,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -10923,7 +10604,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -10967,7 +10647,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11009,7 +10688,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11052,7 +10730,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11096,7 +10773,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11139,7 +10815,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11181,7 +10856,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11224,7 +10898,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv v2, §2.1, pp.7–9, Assumption2.1 and Proposition2.5",
-          "excerpt": "Assumption 2.1.",
           "match": "The source supplies the good-reduction and functorial framework. This explicit four-puncture calculation is a worker elaboration, not a lemma quoted from the source."
         }
       ],
@@ -11269,7 +10942,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11306,7 +10978,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11348,7 +11019,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11396,7 +11066,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11444,7 +11113,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11503,7 +11171,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11546,7 +11213,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "§2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9.",
-          "excerpt": "locally analytic",
           "match": "The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input."
         }
       ],
@@ -11584,7 +11250,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11625,7 +11290,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11673,7 +11337,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11718,7 +11381,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11762,7 +11424,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11809,7 +11470,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11858,7 +11518,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11908,7 +11567,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -11964,7 +11622,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -12011,7 +11668,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -12056,7 +11712,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026.",
-          "excerpt": "locally analytic",
           "match": "The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper."
         }
       ],
@@ -12102,7 +11757,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7: the ordinary components are A(]x[); Proposition2.5 pp.8–9. Exact coefficient and radius estimates are worker deductions.",
-          "excerpt": "A(]x[)",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12154,7 +11808,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, Proposition2.5 pp.8–9 (no ends-to-ends hypothesis), with the component rings on p.7.",
-          "excerpt": "Functorial Property",
           "match": "The source requires f(Y′)⊆Y. The componentwise comparison and free-coordinate Taylor argument spell out the additional-end case of that precise theorem."
         }
       ],
@@ -12199,7 +11852,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026.",
-          "excerpt": "morphism",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12242,7 +11894,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 p.7 (Laurent germ ring and logarithm transcendence); Proposition2.11 and proof of Theorem2.13 p.10 (whole-disc logarithmic coefficients).",
-          "excerpt": "transcendental",
           "match": "Worker deduction from the source end ring and its transcendental logarithm, using the already requested Laurent identity principle. It makes the germ-to-whole-disc comparison precise."
         }
       ],
@@ -12288,7 +11939,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, Proposition2.11 p.10, the parameter1/t at∞.",
-          "excerpt": "More precisely,",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12336,7 +11986,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026.",
-          "excerpt": "More precisely,",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12385,7 +12034,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, Proposition2.5 pp.8–9 and Definition2.9 pp.9–10. The explicit scalar combination is a worker deduction.",
-          "excerpt": "Functorial Property",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12429,7 +12077,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, Proposition2.4 p.8; corroborated by Besser arXiv math/0011269v1, Corollary4.14 p.14. Scalar application is a worker deduction.",
-          "excerpt": "globally constant",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12475,7 +12122,6 @@
         {
           "sourceId": "furusho-pmzv1",
           "locator": "arXiv math/0304085v2, §2.1 pp.7–9 and Proposition2.11 p.10; freshly read 5 October2026.",
-          "excerpt": "globally constant",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],
@@ -12515,7 +12161,6 @@
         {
           "sourceId": "dejeu-functional",
           "locator": "arXiv2007.11014v1, Proposition2.10 p.6 and its normalization on p.14. The explicit proof chain here is derived from the inherited normalization, source functoriality, end comparison and boundary reduction.",
-          "excerpt": "with corrected signs",
           "match": "The source supplies the good-reduction functorial framework and whole-disc polylogarithm expansions. The stated comparison and its explicit calculations are worker deductions, not a theorem attributed verbatim to the paper."
         }
       ],

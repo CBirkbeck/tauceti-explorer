@@ -205,25 +205,21 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§1.2, Définition (1.2.2), p. 153",
-     "excerpt": "Soient X un schéma de type fini sur Z et ℱ un faisceau sur X. (i) On dit que ℱ est ponctuellement pur s'il existe un entier n, le poids de ℱ, tel que, pour tout x ∈ |X|, les valeurs propres de F_x soient pures de poids n, rel. N(x).",
      "match": "Punctual purity on schemes of finite type over ℤ (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§1.2, Stabilités (1.2.5), p. 154",
-     "excerpt": "La catégorie des faisceaux ponctuellement purs de poids n est stable par les opérations de passage au quotient, à un sous-faisceau, par extension, image réciproque, image directe par un morphisme fini.",
      "match": "The stabilities used throughout DWP.7–DWP.9 (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§1.2, (1.2.6), p. 154",
-     "excerpt": "Pour tout nombre réel β, un faisceau ℱ est dit ponctuellement ι-pur de poids β si, pour tout x ∈ |X| et toute valeur propre α de F_x agissant sur ℱ, on a w_{N(x)}(ια) = β.",
      "match": "ι-purity with real weights (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "Notations et conventions, (0.1), p. 144",
-     "excerpt": "espaces algébriques noethériens séparés",
      "match": "Standing separatedness, noetherianity and invertibility of ℓ apply throughout. The next sentence explicitly permits the scheme specialisation used by this packet."
     }
    ],
@@ -375,7 +371,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3.3, (3.3.2), p. 205",
-     "excerpt": "Disons qu'un faisceau est entier si les valeurs propres des Frobenius sont des entiers algébriques. Les poids d'un faisceau mixte entier sont nécessairement positifs",
      "match": "Definition of integral sheaves and the nonnegativity of their weights (OCR cleaned)."
     }
    ],
@@ -421,13 +416,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.1) a), b), f), p. 204",
-     "excerpt": "Soit une suite exacte 0→ℱ′→ℱ→ℱ″→0. Si les R^if_!ℱ′ et R^if_!ℱ″ sont mixtes de poids ≤ n+i, alors les R^if_!ℱ le sont également.",
      "match": "Dévissage (a); (b) and (f) are stated in the same paragraph (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.1) f), p. 204",
-     "excerpt": "Si f est de dimension relative 0, et que ℱ est ponctuellement pur, alors f_!ℱ = R⁰f_!ℱ est ponctuellement pur du même poids, et les R^if_!ℱ sont nuls pour i ≠ 0.",
      "match": "Dévissage (f) (OCR cleaned)."
     }
    ],
@@ -471,13 +464,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.1) c), d), e), p. 204",
-     "excerpt": "Soit j : V↪Y un ouvert de Y, de complément i : T→Y. Si la conclusion de (3.3.1) devient vraie après les changements de base par i et j, elle l'est au départ (appliquer le théorème de changement de base).",
      "match": "Dévissage (c); (d) and (e) follow in the same list (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.1) e), p. 204",
-     "excerpt": "Si Y′→Y est un homéomorphisme universel, il suffit de vérifier (3.3.1) après le changement de base par g (la cohomologie étale ne « voit » pas un tel changement de base).",
      "match": "Dévissage (e) (OCR cleaned)."
     }
    ],
@@ -523,7 +514,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of (3.3.1), p. 205",
-     "excerpt": "(α) Il existe dans C_red une partie finie dont le complément C′ est lisse sur K. (β) Il existe un revêtement fini surjectif u : D→C′, où D est le complément dans une courbe projective et lisse D̄ d'un diviseur E étale sur K, tel que u*ℱ soit modérément ramifié le long de E; ℱ est facteur direct de u_*u*ℱ = Ru_*u*ℱ.",
      "match": "The two curve facts, stated in the source without proof (OCR cleaned); the proof steps here supply the standard argument."
     }
    ],
@@ -570,13 +560,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of (3.3.1), p. 205",
-     "excerpt": "Les dévissages (b), (c), (d) nous ramènent à supposer que f est de dimension relative 1, puis (a), (b) nous ramènent à supposer que ℱ est lisse et ponctuellement pur de poids n.",
      "match": "The reduction to relative dimension 1 and to lisse pure ℱ (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of (3.3.1), p. 205",
-     "excerpt": "puis par (b), (f), (a), à supposer que X soit le complément dans X̄, projectif et lisse purement de dimension relative 1 sur Y, d'un diviseur D fini étale sur Y, et que ℱ soit modérément ramifié le long de D.",
      "match": "The reduced situation (OCR cleaned)."
     }
    ],
@@ -623,13 +611,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of (3.3.1), p. 205",
-     "excerpt": "Le théorème (3.2.3), appliqué à tous les isomorphismes ι, assure donc que R^1f̄_*j_*ℱ est ponctuellement pur de poids n+1, et le théorème (1.8.4) (lui aussi pour tout ι) assure que Gr^M_k(i*j_*ℱ), nul pour k>0, est pur de poids n+k sur D (1.8.8).",
      "match": "The two imported inputs of the curve case (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of (3.3.1), p. 205",
-     "excerpt": "La formation de ces faisceaux et de M est compatible au passage aux fibres.",
      "match": "Fibrewise computation in the tame situation."
     }
    ],
@@ -679,13 +665,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.3.1), p. 204",
-     "excerpt": "Soient f: X→Y un morphisme de schémas de type fini sur Z, et ℱ un faisceau sur X. Si ℱ est mixte de poids ≤ n, alors, pour chaque i, R^if_!ℱ est mixte de poids ≤ n+i.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "Introduction, Théorème 1, p. 138",
-     "excerpt": "le faisceau R^if_!ℱ₀ sur S₀ est mixte de poids ≤ n+i",
      "match": "The finite-field form; the printed 'sur X' is read 'sur X₀' (PAPER-DELIGNE-80/E2)."
     }
    ],
@@ -729,7 +713,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.10), p. 207",
-     "excerpt": "Le théorème (3.3.1) vaut, avec la même démonstration, avec mixte remplacé par ι-mixte, et n remplacé par β ∈ R. Les seuls poids qui peuvent apparaître dans R^if_!ℱ sont les nombres ≤ β+i congrus mod Z à l'un des poids qui apparaît dans ℱ.",
      "match": "ι-mixed variant and its weights modulo ℤ (OCR cleaned)."
     }
    ],
@@ -776,13 +759,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, proof of Corollaire (3.3.3), p. 205",
-     "excerpt": "D'après SGA 7 XXI (5.2.2), appliqué aux fibres de f, les faisceaux R^if_!ℱ et R^if_!ℱ(i−d) sont en effet entiers.",
      "match": "Weil II cites the relative fibrewise consequence; the original proof in SGA 7 XXI §5 is independently read below."
     },
     {
      "sourceId": "sga7-xxi",
      "locator": "Exposé XXI, §5, Lemma 5.2.1 and Théorème 5.2.2, pp. 384–387",
-     "excerpt": "les endomorphismes F et q^{n−i} F de H^i_c(X,G) sont T-entiers.",
      "match": "Original statement, with mathematical notation normalised; take T empty. The proof uses the endpoint lemma, Euler product for curves, and dimension induction with Leray."
     }
    ],
@@ -825,7 +806,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.3.3), p. 205",
-     "excerpt": "Si ℱ est mixte de poids ≤ n, alors, pour chaque i, R^if_!ℱ est mixte de poids entre 0 et n+i. Si i dépasse la dimension maximum d des fibres, les poids sont compris entre 2(i−d) et n+i.",
      "match": "Statement (OCR cleaned)."
     }
    ],
@@ -875,19 +855,16 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.3.4), p. 206",
-     "excerpt": "pour chaque i et chaque valeur propre α de F sur H^i_c(X, ℱ), α est algébrique et il existe un entier w ≤ n+i tel que tous les conjugués complexes de α soient de valeur absolue q^{w/2}.",
      "match": "Read from the page image."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaires (3.3.5) et (3.3.6), p. 206",
-     "excerpt": "Soient X₀ lisse de type fini sur F_q et ℱ₀ un faisceau lisse pur de poids n sur X₀. Alors, l'image de H^i_c(X, ℱ) dans H^i(X, ℱ) est pure de poids n+i.",
      "match": "Corollary 3.3.6, read from the page image; 3.3.5 is stated just above it with the same smooth/lisse hypotheses."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.10), p. 207",
-     "excerpt": "Mais (3.3.4) — sauf ce qui concerne les faisceaux entiers — et (3.3.5), (3.3.6) valent tels quels.",
      "match": "The ι-forms (OCR cleaned)."
     }
    ],
@@ -1008,7 +985,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.7), p. 206",
-     "excerpt": "A α, et à chaque valuation v, attachons le couple de nombres rationnels (v(α), v(q^nα^{-1})), où q^nα^{-1} = ᾱ. Si α est entier, ces nombres sont ≥ 0. Leur somme vaut n.",
      "match": "Read from the page image."
     }
    ],
@@ -1055,13 +1031,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.3.8), p. 206",
-     "excerpt": "En cohomologie à support propre (ou en cohomologie ordinaire pour X propre), (r, s) est dans un triangle inférieur du diagramme ci-dessous. En cohomologie ordinaire, et pour X lisse, (r, s) est dans un triangle supérieur du même diagramme.",
      "match": "Read from the page image; the triangles are given by the two printed diagrams ('si i ≤ d', 'si i ≥ d'), whose regions agree with the inequalities stated here."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, after (3.3.8), p. 207",
-     "excerpt": "La vérification est facile. On peut montrer que, en cohomologie ordinaire, (r, s) est toujours dans le carré réunion des deux triangles mis en évidence.",
      "match": "The proof is left to the reader; the square statement is excluded (OCR cleaned)."
     }
    ],
@@ -1115,25 +1089,21 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.3.9), p. 207",
-     "excerpt": "Soit X₀ une variété propre et lisse sur F_q. Pour chaque i, le polynôme caractéristique det(t·1−F*, H^i(X, Q_ℓ)) est à coefficients entiers, indépendants de ℓ (ℓ ≠ p).",
      "match": "Smooth proper purity with integral ℓ-independent factors (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.3.11), p. 207",
-     "excerpt": "Dans tout ceci, l'hypothèse « lisse » n'apparaît que pour justifier la dualité de Poincaré.",
      "match": "Role of smoothness; the condition (*) Ra^!Q_ℓ = Q_ℓ(n)[2n] follows in the same paragraph."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "Introduction, p. 138",
-     "excerpt": "si X₀ est propre et lisse, et que le faisceau ℱ₀ est lisse (= tordu constant) et ponctuellement pur de poids n, alors les valeurs propres de Frobenius sur H^i(X, ℱ) sont toutes de poids n+i",
      "match": "The lisse-coefficient form (i) (OCR cleaned)."
     },
     {
      "sourceId": "yu-23",
      "locator": "Proposition 6.1.1, proof, pp. 42–43",
-     "excerpt": "par le théorème de pureté de Deligne et la conjecture de Ramanujan-Petersson démontrée par Lafforgue ([Laf02, Théorème VI.10]), les polynômes det(1 − zF_q|H^i_c(X, F1 ⊗ F2∨)) i = 0, 1, 2 sont premiers entre eux",
      "match": "A consumer: purity of H^i of a pure lisse sheaf on a smooth proper curve separates the three factors."
     }
    ],
@@ -1295,13 +1265,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Définition (6.2.2), p. 247",
-     "excerpt": "Un complexe K est mixte de poids ≤ n si pour tout i, le faisceau ℋ^iK est mixte de poids ponctuels ≤ i+n.",
      "match": "Definition of complexes of weights ≤ n (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, (6.1.1), p. 243",
-     "excerpt": "a) Égale caractéristique p : on ne considère que des schémas de type fini sur F_p; faisceau signifie faisceau de Weil.",
      "match": "The context of §6 (OCR cleaned)."
     }
    ],
@@ -1447,13 +1415,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Définition (6.2.4), p. 247",
-     "excerpt": "Un complexe K est pur de poids n s'il est mixte de poids ≤ n, et que DK est mixte de poids ≤ −n. Un faisceau ℱ est pur de poids n si le complexe réduit à ℱ en degré 0 l'est.",
      "match": "Definition of pure complexes (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, (6.2.1), p. 247",
-     "excerpt": "Ce foncteur est involutif. Pour tout morphisme f: X→Y, il échange les foncteurs Rf^! et f*, ainsi que les foncteurs Rf_* et Rf_!. On a aussi : D(K⊗L) = RHom(K, DL).",
      "match": "The duality formalism the definition rests on (OCR cleaned)."
     }
    ],
@@ -1502,7 +1468,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Lemme (6.1.3), p. 244",
-     "excerpt": "Soient S un schéma de type fini sur Z[1/ℓ], f: X→Y un morphisme de S-schémas de type fini, et ℱ un faisceau mixte sur X. Alors, il existe un ouvert dense U de S au-dessus duquel les faisceaux R^if_*ℱ sont mixtes.",
      "match": "Statement (OCR cleaned); proof (6.1.4)–(6.1.10), pp. 244–245."
     }
    ],
@@ -1545,13 +1510,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Théorème (6.1.2), p. 243",
-     "excerpt": "Soient f: X→Y un morphisme de schémas de type fini sur F_p (resp. Q), et ℱ un faisceau mixte sur X. Alors, les faisceaux R^if_*ℱ sont mixtes.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, after (6.1.2), p. 243",
-     "excerpt": "Compte tenu du théorème de changement de base générique (SGA 4½ [Th. finitude] (1.9)), cet énoncé résulte du suivant",
      "match": "The reduction to Lemma 6.1.3."
     }
    ],
@@ -1598,7 +1561,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Corollaire (6.1.11), p. 246",
-     "excerpt": "Les quatre opérations Rf_*, Rf_!, f* et Rf^! transforment faisceaux mixtes en faisceaux mixtes.",
      "match": "Statement; 'La même stabilité vaut pour les foncteurs Ext locaux' follows (OCR cleaned)."
     }
    ],
@@ -1718,7 +1680,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, (6.1.12), p. 246",
-     "excerpt": "Si (ℱ, ρ) admet une filtration finie F telle que Gr_F(ρ) se factorise par Gal(s̄/s) (cas unipotent), on dit que (ℱ, ρ) est mixte si Gr_F(ℱ) l'est, au sens a).",
      "match": "Clause (b); clauses (a) and (c) are in the same paragraph (OCR cleaned)."
     }
    ],
@@ -1763,7 +1724,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Théorème (6.1.13), p. 246",
-     "excerpt": "Avec les notations ci-dessus, si ℱ est mixte, les faisceaux de cycles évanescents sont également mixtes.",
      "match": "Statement; proof in the following paragraph (OCR cleaned)."
     }
    ],
@@ -1804,7 +1764,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Variante (6.2.3), p. 247",
-     "excerpt": "Soit f: X→Y un morphisme de schémas de type fini sur F_q. Si K ∈ Ob D^b_c(X) est mixte de poids ≤ n, alors Rf_!K est mixte de poids ≤ n.",
      "match": "Statement (OCR cleaned)."
     }
    ],
@@ -1849,7 +1808,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Exemples (6.2.5) a), b), p. 247",
-     "excerpt": "Si les faisceaux de cohomologie de K ∈ Ob D^b_c(X) sont lisses, le complexe K est pur de poids n si et seulement si chaque ℋ^iK est ponctuellement pur de poids i+n.",
      "match": "Clause (b) (OCR cleaned); (a): 'Quel que soit N, un complexe K est mixte de poids ≤ n si et seulement si K(N)[2N] l'est'."
     }
    ],
@@ -1894,7 +1852,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Exemples (6.2.5) c), p. 248",
-     "excerpt": "Soient X une courbe lisse, et j : U↪X un ouvert dense de X. Si ℱ est un faisceau pur de poids n sur U, alors j_*ℱ est pur de poids n (appliquer (1.8.8.1) et la formule R Hom(j_*ℱ, Q_ℓ) = j_*Hom(ℱ, Q_ℓ)).",
      "match": "Clause (c) with its proof; (d) is the tame smooth-divisor analogue (OCR cleaned)."
     }
    ],
@@ -1942,7 +1899,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, (6.2.1), p. 247",
-     "excerpt": "Pour tout morphisme f: X→Y, il échange les foncteurs Rf^! et f*, ainsi que les foncteurs Rf_* et Rf_!. On a aussi : D(K⊗L) = RHom(K, DL).",
      "match": "The exchange formulas from which (ii) and (v) follow (OCR cleaned)."
     }
    ],
@@ -1987,7 +1943,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Proposition (6.2.6), p. 248",
-     "excerpt": "Si f: X→Y est propre, et que K ∈ Ob D^b_c(X) est pur, alors Rf_*K est pur du même poids.",
      "match": "Statement; 'On applique (6.2.3) à K et à DK, compte tenu de ce que DRf_*K = Rf_*DK puisque f est propre' (OCR cleaned)."
     }
    ],
@@ -2029,7 +1984,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Variante (6.2.7), p. 248",
-     "excerpt": "Si X est de type fini sur F_p, on a K_X′ = K_X(−1)[−2] : les foncteurs D et D′ se déduisent l'un de l'autre par décalage et twist",
      "match": "Statement; 'La proposition (6.2.6) reste vraie' closes the paragraph (OCR cleaned)."
     }
    ],
@@ -2177,13 +2131,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§1, (1.1.15), p. 153",
-     "excerpt": "Si ℱ₀ est un faisceau de Weil lisse sur X₀, son groupe de monodromie géométrique est l'image de π₁(X, x̄) dans GL(ℱ_x̄).",
      "match": "Geometric monodromy group (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.4.1) (iii), p. 207",
-     "excerpt": "Si ℱ₀ est lisse ponctuellement ι-pur, et que X₀ est normal, alors le faisceau ℱ sur X est semi-simple.",
      "match": "Geometric semisimplicity is semisimplicity of ℱ on X (OCR cleaned)."
     }
    ],
@@ -2227,7 +2179,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Lemme (3.4.2), p. 208",
-     "excerpt": "Si ℱ₀ et 𝒢₀ sont deux faisceaux lisses sur X₀, on a une suite exacte : 0→H⁰(X, ℋom(ℱ, 𝒢))_F→Ext¹(ℱ₀, 𝒢₀)→H¹(X, ℋom(ℱ, 𝒢))^F.",
      "match": "Statement (OCR cleaned); proof follows on the same page."
     }
    ],
@@ -2271,7 +2222,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Lemmes (3.4.3)–(3.4.4), p. 208",
-     "excerpt": "il ne peut exister d'extension ℰ₀ de ℱ₀ par 𝒢₀, géométriquement non triviale, que si β ≡ γ (mod Z) et que β > γ.",
      "match": "Lemma 3.4.3; Lemma 3.4.4 replaces 'β > γ' by 'β ≥ γ' for Ext¹ ≠ 0 (OCR cleaned)."
     }
    ],
@@ -2401,13 +2351,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.4.1) (i), p. 207",
-     "excerpt": "ℱ₀ admet une unique décomposition ℱ₀ = ⊕_{b∈R/Z} ℱ₀(b), la décomposition selon le poids mod Z, dans laquelle les ι-poids ponctuels de ℱ₀(b) sont tous dans b.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.4.6), p. 209",
-     "excerpt": "Pour chaque β ∈ R, soit ℱ_x(β) la somme des sous-espaces propres généralisés de F_x relatifs aux valeurs propres α de ι-poids β rel. q^{deg(x)}.",
      "match": "The stalk description proving uniqueness (OCR cleaned)."
     }
    ],
@@ -2557,19 +2505,16 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.4.1) (ii), p. 207",
-     "excerpt": "Si les poids ponctuels de ℱ₀ sont entiers et que ℱ₀ est lisse, ℱ₀ admet une unique filtration finie croissante W par des sous-faisceaux lisses, la filtration par le poids ponctuel, telle que Gr^W_i(ℱ₀) soit ponctuellement ι-pur de poids i.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.4.1) (ii), p. 207",
-     "excerpt": "tout morphisme entre faisceaux lisses ι-mixtes de poids ponctuels entiers est strictement compatible à leurs filtrations par le poids ponctuel.",
      "match": "Strictness (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Variante (3.4.9), p. 210",
-     "excerpt": "On déduit aussitôt de (3.4.1) que tout faisceau mixte lisse admet une filtration par le poids ponctuel par des sous-faisceaux lisses",
      "match": "The mixed (all-ι) form; the second half of 3.4.9 needs 'lisse' and 'X₀ normal' (PAPER-DELIGNE-80/E47)."
     }
    ],
@@ -2617,13 +2562,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Théorème (3.4.1) (iii), p. 207",
-     "excerpt": "Si ℱ₀ est lisse ponctuellement ι-pur, et que X₀ est normal, alors le faisceau ℱ sur X est semi-simple.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.4.5), p. 208",
-     "excerpt": "Soit ℱ′ le plus grand sous-faisceau lisse semi-simple de ℱ (la somme des sous-faisceaux irréductibles de ℱ). Par transport de structures, il est stable par Frobenius, donc provient d'un sous-faisceau ℱ′₀ de ℱ₀.",
      "match": "The proof (OCR cleaned)."
     }
    ],
@@ -2748,7 +2691,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, (3.4.10), p. 210",
-     "excerpt": "Un faisceau ℱ sur un schéma X de type fini sur k algébriquement clos est dit avoir potentiellement la propriété P si (X, ℱ)/k se déduit par un changement de base x̄ : Spec(k)→S d'un système (X_S, ℱ_S) sur S — avec X_S de type fini sur S de type fini sur Z — tel que les restrictions de ℱ_S aux fibres de X_S/S en les points fermés de S aient la propriété P.",
      "match": "Definition (OCR cleaned)."
     }
    ],
@@ -2791,7 +2733,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Exemple (3.4.11), p. 210",
-     "excerpt": "Si f: Y→X est propre et lisse, les faisceaux R^if_*Q_ℓ sont potentiellement ponctuellement purs.",
      "match": "Statement; 'Ceci résulte d'un argument standard de passage à la limite, pour construire f₀ : Y₀→X₀/S₀ propre et lisse, et de (3.3.9) appliqué aux fibres de f₀' (OCR cleaned)."
     }
    ],
@@ -2835,7 +2776,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.4.12), p. 210",
-     "excerpt": "Soient X un schéma normal de type fini sur k algébriquement clos, et ℱ un faisceau lisse sur X. Si ℱ est potentiellement ponctuellement ι-pur, il est semi-simple.",
      "match": "Statement; 'Le théorème de spécialisation (1.11.1), (1.11.5) permet de généraliser (3.4.1) (iii)' (OCR cleaned)."
     }
    ],
@@ -2878,13 +2818,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Corollaire (3.4.13), p. 210",
-     "excerpt": "Soient S un schéma normal connexe sur k algébriquement clos, et f: X→S un morphisme propre et lisse. Alors, les faisceaux R^if_*Q_ℓ sont semi-simples.",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Remarque (3.4.14), p. 210",
-     "excerpt": "Le point clef dans la démonstration du théorème de Lefschetz difficile donnée en (4.1.1) est un cas particulier de (3.4.13) dans lequel f est projectif et S une courbe (un ouvert de P¹).",
      "match": "Its use in DWP.9 (OCR cleaned)."
     }
    ],
@@ -2933,13 +2871,11 @@
     {
      "sourceId": "bergstrom-faber-payne-24",
      "locator": "proof of Proposition 4.2, p. 7",
-     "excerpt": "The weight spectral sequence abuts to the compactly supported cohomology of M_{g,n}, collapses at E₂, and has E₁-page given by (3) E₁^{j,k} = ⊕_{|E(G)|=j} H^k(M̃_G).",
      "match": "The geometric instance for DM stacks; the E₁ term must carry det E(G) (PAPER-BERGSTROM-FABER-PAYNE-24/E7)."
     },
     {
      "sourceId": "bergstrom-faber-payne-24",
      "locator": "proof of Proposition 4.2, p. 7",
-     "excerpt": "If we take this spectral sequence in ℓ-adic étale cohomology, after basechange to F̄_p, then it is a spectral sequence of Galois representations [Pet17, Example 3.5].",
      "match": "Galois equivariance of the ℓ-adic weight spectral sequence."
     }
    ],
@@ -3093,19 +3029,16 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Théorème (4.1.1), p. 217",
-     "excerpt": "Soient X une variété projective et lisse sur k, ℒ un faisceau inversible ample sur X et η = c₁(ℒ) ∈ H²(X, Q_ℓ).",
      "match": "The class η and the cup product by its powers; the source suppresses the twist by fixing ℤ_ℓ ≅ ℤ_ℓ(1) over k (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, (4.1), p. 217",
-     "excerpt": "Dans ce numéro, nous supposerons choisi un isomorphisme, sur k, entre Z_ℓ et Z_ℓ(1). Ceci nous dispensera d'écrire les twists à la Tate.",
      "match": "The temporary trivialisation which this plan does not use (OCR cleaned)."
     },
     {
      "sourceId": "deligne-lefschetz-1968",
      "locator": "(1.5), p. 108",
-     "excerpt": "On appelle partie primitive de H^{n−i}(X), et on désignera par ₀H^{n−i}(X), le noyau de l'homomorphisme u^{i+1} : H^{n−i}(X)→H^{n+i+2}(X).",
      "match": "Definition of the primitive part (OCR cleaned)."
     }
    ],
@@ -3148,7 +3081,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Lemme (4.1.4), p. 218",
-     "excerpt": "Soit V une représentation linéaire complètement réductible d'un groupe π, munie d'une forme bilinéaire Φ, invariante par π et non dégénérée. Alors, la restriction de Φ à V^π est non dégénérée.",
      "match": "Statement; the proof is the one given (OCR cleaned)."
     }
    ],
@@ -3194,13 +3126,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, proof of (4.1.1) and Lemme (4.1.2), p. 217",
-     "excerpt": "La forme d'intersection sur H^{n−1}(Y) est non dégénérée sur l'image de H^{n−1}(X).",
      "match": "Lemma 4.1.2; the factorisation η^i = Gysin ∘ η^{i−1} ∘ restriction and the use of weak Lefschetz precede it (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, proof of (4.1.1), p. 217",
-     "excerpt": "Pour i ≥ 2, les flèches extrêmes sont des isomorphismes, par le théorème de Lefschetz faible rappelé ci-dessous, et la flèche médiane est un isomorphisme d'après l'hypothèse de récurrence, d'où le théorème.",
      "match": "The case r ≥ 2 (OCR cleaned)."
     }
    ],
@@ -3249,13 +3179,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "Introduction, p. 142",
-     "excerpt": "les résultats essentiels concernent les schémas de type fini sur un corps fini, avec deux nuances : a) ils ont des conséquences géométriques pour les schémas de type fini sur la clôture algébrique d'un corps fini, et des arguments de spécialisation permettent de passer de là au cas d'un corps de base algébriquement clos quelconque",
      "match": "Specialisation from finite fields to arbitrary algebraically closed fields (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§3, Exemple (3.4.11), p. 210",
-     "excerpt": "Ceci résulte d'un argument standard de passage à la limite, pour construire f₀ : Y₀→X₀/S₀ propre et lisse",
      "match": "The limit argument building the model (OCR cleaned)."
     }
    ],
@@ -3302,13 +3230,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, (4.1.3), p. 218",
-     "excerpt": "L'image de H^{n−1}(X) dans H^{n−1}(Y) est le sous-espace H^{n−1}(Y)^{π₁} des invariants par la monodromie.",
      "match": "Statement (OCR cleaned); the source cites SGA 7 XVIII (5.6.10) and its own §4.3 for proofs."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Corollaire (6.2.12), p. 250",
-     "excerpt": "si K est potentiellement pur, alors, pour Y_u une section hyperplane générale de X, H^n(X, K) s'identifie au sous-groupe H^n(Y_u, K)^{π₁(U,u)} des invariants de la monodromie dans H^n(Y_u, K).",
      "match": "The global invariant cycle theorem used here, owned by LPV.7:invariant-cycles (read from the page image)."
     }
    ],
@@ -3364,13 +3290,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Théorème (4.1.1), p. 217",
-     "excerpt": "On suppose X purement de dimension n. Alors, pour chaque i ≥ 0, le cup produit par η^i : η^i : H^{n−i}(X, Q_ℓ) → H^{n+i}(X, Q_ℓ) est un isomorphisme.",
      "match": "Statement; the twists are restored here (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, proof of (4.1.1), p. 218",
-     "excerpt": "Nous savons par ailleurs (3.4.13) que H^{n−1}(Y) est une représentation complètement réductible de π₁(P¹−S, t₀) et il ne reste qu'à appliquer le lemme algébrique suivant.",
      "match": "The semisimplicity input (OCR cleaned)."
     }
    ],
@@ -3413,7 +3337,6 @@
     {
      "sourceId": "deligne-lefschetz-1968",
      "locator": "Théorème (1.5) and (1.6), p. 108",
-     "excerpt": "On vérifie que pour i ≥ 0, les applications ⊕_{k≥0} u^k : ⊕_{k≥0} ₀H^{n−i−2k}(X) → H^{n−i}(X), ⊕_{k≥0} u^{i+k} : ⊕_{k≥0} ₀H^{n−i−2k}(X) → H^{n+i}(X) sont des isomorphismes.",
      "match": "The primitive decomposition for an endomorphism of degree 2 whose iterates satisfy hard Lefschetz (OCR cleaned)."
     }
    ],
@@ -3460,13 +3383,11 @@
     {
      "sourceId": "deligne-lefschetz-1968",
      "locator": "(1.5)–(1.6), p. 108",
-     "excerpt": "On appelle partie primitive de H^{n−i}(X), et on désignera par ₀H^{n−i}(X), le noyau de l'homomorphisme u^{i+1} : H^{n−i}(X)→H^{n+i+2}(X).",
      "match": "The primitive decomposition in the abstract setting (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Corollaire (4.1.5), proof, p. 218",
-     "excerpt": "Si η = c₁(ℒ), avec ℒ ample, la forme Tr(η^i xy) sur H^{n−i}(X) est non dégénérée, d'après (4.1.1) et la dualité de Poincaré.",
      "match": "Nondegeneracy of the Lefschetz pairing (OCR cleaned)."
     }
    ],
@@ -3505,7 +3426,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Corollaire (4.1.5), proof, p. 218",
-     "excerpt": "Si n−i est impair, elle est alternée, de sorte que b_{n−i} = b_{n+i} est pair.",
      "match": "The parity argument uses exactly this lemma (OCR cleaned)."
     }
    ],
@@ -3551,7 +3471,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Corollaire (4.1.5), p. 218",
-     "excerpt": "Les nombres de Betti d'indice impair d'une variété projective non singulière X sont pairs.",
      "match": "Statement (OCR cleaned); 'Ce résultat devrait valoir sans hypothèse de projectivité, mais je ne sais pas le prouver en caractéristique ≠ 0' follows."
     }
    ],
@@ -3611,13 +3530,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, Théorème (6.2.13), p. 250",
-     "excerpt": "Soit n un entier, et supposons K et DK[−2n] vérifient la condition suivante : pour tout i, la dimension du support du faisceau ℋ^i est ≤ n−i (on pose par convention dim ∅ = −∞). Alors, pour tout i ≥ 0, le cup-produit itéré η^i : H^{n−i}(X, K) → H^{n+i}(X, K) est un isomorphisme.",
      "match": "Read from the page image."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§6, proof of (6.2.13), p. 251",
-     "excerpt": "Gela se vérifie par (4.1.4), la représentation de π₁(U, u) sur H*(Y_u, K) étant semi-simple ((6.2.6) et (3.4.1) (iii)).",
      "match": "The semisimplicity input (OCR cleaned)."
     }
    ],
@@ -3661,7 +3578,6 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "Introduction, p. 142",
-     "excerpt": "On en donne aussi une variante pour la cohomologie à valeurs dans un faisceau (voire un complexe) (6.2.13).",
      "match": "The lisse-coefficient variant as a case of 6.2.13 (OCR cleaned)."
     }
    ],
@@ -3711,13 +3627,11 @@
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, Corollaire (4.3.9), p. 226",
-     "excerpt": "En Q_ℓ-cohomologie, on a une décomposition en somme directe orthogonale (pour la forme d'intersection Tr(x∪y)) : H^n(Y) = H^n(X) ⊕ Ev(Y).",
      "match": "Statement (OCR cleaned)."
     },
     {
      "sourceId": "deligne-weil-ii",
      "locator": "§4, (4.3.10), p. 226",
-     "excerpt": "En Q_ℓ-cohomologie, ce noyau est nul (c'est le théorème de Lefschetz difficile pour X) et on retrouve ce que Lefschetz appelle son lemme fondamental : « un cycle à la fois invariant et évanescent est nul ».",
      "match": "The ℚ_ℓ form of Lefschetz's fundamental lemma and its integral failure (OCR cleaned)."
     }
    ],

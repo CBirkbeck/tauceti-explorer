@@ -387,7 +387,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§2, pp.950–951, narrow and wide classes",
-          "excerpt": "Cl(K)",
           "match": "Exact set form of the quotient by the distinguished principal class."
         }
       ],
@@ -434,7 +433,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§7, p.971, paragraph after (7.7)",
-          "excerpt": "narrow class character",
           "match": "The source descent statement with existence and uniqueness made explicit."
         }
       ],
@@ -489,7 +487,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§4, p.959, (4.1)–(4.2)",
-          "excerpt": "a genus",
           "match": "Integral form of the displayed cardinality, avoiding a negative natural exponent."
         }
       ],
@@ -538,7 +535,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§7, p.971, genus-character paragraph before (7.8)",
-          "excerpt": "χ(J)",
           "match": "Composite extension of the pinned singleton theorem; positive-discriminant qualification is recorded in sourceIssues."
         }
       ],
@@ -583,7 +579,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§4, p.960, paragraph after (4.4)",
-          "excerpt": "sum of two squares",
           "match": "Arithmetic expansion of the source no-prime3-modulo4 condition using the prime-discriminant conventions."
         }
       ],
@@ -627,7 +622,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§4, p.960, paragraph after (4.4)",
-          "excerpt": "sum of two squares",
           "match": "Specialization of the full Mathlib two-squares theorem to fundamental discriminants."
         }
       ],
@@ -677,7 +671,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§4, p.960; §7, p.971",
-          "excerpt": "sum of two squares",
           "match": "The source principal-genus criterion, with its weaker-versus-trivial-class distinction explicit."
         }
       ],
@@ -725,7 +718,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§2, p.951, paragraph before minus continued fractions",
-          "excerpt": "A sufficient condition",
           "match": "The routed sufficient-condition item derived through the stronger genus obstruction."
         }
       ],
@@ -782,7 +774,6 @@
         {
           "sourceId": "DIT16",
           "locator": "§2, p.952, norm-form paragraph and (2.3)–(2.5); §9, p.978, paragraph before Proposition5",
-          "excerpt": "χ(Q) = χ(A)",
           "match": "Exactly the fundamental form/ideal equality routed here; the general character and oriented carrier remain with their supplier roadmaps."
         }
       ],

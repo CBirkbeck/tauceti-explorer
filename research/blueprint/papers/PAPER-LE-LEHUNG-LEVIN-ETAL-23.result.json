@@ -19063,7 +19063,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (2)",
-          "excerpt": "développement de Taylor",
           "match": "Ideal-valued first-order identity extracted from the finite polynomial expansion; the proof here explains the arbitrary-ring scope."
         }
       ]
@@ -19092,7 +19091,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 557/PDF6, display (5)",
-          "excerpt": "après dérivation",
           "match": "Explicit discrepancy formula underlying the conductor congruence; no torsion or completeness is used."
         }
       ]
@@ -19124,7 +19122,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed pp. 557–558/PDF6–7, displays (5)–(6) and adjugate calculation",
-          "excerpt": "Il reste donc seulement",
           "match": "Finite-matrix form of the weighted correction; the empty minor is handled explicitly rather than inferred from the nonempty calculation."
         }
       ]
@@ -19156,7 +19153,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed pp. 556–557/PDF5–6, passage from (4) to (3)",
-          "excerpt": "Il reste donc seulement",
           "match": "Torsionfree I=A specialization of the finite combination and cancellation step, stated separately from the original Noetherian lemma."
         }
       ]
@@ -19185,7 +19181,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1)",
-          "excerpt": "approximations successives",
           "match": "Elementary evaluation adapter used both to propagate the witness and to pass equations to an adic congruence limit."
         }
       ]
@@ -19217,7 +19212,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1); LLHLM23 Proposition 3.3.9, PDF69",
-          "excerpt": "approximations successives",
           "match": "Details the unit adjustment implicit in repeating the correction. This is an extracted auxiliary argument, not a separately numbered assertion of Elkik."
         }
       ]
@@ -19248,7 +19242,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (1) and following convergence paragraph",
-          "excerpt": "approximations successives",
           "match": "Repetition of the finite step with all inductive invariants and the exact precision recurrence exposed."
         }
       ]
@@ -19279,7 +19272,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, convergence paragraph; Mathlib AdicCompletion/Basic.lean:60,140",
-          "excerpt": "approximations successives",
           "match": "Quantitative congruence adapter to the pinned algebraic completeness API. The proof also works for nonprincipal ideals I."
         }
       ]
@@ -19310,7 +19302,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik Lemma 1, printed p. 556/PDF5, exact limit in its statement and convergence paragraph",
-          "excerpt": "approximations successives",
           "match": "Algebraic passage to an exact zero; no analytic continuity theorem or Noetherian closed-ideal theorem is invoked."
         }
       ]
@@ -19340,7 +19331,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "Elkik §0.2, printed p. 555/PDF4, paragraph defining H_B",
-          "excerpt": "changement de base",
           "match": "Promotes the consumed Z03 base-change API to its own theorem item; the strict-inclusion example guards against an unjustified equality."
         }
       ]
@@ -19594,7 +19584,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
-          "excerpt": "conducteur",
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         }
       ]
@@ -19635,19 +19624,16 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
-          "excerpt": "conducteur",
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         },
         {
           "url": "https://stacks.math.columbia.edu/tag/031I",
           "locator": "Lemma10.138.7",
-          "excerpt": "split exact sequence",
           "match": "Conormal split-injection criterion; used through the stronger ambient-formally-smooth pinned L34."
         },
         {
           "url": "https://stacks.math.columbia.edu/tag/00TA",
           "locator": "Lemma10.137.9, proof",
-          "excerpt": "standard opens",
           "match": "Basis selection from given equations and differentials; the local denominator argument Z40 retains the fixed presentation."
         }
       ]
@@ -19680,13 +19666,11 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
-          "excerpt": "conducteur",
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         },
         {
           "url": "https://stacks.math.columbia.edu/tag/00T8",
           "locator": "Example10.137.7",
-          "excerpt": "standard smooth algebra",
           "match": "A variable imposing the inverse of a Jacobian determinant produces a standard-smooth presentation. Here the same block calculation uses the conductor-weighted element."
         }
       ]
@@ -19721,7 +19705,6 @@
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
-          "excerpt": "conducteur",
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         }
       ]
@@ -19758,13 +19741,11 @@
         {
           "url": "https://math.rice.edu/~bl70/LocModels.pdf",
           "locator": "Proposition3.3.9 proof, PDF69",
-          "excerpt": "there exists an integer",
           "match": "The power is chosen over the universal chart before base change. The proof above separates this from the later complete-ring evaluation argument."
         },
         {
           "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
           "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
-          "excerpt": "conducteur",
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         }
       ]

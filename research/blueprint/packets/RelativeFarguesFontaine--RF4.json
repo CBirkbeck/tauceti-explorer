@@ -1622,8 +1622,8 @@
     "The extension over the closed point in the field case uses that A_inf is a 'two-dimensional regular local ring'-like ring (Kedlaya Hypothesis 2.1); it fails for general R^+"
    ],
    "proofSteps": [
-    "Cover Y-ad by the rational subsets U = {|[x]| <= |p| != 0} = Spa(B_1) and V = {|p| <= |[x]| != 0} = Spa(B_2) with intersection Spa(B_12), where B_1 = A_1<[x]/p>, B_2 = A_2<p/[x]>, A_1 = A[1/p], A_2 = A[1/[x]], A_12 = A[1/p[x]] (Kedlaya Definition 3.5).",
-    "These Huber rings are stably uniform (after completed tensor product with Z_p[p^(1/p^oo)] they become perfectoid and split back by the normalised trace: the sousperfectoid method, AdicSpacesPartII:R5), hence sheafy, and A_2 is uniform (Kedlaya Proposition 3.6).",
+    "Cover Y-ad by the rational subsets U = {|[x]| <= |p| != 0} = Spa(B_1) and V = {|p| <= |[x]| != 0} = Spa(B_2) with intersection Spa(B_12), where B_1 = A_1<[x]/p>, B_2 = A_2<p/[x]>, A_1 = A[1/p], A_2 = A[1/[x]], A_12 = A[1/p[x]] (Kedlaya Definition 3.5). These charts are supplied by RF0:integral-Y/whole-analytic-ainf-locus, rather than by the smaller curly-Y open.",
+    "Import the exact chart sheafiness/stable-uniformity input of RF0:integral-Y/whole-analytic-ainf-sheafiness: A_1,A_12,B_1,B_2,B_12,B_2-prime are stably uniform, whereas A_2 is only asserted uniform (Kedlaya Proposition 3.6). Use the completed coefficient-root extension and continuous module splitting of the R5 supplier. Do not infer stable uniformity of A_2 or treat an underlying-ring isomorphism involving a primed chart as a topological isomorphism.",
     "On each sheafy chart, vector bundles are finite projective modules (Kedlaya Proposition 3.2(c); AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing), and the simple Laurent squares are glueing squares (Proposition 3.2(a,b); AdicSpacesPartII:R3/simple-laurent-glueing-square, AdicSpacesPartII:R3/glueing-square-finite-projective-descent).",
     "Compare the Zariski cover {Spec A_1, Spec A_2} of X-sch with the adic cover through the exact-square gluing of RF4:vector-bundles/finite-projective-glueing-over-exact-square; in the resulting 2-commutative square every functor but Vec(X-sch) -> Vec(Y-ad) is an equivalence (proof of Kedlaya Theorem 3.8).",
     "Field case: Kedlaya Theorem 2.7 (vector bundles on the punctured Spec of A_inf extend uniquely: the gluing stack uses A_inf[1/p] and W(K) over W(K)[1/p], where W(K) is the p-adic completion of A_inf[1/[x]]; Lemma 2.6 proves that its sections are finite free and Lemma 2.3(c) recovers the bundle) combined with Theorem 3.8; Scholze-Weinstein give the same proof (Lemmas 14.2.3, 14.3.1)."
@@ -1643,8 +1643,8 @@
     "AdicSpacesPartII:R3/glueing-square-finite-projective-descent",
     "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
     "AdicSpacesPartII:R5/sousperfectoid-stably-uniform",
-    "RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition",
-    "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+    "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
+    "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
     "PerfectoidSpaces:P1/witt-vectors-of-perfect-plus-ring",
     "mathlib:WittVector",
     "mathlib:Module.Projective",
@@ -2303,7 +2303,7 @@
    "remaining": [
     "The ramified (W_{O_E}) and equal-characteristic forms of Kedlaya's algebraicity theorem: Kedlaya and Scholze-Weinstein are p-typical, and no source for the general case was read; no node of this packet needs them",
     "Kedlaya-Liu's B-pair statements (8.9.3-8.9.6) are planned in their unramified setting; the general-E relative gluing is the modification form RF4:vector-bundles/meromorphic-modification-at-a-divisor, and the general-E schematic triple form is not stated in a read source",
-    "When RelativeFarguesFontaine:RF0:crystalline-end is created (RT-AREA-padic-1/18), import its charts into RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles (gap 1)",
+    "Discharge the coefficient/root-chart interfaces inherited through the exact RF0 whole-analytic-ainf-locus and whole-analytic-ainf-sheafiness imports; those open proof interfaces remain in RF0’s gaps. No additional crystalline-end stage is needed to name these existing supplier nodes.",
     "Prove arbitrary-complement effectivity in general-E adic geometry (gap: Arbitrary complement data).",
     "Supply the no-leg/one-leg shtuka recovery contracts used by node lattices-and-modifications-of-trivial-bundles(b).",
     "Finish native algebra API and tests; synchronize the read-only reader with review corrections."
@@ -2331,13 +2331,6 @@
   }
  ],
  "gaps": [
-  {
-   "title": "The crystalline end of Spa W(R^+) has no owning layer yet",
-   "neededBy": [
-    "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles"
-   ],
-   "detail": "Kedlaya's algebraicity theorem is stated on Spa W(R^+) minus V(p, [x]), whose rational charts Spa(B_1) = {|[x]| <= |p| != 0} and Spa(B_2') meet the locus [x] = 0. RF0:integral-Y removes V([varpi]) and RF0:annuli removes V(pi), so neither constructs these charts or proves their stable uniformity (Kedlaya Proposition 3.6). The confirmed finding RT-AREA-padic-1/18 proposes a new child RelativeFarguesFontaine:RF0:crystalline-end for them (handed to BP-RelativeFarguesFontaine--RF0); it is not yet an atlas stage, so no prerequisite can name it. Until it exists, the chart construction and the sousperfectoid stable-uniformity argument are carried in the proof steps of RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles, resting on AdicSpacesPartII:R5/sousperfectoid-stably-uniform and RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness. NEXT ACTION: once RF0:crystalline-end exists, make it a prerequisite of that node and add the stage edge RF0:crystalline-end -> RF4:vector-bundles (acyclic: RF0:crystalline-end requires only RF0:integral-Y and RF0:annuli)."
-  },
   {
    "title": "Arbitrary complement data in general-E adic gluing",
    "neededBy": [
@@ -2416,8 +2409,8 @@
    "roadmaps": [
     "RelativeFarguesFontaine"
    ],
-   "detail": "RT-AREA-padic-1/18 (confirmed) proposes a child RF0:crystalline-end owning the charts of Spa W_{O_E}(R^+) at [varpi] = 0, the pi-adic sheafiness of W_{O_E}(R^+)[1/pi], and Kedlaya's algebraicity, and its fix report would leave to RF4 'the phi-module freeness parts' of Guo-Reinecke item 129. The stage does not exist yet, and the accepted Guo-Reinecke route 6 names RF4:vector-bundles; this packet plans Kedlaya's algebraicity here as a patching theorem (its proof is gluing of finite projective modules over exact squares and Beauville-Laszlo squares, Kedlaya section 3 'Adic glueing'), and records the missing charts as a gap.",
-   "proposal": "When RF0:crystalline-end is created, it owns the charts Y_{S,[r,oo]}, their rings and their sheafiness; RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles stays the single owner of the algebraicity theorem and imports the charts (edge RF0:crystalline-end -> RF4:vector-bundles), unless the maintainer prefers to move the node into RF0:crystalline-end, in which case AI.2:essential-surjectivity imports it from there; it must not be planned twice. The phi-module freeness statements of item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129, both 'missing') are about Frobenius modules over perfect rings, not patching, and should be routed to the owner of Kedlaya-Liu section 3.2 or to the Guo-Reinecke Part II roadmap that uses them."
+   "detail": "RT-AREA-padic-1/18 proposes a crystalline-end child. Its chart targets are now represented by RF0:integral-Y/whole-analytic-ainf-locus and whole-analytic-ainf-sheafiness, and RF4 imports those exact nodes. Kedlaya’s p-typical algebraicity theorem is singly owned by RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles; RF0’s stable punctured-ainf-bundle-algebraicity id is a presentation/import comparison. This division agrees with the Guo-Reinecke route to RF4 for patching, without duplicating the theorem or requiring a nonexistent stage id.",
+   "proposal": "Keep the chart construction and sheafiness at the two exact RF0:integral-Y nodes and algebraicity at the exact RF4 theorem node. A separate RF0:crystalline-end child, if adopted, reparents the existing chart nodes and preserves their stable ids; it does not create second chart or algebraicity targets. The φ-module freeness statements of Guo-Reinecke item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129) require the owner of Frobenius modules over perfect rings or the Guo-Reinecke Part II owner, with their product-of-valuation-rings hypotheses. RF0’s outward RF4 request remains a routing request for that payload, not a claim that RF4’s patching theorem supplies it."
   },
   {
    "action": "rescope",

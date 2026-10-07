@@ -390,7 +390,6 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§2.3, p. 3 (arXiv v1)",
-     "excerpt": "Deﬁne P1(G) = G and Pi+1(G) = Pi(G)p[Pi(G), G] for i ≥1.",
      "match": "The definition."
     }
    ],
@@ -477,7 +476,6 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§2.3, pp. 3–4 (arXiv v1)",
-     "excerpt": "The group G is powerful if G/Gp is abelian (for p odd), or G/G4 is abelian (when p = 2).",
      "match": "Powerful, then uniform = powerful, finitely generated and |G : P₂| = |P_i : P_{i+1}|."
     }
    ],
@@ -565,13 +563,11 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§2.1, p. 2 (arXiv v1)",
-     "excerpt": "a topological group G is compact p−adic analytic if and only if G is proﬁnite, with an open subgroup which is pro−p of ﬁnite rank",
      "match": "Lazard's characterisation."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§2.3, p. 4 (arXiv v1)",
-     "excerpt": "a topological group G is compact p−adic analytic if and only if it has an open normal uniform pro−p subgroup of ﬁnite index",
      "match": "The characterisation used as the definition."
     }
    ],
@@ -663,19 +659,16 @@
     {
      "sourceId": "LAZARD-1965",
      "locator": "Chap. II, (2.2.7), p. 62 (Numdam PDF; printed page = PDF page + 3)",
-     "excerpt": "constitue une base du Al U-module à gauche Al G.",
      "match": "Lazard: coset representatives form a basis of Λ(G) over Λ(U)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162)",
-     "excerpt": "Then Λ(H) is a free left or right module of rank [H : H′] over Λ(H′).",
      "match": "CFKSV's use for H′ open in H."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§2.2, p. 3 (arXiv v1)",
-     "excerpt": "a crossed product of ΛH by the ﬁnite group G/H.",
      "match": "The crossed-product form for open normal subgroups."
     }
    ],
@@ -717,19 +710,16 @@
     {
      "sourceId": "LAZARD-1965",
      "locator": "Chap. II, (2.2.2), p. 59",
-     "excerpt": "Son algèbre complétée Al G est un anneau local et une Zp-algèbre topologique compacte.",
      "match": "Lazard II.2.2.2."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162)",
-     "excerpt": "Λ( J) is a local ring, whose maximal ideal is the kernel of the augmentation map from Λ( J) to Fp",
      "match": "The maximal ideal as CFKSV use it."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§4.1, Theorem (2), p. 9 (arXiv v1)",
-     "excerpt": "(2) ΩG and ΛG are (scalar) local rings if and only if G is a pro−p group.",
      "match": "The equivalence."
     }
    ],
@@ -770,13 +760,11 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§3.1, Theorem, p. 5 (arXiv v1)",
-     "excerpt": "Every element c of ΩG is equal to the sum of a uniquely determined convergent series",
      "match": "The PBW theorem."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§3.4, Theorem, p. 7 (arXiv v1)",
-     "excerpt": "The graded ring of ΩG with respect to the J−adic ﬁltration is isomor- phic to a polynomial ring in d = dim G variables:",
      "match": "gr_J Ω(G) ≅ F_p[X₁, …, X_d]."
     }
    ],
@@ -816,13 +804,11 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§3.4, p. 7 (arXiv v1)",
-     "excerpt": "any complete ﬁltration whose associated graded ring is noetherian is nec- essarily Zariskian.",
      "match": "Complete filtrations with noetherian gr are Zariskian."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§3.5, Theorem, p. 9 (arXiv v1)",
-     "excerpt": "Let R be a ring endowed with a Zariskian ﬁltration FR; then R is necessarily noetherian.",
      "match": "Zariskian filtrations give noetherian rings (Li–van Oystaeyen)."
     }
    ],
@@ -866,19 +852,16 @@
     {
      "sourceId": "LAZARD-1965",
      "locator": "Chap. V, (2.2.4) and proof, p. 166",
-     "excerpt": "Alors l'algèbre Al G est un anneau local compact noethérien (à droite et à gauche).",
      "match": "Lazard's theorem for pro-p analytic G."
     },
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§4.1, Theorem (1), p. 9 (arXiv v1)",
-     "excerpt": "(1) ΩG and ΛG are complete noetherian semilocal rings.",
      "match": "The general compact p-adic analytic case."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, p. 165",
-     "excerpt": "It is well known that Λ(G) and Ω(G) are left and right Noetherian.",
      "match": "The use in CFKSV."
     }
    ],
@@ -920,13 +903,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162)",
-     "excerpt": "we can then use Nakayama’s lemma for Λ( J)-modules",
      "match": "CFKSV's use of the lemma; the proof here follows from Lazard II.2.2.2."
     },
     {
      "sourceId": "LAZARD-1965",
      "locator": "Chap. II, (2.2.2), p. 59",
-     "excerpt": "Son algèbre complétée Al G est un anneau local et une Zp-algèbre topologique compacte.",
      "match": "The topological input."
     }
    ],
@@ -963,13 +944,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
-     "excerpt": "It is well known [5] that this implies that Λ(G) has ﬁnite global dimension equal to d + 1, where d is the dimension of G as a p-adic Lie group.",
      "match": "The statement as CFKSV use it (citing Brumer)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
-     "excerpt": "Hypothesis on G. — G has no element of order p.",
      "match": "The hypothesis."
     }
    ],
@@ -1010,7 +989,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162)",
-     "excerpt": "Let S be the set of all f in Λ(G) such that Λ(G)/Λ(G)f is a ﬁnitely generated Λ(H)-module.",
      "match": "The definition."
     }
    ],
@@ -1110,7 +1088,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, (5) and proof of Lemma 2.1, p. 167",
-     "excerpt": "Π is in the centre of G/J.",
      "match": "CFKSV's equation (5)."
     }
    ],
@@ -1150,7 +1127,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, (6), p. 167",
-     "excerpt": "It is a ﬁnite dimensional algebra over the commutative ﬁeld R(Π), which lies in its centre.",
      "match": "CFKSV's V(G/J)."
     }
    ],
@@ -1244,13 +1220,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Lemma 2.1, p. 166",
-     "excerpt": "S is the set of all f in Λ(G) such that right multiplication by ψJ( f ) on Ω(G/J) is in- jective.",
      "match": "Lemma 2.1(iii)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, proof of Lemma 2.1, p. 167",
-     "excerpt": "It follows easily that, for any f in Ω(G), Ω(G/J)/Ω(G/J)ψJ( f ) is ﬁnite if and only if right multiplication by ψJ( f ) on Ω(G/J) has ﬁnite kernel.",
      "match": "The key step."
     }
    ],
@@ -1287,7 +1261,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Lemma 2.2, p. 167",
-     "excerpt": "S is the set of all f in Λ(G) such that the left multiplication by ψJ( f ) on Ω(G/J) is injective.",
      "match": "Lemma 2.2(iv)."
     }
    ],
@@ -1328,13 +1301,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Proposition 2.3, p. 168",
-     "excerpt": "Then M is ﬁnitely generated over Λ(H) if and only if M is S-torsion.",
      "match": "Proposition 2.3."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, proof of Proposition 2.3, p. 168",
-     "excerpt": "Since Λ( J) is Noetherian, we have Un = Un−1 for some n.",
      "match": "The noetherian step."
     }
    ],
@@ -1380,13 +1351,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Theorem 2.4, p. 168",
-     "excerpt": "The set S is multiplicatively closed, and is a left and right Ore set in Λ(G). The elements of S are non-zero divisors in Λ(G).",
      "match": "Theorem 2.4."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, definition of Ore set, p. 166",
-     "excerpt": "to be a left and right Ore set if, for each s in S and r in Λ(G), there exist t1, t2 in S",
      "match": "The Ore conditions in CFKSV's orientation."
     }
    ],
@@ -1426,7 +1395,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Lemma 2.5, p. 169",
-     "excerpt": "the kernel of the natural map Ω(G/J) →Ω(G/J′) is a nilpotent ideal.",
      "match": "Lemma 2.5 (Ardakov's proof)."
     }
    ],
@@ -1466,13 +1434,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, Proposition 2.6, p. 169",
-     "excerpt": "The set S is equal to the set of all elements in Λ(G) which are regular modulo N .",
      "match": "Proposition 2.6."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2, proof of Proposition 2.6, p. 170",
-     "excerpt": "But units modulo nilpotent ideals are units.",
      "match": "The key step."
     }
    ],
@@ -1510,7 +1476,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, definition of S*, p. 170",
-     "excerpt": "As p lies in the centre of Λ(G), S∗is again a multiplicatively closed left and right Ore set in Λ(G), all of whose elements are non-zero divisors.",
      "match": "S*."
     }
    ],
@@ -1604,7 +1569,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (11), p. 170",
-     "excerpt": "As p lies in the centre of Λ(G), S∗is again a multiplicatively closed left and right Ore set in Λ(G), all of whose elements are non-zero divisors.",
      "match": "The localisations Λ(G)_S and Λ(G)_{S*} = Λ(G)_S[1/p] (CFKSV (11))."
     }
    ],
@@ -1699,7 +1663,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, proof of Theorem 4.4, p. 192",
-     "excerpt": "As localization with respect to S is an exact functor, we",
      "match": "The fact used."
     }
    ],
@@ -1737,13 +1700,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, p. 170",
-     "excerpt": "We write MH(G) for the category of all ﬁnitely generated Λ(G)-modules, which are S∗-torsion.",
      "match": "The definition."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, p. 170",
-     "excerpt": "Note that in the special case in which H = 1 and G = Γ, MH(G) is the category of all ﬁnitely generated torsion Λ(G)-modules.",
      "match": "The commutative specialisation."
     }
    ],
@@ -1835,7 +1796,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§2.2, p. 6 (arXiv v2)",
-     "excerpt": "ΣS the full subcategory of Cp(R) consisting of all complexes C such that RS ⊗RC is acyclic.",
      "match": "The definition."
     }
    ],
@@ -1921,7 +1881,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, Lemma 4.1, p. 187 (Numdam PDF page 25; printed page = PDF page + 162)",
-     "excerpt": "Lemma 4.1. — Let I be a two sided ideal of a ring R, and assume that R is I-adically complete. Then the natural map from K0(R) to K0(R/I) is an isomorphism.",
      "match": "Lemma 4.1."
     }
    ],
@@ -1963,7 +1922,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (24), p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
-     "excerpt": "we have, as part of a larger exact sequence of localization, the exact sequence",
      "match": "The localisation sequence (24)."
     }
    ],
@@ -2012,7 +1970,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, proof of Lemma 4.6, p. 191 (Numdam PDF page 29; printed page = PDF page + 162)",
-     "excerpt": "∂( f (a)) = [Coker α] = [P/pP].",
      "match": "The explicit description of ∂."
     }
    ],
@@ -2099,7 +2056,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.5, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
-     "excerpt": "Lemma 3.5. — Let P be any pro-p open normal subgroup of G. Then the canonical map",
      "match": "Lemma 3.5."
     }
    ],
@@ -2136,13 +2092,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Proposition 3.4, p. 175 (Numdam PDF page 13; printed page = PDF page + 162)",
-     "excerpt": "Hence we conclude that the homomorphism λ is always injective.",
      "match": "Injectivity of λ."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (29), p. 176 (Numdam PDF page 14; printed page = PDF page + 162)",
-     "excerpt": "Then it is easily seen that τ is given explicitly by",
      "match": "The formula for τ."
     }
    ],
@@ -2180,7 +2134,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
-     "excerpt": "Lemma 3.1. — For each M in MH(G), the homology groups Hi(H, M) (i ≥0) are all",
      "match": "Lemma 3.1."
     }
    ],
@@ -2216,7 +2169,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
-     "excerpt": "Lemma 3.2. — If M ∈MH(G), then, for all continuous representations ρ of the form",
      "match": "Lemma 3.2."
     }
    ],
@@ -2256,7 +2208,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Proposition 3.4, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
-     "excerpt": "Proposition 3.4. — Assume that G has no element of order p. Then ∂G is surjective.",
      "match": "Proposition 3.4."
     }
    ],
@@ -2293,13 +2244,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, definition (33), p. 176 (Numdam PDF page 14; printed page = PDF page + 162)",
-     "excerpt": "Deﬁnition. — For each M in MH(G), a characteristic element for M is any ξM in",
      "match": "The definition."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§1, introduction, p. 163 (Numdam PDF page 1; printed page = PDF page + 162)",
-     "excerpt": "to associate with M a characteristic element, analogous to the characteristic power",
      "match": "The analogy with the commutative case."
     }
    ],
@@ -2390,13 +2339,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, Proposition 4.2, p. 188 (Numdam PDF page 26; printed page = PDF page + 162)",
-     "excerpt": "Proposition 4.2. — The ring Λ(G)S is semi-local.",
      "match": "Proposition 4.2."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
-     "excerpt": "We remark that Λ(G)S∗is not, in general, a semi-local ring, as is shown by the following example.",
      "match": "The counterexample."
     }
    ],
@@ -2435,13 +2382,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, Theorem 4.4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
-     "excerpt": "Theorem 4.4. — Assume that G has no element of order p. Then the natural maps",
      "match": "Theorem 4.4."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
-     "excerpt": "If R is any semi-local ring, it is well known that the natural map R× →K1R is surjective",
      "match": "The semilocal input."
     }
    ],
@@ -2480,7 +2425,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§2–3, p. 170 (Numdam PDF page 8; printed page = PDF page + 162)",
-     "excerpt": "Note that in the special case in which H = 1 and G = Γ, MH(G) is the category of all ﬁnitely generated torsion Λ(G)-modules.",
      "match": "The commutative specialisation."
     }
    ],
@@ -2519,7 +2463,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (13) and Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
-     "excerpt": "We endow twρ(M) with the diagonal action of G",
      "match": "(13) and Lemma 3.2."
     }
    ],
@@ -2600,7 +2543,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (14)–(16), p. 172 (Numdam PDF page 10; printed page = PDF page + 162)",
-     "excerpt": "A second ring homomorphism",
      "match": "(14), (15) and (16)."
     }
    ],
@@ -2689,13 +2631,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.3, p. 172 (Numdam PDF page 10; printed page = PDF page + 162)",
-     "excerpt": "The map (15) extends to a ring homomorphism, which we also denote",
      "match": "Lemma 3.3 and the start of its proof."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Lemma 3.3, p. 173 (Numdam PDF page 11; printed page = PDF page + 162)",
-     "excerpt": "is invertible in Mn(Q(k[[T]]), and so has non-zero determinant.",
      "match": "The end of the proof."
     }
    ],
@@ -2734,7 +2674,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (21)–(22), p. 173 (Numdam PDF page 11; printed page = PDF page + 162)",
-     "excerpt": "Let ξ be any element of K1(Λ(G)S∗). If Φ′",
      "match": "The definition of ξ(ρ) ∈ L ∪ {∞}."
     }
    ],
@@ -2840,19 +2779,16 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
-     "excerpt": "For each M in MH(G), the homology groups Hi(H, M) (i ≥0) are all",
      "match": "Lemma 3.1."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (37)–(39), p. 177 (Numdam PDF page 15; printed page = PDF page + 162)",
-     "excerpt": "We then deﬁne the Akashi series Ak(M) by",
      "match": "The Akashi series."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, (40), p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
-     "excerpt": "N(AkO(M)) = Ak(M).",
      "match": "(40)."
     }
    ],
@@ -2942,13 +2878,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.7, p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
-     "excerpt": "The diagram (43) is commutative.",
      "match": "Lemma 3.7."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Lemma 3.7, p. 179 (Numdam PDF page 17; printed page = PDF page + 162)",
-     "excerpt": "We now prove the commutativity of the diagram (43)",
      "match": "The proof."
     }
    ],
@@ -2987,13 +2921,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Theorem 3.6, p. 177 (Numdam PDF page 15; printed page = PDF page + 162)",
-     "excerpt": "The principal result of this section, which is directly inspired by a parallel",
      "match": "Theorem 3.6."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Theorem 3.6, p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
-     "excerpt": "We now begin the proof of Theorem 3.6.",
      "match": "(41)–(45)."
     }
    ],
@@ -3035,13 +2967,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Theorem 3.8, p. 180 (Numdam PDF page 18; printed page = PDF page + 162)",
-     "excerpt": "The following stronger form of Theorem 3.6, but for a much more restricted class of",
      "match": "Theorem 3.8."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Lemma 3.9, p. 181 (Numdam PDF page 19; printed page = PDF page + 162)",
-     "excerpt": "The following lemma is the essential ingredient in the proof of Theorem 3.8.",
      "match": "Lemma 3.9."
     }
    ],
@@ -3080,13 +3010,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, p. 182 (Numdam PDF page 20; printed page = PDF page + 162)",
-     "excerpt": "We next establish an analogue of the classical Artin formalism for G-Euler char-",
      "match": "Theorem 3.10."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Theorem 3.10, p. 184 (Numdam PDF page 22; printed page = PDF page + 162)",
-     "excerpt": "This completes the proof of Theorem 3.10.",
      "match": "The end of the proof."
     }
    ],
@@ -3124,19 +3052,16 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Example, p. 185 (Numdam PDF page 23; printed page = PDF page + 162)",
-     "excerpt": "We end this section by discussing a numerical example of our al-",
      "match": "The example."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, Proposition 3.11, p. 186 (Numdam PDF page 24; printed page = PDF page + 162)",
-     "excerpt": "In view of Proposition 3.11, we deduce from Theorem 3.6 that",
      "match": "Proposition 3.11 and (75)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§3, proof of Proposition 3.11, p. 187 (Numdam PDF page 25; printed page = PDF page + 162)",
-     "excerpt": "which proves the ﬁrst assertion of Proposition 3.11.",
      "match": "The computation."
     }
    ],
@@ -3176,13 +3101,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, Conjecture 4.8 and Lemma 4.9, p. 196 (Numdam PDF page 34; printed page = PDF page + 162)",
-     "excerpt": "has an interesting consequence for the modules M in",
      "match": "Conjecture 4.8 (above this remark) and the consequence of Case 1 for modules satisfying (51)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§4, after Lemma 4.9, p. 197 (Numdam PDF page 35; printed page = PDF page + 162)",
-     "excerpt": "An evidence we have for Conjecture 4.8 is that it is true when G is of the form",
      "match": "The evidence (ℤ_p^d × Δ; Kato)."
     }
    ],
@@ -3279,13 +3202,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, set-up, p. 197 (Numdam PDF page 35; printed page = PDF page + 162)",
-     "excerpt": "For brevity, we only discuss here the main conjecture for elliptic curves over",
      "match": "F_∞ = ℚ(E_{p^∞}), G, H, Γ."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Selmer groups and the hypotheses on p, p. 198 (Numdam PDF page 36; printed page = PDF page + 162)",
-     "excerpt": "We impose for the rest of the paper the following",
      "match": "𝒮(E/L), X(E/L) and the hypotheses on p."
     }
    ],
@@ -3384,7 +3305,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Conjectures 5.1 and 5.2, p. 198 (Numdam PDF page 36; printed page = PDF page + 162)",
-     "excerpt": "One might hope that Conjecture 5.1 is equivalent to knowing Conjecture 5.2",
      "match": "The two conjectures (stated just above) and their relation."
     }
    ],
@@ -3468,19 +3388,16 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Lemma 5.3, p. 199 (Numdam PDF page 37; printed page = PDF page + 162)",
-     "excerpt": "This completes the proof of Lemma 5.3.",
      "match": "Lemma 5.3 (statement on this page)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Lemma 5.4 and Corollary 5.5, p. 200 (Numdam PDF page 38; printed page = PDF page + 162)",
-     "excerpt": "The following is the one practical criterion we know at present for proving in some concrete examples that",
      "match": "Corollary 5.5 and the lead-in to Proposition 5.6."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Proposition 5.6 and the conductor-11 example, p. 201 (Numdam PDF page 39; printed page = PDF page + 162)",
-     "excerpt": "Here is an example of one isogeny class of curves to which it can be applied.",
      "match": "The example E₀, E₁, E₂ at p = 5."
     }
    ],
@@ -3518,19 +3435,16 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, the L-functions L(E, ρ, s), p. 202 (Numdam PDF page 40; printed page = PDF page + 162)",
-     "excerpt": "We ﬁrst recall the deﬁnition of the complex Artin L-function",
      "match": "L(ρ, s), L(E, ρ, s) and (101)–(102)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, (103)–(106), p. 203 (Numdam PDF page 41; printed page = PDF page + 162)",
-     "excerpt": "We shall assume (103) in order to deﬁne our conjectural p-adic L-function.",
      "match": "Periods, L_R, f_ρ, u, w."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Conjecture 5.7, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
-     "excerpt": "To deﬁne our conjectural p-adic L-function, we will take A to be the ring of integers of a ﬁnite unramiﬁed extension of",
      "match": "K(F_∞), A and Conjecture 5.7 with (107)."
     }
    ],
@@ -3632,7 +3546,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Conjecture 5.8, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
-     "excerpt": "It is clear that such a main conjecture, when proven, will have many deep con- sequences",
      "match": "Conjecture 5.8 (stated just above) and the lead-in to its corollaries."
     }
    ],
@@ -3721,7 +3634,6 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Corollaries 5.9–5.10, p. 204 (Numdam PDF page 42; printed page = PDF page + 162)",
-     "excerpt": "It is clear that such a main conjecture, when proven, will have many deep con- sequences",
      "match": "Corollary 5.9 (on this page) and Corollary 5.10 (p. 205) with their proofs."
     }
    ],
@@ -3759,13 +3671,11 @@
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, Example, p. 205 (Numdam PDF page 43; printed page = PDF page + 162)",
-     "excerpt": "We now illustrate the above conjectures by considering the curve",
      "match": "The data (108)–(114)."
     },
     {
      "sourceId": "CFKSV-2005",
      "locator": "§5, the L-values (115) and the conclusion, p. 206 (Numdam PDF page 44; printed page = PDF page + 162)",
-     "excerpt": "We end this paper by confessing that the evidence in support of Conjecture 5.8 is still very modest.",
      "match": "The modest evidence, after (115)."
     }
    ],
@@ -3806,7 +3716,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§2.2, Lemma 5, p. 8 (arXiv v3)",
-     "excerpt": "The following lemma is essentially proven in Coates et.al. [6] under the assumption that G has no element of order p. The same technique gives this more general result as we now show.",
      "match": "Lemma 5 and its proof (pp. 8–9)."
     }
    ],
@@ -3845,7 +3754,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§2.2, Definitions 6 and 7, p. 9 (arXiv v3)",
-     "excerpt": "We deﬁne SK1(O[P]) = ker(K1(O[P]) → K1(L[P])).",
      "match": "Definitions 6–7; Lemma 19 and Corollary 20 (pp. 17–19)."
     }
    ],
@@ -3947,7 +3855,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§2.1, Definition 1, p. 4 (arXiv v3)",
-     "excerpt": "An admissible p-adic Lie extension F∞ of F is a Galois extension F∞ of F such that (i) F∞/F is unramiﬁed outside a ﬁnite set of primes of F,",
      "match": "Definition 1; Definition 8 and Lemma 9 (pp. 9–10)."
     }
    ],
@@ -4048,7 +3955,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§2.3, p. 11 (arXiv v3)",
-     "excerpt": "We put C(F∞/F) to be the complex",
      "match": "The complex, its cohomology, and Fukaya–Kato's results (i)–(ii)."
     }
    ],
@@ -4145,7 +4051,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§2.5, Theorem 11 (Main Conjecture), p. 13 (arXiv v3)",
-     "excerpt": "Then there is a unique ζ(F∞/F) in K′_1(Λ(G)_S) such that ∂(ζ(F∞/F)) = −[C(F∞/F)]",
      "match": "The statement, with Remarks 12–14."
     }
    ],
@@ -4250,7 +4155,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§3, Theorem 18, p. 17 (arXiv v3)",
-     "excerpt": "Assume that Gal(F∞/F) = G × ∆, with G abelian and ∆ a ﬁnite group of order prime to p. Then the main conjecture is true for the extension F∞/F.",
      "match": "Theorem 18 with Lemma 15, Theorem 16 and Lemma 17 (pp. 14–17)."
     }
    ],
@@ -4293,7 +4197,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§1, the observation of Burns and Kato, p. 3 (arXiv v3)",
-     "excerpt": "Burns and Kato made a beautiful observation which is used in all our reduction steps.",
      "match": "The principle stated in the introduction and carried out in each reduction."
     }
    ],
@@ -4330,7 +4233,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§4.1, Theorem 21, p. 19 (arXiv v3)",
-     "excerpt": "Then the main conjecture is true for F∞/F if it is true for each of the extensions F^U_∞/F for all open pro-p subgroups U ≤ H such that U is normal in G",
      "match": "Theorem 21 and its proof (pp. 19–20)."
     }
    ],
@@ -4371,7 +4273,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§4.2, Theorem 27, p. 21 (arXiv v3)",
-     "excerpt": "Assume that the main conjecture is valid for all admissible p-adic Lie extensions satisfying µ = 0 hypothesis whose Galois group is Q_p-elementary.",
      "match": "Theorem 27 with Definitions 23–24, Theorem 25 and Lemma 26 (pp. 20–23)."
     }
    ],
@@ -4415,7 +4316,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§4.3, Theorem 33, p. 27 (arXiv v3)",
-     "excerpt": "Assume that G is l-Q_p-elementary for some prime l ≠ p. Then the main conjecture for F∞/F is valid.",
      "match": "Theorem 33 with Lemmas 28, 31, Definition 29 and Proposition 30 (pp. 23–27)."
     }
    ],
@@ -4453,7 +4353,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§4.4, Theorem 36, p. 29 (arXiv v3)",
-     "excerpt": "Assume that G = Gal(F∞/F) is p-Q_p-elementary group.",
      "match": "Theorem 36 with Remark 34 and Proposition 35 (pp. 27–30)."
     }
    ],
@@ -4498,7 +4397,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.1.2, p. 31, with Lemmas 37, 43, 45, 46 and Remark 38, pp. 31–33 (arXiv v3)",
-     "excerpt": "The Iwasawa algebra Λ_O(G) is a twisted group ring Λ_O(G) = Λ_O(Z)[G]^τ",
      "match": "§§5.1.1–5.1.4: the twisted group ring, the Ore set T (Lemma 37, Remark 38), Lemma 43 and Lemmas 45–46. The text layer drops the bar on G = G/Z."
     }
    ],
@@ -4608,7 +4506,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.2.2, Definition 51, p. 35 (arXiv v3)",
-     "excerpt": "M1. For any P ≤ P′ ≤ G such that [P′,P′] ≤ P, we have nr^{P′}_P(x_{P′}) = π^{P′}_P(x_P).",
      "match": "Definition 51 (M1–M4) with §5.2.1 (θ^G) and Notations 40, Definitions 47–49 and Lemma 50 (pp. 32–35). Theorem 94 restates M4 as quotients ≡ 1; the page image shows fraction bars that the text layer drops, and the two forms agree."
     }
    ],
@@ -4716,7 +4613,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.3, Definitions 55–57, p. 37 (arXiv v3)",
-     "excerpt": "Let ψ^G_R ⊂ ∏_{P≤G} R[P^ab]^τ be the subgroup consisting of all tuples (a_P) such that",
      "match": "Definitions 55–57 with the map t^G_P (p. 36), Definition 61 and Lemmas 60, 62 (pp. 38–40). \"Cong(G)\" on pp. 36, 38, 41, 47–51 is a misprint for Conj(G)."
     }
    ],
@@ -4830,7 +4726,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.3.1, Theorem 58, p. 38 (arXiv v3)",
-     "excerpt": "The homomorphism β^G_R induces an isomorphism between R[Conj(G)]^τ and ψ^G_R.",
      "match": "Theorem 58 with Lemmas 60, 62, 63 and Proposition 64 (pp. 38–42)."
     }
    ],
@@ -4872,7 +4767,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.4, Proposition 67, p. 46 (arXiv v3)",
-     "excerpt": "For any ideal I ⊂ J_R of R[G]^τ, the p-adic logarithm Log(1 + x), for any x ∈ I, induces a unique homomorphism",
      "match": "Proposition 67 with Lemmas 65–66 (pp. 42–47), Remark 68, and the limit of finite-level logarithms (p. 47)."
     }
    ],
@@ -4979,7 +4873,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.5, Definition 70 and Proposition 74, pp. 48–49 (arXiv v3)",
-     "excerpt": "We deﬁne the integral logarithm map L on K′₁(Λ_O(G)) by taking the inverse limit of the sequence (9) over all n’s",
      "match": "Definitions 69–70 with the sequence (9) (p. 48), Lemmas 71–72, Definition 73 and Proposition 74 (pp. 48–50), Remark 75 (p. 51)."
     }
    ],
@@ -5095,13 +4988,11 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.6, Proposition 84, p. 56 (arXiv v3)",
-     "excerpt": "Let x ∈ K′₁(Λ_O(G)). The additive and the multiplicative sides are related by the following formula",
      "match": "Proposition 84 with Lemmas 76, 77, 79, 81, 82, Definitions 78, 80 and Remark 83 (pp. 51–58)."
     },
     {
      "sourceId": "SCHNEIDER-VENJAKOB-2010",
      "locator": "Proposition 2.3, p. 11 (arXiv v1)",
-     "excerpt": "Let H be an arbitrary pro-p-group and N ⊆ H be an open normal subgroup; then the composed map",
      "match": "Proposition 2.3 continues: K₁(Ω(H)) → K₁(Ω(N)) → K₁(Ω(H)), the norm followed by the canonical map, is x ↦ x^{[H:N]}, with Ω = 𝔽_p⟦−⟧. This is the input to Kakde's Lemma 82."
     }
    ],
@@ -5145,7 +5036,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.7, Lemma 85, p. 58 (arXiv v3)",
-     "excerpt": "The image of θ^G is contained in Φ^G.",
      "match": "Lemmas 85–89 (pp. 58–65)."
     }
    ],
@@ -5188,7 +5078,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.2.3, Theorems 52–53, p. 36 (arXiv v3); proofs p. 65",
-     "excerpt": "The map θ^G induces an isomorphism K′₁(Λ_O(G)) → Φ^G.",
      "match": "Theorems 52 and 53 (p. 36) with their proofs (p. 65)."
     }
    ],
@@ -5233,7 +5122,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§5.7, Corollary 90, p. 65 (arXiv v3)",
-     "excerpt": "Then K′₁(Λ_O(G)) injects in K′₁(Λ_O(G)_S).",
      "match": "Corollary 90, stated after the proofs of Theorems 52–53; no proof is printed."
     }
    ],
@@ -5281,7 +5169,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.1, Proposition 93, pp. 66–67 (arXiv v3)",
-     "excerpt": "the main conjecture is true for F∞/F if and only if (ζ_P)_P ∈ Φ^G_S.",
      "match": "Notations 91, Lemma 92 and Proposition 93 with its proof (pp. 66–67), and the statement of Theorem 94 (p. 67)."
     }
    ],
@@ -5323,7 +5210,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.1, Proposition 95, pp. 67–68 (arXiv v3)",
-     "excerpt": "The tuple (ζ_P)_P in the theorem satisﬁes M1. and M2.",
      "match": "Proposition 95 and its proof (pp. 67–68)."
     }
    ],
@@ -5361,7 +5247,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.3, (15)–(16), pp. 69–70, and Lemma 103, p. 73 (arXiv v3)",
-     "excerpt": "Deﬁne the partial zeta function by",
      "match": "The definitions (15) and (16) of §6.3 and Lemma 103 of §6.5."
     }
    ],
@@ -5465,7 +5350,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.4, Definition 100, Lemma 101 and Proposition 102, pp. 70–73 (arXiv v3)",
-     "excerpt": "(Ritter-Weiss) For any j ≥ 0 and any positive integer k divisible by [F∞(µp) : F∞], the natural surjection",
      "match": "Definition 100, Lemma 101 and Proposition 102 with its three-step proof."
     }
    ],
@@ -5503,7 +5387,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.5, Lemma 103, Propositions 104 and 106–108 and Remark 105, pp. 73–77 (arXiv v3)",
-     "excerpt": "To prove the congruence (10) in proposition (96) it is suﬃcient to prove the following",
      "match": "Propositions 104, 106, 107 and 108 with their proofs, and Remark 105."
     }
    ],
@@ -5541,7 +5424,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§§6.6–6.11, Lemmas 109–110, Proposition 111 and Remark 112, pp. 77–81 (arXiv v3)",
-     "excerpt": "This is the q-expansion principle of Deligne-Ribet",
      "match": "The Hilbert-modular toolkit of §§6.6–6.11; Lemmas 109 and 110 are proved in the text, Proposition 111 and the q-expansion principle are cited to Deligne–Ribet."
     }
    ],
@@ -5578,7 +5460,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.12, Lemma 114, pp. 82–83 (arXiv v3)",
-     "excerpt": "Then the image of the transfer homomorphism ver : N^ab → P is a proper subgroup of P.",
      "match": "Lemma 114 and its proof."
     }
    ],
@@ -5619,7 +5500,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.12, Propositions 113 and 115–117, pp. 81–86 (arXiv v3)",
-     "excerpt": "The suﬃcient condition in proposition (104) for proving proposition (96) holds. Hence M3 holds.",
      "match": "Propositions 113, 115, 116 and 117 with their proofs (the proof for (29) is said to be similar)."
     }
    ],
@@ -5656,7 +5536,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.2, Propositions 96–99, p. 69 (arXiv v3)",
-     "excerpt": "In this section we state certain additive congruences which yield to the Deligne-Ribet method",
      "match": "Propositions 96–99 and the remark that (10) is M3."
     }
    ],
@@ -5697,7 +5576,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§§6.13.1–6.13.2, Lemma 118, pp. 86–87 (arXiv v3)",
-     "excerpt": "Choose a prime l large enough such that l ≡ 1 (mod |G|) and Q(µl) ∩ F∞ = Q.",
      "match": "The trick of §6.13, the field F̃_∞ and Lemma 118 with its proof."
     }
    ],
@@ -5740,7 +5618,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.13.3, Lemma 119 and the completion of the proof, pp. 88–90 (arXiv v3)",
-     "excerpt": "Proof of M4. from the basic congruences.",
      "match": "Lemma 119 and the logarithm computation of §6.13.3, including the case P = {1}."
     }
    ],
@@ -5780,7 +5657,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§6.1, Theorem 94, p. 67, with §6.13, pp. 86–90 (arXiv v3)",
-     "excerpt": "The tuple (ζP)P≤G in the set ∏P≤G Λ(∆ × Uab P)×S satisﬁes",
      "match": "Theorem 94 (M1–M4, whose M4 display is a quotient, as the page image shows) and its proof assembled in §§6.2–6.13."
     }
    ],
@@ -5828,7 +5704,6 @@
     {
      "sourceId": "KAKDE-2011",
      "locator": "§1, Theorem 11, p. 11 (arXiv v3); proof completed on p. 90",
-     "excerpt": "Let F∞/F be an admissible p-adic Lie extension satisfying the hypothesis µ = 0. Then there is a unique ζ(F∞/F) in",
      "match": "Theorem 11, whose proof ends on p. 90 (\"This ﬁnishes proof of the main theorem 11\")."
     }
    ],
@@ -5869,7 +5744,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§2.1, properties d)–i) and Remarks 2.1–2.4, pp. 3–5 (arXiv v2)",
-     "excerpt": "We ﬁrst recall that for any (associative unital) ring R there exists a Picard category CR and a determinant functor",
      "match": "The property list d)–i) and Remarks 2.1–2.4."
     }
    ],
@@ -5977,7 +5851,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§2.2, Definition 2.5, Remark 2.6 and the isomorphism ch_{R,Σ_S}, pp. 5–6 (arXiv v2)",
-     "excerpt": "The localized K1-group K1(R, Σ) is deﬁned to be the (multiplicatively written) abelian group",
      "match": "Definition 2.5 (Fukaya–Kato, weakened to (iv′)), Remark 2.6 and the isomorphism ch_{R,Σ_S}."
     }
    ],
@@ -6068,7 +5941,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§§3.1–3.2, Lemma 3.1, pp. 7–9 (arXiv v2)",
-     "excerpt": "We refer to the map Bi := H−i(θ∗) as the Bockstein morphism (in degree i).",
      "match": "§3.1, the definition of θ and B_i; §3.2, the cone, the sequences (3) and Lemma 3.1."
     }
    ],
@@ -6160,7 +6032,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.2, Definition 3.2 and Remark 3.3, p. 9; §3.3, Definitions 3.11–3.12, Lemma 3.13; Lemma 3.9 (arXiv v2)",
-     "excerpt": "We shall say that a complex A· ∈ Cp(Λ(Γ)) is semisimple if the cohomology of the associated complex (4) is Zp-torsion",
      "match": "Definitions 3.2, 3.11, 3.12, Remark 3.3, Lemmas 3.9 and 3.13."
     }
    ],
@@ -6273,7 +6144,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.2, Definition 3.4, Remark 3.5 and Lemma 3.6, pp. 9–10; (7) in §3.3 (arXiv v2)",
-     "excerpt": "If A· ∈ Σss, then we obtain a canonical trivialization of Zp ⊗L Λ(Γ) A· by taking the composite",
      "match": "Definition 3.4 with (5), Remark 3.5, Lemma 3.6, and (7)."
     }
    ],
@@ -6357,7 +6227,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.3, Definition 3.14 and Remark 3.15, pp. 14–15; Definition 3.7, p. 10 (arXiv v2)",
-     "excerpt": "we deﬁne the leading term (A·, a)∗(ρ) of the pair (A·, a) at ρ to be equal to",
      "match": "Definitions 3.7 and 3.14 and Remark 3.15."
     }
    ],
@@ -6463,7 +6332,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.2, Proposition 3.8 and Remark 3.10, pp. 11–12 (arXiv v2)",
-     "excerpt": "(Order of vanishing) For L := [A·, a] one has r(chΓ(L)) = rΓ(A·).",
      "match": "Proposition 3.8 with its proof via Lemma 3.9, and Remark 3.10."
     }
    ],
@@ -6505,7 +6373,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§§3.4.1–3.4.2, Proposition 3.16, pp. 15–16 (arXiv v2)",
-     "excerpt": "Let A· be a complex which belongs to ΣS∗ ∩ Σss−ρ.",
      "match": "The canonical Ore sets, ch_{G,A·}, ρ_* and Proposition 3.16 with its proof."
     }
    ],
@@ -6541,7 +6408,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.4.3, Lemma 3.17 and Remark 3.18, pp. 16–17 (arXiv v2)",
-     "excerpt": "is the leading coeﬃcient at s = 0 of fL(ρχs)",
      "match": "Lemma 3.17 with its proof and Remark 3.18."
     }
    ],
@@ -6579,7 +6445,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§3.5, Proposition 3.19 and Remark 3.20, pp. 17–18 (arXiv v2)",
-     "excerpt": "Let ordL denote the valuation of L which takes the value 1 on any uniformizing parameter",
      "match": "The definitions of χ_add, χ_mult, Proposition 3.19 and Remark 3.20."
     }
    ],
@@ -6620,7 +6485,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§4, (8)–(14) and Conjecture 4.1, pp. 18–21 (arXiv v2)",
-     "excerpt": "There exists a (unique) isomorphism in CΛ",
      "match": "§§4.1–4.3: compactly supported cohomology, the fundamental line, the period-regulators, and Conjecture 4.1 (Fukaya–Kato 2.3.2)."
     }
    ],
@@ -6712,7 +6576,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§5.1, Lemma 5.1 and proof, pp. 22–24 (arXiv v2)",
-     "excerpt": "Leopoldt’s conjecture (for the",
      "match": "Leopoldt's conjecture as injectivity of λ_p, and Lemma 5.1."
     }
    ],
@@ -6750,7 +6613,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§5.2, Conjecture 5.2 and Remark 5.3, pp. 24–25 (arXiv v2)",
-     "excerpt": "This conjecture is the ‘ p-adic Stark conjecture at",
      "match": "Greenberg's L_{p,S}, the maps μ_∞, μ_p and Conjecture 5.2."
     }
    ],
@@ -6843,7 +6705,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§5.2, Remark 5.4, p. 25 (arXiv v2)",
-     "excerpt": "the residue at s = 1 of the p-adic zeta function of the",
      "match": "Remark 5.4 (with Tate's remark p. 138 and Colmez)."
     }
    ],
@@ -6888,7 +6749,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§5.3, Theorem 5.5 and proof, pp. 25–27 (arXiv v2)",
-     "excerpt": "We now reinterpret the equality of Con",
      "match": "Theorem 5.5, Remark 5.6 and the proof."
     }
    ],
@@ -6929,7 +6789,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§5.3, Corollary 5.7 and proof, p. 27 (arXiv v2)",
-     "excerpt": "If Leopoldt’s conjecture is valid for E at p, then for every",
      "match": "Corollary 5.7 and its proof by Artin induction."
     }
    ],
@@ -6965,7 +6824,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§6.1, pp. 28–29, and Conjecture 6.1 (arXiv v2)",
-     "excerpt": "is a local integrality statement",
      "match": "The local ε-isomorphism and Conjecture 6.1 (the Γ^* display is corrected, E13)."
     }
    ],
@@ -7058,7 +6916,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§6.2, conditions (DP), (A1)–(C3), (27)–(29), Lemma 6.2, pp. 29–30 (arXiv v2)",
-     "excerpt": "condition of Dabrowski-Panchiskin",
      "match": "The (DP) condition, the Selmer complexes and Lemma 6.2."
     }
    ],
@@ -7156,7 +7013,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§6.2, (32)–(34), Propositions 6.4 and 6.6, pp. 31–33 (arXiv v2)",
-     "excerpt": "It follows from the construction of Nekov",
      "match": "The Bockstein description of the height, descent, and Proposition 6.6."
     }
    ],
@@ -7198,7 +7054,6 @@
     {
      "sourceId": "BURNS-VENJAKOB-2006",
      "locator": "§6.3, Theorem 6.7, Remark 6.8, proof and Example 6.9, pp. 33–36 (arXiv v2)",
-     "excerpt": "The formulas of Theorem 6.7 generalize the formulas obtained",
      "match": "Theorem 6.7 with its proof and Remark 6.8."
     }
    ],

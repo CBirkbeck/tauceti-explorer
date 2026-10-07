@@ -1,115 +1,107 @@
-# Handoff — BP-LanglandsParameterStacks (issue #767)
+# BP-LanglandsParameterStacks — handoff
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-lps`.
+Issue #767. Worker: Codex, session `codex-eWzdia`. Date: 7 October 2026.
 
-## Deliverables
+## State of the pass
 
-- `research/blueprint/packets/LanglandsParameterStacks.json` — 33 nodes (4 definitions,
-  5 constructions, 17 theorems, 2 lemmas, 5 comparisons), 53 API items, 35 unit tests,
-  25 planets, 30 baseline declarations, 11 gaps, 15 requests, 3 structural findings.
-  `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/LanglandsParameterStacks.md` — 2787 lines.
-- `research/blueprint/suggested/LanglandsParameterStacks.lean` — 240 lines.
-- This note.
+This is a **complete target-level planning pass**, rather than a checkpoint. All eight stages are **planned**; none is **closed**. Their target prerequisite chains end in verified baseline interfaces, local nodes, explicit supplier requests or recorded gaps. All 33 inherited identifiers are retained, with necessary corrections to statements, dependencies and parent stages. No independent-review verdict or implementation claim is made. Every node remains unchecked.
 
-## Checks run
+The packet has 89 nodes: 16 definitions, 10 constructions, 54 theorems, 7 comparisons and 2 lemmas. It contains 132 API items, 89 unit-test specifications, 34 planets, 29 verified baseline declarations, 13 supplier contracts, 4 gaps, 7 ownership proposals and 4 version-scoped source findings. Each definition/construction has at least three tests. The local dependency graph is acyclic; the stage projection is acyclic after excluding same-stage arrows. Every planned API/test name and theorem target has an entry in the suggested-file inventory.
 
-- `check_blueprint.py … --index $TAUCETI_BASELINE/declarations.tsv` → **0 errors, 0 warnings**.
-- `research/blueprint/intake.py check-files` → 0 problems.
-- `python3 -m unittest discover -s tests` → OK.
-- **The Lean file was not compiled.** Every `implementationStatus` is `unchecked`.
+## What changed
 
-## What this job rested on
+LP0 now separates crossed cocycles, condensed coefficients, finite wild pieces and choice comparison, and includes the KSS admissible wild restriction, twisted centralizer, intrinsic centre quotient and restricted enhancement. LP1 owns a single model over ℤ[1/p] with ℤ_ℓ base changes, the correct absolute/relative dimension distinction and DHKM/FS Frobenius conversion. It includes the full tangent/dual cotangent, discrete Weil–Deligne and dual-Lie singularity/support route.
 
-A **reviewed integrated decomposition** already existed
-(`data/decompositions/LanglandsParameterStacks.json`, review
-`independent-review-REVIEW-EXT-05-EXT-02`, accepted 16 September 2026). All sixteen of
-its node ids, statements, hypotheses, proof steps, acceptance items, locators and
-excerpts are kept **unchanged**; excerpts over 400 characters were truncated at a word
-boundary with a pointer back. What this job added to those sixteen: prerequisites
-resolved to the pinned libraries or a named supplier, planets, per-layer coverage, and
-API outlines with unit tests for the definitions and constructions.
+The unconditional quotient and closed-orbit results are owned by excursion-presentation. The three invariant strengths are separate: all-prime universal homeomorphism and semisimple reconstruction; rational ring isomorphism; good-prime integral isomorphism/cohomology/base change. The legacy monodromy identifier is now parented in LP1, and the legacy torsion-free transition/continuity identifier in excursion-presentation, while both IDs are retained. The free derived underlying-algebra colimit is also in excursion-presentation to avoid an aggregate-stage cycle.
 
-A **reviewed library audit** also exists — `AUDIT-21`, reviewed as `REV-AUDIT-21` on
-17 September 2026, 181 targets checked, 67 corrections — returning **not built** for all
-eight layers with several targets *partial*. It was read first, as the job requires, and
-it changed the packet: six declarations it names are cited rather than re-planned, and
-all three structural findings come from its duplicate records.
+LP2 includes Lafforgue's characteristic-zero finite anchor and its coordinate-surjectivity continuity proof; BHKT's minimal-parabolic anchor and discrete-coefficient continuity are separate. Reconstruction is group-agnostic with continuity as a separate clause. The GL trace pseudocharacter has the actual rank-plus-one alternating cycle identity, not a representation disguised as its definition. LP3 now covers the entire VIII.5 fixed-group, cyclic resolution, solvable Donkin/induction/restriction, fundamental-group and gerbe/wild proof chain. LP4 separates actual good-prime generation/module comparison from rational X.1 and integral approximation X.3 categorical universal properties.
 
-## What this session read, and what that bought
+The reader is rebuilt around these declarations, with statements, hypotheses, direct inputs, source locators, proof routes, API, consumers and tests. It corrects the inherited claims that all prerequisites had been read, that the singularity fibre equals the nilpotent cone, and that the reindexing square is cartesian.
 
-Five bodies of material the decomposition had **located but not read** were read in full
-here, and they are the seventeen new nodes.
+## Confirmed findings and ownership
 
-| Read | Gave |
-| --- | --- |
-| **FS VIII.2 in full** (pp. 281–285) | the cotangent complex as `RΓ(W_E,(ĝ)_φ)[1]` with Poincaré duality; `Sing_{X/S}` and the singular-support criterion for perfectness; the computation of `Sing` for the parameter stack; the banal case and the nilpotent cone; and FS's own statement that in the non-banal case they are **not sure** the resulting notion is correct |
-| **the proof of VIII.3.8** (p. 290) | the reconstruction of a semisimple cocycle of *discrete* groups, isolating **continuity** as the single imported step |
-| **the proof of VIII.4.1** (pp. 291–292) | the invariant function `f(V,α,β)`, the *cartesian* reindexing square, the fusion argument for multiplicativity, and unit insertion |
-| **FS VIII.5 in full** (pp. 293–301) | separatedness of the good-filtration t-structure; the good filtration of `O(Z¹(F_n,G))`; and Propositions VIII.5.10–VIII.5.13 — **the proof of Theorem VIII.5.2**, which the decomposition recorded as the unread heart of the integral theorem — including the equivalence whose *backwards* direction shows the hypothesis on `π₁(Ĝ)_tors` is **necessary** |
-| **FS Chapter X in full** (pp. 339–350) | the compact-support definition, and the **answer** to the decomposition's open question |
+- Findings 4/16/24/19: independent reductive-group foundations are requests, not LP3 definitions. General highest-weight/Donkin/tensor/coordinate-ring input serves LP3 and PA.1. Fixed-group reductivity and unipotent-class finiteness precede LP1 and avoid a cycle. Proposed RG2.6 registration is G1.
+- Findings 5/6: LP2 owns abstract VIII.3–VIII.4, and LP4 owns VIII.5.1 and the generic X.1/X.3/X.0.2 category theorems. The issue's more specific LP/BunG/VStack ownership instruction takes precedence over its earlier alternative assigning generic X theorems to ES. ES supplies the Bun_G/HS1/HS4 instance, W→W_E/P, compact support and ES1 comparison.
+- Finding 23: coarse invariants, affine quotient and closed orbits belong before integral-invariants; the latter keeps only the stronger good-prime coordinate theorem.
+- Finding 25: GS.5 imports LP's arbitrary-group excursion relations and semisimple reconstruction, retaining shtuka-specific operators and its continuity application.
+- Finding 26: SR.6 imports LP1's single integral cocycle model, keeping DHKM finiteness and Hecke consequences. Canonical framed choice independence over ℤ[1/p] is not claimed.
+- Finding 27: SF.1 supplies ordinary descent/quotients, S.1/E1 perfectness, and E5 their derived extension. LP1 owns parameter instances, not general derived stack foundations.
 
-## The decomposition's question, answered
+These are proposals/contracts in the four deliverables. Other packets, campaign documents, graph data and reserved IDs have not been edited.
 
-> *"check specifically whether the integral spectral action there imposes the additional
-> restriction that ℓ does not divide |π₁(Ĝ)_tors| (the roadmap says this restriction
-> belongs to its consumer and is never removed by the existence of these categories)"*
+## Lean and validation
 
-**It does.** Theorem X.0.1 opens `Assume that ℓ does not divide the order of π₁(Ĝ)_tors`;
-only the variant over a *field* over `Q_ℓ(√q)` is stated for any prime `ℓ`. And the
-direction of the dependence is settled by the last line of §X.3: *"Combining this with
-Theorem VIII.5.1, we have finished the proof of Theorem X.0.2"* — Theorem VIII.5.1 being
-this roadmap's own. So Chapter X **consumes** Chapter VIII; the consumer cannot remove
-the restriction, but neither does it introduce it.
+`lean-check research/blueprint/suggested/LanglandsParameterStacks.lean` runs in the existing build at pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The final file elaborates with **only proof-placeholder warnings**. Each compile was preceded by a memory check with over 100 GB available; only one compile was run at a time, using the supplied wrapper. No language server, library build, dependency update or cache download was run.
 
-One further point the decomposition could not know: **integrally the naive universal
-property is false**. The analogue of Lemma X.1.2 fails, and Proposition X.3.1 is stated
-for the sifted-colimit approximation `Perf(Map)^♮`.
+The typed subset is deliberately explicit: crossed cocycles and sections; continuous-group parameter and finite-wild shadows; extendible wild homomorphism and twisted subgroup/splitting; centre quotient; invariant Subalgebra/universal lift; predicates for supplied parabolic/Levi families; free-group indexing category and supplied ring-diagram colimit; excursion linear-algebra datum/matrix coefficients; supplied invariant-diagram pseudocharacter relations; the full algebraic trace identity; split GL_n Weil–Deligne data and matrix nullcone shadows. There are 53 packet API names with named prototypes and 30 packet test names with typed examples, some testing only their identified shadow; there are 35 typed examples including auxiliary checks. **The remaining full signatures and examples are not claimed elaborated.** The inventory gives every missing name, requested mathematical statement and precise carrier/supplier reason. Theorems with absent enhanced carriers are mathematical targets in that inventory, not fabricated theorem declarations.
 
-## Three structural findings, all from AUDIT-21's duplicate records
+The baseline includes Mathlib's actual Čech OneCocycle and avoids duplicating it as a new definition. Continuous crossed group cocycles remain a different interface, with their descent bridge supplied by SF.1. The read Tau Ceti fixed-subgroup source is the abstract equaliser only. Its object file is absent from the existing shared build, so its two point-compatibility checks are recorded and its import is commented; the library was not rebuilt. Tau Ceti source statements were checked at `f790474821cf4256814db967cb154e7af3d0c369`.
 
-1. **`SmoothRepresentationsOfLocalGroups:SR.6` builds a second integral model of the same
-   cocycle schemes** — over `Z[1/p]` rather than `Z_ℓ` — and the audit records it as a
-   duplicate of `LP0`, `LP1` *and* `LP2:integral-invariants`. The difference of base may
-   justify both, but it should be one recorded decision, not two layers independently
-   building cocycle schemes.
-2. **Three other layers own pieces of this roadmap's foundations**: the upstream
-   `ClassFieldTheory` layer 9 owns the local Weil group (and the audit says so in as many
-   words); `AnabelianGeometryAndNonabelianChabauty:NC.3` owns nonabelian `H¹` with
-   unipotent coefficients, which is the same foundation this roadmap needs and which
-   neither library has; `PotentialAutomorphyInfrastructure:PA.1` owns integral Weyl and
-   dual-Weyl modules, which is `LP3`'s first target.
-3. **Chapter X depends on this roadmap and the link graph should say so** — with the
-   consequence that `ES2`, `ES3` and `ES4` *inherit* their `π₁(Ĝ)_tors` hypothesis from
-   here. Also: `LP4`'s text names `VS2`'s coefficient interpretation as an input, and
-   nothing in Chapters VIII or X states any compatibility with it.
+Validation: the blueprint checker reports zero errors and warnings; JSON parsing, inherited-ID preservation, definition/API/test inventory coverage, source-excerpt inclusion, planet limits, unchecked implementation status, direct local and stage dependency acyclicity, allowed paths and whitespace are checked. The errata fields are checked through a scratch `errata-v1` wrapper containing these same findings and source versions. No Lean compilation verifies the mathematical proofs.
 
-## What remains
+## Where a follow-up resumes
 
-Eleven gaps. The three that block most:
+- `LanglandsParameterStacks:LP0` — **planned**: Register the RG2.6 structural/complex enhancement requests; finish the Weil/wild/condensed coefficient supplier interfaces and the corresponding omitted signatures.
+- `LanglandsParameterStacks:LP1` — **planned**: Supply RG2.6 fixed-group reductivity and unipotent-class finiteness before the dimension bound; discharge SF.1/S.1/E5/DD.0/R03.3/DGA8 general interfaces. Fill the omitted derived/singularity signatures.
+- `LanglandsParameterStacks:LP2` — **planned**: Discharge the open supplier and finite-Q reconstruction inputs of the three substages; no new aggregate construction is needed.
+- `LanglandsParameterStacks:LP2:excursion-presentation` — **planned**: Provide geometric-reductivity/power-lifting and quotient interfaces; elaborate their algebraic regular-function and categorical signatures. Full Exc choice independence without torsion removal remains source-open G2.
+- `LanglandsParameterStacks:LP2:integral-invariants` — **planned**: Supply the highest-weight/derived coefficient-change interfaces and verify the all-coefficient good-prime base-change reduction; elaborate the IndPerf theorem signatures.
+- `LanglandsParameterStacks:LP2:semisimple-characters` — **planned**: Verify the finite-Q arbitrary-characteristic anchor extension G4 and supply the algebraic invariant-ring/continuous coordinate interface; elaborate the full regular-function signatures.
+- `LanglandsParameterStacks:LP3` — **planned**: Register RG2.6 and supply its highest-weight/centralizer/root-case inputs, SF.4 normalisation/completion and the E5/S.1 enhanced bar/mapping categories; then elaborate the missing categorical signatures.
+- `LanglandsParameterStacks:LP4` — **planned**: Supply the E5/S.1 linear tensor/module/compact/left-Kan foundations and RG integral highest-weight tensor compatibility; elaborate the generic action signatures. ES2/ES3 perform the Bun_G and W→W_E/P applications.
 
-1. **V. Lafforgue §11 is unread**, and after this session's reading it is the *only*
-   substantive unread input of `LP2:semisimple-characters`: three of the four steps of
-   VIII.3.8's proof are now planned, and the fourth — continuity — is quoted from
-   Proposition 11.7 and Lemma 11.10.
-2. **All six modular-representation inputs of `LP3` are unread and none is in the
-   library**: Donkin, Donkin–Mathieu, Kempf, Koppinen–Donkin, Touzé–van der Kallen,
-   Prasad–Yu. What changed is that FS's *use* of each is now planned, so it is exactly
-   visible which statement each is needed for. Obtain Jantzen, *Representations of
-   Algebraic Groups*, 2nd ed., Part II Ch. 4, and Prasad–Yu.
-3. **Zhu is in the library and entirely unread**, and FS VIII.2.5 uses `[Zhu20, 3.1.8]`.
-   That is why VIII.2.4 and VIII.2.5 — the Weil–Deligne moduli — are **not planned** here;
-   the packet plans the monodromy morphism and the boundary it marks, and says so.
+### LanglandsParameterStacks:G1 — Registration and verification of the RG2.6 extension
 
-Also open and recorded: Haboush's theorem; the relation FS leave as an exercise in the
-proof of VIII.3.7; the derived mapping stack the `LP1` text asks for, which is not in FS;
-and change-of-discretisation independence, where the source states its **own** open
-question — it does not know whether passing to the `ℓ`-torsion-free quotient is necessary.
+RG2.6 is named in the confirmed fix but is not a current or reserved atlas stage. The packet routes its exact eight input groups to the existing RG2.5 owner, explicitly as extensions, and proposes registration; this does not establish the inputs from RG2.5’s current statement. Prasad–Yu, Lusztig/FG, BMRT, TvdK, Procesi and the general highest-weight theorems cited by the six papers were not independently read. Their supplier must supply verified nodes before these chains close.
 
-## Where to resume
+### LanglandsParameterStacks:G2 — Independence of the full integral excursion algebra
 
-The highest-value single action is **reading V. Lafforgue §11**: it closes the last input
-of `LP2:semisimple-characters` here *and* the corresponding gaps in the
-`ExcursionOperatorsAndSpectralAction` packets `ES0` and `ES5`, which cite the same two
-results. After that, Jantzen Part II Ch. 4 for `LP3`, and Zhu §§2–3 for `LP1` and the
-Weil–Deligne boundary.
+FS after VIII.3.7 proves independence for the l-torsion-free quotient and says it does not know whether removal of torsion is necessary. The full Exc(W,H) at arbitrary bad primes is not claimed choice independent. This is an open source question, not an unread extension theorem.
+
+### LanglandsParameterStacks:G3 — Unrepresented future carriers in suggested signatures
+
+The pinned libraries have no full animated parameter/quotient stack, stable infinity-category Perf/IndPerf, full cotangent or coherent singular-support carrier. The suggested file gives exact algebraic/ordinary prototypes where possible, and explicitly lists unavailable definition/API/test signatures rather than disguising them as true propositions. The supplier requests must settle these carriers and infinity coherence before those signatures can be elaborated in full. The condensed relatively discrete coefficient tensor, algebraic group functor of points/regularity, geometric parabolic families, and admissible complex enhancement carriers are also explicit omissions: the compiled group and GL_n shadows do not assert their full signatures. The shared build lacks the TauCeti.GroupTheory.FixedSubgroup object file; its baseline point checks are recorded without rebuilding the library.
+
+### LanglandsParameterStacks:G4 — Finite-Q positive-characteristic reconstruction extension
+
+BHKT4.5 proves the connected split reductive case; Lafforgue11.7 uses characteristic zero. FS VIII.3.8 asserts the finite-Q all-characteristic reconstruction. This packet spells out its anchor route, but the nonconnected relative-H minimal-parabolic/finite-anchor extension is requested from RG and needs a full independent check. It is not supplied by quoting the characteristic-zero continuity proof.
+
+The next independent review should concentrate on the G4 finite-Q extension and its hypotheses, the good-prime coefficient-change lifting and the precise generic versus application ownership, and independently verify each of the four source findings. A closure follow-up should first register and provide the RG extension inputs and the E5/SF.1/S.1/DD.0/R03.3 carriers, then replace the omission inventory by full enhanced signatures. The full bad-prime excursion choice-independence problem G2 remains open in FS; it cannot be discharged by deleting the torsion-free qualifier.
+
+## Supplier requests
+
+The packet's requests are mathematical contracts; no messages or separate issues were sent to suppliers. Each packet entry lists all consuming node IDs.
+
+- `ArithmeticGaloisRepresentations:R01.2`: Grothendieck quasi-unipotence for continuous l-adic linear representations of W_E, l≠p, with its finite tame logarithm/exponential consequence after a faithful dual-group embedding. LP1 owns the Weil–Deligne parameter comparison instance.
+- `DeformationAndDerivedPatchingAlgebra:R03.3`: Extend complete-intersection algebra to syntomic maps over regular noetherian bases: regular-sequence/dimension/flatness criterion; Sing=Spec Sym H¹(L^∨), representing H⁻¹(L⊗T); Gulliksen finite generation of graded Ext as a coherent Sing-module; Jørgensen/Arinkin–Gaitsgory perfect iff zero-section support and the maximal perfectness locus; smooth pullback compatibility. The parameter instances stay in LP1. The general singular-support extension is a Part II/rescope request, not assumed current R03.3 content.
+- `DerivedDeRhamCohomology:DD.0`: Full animated cotangent complex, mapping-stack tangent formula, dualisation and shift conventions, regular-quotient amplitude and base-change/smooth descent; naive H1Cotangent is insufficient.
+- `EnhancedDerivedSheaves:E5:abstract`: Small stable infinity-categories with exact monoidal functors, endofunctors, equivariant objects, idempotent completion and coherent finite-set data. Ordinary baseline monoidal functors, equivalences and Karoubi supply only their ordinary shadows.
+- `EnhancedDerivedSheaves:E5:animation`: Animated rings, derived affine mapping/zero loci, derived fpqc quotient stacks, QCoh and Perf with pullback/descent on [X/G], reusing SF.1 and S.1/E1; full mapping-stack/classical-truncation comparison and animated free-group resolutions. This is the general derived extension requested by finding27, not new general machinery inside LP1.
+- `EnhancedDerivedSheaves:E5:presentability`: Ind-completion/compact objects; linear monoidal categories and tensor/module categories; Barr–Beck–Lurie and base change of module categories; sifted left Kan extension on anima, exact Ind–Pro constructions/formal power series and compact bar-resolution arguments. Supply continuous/condensed derived invariants and coefficient base-change so the Weil two-term resolution and good-filtration reduction have actual complexes.
+- `ReductiveGroupsPartII:RG2.5`: Existing RG2.5 supplies the integral pinned dual and finite action, semidirect L-group, parabolics/Levis and change of pinning. EXTENSION ROUTE, NOT EXISTING RG2.5 CONTENT: register the proposed RG2.6 independent of LP1 for (1) smooth fixed loci with reductive identity for prime-to-characteristic finite automorphism groups (Prasad–Yu PY02 Thm2.1, and related PY06 Cor5.2 in the confirmed routing); (2) finite unipotent classes in a smooth group with reductive identity (Lusztig/FG12 Cor2.6); (3) ∇λ, Δλ over Z and fields, Kempf vanishing, Donkin criterion, Donkin–Mathieu tensor stability and Koppinen/Donkin O(G) good G×G filtration, finite coherent good-filtration dimension (TvdK); (4) geometric reductivity, finite invariant generation, power lifting after arbitrary base change, unique closed orbit/separation, Hilbert–Mumford–Kempf, Richardson/BMR tuple/minimal-parabolic/finite-anchor criteria in connected and relative-H finite-Q nonconnected forms; (5) BMRT centralizer separability and the very-good root tables; (6) central isogenies, Borel/Bruhat Cartier flags and fixed-root case calculations used by VIII.5.15/5.19; (7) integral highest-weight character lattices for group Chevalley restriction and Procesi trace-word invariant generation in characteristic zero; (8) admissible enhanced complex classical-group L-parameters and their component-group representations for KSS1.20–1.21. No statement here certifies these extensions as already supplied; gap G1 and the rescope proposal record registration and proof obligations.
+- `SchemeAndStackFoundations:SF.1`: Effective fpqc/fppf descent, algebraic quotient-stack interface and smooth charts, coaction-to-affine-functor equaliser construction. Reuse Mathlib nonabelian Čech cocycles for the descent bridge; they are not continuous group crossed cocycles. LP1 only instantiates these constructions for parameters.
+- `SchemeAndStackFoundations:SF.4`: Excellent normalisations and intermediate integral-closure étaleness criterion of BHKT3.12: A excellent normal domain, finite Galois L/K, subgroup H, B integral closure in L^H and C in L; Spec B→Spec A is étale at b below geometric c iff Stab_G(c)⊂H. Also Zariski main theorem, formal completion/deformation functors, smooth transversal lifting and exact equivariant formal-unit rth roots for r invertible. These are extensions in SF.4’s direction; LP3 owns the quotient-slice applications.
+- `SchemeKTheoryOperations:S.1`: Locally bounded finite-free/perfect complexes, pullback stability, tensor/dual and cone/retract closure on schemes; provide the existing E1-enhanced descent interface to E5 quotient-stack Perf. LP1/LP4 do not own general perfectness.
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`: The topological local Weil group W_E, degree map, open profinite inertia and finite quotient actions; tame Frobenius normalisation and dense discrete models. Supply the exact topology and compact-inertia coordinate interface used to construct the two-stage continuous cochain model. LP1 owns the resulting Weil cohomology/duality theorem, not a new Weil-group carrier. Baseline AbsoluteGaloisGroup and valuation inertia do not supply this.
+- `tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`: Hochschild cochains HH(B/A)=RHom_{B⊗^L_A B}(B,B), graded composition, action on Ext(N,N) and the natural map H¹(L^∨)→HH² supplied by forgetting commutativity of square-zero extensions. It is not an identification of all HH²; a smooth two-variable polynomial ring is a counterexample (E4). Request the relative coefficient and full-cotangent bridge as an extension if the upstream Layer8 only supplies the absolute DG version; do not duplicate Hochschild cochains.
+- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`: Wild inertia P_E as pro-p normal subgroup, cofinal open W_E-normal kernels, tame I_E/P_E and Frobenius action τ↦τ^q, with geometric/arithmetic Frobenius conversion. Existing abstract inertia is not the wild filtration.
+
+## Sources read and missing
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Author-hosted 356-page PDF; printed and PDF pages agree. Same SHA-256 as the inherited packet; this pass extends the VIII.5 reading beyond p.301., read 2026-10-07. Scope: VIII introduction, VIII.1–VIII.4, pp.277–293, statements and proofs; VIII.5, pp.293–315, including fixed groups, Donkin theorem, the cyclic fixed-locus resolution, fundamental groups, gerbes and wild elimination; statements and proofs; X introduction and X.1, pp.339–343; X.3, pp.348–350, abstract rational and integral universal properties and proofs. X.2 elliptic applications are outside this packet.. SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+- [Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale](https://arxiv.org/pdf/1209.5352), Public French arXiv PDF; source numbering is that used in FS. Global shtuka constructions are imported by GS.5, not read or planned here., read 2026-10-07. Scope: §10, Lemma10.1 and Proposition10.8, pp.133–139, abstract relations; §11, definitions and Proposition11.7 with Lemmas11.9–11.10 and proof, pp.140–147; Remark11.8 trace comparison.. SHA-256 `b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295`.
+- [G-hat-local systems on smooth projective curves are potentially automorphic](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf), Published Acta Mathematica 223 (2019) PDF. General potential-automorphy arguments are outside this packet., read 2026-10-07. Scope: §3.1–§3.2, pp.10–19, all statements and proofs; §4.1–§4.7, pp.19–24, pseudocharacters, reconstruction and all three continuity clauses; Proposition8.3 and proof, p.53.. SHA-256 `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`.
+- [Coherent sheaves on the stack of Langlands parameters](https://arxiv.org/pdf/2008.02998), Public revised arXiv PDF (2025 revision). Lemma3.10 is the Weil–Deligne comparison cited as Lemma3.1.8 by FS; these are different numbering versions, not different assertions., read 2026-10-07. Scope: §3.1, pp.31–36: discrete groups, strong continuity, Theorem3.7, Lemmas3.9–3.12 and proofs.. SHA-256 `40b5f906d3238b80cde88e51f917e2c7a0f104a1d98bfb7366ac8dc4c35b79b2`.
+- [Moduli of Langlands parameters](https://arxiv.org/pdf/2009.06708), Public arXiv PDF; arithmetic Frobenius is inverse to the geometric Frobenius of FS., read 2026-10-07. Scope: Introduction, Definition1.1 and main theorems, pp.4–7; §4.1, Theorem4.1 and Corollary4.2 with their proofs, pp.29–31.. SHA-256 `70b647bb5fbf924f20784a5084f7f38c9a2faf88e04690f38d76fc0be2a3213c`.
+- [Endo-parameters for p-adic classical groups](https://arxiv.org/pdf/1611.02667), Public arXiv PDF. The wild local Langlands correspondence asserted there is a conjectural boundary, not a theorem here., read 2026-10-07. Scope: §1.20–§1.21, pp.8–9: enhanced Langlands and extended wild inertial parameters, centralisers, equation(1.1) and restriction.. SHA-256 `1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092`.
+
+No primary source required for the target pass was inaccessible. Read scope is restricted to the listed sections. The secondary general results cited there (Prasad–Yu, Lusztig/Friedlander–Guralnick, BMRT, Touzé–van der Kallen, Procesi and general highest-weight theory) were not independently read in this run; G1 and the corresponding supplier contracts explicitly preserve that verification obligation. The KSS endo-parameter correspondence is not asserted here.
+
+## Source findings awaiting independent review
+
+- `LanglandsParameterStacks/E1` (misprint, Lemma11.10, p.145, public French arXiv PDF read 2026-10-07): The appended element belongs to H (the reductive group of Proposition11.7), with the specified component, not the global automorphic group G. Check: Lemma11.10 is inside the proof for an arbitrary H, and its tuple orbit lies in H^{n+1}; G is not this coefficient group. Effect: nothing. Searches for an existing correction are recorded in the packet.
+- `LanglandsParameterStacks/E2` (error, Published Acta223 (2019) §3.1, p.14, paragraph after the very-good table): For a general reductive group retain the central torus Lie algebra; do not assert semisimplicity of all g. The subsequent smooth-centralizer statements retain their own hypotheses. Check: Take G=G_m in characteristic3. There are no simple-factor exclusions, but Lie(G_m) is one-dimensional abelian, so not a nonzero semisimple Lie algebra. Effect: a stated result. Searches for an existing correction are recorded in the packet.
+- `LanglandsParameterStacks/E3` (misprint, Proof VIII.4.1, p.292, author-hosted 356-page PDF): The natural reindexing square of invariant functions and maps to End(id_C) is commutative; the required proof uses commutativity, not a pullback property. Check: Take C the zero stable category, Q=1, H=G_m, Γ=1, and fold a two-element I onto one-element J. The right rings are zero, while the left rings are Z_l[t,t⁻¹] and Z_l. A pullback square would force these two left rings to be isomorphic, which they are not. Effect: nothing. Searches for an existing correction are recorded in the packet.
+- `LanglandsParameterStacks/E4` (error, VIII.2.2.1, p.282, author-hosted 356-page PDF; repeated p.283): Use the natural map Ext¹_B(L_{B/A},B)→HH²(B/A) from commutative to associative square-zero extensions, then the Hochschild action. It is not an equality with all associative Hochschild cohomology, defined in the preceding paragraph as bimodule Ext. Check: Take A=Q and B=Q[x,y]. The cotangent complex is the free module B dx⊕B dy in degree zero, so Ext¹_B(L,B)=0. Resolve the diagonal B over B⊗_Q B by the two-variable Koszul complex on x⊗1−1⊗x and y⊗1−1⊗y. After Hom(−,B) its differentials vanish, giving HH²(B/Q)≅B, which is nonzero. B is flat and syntomic, so the displayed hypotheses do not repair the equality. Effect: a stated result. Searches for an existing correction are recorded in the packet.
+
+There is no retained scratch dependency. All mathematical information needed to resume is in the packet, reader, suggested inventory and this handoff. The six PDFs are recoverable from the public URLs and hashes; scratch notes and compile logs are removed after submission.

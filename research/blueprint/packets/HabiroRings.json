@@ -664,37 +664,31 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, 2.31 The trivial map (PDF p.26)",
-     "excerpt": "The cofree $\\Lambda$-ring under $A$ is the big Witt ring $\\IW(A)$, hence we get a section $s\\colon A\\rightarrow \\IW(A)$ of $\\gh_1$.",
      "match": "TeX source, literal. The source's Λ-rings are coalgebras for the big Witt vectors; this roadmap uses the equivalent torsion-free Adams-operation form (comparison: gap)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, 2.31 The trivial map (PDF p.26), displayed formula",
-     "excerpt": "\\psi^m(x)\\coloneqq \\sum_{d\\mid m}d\\delta_d(x)^{m/d}=\\gh_m\\bigl(s(x)\\bigr)",
      "match": "TeX source, literal. For m = p this reads ψ^p(x) = x^p + p·δ_p(x), which is the Frobenius congruence ψ^p(x) ≡ x^p mod p."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, 2.31 The trivial map (PDF p.26)",
-     "excerpt": "is the \\emph{$m$\\textsuperscript{th} Adams operation} $\\psi^m\\colon A\\rightarrow A$ of the $\\Lambda$-ring $A$. Clearly $\\psi^m$ is a ring morphism.",
      "match": "TeX source, literal: the Adams operations are ring endomorphisms."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, proof of Proposition 2.36 (PDF p.28)",
-     "excerpt": "For all primes $p$, $A_{(p)}$ is a $\\delta$-ring with injective Frobenius $\\psi^p\\colon A_{(p)}\\rightarrow A_{(p)}$",
      "match": "TeX source, literal: the Λ-structure gives a δ-ring at each prime with Frobenius ψ^p, the PR.0 interface."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "1.22(e) Perfectly covered Λ-rings, in 1.22 Notation and conventions, §1.4 (PDF p.12)",
-     "excerpt": "and for any polynomial ring $\\IZ\\left[x_i\\ \\middle|\\ i\\in I\\right]$ equipped with the \\emph{toric $\\Lambda$-structure} in which $\\lambda^n(x_i)=0$ for all $n>1$.",
      "match": "TeX source, literal. The toric structure; in Adams-operation form ψ^m(x_i) = x_i^m (as q-Witt, proof of Lemma 2.46, PDF p.32, uses it)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, proof of Lemma 2.46 (PDF p.32)",
-     "excerpt": "To prove the polynomial ring case, equip $A[\\{T_i\\}_{i\\in I}]$ with a $\\Lambda$-$A$-algebra structure via $\\psi^p(T_i)\\coloneqq T_i^p$.",
      "match": "TeX source, literal: the toric structure in Adams-operation form."
     }
    ],
@@ -826,31 +820,26 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "1.22(e) Perfectly covered Λ-rings, §1.4 (PDF p.12)",
-     "excerpt": "We call a $\\Lambda$-ring \\emph{perfectly} covered if there exists a faithfully flat $\\Lambda$-morphism $A\\rightarrow A_\\infty$ into a perfect $\\Lambda$-ring. Equivalently, the Adams operations $\\psi^m\\colon A\\rightarrow A$ are all faithfully flat (see e.g.\\ \\cite[Remark~\\chref{2.47}]{qWitt}).",
      "match": "TeX source (the live 1.22(e), not the commented-out §1.1 draft the packet quoted), literal: descriptions (i) and (ii)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "1.22(e), §1.4 (PDF p.12)",
-     "excerpt": "This condition is satisfied in many examples of interest; for example, it holds for $\\IZ$, for any free $\\Lambda$-ring $\\IZ\\left\\{x_i\\ \\middle|\\ i\\in I\\right\\}$,",
      "match": "TeX source, literal: 'many', not 'all', examples; the free-Λ-ring claim has no proof in the source (gap)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, Remark 2.47 (PDF p.32)",
-     "excerpt": "$\\Lambda$-rings with the property that $A\\rightarrow A_\\infty$ is faithfully flat will be called \\emph{perfectly covered}.",
      "match": "TeX source, literal: description (iii), with A_∞ the colimit perfection."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, footnote (2.3) to Remark 2.47 (PDF p.32)",
-     "excerpt": "In fact, if \\emph{any} faithfully flat morphism of $\\Lambda$-rings $A\\rightarrow A_\\infty$ into a perfect $\\Lambda$-ring exists, then the Adams operations $\\psi^m\\colon A\\rightarrow A$ are faithfully flat (and so the map from $A$ into its colimit perfection is faithfully flat as well).",
      "match": "TeX source, literal: the proof of (i) ⇒ (ii) ⇒ (iii)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 Relative Habiro rings, §2.2 (PDF pp.15–16)",
-     "excerpt": "We also remark that $A$ being perfectly covered implies that $A$ is $p$-torsion free (because this is true for the perfect $\\Lambda$-ring $A_\\infty$), and so all $p$-completions above are static.",
      "match": "TeX source, literal: the torsion and staticity consequence."
     }
    ],
@@ -997,25 +986,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 Relative Habiro rings, §2.2 (PDF p.15)",
-     "excerpt": "Let $R$ be an étale $A$-algebra. For all primes $p$, the $p$\\textsuperscript{th} Adams operation $\\psi^p\\colon A\\rightarrow A$ can be uniquely extended to a Frobenius lift $\\phi_p\\colon \\widehat{R}_p\\rightarrow \\widehat{R}_p$.",
      "match": "TeX source, literal: existence and uniqueness of φ_p."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, displayed map (PDF p.15)",
-     "excerpt": "\\phi_{p/A}\\colon \\bigl(\\widehat{R}_p\\otimes_{A,\\psi^p}A\\bigr)_p^\\complete\\overset{\\simeq}{\\longrightarrow}\\widehat{R}_p",
      "match": "TeX source, literal: the linearised Frobenius with the completed tensor product."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 (PDF p.15)",
-     "excerpt": "the linearised Frobenius. It is an equivalence as indicated. Indeed, this can be checked modulo $p$, where it becomes classical; see \\cite[\\stackstag{0EBS}]{Stacks}.",
      "match": "TeX source, literal: the proof strategy, completed by relative-frobenius-of-an-etale-algebra."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8 (PDF p.16)",
-     "excerpt": "Thus, there's no reason to expect that $\\Hh_{R/A,  m}\\simeq R[q]_{(q^m-1)}^\\complete$, unless $R$ itself (rather than only its $p$-completions) admits Frobenius lifts for all prime factors $p\\mid m$.",
      "match": "TeX source, literal: the Frobenius lifts live on the p-completions; R itself need not have them."
     }
    ],
@@ -1123,13 +1108,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "§2, opening paragraph (PDF p.13)",
-     "excerpt": "Fix a perfectly covered $\\Lambda$-ring $A$. The goal of this section is to construct a \\emph{relative Habiro ring} $\\Hh_{R/A}$ for any étale algebra $R$ over $A$, and to relate this construction to the theory of $q$-Witt vectors.",
      "match": "TeX source, literal: the objects of the roadmap are pairs (A, R) with R étale over a perfectly covered A. The category of pairs itself is the stage text's requirement ('Morphisms of pairs (A,R) include their Λ-compatibility'); the source does not define it."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem A.1, final paragraph (PDF p.69)",
-     "excerpt": "Moreover, if $A\\rightarrow A'$ is a map of $\\Lambda$-rings such that $A'$ is also $p$-torsion free for all primes~$p$, there's a canonical base change equivalence",
      "match": "TeX source, literal: the source's functoriality in the base is along maps of Λ-rings."
     }
    ],
@@ -1217,7 +1200,6 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt, Remark 2.47 (PDF p.32)",
-     "excerpt": "In general, if $A$ is a $\\Lambda$-ring for which the map $A\\rightarrow A_\\infty$ into its colimit perfection is faithfully flat",
      "match": "TeX source, literal: the colimit perfection is the object of the third description of perfect covering; the source uses it without spelling out the construction."
     }
    ],
@@ -1260,7 +1242,6 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 Relative Habiro rings, §2.2 (PDF p.15)",
-     "excerpt": "the linearised Frobenius. It is an equivalence as indicated. Indeed, this can be checked modulo $p$, where it becomes classical; see \\cite[\\stackstag{0EBS}]{Stacks}.",
      "match": "TeX source, literal: modulo p the linearised Frobenius is this relative Frobenius; the source only cites Stacks 0EBS, so the lemma is planned here."
     }
    ],
@@ -1410,37 +1391,31 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Appendix B, opening paragraph (PDF p.77)",
-     "excerpt": "In this appendix we'll study the \\emph{Habiro completion functor} $(-)_\\Hh^\\complete\\coloneqq\\limit_{m\\in\\IN}(-)_{(q^m-1)}^\\complete$ and show that it behaves for all practical purposes like completion at a finitely generated ideal.",
      "match": "TeX source, literal: the completion functor. 'Behaves like completion at a finitely generated ideal' is the source's summary of B.2–B.5, not a statement of this node."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 Habiro-complete spectra (PDF p.77)",
-     "excerpt": "let us denote the localisation $\\IZ\\left[q^{\\pm 1},\\{(q^m-1)^{-1}\\}_{m\\in\\IN}\\right]$ by $\\Rr$ and let $\\IS_\\Rr\\coloneqq \\IS\\left[q^{\\pm 1},\\{(q^m-1)^{-1}\\}_{m\\in\\IN}\\right]$ be its obvious spherical lift.",
      "match": "TeX source, literal: the localisation Rr."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "That is, $\\Mod_{\\IS_\\Hh}(\\Sp)_\\Hh^\\complete$ consists of those $M\\in \\Mod_{\\IS[q^{\\pm 1}]}(\\Sp)$ such that $\\Hom_{\\IS[q^{\\pm 1}]}(\\IS_\\Rr,M)\\simeq 0$.",
      "match": "TeX source, literal: completeness by killing the idempotent S_Rr (spectral form)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "Note that $q$ is already a unit in $\\IS_\\Hh$, so it doesn't matter whether we complete $\\IS[q]$ or $\\IS[q^{\\pm 1}]$.",
      "match": "TeX source, literal: q is a unit after completion."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "We also let $\\widehat{\\Dd}(\\Hh)\\subseteq \\Dd(\\IZ[q^{\\pm 1}])$ denote the full sub-$\\infty$-category of Habiro-complete objects and denote its completed tensor product by $-\\clotimes_\\Hh-$.",
      "match": "TeX source, literal: the derived-category version this node states."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 3.11(a) (PDF p.25)",
-     "excerpt": "Let $\\widehat{\\Dd}_\\Hh(A[q])\\subseteq \\Dd(A[q])$ denote the full sub-$\\infty$-category of Habiro-complete objects \\embrace{in the sense of \\cref{par:HabiroComplete}}.",
      "match": "TeX source, literal: the source uses the notion over A[q] for the base Λ-ring A, which is why the node is stated over A[q^{±1}]."
     }
    ],
@@ -1480,13 +1455,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.4 Corollary (PDF p.78)",
-     "excerpt": "Let $M$ be a Habiro-complete spectrum and fix $n\\in\\IZ$. If $\\pi_n(M/\\Phi_m(q))\\cong 0$ for all $m\\in\\IN$, then already $\\pi_n(M)\\cong 0$.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 2.9, end of proof (PDF p.17)",
-     "excerpt": "To conclude the same for $\\Hh_{R/A}$, we've seen above that $\\Hh_{R/A}/\\Phi_m(q)$ is static for all $m\\in\\IN$. Then \\cref{cor:HabiroCompleteDerivedNakayama} can be applied.",
      "match": "TeX source, literal: the staticity argument HR.4 consumes (\\cref{cor:HabiroCompleteDerivedNakayama} is B.4)."
     }
    ],
@@ -1616,25 +1589,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "We let $-\\cotimes_{\\IS_\\Hh}-$ denote the Habiro-completed tensor product in $\\Mod_{\\IS_\\Hh}(\\Sp)_\\Hh^\\complete$.",
      "match": "TeX source, literal: the completed tensor product (spectral form; B.1 then names −⊗̂^L_H− on D̂(H))."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "Then $\\IS_\\Rr$ is an idempotent algebra over $\\IS[q^{\\pm 1}]$ and we define the \\emph{$\\infty$-category of Habiro-complete spectra}",
      "match": "TeX source, literal: the complete objects are defined by killing an idempotent algebra."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.1 Setup, condition (c) (PDF p.13)",
-     "excerpt": "For all $x,y\\in \\Dd$ and all $Z\\in\\Ii$, the canonical morphism $L_Z(x\\otimes y)\\rightarrow L_Z(L_Z(x)\\otimes y)$ is an equivalence in $\\Dd$.",
      "match": "TeX source, literal: the monoidality condition the source uses for such localisations."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.1 Setup (PDF p.13)",
-     "excerpt": "By \\cref{enum:DZSymmetricMonoidal} and \\cite[Proposition~\\chref{2.2.1.9}]{HA}, for all $Z\\in \\Ii$, the inclusion of the full sub-$\\infty$-operad $\\Dd_Z^\\otimes\\subseteq \\Dd^\\otimes$ spanned by $\\Dd_Z$ admits a symmetric monoidal left adjoint",
      "match": "TeX source, literal: the Lurie input."
     }
    ],
@@ -1676,25 +1645,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.8 Lemma (PDF p.79)",
-     "excerpt": "The solidified tensor product $-\\soltimes_{\\IS_\\Hh}-$ preserves bounded below Habiro-complete objects.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.8 Lemma (PDF p.79)",
-     "excerpt": "In particular, the fully faithful functor $\\Mod_{\\IS_\\Hh}(\\Sp)_\\Hh^\\complete\\rightarrow \\Mod_{\\IS_\\Hh}(\\Sp_\\solid)$ from \\cref{par:HabiroCompleteCondensed} is symmetric monoidal when restricted to bounded below objects.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.8, proof sketch (PDF p.79)",
-     "excerpt": "The proof is analogous to the proof that the solid tensor product preserves bounded below $p$-complete objects",
      "match": "TeX source, literal: only a sketch, citing CS24 Lecture 6 and Bosco A.3."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.8, proof sketch (PDF p.80)",
-     "excerpt": "Observe that $(q;q)_{f(m)}(q;q)_{g(n)}$ divides $(q;q)_{f(m)+g(n)}$, because $q$-binomial coefficients are polynomials in $\\IZ[q]$.",
      "match": "TeX source, literal: the arithmetic input."
     }
    ],
@@ -1732,19 +1697,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2, proof (PDF p.78)",
-     "excerpt": "Now $\\Rr$ has a two-term resolution by free $\\IZ[q^{\\pm 1}]$-modules.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2, proof (PDF p.78)",
-     "excerpt": "where the first arrow sends $(a_i)_{i\\geqslant 0}\\mapsto (a_i-(q;q)_ia_{i-1})_{i\\geqslant 0}$ (with $a_{-1}\\coloneqq 0$) and the second arrow sends $(a_i)_{i\\geqslant 0}\\mapsto\\sum_{i\\geqslant 0}a_i/(q;q)_i$.",
      "match": "TeX source, literal; the first arrow is corrected to a_i − (1 − q^i)a_{i−1} (sourceIssues)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2, proof (PDF p.77)",
-     "excerpt": "\\fib\\bigl(\\IS[q^{\\pm 1}]\\rightarrow \\IS_\\Rr\\bigr)\\simeq \\Sigma^{-1}\\colimit\\left(\\IS[q^{\\pm 1}]/(q;q)_1\\xrightarrow{(1-q^2)}\\IS[q^{\\pm 1}]/(q;q)_2\\xrightarrow{(1-q^3)}\\dotsb\\right)",
      "match": "TeX source, literal: the transition maps are multiplication by 1 − q^{n+1}, which is the correction."
     }
    ],
@@ -1789,19 +1751,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2 Lemma (c) (PDF p.77)",
-     "excerpt": "M\\longrightarrow \\limit_{n\\geqslant 1}M/(q;q)_n\\simeq \\limit_{m\\in\\IN}M_{(q^m-1)}^\\complete",
      "match": "TeX source, literal: condition (c)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2 Lemma (c) (PDF p.77)",
-     "excerpt": "is an equivalence. Here $(a;q)_n\\coloneqq (1-a)(1-aq)\\dotsm(1-aq^{n-1})$ denotes the $q$-Pochhammer symbol, as usual.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1 (PDF p.77)",
-     "excerpt": "It'll be apparent from \\cref{lem:HabiroComplete} below that the inclusion $\\Mod_{\\IS_\\Hh}(\\Sp)_\\Hh^\\complete\\subseteq \\Mod_{\\IS[q^{\\pm 1}]}(\\Sp)$ has a left adjoint",
      "match": "TeX source, literal: the adjunction is a consequence of B.2."
     }
    ],
@@ -1838,13 +1797,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2 Lemma (d) (PDF p.77)",
-     "excerpt": "All homotopy groups $\\pi_n(M)$, $n\\in\\IZ$, are Habiro-complete.",
      "match": "TeX source, literal: condition (d)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.2, proof (PDF p.78)",
-     "excerpt": "Therefore, $\\Hom_{\\IS[q^{\\pm 1}]}(\\IS_\\Rr,M)$ vanishes if and only if $\\RHom_{\\IZ[q^{\\pm 1}]}(\\Rr,\\pi_n(M))$ vanishes for all $n\\in\\IZ$, which proves that $M$ is Habiro-complete if and only if each $\\pi_n(M)$ is.",
      "match": "TeX source, literal: the conclusion, after the short exact sequences."
     }
    ],
@@ -1885,19 +1842,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.3 Lemma (PDF p.78)",
-     "excerpt": "Let $M$ be a Habiro-complete spectrum. If $M/\\Phi_m(q)\\simeq 0$ for all $m\\in\\IN$, then $M\\simeq 0$. If $M$ is an ordinary $\\IZ[q^{\\pm 1}]$-module, the same conclusion is already true if the quotients are taken in the underived sense.",
      "match": "TeX source, literal."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.3, proof (PDF p.78)",
-     "excerpt": "By the usual derived Nayama lemma, if $M/\\Phi_m(q)\\simeq 0$, then $M_{\\Phi_m(q)}^\\complete\\simeq 0$, hence $M_{(q^m-1)}^\\complete\\simeq 0$.",
      "match": "TeX source, literal ('Nayama' is the source's misprint for Nakayama)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.5 Remark (PDF p.79)",
-     "excerpt": "we could equally well replace $\\{\\Phi_m(q)\\}_{m\\in\\IN}$ by $\\{(q^m-1)\\}_{m\\in\\IN}$, or $\\{(q;q)_n\\}_{n\\geqslant 1}$, or any set of polynomials in which each $\\Phi_m(q)$ occurs as a factor at least once.",
      "match": "TeX source, literal: the variants."
     }
    ],
@@ -1989,19 +1943,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.6 Solid condensed recollections (PDF p.79)",
-     "excerpt": "Let $\\Cond(\\Sp)$ denote the $\\infty$-category of \\emph{\\embrace{light} condensed spectra}, that is, hypersheaves of spectra on the site of light profinite sets as defined by Clausen and Scholze \\cite{AnalyticStacks}.",
      "match": "TeX source, literal: the imported setting."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.7 Habiro-complete solid condensed spectra (PDF p.79)",
-     "excerpt": "To every ordinary Habiro-complete spectrum~$M$, we can associate a Habiro-complete solid condensed spectrum by taking the condensed Habiro-completion of the associated discrete condensed spectrum $\\underline{M}$.",
      "match": "TeX source, literal: the functor."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.7 (PDF p.79)",
-     "excerpt": "which is still fully faithful, since it's straightforward to check that the unit is still an equivalence.",
      "match": "TeX source, literal: the full-faithfulness claim, a proof obligation here."
     }
    ],
@@ -2062,37 +2013,31 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.1, PDF p. 8",
-     "excerpt": "Let m and n be positive integers and let R = Z[q]/(Φ_m(q), Φ_n(q)). Let d = gcd(m, n). If p is a prime factor of m/d or n/d, then p = 0 in R.",
      "match": "The arithmetic input to (b) and (c), which HabiroCyclotomicCompletions HC.4 plans and this node imports."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.1, PDF p. 8",
-     "excerpt": "In particular, the ring R vanishes unless m/n = p^α for some prime p and some α ∈Z. In the latter case, R ≅ F_p[q]/Φ_{min{m,n}}(q).",
      "match": "(b) and, for α ≠ 0, (c); the case α = 0 of the second sentence is a known source issue."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 14",
-     "excerpt": "The idea is to apply descent for R = A[q] and the cover V (q^m −1) = ⋃_{d|m} V (Φ_d(q)). The simplifications come from the observation that many intersections are empty; see [Wag24, Lemma 2.1] for example.",
      "match": "(a) and the role of the calculation in the descent."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 15",
-     "excerpt": "For every pair (d, p), where d | m is a divisor of m and p is a prime such that p ∤ d, we let T_{d,p} := {d, pd, . . . , p^{v_p(m)}d} ⊆ T(m)",
      "match": "The chains T_{d,p} of the statement."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 15",
-     "excerpt": "note that this includes all subsets of the form {d}, where d is a divisor of m, as {d} = T_{d,ℓ} if ℓ is any prime not dividing m",
      "match": "(d), first half."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.5, PDF p. 15",
-     "excerpt": "observe that after p-completion the ℓ-adic gluings for ℓ ≠ p become vacuous, so the only gluing that happens is along (E_d)^∧_p ≃(E_{pd})^∧_p ≃· · · ≃(E_{p^αd})^∧_p for all d | n.",
      "match": "(e), the p-adic disjointness the source uses without a separate statement."
     }
    ],
@@ -2136,19 +2081,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph before Corollary 2.4, PDF p. 14",
-     "excerpt": "In the case that we’re actually interested in, the descent diagram simplifies considerably; in particular, no coherence data needs to be provided!",
      "match": "The source's claim that no coherence data are needed, which this node proves for the poset P."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary 2.4, PDF p. 14",
-     "excerpt": "(a) For all divisors d | m, a derived Φ_d(q)-complete E∞-A[q]-algebra E_d. (b) For all divisors pd | m, where p is a prime, an equivalence of E∞-A[q]-algebras h_d : (E_{pd})^∧_p ≃ → (E_d)^∧_p .",
      "match": "The data (a) and (b), with the source's hypotheses."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary 2.4, PDF p. 14",
-     "excerpt": "Then there exists a unique (q^m −1)-complete E∞-A[q]-algebra E together with equivalences E_d ≃ E^∧_{Φ_d(q)} for all d | m such that h_d becomes identified with the identity on E^∧_{(Φ_d(q),Φ_{pd}(q))}.",
      "match": "The conclusion."
     }
    ],
@@ -2207,25 +2149,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.3, PDF p. 14",
-     "excerpt": "The functors L_Z := (−)^∧_I clearly satisfy the conditions from 2.1, and the condition from Lemma 2.2 is easily checked (see e.g. [Wag24, Lemma 2.4]). Hence the descent from Lemma 2.2 is applicable.",
      "match": "The first two proof steps; for the principal ideals Φ_d(q) the joint conservativity follows from derived Nakayama, without q-Witt Lemma 2.4."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 15",
-     "excerpt": "By [Wag24, Lemma 2.1], we have D̂_S ≃ 0 if S ∉ ⋃_{d,p} ⌟^{T_{d,p}}.",
      "match": "The first right-Kan-extension reduction."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 15",
-     "excerpt": "if S ⊆ S′ are elements of ⌟^{T_{d,p}} such that |S| ⩾ 2, then the same result tells us that the corresponding morphism S → S′ is sent to the identity, as both D̂_S and D̂_{S′} agree with the full sub-∞-category D̂_{(p,Φ_d(q))}(A[q]) ⊆ D(A[q]).",
      "match": "The second reduction, to P."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 2.4, PDF p. 15",
-     "excerpt": "In total, this implies D̂_{(q^m−1)}(A[q]) ≃ lim_{S∈P} D̂_S and thus CAlg(D̂_{(q^m−1)}(A[q])) ≃ lim_{S∈P} CAlg(D̂_S). After unravelling of definitions, an object in the limit on the right-hand side is precisely given by the data (a) and (b).",
      "match": "The equivalence of the statement, which the source proves on the way to Corollary 2.4."
     }
    ],
@@ -2289,13 +2227,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.1 (Setup), PDF p. 13",
-     "excerpt": "Let I be a site whose underlying category is a partially ordered set. Let D be a presentable stable symmetric monoidal ∞-category. Suppose that for every Z ∈ I we have a full stable sub-∞-category D_Z satisfying the following conditions:",
      "match": "The setting and conditions (a)–(c) of the statement; the functor D_(−) and its symmetric monoidal lift are constructed in the same paragraph."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Lemma 2.2, PDF p. 13",
-     "excerpt": "In the situation of 2.1, assume that covers in I always have finite refinements and that for any finite covering family {Z_i → Z}_{i=1,...,r}, the functors L_{Z_i} : D_Z → D_{Z_i} are jointly conservative. Then D(−) : I^{op} → CAlg(Pr^L_{st}) is a sheaf on I.",
      "match": "Part (iii); its proof sketch (p. 14) proves part (ii) for one finite cover, which is what Corollary 2.4 uses."
     }
    ],
@@ -2345,13 +2281,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.5, PDF p. 15",
-     "excerpt": "If m = p^αn, where n is coprime to p, then E[1/m]^∧_{(q^m−1)} ≃ ∏_{d|m} E_d[1/m]^∧_{Φ_d(q)} and E^∧_{(p,q^m−1)} ≃ ∏_{d|n} (E_{p^id})^∧_p for any 0 ⩽ i ⩽ α .",
      "match": "The statement (display checked on the rendered page)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.5, PDF p. 15",
-     "excerpt": "observe that after p-completion the ℓ-adic gluings for ℓ ≠ p become vacuous, so the only gluing that happens is along (E_d)^∧_p ≃(E_{pd})^∧_p ≃· · · ≃(E_{p^αd})^∧_p for all d | n.",
      "match": "The last sentence of the statement and the second proof step."
     }
    ],
@@ -2528,31 +2462,26 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Definition 2.40, PDF p. 30",
-     "excerpt": "A q-FV -system of A-algebras over R is a system of A[q]-algebras (W_m)_{m∈N}, together with the following structure: (a) For all m ∈N, an A[q]-algebra map q-W_m(R) ⊗_{q-W_m(A)} A[q]/(q^m −1) → W_m. Here the tensor product is taken along the map c_m from Lemma 2.34.",
      "match": "The structure of a relative q-FV-system."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.41, PDF p. 30",
-     "excerpt": "Explicitly, q-W_m(R/A) is the quotient q-W_m(R/A) ≅ (q-W_m(R) ⊗_{q-W_m(A)} A[q]/(q^m −1))/U_m , where U_m is the ideal generated by V_{m/d}(xy) ⊗1 −V_{m/d}(x) ⊗c_d(y) for all divisors d | m, all x ∈q-W_d(R), and all y ∈q-W_d(A).",
      "match": "The presentation of the initial object."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.44, PDF p. 31",
-     "excerpt": "For all divisors d | m, we get a relative ghost map gh_{m/d} : q-W_m(R/A) → R ⊗_{A,ψ^d} A[q]/Φ_d(q) .",
      "match": "The relative ghost maps."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.46, PDF p. 31",
-     "excerpt": "If A → A′ is a morphism of Λ-rings and R is an A-algebra, then for all m ∈N the canonical map is an isomorphism q-W_m(R/A) ⊗_A A′ ≅ → q-W_m(R ⊗_A A′/A′) .",
      "match": "Base change."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Remark 2.47, PDF p. 32",
-     "excerpt": "For example, it will be true that the Verschiebungen V_{m/d} : q-W_d(R/A) → q-W_m(R/A) are injective, the analogue of Proposition 2.15 is true",
      "match": "The perfectly covered transfer principle, which the remark derives from Lemma 2.46 and faithfully flat descent; this node uses it only for the ghost maps."
     }
    ],
@@ -2604,25 +2533,21 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "1.3, PDF p. 3",
-     "excerpt": "The only real exception is that the restriction maps for ordinary Witt vectors do not extend to maps Res_{m/d} : q-W_m(R) → q-W_d(R). In particular, we can’t define a big q-Witt ring q-W(R) := lim_{m∈N,Res} q-W_m(R).",
      "match": "The statement and its consequence for the big ring; this is the '§1.3' the stage text cites."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.14, PDF p. 13",
-     "excerpt": "Unfortunately, it turns out that the usual restriction maps Res_{m/d} : W_m(R) → W_d(R) do not extend to Z[q]-algebra morphisms between q-W_m(R) and q-W_d(R). Indeed, such a morphism would necessarily commute with the Verschiebungen and thus induce a Z[q]-algebra morphism",
      "match": "The source's proof, first half."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.14, PDF p. 13",
-     "excerpt": "R[ζ_m] = R[q]/Φ_m(q) → R[q]/Φ_d(q) = R[ζ_d] , which fails to exist even in very simple cases (e.g. m = p^α is a prime power, R is not a ring of characteristic p).",
      "match": "The source's proof, second half, with the hypotheses of the non-existence clause."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "1.3, PDF p. 3",
-     "excerpt": "But there seems to be at least some use in considering the limit lim_{m∈N, F} q-W_m(R) along the Frobenius maps",
      "match": "The maps that do exist between the levels."
     }
    ],
@@ -2675,25 +2600,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 2.9, PDF p. 16",
-     "excerpt": "Let A be a perfectly covered Λ-ring, R an A-algebra, and m ∈N. Then H_{R/A,m}/(q^m −1) ≃q-W_m(R/A) . In fact, H_{R/A,m} is the unique lift of the étale A[q]/(q^m −1)-algebra q-W_m(R/A) to a (q^m −1)-complete E∞-algebra over A[q]^∧_{(q^m−1)}.",
      "match": "The statement at finite level; 'R an A-algebra' must read 'R an étale A-algebra' (source issue)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 16",
-     "excerpt": "If p is prime and pd | m, then the ghost maps for the usual Witt vectors W_m(A/p) and W_m(R/p) satisfy gh_{m/d}(x) = gh_{m/pd}(x)^p. It follows that the ghost maps for relative q-Witt vectors fit into a commutative diagram",
      "match": "The second proof step."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 17",
-     "excerpt": "By construction of H_{R/A,m}, this yields an E∞-A[q]-algebra map W → H_{R/A,m}. As both sides are (q^m −1)-complete, whether this is an equivalence can be checked modulo Φ_d(q) for all d | m.",
      "match": "The third and fourth proof steps."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 17",
-     "excerpt": "Since H_{R/A,m} is (q^m −1)-complete and becomes static modulo p, we see that H_{R/A,m} must be static as well. Therefore it is an ordinary ring.",
      "match": "Staticity; 'modulo p' must read 'modulo q^m − 1' (source issue)."
     }
    ],
@@ -2737,19 +2658,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 16",
-     "excerpt": "For all d | m, Corollary 2.4 provides a preferred equivalence H_{R/A,d} ≃(H_{R/A,m})^∧_{(q^d−1)}. In particular, we get maps H_{R/A,m} → H_{R/A,d}.",
      "match": "The transition maps."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Footnote (2.1), PDF p. 16",
-     "excerpt": "With a little more effort, this functoriality can be squeezed out of Corollary 2.4. Alternatively, we can take the limit over the sequential subdiagram {n!}_{n⩾1}, where the existence of maps is enough. Or we could use Theorem 2.9 to realise that we’re working with ordinary rings",
      "match": "The composition law, proved here by the third route."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.10, PDF p. 17",
-     "excerpt": "By tracing through the proof of Theorem 2.9 and checking on ghost coordinates, we see that the maps H_{R/A,m} → H_{R/A,d} from 2.7 deform the q-Witt vector Frobenii F_{m/d}: q-W_m(R/A) → q-W_d(R/A).",
      "match": "The identification on quotients."
     }
    ],
@@ -2924,31 +2842,26 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.6, PDF p. 10",
-     "excerpt": "Its ring structure is uniquely determined by the condition that for all n ∈ S the ghost map gh_n : W_S(R) → R given by gh_n((x_i)_{i∈S}) := Σ_{d|n} dx^{n/d}_d is a morphism of rings and functorial in R.",
      "match": "The definition (display checked on the rendered page)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.6, PDF p. 10",
-     "excerpt": "for every divisor d | m there are Frobenius and Verschiebung maps F_{m/d} : W_m(R) → W_d(R) and V_{m/d} : W_d(R) → W_d(R) such that F_{m/d} is a ring map and V_{m/d} is a map of abelian groups",
      "match": "The operators; the printed target of V_{m/d} is a misprint for W_m(R) (source issue)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.6, PDF p. 10",
-     "excerpt": "For all chains of divisors e | d | m we have F_{d/e} ◦F_{m/d} = F_{m/e} and V_{m/d} ◦V_{d/e} = V_{m/e} . Furthermore, if n ⩾1 is arbitrary and k is coprime to n, then F_n ◦V_n = n and F_n ◦V_k = V_k ◦F_n",
      "match": "The relations."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Remark 2.7, PDF p. 11",
-     "excerpt": "If m = p^n is a prime power, then W_{p^n}(R) ≅ W_{n+1}(R) equals the ring of truncated p-typical Witt vectors of length n+1. Furthermore, the Frobenii and Verschiebungen F_p and V_p coincide with their p-typical namesakes F and V , as does the Teichmüller lift.",
      "match": "The comparison with Mathlib's p-typical Witt vectors."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.31, PDF p. 26",
-     "excerpt": "The cofree Λ-ring under A is the big Witt ring W(A), hence we get a section s: A → W(A) of gh_1.",
      "match": "The section s for a Λ-ring."
     }
    ],
@@ -3132,37 +3045,31 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Definition 2.8, PDF p. 11",
-     "excerpt": "(a) For all m ∈N, a Z[q]-algebra map W_m(R)[q]/(q^m −1) → W_m. (b) For all divisors d | m, a Z[q]-algebra morphism F_{m/d} : W_m → W_d and a Z[q]-module morphism V_{m/d} : W_d → W_m.",
      "match": "The structure of a q-FV-system."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Definition 2.8, PDF p. 11",
-     "excerpt": "These must be compatible with the usual Frobenii and Verschiebungen on ordinary Witt vectors (via the morphisms from (a)) and satisfy F_{m/d} ◦V_{m/d} = m/d and V_{m/d} ◦F_{m/d} = [m/d]_{q^d} .",
      "match": "Its axioms."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.9, PDF p. 11",
-     "excerpt": "q-W_m(R) ≅W_m(R)[q]/I_m , where I_m is the ideal generated by the following two kinds of generators: (a) (q^d −1) im V_{m/d} for all divisors d | m, and (b) im([d/e]_{q^e}V_{m/d} −V_{m/e}F_{d/e}) for all chains of divisors e | d | m.",
      "match": "The initial object and its presentation."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.13, PDF p. 13",
-     "excerpt": "gh_{m/d} : q-W_m(R) → R[ζ_d] as the composition of F_{m/d} : q-W_m(R) → q-W_d(R) with gh_1 : q-W_d(R) → R[ζ_d].",
      "match": "The ghost maps."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.23, PDF p. 20",
-     "excerpt": "If R is p-torsion-free for all prime factors p | m, then the ghost maps gh_{m/d} : q-W_m(R) → R[ζ_d] for d | m are jointly injective.",
      "match": "The ghost description with its torsion hypothesis."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Remark 2.11, PDF p. 11",
-     "excerpt": "Despite the name, q-W_m(R) is almost never a q-deformation of W_m(R). Indeed, we have V_{m/d} ◦F_{m/d} = m/d in the quotient q-W_m(R)/(q −1).",
      "match": "The last hypothesis and a non-example."
     }
    ],
@@ -3309,25 +3216,21 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "2.31, PDF p. 26",
-     "excerpt": "We can now extend this section Z[q]-linearly to obtain a map s_m : A[q]/(q^m −1) → q-W_m(A) , whose composition with gh_1 is the canonical map A[q]/(q^m −1) → A[q]/Φ_m(q).",
      "match": "(i)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.34, PDF p. 27",
-     "excerpt": "For any Λ-ring A with Adams operations ψ^m : A → A, the map (of sets, a priori) c_m : W_m(A) → A[q]/(q^m −1) given by c_m(x) := Σ_{d|m} [d]_{q^{m/d}}ψ^{m/d}(ε_d Res_{m/d}(x)) is a morphism of rings.",
      "match": "(ii) (display checked on the rendered page)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.35, PDF p. 28",
-     "excerpt": "Let R be a Λ-ring. Then the ring morphism c_m : W_m(A) → A[q]/(q^m −1) from Lemma 2.34 extends uniquely to a functorial ring morphism c_m : q-W_m(A) → A[q]/(q^m −1)",
      "match": "(iii); 'Let R be' is a misprint for 'Let A be' (source issue)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.37, PDF p. 29",
-     "excerpt": "If A is a perfect Λ-ring (e.g. A = Z, A = Z_p, or A = A_{inf}(R) for some perfectoid ring R), then the comparison maps from 2.31 and Corollary 2.35 are both isomorphisms:",
      "match": "(v)."
     }
    ],
@@ -3378,25 +3281,21 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Proposition 2.48, PDF p. 33",
-     "excerpt": "Let A be a Λ-ring, let R → R′ be an étale morphism of A-algebras, and let m be a positive integer. Then q-W_m(R/A) → q-W_m(R′/A) is étale again.",
      "match": "(b)."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Proposition 2.48, PDF p. 33",
-     "excerpt": "is an isomorphism, where the tensor product is taken with respect to the Frobenius map F_{m/d} : q-W_m(R/A) → q-W_{m/d}(R/A).",
      "match": "(c); the printed target q-W_{m/d} is a misprint for q-W_d."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Lemma 2.50, PDF p. 33",
-     "excerpt": "Let A be a Λ-ring, let R → R′ be an étale morphism of A-algebras, and let m be a positive integer. Then we get a canonical isomorphism W_m(R′) ⊗_{W_m(R)} q-W_m(R/A) ≅ → q-W_m(R′/A) .",
      "match": "(a)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph before Theorem 2.9, PDF p. 16",
-     "excerpt": "recall from [Wag24, Proposition 2.48] that q-W_m(R/A) is an étale algebra over q-W_m(A/A) ≅ A[q]/(q^m −1).",
      "match": "The last sentence, as the Habiro paper uses it."
     }
    ],
@@ -3444,19 +3343,16 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.51, PDF p. 34",
-     "excerpt": "If A is a Λ-ring, R → R′ is an étale map of A-algebras, and m is a positive integer, then",
      "match": "The hypotheses; the square is a display."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.51, PDF p. 34",
-     "excerpt": "is a pushout diagram of rings (both in the derived and in the underived sense) for all d | m.",
      "match": "The conclusion."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 17",
-     "excerpt": "By [Wag24, Corollary 2.51] and 2.7, W/Φ_d(q) ≃R ⊗_{A,ψ^d} A[q]/Φ_d(q) ≃H_{R/A,m}/Φ_d .",
      "match": "The last sentence, as the comparison theorem uses it."
     }
    ],
@@ -3499,13 +3395,11 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.52, PDF p. 35 (arXiv:2410.23078v5)",
-     "excerpt": "Let p be a prime and let R be an étale Z-algebra such that R → R̂_p is injective (equivalently, p is not invertible on any connected component of Spec R). If a Z[q]-algebra isomorphism ψ: q-W_m(R) ≅ R[q]/(q^m −1) exists for some positive integer m divisible by p,",
      "match": "The hypotheses."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "Corollary 2.52, PDF p. 35 (arXiv:2410.23078v5)",
-     "excerpt": "then the unique Frobenius lift ϕp : R̂_p → R̂_p restricts to a morphism ϕp : R → R. Furthermore, the ϕp commute for different p and R can be equipped with a Λm-structure.",
      "match": "The conclusion."
     }
    ],
@@ -3623,25 +3517,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 15",
-     "excerpt": "the pth Adams operation ψ^p : A → A can be uniquely extended to a Frobenius lift ϕ_p : R̂_p → R̂_p. Let us denote by ϕ_{p/A} : (R̂_p ⊗_{A,ψ^p} A)^∧_p ≃ → R̂_p the linearised Frobenius. It is an equivalence as indicated.",
      "match": "The gluing input from HR.1."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 16",
-     "excerpt": "For every d | m, let E_d := (R ⊗_{A,ψ^d} A)[q]^∧_{Φ_d(q)} and for every pd | m, where p is a prime, let the gluing equivalence h_d be the A[q]-linear map induced by ϕ_{p/A}.",
      "match": "The local data and the gluing maps."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 16",
-     "excerpt": "For all d | m, Corollary 2.4 provides a preferred equivalence H_{R/A,d} ≃(H_{R/A,m})^∧_{(q^d−1)}. In particular, we get maps H_{R/A,m} → H_{R/A,d}.",
      "match": "The transition maps."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "Thus, there’s no reason to expect that H_{R/A,m} ≃R[q]^∧_{(q^m−1)}, unless R itself (rather than only its p-completions) admits Frobenius lifts for all prime factors p | m. In the case A = Z, a precise obstruction of this kind is shown in [Wag24, Corollary 2.52].",
      "match": "The comparison with identity gluings used in the tests and in the comparison theorem's non-example."
     }
    ],
@@ -3687,19 +3577,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 2.9, PDF p. 16",
-     "excerpt": "In particular, H_{R/A,m} is an ordinary ring for all m ∈N, and the same is true for the relative Habiro ring H_{R/A}.",
      "match": "The last clause of Theorem 2.9."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 17",
-     "excerpt": "To conclude the same for H_{R/A}, we’ve seen above that H_{R/A}/Φ_m(q) is static for all m ∈N. Then Corollary B.4 can be applied.",
      "match": "The proof."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary B.4, PDF p. 78",
-     "excerpt": "Let M be a Habiro-complete spectrum and fix n ∈Z. If π_n(M/Φ_m(q)) ≅ 0 for all m ∈N, then already π_n(M) ≅ 0.",
      "match": "The detection result used."
     }
    ],
@@ -3868,37 +3755,31 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 (Relative Habiro rings), PDF p. 16",
-     "excerpt": "For every d | m, let Ed := (R ⊗A,ψd A)[q]∧ Φd(q) and for every pd | m, where p is a prime, let the gluing equivalence hd be the A[q]-linear map induced by ϕp/A.",
      "match": "The gluing data of H_{R/A,m}, literally."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7 with equation (2.1), PDF p. 16",
-     "excerpt": "For all d | m, Corollary 2.4 provides a preferred equivalence HR/A,d ≃(HR/A,m)∧ (qd−1). In particular, we get maps HR/A,m ! HR/A,d. The Habiro ring of R relative to A is then defined as the limit(2.1) HR/A := lim m∈N HR/A,m .",
      "match": "The transition maps and the definition of H_{R/A} as the limit."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Footnote (2.1) to 2.7, PDF p. 16",
-     "excerpt": "Alternatively, we can take the limit over the sequential subdiagram {n!}n⩾1, where the existence of maps is enough.",
      "match": "The factorial subdiagram, which computes the same limit."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 2.9, PDF p. 16",
-     "excerpt": "In particular, HR/A,m is an ordinary ring for all m ∈N, and the same is true for the relative Habiro ring HR/A.",
      "match": "Staticity of every stage and of the limit."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Theorem 2.9, PDF p. 17",
-     "excerpt": "To conclude the same for HR/A, we’ve seen above that HR/A/Φm(q) is static for all m ∈N. Then Corollary B.4 can be applied.",
      "match": "The staticity of the limit via Corollary B.4."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12 (rationalised step), PDF p. 18",
-     "excerpt": "By 2.7, the Φd(q)-completion of HR/A is (R ⊗A,ψd A)[q]∧ Φd(q)",
      "match": "The Φ_d(q)-completion of H_{R/A}, used here as an API item."
     }
    ],
@@ -3948,25 +3829,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Lemma 2.12, PDF p. 18",
-     "excerpt": "2.12. Lemma. — The ring HR/A agrees with following equaliser (which can be taken both in E∞-A[q]-algebras or in ordinary A[q]-algebras):",
      "match": "The statement, including the two categories in which the equaliser may be taken."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Lemma 2.12, PDF p. 18",
-     "excerpt": "Here can and ϕ/A are the canonical maps and Frobenius maps described in 2.11.",
      "match": "The two arrows are those of 2.11."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12, PDF p. 18",
-     "excerpt": "By construction, HR/A can be written as a similar equaliser, with (R ⊗A,ψm A)[ζm]Jq −ζmK replaced by (R ⊗A,ψm A)[q]∧ Φm(q).",
      "match": "The comparison map from the construction."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12, PDF p. 18",
-     "excerpt": "Since both sides are Habiro-complete in the sense of B.1, whether this map is an equivalence can be checked after (−)∧ ℓfor all primes ℓand after (−⊗Z Q)∧ Φd(q) for all d ∈N.",
      "match": "The two families of completions after which the map is checked."
     }
    ],
@@ -4116,19 +3993,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.11 (p-adic reexpansions around roots of unity), PDF p. 17",
-     "excerpt": "In the following, we choose a system of roots of unity (ζm)m∈N in such a way that ζmn = ζmζn if (m, n) = 1",
      "match": "The compatible system; the text layer drops the exponent in the second condition, which reads ζ_{p^α} = ζ_{p^{α+1}}^p in the TeX."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.11, PDF p. 17",
-     "excerpt": "they ensure vp(ζm −ζmp) > 0 whenever p is prime, so that after p-completion, any power series in (q −ζm) can be reexpanded as power series in (q −ζpm).",
      "match": "Topological nilpotence of ζ_m − ζ_{pm} and the re-expansion after p-completion."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.11, PDF p. 17",
-     "excerpt": "where the map on the right is induced by the relative Frobenius ϕp/A from 2.7, followed by a reexpansion of power series as above. We’ll call the map on the left the canonical map and the map on the right the Frobenius.",
      "match": "The two maps and their names; the canonical map is the left arrow of the zigzag, with no re-expansion."
     }
    ],
@@ -4174,19 +4048,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12 (ℓ-adic step), PDF p. 18",
-     "excerpt": "So it will be enough to show that Zℓ[q]∧ (ℓ,Φm(q)) ! Zℓ[ζm]Jq −ζmK is an equivalence whenever (m, ℓ) = 1.",
      "match": "Statement (a), to which the source reduces the ℓ-adic step."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12 (ℓ-adic step), PDF p. 18",
-     "excerpt": "The left-hand side clearly becomes Fℓ[q]/Φm(q) ≃Fℓ(ζm) since the cyclotomic polynomial Φm(q) is irreducible in Fℓ[q] if (m, ℓ) = 1.",
      "match": "The printed justification, false as stated (sourceIssues); (a) is proved here by separability instead."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12 (rationalised step), PDF p. 18",
-     "excerpt": "Here we use that Q[q]∧ Φd(q) ! Q(ζm)Jq −ζmK is an equivalence. Indeed, this can be checked modulo Φm(q).",
      "match": "Statement (c); the source prints ζ_m and Φ_m for ζ_d and Φ_d here."
     }
    ],
@@ -4229,19 +4100,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "If we were to construct R[q]∧ (qm−1) using Corollary 2.4, we would take Ed := R[q]∧ Φd(q), together with the identity maps on R[q]∧ (p,Φd(q)) (instead of ϕp/A) as gluing equivalences.",
      "match": "The description of R[q]^∧_{(q^m−1)} by Corollary 2.4 with identity gluings; this node is the positive case of the remark, which the source does not state as a theorem."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "Thus, there’s no reason to expect that HR/A,m ≃R[q]∧ (qm−1), unless R itself (rather than only its p-completions) admits Frobenius lifts for all prime factors p | m.",
      "match": "The source's condition: global Frobenius lifts on R itself."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "1.22(e), PDF p. 12",
-     "excerpt": "it holds for Z, for any free Λ-ring Z{xi | i ∈I}, and for any polynomial ring Z[xi | i ∈I] equipped with the toric Λ-structure in which λn(xi) = 0 for all n > 1.",
      "match": "Z, free Λ-rings and toric polynomial rings are perfectly covered."
     }
    ],
@@ -4286,13 +4154,11 @@
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt v5, Lemma 2.46, PDF p. 31",
-     "excerpt": "2.46. Lemma. — If A ! A′ is a morphism of Λ-rings and R is an A-algebra, then for all m ∈N the canonical map is an isomorphism q9Wm(R/A) ⊗A A′ ∼ = −! q9Wm(R ⊗A A′/A′) .",
      "match": "Base change of q-Witt rings along maps of Λ-rings, which is the statement modulo q^m − 1."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Theorem 2.9, PDF p. 16",
-     "excerpt": "2.9. Theorem. — Let A be a perfectly covered Λ-ring, R an A-algebra, and m ∈N. Then HR/A,m/(qm −1) ≃q9Wm(R/A) .",
      "match": "The quotient identification used to reduce to q-Witt rings (the printed 'R an A-algebra' means étale, see sourceIssues)."
     }
    ],
@@ -4333,19 +4199,16 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.14, PDF p. 19",
-     "excerpt": "2.14. Remark. — In the special case where R = Z, we obtain the following presentation of the ordinary Habiro ring:",
      "match": "The specialisation to R = Z."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.14, PDF p. 19",
-     "excerpt": "Here ϕ/Z is just given by the reexpansion morphisms Z[ζpm]Jq −ζpmK ! Zp[ζpm]Jq −ζmK for all p and all m.",
      "match": "The Frobenius arrow for R = Z is pure re-expansion."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Question 1.1, PDF p. 3",
-     "excerpt": "Is there a version of q-de Rham cohomology with coefficients not in the power series ring ZJq −1K, but in the Habiro ring H := lim m∈N Z[q]∧ (qm−1) ?",
      "match": "The definition of H as the limit of the (q^m−1)-completions."
     }
    ],
@@ -4397,13 +4260,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary 2.13, PDF p. 19",
-     "excerpt": "2.13. Corollary. — If F is a number field with discriminant ∆and R := OF [1/∆], then HR/Z agrees with the Habiro ring HR defined in [GSWZ24, Definition 1.1].",
      "match": "The statement with its exact hypothesis Δ = disc F; its proof is the one line 'This follows immediately from Lemma 2.12'."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4",
-     "excerpt": "1.4. The Habiro ring of a number field. — Let F be a number field and let ∆be divisible by 6 disc F.",
      "match": "The stronger hypothesis 6·disc F | Δ is stated for GSWZ's ring together with its regulator; the ring comparison of Corollary 2.13 does not use it."
     }
    ],
@@ -4443,13 +4304,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary 2.13, PDF p. 19",
-     "excerpt": "2.13. Corollary. — If F is a number field with discriminant ∆and R := OF [1/∆], then HR/Z agrees with the Habiro ring HR defined in [GSWZ24, Definition 1.1].",
      "match": "The corollary uses H_{O_F[1/∆]/Z}, which needs O_F[1/∆] étale over Z; the source does not say why it is."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 15",
-     "excerpt": "2.7. Relative Habiro rings. — Let R be an étale A-algebra. For all primes p, the pth Adams operation ψp : A ! A can be uniquely extended to a Frobenius lift ϕp : bRp ! bRp.",
      "match": "The construction is for étale A-algebras only."
     }
    ],
@@ -4498,31 +4357,26 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Corollary 3.13, PDF p. 27",
-     "excerpt": "3.13. Corollary. — If R is étale over A, then q9HdgR/A is the relative Habiro ring HR/A constructed in 2.7.",
      "match": "The statement."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph before Corollary 3.13, PDF p. 27",
-     "excerpt": "Example 3.12 covers in particular the case of étale A-algebras. In this special case, we recover a familiar construction.",
      "match": "The étale case is Example 3.12 with no coordinates."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 3.13, PDF p. 27",
-     "excerpt": "If R is étale, then combining this observation with Theorem 3.11(a) and [Wag24, Proposition 3.31] shows q9HdgR/A/(qm −1) ≃q9Wm(R/A) ≃HR/A/(qm −1) .",
      "match": "The identification modulo q^m − 1; the citation of Theorem 3.11(a) should be to 3.11(b)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Corollary 3.13, PDF p. 27",
-     "excerpt": "By uniqueness of deformations of étale extensions, these automatically lift to a unique equivalence of E∞-H-algebras (q9HdgR/A)∧ (qm−1) ≃HR/A,m; furthermore, uniqueness also ensures that these equivalences are compatible for varying m.",
      "match": "Uniqueness of étale deformations gives the equivalences and their compatibility in m."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4",
-     "excerpt": "The construction of Habiro cohomology that we propose in this paper recovers HOF [1/∆] (Corollary 3.13).",
      "match": "The number-field ring is recovered by this corollary."
     }
    ],
@@ -4653,7 +4507,6 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "B.1, PDF p. 77",
-     "excerpt": "We also let bD(H) ⊆D(Z[q±1]) denote the full sub-∞-category of Habiro-complete objects and denote its completed tensor product by −b⊗L H −.",
      "match": "The category of Habiro-complete objects and its completed tensor product, in which f^* is formed; the source has no scalar-extension statement, and this node carries the HR.6 stage text's export list."
     }
    ],
@@ -4693,13 +4546,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4",
-     "excerpt": "1.4. The Habiro ring of a number field. — Let F be a number field and let ∆be divisible by 6 disc F.",
      "match": "The hypothesis 6·disc F | Δ under which the regulator is constructed."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4 (TeX source)",
-     "excerpt": "Already in this special case, the Habiro stack exhibits non-trivial geometry in form of line bundles with interesting sections that come from the regulator $K_3(F)\\rightarrow \\Pic(\\Hh_{\\Oo_F[1/\\Delta]})$.",
      "match": "The regulator K3(F) → Pic(H_{O_F[1/∆]}) whose classes are transported."
     }
    ],
@@ -4741,13 +4592,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4",
-     "excerpt": "This geometry would be completely invisible to any q-de Rham stack, as the regulator becomes trivial after (q −1)-completion!",
      "match": "The source's remark that information disappears after (q−1)-completion, made there for the regulator; this node exhibits the completion map and a kernel at ring level."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12, PDF p. 18",
-     "excerpt": "By 2.7, the Φd(q)-completion of HR/A is (R ⊗A,ψd A)[q]∧ Φd(q)",
      "match": "The completions of H_{R/A}, of which the (q−1)-completion is the case d = 1."
     }
    ],
@@ -4786,13 +4635,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4",
-     "excerpt": "This geometry would be completely invisible to any q-de Rham stack, as the regulator becomes trivial after (q −1)-completion!",
      "match": "The statement, asserted without proof."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Paragraph 1.4, PDF p. 4 (TeX source)",
-     "excerpt": "Already in this special case, the Habiro stack exhibits non-trivial geometry in form of line bundles with interesting sections that come from the regulator $K_3(F)\\rightarrow \\Pic(\\Hh_{\\Oo_F[1/\\Delta]})$.",
      "match": "The line bundles whose classes the (q−1)-completion kills."
     }
    ],
@@ -4834,7 +4681,6 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Proof of Lemma 2.12 (ℓ-adic step), PDF p. 18",
-     "excerpt": "The left-hand side clearly becomes Fℓ[q]/Φm(q) ≃Fℓ(ζm) since the cyclotomic polynomial Φm(q) is irreducible in Fℓ[q] if (m, ℓ) = 1.",
      "match": "The printed claim that this computation refutes."
     }
    ],
@@ -4873,13 +4719,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.7, PDF p. 15",
-     "excerpt": "2.7. Relative Habiro rings. — Let R be an étale A-algebra. For all primes p, the pth Adams operation ψp : A ! A can be uniquely extended to a Frobenius lift ϕp : bRp ! bRp.",
      "match": "The étaleness hypothesis, which admits Z[1/p] and excludes Z_(p)."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "If we were to construct R[q]∧ (qm−1) using Corollary 2.4, we would take Ed := R[q]∧ Φd(q), together with the identity maps on R[q]∧ (p,Φd(q)) (instead of ϕp/A) as gluing equivalences.",
      "match": "For R with global Frobenius lifts, here the identity, the stages are the ordinary completions."
     }
    ],
@@ -4919,13 +4763,11 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "Thus, there’s no reason to expect that HR/A,m ≃R[q]∧ (qm−1), unless R itself (rather than only its p-completions) admits Frobenius lifts for all prime factors p | m.",
      "match": "The source's condition, global Frobenius lifts on R itself, which this R lacks."
     },
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "2.11, PDF p. 17",
-     "excerpt": "where the map on the right is induced by the relative Frobenius ϕp/A from 2.7, followed by a reexpansion of power series as above. We’ll call the map on the left the canonical map and the map on the right the Frobenius.",
      "match": "The Frobenius arrow acts on coefficients by φ_{p/A}, which is why constants need φ_p(r) = r."
     }
    ],
@@ -4968,25 +4810,21 @@
     {
      "sourceId": "Wagner.qHodgeHabiro.2025",
      "locator": "Remark 2.8, PDF p. 16",
-     "excerpt": "Thus, there’s no reason to expect that HR/A,m ≃R[q]∧ (qm−1), unless R itself (rather than only its p-completions) admits Frobenius lifts for all prime factors p | m.",
      "match": "The source says there is no reason to expect H_{R/A,m} ≃ R[q]^∧ without global Frobenius lifts, and cites the obstruction."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt v5, Corollary 2.52, PDF p. 35",
-     "excerpt": "2.52. Corollary. — Let p be a prime and let R be an étale Z-algebra such that R ! bRp is injective (equivalently, p is not invertible on any connected component of Spec R).",
      "match": "The hypotheses of the obstruction."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt v5, Corollary 2.52, PDF p. 35",
-     "excerpt": "If a Z[q]-algebra isomorphism ψ: q9Wm(R) ∼ = −! R[q]/(qm −1) exists for some positive integer m divisible by p, then the unique Frobenius lift ϕp : bRp ! bRp restricts to a morphism ϕp : R ! R.",
      "match": "Its conclusion, which R contradicts."
     },
     {
      "sourceId": "Wagner.qWitt.2024",
      "locator": "q-Witt v5, before Corollary 2.52, PDF p. 34",
-     "excerpt": "It often appears on first glance that our q-Witt vectors (or later our q-de Rham–Witt complexes) are trivial in the sense of q9Wm(R/A) ∼= R[q]/(qm −1).",
      "match": "The source's own reading: q-Witt vectors of étale Z-algebras are not the naive ones."
     }
    ],

@@ -4,6 +4,16 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
+FIX-RT-AREA-iwasawa-3~3 (Claude, session claude-kEZwtq, 7 October 2026):
+the comparison isomorphism is now the typed contract `PairDiagram.PeriodComparison`
+(natural for pullbacks and connecting maps, unital, multiplicative for the exterior
+and cross products), and `PairDiagram.ProductCompatible` ties the graded
+multiplicative structures `M₁`, `M₂` to those products (HMS findings E36, E37).
+`periodPoint`, `periodPoint.formal` and their dependent statements take both, so the
+review comments below about `PeriodData` describe the input of this round. The whole
+file was elaborated with `lake env lean` at Mathlib 082e2d3 in this round: the only
+messages are `declaration uses 'sorry'` warnings.
+
 REV-FIX-RT-AREA-iwasawa-3~2 (Codex codex-a71f92, 2 October 2026):
 Review status is needs_changes. The new inverse-evaluation API/test takes a
 supplied ring homomorphism; it does not construct one from incomplete PeriodData.
@@ -7872,14 +7882,13 @@ namespace PairDiagram
 
 open AlgebraicGeometry TopologicalSpace
 
-/-- SchemeAndStackFoundations SF.2 and ComplexComparisonPartII:C5: relative algebraic
-de Rham cohomology `H^d_dR(X, Y)` of pairs of varieties over `ℚ`, with pullback, the connecting
-maps of triples and the exterior product; the cross product in singular homology; the classes
-`1`, `[pt]`, `dX/X` and `[S¹]`; and the comparison isomorphism
-`H^d_dR(X, Y) ⊗ ℂ ≅ H^d(X(ℂ), Y(ℂ); ℚ) ⊗ ℂ`, natural for maps of pairs and compatible with the
-connecting maps. This describes the requested supplier contract. The current fields
-below encode only pullback naturality of comparison; its unit, product and connecting-map
-compatibilities still need typed hypotheses before the period-point API is valid. -/
+/-- SchemeAndStackFoundations SF.2: relative algebraic de Rham cohomology `H^d_dR(X, Y)` of pairs
+of varieties over `ℚ`, with pullback, the connecting maps of triples and the exterior product; the
+cross product in singular homology; and the classes `1`, `[pt]`, `dX/X` and `[S¹]`, the last two
+nonzero (they span the one-dimensional groups of `(𝔾_m, {1})` in degree `1`). The comparison
+isomorphism with singular cohomology is not part of this structure: it is the separate typed
+contract `PeriodComparison` below, requested from ComplexComparisonPartII:C5. The formal periods
+`P⁺` and `P` depend only on the data here; the comparison enters only the period point. -/
 structure PeriodData (Hs : PairHomology) where
   /-- `H^d_dR(X, Y)`. -/
   HdR : ∀ (X : Var) (_ : Closeds X.obj.left), ℤ → Type
@@ -7906,15 +7915,10 @@ structure PeriodData (Hs : PairHomology) where
   dlog : HdR Var.gm Var.gmOne 1
   /-- The class of the unit circle in `H_1(ℂ^*, {1}; ℚ)`. -/
   circle : Hs.H Var.gm Var.gmOne 1
-  /-- The comparison isomorphism, requested from ComplexComparisonPartII:C5 as an
-extension to relative pairs. Linear invertibility alone is insufficient: unit, product
-and connecting-edge compatibility remain to be encoded (see the packet gap). -/
-  comparison : ∀ v : Vertex,
-    ℂ ⊗[ℚ] HdR v.X v.Y v.i ≃ₗ[ℂ] ℂ ⊗[ℚ] Module.Dual ℚ (Hs.H v.X v.Y v.i)
-  comparison_natural : ∀ {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left}
-    (f : X ⟶ X') (hf : Set.MapsTo f.hom.left Y Y') (i : ℤ) (ω : HdR X' Y' i),
-    comparison ⟨X, Y, i⟩ (1 ⊗ₜ pullback f hf i ω) =
-      LinearMap.baseChange ℂ (Hs.pushforward f hf i).dualMap (comparison ⟨X', Y', i⟩ (1 ⊗ₜ ω))
+  /-- `dX/X` is nonzero: it spans `H^1_dR(𝔾_m, {1})`. -/
+  dlog_ne_zero : dlog ≠ 0
+  /-- `[S¹]` is nonzero: it spans `H_1(ℂ^*, {1}; ℚ)`. -/
+  circle_ne_zero : circle ≠ 0
 
 attribute [instance] PeriodData.addCommGroup PeriodData.module PeriodData.finiteDimensional
 
@@ -7931,6 +7935,73 @@ def deRhamRep : eff.Rep (FGModuleCat.{0} ℚ) where
   obj v := FGModuleCat.of ℚ (dR.HdR v.X v.Y v.i)
   map e := deRhamRepMap dR e
   map_loop := sorry
+
+variable {dR} in
+/-- The complex number `γ(φ_v(ω))` that a family of complex comparison maps attaches to a
+de Rham class `ω` and a homology class `γ` of the same pair `v`. -/
+def comparisonPeriod
+    (c : ∀ v : Vertex, ℂ ⊗[ℚ] dR.HdR v.X v.Y v.i ≃ₗ[ℂ] ℂ ⊗[ℚ] Module.Dual ℚ (Hs.H v.X v.Y v.i))
+    (v : Vertex) (ω : dR.HdR v.X v.Y v.i) (γ : Hs.H v.X v.Y v.i) : ℂ :=
+  TensorProduct.AlgebraTensorModule.rid ℚ ℂ ℂ
+    (LinearMap.baseChange ℂ (Module.Dual.eval ℚ _ γ) (c v (1 ⊗ₜ ω)))
+
+/-- MC.6/period-point, the typed comparison contract (requested from ComplexComparisonPartII:C5
+as its extension to pairs): the comparison isomorphisms
+`φ_v : H^i_dR(X, Y) ⊗ ℂ ≅ H^i(X(ℂ), Y(ℂ); ℚ) ⊗ ℂ` of all effective pairs, forming an isomorphism
+of representations of `D^eff` after base change to `ℂ` (natural for maps of pairs and compatible
+with the connecting maps of triples, the two kinds of edge), unital, and multiplicative for the
+exterior product of `PeriodData` and the cross product. Unit and product compatibility are
+stated on periods `γ(φ_v(ω))`. A family of linear isomorphisms natural for pullbacks alone does
+not qualify: twice a comparison is one, and its unit period is `2`. -/
+structure PeriodComparison where
+  /-- The comparison isomorphism `φ_v`. -/
+  toFun : ∀ v : Vertex,
+    ℂ ⊗[ℚ] dR.HdR v.X v.Y v.i ≃ₗ[ℂ] ℂ ⊗[ℚ] Module.Dual ℚ (Hs.H v.X v.Y v.i)
+  /-- Naturality for maps of pairs: `φ(f^*ω) = (f_*)^∨ φ(ω)`. -/
+  natural : ∀ {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left}
+    (f : X ⟶ X') (hf : Set.MapsTo f.hom.left Y Y') (i : ℤ) (ω : dR.HdR X' Y' i),
+    toFun ⟨X, Y, i⟩ (1 ⊗ₜ dR.pullback f hf i ω) =
+      LinearMap.baseChange ℂ (Hs.pushforward f hf i).dualMap (toFun ⟨X', Y', i⟩ (1 ⊗ₜ ω))
+  /-- Compatibility with the connecting maps of a triple: `φ(δω) = ∂^∨ φ(ω)`. -/
+  delta : ∀ {X V : Var} (ι : V ⟶ X) (hι : IsClosedImmersion ι.hom.left)
+    (Z : Closeds V.obj.left) (d : ℤ) (ω : dR.HdR V Z d),
+    toFun ⟨X, closedImage ι ⊤, d + 1⟩ (1 ⊗ₜ dR.delta ι hι Z d ω) =
+      LinearMap.baseChange ℂ (Hs.boundary ι hι Z d).dualMap (toFun ⟨V, Z, d⟩ (1 ⊗ₜ ω))
+  /-- Unitality: the period of `(Spec ℚ, ∅, 1, [pt])` is `1`. -/
+  one : comparisonPeriod toFun ptVertex dR.one dR.pointClass = 1
+  /-- Multiplicativity: the period of `(X × X', D × X' ∪ X × D', ω ∧ ω', γ × γ')` is the product
+  of the periods. -/
+  mul : ∀ (a b : Vertex) (ω : dR.HdR a.X a.Y a.i) (γ : Hs.H a.X a.Y a.i)
+    (ω' : dR.HdR b.X b.Y b.i) (γ' : Hs.H b.X b.Y b.i),
+    comparisonPeriod toFun (vertexProduct a b) (dR.wedge a b ω ω') (dR.cross a b γ γ') =
+      comparisonPeriod toFun a ω γ * comparisonPeriod toFun b ω' γ'
+
+namespace PeriodComparison
+
+variable {dR} (φ : PeriodComparison dR)
+
+/-- The period `γ(φ_v(ω))`. -/
+def period (v : Vertex) (ω : dR.HdR v.X v.Y v.i) (γ : Hs.H v.X v.Y v.i) : ℂ :=
+  comparisonPeriod φ.toFun v ω γ
+
+/-- Relation (2) holds for periods: `γ(φ(f^*ω')) = (f_*γ)(φ(ω'))`. -/
+theorem period_pullback {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left}
+    (f : X ⟶ X') (hf : Set.MapsTo f.hom.left Y Y') (d : ℤ) (ω' : dR.HdR X' Y' d)
+    (γ : Hs.H X Y d) :
+    φ.period ⟨X, Y, d⟩ (dR.pullback f hf d ω') γ =
+      φ.period ⟨X', Y', d⟩ ω' (Hs.pushforward f hf d γ) := sorry
+
+/-- Relation (3) holds for periods: `(∂γ)(φ(ω)) = γ(φ(δω))`. -/
+theorem period_boundary {X V : Var} (ι : V ⟶ X) (hι : IsClosedImmersion ι.hom.left)
+    (Z : Closeds V.obj.left) (d : ℤ) (ω : dR.HdR V Z d) (γ : Hs.H X (closedImage ι ⊤) (d + 1)) :
+    φ.period ⟨V, Z, d⟩ ω (Hs.boundary ι hι Z d γ) =
+      φ.period ⟨X, closedImage ι ⊤, d + 1⟩ (dR.delta ι hι Z d ω) γ := sorry
+
+/-- The period of the Tate symbol `(𝔾_m, {1}, dX/X, S¹)` is nonzero: `φ` is an isomorphism of
+one-dimensional spaces there, and `dX/X` and `[S¹]` are nonzero. -/
+theorem period_tate_ne_zero : φ.period gmVertex dR.dlog dR.circle ≠ 0 := sorry
+
+end PeriodComparison
 
 end PairDiagram
 
@@ -8103,6 +8174,29 @@ def PairDiagram.goodGrading : (good Hs).Graded := ⟨fun v => (v.1.i : ZMod 2)�
 def PairDiagram.deRhamGood : (good Hs).Rep (FGModuleCat.{0} ℚ) :=
   (deRhamRep dR).restrict (Diagram.fullSubdiagram.incl eff (IsGood Hs))
 
+/-- The graded multiplicative structures `M₁` on de Rham and `M₂` on singular cohomology of good
+pairs are those of the products in `PeriodData` (finding E36 asks for multiplicative structures on
+both representations; finding E37 takes them through the good pairs): the product of good pairs
+is the product of pairs, `τ⁻¹(ω ⊗ ω') = ω ∧ ω'`, and `τ⁻¹(x ⊗ y)` takes the value `x(γ) y(γ')` on
+`γ × γ'`. These are the structures for which the products of `P⁺` and of `A_{1,2}` agree on
+generators and for which a `PeriodComparison` is a tensor isomorphism. -/
+structure PairDiagram.ProductCompatible (P : (good Hs).ProductStructure (goodGrading Hs))
+    (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
+    (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P) : Prop where
+  /-- The product of good pairs is the product of pairs. -/
+  mul_eq : ∀ f g, P.mul f g = goodMul Hs f g
+  /-- `τ⁻¹(ω ⊗ ω') = ω ∧ ω'`. -/
+  wedge : ∀ f g (ω : (deRhamGood Hs dR).obj f) (ω' : (deRhamGood Hs dR).obj g),
+    ((M₁.τ f g).inv ≫ eqToHom (congrArg (deRhamGood Hs dR).obj (mul_eq f g))).hom.hom
+        (ω ⊗ₜ ω') = dR.wedge f.1 g.1 ω ω'
+  /-- `τ⁻¹(x ⊗ y)(γ × γ') = x(γ) y(γ')`. -/
+  cross : ∀ f g (x : (goodRep Hs).obj f) (y : (goodRep Hs).obj g) (γ : Hs.H f.1.X f.1.Y f.1.i)
+    (γ' : Hs.H g.1.X g.1.Y g.1.i),
+    singularRep_eq_dual_homology Hs (vertexProduct f.1 g.1)
+        (((M₂.τ f g).inv ≫ eqToHom (congrArg (goodRep Hs).obj (mul_eq f g))).hom.hom (x ⊗ₜ y))
+        (dR.cross f.1 g.1 γ γ') =
+      singularRep_eq_dual_homology Hs f.1 x γ * singularRep_eq_dual_homology Hs g.1 y γ'
+
 /-- MC.6/formal-periods-equal-comparison-algebra: `P⁺` is the space of periods of `H^*_dR` and
 `H^*` on `D^eff` (as vector spaces) and, through the good pairs whose graded multiplicative
 structures give the ring structures (finding E37), the comparison algebra as `ℚ`-algebras; the
@@ -8110,7 +8204,8 @@ comparison isomorphism plays no part. Stated for effective periods; `P` is the l
 sides at `2πi`. -/
 theorem formalPeriods_eq_comparison (P : (good Hs).ProductStructure (goodGrading Hs))
     (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
-    (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P) :
+    (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P)
+    (hM : ProductCompatible Hs dR P M₁ M₂) :
     Nonempty (FormalPeriods.eff Hs dR ≃ₗ[ℚ] PeriodSpace (deRhamRep dR) (singularRep Hs)) ∧
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     Nonempty (FormalPeriods.eff Hs dR ≃ₐ[ℚ] ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs)) :=
@@ -8153,58 +8248,103 @@ variable (Hs : PairHomology) (dR : PeriodData Hs) (P : (good Hs).ProductStructur
   (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
   (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P)
 
-/-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (C5) as a complex
-point of `X_{1,2} = Iso⊗(H^*_dR, H^*)`, the `ℚ`-algebra map `per : A_{1,2} ⟶ ℂ`,
-`(p, ω, γ) ↦ γ(φ_p(ω))`. This contract requires a unital multiplicative comparison
-compatible with every diagram edge. PeriodData currently does not encode that input;
-the signature and its dependent evaluation APIs remain incomplete until it is passed.
-No rational point of `X_{1,2}` is asserted. -/
-def periodPoint :
-    letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ := sorry
+/-- A `PeriodComparison` restricted to good pairs is a tensor isomorphism
+`H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` of graded multiplicative representations: edge compatibility gives the
+isomorphism of representations, and unit and product compatibility, through `ProductCompatible`,
+give compatibility with the `τ` (finding E36). -/
+def PairDiagram.PeriodComparison.toTensorIsoOver (φ : PeriodComparison dR)
+    (hM : ProductCompatible Hs dR P M₁ M₂) :
+    Diagram.Rep.TensorIsoOver (deRhamGood Hs dR) (goodRep Hs) M₁ M₂ ℂ := sorry
 
-/-- On the class of `(p, ω, γ)` the period point is `γ(φ_p(ω))`. -/
-theorem periodPoint_gen (v : (good Hs).V) (ω : (deRhamGood Hs dR).obj v)
-    (γ : Module.Dual ℚ ((goodRep Hs).obj v)) :
+/-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (C5), supplied as a
+typed `PeriodComparison` (natural for both kinds of edge, unital and multiplicative), as a complex
+point of `X_{1,2} = Iso⊗(H^*_dR, H^*)`: the `ℚ`-algebra map `per : A_{1,2} ⟶ ℂ` corresponding
+under `TensorIsoScheme.represents` to the tensor isomorphism `φ.toTensorIsoOver hM`,
+`(p, ω, γ) ↦ γ(φ_p(ω))`. No rational point of `X_{1,2}` is asserted. -/
+def periodPoint (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂) :
+    letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
+    ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ :=
+  letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
+  (TensorIsoScheme.represents M₁ M₂ ℂ).symm (φ.toTensorIsoOver Hs dR P M₁ M₂ hM)
+
+/-- On the class of `(p, ω, γ)` the period point is the period `γ(φ_p(ω))`. -/
+theorem periodPoint_gen (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂)
+    (v : (good Hs).V) (ω : dR.HdR v.1.X v.1.Y v.1.i) (γ : Hs.H v.1.X v.1.Y v.1.i) :
     letI := PeriodSpace.mul M₁ M₂; letI := PeriodSpace.algebra M₁ M₂
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    periodPoint Hs dR P M₁ M₂ (PeriodSpace.toComparison M₁ M₂ (PeriodSpace.gen _ _ v ω γ)) =
-      TensorProduct.AlgebraTensorModule.rid ℚ ℂ ℂ
-        (LinearMap.baseChange ℂ γ (dR.comparison v.1 (1 ⊗ₜ ω))) := sorry
+    periodPoint Hs dR P M₁ M₂ φ hM
+        (PeriodSpace.toComparison M₁ M₂ (PeriodSpace.gen _ _ v ω (Module.Dual.eval ℚ _ γ))) =
+      φ.period v.1 ω γ := sorry
 
 /-- The period point is a point of the heap: `per ∘ (heap map)` taken with `per` three times is
 `per`. -/
-theorem periodPoint_heap :
+theorem periodPoint_heap (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂)
-      (periodPoint Hs dR P M₁ M₂) (periodPoint Hs dR P M₁ M₂) = periodPoint Hs dR P M₁ M₂ := sorry
+    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂ φ hM)
+      (periodPoint Hs dR P M₁ M₂ φ hM) (periodPoint Hs dR P M₁ M₂ φ hM) =
+        periodPoint Hs dR P M₁ M₂ φ hM := sorry
 
-/-- The composite of the period point with `P = A_{1,2}`: a ring homomorphism `P ⟶ ℂ`, which
-PeriodsAndSpecialValues:PS.2 identifies with integration. -/
-def periodPoint.formal : FormalPeriods Hs dR →+* ℂ := sorry
+/-- The period point on `P = A_{1,2}`: the ring homomorphism `P ⟶ ℂ` that is `ω ↦ γ(φ(ω))` on
+generators. It respects relations (2) and (3) by `PeriodComparison.period_pullback` and
+`period_boundary`, the unit and the product by `PeriodComparison.one` and `mul`, and it extends
+from `P⁺` through the localisation (`IsLocalization.Away.lift`) because the period of the Tate
+symbol is nonzero (`PeriodComparison.period_tate_ne_zero`). Through `P ≅ A_{1,2}` it is
+`periodPoint` (`periodPoint.formal_eq_periodPoint`); PeriodsAndSpecialValues:PS.2 identifies it
+with integration. -/
+def periodPoint.formal (φ : PeriodComparison dR) : FormalPeriods Hs dR →+* ℂ := sorry
 
 /-- On generators, `periodPoint.formal (X, D, ω, γ) = γ(φ(ω))`. -/
-theorem periodPoint.formal_gen (v : Vertex) (ω : dR.HdR v.X v.Y v.i) (γ : Hs.H v.X v.Y v.i) :
-    periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.gen Hs dR v ω γ)) =
-      TensorProduct.AlgebraTensorModule.rid ℚ ℂ ℂ
-        (LinearMap.baseChange ℂ (Module.Dual.eval ℚ _ γ) (dR.comparison v (1 ⊗ₜ ω))) := sorry
+theorem periodPoint.formal_gen (φ : PeriodComparison dR) (v : Vertex) (ω : dR.HdR v.X v.Y v.i)
+    (γ : Hs.H v.X v.Y v.i) :
+    periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR (FormalPeriods.gen Hs dR v ω γ)) =
+      φ.period v ω γ := sorry
+
+/-- The two period points agree on the generators of a good pair: the formal evaluation is the
+complex point of the torsor read through `P = A_{1,2}`. -/
+theorem periodPoint.formal_eq_periodPoint (φ : PeriodComparison dR)
+    (hM : ProductCompatible Hs dR P M₁ M₂) (v : (good Hs).V) (ω : dR.HdR v.1.X v.1.Y v.1.i)
+    (γ : Hs.H v.1.X v.1.Y v.1.i) :
+    letI := PeriodSpace.mul M₁ M₂; letI := PeriodSpace.algebra M₁ M₂
+    letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
+    periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR (FormalPeriods.gen Hs dR v.1 ω γ)) =
+      periodPoint Hs dR P M₁ M₂ φ hM
+        (PeriodSpace.toComparison M₁ M₂ (PeriodSpace.gen _ _ v ω (Module.Dual.eval ℚ _ γ))) :=
+  sorry
+
+/-- The value of the period point on the Tate inverse `L⁻¹` is the inverse of the period of
+`L`, with no normalisation assumed. -/
+theorem periodPoint.formal_tateInverse (φ : PeriodComparison dR) :
+    periodPoint.formal Hs dR φ (FormalPeriods.tateInverse Hs dR) =
+      (φ.period gmVertex dR.dlog dR.circle)⁻¹ := sorry
 
 /-- Every complex point of `X_{1,2}` is `per` composed with a unique complex point of `G₁`, the
 tensor automorphism group of de Rham cohomology. -/
-theorem periodPoint_action (hU₁ : M₁.Unital) :
+theorem periodPoint_action (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂)
+    (hU₁ : M₁.Unital) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     letI := (deRhamGood Hs dR).coalgebraCommRing M₁; letI := (deRhamGood Hs dR).bialgebra M₁ hU₁
     ∀ x : ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ,
       ∃! g : (deRhamGood Hs dR).coalgebra →ₐ[ℚ] ℂ,
-        x = (Algebra.TensorProduct.productMap g (periodPoint Hs dR P M₁ M₂)).comp
+        x = (Algebra.TensorProduct.productMap g (periodPoint Hs dR P M₁ M₂ φ hM)).comp
           (TensorIsoScheme.compLeft M₁ M₂ hU₁) := sorry
+
+/-- The value of the supplier Tate inverse for any ring homomorphism on `P` normalised by
+`per(L) = 2πi`; the normalisation of the integration evaluation is owned by
+PeriodsAndSpecialValues:PS.2. `periodPoint.formal Hs dR φ` is such a homomorphism once PS.2 shows
+that the period of `L` is `2πi`. Neither injectivity nor any construction is asserted. -/
+theorem periodPoint_tate_inverse (per : FormalPeriods Hs dR →+* ℂ)
+    (hint : per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+      (2 * Real.pi : ℂ) * Complex.I) :
+    per (FormalPeriods.tateInverse Hs dR) =
+      ((2 * Real.pi : ℂ) * Complex.I)⁻¹ := sorry
 
 end PeriodPoint
 
 /-- Unit test `periodPoint_unit`: on the class of the unit vertex `(Spec ℚ, ∅)` in degree `0`
 with `ω = 1` and `γ` the class of the point, the value is `1`. -/
-example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs) :
-    periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR
+example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
+    (φ : PairDiagram.PeriodComparison dR) :
+    periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR
       (FormalPeriods.gen Hs dR PairDiagram.ptVertex dR.one dR.pointClass)) = 1 := sorry
 
 /-- Unit test `periodPoint_mul`: `per` is multiplicative, the value on a product of two
@@ -8212,37 +8352,27 @@ generators being the product of the values. -/
 example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     (P : (PairDiagram.good Hs).ProductStructure (PairDiagram.goodGrading Hs))
     (M₁ : (PairDiagram.deRhamGood Hs dR).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
-    (M₂ : (PairDiagram.goodRep Hs).GradedMultiplicative (PairDiagram.goodGrading Hs) P) :
+    (M₂ : (PairDiagram.goodRep Hs).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
+    (φ : PairDiagram.PeriodComparison dR) (hM : PairDiagram.ProductCompatible Hs dR P M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     ∀ a b : ComparisonAlgebra (PairDiagram.deRhamGood Hs dR) (PairDiagram.goodRep Hs),
-      periodPoint Hs dR P M₁ M₂ (a * b) =
-        periodPoint Hs dR P M₁ M₂ a * periodPoint Hs dR P M₁ M₂ b := sorry
+      periodPoint Hs dR P M₁ M₂ φ hM (a * b) =
+        periodPoint Hs dR P M₁ M₂ φ hM a * periodPoint Hs dR P M₁ M₂ φ hM b := sorry
 
 /-- Unit test `periodPoint_twist_not_rational`: when the comparison is the integration pairing,
 the value on `(𝔾_m, {1}, dX/X, S¹)` is `2πi`, which is not real; so the period point does not come
 from a rational point. -/
 example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
-    (hint : periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+    (φ : PairDiagram.PeriodComparison dR)
+    (hint : periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
       2 * Real.pi * Complex.I) :
-    (periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR))).im ≠ 0 ∧
-      ¬ ∃ r : ℚ, periodPoint.formal Hs dR
+    (periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR))).im ≠ 0 ∧
+      ¬ ∃ r : ℚ, periodPoint.formal Hs dR φ
         (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) = r := sorry
 
-/-- The value of the supplier Tate inverse for a supplied ring homomorphism on `P`.
-The integration normalization is owned by PeriodsAndSpecialValues:PS.2. Bare
-`PeriodData` does not yet justify constructing `periodPoint.formal`: that requires
-the unital multiplicative comparison compatible with connecting edges recorded
-in the packet's gap. This lemma neither constructs that map nor asserts injectivity. -/
-theorem periodPoint_tate_inverse
-    (per : FormalPeriods Hs dR →+* ℂ)
-    (hint : per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
-      (2 * Real.pi : ℂ) * Complex.I) :
-    per (FormalPeriods.tateInverse Hs dR) =
-      ((2 * Real.pi : ℂ) * Complex.I)⁻¹ := sorry
-
-/-- Unit test `periodPoint_tate_inverse_test`: evaluation of the inverse and the product,
-given a ring homomorphism; no tensor-compatible comparison is inferred from bare data. -/
-example
+/-- Unit test `periodPoint_tate_inverse_test`: evaluation of the inverse and the product, given a
+ring homomorphism normalised by `per(L) = 2πi`. -/
+example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     (per : FormalPeriods Hs dR →+* ℂ)
     (hint : per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
       (2 * Real.pi : ℂ) * Complex.I) :
@@ -8251,14 +8381,35 @@ example
       per (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) *
         per (FormalPeriods.tateInverse Hs dR) = 1 := sorry
 
+/-- Unit test `periodPoint.formal_tateInverse_test`: for the typed comparison, with the period of
+`L` normalised to `2πi` (PS.2), the period point sends `L⁻¹` to `(2πi)⁻¹` and `L · L⁻¹` to `1`. -/
+example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
+    (φ : PairDiagram.PeriodComparison dR)
+    (hint : φ.period PairDiagram.gmVertex dR.dlog dR.circle = (2 * Real.pi : ℂ) * Complex.I) :
+    periodPoint.formal Hs dR φ (FormalPeriods.tateInverse Hs dR) =
+        ((2 * Real.pi : ℂ) * Complex.I)⁻¹ ∧
+      periodPoint.formal Hs dR φ (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) *
+        periodPoint.formal Hs dR φ (FormalPeriods.tateInverse Hs dR) = 1 := sorry
+
+/-- Unit test `PeriodComparison.doubled_not_comparison`: twice a comparison is natural for
+pullbacks and still a linear isomorphism, but it is not a `PeriodComparison`: its unit period
+would be `2`. Linear isomorphisms natural for pullbacks alone do not define the period point. -/
+example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
+    (φ : PairDiagram.PeriodComparison dR) :
+    ¬ ∃ ψ : PairDiagram.PeriodComparison dR,
+      ∀ (v : PairDiagram.Vertex) (x : ℂ ⊗[ℚ] dR.HdR v.X v.Y v.i),
+        ψ.toFun v x = (2 : ℂ) • φ.toFun v x := sorry
+
 /-- Unit test `periodPoint_heap_test`: the heap operation applied to `(φ, φ, φ)` returns `φ`. -/
 example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     (P : (PairDiagram.good Hs).ProductStructure (PairDiagram.goodGrading Hs))
     (M₁ : (PairDiagram.deRhamGood Hs dR).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
-    (M₂ : (PairDiagram.goodRep Hs).GradedMultiplicative (PairDiagram.goodGrading Hs) P) :
+    (M₂ : (PairDiagram.goodRep Hs).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
+    (φ : PairDiagram.PeriodComparison dR) (hM : PairDiagram.ProductCompatible Hs dR P M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂)
-      (periodPoint Hs dR P M₁ M₂) (periodPoint Hs dR P M₁ M₂) = periodPoint Hs dR P M₁ M₂ := sorry
+    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂ φ hM)
+      (periodPoint Hs dR P M₁ M₂ φ hM) (periodPoint Hs dR P M₁ M₂ φ hM) =
+        periodPoint Hs dR P M₁ M₂ φ hM := sorry
 
 end MC6
 section MC7

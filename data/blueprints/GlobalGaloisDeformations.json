@@ -308,13 +308,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "Fix a continuous representation ρ : G → GLn(F). Let CO be the category of complete local Noetherian O-algebras with residue ﬁeld F, and consider the functor CO → Sets which sends A to the set of continuous representations ρ : G → GLn(A) such that ρ mod mA = ρ (that is, to the set of lifts of ρ to A).",
      "match": "The lifting functor on C_𝒪."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.1.1)–(1.1.2), p. 1",
-     "excerpt": "Then D□VF(A) is the set of representations ρA : G → GLn(A) lifting ¯ρ, while DVF(A) is the set of such representations modulo the action of ker(GLn(A) → GLn(F)) acting by conjugation.",
      "match": "The same functor on Artinian coefficient rings."
     }
    ],
@@ -424,7 +422,6 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.1.1), p. 1",
-     "excerpt": "by a deformation of VF to A we mean a ﬁnite free A-module VA equipped with a continuous action of G, and a G-equivariant isomorphism VA ⊗A F ∼→ VF.",
      "match": "The definition; the framed version adds a lift of the chosen basis."
     }
    ],
@@ -513,13 +510,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.4, p. 12",
-     "excerpt": "Suppose that ρ is Schur. Then a deformation of ρ to A ∈ ob CO is an equivalence class of liftings, where ρ ∼ ρ′ if and only if ρ′ = aρa−1 for some a ∈ ker(GLn(A) → GLn(F)) (or equivalently, for some a ∈ GLn(A)).",
      "match": "The strict equivalence relation; the parenthetical equivalence holds only for Schur ρ̄, which is strict-vs-full-conjugacy."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Remark (1.1.2)(1), p. 1",
-     "excerpt": "DVF(A) is the set of such representations modulo the action of ker(GLn(A) → GLn(F)) acting by conjugation.",
      "match": "The same definition, for every ρ̄."
     }
    ],
@@ -622,7 +617,6 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Remark (1.1.2)(1), p. 1",
-     "excerpt": "The ﬁxed basis β allows us to view VF as a representation ¯ρ : G → GLn(F) Then D□VF(A) is the set of representations ρA : G → GLn(A) lifting ¯ρ, while DVF(A) is the set of such representations modulo the action of ker (GLn(A) → GLn(F)) acting by conjugation.",
      "match": "The statement; the proof steps spell out the basis-change argument."
     }
    ],
@@ -661,7 +655,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.4, p. 12",
-     "excerpt": "ρ ∼ ρ′ if and only if ρ′ = aρa−1 for some a ∈ ker(GLn(A) → GLn(F)) (or equivalently, for some a ∈ GLn(A)).",
      "match": "The equivalence under the Schur hypothesis of Definition 3.4; the proof is the two proof steps."
     }
    ],
@@ -702,7 +695,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.20–3.21, p. 15",
-     "excerpt": "The equivalence relation is deﬁned by decreeing that for each β ∈ ker(GLn(A) → GLn(F)), we have (ρ, {αv}v∈T) ∼ (βρβ−1, {βαv}v∈T). ... α−1v ρ|Gvαv is a well-deﬁned element of Dv (independent of the choice of representative of the equivalence class).",
      "match": "The invariance of the framed local restriction."
     }
    ],
@@ -741,7 +733,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.18, p. 15",
-     "excerpt": "let χ : G → O× be a continuous homomorphism such that χ mod λ = det ρ. Then it makes sense to ask that a lifting has determinant χ, and we can deﬁne a universal lifting ring R□ρ,χ for lifts with determinant χ, and when ρ is Schur, a universal ﬁxed determinant deformation ring Runivρ,χ.",
      "match": "The fixed-determinant functors."
     }
    ],
@@ -832,13 +823,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "Take L/Qp ﬁnite with ring of integers O = OL and maximal ideal λ, and write F = O/λ.",
      "match": "The coefficient setting that the change of coefficients varies; the argument is the proof steps."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.1.1), p. 1",
-     "excerpt": "Let ARW(F) denote the category of ﬁnite local, Artinian W(F)-algebras with residue ﬁeld F.",
      "match": "The W(𝔽) coefficient case, of which 𝒪 is a finite extension."
     }
    ],
@@ -925,7 +914,6 @@
     {
      "sourceId": "CHENEVIER-2014",
      "locator": "§3.1, Proposition 3.3, p. 42",
-     "excerpt": "The functor F′ is representable. This means that there is a proﬁnite local W(k)-algebra A(¯ρ) with residue ﬁeld k, and a determinant D(¯ρ) : W(k)[G] → A(¯ρ)",
      "match": "The deformation functor of a residual determinant and its representing object."
     }
    ],
@@ -1020,13 +1008,11 @@
     {
      "sourceId": "CHENEVIER-2014",
      "locator": "§3.1, Example 3.4, p. 42",
-     "excerpt": "If we assume that ¯ρ is absolutely irreducible and (say) deﬁned over k, then F is canonically isomorphic with the usual deformation functor of ¯ρ deﬁned by Mazur in [M], by Theorem 2.22.",
      "match": "The comparison under absolute irreducibility."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.5) Exercise 3, p. 4",
-     "excerpt": "Give an example where VF is not absolutely irreducible and there exist non-isomorphic deformations VA, V′A ∈ DVF(A) with the same traces.",
      "match": "The failure of injectivity in general."
     }
    ],
@@ -1073,13 +1059,11 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Lemma (1.3.1), p. 3",
-     "excerpt": "There is a canonical isomorphism DVF(F[ϵ]) ∼→ H1(G, adVF) where adVF denotes the G-representation EndFVF. (2) If G satisﬁes Φp then DVF(F[ϵ]) is a ﬁnite dimensional F-vector space and satisﬁes dimF D□VF(F[ϵ]) = dimF DVF(F[ϵ]) + n2 − dimF(adVF)G",
      "match": "The statement and the torsor argument."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Exercise 3.11 and Corollary 3.12, p. 13",
-     "excerpt": "Given a cocycle φ ∈ Z1(G, ad ρ), deﬁne a lifting ρ : G → GLn(F[ε]/(ε2)) by ρ(g) := (1 + φ(g)ε)ρ(g).",
      "match": "The explicit cocycle–lift correspondence."
     }
    ],
@@ -1118,13 +1102,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "Let G be a proﬁnite group which satisﬁes the following condition (Mazur’s condition Φp): for each open subgroup ∆ of G, then ∆/⟨[∆, ∆], ∆p⟩ is ﬁnite. Equivalently (see e.g. Exercise 1.8.1 of [B¨13]), for each ∆ the maximal pro-p quotient of ∆ is topologically ﬁnitely generated.",
      "match": "The definition."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.2), p. 1, and Exercise 1, p. 4",
-     "excerpt": "(1) For all open subgroups G′ ⊂ G the maximal pro-p quotient of G′ is topologically ﬁnitely generated (2) For all G′ ⊂ G as above Hom(G′, Fp) is ﬁnite dimensional over Fp.",
      "match": "The equivalence as stated in Kisin's Exercise 1 (his §1.2 misstates it; sourceIssues E1)."
     }
    ],
@@ -1213,13 +1195,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "using class ﬁeld theory or Kummer theory, it can be checked that Φp holds if G = GK = Gal(K/K) for some prime l (possibly equal to p) and some ﬁnite extension K/Ql, or if G = GK,S = Gal(KS/K)",
      "match": "The statement, with the class-field-theory proof indicated."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, (1.2), p. 2",
-     "excerpt": "Examples of groups satisfying this condition include the absolute Galois group of a ﬁnite extension K/Qp, and the Galois group Gal(FS/F) where F is a number ﬁeld and FS is a maximal extension of F unramiﬁed outside a ﬁnite set of primes S of F.",
      "match": "The same examples."
     }
    ],
@@ -1264,13 +1244,11 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Proposition (1.2.1)(1) and its proof, p. 2",
-     "excerpt": "Assume G satisﬁes Φp. Then (1) D□VF is pro-representable by a complete local (Noetherian) W(F)-algebra R□VF.",
      "match": "The statement; Kisin's proof reduces to the maximal pro-p quotient of ker ρ̄."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Lemma 3.2 and Definition 3.3, p. 12",
-     "excerpt": "This functor is represented by a representation ρ□ : G → GLn(R□ρ).",
      "match": "The statement on C_𝒪."
     }
    ],
@@ -1314,13 +1292,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.3, p. 12",
-     "excerpt": "We say that R□ρ is the universal lifting ring (or in Kisin’s terminology, the universal framed deformation ring). We say that ρ□ is the universal lifting of ρ.",
      "match": "The universal lift."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Remark (1.2.2)(2), p. 2",
-     "excerpt": "In particular, the identity map in Hom(R□VF, R□VF) gives rise to a universal framed deformation over R□VF.",
      "match": "The universal object from the identity map."
     }
    ],
@@ -1414,13 +1390,11 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Proposition (1.2.1)(2), p. 2",
-     "excerpt": "(2) If EndF[G]VF = F then DVF is a pro-representable by a complete local W(F)-algebra RVF called the universal deformation ring of VF.",
      "match": "The statement."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Lemma 3.5, p. 12",
-     "excerpt": "If ρ is Schur, then the functor CO → Sets sending A to the set of deformations of ρ to A is representable by some ρuniv : G → GLn(Runivρ).",
      "match": "The statement on C_𝒪."
     }
    ],
@@ -1469,13 +1443,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Exercise 3.9, p. 13",
-     "excerpt": "Show that if ρ is absolutely irreducible, then R□ρ is isomorphic to a power series ring in (n2 − 1) variables over Runivρ. Hint: ... consider the homomorphism ρ□ : G → GLn(Runivρ JXi,jKi,j=1,...,n/(X1,1)) given by ρ□ = (1n + (Xi,j))ρuniv(1n + (Xi,j))−1.",
      "match": "The comparison and the explicit universal lift."
     },
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Remark (1.2.2)(3), p. 2",
-     "excerpt": "Note that when the conditions in (2) of the Proposition hold the map of local W(F)-algebras RVF → R□VF is formally smooth",
      "match": "Formal smoothness."
     }
    ],
@@ -1520,13 +1492,11 @@
     {
      "sourceId": "KISIN-LECTURES",
      "locator": "Lecture 1, Theorem (1.4.1) and its proof, pp. 3–4",
-     "excerpt": "Suppose that VF is absolutely irreducible. If A is in ARW(F) and VA, V′A ∈ DVF(A) are deformations such that tr(σ|VA) = tr(σ|V′A) for all σ ∈ G, then VA and V′A are isomorphic deformations.",
      "match": "Statement (2) and Carayol's argument."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Lemma 3.7, pp. 12–13",
-     "excerpt": "If S ⊆ R is a closed subring with S ∈ ob CO and mS = mR ∩ S, and if tr ρ(G) ⊆ S, then there is some a ∈ ker(GLn(R) → GLn(F)) such that aρa−1 : G → GLn(S).",
      "match": "Statements (1)–(3)."
     }
    ],
@@ -1572,7 +1542,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.18 and Exercise 3.19, p. 15",
-     "excerpt": "Check that the material developed in the previous section goes over unchanged, except that ad ρ needs to be replaced with ad0ρ := {x ∈ ad ρ : tr x = 0}. Note that since we are assuming throughout that p ∤ n, ad0ρ is a direct summand of ad ρ (as a G-representation).",
      "match": "The fixed-determinant theory for p ∤ n; the change-of-determinant decomposition is the proof steps."
     }
    ],
@@ -1614,7 +1583,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.1, p. 12",
-     "excerpt": "Take L/Qp ﬁnite with ring of integers O = OL and maximal ideal λ, and write F = O/λ.",
      "match": "The coefficient setting; the base-change argument is the proof steps."
     }
    ],
@@ -1652,7 +1620,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Definition 3.16, p. 14",
-     "excerpt": "By a deformation problem D we mean a collection of liftings (R, ρ) of (F, ρ) (with R an object of CO), satisfying the following properties. • (F, ρ) ∈ D. • If f : R → S is a morphism in CO and (R, ρ) ∈ D, then (S, f ◦ ρ) ∈ D.",
      "match": "The definition (the remaining axioms are listed in the statement)."
     }
    ],
@@ -1746,7 +1713,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Lemma 3.17, p. 14",
-     "excerpt": "If D is a deformation problem then there is a ker(GLn(R□ρ) → GLn(F))-invariant ideal I(D) of R□ρ such that (R, ρ) ∈ D if and only if the map R□ρ → R induced by ρ factors through the quotient R□ρ/I(D).",
      "match": "Part (1); parts (2) and (3) follow on the same page."
     }
    ],
@@ -1787,13 +1753,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.20–3.21, p. 15",
-     "excerpt": "A T-framed deformation of ρ of type S := (S, {Dv}v∈S, χ) to A is an equivalence class of tuples (ρ, {αv}v∈T), where ρ : G → GLn(A) is a lift of ρ such that det ρ = χ and ρ|Gv ∈ Dv for all v ∈ S",
      "match": "The definition."
     },
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, p. 29",
-     "excerpt": "Two tuples (ρ, (ρv)v∈S, (gv)v∈S) and (ρ′, (ρ′v)v∈S, (g′v)v∈S) are equivalent if they are conjugate under the action of GL2(A)1",
      "match": "The same framed data for n = 2 and T = S."
     }
    ],
@@ -1890,7 +1854,6 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Lemma 3.22, p. 15",
-     "excerpt": "The functor CO → Sets sending A to the set of T-framed deformations of ρ of type S is represented by a universal object ρ□T : G → GLn(R□T S).",
      "match": "The statement (Gee cites CHT08 Proposition 2.2.9 for the proof)."
     }
    ],
@@ -1935,13 +1898,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.23, p. 15",
-     "excerpt": "Since α−1v ρ□T|Gvαv is a well-deﬁned element of Dv, we have a tautological homomorphism R□ρ|Gv,χ/I(Dv) → R□T S. Deﬁne Rloc S,T := b⊗v∈T (R□ρ|Gv,χ/I(Dv)).",
      "match": "The construction."
     },
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, p. 29",
-     "excerpt": "Call R□,loc,ψ S the completed tensor product ˆ⊗v∈S R□,ψ v.",
      "match": "The same for T = S and n = 2."
     }
    ],
@@ -2035,13 +1996,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 3.24(1), p. 18",
-     "excerpt": "There is a canonical isomorphism Hom(mR□T S /(m2R□T S, mRloc S,T, λ), F) ≅ H1S,T(GF,S, ad0ρ).",
      "match": "The statement."
     },
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, Lemma 4.3, p. 31",
-     "excerpt": "The minimal number of generators of R□,ψ S∪V (resp., ¯R□,ψ S∪V) over R□,loc,ψ S (resp., ¯R□,loc,ψ S) is dimF(H1{Lv}(S∪V, Ad0)) − δp + Σv∈S dimF(H0(Dv, Ad)) − dimF(H0(GF, Ad)).",
      "match": "The n = 2, T = S count, with the p = 2 correction δ_p."
     }
    ],
@@ -2089,19 +2048,16 @@
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, Lemma 4.5 and its proof, pp. 32–33",
-     "excerpt": "Lemma 4.5. We have the inequality : r(J) ≤ dimF(H1{L⊥v}(S, (Ad0)∗(1))). Proof. We prove the lemma. We deﬁne a F-linear map f : Hom(J/mJ, F) → H1{L⊥v}(S, (Ad0)∗(1))∗, and we prove that f is injective.",
      "match": "The relation bound and its proof."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 3.24(2), p. 18",
-     "excerpt": "R□T S is the quotient of a power series ring in dimF H1S,T(GF,S, ad0ρ) variables over Rloc S,T.",
      "match": "The number of variables."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§4.2, Lemma 4.6, p. 43",
-     "excerpt": "Lemma 4.6. We have the inequality: r(J) ≤ dimF(H1{L⊥v}(S, (Ad0)∗(1))).",
      "match": "The same bound in the published numbering."
     }
    ],
@@ -2149,25 +2105,21 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 3.24(3), p. 18",
-     "excerpt": "The Krull dimension of Runiv S is at least 1 + Σv∈S (Krull dim.(R□ρ|GFv,χ/I(Dv)) − n2) − Σv|∞ dimF H0(GFv, ad0ρ) − dimF H0(GF,S, ad0ρ(1)).",
      "match": "The general bound."
     },
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, Proposition 4.4, p. 32",
-     "excerpt": "Proposition 4.4. The absolute dimension of ¯Rψ S is ≥ 1.",
      "match": "The KW II form (preprint numbering)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§4.2, Proposition 4.5, p. 42",
-     "excerpt": "Proposition 4.5. The absolute dimension of ¯RψS is ≥ 1.",
      "match": "The KW II form in the published numbering cited by RS-08."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§4.2, Corollary 4.7, p. 45",
-     "excerpt": "Corollary 4.7. If ¯RψS is a finitely generated Zp-module, then there is a map of CNLO-algebras π : ¯RψS → O′ for O′ the ring of integers of a finite extension of Qp.",
      "match": "The consumer of the bound (RS-08's 'KW II 4.5/4.7 hypotheses')."
     }
    ],
@@ -2212,13 +2164,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§3.25, p. 18",
-     "excerpt": "Then restricting the universal deformation ρuniv of ρ to GF′,S′ gives a ring homomorphism Runiv ρ|GF′,S′ → Runiv ρ.",
      "match": "The unframed map."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§10.1, proof of Theorem 10.1, p. 91",
-     "excerpt": "As ¯ρ and ¯ρ|GF are absolutely irreducible, we have by functoriality CNLO-algebra morphisms π1 : RψF F → ¯R□,ψF F , π2 : Rψ Q,S → ¯R□,ψ Q,S , and also β : RψF F → Rψ Q,S and α : ¯R□,ψF F → ¯R□,ψ Q,S",
      "match": "The maps with fixed determinant and local conditions."
     }
    ],
@@ -2311,13 +2261,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 3.26, p. 18",
-     "excerpt": "3.26. Proposition. The ring Runiv ρ is a ﬁnitely generated Runiv ρ|GF′,S′ -module.",
      "match": "The GL_n statement."
     },
     {
      "sourceId": "BLGGT-2014",
      "locator": "Lemma 1.2.3(1) and its proof, pp. 16–17",
-     "excerpt": "Then the natural map Runiv O,r|Σ → Runiv O,r induced by runiv|Σ makes Runiv O,r a ﬁnitely generated Runiv O,r|Σ- module.",
      "match": "The proof transcribed above (𝒢_n-valued in the source)."
     }
    ],
@@ -2362,13 +2310,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.1, p. 6",
-     "excerpt": "A morphism f : B → C of CNLO-algebras is called a closed immersion if it is surjective. If f is a closed immersion, it is clear that for every CNLO-algebra A, the map SpC(A) → SpB(A) is injective.",
      "match": "The closed-immersion criterion (see E2 for the converse)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 5.11, p. 53",
-     "excerpt": "This naturally endows ¯Rψ S∪Qn (and hence ¯R□,ψ S∪Qn) with a O[∆′ Qn] = ⊗v∈QnO[∆′ v] module structure, and its quotient by the augmentation ideal of O[∆′ Qn] is isomorphic to ¯Rψ S (resp., ¯R□,ψ S ).",
      "match": "The auxiliary-prime case."
     }
    ],
@@ -2410,13 +2356,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 7.10 and its proof, p. 69",
-     "excerpt": "For p > 2 the lemma is trivial (and we may take F ′ = F). For p = 2 we use the Grunwald-Wang theorem",
      "match": "The dyadic obstruction to changing determinant by twisting, and the base-change remedy."
     },
     {
      "sourceId": "BLGGT-2014",
      "locator": "Lemma 1.2.3(2), p. 16",
-     "excerpt": "Then the natural map Runiv O,r⊗s → Runiv O,r induced by runiv ⊗ s makes Runiv O,r a ﬁnitely generated Runiv O,r⊗s-module.",
      "match": "The twisting map in the 𝒢_n setting, where it is only shown to be finite."
     }
    ],
@@ -2454,13 +2398,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.5, p. 12",
-     "excerpt": "Let a be an abelian ﬁnitely generated group whose torsion is of order a power of p. We deﬁne the diagonalizable group with character group a in the CNLO category as the completion of the usual diagonalizable group ([15] exp.8) at the neutral element of the special ﬁber.",
      "match": "The definition."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§2.6, Proposition 2.8 and its proof, p. 14",
-     "excerpt": "Then, the closed immersion Tpm ↪ T induces an isomorphism of truncated group schemes T[m+1] pm ≃ T[m+1].",
      "match": "The truncation isomorphism."
     }
    ],
@@ -2557,19 +2499,16 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.4, p. 10",
-     "excerpt": "We say that the action of G on X is free if the map G × X → X × X corresponding to (g, x) 7→ (x, gx) is a closed immersion i.e. for every A, G(A) acts on X(A) without ﬁxed points.",
      "match": "Freeness."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 2.5 and its proof, pp. 11–12",
-     "excerpt": "Proposition 2.5. Let G be a group acting on X as above. One supposes that G is smooth and that the action of G on X is free. Then, A(X)0 is a CNLO-algebra and the functor of orbits is represented by A(X)0. The map X → O is smooth.",
      "match": "The smooth case."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 2.6, pp. 12–13",
-     "excerpt": "Proposition 2.6. Let X be a representable set in CNLO and D = (a)∗ be a diagonalizable group in CNLO acting freely on X. Then : 1) A quotient D\\X exists in CNLO",
      "match": "The diagonalizable case and quotients in stages."
     }
    ],
@@ -2612,13 +2551,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.6, Proposition 2.7 and its proof, pp. 13–14",
-     "excerpt": "Proposition 2.7. Then we have a unique group action of G on X∞ such that for each m the group action chunk of level m of G[m] on X[m] ∞ is com- patible with the given group action chunk of G[m] on Xm via the immersion Xm → X[m] ∞.",
      "match": "The statement and proof."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.3, pp. 86–87",
-     "excerpt": "The group chunk free actions of T[r′ m] 2m on SpD′m deﬁne the free action of T on X′ ∞by Propositions 2.7 and 2.8.",
      "match": "The application to the patched ring."
     }
    ],
@@ -2663,13 +2600,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§5.1, p. 46",
-     "excerpt": "For A ∈ CNLO, G∗ V (A) is the group Hom(GV , A∗) of continuous characters that reduce to the trivial character modulo mA. We have an action of G∗ V on SpR□ S∪V .",
      "match": "The action and its properties."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§5.1, p. 46",
-     "excerpt": "Then, if χ ∈ G∗ V,2(A), we have χ2 = 1 and det(χ ⊗ ρA) = det(ρA). It follows that G∗ V,2 acts on SpR□,ψ S∪V .",
      "match": "The dyadic action on fixed-determinant rings."
     }
    ],
@@ -2776,7 +2711,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§5.2, Lemma 5.1 and its proof, pp. 46–47",
-     "excerpt": "Lemma 5.1. If A is a CNLO-algebra, then a lift ρA : GF → GL(VA) of ¯ρ : GF → GL2(F) is not equivalent to any of its twists by a non-trivial character χ ∈ Hom(GV , A∗).",
      "match": "The statement and the trace argument."
     }
    ],
@@ -2819,13 +2753,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§4.1.1, pp. 37–38",
-     "excerpt": "Consider the CNLO-algebra R□,ψ S∪V (resp., R□ S∪V ) which represents the functor obtained by assigning to A, the isomorphism classes of tuples (VA, {βv,A}v∈S) where VA is a deformation of the GW -representation ¯ρ to A having determinant ψχp (resp., VA|Dv has determinant ψχp for v ∈ S)",
      "match": "The two rings."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.3, p. 86",
-     "excerpt": "If to a lift ρA of ¯ρ with values in a CNLO-algebra A, one associates the Galois character detρA × (χpψ)−1, one deﬁnes a map of functors from X′ n to the diagonalizable group G∗ n.",
      "match": "The determinant map."
     }
    ],
@@ -2929,7 +2861,6 @@
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.3, Lemma 9.4 and its proof, p. 87",
-     "excerpt": "Lemma 9.4. The natural map Rinv ∞→R∞makes R∞a torsor on Rinv ∞with group the 2-torsion T2 of the torus T.",
      "match": "The torsor statement and the fibre-product proof."
     }
    ],
@@ -2975,19 +2906,16 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§2.7, Proposition 2.10, p. 15",
-     "excerpt": "Proposition 2.10. Each irreducible component of Spec(R □ φ,0,ﬂ) is faithfully ﬂat of absolute dimension d2 ; R □ φ,0,ﬂ[1/p] is regular.",
      "match": "Flatness, dimension and regularity."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§2.7, Proposition 2.11, p. 16",
-     "excerpt": "Proposition 2.11. The lifts ρξ are exactly the lifts ρ of ¯ρ with values in GLd(O′) which have determinant φ and are such that the restriction of ρ⊗E′ to I is conjugate to (ρ0)|I ⊗E′.",
      "match": "The points."
     },
     {
      "sourceId": "KW2-ESI-2007",
      "locator": "§2.3, Propositions 2.6–2.7, pp. 9–11",
-     "excerpt": "We consider inertia-rigid lifts (2.3), i.e. lifts whose restriction of inertia is conjugate to the restriction of ρ0 to inertia and whose determinant is φ.",
      "match": "The same material in the preprint numbering (quoted from its §3.3, p. 24)."
     }
    ],
@@ -3029,13 +2957,11 @@
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§5.6, p. 33",
-     "excerpt": "The patching argument will involve the consideration of various ﬁnite sets Q of auxiliary ﬁnite places. We will always assume that if v ∈Q, then • v /∈T , • #k(v) ≡1 (mod p), and • ρ(Frobv) has distinct eigenvalues, which we denote αv and βv.",
      "match": "The conditions on Q."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.3, p. 47",
-     "excerpt": "for v ∈Qn, v is unramiﬁed in ¯ρ and ψ, ¯ρ(Frobv) has distinct eigen- values αv, βv, and N(v) = 1 mod pn",
      "match": "The level-n conditions."
     }
    ],
@@ -3130,13 +3056,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§4, p. 37",
-     "excerpt": "We assume that ¯ρ has non- solvable image when p = 2, and ¯ρ|F(µp) is absolutely irreducible when p > 2.",
      "match": "KW II's hypotheses (1) and (3)."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Theorem 5.2, p. 29",
-     "excerpt": "(3) Im ρ ⊇SL2(Fp). Then ρ is modular.",
      "match": "Gee's hypothesis (2), with p > 3 and p unramified in F."
     }
    ],
@@ -3225,19 +3149,16 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.4, p. 48",
-     "excerpt": "Lemma 5.4. For v ∈Qn, dimF(H1(Dv, Ad0)) = 2 = 1+dimF(H0(Dv, Ad0)).",
      "match": "(i)."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "proof of Proposition 5.10, p. 39",
-     "excerpt": "Consequently, we see that there is an isomor- phism H1(Gk(v), (ad 0ρ)(1)) ∼= F (since in general for a (pro)cyclic group, the ﬁrst cohomology is given by passage to coinvariants)",
      "match": "(ii)."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Remark after Lemma 5.3, pp. 47–48",
-     "excerpt": "Remark: F. Diamond pointed out to us that the lemma above may not be true for p = 2. Indeed, for p = 2, we have (Ad0)∗(1) ≃Ad/Z",
      "match": "The dyadic failure."
     }
    ],
@@ -3284,13 +3205,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.3 and its proof, pp. 47–48; Lemma 5.2(1), p. 47",
-     "excerpt": "Lemma 5.3. Let p be an odd prime. Assume that F is a totally real number ﬁeld unramiﬁed at p. For each positive integer n, there is a set of primes Qn such that: • |Qn| = dimFH1 {L⊥ v }(S, (Ad0) ∗(1)),",
      "match": "KW II's form."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 5.10 and its proof, pp. 38–39",
-     "excerpt": "5.10. Proposition. Let r = max(dim H1(GF,T , (ad 0ρ)(1)), 1 + [F : Q] −#T ). For each N ≥1, there exists a set QN of places of F such that • QN ∩T = ∅. • If v ∈QN, then ρ(Frobv) has distinct eigenvalues αv̸ = βv.",
      "match": "Gee's form and the Chebotarev argument transcribed above."
     }
    ],
@@ -3335,13 +3254,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Proposition 5.5, p. 48",
-     "excerpt": "Proposition 5.5. The ring R□,ψ S∪Qn is generated over the ring R□,loc,ψ S by |Qn| + |S| −1 = h1 {L⊥ v }(S, (Ad0)∗(1)) + |S| −1 generators.",
      "match": "KW II's count."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "Proposition 5.10, last bullet, p. 38",
-     "excerpt": "R□ QN (respectively R□,′ QN ) is topologically generated over Rloc (respectively Rloc,′) by #T −1 −[F : Q] + r elements.",
      "match": "Gee's count."
     }
    ],
@@ -3382,13 +3299,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§5.5.1, Proposition 5.6 and Lemmas 5.7–5.9, pp. 48–50",
-     "excerpt": "Proposition 5.6. Let n > n0. Then Ln and ˜Fn are linearly disjoint exten- sions of Fn.",
      "match": "The statements and proofs."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.9, p. 50",
-     "excerpt": "Lemma 5.9. 1. The extension ˜Fn/Fn is cyclic of degree 2n−1 and its cyclic sub-extension of degree 2 is Fn(y1/4 n0 ). 2. The element κn is unramiﬁed outside S, i.e. is ∈H1(GF,S, µ2n). The order of κn is divisible by 2n−1.",
      "match": "The Kummer class."
     }
    ],
@@ -3435,13 +3350,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§5.5.2, Lemma 5.10 and its proof, pp. 50–53",
-     "excerpt": "Lemma 5.10. For each n >> 0 (n > n0 with n0 as above suﬃces), there is a ﬁnite set of primes Qn with the following properties: • (a) Qn is of constant cardinality h1(S, Ad) −2; • (b) for v ∈Qn, N(v) is 1 mod 2n, ¯ρ is unramiﬁed at v, and ¯ρ(Frobv) has distinct eigenvalues αv, βv;",
      "match": "The statement (a)–(h) and the proof transcribed above."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.10(f)–(g), p. 51",
-     "excerpt": "Then we have Gn/2n−2Gn = (Z/2n−2Z)t where t = h1 S−split(Qn, F); • (g) We have t = 2 −|S| + |Qn|;",
      "match": "The twisting group."
     }
    ],
@@ -3488,13 +3401,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§5.6, Proposition 5.11 and Lemma 5.12, p. 53",
-     "excerpt": "where γαv, γβv are characters of Dv such that γαv and γβv modulo the maxi- mal ideal are unramiﬁed and takes Frobv to αv and βv respectively.",
      "match": "The diagonal form and the Δ′_Q-module structure."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 5.12, p. 53",
-     "excerpt": "Lemma 5.12. For δ ∈∆′ Qn and χ ∈(Gn,2)∗( ¯Rψ S∪Qn) we have : aχ ◦δ = χ(δ) × (δ ◦aχ).",
      "match": "The dyadic compatibility."
     }
    ],
@@ -3540,13 +3451,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§9.1.1, pp. 78–79",
-     "excerpt": "Consider the deformation ring ¯R□,ψ S where the corresponding local defor- mation rings ¯R□,ψ v for v ∈S parametrise the liftings as in the lifting data.",
      "match": "The data."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§9.1.1, p. 79",
-     "excerpt": "The completed tensor product ¯R□,loc,ψ S is thus ﬂat over O, a domain, and of relative dimension 3|S|, and ¯R□,loc,ψ S [ 1 p] is regular (see Theorem 3.1 and Proposition 3.2).",
      "match": "The local-ring properties."
     }
    ],
@@ -3643,13 +3552,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§4.1.2, Proposition 4.1, p. 38",
-     "excerpt": "Let ¯Rψ S∪V (resp., ¯RS∪V ) be the subring of ¯R□,ψ S∪V (resp., ¯R□ S∪V ) generated by the traces of the corresponding universal deformation.",
      "match": "The trace subring and the 4|S| − 1 variables."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "§9.1.1, p. 80",
-     "excerpt": "Recall that the O-algebra ¯R□,ψ S has a natural structure of a smooth ¯Rψ S-algebra.",
      "match": "Smoothness over the trace subring."
     }
    ],
@@ -3736,13 +3643,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "Lemma 9.1 and its proof, pp. 80–81",
-     "excerpt": "As Tψ(U)m is ﬂat and reduced, we deduce that ∩xker(x) = 0, and thus ∩x℘x is the kernel of the map π′ : Rψ S →Tψ(U)m.",
      "match": "The factorisation argument."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "Definition 2.4, p. 10",
-     "excerpt": "We say that a ﬂat and reduced quotient R′ = R/I of R classiﬁes the morphisms in X if the set of local O-algebra morphisms R′ →O′ is identiﬁed with X.",
      "match": "Quotients classifying points."
     }
    ],
@@ -3790,13 +3695,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.2, (∗∗), p. 82",
-     "excerpt": "Using Proposition 5.11 we see that ¯R□,ψ S∪Qn is a O[∆′ Qn][[yh+1, · · · , yh+j]]- module, such that the O[∆′ Qn]-covariants is isomorphic to ¯R□,ψ S .",
      "match": "The system at level n."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "after Proposition 5.10, p. 39",
-     "excerpt": "Choose a surjection J∞։ J [∆QN ], given by writing QN = {v1, . . . , vr} and mapping yi to (γi −1), where γi is a generator of ∆vi.",
      "match": "Gee's version of the y-variables."
     }
    ],
@@ -3893,19 +3796,16 @@
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.2, (II), p. 83",
-     "excerpt": "Since the dimension of ¯R□,loc,ψ S [[x1, ..., xh+j−d]] is h + j + 1, we deduce that the composite",
      "match": "The dimension count, p > 2."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.3, p. 86",
-     "excerpt": "We also know by Lemma 5.10 that t = 2+h−|S|, and we see that we have 2h+1 = h+j+t−d.",
      "match": "The dyadic count."
     },
     {
      "sourceId": "GEE-MLT-2022",
      "locator": "§5.6, p. 40",
-     "excerpt": "We have (ultimately by the calculations of the dimensions of the local deformation rings in Theorems 3.28 and 3.31) dim R∞= dim R′ ∞= dim J∞= 4#T + r",
      "match": "Gee's form."
     }
    ],
@@ -3950,13 +3850,11 @@
     {
      "sourceId": "KW2-2009",
      "locator": "§9.1.3, Proposition 9.3 (I)(3), p. 84",
-     "excerpt": "We have a free action of the torus T on X′ ∞and a map d : X′ ∞→T such that:",
      "match": "What the finite-level data patch to."
     },
     {
      "sourceId": "KW2-2009",
      "locator": "proof of Proposition 9.3, p. 84",
-     "excerpt": "Let us call G′ n the maximal quotient of Gn which is killed by 2n−2; by Lemma 5.10, we know that for n > n0 G′ n is isomorphic to (Z/2(n−2)Z)t.",
      "match": "The twisting group at level n."
     }
    ],
@@ -4044,7 +3942,6 @@
     {
      "sourceId": "ACC-2018",
      "locator": "§6.2.1, Definition 6.2.2, p. 136",
-     "excerpt": "This diﬀers from that of [CG18, §8.5.2] and [KT17, Deﬁnition 4.2] in that we don’t ﬁx the determinant.",
      "match": "Definition 6.2.2 and the notions around it."
     }
    ],
@@ -4140,7 +4037,6 @@
     {
      "sourceId": "ACC-2018",
      "locator": "Theorem 6.2.3 and Lemma 6.2.4, p. 137",
-     "excerpt": "The choice of a representative ρS : GF →GLn(RS) for the universal type S deformation determines a canon- ical isomorphism RT S ∼= RS“⊗OT .",
      "match": "Lemma 6.2.4; Theorem 6.2.3 precedes it."
     }
    ],
@@ -4191,7 +4087,6 @@
     {
      "sourceId": "ACC-2018",
      "locator": "§6.2.22 and Proposition 6.2.24 with its proof, pp. 143–146",
-     "excerpt": "Λ-algebra surjection RT,loc S JX1, . . . , XgK →RT S , with g = h1 S,T(ad ρ) = h1 S⊥,T(ad ρ(1)) − h0(FS/F, ad ρ(1)) − Σv|∞ h0(Fv, ad ρ) + Σv∈S∖T (dimk Lv − h0(Fv, ad ρ)).",
      "match": "Proposition 6.2.24."
     }
    ],
@@ -4241,7 +4136,6 @@
     {
      "sourceId": "ACC-2018",
      "locator": "§6.1–6.2 opening, pp. 135–136",
-     "excerpt": "we do not ﬁx the determinant of our n-dimensional Galois representations",
      "match": "ACC+ work with the variable-determinant problem; the comparison with fixed determinant is supplied here."
     }
    ],
@@ -4284,7 +4178,6 @@
     {
      "sourceId": "CHT08",
      "locator": "§2.1, Lemma 2.1.1, p. 7; Definitions 2.2.1 and 2.2.7, pp. 17 and 21; §2.3, p. 26",
-     "excerpt": "Homomorphisms r : Γ →Gn(R) that induce isomorphisms Γ/∆ ∼→Gn/G 0 n .",
      "match": "Lemma 2.1.1, which identifies such homomorphisms with triples (ρ, µ, ⟨,⟩)."
     }
    ],
@@ -4375,7 +4268,6 @@
     {
      "sourceId": "CHT08",
      "locator": "Proposition 2.2.9 and its proof, pp. 22–24",
-     "excerpt": "Then Def □T S is represented by an object R□T S of CO.",
      "match": "Proposition 2.2.9."
     }
    ],
@@ -4419,7 +4311,6 @@
     {
      "sourceId": "CHT08",
      "locator": "Lemmas 2.2.8, 2.2.11, 2.1.3, 2.3.3 and 2.3.4, pp. 8–32",
-     "excerpt": "Keep the notation and assumptions of the start of this section. 1. Hi S,T(GF+,S, ad r) = (0) for i > 3.",
      "match": "Lemma 2.3.4."
     }
    ],
@@ -4462,7 +4353,6 @@
     {
      "sourceId": "CHT08",
      "locator": "Corollaries 2.2.12, 2.2.13 and 2.3.5, pp. 25 and 32",
-     "excerpt": "Suppose also that r is Schur. Then R□T S is the quotient of a power series ring in dimk H1 L ⊥,T(GF+,S, ad r(1)) +",
      "match": "Corollary 2.3.5."
     }
    ],
@@ -4505,7 +4395,6 @@
     {
      "sourceId": "ACC-2018",
      "locator": "§6.2.18, Lemma 6.2.19, p. 143; the Taylor–Wiles datum and 𝒮_Q, p. 149",
-     "excerpt": "There are unique continuous characters γi : GFv →A×, for 1 ≤i ≤n, such that ρ is GLn(A)- conjugate to a lift of the form γ1 ⊕· · · ⊕γn",
      "match": "Lemma 6.2.19."
     }
    ],
@@ -4553,13 +4442,11 @@
     {
      "sourceId": "ACC-2018",
      "locator": "Definition 6.2.28, Lemma 6.2.29 and Lemma 6.2.31 with its proof, pp. 148–151",
-     "excerpt": "Assume that F is CM with maximal to- tally real subﬁeld F +, that ζp /∈F, and that ρ(GF (ζp)) is enormous.",
      "match": "Lemma 6.2.31."
     },
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "§6.2.28, Definition 6.2.29, Lemmas 6.2.30 and 6.2.32; printed pp. 1044–1046, PDF pp. 148–150",
-     "excerpt": "Lemma 6.2.32. Let T ⊆S. Assume that F is CM with maximal totally real subﬁeld F +, that ζp /∈F , and that ρ(GF(ζp)) is enormous. Let q ≥ h1 S⊥,T (ad ρ(1)). Then for every N ≥1, there is a choice of Taylor–Wiles datum",
      "match": "Published enormous-image hypothesis and proof; the historical arXiv-v2 citation above is retained with its own numbering."
     }
    ],
@@ -4605,13 +4492,11 @@
     {
      "sourceId": "ACC-2018",
      "locator": "Proposition 6.2.32 and its proof, p. 151",
-     "excerpt": "There is a local Λ-algebra surjection RT,loc S JX1, . . . , XgK →RT SQN , with g = qn −n2[F + : Q].",
      "match": "Proposition 6.2.32 (arXiv v2 numbering)."
     },
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "Proposition 6.2.33 and proof, printed p. 1047 (PDF p. 151); preceding diamond/augmentation data, printed p. 1045 (PDF p. 149)",
-     "excerpt": "Proposition 6.2.33. Take T = S, and let q ≥h1 S⊥,T (ad ρ(1)). Assume that F = F +F0 with F + totally real and F0 an imaginary quadratic ﬁeld, that ζp /∈F , and that ρ(GF(ζp)) is enormous.",
      "match": "Published Proposition 6.2.33 with its hypotheses T = S, F = F⁺F₀, ζ_p ∉ F and enormous image; its item (3) on the same page gives g = qn − n²[F⁺ : Q], and the diamond and augmentation data precede it on printed p. 1045."
     }
    ],
@@ -4670,7 +4555,6 @@
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "Lemma 6.2.32, proof, printed pp. 1045–1046 (physical PDF pp. 149–150)",
-     "excerpt": "So by induction, it suﬃces to show that given any cocycle κ representing a nonzero element of H1 S⊥,T (ad ρ(1)), there are inﬁnitely many ﬁnite places v of F such that • v has degree one over Q and splits in F(ζpN );",
      "match": "Factors the conditional induction and positive-density selection out of the proof. The elementary degree-one estimate and finite avoidance are supplied explicitly above."
     }
    ],

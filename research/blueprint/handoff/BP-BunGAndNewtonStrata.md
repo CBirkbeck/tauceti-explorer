@@ -1,139 +1,76 @@
-# Handoff — BP-BunGAndNewtonStrata (issue #691)
+# BP-BunGAndNewtonStrata — target-pass handoff
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-bung`.
+Issue: [#691](https://github.com/CBirkbeck/tauceti-explorer/issues/691). Worker: Codex — codex-0YPYsy. Date: 2026-10-07. Branch: codex-0YPYsy-bung-newton.
 
-## Deliverables
+## Result and stopping point
 
-- `research/blueprint/packets/BunGAndNewtonStrata.json` — 23 nodes
-  (5 definitions, 2 constructions, 15 theorems, 1 lemma), **44 API items, 29 unit
-  tests**, 22 planets, 24 baseline declarations, 6 gaps, 25 requests, 2
-  structural proposals. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/BunGAndNewtonStrata.md` — 1513 lines.
-- `research/blueprint/suggested/BunGAndNewtonStrata.lean` — 434 lines.
-- This note.
+This is a finished target pass, not an unfinished checkpoint. The packet is `complete` in the sense of PROTOCOL section 0: every stage in scope is `planned`, so this run stops without another refinement pass. No stage is `closed`, and no implementation is claimed. Independent review must assess the statements, ownership, source matches and remaining proof and formulation work before follow-up jobs are assigned.
 
-## Checks run
+The 23 inherited node identifiers are retained, with corrected contracts and prerequisites. There are now 98 nodes: 16 definitions, 14 constructions, 52 theorems, 6 lemmas, 9 comparisons and 1 application. Definitions and constructions carry 126 API contracts and 90 named discriminating test contracts. There are 30 planets, at most six per layer, 15 source-checked baseline declarations, 34 supplier requests and 11 gaps. All 148 items from the twelve routed paper extractions have an owned declaration or a supplier route.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/BunGAndNewtonStrata.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**.
-- `python3 -m unittest discover -s tests` → 273 tests, OK.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths → 0 problems.
+The deliverables are [the packet](../packets/BunGAndNewtonStrata.json), [the reader](../readmes/BunGAndNewtonStrata.md) and [the suggested file](../suggested/BunGAndNewtonStrata.lean). All source URLs, acquired-file hashes, read sections, route identifiers, exact requests and consumer identifiers are in these files; nothing needed to resume depends on the worker's scratch files.
 
-**The Lean file was not compiled.** No Lean was run; the Mathlib build here is a
-shared cache that must not be rebuilt. Every `implementationStatus` is
-`unchecked`.
+| Stage | Declarations realizing its targets | Coverage | Remaining gaps |
+|---|---:|---|---|
+| BG0 | 17 | planned | G02, G04, G08, G11 |
+| BG1 | 35 | planned | G01, G02, G03, G04, G06, G08, G10, G11 |
+| BG2 | 23 | planned | G01, G03, G05, G06, G08, G09, G11 |
+| BG2:smooth-Artin | 3 | planned | G08 |
+| BG2:uniformization | 20 | planned | G01, G03, G05, G06, G08, G09, G11 |
+| BG3 | 15 | planned | G02, G07, G08, G11 |
+| BG4 | 8 | planned | G08 |
 
-## This packet is a first reading, not a refinement
+BG2 is the aggregate of its two sublayers: its 23 declarations are counted there again for coverage, not duplicated as nodes. Every stage also requires discharge of the supplier requests used in its prerequisite chains before it can be closed.
 
-**This roadmap has no integrated decomposition.** No file in
-`data/decompositions/`, no draft in `research/expansion/drafts/`, no external
-contribution in `research/expansion/external/*/`, no reviewed entry in
-`data/library-coverage.json`. Every one of the 23 nodes was written from
-Fargues–Scholze read directly in this session, from `Geometrization.pdf` whose
-SHA-256 reproduces the recorded value byte for byte; the text was extracted by
-inflating the PDF's object streams and reading its text operators, and every
-printed page was read off the running heads.
+## Binding ownership and mathematical corrections
 
-Sections read: **I.4** (printed pp. 20–22); the whole of **Chapter III**, III.0
-through III.5 (printed pp. 87–106); **IV.1.13–IV.1.23** (printed pp. 111–114); and
-**V.3.2–V.3.7** (printed pp. 173–177). The itemised list is in the packet's source
-record.
+The pass follows the accepted RS-15 result (`independent-review-REV-FIX-RT-RS-15`, 2026-09-30), the reviewed AUDIT-20 coverage of all seven targets, and confirmed RT-AREA-geomlanglands findings 10, 11 and 32. BG0/BG1 own reductive isocrystals, B(G), κ, ν, J_b and acceptable/ordinary classes. Igusa and endoscopy import that theory. RF4:G-torsors supplies analytic lattice patching; it is absent from the algebraic classification chain. Whole-stack Artin smoothness uses uniformization, open Schubert cells and VS0. BG4 subsequently consumes VS1's Jacobian criterion. Neither proof requires a return edge through Satake, GS4 or VS4.
 
-A reviewer of this packet is checking a first reading. Every locator is
-unconfirmed by anyone else, which is not the usual situation in this family, and
-it is the first gap the packet records.
+General z-extensions remain one shared ReductiveGroupsPartII foundation. Request R34 proposes RG2.6 after the current RG2.5; it does **not** attribute z-extension existence to the present dual/L-group stage. The proposal is recorded in `restructure` and G01. This worker changed no supplier files.
 
-## The defect I could not avoid
+Conventions that must survive refinement:
 
-**The statement of Theorem IV.1.19 is damaged in the text extraction.** Printed
-page 112 begins mid-formula and the statement is not recoverable. What I did read,
-in full, is its *proof* on the same page — the Tannaka/Chevalley reduction of the
-diagonal, the appeal to Lemma IV.1.20, the construction of the chart
-`⊔_μ [G(E)\Gr_{G,≤μ}] → Bun_G ×_k Spd E`, the identification of its fibres with
-the geometrically trivial open loci in modifications of locally constant type, and
-the appeals to Proposition IV.1.18 and Remark IV.1.5 — together with the Chapter I
-statement, Theorem I.4.1 (vii), which was read cleanly and which I quote for the
-conclusion. This is recorded as a gap and in the node's own hypotheses. Nothing
-else in the packet depends on the exact wording.
+- Arithmetic Frobenius fixes π. Isocrystal π^m has slope m and gives O(−m); dominant bundle slopes are w₀(−ν_isocrystal), and bundle degree is −κ. Dominance is generated by positive coroots.
+- Newton order fixes the full integral κ, including torsion. The representative inertia-coinvariant invariant and the class Galois-coinvariant invariant have distinct targets. Component cosets have no chosen origin. A rational Newton orbit need not have a rational representative in G, whereas its central morphism in J_b descends for every b.
+- J_b is a represented algebraic group, inner to its Newton Levi. The full bundle automorphism v-group has a positive Banach–Colmez kernel; nonbasic strata require that full group. Kernel dimension is positive and stratum dimension negative.
+- Minuscule Levi transport uses the absolute Weyl group, not N_G(M)/M. Ordinary classes are unique when they exist; quasi-split existence is retained, and non-quasi-split failure is tested by the quaternionic inner form.
+- The finite Frobenius norm contains exactly r translates. The finite-field centralizer after degree-rn extension centralizes γ^n, not an incorrectly powered norm input.
+- Specialization satisfies b≤b′ precisely when E_b′ is in the closure of E_b. Basic points generalize to unstable points in the same κ fibre. Flag-stratum semicontinuity uses closed upper unions. The d−d_b dimension formula is restricted to the specified unitary PEL datum, not arbitrary reductive flags.
+- The framed negative-extension chart is not an absolute diamond. Its punctured complement is locally spatial; its map to the point is relatively representable in locally spatial diamonds. The quotient is an Artin v-stack.
+- The Liu–Zhu point application produces B(G^c). A G-level lift requires additional tensor data. No canonical lift is claimed.
 
-## What the pinned libraries supply
+## Baselines and Lean verification
 
-`data/library-coverage.json` has no reviewed audit entry, so the pinned index was
-searched directly.
+Mathlib is pinned to `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti to `f790474821cf4256814db967cb154e7af3d0c369`. All 15 cited declaration statements were read at their pins. In particular, Tau Ceti already has `FGPointRepresentationCat`, the rigid symmetric monoidal finite-comodule equivalence and pointwise finite-comodule Tannakian reconstruction. Their existence is not a gap. Relative analytic tensor targets and representability remain additional work.
 
-**The useful find is Tau Ceti's dynamic method.** `Cocharacter.parabolic`,
-`Cocharacter.levi`, `Cocharacter.unipotent`, `Cocharacter.limitToLevi` and
-`Cocharacter.leviGroupExtension`, in
-`TauCeti/Algebra/AlgebraicGroup/Dynamic/`. Proposition III.5.2 — the algebraic
-heart of BG3 — says a `Q`-filtration on the fibre functor gives smooth `H^{≥λ}`
-with `H^{≥0}` a parabolic, `H^{>0}` its unipotent radical and vector-group graded
-pieces; and its proof reduces, after splitting the filtration étale-locally, to
-exactly that cocharacter construction. That is the second structural proposal.
+The suggested file **elaborated on 2026-10-07 with exit code 0 and only `sorry` warnings**, using `lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean`. Its executable cores import individual Mathlib modules from the exact Mathlib pin. The shared build's Tau Ceti HEAD differs from the Tau Ceti pin, so Tau Ceti declarations were source-checked but not imported from that build. No language server or library build was started.
 
-Also cited: `TauCeti.ReductiveAffineGroupSchemeCat` and `AffineGroupSchemeCat`;
-`mathlib:WittVector` and `WittVector.Isocrystal`, the latter being the `GL_n` case
-of a `G`-isocrystal for `E = Q_p`; `RootPairing` for `ρ`, the dominant rational
-cocharacters and the dominance order; `CoxeterSystem` and
-`TauCeti.TitsSystem.bruhatCell` for the Cartan decomposition used in
-Lemma III.3.2; `Specializes` and `SpectralSpace` for the semicontinuity and
-spatiality statements; `TotallyDisconnectedSpace`, since almost every proof in
-Chapter III reduces to a strictly totally disconnected base; and
-`TauCeti.IsSmoothDiscrete`, which marks the boundary with `VS4`.
+This is a **partial prototype**. The two generic quotient/difference-fibre cores have concrete declarations, together with concrete point-centralizer, finite-product, rational GL_n slope, torsion, rank and sign examples. They do not assert geometric representability. The GL_n slope core includes the reduced-denominator multiplicity condition. Ninety-six nodes have their full signatures explicitly omitted under G08. The exact-name register contains every full contract, API name and named test contract, but those register entries are comments, **not elaborated declarations or examples**. No full curve, stack, tensor-equivalence or smoothness theorem was type-checked. The admitted proofs establish no mathematics. The file uses no arbitrary proposition fields or opaque stand-ins for unavailable geometry.
 
-**Absent at both pins:** any perfectoid space, diamond, v-stack or Banach–Colmez
-space, and any `π_1` of a reductive group in the Borovoi–Kottwitz sense.
+Validation completed: `python3 scripts/check_blueprint.py research/blueprint/packets/BunGAndNewtonStrata.json` reports **0 errors and 0 warnings**. The source-finding and version validators also report no errors. The final submission checks cover allowed deliverable paths, valid JSON and absence of private paths.
 
-## What remains
+## Sources read and remaining proof interiors
 
-No layer is closed. Six gaps, of which the three that matter most:
+The source records specify the exact sections read from Fargues–Scholze, Scholze–Weinstein, Kottwitz 1985/1997/2014, Rapoport–Richartz, Anschütz, Kisin–Madapusi Pera–Shin, Kisin–Zhou, Caraiani–Scholze 2017/2024, Zhu, Gleason–Lim–Xu, Howe–Klevdal, Liu–Zhu, Kisin 2017, van Hoften, He, Viehmann and He–Nie. There are 20 primary source records and 21 version records, including the additional Kisin–Zhou author copy. The Scholze–Weinstein Proposition 18.3.1 proof was also read for the clopen comparison in scheme-family κ-local-constancy; the proof does not use a commuting valuation/support map.
 
-1. **Kottwitz's classification is quoted everywhere and proved nowhere in
-   anything read.** Injectivity of `(κ,ν)`, the bijection on basic classes, the
-   Levi description of non-basic classes, representability of `G_b`, its
-   inner-Levi description, and the identification of `G_b × Ĕ` with the
-   centraliser of the slope homomorphism, are all quoted from Kottwitz and
-   Rapoport–Zink. They are load-bearing: the semistable locus is open *because*
-   basic classes are minimal and biject with `π_1(G)_Γ`, the components are
-   counted *by* that bijection, and the basic strata are classifying stacks
-   *because* `G_b × Ĕ → G × Ĕ` is an isomorphism for basic `b`. The roadmap's own
-   text makes these proof obligations of BG0–BG1.
-2. **Scholze–Weinstein §§22.4–22.6 have not been read by anyone in this family**,
-   and Theorem III.2.3's upper semicontinuity is quoted from
-   [SW20, Corollary 22.5.1]. §19.5 and §19.1 *were* read, for the
-   `RelativeFarguesFontaine--RF4` packet of this session.
-3. **The two proofs of local constancy of `κ` are not independent.** The first
-   reduces by a z-extension and Lemma III.2.10, and the source then writes *"It
-   remains to prove Lemma III.2.10. This will be done in the next section, using
-   Beauville–Laszlo uniformization."* So it runs through §III.3, which uses
-   III.2.4, which uses III.2.3. The second, through `B^ab(G) = π_1(G)`, is
-   genuinely independent, and the packet's prerequisite graph follows it.
+Seven source findings are retained: six inherited confirmed corrections and one newly recorded version-scoped roots/coroots misprint in Kisin–Zhou §2.2.3. Inherited review provenance is separate from this worker's authorship; no self-review was added. The new finding is confined to the read arXiv v2 and author copy. The Annals landing page, arXiv version history and author page were checked for a correction; the final Annals article was not obtained or collated. The reader and packet use the corrected, typed cocharacter convention.
 
-## Structural proposals
+The next worker should resume from the packet's exact `neededBy` and coverage lists:
 
-1. **This roadmap should get a source decomposition of its own.** Every other
-   member of the Fargues–Scholze family has an independently reviewed one; this is
-   a supplier of `GeometricSatakeAndFusion`,
-   `VStackSheavesAndLisseCategories`, `HeckeStacksAndLocalShtukas` and
-   `ExcursionOperatorsAndSpectralAction`, so a reviewed decomposition here would be
-   checked by more consumers than most. The concrete missing piece is
-   Scholze–Weinstein §§22.4–22.6.
-2. **BG3 should say that the algebraic half of Proposition III.5.2 is already
-   pinned** — see the dynamic method above.
+- **G01:** obtain the shared generic z-extension existence, induced-torus resolution and lattice-exactness foundation under proposed RG2.6.
+- **G02:** refine generic inner-form and relative Tannakian/torsor descent, filtered relative group-scheme representability and elliptic-torus transfer. Read Ziegler's cited split-filtered-fibre-functor proof rather than attributing it to the existing point-group declarations.
+- **G03:** read the Borovoi/Serre proof interiors for Weil crossed-module abelianization and torus H² vanishing, under ET.0; check coefficient topology and curve-comparison naturality.
+- **G04:** read the Ivanov and Hamacher–Kim family-stack inputs cited by FS and decompose effective perfect-algebra descent and constant-class loci. Keep bundle κ-local-constancy independent of its scheme-family corollary.
+- **G05:** decompose the curve/divisor étale-site comparison, punctured-period-domain calculation and finite-extension descent. C1 gives prime-to-p proper base change; the p-torsion tilting/Artin–Schreier step needs its own proof.
+- **G06:** read and decompose Viehmann §6 specialization realization and the He–Nie combinatorial maximum proof. Their exact theorem statements and proof routes were read in this pass; their interiors remain open.
+- **G07:** read Wedhorn's and CGH+'s original unitary dimension and ordinary-point comparison proofs. Preserve the CS24 unitary datum.
+- **G08:** construct the missing supplier carriers, functors and predicates and then replace registered omissions with honest signatures, API lemmas and test examples. Reuse the existing rational representation category. The successful prototype elaboration does not discharge this gap.
+- **G09:** require explicit additional G-level tensor data if a lift of the Liu–Zhu B(G^c) class is needed.
+- **G10:** refine the Levi coinvariant kernel, unramified/triality averaging and Wintenberger–Satake–Mazur local Cartan inputs in the general reductive-group owner.
+- **G11:** collate the recorded KMPS, KZ, LZ17, CS24 and Kisin17 author/preprint statements with versions of record before extending any source finding to a published edition.
 
-## Signs the packet is careful about
+## Supplier requests
 
-All four are in the unit tests, and each is easy to lose: the functor
-`Isoc_E → Bun(X_S)` **reverses** slopes; `G̃_b` has dimension `+⟨2ρ,ν_b⟩` while
-the stratum has `ℓ`-dimension `−⟨2ρ,ν_b⟩`; the filtration of `G̃_b` uses
-**positive** Banach–Colmez spaces and the chart `q_b` the **opposite** parabolic
-and **negative** ones; and `|Gr_G| → |Bun_G| → π_1(G)` is the **opposite** of the
-natural map.
+The reader's R01–R34 sections give full statements and consumers, mirrored in the packet. They request algebraic torsor descent from AlgebraicModuliForArithmeticGeometry; proper base change from DiamondEtaleCohomology; sites, groupoids, topology and relative representability from DiamondsAndVStacks; Weil cohomology from ET.0; open-cell and loop geometry from GS0; the precise unitary PEL comparison from IG.0; root/parahoric/Cartan theory and the proposed z-extension foundation from ReductiveGroupsPartII; period domains, untilts and lattice patching from RelativeFarguesFontaine; Artin and Jacobian formalism from VS0/VS1; and linear isocrystal, GAGA, HN and Banach–Colmez theory from VectorBundlesAndIsocrystals. Existing Tau Ceti ReductiveGroups representation and structure layers are imported, with their additional relative requirements recorded in G02.
 
-## Where to resume
-
-The packet covers the roadmap's primary source route in full. The next real work
-is the two unread bodies: Scholze–Weinstein §§22.4–22.6, and Kottwitz's own papers
-with Rapoport–Zink for the classification and the σ-centraliser. Both are cited by
-name in the source and neither is in the reference library as read. After that,
-the proofs of Propositions III.5.1, III.5.3, V.3.5, V.3.6 and Theorem V.3.7, which
-this packet read only in their openings.
+After independent review, refine the open stages using these contracts and gaps. Do not duplicate supplier definitions, treat a requested stage as a proved theorem, replace torsion κ by its rationalization, or infer closure from the compiled cores. This run claims no second job.

@@ -75,18 +75,17 @@ import TauCeti.RingTheory.RootsOfUnity.Henselian
 # Suggested Lean forms for `KTheoryFiniteLocalFields` (stages L.1–L.7)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/KTheoryFiniteLocalFields.md` needs reconciliation with the independent
-review corrections in the packet and `reviews/REV-KTheoryFiniteLocalFields.md`. The statements below
+`research/blueprint/readmes/KTheoryFiniteLocalFields.md` is definitive and agrees with the independent
+review corrections in the packet and `reviews/REV-KTheoryFiniteLocalFields~2.md`. The statements below
 suggest Lean forms so that contributors and reviewers converge on names and signatures; they claim
 no implementation, and `implementationStatus` stays `"unchecked"` for every node.
 
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-A preceding version has a historical successful compilation record. This version's
-`lean-check` stopped before elaboration because the shared build lacks
-`TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled;
-that older result does not certify this file. The shared Mathlib pin agrees, but
+This independent review's `lean-check` stopped before elaboration because the shared build lacks
+`TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled.
+The shared Mathlib pin agrees, but
 its Tau Ceti checkout is not at the packet's Tau Ceti pin.
 No build, cache download, update or Lean language server was used in this pass.
 
@@ -104,8 +103,11 @@ No build, cache download, update or Lean language server was used in this pass.
   Teichmüller lift (Tau Ceti's `TauCeti.teichmuller`), `∂_v` the roadmap's tame symbol
   (`∂_v{u, π} = ū`; the K-book's is its inverse) and local reciprocity normalised by the
   arithmetic Frobenius (`TauCeti.LocalK2.normResidueMap_tame`).
-* **Hesselholt–Madsen** (`L.4`–`L.6`): `p` is odd throughout; `TR^n` is indexed by
-  `C_{p^{n-1}}`, so `π_0 TR^n(A; p) = W_n(A)` (Mathlib's `TruncatedWittVector p n A`).
+* **Hesselholt–Madsen**: the cited mixed-characteristic calculations assume odd `p`;
+  Bökstedt periodicity, Nikolaus–Scholze and separately stated hermitian/dyadic targets
+  retain their own prime ranges. For `n ≥ 1`, `TR^n` is indexed by `C_{p^{n-1}}`, so
+  `π_0 TR^n(A; p) = W_n(A)` (Mathlib's `TruncatedWittVector p n A`). Adjacent-level
+  `R`, `F`, `V` require `n ≥ 2`.
 * **K-book locators**: PDF page = book page + 8.
 
 ## Library declarations imported and reused
@@ -2258,7 +2260,10 @@ StableHomotopyKTheory H.6). -/
 (`TauCeti.KTheoryFiniteLocal.tr_homotopy_orbit_spectral_sequence`): not stated here; needs
 homotopy-orbit spectra of `T(C)`, the homotopy-orbit spectral sequence and `F^{n-1} : W_n(A) → A`
 on truncated Witt vectors (supplier: RefinedTraceMethods RT.2; StableHomotopyKTheory H.6;
-CrystallineCohomology CR.4). -/
+CrystallineCohomology CR.4). The spectral sequence and graded module hold at all primes
+for `n ≥ 1`; adjacent maps require `n ≥ 2`. The differential graded module and `FdV = d`
+assertions assume odd `p`; at two retain `FdV = d + (p−1)η` and the Connes square correction
+(supplier: L.4/connes-operator). -/
 
 /-! ### `L.4/pi0-tr-is-witt-vectors` -/
 
@@ -3578,7 +3583,9 @@ CR.5:log-algebra, CR.4); its degree-zero part `W̄_n(A)` is
 /- `TauCeti.HM.logTR.alpha`: not stated here; needs `TR^n_0(A|K;p)` (supplier:
 KTheoryFiniteLocalFields:L.4/thh-of-dvr-with-log-poles, RefinedTraceMethods RT.2).
 `TauCeti.HM.logTR.dlog`: not stated here; needs `TR^n_1(A|K;p)`, the determinant
-`Σ^∞B Aut(A) → K(C^b_q(P_A))` and the cyclotomic trace (supplier: L.4/thh-of-dvr-with-log-poles,
+`Σ^∞BM → K(C^b_q(P_A))` and the cyclotomic trace. Here `M = A ∩ K×` is the
+self-weak-equivalence monoid of the degree-zero object `A` after inverting the uniformizer;
+it includes the uniformizer and is larger than ordinary `Aut_A(A) = A×` (supplier: L.4/thh-of-dvr-with-log-poles,
 RefinedTraceMethods RT.2, RT.3).
 `TauCeti.HM.logTR.dlog_mul`: not stated here; needs `TauCeti.HM.logTR.dlog` (supplier:
 L.4/thh-of-dvr-with-log-poles, RT.2).
@@ -5648,7 +5655,8 @@ Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regul
 /-! Independent review concordance — REV-KTheoryFiniteLocalFields, 2026-10-06.
 
 The corrected packet meets the target-level checks with named supplier gaps.
-The review remains needs_changes until its accompanying reader is reconciled.
+The reader has been reconciled in BP-KTheoryFiniteLocalFields~2. The recorded
+needs_changes verdict is preserved for the independent re-review to replace.
 These are corrected planning requirements, not extra Lean declarations or proofs.
 The completed-comparison sketches now use finite-level/pro-system arguments. Every
 spectrum interface marked unavailable earlier still needs its named supplier.
@@ -5853,4 +5861,40 @@ Added the semilocal supplier edge; finite products commute with K-theory and p-c
 Supplier specification correction: the imported generic log-Witt p=2 non-example
 also needs an explicit class with ηd nonzero; it shares the Connes witness gap.
 No failure of the differential law is inferred from nonzero η alone.
+-/
+
+/-!
+## Independent review concordance (REV-KTheoryFiniteLocalFields~2)
+
+These corrections describe the packet proofs and scopes, including nodes whose carriers
+are unavailable here. They do not assert executable formalizations.
+
+* `KTheoryFiniteLocalFields:L.1/mod-m-products`: Added the direct positive-even-vanishing prerequisite for the finite-field use of Browder’s scholium; Quillen’s proof does not depend on this coefficient-product theorem.
+* `KTheoryFiniteLocalFields:L.1/adams-psi-p-frobenius`: Corrected the representation-ring Frobenius exercise locator from PDF p.106 to p.109.
+* `KTheoryFiniteLocalFields:L.1/algebraic-closure-mod-m-ring`: Made m≥2 explicit and supplied the prime-power/Chinese remainder product argument; the cited finite-field multiplication theorem alone covers prime powers.
+* `KTheoryFiniteLocalFields:L.3/tame-unit-pair`: Replaced the uninformative excerpt “tame” by the actual formula in Sharifi Theorem9.3.8; checked the rec(second)/rec(first) argument-order dictionary and negative exponent.
+* `KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit`: Replaced the uninformative excerpt “tame” by the actual formula in Sharifi Theorem9.3.8; checked the rec(second)/rec(first) argument-order dictionary and negative exponent.
+* `KTheoryFiniteLocalFields:L.3/tame-integer-coordinates`: Replaced the uninformative excerpt “tame” by the actual formula in Sharifi Theorem9.3.8; checked the rec(second)/rec(first) argument-order dictionary and negative exponent. Separated the p.197 theorem formula from the p.198 coordinate expansion in its locator.
+* `KTheoryFiniteLocalFields:L.3/tame-component`: Replaced the uninformative excerpt “tame” by the actual formula in Sharifi Theorem9.3.8; checked the rec(second)/rec(first) argument-order dictionary and negative exponent.
+* `KTheoryFiniteLocalFields:L.4/tr-homotopy-orbit-spectral-sequence`: Separated the all-prime spectral sequence/graded module from the odd-prime differential identities, retained the η correction at two, and supplied the Connes prerequisite and adjacent-level range.
+* `KTheoryFiniteLocalFields:L.4/pi0-tr-is-witt-vectors`: Spelled out F_rΔ_r(a)=a^r; the source’s diagrammatic r is not additive multiplication by r.
+* `KTheoryFiniteLocalFields:L.5/tame-base-change-of-log-differentials`: Replaced the unsupported reuse of tame uniformizer normalization in the wild case by reduction modulo the maximal ideal and Nakayama.
+* `KTheoryFiniteLocalFields:L.5/tr-log-structure-maps`: Corrected the determinant proof and API to the self-weak-equivalence monoid M, rather than ordinary Aut_A(A), which excludes the uniformizer.
+* `KTheoryFiniteLocalFields:L.5/log-thh-mod-p`: Restored the actual log differential graded ring excerpt; the packet’s acyclic proof staging remains explicitly distinguished from the source’s final theorem.
+* `KTheoryFiniteLocalFields:L.5/tate-infinite-cycle-dlog`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-infinite-cycles-v1`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-unramified`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-deeply-ramified`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-e-r-terms`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-differentials`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tr-mod-p-dimension`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended. Corrected the missing opening parenthesis in the standard-basis counting interval.
+* `KTheoryFiniteLocalFields:L.5/bott-multiplication-standard-basis`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/image-of-log-de-rham-witt`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/log-de-rham-witt-tr-mod-p`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tate-spectral-sequence-truncated`: Made the positive TR/Tate level and adjacent-map range explicit; no level-zero TR group or C₁ Tate comparison is intended.
+* `KTheoryFiniteLocalFields:L.5/tr-of-smooth-fp-algebra`: Explicitly retained positive truncated-Witt/TR lengths and n≥2 for adjacent maps.
+* `KTheoryFiniteLocalFields:L.6/milnor-k-of-local-fields`: Supplied the missing cofinal modulus hypothesis and full w₂ torsion bound in the n=3 coefficient-sequence argument, and separated equal-characteristic duality from the p-adic specialization.
+* `KTheoryFiniteLocalFields:L.7/boundary-completion-compatibility`: Removed the hypothesis naming the incompatible K-book boundary; both displayed boundaries now explicitly use the established left-linear convention.
+* `KTheoryFiniteLocalFields:L.7/semilocal-completed-map`: Corrected the semilocal localization subscript: p denotes the completion prime, while n=3 is the K-degree.
+* `KTheoryFiniteLocalFields:L.7/unramified-chern-class-reduction`: Corrected the CGZ Lemma4.1 proof locator: the unramified-class paragraph is on arXiv-v3 printed/PDF p.22.
 -/
