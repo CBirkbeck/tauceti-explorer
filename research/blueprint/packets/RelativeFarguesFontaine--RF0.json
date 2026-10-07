@@ -167,6 +167,12 @@
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
         "provides": "The subset of continuous valuation-spectrum points bounded by1 on the plus subring. It is a carrier and does not supply the structure sheaf or quotient geometry.",
         "checked": "Declaration statement and enclosing hypotheses read at the recorded pinned commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.projIsoSpec",
+        "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+        "provides": "The locally ringed space of the standard positive-degree Proj open is isomorphic to Spec of HomogeneousLocalization.Away. This is an algebraic chart theorem; no analytic chart ring is asserted isomorphic to it.",
+        "checked": "Declaration and enclosing GradedRing hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -203,7 +209,7 @@
       "url": "https://arxiv.org/abs/1602.03148",
       "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
       "readSections": [
-        "Section 3.2: Lemma 3.10 (i)-(ii) and Lemma 3.21, printed pp. 22-24 of the article text",
+        "Section 3.2: Lemma 3.10 (i)–(ii), printed pp. 22–23; Lemma 3.21, printed p. 27.",
         "BP-RelativeFarguesFontaine--RF0, 24 September 2026: the file was downloaded again in this session from the URL recorded here and its SHA-256 reproduces the recorded value byte for byte."
       ],
       "accessed": "2026-10-07"
@@ -228,7 +234,8 @@
       "url": "https://arxiv.org/abs/1602.06899",
       "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c",
       "readSections": [
-        "Appendix A, Errata for Foundations, printed pp.189–191"
+        "Appendix A, Errata for Foundations, printed pp.189–191",
+        "Theorem 3.3.13 and Remark 3.3.14, printed pp. 61–62; read statement and corrected injectivity proof."
       ],
       "accessed": "2026-10-07"
     },
@@ -240,7 +247,8 @@
       "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf",
       "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3",
       "readSections": [
-        "Preface Remark 3.19; §1.2.1–1.2.2; §1.3.1–1.3.5"
+        "Preface Remark 3.19; §1.2.1–1.2.2; §1.3.1–1.3.5",
+        "Proposition 1.4.9 and proof, printed pp. 63–64, compared with the 2018 copy."
       ],
       "accessed": "2026-10-07"
     },
@@ -360,7 +368,8 @@
       "url": "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf",
       "sha256": "8c020573d3dce341088ea7e83fe1063b410686c08e3a144fa3c0de634667cc79",
       "readSections": [
-        "Lemme 1.2.3, printed p. 7"
+        "Lemme 1.2.3, printed p. 7",
+        "Proposition 1.4.9 and proof, printed p. 16, corrected product leading exponent."
       ],
       "accessed": "2026-10-07"
     },
@@ -543,6 +552,41 @@
           "name": "ramifiedWitt_p_typical",
           "role": "compatibility",
           "statement": "At E=Q_p,π=p the functor canonically agrees with Mathlib WittVector p on Z_p-algebras."
+        },
+        {
+          "name": "ramifiedCoeffs",
+          "role": "data",
+          "statement": "The Witt-coordinate function W(A)→A^N, distinct from ghost coordinates."
+        },
+        {
+          "name": "ramifiedMk",
+          "role": "constructor",
+          "statement": "Coordinate equivalence A^N≃W(A)."
+        },
+        {
+          "name": "ramifiedWitt_ext",
+          "role": "extensionality",
+          "statement": "Equality of every Witt coordinate implies equality of vectors, including on torsion algebras."
+        },
+        {
+          "name": "ramifiedWitt_coeff_mk",
+          "role": "simp",
+          "statement": "The nth coordinate of the vector constructed from x is x_n."
+        },
+        {
+          "name": "ramifiedWitt_map_coeff",
+          "role": "simp",
+          "statement": "The nth coordinate of W(f)(x) is f(x_n)."
+        },
+        {
+          "name": "ramifiedWitt_map_id",
+          "role": "functoriality",
+          "statement": "W(id)=id."
+        },
+        {
+          "name": "ramifiedWitt_map_comp",
+          "role": "functoriality",
+          "statement": "W(g∘f)=W(g)∘W(f)."
         }
       ],
       "tests": [
@@ -1491,6 +1535,11 @@
           "name": "rootChart_tiltCoordinate",
           "role": "compatibility",
           "statement": "t_1^sharp=π/[ϖ], so |t_1|≤1 on the n=1 chart."
+        },
+        {
+          "name": "rootChartRatio",
+          "role": "constructor",
+          "statement": "The specified compatible whole-ratio sequence s_m in the completed chart; rootChart_roots applies to this sequence."
         }
       ],
       "tests": [
@@ -2048,7 +2097,7 @@
       "kind": "theorem",
       "statement": "Let x∈D_C(C), 0<ρ<1 with the closed ρ-disc contained in D_C, and x_ρ its Gauss point. After base change to its completed residue field C(x_ρ), the fibre of x_ρ contains the open disc of radius ρ around the tautological point. For power series f, |u−t|<ρ implies |f(u)−f(t)|<|f(x_ρ)| when f is nonzero, so the restricted valuations agree.",
       "hypotheses": [
-        "Use a disc genuinely contained in the open unit disc; ρ=1 at the origin is an endpoint of the closed unit disc, not a point of D_C. The source writes ρ∈(0,1], so the endpoint needs this restriction."
+        "Use a disc genuinely contained in the open unit disc. The printed membership condition x_ρ∈|D_C| already excludes ρ=1; 0<ρ<1 is an explicit equivalent range here, not a source misprint."
       ],
       "proofSteps": [
         "Translate the centre to zero and use |u^n−t^n|<ρ^n.",
@@ -2130,7 +2179,8 @@
       "prerequisites": [
         "RelativeFarguesFontaine:RF0:integral-Y/tilting-map-of-period-disc",
         "RelativeFarguesFontaine:RF0:integral-Y/gauss-disc-fibre",
-        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
       ],
       "sources": [
         {
@@ -2525,8 +2575,8 @@
       ],
       "proofSteps": [
         "Any neighborhood of the Cartier zero contains one of the displayed U.",
-        "Reduce the maximum-modulus statement to a geometric fibre, then to the perfected disc by the root extension and tilt. Approximate by ordinary disc functions; the Shilov boundary lies on |ξ|=|[ϖ]|^n.",
-        "At a point attaining the spectral supremum, |ξ|=q^−n gives the lower bound.",
+        "Reduce to a geometric fibre and its perfected disc using the root extension and tilt. Approximate by finite-level ordinary rational-disc functions. Apply the R0 strict finite-type affinoid maximum-modulus theorem only at those finite levels, where the Shilov boundary lies on |ξ|=|[ϖ]|^n.",
+        "Take the supremum of the finite-level boundary estimates |ξf|=q^−n|f|, then pass through the norm-controlled approximations to the perfected disc. This proves the lower bound without assuming a general perfected affinoid has a point attaining the spectral supremum.",
         "The lower bound gives regularity and closed image by completeness. Since the untilt is the separated completion of A/ξ, closedness identifies the algebraic quotient with the complete ring.",
         "Check fibrewise Cartier exactness using the same construction."
       ],
@@ -2583,7 +2633,7 @@
       "sources": [
         {
           "sourceId": "SW20-berkeley",
-          "locator": "Proposition 19.5.3 and proof, printed pp. 182–183",
+          "locator": "Proposition 19.5.3 and proof, printed pp. 180–181",
           "match": "The general torsor statement uses ordinary vector-bundle descent and a split-module argument; only its GL_1 consequence is needed here."
         },
         {
@@ -2878,7 +2928,7 @@
         {
           "name": "divisorCompletion_complete",
           "role": "universal-property",
-          "statement": "B_D^+≃lim_n B_D^+/I_D^n."
+          "statement": "For a finitely generated ideal I (locally principal for the Cartier input), the completion is complete for the extended ideal; B_D^+≃lim_n B_D^+/I_D^n."
         }
       ],
       "tests": [
@@ -3483,7 +3533,7 @@
         "The chosen LT tower is distinct from E_root∞. The all-E functional construction uses the LT logarithm; its mixed-characteristic period comparison has the precise SW13 input recorded as a gap."
       ],
       "proofSteps": [
-        "Use the LT Teichmuller lift and compatible torsion sequence to form the convergent bilateral sum.",
+        "Use the LT Teichmuller lift and compatible torsion sequence to form the convergent bilateral sum. In mixed characteristic use the crystalline-boundary/Cech comparison first, together with the separately requested Lubin–Tate logarithm exact sequence; it does not depend on the resulting LT section.",
         "Shift the summation index to prove the Frobenius eigenvalue.",
         "Identify the function with the LT logarithm on the universal cover; the logarithm’s torsion zeros are simple.",
         "Apply the generic Cartier ideal comparison to identify I_D(1) with O and deduce exactness."
@@ -3496,7 +3546,8 @@
         "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
         "RelativeFarguesFontaine:RF2:untilts/primitive-untilt-correspondence",
         "RelativeFarguesFontaine:RF2:untilts/closed-cartier-divisor-norm-estimate",
-        "RelativeFarguesFontaine:RF0:annuli/radius-function-and-rational-annuli"
+        "RelativeFarguesFontaine:RF0:annuli/radius-function-and-rational-annuli",
+        "RelativeFarguesFontaine:RF3/crystalline-boundary-and-cech-section-input"
       ],
       "sources": [
         {
@@ -3536,7 +3587,8 @@
         "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
         "mathlib:GradedAlgebra",
         "mathlib:ProjectiveSpectrum",
-        "mathlib:AlgebraicGeometry.Scheme"
+        "mathlib:AlgebraicGeometry.Scheme",
+        "mathlib:AlgebraicGeometry.projIsoSpec"
       ],
       "sources": [
         {
@@ -4065,7 +4117,8 @@
         "Compute scalar tensor norms using fractional p-power exponents and their orthogonal basis.",
         "Prove power multiplicativity away from the finitely many norm-crossing radii and use convex continuity at crossings.",
         "Frobenius-compatible Teichmuller representatives generate a dense perfect subring after tensor extension.",
-        "Apply the R5 split completed-base-change and sheafiness criterion to the listed Banach rings."
+        "Apply the R5 split completed-base-change and sheafiness criterion to the listed Banach rings.",
+        "Use the corrected perfectoid completed-tensor comparison of KLII Theorem 3.3.13 (including injectivity), requested from P3, when invoking Lemma 5.3.14; the old KL3.6.11 proof is incomplete."
       ],
       "acceptance": [
         "The integral period disc uses its own chart theorem; it is not one of the three rings in this assertion."
@@ -4075,7 +4128,8 @@
         "RelativeFarguesFontaine:RF0:annuli/robba-growth-units-and-invariants",
         "RelativeFarguesFontaine:RF0:integral-Y/root-extension-chart-model",
         "AdicSpacesPartII:R5/sousperfectoid-sheafy",
-        "AdicSpacesPartII:R5/split-injection-completed-base-change"
+        "AdicSpacesPartII:R5/split-injection-completed-base-change",
+        "PerfectoidSpaces:P3"
       ],
       "sources": [
         {
@@ -4320,7 +4374,8 @@
         "RelativeFarguesFontaine:RF0:annuli/witt-seminorm-lambda-mu",
         "RelativeFarguesFontaine:RF0:annuli/relative-extended-robba-rings",
         "RelativeFarguesFontaine:RF2:integral-divisors/ramified-primitive-untilt-equation",
-        "AdicSpacesPartII:R0"
+        "AdicSpacesPartII:R0",
+        "PerfectoidSpaces:P3"
       ],
       "sources": [
         {
@@ -4346,7 +4401,7 @@
         "Use the corrected primitive definition in KLII Appendix A: z_0 is a unit of R. This concerns the generic quotient comparison and does not remove the π=0 integral leg."
       ],
       "proofSteps": [
-        "Lift a finite residue-module generating set and use a strict norm bound to obtain generators at sufficiently small radii.",
+        "Lift a finite residue-module generating set and use a strict norm bound to obtain generators at sufficiently small radii. In the iterative proof of Lemma 5.5.2 initialize the residual with z_0=z, not the printed z_0=0 (source finding E11). Also use the S-period ring for the final arbitrary element in Lemma5.5.2 (E13), and read the scalar ring of Proposition5.5.3 without the printed FÉt wrapper (E14).",
         "Use henselian lifting for the integral union and Frobenius iteration for each fixed radius.",
         "Lift a finite-projective splitting and prove the completed tensor map is isometric.",
         "Use the primitive relation to exchange p and [z_0] in the finite quotients; induct on m via regularity. Use the corrected x_0 coefficient and spectral coefficient norm in the final estimate of KL5.5.5 (KLII Appendix A).",
@@ -4365,7 +4420,7 @@
       "sources": [
         {
           "sourceId": "KL15-foundations",
-          "locator": "Proposition5.5.3–5.5.4, Lemma5.5.5 and Corollary5.5.6",
+          "locator": "Lemma 5.5.2 (printed pp. 128–129), Propositions 5.5.3–5.5.4, Lemma 5.5.5 and Corollary 5.5.6",
           "match": "The fixed-radius integral category has Frobenius descent, and the primitive quotient theorem keeps its normalization."
         }
       ],
@@ -4558,9 +4613,7 @@
       "prerequisites": [
         "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
         "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
-        "RelativeFarguesFontaine:RF0:annuli/relative-period-sheaf-and-acyclicity",
-        "RelativeFarguesFontaine:RF3/positive-frobenius-eigenvector-restriction",
-        "RelativeFarguesFontaine:RF3/lubin-tate-divisor-section"
+        "RelativeFarguesFontaine:RF0:annuli/relative-period-sheaf-and-acyclicity"
       ],
       "sources": [
         {
@@ -4670,7 +4723,8 @@
       "stageId": "RelativeFarguesFontaine:RF0:annuli",
       "status": "planned",
       "remaining": [
-        "All-E relative period norm extension"
+        "All-E relative period norm extension",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     },
@@ -4680,7 +4734,8 @@
       "remaining": [
         "Integral coefficient tensor interface",
         "Integral perfectoid criterion supplied at P1",
-        "Lubin–Tate formal groups and logarithm input"
+        "Lubin–Tate formal groups and logarithm input",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     },
@@ -4689,7 +4744,8 @@
       "status": "planned",
       "remaining": [
         "Lubin–Tate formal groups and logarithm input",
-        "Global Proj and Div1 properties have outward owners"
+        "Global Proj and Div1 properties have outward owners",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     },
@@ -4704,7 +4760,8 @@
       "status": "planned",
       "remaining": [
         "Early all-E degree criterion without bundle circularity",
-        "Ordinary bundle correction on divisor thickenings"
+        "Ordinary bundle correction on divisor thickenings",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     },
@@ -4714,7 +4771,8 @@
       "remaining": [
         "Completion base-change exactness",
         "Geometric completion comparison interfaces",
-        "Global Proj and Div1 properties have outward owners"
+        "Global Proj and Div1 properties have outward owners",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     },
@@ -4723,7 +4781,8 @@
       "status": "planned",
       "remaining": [
         "Lubin–Tate formal groups and logarithm input",
-        "Global Proj and Div1 properties have outward owners"
+        "Global Proj and Div1 properties have outward owners",
+        "Suggested signatures and discriminating unit tests"
       ],
       "note": "Every target in the accepted RS-20 scope has a named node, an exact imported owner/request or a recorded gap. This is target-level planning, with all implementation statuses unchecked."
     }
@@ -4799,6 +4858,31 @@
         "RelativeFarguesFontaine:RF1/diamond-formula-and-map-to-base"
       ],
       "detail": "The reviewed later nodes/stage are requested, not early prerequisites: VB2 extends U→Proj globally and supplies twists; VB3 supplies Div1 properness/smoothness and hence openness/closedness of the projection. This is an ownership boundary rather than an unproved global claim in the early packet."
+    },
+    {
+      "title": "Suggested signatures and discriminating unit tests",
+      "neededBy": [
+        "RelativeFarguesFontaine:RF0/ramified-witt-universal-property",
+        "RelativeFarguesFontaine:RF0:integral-Y/q-twisted-witt-functor",
+        "RelativeFarguesFontaine:RF0:integral-Y/q-teichmuller-lift",
+        "RelativeFarguesFontaine:RF0:integral-Y/lubin-tate-teichmuller-lift",
+        "RelativeFarguesFontaine:RF0:integral-Y/integral-rational-chart-rings",
+        "RelativeFarguesFontaine:RF0:integral-Y/root-extension-chart-model",
+        "RelativeFarguesFontaine:RF0:integral-Y/classical-points-of-integral-period-disc",
+        "RelativeFarguesFontaine:RF0:integral-Y/gauss-disc-fibre",
+        "RelativeFarguesFontaine:RF2:integral-divisors/div-d-moduli-v-sheaf",
+        "RelativeFarguesFontaine:RF2:integral-divisors/relative-degree-criterion",
+        "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+        "RelativeFarguesFontaine:RF3/lubin-tate-divisor-section",
+        "RelativeFarguesFontaine:RF0:annuli/witt-seminorm-lambda-mu",
+        "RelativeFarguesFontaine:RF0:annuli/relative-extended-robba-rings",
+        "RelativeFarguesFontaine:RF0:annuli/relative-period-presheaves",
+        "RelativeFarguesFontaine:RF0:annuli/berkovich-period-deformation",
+        "RelativeFarguesFontaine:RF1/global-period-sheaves-and-etale-functoriality",
+        "RelativeFarguesFontaine:RF0:annuli/stein-exhaustion-and-higher-acyclicity",
+        "RelativeFarguesFontaine:RF0:annuli/local-generation-on-period-annuli"
+      ],
+      "detail": "Independent review found existing algebraic parameters that overgeneralize the named construction (for example arbitrary root systems, Frobenius polynomials, theta maps, inertia groups, LT sections and coefficient completion comparisons). Omitted future geometric hypotheses under §13 do not resolve mismatched codomains, unlinked constructions or tests independent of the proposed definition. See the per-node review and blocking revisions in REV-RelativeFarguesFontaine--RF0; retain honest unchecked implementation status."
     }
   ],
   "requests": [
@@ -4837,13 +4921,15 @@
       "neededBy": [
         "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
         "RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor",
-        "RelativeFarguesFontaine:RF0:annuli/period-rings-finite-etale-compatibility"
+        "RelativeFarguesFontaine:RF0:annuli/period-rings-finite-etale-compatibility",
+        "RelativeFarguesFontaine:RF0:annuli/interval-rings-relatively-perfectoid",
+        "RelativeFarguesFontaine:RF0:annuli/period-spectrum-surjectivity"
       ],
       "direction": "incoming"
     },
     {
       "supplier": "DiamondsAndVStacks:D6",
-      "need": "The pre-adic Spd(O_E) functor used by FSII.1.2 for maps from marked perfectoid untilts, including π=0 and bounded coefficient maps. The generic Spd theorem does not supply this integral interface.",
+      "need": "Extend the D6 owner with the D6:pre-adic interface of SW §§18.1–18.2: the diamond of a pre-adic object and pre-adic Spd(O_E), used by FSII.1.2 for maps from marked perfectoid untilts, including π=0 and bounded coefficient maps. Current D6 generic Spd does not provide this extension (confirmed RT-AREA-padic-1/3). This is an extension request, not a citation to an existing D6:pre-adic node.",
       "neededBy": [
         "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points"
       ],
@@ -4851,7 +4937,7 @@
     },
     {
       "supplier": "DiamondsAndVStacks:D3",
-      "need": "Ordinary effective v-descent of finite locally free modules on perfectoid spaces, including GL_1. Prove the actual descent equivalence of SW17.1.8 and SW19.5.3; an almost module or an almost vanishing cohomology result is not its conclusion.",
+      "need": "Extend D3, whose current supplier statement covers perfectoid spaces and their morphisms, with ordinary effective v-descent of finite locally free modules, including GL_1, using SW17.1.8 and SW19.5.3 and their split-module hypotheses. Neither almost modules nor almost H^1 vanishing has this conclusion.",
       "neededBy": [
         "RelativeFarguesFontaine:RF2:integral-divisors/ordinary-v-descent-of-period-line-bundles",
         "RelativeFarguesFontaine:RF2:integral-divisors/relative-degree-criterion",
@@ -4869,7 +4955,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
-      "need": "The field/valuation inertia construction at the residue extension used in FSII.1.14, with prime-to-p tame part and the specified decomposition group. The new period-Gauss-point calculation is RF0’s work.",
+      "need": "The maximal unramified coefficient extension and its completion, residue-field Frobenius and functoriality from Layer 2. Inertia and its finite-quotient exact sequence are requested separately from Layer 4.",
       "neededBy": [
         "RelativeFarguesFontaine:RF0:integral-Y/inertia-at-a-period-gauss-point"
       ],
@@ -4957,6 +5043,14 @@
         "RelativeFarguesFontaine:RF0/ramified-witt-universal-property"
       ],
       "direction": "outward"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "need": "Use Layer 4 inertia as a closed normal subgroup of the absolute Galois group, the exact sequence to the residue-field Galois group and its finite quotients. RF0 proves the new surjectivity calculation at the Gauss fibre; the local-field definitions and exact sequence are imported.",
+      "neededBy": [
+        "RelativeFarguesFontaine:RF0:integral-Y/inertia-at-a-period-gauss-point"
+      ],
+      "direction": "incoming"
     }
   ],
   "restructure": [
@@ -4989,7 +5083,12 @@
         "https://webusers.imj-prg.fr/~laurent.fargues/Geometrization.pdf, checked corresponding passages on 2026-10-07",
         "https://smf.emath.fr/publications/geometrisation-de-la-correspondance-de-langlands-locale, publication listing and ten-page sample; Chapter II not supplied",
         "arXiv:2102.13459 version listing and author publication pages; no separate erratum linked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 2024 MPIM copy; the relation π=[ϖ]s_0 requires π/[ϖ]. The 2021 Fargues copy already corrects it.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E2",
@@ -5005,7 +5104,12 @@
         "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf, 2017 author copy §1.2.1",
         "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf, 2018 author copy §1.2.1",
         "https://smf.emath.fr/publications/courbes-et-fibres-vectoriels-en-theorie-de-hodge-p-adique, publication listing and sample; §1.2 not supplied"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparison with the 2018 copy and by outer ghost index fn−1; the Frobenius iterate must be applied before u.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E3",
@@ -5022,7 +5126,12 @@
         "https://webusers.imj-prg.fr/~laurent.fargues/Geometrization.pdf, checked corresponding passages on 2026-10-07",
         "https://smf.emath.fr/publications/geometrisation-de-la-correspondance-de-langlands-locale, publication listing and ten-page sample; Chapter II not supplied",
         "arXiv:2102.13459 version listing and author publication pages; no separate erratum linked"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a misprint: the printed condition x_ρ∈|D_C| already excludes ρ=1. The packet’s stricter range is an equivalent safe presentation, not an erratum.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E4",
@@ -5039,13 +5148,18 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for arXiv v5 only: a uniform normed ring cannot retain a nonzero nilpotent, so the proposed uniform topology loses a nonreduced coordinate ring. The published text was unavailable.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E5",
       "source": "KL15-foundations",
       "kind": "misprint",
-      "locator": "Proofs of Lemmas 5.2.8 and 5.2.10, printed pp. 116–117, arXiv:1301.0792v5",
+      "locator": "Lemmas 5.2.6 and 5.2.7, printed pp. 118–119, arXiv:1301.0792v5",
       "printed": "z = y − x; y = z − x",
       "correction": "With x=y+z use z=x−y in 5.2.8 and y=x−z in 5.2.10.",
       "reason": "The two displayed signs contradict the immediately stated decomposition. All subsequent nonarchimedean norm bounds are unchanged by negation, so the intended statements and estimates remain correct.",
@@ -5056,13 +5170,18 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the positive and negative pieces require the corrected signs/powers; Appendix A records both. Corrected the locator to pp.118–119.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E6",
       "source": "KL15-foundations",
       "kind": "misprint",
-      "locator": "Proof of Corollary 5.2.12, printed p. 118, arXiv:1301.0792v5",
+      "locator": "Lemma 5.2.10 proof, printed p. 120, arXiv:1301.0792v5",
       "printed": "lim sup λ(α^r)(x)^(1/r)",
       "correction": "Use an iteration index m distinct from the eigenweight n: the bound is sup_(r∈[s,qs]) limsup_(m→∞) p^(-mn/(rq^m)) λ(α^r)(x)^(1/(rq^m))≤1.",
       "reason": "Appendix A corrects the second displayed equation; the contraction is an iteration limit, and reusing the eigenweight index does not express that limit.",
@@ -5073,7 +5192,12 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Appendix A: the iterative construction in Lemma5.2.10 needs its corrected update. Corrected locator to p.120.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E7",
@@ -5090,13 +5214,18 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the definition and Appendix A: primitive degree-one normalization requires z_0 to be a unit, not merely nonzero.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E8",
       "source": "KL15-foundations",
       "kind": "misprint",
-      "locator": "Last three lines in the proof of Lemma 5.5.5, printed p. 132, arXiv:1301.0792v5",
+      "locator": "Lemma 5.5.5 proof, printed p. 131, arXiv:1301.0792v5",
       "printed": "y_0",
       "correction": "Replace the three y_0 occurrences by x_0 and use the spectral coefficient norm (the two α symbols corrected in Appendix A).",
       "reason": "The last estimate bounds the x expansion being completed; y is the earlier comparison expansion. Appendix A specifies these replacements.",
@@ -5107,13 +5236,18 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Appendix A and the original proof: use x_0, not y_0, and α(x_0), the spectral seminorm. Corrected locator to p.131.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E9",
       "source": "KL15-foundations",
       "kind": "misprint",
-      "locator": "Proposition 8.2.20 factorization condition, printed p. 163, arXiv:1301.0792v5",
+      "locator": "Proposition 8.2.20 proof, printed p. 164, arXiv:1301.0792v5",
       "printed": "The source describes Z_ij as finite etale, and assigns to Y_ij the status of an open immersion.",
       "correction": "Z_ij→Y is finite etale and Y_ij→Z_ij is an open immersion.",
       "reason": "A factorization requires morphisms with named targets. This is the corrected basis factorization used to reduce etale descent to finite etale maps and open covers.",
@@ -5124,13 +5258,18 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the proof and Appendix A: the target of the reduced morphism is the reduction of V. Corrected proof locator to p.164.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     },
     {
       "id": "RelativeFarguesFontaine/E10",
-      "source": "KL15-foundations",
+      "source": "KLII-errata",
       "kind": "gap",
-      "locator": "Proposition 3.6.11 used by Lemma 5.3.14; arXiv:1301.0792v5",
+      "locator": "Appendix A, printed p. 190, entry for Foundations Proposition 3.6.11; corrected Theorem 3.3.13 and Remark 3.3.14, pp. 61–62, arXiv:1602.06899v3",
       "printed": "The source acknowledges that the argument lacks a complete proof.",
       "correction": "Use the corrected Theorem 3.3.13 in Relative p-adic Hodge theory II for the primitive-quotient/perfectoid input; the P3 supplier must provide the corrected interface.",
       "reason": "The authors explicitly identify an incomplete proof in Appendix A. The period-spectrum proof must therefore consume the corrected perfectoid result, not treat the old proof as a closed input.",
@@ -5141,7 +5280,99 @@
         "https://kskedlaya.org/papers/, Foundations entry directs errata to Relative p-adic Hodge theory II",
         "https://arxiv.org/abs/1602.06899, v3 Appendix A, printed pp. 189–191, read in full",
         "Published-text link from author page https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php did not serve text in this session; attempted Numdam item/article URLs returned no text"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as the authors’ reported proof gap. The quoted words are in KLII Appendix A, not KL15; corrected attribution and added the actual P3 dependencies. KLII3.3.13 restores the missing injectivity, rather than refuting the theorem.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontaine/E11",
+      "source": "KL15-foundations",
+      "kind": "misprint",
+      "locator": "Lemma 5.5.2 proof, printed p. 128, arXiv:1301.0792v5 only",
+      "printed": "The source initializes z_0 = 0.",
+      "correction": "Put z_0 = z, the element to be expanded in the lifted generators.",
+      "reason": "The recursion subtracts a lifted residue expansion from z_l. Starting with zero can produce only zero and does not expand an arbitrary z. Taking R=S a perfect analytic field, the single generator 1 and z=1 exposes the failure.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1301.0792, latest v5 checked 2026-10-07",
+        "https://kskedlaya.org/papers/, author directs Foundations errata to Relative p-adic Hodge theory II",
+        "https://arxiv.org/abs/1602.06899, v3 Appendix A read; no Lemma5.5.2 entry found",
+        "Author journal link https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php remains unavailable; finding scoped to arXiv v5"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the recurrence and its limiting sum on pp.128–129; its initial residual must be z. No corresponding correction was found in Appendix A. No claim is made about the unavailable published text.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontaine/E12",
+      "source": "FF18-courbes",
+      "kind": "misprint",
+      "locator": "Proposition 1.4.9 proof, printed p. 64, author copy dated 16 April 2017",
+      "printed": "π^{n_0 m_0}",
+      "correction": "π^{n_0+m_0} in the leading product term and its norm expression.",
+      "reason": "Multiplying terms of indices n_0 and m_0 adds their exponents. For π² and π³ the leading term has exponent 5, not 6. The 2018 author copy prints the sum.",
+      "affects": "the proof",
+      "known": "Correct in the 13 November 2018 Fargues author copy, Proposition1.4.9 proof, printed p.16: https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf",
+      "searched": [
+        "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf, Proposition1.4.9 proof p.64",
+        "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf, Proposition1.4.9 proof p.16",
+        "Publisher sample does not supply the full proof; finding refers to the 2017 author copy"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared the two author copies: the 2017 product exponent is a misprint, already corrected to the sum in the 2018 copy.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontaine/E13",
+      "source": "KL15-foundations",
+      "kind": "misprint",
+      "locator": "Lemma 5.5.2 proof, first lines of printed p. 129, arXiv:1301.0792v5 only",
+      "printed": "The source considers an arbitrary element belonging to R̃_R^(int,s).",
+      "correction": "Use R̃_S^(int,s), whose elements must be expanded in the lifted generators.",
+      "reason": "The preceding estimate expands [z] for z in S. To show generation of the S-period ring one must expand an arbitrary element of that ring, not merely one of the coefficient ring R.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1301.0792, latest v5 checked 2026-10-07",
+        "https://kskedlaya.org/papers/, author directs Foundations errata to Relative p-adic Hodge theory II",
+        "https://arxiv.org/abs/1602.06899, v3 Appendix A read; no Lemma5.5.2 entry found",
+        "Author journal link https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php remains unavailable; finding scoped to arXiv v5"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the rendered PDF page as well as the extracted text; no matching correction found in Appendix A. This finding is scoped to the arXiv v5 copy, not the unavailable publisher text.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontaine/E14",
+      "source": "KL15-foundations",
+      "kind": "misprint",
+      "locator": "Proposition 5.5.3 proof, printed p. 129, arXiv:1301.0792v5 only",
+      "printed": "The source takes FÉt(R̃_R^(int,r)) as the scalars for a module.",
+      "correction": "Remove FÉt: the module is over the ring R̃_R^(int,r), not its finite-etale category.",
+      "reason": "The finite generation asserted by Lemma5.5.2 is a module-over-ring assertion; the displayed FÉt expression denotes a category and cannot serve as that scalar ring.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1301.0792, latest v5 checked 2026-10-07",
+        "https://kskedlaya.org/papers/, author directs Foundations errata to Relative p-adic Hodge theory II",
+        "https://arxiv.org/abs/1602.06899, v3 Appendix A read; no Lemma5.5.2 entry found",
+        "Author journal link https://smf4.emath.fr/en/Publications/Asterisque/2015/371/html/smf_ast_371.php remains unavailable; finding scoped to arXiv v5"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the rendered PDF page as well as the extracted text; no matching correction found in Appendix A. This finding is scoped to the arXiv v5 copy, not the unavailable publisher text.",
+        "by": "REV-RelativeFarguesFontaine--RF0"
+      }
     }
   ],
   "upstreamNotes": [
@@ -5683,7 +5914,7 @@
       "source": "FF18-corrected",
       "kind": "author copy",
       "url": "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf",
-      "citation": "Author-hosted PDF created 13 November 2018, 404 pages; checked §1.2.1 Lemme 1.2.3, printed p. 7",
+      "citation": "Author-hosted PDF created 13 November 2018, 404 pages; checked §1.2.1 Lemme 1.2.3, printed p. 7; also checked Proposition 1.4.9, printed p. 16",
       "read": "2026-10-07",
       "sha256": "8c020573d3dce341088ea7e83fe1063b410686c08e3a144fa3c0de634667cc79"
     },
@@ -5707,7 +5938,7 @@
       "source": "KLII-errata",
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1602.06899",
-      "citation": "arXiv:1602.06899v3 (2019), Appendix A only",
+      "citation": "arXiv:1602.06899v3 (2019), Appendix A and Theorem 3.3.13/Remark 3.3.14",
       "read": "2026-10-07",
       "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c"
     },
@@ -5732,5 +5963,378 @@
       "read": "2026-10-07",
       "available": false
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-RelativeFarguesFontaine--RF0",
+    "date": "2026-10-07",
+    "notes": "Independent target-level review of all 73 nodes, all source locators/excerpts, 26 pinned declarations (25 original and added projIsoSpec), exact supplier statements, accepted RS-20 scope, reviewed library audit and all seven handed red-team findings. Clear source, dependency, API and Lean corrections applied in place. Needs changes because existing algebraic signatures and definition-independent tests remain inconsistent with named results; open honest supplier gaps alone are not grounds for rejection. See the report and per-node checked list. All implementationStatus values remain unchecked.",
+    "checked": [
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-witt-polynomials",
+        "verdict": "verified",
+        "note": "FF2017 Lemma1.2.1: finite ghost polynomials on all coefficient algebras. No perfection or ghost injectivity is smuggled into the definition; polynomial naturality is routine."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-dwork-criterion",
+        "verdict": "verified",
+        "note": "FF2017 Dwork argument: cancel π recursively, with a coefficient-fixing Frobenius lift and π-regularity. No unjustified completeness hypothesis; Lean retains the two nonroutine algebraic hypotheses."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-witt-arbitrary-algebras",
+        "verdict": "corrected",
+        "note": "FF2017 Lemma1.2.1 constructs polynomial operations before specialization to torsion algebras. Added Witt-coordinate constructor/extensionality, coordinate-map simp and identity/composition API, with matching Lean forms."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-witt-uniformizer-change",
+        "verdict": "verified",
+        "note": "FF2017 uniformizer comparison preserves ghosts, not coordinates. Universal torsion-free construction and natural specialization justify the cocycle; the unit factor in the V test has the correct direction."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-teich-frobenius-verschiebung",
+        "verdict": "verified",
+        "note": "FF2017 Lemma1.2.2: FV=π on arbitrary algebras; VF=π is restricted to residue algebras. Teichmuller multiplicativity is correctly distinguished from additivity."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-v-adic-expansion",
+        "verdict": "verified",
+        "note": "FF2017 V-truncations and unique expansion: images are ideals by the projection formula. The packet explicitly distinguishes V-adic from π-adic completeness without perfection."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0/ramified-witt-universal-property",
+        "verdict": "unverifiable",
+        "note": "The all-E strict-lift prose is correct, but strictLift_equalChar uses the same ramifiedWitt carrier with no characteristic restriction. At OE=ℤ,π=q=2,A=F₂ it conflicts with ramifiedWitt_p_typical: W₂(F₂) has characteristic zero, while F₂[[T]] has characteristic two. Add an actual all-E strict-lift carrier/characteristic interface; the strict_lift_fq test also needs completeness and the specified uniformizer/residue cardinality."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-coefficient-comparison",
+        "verdict": "verified",
+        "note": "FF2017/2018 Lemma1.2.3: ghost subsequence fn, uF^f=F′u and the iterate before u in the V identity. Confirmed E2 and the corrected source copy; coefficient-extension geometric context is explicitly deferred."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/ramified-witt-diagonal",
+        "verdict": "verified",
+        "note": "FF2017 diagonal is characterized by outer ghosts F^n, not a coordinate diagonal. The unramified scalar action has its stated residue-extension context; a full coefficient interface remains required as advertised."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/perfect-coefficient-base-change",
+        "verdict": "verified",
+        "note": "FF2017 perfect coefficient change tensors over the maximal unramified subextension. Finite freeness controls completeness. Equal characteristic is a separate power-series argument, not arbitrary-algebra ghost theory."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/q-twisted-witt-functor",
+        "verdict": "unverifiable",
+        "note": "FF2017 twisted ghosts require Q≡X^q modπ. Lean twistedWittEquiv and qTwistedWittFunctor omit this existing polynomial condition and claim the comparison for every Q. Add the congruence and transport it through the construction/API; the ordinary/torsion specializations alone do not enforce it."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/q-teichmuller-lift",
+        "verdict": "unverifiable",
+        "note": "The transported Q-Teichmuller prose matches FF2017, including nonmultiplicativity and the V expansion. Its Lean construction inherits the missing Q congruence, and qTeich_limit lacks the stated perfect-residue completion data. This is not resolved by supplying an arbitrary ambient topology."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/lubin-tate-teichmuller-lift",
+        "verdict": "unverifiable",
+        "note": "FF2017 formal-group identities use evaluations of one specified convergent LT law. Lean ltTeich_add/scalar instead universally quantify independent lawA/lawW and scalar actions. Different constant target laws give incompatible equations. Supply the requested formal-group owner and evaluated law maps; do not add the conclusion as a hypothesis."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/coefficient-weak-topology",
+        "verdict": "verified",
+        "note": "FF2017 weak topology is the coefficient product topology and equals the (π,[ϖ])-adic topology for a valued perfect field. The endpoint warning concerns the norm restriction, not a source theorem claiming ordinary π-adic convergence."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/integral-rational-chart-rings",
+        "verdict": "unverifiable",
+        "note": "The chart prose correctly inverts [ϖ] and retains π=0. chart_not_witt_tate repeats a chart-unit assertion and cannot catch a definition that falsely makes the original weak Witt ring Tate. At least three discriminating tests must be represented faithfully, including the non-Tate original ring distinction."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/root-extension-chart-model",
+        "verdict": "unverifiable",
+        "note": "Corrected rootChart_roots to use newly constructed rootChartRatio, and E1 fixes the whole ratio π/[ϖ]. However rootChart_tiltCoordinate still quantifies unrelated pm,vm,sm; rootChart_reduce has unrelated quotient/model arguments. root_reciprocal only says zero is not a unit. Link the actual coefficient roots and tilt presentation; source E1 must remain reflected in a discriminating chart test."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+        "verdict": "verified",
+        "note": "FSII.1.1 plus BMS3.10(ii)/3.21: the integral criterion, continuous module splitting and non-adic coefficient-tensor issue are precise explicit gaps, not secretly solved by P1 distinguished regularity. Corrected the BMS reading locator to p.27 for Lemma3.21."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition",
+        "verdict": "verified",
+        "note": "FSII.1.1: nonvanishing of [ϖ], gluing of rational charts, choice independence and q-Frobenius give the integral domain. Pinned spa is used only as the valuation subset, not as an already constructed adic space."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points",
+        "verdict": "corrected",
+        "note": "FSII.1.2 functor-of-points identifies the marked untilt coefficient map. Made D6 request explicitly an extension by SW pre-adic §§18.1–18.2, rather than claiming existing D6 supplies Spd(OE); RT-padic-1/3 remains honestly unresolved at its owner."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/gluing-for-general-base",
+        "verdict": "verified",
+        "note": "FSII.1.3 glues the affinoid construction over perfectoid base opens, with restriction compatibility. The displayed Lean open-preimage fragment is legitimate under §13 but is not a claim that gluing is implemented."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
+        "verdict": "verified",
+        "note": "Ked-Ainf Hyp3.4/Def3.5: remove simultaneous vanishing, keeping both analytic ends and their different Tate completions. Tests distinguish this locus from the generic intersection; the scope is explicitly p-typical."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
+        "verdict": "verified",
+        "note": "Ked-Ainf3.6 and SW13.1.1–3: exact stably-uniform chart list, no stronger claim about A2 and no relative strong-noetherian assertion. Continuous split perfectoid extensions feed the stated R5 owner."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/punctured-ainf-bundle-algebraicity",
+        "verdict": "verified",
+        "note": "Ked-Ainf3.8 and GR4.15: finite locally free pullback equivalence on punctured algebraic/analytic loci. The field-only extension/freeness theorem3.9 is separated, with Example3.14 guarding general bases."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/classical-points-of-integral-period-disc",
+        "verdict": "unverifiable",
+        "note": "FSII.1.6–7 uses marked untilts and residue reconstruction, not arbitrary maximal ideals. The proposed classical_gauss_nonexample only asserts X−a≠0 and never compares the Gauss/evaluation kernels or classicalIntegralPoint. Replace it with a test of the actual map/locus; the other field inequalities do not exercise that map either."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/tilting-map-of-period-disc",
+        "verdict": "verified",
+        "note": "FSII.1.8 root extension and tilt yield a continuous topological map, without an additive ring embedding. Classical equation π−[a] and marking recovery agree with source; future geometric locus parameters are explicitly identified."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/gauss-disc-fibre",
+        "verdict": "unverifiable",
+        "note": "FSII.1.10 requires a convergent nonzero power series and its Gauss norm. Lean gaussDiscFibre quantifies any function f and any bound, including bound=0, and would conclude a nonnegative valuation is <0. Specify the power series and nonzero Gauss norm; E3 is rejected because source membership already excludes radius one."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/classical-base-change-and-nonclassical-fibres",
+        "verdict": "corrected",
+        "note": "FSII.1.9 concerns the entire fibre being one classical point. Corrected Lean from uniqueness among classical lifts to a classical y with the whole fibre equal to {y}; retained the nonclassical assertion only for rank-one points."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:integral-Y/inertia-at-a-period-gauss-point",
+        "verdict": "corrected",
+        "note": "FSII.1.14 uses finite inertia quotients. Added the actual LocalFields Layer4 owner for inertia/exact sequence and retained Layer2 for the unramified completion. The new Gauss-fibre surjectivity argument remains RF0 work, not an upstream replan."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/generic-period-domain",
+        "verdict": "verified",
+        "note": "FSII.1.15 generic domain removes π=0 from the integral domain, equivalently both factors are nonzero. The packet keeps it distinct from the whole analytic locus and uses coefficient functoriality."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/radius-function-and-rational-annuli",
+        "verdict": "verified",
+        "note": "FSII.1.16 uses the rank-one generalization for the real logarithmic radius and rational power inequalities for higher rank. Equal endpoints and changed pseudouniformizer scaling are retained; the arbitrary Frobenius stand-in requires the stated q-Frobenius context."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF1/frobenius-quotient-and-presentation",
+        "verdict": "verified",
+        "note": "FSII.1.15–16: radius scaling proves free totally discontinuous action; analytic quotient glues wandering charts. qcqs is restricted to affinoid S in the packet. The prototype’s compactness fragment does not prove quasi-separatedness; its omitted geometry is explicit."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF1/diamond-formula-and-map-to-base",
+        "verdict": "verified",
+        "note": "FSII.1.17: product and equivariant quotient formulas preserve the coefficient/base action. Only a qcqs continuous topological projection is claimed; no adic structural morphism X→S is introduced. Fixed-Qp F1/F2 are compatibility imports only."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF1/relative-curve-functoriality",
+        "verdict": "verified",
+        "note": "FSII.1.3/II.1.16: functorial coefficient maps descend equivariantly. Ordinary cartesian adic squares over S are explicitly excluded; the product statement is on diamonds. No tensor over a nonadditive Teichmuller map is used."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/ramified-primitive-untilt-equation",
+        "verdict": "verified",
+        "note": "FSII.1.4 primitive theta kernel is an all-E extension, with P1 p-typical correspondence imported directly. It includes ξ=π on a characteristic-p integral leg and uses multiplicative Teichmuller, not Q/LT lifts."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/closed-cartier-divisor-norm-estimate",
+        "verdict": "corrected",
+        "note": "FSII.1.4–5 lower bound gives regularity and closed complete quotient. Corrected the maximum-modulus proof to finite-type ordinary disc approximations and boundary suprema, then limits; the R0 theorem is not applied wholesale to a perfected/non-noetherian chart."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/ordinary-v-descent-of-period-line-bundles",
+        "verdict": "corrected",
+        "note": "FSVI.1.2 and SW17.1.8/19.5.3 ordinary line descent: corrected SW locator from pp.182–183 to 180–181. Clarified current D3 does not yet contain the module theorem; its extension must retain the split-module argument, not replace it with almost descent."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/div-d-moduli-v-sheaf",
+        "verdict": "unverifiable",
+        "note": "FSVI.1.1 symmetric products are sheaf quotients, retain collisions, and d=0 is final. divisor_not_stack proves only swap(a,a)=(a,a), which holds for both an orbit sheaf and an action stack. It does not discriminate the forbidden definition. Test quotient/sheafification and stabilizer information at a repeated leg."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+        "verdict": "verified",
+        "note": "FSVI.1.2: product of regular primitive equations is regular and permutation-invariant; line/ideal descent and Cartier quotient identify the divisor. Coincident legs remain multiplicities. No late classification theorem is hidden in product regularity."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/relative-degree-criterion",
+        "verdict": "unverifiable",
+        "note": "The early all-E relative-degree inverse is already an explicit nonroutine gap; Fargues2.18 uses later Pic/BC theory. Lean relativeDegreeCriterion additionally quantifies arbitrary legIdeal, whose symmetric product can be noninjective already for d=1 and a constant ideal map. Encode the actual marked primitive-leg-to-Cartier construction and its local degree hypotheses; do not certify this prototype as the criterion."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor",
+        "verdict": "verified",
+        "note": "FSVI.1.4 ordinary bundle descent on thickenings uses almost H1 plus convergent matrix correction, with the norm-controlled finite-quotient correction explicitly open. The packet correctly avoids identifying almost descent with ordinary effectiveness."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+        "verdict": "corrected",
+        "note": "FSVI.1 intrinsic positive/punctured rings use the actual Cartier ideal and generator-change descent. Added finite generation to divisorCompletion_complete, matching the pinned adic-completion hypothesis; a locally principal Cartier ideal meets it. Unit change and repeated-ideal-power tests are genuine algebraic fragments."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:integral-divisors/addition-and-disjoint-divisor-loci",
+        "verdict": "verified",
+        "note": "FSVI.1 divisor addition multiplies ideals. CRT splitting is restricted to comaximal/disjoint ideals at every power and then limits; collisions are expressly excluded from the product-completion conclusion."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/primitive-untilt-correspondence",
+        "verdict": "verified",
+        "note": "Generic primitive quotient comparison keeps π invertible on the leg and imports marked P1 classification. The ring-quotient fragment keeps surjectivity; it does not replan the full untilt correspondence."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+        "verdict": "unverifiable",
+        "note": "Corrected the Lean base-change parameter to the Frobenius quotient SpdEhatFrobeniusQuotient. Packet bases match FSII.1.19 and II.2.1, and late properness is an outward VB3 request. However divone_fq_base is just Sym(A,1)≃A and does not test Div1=Spd(E)/φ^Z; a wrong raw-Spd definition would pass. Replace with a quotient/base-change test."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/p-typical-affinoid-completion-comparison",
+        "verdict": "verified",
+        "note": "The p-typical completion comparison explicitly requires the marked PreTilt/theta/Cartier identification and records it as a gap. Pinned BDeRhamPlus is reused only after p-localization at that same kernel, never for all-E or characteristic-p integral legs."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/coefficient-field-de-rham-comparison",
+        "verdict": "verified",
+        "note": "The coefficient de Rham comparison selects the actual E embedding/factor first. Formally-etale uniqueness supplies a compatible action, not an arbitrary tensor over E. Full marked completion identification is an explicit gap; no false blanket reuse of Qp periods."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration",
+        "verdict": "verified",
+        "note": "FSVI.1 completion filtration reuses existing adic carriers only in their exact p-typical scope and directly imports R06.1. Characteristic-p integral period completion is retained separately; graded pieces are Cartier lines, not canonically free twists."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/cartier-filtration-and-breuil-kisin-lines",
+        "verdict": "verified",
+        "note": "Sch13Lemma6.3 and the Cartier construction: I^n/I^(n+1) is a line and tensor powers of I/I². The suggested module quotient is correctly formed through Submodule.comap, rather than a ring quotient of a nonunital ideal."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr",
+        "verdict": "corrected",
+        "note": "Corrected Lean geometricDivisorCompleteDvr from any ideal (false for Q,I=0) to a regular principal ideal with field quotient. The valuation proof uses separated completeness, residue units and successive powers; geometric residue-field identification remains necessary and no generic affinoid completion is asserted a DVR."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF2:untilts/divisor-completion-base-change",
+        "verdict": "verified",
+        "note": "Completion functoriality follows from maps of quotient systems. A completed tensor isomorphism is conditional on strict finite-quotient exactness and is recorded as a gap; it is not inferred from the existence of ring maps or v-descent."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
+        "verdict": "verified",
+        "note": "FSII.2 rank-one descent has Φ_n=π^(−n)φ, hence sections satisfy φf=π^n f and coefficient slope −n. Tensor and dual signs are consistent. The arbitrary-rank functor remains exclusively at VB1."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/lubin-tate-divisor-section",
+        "verdict": "unverifiable",
+        "note": "Added the preceding crystalline-boundary/Cech input to the mixed-characteristic LT construction. The logarithm/torsion tower remains an explicit supplier gap. Lean lubinTateDivisorSection(f) asserts the eigenvalue for every f, rather than the constructed LT sum: with φ=id,πUnit=2 in Q,f=1 it reads 1=2. Construct the actual LT section and state its eigenvalue/simple-zero result."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/graded-algebra-and-algebraic-curve-map",
+        "verdict": "corrected",
+        "note": "FSII.2 chart argument: added pinned projIsoSpec and replaced Lean arbitrary analytic B ring-isomorphism with the actual locally ringed-space isomorphism D+(g)≅Spec of degree-zero homogeneous localization. Existing ProjectiveSpectrum is reused; global generation/map/twists remain at VB2."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/section-covered-proj-chart-map",
+        "verdict": "verified",
+        "note": "FSII.2.7 yields a ring homomorphism from the homogeneous localization to analytic functions and thus the map only on the section-covered open. It is deliberately not a global comparison or an isomorphism of the analytic chart ring."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/witt-seminorm-lambda-mu",
+        "verdict": "unverifiable",
+        "note": "KL3.3.2–3 and Ked-Witt4.5 impose perfect characteristic-p input and seminorm domination. Lean wittLambda_mu ranges over every multiplicative seminorm: the trivial norm on W(Fp) gives β(p)=1 while λμ(β)(p)=p^−1. Add the bounded spectral spaces and actual pointwise topologies; arbitrary topology continuity also cannot express this spectrum theorem."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/relative-extended-robba-rings",
+        "verdict": "unverifiable",
+        "note": "KL5.1 distinguishes integral/bounded/interval/Frechet/plus/infinity rings and the all-E extension is an honest gap. robba_singleton_interval only proves max(a,a)=a and robba_plus_infinity only negates an assumed coefficient inequality; neither tests the completion or competing ring memberships. Implement discriminating tests of the specified growth rings."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/robba-growth-units-and-invariants",
+        "verdict": "verified",
+        "note": "KL5.2.1–4/11 convexity, units in the bounded union and coefficientwise invariants keep the exact ring and disconnected constants. The norm-extension gap limits all-E claims; no Qp-only constant-field conclusion is imposed on arbitrary bases."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/robba-controlled-splittings",
+        "verdict": "verified",
+        "note": "KL5.2.6–10/13 splittings use the corrected signs, strictness and common ambient interval. The two controlled splittings and intersection scope are explicit at target granularity; known AppendixA iteration correction is retained."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/positive-frobenius-eigenvector-restriction",
+        "verdict": "verified",
+        "note": "KL5.2.12 requires nonnegative eigenweight and the specified overlap interpretation on a fundamental window. Iteration index is distinguished from eigenweight; no negative-twist or geometric finite-dimensionality theorem is inferred."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/relative-period-presheaves",
+        "verdict": "unverifiable",
+        "note": "KL5.3.1 presheaves need the coefficient pair and the radii of each variant. Lean relativePeriodPresheaf depends only on TopCat X and Fin12; it cannot distinguish two interval radii on the same X. Its affinoid comparison is to arbitrary B and its plus test only restates a coefficient bound. Add the period datum/radius parameters and actual affinoid evaluation maps."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/relative-period-sheaf-and-acyclicity",
+        "verdict": "verified",
+        "note": "KL5.3.3/6: all twelve sheaves, exactly nine acyclic variants and the separately listed Kiehl cases. Strictness and convergent corrections are required and the proof does not grant all plus variants the stronger conclusion."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/interval-rings-relatively-perfectoid",
+        "verdict": "corrected",
+        "note": "KL5.3.9/14 relative perfectoidness uses explicit scalar tensor norms and continuous splitting. Added corrected KLII3.3.13 as a direct P3 prerequisite and request consumer, including the missing injectivity argument; all-E norm extension remains an explicit gap."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/interval-adic-pair-and-base-projection",
+        "verdict": "verified",
+        "note": "KL5.4 interval adic pair specifies its completed plus ring, exponent and bounded-Teichmuller valuation-ring argument. Projection is topological; nonadditive Teichmuller does not become a structural R-algebra map."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/annular-rational-base-change",
+        "verdict": "verified",
+        "note": "KL5.4 rational base change follows the specified interval pair and completed rational localization. The suggested continuous-open-preimage theorem is only its labelled carrier fragment under §13, not an implementation of the ring comparison."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/berkovich-period-deformation",
+        "verdict": "unverifiable",
+        "note": "KL5.4 deformation endpoint must be the constructed λμ. Lean periodHomotopy_one universally accepts independent lambdaMu functions, so two different target functions give contradictory endpoints. Its mu-preservation and fixed-point examples likewise quantify unrelated functions. Use the actual norm maps/stable presentation and bounded spectrum, with a disconnected-base test involving the deformation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/period-spectrum-surjectivity",
+        "verdict": "corrected",
+        "note": "KL5.4.2 spectral surjectivity uses the auxiliary perfected variable and primitive quotient. Added direct corrected P3 input and request consumer; KLII3.3.13 repairs injectivity in the old perfectoid tensor proof. The periodMap prototype denotes the specified induced map; it is not a general ring-map theorem."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/period-rings-finite-etale-compatibility",
+        "verdict": "corrected",
+        "note": "KL5.5 integral/fixed-radius finite-etale equivalences retain Frobenius descent and primitive normalization. Corrected Lemma5.5.2 residual initialization to z0=z (E11), and added its locator. Existing E8 norm/coefficient correction is retained; P3 almost purity is reused rather than re-planned. Recorded two further rendered-page proof misprints E13/E14 (wrong base-ring subscript and category in place of scalar ring)."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF1/global-period-sheaves-and-etale-functoriality",
+        "verdict": "unverifiable",
+        "note": "KL8.2.20–22 global etale period comparisons correctly avoid an adic structural map and retain corrected factorization. But curve_split_etale only gives A⊕A≃Bool×A, independent of the relative-curve functor, so it cannot test finite-etale preservation. Global affinoid comparisons also lack the radii/period datum from node59; synchronize the actual functor tests."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF1/lubin-tate-diamond-presentation",
+        "verdict": "verified",
+        "note": "FFRemark3.19 field LT-tower diamond comparison keeps the LT torsion tower separate from the whole-ratio root tower. LT theory, tilt and reciprocity are explicitly requested from the LocalFields PartII owner; no invented callable LF2 is used."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/stein-exhaustion-and-higher-acyclicity",
+        "verdict": "unverifiable",
+        "note": "The prose countable Stein correction argument has the correct complete-Banach/dense restriction hypotheses and is not algebraic Mittag–Leffler. Lean steinExhaustionAndHigherAcyclicity merely returns Type with no limit projections, comparison or higher-acyclicity assertion. Add an actual inverse-limit construction/API and a statement of the intended conclusion, honestly omitting only unavailable cohomological vocabulary."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF3/crystalline-boundary-and-cech-section-input",
+        "verdict": "corrected",
+        "note": "FSII.2.5 boundary Cech argument uses the two completed charts and opposite convergent inverses. Removed LT section and positive eigenrestriction from its prerequisites, so this input can precede LT construction; no dependency cycle remains."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/annular-coefficient-choice-and-anchor-comparisons",
+        "verdict": "verified",
+        "note": "The anchor comparison is explicitly E=Qp and a perfectoid field, with the same dense Witt subrings and norms. General finite coefficient change uses the unramified-base tensor and plus-ring integral closure; the R0 non-adic extension remains a precise gap."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF0:annuli/local-generation-on-period-annuli",
+        "verdict": "unverifiable",
+        "note": "KL5.2.5 is generation after a rational neighborhood for a finite projective interval module. Lean replaces that restriction by an arbitrary Z-linear baseChange to arbitrary N. Taking M=N=P=Q, one generator, residue=id and baseChange=0 contradicts the conclusion. Link N to the chosen rational base change and use a genuine finite-projective/residue interface."
+      }
+    ]
+  }
 }
