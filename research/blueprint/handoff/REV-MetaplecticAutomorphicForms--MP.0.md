@@ -1,0 +1,19 @@
+# REV-MetaplecticAutomorphicForms--MP.0 handoff
+
+Completed independent review of BP-MetaplecticAutomorphicForms--MP.0 for issue #448, by Codex session codex-a5Lhnu, on 2026-10-07. This is a finished review with verdict `needs_changes`, not a checkpoint. The author session was different; the review did not create or promote an atlas plan.
+
+The durable evidence is in [the review report](../reviews/REV-MetaplecticAutomorphicForms--MP.0.md) and the packet's `review.checked` records. All 176 nodes, 58 pinned baseline declarations, 23 source issues and the four assigned red-team findings were checked. All 25 recorded public source versions matched their hashes; the report supplies URLs, reading limits, the extra Duke88 hash and a reproducible normalization check. No scratch artifact is needed to resume.
+
+The verdicts are 22 verified, 26 corrected and 128 unverifiable. No node or baseline declaration was added/removed. The packet retains eight planned stages and zero closed stages; open gaps alone are not the reason for rejection. The 26 corrections include source conventions/locators, first-term and measure exceptions, Fourier coefficients, tests, local dependency direction and two consumer imports. The report enumerates them. Implementation statuses remain `unchecked`.
+
+The next job is an ordinary blueprint revision, followed by a new independent review. Resume from the report's blocking-signature table and all individual `review.checked` notes:
+
+1. Reconcile native signatures, APIs and discriminating tests with the actual source constructions. Explicit counterexamples remain to the central-sign, arbitrary Fourier/measure/operator/representation, local-theta and spectral fragments. Protocol §13 allows conditions that cannot yet be stated to remain omitted; that does not justify universally quantified contradictory identities. Retain sound delimited fragments and precise gaps where the native supplier is absent.
+2. Replace broad GN.2/GN.3 arithmetic requests with independently owned exact suppliers or a Part II. GN.3's theta interface imports MP.5, so using the consuming whole stage feeds back into the ideal-class theta target. The present suppliers do not state the required genus/ideal/trace-dual/CM/cycle arithmetic. No invented node id was substituted.
+3. Preserve the separate Biró Lemma10/(14) convergence/trace bridge, FH95 twist adapter and norm-torus orbit/character/integrability gates. Removing BSD.2 and GZ.5 consumer imports does not prove these inputs.
+4. Synchronize the reader document with the corrected packet and suggested file, especially zero-dimensional unitary characters, finite Weil phases, measure/first-term exceptions, cycle orientation, Biró normalization/range and dependencies. The reader was outside this review's deliverables.
+5. Arrange the missing prebuilt pinned Tau Ceti import before certifying elaboration. Do not build/update/cache the libraries as a worker.
+
+Validation: `python3 scripts/check_blueprint.py research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json` reports 0 errors and 0 warnings. Exhaustive unique review records, independent source-issue authorship, API/test name presence, three-test minimum, internal DAG, pinned-module table and unchanged implementation statuses passed. `git diff --check` passed. The final `lean-check research/blueprint/suggested/MetaplecticAutomorphicForms--MP.0.lean` attempt, with 99GB available, stopped at the first import: the shared build lacks `TauCeti.RepresentationTheory.ProjectiveRepresentation.Extension.olean`. No suggested declarations were elaborated. No language server or build/update/cache command was run; no Lean process was left running.
+
+The maintainer/orchestrator must choose the exact arithmetic extension's owner/stage ids and provide a complete pinned prebuilt import set. These are revision inputs, not reasons to continue or checkpoint this completed review.
