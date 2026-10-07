@@ -22658,9 +22658,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicSpectralTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #690"
+   "note": "deliverables arrived from an external worker on issue #690",
+   "finishedAt": "2026-10-07T09:12:29Z"
   },
   {
    "id": "REV-AutomorphicSpectralTheory",
@@ -24806,8 +24807,9 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES7",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #405"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #405",
+   "finishedAt": "2026-10-07T09:12:32Z"
   },
   {
    "id": "BP-FaltingsFinitenessAndIsogenyTheorems",
@@ -26274,8 +26276,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #757"
   },
   {
    "id": "REV-IgusaVarietiesAndTorsionConcentration",
@@ -37840,7 +37843,8 @@
     "REV-RelativeFarguesFontaine--RF4"
    ],
    "prompt": "research/blueprint/prompts/ASM-RelativeFarguesFontaine.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #257"
   },
   {
    "id": "ASM-ShimuraCompactifications",
