@@ -3928,7 +3928,7 @@
     "Map the Langlands data to the direct sum of the parameters of the inducing data (characters of F^× and, for ℝ, Ind(z^p z̄^q) for D_k ⊗ |det|^s).",
     "Bijectivity: uniqueness of Langlands data and of the decomposition of semisimple W_F-representations into irreducibles.",
     "Properties (ii)-(v) are checked on inducing data; (vi) is the n = 2 discrete-series case.",
-    "Proof source: Knapp, Local Langlands correspondence: the archimedean case (Motives II, 1994), cited by Chenevier–Taïbi and Gan–Ichino; not read (recorded gap)."
+    "Knapp, Local Langlands correspondence: the archimedean case, §§3–4, Theorems 2 and 5 (pp.403,406), gives the explicit real and complex parameter constructions and bijections. These passages have been read; the original Langlands classification and discrete-series proof interiors remain recorded gaps."
    ],
    "prerequisites": [
     "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification",

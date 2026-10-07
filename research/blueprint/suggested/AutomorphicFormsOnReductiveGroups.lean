@@ -370,3 +370,10 @@ canonical SAF realization remain explicit source/signature gaps. This prevents
 classification/globalization from assuming the globalization theorem in its
 own initial matrix-coefficient definition.
 -/
+
+/-
+AF.1/archimedean-llc-gln uses Knapp's public survey, Theorems 2 and 5
+(pp.403,406), whose explicit real/complex parameter constructions and
+bijections have been read. The original classification/discrete-series
+proofs and the faithful native signatures remain explicit gaps.
+-/
