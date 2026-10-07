@@ -1312,7 +1312,6 @@
    "prerequisites": [
     "PadicHodgeRegulators:L1/bloch-kato-exponential",
     "PadicHodgeRegulators:L1/local-duality-of-conditions",
-    "ArithmeticGaloisDuality:D7/duality-after-localization",
     "ArithmeticGaloisDuality:D7/duality-after-localization"
    ],
    "proofSteps": [
