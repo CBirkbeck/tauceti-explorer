@@ -26216,7 +26216,8 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #432"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups--T6",
@@ -55371,8 +55372,9 @@
     "FIX-RT-BP-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5716"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5716",
+   "finishedAt": "2026-10-07T13:32:42Z"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
@@ -64253,7 +64255,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
