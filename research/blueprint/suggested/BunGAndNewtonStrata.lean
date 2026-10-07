@@ -249,15 +249,18 @@ example (m : ℤ) : -((-m : ℤ)) = m := by sorry
 example {X : Type u} [TopologicalSpace X] (x : X) : Specializes x x := by sorry
 end TauCeti.BunG
 
-/-
-EXACT-NAME FORMULATION REGISTER — G08
+/- Independent review: rational arithmetic checks for the division-algebra
+sign correction. These are neither Brauer-group nor Morita signatures. -/
+namespace TauCeti.BunG
+example : (-(1 / 3 : ℚ)) + 1 = (2 / 3 : ℚ) := by sorry
+example : ¬ ∃ z : ℤ, (-(1 / 3 : ℚ)) = (1 / 3 : ℚ) + (z : ℚ) := by sorry
+example : ∃ z : ℤ, (-(1 / 2 : ℚ)) = (1 / 2 : ℚ) + (z : ℚ) := by sorry
+end TauCeti.BunG
 
-The finite rational representation category is already Tau Ceti
-FGPointRepresentationCat, with its rigid symmetric monoidal comodule
-equivalence and pointwise Tannakian reconstruction at the recorded Tau pin.
-The missing source-target interface is to general-E isocrystals and relative
-curve bundles, not the representation category itself. The shared build has a
-different Tau HEAD, so the executable cores import only pinned Mathlib.
+/-
+Exact-name omission register (G08). These are comment contracts, not Lean
+declarations. Independent review requires full signatures/API/example coverage
+before acceptance; elaboration of the concrete cores does not provide it.
 
 BunGAndNewtonStrata:BG0/g-bundle
 TauCeti.BunG.GBundle
@@ -267,6 +270,7 @@ TauCeti.BunG.GBundle.trivial — constructor: The standard fibre functor V↦V�
 TauCeti.BunG.GBundle.evaluate — projection: For each rational representation V, evaluate a G-bundle to a bundle of rank dim_E V; tensor and dual comparisons are natural.
 TauCeti.BunG.GBundle.tensorIso — characterisation: An isomorphism consists of invertible natural maps preserving the unit and tensor constraints.
 TauCeti.BunG.GBundle.pullback — functoriality: For f:Y→X, bundle pullback gives f* on G-bundles, with coherent identity and composition isomorphisms.
+TauCeti.BunG.GBundle.tensorIso_ext — extensionality: Two tensor natural isomorphisms are equal if their components agree on every finite rational representation.
 TauCeti.BunG.GBundle.testGL1 — example contract (compatibility): For G=G_m, evaluation at the standard character identifies G-bundles with line bundles.
 TauCeti.BunG.GBundle.testTrivial — example contract (degenerate): For G=1 the G-bundle groupoid has one object up to a unique isomorphism.
 TauCeti.BunG.GBundle.testNoFaithfulChoice — example contract (non-example): For GL_2 the standard and standard-plus-determinant faithful realizations recover isomorphic torsors; independent unrelated bundles do not define a tensor functor.
@@ -296,7 +300,7 @@ TauCeti.BunG.GIsocrystal.testTensorSlope — example contract (computation): For
 BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient
 TauCeti.BunG.SigmaClass
 Full definition contract: B(G)=G(L)/~ where b~bprime iff bprime=g b σ(g)^−1 for some g∈G(L). Here σ is arithmetic q-Frobenius fixing E and its uniformizer. This orbit quotient is the set of isomorphism classes of G-isocrystals; the groupoid itself retains automorphisms.
-Formulation: the concrete generic quotient/difference core is declared above; local-field identifications and other conditions are omitted under G08.
+Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 TauCeti.BunG.SigmaClass.mk — constructor: Send b∈G(L) to its sigma class.
 TauCeti.BunG.SigmaClass.mk_eq_iff — characterisation: Two representative classes are equal precisely when a sigma conjugator exists.
 TauCeti.BunG.SigmaClass.map — functoriality: A σ-compatible group homomorphism gives B(G)→B(H), with identity and composition laws.
@@ -362,7 +366,7 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 
 BunGAndNewtonStrata:BG0/division-algebra-morita
 TauCeti.BunG.DivisionAlgebraMorita
-Full comparison contract: For a simple isocrystal of slope λ=a/h and division algebra D_λ/E of invariant λ, J_b≅D_λ^×. Twisting GL_h-bundles by E_b identifies them with bundles of rank1 right D_λ-modules; m copies give GL_m(D_λ). The comparison is Morita/torsor equivalence, not an E-group isomorphism GL_h≅D_λ^×.
+Full comparison contract: For a simple isocrystal D(a,h) of slope λ=a/h, gcd(a,h)=1 and h>0, set A_λ=End_Φ(D(a,h)). Under the arithmetic Frobenius/Brauer convention of VB0, A_λ≅D_{−λ} has invariant −λ mod Z, and J_b≅A_λ^×. The associated bundle is O(−λ); the natural End comparison identifies A_λ with its endomorphism algebra. Twisting gives an equivalence between rank-h vector bundles and locally free rank-one right (A_λ⊗_E O_X)-modules via E↦Hom(E_b,E), with right action by precomposition. Its inverse is M↦M⊗_(A_λ⊗O_X)E_b, where E_b is a left A_λ-module. For m copies the automorphism group is GL_m(A_λ). This is a Morita/torsor equivalence.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 
 BunGAndNewtonStrata:BG1/levi-newton-formula
@@ -399,7 +403,7 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 
 BunGAndNewtonStrata:BG1/ordinary-class
 TauCeti.BunG.Ordinary
-Full definition contract: An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. Every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.
+Full definition contract: An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. For E p-adic, every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 TauCeti.BunG.Ordinary.isOrdinary — relation: Acceptability and equality of transferred Newton with μ◇.
 TauCeti.BunG.Ordinary.unique — characterisation: At most one acceptable class is ordinary.
@@ -412,7 +416,7 @@ TauCeti.BunG.Ordinary.testQuaternion — example contract (non-example): For G=D
 
 BunGAndNewtonStrata:BG1/acceptable-unique-maximum
 TauCeti.BunG.AcceptableUniqueMaximum
-Full theorem contract: For connected reductive G over a nonarchimedean local field and a geometric class {μ}, B(G,{μ}) has a unique maximal element for the fixed-κ Newton order. The maximum is ordinary exactly when its Newton point equals μ◇. No quasi-split hypothesis is attached to unique maximality.
+Full theorem contract: For connected reductive G over a finite extension E/Q_p and a geometric class {μ}, B(G,{μ}) has a unique maximal element for the fixed-κ Newton order. The maximum is ordinary exactly when its Newton point equals μ◇. No quasi-split hypothesis is attached to unique maximality.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 
 BunGAndNewtonStrata:BG1/straight-weyl-classification
@@ -469,11 +473,11 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 
 BunGAndNewtonStrata:BG1/abelianized-kottwitz-set
 TauCeti.BunG.AbelianizedClass
-Full definition contract: For E p-adic, B_ab(G)=H^1(W_E,[Gsc(L)→G(L)]) with the natural crossed-module action. The abelianization map comes from [1→G]→[Gsc→G]. A maximal torus complex [Tsc→T] and center complex [Zsc→Z] are homotopy-equivalent coefficient models, not replacements of G by an arbitrary abelian group.
+Full definition contract: For E p-adic, B_ab(G)=H^1(W_E,[Gsc(L^sep)→G(L^sep)]) with the natural crossed-module action. The abelianization map comes from [1→G]→[Gsc→G]. A maximal torus complex [Tsc→T] and center complex [Zsc→Z] are homotopy-equivalent coefficient models, not replacements of G by an arbitrary abelian group.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 TauCeti.BunG.AbelianizedClass.abelianize — functoriality: Send a sigma class to its crossed-module H^1 class.
-TauCeti.BunG.AbelianizedClass.torusModel — equivalence: Replace the crossed module by [Tsc(L)→T(L)] for a maximal torus.
-TauCeti.BunG.AbelianizedClass.centerModel — equivalence: Replace it by [Zsc(L)→Z(L)].
+TauCeti.BunG.AbelianizedClass.torusModel — equivalence: Replace the crossed module by [Tsc(L^sep)→T(L^sep)] for a maximal torus.
+TauCeti.BunG.AbelianizedClass.centerModel — equivalence: Replace it by [Zsc(L^sep)→Z(L^sep)].
 TauCeti.BunG.AbelianizedClass.map — functoriality: Reductive homomorphisms and compatible simply connected lifts induce the abelianized map.
 TauCeti.BunG.AbelianizedClass.testTorus — example contract (compatibility): For a torus Gsc=1, B_ab(T)=B(T).
 TauCeti.BunG.AbelianizedClass.testSLn — example contract (degenerate): For simply connected semisimple G the abelianized set is0.
@@ -481,7 +485,7 @@ TauCeti.BunG.AbelianizedClass.testPGLn — example contract (computation): For s
 
 BunGAndNewtonStrata:BG1/abelianization-identification
 TauCeti.BunG.AbelianizationIdentification
-Full theorem contract: For p-adic E there is a canonical B_ab(G)≅π_1(G)_Γ under which B(G)→B_ab(G) is κ. In a maximal-torus model this is coker(B(Tsc)→B(T)), using H^2(W_E,Tsc(L))=0 and the torus Kottwitz descriptions.
+Full theorem contract: For p-adic E there is a canonical B_ab(G)≅π_1(G)_Γ under which B(G)→B_ab(G) is κ. In a maximal-torus model this is coker(B(Tsc)→B(T)), using H^2(W_E,Tsc(L^sep))=0 and the torus Kottwitz descriptions.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 
 BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site
@@ -494,7 +498,7 @@ TauCeti.BunG.CurveEtaleBase.pushforward — universal-property: Use the induced 
 TauCeti.BunG.CurveEtaleBase.constantComparison — functoriality: The structural E-map induces RΓ_et(Spa E,F)→Rτ*(F|X_S).
 TauCeti.BunG.CurveEtaleBase.testGeometric — example contract (compatibility): For geometric S, the comparison is the curve/local-field cohomology comparison.
 TauCeti.BunG.CurveEtaleBase.testTrivialSheaf — example contract (degenerate): The zero finite sheaf has zero derived pushforward.
-TauCeti.BunG.CurveEtaleBase.testNoProjection — example contract (non-example): τ is not obtained by assuming an algebraic or adic X_S→S projection.
+TauCeti.BunG.CurveEtaleBase.testCoproduct — example contract (compatibility): For T=S⊔S in S_et, τ*(T) is X_S⊔X_S over X_S, with the two inclusions preserved. This checks the actual inverse-image site functor.
 
 BunGAndNewtonStrata:BG2:uniformization/curve-torsion-cohomology
 TauCeti.BunG.CurveTorsionCohomology
@@ -503,7 +507,7 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 
 BunGAndNewtonStrata:BG2:uniformization/diagonalizable-curve-cohomology
 TauCeti.BunG.DiagonalizableCurveCohomology
-Full comparison contract: For p-adic E and diagonalizable D/E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,D) is constant with value H^1(W_E,D(L)). For algebraically closed perfectoid C, H^i(W_E,D(L))≅H^i_et(X_C,D), 0≤i≤2. The natural map comes from the curve étale site to discrete W_E-sets. Use 1→D^0→D→π_0(D)→1 and retain all finite component contributions.
+Full comparison contract: For p-adic E and diagonalizable D/E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,D) is constant with value H^1(W_E,D(L^sep)). For algebraically closed perfectoid C, H^i(W_E,D(L^sep))≅H^i_et(X_C,D), 0≤i≤2. The natural map comes from the curve étale site to discrete W_E-sets. Use 1→D^0→D→π_0(D)→1 and retain all finite component contributions.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 
 BunGAndNewtonStrata:BG2:uniformization/crossed-module-curve-classes
@@ -520,6 +524,8 @@ TauCeti.BunG.Bun.pullback — functoriality: For T→S, pullback is X_T←X_S bu
 TauCeti.BunG.Bun.ofIsocrystal — constructor: An exact tensor G-isocrystal gives the constant bundle E_b on every X_S.
 TauCeti.BunG.Bun.isomSheaf — projection: The diagonal fibre is the v-sheaf Isom of two G-bundles.
 TauCeti.BunG.Bun.gaga — equivalence: For affinoid S compare algebraic and analytic curve torsor categories.
+TauCeti.BunG.Bun.pullback_id — simp: Pullback of G-bundles along id_S is naturally tensor-isomorphic to the identity functor, with its unit coherence.
+TauCeti.BunG.Bun.pullback_comp — compatibility: For U→T→S, pullback along the composite is naturally tensor-isomorphic to successive pullback, with the associativity coherence.
 TauCeti.BunG.Bun.testGLn — example contract (compatibility): For GL_n, objects are rank-n vector bundles with all bundle isomorphisms.
 TauCeti.BunG.Bun.testTrivial — example contract (degenerate): For G=1, Bun_G is the terminal v-stack.
 TauCeti.BunG.Bun.testNonbasicHom — example contract (non-example): For GL_2 slopes0,1, bundle automorphisms include positive-slope sections, so the isocrystal-to-bundle functor is not fully faithful on the ungraded categories.
@@ -581,7 +587,7 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 
 BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism
 TauCeti.BunG.NewtonTopologyHomeomorphism
-Full theorem contract: The bijection |Bun_G|→B(G) is a homeomorphism when B(G) has the specialization order [b]≤[bprime] iff E_bprime lies in the closure of E_b. Thus closed upper Newton unions and open lower unions are determined by the fixed-κ order. The assertion was a conjecture in FS III.2.15 and is a theorem in Viehmann; its full proof is a separate proof-interior obligation.
+Full theorem contract: For E a finite extension of Q_p, the bijection |Bun_G|→B(G) is a homeomorphism when B(G) has the specialization order [b]≤[bprime] iff E_bprime lies in the closure of E_b. Thus closed upper Newton unions and open lower unions are determined by the fixed-κ order. The assertion was a conjecture in FS III.2.15 and is a theorem in Viehmann; its full proof is a separate proof-interior obligation.
 Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 
 BunGAndNewtonStrata:BG3/hn-graded-g-bundles
@@ -925,7 +931,7 @@ Formulation: full signature omitted under G08; pointwise/numerical examples abov
 BunGAndNewtonStrata:BG1/component-kottwitz-coset
 TauCeti.BunG.ComponentCoset
 Full construction contract: For b∈G(L) and a bound μ with compatible full κ, let c_(b,μ)={x∈π_1(G)_I:(σ−1)x=tildeκ(μ(π))−tildeκ(b)}. Compatibility in π_1(G)_Γ makes this a nonempty affine coset under (π_1(G)_I)^σ. This is an affine set of components, with no distinguished origin before a choice.
-Formulation: the concrete generic quotient/difference core is declared above; local-field identifications and other conditions are omitted under G08.
+Formulation: full signature omitted under G08; pointwise/numerical examples above cover only their explicitly stated core.
 TauCeti.BunG.ComponentCoset.mem_iff — characterisation: A component x solves the stated difference equation.
 TauCeti.BunG.ComponentCoset.nonempty — universal-property: The Γ-coinvariant compatibility is equivalent to nonemptiness.
 TauCeti.BunG.ComponentCoset.translate — structure: Invariant classes act freely and transitively on the fibre.
