@@ -1924,17 +1924,16 @@
       "realises": [
         "RelativeFarguesFontaine:RF0:integral-Y"
       ],
-      "title": "Algebraicity on the punctured A-inf spectrum",
-      "kind": "theorem",
-      "statement": "For perfect Tate R of characteristic p with R^+ integral, W=W(R^+), algebraic finite locally free modules on Spec W∖V(p,[ϖ]) pull back equivalently to vector bundles on Z_S=Spa(W,W)∖V(p,[ϖ]). This is the p-typical theorem in Kedlaya 3.8, used by Guo–Reinecke. Extension to a finite free W-module is restricted to the valued-field theorem 3.9; it is false for general R.",
+      "title": "Whole-locus algebraicity import interface",
+      "kind": "comparison",
+      "statement": "For E=Q_p, identify RF0’s Z_S=Spa(W(R^+),W(R^+)) minus V(p,[ϖ]) and its canonical morphism to Spec W(R^+) minus V(p,[ϖ]) with Y-ad, X-sch and the pullback functor in RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles, using x=ϖ. The algebraicity equivalence used on this presentation is exactly that RF4-owned equivalence. This node supplies the presentation comparison and an exact import; it does not construct or prove a second algebraicity theorem. Extension to a finite free W(R^+)-module is imported only under RF4’s valued-field hypotheses, and not for general R.",
       "hypotheses": [
         "Kedlaya Hypothesis 3.4. The analytic-to-scheme map is the punctured A_inf comparison, not RF3’s global Proj map."
       ],
       "proofSteps": [
-        "Use the B_1,B_2,B_12 charts and algebraic localisations A_1,A_2,A_12.",
-        "Apply Kiehl on the sheafy charts and descent on their common overlap.",
-        "Compare finite projective gluing over the algebraic and analytic chart diagrams; ring identifications involving B_i′ are not topological identifications.",
-        "Use Example 3.14 to bound the extension statement: a punctured bundle can fail to extend projectively to W."
+        "Identify the defining complements, both inequality charts and the canonical locally ringed-space map with the RF4 presentation, substituting x=ϖ.",
+        "Transport the pullback functor across these presentation identifications and import the RF4-owned Kedlaya Theorem 3.8 equivalence.",
+        "For the extension corollary, retain the valued-field hypotheses of RF4 and the general-base restriction witnessed by Kedlaya Example 3.14."
       ],
       "acceptance": [
         "Check both analytic ends and retain the field/general-ring distinction."
@@ -1942,8 +1941,7 @@
       "prerequisites": [
         "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
         "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
-        "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
-        "AdicSpacesPartII:R3/glueing-square-finite-projective-descent"
+        "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles"
       ],
       "sources": [
         {
@@ -1960,9 +1958,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Punctured A-inf bundle algebraicity"
-      },
       "declarationName": "puncturedAinfBundleAlgebraicity"
     },
     {
@@ -5513,10 +5508,11 @@
       "item": "PAPER-GUO-REINECKE-24/129",
       "route": [
         "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus",
-        "RelativeFarguesFontaine:RF0:integral-Y/punctured-ainf-bundle-algebraicity",
+        "RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness",
+        "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles",
         "RelativeFarguesFontaine:RF4:vector-bundles"
       ],
-      "note": "Exact maintainer-routed item; own nodes give the target and proof outline, external payloads are precise outward requests or the recorded source issue."
+      "note": "RF0 owns the whole analytic locus and its sheafiness. RF4 owns the punctured A_inf algebraicity theorem; RF0’s stable comparison node imports that exact theorem. The separate product φ-module freeness/projectivity payload retains its outward RF4 routing request and requires an ownership decision."
     },
     {
       "item": "PAPER-BHATT-SCHOLZE-17/G901",

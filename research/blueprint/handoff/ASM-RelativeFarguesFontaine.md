@@ -1,56 +1,55 @@
-# ASM-RelativeFarguesFontaine — blocked assembly checkpoint
+# ASM-RelativeFarguesFontaine — assembled reader and suggested file
 
-Job: `ASM-RelativeFarguesFontaine`, issue [#257](https://github.com/CBirkbeck/tauceti-explorer/issues/257). Worker: Codex, session `codex-M4kSUV`. Date: 7 October 2026.
+Job: `ASM-RelativeFarguesFontaine`, issue [#257](https://github.com/CBirkbeck/tauceti-explorer/issues/257). Worker: Codex, session `codex-7BLWVv`. Date: 7 October 2026. Continues the readiness inventory submitted by `codex-M4kSUV` in [#6862](https://github.com/CBirkbeck/tauceti-explorer/pull/6862).
 
-**Status: checkpoint; the assembly is unfinished.** The issue was available and the claim bot confirmed this session's claim. Inspection of the inputs then established that neither part has an accepted review. This checkpoint records the readiness and cross-part audit and collects the requests and restructuring proposals. It does not publish a final roadmap or suggested file, change a reviewed node, change a review verdict, or assert that any mathematics is formalised.
+The five assembly tasks have concrete deliverables: one reader, corrected exact cross-part references, both passing packet checks, one joined suggested file, and the complete request/restructuring inventory below. This assembles the reviewed inputs; it does **not** accept either plan, close their proof gaps, or certify their suggested signatures as faithful. RF0 retains its complete target-level planning pass and RF4 retains partial coverage. Both input review verdicts remain `needs_changes`.
 
-## Why this run cannot finish the assembly
+The assembled mathematical reader is usable independently of the obsolete part readers. The joined Lean file assembles the input prototypes, reconciles the single theorem owner, and removes their reviewed false or definition-independent assertions as described below. **Its successful elaboration is not a resolution of the input reviews.** In particular RF0's original 19 signature/test findings and RF4's missing native interfaces require the part revisions before the roadmap can satisfy the full semantic standard of PROTOCOL §13 or be promoted as an accepted plan. Those required revisions are listed below, rather than concealed by name counts or compilation.
 
-The assembly issue asks for a roadmap assembled from reviewed parts and waits for `REV-RelativeFarguesFontaine--RF0` and `REV-RelativeFarguesFontaine--RF4`. WORKERS.md describes assembly as joining the reviewed parts before the roadmap becomes complete, and PROTOCOL §§0 and 8 require independent acceptance before a plan goes live. Both completed input reviews explicitly request changes:
+## Deliverables and reconciliation
 
-- [RF0 review](../reviews/REV-RelativeFarguesFontaine--RF0.md), issue [#482](https://github.com/CBirkbeck/tauceti-explorer/issues/482), by `independent-review-REV-RelativeFarguesFontaine--RF0`: `needs_changes`, dated 7 October 2026. Its 73-node packet is `complete` as a planning pass, with all eight stages `planned`, but its review identifies 19 unresolved signature/test defects. In particular, equal-characteristic strict lifts, twisted Witt congruences, root charts, Lubin–Tate laws and the geometric completion interfaces cannot be made faithful just by concatenating the suggested signatures.
-- [RF4 review](../reviews/REV-RelativeFarguesFontaine--RF4.md), issue [#483](https://github.com/CBirkbeck/tauceti-explorer/issues/483), by `independent-review-REV-RelativeFarguesFontaine--RF4`: `needs_changes`, dated 6 October 2026. Its 22-node packet is `partial`; RF4 and both children have partial coverage. Arbitrary-complement general-E gluing, the acyclic BG0 scheme/integral torsor supplier, no-leg/one-leg shtuka recovery and the henselian approximation specialization remain unfinished. Native API and unit-test signatures are also incomplete.
+- [Full reader](../readmes/RelativeFarguesFontaine.md): purpose, neighbouring owners and upstream links, unified conventions and sign dictionary, source editions and baseline limits, ordered RF0–RF3/RF4 sections, all 95 target specifications, 194 API items, 122 proposed tests, proof outlines, acceptance properties, uses, exact prerequisites and the mathematical closure interfaces. It is assembled from the corrected packet statements, since the original readers predate review corrections. No Lean code appears in the reader.
+- [Joined suggested file](../suggested/RelativeFarguesFontaine.lean): one standard note and 33 distinct individual imports. RF0–RF3 keep `TauCeti.RelativeFF`; RF4 keeps `TauCeti`. Explicit `RF0_RF3` and `RF4` sections isolate universe/open/scoped declarations. The source files are read-only. The actual coefficientwise congruence `Q≡X^q mod π` is carried through the twisted Witt carrier, ring/algebra instances, comparison, Q-Teichmuller construction and ghost/equation API. The known false or definition-independent native assertions are replaced by 19 precise omission notes, including the dependent period-sheaf statement. The notes give the complete packet targets, hypotheses, API and tests and name the missing coefficient, analytic, site or geometric interface. Existing ring/quotient/ratio fragments remain where appropriate. These notes do not count as native signatures or examples. The RF4 completion comment now distinguishes Mathlib's existing Proj construction from the missing particular section algebra/global comparison, and requires marking/theta/ideal identification for the BDeRham comparison.
+- [RF0 packet](../packets/RelativeFarguesFontaine--RF0.json): the stable `RelativeFarguesFontaine:RF0:integral-Y/punctured-ainf-bundle-algebraicity` id is now a **comparison/import interface**, referencing the exact RF4 theorem below. Its proof outline identifies the presentations at x=ϖ and transports the owner's pullback; it does not reprove Kedlaya 3.8. Its duplicate planet is removed. The Guo–Reinecke item 129 route now names the exact RF0 chart/sheafiness suppliers and RF4 theorem, while preserving the separate φ-module routing request.
+- [RF4 packet](../packets/RelativeFarguesFontaine--RF4.json): `RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles` is the single algebraicity theorem owner. Its two outdated RF0 prerequisites are replaced by `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus` and `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness`. Its proof explicitly imports their two-end charts and the exact stably-uniform ring list; A₂ is only uniform. The stale “no owning crystalline-end layer” gap is removed because those exact supplier nodes exist. The coverage refinement retains their inherited coefficient/root proof obligations. The crystalline-end restructuring proposal now reparents existing chart nodes if a child is adopted, and never duplicates the chart or algebraicity targets.
 
-The review verdicts are mathematical input blockers, rather than checker failures or elapsed-time limits. The permitted assembly edits do not include the supplier packets, the original part readers or the original part suggested files, and this worker cannot independently accept its own revisions. Combining the current rejected inputs and marking the assembly finished would bypass those outstanding contracts. The available label therefore does not establish readiness for a final assembly. The maintainer/orchestrator should gate the assembly on accepted revisions of both parts, rather than merely on completion of their review jobs.
+**Re-review required:** the RF0 theorem-to-import comparison and its planet/source route change reviewed node mathematics/ownership; the RF4 dependency/proof/gap reconciliation changes reviewed proof inputs. The orchestrator should schedule re-review of these changes alongside the already required part revisions. The new joined file’s Q-congruence forms and omission boundaries also require review; they are new assembly proposals rather than modifications of the original part files. No existing review object, verdict, checked-node record, baseline declaration, source record/hash, implementation status or upstream/atlas file is altered. This assembly is not a new independent review.
 
-## Work completed and checks
+The single-owner interface points forward to RF4 because it is an export/presentation comparison. Neither early chart construction nor divisor completion consumes it. Do not manufacture an aggregate RF4→RF0 foundation edge from this interface. The 95-node prerequisite union is acyclic; the early RF0 whole-locus nodes remain suppliers of the RF4 theorem.
 
-1. Read WORKERS.md, the blueprint and expansion protocols, UPSTREAM_GUIDE.md, both input packets and their review reports; inspected both readers and suggested files. Read upstream AdicSpaces and LocalFieldsRamification for the extension boundaries.
-2. Ran `python3 scripts/check_blueprint.py research/blueprint/packets/RelativeFarguesFontaine--RF0.json`: **0 errors, 0 warnings**; 73 nodes, 137 API items, 97 unit tests, 26 planets, 26 baseline declarations, 19 requests and 10 gaps.
-3. Ran `python3 scripts/check_blueprint.py research/blueprint/packets/RelativeFarguesFontaine--RF4.json`: **0 errors, 0 warnings**; 22 nodes, 57 API items, 25 unit tests, 7 planets, 32 baseline declarations, 2 requests and 7 gaps.
-4. Independently resolved every same-roadmap cross-part prerequisite by exact node id: **30 prerequisite occurrences, 10 distinct RF0–RF3 supplier nodes, no missing endpoints**. Checked the union's 95 node ids for uniqueness and its local prerequisite graph for cycles: none. This is an endpoint/cycle check, not proof that every supplier statement suffices.
-5. Identified the two substantive reconciliation problems below. Collected all 21 request records and five restructuring proposals without dropping their exact scope.
+## Verification
 
-No packet, source record, reviewed statement, review verdict, original part reader or original part suggested file was changed. No assembled Lean file was produced or compiled. The memory check showed sufficient memory for a later `lean-check` run, and that command is available, but compiling concatenated rejected signatures would not settle the input reviews. The pinned baseline remains Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. This checkpoint makes no new baseline declaration claim.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/RelativeFarguesFontaine--RF0.json research/blueprint/packets/RelativeFarguesFontaine--RF4.json`: **0 errors, 0 warnings for each packet**. RF0: 73 nodes, 137 API items, 97 tests, 25 planets, 26 baseline declarations, 19 requests, 10 gaps; all eight stages planned. RF4: 22 nodes, 57 API items, 25 tests, 7 planets, 32 baseline declarations, 2 requests, 6 gaps; all three stages partial.
+- `python3 research/blueprint/intake.py check-files` on all five deliverables: **5 files, 0 problems**.
+- Independent union audit: **95 unique node ids, 31 cross-part prerequisite occurrences, 11 distinct exact suppliers, no missing same-roadmap node endpoints and no cycles**. The complete endpoint inventory is below. This does not assert that the still-open external BG0 supplier cycle has been repaired.
+- All 95 packet statements and every API/test name occur in the reader; every proposed API/test name occurs in the joined file. All reader local links and explicit node/source anchors resolve. This is lexical/specification coverage, not a claim that CONTRACT prose is a native signature or example.
+- Read the pinned statements for the union's 53 distinct baseline declarations, using existing source trees. The mathematical boundary checks used upstream AdicSpaces and LocalFieldsRamification, the reviewed library-coverage inventory, accepted RS-20 and both independent part reports. The whole-locus cross-part correction was compared with Kedlaya arXiv:1602.09016v5, Definition 3.5, Proposition 3.6 and Theorems 3.8–3.9. Existing source records and editions are inherited; no claim of independently rereading or rehashing every paper is made.
+- `free -g` before final elaboration: 114 GB available. `lean-check research/blueprint/suggested/RelativeFarguesFontaine.lean`: **exit 0, 275 warnings, all declaration-uses-sorry warnings, no other warnings or errors**. An initial joined check and subsequent signature/linter checks ran sequentially and finished; no process is left running. The final file was checked after the last code edit.
+- Shared-build Mathlib HEAD is the exact pin `082e2d37e8b0463410cdb532e111cd43d5a66174`. Shared Tau Ceti HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, differing from the required `f790474821cf4256814db967cb154e7af3d0c369`. The two directly imported Tau files and their entire **14-file transitive Tau import cone**, including `public import` edges, are byte-identical to the required pin. Report this as shared-build elaboration with a checked compatible import cone, not a Tau checkout at the exact pin.
 
-## Cross-part reconciliation to do before assembly
+## Input revisions still required
 
-### One owner for punctured A-inf algebraicity
+The [RF0 independent report](../reviews/REV-RelativeFarguesFontaine--RF0.md) and [RF4 independent report](../reviews/REV-RelativeFarguesFontaine--RF4.md) are authoritative records of the remaining review findings. This assembly does not silently downgrade their verdicts because its structural checks pass.
 
-RF0's `RelativeFarguesFontaine:RF0:integral-Y/punctured-ainf-bundle-algebraicity` and RF4's `RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles` both plan Kedlaya Theorem 3.8: the equivalence of vector bundles on the algebraic and analytic punctured p-typical A-inf spectra. Both distinguish the valued-field extension theorem 3.9 from general bases using Example 3.14. The RF4 node additionally supplies the field-case gluing/extension theorem. Merely keeping both nodes in one catalogue duplicates the common theorem, contrary to PROTOCOL §15.
+For RF0, the 19 unverifiable signatures/tests must be repaired in its authorized revision: separate the all-E strict lift from characteristic-zero arbitrary-algebra Witt theory; thread Q≡X^q modulo π through twisted comparisons/lifts; connect LT laws/actions and the constructed LT section; tie roots and tilt reduction to the actual root chart; test classical/Gauss kernels rather than polynomial nonzeroness; use the actual convergent nonzero power series and Gauss bound; discriminate the symmetric orbit sheaf from the stack at repeated legs; use the actual primitive-leg/Cartier degree map; test the coefficient-Frobenius quotient in Div¹; restrict λ/μ/deformation to their bounded spectra and actual maps; give period presheaves coefficient/radius data; make Robba tests examine ring membership/completion; test the relative-curve finite-étale functor; state the actual Stein limit/cohomology interface; and link local generation to genuine finite-projective rational base change. The joined file carries the native Q-congruence and replaces the reviewed unfaithful forms with explicit omissions, without presenting unrelated arbitrary parameters as a remedy. Completing those missing native signatures and discriminating tests remains the owners’ revision work; the 19 omission notes, including the dependent period-sheaf statement, do not amount to resolved native coverage. The source review gives the exact nodes and counterexamples.
 
-RF0's outward RF4 request already says RF4 should receive this algebraicity theorem, and RF4's structural proposal says it should remain the single patching owner. A coherent revision can therefore retain the RF4 theorem as owner and turn RF0's duplicated theorem target into an exact import, preserving RF0's distinct `whole-analytic-ainf-locus` and `whole-analytic-ainf-sheafiness` targets as chart suppliers. Check consumers, realises/coverage, API/tests and planet assignments when resolving the duplicated target. If a different ownership decision is made, move the common theorem rather than planning it twice. This is a recommended revision, not a change made in this checkpoint.
+For RF4, complete native algebra morphism, extensionality, adjunction, tensor/base-change signatures and concrete Zariski/glueing-pair examples where the carriers exist. CONTRACT comments are specifications, not compiled tests. Identify each omitted geometric signature by its actual missing relative-curve, completed-divisor, representation or G-bundle carrier. Prove arbitrary-complement general-E effectivity beyond the globally fixed-reference lattice case; supply BG0's scheme/smooth integral and representation dictionary and remove its reverse RF4 prerequisites; assign the SW 12.3.4/12.3.5/12.4.1 foundation without importing downstream HS2; and specialize GR arXiv v3 5.4.21 with the actual R,t,I, regularity, henselian pair and torsor scheme. Keep the reductive étale-local triviality scope.
 
-### The crystalline-end gap has newer suppliers
+Both original readers and both original suggested part files remain read-only for #257. Their revision jobs must include reader synchronization. Once those owners revise, regenerate the corresponding full-reader sections from their mathematical packets, update the joined native forms rather than copying stale CONTRACT text, re-audit names and the union graph, and rerun the packet/Lean checks. Preserve all conventions, input review statuses, source editions, requests and the single theorem owner unless an independent restructuring changes the ownership.
 
-RF4's first gap says the crystalline end has no owner because RF0 only removes V([varpi]); it waits for an atlas child RF0:crystalline-end. The current RF0 packet actually contains the two exact nodes
+## Intake scope mismatch
 
-- `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus`, defining Z_S = Spa(W(R⁺),W(R⁺)) minus V(p,[varpi]) with both analytic ends and the two chart topologies;
-- `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness`, stating sheafiness on those charts including [varpi]=0,p≠0.
+Issue #257's full instructions explicitly authorize edits to both listed part packets, and task 2 requires clear reference corrections there. Its queue `outputs` lists only the reader, suggested file and handoff. The automatic intake's `own_files`/`auto_refusals` uses that narrower list and will leave these **authorized two packet edits** for the maintainer. The submission checker still permits/checks the packet paths. The maintainer/orchestrator must reconcile this queue allowlist with the issue before automatic intake can merge this submission; editing the queue is outside this worker's permitted files. Do not discard the packet reconciliation or change a review verdict to work around the mismatch.
 
-The RF4 algebraicity theorem still cites `curly-Y-affinoid-definition` and `chart-cover-perfectoidness-and-sheafiness` as its RF0 inputs. In the revisions, compare its needed stable-uniformity/Kiehl hypotheses against the new exact nodes and cite the actual whole-locus suppliers directly. Narrow the old gap to whatever hypotheses those statements still do not supply. Do not erase the gap merely because a title matches: both RF0 interfaces inherit the unresolved coefficient/perfectoid issues recorded in that packet. A new RF0:crystalline-end stage is a structural choice, not a prerequisite for referring to already existing node ids. Reconcile RF4's third linear-coverage remaining item and its crystalline-end restructuring proposal at the same time.
+## Exact cross-part endpoint inventory
 
-## Cross-part endpoint inventory
-
-Every entry below is supplied by the RF0 packet and consumed by the RF4 packet. Node suffixes retain their exact identifiers; no stage-level substitutes are needed for these references.
-
-### `RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness`
+### `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-locus`
 
 Consumed by:
 
 - `RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles`
 
-### `RelativeFarguesFontaine:RF0:integral-Y/curly-Y-affinoid-definition`
+### `RelativeFarguesFontaine:RF0:integral-Y/whole-analytic-ainf-sheafiness`
 
 Consumed by:
 
@@ -124,19 +123,15 @@ Consumed by:
 - `RelativeFarguesFontaine:RF4:vector-bundles/untilt-divisor-complement-affine`
 - `RelativeFarguesFontaine:RF4:vector-bundles/relative-period-rings-Be-BdR`
 
-## Resume order
+### `RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles`
 
-1. Finish the RF0 and RF4 revision jobs and obtain their independent acceptance. Use the blocking-revision lists in their reports and the exact gap/coverage lists in their packets. Supplier revisions belong to their owners; do not replan BG0, vector-bundle classification, perfectoid spaces or upstream Tau Ceti in this assembly.
-2. Resolve the algebraicity duplication and crystalline-end imports above as part of those revisions, with a fresh review if a reviewed node's mathematics changes. Keep the whole analytic locus, integral locus and generic domain separate.
-3. Re-read the revised packets, readers and suggested files. Both readers are behind corrections applied by the reviews: the old RF4 reader still says complete/planned, uses the wrong Zariski section generator and carries several of the false pre-review modification statements. Do not take that prose as authoritative over the corrected packet.
-4. Write `research/blueprint/readmes/RelativeFarguesFontaine.md` with one introduction, purpose, Part II boundary against AdicSpaces, notation, sources, layer overview and ordered catalogue. Synchronize the exact packet statements/API/tests. Preserve source-version distinctions (FF2017 author copy versus published FF2018, and p-typical KL versus general E). Reconcile the RF0 isocrystal descent sign pi^(-n) with RF4's lattice xi^k mapping to O(-k). Do not infer an adic structural map X_S -> S from the continuous projection or diamond product formula.
-5. Join the accepted suggested files into `research/blueprint/suggested/RelativeFarguesFontaine.lean`, with one standard note pointing to the full reader and one deduplicated import block. RF0 uses namespace TauCeti.RelativeFF and RF4 uses TauCeti; preserve explicit namespace boundaries. RF0's open/scoped declarations and universe declarations must not leak into RF4 accidentally. Neither CONTRACT prose nor unrelated arbitrary ring arguments count as faithful native API/test signatures.
-6. Re-run both packet checks and the exact-node/cycle audit. Check memory and run `lean-check research/blueprint/suggested/RelativeFarguesFontaine.lean` in the shared pinned build, waiting for completion. Do not set up a new build. Record whether only sorry warnings remain, while keeping all implementation statuses unchecked.
-7. Refresh this handoff's collection against the accepted revisions, state exactly what changed, and open the final assembly submission. Until then this is a checkpoint, not a completed assembly.
+Consumed by:
 
-## Requests collected from the current parts
+- `RelativeFarguesFontaine:RF0:integral-Y/punctured-ainf-bundle-algebraicity`
 
-This inventory preserves the packets' `supplier`, `direction` and `neededBy` fields as of this checkpoint. Some requests name a stage whose scope must be extended, while outward requests delegate mathematics to another owner; neither category certifies an existing library implementation. In particular, do not interpret the RF0 outward RF4 request as requiring the RF4 theorem before constructing the early charts.
+## Requests collected from both parts
+
+All 21 request records are retained, with their supplier, direction where specified, full statement and exact consuming ids. Outward requests are ownership/export requests and are not implicit early prerequisites. In particular the RF0 outward RF4 request does not make product φ-module freeness an input to constructing the early period charts.
 
 ### RF0 requests
 
@@ -328,9 +323,9 @@ Needed by:
 
 - `RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality`
 
-## Restructuring proposals collected from the current parts
+## Restructuring proposals collected from both parts
 
-These are proposals, not atlas edits. The two algebraicity/crystalline-end proposals need the reconciliation above before application.
+All five proposals are recorded below in the part authors’ wording; references to reading sources in a job belong to those part jobs. They are proposals for the maintainer; this worker edits no atlas stage or link map. The crystalline-end proposal is reconciled with the exact suppliers and single algebraicity owner described above.
 
 ### RF0 proposal 1: Apply the accepted RS-20 proof order
 
@@ -356,9 +351,9 @@ Apply the fix the RT-AREA-padic-1 fix report gives for /19: split AI.2 into AI.2
 
 Roadmaps: `RelativeFarguesFontaine`.
 
-RT-AREA-padic-1/18 (confirmed) proposes a child RF0:crystalline-end owning the charts of Spa W_{O_E}(R^+) at [varpi] = 0, the pi-adic sheafiness of W_{O_E}(R^+)[1/pi], and Kedlaya's algebraicity, and its fix report would leave to RF4 'the phi-module freeness parts' of Guo-Reinecke item 129. The stage does not exist yet, and the accepted Guo-Reinecke route 6 names RF4:vector-bundles; this packet plans Kedlaya's algebraicity here as a patching theorem (its proof is gluing of finite projective modules over exact squares and Beauville-Laszlo squares, Kedlaya section 3 'Adic glueing'), and records the missing charts as a gap.
+RT-AREA-padic-1/18 proposes a crystalline-end child. Its chart targets are now represented by RF0:integral-Y/whole-analytic-ainf-locus and whole-analytic-ainf-sheafiness, and RF4 imports those exact nodes. Kedlaya’s p-typical algebraicity theorem is singly owned by RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles; RF0’s stable punctured-ainf-bundle-algebraicity id is a presentation/import comparison. This division agrees with the Guo-Reinecke route to RF4 for patching, without duplicating the theorem or requiring a nonexistent stage id.
 
-When RF0:crystalline-end is created, it owns the charts Y_{S,[r,oo]}, their rings and their sheafiness; RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles stays the single owner of the algebraicity theorem and imports the charts (edge RF0:crystalline-end -> RF4:vector-bundles), unless the maintainer prefers to move the node into RF0:crystalline-end, in which case AI.2:essential-surjectivity imports it from there; it must not be planned twice. The phi-module freeness statements of item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129, both 'missing') are about Frobenius modules over perfect rings, not patching, and should be routed to the owner of Kedlaya-Liu section 3.2 or to the Guo-Reinecke Part II roadmap that uses them.
+Keep the chart construction and sheafiness at the two exact RF0:integral-Y nodes and algebraicity at the exact RF4 theorem node. A separate RF0:crystalline-end child, if adopted, reparents the existing chart nodes and preserves their stable ids; it does not create second chart or algebraicity targets. The φ-module freeness statements of Guo-Reinecke item 129 (Ivanov Theorem 6.1; Kedlaya-Liu Proposition 3.2.13 and Lemma 3.2.6, extraction items PAPER-KEDLAYA-LIU-15/124 and /129) require the owner of Frobenius modules over perfect rings or the Guo-Reinecke Part II owner, with their product-of-valuation-rings hypotheses. RF0’s outward RF4 request remains a routing request for that payload, not a claim that RF4’s patching theorem supplies it.
 
 ### RF4 proposal 3: rescope
 
@@ -368,13 +363,19 @@ Overlap note: AdicSpacesPartII:R3/glueing-square, R3/glueing-square-finite-surje
 
 Keep the algebraic formalism here as its single owner and the topological glueing squares in AdicSpacesPartII:R3 as the special case the API compares with. If the maintainer prefers the most foundational owner (PROTOCOL section 15), move the three algebraic nodes into AdicSpacesPartII:R3 and let RF4:vector-bundles import them; AdicSpacesPartII is upstream of RF4, so the move creates no cycle.
 
-## Input fingerprints
+## Input and output fingerprints
 
-These hashes identify the exact inputs audited here; revisions must refresh the inventory.
+These SHA-256 values identify the assembled inputs and final artifacts. The source records in the packets remain the inherited source inventory.
 
-| Input | SHA-256 |
+| File | SHA-256 |
 | --- | --- |
-| `research/blueprint/packets/RelativeFarguesFontaine--RF0.json` | `be3c9bdd745046f786b4b52aaacd4df996ca25c86a1e6fcac99088c9c39f0963` |
+| `research/blueprint/packets/RelativeFarguesFontaine--RF0.json` | `3e344506a4a9497c887454db3d7b2761cc5b59dba11a2a12e53d71d8bfdebfce` |
+| `research/blueprint/packets/RelativeFarguesFontaine--RF4.json` | `fef74961f6fbe9b1e03a94e1ce386f038161da64ccba0061b0ccc90b693d8148` |
+| `research/blueprint/readmes/RelativeFarguesFontaine--RF0.md` | `fa2f531ca69f85e241ae6098229a873e5d1280a35d991502da07d97c65ea8fae` |
+| `research/blueprint/readmes/RelativeFarguesFontaine--RF4.md` | `3356d90cba4dafd83997dbbac7ee5ee42bb3beaf8ae6ebdd463283f0dbe7745a` |
+| `research/blueprint/suggested/RelativeFarguesFontaine--RF0.lean` | `5d2402d83597542159ae479df1aecb7482fc04abf9f2656a6d0671a4da264314` |
+| `research/blueprint/suggested/RelativeFarguesFontaine--RF4.lean` | `c65806d652831e42a9c5d91c2ae38a472e8fe6697b6b16466fecff882d6cc83b` |
 | `research/blueprint/reviews/REV-RelativeFarguesFontaine--RF0.md` | `f481f33c9d4259c960a2c27480af2ee7cef78aea5ca94ddf2101839df3ce206b` |
-| `research/blueprint/packets/RelativeFarguesFontaine--RF4.json` | `90d89778083b30f759c86714fff70d3d078dfab57c498cd92bfdeaf8846434bc` |
 | `research/blueprint/reviews/REV-RelativeFarguesFontaine--RF4.md` | `a7a3bfa337c45cad356167c7ae37699d47dfb46778ad1fd001c1d86d74bc2bc0` |
+| `research/blueprint/readmes/RelativeFarguesFontaine.md` | `bff0d705f2ecad76e3ecaed20c5e5921eff7cf77adeb89f4892e853cbbc4a995` |
+| `research/blueprint/suggested/RelativeFarguesFontaine.lean` | `113a50cce68a71e67f54d16f9d5f2f3eaa6eb8cc4140425d3467f68006f87fbb` |
