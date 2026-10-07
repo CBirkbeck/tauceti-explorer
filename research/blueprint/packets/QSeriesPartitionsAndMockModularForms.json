@@ -24097,7 +24097,7 @@
         },
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the canonical weak definition and its lower-boundary slash convention. Knot modularity is a separate theorem or conjecture; a discontinuous knot cocycle does not satisfy this definition merely by being called quantum modular."
+          "how": "Imports Zagier's canonical weak definition as adapted in this node (ℝ in place of P¹(ℝ), with a multiplier ε) and its lower-boundary slash convention. Knot modularity is a separate theorem or conjecture; a discontinuous knot cocycle does not satisfy this definition merely by being called quantum modular (Zagier, Quantum modular forms, Example 5, p. 12)."
         }
       ],
       "tests": [
@@ -24262,7 +24262,13 @@
           "match": "The cocycle relation."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imported by QT.7/denominator-volume-cocycle and QT.7/knot-matrix-cocycle. Supplies only the scalar additive period-cocycle relation and the reduction to generators for a factor J(γ, x) = ε(γ)j_k(γ, x) on the lower boundary branch; it does not supply the matrix-valued multiplicative cocycles that QT.7 requests from QM.5."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/eichler-integral",
@@ -25208,7 +25214,7 @@
         },
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the terminating root-of-unity values of F(q) and its formal Habiro interpretation. Identification with a trefoil Kashaev invariant requires QT.2/QT.7 to prove the colour, orientation and normalization comparison."
+          "how": "Imports the terminating root-of-unity values of F(q) and its formal Habiro interpretation (through the requested HC.1/HC.3 interfaces). No identification with a knot invariant, such as the trefoil's Kashaev invariant, is sourced or supplied here; a consumer that uses one proves its colour, orientation and normalisation comparison."
         }
       ],
       "tests": [
@@ -25704,7 +25710,7 @@
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the exact twisted-L-value formula and Taylor coefficients for Kontsevich F; no new copy of this q-series example is built in the knot roadmap."
+          "how": "Imports the exact twisted-L-value formula c_n(ξ) = (−1)^{n−1}L(−2n − 1, Φ_ξ)/2 for the normalised coefficients of e^{−t/24}F(ξe^{−t}) = Σ c_n(ξ)tⁿ/(24ⁿn!) (Zagier's (32) as corrected in E601); no new copy of this q-series example is built in the knot roadmap."
         }
       ]
     },
@@ -25767,7 +25773,7 @@
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the weight-3/2 scalar transformation theorem for Kontsevich phi with its eta multiplier and retained analytic proof gap. It does not imply the knot modularity conjecture for other knots."
+          "how": "Imports the weight-3/2 scalar transformation theorem for Kontsevich's φ, with the multiplier ε(T) = e^{−2πi/24}, ε(S) = e^{2πi/8} (the inverse of the η-multiplier, lower boundary branch), retaining the gap on character and multiplier-system versions of the Bringmann–Rolen theorem and source issue E604 (Zagier indicates the proof only). It implies no knot modularity statement."
         }
       ]
     },
@@ -26222,7 +26228,7 @@
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the equality of the analytic radial limit with the specified Poincare-sphere WRT values, conditional on QT.4 supplying its exact normalized invariant formula."
+          "how": "Imports the equality of the analytic radial limit with the rescaled Poincaré-sphere WRT values W(ξ) = ξ(ξ − 1)Z(ξ), conditional on QT.4 supplying its exact normalised invariant formula."
         }
       ]
     },
@@ -26279,7 +26285,7 @@
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the Poincare-sphere asymptotic/Taylor comparison, conditional on the separately requested normalized Ohtsuki-series formula from QT.4."
+          "how": "Imports the radial asymptotic expansion at q = 1 of the Poincaré-sphere function, equal to W_∞(e^{−t} − 1), conditional on the separately requested normalised Ohtsuki-series formula from QT.4."
         }
       ]
     },
@@ -26446,7 +26452,7 @@
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "Imports the Lawrence-Zagier weight-1/2 example with its stated subgroup and multiplier, retaining the finite-Weil-image and character/multiplier proof gaps."
+          "how": "Imports the Lawrence–Zagier weight-1/2 vector-valued law (matrices M_γ, c > 0) and this node's derived scalar statement for f₊ on Γ_ρ = {γ : M_γ scalar} with ε(γ) = −e^{−iπ/4}m_γ^{−1} (its fifth proof step; Lawrence–Zagier state no subgroup), retaining the finite-Weil-image gap (finite index of Γ_ρ) and the character/multiplier gap."
         }
       ]
     },
@@ -36746,7 +36752,8 @@
         "Zagier, Traces of singular moduli, §§5–9 (Borcherds products, the duality A(D, d) = −B(D, d), Hecke operators, other genus-zero groups, other weights) and the harmonic Maass form interpretation of traces (Bruinier–Funke); their sources were not decomposed.",
         "The character and multiplier-system versions of the Bringmann–Rolen theorem used for Kontsevich's φ and the Poincaré sphere (gap), and the special-function identities of incomplete-gamma-mellin-poles (gap).",
         "Partition congruences beyond the Ramanujan triple (Watson's and Atkin's congruences for powers of 5, 7, 11; Ono's congruences for all primes ≥ 5; the Bringmann–Ono rank congruences via harmonic Maass forms) are outside the chosen sources and need their own source acquisition.",
-        "RT-AREA-topology/13: retain QM.5/quantum-modular-form and the Kontsevich/Lawrence–Zagier q-series examples as QM.5 services, with QT.7 retaining knot-specific statements and conjectures. The existing proposal for QM.5→QT.7 needs owner/consumer statement comparison and accepted application; this pass makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs."
+        "RT-AREA-topology/13: retain QM.5/quantum-modular-form and the Kontsevich/Lawrence–Zagier q-series examples as QM.5 services, with QT.7 retaining knot-specific statements and conjectures. The existing proposal for QM.5→QT.7 needs owner/consumer statement comparison and accepted application; this pass makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.",
+        "ArithmeticQuantumTopology's open request to QM.5 for QT.7/denominator-volume-cocycle, QT.7/knot-matrix-cocycle and QT.7/cocycle-analytic-extension: a generic interface for matrix-valued multiplicative cocycles on common pole-free domains, with branch-aware weights and smooth or holomorphic extension criteria. No QM.5 node supplies it (QM.5/quantum-modular-cocycle is scalar and additive). Decide whether QM.5, or the QSeries Part II the request names, plans it, or whether QT.7 owns it with the Garoufalidis-Zagier knot matrices."
       ]
     },
     {
@@ -38757,8 +38764,8 @@
         "QSeriesPartitionsAndMockModularForms",
         "ArithmeticQuantumTopology"
       ],
-      "detail": "The reviewed audit records ArithmeticQuantumTopology:QT.7 as owner of 'the quantum-modularity statements … which QM.5 imports'. QT.7 has no nodes (its packet coverage is not_read) and its stage text is about knot invariants and conjectures, while the definition of quantum modular form, Eichler integrals of half-integral weight and the proved q-series examples (Kontsevich, Lawrence–Zagier, radial limits of mock theta functions) are q-series mathematics that QM.5 decomposes here.",
-      "proposal": "QM.5 owns the canonical quantum-modular definition, the Kontsevich-Zagier strange identity and its scalar transformation theorem, and the Lawrence-Zagier Poincare-sphere false-theta/radial-limit examples. QT.7 imports the exact QM.5 nodes listed in their uses and keeps the knot-specific targets: Zagier's Kashaev modularity conjecture, the Garoufalidis-Zagier matrix-valued cocycle, and separately sourced proved cases. Zagier Quantum modular forms Example 5 explicitly distinguishes its knot cocycle from the canonical real-analytic definition; QT.7 must state the actual asymptotic/matrix transformation law and cannot assert IsQuantumModularForm without proving its analytic discrepancy hypothesis. Record the supplier direction QM.5 -> QT.7 in the QT.7 consumer packet when written; the reverse QT.7 -> QM.5 is not an input. QT.4 still supplies the normalized WRT/unified invariants to QM.5, which owns the analytic radial-limit comparison. The prospective stage link is acyclic (QT.4 -> QM.5 and QT.4 -> QT.6 -> QT.7)."
+      "detail": "The reviewed audit records ArithmeticQuantumTopology:QT.7 as owner of 'the quantum-modularity statements … which QM.5 imports'. QT.7 has no nodes (its packet coverage is not_read) and its stage text is about knot invariants and conjectures, while the definition of quantum modular form, Eichler integrals of half-integral weight and the proved q-series examples (Kontsevich, Lawrence–Zagier, radial limits of mock theta functions) are q-series mathematics that QM.5 decomposes here. Since 6 October 2026 the ArithmeticQuantumTopology packet plans QT.7 (16 nodes; complete, review needs_changes) as knot conjectures and proved cases; it imports QM.5/quantum-modular-cocycle.",
+      "proposal": "QM.5 owns the canonical quantum-modular definition and its scalar cocycle lemma, the Kontsevich-Zagier strange identity and its scalar transformation theorem, and the Lawrence-Zagier Poincare-sphere false-theta/radial-limit examples. QT.7 keeps the knot-specific targets: Zagier's Kashaev modularity conjecture, the Garoufalidis-Zagier knot matrices and their matrix-valued cocycle, and separately sourced proved cases. The QM.5 nodes whose uses name QT.7 are what QM.5 offers it; the current QT.7 plan imports QM.5/quantum-modular-cocycle and the stage QM.5, so it already records the direction QM.5 -> QT.7, which goes live in the atlas when that packet is promoted. QT.7's open request for a generic matrix-valued multiplicative cocycle interface is not yet answered by any QM.5 node (see the QM.5 coverage). Zagier Quantum modular forms Example 5 explicitly distinguishes its knot cocycle from the canonical real-analytic definition; QT.7 must state the actual asymptotic/matrix transformation law and cannot assert IsQuantumModularForm without proving its analytic discrepancy hypothesis. The reverse QT.7 -> QM.5 is not an input. QT.4 still supplies the normalized WRT/unified invariants to QM.5, which owns the analytic radial-limit comparison. The stage link is acyclic (QT.4 -> QM.5 and QT.4 -> QT.6 -> QT.7)."
     },
     {
       "action": "rescope",
@@ -39583,66 +39590,9 @@
   },
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~2",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-07",
-    "notes": "Follows independent-review-REV-QSeriesPartitionsAndMockModularForms (needs_changes, archived in reviewHistory). Scoped review of FIX-RT-AREA-automorphic-1~2 (claude-B2lUdi, #6664) by Claude, session claude-e5obk8, who did none of the red team, its verification, either fix round, the blueprint or its review. Only RT-AREA-automorphic-1/20 concerns this packet. Its fix is right and is accepted as a fix: seven QM.1 nodes import the Jacobi theory of MetaplecticAutomorphicForms through one precise request to MP.6, QM.1/jacobi-rank-one-specialisation states the dictionary, and nothing general is constructed here. Checked against Skoruppa arXiv:0707.0718v1 (same SHA-256), every identity by hand or numerically; E210–E212 confirmed. Corrected: the sentence of the four classical space definitions that had lost its subject (growth now imposed for every v, χ); the request and QM.1's remaining item now record the MP.6 Jacobi nodes planned on 2026-10-07 and what they lack; the suggested file states the classical half of part (c′). Stage edge MP.6 → QM.1 adds no cycle (QM.1 already requires MP.7); the restructure entry now records the stage cycles through QM.1 that the MP.0 and AutomorphicSpectralTheory packets merged on 2026-10-07 induce. Checker 0 errors, 0 warnings; the suggested file elaborates with no error. The packet keeps needs_changes because its blueprint review did not accept it and the revision BP-QSeriesPartitionsAndMockModularForms~2 (#6517) carries that review's corrections; nothing of /20 remains to fix except syncing the reader with these corrections.",
-    "checked": [
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash",
-        "verdict": "verified",
-        "note": "Import sentence, first proof step and the MP.6 prerequisite are right: the operator is Skoruppa's φ|_{k,F}A at n = 1, F = m (p. 11), with w(τ)^{−2k} for half-integral k. Formula, API and tests unchanged."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash",
-        "verdict": "verified",
-        "note": "The operator is Skoruppa's φ|_{k,F}[λ, μ] at n = 1, F = m (p. 11). The factor e(mlμ) relating it to U_m was checked numerically."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-group-law",
-        "verdict": "verified",
-        "note": "The law (A, X)(A′, X′) = (AA′, XA′ + X′) is Skoruppa's composition law (p. 10). The integral-index restriction and the m = 1/2 counterexample (factor −1) were rechecked numerically."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form",
-        "verdict": "corrected",
-        "note": "Import and planet rename right; the use by MP.8, which described a cycle, is correctly replaced. Corrected the sentence that had lost its subject in the preceding review's edit (bc1464c2): the growth condition is imposed for every multiplier v and character χ, as in the reader, the suggested JacobiForm and part (c) of the comparison, which needs it for general v."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form",
-        "verdict": "corrected",
-        "note": "Import right. The same sentence repaired: the cusp condition holds for every v and χ."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion",
-        "verdict": "verified",
-        "note": "Annotation, not import, is right: the lemma is about every doubly periodic holomorphic function, and QM.1's weak and QM.4's meromorphic Jacobi forms need it."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index",
-        "verdict": "verified",
-        "note": "ϑ_{m,μ} is Skoruppa's ϑ_{F,x} at n = 1, F = m (p. 5): F⁻¹[r]/4 = r²/(4m), r ≡ x mod 2Fℤ."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition",
-        "verdict": "verified",
-        "note": "The case n = 1, F = m of the expansion ψ = Σ h_x ϑ_{F,x} in the proof of Skoruppa's Theorem 5 (p. 13); stated for every entire function with the elliptic law, which QM.4 needs."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-rank-one-specialisation",
-        "verdict": "verified",
-        "note": "(a)–(e) checked against Skoruppa pp. 4–5, 10–13: composition law, action, Definition (i)–(ii), footnote 2, Theorem 5. The multiplier bijection, growth ⇔ support argument, (c′) and the T-law of W(m) were rechecked by hand; the U_m laws, the S-, T- and −I-laws of ϑ(2z; τ) in index 2 with v_η³, its lattice and half-lattice laws, and Skoruppa's ϑ = −i·ϑ(z; τ) numerically. Comparison: no API or tests required."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form",
-        "verdict": "corrected",
-        "note": "Not a round-2 node; the same broken sentence from bc1464c2 repaired so that the weak growth condition holds for every v and χ, as the suggested WeakJacobiForm has it."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form",
-        "verdict": "corrected",
-        "note": "Not a round-2 node; the same repair."
-      }
-    ]
+    "notes": "Review of FIX-RT-AREA-topology~4 (#6520, PR #6873, Codex codex-BLPWxk) for RT-AREA-topology/13. Follows independent-review-REV-FIX-RT-AREA-automorphic-1~2 (needs_changes, 2026-10-07), archived in reviewHistory after the blueprint review REV-QSeriesPartitionsAndMockModularForms (needs_changes, 2026-10-05). That blueprint review stays in force for its own findings: its revision BP-QSeriesPartitionsAndMockModularForms~2 is pending, and accepting here would promote the whole packet past it. /13: the owner split is right (QM.5 owns the definition, the strange identity and the Lawrence-Zagier examples; QT.7 the knot statements), and Zagier, Quantum modular forms, Example 5 (pp. 12-16) does put the knot cocycle outside the canonical definition. The round wrote its contracts as if QT.7 were unplanned; the ArithmeticQuantumTopology packet was complete at its base and imports QM.5/quantum-modular-cocycle (not among the eight) and the stage QM.5, with an open request for matrix-valued multiplicative cocycles. Corrected in place: a QT.7 use on QM.5/quantum-modular-cocycle; precise wording of seven contracts (the multiplier of Kontsevich's phi is the inverse of the eta multiplier; the trefoil-Kashaev obligation, the Poincare-sphere subgroup attribution, the normalised coefficients and the rescaled WRT values); the restructure detail and proposal brought up to date with the written consumer; a QM.5 coverage item for the unanswered matrix-valued request. Remaining: decide who plans that interface (QM.5, a QSeries Part II, or QT.7); sync the reader's export table and its stale QT.7 bullet with the packet. Checker 0 errors, 0 warnings; suggested file (merged with #6892) compiled with lean-check: 1469 warnings, all for proofs left open, no errors. Details: research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -42330,6 +42280,69 @@
           "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weakly-holomorphic",
           "verdict": "verified",
           "note": "DMZ lower-case U_s index raising, composition and theta reindexing were checked. Positive s is distinguished from the native totalized s=0 value; this does not supply the distinct capitalized projection operators."
+        }
+      ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~2",
+      "date": "2026-10-07",
+      "notes": "Follows independent-review-REV-QSeriesPartitionsAndMockModularForms (needs_changes, archived in reviewHistory). Scoped review of FIX-RT-AREA-automorphic-1~2 (claude-B2lUdi, #6664) by Claude, session claude-e5obk8, who did none of the red team, its verification, either fix round, the blueprint or its review. Only RT-AREA-automorphic-1/20 concerns this packet. Its fix is right and is accepted as a fix: seven QM.1 nodes import the Jacobi theory of MetaplecticAutomorphicForms through one precise request to MP.6, QM.1/jacobi-rank-one-specialisation states the dictionary, and nothing general is constructed here. Checked against Skoruppa arXiv:0707.0718v1 (same SHA-256), every identity by hand or numerically; E210–E212 confirmed. Corrected: the sentence of the four classical space definitions that had lost its subject (growth now imposed for every v, χ); the request and QM.1's remaining item now record the MP.6 Jacobi nodes planned on 2026-10-07 and what they lack; the suggested file states the classical half of part (c′). Stage edge MP.6 → QM.1 adds no cycle (QM.1 already requires MP.7); the restructure entry now records the stage cycles through QM.1 that the MP.0 and AutomorphicSpectralTheory packets merged on 2026-10-07 induce. Checker 0 errors, 0 warnings; the suggested file elaborates with no error. The packet keeps needs_changes because its blueprint review did not accept it and the revision BP-QSeriesPartitionsAndMockModularForms~2 (#6517) carries that review's corrections; nothing of /20 remains to fix except syncing the reader with these corrections.",
+      "checked": [
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash",
+          "verdict": "verified",
+          "note": "Import sentence, first proof step and the MP.6 prerequisite are right: the operator is Skoruppa's φ|_{k,F}A at n = 1, F = m (p. 11), with w(τ)^{−2k} for half-integral k. Formula, API and tests unchanged."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash",
+          "verdict": "verified",
+          "note": "The operator is Skoruppa's φ|_{k,F}[λ, μ] at n = 1, F = m (p. 11). The factor e(mlμ) relating it to U_m was checked numerically."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-group-law",
+          "verdict": "verified",
+          "note": "The law (A, X)(A′, X′) = (AA′, XA′ + X′) is Skoruppa's composition law (p. 10). The integral-index restriction and the m = 1/2 counterexample (factor −1) were rechecked numerically."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form",
+          "verdict": "corrected",
+          "note": "Import and planet rename right; the use by MP.8, which described a cycle, is correctly replaced. Corrected the sentence that had lost its subject in the preceding review's edit (bc1464c2): the growth condition is imposed for every multiplier v and character χ, as in the reader, the suggested JacobiForm and part (c) of the comparison, which needs it for general v."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form",
+          "verdict": "corrected",
+          "note": "Import right. The same sentence repaired: the cusp condition holds for every v and χ."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion",
+          "verdict": "verified",
+          "note": "Annotation, not import, is right: the lemma is about every doubly periodic holomorphic function, and QM.1's weak and QM.4's meromorphic Jacobi forms need it."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index",
+          "verdict": "verified",
+          "note": "ϑ_{m,μ} is Skoruppa's ϑ_{F,x} at n = 1, F = m (p. 5): F⁻¹[r]/4 = r²/(4m), r ≡ x mod 2Fℤ."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition",
+          "verdict": "verified",
+          "note": "The case n = 1, F = m of the expansion ψ = Σ h_x ϑ_{F,x} in the proof of Skoruppa's Theorem 5 (p. 13); stated for every entire function with the elliptic law, which QM.4 needs."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-rank-one-specialisation",
+          "verdict": "verified",
+          "note": "(a)–(e) checked against Skoruppa pp. 4–5, 10–13: composition law, action, Definition (i)–(ii), footnote 2, Theorem 5. The multiplier bijection, growth ⇔ support argument, (c′) and the T-law of W(m) were rechecked by hand; the U_m laws, the S-, T- and −I-laws of ϑ(2z; τ) in index 2 with v_η³, its lattice and half-lattice laws, and Skoruppa's ϑ = −i·ϑ(z; τ) numerically. Comparison: no API or tests required."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form",
+          "verdict": "corrected",
+          "note": "Not a round-2 node; the same broken sentence from bc1464c2 repaired so that the weak growth condition holds for every v and χ, as the suggested WeakJacobiForm has it."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form",
+          "verdict": "corrected",
+          "note": "Not a round-2 node; the same repair."
         }
       ]
     }
