@@ -273,10 +273,12 @@ example : nu 2 + (fun i : Fin 2 => (![(2 : ℤ), 0]) i.rev) = ![(0 : ℤ), 3] :=
 end WeightIndependentHidaTwist
 
 /-- ACC Lemma 4.5.2; this finite combinatorial statement needs no arithmetic stub. -/
-theorem shifted_partition_recovery (A B C D : Multiset ℤ) (m : ℕ) (hm : 0 < m)
+theorem shifted_partition_recovery (A B C D : Finset ℤ) (m : ℕ) (hm : 0 < m)
     (hA : A.card = m) (hB : B.card = m) (hC : C.card = m) (hD : D.card = m)
-    (hsep : ∀ c ∈ C, ∀ d ∈ D, d < c) (h₀ : A + B = C + D)
-    (h₁ : A.map (fun a => a + 1) + B = C.map (fun c => c + 1) + D) :
+    (hsep : ∀ c ∈ C, ∀ d ∈ D, d < c) (h₀ : A ∪ B = C ∪ D)
+    (h₁ : A.image (fun a => a + 1) ∪ B = C.image (fun c => c + 1) ∪ D)
+    (hcard₀ : (A ∪ B).card = 2 * m)
+    (hcard₁ : (A.image (fun a => a + 1) ∪ B).card = 2 * m) :
     A = C ∧ B = D := by sorry
 
 end TauCeti.PotentialAutomorphy
@@ -288,7 +290,7 @@ PROTOCOL section 13 forbids proposition-valued stand-ins for missing types.
 The eight typed cores, numeric nu part and shifted_partition_recovery above
 are the entire compiled prototype. Names below are retained exactly for
 packet/reader agreement; their presence in this comment does not discharge
-the arithmetic-signature gap. The reader is definitive.
+the arithmetic-signature gap. The reviewed packet and review report govern the corrections; the reader needs the coordinated revision listed in that report.
 
 PotentialAutomorphyInfrastructure:PA.0/coefficient-satake-descent
 THEOREM TauCeti.PotentialAutomorphy.coefficient_satake_descent
@@ -372,7 +374,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.0/unipotent-exterior-c
 PotentialAutomorphyInfrastructure:PA.1/middle-degree-satake
 THEOREM TauCeti.PotentialAutomorphy.middle_degree_satake
 Assume [F^+:Q] > 1. Let K̃ ⊂ G̃(A^∞_{F^+}) be good and decomposed with respect to P (K = K̃ ∩ G), with K̃_{U,v̄} = U(O_{F^+_v̄}) for each v̄ ∈ S̄_p (a hypothesis of Theorem 4.2.1 that the proof needs and the statement omits), λ̃ ∈ (Z^{2n}_+)^{Hom(F^+,E)} and S̄_p = S̄_1 ⊔ S̄_2 with (1) λ̃_v̄ = 0 for v̄ ∈ S̄_2; (2) for every finite place w ∉ S of F with residue characteristic l, either S contains no l-adic place of F and l is unramified in F, or l splits in some imaginary quadratic field F_0 ⊂ F; (3) p > n² (p unramified in F). Let w ∈ W^P_{S̄_2}, λ_w = w(λ̃+ρ) − ρ ∈ (Z^n_+)^{Hom(F,E)}, m ⊂ T^S non-Eisenstein in the support of H^*(X_K, V_{λ_w}), m̃ = S^*(m), and assume ρ̄_m̃ decomposed generic. Then S: T̃^S → T^S descends to a homomorphism T̃^S(H^d(X̃_K̃, V_λ̃))_m̃ → T^S(H^{d−l(w)}(X_K, V_{λ_w}))_m.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/boundary-degree-retract; ArithmeticLocallySymmetricSpaces:ALS.3; IgusaVarietiesAndTorsionConcentration:IG.7; AutomorphicGaloisRepresentationsPartII:AG2.0
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/boundary-degree-retract; IgusaVarietiesAndTorsionConcentration:IG.7; AutomorphicGaloisRepresentationsPartII:AG2.0; ArithmeticLocallySymmetricSpaces:ALS.5
 
 PotentialAutomorphyInfrastructure:PA.1/ctg-weight
 DEFINITION CTGWeight
@@ -407,12 +409,12 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/boundary-degree-retr
 PotentialAutomorphyInfrastructure:PA.1/middle-range-fontaine-laffaille
 THEOREM TauCeti.PotentialAutomorphy.middle_range_fontaine_laffaille
 Let λ, v̄ ≠ v̄', m ≥ 1 and a good K̃ satisfy (1) −λ_{τc,1} − λ_{τ,1} ≥ 0 and −λ_{τc,n} − λ_{τ,n} ≤ p − 2n − 1 for every τ inducing v̄, and (2)–(6) of Proposition 4.4.1. Let q ∈ [⌊d/2⌋, d−1], and (for (c), which the statement gives without it) assume A(K,λ,q,m) ≠ 0. Then there are N ≥ 1 depending only on [F:Q] and n, an ideal J ⊂ A(K,λ,q,m) with J^N = 0 and a continuous ρ_m: G_{F,S} → GL_n(A(K,λ,q,m)/J) with (a) char(ρ_m(Frob_v)) = image of P_v(X) for v ∉ S; (b) for each v | v̄, ρ_m|_{G_{F_v}} is in the essential image of G^a, a = (λ_{τ,n})_{τ ∈ Hom_{Q_p}(F_v,E)}; (c) for each v | v̄ there is N̄ ∈ MF_k with ρ̄_m̃|_{G_{F_v}} ≅ G(N̄) and FL_τ(N̄) = {−λ_{τc,n}+2n−1, …, −λ_{τc,1}+n, λ_{τ,1}+n−1, …, λ_{τ,n}} for every τ ∈ Hom_{Q_p}(F_v,E), where ρ̄_m̃ = ρ̄_m ⊕ ρ̄_m^{c,∨}ε^{1−2n}.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/fontaine-laffaille-degree-shifting; PotentialAutomorphyInfrastructure:PA.1/ctg-weight; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; IgusaVarietiesAndTorsionConcentration:IG.7; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3; PadicHodgeTheory:R06.4; AutomorphicGaloisRepresentationsPartII:AG2.0
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/fontaine-laffaille-degree-shifting; PotentialAutomorphyInfrastructure:PA.1/ctg-weight; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; IgusaVarietiesAndTorsionConcentration:IG.7; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3; PadicHodgeTheory:R06.4; AutomorphicGaloisRepresentationsPartII:AG2.0; PotentialAutomorphyInfrastructure:PA.1/nilpotent-fontaine-laffaille-transfer; AutomorphicGaloisRepresentationsPartII:AG2.2; AutomorphicGaloisRepresentationsPartII:AG2.3; AutomorphicGaloisRepresentationsPartII:AG2.6
 
 PotentialAutomorphyInfrastructure:PA.1/nilpotent-fontaine-laffaille-transfer
 THEOREM TauCeti.PotentialAutomorphy.nilpotent_fontaine_laffaille_transfer
-Let Ã be a finite flat O-algebra, D̃ a continuous 2n-dimensional determinant of G_{F,S} valued in Ã ([Che14, Ex. 2.32]) such that for each v | v̄ the G_{F_v}-module Ã[G_{F,S}]/ker D̃ lies in the essential image of G^a. Let Ã → A/J be a homomorphism with D̃ ⊗_Ã A/J = det(ρ ⊕ ρ'), where ρ, ρ': G_{F,S} → GL_n(A/J) have absolutely irreducible, non-isomorphic residual representations. Then (A/J)[G_{F,S}]/ker(D̃_{A/J}) = M_n(A/J) × M_n(A/J), this algebra is a quotient of Ã[G_{F,S}]/ker D̃, and hence ρ|_{G_{F_v}} lies in the essential image of G^a. Inputs: kernels of determinants commute with flat base change; [Che14, §1.17, Thm 2.12, Thm 2.22(i),(ii), Lem. 1.18].
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/middle-range-fontaine-laffaille; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3
+Let Ã be a finite flat O-algebra, D̃ a continuous 2n-dimensional determinant of G_{F,S} valued in Ã, and M = Ã[G_{F,S}]/ker D̃. Assume the finite O-module M, restricted to each G_{F_v} with v | v̄, lies in the essential image of the integral Fontaine–Laffaille functor G^a in the stated interval. Let Ã → B be an O-algebra homomorphism, where B is a finite Artinian local O-algebra killed by ϖ^m for some m ≥ 1. Suppose D̃_B = det(ρ ⊕ ρ′) for continuous ρ, ρ′: G_{F,S} → GL_n(B), whose residual representations over the residue field of B are absolutely irreducible and non-isomorphic. Then there is a surjection B ⊗_Ã M ↠ B[G_{F,S}]/ker D̃_B, and the latter algebra is isomorphic to M_n(B) × M_n(B). Consequently ρ|_{G_{F_v}} belongs to the essential image of G^a. The coefficient map Ã → B need not be surjective. Kernel inclusion under arbitrary scalar extension, rather than equality under flat scalar extension, gives the displayed surjection; the split matrix-algebra identification requires the residually multiplicity-free reconstruction and faithful determinant argument.
+Direct dependencies: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3; IntegralHeckeAndGaloisDeterminants:IHG.0; IntegralHeckeAndGaloisDeterminants:IHG.1
 
 PotentialAutomorphyInfrastructure:PA.1/all-degree-fontaine-laffaille
 THEOREM TauCeti.PotentialAutomorphy.all_degree_fontaine_laffaille
@@ -422,7 +424,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/middle-range-fontain
 PotentialAutomorphyInfrastructure:PA.1/degree-reflection-duality
 THEOREM TauCeti.PotentialAutomorphy.degree_reflection_duality
 Assume K is principal-congruence of level ϖ^m at the p-adic places ≠ v̄, λ_{v̄''} = 0 for p-adic v̄'' ≠ v̄, and λ satisfies (3) of Cor. 4.4.8. Then V_{λ^∨} ≅ V_λ^∨ ([Jan03, Cor. II.5.6]). With n_0 = (2n+1−p)/2 and μ_{0,τ} = (n_0, …, n_0), the maximal ideal m^∨(ε^{−n_0}) lies in the support of H^*(X_K, V_{λ^∨+μ_0}), λ^∨+μ_0 again satisfies (3), and [K^S g K^S] ↦ ε(Art_F(det g))^{−n_0}[K^S g^{−1} K^S] (printed Art_K) descends to an isomorphism f: T^S(H^{d−1−q'}(X_K, V_{λ^∨+μ_0}/ϖ^m))_{m^∨(ε^{−n_0})} ≅ A(K,λ,q',m); a representation ρ' for the left side gives ρ = (f∘ρ')^∨ ⊗ ε^{1−2n+(p−1)/2} for the right side, with the same properties (a)–(c).
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.0/integral-model-comparison; ArithmeticLocallySymmetricSpaces:ALS.4
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.0/integral-model-comparison; ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality
 
 PotentialAutomorphyInfrastructure:PA.1/genericity-making-character-twist
 THEOREM TauCeti.PotentialAutomorphy.genericity_making_character_twist
@@ -438,7 +440,8 @@ Direct dependencies: Concrete categorical/finite data only.
 PotentialAutomorphyInfrastructure:PA.1/fontaine-laffaille-local-global
 THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_local_global
 Let K ⊂ GL_n(A_F^∞) be a good subgroup, λ ∈ (Z^n_+)^{Hom(F,E)}, S a finite set of finite places of F containing the p-adic places with S = S^c, and m ⊂ T^S(K,λ) a non-Eisenstein maximal ideal with T^S(K,λ)/m = k of characteristic p. Let v̄ be a p-adic place of F^+ and assume: (1) p is unramified in F and F contains an imaginary quadratic field in which p splits; (2) for every finite place w ∉ S of F with residue characteristic l, either S contains no l-adic place of F and l is unramified in F, or l splits in some imaginary quadratic field F_0 ⊂ F; (3) K_v = GL_n(O_{F_v}) for every v | v̄; (4) λ_{τ,1} + λ_{τc,1} − λ_{τ,n} − λ_{τc,n} ≤ p − 2n − 1 for every τ: F ↪ E inducing v̄; (5) p > n²; (6) there is a p-adic place v̄' ≠ v̄ of F^+ with Σ_{v̄'' ∈ S̄_p, v̄'' ≠ v̄, v̄'} [F^+_{v̄''}:Q_p] > ½[F^+:Q]; (7) ρ̄_m is decomposed generic; (8) either (a) H^*(X_K, V_λ)_m[1/p] ≠ 0, or (b) for every τ inducing v̄, −λ_{τc,n} − λ_{τ,n} ≤ p − 2n − 2 and −λ_{τc,1} − λ_{τ,1} ≥ 0. Then there are an integer N ≥ 1 depending only on [F^+:Q] and n, an ideal J (of T^S(K,λ)_m; printed 'J ⊂ T^S(K,λ)') with J^N = 0, and a continuous ρ_m: G_{F,S} → GL_n(T^S(K,λ)_m/J) such that: (a) for each finite v ∉ S, the characteristic polynomial of ρ_m(Frob_v) is the image of P_v(X); (b) for each v | v̄, ρ_m|_{G_{F_v}} lies in the essential image of G^a with a = (λ_{τ,n})_{τ ∈ Hom(F_v,E)}; (c) for each v | v̄ there is M̄ ∈ MF_k with ρ̄_m|_{G_{F_v}} ≅ G(M̄) and FL_τ(M̄) = {λ_{τ,1}+n−1, λ_{τ,2}+n−2, …, λ_{τ,n}} for every τ: F_v ↪ E.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/all-degree-fontaine-laffaille; PotentialAutomorphyInfrastructure:PA.1/shifted-partition-recovery; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3; PadicHodgeTheory:R06.4; AutomorphicGaloisRepresentationsPartII:AG2.0
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/all-degree-fontaine-laffaille; PotentialAutomorphyInfrastructure:PA.1/shifted-partition-recovery; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3; PadicHodgeTheory:R06.4; AutomorphicGaloisRepresentationsPartII:AG2.0; PotentialModularityAndCompatibleSystems:R24.5/character-system
+Recorded gap: Prescribed global crystalline character for the Fontaine–Laffaille weight comparison
 
 PotentialAutomorphyInfrastructure:PA.2/iwahori-level-tower
 DEFINITION IwahoriLevelTower
@@ -824,7 +827,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/ordinary-bruhat-piec
 
 PotentialAutomorphyInfrastructure:PA.2/ordinary-ctg-weight-choice
 THEOREM TauCeti.PotentialAutomorphy.ordinary_ctg_weight_choice
-Notation: for λ ∈ (Z^n_+)^{Hom(F,E)} and a ∈ Z, λ(a)_{τ,i} = λ_{τ,i} + a. Assume n ≥ 2 (the statement is printed for n ≥ 1 and fails for n = 1). Fix m ≥ 1. There is λ ∈ (Z^n_+)^{Hom(F,E)} such that (1) O(λ)/ϖ^m ≅ O/ϖ^m as T_n(F_p)-modules; (2) Σ_{i=1}^n (λ_{τ,i} + λ_{τc,i}) is independent of τ ∈ Hom(F,E); (3) for each i = 0,…,n^2 there are w_i = (w_{i,v̄})_{v̄∈S̄_p} ∈ ^rW^P, a_i ∈ (p−1)Z and a dominant λ̃_i ∈ (Z^{2n}_+)^{Hom(F^+,E)} with (a) λ̃_i CTG (Definition 4.3.5); (b) l_r(w_{i,v̄}) = n^2 − i for every v̄ ∈ S̄_p, hence l(w_i) = [F^+:Q](n^2 − i); (c) w_i(λ̃_i + ρ) − ρ = λ(a_i). Construction: M > 16n divisible by 8(p−1)·#(O/ϖ^m)^×; λ_τ = (−nM, −2nM, …, −n^2M) if τ ∈ Ĩ_p and (0, −M, …, (1−n)M) if τc ∈ Ĩ_p, so λ̃(a) = ((n−1)M − a, …, −a, −nM + a, …, −n^2M + a); w_{i,v̄} = σ_{X_i}, X_i = {x+1,…,x+r, x+r+2,…,x+n+1} with nx + n − r = n^2 − i, 1 ≤ r ≤ n; a_i = the unique integer in [(nx+2n−r−1)M/2, (nx+2n−r)M/2] congruent to M/8 mod M/2; λ̃_i = w_i^{-1}(λ̃(a_i) + ρ) − ρ.
+Notation: for λ ∈ (Z^n_+)^{Hom(F,E)} and a ∈ Z, λ(a)_{τ,i} = λ_{τ,i} + a. Assume n ≥ 2 (the statement is printed for n ≥ 1 and fails for n = 1). Fix m ≥ 1. There is λ ∈ (Z^n_+)^{Hom(F,E)} such that (1) O(λ)/ϖ^m ≅ O/ϖ^m as T_n(F_p)-modules; (2) Σ_{i=1}^n (λ_{τ,i} + λ_{τc,i}) is independent of τ ∈ Hom(F,E); (3) for each i = 0,…,n^2 there are w_i = (w_{i,v̄})_{v̄∈S̄_p} ∈ ^rW^P, a_i ∈ (p−1)Z and a dominant λ̃_i ∈ (Z^{2n}_+)^{Hom(F^+,E)} with (a) λ̃_i CTG (Definition 4.3.5); (b) l_r(w_{i,v̄}) = n^2 − i for every v̄ ∈ S̄_p, hence l(w_i) = [F^+:Q](n^2 − i); (c) w_i(λ̃_i + ρ) − ρ = λ(a_i). Construction: M > 16n divisible by 8(p−1)·#(O/ϖ^m)^×; λ_τ = (−nM, −2nM, …, −n^2M) if τ ∈ Ĩ_p and (0, −M, …, (1−n)M) if τc ∈ Ĩ_p, so λ̃(a) = ((n−1)M − a, …, −a, −nM + a, …, −n^2M + a); for i > 0, w_{i,v̄} = σ_{X_i}, X_i = {x+1,…,x+r, x+r+2,…,x+n+1} with nx + n − r = n^2 − i, 1 ≤ r ≤ n; a_i = the unique integer in [(nx+2n−r−1)M/2, (nx+2n−r)M/2] congruent to M/8 mod M/2; λ̃_i = w_i^{-1}(λ̃(a_i) + ρ) − ρ. At i = 0 take the block-exchange shuffle (n+1, …, 2n, 1, …, n), with x = r = n; omit the nonexistent entry n+x+1 in the printed expanded tuple. Its dominance check uses only the actual boundary between the two nonempty blocks, not all four displayed inequalities.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.1/kostant-shuffles; PotentialAutomorphyInfrastructure:PA.1/ctg-weight; PotentialAutomorphyInfrastructure:PA.2/lowest-weight-character
 Recorded gap: Single integral highest-weight owner RG2.6 requires atlas creation
 
@@ -856,7 +859,7 @@ Recorded gap: Arithmetic signatures unavailable at the pinned baseline
 PotentialAutomorphyInfrastructure:PA.2/determinant-component-product
 THEOREM TauCeti.PotentialAutomorphy.determinant_component_product
 (2) det: X_K → A_K is continuous and induces a bijection on sets of connected components (equivalently det: G(F^+)\G(A^∞_{F^+})/K → F^×\(A_F^∞)^×/det(K) is bijective, by strong approximation for Res_{F/F^+} SL_n). (3) If g ∈ GL_n(A_F^∞) satisfies det(Γ_g) = det(F^× ∩ K) and Γ_g^1 = SL_n(F) ∩ Γ_g, then the product map Γ_g^1 × (F^× ∩ K) → Γ_g is a group isomorphism; writing X = X^1 × (∏_{v|∞} R_{>0})/R_{>0} with X^1 = SL_n(F_∞)/∏_{v|∞} SU(n), one gets Γ_g\X = (Γ_g^1\X^1) × (F^× ∩ K)\(∏_{v|∞} R_{>0})/R_{>0}. (4) Under the same hypothesis det: F^× ∩ K → F^× ∩ det(K) is an isomorphism, the composite Γ_g\X ↪ X_K → A_K is (x,z) ↦ det(g) z^n, and z ↦ det(g) z^n is an isomorphism from (F^× ∩ K)\(∏_{v|∞} R_{>0})/R_{>0} onto the connected component A_K^{[det(g)]} of A_K containing [det(g)]. (K is neat.)
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/determinant-torus; ArithmeticLocallySymmetricSpaces:ALS.4
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/determinant-torus; ArithmeticLocallySymmetricSpaces:ALS.4; ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality
 
 PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking
 THEOREM TauCeti.PotentialAutomorphy.determinant_neat_level_shrinking
@@ -866,7 +869,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/determinant-torus
 PotentialAutomorphyInfrastructure:PA.2/central-torus-cohomology-shifting
 THEOREM TauCeti.PotentialAutomorphy.central_torus_cohomology_shifting
 Let K = K(b, c) ⊂ GL_n(A_F^∞) be good with K_v = Iw_v(b, c) for v | p (needed for T^{S,ord} to act; the statement omits it) and λ ∈ (Z^n_+)^{Hom(F,E)}, and suppose (1) det(Γ_g) = det(F^× ∩ K) for all g ∈ GL_n(A_F^∞) and (2) F^× ∩ K acts trivially on V_λ. Then R det_*(V_λ) is constant on each connected component of A_K and R det_*(V_λ) = ⊕_{i=0}^{dim X^1} R^i det_*(V_λ)[−i]; there is a T^{S,ord}-equivariant isomorphism of graded O-modules ⊕_{i=0}^{dim X_K} H^i(X_K, V_λ) ≅ (⊕_{j=0}^{dim A_K°} H^j(A_K°, O)) ⊗_O (⊕_{k=0}^{dim X^1} H^0(A_K, R^k det_*(V_λ))) (5.4.17), with trivial Hecke action on the first factor. Consequently the image of T^{S,ord} in End_O(⊕_{i=0}^{dim X_K} H^i(X_K, V_λ)) equals its image in End_O(⊕_{i=0}^{n^2−1} H^{i[F^+:Q]}(X_K, V_λ)).
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/determinant-component-product; PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking; PotentialAutomorphyInfrastructure:PA.2/arithmetic-ordinary-summand; ArithmeticLocallySymmetricSpaces:ALS.4
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/determinant-component-product; PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking; PotentialAutomorphyInfrastructure:PA.2/arithmetic-ordinary-summand; ArithmeticLocallySymmetricSpaces:ALS.4; ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality
 
 PotentialAutomorphyInfrastructure:PA.2/all-degree-ordinary-characteristic-data
 THEOREM TauCeti.PotentialAutomorphy.all_degree_ordinary_characteristic_data
@@ -877,7 +880,7 @@ Recorded gap: Ordinary Satake-image polynomial-law transfer
 PotentialAutomorphyInfrastructure:PA.2/ordinary-automorphic-galois-flag
 THEOREM TauCeti.PotentialAutomorphy.ordinary_automorphic_galois_flag
 Let F be an imaginary CM field (the §5 standing hypotheses are dropped), ι: Q̄_p ≅ C, and π a cuspidal automorphic representation of GL_n(A_F), regular algebraic of weight ιλ with λ ∈ (Z^n_+)^{Hom(F,Q̄_p)}. Suppose (1) π is ι-ordinary at every v ∈ S_p ([Ger19, Def. 5.3]); (2) r̄_ι(π) is decomposed generic and irreducible. Then for every v ∈ S_p, r_ι(π)|_{G_{F_v}} is ordinary of weight λ ([Ger19, §5.2]): r_ι(π)|_{G_{F_v}} is conjugate to an upper-triangular representation with diagonal characters ψ_{v,1},…,ψ_{v,n}, where ψ_{v,i}(Art_{F_v}(u)) = ε^{1−i}(Art_{F_v}(u)) ∏_{τ∈Hom_{Q_p}(F_v,Q̄_p)} τ(u)^{−(w_0^G λ)_{τ,i}} ⟨u⟩_{ι,i} (u ∈ O_{F_v}^×) and ψ_{v,i}(Art_{F_v}(ϖ_v)) = ε^{1−i}(Art_{F_v}(ϖ_v)) u^{(i)}_{λ,ϖ_v}/u^{(i−1)}_{λ,ϖ_v}, with ⟨u⟩_{ι,i}, u^{(i)}_{λ,ϖ_v} the Hecke eigenvalues on (ι^{-1}π_v)^ord of [Ger19, Def. 5.5].
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/ordinary-local-global; PotentialAutomorphyInfrastructure:PA.5/residual-lifting-hypothesis-restriction; mathlib:Matrix.charpoly; LocalGaloisDeformationRings:L7; PotentialAutomorphyInfrastructurePartII:PL.0
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/ordinary-local-global; PotentialAutomorphyInfrastructure:PA.5/residual-lifting-hypothesis-restriction; mathlib:Matrix.charpoly; LocalGaloisDeformationRings:L7; PotentialAutomorphyInfrastructurePartII:PL.0; PotentialAutomorphyInfrastructure:PA.5/genericity-normal-closure-restriction
 Recorded gap: Geraghty primary-source normalization check
 
 PotentialAutomorphyInfrastructure:PA.3/fontaine-laffaille-deformation-hecke-map
@@ -894,7 +897,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/ordinary-local-globa
 
 PotentialAutomorphyInfrastructure:PA.4/patched-arithmetic-mod-varpi-comparison
 THEOREM TauCeti.PotentialAutomorphy.patched_arithmetic_mod_varpi_comparison
-(1) The quasi-isomorphisms 𝒞_N/ϖ ≅ 𝒞′_N/ϖ induce a quasi-isomorphism 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ. (2) Via this identification T_∞ and T′_∞ have the same image T̄_∞ in the endomorphism algebras of 𝒞_∞/ϖ and 𝒞′_∞/ϖ (in D(S_∞/ϖ); printed D(S_∞)). (3) With Ī_∞, Ī′_∞ the images of I_∞, I′_∞ in T̄_∞, the actions of R_∞/ϖ ≅ R′_∞/ϖ (through T_∞ and T′_∞) on H^*(𝒞_∞/ϖ)/(Ī_∞ + Ī′_∞) and H^*(𝒞′_∞/ϖ)/(Ī_∞ + Ī′_∞) are identified via 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ.
+(1) The quasi-isomorphisms 𝒞_N/ϖ ≅ 𝒞′_N/ϖ induce a quasi-isomorphism 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ. (2) Via this identification T_∞ and T′_∞ have the same image T̄_∞ in the endomorphism algebras of 𝒞_∞/ϖ and 𝒞′_∞/ϖ (in D(S_∞/ϖ), as established by the proof; the printed statement in D(S_∞) is also valid by restriction of scalars). (3) With Ī_∞, Ī′_∞ the images of I_∞, I′_∞ in T̄_∞, the actions of R_∞/ϖ ≅ R′_∞/ϖ (through T_∞ and T′_∞) on H^*(𝒞_∞/ϖ)/(Ī_∞ + Ī′_∞) and H^*(𝒞′_∞/ϖ)/(Ī_∞ + Ī′_∞) are identified via 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ.
 Hypothesis: One of the two arithmetic towers satisfies every imported P8 datum condition; the branch-specific verification is respectively PA.4/fontaine-laffaille-patching-verification or PA.4/ordinary-patching-verification.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.3/local-condition-mod-varpi-comparison; mathlib:DerivedCategory; DeformationAndDerivedPatchingAlgebra:P8
 
@@ -971,7 +974,7 @@ THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_dimension_amplitude
 Applying §6.4.2 to the data of the previous item gives: bounded complexes 𝒞_∞, 𝒞′_∞ of free S_∞-modules, T_∞ ⊂ End_{D(S_∞)}(𝒞_∞), T′_∞ ⊂ End_{D(S_∞)}(𝒞′_∞), ideals with I_∞^δ = I′_∞^δ = 0, S_∞-algebra structures on R_∞, R′_∞ and S_∞-algebra surjections R_∞ → T_∞/I_∞, R′_∞ → T′_∞/I′_∞; surjections R_∞/𝔞_∞ ↠ R_0, R′_∞/𝔞_∞ ↠ R′_0; 𝒞_∞ ⊗^L S_∞/𝔞_∞ ≅ 𝒞_0 and 𝒞′_∞ ⊗^L S_∞/𝔞_∞ ≅ 𝒞′_0 with T_∞ → T_0 surjective onto T_0/I_0 and R_∞/𝔞_∞ → (T_0/I_0)/I_{∞,0} factoring through R_0; 𝒞_∞ ⊗^L S_∞/ϖ ≅ 𝒞′_∞ ⊗^L S_∞/ϖ with a common image T̄_∞ of T_∞ and T′_∞ and identified actions of R_∞/ϖ ≅ R′_∞/ϖ on H^*(𝒞_∞ ⊗^L S_∞/ϖ)/(Ī_∞ + Ī′_∞). By Lemma 6.2.26: every generic point of Spec R_∞/ϖ specializes from a unique generic point of Spec R_∞, all generic points of Spec R_∞ have characteristic 0, Spec R′_∞ is irreducible with characteristic-0 generic point, R_∞ is equidimensional, and dim R_∞ = dim R′_∞ = 1 + g + n²|S| + ½n(n−1)[F:ℚ]. For X_K with F CM, ℓ_0 = n[F⁺:ℚ] − 1; since dim S_∞ = n²|S| + qn and g = qn − n²[F⁺:ℚ] (printed twice as qn − n[F⁺:ℚ]), dim R_∞ = dim R′_∞ = dim S_∞ − ℓ_0. H^*(𝒞_∞ ⊗^L S_∞/𝔞_∞)[1/p] ≅ Hom_E(H^{d−*}(X_K, 𝒱_λ(1))_𝔪[1/p], E) is nonzero and concentrated in [q_patch, q_patch + ℓ_0] by Theorem 2.4.10. Hence Assumption 6.3.6 holds, Proposition 6.3.8 gives full support of H^*(𝒞_∞) over R_∞, hence of H^*(𝒞_∞ ⊗^L S_∞/𝔞_∞) = H^*(𝒞_0) over R_∞/𝔞_∞ and so over R_{𝒮_1}.
 Hypothesis: FL-good-level: every one of the seventeen hypotheses in the packet contexts applies, together with the additional hypotheses in this statement.
 Hypothesis: Here q_patch=n(n−1)[F⁺:Q]/2+1 for the shifted dual complex; the rational GL_n cohomology lower degree is q_GL=q_patch−1. The abstract P9 parameter q₀ is q_patch in this application.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.3/arithmetic-component-dimension-input; ArithmeticLocallySymmetricSpaces:ALS.3; LocalGaloisDeformationRings:L7; LocalGaloisDeformationRings:R08.2
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.3/arithmetic-component-dimension-input; LocalGaloisDeformationRings:L7; LocalGaloisDeformationRings:R08.2; ArithmeticLocallySymmetricSpaces:ALS.5; PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-patching-verification; DeformationAndDerivedPatchingAlgebra:P9
 
 PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-full-support
 THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_full_support
@@ -983,7 +986,7 @@ PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-lifting-at-good-level
 THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_lifting_at_good_level
 Under (1)–(17) of §6.5.1, let ρ: G_F → GL_n(Q̄_p) be continuous with: (1) ρ̄ ≅ r̄_ι(π); (2) ρ|_{G_{F_v}} crystalline for every v | p, with HT_τ(ρ) = {λ_{ιτ,1} + n − 1, …, λ_{ιτ,n}} (the j-th entry λ_{ιτ,j} + n − j) for every τ: F ↪ Q̄_p; (3) ρ unramified at every finite v ∉ S; (4) ρ|_{G_{F_v}} unipotently ramified for v ∈ R. Then ρ is automorphic: there is a cuspidal regular algebraic automorphic representation Π of GL_n(𝔸_F) of weight λ with ρ ≅ r_ι(Π), and Π_v is unramified at every finite v with v | p or v ∉ S. (Proof: conjugate ρ into GL_n(𝒪) with ρ mod ϖ = ρ̄_𝔪; it is of type 𝒮_1, giving f: R_{𝒮_1} → E; by Theorem 6.5.4, ker f ∈ Supp H^*(X_K, 𝒱_λ(1))_𝔪[1/p]; Theorem 2.4.10 gives Π with (Π^∞)^K ≠ 0.)
 Hypothesis: FL-good-level: every one of the seventeen hypotheses in the packet contexts applies, together with the additional hypotheses in this statement.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-full-support; ArithmeticLocallySymmetricSpaces:ALS.3
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-full-support; ArithmeticLocallySymmetricSpaces:ALS.5
 
 PotentialAutomorphyInfrastructure:PA.4/neatness-auxiliary-places
 THEOREM TauCeti.PotentialAutomorphy.neatness_auxiliary_places
@@ -1095,7 +1098,7 @@ PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-at-good-level
 THEOREM TauCeti.PotentialAutomorphy.ordinary_lifting_at_good_level
 Under (1)–(15) of §6.6.1, let ρ: G_F → GL_n(Q̄_p) be continuous and λ ∈ (ℤ^n_+)^{Hom(F,Q̄_p)} such that: (1) ρ̄ ≅ r̄_ι(π); (2) for each v | p, ρ|_{G_{F_v}} is conjugate to an upper-triangular representation with diagonal characters ψ_{v,1}, …, ψ_{v,n}, where ψ_{v,i} agrees on the whole inertia group I_{F_v} with σ ↦ ∏_{τ∈Hom(F_v,Q̄_p)} τ(Art_{F_v}^{-1}(σ))^{−(λ_{τ,n−i+1} + i − 1)}; (3) for each v | p, each i and each p-power root of unity x ∈ 𝒪_{F_v}: ∏_{τ∈Hom(F_v,Q̄_p)} τ(x)^{λ_{τ,n+1−i} − μ_{ιτ,n+1−i}} = 1; (4) ρ unramified at finite v ∉ S; (5) ρ|_{G_{F_v}} unipotently ramified for v ∈ R. Then ρ is ordinarily automorphic of weight ιλ: there is an ι-ordinary cuspidal automorphic Π of GL_n(𝔸_F) of weight ιλ with ρ ≅ r_ι(Π), and Π_v is unramified for every finite v ∉ S. (No analogue of Theorem 6.5.4 is proved, because the irreducible components of the 𝒟^{det,ord} lifting rings are not understood well enough.)
 Hypothesis: ordinary-good-level: every one of the fifteen hypotheses in the packet contexts applies, together with the additional hypotheses in this statement.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/ordinary-support-at-lifting-point; ArithmeticLocallySymmetricSpaces:ALS.3
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/ordinary-support-at-lifting-point; ArithmeticLocallySymmetricSpaces:ALS.5
 
 PotentialAutomorphyInfrastructure:PA.5/split-test-prime-image-preservation
 THEOREM TauCeti.PotentialAutomorphy.split_test_prime_image_preservation
@@ -1127,21 +1130,22 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/rank-two-reducibilit
 PotentialAutomorphyInfrastructure:PA.5/rank-two-adjoint-monodromy
 THEOREM TauCeti.PotentialAutomorphy.rank_two_adjoint_monodromy
 Over Q̄_l: (1) every morphism PGL_2 → PGL_2 is trivial or conjugation by an element of PGL_2(Q̄_l); (2) every morphism PGL_2^r → PGL_2 is trivial or a projection followed by a conjugation; (3) up to PGL_2(Q̄_l)^J-conjugacy, morphisms PGL_2^I → PGL_2^J are induced by pairs (J_0 ⊂ J, φ : J_0 → I); (4) Aut(PGL_2^I) = PGL_2^I ⋊ S_I; (5) a connected algebraic subgroup G ⊂ PGL_2^J surjecting onto PGL_2 under every projection is ≅ PGL_2^I, embedded (up to conjugacy) through a surjection φ : J ↠ I (induction on #J and Goursat); (6) for M/Q_l finite, (Res^M_{Q_l} PGL_2)_{Q̄_l} ≅ PGL_2^{Hom_{Q_l}(M,Q̄_l)} with G_{Q_l} acting through its left action on Hom_{Q_l}(M, Q̄_l); (7) forms of PGL_2^r are classified by the middle term of H^1(Q_l, PGL_2^r) → H^1(Q_l, Aut PGL_2^r) → H^1(Q_l, S_r), and the unramified ones (quasi-split and split over an unramified extension) are exactly ∏_i Res^{N_i}_{Q_l} PGL_2 with N_i/Q_l unramified; (8) hence, if G ⊂ ∏_{j∈J} Res^{M_j}_{Q_l} PGL_2 is an unramified connected subgroup whose base change to Q̄_l surjects onto every factor of PGL_2^{⊔_j Hom(M_j,Q̄_l)}, then G ≅ ∏_{i∈I} Res^{N_i}_{Q_l} PGL_2 with N_i/Q_l unramified, and each (j, τ)-projection of G_{Q̄_l} is PGL_2(Q̄_l)-conjugate to the projection onto one factor of ∏_i (Res^{N_i}_{Q_l} PGL_2)_{Q̄_l}.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/simple-galois-composita; PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data; PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates; PotentialModularityAndCompatibleSystems:R24.5:operations
-Recorded gap: Extremely weak monodromy and rank-one source leaves
-Recorded gap: Rank-two projective-group classification inputs
+Direct dependencies: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; ReductiveGroupsPartII:RG2.0a
+Recorded gap: Unramified forms of products of adjoint PGL₂
 
 PotentialAutomorphyInfrastructure:PA.5/rank-two-large-residual-image
 THEOREM TauCeti.PotentialAutomorphy.rank_two_large_residual_image
 Let R be an irreducible extremely weakly compatible system of rank 2. Then for all rational primes l in a set of Dirichlet density 1 and all λ | l, r̄_λ is absolutely irreducible. If moreover R is neither induced nor Artin up to twist, and F̃ is the normal closure of F/Q, then l can in addition be taken so that r̄_λ(G_{F̃}) ⊇ SL_2(F_l) for all λ | l.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/rank-two-system-trichotomy; PotentialAutomorphyInfrastructure:PA.5/rank-two-adjoint-monodromy; PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data; PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates; PotentialModularityAndCompatibleSystems:R24.5:operations
 Recorded gap: Extremely weak monodromy and rank-one source leaves
+Recorded gap: Unramified forms of products of adjoint PGL₂
 
 PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-lifting-descent
 THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_lifting_descent
 Let F, ρ, π, λ, ι satisfy the hypotheses of Theorem 6.1.1 ((1) ρ unramified almost everywhere; (2) ρ|_{G_{F_v}} crystalline for v | p, p unramified in F; (3) ρ̄ absolutely irreducible and decomposed generic, ρ̄(G_{F(ζ_p)}) enormous; (4) some σ ∈ G_F − G_{F(ζ_p)} with ρ̄(σ) scalar, p > n²; (5) π cuspidal regular algebraic of weight λ with λ_{τ,1} + λ_{τc,1} − λ_{τ,n} − λ_{τc,n} < p − 2n, ρ̄ ≅ r̄_ι(π), HT_τ(ρ) = {λ_{ιτ,1} + n − 1, …, λ_{ιτ,n}}, π_v unramified for v | p). The totally real case reduces to the imaginary CM case by base change (no details given). For imaginary F: choose V_0, V_1, V_2 and a soluble CM E/F as in the next two items and auxiliary places v_0, v′_0 so that §6.5.1 (1)–(17) hold for E, π_E and S = S′ ∪ {v_0, v′_0}; Corollary 6.5.5 for ρ|_{G_E} and Proposition 6.5.13(2) give a cuspidal regular algebraic Π of GL_n(𝔸_F) of weight λ with ρ ≅ r_ι(Π), with Π_{E,w} unramified for w ∉ S; unramifiedness of Π_v at finite v ∤ p where ρ and π are unramified follows from the Varma argument (item 274). (The claim Π_v unramified for v | p in Theorem 6.1.1 is not addressed explicitly; it follows from Π_{E,w} unramified for w | p and p unramified in E.)
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/fontaine-laffaille-base-change-fields; PotentialAutomorphyInfrastructure:PA.4/neatness-auxiliary-places; PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-lifting-at-good-level; PotentialAutomorphyInfrastructurePartII:PL.0; ModularityAndLanglandsExtensions:ML.1
 Recorded gap: Rational unpolarized base-change and local compatibility source leaves
+Recorded gap: Owner contract for general unpolarized soluble automorphic descent
 
 PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-descent
 THEOREM TauCeti.PotentialAutomorphy.ordinary_lifting_descent
@@ -1149,17 +1153,20 @@ Let F, ρ, λ, π, ι satisfy Theorem 6.1.2 ((1) ρ unramified almost everywhere
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/ordinary-base-change-fields; PotentialAutomorphyInfrastructure:PA.4/neatness-auxiliary-places; PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-at-good-level; PotentialAutomorphyInfrastructurePartII:PL.0; ModularityAndLanglandsExtensions:ML.1
 Recorded gap: Geraghty primary-source normalization check
 Recorded gap: Rational unpolarized base-change and local compatibility source leaves
+Recorded gap: Owner contract for general unpolarized soluble automorphic descent
 
 PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-automorphy-lifting
 THEOREM TauCeti.PotentialAutomorphy.fontaine_laffaille_automorphy_lifting
 Let F be an imaginary CM or totally real field, c ∈ Aut(F) complex conjugation, p a prime, and ρ : G_F → GL_n(ℚ̄_p) continuous with: (1) ρ unramified almost everywhere; (2) ρ|_{G_{F_v}} crystalline for every v | p, and p unramified in F; (3) ρ̄ absolutely irreducible and decomposed generic (Definition 4.3.1), and ρ̄(G_{F(ζ_p)}) enormous (Definition 6.2.29); (4) there is σ ∈ G_F − G_{F(ζ_p)} with ρ̄(σ) scalar, and p > n²; (5) there is a cuspidal automorphic π of GL_n(𝔸_F) with (a) π regular algebraic of weight λ satisfying λ_{τ,1} + λ_{τc,1} − λ_{τ,n} − λ_{τc,n} < p − 2n for all τ; (b) an isomorphism ι : ℚ̄_p → ℂ with ρ̄ ≅ r̄_ι(π) and HT_τ(ρ) = {λ_{ιτ,1} + n − 1, λ_{ιτ,2} + n − 2, …, λ_{ιτ,n}} for every τ : F ↪ ℚ̄_p; (c) π_v unramified for every v | p. Then ρ is automorphic: ρ ≅ r_ι(Π) for a cuspidal automorphic Π of GL_n(𝔸_F) of weight λ; moreover Π_v is unramified at every finite v with v | p or with ρ and π both unramified at v. (Remark 6.1.4, folded here: the image of Pρ̄ equals that of ad ρ̄, so the first half of (4) is equivalent to ζ_p ∉ F̄^{ker ad ρ̄}; when p is unramified in F it follows from the non-existence of a surjection (ad ρ̄)(G_F) ↠ (ℤ/pℤ)^×.)
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-lifting-descent; AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime; ArithmeticLocallySymmetricSpaces:ALS.3; AutomorphicGaloisRepresentationsPartII:AG2.5; GlobalGaloisDeformations:G7; ModularityAndLanglandsExtensions:ML.1; PotentialAutomorphyInfrastructurePartII:PL.0
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-lifting-descent; AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime; AutomorphicGaloisRepresentationsPartII:AG2.5; GlobalGaloisDeformations:G7; ModularityAndLanglandsExtensions:ML.1; PotentialAutomorphyInfrastructurePartII:PL.0; ArithmeticLocallySymmetricSpaces:ALS.5
+Recorded gap: Owner contract for general unpolarized soluble automorphic descent
 
 PotentialAutomorphyInfrastructure:PA.4/ordinary-automorphy-lifting
 THEOREM TauCeti.PotentialAutomorphy.ordinary_automorphy_lifting
 Let F be an imaginary CM or totally real field, c complex conjugation, p a prime, and ρ : G_F → GL_n(ℚ̄_p) continuous with: (1) ρ unramified almost everywhere; (2) for every v | p, ρ|_{G_{F_v}} is potentially semistable and ordinary with regular Hodge–Tate weights: there is λ ∈ (ℤ^n_+)^{Hom(F,ℚ̄_p)} such that for each v | p, ρ|_{G_{F_v}} ∼ an upper-triangular representation with diagonal characters ψ_{v,1}, …, ψ_{v,n} : G_{F_v} → ℚ̄_p^×, where ψ_{v,i} agrees on an open subgroup of I_{F_v} with σ ↦ ∏_{τ ∈ Hom(F_v, ℚ̄_p)} τ(Art_{F_v}^{-1}(σ))^{−(λ_{τ,n−i+1} + i − 1)}; (3) ρ̄ absolutely irreducible and decomposed generic, and ρ̄(G_{F(ζ_p)}) enormous; (4) there is σ ∈ G_F − G_{F(ζ_p)} with ρ̄(σ) scalar, and p > n; (5) there are a regular algebraic cuspidal automorphic π of GL_n(𝔸_F) and ι : ℚ̄_p → ℂ with π ι-ordinary and r̄_ι(π) ≅ ρ̄. Then ρ is ordinarily automorphic of weight ιλ: ρ ≅ r_ι(Π) for an ι-ordinary cuspidal automorphic Π of GL_n(𝔸_F) of weight ιλ; for finite v ∤ p with ρ and π unramified at v, Π_v is unramified. (Remark 6.1.3, folded here: the existence of Π forces λ to be conjugate self-dual up to twist, λ_{τ,i} + λ_{τc,n+1−i} = w for some w ∈ ℤ, by Clozel's purity lemma [Clo90, Lem. 4.9]; this is not assumed. The proof shows ρ contributes to the ordinary part of completed cohomology and gets Π by 'independence of weight'.)
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-descent; AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime; ArithmeticLocallySymmetricSpaces:ALS.3; AutomorphicGaloisRepresentationsPartII:AG2.5; GlobalGaloisDeformations:G7; PotentialAutomorphyInfrastructurePartII:PL.0; ModularityAndLanglandsExtensions:ML.1
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-descent; AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime; AutomorphicGaloisRepresentationsPartII:AG2.5; GlobalGaloisDeformations:G7; PotentialAutomorphyInfrastructurePartII:PL.0; ModularityAndLanglandsExtensions:ML.1; ArithmeticLocallySymmetricSpaces:ALS.5
 Recorded gap: Geraghty primary-source normalization check
+Recorded gap: Owner contract for general unpolarized soluble automorphic descent
 
 PotentialAutomorphyInfrastructure:PA.2/ordinary-local-global
 THEOREM TauCeti.PotentialAutomorphy.ordinary_local_global
@@ -1180,7 +1187,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.0/integral-model-compa
 
 PotentialAutomorphyInfrastructure:PA.3/local-condition-mod-varpi-comparison
 THEOREM TauCeti.PotentialAutomorphy.local_condition_mod_varpi_comparison
-Under either full good-level hypothesis profile, choose pairwise distinct characters χ_{v,i}:k(v)×→O× at every v∈R, all congruent to 1 modulo varpi. The untwisted and χ-twisted coefficient complexes have a Hecke-equivariant derived isomorphism modulo varpi, and their finite local/global deformation rings reduce to the same deformation problem. At p the FL condition or the ordinary flag/determinant condition is identical on the two sides; away from p the R08.2 unipotent/inertial-type reductions supply the comparison. Framing and the global determinant are kept fixed.
+Under either full good-level hypothesis profile, choose pairwise distinct characters χ_{v,i}:k(v)×→O× at every v∈R, all congruent to 1 modulo varpi. The untwisted and χ-twisted coefficient complexes have a Hecke-equivariant derived isomorphism modulo varpi, and their finite local/global deformation rings reduce to the same deformation problem. At p the FL condition or the ordinary flag/determinant condition is identical on the two sides; away from p the R08.2 unipotent/inertial-type reductions supply the comparison. Framing conventions and coefficient maps are the same on both sides. The global determinant varies, as in the source deformation problems; the ordinary local determinant condition is retained. A separate globally fixed-determinant variant requires its own presentation and dimension counts.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.0/boundary-level-coefficient-comparison; LocalGaloisDeformationRings:R08.2/ihara-avoidance-components; LocalGaloisDeformationRings:L8/determinant-ordinary-ring; LocalGaloisDeformationRings:L7; LocalGaloisDeformationRings:L8; LocalGaloisDeformationRings:R08.2; GlobalGaloisDeformations:G8
 
 PotentialAutomorphyInfrastructure:PA.3/arithmetic-component-dimension-input
@@ -1310,6 +1317,7 @@ PotentialAutomorphyInfrastructure:PA.5/corrected-rank-two-large-image
 THEOREM TauCeti.PotentialAutomorphy.corrected_rank_two_large_image
 For a strongly irreducible rank-two weakly compatible system over F, there is a density-one set of rational primes l such that for every coefficient place λ|l, bar r_λ(G_{F̃}) contains a conjugate of SL₂(F_l). No regularity hypothesis is needed. This does not assert SL₂(O_M/λ). In the real-multiplication use of BCGP Lemma 9.2.2, a separate large-image argument is required from AbelianSurfacesPotentialModularity.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/rank-two-large-residual-image; PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data; PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates
+Recorded gap: Unramified forms of products of adjoint PGL₂
 
 PotentialAutomorphyInfrastructure:PA.0/unitary-levi-weight-dictionary
 DEFINITION UnitaryLeviWeight
