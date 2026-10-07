@@ -25599,11 +25599,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #744"
+   "note": "claimed on GitHub issue #744"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.0",
@@ -25914,9 +25914,10 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #750"
+   "note": "deliverables arrived from an external worker on issue #750",
+   "finishedAt": "2026-10-07T07:35:41Z"
   },
   {
    "id": "REV-HeckeStacksAndLocalShtukas",
@@ -30999,13 +31000,14 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-ColemanIntegration",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1028"
+   "note": "deliverables arrived from an external worker on issue #1028",
+   "finishedAt": "2026-10-07T07:35:43Z"
   },
   {
    "id": "REV-EffectiveDiophantineMethods",
@@ -62364,7 +62366,8 @@
     "REV-FIX-RT-AREA-padic-2~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6518"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-2~4",
