@@ -497,28 +497,19 @@
    "hypotheses": [
     "F is a number field; i is a positive integer; the Bernoulli numbers are in the arithmetic convention of the previous node.",
     "The invariant and its finiteness are imported from ArithmeticKTheory N.4; the primewise-compatible Tate twists belong to MotivicEtaleKTheory M.1 (also imported by K2SymbolsBrauer T.7). N.7 owns the Bernoulli-denominator comparison and its numerical API, not a second definition of the invariant.",
-    "The statement over the rationals is a theorem about the denominator, not a definition.",
-    "F is a number field and i is positive; N.4 supplies the invariant and its finiteness.",
-    "For the Bernoulli denominator formula F = Q, i = 2k and k ≥ 1. B_{2k} is Mathlib’s arithmetic Bernoulli number, not bernoulli' k.",
-    "The statement over Q is a comparison theorem about the denominator, not a definition."
+    "The statement over the rationals is a theorem about the denominator, not a definition."
    ],
    "proofSteps": [
     "Import W_i(F) = H⁰(F, ℚ/ℤ(i)), w_i(F) = #W_i(F), and finiteness for a number field and positive i from N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant. Reuse their cyclotomic-character computation and largest-m characterisation; do not define or prove existence again.",
     "Import N.4’s elementary divisibility and field-extension properties. The fixed element of order two gives evenness for positive i; this elementary corollary is the N.7 API wInvariant_even.",
     "Prove the value 2 for odd i over the rationals, which is the source's earlier computation.",
     "Prove the value for even i over the rationals: the invariant is the denominator of B_k/4k, and a prime divides it exactly when one less than the prime divides i.",
-    "Record the two places where the invariant is used: the order of the torsion of the odd K-groups, and the Birch-Tate formula of N.8.",
-    "Import N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant. The largest-m description is N.4/exponent-criterion applied to the finite cyclic fixed-point group.",
-    "Import the odd value and the even prime-power product from N.4/w2-of-the-rationals-and-the-divisibility-tests; do not repeat their cyclotomic proofs.",
-    "Compare that product with the denominator of B_{2k}/(4k), using the convention of N.7/bernoulli-conventions and K-book VI.2.4. The sign of B_{2k} does not change its denominator.",
-    "The odd-prime factors are exactly those with l−1 dividing 2k, and the two-primary factor is 2^{2+v_2(2k)}. This gives the prime-divisibility criterion in positive even weight.",
-    "N.5 supplies the odd K-group torsion measured by w_i; SpecialValuesBirchTate B.3 consumes N.4’s invariant and N.8’s independent certificate. Neither result defines w_i."
+    "Record the two places where the invariant is used: the order of the torsion of the odd K-groups, and the Birch-Tate formula of N.8."
    ],
    "acceptance": [
     "Over the rationals the invariant at i = 2 is 24, which is the denominator of bernoulli 2 / 4 in the arithmetic convention and is the number that appears in the Birch-Tate formula.",
     "For odd i over the rationals the invariant is 2, so the odd twists contribute only two-torsion.",
-    "For the Gaussian rationals the invariant at i = 2 is again 24, which is what makes the third K-group of that field have a cyclic summand of order 24.",
-    "Over Q, w_2(Q) = 24 is the denominator of B_2/4 = (1/6)/4 = 1/24 in the arithmetic convention. The source’s B_1^top is B_2 = 1/6."
+    "For the Gaussian rationals the invariant at i = 2 is again 24, which is what makes the third K-group of that field have a cyclic summand of order 24."
    ],
    "prerequisites": [
     "ArithmeticKTheory:N.7/bernoulli-conventions",
@@ -527,9 +518,7 @@
     "ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character",
     "mathlib:rootsOfUnity",
     "mathlib:IsPrimitiveRoot",
-    "mathlib:NumberField",
-    "ArithmeticKTheory:N.4/exponent-criterion",
-    "ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests"
+    "mathlib:NumberField"
    ],
    "sources": [
     {
