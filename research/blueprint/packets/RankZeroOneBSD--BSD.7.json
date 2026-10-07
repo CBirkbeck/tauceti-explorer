@@ -3323,7 +3323,11 @@
         "Good irreducible reduction alone is insufficient for the rank-zero ramification-qualified branch."
       ],
       "prerequisites": [
-        "RankZeroOneBSD:BSD.6",
+        "RankZeroOneBSD:BSD.6/rank-zero-ordinary-multiplicative-p-part",
+        "RankZeroOneBSD:BSD.6/rank-zero-supersingular-p-part",
+        "RankZeroOneBSD:BSD.6/jsw-rank-one-p-part",
+        "RankZeroOneBSD:BSD.6/castella-multiplicative-rank-one-p-part",
+        "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part",
         "RankZeroOneBSD:BSD.7/cgs-eisenstein-prime-bsd",
         "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd",
         "RankZeroOneBSD:BSD.8/exceptional-prime-part-adapter",
