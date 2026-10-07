@@ -1795,3 +1795,21 @@ Measure convention for all AL.1 full statements:
   unless an explicit compensating vector rescaling is stated.
 
 -/
+
+/-
+Converse signature omissions (G16):
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank
+The full family has ranks 1..n-1 for n>=2 and gives cuspidal automorphy.
+The reduced family has ranks 1..n-2 for n>=3, unramified at finite S; S empty
+gives cuspidal automorphy, while nonempty S gives agreement outside S.
+Both retain the admissible restricted tensor, automorphic central character,
+initial Euler convergence, dual entireness, vertical-strip bounds and epsilon
+functional equation. R16.5 compares its separately checked rank-two theorem
+with the full family. R17.4a uses the reduced family at rank three.
+Native global tensor and completed twist/epsilon carriers are not supplied.
+No arbitrary Type or Prop proxy is a signature for these theorems. G16 also
+retains the original opposite-mirabolic and spectral-inversion proof interiors.
+The source is Cogdell's public survey, sections 2-3, Theorems 3.1 and 3.3;
+Gelbart-Jacquet's highly ramified T-twist variant remains separate.
+-/
