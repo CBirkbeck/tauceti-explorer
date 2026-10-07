@@ -16817,8 +16817,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6905"
+   "state": "pending",
+   "note": "released on GitHub issue #6905"
   },
   {
    "id": "DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -71077,8 +71077,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "RT-AREA-langlands-3",
