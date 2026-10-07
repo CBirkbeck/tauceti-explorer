@@ -22114,8 +22114,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #354"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #354",
+   "finishedAt": "2026-10-07T06:02:10Z"
   },
   {
    "id": "BP-AutomorphicBundles--B0",
@@ -28667,9 +28668,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #985"
+   "note": "claimed on GitHub issue #985"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF0",
