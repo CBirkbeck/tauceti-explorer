@@ -267,7 +267,8 @@
         "PELModuli:M0",
         "PELModuli:M1",
         "PELModuli:M2",
-        "HilbertModularVarietiesAndShimuraCurves:R18.1"
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-pel-instance",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve"
       ],
       "sources": [
         {
@@ -343,16 +344,15 @@
         "Compact curve hypothesis; principal level N≥3."
       ],
       "proofSteps": [
-        "For an elliptic stabiliser γ, F(γ) is CM and γ/γ̄ is a root of unity congruent to 1 mod N.",
-        "Apply the root-of-unity argument of Proposition 4.1 to force γ central.",
-        "Identify the effective tower kernel and apply the hyperbolic genus formula componentwise."
+        "Specialize R18.1/quaternionic-effective-stabilizers to the compact canonical tower and the chosen principal integral order level.",
+        "Reuse its scalar-stabilizer, central-closure and hyperbolic genus conclusions; no second small-level theorem is constructed in R18.2."
       ],
       "acceptance": [
         "The full arithmetic stabiliser can contain infinitely many central units; only the effective stabiliser is trivial.",
         "The Q split modular curve requires compactification and is imported separately."
       ],
       "prerequisites": [
-        "HilbertModularVarietiesAndShimuraCurves:R18.1"
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-effective-stabilizers"
       ],
       "sources": [
         {
@@ -390,7 +390,7 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.2/effective-small-level",
-        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve",
         "PELModuli:M1"
       ],
       "sources": [
@@ -471,7 +471,7 @@
         "The auxiliary split CM choice and effective central kernels are fixed."
       ],
       "proofSteps": [
-        "Apply Carayol §4.2 for connected towers.",
+        "Reuse R18.1/yz-component-comparison for the geometric connected components over a common algebraic closure; apply Carayol §4.2 for the pro-tower and norm-one quotient. The geometric supplier does not close the K-descent obligation recorded below.",
         "Transport the p-divisible coefficients by §4.4, retaining the centre quotient.",
         "Check the norm-one quotient and equivariance, correcting the printed inclusion to an isomorphism."
       ],
@@ -481,7 +481,8 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance",
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower"
+        "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-component-comparison"
       ],
       "sources": [
         {
@@ -516,14 +517,16 @@
       ],
       "proofSteps": [
         "Use the connected and coefficient comparisons to identify level trivialisations.",
-        "Choose finite-level tame subgroups killing the effective residual action as in Carayol Proposition 4.5.5."
+        "Choose finite-level tame subgroups killing the effective residual action as in Carayol Proposition 4.5.5.",
+        "The named R18.1 supplier gives the geometric finite-level comparison only. Restore the exact Carayol descent field and cocycle before asserting the target over K; see the consuming-part gap."
       ],
       "acceptance": [
         "Do not replace “depending on n” by uniform smallness.",
         "No p-level at a division place is covered by this coprime-to-d_B comparison."
       ],
       "prerequisites": [
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison"
+        "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-component-comparison"
       ],
       "sources": [
         {
@@ -942,7 +945,7 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower",
-        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-torus-bridge",
         "PELModuli:M1"
       ],
       "sources": [
@@ -3214,7 +3217,8 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient",
         "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison",
         "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance",
-        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension",
         "PELModuli:M2"
       ],
       "sources": [
@@ -3685,24 +3689,6 @@
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.5/rational-uniformisation"
       ]
-    },
-    {
-      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.1",
-      "need": "Supply the canonical compact quaternionic tower over the reflex F, local-effective stabilisers and centre closures, complex uniformisation, and YZ auxiliary X′/X″ torus/group bridge with canonical connected-component descent. Own the CM alignment/point cases and the graph-of-different-torsion kernel check in the published erratum; R18.2 specializes its integral coefficient/model comparisons.",
-      "neededBy": [
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance",
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/effective-small-level",
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower",
-        "HilbertModularVarietiesAndShimuraCurves:R18.2/bridge-tate-comparison",
-        "HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation"
-      ]
-    },
-    {
-      "supplier": "HilbertModularVarietiesAndShimuraCurves:H6",
-      "need": "Own Allen et al. 2023 item /329: actual two-prime torsion Isom-torsor twists of Hilbert/elliptic moduli, pairing/determinant and component descent, geometric irreducibility and prescribed nonempty local opens; export to R23.1–R23.2. H6 lies outside this issue scope, so it is routed rather than planned in R18.6.",
-      "neededBy": [
-        "HilbertModularVarietiesAndShimuraCurves:R18.6"
-      ]
     }
   ],
   "coverage": [
@@ -3710,7 +3696,8 @@
       "stageId": "HilbertModularVarietiesAndShimuraCurves:R18.2",
       "status": "planned",
       "remaining": [
-        "Prove the ramified strict relative filtration and saturated bridge determinant repairs; replace missing formal-carrier signature ledger entries."
+        "Prove the ramified strict relative filtration and saturated bridge determinant repairs; replace missing formal-carrier signature ledger entries.",
+        "Cross-part connected-comparison descent over K: R18.1/yz-component-comparison supplies the comparison over a common algebraic closure, with finite n supported at p and prime to d_B. It explicitly leaves Carayol’s descent field, cocycle and tame-level dependence unresolved. R18.2/connected-pel-comparison and /finite-pel-comparison still target descent over K=completion of F_v^ur; this stronger output is not provided by the geometric supplier. Restore and verify Carayol §§4.2–4.5 with the exact norm-one quotient and finite-level action. Until then the integral transfer and totally-real uniformisation routes that consume this descent remain conditional; BZ’s uniformisation theorem itself is unchanged."
       ],
       "note": "Every target decomposed at target level; source repairs and unbuilt supplier/signature conditions remain explicit. No implementation claimed. The stage’s import of the Hilbert compactifications from ShimuraCompactifications:C6 has no consumer among these quaternionic targets, since the curves are compact (no cusp boundary); no node cites C6."
     },
@@ -3734,7 +3721,8 @@
       "stageId": "HilbertModularVarietiesAndShimuraCurves:R18.5",
       "status": "planned",
       "remaining": [
-        "Obtain generic formal quotient/algebraisation and PEL basic uniformisation supplier extensions, and replace the formal-moduli/tower signature ledger with typed statements."
+        "Obtain generic formal quotient/algebraisation and PEL basic uniformisation supplier extensions, and replace the formal-moduli/tower signature ledger with typed statements.",
+        "Cross-part connected-comparison descent over K: R18.1/yz-component-comparison supplies the comparison over a common algebraic closure, with finite n supported at p and prime to d_B. It explicitly leaves Carayol’s descent field, cocycle and tame-level dependence unresolved. R18.2/connected-pel-comparison and /finite-pel-comparison still target descent over K=completion of F_v^ur; this stronger output is not provided by the geometric supplier. Restore and verify Carayol §§4.2–4.5 with the exact norm-one quotient and finite-level action. Until then the integral transfer and totally-real uniformisation routes that consume this descent remain conditional; BZ’s uniformisation theorem itself is unchanged."
       ],
       "note": "Every target decomposed at target level; source repairs and unbuilt supplier/signature conditions remain explicit. No implementation claimed."
     },
@@ -3742,7 +3730,7 @@
       "stageId": "HilbertModularVarietiesAndShimuraCurves:R18.6",
       "status": "source_decomposed",
       "remaining": [],
-      "note": "Export/process interface only under reviewed library audit and accepted RS-23. No new mathematics or planets; all contracts are in exports and the H6 request."
+      "note": "Consumer/export index only: no new mathematical declarations or planets. The Allen/Hilbert torsion inputs are supplied by the exact H6/moret-bailly-input-export node, retaining its recorded local-realization gaps."
     }
   ],
   "gaps": [
@@ -3844,6 +3832,15 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.5/tower-uniformisation",
         "HilbertModularVarietiesAndShimuraCurves:R18.5/tree-dual-graph",
         "HilbertModularVarietiesAndShimuraCurves:R18.5/character-monodromy"
+      ]
+    },
+    {
+      "title": "Cross-part connected-comparison descent over K",
+      "detail": "R18.1/yz-component-comparison supplies the comparison over a common algebraic closure, with finite n supported at p and prime to d_B. It explicitly leaves Carayol’s descent field, cocycle and tame-level dependence unresolved. R18.2/connected-pel-comparison and /finite-pel-comparison still target descent over K=completion of F_v^ur; this stronger output is not provided by the geometric supplier. Restore and verify Carayol §§4.2–4.5 with the exact norm-one quotient and finite-level action. Until then the integral transfer and totally-real uniformisation routes that consume this descent remain conditional; BZ’s uniformisation theorem itself is unchanged.",
+      "neededBy": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison",
+        "HilbertModularVarietiesAndShimuraCurves:R18.2/finite-pel-comparison",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation"
       ]
     }
   ],
@@ -4606,13 +4603,13 @@
     },
     {
       "from": [
-        "HilbertModularVarietiesAndShimuraCurves:H6"
+        "HilbertModularVarietiesAndShimuraCurves:H6/moret-bailly-input-export"
       ],
       "to": [
         "PotentialModularityAndCompatibleSystems:R23.1",
         "PotentialModularityAndCompatibleSystems:R23.2"
       ],
-      "contract": "Out-of-scope requested torsion-twist moduli and nonempty local opens, including Allen /329 elliptic case; Moret–Bailly does not create these inputs."
+      "contract": "H6 supplies paired Hilbert and Allen elliptic torsion twists, component descent and prescribed local-open targets. The Taylor structured-realization and Allen finite-local pairing gaps remain conditions on this export. R23.1–R23.2 proves Moret–Bailly and potential modularity; it does not construct these moduli inputs."
     }
   ],
   "sourceRouting": [
