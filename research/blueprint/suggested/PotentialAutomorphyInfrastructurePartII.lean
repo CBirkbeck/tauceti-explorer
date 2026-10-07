@@ -11,33 +11,28 @@ target; nothing here claims to be formalised.
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. The file imports Mathlib only: the
 Tau Ceti modules at the pin contain none of the objects prototyped here.
 
-**Abstract carriers.** The pinned libraries do not contain absolute Galois groups of number fields
-with their decomposition groups and Artin maps, local deformation rings, definite unitary groups
-over number fields or their Hecke algebras. Where a definition needs them, the file works over
-abstract carriers that stand for them and names the arithmetic instance in the docstring: a
-group `GK` with a unit group `U` and a homomorphism `art : U →* GK` for a local Galois group with
-the restriction of the Artin map to `O_K^×`; a commutative ring `R` with its points `R →+* B` for
-a lifting ring after inverting `l`; groups `Γ ≤ G` with a subgroup `U` for `G(L⁺) ⊂ G(𝔸^∞)` and a
-level. The definitions are honest relative to these carriers (no `Prop`-valued fields standing for
-missing conditions, no `def _ : Prop := sorry`).
+**Independent review (Codex, REV-DESIGN-PotentialAutomorphyInfrastructurePartII).**
+This is a partial prototype. Retained generic carrier statements do not yet give the arithmetic
+definitions, API and tests in the packet. The packet review is `needs_changes`, and its coverage
+lists what must be supplied. The reader has not been revised in this review's allowed scope;
+the corrected packet and review record the discrepancies that its next revision must reconcile.
 
-**Theorem templates.** The named arithmetic theorems of the layers are stated in the final
-section over the same carriers. Their arithmetic identifications (that `R` *is* the polarized
-deformation ring of the stated problem, that `T` *is* the Hecke algebra, and so on) are not
-expressible at the pins and are omitted: a template is NOT a theorem for arbitrary inputs of its
-carrier types. The packet and the reader document state the complete mathematics.
+The former final theorem namespace omitted essential arithmetic hypotheses and thereby stated
+false universal assertions. It has been removed. Automorphy, polarized Schur representations,
+closed determinant subrings, reducibility ideals and rigidity also need actual supplier carriers;
+their former substitute sections have been removed. They are inventoried below, not replaced
+by conditions stored in Prop-valued fields or by `def _ : Prop := sorry`.
 
-**Supplier-dependent items.** A few API items need objects that the pins lack entirely (period
-rings, Hodge–Tate weights, smooth induction of `GL_n(K)`-representations). Their signatures are
-recorded in comment blocks marked "supplier-dependent", which are not elaborated.
+The retained definitions are generic models only. In particular a group with an arbitrary Artin
+map does not provide local class field theory or labelled Hodge types, and a pair of complementary
+subspaces does not supply the Frobenius eigenspace in a Taylor–Wiles datum. Examples with arithmetic
+names may only test their generic carrier model. The inventory lists the exact required packet
+names; comments in that inventory are not elaborated declarations. Protocol §13 correspondence
+remains open. `sorry` marks unproved data and propositions, not an implementation.
 
-**Unit tests.** Every packet test is a comment naming it followed by an `example` proved by
-`sorry`, stated for the abstract carrier; the comment names the arithmetic instance. The few tests
-that need a missing supplier are recorded in comments marked "supplier-dependent" under their
-names.
-
-Written by Claude (session claude-Zy0b6p) for job DESIGN-PotentialAutomorphyInfrastructurePartII
-(issue #3344). The file elaborates at the pinned Mathlib with `sorry` as its only warning.
+Originally written by Claude (session claude-Zy0b6p), issue #3344; independently reviewed and
+corrected by Codex (session codex-ODvJVt), issue #3592. Compilation of this partial draft is recorded
+in the review and handoff; it does not establish the source theorems.
 -/
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.ToLin
@@ -218,12 +213,9 @@ example (art : U →* GK) (alg : Fin 2 → U →* Eˣ) (ρ : GK →* GL (Fin 2) 
     ¬ IsOrdinaryOfWeightAt art alg ρ := by
   sorry
 
--- ordinary_weight_unique
--- The weight is unique up to characters of finite order on the image of `art`.
-example (art : U →* GK) (alg alg' : Fin n → U →* Eˣ) (ρ : GK →* GL (Fin n) E)
-    (h : IsOrdinaryOfWeightAt art alg ρ) (h' : IsOrdinaryOfWeightAt art alg' ρ) (i : Fin n) :
-    ∃ m : ℕ, 0 < m ∧ ∀ u, (alg i u) ^ m = (alg' i u) ^ m := by
-  sorry
+/- ordinary_weight_unique is pending the ordered labelled Hodge–Tate weight carrier.
+The former abstract character assertion was false: swapping two diagonal characters
+and their flags swaps alg without preserving its entries. -/
 
 end Ordinary
 
@@ -293,77 +285,8 @@ example (Up : Module.End O M) (hnil : IsNilpotent Up) : ordinaryPart Up = ⊥ :=
 
 end IotaOrdinary
 
-section Automorphic
-
-/-- The carrier for automorphy statements: `Rep` stands for the polarized `l`-adic
-representations of `G_F`, `Aut` for the regular algebraic cuspidal polarized `(π, χ)`,
-`galois π` for `(r_{l,ι}(π), ε^{1−n} r_{l,ι}(χ))`, and the three predicates on `Aut` for
-"level prime to `l`", "level potentially prime to `l`" and "ι-ordinary" (PL.0/iota-ordinary). -/
-structure AutomorphyData (Rep : Type*) where
-  Aut : Type*
-  galois : Aut → Rep
-  levelPrimeTo : Aut → Prop
-  levelPotentiallyPrimeTo : Aut → Prop
-  iotaOrdinary : Aut → Prop
-  residual : Rep → Rep
-
-variable {Rep : Type*} (D : AutomorphyData Rep)
-
-/-- **`PL.0/automorphic-polarized-representation`.** `(r, μ)` is automorphic. -/
-def IsAutomorphic (r : Rep) : Prop := ∃ π : D.Aut, D.galois π = r
-
-/-- Automorphic of level prime to `l`. -/
-def IsAutomorphicOfLevelPrimeTo (r : Rep) : Prop :=
-  ∃ π : D.Aut, D.galois π = r ∧ D.levelPrimeTo π
-
-/-- Automorphic of level potentially prime to `l`. -/
-def IsAutomorphicOfLevelPotentiallyPrimeTo (r : Rep) : Prop :=
-  ∃ π : D.Aut, D.galois π = r ∧ D.levelPotentiallyPrimeTo π
-
-/-- Ordinarily automorphic. -/
-def IsOrdinarilyAutomorphic (r : Rep) : Prop :=
-  ∃ π : D.Aut, D.galois π = r ∧ D.iotaOrdinary π
-
-/-- API: independence of `ι`: if two choices of `ι` give automorphy data whose Galois maps have
-the same image (Clozel, Theorem 3.13), automorphy is the same for both. -/
-theorem IsAutomorphic.indep_iota (D D' : AutomorphyData Rep)
-    (h : Set.range D.galois = Set.range D'.galois) (r : Rep) :
-    IsAutomorphic D r ↔ IsAutomorphic D' r := by
-  sorry
-
-/-- API: the residual representation of an automorphic representation is automorphic in the
-residual sense (`r̄ ≅ r̄_{l,ι}(π)`). -/
-theorem IsAutomorphic.residual {r : Rep} (h : IsAutomorphic D r) :
-    ∃ π : D.Aut, D.residual (D.galois π) = D.residual r := by
-  sorry
-
-/- Supplier-dependent (signs of complex conjugations on `r_{l,ι}(π)`, AutomorphicGaloisRepresentationsPartII
-AG2.0/AG2.2): theorem IsAutomorphic.totallyOdd (h : IsAutomorphic D r) : IsTotallyOdd r := by sorry -/
-
--- isAutomorphic_rank_one
--- For `n = 1` every algebraic character is `r_{l,ι}` of a Hecke character: in the carrier,
--- surjectivity of `galois` makes every `r` automorphic.
-example (hsurj : Function.Surjective D.galois) (r : Rep) : IsAutomorphic D r := by
-  sorry
-
--- not_isAutomorphic_of_not_totallyOdd
--- A representation outside the image of `galois` (for instance not totally odd) is not automorphic.
-example (r : Rep) (h : r ∉ Set.range D.galois) : ¬ IsAutomorphic D r := by
-  sorry
-
--- levelPrimeTo_crystalline
--- Level prime to `l` implies level potentially prime to `l` (and, on the Galois side,
--- crystallinity at `l`, supplier-dependent).
-example (hD : ∀ π, D.levelPrimeTo π → D.levelPotentiallyPrimeTo π) (r : Rep)
-    (h : IsAutomorphicOfLevelPrimeTo D r) : IsAutomorphicOfLevelPotentiallyPrimeTo D r := by
-  sorry
-
--- ordinarilyAutomorphic_ordinary
--- Ordinarily automorphic implies automorphic.
-example (r : Rep) (h : IsOrdinarilyAutomorphic D r) : IsAutomorphic D r := by
-  sorry
-
-end Automorphic
+/- Independent review: Automorphic signatures are pending the arithmetic suppliers.
+See the complete required-name inventory below and the packet review gaps. -/
 
 /-! ## PL.1 Connecting local lifts and potential diagonalizability -/
 
@@ -480,11 +403,8 @@ theorem IsPotentiallyDiagonalizable.restrict {ι : Type*} {Rs : ι → Type*} [�
 theorem IsPotentiallyDiagonalizable.isPotentiallyCrystalline (h : IsPotentiallyDiagonalizable ρ) :
     IsPotentiallyCrystalline ρ := by sorry -/
 
-/-- Potentially diagonalizably automorphic: automorphic via some `π` with a potentially
-diagonalizable local Galois representation at every place above `l` (recorded by `pd`). -/
-def IsPotentiallyDiagonalizablyAutomorphic {Rep : Type*} (D : AutomorphyData Rep)
-    (pd : D.Aut → Prop) (r : Rep) : Prop :=
-  ∃ π : D.Aut, D.galois π = r ∧ D.levelPotentiallyPrimeTo π ∧ pd π
+/- The global potentially-diagonalizably-automorphic predicate is pending an arithmetic
+automorphic carrier; it is not replaced by an arbitrary Prop-valued field. -/
 
 -- pd_character
 -- A one-dimensional point is a sum of one character: it is diagonalizable when `diag` contains it.
@@ -805,8 +725,10 @@ def uOperator (S : Type*) [AddCommGroup S] [Module O S] (j : ℕ) : Module.End O
 /-- The diamond operators `⟨u⟩`, `u ∈ T(O_{L⁺,l})`, as a representation of the torus. -/
 def diamond (T S : Type*) [Group T] [AddCommGroup S] [Module O S] : Representation O T S := sorry
 
-/-- The ordinary idempotent `e = lim_r U(l)^{r!}` attached to an operator `Up` on a module of
-finite length (data; it is the projection onto `⋂ range Up^k` along `⋃ ker Up^k`). -/
+/-- Partial generic model: the Fitting projection onto `⋂ range Up^k` along `⋃ ker Up^k`
+on a finite-length module. The factorial-power limit description additionally uses finite
+coefficient quotients and their inverse-limit topology; it is not asserted over arbitrary
+artinian rings such as a characteristic-zero field. -/
 def ordinaryIdempotent (Up : Module.End O M) : Module.End O M := sorry
 
 /-- API: `e` is idempotent. -/
@@ -931,12 +853,9 @@ def twDiamondAction (Δ S : Type*) [Group Δ] [AddCommGroup S] [Module O S] :
 /-- The parahoric projection `pr_ϖ` (Thorne 2012, Propositions 5.9, 5.12) (data). -/
 def twProjection (S : Type*) [AddCommGroup S] [Module O S] : Module.End O S := sorry
 
-/-- API (template): `pr S(U₁(Q), O)_m` is free over `O[Δ_Q]` at levels with trivial arithmetic
-stabilisers; stated for the diamond representation. -/
-theorem tw_free (Δ S : Type*) [CommGroup Δ] [Finite Δ] [AddCommGroup S] [Module O S]
-    (ρΔ : Representation O Δ S) (hfree : ∀ (s : S) (d : Δ), ρΔ d s = s → d = 1 ∨ s = 0) :
-    Module.Free (MonoidAlgebra O Δ) ρΔ.asModule := by
-  sorry
+/- tw_free is pending the actual selected arithmetic module and its small-stabilizer
+hypothesis. An action with no nonzero fixed vector for nonidentity group elements need
+not be a free group-algebra module (the one-dimensional C₂ sign representation over Q). -/
 
 /- Supplier-dependent (Galois side): theorem tw_inertia : on `pr S(U₁(Q), O)_{m_Q}`,
 `r_{m_Q}|G_{L_ṽ} ≅ s ⊕ ψ` with `ψ(Art u)` acting by the diamond operator of `u`. -/
@@ -983,10 +902,10 @@ structure TaylorWilesDatum (P k : Type*) [Field k] (n l : ℕ) where
 
 variable {P k : Type*} [Field k] {n l : ℕ}
 
-/-- API: the level `N` of a Taylor–Wiles datum, the largest `N` with `q_v ≡ 1 mod l^N` for all
-`v ∈ Q`. -/
-def TaylorWilesDatum.level (D : TaylorWilesDatum P k n l) : ℕ :=
-  sSup {N | ∀ v ∈ D.Q, l ^ N ∣ D.q v - 1}
+/-- Partial API: being of level `N` is a predicate. For an empty `Q` every `N` works,
+so there is no largest level. The remaining arithmetic datum fields are pending. -/
+def TaylorWilesDatum.level (D : TaylorWilesDatum P k n l) (N : ℕ) : Prop :=
+  ∀ v ∈ D.Q, l ^ N ∣ D.q v - 1
 
 /-- API: the local deformation problem `D_v^{TW}`: lifts `r : G_{F_ṽ} → GL_n(A)` preserving a
 decomposition `Aⁿ = S ⊕ Ψ` with inertia `I` acting trivially on `S` and by scalars on `Ψ` (the
@@ -1010,7 +929,7 @@ theorem TaylorWilesDatum.localCondition_perp : L_v^⊥ = {unramified classes wit
 -- twDatum_empty
 -- For `Q = ∅` the level condition is vacuous: every `N` is allowed.
 example (D : TaylorWilesDatum P k n l) (hQ : D.Q = ∅) (N : ℕ) :
-    N ∈ {N | ∀ v ∈ D.Q, l ^ N ∣ D.q v - 1} := by
+    D.level N := by
   sorry
 
 -- twDatum_rank_one_block
@@ -1059,7 +978,7 @@ def standardAlternating (n : ℕ) : Matrix (Fin (2 * n)) (Fin (2 * n)) k :=
 /-- API (Thorne 2017, Lemma 2.16): over a perfect field of characteristic 2, an invertible
 symmetric `A` of even size is congruent to exactly one of `1` and `Ψ`. -/
 theorem complexConjugation_dichotomy [CharP k 2] [PerfectField k] {m : ℕ}
-    (A : Matrix (Fin (2 * m)) (Fin (2 * m)) k) (hA : Aᵀ = A) (hdet : IsUnit A.det) :
+    (hm : 0 < m) (A : Matrix (Fin (2 * m)) (Fin (2 * m)) k) (hA : Aᵀ = A) (hdet : IsUnit A.det) :
     Xor (IsStronglyResiduallyOdd A)
       (∃ g : GL (Fin (2 * m)) k, (g : Matrix _ _ k) * A * (g : Matrix _ _ k)ᵀ = standardAlternating m) := by
   sorry
@@ -1099,93 +1018,8 @@ end TauCeti.Automorphy
 
 namespace TauCeti.Automorphy
 
-section Schur
-
-variable {Δ k : Type*} [Group Δ] [Field k] {n : ℕ}
-
-/-- `W` is `ρ`-stable. -/
-def IsStable (ρ : Δ →* GL (Fin n) k) (W : Submodule k (Fin n → k)) : Prop :=
-  ∀ g, ∀ v ∈ W, (ρ g : Matrix (Fin n) (Fin n) k) *ᵥ v ∈ W
-
-/-- The Schur condition over the field `k` itself: `Δ` stands for `G_F`, `cΔ` for conjugation by
-`c` and `μ` for the multiplier. There are no stable `W₂ ≤ W₁` with `kⁿ/W₁` and `W₂` irreducible
-and a nonzero pairing `B` on `kⁿ × W₂`, vanishing on `W₁ × W₂`, nondegenerate on
-`kⁿ/W₁ × W₂`, with `B(ρ(δ)x, ρ(cδc)y) = μ(δ) B(x, y)`: such a pairing is an isomorphism
-`(kⁿ/W₁)^c ≅ W₂^∨ ⊗ μ`. -/
-def IsSchurOver (ρ : Δ →* GL (Fin n) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ) : Prop :=
-  ∀ W₁ W₂ : Submodule k (Fin n → k), IsStable ρ W₁ → IsStable ρ W₂ → W₂ ≤ W₁ →
-    (∀ W, IsStable ρ W → W₁ ≤ W → W = W₁ ∨ W = ⊤) →
-    (∀ W, IsStable ρ W → W ≤ W₂ → W = ⊥ ∨ W = W₂) → W₂ ≠ ⊥ → W₁ ≠ ⊤ →
-    ¬ ∃ B : LinearMap.BilinForm k (Fin n → k),
-      (∀ x ∈ W₁, ∀ y ∈ W₂, B x y = 0) ∧
-      (∀ x, (∀ y ∈ W₂, B x y = 0) → x ∈ W₁) ∧
-      (∀ y ∈ W₂, (∀ x, B x y = 0) → y = 0) ∧
-      ∀ δ x, ∀ y ∈ W₂, B ((ρ δ : Matrix (Fin n) (Fin n) k) *ᵥ x)
-        ((ρ (cΔ δ) : Matrix (Fin n) (Fin n) k) *ᵥ y) = (μ δ : k) * B x y
-
-/-- **`PL.6/schur-residual-representation`.** Thorne 2015, Definition 3.2: the Schur condition
-after extending scalars to an algebraic closure (so that the irreducible constituents are
-absolutely irreducible). -/
-def IsSchur (ρ : Δ →* GL (Fin n) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ) : Prop :=
-  IsSchurOver ((Matrix.GeneralLinearGroup.map (algebraMap k (AlgebraicClosure k))).comp ρ) cΔ
-    ((Units.map (algebraMap k (AlgebraicClosure k)).toMonoidHom).comp μ)
-
-/-- API: a Schur `ρ` is semisimple (every stable subspace has a stable complement); it is
-moreover multiplicity free (Thorne 2015, Lemma 3.3(1)). -/
-theorem IsSchur.semisimple_multiplicityFree {ρ : Δ →* GL (Fin n) k} {cΔ : Δ →* Δ} {μ : Δ →* kˣ}
-    (h : IsSchur ρ cΔ μ) (W : Submodule k (Fin n → k)) (hW : IsStable ρ W) :
-    ∃ W', IsStable ρ W' ∧ IsCompl W W' := by
-  sorry
-
-/-- API (Lemma 3.3(2)): two Schur representations with the same traces are conjugate over an
-algebraically closed field (characteristic `0` or `> n`). -/
-theorem IsSchur.conj_of_trace_eq [IsAlgClosed k] {ρ ρ' : Δ →* GL (Fin n) k} {cΔ : Δ →* Δ}
-    {μ : Δ →* kˣ} (h : IsSchur ρ cΔ μ) (h' : IsSchur ρ' cΔ μ)
-    (hchar : ringChar k = 0 ∨ n < ringChar k)
-    (htr : ∀ δ, Matrix.trace (ρ δ : Matrix (Fin n) (Fin n) k) =
-      Matrix.trace (ρ' δ : Matrix (Fin n) (Fin n) k)) :
-    ∃ g : GL (Fin n) k, ∀ δ, ρ' δ = g * ρ δ * g⁻¹ := by
-  sorry
-
-/- Supplier-dependent (the 𝒢_n-valued adjoint representation, ArithmeticGaloisRepresentations G7,
-has no Lean carrier at the pins):
-theorem IsSchur.h0_ad_eq_zero (hk : ringChar k ≠ 2) : H⁰(Γ, ad r̄) = 0 (Lemma 3.3(3)).
-def extensionsOfPolarizedSum : the GL_n(k)-classes of extensions of ⊕ρ_i to Γ → 𝒢_n(k), a torsor
-  under ∏_i k^×/(k^×)² (Lemma 3.4). -/
-
-/-- API: an absolutely irreducible representation is Schur. -/
-theorem IsSchur.of_absIrred {ρ : Δ →* GL (Fin n) k} (cΔ : Δ →* Δ) (μ : Δ →* kˣ)
-    (h : IsAbsIrred ρ) : IsSchur ρ cΔ μ := by
-  sorry
-
--- schur_absIrred
--- Absolutely irreducible implies Schur (degenerate case `d = 1`).
-example (ρ : Δ →* GL (Fin n) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ) (h : IsAbsIrred ρ) :
-    IsSchur ρ cΔ μ := by
-  sorry
-
--- schur_characters
--- For `n = 2` and `ρ = χ₁ ⊕ χ₂` diagonal with `χ₁ ≠ χ₂` and `χ₂ ∘ c ≠ χ₁⁻¹ μ`, `ρ` is Schur.
-example (χ : Fin 2 → Δ →* kˣ) (ρ : Δ →* GL (Fin 2) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ)
-    (hρ : ∀ g, (ρ g : Matrix (Fin 2) (Fin 2) k) = Matrix.diagonal fun i => (χ i g : k))
-    (hne : χ 0 ≠ χ 1) (hc : ∀ i j, i ≠ j → (χ j).comp cΔ ≠ (χ i)⁻¹ * μ)
-    (hc' : ∀ i, (χ i).comp cΔ = (χ i)⁻¹ * μ) : IsSchur ρ cΔ μ := by
-  sorry
-
--- not_schur_repeated
--- `ρ = χ ⊕ χ` with `χ ∘ c = χ⁻¹ μ` is not Schur.
-example (χ : Δ →* kˣ) (ρ : Δ →* GL (Fin 2) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ)
-    (hρ : ∀ g, (ρ g : Matrix (Fin 2) (Fin 2) k) = Matrix.scalar (Fin 2) (χ g : k))
-    (hc : χ.comp cΔ = χ⁻¹ * μ) : ¬ IsSchur ρ cΔ μ := by
-  sorry
-
--- schur_h0
--- Over an algebraically closed field a Schur representation is semisimple.
-example [IsAlgClosed k] (ρ : Δ →* GL (Fin n) k) (cΔ : Δ →* Δ) (μ : Δ →* kˣ) (h : IsSchur ρ cΔ μ)
-    (W : Submodule k (Fin n → k)) (hW : IsStable ρ W) : ∃ W', IsStable ρ W' ∧ IsCompl W W' := by
-  sorry
-
-end Schur
+/- Independent review: Schur signatures are pending the arithmetic suppliers.
+See the complete required-name inventory below and the packet review gaps. -/
 
 section Primitive
 
@@ -1283,7 +1117,8 @@ def arithmeticRank (I : Ideal R) : ℕ :=
 
 /-- API (Thorne 2015, Proposition 1.8, after Brodmann–Rung): `c(R/I) ≥ c(R) − r(I) − 1` for a
 complete noetherian local `R`. -/
-theorem connectednessDim_quotient [IsLocalRing R] [IsNoetherianRing R] (I : Ideal R) :
+theorem connectednessDim_quotient [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (I : Ideal R) :
     connectednessDim R ≤ connectednessDim (R ⧸ I) + ((arithmeticRank I + 1 : ℕ) : WithBot ℕ∞) := by
   sorry
 
@@ -1325,159 +1160,28 @@ end TauCeti.CommAlg
 
 namespace TauCeti.Automorphy
 
-section Pseudodeformation
+/- Independent review: Pseudodeformation signatures are pending the arithmetic suppliers.
+See the complete required-name inventory below and the packet review gaps. -/
 
-variable {Γ Λ R k : Type*} [Group Γ] [CommRing Λ] [CommRing R] [Algebra Λ R] [Field k] {n : ℕ}
-
-/-- **`PL.6/polarized-pseudodeformation-subring`.** For the universal deformation `r` over
-`R = R^univ_𝒮`, the `Λ`-subalgebra generated by the coefficients of the characteristic polynomials
-of `r(g)` (its closure in the complete local ring is `P_𝒮`). -/
-def charPolySubring (Λ : Type*) [CommRing Λ] [Algebra Λ R] (r : Γ →* GL (Fin n) R) :
-    Subalgebra Λ R :=
-  Algebra.adjoin Λ {x | ∃ g i, x = (Matrix.charpoly (r g : Matrix (Fin n) (Fin n) R)).coeff i}
-
-/-- The `Λ`-subalgebra generated by the matrix entries of `r`. -/
-def entrySubring (Λ : Type*) [CommRing Λ] [Algebra Λ R] (r : Γ →* GL (Fin n) R) :
-    Subalgebra Λ R :=
-  Algebra.adjoin Λ {x | ∃ g i j, x = (r g : Matrix (Fin n) (Fin n) R) i j}
-
-/- Supplier-dependent (Chenevier's determinant deformation rings, IntegralHeckeAndGaloisDeterminants
-IHG.0, have no Lean carrier at the pins):
-def pseudoDeformationRing : the ring Q_𝒮 representing continuous determinants lifting D̄.
-theorem charPolySubring_eq_invariants : P_𝒮 = (R^univ_𝒮)^{μ₂^d}.
-theorem charPolySubring_etale : at 𝔭 with absolutely irreducible r_𝔭, P_𝒮 → R^univ_𝒮 is étale
-  at 𝔭 ∩ P_𝒮 and μ₂^d acts transitively on the primes above it.
-theorem charPolySubring_generators : P_{𝒮′} is a quotient of O⟦X₁, …, X_C⟧ with C depending only
-  on |S′ − S|, r̄ and S. -/
-
-/-- API (Carayol): if the residual representation is absolutely irreducible, the characteristic
-polynomial coefficients generate the same subalgebra as the entries of a conjugate of `r`. -/
-theorem charPolySubring_eq_top_of_absIrred [IsLocalRing R] (π : R →+* k) (r : Γ →* GL (Fin n) R)
-    (hπ : RingHom.ker π = IsLocalRing.maximalIdeal R)
-    (h : IsAbsIrred ((Matrix.GeneralLinearGroup.map π).comp r)) :
-    ∃ g : GL (Fin n) R, charPolySubring Λ r =
-      entrySubring Λ ((MulAut.conj g).toMonoidHom.comp r) := by
-  sorry
-
-/-- API: for Schur residual representation, `R` (generated by the entries) is finite over the
-characteristic polynomial subring (Thorne 2015, Proposition 3.29(2)). -/
-theorem charPolySubring_finite [IsLocalRing R] (π : R →+* k) (r : Γ →* GL (Fin n) R)
-    (cΓ : Γ →* Γ) (μ : Γ →* kˣ) (hS : IsSchur ((Matrix.GeneralLinearGroup.map π).comp r) cΓ μ)
-    (hgen : entrySubring Λ r = ⊤) :
-    Module.Finite (charPolySubring Λ r) R := by
-  sorry
-
--- ps_absIrred
--- Absolutely irreducible residual representation: characteristic polynomials generate (Carayol).
-example [IsLocalRing R] (π : R →+* k) (r : Γ →* GL (Fin n) R)
-    (hπ : RingHom.ker π = IsLocalRing.maximalIdeal R)
-    (h : IsAbsIrred ((Matrix.GeneralLinearGroup.map π).comp r)) (hgen : entrySubring Λ r = ⊤) :
-    ∃ g : GL (Fin n) R, charPolySubring Λ r =
-      entrySubring Λ ((MulAut.conj g).toMonoidHom.comp r) := by
-  sorry
-
--- ps_two_characters
--- For a diagonal `r` the characteristic polynomial subring is generated by the diagonal entries'
--- elementary symmetric functions; in particular traces lie in it.
-example (r : Γ →* GL (Fin n) R) (g : Γ) :
-    Matrix.trace (r g : Matrix (Fin n) (Fin n) R) ∈ charPolySubring Λ r := by
-  sorry
-
--- ps_compatibility_determinants
--- Determinants lie in the characteristic polynomial subring.
-example (r : Γ →* GL (Fin n) R) (g : Γ) :
-    Matrix.det (r g : Matrix (Fin n) (Fin n) R) ∈ charPolySubring Λ r := by
-  sorry
-
--- ps_not_surjective_reducible
--- For a reducible (upper triangular, non-split) `r`, the off-diagonal entry need not lie in the
--- characteristic polynomial subring: the subring is contained in the subring generated by the
--- diagonal entries.
-example (r : Γ →* GL (Fin 2) R) (hupper : ∀ g, (r g : Matrix (Fin 2) (Fin 2) R) 1 0 = 0) :
-    charPolySubring Λ r ≤
-      Algebra.adjoin Λ {x | ∃ g i, x = (r g : Matrix (Fin 2) (Fin 2) R) i i} := by
-  sorry
-
-end Pseudodeformation
-
-section Reducibility
-
-variable {Γ R : Type*} [Group Γ] [CommRing R] {n₁ n₂ : ℕ}
-
-/-- **`PL.6/reducibility-ideal`.** For `r` written in a basis adapted to the residual
-decomposition `ρ̄₁ ⊕ ρ̄₂`, the ideal of reducibility is generated by the entries of the products
-`B(g) C(h)` of the off-diagonal blocks. -/
-def reducibilityIdeal (r : Γ →* GL (Fin n₁ ⊕ Fin n₂) R) : Ideal R :=
-  Ideal.span {x | ∃ g h i j, x = ((r g : Matrix (Fin n₁ ⊕ Fin n₂) (Fin n₁ ⊕ Fin n₂) R).toBlocks₁₂ *
-    (r h : Matrix (Fin n₁ ⊕ Fin n₂) (Fin n₁ ⊕ Fin n₂) R).toBlocks₂₁) i j}
-
-/-- Reducible deformations: lifts conjugate to a block-diagonal lift. -/
-def reducibleDeformations : Set (Γ →* GL (Fin n₁ ⊕ Fin n₂) R) :=
-  {r | ∃ g : GL (Fin n₁ ⊕ Fin n₂) R, ∀ h,
-    ((g * r h * g⁻¹ : GL _ R) : Matrix (Fin n₁ ⊕ Fin n₂) (Fin n₁ ⊕ Fin n₂) R).toBlocks₁₂ = 0 ∧
-    ((g * r h * g⁻¹ : GL _ R) : Matrix (Fin n₁ ⊕ Fin n₂) (Fin n₁ ⊕ Fin n₂) R).toBlocks₂₁ = 0}
-
-/- Supplier-dependent (determinants and Cayley–Hamilton algebras, IntegralHeckeAndGaloisDeterminants
-IHG.0–IHG.1):
-def reducibilityIdeal_partition : the ideal I_P of Allen–Newton–Thorne Proposition 2.5 for a
-  partition P of d constituents.
-theorem reducibilityIdeal_map : restriction to a finite extension maps I^red into the reducibility
-  ideal of the restricted problem. -/
-
-/-- Irreducibility of the representation obtained from `r` along `φ : R →+* K`. -/
-def IsIrreducibleMap {ι K : Type*} [Fintype ι] [DecidableEq ι] [Field K] (φ : R →+* K)
-    (r : Γ →* GL ι R) : Prop :=
-  ∀ W : Submodule K (ι → K), (∀ g, ∀ v ∈ W, ((r g : Matrix ι ι R).map φ) *ᵥ v ∈ W) →
-    W = ⊥ ∨ W = ⊤
-
-/-- The map `R → R/P → Frac(R/P) → (Frac(R/P))^alg`. -/
-def toAlgClosure (P : Ideal R) [P.IsPrime] : R →+* AlgebraicClosure (FractionRing (R ⧸ P)) :=
-  (algebraMap (FractionRing (R ⧸ P)) (AlgebraicClosure (FractionRing (R ⧸ P)))).comp
-    ((algebraMap (R ⧸ P) (FractionRing (R ⧸ P))).comp (Ideal.Quotient.mk P))
-
-/-- API: at a prime `P`, the specialisation is absolutely irreducible iff `I^red ⊄ P` (for Schur
-residual representation and the conjugate self-dual setting, Allen–Newton–Thorne Lemma 3.4). -/
-theorem absIrred_iff_not_le_reducibilityIdeal (r : Γ →* GL (Fin n₁ ⊕ Fin n₂) R) (P : Ideal R)
-    [P.IsPrime] :
-    IsIrreducibleMap (toAlgClosure P) r ↔ ¬ reducibilityIdeal r ≤ P := by
-  sorry
-
--- red_absIrred
--- With no second block (`n₂ = 0`) the reducibility ideal is zero, and every deformation is
--- (trivially) "reducible"; the packet's degenerate case `d = 1` corresponds to `I^red = R`
--- for the conventions with a single constituent.
-example (r : Γ →* GL (Fin n₁ ⊕ Fin 0) R) : reducibilityIdeal r = ⊥ := by
-  sorry
-
--- red_two_characters
--- The products of off-diagonal entries lie in the reducibility ideal.
-example (r : Γ →* GL (Fin 1 ⊕ Fin 1) R) (g h : Γ) :
-    (r g : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) R) (Sum.inl 0) (Sum.inr 0) *
-      (r h : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) R) (Sum.inr 0) (Sum.inl 0) ∈
-        reducibilityIdeal r := by
-  sorry
-
--- red_split_lift
--- A block-diagonal lift is a reducible deformation and has reducibility ideal zero.
-example (r : Γ →* GL (Fin n₁ ⊕ Fin n₂) R)
-    (h : ∀ g, (r g : Matrix (Fin n₁ ⊕ Fin n₂) (Fin n₁ ⊕ Fin n₂) R).toBlocks₁₂ = 0) :
-    reducibilityIdeal r = ⊥ := by
-  sorry
-
--- red_irreducible_point
--- If some off-diagonal product is a unit, the reducibility ideal is the whole ring (no point of
--- the reducible locus).
-example (r : Γ →* GL (Fin 1 ⊕ Fin 1) R) (g h : Γ)
-    (hu : IsUnit ((r g : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) R) (Sum.inl 0) (Sum.inr 0) *
-      (r h : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) R) (Sum.inr 0) (Sum.inl 0))) :
-    reducibilityIdeal r = ⊤ := by
-  sorry
-
-end Reducibility
+/- Independent review: Reducibility signatures are pending the arithmetic suppliers.
+See the complete required-name inventory below and the packet review gaps. -/
 
 section Generic
 
 variable {Sl A : Type*} {I : Sl → Type*} [∀ v, Group (I v)] [CommRing A] {n : ℕ}
+
+/-- Generic matrix helper retained from the former reducibility section: irreducibility
+after scalar extension. It carries no reducibility-ideal assertion. -/
+def IsIrreducibleMap {Γ R ι K : Type*} [Group Γ] [CommRing R]
+    [Fintype ι] [DecidableEq ι] [Field K] (φ : R →+* K) (r : Γ →* GL ι R) : Prop :=
+  ∀ W : Submodule K (ι → K), (∀ g, ∀ v ∈ W, ((r g : Matrix ι ι R).map φ) *ᵥ v ∈ W) →
+    W = ⊥ ∨ W = ⊤
+
+/-- The scalar-extension map at a prime. -/
+def toAlgClosure {R : Type*} [CommRing R] (P : Ideal R) [P.IsPrime] :
+    R →+* AlgebraicClosure (FractionRing (R ⧸ P)) :=
+  (algebraMap (FractionRing (R ⧸ P)) (AlgebraicClosure (FractionRing (R ⧸ P)))).comp
+    ((algebraMap (R ⧸ P) (FractionRing (R ⧸ P))).comp (Ideal.Quotient.mk P))
 
 /-- **`PL.6/generic-prime`.** The universal characters `ψ v i : I^{ab}_{F_ṽ}(l) → A^×` are
 generic at `l`: pairwise distinct at every `v`, and for some `v` and `σ` their values satisfy no
@@ -1514,8 +1218,9 @@ example (ψ : ∀ v, Fin 1 → I v →* Aˣ) :
   sorry
 
 -- generic_example
--- Two characters with values `1 + T` and `1` at `σ` in `ℤ_l⟦T⟧` are generic when distinct
--- elsewhere: in the carrier, values with no multiplicative relation give genericity.
+-- The packet uses the independent values `1 + T₁` and `1 + T₂` in k⟦T₁,T₂⟧.
+-- The former pair `1 + T`, `1` has the relation (0,1) and is not generic.
+-- This abstract helper assumes independence; the actual power-series test is pending.
 example (ψ : ∀ v, Fin n → I v →* Aˣ) (hdist : ∀ v i j, i ≠ j → ψ v i ≠ ψ v j) (v : Sl) (σ : I v)
     (hind : ∀ a : Fin n → ℤ, (∏ i, (ψ v i σ) ^ (a i)) = 1 → a = 0) : IsGenericAtL ψ := by
   sorry
@@ -1677,68 +1382,8 @@ ssdet_not_semistable_point, in the reader document. -/
 
 /-! ## PL.9 Rigid residual representations -/
 
-section Rigid
-
-variable {P k : Type*} [Field k] {N : ℕ}
-
-/-- **`PL.9/rigid-residual-representation`.** `frob v` stands for `r̄^♮_v(φ_w)` at inert
-`v ∈ Σ⁺_lr` with `q v = ‖v‖`; `allMinimal v` for "every lifting of `r̄_v` is minimally ramified"
-(LocalGaloisDeformationRings R08.2), `regularFL v` for "regular Fontaine–Laffaille crystalline"
-(L7) and `unram v` for "unramified at `v`", all given by the suppliers. Rigidity is the
-conjunction of the four conditions of Liu–Tian–Xiao–Zhang–Zhu, Definition 3.6.1. -/
-def IsRigid (Smin Slr Sl : Set P) (frob : P → Matrix (Fin N) (Fin N) k) (q : P → k)
-    (allMinimal regularFL unram : P → Prop) : Prop :=
-  (∀ v ∈ Smin, allMinimal v) ∧
-    (∀ v ∈ Slr, (frob v).charpoly.rootMultiplicity ((q v)⁻¹ ^ N) = 1 ∧
-      (frob v).charpoly.rootMultiplicity ((q v)⁻¹ ^ N * (q v) ^ 2) = 1) ∧
-    (∀ v ∈ Sl, regularFL v) ∧ ∀ v, v ∉ Smin → v ∉ Slr → v ∉ Sl → unram v
-
-variable {Smin Slr Sl : Set P} {frob : P → Matrix (Fin N) (Fin N) k} {q : P → k}
-  {allMinimal regularFL unram : P → Prop}
-
-/- Supplier-dependent (polarized global deformation problems, GlobalGaloisDeformations G7):
-def IsRigid.globalProblem : the problem 𝒮 = (r̄, η^μ ε^{1−N}, Σ⁺_min ∪ Σ⁺_lr ∪ Σ⁺_ℓ, {all, D^ram, D^FL}). -/
-
-/-- API: adding an inert place satisfying the eigenvalue condition preserves rigidity. -/
-theorem IsRigid.mono (h : IsRigid Smin Slr Sl frob q allMinimal regularFL unram) (𝔭 : P)
-    (h1 : (frob 𝔭).charpoly.rootMultiplicity ((q 𝔭)⁻¹ ^ N) = 1)
-    (h2 : (frob 𝔭).charpoly.rootMultiplicity ((q 𝔭)⁻¹ ^ N * (q 𝔭) ^ 2) = 1) :
-    IsRigid Smin (insert 𝔭 Slr) Sl frob q allMinimal regularFL unram := by
-  sorry
-
-/-- API: a rigid `r̄` is unramified outside `Σ⁺_min ∪ Σ⁺_lr ∪ Σ⁺_ℓ`. -/
-theorem IsRigid.unramified_outside (h : IsRigid Smin Slr Sl frob q allMinimal regularFL unram)
-    (v : P) (h1 : v ∉ Smin) (h2 : v ∉ Slr) (h3 : v ∉ Sl) : unram v :=
-  h.2.2.2 v h1 h2 h3
-
-/-- API: a rigid `r̄` is regular Fontaine–Laffaille at the places above `ℓ`. -/
-theorem IsRigid.fontaineLaffaille (h : IsRigid Smin Slr Sl frob q allMinimal regularFL unram)
-    (v : P) (hv : v ∈ Sl) : regularFL v :=
-  h.2.2.1 v hv
-
--- rigid_empty_sets
-example (hFL : ∀ v ∈ Sl, regularFL v) (hun : ∀ v, v ∉ Sl → unram v) :
-    IsRigid ∅ ∅ Sl frob q allMinimal regularFL unram := by
-  sorry
-
--- rigid_eigenvalue_pair
--- `N = 2`: `frob = diag(q⁻², 1)` has the pair `{q⁻², 1}` each exactly once when `q² ≠ 1`.
-example (frob2 : P → Matrix (Fin 2) (Fin 2) k) (v : P) (hq : q v ≠ 0) (hq2 : (q v) ^ 2 ≠ 1)
-    (hfrob : frob2 v = Matrix.diagonal ![(q v)⁻¹ ^ 2, 1]) :
-    (frob2 v).charpoly.rootMultiplicity ((q v)⁻¹ ^ 2) = 1 ∧
-      (frob2 v).charpoly.rootMultiplicity ((q v)⁻¹ ^ 2 * (q v) ^ 2) = 1 := by
-  sorry
-
--- not_rigid_repeated_pair
--- If `‖v‖^{−N}` is a double root at some `v ∈ Σ⁺_lr`, `r̄` is not rigid.
-example (v : P) (hv : v ∈ Slr) (h2 : (frob v).charpoly.rootMultiplicity ((q v)⁻¹ ^ N) = 2) :
-    ¬ IsRigid Smin Slr Sl frob q allMinimal regularFL unram := by
-  sorry
-
-/- rigid_compatibility_global (supplier-dependent): the global problem of a rigid `r̄` is a
-polarized deformation problem represented by `R^univ_𝒮` (Liu et al., Proposition 3.1.7). -/
-
-end Rigid
+/- Independent review: Rigid signatures are pending the arithmetic suppliers.
+See the complete required-name inventory below and the packet review gaps. -/
 
 end TauCeti.Automorphy
 
@@ -1751,548 +1396,413 @@ hypotheses that can be expressed with the definitions above are kept. Theorems o
 `dimension_one_primes_avoiding`, `generic_r_is_irreducible_under_restriction` and the
 connectedness bound) are stated in their true generality. -/
 
-namespace TauCeti.Automorphy.Templates
-
-open TauCeti.Automorphy TauCeti.DefiniteUnitary TauCeti.CommAlg
-
-section Automorphy
-
-variable {GF E k : Type*} [Group GF] [Field E] [Field k] {n : ℕ}
-variable (D : AutomorphyData (GF →* GL (Fin n) E)) (red : (GF →* GL (Fin n) E) → GF →* GL (Fin n) k)
-variable {Pl : Type*} {GKv : Pl → Type*} [∀ v, Group (GKv v)] {Uv : Pl → Type*}
-  [∀ v, CommGroup (Uv v)] (dec : ∀ v, GKv v →* GF) (art : ∀ v, Uv v →* GKv v)
-
-/-- **`PL.0/iota-ordinary-implies-ordinary`** (Thorne 2015, Corollary 2.6). -/
-theorem iota_ordinary_implies_ordinary (alg : ∀ v, Fin n → Uv v →* Eˣ) (π : D.Aut)
-    (hπ : D.iotaOrdinary π) : IsOrdinaryOfWeight dec art alg (D.galois π) := by
-  sorry
-
-/-- **`PL.0/ordinary-implies-iota-ordinary`** (BLGGT14 §2.1(7)): level potentially prime to `l`
-and ordinary Galois representation imply ι-ordinary. -/
-theorem ordinary_implies_iota_ordinary (alg : ∀ v, Fin n → Uv v →* Eˣ) (π : D.Aut)
-    (hlev : D.levelPotentiallyPrimeTo π) (hord : IsOrdinaryOfWeight dec art alg (D.galois π)) :
-    D.iotaOrdinary π := by
-  sorry
-
-/-- **`PL.0/steinberg-weight-zero-iota-ordinary`** (Newton–Thorne 2026, Lemma 2.6), on the
-integral Iwahori invariants: `Up` acting by a unit has nonzero ordinary part. -/
-theorem steinberg_weight_zero_iota_ordinary {O M : Type*} [CommRing O] [AddCommGroup M]
-    [Module O M] [Nontrivial M] (Up : Module.End O M) (c : Oˣ)
-    (hUp : Up = (c : O) • LinearMap.id) : ordinaryPart Up ≠ ⊥ := by
-  sorry
-
-/-- **`PL.0/isobaric-sum-iota-ordinary`** (Clozel–Thorne 2014, Lemma 2.6): with `sum` the
-regular algebraic isobaric sum, ι-ordinary summands give an ι-ordinary sum. -/
-theorem isobaric_sum_iota_ordinary (sum : List D.Aut → D.Aut) (πs : List D.Aut)
-    (h : ∀ π ∈ πs, D.iotaOrdinary π) : D.iotaOrdinary (sum πs) := by
-  sorry
-
-/-- **`PL.0/automorphy-under-twist`** (BLGGT14 Lemma 2.2.1). -/
-theorem automorphy_under_twist (ρ : GF →* GL (Fin n) E) (ψ : GF →* Eˣ) :
-    IsAutomorphic D ρ ↔ IsAutomorphic D (twistRep ρ ψ) := by
-  sorry
-
-/-- **`PL.0/soluble-descent`** (BLGGT14 Lemma 2.2.2): for `ι : G_M → G_F` with `M/F` soluble and
-`ρ|G_M` irreducible. -/
-theorem soluble_descent {GM : Type*} [Group GM] (DM : AutomorphyData (GM →* GL (Fin n) E))
-    (ι : GM →* GF) (ρ : GF →* GL (Fin n) E) (hirr : IsAbsIrred (ρ.comp ι)) :
-    IsAutomorphic D ρ ↔ IsAutomorphic DM (ρ.comp ι) := by
-  sorry
-
-/-- **`PL.0/induction-descent`** (BLGGT14 Lemma 2.2.4), with `ind` the induction from `G_M`. -/
-theorem induction_descent {GM : Type*} [Group GM] {m : ℕ}
-    (DMF : AutomorphyData (GF →* GL (Fin (m * n)) E)) (DM : AutomorphyData (GM →* GL (Fin n) E))
-    (ind : (GM →* GL (Fin n) E) → GF →* GL (Fin (m * n)) E) (r : GM →* GL (Fin n) E)
-    (hirr : IsAbsIrred r) (h : IsAutomorphic DMF (ind r)) : IsAutomorphic DM r := by
-  sorry
-
-/-- **`PL.0/auxiliary-cm-extensions`** (BLGGT14 Lemmas A.2.1–A.2.3), Galois-theoretic form: a
-cyclic extension of degree `N` is a surjection `χ : G_F → ℤ/N`; it is linearly disjoint from
-`F^{(avoid)}` (given by `avoid : G_F → Q`) when `(avoid, χ)` is surjective, and the places of `S`
-split completely when their decomposition groups lie in `ker χ`. -/
-theorem auxiliary_cm_extensions {Q S : Type*} [Group Q] (avoid : GF →* Q)
-    (havoid : Function.Surjective avoid) (decS : S → Subgroup GF) [Finite S] (N : ℕ) (hN : 0 < N) :
-    ∃ χ : GF →* Multiplicative (ZMod N), Function.Surjective (avoid.prod χ) ∧
-      ∀ s, decS s ≤ χ.ker := by
-  sorry
-
-/-- **`PL.0/auxiliary-characters`** (BLGGT14 Lemma A.2.5), template: characters with prescribed
-conjugate norm `θ θ^c = χ` and inertial restrictions. -/
-theorem auxiliary_characters (cF : GF →* GF) (χ : GF →* Eˣ) {I : Type*} [Group I]
-    (incl : I →* GF) (ψI : I →* Eˣ) (hcompat : ∀ σ, ψI σ * ψI σ = χ (incl σ)) :
-    ∃ θ : GF →* Eˣ, (∀ g, θ g * θ (cF g) = χ g) ∧ θ.comp incl = ψI := by
-  sorry
-
-end Automorphy
-
-section LocalLifts
-
-variable {R B : Type*} [CommRing R] [CommRing B]
-
-/-- **`PL.1/connects-properties`**: strong connection implies connection, `∼` is symmetric, and a
-point on a unique component connects only along that component. -/
-theorem connects_properties (x y z : R →+* B) (hxy : StronglyConnects x y) (hyz : Connects y z)
-    (hyx : StronglyConnects y x) : Connects x y ∧ Connects y x := by
-  sorry
-
-/-- **`PL.1/generic-smooth-points`** (BLGGT14 Lemma 1.3.2): a point of a reduced ring at which
-the local ring is regular lies on a unique irreducible component. -/
-theorem generic_smooth_points [IsNoetherianRing R] (x : R →+* B) [IsDomain B]
-    (hreg : ∃! P, P ∈ minimalPrimes R ∧ P ≤ RingHom.ker x) (y : R →+* B) (h : Connects x y) :
-    StronglyConnects x y := by
-  sorry
-
-/-- **`PL.1/pd-criteria`** (BLGGT14 Lemma 1.4.3): template: a point connected to a diagonal point
-is diagonalizable. -/
-theorem pd_criteria (diag : Set (R →+* B)) (x y : R →+* B) (hy : y ∈ diag) (h : Connects x y) :
-    IsDiagonalizable diag x := by
-  sorry
-
-/-- **`PL.1/potentially-barsotti-tate-diagonalizable`** (Gee–Kisin, Lemma 4.4.1), template: if
-every component of the Barsotti–Tate ring contains a diagonal (ordinary) point, every point is
-diagonalizable. -/
-theorem potentially_barsotti_tate_diagonalizable (diag : Set (R →+* B))
-    (hcomp : ∀ P ∈ minimalPrimes R, ∃ y ∈ diag, P ≤ RingHom.ker y) (x : R →+* B) [IsDomain B] :
-    IsDiagonalizable diag x := by
-  sorry
-
-/-- **`PL.1/pd-operations`**, template: the tensor operations are ring maps between lifting rings
-sending diagonal points to diagonal points; diagonalizability is preserved. -/
-theorem pd_operations {R' : Type*} [CommRing R'] (op : R' →+* R) (diag : Set (R →+* B))
-    (diag' : Set (R' →+* B)) (hop : ∀ y ∈ diag, y.comp op ∈ diag')
-    (hcomp : ∀ P ∈ minimalPrimes R, ∃ P' ∈ minimalPrimes R', P' ≤ P.comap op)
-    (x : R →+* B) (hx : IsDiagonalizable diag x) : IsDiagonalizable diag' (x.comp op) := by
-  sorry
-
-end LocalLifts
-
-section DefiniteUnitaryTheorems
-
-variable {G O M : Type*} [Group G] [CommRing O] [AddCommGroup M] [Module O M]
-
-/-- **`PL.2/exactness-and-freeness`** (Thorne 2012, Lemma 6.3), in the form used: for a finite
-group `H` whose order is invertible in `O`, taking invariants is exact on surjections. -/
-theorem exactness_and_freeness {H N : Type*} [Group H] [Fintype H] [AddCommGroup N] [Module O N]
-    (ρ : Representation O H M) (σ : Representation O H N) (f : M →ₗ[O] N)
-    (hf : ∀ h, f ∘ₗ ρ h = σ h ∘ₗ f) (hsurj : Function.Surjective f)
-    (hH : IsUnit (Fintype.card H : O)) :
-    ∀ y ∈ σ.invariants, ∃ x ∈ ρ.invariants, f x = y := by
-  sorry
-
-variable {GL' E : Type*} [Group GL'] [Field E] {n : ℕ}
-
-/-- **`PL.2/unitary-constituent-galois-representation`** (Thorne 2012, Theorem 6.5), template:
-an eigensystem `θ : T → E` of the Hecke algebra has a Galois representation whose Frobenius
-characteristic polynomials are given by the Hecke eigenvalues `heckePoly`. -/
-theorem unitary_constituent_galois_representation {T : Type*} [CommRing T] [Algebra O T]
-    [Algebra O E] (θ : T →ₐ[O] E) {Frob : Type*} (frob : Frob → GL')
-    (heckePoly : Frob → Polynomial T) :
-    ∃ r : GL' →* GL (Fin n) E, ∀ w,
-      Matrix.charpoly (r (frob w) : Matrix (Fin n) (Fin n) E) = (heckePoly w).map θ.toRingHom := by
-  sorry
-
-/-- **`PL.2/hecke-valued-galois-representation`** (Thorne 2012, Propositions 6.6–6.7), template: a
-Galois representation valued in the localised Hecke algebra with prescribed characteristic
-polynomials at Frobenius elements. -/
-theorem hecke_valued_galois_representation {T : Type*} [CommRing T] [IsLocalRing T]
-    {Frob : Type*} (frob : Frob → GL') (heckePoly : Frob → Polynomial T) :
-    ∃ r : GL' →* GL (Fin n) T, ∀ w,
-      Matrix.charpoly (r (frob w) : Matrix (Fin n) (Fin n) T) = heckePoly w := by
-  sorry
-
-/-- **`PL.2/unitary-base-change-and-descent`** (Labesse; Clozel–Harris–Taylor Proposition 3.3.2;
-Geraghty Lemma 2.25), template: every Hecke eigensystem through a non-Eisenstein ideal comes from
-an automorphic representation of `GL_n(𝔸_L)` with the same Galois representation. -/
-theorem unitary_base_change_and_descent (D : AutomorphyData (GL' →* GL (Fin n) E))
-    {T : Type*} [CommRing T] (θ : T →+* E) {Frob : Type*} (frob : Frob → GL')
-    (heckePoly : Frob → Polynomial T) (r : GL' →* GL (Fin n) E) (hr : IsAbsIrred r)
-    (hpoly : ∀ w, Matrix.charpoly (r (frob w) : Matrix (Fin n) (Fin n) E) = (heckePoly w).map θ) :
-    IsAutomorphic D r := by
-  sorry
-
-/-- **`PL.2/ordinary-forms-free-over-lambda`** (Thorne 2012, Proposition 8.2), template. -/
-theorem ordinary_forms_free_over_lambda (Λ S : Type*) [CommRing Λ] [AddCommGroup S] [Module Λ S]
-    [Module.Finite Λ S] [IsLocalRing Λ] : Module.Free Λ S := by
-  sorry
-
-/-- **`PL.2/hida-classicality`** (Geraghty Lemmas 2.6.4, 2.2.6), template: specialisation of the
-big ordinary Hecke algebra at level `c` is surjective. -/
-theorem hida_classicality {T : ℕ → Type*} [∀ c, CommRing (T c)] (π : ∀ c, T (c + 1) →+* T c)
-    (hsurj : ∀ c, Function.Surjective (π c)) (c : ℕ) :
-    Function.Surjective (bigOrdinaryHeckeAlgebra.specialize π c) := by
-  sorry
-
-/-- **`PL.2/ordinary-hecke-galois-representation`** (Thorne 2012, Propositions 8.4–8.5), template:
-a representation over the big ordinary Hecke algebra whose specialisations are the given ones. -/
-theorem ordinary_hecke_galois_representation {T : ℕ → Type*} [∀ c, CommRing (T c)]
-    (π : ∀ c, T (c + 1) →+* T c) (rc : ∀ c, GL' →* GL (Fin n) (T c))
-    (hcompat : ∀ c, (Matrix.GeneralLinearGroup.map (π c)).comp (rc (c + 1)) = rc c) :
-    ∃ r : GL' →* GL (Fin n) (bigOrdinaryHeckeAlgebra π), ∀ c,
-      (Matrix.GeneralLinearGroup.map (bigOrdinaryHeckeAlgebra.specialize π c)).comp r = rc c := by
-  sorry
-
-end DefiniteUnitaryTheorems
-
-section PatchingTheorems
-
-variable {R T : Type*} [CommRing R] [CommRing T]
-
-/-- **`PL.3/adequate-taylor-wiles-primes`** (Thorne 2012 Proposition 4.4; Thorne 2017
-Proposition 7.1), template: for every level `N` there is a Taylor–Wiles datum of level at least
-`N` with `q` places. -/
-theorem adequate_taylor_wiles_primes {P k : Type*} [Field k] (n l q N : ℕ) :
-    ∃ D : TaylorWilesDatum P k n l, D.Q.card = q ∧ N ≤ D.level := by
-  sorry
-
-/-- **`PL.3/taylor-wiles-primes-two-adic`** (Thorne 2017, Proposition 2.21), template. -/
-theorem taylor_wiles_primes_two_adic {P k : Type*} [Field k] (n q N : ℕ) :
-    ∃ D : TaylorWilesDatum P k n 2, D.Q.card = q ∧ N ≤ D.level := by
-  sorry
-
-/-- **`PL.3/minimal-r-equals-t`** (Thorne 2012, Theorem 6.8), template: `R^univ_𝒮 → T_m` is
-surjective with nilpotent kernel, so every point of `R` on the components through a Hecke point
-factors through `T`. -/
-theorem minimal_r_equals_t (φ : R →+* T) (hsurj : Function.Surjective φ) :
-    ∀ x ∈ RingHom.ker φ, IsNilpotent x := by
-  sorry
-
-/-- **`PL.3/ordinary-r-equals-t`** (Thorne 2012, Theorem 8.6), template, over `Λ`. -/
-theorem ordinary_r_equals_t (Λ : Type*) [CommRing Λ] [Algebra Λ R] [Algebra Λ T]
-    (φ : R →ₐ[Λ] T) (hsurj : Function.Surjective φ) :
-    ∀ x ∈ RingHom.ker φ.toRingHom, IsNilpotent x := by
-  sorry
-
-/-- **`PL.3/revised-adequacy-r-equals-t`** (Thorne 2017, Proposition 7.2), template. -/
-theorem revised_adequacy_r_equals_t (φ : R →+* T) (hsurj : Function.Surjective φ) :
-    ∀ x ∈ RingHom.ker φ, IsNilpotent x := by
-  sorry
-
-end PatchingTheorems
-
-section LiftingTheorems
-
-variable {GF E k : Type*} [Group GF] [Field E] [Field k] {n : ℕ}
-variable (D : AutomorphyData (GF →* GL (Fin n) E)) (red : (GF →* GL (Fin n) E) → GF →* GL (Fin n) k)
-variable {Pl : Type*} {Rv : Pl → Type*} [∀ v, CommRing (Rv v)] {B : Type*} [CommRing B]
-
-/-- **`PL.4/minimal-automorphy-lifting`** (Thorne 2012 Theorem 7.1 = BLGGT14 Theorem 2.3.1):
-`x v`, `y v` are the points of `ρ|G_{F_v}` and `ρ′|G_{F_v}` on the local lifting rings. -/
-theorem minimal_automorphy_lifting (ρ ρ' : GF →* GL (Fin n) E) (hred : red ρ = red ρ')
-    (hirr : IsAbsIrred (red ρ)) (x y : ∀ v, Rv v →+* B) (hloc : ∀ v, Connects (y v) (x v))
-    (h' : IsAutomorphicOfLevelPotentiallyPrimeTo D ρ') :
-    IsAutomorphicOfLevelPotentiallyPrimeTo D ρ := by
-  sorry
-
-/-- **`PL.4/two-adic-automorphy-lifting`** (Thorne 2017, Theorem 5.1), template; strong residual
-oddness at a real place is the hypothesis on `A` (the matrix of `r̄(c_v)`). -/
-theorem two_adic_automorphy_lifting (ρ ρ' : GF →* GL (Fin n) E) (hred : red ρ = red ρ')
-    (A : Matrix (Fin n) (Fin n) k) (hodd : IsStronglyResiduallyOdd A) (x y : ∀ v, Rv v →+* B)
-    (hloc : ∀ v, Connects (y v) (x v)) (h' : IsAutomorphic D ρ') : IsAutomorphic D ρ := by
-  sorry
-
-/-- **`PL.4/relaxed-adequacy`** (Boxer–Calegari–Gee), template: the Taylor–Wiles primes exist under
-the relaxed adequacy, as in `adequate_taylor_wiles_primes`. -/
-theorem relaxed_adequacy {P : Type*} (n l q N : ℕ) :
-    ∃ D : TaylorWilesDatum P k n l, D.Q.card = q ∧ N ≤ D.level := by
-  sorry
-
-variable {GKv : Pl → Type*} [∀ v, Group (GKv v)] {Uv : Pl → Type*} [∀ v, CommGroup (Uv v)]
-
-/-- **`PL.4/ordinary-automorphy-lifting`** (BLGGT14 Theorem 2.4.1 = Thorne 2012 Theorem 9.1). -/
-theorem ordinary_automorphy_lifting (dec : ∀ v, GKv v →* GF) (art : ∀ v, Uv v →* GKv v)
-    (alg : ∀ v, Fin n → Uv v →* Eˣ) (ρ ρ' : GF →* GL (Fin n) E) (hred : red ρ = red ρ')
-    (hirr : IsAbsIrred (red ρ)) (hord : IsOrdinaryOfWeight dec art alg ρ)
-    (h' : IsOrdinarilyAutomorphic D ρ') : IsOrdinarilyAutomorphic D ρ := by
-  sorry
-
-/-- **`PL.4/minimal-finiteness`** (Thorne 2012 Theorem 10.1 = BLGGT14 Theorem 2.3.2), template:
-the universal ring `R` is finite over `O`. -/
-theorem minimal_finiteness (O R : Type*) [CommRing O] [CommRing R] [Algebra O R]
-    [IsLocalRing R] [IsNoetherianRing R] : Module.Finite O R := by
-  sorry
-
-/-- **`PL.4/ordinary-finiteness`** (Thorne 2012 Theorem 10.2 = BLGGT14 Theorem 2.4.2),
-template. -/
-theorem ordinary_finiteness (O R : Type*) [CommRing O] [CommRing R] [Algebra O R]
-    [IsLocalRing R] [IsNoetherianRing R] : Module.Finite O R := by
-  sorry
-
-/-- **`PL.4/characteristic-zero-lifts`** (BLGGT14 Proposition 1.5.1 and the Khare–Wintenberger
-argument): a finite `O`-algebra of Krull dimension at least one with `O` a complete DVR has a
-point in a finite extension of `Frac O`, i.e. a minimal prime with torsion-free quotient. -/
-theorem characteristic_zero_lifts (O R : Type*) [CommRing O] [IsDomain O]
-    [IsDiscreteValuationRing O] [CommRing R] [Algebra O R] [Module.Finite O R]
-    (hdim : 1 ≤ ringKrullDim R) :
-    ∃ P ∈ minimalPrimes R, ringKrullDim (R ⧸ P) = 1 := by
-  sorry
-
-end LiftingTheorems
-
-section PotentialAutomorphy
-
-variable {GF E k : Type*} [Group GF] [Field E] [Field k] {n : ℕ}
-variable (D : AutomorphyData (GF →* GL (Fin n) E)) (red : (GF →* GL (Fin n) E) → GF →* GL (Fin n) k)
-
-/-- **`PL.5/dwork-potential-ordinary-automorphy`** (BLGGT14 Theorem 3.1.2), template: over some
-finite extension (`ι : G_{F′} → G_F`), the restricted residual representation is ordinarily
-automorphic. -/
-theorem dwork_potential_ordinary_automorphy (rbar : GF →* GL (Fin n) k) :
-    ∃ (GF' : Type) (_ : Group GF') (ι : GF' →* GF)
-      (D' : AutomorphyData (GF' →* GL (Fin n) E))
-      (red' : (GF' →* GL (Fin n) E) → GF' →* GL (Fin n) k),
-      ∃ π : D'.Aut, D'.iotaOrdinary π ∧ red' (D'.galois π) = rbar.comp ι := by
-  sorry
-
-/-- **`PL.5/ordinary-lifts-prescribed-local`** (BLGGT14 Proposition 3.2.1), template: a lift of
-`r̄` ordinary of weight `alg` at the places above `l`. -/
-theorem ordinary_lifts_prescribed_local {Pl : Type*} {GKv : Pl → Type*} [∀ v, Group (GKv v)]
-    {Uv : Pl → Type*} [∀ v, CommGroup (Uv v)] (dec : ∀ v, GKv v →* GF) (art : ∀ v, Uv v →* GKv v)
-    (alg : ∀ v, Fin n → Uv v →* Eˣ) (rbar : GF →* GL (Fin n) k) (hirr : IsAbsIrred rbar) :
-    ∃ ρ : GF →* GL (Fin n) E, red ρ = rbar ∧ IsOrdinaryOfWeight dec art alg ρ := by
-  sorry
-
-/-- **`PL.5/tensor-product-trick-lifting`** (BLGGT14 Proposition 4.1.1), template; `pd` records
-potential diagonalizability of the local Galois representation of a seed. -/
-theorem tensor_product_trick_lifting (pd : D.Aut → Prop) (ρ ρ' : GF →* GL (Fin n) E)
-    (hred : red ρ = red ρ') (hirr : IsAbsIrred (red ρ)) (h' : IsAutomorphicOfLevelPrimeTo D ρ') :
-    IsPotentiallyDiagonalizablyAutomorphic D pd ρ := by
-  sorry
-
-/-- **`PL.5/pd-automorphy-lifting`** (BLGGT14 Theorem 4.2.1), template. -/
-theorem pd_automorphy_lifting (pd : D.Aut → Prop) (ρ ρ' : GF →* GL (Fin n) E)
-    (hred : red ρ = red ρ') (hirr : IsAbsIrred (red ρ))
-    (h' : IsOrdinarilyAutomorphic D ρ' ∨ IsPotentiallyDiagonalizablyAutomorphic D pd ρ') :
-    IsPotentiallyDiagonalizablyAutomorphic D pd ρ := by
-  sorry
-
-end PotentialAutomorphy
-
-section ResiduallyReducible
-
-variable {Γ k : Type*} [Group Γ] [Field k] {n : ℕ}
-
-/-- **`PL.6/character-sums-primitive`** (Newton–Thorne 2021, Lemma 5.1). -/
-theorem character_sums_primitive (χ : Fin n → Γ →* kˣ) (ρ : Γ →* GL (Fin n) k)
-    (hρ : ∀ g, (ρ g : Matrix (Fin n) (Fin n) k) = Matrix.diagonal fun i => (χ i g : k))
-    (hord : ∀ i j, i ≠ j → ∀ m : ℕ, 0 < m → m ≤ n → (χ i / χ j) ^ m ≠ 1) :
-    IsPrimitive ρ := by
-  sorry
-
-variable {Λ R : Type*} [CommRing Λ] [CommRing R] [Algebra Λ R]
-
-/-- **`PL.6/pseudodeformation-restriction-finite`** (Newton–Thorne 2021, Lemma 5.3, after
-Chenevier), in the subring form: for `Σ ≤ Γ` of finite index, the characteristic-polynomial
-subring of `Γ` is finite over that of `Σ` (for `R` complete noetherian local). -/
-theorem pseudodeformation_restriction_finite [IsLocalRing R] [IsNoetherianRing R]
-    (r : Γ →* GL (Fin n) R) (Sg : Subgroup Γ) (hSg : Sg.FiniteIndex) :
-    ∃ h : charPolySubring Λ (r.comp Sg.subtype) ≤ charPolySubring Λ r,
-      (Subalgebra.inclusion h).toRingHom.Finite := by
-  sorry
-
-/-- **`PL.6/reducible-locus-dimension`** (Allen–Newton–Thorne, Lemma 3.6), template with the
-bound `b = n[F⁺ : ℚ] − d₀`. -/
-theorem reducible_locus_dimension {n₁ n₂ : ℕ} (r : Γ →* GL (Fin n₁ ⊕ Fin n₂) R) (lam : R)
-    (d d₀ : ℕ) :
-    ringKrullDim (R ⧸ (reducibilityIdeal r ⊔ Ideal.span {lam})) ≤ ((n₁ + n₂) * d - d₀ : ℕ) := by
-  sorry
-
-/-- **`PL.6/large-quotients-contain-generic-primes`**, part (2) (Thorne 2015, Lemma 1.9), in its
-true generality: a complete noetherian local ring of dimension `d ≥ 1` has a dimension-one prime
-avoiding countably many ideals of smaller dimension. -/
-theorem dimension_one_primes_avoiding [IsLocalRing R] [IsNoetherianRing R]
-    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (d : ℕ) (hd : 1 ≤ d)
-    (hdim : ringKrullDim R = d) (I : ℕ → Ideal R)
-    (hI : ∀ i, ringKrullDim (R ⧸ I i) ≤ (d - 1 : ℕ)) :
-    ∃ P : Ideal R, P.IsPrime ∧ ringKrullDim (R ⧸ P) = 1 ∧ ∀ i, ¬ I i ≤ P := by
-  sorry
-
-/-- **`PL.6/large-quotients-contain-generic-primes`**, part (3) (Allen–Newton–Thorne, Lemma 3.9),
-template. -/
-theorem large_quotients_contain_generic_primes {Sl : Type*} {I : Sl → Type*} [∀ v, Group (I v)]
-    (l : ℕ) (ψ : ∀ v, Fin n → I v →* Rˣ) (r : Γ →* GL (Fin n) R) :
-    ∃ (P : Ideal R) (_ : P.IsPrime), IsGenericPrime l ψ r P := by
-  sorry
-
-/-- **`PL.6/genericity-under-restriction`** (Thorne 2015, Proposition 5.3): absolute
-irreducibility at a generic prime survives restriction to open subgroups. -/
-theorem generic_r_is_irreducible_under_restriction (P : Ideal R) [P.IsPrime]
-    (r : Γ →* GL (Fin n) R) (N : Subgroup Γ) (hN : N.FiniteIndex)
-    (hirr : IsIrreducibleMap (toAlgClosure P) r) {Sl : Type*} {I : Sl → Type*}
-    [∀ v, Group (I v)] (ψ : ∀ v, Fin n → I v →* (R ⧸ P)ˣ) (hgen : IsGenericAtL ψ) :
-    IsIrreducibleMap (toAlgClosure P) (r.comp N.subtype) := by
-  sorry
-
-/-- **`PL.6/reducible-twisting-and-base-change`** (Thorne 2015, Lemma 3.36), template: the
-universal ring with variable determinant is the fixed-determinant ring completed-tensored with the
-Iwasawa algebra of `Δ/(c+1)`, here as an equivalence of rings supplied by twisting. -/
-theorem reducible_twisting_and_base_change (O Rψ Iw : Type*) [CommRing O] [CommRing Rψ]
-    [CommRing Iw] [Algebra O Rψ] [Algebra O Iw] [Algebra O R] :
-    Nonempty (R ≃ₐ[O] TensorProduct O Rψ Iw) := by
-  sorry
-
-/-- **`PL.6/generic-prime-r-equals-t`** (Allen–Newton–Thorne Theorem 4.1; Thorne 2015 Theorem 4.19,
-Corollary 4.20), template. `J` stands for `J_{𝒮₁} R^univ`, the extension to `R = R^univ` of
-`J_{𝒮₁} = ker(P_{𝒮₁} → T_m)` (there is no map `R^univ → T_m` in the residually reducible case):
-every prime contained in a generic prime containing `J R^univ` contains `J R^univ`. -/
-theorem generic_prime_r_equals_t {Sl : Type*} {I : Sl → Type*} [∀ v, Group (I v)] (l : ℕ)
-    (ψ : ∀ v, Fin n → I v →* Rˣ) (r : Γ →* GL (Fin n) R) (J P : Ideal R) [P.IsPrime]
-    (hJ : J ≤ P) (hgen : IsGenericPrime l ψ r P) (Q : Ideal R) (hQ : Q.IsPrime) (hQP : Q ≤ P) :
-    J ≤ Q := by
-  sorry
-
-end ResiduallyReducible
-
-section ResiduallyReducibleLifting
-
-variable {GF E k : Type*} [Group GF] [Field E] [Field k] {n : ℕ}
-variable (D : AutomorphyData (GF →* GL (Fin n) E)) (red : (GF →* GL (Fin n) E) → GF →* GL (Fin n) k)
-
-/-- **`PL.7/ordinary-steinberg-finiteness`** (Allen–Newton–Thorne, Theorem 6.2), template. -/
-theorem ordinary_steinberg_finiteness (Λ R : Type*) [CommRing Λ] [CommRing R] [Algebra Λ R]
-    [IsLocalRing R] [IsNoetherianRing R] : Module.Finite Λ R := by
-  sorry
-
-/-- **`PL.7/residually-reducible-automorphy-lifting`** (Allen–Newton–Thorne, Theorem 1.1). -/
-theorem residually_reducible_automorphy_lifting {Pl : Type*} {GKv : Pl → Type*}
-    [∀ v, Group (GKv v)] {Uv : Pl → Type*} [∀ v, CommGroup (Uv v)] (dec : ∀ v, GKv v →* GF)
-    (art : ∀ v, Uv v →* GKv v) (alg : ∀ v, Fin n → Uv v →* Eˣ) (ρ ρ' : GF →* GL (Fin n) E)
-    (hred : red ρ = red ρ') (hprim : IsPrimitive (red ρ)) (hord : IsOrdinaryOfWeight dec art alg ρ)
-    (h' : IsOrdinarilyAutomorphic D ρ') : IsOrdinarilyAutomorphic D ρ := by
-  sorry
-
-/-- **`PL.7/two-constituent-automorphy-lifting`** (Thorne 2015, Theorem 7.1). -/
-theorem two_constituent_automorphy_lifting {Pl : Type*} {GKv : Pl → Type*}
-    [∀ v, Group (GKv v)] {Uv : Pl → Type*} [∀ v, CommGroup (Uv v)] (dec : ∀ v, GKv v →* GF)
-    (art : ∀ v, Uv v →* GKv v) (alg : ∀ v, Fin n → Uv v →* Eˣ) (ρ ρ' : GF →* GL (Fin n) E)
-    (hred : red ρ = red ρ') (hprim : IsPrimitive (red ρ)) (hord : IsOrdinaryOfWeight dec art alg ρ)
-    (h' : IsOrdinarilyAutomorphic D ρ') : IsAutomorphic D ρ := by
-  sorry
-
-/-- **`PL.7/sum-of-characters-finiteness`** (Newton–Thorne 2021, Theorem 5.2), template. -/
-theorem sum_of_characters_finiteness (Λ R : Type*) [CommRing Λ] [CommRing R] [Algebra Λ R]
-    (χ : Fin n → GF →* kˣ) (hord : ∀ i j, i ≠ j → ∀ m : ℕ, 0 < m → m ≤ 2 * n → (χ i / χ j) ^ m ≠ 1) :
-    Module.Finite Λ R := by
-  sorry
-
-/-- **`PL.7/ordinary-lifts-every-weight`** (Newton–Thorne 2021, Corollary 5.4, corrected). -/
-theorem ordinary_lifts_every_weight {Pl : Type*} {GKv : Pl → Type*} [∀ v, Group (GKv v)]
-    {Uv : Pl → Type*} [∀ v, CommGroup (Uv v)] (dec : ∀ v, GKv v →* GF) (art : ∀ v, Uv v →* GKv v)
-    (alg : ∀ v, Fin n → Uv v →* Eˣ) (rbar : GF →* GL (Fin n) k) :
-    ∃ ρ : GF →* GL (Fin n) E, red ρ = rbar ∧ IsOrdinaryOfWeight dec art alg ρ := by
-  sorry
-
-/-- **`PL.7/unrestricted-ring-dimension-bound`** (Newton–Thorne 2021, Corollary 5.5), template. -/
-theorem unrestricted_ring_dimension_bound (R : Type*) [CommRing R] (varpi : R) (d : ℕ) :
-    ringKrullDim (R ⧸ Ideal.span {varpi}) ≤ (n * d + n : ℕ) := by
-  sorry
-
-/-- **`PL.7/reducible-locus-small`** (Newton–Thorne 2021, Proposition 5.6), template. -/
-theorem reducible_locus_small (A : Type*) [CommRing A] [IsDomain A] (d dR : ℕ) :
-    ringKrullDim A ≤ (n * d + n - dR : ℕ) := by
-  sorry
-
-/-- **`PL.7/generic-primes-large-quotients`** (Newton–Thorne 2021, Theorem 5.7), template. -/
-theorem generic_primes_large_quotients {Γ R : Type*} [Group Γ] [CommRing R] {Sl : Type*}
-    {I : Sl → Type*} [∀ v, Group (I v)] (l : ℕ) (ψ : ∀ v, Fin n → I v →* Rˣ)
-    (r : Γ →* GL (Fin n) R) (K : Ideal R) :
-    ∃ (P : Ideal R) (_ : P.IsPrime), K ≤ P ∧ IsGenericPrime l ψ r P := by
-  sorry
-
-/-- **`PL.7/global-lifts-schur`** (Bellovin–Gee, Corollary 5.1.1, Schur form), template. -/
-theorem global_lifts_schur (R : Type*) [CommRing R] (rbar : GF →* GL (Fin n) k) (cF : GF →* GF)
-    (μ : GF →* kˣ) (hS : IsSchur rbar cF μ) : 1 ≤ ringKrullDim R := by
-  sorry
-
-/-- **`PL.7/prescribed-type-lifts`** (Newton–Thorne 2021, Proposition 5.8), template. -/
-theorem prescribed_type_lifts (rbar : GF →* GL (Fin n) k) (hprim : IsPrimitive rbar) :
-    ∃ π : D.Aut, D.iotaOrdinary π ∧ red (D.galois π) = rbar := by
-  sorry
-
-end ResiduallyReducibleLifting
-
-section AdjointSelmer
-
-variable {W E V : Type*} [Group W] [Field E] [AddCommGroup V] [Module E V] {ν : W →* Eˣ}
-
-/-- **`PL.8/bloch-kato-at-generic-places`** (Allen, Remark 1.2.9), template: at a generic place the
-Bloch–Kato condition is the whole local cohomology (away from `p`). -/
-theorem bloch_kato_at_generic_places (ρ : WeilDeligne W E V ν) (hgen : ρ.IsGeneric)
-    {Hv H2 : Type*} [AddCommGroup Hv] [Module E Hv] [FiniteDimensional E Hv] [AddCommGroup H2]
-    [Module E H2] (Lf : Submodule E Hv)
-    (hEuler : Module.finrank E Hv = Module.finrank E Lf + Module.finrank E H2)
-    (hH2 : ∀ x : H2, x = 0) : Lf = ⊤ := by
-  sorry
-
-variable {H : Type*} [AddCommGroup H] [Module E H] {P : Type*} {Hv : P → Type*}
-  [∀ v, AddCommGroup (Hv v)] [∀ v, Module E (Hv v)]
-
-/-- **`PL.8/pseudodeformation-tangent-comparison`** (Newton–Thorne 2023, Propositions 2.15–2.17),
-template: the tangent space of the semistable pseudodeformation ring at the point is the Selmer
-group (rationally). -/
-theorem pseudodeformation_tangent_comparison (loc : ∀ v, H →ₗ[E] Hv v)
-    (Lf : ∀ v, Submodule E (Hv v)) (Tan : Type*) [AddCommGroup Tan] [Module E Tan] :
-    Nonempty (Tan ≃ₗ[E] adjointSelmerF loc Lf) := by
-  sorry
-
-/-- **`PL.8/adjoint-selmer-vanishing`** (Newton–Thorne 2023, Theorem A), template. -/
-theorem adjoint_selmer_vanishing (loc : ∀ v, H →ₗ[E] Hv v) (Lf : ∀ v, Submodule E (Hv v)) :
-    adjointSelmerF loc Lf = ⊥ := by
-  sorry
-
-/-- **`PL.8/pseudodeformation-ring-regular-at-automorphic-point`**, template: the localisation is
-a field (its maximal ideal is zero). -/
-theorem pseudodeformation_ring_regular_at_automorphic_point (Rloc : Type*) [CommRing Rloc]
-    [IsLocalRing Rloc] [IsNoetherianRing Rloc]
-    (htan : Subsingleton (IsLocalRing.CotangentSpace Rloc)) :
-    IsLocalRing.maximalIdeal Rloc = ⊥ := by
-  sorry
-
-/-- **`PL.8/ordinary-tangent-vectors-h1g`** (Geraghty, Lemma 3.9), template: ordinary tangent
-vectors with trivial weight lie in `H¹_g`. -/
-theorem ordinary_tangent_vectors_h1g (loc : ∀ v, H →ₗ[E] Hv v) (Lg : ∀ v, Submodule E (Hv v))
-    (Ord : Submodule E H) : Ord ≤ adjointSelmerG loc Lg := by
-  sorry
-
-end AdjointSelmer
-
-section RigidTheorems
-
-variable {R T : Type*} [CommRing R] [CommRing T]
-
-/-- **`PL.9/rigid-r-equals-t`** (Liu–Tian–Xiao–Zhang–Zhu, Theorem 3.6.3), template: `R → T` is an
-isomorphism (and both are complete intersections; the middle cohomology is free over `T`). -/
-theorem rigid_r_equals_t {P k : Type*} [Field k] {N : ℕ} (Smin Slr Sl : Set P)
-    (frob : P → Matrix (Fin N) (Fin N) k) (q : P → k) (allMinimal regularFL unram : P → Prop)
-    (hrig : IsRigid Smin Slr Sl frob q allMinimal regularFL unram) (φ : R →+* T)
-    (hsurj : Function.Surjective φ) : Function.Injective φ := by
-  sorry
-
-/-- **`PL.9/rigidity-for-almost-all-primes`** (Liu–Tian–Xiao–Zhang–Zhu, Corollary 4.1.2,
-Proposition 4.2.3, Theorem 4.2.6), template: rigidity holds outside a finite set of primes. -/
-theorem rigidity_for_almost_all_primes {P : Type*} {N : ℕ} (kℓ : ℕ → Type*)
-    [∀ ℓ, Field (kℓ ℓ)] (Smin Sl : ℕ → Set P) (frob : ∀ ℓ, P → Matrix (Fin N) (Fin N) (kℓ ℓ))
-    (q : ∀ ℓ, P → kℓ ℓ) (allMinimal regularFL unram : ℕ → P → Prop) :
-    ∃ S : Finset ℕ, ∀ ℓ, ℓ.Prime → ℓ ∉ S →
-      IsRigid (Smin ℓ) ∅ (Sl ℓ) (frob ℓ) (q ℓ) (allMinimal ℓ) (regularFL ℓ) (unram ℓ) := by
-  sorry
-
-variable {GF E k : Type*} [Group GF] [Field E] [Field k] {n : ℕ}
-variable (D : AutomorphyData (GF →* GL (Fin n) E)) (red : (GF →* GL (Fin n) E) → GF →* GL (Fin n) k)
-
-/-- **`PL.9/generic-local-domain-lifting`** (Le–Le Hung–Levin–Morra, Theorem 9.2.1), template: the
-local deformation rings at `p` are domains (`IsDomain (Rp v)`), the residual representation is
-automorphic, hence so is `ρ`. -/
-theorem generic_local_domain_lifting {Pl : Type*} (Rp : Pl → Type*) [∀ v, CommRing (Rp v)]
-    [∀ v, IsDomain (Rp v)] (ρ ρ' : GF →* GL (Fin n) E) (hred : red ρ = red ρ')
-    (h' : IsAutomorphic D ρ') : IsAutomorphic D ρ := by
-  sorry
-
-/-- **`PL.9/generic-change-of-weight-lifting`** (Le–Le Hung–Levin–Morra, Remark 9.2.2),
-template. -/
-theorem generic_change_of_weight_lifting (ρ ρ' : GF →* GL (Fin n) E) (hred : red ρ = red ρ')
-    (h' : IsAutomorphic D ρ') : IsAutomorphic D ρ := by
-  sorry
-
-end RigidTheorems
-
-end TauCeti.Automorphy.Templates
+
+/-
+Required arithmetic declaration inventory (pending exact signatures, APIs and examples).
+This inventory is not Lean code and is not evidence of protocol §13 correspondence.
+
+PotentialAutomorphyInfrastructurePartII:PL.0/ordinary-of-weight — Ordinary Galois representations of weight λ
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight.exists_flag
+  API: TauCeti.Automorphy.isOrdinaryOfWeight_iff_local
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight.restrict
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight.twist
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight.dual
+  API: TauCeti.Automorphy.IsOrdinaryOfWeight.isDeRham
+  example: ordinary_cyclotomic
+  example: ordinary_tate_curve
+  example: ordinary_rank_one
+  example: not_ordinary_supersingular
+  example: ordinary_weight_unique
+
+PotentialAutomorphyInfrastructurePartII:PL.0/iota-ordinary — ι-ordinary automorphic representations
+  API: TauCeti.Automorphy.IsIotaOrdinary
+  API: TauCeti.Automorphy.ordinaryPart
+  API: TauCeti.Automorphy.ordinaryPart_indep_uniformizer
+  API: TauCeti.Automorphy.isIotaOrdinary_iff_principalSeries
+  API: TauCeti.Automorphy.IsIotaOrdinary.characters_unique
+  API: TauCeti.Automorphy.IsIotaOrdinary.twist
+  example: iotaOrdinary_rank_one
+  example: iotaOrdinary_steinberg
+  example: not_iotaOrdinary_supercuspidal
+  example: iotaOrdinary_twist_iff
+  example: iotaOrdinary_galois_ordinary
+
+PotentialAutomorphyInfrastructurePartII:PL.0/automorphic-polarized-representation — Automorphic polarized representations and their levels
+  API: TauCeti.Automorphy.IsAutomorphic
+  API: TauCeti.Automorphy.IsAutomorphicOfLevelPrimeTo
+  API: TauCeti.Automorphy.IsAutomorphicOfLevelPotentiallyPrimeTo
+  API: TauCeti.Automorphy.IsOrdinarilyAutomorphic
+  API: TauCeti.Automorphy.IsAutomorphic.indep_iota
+  API: TauCeti.Automorphy.IsAutomorphic.residual
+  API: TauCeti.Automorphy.IsAutomorphic.totallyOdd
+  example: isAutomorphic_rank_one
+  example: not_isAutomorphic_of_not_totallyOdd
+  example: levelPrimeTo_crystalline
+  example: ordinarilyAutomorphic_ordinary
+
+PotentialAutomorphyInfrastructurePartII:PL.0/iota-ordinary-implies-ordinary — ι-ordinary automorphic representations have ordinary Galois representations
+
+PotentialAutomorphyInfrastructurePartII:PL.0/ordinary-implies-iota-ordinary — Ordinary Galois representations come from ι-ordinary automorphic representations
+
+PotentialAutomorphyInfrastructurePartII:PL.0/steinberg-weight-zero-iota-ordinary — Weight-zero Steinberg representations are ι-ordinary
+
+PotentialAutomorphyInfrastructurePartII:PL.0/isobaric-sum-iota-ordinary — Ordinarity of a regular algebraic isobaric sum
+
+PotentialAutomorphyInfrastructurePartII:PL.0/automorphy-under-twist — Automorphy is invariant under algebraic twists
+
+PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent — Soluble base change and descent of automorphy
+
+PotentialAutomorphyInfrastructurePartII:PL.0/induction-descent — Automorphy of an induced representation descends
+
+PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions — Soluble and cyclic CM extensions with prescribed local behaviour
+
+PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-characters — Algebraic characters with prescribed conjugate-norm and local behaviour
+
+PotentialAutomorphyInfrastructurePartII:PL.1/connects-relation — Connecting and strongly connecting local lifts
+  API: TauCeti.Automorphy.Connects
+  API: TauCeti.Automorphy.StronglyConnects
+  API: TauCeti.Automorphy.Connects.symm
+  API: TauCeti.Automorphy.Connects.of_conj
+  API: TauCeti.Automorphy.Connects.restrict
+  API: TauCeti.Automorphy.Connects.sum
+  API: TauCeti.Automorphy.componentDeformationProblem
+  example: connects_unramified
+  example: connects_refl
+  example: not_connects_inertia
+  example: connects_crystalline_characters
+  example: connects_wd_inertia
+
+PotentialAutomorphyInfrastructurePartII:PL.1/connects-properties — Properties of connection and strong connection
+
+PotentialAutomorphyInfrastructurePartII:PL.1/generic-smooth-points — Generic local representations are smooth points and smooth points are dense
+
+PotentialAutomorphyInfrastructurePartII:PL.1/potentially-diagonalizable — Diagonalizable and potentially diagonalizable representations
+  API: TauCeti.Automorphy.IsDiagonalizable
+  API: TauCeti.Automorphy.IsPotentiallyDiagonalizable
+  API: TauCeti.Automorphy.IsPotentiallyDiagonalizable.of_conj
+  API: TauCeti.Automorphy.IsPotentiallyDiagonalizable.restrict
+  API: TauCeti.Automorphy.IsPotentiallyDiagonalizable.isPotentiallyCrystalline
+  API: TauCeti.Automorphy.IsPotentiallyDiagonalizablyAutomorphic
+  example: pd_character
+  example: pd_unramified
+  example: pd_fontaine_laffaille
+  example: not_pd_tate_curve
+  example: pd_conj_iff
+
+PotentialAutomorphyInfrastructurePartII:PL.1/pd-criteria — Ordinary and Fontaine–Laffaille representations are potentially diagonalizable
+
+PotentialAutomorphyInfrastructurePartII:PL.1/potentially-barsotti-tate-diagonalizable — Two-dimensional potentially Barsotti–Tate representations are potentially diagonalizable
+
+PotentialAutomorphyInfrastructurePartII:PL.1/pd-operations — Potential diagonalizability is preserved by the tensor operations
+
+PotentialAutomorphyInfrastructurePartII:PL.2/definite-unitary-group — The definite unitary group attached to a CM field
+  API: TauCeti.DefiniteUnitary.unitaryGroup
+  API: TauCeti.DefiniteUnitary.iotaW
+  API: TauCeti.DefiniteUnitary.iotaW_conj
+  API: TauCeti.DefiniteUnitary.isCompact_infty
+  API: TauCeti.DefiniteUnitary.quasiSplit
+  API: TauCeti.DefiniteUnitary.finite_doubleCoset
+  example: unitaryGroup_rank_one
+  example: unitaryGroup_compact_infty
+  example: unitaryGroup_split_place
+  example: unitaryGroup_parity_obstruction
+
+PotentialAutomorphyInfrastructurePartII:PL.2/unitary-algebraic-modular-forms — Algebraic modular forms on a definite unitary group
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm.map
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm.restrict
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm.trace
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm.equiv_doubleCoset
+  API: TauCeti.DefiniteUnitary.AlgebraicModularForm.automorphicComparison
+  example: amf_weight_zero_level
+  example: amf_zero_module
+  example: amf_compatibility_AF5
+  example: amf_not_free_without_smallness
+
+PotentialAutomorphyInfrastructurePartII:PL.2/unitary-hecke-algebra — Hecke algebras of definite unitary groups and their maximal ideals
+  API: TauCeti.DefiniteUnitary.heckeOperator
+  API: TauCeti.DefiniteUnitary.heckeAlgebra
+  API: TauCeti.DefiniteUnitary.heckeAlgebra.isCommutative
+  API: TauCeti.DefiniteUnitary.heckeAlgebra.finite
+  API: TauCeti.DefiniteUnitary.residualRep
+  API: TauCeti.DefiniteUnitary.IsNonEisenstein
+  API: TauCeti.DefiniteUnitary.heckeAlgebra.map_restrict
+  example: heckeAlgebra_rank_one
+  example: heckeAlgebra_charpoly
+  example: heckeAlgebra_zero
+  example: eisenstein_not_nonEisenstein
+
+PotentialAutomorphyInfrastructurePartII:PL.2/exactness-and-freeness — Exactness and group-ring freeness at l-torsion-free level
+
+PotentialAutomorphyInfrastructurePartII:PL.2/unitary-constituent-galois-representation — Galois representations attached to constituents of algebraic modular forms
+
+PotentialAutomorphyInfrastructurePartII:PL.2/hecke-valued-galois-representation — The 𝒢_n-valued Galois representation over the localized Hecke algebra
+
+PotentialAutomorphyInfrastructurePartII:PL.2/unitary-base-change-and-descent — Base change and descent between definite unitary groups and GL_n
+
+PotentialAutomorphyInfrastructurePartII:PL.2/iwahori-ordinary-parts — Iwahori levels at l, the U_p-operators and ordinary parts
+  API: TauCeti.DefiniteUnitary.iwahoriLevel
+  API: TauCeti.DefiniteUnitary.uOperator
+  API: TauCeti.DefiniteUnitary.diamond
+  API: TauCeti.DefiniteUnitary.ordinaryIdempotent
+  API: TauCeti.DefiniteUnitary.ordinaryIdempotent_isIdempotent
+  API: TauCeti.DefiniteUnitary.ordinaryPart_indep_uniformizer
+  API: TauCeti.DefiniteUnitary.ordinaryPart_restrict
+  example: ordinaryIdempotent_rank_one
+  example: ordinaryIdempotent_zero
+  example: ordinary_compatibility_padicFamilies
+  example: nonordinary_example
+
+PotentialAutomorphyInfrastructurePartII:PL.2/big-ordinary-hecke-algebra — The big ordinary Hecke algebra over Λ
+  API: TauCeti.DefiniteUnitary.bigOrdinaryHeckeAlgebra
+  API: TauCeti.DefiniteUnitary.bigOrdinaryHeckeAlgebra.lambdaAlgebra
+  API: TauCeti.DefiniteUnitary.bigOrdinaryHeckeAlgebra.faithful
+  API: TauCeti.DefiniteUnitary.bigOrdinaryHeckeAlgebra.specialize
+  API: TauCeti.DefiniteUnitary.bigOrdinaryHeckeAlgebra.localize
+  example: bigOrd_rank_one
+  example: bigOrd_zero
+  example: bigOrd_specialization
+  example: bigOrd_not_finite_over_O
+
+PotentialAutomorphyInfrastructurePartII:PL.2/ordinary-forms-free-over-lambda — Ordinary forms are finite free over Λ
+
+PotentialAutomorphyInfrastructurePartII:PL.2/hida-classicality — Hida classicality and independence of the characters χ_v modulo λ
+
+PotentialAutomorphyInfrastructurePartII:PL.2/ordinary-hecke-galois-representation — The Λ-adic Galois representation on the big ordinary Hecke algebra
+
+PotentialAutomorphyInfrastructurePartII:PL.2/taylor-wiles-level-structures — Taylor–Wiles level structures and the parahoric projection
+  API: TauCeti.DefiniteUnitary.twLevel0
+  API: TauCeti.DefiniteUnitary.twLevel1
+  API: TauCeti.DefiniteUnitary.twDiamondAction
+  API: TauCeti.DefiniteUnitary.twProjection
+  API: TauCeti.DefiniteUnitary.tw_free
+  API: TauCeti.DefiniteUnitary.tw_inertia
+  example: tw_empty
+  example: tw_coinvariants
+  example: tw_rank
+  example: tw_not_free_without_smallness
+
+PotentialAutomorphyInfrastructurePartII:PL.3/thorne-taylor-wiles-datum — Taylor–Wiles data with a residual eigenspace
+  API: TauCeti.Automorphy.TaylorWilesDatum
+  API: TauCeti.Automorphy.TaylorWilesDatum.level
+  API: TauCeti.Automorphy.TaylorWilesDatum.localProblem
+  API: TauCeti.Automorphy.TaylorWilesDatum.augmented
+  API: TauCeti.Automorphy.TaylorWilesDatum.diamondAlgebra
+  API: TauCeti.Automorphy.TaylorWilesDatum.localCondition_perp
+  example: twDatum_empty
+  example: twDatum_rank_one_block
+  example: twDatum_unramified_lift
+  example: twDatum_nonexample_nonscalar
+
+PotentialAutomorphyInfrastructurePartII:PL.3/adequate-taylor-wiles-primes — Taylor–Wiles primes for adequate residual image
+
+PotentialAutomorphyInfrastructurePartII:PL.3/taylor-wiles-primes-two-adic — Taylor–Wiles data when F contains ζ_p, including p = 2
+
+PotentialAutomorphyInfrastructurePartII:PL.3/minimal-r-equals-t — The minimal R = T theorem on definite unitary groups
+
+PotentialAutomorphyInfrastructurePartII:PL.3/ordinary-r-equals-t — The ordinary R = T theorem with Taylor's Ihara avoidance
+
+PotentialAutomorphyInfrastructurePartII:PL.3/revised-adequacy-r-equals-t — The R = T theorems under Guralnick–Herzig–Tiep adequacy
+
+PotentialAutomorphyInfrastructurePartII:PL.4/minimal-automorphy-lifting — Minimal automorphy lifting with adequate residual image
+
+PotentialAutomorphyInfrastructurePartII:PL.4/strongly-residually-odd — Strong residual oddness at a real place (p = 2)
+  API: TauCeti.Automorphy.IsStronglyResiduallyOdd
+  API: TauCeti.Automorphy.IsStronglyResiduallyOdd.indep_extension
+  API: TauCeti.Automorphy.complexConjugation_dichotomy
+  API: TauCeti.Automorphy.IsStronglyResiduallyOdd.mu_neg_one
+  API: TauCeti.Automorphy.isStronglyResiduallyOdd_rank_two_iff
+  example: sro_rank_two_nontrivial
+  example: sro_rank_two_trivial
+  example: sro_lift_sign
+  example: sro_odd_n_irrelevant
+
+PotentialAutomorphyInfrastructurePartII:PL.4/two-adic-automorphy-lifting — Automorphy lifting for every prime p, including p = 2 and p | n
+
+PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy — Adequacy relaxed to the vanishing of H¹(H, ad)
+
+PotentialAutomorphyInfrastructurePartII:PL.4/ordinary-automorphy-lifting — Ordinary automorphy lifting
+
+PotentialAutomorphyInfrastructurePartII:PL.4/minimal-finiteness — Finiteness of polarized deformation rings for fixed components
+
+PotentialAutomorphyInfrastructurePartII:PL.4/ordinary-finiteness — Finiteness of ordinary polarized deformation rings
+
+PotentialAutomorphyInfrastructurePartII:PL.4/characteristic-zero-lifts — Characteristic-zero lifts from finiteness and the dimension bound
+
+PotentialAutomorphyInfrastructurePartII:PL.5/dwork-potential-ordinary-automorphy — Potential ordinary automorphy of symplectic mod l representations
+
+PotentialAutomorphyInfrastructurePartII:PL.5/ordinary-lifts-prescribed-local — Ordinary crystalline lifts with prescribed local behaviour
+
+PotentialAutomorphyInfrastructurePartII:PL.5/tensor-product-trick-lifting — Harris's tensor product trick: a preliminary potentially diagonalizable lifting theorem
+
+PotentialAutomorphyInfrastructurePartII:PL.5/pd-automorphy-lifting — Automorphy lifting for potentially diagonalizable representations
+
+PotentialAutomorphyInfrastructurePartII:PL.6/schur-residual-representation — Schur 𝒢_n-valued residual representations
+  API: TauCeti.Automorphy.IsSchur
+  API: TauCeti.Automorphy.IsSchur.semisimple_multiplicityFree
+  API: TauCeti.Automorphy.IsSchur.conj_of_trace_eq
+  API: TauCeti.Automorphy.IsSchur.h0_ad_eq_zero
+  API: TauCeti.Automorphy.extensionsOfPolarizedSum
+  API: TauCeti.Automorphy.IsSchur.of_absIrred
+  example: schur_absIrred
+  example: schur_characters
+  example: not_schur_repeated
+  example: schur_h0
+
+PotentialAutomorphyInfrastructurePartII:PL.6/primitive-representation — Primitive representations
+  API: TauCeti.Automorphy.IsPrimitive
+  API: TauCeti.Automorphy.IsPrimitive.restrict
+  API: TauCeti.Automorphy.isPrimitive_of_dim_one
+  API: TauCeti.Automorphy.not_isPrimitive_ind
+  API: TauCeti.Automorphy.isPrimitive_of_characters
+  example: primitive_dim_one
+  example: not_primitive_induced
+  example: primitive_characters
+  example: not_primitive_small_ratio
+
+PotentialAutomorphyInfrastructurePartII:PL.6/character-sums-primitive — Sums of characters with large ratios are primitive
+
+PotentialAutomorphyInfrastructurePartII:PL.6/connectedness-dimension — Connectedness dimension and arithmetic rank
+  API: TauCeti.CommAlg.connectednessDim
+  API: TauCeti.CommAlg.arithmeticRank
+  API: TauCeti.CommAlg.connectednessDim_quotient
+  API: TauCeti.CommAlg.connectednessDim_of_irreducible
+  API: TauCeti.CommAlg.connectednessDim_le_dim
+  example: cdim_node
+  example: cdim_domain
+  example: cdim_planes
+  example: arank_principal
+
+PotentialAutomorphyInfrastructurePartII:PL.6/polarized-pseudodeformation-subring — The subring P_𝒮 generated by characteristic polynomials
+  API: TauCeti.Automorphy.pseudoDeformationRing
+  API: TauCeti.Automorphy.charPolySubring
+  API: TauCeti.Automorphy.charPolySubring_eq_top_of_absIrred
+  API: TauCeti.Automorphy.charPolySubring_finite
+  API: TauCeti.Automorphy.charPolySubring_eq_invariants
+  API: TauCeti.Automorphy.charPolySubring_etale
+  API: TauCeti.Automorphy.charPolySubring_generators
+  example: ps_absIrred
+  example: ps_two_characters
+  example: ps_compatibility_determinants
+  example: ps_not_surjective_reducible
+
+PotentialAutomorphyInfrastructurePartII:PL.6/pseudodeformation-restriction-finite — Restriction of pseudodeformations to a finite-index subgroup is finite
+
+PotentialAutomorphyInfrastructurePartII:PL.6/reducibility-ideal — Split deformation ideals and determinant reducibility ideals
+  API: TauCeti.Automorphy.reducibleDeformations
+  API: TauCeti.Automorphy.splitReducibilityIdeal
+  API: TauCeti.Automorphy.reducibilityIdeal
+  API: TauCeti.Automorphy.reducibilityIdeal_partition
+  API: TauCeti.Automorphy.absIrred_iff_not_le_reducibilityIdeal
+  API: TauCeti.Automorphy.reducibilityIdeal_map
+  example: red_absIrred
+  example: red_two_characters
+  example: red_split_lift
+  example: red_irreducible_point
+
+PotentialAutomorphyInfrastructurePartII:PL.6/reducible-locus-dimension — The reducible locus is small in the presence of Steinberg places
+
+PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime — Generic primes of an ordinary deformation ring
+  API: TauCeti.Automorphy.IsGenericAtL
+  API: TauCeti.Automorphy.IsGenericPrime
+  API: TauCeti.Automorphy.IsGenericAtL.distinct
+  API: TauCeti.Automorphy.IsGenericPrime.restrict
+  API: TauCeti.Automorphy.nonGenericIdeals
+  example: generic_rank_one
+  example: generic_example
+  example: not_generic_equal_characters
+  example: not_generic_torsion
+
+PotentialAutomorphyInfrastructurePartII:PL.6/large-quotients-contain-generic-primes — Large quotients contain generic primes
+
+PotentialAutomorphyInfrastructurePartII:PL.6/genericity-under-restriction — Absolute irreducibility at a generic prime survives restriction
+
+PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change — Twisting and soluble base change for residually reducible rings and Hecke algebras
+
+PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime-r-equals-t — The generic R_𝔭 = T_𝔭 theorem
+
+PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-steinberg-finiteness — Finiteness of ordinary locally Steinberg deformation rings
+
+PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting — Automorphy lifting for residually reducible representations
+
+PotentialAutomorphyInfrastructurePartII:PL.7/two-constituent-automorphy-lifting — Thorne's automorphy lifting for two adequate constituents
+
+PotentialAutomorphyInfrastructurePartII:PL.7/sum-of-characters-finiteness — Finiteness of ordinary deformation rings of sums of characters
+
+PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-lifts-every-weight — Ordinary lifts of every weight
+
+PotentialAutomorphyInfrastructurePartII:PL.7/unrestricted-ring-dimension-bound — A dimension bound for the ring without Steinberg conditions
+
+PotentialAutomorphyInfrastructurePartII:PL.7/reducible-locus-small — The reducible locus is small
+
+PotentialAutomorphyInfrastructurePartII:PL.7/generic-primes-large-quotients — Generic primes in large quotients
+
+PotentialAutomorphyInfrastructurePartII:PL.7/global-lifts-schur — Global lifts with prescribed local components (Bellovin–Gee, Schur form)
+
+PotentialAutomorphyInfrastructurePartII:PL.7/prescribed-type-lifts — Automorphic lifts of prescribed type from residual automorphy over a soluble extension
+
+PotentialAutomorphyInfrastructurePartII:PL.8/generic-weil-deligne — Generic Weil–Deligne representations
+  API: TauCeti.Automorphy.WeilDeligne.IsGeneric
+  API: TauCeti.Automorphy.WeilDeligne.isGeneric_of_frobSS
+  API: TauCeti.Automorphy.WeilDeligne.isGeneric_of_rec_generic
+  API: TauCeti.Automorphy.WeilDeligne.isGeneric_of_pure
+  API: TauCeti.Automorphy.WeilDeligne.IsGeneric.restrict
+  example: generic_trivial
+  example: not_generic_steinberg_pair
+  example: generic_irreducible
+  example: generic_zero_dim
+
+PotentialAutomorphyInfrastructurePartII:PL.8/bloch-kato-at-generic-places — Bloch–Kato local conditions at generic places
+
+PotentialAutomorphyInfrastructurePartII:PL.8/adjoint-bloch-kato-selmer-group — The adjoint Bloch–Kato Selmer group of a conjugate self-dual representation
+  API: TauCeti.Automorphy.adjointRep
+  API: TauCeti.Automorphy.adjointSelmerF
+  API: TauCeti.Automorphy.adjointSelmerG
+  API: TauCeti.Automorphy.adjointSelmerF_le_G
+  API: TauCeti.Automorphy.adjointSelmerF_eq_tangent
+  API: TauCeti.Automorphy.adjointSelmer_twist
+  example: selmer_rank_one
+  example: selmer_zero_coeff
+  example: selmer_compatibility_selmerIwasawa
+  example: selmer_conditions_not_vacuous
+
+PotentialAutomorphyInfrastructurePartII:PL.8/semistable-pseudodeformation-ring — Semistable conjugate self-dual pseudodeformation rings
+  API: TauCeti.Automorphy.detDeformationRing
+  API: TauCeti.Automorphy.semistableDetRing
+  API: TauCeti.Automorphy.conjSelfDualDetRing
+  API: TauCeti.Automorphy.detDeformationRing_generators
+  API: TauCeti.Automorphy.semistableDetRing_points
+  API: TauCeti.Automorphy.semistableDetRing_absIrred
+  example: ssdet_rank_one
+  example: ssdet_empty_interval
+  example: ssdet_absIrred
+  example: ssdet_not_semistable_point
+
+PotentialAutomorphyInfrastructurePartII:PL.8/pseudodeformation-tangent-comparison — Tangent spaces of semistable pseudodeformation rings and Selmer groups
+
+PotentialAutomorphyInfrastructurePartII:PL.8/adjoint-selmer-vanishing — Vanishing of adjoint Bloch–Kato Selmer groups of unitary type
+
+PotentialAutomorphyInfrastructurePartII:PL.8/pseudodeformation-ring-regular-at-automorphic-point — The pseudodeformation ring is its residue field at an automorphic point
+
+PotentialAutomorphyInfrastructurePartII:PL.8/ordinary-tangent-vectors-h1g — Ordinary tangent vectors of trivial weight lie in H¹_g
+
+PotentialAutomorphyInfrastructurePartII:PL.9/rigid-residual-representation — Rigid residual conjugate self-dual representations
+  API: TauCeti.Automorphy.IsRigid
+  API: TauCeti.Automorphy.IsRigid.globalProblem
+  API: TauCeti.Automorphy.IsRigid.mono
+  API: TauCeti.Automorphy.IsRigid.unramified_outside
+  API: TauCeti.Automorphy.IsRigid.fontaineLaffaille
+  example: rigid_empty_sets
+  example: rigid_eigenvalue_pair
+  example: not_rigid_repeated_pair
+  example: rigid_compatibility_global
+
+PotentialAutomorphyInfrastructurePartII:PL.9/rigid-r-equals-t — The almost minimal integral R = T theorem for rigid residual representations
+
+PotentialAutomorphyInfrastructurePartII:PL.9/rigidity-for-almost-all-primes — Rigidity and residual irreducibility for almost all primes
+
+PotentialAutomorphyInfrastructurePartII:PL.9/generic-local-domain-lifting — Modularity lifting from polynomially generic local domains
+
+PotentialAutomorphyInfrastructurePartII:PL.9/generic-change-of-weight-lifting — Change-of-weight relaxation of generic-type modularity lifting
+-/
