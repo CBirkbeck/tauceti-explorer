@@ -13,7 +13,7 @@
     "GeometricSatakeAndFusion:GS2:Satake-closure",
     "GeometricSatakeAndFusion:GS2:correspondences"
   ],
-  "summary": "Completed target-level planning pass for GS0, GS1 and GS2: loop/torsor and ordered-leg geometry, early Schubert smoothness, Witt projectivity via geometric determinant descent and imported Keel positivity, semi-infinite/ULA relative perversity, flat Satake objects and coherent convolution closure/duals before symmetric fusion. All eight stages are planned, with precise supplier requests and residual proof/signature gaps; none is claimed closed or implemented.",
+  "summary": "Completed revision of the GS0–GS2 target-level plan: preserve all 59 inherited node identities and historical review, synchronize every corrected mathematical/API/test/shared ledger in the reader, and add the three explicitly routed FS auxiliary lemmas. Retain exact loop/torsor, Witt, semi-infinite/ULA, relative-perverse and convolution contracts; distinguish full-Witt lift choices, reuse the existing VS1 diamond-level calculus, and record precise remaining integral-divisor and Artin-chart extensions. All eight stages are planned, none closed or implemented; this revision was not compiled.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -22,187 +22,427 @@
         "ref": "mathlib:WittVector",
         "module": "Mathlib/RingTheory/WittVector/Defs.lean",
         "provides": "The type of p-typical Witt vectors, indexed by a natural p. Its ring laws and perfect-ring properties are reused; ramified Witt coefficient comparison is RF0’s node, not a new definition here.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "7f61d1db574cc9bc1799108264924ba51c6fd92f",
+          "moduleSha256": "85d3b2ce8581eff133e9f89fb1e450cb623ebd29fe13b95623e214459eff968d",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:PerfectRing",
         "module": "Mathlib/FieldTheory/Perfect.lean",
         "provides": "Perfect rings of characteristic p. Bhatt-Scholze work throughout with perfect F_p-algebras, because for a general F_p-algebra W(R) has p-torsion and W(R)/p -> R need not be an isomorphism; this is the pinned carrier for that hypothesis.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "ea762fd57d45617b2cf1ba37c226e41959978721",
+          "moduleSha256": "557a6c6312edd40b889d07a9546a0d97bca53abcc08db3a778137aca7de59fe0",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "The ordinary scheme carrier and category. Being a perfection of a projective model is a missing target; the existence of Scheme does not establish BS representability.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "7b6780cadcf0a4d2df6c5bf7e4356b95d059e8d9",
+          "moduleSha256": "7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsProper",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "provides": "Properness of a morphism of schemes. The representing object is a proper perfectly finitely presented scheme, and the fibral descent criterion is for proper maps.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "30481d9a0154cb7d7ac4eac4e46da96b7adb7e45",
+          "moduleSha256": "d75c6a9ab9a1602b04e570c9b88ba6b63821732586a6791f75d209a58a8a3dd7",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:ValuationRing",
         "module": "Mathlib/RingTheory/Valuation/ValuationRing.lean",
         "provides": "Valuation rings. The proof of the fibral descent criterion reduces to a base whose connected components are spectra of valuation rings.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "f6a788bf200f4db0f407866e996b30e08b0eab68",
+          "moduleSha256": "2432c56eef36af4fcc3aa0dec76f0204be2c41c4cd55abc7812668371769db5f",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Invertible sheaves on a scheme. The line bundle L on the Witt vector affine Grassmannian, the Demazure bundle it descends from, and the line bundle I_S^m/I_S^{m+1} on the divisor are all of this type. Tau Ceti has the carrier; what it does not have is ampleness.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleBlob": "9cabe8119dae928660241964d6c097df9fba0cf4",
+          "moduleSha256": "a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CoxeterSystem",
         "module": "Mathlib/GroupTheory/Coxeter/Basic.lean",
         "provides": "Abstract Coxeter-system combinatorics only. Affine root data, Cartan/Iwasawa decomposition and parahoric geometry require RG2.4.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "556b92e9135ec07d3437ab012daf6312c8563787",
+          "moduleSha256": "bd36a83919e4951b3e54e927d63e80f15447e6e1440abb2979729a3f4486f195",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "tauceti:TauCeti.TitsSystem.bruhatCell",
         "module": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
         "provides": "Bruhat cells of a Tits system. Tau Ceti already has the Bruhat decomposition, which is the combinatorial shadow of the Schubert stratification this layer builds geometrically.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleBlob": "92c6b0b8d761791d0ba013c7ca5c617cca68a10d",
+          "moduleSha256": "4169994a1c480356bc4a3e7b5a2186ba1fdc4c784c97a78ec7de4f0a0c0c05ca",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:RootPairing",
         "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
         "provides": "The abstract paired roots/coroots and their module dualities, not a built split reductive group, Lie-weight decomposition or affine Cartan theorem.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "067b9da7c0525075224198060f339c5b2a589bd5",
+          "moduleSha256": "26c2d862280f432882f01d3f1fdf635569f38e7c3a7ca3fb5051ca54c562ff00",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
         "provides": "Reductive affine group schemes over a FIELD k, using [Field k]. This does not provide an integral O_E-model or parahoric group scheme; those are requested from RG2.3.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleBlob": "c4f6a2b34f88d81c397b3b6879d83949679b7009",
+          "moduleSha256": "855750108867871ba28df452135a8d7da7b5590a55d98eb0359e7d0d44f18317",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
         "provides": "t-structures on a triangulated category, already in the pinned library with IsLE and IsGE. The relative perverse t-structure of GS1 is one of these, so the abstract notion is cited and only its normalisation is planned.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "e03d365ad1e05af55cfc3eb5197a06becea4a996",
+          "moduleSha256": "c756dec8e15f75f2604f9c42d169c0394f7db3a8d78047a8486f17d3937bef3a",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure.Heart",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Heart.lean",
         "provides": "The Heart typeclass identifies a heart with a full subcategory of a pretriangulated category; TStructure.heart is the underlying object property. No generic abelian-heart theorem is claimed.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "8a9811e67458c62c5d157471de9689f307982d74",
+          "moduleSha256": "c54f17b81393dd4cf5264288308547d28cc2fba3e940b28c962d844e3296442c",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Pretriangulated",
         "module": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
         "provides": "Pretriangulated categories, the level at which the t-structure and the recollement of the Schubert stratification are stated.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "334496d1ca65a779532e58d8ad914c532c8ce2ca",
+          "moduleSha256": "e11dc94205419b028af8ee19ab1b0bb0c6f7ced60cb89857a44d4b08ccb5e458",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:DerivedCategory",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "The Verdier-localization carrier for the derived category of an abelian category, not the stable enhanced sheaf categories or six-operation coherence; EDS owns those extensions.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "7402a18549f6348d33a7f9375c3c2cab542d03f8",
+          "moduleSha256": "fb849d911197dbcf364a20cfdc524cf8bbd9180d408bff7d8407d58e019d8cbc",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Sheaf",
         "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
         "provides": "Sheaves valued in a category on a Grothendieck site; the diamond/v-site topology and geometric representability are not provided by this carrier.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "641ee8ef3e6d50a25451d92da7942af3292fa026",
+          "moduleSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.GrothendieckTopology",
         "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
         "provides": "Abstract Grothendieck topologies; actual v/h/étale topologies and their descent properties are supplier work.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "31006495882f54a165c8d0821ed7f9a7f81e813c",
+          "moduleSha256": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.MonoidalCategory",
         "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
         "provides": "Monoidal categories, the structure convolution puts on the bounded sheaf category and on the Satake category.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "4990e8716361fe01b33d9c54baa5b822b08e8eee",
+          "moduleSha256": "9314fb723d2a1efa82801e0aaacdb702b6cb3498c65b986018625f851b64dca9",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.LeftRigidCategory",
         "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
         "provides": "Left duals only. The conclusion that all Satake objects have both duals uses the separate RigidCategory carrier.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "746038af84a0be6e682335dd41e9e9357477ce3c",
+          "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Equivalence",
         "module": "Mathlib/CategoryTheory/Equivalence.lean",
         "provides": "Equivalences of categories, the form of the special-fibre comparison of the ULA categories over Spd O_C, Spd C and Spd k.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "a1c1e527f13aee45f45f6e0dd82e64894bf56ad2",
+          "moduleSha256": "7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Comma",
         "module": "Mathlib/CategoryTheory/Comma/Basic.lean",
         "provides": "Comma categories, the pinned form of the slice and correspondence categories over which the convolution 2-category is indexed.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "6d9bc70c675ba452551f2f29fa69504a6f868d17",
+          "moduleSha256": "1255c7c9ddf60a7a10dad9607fc0a1bfeeeb32158ff6b5974710b9f8ee7aa588",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Module.Flat",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Flatness. Flat perversity is half the definition of the Satake category, and it is what excludes the Tor obstruction to t-exactness of convolution.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
+          "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Module.Projective",
         "module": "Mathlib/Algebra/Module/Projective.lean",
         "provides": "Projective modules: finite projective terms of a strict perfect complex, flat-perverse torus fibres in degree zero, total Satake cohomology and lattice graded pieces. ULA alone requires perfect stalk complexes and does not make each cohomology module projective.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "02c321ad3fb9135cff54a6eea621cce367ce0052",
+          "moduleSha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Module.Free",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "Free modules. The lattice computation in the GL_n case of the open-cell stabilizer chooses a compatible basis, which is a freeness statement after localisation.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "e91f04cde835056b8839f2bdc5a3f4668b58f5e2",
+          "moduleSha256": "027e0d69569985df6d43b60ac2d6f139c6f03ea620dc2ce2245e3cb446672983",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.RigidCategory",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
         "provides": "Both left and right rigid structures. LeftRigidCategory alone cannot state VI.8.2.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "746038af84a0be6e682335dd41e9e9357477ce3c",
+          "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.ActionCategory",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Action.lean",
         "provides": "The category of elements of a monoid action, with Groupoid for group actions. This is the local quotient presentation, not stackification.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "ae96ca2885e875963560545ae4a8a49bd9628af7",
+          "moduleSha256": "b0632c17353cdc5b33e484039a170dd4cb1f50afeaed0d783bc3df7a24b994cd",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Action",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Action/Basic.lean",
         "provides": "Objects with a monoid homomorphism into their endomorphisms; morphisms intertwine the action. Only the discrete equivariant-object core.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "905142ac404488282bbc4ee8e2c75805359c452f",
+          "moduleSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
         "provides": "Full subcategories with the existing fully faithful inclusion; their object property must be stated mathematically.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "b0ed1b84240d531af9a2ca831f6d6a20ff398f74",
+          "moduleSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Module.Finite",
         "kind": "class",
         "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
         "provides": "Finitely generated modules; paired with Module.Projective for lattice and fibre-functor finiteness.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "07ea2c832a16c963165b95efa4068d57642abb01",
+          "moduleSha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.iff_lTensor_preserves_injective_linearMapₛ",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Flatness characterized by injectivity preservation of linear maps after tensor; the smallness universe condition is part of the source statement.",
-        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
+          "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       },
       {
         "ref": "mathlib:PadicInt",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The subtype of p-adic numbers with norm ≤1, with the existing commutative ring structure for prime p. Its ℤ_p-algebra structure explicitly states the coefficient hypothesis of the uniform ℓ-power torsion bound.",
-        "checked": "Declaration, notation and ring assumptions read at Mathlib 082e2d3, REV-GeometricSatakeAndFusion--GS0, 2026-10-07."
+        "checked": "Declaration, notation and ring assumptions read at Mathlib 082e2d3, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
+        "revisionChecked": {
+          "job": "BP-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-07",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleBlob": "d96ac499b84ac998f26f2bb126553453aacba972",
+          "moduleSha256": "5392888b7e9833f14ab600bd3a3944da1f341366da2f3de95cd9737a19b1ff3b",
+          "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        }
       }
     ]
   },
@@ -219,7 +459,25 @@
         "IV.2.23–IV.2.26, printed pp. 124–126; IV.6.1–IV.6.8 and IV.6.11–IV.6.14, pp. 155–159, 162–163."
       ],
       "accessed": "2026-10-07",
-      "accessDate": "2026-10-07"
+      "accessDate": "2026-10-07",
+      "revisionReadSections": [
+        "VI.1.2–VI.1.13 and proofs, printed pp.191–196 (text lines9190–9560); in particular the whole VI.1.13 statement/proof p.196 was read for the new routed lemma.",
+        "VI.2 opening and VI.2.2–VI.2.8 with proofs, printed pp.196–201 (text lines9560–9970): split/integral versus generic bases, stabilizer/Lie-weight calculation, BB map, collision bounds and bounded-action truncation.",
+        "VI.5.1–VI.5.7 and proofs, printed pp.209–211 (text lines10410–10565): affine-flag and Demazure diamond geometry.",
+        "Printed pp201–209: §VI.3 semi-infinite construction and VI.3.2–3 full statements/proofs, affineness/dimension; §VI.4 equivariance and CT conservativity.",
+        "Printed pp211–226: §VI.6 ULA, §VI.7 perverse/Satake/cohomology/duality and §VI.8 convolution and rigidity, statements and proofs.",
+        "Printed pp123–128: §IV.2.3.3 kernel 2-category and IV.2.23–26 ULA adjointability/relative variant/duality/composition; surrounding text including IV.2.28.",
+        "Rendered p207: unqualified VI.3.8 dimension sentence and VI.4.1 statement.",
+        "Root additionally read the complete VI.3.2–VI.3.3 statements/proofs on pp.203–204, IV.2.28 and proof on p.127, and IV.6.11–IV.6.14 on pp.162–163, including the inverse-action duality formula and ULA preservation."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+        "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+        "bytes": 2665415,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "BS17-witt-grassmannian",
@@ -233,7 +491,18 @@
       ],
       "accessed": "2026-10-07",
       "accessDate": "2026-10-07",
-      "publisherAccess": "Publisher PDF endpoint returned an HTML paywall with access=No on 2026-10-07; final arXiv v3 is the source read. No published-text equivalence is asserted."
+      "publisherAccess": "Publisher PDF endpoint returned an HTML paywall with access=No on 2026-10-07; final arXiv v3 is the source read. No published-text equivalence is asserted.",
+      "revisionReadSections": [
+        "arXiv v3 only: Selected §6 descent statements/proofs pp20–26, including6.1,6.8,6.11 and6.13–6.14; §7.1–7.14 pp26–32 (types, Quot/filtration and fibres); §8.1–8.11 pp32–36 (determinant, positivity, full Theorem8.3 proof); §9.4–9.7 p37; §10.1–10.6 pp37–40. No published Springer PDF was read by this agent."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://arxiv.org/pdf/1507.06490v3",
+        "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+        "bytes": 687439,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "SW20-berkeley",
@@ -246,7 +515,21 @@
         "Lectures 18–20, especially §§19.2–19.4 and 20.3–20.5; Lecture 21 §§21.1–21.5, printed pp. 191–197; Appendix 21.6 opening pp. 198–200."
       ],
       "accessed": "2026-10-07",
-      "accessDate": "2026-10-07"
+      "accessDate": "2026-10-07",
+      "revisionReadSections": [
+        "§19.2, Proposition19.2.1, Definition19.2.2, Proposition19.2.3 and Theorem19.2.4 with proofs, printed pp.172–173 (text lines9430–9535).",
+        "§19.4, Definition19.4.1 and Proposition19.4.2 with entire proof, printed pp.176–177 (text lines9690–9770): opposite parabolic, lattice filtration and finite-projectivity argument.",
+        "Proposition20.4.5 statement and opening proof, printed pp.187–188 (text lines10280–10340): BD bounds, surjectivity and proper/local-spatial conclusions. The remainder of that proof and all of §19.3 were not re-read in this revision.",
+        "Author PDF dated27March2020: §20.3.1–20.3.7 pp185–186; §20.5.3–20.5.4 p190; §21.1 pp191–192; Theorem21.2.1 and proof/21.2.2–3 pp192–194; Proposition21.4.3 and proof pp195–196; §21.5 setup and Proposition21.5.1 with proof passagepp196–197."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+        "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+        "bytes": 1695564,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "Zhu17",
@@ -259,7 +542,23 @@
       "readSections": [
         "§§1.1–1.4, 2.1–2.2, Appendices A and B, printed pp. 412–440, 464–488."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "revisionReadSections": [
+        "Printed pp429–432: §2.1 rational equivariant perverse category, parity/semisimplicity and convolution statements/proofs.",
+        "Printed pp434–440: §2.2 weight concentration, minuscule/quasi-minuscule cases and minimal-convolution generation including Lemmas2.11–2.17.",
+        "Printed pp481–482: AppendixA.3 connected-kernel equivariance and final pro-unipotent independence convention.",
+        "Rendered p482: A.3.5 final pro-unipotent-kernel paragraph (E13).",
+        "Published Annals PDF: coweight-order conventionp412; Results 1.9–1.12 pp418–421; Results 1.17–1.20 pp424–426 plus affine-flag discussionp427; Results 2.5–2.12 and 2.14–2.17 pp433–440 (MV statements and supporting proof passages); A.29–A.31 pp476–477; A.3.1–A.3.3 pp478–480; AppendixB opening and B.1–B.11 pp482–488. Pages433,436 and488 also visually rendered and inspected. References named inside these passages were not independently chased.",
+        "Root additionally read the complete B.10–B.11 chart argument on pp.487–488 and the Corollary 2.9 proof display on p.436, checking the full-Witt determinant distinction and the omitted IC shift."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+        "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+        "bytes": 768124,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "CS17",
@@ -272,7 +571,18 @@
       "readSections": [
         "§3 setup p. 675; §3.4 pp. 684–686."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "revisionReadSections": [
+        "Published §3.4, Propositions3.4.3, Lemma3.4.4, Theorem3.4.5, Lemma3.4.6 and proofs, printed pp.684–686 (text lines1660–1813): lattice filtration, sign convention, minuscule BB comparison and membership detection."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
+        "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
+        "bytes": 899242,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "GLX26",
@@ -285,7 +595,18 @@
       "readSections": [
         "§1.1 p. 806; §3.2–3.3 pp. 822–824."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "revisionReadSections": [
+        "Published Inventiones243(2026): §3.2 and §3.3/Lemmas3.3–3.4 with proofs pp822–823 and Remark3.5p824. The non-minuscule local-model extension is cited by GLX; its external source was not newly audited here."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf",
+        "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
+        "bytes": 1815979,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "VH24",
@@ -298,7 +619,18 @@
       "readSections": [
         "§2.2.6–§2.2.15, PDF pp. 13–16 (Witt flags, admissible strata and torsor adapters)."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "revisionReadSections": [
+        "Published Cambridge PDF: relative-position §2.2.14 and admissible-set/local-model §2.2.15 pp15–16, with preceding parahoric-change argument on p15. The minuscule qualifier was read directly."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf",
+        "sha256": "d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0",
+        "bytes": 999392,
+        "matchesInheritedVersion": true
+      }
     },
     {
       "id": "He21",
@@ -311,7 +643,18 @@
       "readSections": [
         "§2.2 p. 5; §§5.3–5.4 pp. 9–12."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "revisionReadSections": [
+        "Published Forum of Mathematics,Pi9(2021)e9: §2.2 standing simple quasi-split settingp4; §5.3 notation and Proposition5.6 p10; surrounding proof§5.4 pp10–12 inspected for its use of the convolution inequalities. GH10/GHN source proofs were not newly read."
+      ],
+      "revisionAccess": {
+        "date": "2026-10-07",
+        "job": "BP-GeometricSatakeAndFusion--GS0~2",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+        "sha256": "d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd",
+        "bytes": 418679,
+        "matchesInheritedVersion": true
+      }
     }
   ],
   "nodes": [
@@ -348,8 +691,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.5, p. 192",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -421,7 +763,7 @@
         "The same divisor basis and group-model conditions as loop spaces."
       ],
       "proofSteps": [
-        "Import descent of finite projective B⁺-modules from RF2; transfer it to G-torsors through the faithful exact tensor description.",
+        "Use RF2 finite-thickening descent together with RF4 effective descent/algebraization of compatible completed finite-projective modules (uniform rank and continuity), then transfer through the faithful exact tensor description to G-torsors. The completed-ring conclusion is not supplied by RF2 finite-thickening descent alone.",
         "Trivialize torsors étale-locally using the geometric DVR and smooth finite-level lifting/spreading.",
         "Changes of the two trivializations give the double quotient; keep automorphisms, rather than taking only isomorphism classes."
       ],
@@ -434,14 +776,14 @@
         "RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr",
         "RelativeFarguesFontaine:RF4:G-torsors",
         "ReductiveGroupsPartII:RG2.3",
-        "mathlib:CategoryTheory.ActionCategory"
+        "mathlib:CategoryTheory.ActionCategory",
+        "RelativeFarguesFontaine:RF2:untilts"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.6–VI.1.7, p. 193",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -530,8 +872,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.8–VI.1.9, pp. 193–194",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -624,8 +965,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2.6 and preceding discussion, pp. 199–200",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -667,8 +1007,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2.2–VI.2.3, pp. 196–197",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -761,8 +1100,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2 opening and VI.8 final paragraphs, pp. 196, 226",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -806,8 +1144,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.5.1–VI.5.7, pp. 209–211",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -866,6 +1203,61 @@
       }
     },
     {
+      "id": "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
+      "parentStageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "realises": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry",
+        "GeometricSatakeAndFusion:GS0"
+      ],
+      "addedBy": "BP-GeometricSatakeAndFusion--GS0~2",
+      "title": "Separated étale lifts over an effective divisor",
+      "kind": "lemma",
+      "statement": "Let S be a perfectoid space over F_q with a map S→Div^d_𝒴 and associated Cartier divisor D_S⊂𝒴_S. For any separated étale map of adic spaces D′→D_S, the functor on perfectoid T→S sending T to Hom_{D_S}(D_T,D′) is represented by a perfectoid space S′ with a separated étale map S′→S. The representing bijections Hom_S(T,S′)≃Hom_{D_S}(D_T,D′) are natural in T.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue F_q; the integral divisor base is Div^d_𝒴, so untilts over O_E including special-characteristic legs are allowed.",
+        "D_T is the pullback effective Cartier divisor on 𝒴_T. The degree d is finite; repeated legs retain their Cartier multiplicities. The map D′→D_S is separated étale. No reductive group, coefficient ring or ℓ≠p hypothesis is needed."
+      ],
+      "proofSteps": [
+        "Use v-descent for separated étale perfectoid spaces to reduce S to a strictly totally disconnected cover (DiamondsAndVStacks:D3/etale-and-finite-etale-are-v-stacks; FS cites Sch17a Proposition 9.7).",
+        "Exhaust D′ by increasing quasicompact opens and work with one such open. On each geometric fibre, D_S up to nilpotents is the finite disjoint union of its distinct geometric O_E-untilt supports. A separated étale D′ over this fibre is a disjoint union of open subspaces.",
+        "Spread these fibrewise descriptions to a neighbourhood, using the étale local structure theorem and the étale-site comparison (FS cites Sch17a Proposition 11.23 and Lemma 15.6), and glue the resulting local representing spaces.",
+        "For the reduced case D′⊂D_S open, the representing locus is the complement of the image of |D_S|\\|D′| under |D_S|→|S|. This is open because that support map is closed. Its inclusion into S represents exactly the lift functor.",
+        "Descent and gluing give the separated étale S′→S and the natural universal property. Uniqueness follows from Yoneda."
+      ],
+      "acceptance": [
+        "For D′=D_S, the represented functor is final over S and S′≃S.",
+        "For d>0 and D′ empty, every geometric fibre has a nonempty divisor, so the represented functor is empty and S′ is empty; for d=0, D_T is empty and S′≃S.",
+        "Over a geometric base with r distinct support points, D′ a disjoint union of n labelled copies of D_S has n^r lifts; coincident legs do not create additional choices."
+      ],
+      "prerequisites": [
+        "RelativeFarguesFontaine:RF0:integral-Y/untilt-functor-of-points",
+        "RelativeFarguesFontaine:RF2:integral-divisors/div-d-moduli-v-sheaf",
+        "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+        "RelativeFarguesFontaine:RF2:untilts",
+        "DiamondsAndVStacks:D1/strictly-totally-disconnected",
+        "DiamondsAndVStacks:D3/etale-and-finite-etale-are-v-stacks",
+        "DiamondsAndVStacks:D5/local-structure-of-etale-maps",
+        "DiamondsAndVStacks:D6/etale-site-comparison",
+        "RelativeFarguesFontaine:RF2:integral-divisors"
+      ],
+      "sources": [
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Lemma VI.1.13 and proof, printed/PDF p. 196",
+          "match": "Exactly the separated étale representability of the divisor-lift functor, including its natural universal property."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
+          "how": "After forming D′=D_S×_Z Z′ for separated étale Z′→Z, this lemma represents T_{Z′}×_{T_Z}S and proves the separated étale comparison in FS VI.1.12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Suggested.GeometricSatake.etaleOverDivisor",
+      "prototypeNotes": "The named Lean declaration TauCeti.Suggested.GeometricSatake.etaleOverDivisor is omitted under PROTOCOL §13 pending the actual perfectoid/adic-space, effective-divisor pullback, separated-étale and representability carriers. The required signature quantifies E,S,d,D_S,D′→D_S and constructs S′→S with natural Hom_S(T,S′)≃Hom_{D_S}(D_T,D′). An arbitrary Type equivalence or an unspecified Prop field would not express this theorem."
+    },
+    {
       "id": "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
       "parentStageId": "GeometricSatakeAndFusion:GS0:loop-geometry",
       "realises": [
@@ -874,14 +1266,15 @@
       ],
       "title": "Smooth scheme loops over a divisor",
       "kind": "theorem",
-      "statement": "For a smooth quasiprojective Z→O_E of relative dimension n, the functor of maps D_S→Z is representable in locally spatial diamonds, partially proper and ℓ-cohomologically smooth of dimension dn over Div^d_𝒴. Étale maps to Z give representable étale maps of these functors.",
+      "statement": "For a smooth quasiprojective Z→O_E of relative dimension n, the functor of maps D_S→Z is representable in locally spatial diamonds, partially proper and ℓ-cohomologically smooth of dimension dn over Div^d_𝒴. Separated étale maps Z′→Z give representable separated étale maps T_{Z′}→T_Z; open immersions give open immersions.",
       "hypotheses": [
         "D_S affinoid on the chosen basis; ℓ≠p."
       ],
       "proofSteps": [
-        "Étale-local coordinates reduce to affine space.",
-        "Use formal lifting over D and the filtration by successive vector groups.",
-        "Spread the étale lift near geometric points and descend through the divisor basis."
+        "For affine space, pull back to the ordered-leg cover and filter the map by d successive affine-space diamonds of the corresponding untilts; each layer has dimension n.",
+        "For separated étale Z′→Z and S→T_Z, form the separated étale adic map D′=D_S×_Z Z′→D_S. Apply etale-over-divisor (FS VI.1.13) to represent T_{Z′}×_{T_Z}S by a separated étale perfectoid space over S. Open immersions therefore induce open immersions of the mapping functors.",
+        "At a geometric point D_S has finite support. Quasiprojectivity supplies an affine neighbourhood of its image in Z. For affine Z, a closed immersion into affine space proves local spatiality and partial properness.",
+        "Choose affine neighbourhoods of these finitely many image points admitting separated étale coordinates to A^n over O_E. The affine-space calculation and separated étale comparison give cohomological smoothness of dimension dn."
       ],
       "acceptance": [
         "For A¹ and degree d the dimension is d."
@@ -895,14 +1288,15 @@
         "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection",
         "DiamondSixOperations:S5/ball-smooth",
         "DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth",
-        "ReductiveGroupsPartII:RG2.3"
+        "ReductiveGroupsPartII:RG2.3",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
+        "RelativeFarguesFontaine:RF2:untilts"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.12–VI.1.13, pp. 195–196",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -946,8 +1340,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.10–VI.1.11, pp. 194–195",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -992,8 +1385,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the later bounded-action application",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1089,8 +1481,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2.4–VI.2.5, pp. 198–200; IV.1.18, p. 112",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1109,7 +1500,7 @@
       ],
       "title": "Finite truncation of bounded actions",
       "kind": "theorem",
-      "statement": "If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. The action and equivariant complexes on the bound therefore factor through L^{+,<m}G.",
+      "statement": "If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. Thus the action factors through L^{+,<m}G. The comparison of equivariant derived categories is the later GS1/prounipotent-equivariance theorem, with its filtered continuity and prime-to-p coefficient hypotheses.",
       "hypotheses": [
         "Split G; dominant μ; finite Schubert bound."
       ],
@@ -1130,8 +1521,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.2.8, p. 201",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1169,8 +1559,7 @@
         {
           "sourceId": "CS17",
           "locator": "3.4.4–3.4.6, pp. 685–686",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1211,8 +1600,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "8.1 and 9.4–9.5, pp. 32, 36–37",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1300,8 +1688,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "7.1–7.9, pp. 27–32",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1389,8 +1776,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "1.9–1.11, pp. 418–421",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1476,8 +1862,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "1.12, 1.19–1.20; A.29–A.31, pp. 421, 425–426, 476–477",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1515,8 +1900,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "7.10–7.13 and 8.4–8.6, pp. 29–34",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1603,9 +1987,13 @@
       "sources": [
         {
           "sourceId": "BS17-witt-grassmannian",
-          "locator": "7.13–7.14, pp. 30–32; Zhu 1.18, pp. 424–425",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "locator": "7.13–7.14, pp. 30–32",
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
+        },
+        {
+          "sourceId": "Zhu17",
+          "locator": "Lemma 1.18, pp. 424–425",
+          "match": "The full ω₁-chain resolution is an isomorphism over the exact-type orbit, and every lower-type fibre has positive dimension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1642,8 +2030,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "6.1, 6.8, 6.13 and 8.5, pp. 21–26, 33",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1681,8 +2068,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "6.11 and 8.8, pp. 25, 33–34",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1769,8 +2155,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "8.9–8.11, pp. 34–35",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1808,8 +2193,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "§8.4, Theorem 8.3 (statement p. 32; proof pp. 35–36), Lemmas 8.9–8.11 (pp. 34–35)",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1851,8 +2235,7 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "20.3.1–20.3.4, p. 185",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1893,8 +2276,7 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "20.3.6 and 20.5.4, pp. 186, 190",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1932,8 +2314,7 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "21.1.1–21.1.4, pp. 191–192",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1977,8 +2358,7 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "21.2.1–21.2.3, 21.4.3, 21.5.1, pp. 192–197",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2021,8 +2401,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "B.4–B.9, pp. 484–486",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2093,8 +2472,8 @@
       "proofSteps": [
         "Use the projective-bundle extension E/p and its splitting to identify the resolution model.",
         "Use the determinant equations B.3.1 to solve uniquely for x,y,z on the locus det(X₁) invertible, then saturate by the right GL₂(W₃)-action.",
-        "Repair the displayed inverse order in B.11 and verify integrality of Ã⁻¹X̃ on this locus; source proof of this repair is recorded as a precise refinement gap. The jet torsor then identifies the open chart.",
-        "For corrected g=A⁻¹X, use X* A≡0 mod p² and adj(X* A)=A* X in rank two. Thus p⁻² A* X is integral; det(X)=p²[λ]⁻¹ makes its determinant a unit. Changing compatible Witt lifts preserves the reduction modulo p³. The remaining task is to express this corrected proof in the supplier’s truncated-Witt interface, not to assume a new integrality theorem."
+        "Repair the displayed inverse order in B.11. The rank-two adjugate argument below proves integrality of the chosen right factor Ã⁻¹X̃ and its unit determinant. The remaining refinement is the typed truncated-Witt and jet-torsor interface; the jet torsor then identifies the open chart.",
+        "Choose a Witt lift X̃ as in Remark 1.11 and let Ã be the displayed Teichmüller matrix, so det(Ã)=p². For the corrected factor g̃=Ã⁻¹X̃, use X̃* Ã≡0 mod p² and adj(X̃* Ã)=Ã* X̃ in rank two. Thus p⁻² Ã* X̃ is integral. The determinant has the form det(X̃)=p²u with u∈W(R)× reducing to λ⁻¹; hence det(g̃)=u is a unit. Reducing this chosen factor modulo p³ gives X=Ag. The factor g can depend on the chosen lift and the stabilizer of A; B.11 asserts uniqueness of the cone representative A, not uniqueness or lift-independence of g. The remaining task is to express existence and the induced jet-torsor/quotient compatibility in the supplier’s truncated-Witt interface."
       ],
       "acceptance": [
         "At x=y=z=0, A=p·Id has determinant p² and maps to the unique closed orbit."
@@ -2108,13 +2487,19 @@
         {
           "sourceId": "Zhu17",
           "locator": "B.10–B.11, pp. 486–488",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
       "declarationName": "TauCeti.Suggested.GeometricSatake.rankTwoConeClosedOrbit",
-      "prototypeNotes": "Only the closed-orbit equation is typed. The perfect cone open immersion and the corrected W₃ right-factor integrality are recorded separately as a gap."
+      "prototypeNotes": "Only the closed-orbit equation and a finite-ring regression are typed. The perfect cone open immersion and the corrected truncated-Witt/jet-torsor interface remain a gap. The adjugate argument proves right-factor integrality; it does not make the factor unique or independent of the chosen lift.",
+      "tests": [
+        {
+          "name": "TauCeti.Suggested.GeometricSatake.rank_two_right_factor_not_unique",
+          "kind": "non-example",
+          "statement": "Over Z/27Z, corresponding to W₃(F₃), A=3·Id and g=Id+9E₁₂ satisfy Ag=A, det(g)=1 and g≠Id. Thus the right factor in X=Ag need not be unique; the chart representative A is the unique datum asserted by Zhu B.11."
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization",
@@ -2147,8 +2532,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "10.1 and discussion through 10.4, pp. 37–39",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2233,8 +2617,7 @@
         {
           "sourceId": "BS17-witt-grassmannian",
           "locator": "10.5 and 10.6, pp. 39–40",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2253,7 +2636,7 @@
       "statement": "For a parahoric 𝓚 and a dominant cocharacter class μ, the admissible locus A_{𝓚,μ} is the finite closed union of affine Schubert strata labelled by the parahoric image of Adm(μ). Its reduced perfect structure is determined by geometric points. Under a morphism of parahoric models f:𝓚₁→𝓚₂ sending μ₁ to μ₂, the map of affine flags carries A_{𝓚₁,μ₁} into A_{𝓚₂,μ₂}.",
       "hypotheses": [
         "Admissible sets and affine Bruhat order from RG2.4; integral v-sheaf local-model existence/functoriality is an imported refinement, not inferred from Satake.",
-        "Use the connected parahoric/local-model hypotheses of GLX §3.2–§3.4 and van Hoften §2.2.6–§2.2.15. A generic group homomorphism without an integral parahoric model morphism is not covered."
+        "Use the connected parahoric/local-model hypotheses of GLX §3.2 and §3.3 (Lemmas 3.3–3.4) and van Hoften §2.2.6–§2.2.15. Van Hoften §2.2.15 states the perfect local-model interpretation for minuscule μ; GLX §3.2 supplies the non-minuscule extension. A generic group homomorphism without an integral parahoric model morphism is not covered."
       ],
       "proofSteps": [
         "Use finite Bruhat unions and the representable flag spaces.",
@@ -2271,15 +2654,13 @@
       "sources": [
         {
           "sourceId": "GLX26",
-          "locator": "§3.2–§3.4, pp. 822–823",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "locator": "§3.2 and §3.3, Lemmas 3.3–3.4, pp. 822–823",
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         },
         {
           "sourceId": "VH24",
           "locator": "§2.2.14–§2.2.15, pp. 15–16",
-          "match": "Admissible sets and their bounded affine-Schubert union.",
-          "excerptRole": "Short numbered paragraph locator; the mathematical contract is paraphrased."
+          "match": "Relative-position strata, admissible sets and their bounded affine-Schubert union; the local-model interpretation in §2.2.15 is stated for minuscule μ. GLX §3.2 supplies the general non-minuscule extension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2365,8 +2746,7 @@
         {
           "sourceId": "He21",
           "locator": "5.3–5.4, pp. 9–12",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2453,13 +2833,102 @@
         {
           "sourceId": "He21",
           "locator": "5.6 and proof 5.5, pp. 10–12",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
       "declarationName": "TauCeti.Suggested.GeometricSatake.flagConvolutionFibreBound",
       "prototypeNotes": "Only the ordinary-product length/dimension inequality is typed; the bounded nonempty geometric fibre and length interpretations are omitted. The Demazure-product factor differs and is stated in the document."
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS1/length-semicontinuity",
+      "parentStageId": "GeometricSatakeAndFusion:GS1",
+      "realises": [
+        "GeometricSatakeAndFusion:GS1"
+      ],
+      "title": "Semicontinuity of completed divisor length",
+      "kind": "lemma",
+      "statement": "In the ordered O_E-untilt setup of FS VI.3.2, let f∈B⁺. The function ℓ_f:|S|→ℕ∪{∞}, s↦length_{B_s⁺}(B_s⁺/(f_s)), has open sublevel loci {s | ℓ_f(s)≤m} for every m∈ℕ. Infinite length is retained when f_s vanishes on a DVR factor; it is never replaced by zero.",
+      "hypotheses": [
+        "S=Spa(R,R⁺) is affinoid perfectoid over F_q; E is a nonarchimedean local field with residue field F_q. Fix n≥1 ordered O_E-untilts S_i^♯=Spa(R_i^♯,R_i^{♯+}), with repetitions allowed, and primitive generators ξ_i of ker(θ_i:W_{O_E}(R⁺)→R_i^{♯+}).",
+        "Choose a pseudouniformizer ϖ of R. Put ξ=∏_i ξ_i, B⁺=lim_k W_{O_E}(R⁺)[1/[ϖ]]/(ξ^k), and B=B⁺[1/ξ]. These are the actual Cartier-completed period rings; ξ need not be a uniformizer when legs coincide.",
+        "For s∈|S| use the corresponding completed residue-field pair (K(s),K(s)⁺) and the induced ring map B⁺→B_s⁺. Its distinct geometric untilt supports give the finite product of complete DVRs; repeated supports do not create new product factors. Use ordinary module length over that product, allowing infinity."
+      ],
+      "proofSteps": [
+        "For each i, let S_i be the closed locus in S where the image of f in the i-th untilt R_i^♯ vanishes. Away from their finite union, f is a unit in every geometric completed DVR factor, so ℓ_f=0.",
+        "On S_i, pull back to that closed locus and divide f by its regular Cartier generator ξ_i. For f_i=f/ξ_i the geometric module length is ℓ_f=ℓ_{f_i}+1, with ∞+1=∞. This counts that one degree-one divisor even if some other legs coincide.",
+        "Induct on m. In each closed S_i the bad locus ℓ_f>m is the bad locus ℓ_{f_i}>m−1, closed by induction; their finite union is the complement of the required open sublevel locus. The case m=0 is the unit locus described in the first step."
+      ],
+      "acceptance": [
+        "A unit f has length zero on every fibre; f=0 has infinite length on every nonempty geometric divisor fibre.",
+        "For one geometric leg and f=ξ_1^a, the length is a. For ξ=ξ_1^n at a coincident n-tuple, length(B_s⁺/ξ)=n, not one.",
+        "For distinct supports, length is the sum of the DVR-factor lengths; no DVR assertion is made about the whole product."
+      ],
+      "prerequisites": [
+        "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+        "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+        "RelativeFarguesFontaine:RF2:integral-divisors/addition-and-disjoint-divisor-loci",
+        "RelativeFarguesFontaine:RF2:untilts/divisor-completion-base-change",
+        "RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr",
+        "RelativeFarguesFontaine:RF2:untilts"
+      ],
+      "sources": [
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Lemma VI.3.3 and full proof, printed p. 204; setup in Lemma VI.3.2, printed p. 203",
+          "match": "Open finite-length sublevel loci, proof by the closed zero loci of the untilt residues and division by a degree-one Cartier equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Suggested.GeometricSatake.divisorLengthUpperSemicontinuous",
+      "prototypeNotes": "Signature omitted under §13, reserving the exact name divisorLengthUpperSemicontinuous until the actual affinoid-perfectoid space, ordered O_E-untilts, completed Cartier rings and geometric fibre maps exist. Its intended conclusion is ∀ m:ℕ, IsOpen {s∈|S| | length_{B_s⁺}(B_s⁺/(f_s))≤m}, with length in ℕ∪{∞}. An arbitrary topological space and arbitrary length function are not a substitute. The RF2 integral geometric-DVR extension is requested explicitly; the existing geometric-divisor-complete-dvr target covers generic E-untilts.",
+      "addedBy": "BP-GeometricSatakeAndFusion--GS0~2"
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+      "parentStageId": "GeometricSatakeAndFusion:GS1",
+      "realises": [
+        "GeometricSatakeAndFusion:GS1"
+      ],
+      "title": "Semicontinuity of lattice position",
+      "kind": "lemma",
+      "statement": "In the ordered O_E-untilt setup of FS VI.3.2, let L⊂B be a finitely generated B⁺-submodule for which ξ^N B⁺⊂L⊂ξ^(−N)B⁺ for some N≥0. Let S_m⊂|S| be the locus where the image L_s of L⊗_{B⁺}B_s⁺ in B_s has total relative position m∈ℤ against B_s⁺. Then ⋃_{m′≥m}S_{m′} is closed for every m∈ℤ. If S_m=|S| for some m, L is a line bundle over B⁺ (a finite projective module of rank one); global freeness is not asserted.",
+      "hypotheses": [
+        "S=Spa(R,R⁺) is affinoid perfectoid over F_q; E is a nonarchimedean local field with residue field F_q. Fix n≥1 ordered O_E-untilts S_i^♯=Spa(R_i^♯,R_i^{♯+}), with repetitions allowed, and primitive generators ξ_i of ker(θ_i:W_{O_E}(R⁺)→R_i^{♯+}).",
+        "Choose a pseudouniformizer ϖ of R. Put ξ=∏_i ξ_i, B⁺=lim_k W_{O_E}(R⁺)[1/[ϖ]]/(ξ^k), and B=B⁺[1/ξ]. These are the actual Cartier-completed period rings; ξ need not be a uniformizer when legs coincide.",
+        "For s∈|S| use the corresponding completed residue-field pair (K(s),K(s)⁺) and the induced ring map B⁺→B_s⁺. Its distinct geometric untilt supports give the finite product of complete DVRs; repeated supports do not create new product factors. Use ordinary module length over that product, allowing infinity.",
+        "Relative position uses the sum of the valuations on the distinct geometric DVR factors, with the convention that for L_s⊂B_s⁺ it is length(B_s⁺/L_s). The image of tensor base change is used, not an unproved injectivity of L⊗B_s⁺→B_s.",
+        "L is finitely generated, open and bounded in the displayed ξ-adic sense. These hypotheses imply only finitely many relative-position values; local principality is the conclusion, not an input."
+      ],
+      "proofSteps": [
+        "Multiply L by a power of ξ to reduce to L⊂B⁺. This changes every relative-position value by the same constant (the degree n times that power), so it preserves the claimed semicontinuity and constant-position criterion.",
+        "At a point s, B_s⁺ is a finite product of DVRs and L_s is a free rank-one ideal. After localizing S, choose l∈L whose image generates L_s. Apply length-semicontinuity to l: near s the length of B_t⁺/(l_t) is at most the length at s.",
+        "Since B⁺l⊂L, the relative position of L_t is at most that of B_t⁺l. Thus the relative-position sublevel loci are open; taking complements gives closed loci of position at least m.",
+        "If the position is constant, the containment B⁺l⊂L has equal geometric fibre positions nearby and is an equality there; the generator gives a local trivialization. The ring/lattice fibre-detection step is supplied by RF4’s stated finite-projectivity and fibre-detection extension, not inferred from an arbitrary ring map. These local identifications make L a line bundle."
+      ],
+      "acceptance": [
+        "L=B⁺ has constant position zero and is a line bundle. L=ξ^aB⁺ has constant total position na, including coincident legs.",
+        "The closed-locus direction is position≥m; the open-locus direction is position≤m. They are not interchanged.",
+        "Constancy gives local rank-one projectivity, not a chosen global generator; no assertion is made for a merely pointwise specified or non-finitely-generated submodule."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS1/length-semicontinuity",
+        "RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B",
+        "RelativeFarguesFontaine:RF2:untilts/divisor-completion-base-change",
+        "RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr",
+        "RelativeFarguesFontaine:RF4:vector-bundles"
+      ],
+      "sources": [
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Lemma VI.3.2 and full proof, printed pp. 203–204; relative-position convention immediately before the lemma",
+          "match": "Finite-generation and open-boundedness, closed upper-position loci, and the constant-position rank-one conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.Suggested.GeometricSatake.latticeRelativePositionUpperSemicontinuous",
+      "prototypeNotes": "Signature omitted under §13, reserving the exact name latticeRelativePositionUpperSemicontinuous until the genuine completed Cartier-ring family and its fibrewise submodule images and relative positions can be stated. Its single named mathematical contract includes both the closed loci ⋃_{m′≥m}S_{m′} and the implication S_m=|S| ⇒ L finite projective of rank one. Do not assume L projective in order to state the result, replace finite generation by arbitrary lattice data, or substitute a proposition-valued placeholder. The RF2 integral geometric-DVR and RF4 fibre-detection extensions remain requests.",
+      "addedBy": "BP-GeometricSatakeAndFusion--GS0~2"
     },
     {
       "id": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
@@ -2474,7 +2943,7 @@
         "G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0."
       ],
       "proofSteps": [
-        "Use RG’s parabolic/Levi and Iwasawa decompositions to construct the locally closed strata.",
+        "Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3).",
         "Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound.",
         "Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks."
       ],
@@ -2493,14 +2962,17 @@
         "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
         "AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits",
         "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
-        "VStackSheavesAndLisseCategories:VS0"
+        "VStackSheavesAndLisseCategories:VS0",
+        "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+        "VStackSheavesAndLisseCategories:VS1/hyperbolic-localization",
+        "VStackSheavesAndLisseCategories:VS1/braden-theorem",
+        "VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.3.1–VI.3.5, pp. 201–206",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2588,14 +3060,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VI.3.7–VI.3.8, pp. 206–207",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "locator": "VI.3.7–VI.3.8, pp. 205–207",
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
       "declarationName": "TauCeti.Suggested.GeometricSatake.semiInfiniteBoundAffine",
-      "prototypeNotes": "X must be the specified nonempty semi-infinite intersection on its pfp model. General perfect-space affineness requires the SF model interface."
+      "prototypeNotes": "X must be the specified bounded semi-infinite intersection on its pfp model. Affineness also holds for the empty intersection; nonemptiness is required only for the dimension equality. General perfect-space affineness requires the SF model interface."
     },
     {
       "id": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
@@ -2627,8 +3098,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "2.8–2.9, pp. 434–436; A.3.3, pp. 479–480",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2681,8 +3151,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.4.1, pp. 207–208",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2718,8 +3187,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.4.2, pp. 208–209",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2757,8 +3225,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.6.1–VI.6.5, pp. 211–214",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2829,9 +3296,9 @@
         "Split G and Borel for labels; the disjoint-leg restriction is essential for the complete cell calculus."
       ],
       "proofSteps": [
-        "Use VI.6.3’s smooth recognition and finite truncated actions.",
-        "Prounipotent invariance, Demazure generators and conservative CT prove VI.6.4.",
-        "Apply VI.6.6 one leg at a time on the disjoint locus for VI.6.8."
+        "For the forward direction, hyperbolic localization preserves ULA and proper torus pushforward on a bounded support remains ULA.",
+        "For the converse, reduce to a strictly totally disconnected base and split G, and use the ULA diagonal-duality map of IV.2.23 on a bounded finite-dimensional quotient chart. By conservativity of CT for G×G it suffices to apply CT_{B⁻×B}; compatibility with exterior tensor products and hyperbolic duality IV.6.13 identifies the result with the same ULA criterion for CT_B(A). The final perfect locally constant pushforward criterion uses IV.2.28.",
+        "Apply the one-leg cellwise criterion VI.6.5 and its closure consequence VI.6.6 one leg at a time on the disjoint locus for VI.6.8. The arbitrary collision version of those cell-functor closure assertions is not claimed."
       ],
       "acceptance": [
         "No claim that all four cell functors preserve ULA over an arbitrary collision family."
@@ -2846,19 +3313,29 @@
         "DiamondSixOperations:S3/verdier-duality-lower-shriek",
         "mathlib:DerivedCategory",
         "mathlib:Module.Finite",
-        "mathlib:Module.Projective"
+        "mathlib:Module.Projective",
+        "VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion",
+        "VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula",
+        "VStackSheavesAndLisseCategories:VS1/perfect-local-systems",
+        "VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.6.4–VI.6.6, VI.6.8, pp. 212–215",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
       "declarationName": "TauCeti.Suggested.GeometricSatake.ulaConstantTermPerfect",
-      "prototypeNotes": "The typed coefficient core states that a geometric CT stalk admits a bounded cochain model of finite projective terms representing that derived object. Those terms are a strict perfect model, not the individual cohomology modules. The identification with the actual CT stalk, étale local constancy and ULA hypotheses require the supplied sheaf carriers and are omitted."
+      "prototypeNotes": "The typed coefficient core states that a geometric CT stalk admits a bounded cochain model of finite projective terms representing that derived object. Those terms are a strict perfect model, not the individual cohomology modules. The identification with the actual CT stalk, étale local constancy and ULA hypotheses require the supplied sheaf carriers and are omitted.",
+      "tests": [
+        {
+          "name": "TauCeti.Suggested.GeometricSatake.perfect_complex_cohomology_not_projective",
+          "kind": "non-example",
+          "statement": "For R=Z/4Z, the quotient R/(2) is not a projective R-module. It occurs as cohomology of the two-term perfect complex R → R with differential multiplication by 2, so perfect constant-term stalks do not imply projectivity of their individual cohomology modules."
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
@@ -2893,8 +3370,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.6.7, p. 214; VI.7.4, pp. 217–219",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2938,8 +3414,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.1–VI.7.4, pp. 215–219",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3030,8 +3505,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.2–VI.7.4, pp. 216–219",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3070,8 +3544,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.7, pp. 220–221",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3163,8 +3636,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.5 and VI.7.9, pp. 219–222",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3174,7 +3646,7 @@
       "declarationName": "TauCeti.Suggested.GeometricSatake.standardCostandard",
       "uses": [
         {
-          "where": "FS VI.7.16–VI.7.19",
+          "where": "FS VI.7.5",
           "how": "Uniform bounded torsion compares standard and costandard objects."
         },
         {
@@ -3252,9 +3724,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VI.7.5 end, pp. 219–220; Zhu 2.1, pp. 429–430",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "locator": "VI.7.5 end and proof, pp. 219–220",
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
+        },
+        {
+          "sourceId": "Zhu17",
+          "locator": "Lemma 2.1 and its proof, printed pp. 429–430",
+          "match": "Rational special-fibre equivariant semisimplicity and the parity argument used by FS VI.7.5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3292,8 +3768,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "2.7 and 2.11–2.17, pp. 434, 436–440",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3332,8 +3807,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.8–VI.7.9, pp. 221–222",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3406,8 +3880,8 @@
       ],
       "proofSteps": [
         "Use proper support, CT filtration and flat-perverse recognition.",
-        "The associated graded is finite projective concentrated in the normalized degrees, so the filtration proves finite projectivity and exactness.",
-        "For a morphism with a split total-cohomology kernel, the constant-term filtration identifies its perverse kernel as ULA and flat; apply VI.7.10(ii), and dually (iii) for cokernels. For F(f)=0 the kernel is all F(A), hence split: conservation makes the kernel map an isomorphism, proving f=0 and faithfulness. Keep the filtration until GS3 tensor comparison."
+        "On each connected component of Gr_G, the shifted constant-term graded pieces of a Satake object are concentrated in degrees of the same parity. Hence the finite filtration spectral sequence degenerates. The graded cohomology modules are finite projective, so successive module extensions split locally and give finite-projective cohomology and exactness; this argument does not claim a canonical splitting.",
+        "For a morphism with a split total-cohomology kernel, the constant-term filtration identifies its perverse kernel as ULA and flat; apply the split-kernel clause of VI.7.10, and its analogous split-cokernel clause. For F(f)=0 the kernel is all F(A), hence split: conservation makes the kernel map an isomorphism, proving f=0 and faithfulness. Keep the filtration until GS3 tensor comparison."
       ],
       "acceptance": [
         "For a torus skyscraper at λ, F is Λ of rank one; a noncanonical filtration splitting is not advertised as canonical."
@@ -3428,8 +3902,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.10–VI.7.11, pp. 222–223",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3461,7 +3934,7 @@
         {
           "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_faithful",
           "role": "structure",
-          "statement": "FS VI.7.10(ii)’s split-kernel lifting together with conservativity proves faithfulness; do not infer faithfulness from conservativity alone in an exact category."
+          "statement": "FS VI.7.10’s split-kernel lifting together with conservativity proves faithfulness; do not infer faithfulness from conservativity alone in an exact category."
         },
         {
           "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_kernel",
@@ -3531,14 +4004,16 @@
         "DiamondSixOperations:S3/upper-shriek",
         "DiamondSixOperations:S3/adjunction-calculus",
         "DiamondSixOperations:S3/verdier-duality-lower-shriek",
-        "ReductiveGroupsPartII:RG2.1"
+        "ReductiveGroupsPartII:RG2.1",
+        "VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion",
+        "VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula",
+        "VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.7.12–VI.7.13, pp. 223–224",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3587,8 +4062,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8 opening, pp. 224–225",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3685,8 +4159,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8 opening, pp. 224–225",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3725,8 +4198,7 @@
         {
           "sourceId": "Zhu17",
           "locator": "2.1.2 and 2.2–2.4, pp. 431–432",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3763,14 +4235,15 @@
         "DiamondSixOperations:S3/verdier-duality-lower-shriek",
         "DiamondSixOperations:S2/lower-shriek",
         "DiamondSixOperations:S2/lower-shriek-base-change",
-        "DiamondSixOperations:S2/projection-formula"
+        "DiamondSixOperations:S2/projection-formula",
+        "VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category",
+        "VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(i), p. 225",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3810,8 +4283,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(ii), pp. 225–226",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3849,8 +4321,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8.1(iii), pp. 225–226",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3885,14 +4356,15 @@
         "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
         "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality",
         "VStackSheavesAndLisseCategories:VS1",
-        "mathlib:CategoryTheory.RigidCategory"
+        "mathlib:CategoryTheory.RigidCategory",
+        "VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category",
+        "VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.8.2, p. 226; IV.2.24, pp. 125–126",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3936,8 +4408,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.6.7, VI.7.4–VI.7.8 and VI.8, pp. 214, 217–226",
-          "match": "The stated construction or result, with the conventions and corrections specified in this node.",
-          "excerptRole": "Short printed heading/label identifying the passage; the mathematical statement and hypotheses are paraphrased in the node."
+          "match": "The stated construction or result, with the conventions and corrections specified in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3973,7 +4444,8 @@
       "status": "planned",
       "remaining": [
         "RF4 torsor gluing/Anschütz extension and integral/parahoric RG refinements.",
-        "Exact geometric Lean signatures after supplier carriers are available."
+        "Exact geometric Lean signatures after supplier carriers are available.",
+        "The separate FS VI.1.13 lift-functor target requires RF2 integral geometric-support and closed support-map contracts, and its exact geometric Lean carrier remains omitted."
       ]
     },
     {
@@ -3981,8 +4453,9 @@
       "status": "planned",
       "remaining": [
         "Model-dependent rational MV trace normalization and corrected quasi-minuscule/minimal-generation argument.",
-        "VS1 hyperbolic/ULA enhancement and EDS Ind t-structure extension.",
-        "EDC5 coefficient reduction/adic and torsion-pair scope; VS1 filtered-equivariance ordinary-cohomology continuity."
+        "Application and descent of the existing VS1 hyperbolic/ULA calculus through bounded finite-dimensional Artin Hecke quotient charts, plus the EDS Ind t-structure extension.",
+        "EDC5 coefficient reduction/adic and torsion-pair scope; VS1 filtered-equivariance ordinary-cohomology continuity.",
+        "Exact geometric signatures for the length and lattice-position semicontinuity lemmas require the integral geometric-DVR/fibre-map and bounded rank-one fibre-detection supplier extensions; their full mathematical contracts are planned here."
       ]
     },
     {
@@ -4020,7 +4493,7 @@
       "neededBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "detail": "The rank-two adjugate calculation already proves corrected right-factor integrality and unit determinant in the source: adj(X* A)=A* X and det(X)=p²[λ]⁻¹. What remains is its typed truncated-Witt/lift-independence interface, not an unproved mathematical integrality assertion. Retain the corrected order A⁻¹X."
+      "detail": "The rank-two adjugate calculation proves corrected right-factor integrality and unit determinant after choosing Witt lifts: adj(X* A)=A* X, det(Ã)=p² and det(X̃)=p²u with u a unit. The truncated equation is det(X)=p²[λ]⁻¹; only the residue of u is forced to equal λ⁻¹. What remains is the typed truncated-Witt interface, existence of a factor after the chosen lift, and compatibility with the jet-torsor quotient. The factor need not be unique or lift-independent (already A=3·Id over W₃(F₃) has a nontrivial stabilizer); uniqueness concerns the cone representative A. Retain the corrected order A⁻¹X."
     },
     {
       "title": "Sketch-only canonical determinant and crystal comparison",
@@ -4086,6 +4559,7 @@
         "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space",
         "GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure",
         "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
         "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent",
         "GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian",
         "GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack",
@@ -4097,6 +4571,8 @@
         "GeometricSatakeAndFusion:GS1/constant-term-conservativity",
         "GeometricSatakeAndFusion:GS1/flat-perverse-objects",
         "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+        "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+        "GeometricSatakeAndFusion:GS1/length-semicontinuity",
         "GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct",
         "GeometricSatakeAndFusion:GS1/prounipotent-equivariance",
         "GeometricSatakeAndFusion:GS1/rational-weight-concentration",
@@ -4118,7 +4594,7 @@
         "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
         "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality"
       ],
-      "detail": "The suggested file gives concrete algebraic/category cores and identifies every omitted supplier-dependent geometric condition in prototypeNotes. It has no unknown Prop fields. The full file cannot elaborate in the provided shared build because TauCeti.AlgebraicGeometry.LineBundle.Basic has no prebuilt object; the Mathlib-only projection is checked separately. Once supplier carriers and the pinned Tau Ceti object are present, replace the narrowed signatures by the exact geometric statements, including dimensions, properness, ULA, perfect models and locally constant coefficients."
+      "detail": "The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist."
     },
     {
       "title": "Bounded affine-flag dimension and adjoint transfer",
@@ -4140,6 +4616,14 @@
         "GeometricSatakeAndFusion:GS1/prounipotent-equivariance"
       ],
       "detail": "Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion."
+    },
+    {
+      "title": "Étale-over-divisor geometric carriers and support-map input",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops"
+      ],
+      "detail": "FS VI.1.13 is now a distinct named lemma target with its exact universal property. Its §13 Lean signature is omitted until the actual perfectoid/adic category, divisor pullback and separated-étale representability carriers exist. RF2 must additionally supply the integral geometric-support description (including special O_E-untilts) and the closed support map |D_S|→|S|; existing generic E-untilt complete-DVR data are insufficient for that integral scope. This is an interface gap, not a claim that the source lemma is unproved."
     }
   ],
   "requests": [
@@ -4259,10 +4743,11 @@
     },
     {
       "supplier": "RelativeFarguesFontaine:RF4:vector-bundles",
-      "need": "The uniform Banach algebra finite-projectivity criterion [KL15, 2.8.4] used in CS 3.4.3–3.4.6: a finitely presented module with the required locally constant fibre rank is finite projective, and compatible sublattices are detected on geometric field points.",
+      "need": "The uniform Banach algebra finite-projectivity criterion [KL15, 2.8.4] used in CS 3.4.3–3.4.6: a finitely presented module with the required locally constant fibre rank is finite projective, and compatible sublattices are detected on geometric field points. Include the bounded rank-one submodule fibre-detection step in FS VI.3.2: for finitely generated open bounded B⁺l⊂L⊂B on an affinoid perfectoid base, equal geometric lattice fibres on a neighborhood imply B⁺l=L there. Do not assume L finite projective before proving that conclusion.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula",
-        "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness"
+        "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
+        "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity"
       ]
     },
     {
@@ -4334,7 +4819,7 @@
     },
     {
       "supplier": "VStackSheavesAndLisseCategories:VS1",
-      "need": "FS IV.6 hyperbolic localization for bounded monodromic Hecke correspondences, its base change/duality/ULA preservation, and FS IV.2.24’s proper-relative ULA-kernel adjointability/biduality refinement beyond the IV.2.23 criterion already in ula-dualizability-criterion. Include pro-unipotent equivariant invariance (VI.4), without confusing geometric unipotent groups with DSO S5’s profinite prime-to-ℓ averaging. For VI.4.1 construct the filtered spatial ball-subgroup presentations and the inverse-limit ordinary-cohomology continuity of Sch17a 14.9; prove RΓ(S,A)≃RΓ(S×H,A) through the finite ball quotients. Cohomological smoothness or unshifted compact-support cohomology alone is insufficient.",
+      "need": "Import the existing VS1 hyperbolic-localization, braden-theorem, hyperbolic-base-change-duality-and-ula, kernel-correspondence-category, perfect-local-systems, ula-dualizability-criterion and ula-relative-adjoints-and-calculus nodes for their eligible representable-diamond scope; in particular IV.2.24 and IV.2.28 are already planned there. Supply their compatible application and descent through bounded finite-dimensional Artin Hecke quotient charts, retaining properness, finite relative dimension, monodromicity and the relevant coefficient hypotheses. Coordinate coherent bounded ind-correspondences with the existing EDS request and derived adic passage with L0. For FS VI.4.1 additionally construct complete congruence filtrations, filtered spatial ball-subgroup presentations, finite-quotient actions and inverse-limit ordinary-cohomology continuity, yielding RΓ(S,A)≃RΓ(S×H,A). This filtered-group extension is not supplied by the listed diamond-level nodes, by cohomological smoothness, by unshifted compact-support acyclicity, or by profinite prime-to-ℓ averaging.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
         "GeometricSatakeAndFusion:GS1/ula-constant-term-criterion",
@@ -4353,6 +4838,24 @@
         "GeometricSatakeAndFusion:GS1/flat-perverse-objects",
         "GeometricSatakeAndFusion:GS1/standard-costandard-objects",
         "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor"
+      ]
+    },
+    {
+      "supplier": "RelativeFarguesFontaine:RF2:untilts",
+      "need": "Extend the generic geometric-divisor-complete-dvr target to a geometric marked O_E-untilt, including the special-characteristic leg: the positive completed Cartier ring is a complete DVR, its residue field is the untilt field and a primitive degree-one equation is a uniformizer. For finitely many ordered legs identify the geometric completed ring with the product over distinct supports, carrying actual fibre maps from the affinoid base; repeated legs retain their multiplicities in ξ and do not duplicate product factors. Include the Cartier-residue zero locus and restriction/division by ξ_i used in FS VI.3.3, with finite or infinite module lengths and their additivity. This is an extension of the actual RF2 integral Cartier completion and generic DVR contracts, not a second GS construction of period rings.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS1/length-semicontinuity",
+        "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor"
+      ]
+    },
+    {
+      "supplier": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "need": "For any perfectoid S→Div^d_𝒴, construct the canonical support map |D_S|→|S| (via D_S^diamond⊂𝒴_S^diamond≃S×Spd O_E) and prove it is closed, compatibly with perfectoid base change. Thus for every open adic D′⊂D_S the locus of T→S on which all of D_T lands in D′ is the open complement of the image of |D_S|\\|D′|. This is the geometric supplier used in FS VI.1.13; product Cartier equations and affineness alone do not state it.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor"
       ]
     }
   ],
@@ -4414,15 +4917,35 @@
     "planConsequences": [
       "Do not plan ordinary Witt-vector arithmetic, abstract t-structures/hearts, generic sheaf sites or module flatness again.",
       "Do not infer geometric Grassmannians, positivity, integral reductive models, ULA categories, enhancements or both duals from a similarly named baseline carrier.",
-      "No claim of formalization follows from this target-level planning pass."
-    ]
+      "No claim of formalization follows from this target-level planning pass.",
+      "Import the current VS1 diamond-level hyperbolic and relative-ULA calculus nodes directly; request only their bounded Artin Hecke-chart transport and the missing filtered-group ordinary-cohomology continuity."
+    ],
+    "revisionEvidence": {
+      "job": "BP-GeometricSatakeAndFusion--GS0~2",
+      "date": "2026-10-07",
+      "inputCommit": "4689b245047bbf5817d9304ec7fff6b98f19ab31",
+      "reviewedAuditBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+      "scope": "All eight in-scope AUDIT-21 rows read before planning; 30 cited declarations individually read in 28 exact pinned module files.",
+      "upstreamModels": [
+        "content/tau-ceti/ReductiveGroups/README.md",
+        "content/tau-ceti/AdicSpaces/README.md"
+      ],
+      "noFullIndex": true,
+      "compiled": false,
+      "separateLinkMaps": {
+        "filesScreened": 36,
+        "roadmapEntriesRead": 29,
+        "newApplicableEdges": 0,
+        "scope": "Screened the 36 exact pinned link-map files and read all 29 entries mentioning this roadmap: 28 catalogue-screen records with no asserted edge and one root-system review spot-check entry for the out-of-scope GS4 dual-group stages. Their no-edge conclusions are not treated as a proof that indirect prerequisites are absent."
+      }
+    }
   },
   "sourceIssues": [
     {
       "id": "GeometricSatakeAndFusion/E1",
       "kind": "misprint",
       "locator": "p412, coweight order",
-      "printed": "positive roots",
+      "printed": "The coweight dominance relation is described using positive roots.",
       "correction": "Use positive coroots in the coweight dominance order.",
       "reason": "The order is on X_*(T); roots belong to the dual character space. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
       "affects": "nothing",
@@ -4435,7 +4958,7 @@
       "previousAffects": "the proof",
       "recordedFrom": "PAPER-ZHU-17/E2",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "Coweight dominance is an order in X_*(T), hence positive coroots; printed p.412 uses roots.",
@@ -4448,7 +4971,7 @@
       "locator": "p. 424, proof of Lemma 1.17, definition of X(R′)",
       "printed": "Inv(𝓕_i ⇢ 𝓕_{i+1}) = μ_i^*",
       "correction": "Inv(𝓕_i ⇢ 𝓕_{i−1}) = μ_{N+1−i}^* for i = 1, …, N, with maps oriented 𝓕_N ⇢ ⋯ ⇢ 𝓕_0 as in the quasi-isogeny 𝓕_N ⇢ 𝓕_0 used next. Equivalently, keeping the displayed orientation, Inv(𝓕_{i−1} ⇢ 𝓕_i) = μ_{N+1−i}.",
-      "reason": "(Gr_{μ•})_R consists of chains 𝓔 = 𝓔_N ⇢ 𝓔_{N−1} ⇢ ⋯ ⇢ 𝓔_0 with Inv(β_i) = μ_i. Building it from 𝓕_0 = 𝓔 gives 𝓕_i = 𝓔_{N−i}. Then 𝓕_{i−1} ⇢ 𝓕_i is β_{N+1−i}, of position μ_{N+1−i}, and its inverse has position μ_{N+1−i}^*. The printed condition indexes by μ_i (μ_0 is undefined for i = 0, and the order is not reversed) and attaches the star to the displayed direction 𝓕_i ⇢ 𝓕_{i+1}. That is wrong even when all μ_i are equal: for μ_i = ω_1 the displayed map has position ω_1, not ω_1^*. The rest of the argument (the quasi-isogeny 𝓕_N ⇢ 𝓕_0 = 𝓔 ⇢ 𝓔_0 and the closed locus X_{ω_0}) goes through with the correction. The ledger's 'printed' field was a paraphrase; the quotation above is exact. The same text is in v2 and v3.",
+      "reason": "(Gr_{μ•})_R consists of chains 𝓔 = 𝓔_N ⇢ 𝓔_{N−1} ⇢ ⋯ ⇢ 𝓔_0 with Inv(β_i) = μ_i. Building it from 𝓕_0 = 𝓔 gives 𝓕_i = 𝓔_{N−i}. Then 𝓕_{i−1} ⇢ 𝓕_i is β_{N+1−i}, of position μ_{N+1−i}, and its inverse has position μ_{N+1−i}^*. The printed condition indexes by μ_i (μ_0 is undefined for i = 0, and the order is not reversed) and attaches the star to the displayed direction 𝓕_i ⇢ 𝓕_{i+1}. That is wrong even when all μ_i are equal: for μ_i = ω_1 the displayed map has position ω_1, not ω_1^*. The rest of the argument (the quasi-isogeny 𝓕_N ⇢ 𝓕_0 = 𝓔 ⇢ 𝓔_0 and the closed locus X_{ω_0}) goes through with the correction. The erroneous chain condition is recorded above as a mathematical formula. The same text is in v2 and v3.",
       "affects": "nothing",
       "known": "Previously recorded as PAPER-ZHU-17/E8. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4459,7 +4982,7 @@
       "previousAffects": "the proof",
       "recordedFrom": "PAPER-ZHU-17/E8",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The displayed chain orientation and reversed sequence require F_i→F_{i−1} with μ*_{N+1−i}; checked the p.424 construction.",
@@ -4483,7 +5006,7 @@
       "previousAffects": "the proof",
       "recordedFrom": "PAPER-ZHU-17/E32",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The determinant equation forces det X=p²[λ]⁻¹, agreeing with the corrected rank-two factorization.",
@@ -4507,7 +5030,7 @@
       "previousAffects": "the proof",
       "recordedFrom": "PAPER-ZHU-17/E33",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "For X=Ag the right factor is A⁻¹X. The 2×2 adjugate of X* A proves integrality in the corrected order and its determinant is a unit.",
@@ -4518,9 +5041,9 @@
       "id": "GeometricSatakeAndFusion/E5",
       "kind": "gap",
       "locator": "p. 482, Appendix B opening paragraph (not p. 484)",
-      "printed": "Proofs are generally omitted in this section.",
-      "correction": "Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \\tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 ('Details are left to readers') have only sketches. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.",
-      "reason": "The quoted sentence is on p. 482. The existing correction wrongly lists B.10 and B.11 as unproved. Specific points: Prop. B.2's sentence ('the pushforward of \\tilde L_det gives L_det') also needs \\tilde L_det trivial on the fibres of π. That follows from base-point-freeness together with Prop. B.1's second part (degree 0 on fibre curves) and π_*O = O (Lemma A.21). The hint for B.4 also needs the fibres of V_{N,h} → \\overline{Gr}_N to have constant dimension; this holds, since the stabilizer {γ: Aγ = A} has dimension nN everywhere. The main theorems do not depend on Appendix B. Remarks 1.15 and 1.16 point to B.3 and B.8, but they are remarks.",
+      "printed": "The appendix opens with a notice that many of its assertions will not be accompanied by proofs.",
+      "correction": "Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \\tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 provide sketches whose further details are assigned to the reader. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.",
+      "reason": "The appendix-wide notice about omitted proofs occurs on p. 482. The existing correction wrongly lists B.10 and B.11 as unproved. Specific points: Prop. B.2 proposes to construct L_det by pushing forward \\tilde L_det; this also requires \\tilde L_det to be trivial on the fibres of π. That follows from base-point-freeness together with Prop. B.1's second part (degree 0 on fibre curves) and π_*O = O (Lemma A.21). The hint for B.4 also needs the fibres of V_{N,h} → \\overline{Gr}_N to have constant dimension; this holds, since the stabilizer {γ: Aγ = A} has dimension nN everywhere. The main theorems do not depend on Appendix B. Remarks 1.15 and 1.16 point to B.3 and B.8, but they are remarks.",
       "affects": "a stated result",
       "known": "Previously recorded as PAPER-ZHU-17/E34. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4529,7 +5052,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E34",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "Appendix opening is p.482; B.1/B.9 are announced and several other results sketched, whereas B.10/B.11 have proofs. The qualified correction accurately separates these.",
@@ -4541,7 +5064,7 @@
       "id": "GeometricSatakeAndFusion/E6",
       "kind": "misprint",
       "locator": "p. 425, proof of Lemma 1.18 (positive dimension of fibres); also p. 425, proof of Lemma 1.18 (last paragraph)",
-      "printed": "some i; dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1",
+      "printed": "The fibre argument asserts that dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1 for a suitable index i.",
       "correction": "Replace ∩ by +: for λ < Nω_1, dim_k((Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0)) > 1 for some i (e.g. i = 0). Every hyperplane 𝓔_1 ⊂ Λ_0 containing Λ_λ + pΛ_0 extends to a point of π^{−1}(p^λ), so the fibre surjects onto ℙ^{d−1,p^{−∞}} with d = #{j : l_j ≥ 1} ≥ 2. Also: Replace ∩ by + in both places: dim_k (Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0) > 1 (this holds at i = 0 when λ < Nω_1), and lines L in this space give the lattices Λ_λ + p^{i+1}Λ_0 + L̃, which extend to full chains. Equivalently, dim (p^{-1}Λ_λ ∩ Λ_0)/Λ_λ = #{j : m_j ≥ 1} ≥ 2, the fibre of π_2 from the preceding paragraph.",
       "reason": "For λ = (l_1 ≥ … ≥ l_n ≥ 0) with Σ l_j = N, Λ_λ ⊂ Λ_0 and Λ_λ ∩ p^iΛ_0 = ⟨p^{max(l_j,i)}e_j⟩, so the printed dimension is #{j : l_j ≤ i}. For n ≥ 2 this exceeds 1 for every λ once i ≥ l_1, including λ = Nω_1, whose fibre is a single point by the first part of the lemma. Moreover these subquotients lie inside Λ_λ, while points of π^{−1}(p^λ) are chains of lattices between Λ_λ and Λ_0, so lines in them do not give points of the fibre. With + the dimension is #{j : l_j ≥ i+1}, which for i = 0 is at least 2 exactly when l_2 ≥ 1, i.e. λ ≠ Nω_1. The intended argument is then correct. The same text is in v2 (with 𝓔_λ) and v3. It is classified as a misprint (∩ for +); a verifier could argue for 'error', since the step fails as printed.",
       "affects": "nothing",
@@ -4552,7 +5075,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E44",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The displayed intersection quotients sit inside the final lattice and cannot parametrize the chain. The sum quotients have dimension #{j:l_j≥i+1}, giving the needed lower-stratum fibre.",
@@ -4575,7 +5098,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E46",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "Visually checked the published p.433 display: the overline covers the intersection. The empty GL₂ example makes the asserted closure equality false; closure of S_λ intersected with the bound is the safe replacement.",
@@ -4587,7 +5110,7 @@
       "id": "GeometricSatakeAndFusion/E8",
       "kind": "misprint",
       "locator": "p. 434, Corollary 2.8; p. 439, Corollary 2.14",
-      "printed": "equidimensional; dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ)",
+      "printed": "The intersection is assigned a common component dimension without a nonemptiness qualification: dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ).",
       "correction": "Add 'if nonempty, i.e. if λ is a weight of V_μ' to the dimension clause of Cor. 2.8, and 'if nonempty, i.e. if each λ_i is a weight of V_{μ_i}' to Cor. 2.14.",
       "reason": "For λ not a weight of V_μ (e.g. λ = μ + α^∨) the scheme is empty, so the dimension formula fails literally. The component count dim V_μ(λ) = 0 remains correct. This is the same kind of missing nonemptiness hypothesis as the recorded E19; keep the classifications consistent (I lean to misprint, since the intended reading is clear).",
       "affects": "nothing",
@@ -4598,7 +5121,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E47",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "An empty intersection has no asserted nonnegative equidimension. The dimension equality needs nonemptiness; the zero component count remains valid.",
@@ -4610,8 +5133,8 @@
       "id": "GeometricSatakeAndFusion/E9",
       "kind": "misprint",
       "locator": "p. 435, Corollary 2.9",
-      "printed": "cycle classes; H^i_c(S_λ, IC_μ)",
-      "correction": "…form a basis of H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).",
+      "printed": "The cycle-class basis is assigned to H^i_c(S_λ, IC_μ), with the index i left unspecified.",
+      "correction": "The relevant cycle classes give a basis for H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).",
       "reason": "The index i is free. The cycle classes live in degree (2ρ,λ), which by Proposition 2.7 is the only nonzero degree.",
       "affects": "nothing",
       "known": "Previously recorded as PAPER-ZHU-17/E49. The corresponding source passage was checked in this run; no separate published correction verified here.",
@@ -4621,7 +5144,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E49",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The basis occurs only in degree ⟨2ρ,λ⟩ by 2.7; the unbound index i in 2.9 is a misprint.",
@@ -4644,7 +5167,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E51",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The printed opposite filtration contains higher weights rather than the complementary λ-piece. The GL₂ minuscule point-support example confirms the proof error; use support in the opposite orbit closure.",
@@ -4656,9 +5179,9 @@
       "id": "GeometricSatakeAndFusion/E11",
       "kind": "error",
       "locator": "p. 437, item (2) before Lemma 2.12",
-      "printed": "a maximal parahoric",
+      "printed": "The assertion makes Q_{1/2} maximal among parahoric subgroups.",
       "correction": "Delete item (2), or state: Q_{1/2} is the parahoric of −θ/2, whose reductive quotient contains the SL_2 of the affine roots ±(θ^∨+1). It is maximal unless the simple factor containing θ is of type A_n with n ≥ 2.",
-      "reason": "Q_{1/2} is the parahoric of −θ/2 (v2: 'the point −μ/2 is a vertex'). The affine roots vanishing there are ±(θ^∨ + 1) and the roots orthogonal to θ. These have full rank only if the roots orthogonal to the highest root have rank r − 1, which fails in type A_n, n ≥ 2, where they have rank n − 2. For SL_3, θ = (1,0,−1) pairs to 1 or 2 with every positive root. So −θ/2 lies on the single wall θ^∨ + 1 = 0, inside an edge, and Q_{1/2} is properly contained in the parahorics of the edge's two vertices. Type A is covered by the paper: θ ∈ M (p. 439) and Lemma 2.11 includes it. The claim is not used in any proof.",
+      "reason": "Q_{1/2} is the parahoric of −θ/2 (the v2 discussion identifies −μ/2 as a vertex). The affine roots vanishing there are ±(θ^∨ + 1) and the roots orthogonal to θ. These have full rank only if the roots orthogonal to the highest root have rank r − 1, which fails in type A_n, n ≥ 2, where they have rank n − 2. For SL_3, θ = (1,0,−1) pairs to 1 or 2 with every positive root. So −θ/2 lies on the single wall θ^∨ + 1 = 0, inside an edge, and Q_{1/2} is properly contained in the parahorics of the edge's two vertices. Type A is covered by the paper: θ ∈ M (p. 439) and Lemma 2.11 includes it. The claim is not used in any proof.",
       "affects": "nothing",
       "known": "Previously recorded as PAPER-ZHU-17/E52. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4667,7 +5190,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E52",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "In type A₂ the point −θ/2 lies in an edge rather than a vertex, so its parahoric is not maximal. The statement is unused in the needed proof.",
@@ -4690,7 +5213,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E53",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "The infinity section contributes the omitted cohomology. The SL₃ flag resolution yields zero-weight multiplicity two; retain the excision sequence and avoid a claimed canonical splitting.",
@@ -4702,7 +5225,7 @@
       "id": "GeometricSatakeAndFusion/E13",
       "kind": "misprint",
       "locator": "A.3.5, last paragraph, p. 482",
-      "printed": "pro-unipotent pro-algebraic group",
+      "printed": "The independence-of-kernel construction allows a pro-algebraic kernel J₁ assumed pro-unipotent, without separately requiring connectedness.",
       "correction": "Require J_1 to be connected (as for the congruence subgroups L^+G^{(h)} used in the paper). Two admissible choices J_1, J_1' are then compared through the connected, normal, pro-unipotent subgroup J_1J_1' (or through J_1 ∩ J_1'), applying (A.3.4) to the connected groups J_1J_1'/J_1 and J_1J_1'/J_1', and (A.3.6) for cohomology.",
       "reason": "(A.3.4) is stated only for connected J_1, but the condition allows disconnected unipotent J_1 (finite p-groups are unipotent in characteristic p). Counterexample: J = Z/p (constant), X = Spec k. Both J_1 = J and J_1' = {1} satisfy the condition, but P_{J/J}(X) = Vect while P_{J/{1}}(X) = Rep_{Qlbar}(Z/p), which has p simple objects. This also conflicts with the earlier definition of P_J for pfp J. The cohomology half is fine, since (A.3.6) holds for any unipotent J_1 (l != p). In the paper J_1 is always a connected congruence subgroup, so nothing downstream is affected.",
       "affects": "nothing",
@@ -4713,7 +5236,7 @@
       ],
       "recordedFrom": "PAPER-ZHU-17/E71",
       "source": "Zhu17",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
         "reason": "Confirmed as a missing convention: under the broad convention allowing disconnected unipotent groups, the constant group F_p gives inequivalent representation categories. Require connected congruence kernels, or define pro-unipotent with connected quotients. This is not an error if connectedness is already built into that term.",
@@ -4725,9 +5248,9 @@
       "id": "GeometricSatakeAndFusion/E14",
       "kind": "misprint",
       "locator": "arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention",
-      "printed": "projective dimension 1",
+      "printed": "The isogeny cokernel is assigned projective dimension equal to 1.",
       "correction": "Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.",
-      "reason": "The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: 'projective dimension 1' is used as 'at most one' throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.",
+      "reason": "The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: the dimension-one wording has the intended meaning of a bound ≤1 throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.",
       "affects": "nothing",
       "known": "Previously recorded as PAPER-BHATT-SCHOLZE-17/E10. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4738,7 +5261,7 @@
       "previousAffects": "a stated result",
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E10",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4753,7 +5276,7 @@
       "locator": "arXiv v3, Lemma 7.9, p. 29",
       "printed": "Spec(R)_{≤λ} ⊂ {x ∈ Spec(R) | λ(Q ⊗ W(k(x))) ≤ λ}",
       "correction": "Spec(R)_{≤λ} := {x ∈ Spec(R) | λ(Q ⊗ W(k(x))) ≤ λ} is a closed subset of Spec(R).",
-      "reason": "The display defines the locus, and the proof on p. 32 shows that this whole set is closed (it is the image of Dem_λ(Q)). With '⊂' the statement would say nothing about which subset. The verdict is 'revised' only because the recorded 'printed' text paraphrased the display; the substance of E12 stands. Present in v1 and v2.",
+      "reason": "The display defines the locus, and the proof on p. 32 shows that this whole set is closed (it is the image of Dem_λ(Q)). With '⊂' the statement would say nothing about which subset. The earlier revision concerned how the display was recorded, not the mathematical diagnosis in the inherited E12 finding. Present in v1 and v2.",
       "affects": "nothing",
       "known": "Previously recorded as PAPER-BHATT-SCHOLZE-17/E12. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4763,7 +5286,7 @@
       ],
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E12",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4776,7 +5299,7 @@
       "id": "GeometricSatakeAndFusion/E16",
       "kind": "gap",
       "locator": "p. 35, proof of Theorem 8.3, second paragraph",
-      "printed": "By induction; L|⋃_{μ<λ}Gr_{≤μ}",
+      "printed": "Induction is invoked for the ampleness of L|⋃_{μ<λ}Gr_{≤μ} before representability of that union has been established.",
       "correction": "Before invoking Keel, show that Y = ∪_{μ<λ}Gr_{≤μ} is the perfection of a proper algebraic space. Here Y is the image sheaf of ⊔_{μ<λ}Gr_{≤μ}, equivalently the closed complement of Gr_λ. The map ⊔Gr_{≤μ} → Y is a v-cover. Its equivalence relation is given by the closed intersections Gr_{≤μ} ×_{Gr_{≤λ}} Gr_{≤μ'}. So Y is the iterated pushout of the Gr_{≤μ} along these intersections. Affine-locally this pushout is A1 ×_{A12} A2, which is perfect and satisfies A1 ⊗_A A2 = A12. On finite-type models the pushout is a proper algebraic space by [Ar70, 6.1]. Next, every subvariety of Y lies in some Gr_{≤μ}, where L is ample, so E(L|_Y) = ∅. Keel's Lemma 1.8, applied inductively over the pieces, then makes L|_Y semiample. Its morphism contracts no curve, hence is finite, so L|_Y is ample. Alternatively, cite Zhu's Theorem 8.2, which makes Y a closed subspace of a proper perfect algebraic space; but then the proof is no longer independent of Zhu as claimed (p. 32).",
       "reason": "Keel's Lemma 1.8 is a gluing statement for semiampleness on a proper algebraic space X = X_1 ∪ X_2 with E(L) ⊂ X_1. To obtain ampleness it has to be combined with E(L) = ∅ and Nakai. Applying it requires Y = ∪_{μ<λ} Gr_{≤μ} to be (the perfection of) a proper algebraic space. The induction hypothesis makes each Gr_{≤μ} a projective perfect scheme, but not their union inside the v-sheaf Gr_{≤λ}, whose representability is what is being proved. The union is not a single Gr_{≤μ} in general: for n = 3, λ = (4,2,0), both (3,3,0) and (4,1,1) are maximal below λ and are incomparable. Applying Keel's lemma on the scheme ψ^{-1}(Y) instead does not work, since the exceptional locus there does not lie in one piece. Defence: the missing step is standard and fillable (pinching of perfect schemes along closed subschemes, or gluing sections as above). Theorem 8.3 itself is not in doubt.",
       "affects": "the proof",
@@ -4788,7 +5311,7 @@
       ],
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E39",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4803,7 +5326,7 @@
       "locator": "p. 37, the sentence introducing Kottwitz' map and Proposition 9.7 ([Zhu14, Proposition 1.21])",
       "printed": "π₁(G)_{Gal_K}",
       "correction": "Add the hypothesis 'k algebraically closed' (as in [Zhu14, §1.5.2]); then Gal_K is the inertia group. For a general perfect k: Kottwitz's map is κ: LG(k̄) = G(W_{O_K}(k̄)[1/p]) → π1(G)_{I_K}, where I_K ⊂ Gal_K is the inertia subgroup. It induces Gal(k̄/k)-equivariant bijections π0(LG_{k̄}) ≅ π0(Gr_{𝒢,k̄}) ≅ π1(G)_{I_K}. The connected components over k are the Gal(k̄/k)-orbits on π1(G)_{I_K}.",
-      "reason": "§9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) that opens 'We assume that k is algebraically closed'. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only later use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.",
+      "reason": "§9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) whose standing hypotheses require algebraically closed k. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only later use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.",
       "affects": "a stated result",
       "known": "Previously recorded as PAPER-BHATT-SCHOLZE-17/E41. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -4813,7 +5336,7 @@
       ],
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E41",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4838,7 +5361,7 @@
       ],
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E42",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4863,7 +5386,7 @@
       ],
       "recordedFrom": "PAPER-BHATT-SCHOLZE-17/E43",
       "source": "BS17-witt-grassmannian",
-      "quoteScope": "Short printed fragment or displayed mathematical expression; the correction and reason describe its context.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
@@ -4899,7 +5422,7 @@
       "kind": "error",
       "source": "Zhu17",
       "locator": "A.3.3, pp.479–480",
-      "printed": "compatible with c_{X′} and c_{X″}",
+      "printed": "Comparison between finite models is asserted to preserve the class normalizations c_{X′} and c_{X″}.",
       "correction": "Fix the finite model and account for the purely inseparable degree in trace/fundamental-class comparisons.",
       "reason": "Relative Frobenius P¹→P¹ has degree p and pulls c₁(O(1)) to p·c₁(O(1)). It induces an étale-topos equivalence and an isomorphism on rational top cohomology, but does not preserve the scalar trace normalization. Thus the claimed model independence fails.",
       "affects": "a stated result",
@@ -4921,7 +5444,7 @@
       "kind": "misprint",
       "source": "FS-geometrization",
       "locator": "Corollary VI.3.8, p.207",
-      "printed": "equidimensional of dimension",
+      "printed": "The semi-infinite intersection is assigned the stated common component dimension without a nonemptiness qualification.",
       "correction": "Qualify the intersection dimension equality by nonemptiness, as also required for Zhu Corollary2.8.",
       "reason": "For GL₂ μ=(1,0), λ=(2,−1) is outside the weights of the minuscule bound, so S_λ∩Gr_{≤μ} is empty while ⟨ρ,μ+λ⟩=2. The closed-filtration proof applies to the nonempty strata.",
       "affects": "nothing",
@@ -4937,6 +5460,28 @@
         "reason": "For GL₂ μ=(1,0), λ=(2,−1) is outside the weights of the minuscule bound, so S_λ∩Gr_{≤μ} is empty while ⟨ρ,μ+λ⟩=2. The closed-filtration proof applies to the nonempty strata.",
         "by": "REV-GeometricSatakeAndFusion--GS0"
       }
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E23",
+      "kind": "misprint",
+      "source": "Zhu17",
+      "locator": "Proof of Corollary 2.9, p.436 (PDF page34), final displayed comparison in the first paragraph",
+      "printed": "H_c^{⟨2ρ,λ⟩}(S_λ,IC_μ) ≃ H_c^{⟨2ρ,λ⟩}(S_λ∩Gr_μ,Q̄_ℓ)",
+      "correction": "Write d_μ=⟨2ρ,μ⟩ and r=⟨2ρ,λ⟩. With IC_μ|Gr_μ=Q̄_ℓ[d_μ] before any Tate normalization, the right-hand side is H_c^{r+d_μ}(S_λ∩Gr_μ,Q̄_ℓ), namely unshifted degree ⟨2ρ,μ+λ⟩. If IC carries a Tate normalization, put that twist on the constant sheaf separately; it does not change the cohomological shift.",
+      "reason": "The open-stratum restriction of a perverse intersection complex carries shift[d_μ], and H^r(K[d_μ])=H^{r+d_μ}(K). The printed proof keeps r unchanged after replacing IC by the unshifted constant sheaf. For GL₂ with μ=λ=(1,0), Gr_μ is the perfected projective line, S_λ∩Gr_μ is the perfected affine line, d_μ=r=1, and the IC weight group is its nonzero H_c² with constant coefficients. The printed H_c¹ with constant coefficients is zero. This is distinct from E9’s free index in the statement of Corollary 2.9, and the corrected node already has the required unshifted degree.",
+      "affects": "the proof",
+      "known": "New revision finding; no author-endorsed correction verified in the bounded primary journal/author-repository search on 2026-10-07.",
+      "searched": [
+        "2026-10-07: read and visually rendered published Annals 185(2017) p.436, https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf; exact SHA256 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7.",
+        "2026-10-07: opened journal article page https://annals.math.princeton.edu/2017/185-2/p02; no correction notice was displayed.",
+        "2026-10-07: domain-restricted searches for the paper title with correction/corrigendum/errata on annals.math.princeton.edu and the author institutional domains stanford.edu/caltech.edu; no relevant author-endorsed correction was retrieved.",
+        "2026-10-07: opened author-submitted arXiv record https://arxiv.org/abs/1407.8519; it lists v3 dated 20 July 2016 and a correction to Theorem A.29, not to this cohomological-degree display. Only record/version metadata were read here, not the arXiv PDF.",
+        "2026-10-07: opened institutional author repository https://authors.library.caltech.edu/records/tc3x3-jbc74; it links submitted 1407.8519v2.pdf and contains no correction notice for this display. Its attached PDF was not downloaded or compared."
+      ],
+      "versionScope": "Established against the published Annals 185(2017) PDF only, exact SHA256 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7. This record does not assert that the same error occurs in an unread author-preprint edition.",
+      "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
+      "addedBy": "BP-GeometricSatakeAndFusion--GS0~2",
+      "reviewState": "Verified directly against the published page, including its rendered image; not an author-endorsed erratum."
     }
   ],
   "routedCoverage": [
@@ -6642,7 +7187,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/B17",
@@ -6652,7 +7197,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/B18",
@@ -6662,7 +7207,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/B19",
@@ -6672,7 +7217,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/B20",
@@ -6682,7 +7227,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/BC3",
@@ -6999,7 +7544,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/functor-W-decomposable",
@@ -7009,7 +7554,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/W-tilde-decomposition-claim",
@@ -7019,7 +7564,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/cone-chart-action-map-iso",
@@ -7029,7 +7574,7 @@
       "coveredBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart"
       ],
-      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and determinant; the asserted integral factorization and open chart remain a named gap, not a proven conclusion."
+      "reason": "The rank-two chart target states the p>2 quadratic cone, blowup model, corrected matrix order and truncated determinant. The adjugate argument proves integrality of a chosen right factor; the typed truncated-Witt existence/jet-torsor comparison and open-chart realization remain obligations, and the factor is neither unique nor lift-independent."
     },
     {
       "item": "PAPER-ZHU-17/S01",
@@ -7424,6 +7969,36 @@
         "GeometricSatakeAndFusion:GS3:fusion"
       ],
       "reason": "Tensor constant term/its equivariant alternative is a fusion/tensor compatibility statement. GS1 uses only the nonmonoidal normalized CT."
+    },
+    {
+      "item": "PAPER-FARGUES-SCHOLZE-21/c6a-etale-over-divisor-lemma-VI.1.13",
+      "name": "Separated étale maps over D_S come from S (Lemma VI.1.13)",
+      "locator": "Chapter VI, §VI.1, Lemma VI.1.13, p. 196",
+      "disposition": "planned-with-gap",
+      "coveredBy": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor"
+      ],
+      "reason": "The current issue explicitly routes this previously implicit auxiliary lemma. It now has its own complete mathematical contract and proof route, with precise RF/diamond supplier dependencies and an exact-name geometric signature omission until those interfaces exist."
+    },
+    {
+      "item": "PAPER-FARGUES-SCHOLZE-21/c6a-lattice-relative-position-semicont-VI.3.2",
+      "name": "Semicontinuity of relative position of rank-1 lattices (Lemma VI.3.2)",
+      "locator": "Chapter VI, §VI.3, Lemma VI.3.2, p. 203",
+      "disposition": "planned-with-gap",
+      "coveredBy": [
+        "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity"
+      ],
+      "reason": "The current issue explicitly routes this previously implicit auxiliary lemma. It now has its own complete mathematical contract and proof route, with precise RF/diamond supplier dependencies and an exact-name geometric signature omission until those interfaces exist."
+    },
+    {
+      "item": "PAPER-FARGUES-SCHOLZE-21/c6a-length-semicont-VI.3.3",
+      "name": "Semicontinuity of length of B⁺_s/f (Lemma VI.3.3)",
+      "locator": "Chapter VI, §VI.3, Lemma VI.3.3, p. 204",
+      "disposition": "planned-with-gap",
+      "coveredBy": [
+        "GeometricSatakeAndFusion:GS1/length-semicontinuity"
+      ],
+      "reason": "The current issue explicitly routes this previously implicit auxiliary lemma. It now has its own complete mathematical contract and proof route, with precise RF/diamond supplier dependencies and an exact-name geometric signature omission until those interfaces exist."
     }
   ],
   "sourceVersions": [
@@ -7794,5 +8369,71 @@
         "note": "Checked the one-leg Satake equivalence through ULA comparison and shifted constant terms; tensor compatibility is explicitly reserved for GS3."
       }
     ]
+  },
+  "revisionNotes": {
+    "job": "BP-GeometricSatakeAndFusion--GS0~2",
+    "issue": 7303,
+    "date": "2026-10-07",
+    "agent": "ChatGPT GPT-6 Astra Pro",
+    "session": "gpt6astra-e19d65722997",
+    "inputCommit": "4689b245047bbf5817d9304ec7fff6b98f19ab31",
+    "preserved": "All 59 inherited node IDs and their relative order, the historical top-level review, E1–E22 identities and mathematical corrections, and every historical source review. Source assertion descriptions are paraphrased to follow the superseding source-presentation rule adopted in main22f67751dcda86cd61c81a2213b5557123eab845.",
+    "newTargets": [
+      "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
+      "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+      "GeometricSatakeAndFusion:GS1/length-semicontinuity"
+    ],
+    "changes": [
+      "Synchronized the entire reader with the packet, including hypotheses, proof steps, dependencies, API, tests, coverage, baseline, requests, gaps and source findings.",
+      "Corrected the Witt right-factor lift claim and distinguished the full-lift unit determinant from the truncated Teichmüller equation; added a finite stabilizer regression.",
+      "Made the inherited perfect-complex/nonprojective-cohomology regression a named packet/reader test.",
+      "Corrected precise source scopes, labels and source attachments; supplied the actual ULA diagonal-duality proof and finite-filtration parity degeneration.",
+      "Imported existing VS1 hyperbolic and relative-ULA calculus nodes directly; narrowed the request to bounded Artin Hecke-chart transport and filtered ordinary-cohomology continuity.",
+      "Recorded new published-source finding E23 with its IC-shift correction, minuscule counterexample, exact version and bounded correction search.",
+      "Updated the nine rank-two route explanations to agree with the chosen-factor integrality proof and the remaining typed quotient/open-chart obligations."
+    ],
+    "validationLimit": "No existing pinned build or full declaration index is available. No Lean compilation, library build, cache setup or LSP was performed. Prior projection checks remain historical.",
+    "correctedRouteReasons": [
+      "PAPER-ZHU-17/B16",
+      "PAPER-ZHU-17/B17",
+      "PAPER-ZHU-17/B18",
+      "PAPER-ZHU-17/B19",
+      "PAPER-ZHU-17/B20",
+      "PAPER-ZHU-17/V23-witt-description",
+      "PAPER-ZHU-17/functor-W-decomposable",
+      "PAPER-ZHU-17/W-tilde-decomposition-claim",
+      "PAPER-ZHU-17/cone-chart-action-map-iso"
+    ],
+    "concurrentProtocolUpdate": {
+      "commit": "22f67751dcda86cd61c81a2213b5557123eab845",
+      "date": "2026-10-07",
+      "scope": "PROTOCOL§5/§18 now require statements in our own words, no excerpt fields or copied source prose; incorrect formulas may be recorded as mathematics. The concurrent GS0 packet change only deleted excerpts. This revision adopts that change and paraphrases source-assertion descriptions while preserving mathematical content, IDs and historical reviews.",
+      "removedSourceFields": 130,
+      "paraphrasedSourceFields": 39,
+      "sourceIssuesWithPresentationChanges": [
+        "GeometricSatakeAndFusion/E1",
+        "GeometricSatakeAndFusion/E5",
+        "GeometricSatakeAndFusion/E6",
+        "GeometricSatakeAndFusion/E8",
+        "GeometricSatakeAndFusion/E9",
+        "GeometricSatakeAndFusion/E11",
+        "GeometricSatakeAndFusion/E13",
+        "GeometricSatakeAndFusion/E14",
+        "GeometricSatakeAndFusion/E16",
+        "GeometricSatakeAndFusion/E21",
+        "GeometricSatakeAndFusion/E22",
+        "GeometricSatakeAndFusion/E2",
+        "GeometricSatakeAndFusion/E15",
+        "GeometricSatakeAndFusion/E17",
+        "GeometricSatakeAndFusion/E3",
+        "GeometricSatakeAndFusion/E4",
+        "GeometricSatakeAndFusion/E7",
+        "GeometricSatakeAndFusion/E10",
+        "GeometricSatakeAndFusion/E12",
+        "GeometricSatakeAndFusion/E18",
+        "GeometricSatakeAndFusion/E19",
+        "GeometricSatakeAndFusion/E23"
+      ]
+    }
   }
 }
