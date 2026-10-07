@@ -29509,9 +29509,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-VStackSheavesAndLisseCategories.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1001"
+   "note": "deliverables arrived from an external worker on issue #1001",
+   "finishedAt": "2026-10-07T12:05:32Z"
   },
   {
    "id": "REV-VStackSheavesAndLisseCategories",
@@ -37410,7 +37411,8 @@
     "REV-GrossZagierAndArithmeticHeights--GZ.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-GrossZagierAndArithmeticHeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #236"
   },
   {
    "id": "ASM-HabiroCohomologyFoundations",
