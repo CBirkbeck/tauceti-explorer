@@ -892,7 +892,7 @@
       "sources": [
         {
           "sourceId": "CHENEVIER-DET",
-          "locator": "§1.1, p. 6",
+          "locator": "§1.1, pp.6–7",
           "match": "The definition."
         }
       ],
@@ -1145,7 +1145,8 @@
         "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
         "mathlib:Polynomial",
         "mathlib:Algebra.TensorProduct.rid",
-        "mathlib:Polynomial.Monic"
+        "mathlib:Polynomial.Monic",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/degree-one-laws-linear"
       ],
       "library": {
         "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
@@ -1545,7 +1546,7 @@
       "sources": [
         {
           "sourceId": "CHENEVIER-DET",
-          "locator": "Remark 1.4, p. 8",
+          "locator": "Remark 1.4, p.9",
           "match": "Base change of laws."
         },
         {
@@ -1615,7 +1616,8 @@
         "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
         "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
         "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
-        "mathlib:AlgHom"
+        "mathlib:AlgHom",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/degree-one-laws-linear"
       ],
       "library": {
         "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
@@ -1828,7 +1830,8 @@
       "uses": [],
       "prerequisites": [
         "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
-        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant"
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/newton-identities"
       ],
       "library": {
         "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
@@ -1906,7 +1909,7 @@
       ],
       "proofSteps": [
         "d = 2: for a pseudocharacter T put f(x, y) = T(x)T(y) − T(xy), a bilinear form, and D(x) = f(x, x)/2, a quadratic law; the pseudocharacter identity of dimension 2 gives multiplicativity (Chenevier's proof of Proposition 1.29(i)).",
-        "(2d)! invertible: the (d, d)-partial polarisation of the product map (Chenevier Proposition 1.29, via Proposition 1.32), reducing multiplicativity to an identity between polynomials in the T(w) that holds for matrices."
+        "(2d)! invertible: use the partial polarization of Proposition 1.30, pp.22–23. Proposition 1.29(ii) transfers the rational matrix identity to Z[1/(2d)!] using the symmetric-group algebra and torsion-freeness of the quotient by the antisymmetrizer ideal. These non-routine integral representation-theory steps are recorded as a review gap."
       ],
       "acceptance": [
         "For d = 2 and 2 invertible this recovers Lemma 1.9's correspondence with D(g) = (T(g)² − T(g²))/2.",
@@ -1926,7 +1929,7 @@
       "sources": [
         {
           "sourceId": "CHENEVIER-DET",
-          "locator": "Proposition 1.29, p. 20",
+          "locator": "Proposition 1.29 and proof, pp.20–22",
           "match": "The statement."
         }
       ],
@@ -4265,12 +4268,12 @@
         {
           "name": "TauCeti.Spherical.IsNonEisenstein",
           "role": "characterisation",
-          "statement": "Galois type with absolutely irreducible residual representation."
+          "statement": "The same continuous semisimple residue representation realizing the given Frobenius polynomials is absolutely irreducible."
         },
         {
           "name": "TauCeti.Spherical.galoisType_unique",
           "role": "universal-property",
-          "statement": "Two witnesses have isomorphic semisimple representations after a common algebraic closure."
+          "statement": "Continuous determinants agreeing on a conjugacy-dense Frobenius family over Hausdorff coefficients are equal; semisimple reconstruction then identifies the residue representations after a common algebraic closure."
         }
       ],
       "tests": [
@@ -4413,7 +4416,7 @@
         {
           "name": "TauCeti.HeckeImage.operatorLocalization_idempotent",
           "role": "equivalence",
-          "statement": "C[t^{-1}]≅e_tC."
+          "statement": "If e commutes with t, t is invertible on the e-summand and t is nilpotent on the complementary summand, then C[t^{-1}]≅eC."
         }
       ],
       "tests": [
@@ -4624,13 +4627,15 @@
       ],
       "title": "Gluing over an intersection of quotient ideals",
       "kind": "lemma",
-      "statement": "Let A/(I∩J) embed into A/I×A/J and be compact Hausdorff. Continuous degree-d determinants over A/I and A/J glue over A/(I∩J) when their characteristic-polynomial tuples belong to the image on a dense subset. Agreement merely after killing the nilradical does not give this image condition.",
-      "hypotheses": [],
+      "statement": "Let A/(I∩J), A/I and A/J be Hausdorff topological rings, with A/(I∩J) compact and its canonical maps to A/I and A/J continuous. Continuous degree-d determinants over A/I and A/J glue uniquely and continuously over A/(I∩J) when their characteristic-polynomial tuples belong to the image on a dense subset of a compact group G. Agreement merely after killing the nilradical does not give this image condition.",
+      "hypotheses": [
+        "The product A/I×A/J is Hausdorff and the injective diagonal quotient map is continuous."
+      ],
       "proofSteps": [
         "Apply compact coefficient gluing to the diagonal quotient map; membership in the image is the fiber-product compatibility over A/(I+J)."
       ],
       "acceptance": [
-        "Let A/(I∩J) embed into A/I×A/J and be compact Hausdorff. Continuous degree-d determinants over A/I and A/J glue over A/(I∩J) when their characteristic-polynomial tuples belong to the image on a dense subset. Agreement merely after killing the nilradical does not give this image condition."
+        "Let A/(I∩J), A/I and A/J be Hausdorff topological rings, with A/(I∩J) compact and its canonical maps to A/I and A/J continuous. Continuous degree-d determinants over A/I and A/J glue uniquely and continuously over A/(I∩J) when their characteristic-polynomial tuples belong to the image on a dense subset of a compact group G. Agreement merely after killing the nilradical does not give this image condition."
       ],
       "prerequisites": [
         "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing"
@@ -4842,7 +4847,7 @@
         {
           "name": "TauCeti.Interpolation.CongruenceWitness",
           "role": "structure",
-          "statement": "Finite classical systems, their coefficient embeddings and Frobenius membership modulo J_r."
+          "statement": "A single quotient-level witness carries compact Hausdorff coefficients, Hausdorff classical coefficient rings, continuous coefficient embeddings and classical determinants, conjugacy-dense Frobenius, injectivity and coefficient membership. The cross-level uniform modulus remains geometric input."
         },
         {
           "name": "TauCeti.Interpolation.CongruenceWitness.determinant",
@@ -4853,6 +4858,16 @@
           "name": "TauCeti.Interpolation.CongruenceWitness.compatible",
           "role": "compatibility",
           "statement": "Under levelwise congruence compatibility, reductions of the D_r agree by Frobenius uniqueness."
+        },
+        {
+          "name": "TauCeti.Interpolation.CongruenceWitness.determinant_continuous",
+          "role": "compatibility",
+          "statement": "The glued determinant is continuous."
+        },
+        {
+          "name": "TauCeti.Interpolation.CongruenceWitness.determinant_classical",
+          "role": "compatibility",
+          "statement": "Every coefficient extension of the glued determinant equals the prescribed classical determinant as a whole law."
         }
       ],
       "tests": [
@@ -7138,8 +7153,8 @@
       "sources": [
         {
           "sourceId": "EM23",
-          "locator": "Theorem 4.1 and proof, pp.12–14",
-          "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
+          "locator": "Theorem 4.1 and proof, pp.13–14",
+          "match": "The theorem and proof give the natural all-ring determinant/GL_d-pseudocharacter comparison for positive d; the introductory theorem uses this exact phrase."
         }
       ],
       "implementationStatus": "unchecked"
@@ -7171,8 +7186,8 @@
       "sources": [
         {
           "sourceId": "EM23",
-          "locator": "Proposition 2.6 and Lemma 2.7, pp.7–8",
-          "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
+          "locator": "Proposition 2.6 and Lemma 2.7 with proof, pp.9–10",
+          "match": "Proposition 2.6(i) lists flat base change and the Dedekind/connected geometrically reductive case; Lemma 2.7 proves the latter invariant-coordinate comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -7777,7 +7792,7 @@
         {
           "name": "TauCeti.Determinant.IsAbsolutelyIrreducible",
           "role": "characterisation",
-          "statement": "Irreducibility after algebraic closure."
+          "statement": "Positive-dimensional irreducibility after algebraically closed coefficient extensions, independently of splitness over the base field."
         },
         {
           "name": "TauCeti.Determinant.IsMultiplicityFree",
@@ -7800,6 +7815,11 @@
           "name": "residual_distinct",
           "kind": "characterisation",
           "statement": "χψ for two distinct k-valued characters is split multiplicity-free and reducible."
+        },
+        {
+          "name": "residual_nonsplit_quaternion",
+          "kind": "non-example",
+          "statement": "The degree-two Hamilton quaternion reduced norm over ℝ is absolutely irreducible after algebraic closure and is not split over ℝ."
         }
       ],
       "uses": [
@@ -8680,7 +8700,7 @@
       "sources": [
         {
           "sourceId": "WE18",
-          "locator": "Proposition 3.6, pp.21–23",
+          "locator": "Proposition 3.6 and proof, pp.21–23",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -8748,8 +8768,8 @@
       "sources": [
         {
           "sourceId": "CHT08",
-          "locator": "Lemma 2.1.10, pp.14–15",
-          "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
+          "locator": "Lemma 2.1.10 and proof, pp.13–14",
+          "match": "S is the smaller coefficient ring; the inherited quotation used R, the ambient ring, which would make this hypothesis tautological."
         }
       ],
       "implementationStatus": "unchecked"
@@ -8781,7 +8801,7 @@
       "sources": [
         {
           "sourceId": "GG12",
-          "locator": "Lemma 7.1.1 and proof",
+          "locator": "Lemma 7.1.1 and proof, p.25",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -9319,8 +9339,8 @@
       "sources": [
         {
           "sourceId": "Q23",
-          "locator": "Theorem 3.20 and Definition 5.4, pp.20,28",
-          "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
+          "locator": "Theorem 3.20, p.20, and Theorem 5.4, pp.27–28",
+          "match": "Theorem 3.20 represents the algebraic functor; Theorem 5.4 pro-represents the continuous deformation functor. There is no Definition 5.4 in this version."
         }
       ],
       "implementationStatus": "unchecked",
@@ -9397,7 +9417,7 @@
       "sources": [
         {
           "sourceId": "Q23",
-          "locator": "Theorem 5.7 and proof, pp.28–29",
+          "locator": "Theorem 5.7 and proof, p.29",
           "match": "The cited passage supplies this declaration, with the hypotheses and conventions stated here."
         }
       ],
@@ -12345,6 +12365,46 @@
           "how": "Input to the BIP23 generic representation space; all local-Galois-specific geometry stays with that owner."
         }
       ]
+    },
+    {
+      "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/degree-one-laws-linear",
+      "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+      "realises": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0"
+      ],
+      "title": "Degree-one polynomial laws are linear",
+      "kind": "lemma",
+      "statement": "For arbitrary A-modules M,N, a polynomial law P:M→N is homogeneous of degree one if and only if it is the scalar-extension law of a unique A-linear map ℓ:M→N. No flatness or finite-generation hypothesis is needed.",
+      "hypotheses": [
+        "A is commutative."
+      ],
+      "proofSteps": [
+        "Write P(uX+vY) in N[X,Y]. Substituting (X,Y)↦(XT,YT) and comparing powers of T shows that it is a(u,v)X+b(u,v)Y. Evaluations at (1,0),(0,1),(1,1) give additivity; scalar homogeneity gives A-linearity.",
+        "Apply the same polynomial-coefficient argument to every finite sum of pure tensors in S⊗_A M. Naturality identifies P_S with ℓ.lTensor S. Conversely this law is homogeneous of degree one, and ground evaluation makes ℓ unique."
+      ],
+      "acceptance": [
+        "The existing isHomogeneousOfDegree_one_iff API is justified by this lemma, rather than hidden inside the definition.",
+        "The argument works for torsion modules and in positive characteristic."
+      ],
+      "prerequisites": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/law-of-linear-map",
+        "mathlib:LinearMap.lTensor",
+        "mathlib:PolynomialLaw"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+        "namespace": "TauCeti"
+      },
+      "sources": [
+        {
+          "sourceId": "CHENEVIER-DET",
+          "locator": "Example 1.2(i) and footnote 11, p.7",
+          "match": "The footnote proves additivity by total-degree-one coefficient comparison; naturality supplies the scalar-extension statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
     }
   ],
   "requests": [
@@ -12453,7 +12513,7 @@
     },
     {
       "supplier": "DerivedDeRhamCohomology:DD.1",
-      "need": "Supply regular-sequence Koszul exactness and finite free tensor/K-flat comparison, beyond the existing arbitrary-module exterior-contraction complex.",
+      "need": "Reuse koszul-complex and the regular-sequence Koszul-to-ordinary-quotient comparison underlying ordinary-quotient-completion. Supply the explicit K(f)→A/(f) quasi-isomorphism and bounded finite free tensor/K-flat API for the ordered determinantal tensor proof, rather than planning a second Koszul complex.",
       "neededBy": [
         "IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-quotient-acyclicity",
         "IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-borel-invariants",
@@ -12469,21 +12529,21 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
-      "need": "Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
+      "need": "Import Artin–Wedderburn for semisimple artinian algebras: a finite product of matrix algebras over division rings, at the supplier’s artinian/finite-length hypotheses. IHG separately proves that its bounded Cayley–Hamilton faithful quotient meets those hypotheses; it does not infer them from an arbitrary polynomial identity.",
       "neededBy": [
         "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-finite-simple-factors"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
-      "need": "Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
+      "need": "Import the density/double-centralizer theorem for a simple module finite-dimensional over its endomorphism division ring. IHG supplies the determinant dimension bound before applying it; finite dimension over the original coefficient field is a separate assertion.",
       "neededBy": [
         "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-simple-modules"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
-      "need": "Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
+      "need": "Import central-simple structure and matrix splitting/descent over a center field with the supplier’s finite-dimensionality and separability hypotheses. IHG separately establishes the bounded-center alternatives and inseparable norm factors; arbitrary imperfect coefficient fields are not silently perfect.",
       "neededBy": [
         "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-centers",
         "IntegralHeckeAndGaloisDeterminants:IHG.1/field-faithful-quotient"
@@ -12501,10 +12561,12 @@
         "Integral generic-matrix invariant presentation for Vaccarino: Read the integral Donkin–Zubkov generator-and-relation theorem in the version used by Vaccarino and verify the identification of its relations with divided-power abelianization. The theorem itself is a node; its untranscribed invariant-theory proof is a gap, not a baseline claim.",
         "Constant-rank projective exterior determinant descent: Read pinned rank-localization and invertible-module endomorphism declarations, prove ∧^dV is invertible for constant-rank-d finite projective V, and transcribe the local matrix-law descent. LinearMap.det’s finite-basis definition alone does not supply this generality.",
         "Azumaya splitting and norm descent supplier: IsAzumaya already exists, but the upstream SemisimpleAlgebras roadmap treats central simple algebras over fields. An extension in that same direction must supply faithfully flat/étale matrix splittings over general rings and reduced-norm descent; record Semisimple algebras, Part II in the restructuring proposal.",
+        "Integral pseudocharacter multiplicativity transfer: At Chenevier Proposition 1.29(i), transcribe the S4/H idempotent and antisymmetrizer-ideal argument over Z[1/2], including the modular-field projectivity step. For (ii), transcribe Proposition 1.30, the rational Procesi identity, the split symmetric-group algebra over Z[1/(2d)!], and torsion-freeness of its antisymmetrizer quotient. The inherited proof skipped these non-routine steps and cited a nonexistent Proposition 1.32.",
+        "Invariant-coordinate evaluation compatibility: ofRepresentation accepts arbitrary evaluation homomorphisms but omits the already expressible reindexing and product equations required to obtain a ReductivePseudocharacter. Package those equations as actual evaluation data, then propagate them through constructors and their examples. LP3 supplies the group/invariant carrier, but these compatibility equations can already be stated with InvariantCoordinateInput.",
         "Supplier LanglandsParameterStacks:LP3: Supply invariant coordinate algebras O[H^m]^(H⁰), reindexing/product pullbacks, closed-orbit separation and H-complete reducibility for possibly disconnected generalized reductive H over noetherian O; use the integral carrier, not only the current algebraically closed good-filtration t-structure.",
         "Supplier tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ: Supply integral reductive group-scheme carriers and their classical GL_n/GSp_2n point and coordinate dictionaries; general smooth disconnected extensions use the imported component-group carrier."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 50 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 51 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
@@ -12532,6 +12594,11 @@
         "Building supplier for integral reductive models: The actual building owner is ReductiveGroupsPartII RG2.2 (bounded-action fixed points), with RG2.3 for parahoric/hyperspecial models. Transcribe the finite-extension/conjugation passage from a building fixed point to the standard integral H model used by BHKT19 Theorem 4.8; its precise scope is requested rather than attributed to affine flags.",
         "Invariant finite generation and finite tangent space: Transcribe Q23 Theorem 5.7’s finite-tuple comparison and the completion argument, importing geometric reductivity and finite generation from LP3. Mazur’s Φ_p extension is not inferred solely from finite topological generation.",
         "Mixed-characteristic slice hypotheses: Read BHKT19 Proposition 3.13 and its smooth free-orbit hypotheses in full; translate its formal torsor statement. Absolute irreducibility for a general reductive group does not by itself replace the scheme-theoretic centralizer condition.",
+        "Residual-factor and constituent signatures: The two-block reducibility characterization still must state the prescribed residual factors and their uniqueness, not just some full-law factorization. The Ext injection must specify the actual quotient constituents and the partition reducibility hypothesis, rather than arbitrary ModuleCat R arguments. These contracts use the roadmap’s planned GMA data; recover them from BC09 §1.5 and the exact all-characteristic ANT20 statement.",
+        "Expressible lattice and symplectic descent hypotheses: The suggested ribet_lattice still omits the complete DVR/fraction-field, compact continuous irreducible representation and distinct residual-character inputs; its conclusion also does not test the nonsplit orientation. symplectic_coefficient_descent still admits a zero form and omits complete-local/common-residue, trace, continuity, residual irreducibility and residue-characteristic >2 hypotheses. Add these actual data before accepting the signatures. Supplier unavailability of a group-scheme carrier does not justify omitting a matrix-form or local-ring hypothesis.",
+        "Quotient direction in local reconstruction: CN23 Proposition 3.2.4(3) uses a surjection Atilde→A and concludes a local Atilde-valued lift reducing to the given global A-representation, with selected generic fiber. The current signature instead assumes Algebra A B and conjugacy in B between an arbitrary localMap and a base extension of the global representation. Replace this with the quotient/reduction and corner-compatible generic-fiber contract; arbitrary rank-one characters already contradict the old conclusion.",
+        "Invariant-coordinate evaluation compatibility: ofRepresentation accepts arbitrary evaluation homomorphisms but omits the already expressible reindexing and product equations required to obtain a ReductivePseudocharacter. Package those equations as actual evaluation data, then propagate them through constructors and their examples. LP3 supplies the group/invariant carrier, but these compatibility equations can already be stated with InvariantCoordinateInput.",
+        "Universal specialization test contract: universal_matrix_specialization takes an arbitrary coefficient map into A, with neither henselian-local nor split absolutely irreducible specialization hypotheses, although those predicates are available in the file. Add the actual specialized determinant and its residual conditions, tied to that coefficient map. Without them an arbitrary reducible specialization is wrongly required to give M_d(A).",
         "Supplier tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors: Supply the reciprocity map with its stated Frobenius convention and the explicit inverse map for switching arithmetic and geometric Frobenius.",
         "Supplier tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ: Supply the symplectic similitude group and alternating-form basis conventions; IHG imports the carrier and proves only the normalization/descent comparisons used here.",
         "Supplier LanglandsParameterStacks:LP3: Supply invariant coordinate algebras O[H^m]^(H⁰), reindexing/product pullbacks, closed-orbit separation and H-complete reducibility for possibly disconnected generalized reductive H over noetherian O; use the integral carrier, not only the current algebraically closed good-filtration t-structure.",
@@ -12541,11 +12608,11 @@
         "Supplier ReductiveGroupsPartII:RG2.2: Supply bounded-subgroup fixed points and the finite-extension hyperspecial integral model used in BHKT19 Theorem 4.8; verify the correct building owner before adding an atlas edge.",
         "Supplier LanglandsParameterStacks:LP3: Supply the mixed-characteristic free-orbit formal slice of BHKT19 Theorem 4.10 with scheme-theoretically trivial adjoint centralizer, and the Cartesian square of completed tuple torsors.",
         "Supplier ReductiveGroupsPartII:RG2.3: Supply the finite-extension/conjugation passage from the bounded building fixed point to an integral hyperspecial H model for BHKT19 Theorem 4.8.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here."
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Import Artin–Wedderburn for semisimple artinian algebras: a finite product of matrix algebras over division rings, at the supplier’s artinian/finite-length hypotheses. IHG separately proves that its bounded Cayley–Hamilton faithful quotient meets those hypotheses; it does not infer them from an arbitrary polynomial identity.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Import the density/double-centralizer theorem for a simple module finite-dimensional over its endomorphism division ring. IHG supplies the determinant dimension bound before applying it; finite dimension over the original coefficient field is a separate assertion.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Import central-simple structure and matrix splitting/descent over a center field with the supplier’s finite-dimensionality and separability hypotheses. IHG separately establishes the bounded-center alternatives and inseparable norm factors; arbitrary imperfect coefficient fields are not silently perfect."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 61 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 61 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.2",
@@ -12560,7 +12627,7 @@
         "Order discriminant and large-prime completion proof: Read or supply exact baseline statements for normalization of finite semisimple number-field orders, discriminant localization and finite étale splitting. CGH20 asserts the smooth-completion conclusion in its opening paragraph but does not give this integral algebra argument there.",
         "Supplier VStackSheavesAndLisseCategories:VS2: Supply the analytic localization A[T]→A[T,T^{-1}], its agreement with classical localization on discrete finite objects and its preservation of the limits/colimits used by BP26 Lemma 2.4.4."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 21 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 21 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.3",
@@ -12578,11 +12645,11 @@
         "Supplier tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ: Supply the symplectic similitude group and alternating-form basis conventions; IHG imports the carrier and proves only the normalization/descent comparisons used here.",
         "Supplier tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ: Supply integral reductive group-scheme carriers and their classical GL_n/GSp_2n point and coordinate dictionaries; general smooth disconnected extensions use the imported component-group carrier.",
         "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional: Supply the Jacobson radical unit criterion and the nilpotence of the radical of finite-dimensional commutative algebras.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here."
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Import Artin–Wedderburn for semisimple artinian algebras: a finite product of matrix algebras over division rings, at the supplier’s artinian/finite-length hypotheses. IHG separately proves that its bounded Cayley–Hamilton faithful quotient meets those hypotheses; it does not infer them from an arbitrary polynomial identity.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Import the density/double-centralizer theorem for a simple module finite-dimensional over its endomorphism division ring. IHG supplies the determinant dimension bound before applying it; finite dimension over the original coefficient field is a separate assertion.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Import central-simple structure and matrix splitting/descent over a center field with the supplier’s finite-dimensionality and separability hypotheses. IHG separately establishes the bounded-center alternatives and inseparable norm factors; arbitrary imperfect coefficient fields are not silently perfect."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 17 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 17 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.4",
@@ -12594,7 +12661,7 @@
         "Supplier tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev: Supply conjugacy-class density of unramified Frobenius in every finite quotient of G_{F,S}, with the explicit Frobenius convention.",
         "Supplier PadicMeasuresIwasawaAlgebras:L1: Supply the general complete adic coefficient/profinite-group completed group algebra and completed tensor-product comparison with its finite quotient system."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 12 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 12 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.5",
@@ -12614,17 +12681,20 @@
         "All-characteristic determinant reducibility theorem: CN23 Proposition 3.2.3 imports Allen–Newton–Thorne 2020 Proposition 2.5; obtain and read that public proof. BC09 Proposition 1.5.1 is a trace-pseudocharacter result under its invertibility hypotheses and cannot replace the determinant theorem in characteristic two.",
         "Stable lattice and fractional-ideal entry bounds: Supply the stable lattice proof for the stated continuous compact image over a local field and the integral entry bounds after the separating idempotents. For general compact topological G require compactness explicitly; record it in ribet-lattice hypotheses.",
         "Disconnected centralizer comparison: Verify Q23 Claim A’s centralizer equality at the level of reduced algebraic groups/k-points, and supply the scheme-theoretic separation statements only where needed. Equal dimensions and component counts alone do not prove equality of arbitrary nonreduced subgroup schemes.",
+        "Residual-factor and constituent signatures: The two-block reducibility characterization still must state the prescribed residual factors and their uniqueness, not just some full-law factorization. The Ext injection must specify the actual quotient constituents and the partition reducibility hypothesis, rather than arbitrary ModuleCat R arguments. These contracts use the roadmap’s planned GMA data; recover them from BC09 §1.5 and the exact all-characteristic ANT20 statement.",
+        "Expressible lattice and symplectic descent hypotheses: The suggested ribet_lattice still omits the complete DVR/fraction-field, compact continuous irreducible representation and distinct residual-character inputs; its conclusion also does not test the nonsplit orientation. symplectic_coefficient_descent still admits a zero form and omits complete-local/common-residue, trace, continuity, residual irreducibility and residue-characteristic >2 hypotheses. Add these actual data before accepting the signatures. Supplier unavailability of a group-scheme carrier does not justify omitting a matrix-form or local-ring hypothesis.",
+        "Invariant-coordinate evaluation compatibility: ofRepresentation accepts arbitrary evaluation homomorphisms but omits the already expressible reindexing and product equations required to obtain a ReductivePseudocharacter. Package those equations as actual evaluation data, then propagate them through constructors and their examples. LP3 supplies the group/invariant carrier, but these compatibility equations can already be stated with InvariantCoordinateInput.",
         "Supplier tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev: Supply conjugacy-class density of unramified Frobenius in every finite quotient of G_{F,S}, with the explicit Frobenius convention.",
         "Supplier ArithmeticGaloisDuality:R02.1: Supply continuous degree-one cocycles/classes with topological coefficient modules, the character-twist action, restriction, coboundaries and equivariant functoriality. The finite T-modules in DKSW carry their adic topology and need not be finite sets.",
         "Supplier LanglandsParameterStacks:LP3: Supply invariant coordinate algebras O[H^m]^(H⁰), reindexing/product pullbacks, closed-orbit separation and H-complete reducibility for possibly disconnected generalized reductive H over noetherian O; use the integral carrier, not only the current algebraically closed good-filtration t-structure.",
         "Supplier tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ: Supply integral reductive group-scheme carriers and their classical GL_n/GSp_2n point and coordinate dictionaries; general smooth disconnected extensions use the imported component-group carrier.",
         "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional: Supply the Jacobson radical unit criterion and the nilpotence of the radical of finite-dimensional commutative algebras.",
         "Supplier LanglandsParameterStacks:LP3: Supply the finite-conjugacy-class parabolic/Levi theory, minimal-parabolic common Levi result, closed-orbit quotient surjectivity and disconnected H-complete-reducibility criterion used in Q23 Lemmas 3.4–3.6.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here."
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Import Artin–Wedderburn for semisimple artinian algebras: a finite product of matrix algebras over division rings, at the supplier’s artinian/finite-length hypotheses. IHG separately proves that its bounded Cayley–Hamilton faithful quotient meets those hypotheses; it does not infer them from an arbitrary polynomial identity.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Import the density/double-centralizer theorem for a simple module finite-dimensional over its endomorphism division ring. IHG supplies the determinant dimension bound before applying it; finite dimension over the original coefficient field is a separate assertion.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Import central-simple structure and matrix splitting/descent over a center field with the supplier’s finite-dimensionality and separability hypotheses. IHG separately establishes the bounded-center alternatives and inseparable norm factors; arbitrary imperfect coefficient fields are not silently perfect."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 11 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 11 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     },
     {
       "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.6",
@@ -12647,12 +12717,12 @@
         "Compact-image lattice and adic quotient topology: DKSW compresses finiteness and continuity into one sentence. In the general inclusion T⊂T̃, bounded denominators over T̃ alone do not give a finite T-lattice, since T̃ need not be finite over T. Supply a trace-pairing argument over the T-valued character algebra, control nonreduced field-factor kernels, and identify the quotient adic topology. Until then the claimed finiteness lemma is a proof leaf, not an inferred consequence of compactness.",
         "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional: Supply the Jacobson radical unit criterion and the nilpotence of the radical of finite-dimensional commutative algebras.",
         "Supplier LanglandsParameterStacks:LP3: Supply the integral rational comodule category, derived invariants, algebraic induction, exhaustive good filtrations, tensor closure, universal coefficients, products, and GL₂/Fp good-filtration dimensions used by DKSW §§4.1–4.3. The current field t-structure node does not supply this integral API.",
-        "Supplier DerivedDeRhamCohomology:DD.1: Supply regular-sequence Koszul exactness and finite free tensor/K-flat comparison, beyond the existing arbitrary-module exterior-contraction complex.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here.",
-        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Reuse the existing supplier at its stated hypotheses for the marked nodes; no reconstruction of this upstream mathematics is planned here."
+        "Supplier DerivedDeRhamCohomology:DD.1: Reuse koszul-complex and the regular-sequence Koszul-to-ordinary-quotient comparison underlying ordinary-quotient-completion. Supply the explicit K(f)→A/(f) quasi-isomorphism and bounded finite free tensor/K-flat API for the ordered determinantal tensor proof, rather than planning a second Koszul complex.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness: Import Artin–Wedderburn for semisimple artinian algebras: a finite product of matrix algebras over division rings, at the supplier’s artinian/finite-length hypotheses. IHG separately proves that its bounded Cayley–Hamilton faithful quotient meets those hypotheses; it does not infer them from an arbitrary polynomial identity.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem: Import the density/double-centralizer theorem for a simple module finite-dimensional over its endomorphism division ring. IHG supplies the determinant dimension bound before applying it; finite dimension over the original coefficient field is a separate assertion.",
+        "Supplier tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products: Import central-simple structure and matrix splitting/descent over a center field with the supplier’s finite-dimensionality and separability hypotheses. IHG separately establishes the bounded-center alternatives and inseparable norm factors; arbitrary imperfect coefficient fields are not silently perfect."
       ],
-      "notes": "All stage targets and routed source inputs are represented in the 76 declaration nodes. The remaining list follows the target dependency closure; it includes inherited leaves rather than suggesting that the stage is formally implemented."
+      "notes": "All stage targets and routed source inputs are represented in the 76 declaration nodes. This is a planned pass, not proof closure or formal implementation. The remaining list follows direct dependency closure and includes the independent review’s precise follow-up contracts."
     }
   ],
   "gaps": [
@@ -12914,6 +12984,58 @@
       "neededBy": [
         "IntegralHeckeAndGaloisDeterminants:IHG.6/compact-image-finite-module"
       ]
+    },
+    {
+      "title": "Integral pseudocharacter multiplicativity transfer",
+      "detail": "At Chenevier Proposition 1.29(i), transcribe the S4/H idempotent and antisymmetrizer-ideal argument over Z[1/2], including the modular-field projectivity step. For (ii), transcribe Proposition 1.30, the rational Procesi identity, the split symmetric-group algebra over Z[1/(2d)!], and torsion-freeness of its antisymmetrizer quotient. The inherited proof skipped these non-routine steps and cited a nonexistent Proposition 1.32.",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-small"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
+    },
+    {
+      "title": "Residual-factor and constituent signatures",
+      "detail": "The two-block reducibility characterization still must state the prescribed residual factors and their uniqueness, not just some full-law factorization. The Ext injection must specify the actual quotient constituents and the partition reducibility hypothesis, rather than arbitrary ModuleCat R arguments. These contracts use the roadmap’s planned GMA data; recover them from BC09 §1.5 and the exact all-characteristic ANT20 statement.",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/reducibility-ideal",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-extension-injection"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
+    },
+    {
+      "title": "Expressible lattice and symplectic descent hypotheses",
+      "detail": "The suggested ribet_lattice still omits the complete DVR/fraction-field, compact continuous irreducible representation and distinct residual-character inputs; its conclusion also does not test the nonsplit orientation. symplectic_coefficient_descent still admits a zero form and omits complete-local/common-residue, trace, continuity, residual irreducibility and residue-characteristic >2 hypotheses. Add these actual data before accepting the signatures. Supplier unavailability of a group-scheme carrier does not justify omitting a matrix-form or local-ring hypothesis.",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/ribet-lattice",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/symplectic-coefficient-descent"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
+    },
+    {
+      "title": "Quotient direction in local reconstruction",
+      "detail": "CN23 Proposition 3.2.4(3) uses a surjection Atilde→A and concludes a local Atilde-valued lift reducing to the given global A-representation, with selected generic fiber. The current signature instead assumes Algebra A B and conjugacy in B between an arbitrary localMap and a base extension of the global representation. Replace this with the quotient/reduction and corner-compatible generic-fiber contract; arbitrary rank-one characters already contradict the old conclusion.",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/compatible-local-reconstruction"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
+    },
+    {
+      "title": "Invariant-coordinate evaluation compatibility",
+      "detail": "ofRepresentation accepts arbitrary evaluation homomorphisms but omits the already expressible reindexing and product equations required to obtain a ReductivePseudocharacter. Package those equations as actual evaluation data, then propagate them through constructors and their examples. LP3 supplies the group/invariant carrier, but these compatibility equations can already be stated with InvariantCoordinateInput.",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/reductive-pseudocharacter",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-reductive-pseudocharacter",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/reductive-pseudocharacter-kernel"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
+    },
+    {
+      "title": "Universal specialization test contract",
+      "detail": "universal_matrix_specialization takes an arbitrary coefficient map into A, with neither henselian-local nor split absolutely irreducible specialization hypotheses, although those predicates are available in the file. Add the actual specialized determinant and its residual conditions, tied to that coefficient map. Without them an arbitrary reducible specialization is wrongly required to give M_d(A).",
+      "neededBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/universal-cayley-hamilton-algebra"
+      ],
+      "addedBy": "REV-IntegralHeckeAndGaloisDeterminants"
     }
   ],
   "sourceIssues": [
@@ -12931,7 +13053,12 @@
         "arXiv:0809.0415 v1–v2 listing and the v2 source (same statement)",
         "the 2013 Durham symposium preprint (same statement)",
         "Chenevier's publication page, which links errata for other papers but none for this one"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Proposition 1.27 and its proof. The F_p[X] scalar-matrix counterexample has both traces zero and different norms; invertibility of d! is used by the Newton reconstruction.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E2",
@@ -12947,7 +13074,12 @@
         "arXiv:0809.0415 v1–v2 listing and the v2 source (same text)",
         "the 2013 Durham symposium preprint (same text)",
         "Chenevier's publication page (no errata listed for this paper)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Lemma 1.18(ii): the displayed quotient of a general module and its codomain are incorrectly named R and S. This is notation, not a new algebra hypothesis.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E3",
@@ -12963,7 +13095,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the proof displays the negative of the coboundary convention in Theorem 2.1. The packet uses (χψ^{-1}−1)y.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E4",
@@ -12979,7 +13116,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in equation (47): both diagonal entries are evaluated at τ; ξ_v(ψ)−ψ(σ) is a transcription error.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E5",
@@ -12995,7 +13137,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the distinguished σ_v need not lie in inertia, so the individual congruence asserted after (47) is unjustified. For each permitted pair an inertia argument applies to the polarized sum, giving the corrected product congruence without division by 2.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E6",
@@ -13011,7 +13158,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Lemma 4.18: the equivariant map from the adjoint module may have a nonzero kernel, and all four generators can vanish. Its image is a quotient, not necessarily an isomorphic adjoint module.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E7",
@@ -13027,7 +13179,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Definition 4.6 versus Theorem 4.10: simultaneous conjugation has central weight zero on an infinite-rank polynomial ring. A finite filtration by finite induced modules is impossible; use exhaustive finite polynomial-degree pieces.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E8",
@@ -13043,7 +13200,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Corollary 4.13: the preceding long exact sequence needs vanishing also in degree 2, so the written range i>2 misses the necessary i=2 case. The separate integral cokernel proof gap remains recorded.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E9",
@@ -13059,7 +13221,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by expansion of equation (55): the lower-unipotent parameter multiplies the determinant term. The missing parameter does not spoil membership in the relation ideal.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E10",
@@ -13075,7 +13242,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in §5.3.1: for g:V→V′ the well-typed compatibility is f′∘g=f.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E11",
@@ -13091,7 +13263,12 @@
         "Kakde author manuscript rl.pdf, 21 September 2023",
         "arXiv:2310.16396 versions v1–v2; v2 compared at affected passages",
         "Search for the paper title with errata/correction on 7 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Proposition 5.13: Y_1 is already L_1, so the remaining assignment Y_j=X_j must start at j>1.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E12",
@@ -13107,7 +13284,12 @@
         "Author PDF retaining arXiv v1, 23 October 2023",
         "arXiv:2310.14886v2, 31 March 2026, affected proofs compared",
         "Peking Mathematical Journal version-of-record HTML, 4 January 2026; the same proof passages persist"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the author v1, arXiv v2 and publisher HTML: the standard GL_n representation has central character z, so it is not self-dual; the cited tensor-power/direct-sum assertions cannot supply that identification.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E13",
@@ -13123,7 +13305,12 @@
         "Author PDF retaining arXiv v1, 23 October 2023",
         "arXiv:2310.14886v2, 31 March 2026, affected proofs compared",
         "Peking Mathematical Journal version-of-record HTML, 4 January 2026; the same proof passages persist"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in all three checked versions of Theorem 3.8: compactness of imρ is invoked before continuity of the reconstructed ρ has been established. This is a proof gap, not a counterexample to the theorem.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E14",
@@ -13139,7 +13326,12 @@
         "Pilloni author PDF built 5 November 2025, §2.4",
         "Publisher article DOI 10.1007/s00222-025-01393-2; subscription preview gives no proof text",
         "PAPER-BOXER-PILLONI-26 extraction sourceIssues E29 records this proof gap"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by Definitions 2.4.2/2.4.5 and Lemmas 2.4.3/2.4.6: the finite-cohomology factor in 2.4.5 is not required to be bounded, whereas 2.4.3 is. The packet’s bounded repair is valid and does not prove the unbounded statement.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E15",
@@ -13154,7 +13346,12 @@
       "searched": [
         "Pilloni public author manuscript §§5.1.3,15.2",
         "PAPER-PILLONI-20 extraction sourceIssues E149–E150 records these findings"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §15.2: Fob is the Frobenius typo.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     },
     {
       "id": "IntegralHeckeAndGaloisDeterminants/E16",
@@ -13163,13 +13360,19 @@
       "locator": "§15.2, p.107 of public author manuscript, definition of Θ_m",
       "printed": "Θ_m(Q_ℓ(X)) = det(1 − Xρ̄(Frob_ℓ))",
       "correction": "Specify the full similitude character ℓ³Θ_m(T_(ℓ,0))=ν(ρ̄(Frob_ℓ)), or allow any maximal ideal satisfying the polynomial rule rather than claiming that this rule alone specifies the character.",
-      "reason": "The constant/highest coefficient only gives the square of the multiplier. When the trace coefficient is zero the odd coefficient cannot select its sign; in characteristic 2 the ambiguity also has scheme-theoretic content. The packet retains the full multiplier as data.",
+      "reason": "The polynomial rule omits the full multiplier and can define more than one Hecke character even for an absolutely irreducible GL4 residual representation in odd characteristic: see the independent review’s Q8×D8 tensor example. Characteristic-two scheme ambiguities matter over nonreduced coefficients, but are not an ambiguity of square roots in a residue field of characteristic two.",
       "affects": "a stated result",
       "known": "PAPER-PILLONI-20/E150",
       "searched": [
         "Pilloni public author manuscript §§5.1.3,15.2",
-        "PAPER-PILLONI-20 extraction sourceIssues E149–E150 records these findings"
-      ]
+        "PAPER-PILLONI-20 extraction sourceIssues E149–E150 records these findings",
+        "Schmidt–Wingberg, arXiv:math/9809211v1: finite solvable groups, including Q8×D8, occur as Galois groups over Q; used only for the review counterexample."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a uniqueness defect in the polynomial rule, including under absolute irreducibility in odd characteristic. Over F_5, tensor the irreducible Q_8 standard module with the irreducible D_8 module generated by diag(2,−2) and the swap matrix. Its two symmetric forms (off-diagonal and identity) have distinct multiplier characters; tensoring with the Q_8 alternating form gives two GSp_4 realizations with identical GL_4 characteristic polynomials. The trace vanishes wherever the multipliers differ. No characteristic-two residue-field sign ambiguity is asserted.",
+        "by": "REV-IntegralHeckeAndGaloisDeterminants"
+      }
     }
   ],
   "restructure": [
@@ -13189,7 +13392,7 @@
         "CompletedCohomologyPartII",
         "CompletedCohomologyAndLocalGlobalCompatibility"
       ],
-      "detail": "Verified RT-AREA-langlands/18 distinguishes bounded finite-cohomology image algebras and ghost localization from completed inverse-limit Hecke algebras. CompletedCohomologyPartII:CC.8 and R31.3 use the former construction before completion.",
+      "detail": "Verified RT-AREA-automorphic-1/18 distinguishes bounded finite-cohomology image algebras and ghost localization from completed inverse-limit Hecke algebras. CC.8 needs the finite-image supplier followed by a source-qualified completed topological decomposition. Ordinary localization alone does not require semilocality; the finding does not establish a second localization construction in TC.2 or close CC.4’s chain-model gap.",
       "proposal": "Keep IHG.2 as the owner of finite-level chain/homotopy/derived/cohomology images, bounded finite derived Hom, ghosts, splitting and localization. Add IHG.2 → CompletedCohomologyPartII:CC.8; CC.8 owns completed inverse limits, completed localization and the classical-family congruence realization. R31.3 imports CC.8 and keeps its GL₂ specialization. No completed inverse-limit construction is duplicated in IHG.2."
     },
     {
@@ -13200,8 +13403,8 @@
         "AutomorphicGaloisRepresentationsPartII",
         "TorsionCohomologyInfrastructure"
       ],
-      "detail": "Verified RT-AREA-langlands/25 and /26 identify the same finite-quotient interpolation in R19.6 and AG2.4 and the algebraic factor-separation input in TC.3. A construction dependency from TC.2 to IHG.5 would be circular.",
-      "proposal": "R19.6 imports IHG.1 and IHG.4 and retains its ordinary geometric realization. AG2.4 imports IHG.4 and retains the HLTT geometric realization and auxiliary-CM descent. Separate TC.3’s input-parametrized factor-separation lemma as an algebra substage with inputs only IHG.0/1/4/5 and no TC.2 requirement; AG2.4 and TC.3 both import it. IHG.5 keeps input-parametrized algebraic error/descent statements without a TC.2 construction prerequisite. A classical rank-two Frobenius polynomial is an input to IHG.3, so IHG.3 does not depend back on R19.6."
+      "detail": "Verified RT-AREA-langlands-1/25 and /26 identify repeated generic interpolation wording and the algebraic factor-separation input in TC.3. IHG.1 already reaches R19.6 indirectly in the assembled graph; the missing construction edge is from IHG.4. A construction dependency from TC.2 to IHG.5 would be circular.",
+      "proposal": "R19.6 imports IHG.1 and IHG.4 and retains its ordinary geometric realization. AG2.4 imports IHG.4 and retains the HLTT geometric realization and auxiliary-CM descent. Separate TC.3’s input-parametrized factor-separation lemma as an algebra substage with inputs only IHG.0/1/4/5 and no TC.2 requirement; AG2.4 and TC.3 both import it. IHG.5 keeps input-parametrized algebraic error/descent statements without a TC.2 construction prerequisite. A classical rank-two Frobenius polynomial is an input to IHG.3, so IHG.3 does not depend back on R19.6. The independent factor lemma requires an actual determinant on R[G][V^{±1}] and the specified Laurent-variable factorizations for every g and integer k; pointwise factorization is insufficient. AG2.4 must prove that its HLTT character family and congruence data meet these inputs. Direct documentation of the existing IHG.1 reuse by R19.6 is optional; the missing IHG.4 edge is substantive."
     },
     {
       "action": "rescope",
@@ -13212,5 +13415,1258 @@
       "detail": "IHG’s disconnected reconstruction and DKSW integral rational Borel cohomology need LP3 interfaces beyond the current field good-filtration t-structure. The requested invariant-coordinate, complete-reducibility and integral good-filtration theories belong in the existing LP3 direction.",
       "proposal": "Keep IHG.1 as the owner of generalized reductive pseudocharacter reconstruction; LP2:semisimple-characters and GS.5 import it. LP3 supplies invariant coordinate algebras for H⁰-conjugation, disconnected closed-orbit/complete-reducibility theory and smooth free-orbit slices, plus the integral rational comodule and derived-invariant API with exhaustive finite-degree good filtrations. IHG.6 proves the specialized GL₂ acyclicity, invariant-ring and obstruction consequences using that API. Requests remain open until the supplier exports the precise nodes."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-IntegralHeckeAndGaloisDeterminants",
+    "date": "2026-10-07",
+    "notes": "Independent completed review of every node and all 51 pinned baseline declarations; corrected citations and clear signature defects, added one degree-one-law lemma and a quaternion regression, confirmed the 16 source issues with a strengthened odd-characteristic E16 counterexample, and checked ownership/red-team boundaries. Nine node contracts remain unverifiable for the precise signature/test mismatches recorded in the report and six new gaps. The 37 inherited mathematical proof leaves alone are not grounds for this verdict; status complete still denotes a completed planning pass, and no stage is claimed closed. The reader is read-only in this review job and must be regenerated by the revision owner. Corrected the red-team identifier and retained the verifier’s indirect-edge and Laurent-factorization qualifications in the rescope proposals.",
+    "checked": [
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': '§1.1, pp.6–7'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+        "verdict": "corrected",
+        "note": "Added degree-one-laws-linear as a direct prerequisite."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-one-add-mul-comm",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-of-matrix-representation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-direct-sum",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-restriction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-base-change",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Remark 1.4, p.9'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-dimension-one",
+        "verdict": "corrected",
+        "note": "Added degree-one-laws-linear as a direct prerequisite."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/trace-pseudocharacter",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-injective",
+        "verdict": "corrected",
+        "note": "Added the actual Newton-identities prerequisite used in the proof."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-small",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Proposition 1.29 and proof, pp.20–22', 'excerpt': 'either that 2 is invertible in A and d = 2'} Replaced the nonexistent Proposition 1.32 with Proposition 1.30 and made the integral transfer proof leaf explicit."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-dimension-two",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/law-of-linear-map",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'P ↦ PA induces a bijection'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-quotient-faithful",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-base-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-characterisation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/cayley-hamilton-identity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coefficient-subring",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant-dense",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-iff-open-kernel",
+        "verdict": "corrected",
+        "note": "Added T2Space G to the profinite open-normal-kernel signature."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-base-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-subalgebra",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/kernel-contains-cayley-hamilton",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/faithful-cayley-hamilton",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hom-finite",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-idempotent-splitting",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image-finite",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/chain-derived-image-comparison",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-truncation-factor",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-nilpotence",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-maximal-ideals",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/finite-hecke-local-factors",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'of its localizations at maximal ideals'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-localized-complex",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-support",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-annihilator-power",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gln-hecke-polynomial",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gln-satake-coefficients",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gln-determinant-character",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/charpoly-scalar-twist",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/reciprocal-charpoly",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/frobenius-conversion",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/hecke-inversion",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/rank-one-normalization",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/rank-two-modular-normalization",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-spin-polynomial",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-spin-satake",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-dual-spin-polynomial",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-geometric-dual-spin",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-full-similitude",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/galois-type-maximal-ideal",
+        "verdict": "corrected",
+        "note": "Tied non-Eisenstein to the same witness; added density, continuity and Hausdorff coefficients to galoisType_unique; strengthened the twist test to check irreducibility too."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/galois-type-dual-twist",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/factorial-localizing-idempotent",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/localizing-operator-summand",
+        "verdict": "corrected",
+        "note": "Repaired operatorLocalization_idempotent: arbitrary idempotents do not identify a telescope; the invertible/nilpotent conditions are now explicit."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/ordinary-localization-comparison",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/finite-factor-ordinary-repair",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/large-prime-hecke-completion",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/frobenius-determinant-uniqueness",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/finite-intersection-gluing",
+        "verdict": "corrected",
+        "note": "Made the Hausdorff targets and continuous quotient embedding explicit, so compact gluing actually applies."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/finite-quotient-determinant-data",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/inverse-limit-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/uniform-congruence-witness",
+        "verdict": "corrected",
+        "note": "Added actual topological and dense-Frobenius data to CongruenceWitness, continuity/classical-comparison APIs, and a continuous coefficient-change hypothesis in compatible."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/classical-interpolation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/completed-group-algebra-extension",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/interpolation-coefficient-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/interpolation-level-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/interpolation-ramification",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.4/characteristic-zero-density-obstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-comparison-schema",
+        "verdict": "corrected",
+        "note": "Added compact Hausdorff quotient/coefficient embedding, continuous determinant, dense coefficient membership and a unique continuous descent conclusion."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-quotient-functoriality",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-extension-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-sum-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-product-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/filtered-module-error-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/geometric-error-composition",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/uniform-nilpotent-limit",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/residual-semismple-specialization",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/residual-irreducible-quotient-lift",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.5/lattice-class-local-conditions",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/zeroth-fitting-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/group-algebra-character-congruence",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-difference-modules",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/difference-product-containment",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/canonical-ribet-cocycle",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/local-ribet-quotient",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/compact-image-finite-module",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/coincident-class-surjectivity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/distinct-character-ribet",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/weighted-fitting-containment",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/local-ribet-theorem",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/global-ribet-theorem",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/divided-power-degree",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/divided-power-grading",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/universal-homogeneous-law",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-law-representability",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/divided-power-base-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/divided-power-tensor-map",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-law-representability",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coordinate-ring",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/free-divided-power-symmetric-tensors",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/vaccarino-universal-matrices",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/newton-identities",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-duality",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/finite-projective-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/reductive-pseudocharacter",
+        "verdict": "unverifiable",
+        "note": "Carrier omission is legitimate, but arbitrary evaluations do not satisfy the expressible coordinate reindexing/product equations needed by ofRepresentation."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-reductive-pseudocharacter",
+        "verdict": "unverifiable",
+        "note": "Continuity predicate and density theorem are sound; constructor still depends on an evaluation interface missing its expressible compatibility equations."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/reductive-pseudocharacter-kernel",
+        "verdict": "unverifiable",
+        "note": "Kernel definition is the source’s invariant-tuple kernel; constructor examples inherit the missing coordinate-evaluation compatibility contract."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-gln-pseudocharacter",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Theorem 4.1 and proof, pp.13–14', 'excerpt': 'There exists an isomorphism', 'match': 'The theorem and proof give the natural all-ring determinant/GL_d-pseudocharacter comparison for positive d; the introductory theorem uses this exact phrase.'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/invariants-base-change-range",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Proposition 2.6 and Lemma 2.7 with proof, pp.9–10', 'excerpt': 'The morphisms βX and βΓ are isomorphisms', 'match': 'Proposition 2.6(i) lists flat base change and the Dedekind/connected geometrically reductive case; Lemma 2.7 proves the latter invariant-coordinate comparison.'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/product-reductive-pseudocharacters",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/product-algebra-determinants",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/corner-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/corner-cayley-hamilton",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/orthogonal-corner-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-unit-criterion",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/nilpotent-ideal-kernel",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/separable-kernel-base-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/field-radical-kernel",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-simple-modules",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-finite-simple-factors",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/bounded-centers",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-factor-determinants",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/field-faithful-quotient",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/residual-determinant-properties",
+        "verdict": "corrected",
+        "note": "Removed the accidental base-field splitting requirement, excluded dimension zero, added a quaternion test, and made the repeated/distinct character examples assert splitness as stated."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/local-cayley-hamilton-radical",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-idempotent-lifting",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/rank-one-cayley-hamilton",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/matrix-units-reconstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/generalized-matrix-algebra",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-multiplicity-free",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-adapted-coordinate-ring",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'These maps remain injective after any base extension'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-determinant",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reducibility-ideal",
+        "verdict": "unverifiable",
+        "note": "Some full-law factorization is now typed, but the prescribed residual-factor/uniqueness contract is still missing; see Residual-factor and constituent signatures."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/partition-reducibility",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-extension-module",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-extension-injection",
+        "verdict": "unverifiable",
+        "note": "The prototype injects into Ext of arbitrary Mi,Mj. With zero modules it cannot have the claimed nonzero source. The actual quotient constituents and partition/reduction hypotheses are not yet stated."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/gma-projective-cover-extensions",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reducibility-generators-extension-bound",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/ribet-lattice",
+        "verdict": "unverifiable",
+        "note": "Source statement is correct, but the suggested signature drops expressible DVR, fraction-field and compact-continuity hypotheses and the nonsplit residual-orientation conclusion."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/universal-cayley-hamilton-algebra",
+        "verdict": "unverifiable",
+        "note": "Universal construction is planned honestly, but universal_matrix_specialization omits already expressible henselian/residual hypotheses and is false for arbitrary coefficient maps."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/completed-cayley-hamilton-finite",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'is module-finite as an', 'locator': 'Proposition 3.6 and proof, pp.21–23'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/continuous-matrix-reconstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/coefficient-descent",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Lemma 2.1.10 and proof, pp.13–14', 'excerpt': 'tr ρ(∆) ⊂ S', 'match': 'S is the smaller coefficient ring; the inherited quotation used R, the ambient ring, which would make this hypothesis tautological.'} Made completeness, adic topology, coefficient injectivity, common residue identification, profiniteness, continuity and residual absolute irreducibility explicit."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/symplectic-coefficient-descent",
+        "verdict": "unverifiable",
+        "note": "Source statement retains the >2 and local hypotheses; suggested signature permits form=0 and arbitrary coefficient extensions/representations, so cannot be accepted as its matrix form."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/brauer-nesbitt-module-recognition",
+        "verdict": "corrected",
+        "note": "Made compatible group-algebra action, CH annihilation and residual irreducibility explicit, and retained G-equivariance of the tensor decomposition."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/local-residual-projector",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/local-integral-projector",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/global-compression",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/local-compression",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/compatible-local-reconstruction",
+        "verdict": "unverifiable",
+        "note": "CN23 lifts along Atilde→A; the prototype instead compares arbitrary representations after A→B. This is an unresolved direction/conclusion mismatch."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-closed-orbit",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-stable-tuple",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-one-entry-extension",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-two-entry-extension",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstructed-homomorphism",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-discrete-continuity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-valued-continuity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-integral-model",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/universal-reductive-pseudocharacter-ring",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Theorem 3.20, p.20, and Theorem 5.4, pp.27–28', 'excerpt': 'is representable by a commutative', 'match': 'Theorem 3.20 represents the algebraic functor; Theorem 5.4 pro-represents the continuous deformation functor. There is no Definition 5.4 in this version.'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-pseudodeformation-noetherian",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'locator': 'Theorem 5.7 and proof, p.29', 'excerpt': 'is noetherian'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-slice-reconstruction",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'isomorphism of functors'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/fitting-presentation-invariance",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/fitting-annihilator",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/fitting-quotient-base-change",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-five-relation-types",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-presentation-stabilization",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-weighted-auxiliary-matrix",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-altered-kernel-vector",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-altered-determinant-zero",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-trace-word-congruence",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-formal-matrix-ring",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-relation-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-relation-evaluation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-trace-determinant-subring",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-polarized-local-congruence",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-invariant-intersection",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/borel-restriction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/borel-adjoint-weights",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/good-adjoint-tensors",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/good-matrix-polynomials",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/twisted-good-filtration-vanishing",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/borel-twist-boundary",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/twisted-cohomology-product-surjectivity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/twisted-resolution-acyclicity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-quotient-acyclicity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/integral-matrix-invariants",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-torus-invariants",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-borel-invariants",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-relation-borel-stability",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/exterior-contraction-composition",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/buchsbaum-rim-complex",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'generalized Koszul complex'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/buchsbaum-rim-determinantal-complex",
+        "verdict": "corrected",
+        "note": "Citation corrected: {'excerpt': 'we now let p = n and q = 1'}"
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/buchsbaum-rim-regular",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/br-adjoining-column-cone",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/determinantal-exactness-transfer",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/buchsbaum-rim-exactness",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ordered-determinantal-tensor-resolution",
+        "verdict": "corrected",
+        "note": "Made 0<m_i≤n_i explicit in the suggested tensor-resolution signature."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/two-column-regularity-criterion",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-minor-localization",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-minor-saturation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-two-column-regularity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-linear-pivot-chart",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-linear-zero-pivot",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-linear-denominator-cancellation",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/generic-linear-regularity",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/mixed-generic-resolution",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-generic-row-count",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-upper-relation-complex",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-upper-complex-exact",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-multilinear-extension",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-local-equivariant-extension",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-local-distinct-block-image",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-full-relation-complex",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-full-complex-acyclic",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-complex-comparison",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-obstruction-killing",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-determinant-error-ideal",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-permutation-pairing",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-unipotent-product-rows",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-unipotent-local-rows",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-determinant-borel-invariance",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-invariant-obstruction-lift",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/formal-determinant-comparison",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/initial-ribet-module",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/chain-hecke-image",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/homotopy-hecke-image",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.2/cohomology-hecke-image",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.3/gsp4-reversed-spin-polynomial",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.6/zero-congruence-ideal-obstruction",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.1/generic-matrix-algebra-finite",
+        "verdict": "verified",
+        "note": "Checked the statement, source locator/excerpt, direct prerequisites and proof outline, API and suggested examples; valid as a planned declaration at the stated hypotheses, with the named proof leaves/supplier interfaces in coverage.remaining retained."
+      },
+      {
+        "nodeId": "IntegralHeckeAndGaloisDeterminants:IHG.0/degree-one-laws-linear",
+        "verdict": "added",
+        "note": "Added the coefficient-comparison lemma underlying the existing degree-one API and trace-linearity proof."
+      }
+    ]
+  }
 }
