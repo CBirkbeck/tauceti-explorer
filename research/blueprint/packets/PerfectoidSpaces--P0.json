@@ -33184,7 +33184,7 @@
         "PerfectoidSpaces:P7/regular-finite-flat-residue-tower",
         "PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower"
       ],
-      "detail": "Česnavičius’s Lemmas 5.1–5.2 use the three Cohen presentations for complete regular local rings (Matsumura 29.3, 29.7 and the proofs of 29.1 and 29.8(ii)), and regularity/normality of power-series rings, the ramified quotients and the selected filtered colimits. Mathlib already defines IsRegularLocalRing and some regular-ring polynomial results at the pin; this existing predicate is credited, not planned anew. The Cohen presentations and these particular comparison theorems were not established by this review. Matsumura was not read; these citations are Česnavičius’s. Next action: identify the general commutative-algebra supplier and precise missing theorem interfaces, reusing the baseline definition. The reader must remove its obsolete absence claim and synchronize the stage-zero negative test."
+      "detail": "Česnavičius’s Lemmas 5.1–5.2 use the three Cohen presentations for complete regular local rings (Matsumura 29.3, 29.7 and the proofs of 29.1 and 29.8(ii)), and regularity/normality of power-series rings, the ramified quotients and the selected filtered colimits. Mathlib already defines IsRegularLocalRing and some regular-ring polynomial results at the pin; this existing predicate is credited, not planned anew. The Cohen presentations and these particular comparison theorems were not established by this review. Matsumura was not read; these citations are Česnavičius’s. Next action: identify the general commutative-algebra supplier and precise missing theorem interfaces, reusing the baseline definition."
     }
   ],
   "restructure": [
