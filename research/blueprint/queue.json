@@ -12109,8 +12109,9 @@
    "avoidAccountOf": "DESIGN-ClassicalGroupsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ClassicalGroupsPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3507"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3507",
+   "finishedAt": "2026-10-07T20:45:18Z"
   },
   {
    "id": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
@@ -29298,9 +29299,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #984"
+   "note": "deliverables arrived from an external worker on issue #984",
+   "finishedAt": "2026-10-07T20:45:22Z"
   },
   {
    "id": "REV-RefinedTraceMethods--RT.5",
@@ -32682,8 +32684,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6941"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6941",
+   "finishedAt": "2026-10-07T20:45:23Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.3",
@@ -33748,8 +33751,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6323"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6323",
+   "finishedAt": "2026-10-07T20:45:25Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
@@ -36463,8 +36467,9 @@
    ],
    "followUpOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6349"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6349",
+   "finishedAt": "2026-10-07T20:45:27Z"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums--FF.2",
@@ -37019,8 +37024,8 @@
    ],
    "revisionOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6895"
+   "state": "pending",
+   "note": "released on GitHub issue #6895"
   },
   {
    "priority": 2,
@@ -40095,8 +40100,9 @@
    ],
    "revisionOf": "BP-MetaplecticAutomorphicForms--MP.8",
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6994"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6994",
+   "finishedAt": "2026-10-07T20:45:28Z"
   },
   {
    "priority": 2,
@@ -41246,8 +41252,9 @@
    ],
    "revisionOf": "BP-VectorBundlesAndIsocrystals--VB0",
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7015"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7015",
+   "finishedAt": "2026-10-07T20:45:29Z"
   },
   {
    "priority": 2,
@@ -42127,8 +42134,9 @@
    ],
    "revisionOf": "BP-Polylogarithms--P.3",
    "prompt": "research/blueprint/prompts/BP-Polylogarithms--P.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6979"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6979",
+   "finishedAt": "2026-10-07T20:45:31Z"
   },
   {
    "priority": 2,
@@ -42226,8 +42234,9 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.3-finite-generation",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3-finite-generation~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6919"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6919",
+   "finishedAt": "2026-10-07T20:45:33Z"
   },
   {
    "priority": 2,
@@ -42535,8 +42544,9 @@
     "REV-K3BlochGroups--V.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-K3BlochGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6423"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6423",
+   "finishedAt": "2026-10-07T20:45:34Z"
   },
   {
    "id": "ASM-Polylogarithms",
@@ -42883,8 +42893,9 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-ClassicalSerreModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #219"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #219",
+   "finishedAt": "2026-10-07T20:45:37Z"
   },
   {
    "id": "ASM-ColemanPowerSeries",
@@ -42976,8 +42987,9 @@
     "REV-DeligneWeightsAndPurity--DWP.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeligneWeightsAndPurity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #223"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #223",
+   "finishedAt": "2026-10-07T20:45:41Z"
   },
   {
    "id": "ASM-DiamondEtaleCohomology",
@@ -42999,8 +43011,9 @@
     "REV-DiamondEtaleCohomology--C8"
    ],
    "prompt": "research/blueprint/prompts/ASM-DiamondEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #224"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #224",
+   "finishedAt": "2026-10-07T20:45:44Z"
   },
   {
    "id": "ASM-DirichletPadicLFunctions",
@@ -43054,8 +43067,9 @@
     "REV-EllipticKTheory--E.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-EllipticKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6417"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6417",
+   "finishedAt": "2026-10-07T20:45:47Z"
   },
   {
    "id": "ASM-EllipticRegulators",
@@ -43159,8 +43173,9 @@
     "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-EtaleDualityAndPerverseSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #228"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #228",
+   "finishedAt": "2026-10-07T20:45:49Z"
   },
   {
    "id": "ASM-EulerSystemsAndKolyvaginSystems",
@@ -43182,8 +43197,9 @@
     "REV-EulerSystemsAndKolyvaginSystems--ES.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-EulerSystemsAndKolyvaginSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #229"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #229",
+   "finishedAt": "2026-10-07T20:45:52Z"
   },
   {
    "id": "ASM-ExcursionOperatorsAndSpectralAction",
@@ -43207,8 +43223,9 @@
     "REV-ExcursionOperatorsAndSpectralAction--ES7~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-ExcursionOperatorsAndSpectralAction.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #230"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #230",
+   "finishedAt": "2026-10-07T20:45:55Z"
   },
   {
    "id": "ASM-GL2AutomorphicRepresentationsAndTransfer",
@@ -43278,8 +43295,9 @@
     "REV-GeneralAlgebraicKTheory--K.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeneralAlgebraicKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #233"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #233",
+   "finishedAt": "2026-10-07T20:45:57Z"
   },
   {
    "id": "ASM-GeneralizedHeegnerCycles",
@@ -43347,8 +43365,9 @@
     "REV-GrossZagierAndArithmeticHeights--GZ.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-GrossZagierAndArithmeticHeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #236"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #236",
+   "finishedAt": "2026-10-07T20:46:00Z"
   },
   {
    "id": "ASM-HabiroCohomologyFoundations",
@@ -43404,8 +43423,9 @@
     "REV-HabiroNumberFields--HB.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroNumberFields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6421"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6421",
+   "finishedAt": "2026-10-07T20:46:03Z"
   },
   {
    "id": "ASM-HabiroRings",
@@ -43483,8 +43503,9 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
    ],
    "prompt": "research/blueprint/prompts/ASM-HilbertModularVarietiesAndShimuraCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #239"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #239",
+   "finishedAt": "2026-10-07T20:46:06Z"
   },
   {
    "id": "ASM-HodgeTateAndCanonicalSubgroups",
@@ -43573,8 +43594,9 @@
     "REV-KTheoryLowDegrees--Z.3~3"
    ],
    "prompt": "research/blueprint/prompts/ASM-KTheoryLowDegrees.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #243"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #243",
+   "finishedAt": "2026-10-07T20:46:08Z"
   },
   {
    "id": "ASM-LefschetzPencilsAndVanishingCycles",
@@ -43691,8 +43713,9 @@
     "REV-PadicHodgeRegulators--L3"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicHodgeRegulators.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #249"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #249",
+   "finishedAt": "2026-10-07T20:46:11Z"
   },
   {
    "id": "ASM-PadicHodgeTheory",
@@ -43808,8 +43831,9 @@
     "REV-RankZeroOneBSD--BSD.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-RankZeroOneBSD.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #255"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #255",
+   "finishedAt": "2026-10-07T20:46:14Z"
   },
   {
    "id": "ASM-RefinedTraceMethods",
@@ -43853,8 +43877,9 @@
     "REV-RelativeFarguesFontaine--RF4~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-RelativeFarguesFontaine.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #257"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #257",
+   "finishedAt": "2026-10-07T20:46:16Z"
   },
   {
    "id": "ASM-ShimuraCompactifications",
@@ -43876,8 +43901,9 @@
     "REV-ShimuraCompactifications--C6"
    ],
    "prompt": "research/blueprint/prompts/ASM-ShimuraCompactifications.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #258"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #258",
+   "finishedAt": "2026-10-07T20:46:19Z"
   },
   {
    "id": "ASM-ShimuraVarieties",
@@ -43899,8 +43925,9 @@
     "REV-ShimuraVarieties--V8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-ShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #259"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #259",
+   "finishedAt": "2026-10-07T20:46:22Z"
   },
   {
    "id": "ASM-SmoothRepresentationsOfLocalGroups",
@@ -44014,8 +44041,9 @@
     "REV-OverconvergentAutomorphicForms--O8"
    ],
    "prompt": "research/blueprint/prompts/ASM-OverconvergentAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #248"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #248",
+   "finishedAt": "2026-10-07T20:46:24Z"
   },
   {
    "id": "ASM-AnabelianGeometryAndNonabelianChabauty",
@@ -70801,8 +70829,9 @@
     "REV-FIX-RT-AREA-automorphic-1~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7280"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7280",
+   "finishedAt": "2026-10-07T20:46:27Z"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~4",
