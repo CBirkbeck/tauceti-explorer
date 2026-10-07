@@ -25469,9 +25469,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #742"
+   "note": "claimed on GitHub issue #742"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS3",
@@ -26950,9 +26950,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #771"
+   "note": "deliverables arrived from an external worker on issue #771",
+   "finishedAt": "2026-10-07T04:00:54Z"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.0",
