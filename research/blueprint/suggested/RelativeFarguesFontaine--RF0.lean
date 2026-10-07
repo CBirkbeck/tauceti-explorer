@@ -92,6 +92,25 @@ def ramifiedMk : (ℕ → A) ≃ ramifiedWitt pi q A := by sorry
 def ramifiedWitt_map {B : Type u} [CommRing B] [Algebra OE B]
     (f : A →ₐ[OE] B) : ramifiedWitt pi q A →ₐ[OE] ramifiedWitt pi q B := by sorry
 
+theorem ramifiedWitt_ext (x y : ramifiedWitt pi q A)
+    (h : ∀ n, ramifiedCoeffs pi q A x n = ramifiedCoeffs pi q A y n) : x = y := by sorry
+
+theorem ramifiedWitt_coeff_mk (x : ℕ → A) (n : ℕ) :
+    ramifiedCoeffs pi q A (ramifiedMk pi q A x) n = x n := by sorry
+
+theorem ramifiedWitt_map_coeff {B : Type u} [CommRing B] [Algebra OE B]
+    (f : A →ₐ[OE] B) (x : ramifiedWitt pi q A) (n : ℕ) :
+    ramifiedCoeffs pi q B (ramifiedWitt_map pi q A f x) n = f (ramifiedCoeffs pi q A x n) := by sorry
+
+theorem ramifiedWitt_map_id (x : ramifiedWitt pi q A) :
+    ramifiedWitt_map pi q A (AlgHom.id OE A) x = x := by sorry
+
+theorem ramifiedWitt_map_comp {B C : Type u} [CommRing B] [Algebra OE B]
+    [CommRing C] [Algebra OE C] (f : A →ₐ[OE] B) (g : B →ₐ[OE] C)
+    (x : ramifiedWitt pi q A) :
+    ramifiedWitt_map pi q A (g.comp f) x =
+      ramifiedWitt_map pi q B g (ramifiedWitt_map pi q A f x) := by sorry
+
 def ramifiedWitt_ghost_hom (n : ℕ) : ramifiedWitt pi q A →ₐ[OE] A := by sorry
 
 def ramifiedWitt_p_typical (p : ℕ) [Fact p.Prime] :
@@ -434,8 +453,10 @@ def rootChart_reduce (p : ℕ) (B : Type u) [CommRing B] (v : B)
     (perfectedPolynomial : Type u) [CommRing perfectedPolynomial] :
     (B ⧸ Ideal.span {v}) ≃+* perfectedPolynomial := by sorry
 
-theorem rootChart_roots (p : ℕ) (s : ℕ → rootChartModel W pi varpi p) (m : ℕ) :
-    s (m + 1) ^ p = s m := by sorry
+def rootChartRatio (p : ℕ) : ℕ → rootChartModel W pi varpi p := by sorry
+
+theorem rootChart_roots (p : ℕ) (m : ℕ) :
+    rootChartRatio W pi varpi p (m + 1) ^ p = rootChartRatio W pi varpi p m := by sorry
 -- Algebraic whole-ratio fragment; pi_m and v_m are the specified root systems.
 theorem rootChart_tiltCoordinate (B : Type u) [CommRing B]
     (pm vm sm : ℕ → B) (m : ℕ) : pm m = vm m * sm m := by sorry
@@ -571,7 +592,8 @@ theorem gaussDiscFibre (f : Csharp → Csharp) (v : Valuation Csharp ℝ≥0)
 -- Source spaces are the actual disc and its specified completed-field base change.
 theorem classicalBaseChangeAndNonclassicalFibres (D D' : TopCat)
     (baseChange : D' ⟶ D) (classical : Set D) (classical' : Set D') (x : D) :
-    (x ∈ classical ↔ ∃! y : D', baseChange y = x ∧ y ∈ classical') := by sorry
+    (x ∈ classical ↔ ∃ y : D', y ∈ classical' ∧
+      ∀ z : D', baseChange z = x ↔ z = y) := by sorry
 -- The groups are Gal(K(x)^sep/K(x)) and I_E, imported from the local-fields owner.
 def inertiaAtAPeriodGaussPoint (G I : Type u) [Group G] [Group I] :
     {f : G →* I // Function.Surjective f} := by sorry
@@ -737,7 +759,8 @@ def divisorCompletion_changeGenerator (xi : A) (u : Aˣ) :
 
 def divisorCompletion_residue (I : Ideal A) : divisorCompletion A I →+* A ⧸ I := by sorry
 
-theorem divisorCompletion_complete (I : Ideal A) :
+-- Finite generation is essential; the Cartier ideal is locally principal.
+theorem divisorCompletion_complete (I : Ideal A) (hI : I.FG) :
     IsAdicComplete (I.map (algebraMap A (divisorCompletion A I))) (divisorCompletion A I) := by sorry
 -- completion_empty
 example : Subsingleton (divisorCompletion A ⊤) := by sorry
@@ -774,14 +797,16 @@ def degreeOneDivisors (J : GrothendieckTopology C) (SpdE : Sheaf J (Type v)) : S
 def div1ModuliAndProperness (J : GrothendieckTopology C) (SpdE : Sheaf J (Type v)) : Sheaf J (Type v) := by sorry
 
 def degreeOneDivisors_localUntilts : effectiveDivisors J CurveLeg 1 ≅ degreeOneDivisors J SpdE := by sorry
--- SpdEhat belongs to the base-changed Perf k site, not the original Perf Fq site.
+-- The Frobenius-orbit quotient of Spd(Ehat) belongs to the base-changed Perf k site.
 def degreeOneDivisors_baseChange {D : Type u} [Category D]
-    (K : GrothendieckTopology D) (SpdEhat DivOneK : Sheaf K (Type v)) : DivOneK ≅ SpdEhat := by sorry
+    (K : GrothendieckTopology D) (SpdEhatFrobeniusQuotient DivOneK : Sheaf K (Type v)) :
+    DivOneK ≅ SpdEhatFrobeniusQuotient := by sorry
 -- divone_fq_base: section-level degree-one orbit quotient.
 example (A : Type u) : Nonempty (Sym A 1 ≃ A) := by sorry
 -- divone_algebraic_closure: the actual base-change formula, not coefficient equality.
 example {D : Type u} [Category D] (K : GrothendieckTopology D)
-    (SpdEhat DivOneK : Sheaf K (Type v)) : Nonempty (DivOneK ≅ SpdEhat) := by sorry
+    (SpdEhatFrobeniusQuotient DivOneK : Sheaf K (Type v)) :
+    Nonempty (DivOneK ≅ SpdEhatFrobeniusQuotient) := by sorry
 -- divone_not_fixed_curve: Frobenius-orbit quotient forgets the marking.
 example (A : Type u) (r : Setoid A) (x y : A) (hxy : x ≠ y) (h : r.r x y) :
     Quotient.mk r x = Quotient.mk r y := by sorry
@@ -808,9 +833,12 @@ def cartierFiltrationAndBreuilKisinLines (xi : A)
       ((Ideal.span {xi}) ^ (n+1) : Ideal A)) ≃ₗ[A] A ⧸ Ideal.span {xi} := by sorry
 -- The left side is the module quotient of the nth power by the next power;
 -- it is not a ring quotient of the nonunital ideal.
-theorem geometricDivisorCompleteDvr :
-    ∃ h : IsDomain (divisorCompletion A I),
-      @IsDiscreteValuationRing (divisorCompletion A I) _ h := by sorry
+-- Algebraic fragment: a regular principal Cartier ideal with field residue.
+-- The geometric residue-field identification is a separate source hypothesis.
+theorem geometricDivisorCompleteDvr (xi : A)
+    (hxi : ∀ a : A, xi * a = 0 → a = 0) [Field (A ⧸ Ideal.span {xi})] :
+    ∃ h : IsDomain (divisorCompletion A (Ideal.span {xi})),
+      @IsDiscreteValuationRing (divisorCompletion A (Ideal.span {xi})) _ h := by sorry
 -- Ring maps on quotient systems induce maps on inverse-limit completion.
 def divisorCompletionBaseChange (f : A →+* B) (K : Ideal B) (h : I ≤ K.comap f) :
     divisorCompletion A I →+* divisorCompletion B K := by sorry
@@ -866,12 +894,14 @@ def gradedAlgebraAndAlgebraicCurveMap (A : Type u) [CommRing A] (piUnit : Aˣ) (
 -- Comparison with the existing Proj construction, never a new Proj definition.
 def curveProj_existing : curveProj A piUnit phi ≅
     AlgebraicGeometry.Proj (curveSectionGrading A piUnit phi) := by sorry
--- Positive-degree standard opens use the existing homogeneous localization.
--- B is O(D(g)); the actual analytic/locally-ringed-space chart interface is omitted.
+-- The algebraic standard-open theorem is already Mathlib projIsoSpec.
+-- Analytic chart functions receive a ring map from this ring, supplied below.
 def curveProj_chart (g : curveSectionAlgebra A piUnit phi)
-    (n : ℕ) (hn : 0 < n) (hg : g ∈ curveSectionGrading A piUnit phi n)
-    (B : Type u) [CommRing B] :
-    HomogeneousLocalization.Away (curveSectionGrading A piUnit phi) g ≃+* B := by sorry
+    (n : ℕ) (hn : 0 < n) (hg : g ∈ curveSectionGrading A piUnit phi n) :
+    ((AlgebraicGeometry.Proj.toLocallyRingedSpace (curveSectionGrading A piUnit phi)).restrict
+      (Opens.isOpenEmbedding (ProjectiveSpectrum.basicOpen (curveSectionGrading A piUnit phi) g))) ≅
+    Spec.locallyRingedSpaceObj
+      (CommRingCat.of (HomogeneousLocalization.Away (curveSectionGrading A piUnit phi) g)) := by sorry
 -- graded_zero_degree
 example (x : A) : phi x = (↑(piUnit ^ (0 : ℤ)) : A) * x ↔ phi x = x := by sorry
 -- graded_product
