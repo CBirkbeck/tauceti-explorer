@@ -612,7 +612,6 @@
         {
           "sourceId": "MB1",
           "locator": "surjective_of_mkQ_comp_surjective (line 448)",
-          "excerpt": "surjective_of_mkQ_comp_surjective",
           "match": "Derived ring specialization of the existing module surjectivity theorem; finite-free completeness is an explicit owner input."
         }
       ],
@@ -654,7 +653,6 @@
         {
           "sourceId": "MB20",
           "locator": "AdicCompletion.isAdicComplete_of_fg (line 120)",
-          "excerpt": "AdicCompletion.isAdicComplete_of_fg",
           "match": "Combines existing completeness/locality with the new finiteness criterion; does not read Noetherianity into the module header."
         }
       ],
@@ -693,7 +691,6 @@
         {
           "sourceId": "MB5",
           "locator": "Module.finite_iff_finite (line 78)",
-          "excerpt": "Module.finite_iff_finite",
           "match": "The conversion is made over the finite residue field, rather than over the infinite DVR."
         }
       ],
@@ -735,7 +732,6 @@
         {
           "sourceId": "KWII",
           "locator": "§9.1, printed p.88, after the patching limit",
-          "excerpt": "R∞ is a finite O[[y1, . . . , yh+j]]-module",
           "match": "The faithful-module argument in the source; the statement generalizes its coefficient ring to any Noetherian S."
         }
       ],
@@ -777,7 +773,6 @@
         {
           "sourceId": "MB5",
           "locator": "Module.finite_of_finite (line 72)",
-          "excerpt": "Module.finite_of_finite",
           "match": "Finitely generated layers annihilated by m are finite over the finite residue field."
         }
       ],
@@ -813,7 +808,6 @@
         {
           "sourceId": "MB9",
           "locator": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero (line 161)",
-          "excerpt": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
           "match": "Adds finite cardinality by the finite maximal-ideal filtration; does not replan the existing Artinianity theorem."
         }
       ],
@@ -848,13 +842,11 @@
         {
           "sourceId": "KWearly",
           "locator": "Lemma 2.4, printed p.10, proof",
-          "excerpt": "dimension 0",
           "match": "The source concludes finite prime quotients, then dimension zero and finiteness; this node makes the last implication explicit."
         },
         {
           "sourceId": "MB10",
           "locator": "Ring.krullDimLE_zero_iff (line 104)",
-          "excerpt": "Ring.krullDimLE_zero_iff",
           "match": "Converts the verified field-quotient condition into dimension zero."
         }
       ],
@@ -897,7 +889,6 @@
         {
           "sourceId": "MB9",
           "locator": "isArtinianRing_iff_isNilpotent_maximalIdeal (line 184)",
-          "excerpt": "isArtinianRing_iff_isNilpotent_maximalIdeal",
           "match": "The reverse direction uses maximal-ideal nilpotence, not a nonexistent torsion-free consequence."
         }
       ],
@@ -933,7 +924,6 @@
         {
           "sourceId": "KWII",
           "locator": "§4.1 Corollary 4.7, printed pp.45–46",
-          "excerpt": "p is not nilpotent",
           "match": "The source uses finiteness and positive dimension to choose a generic prime avoiding p; our formulation allows any uniformizer."
         }
       ],
@@ -968,7 +958,6 @@
         {
           "sourceId": "MB15",
           "locator": "Ideal.hasBasis_nhds_zero_adic (line 98)",
-          "excerpt": "Ideal.hasBasis_nhds_zero_adic",
           "match": "Specializes the native adic neighborhood basis to both maximal ideals."
         }
       ],
@@ -1006,7 +995,6 @@
         {
           "sourceId": "LFR",
           "locator": "Layer 0, finite extensions III, API",
-          "excerpt": "integerRing_eq_integralClosure",
           "match": "Imports the existing roadmap’s ownership of finite-extension structures and comparison, rather than replanning them."
         }
       ],
@@ -1042,7 +1030,6 @@
         {
           "sourceId": "MB16",
           "locator": "IsAdicComplete.mkₐ_comp_liftAlgHom (line 123)",
-          "excerpt": "IsAdicComplete.mkₐ_comp_liftAlgHom",
           "match": "The existing equality at level 1 allows the existing composite-locality criterion."
         }
       ],
@@ -1080,7 +1067,6 @@
         {
           "sourceId": "KWII",
           "locator": "§2.2 Proposition 2.1 pp.7–8 and Corollary 4.7 pp.45–46",
-          "excerpt": "small extension",
           "match": "The proof uses the complete-local category’s lifting squares; this node spells out compatibility and the complete limit."
         }
       ],
@@ -1123,7 +1109,6 @@
         {
           "sourceId": "MB17",
           "locator": "MvPowerSeries.isUnit_iff_constantCoeff (line 138)",
-          "excerpt": "MvPowerSeries.isUnit_iff_constantCoeff",
           "match": "Uses the native constant coefficient map and its unit criterion, so no new power series evaluator is defined."
         }
       ],
@@ -1159,7 +1144,6 @@
         {
           "sourceId": "MB18",
           "locator": "MvPowerSeries.coeff_X_pow (line 415)",
-          "excerpt": "MvPowerSeries.coeff_X_pow",
           "match": "Coefficient extraction proves the obstruction without an assumed dimension formula."
         }
       ],

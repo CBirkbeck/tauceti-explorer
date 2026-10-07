@@ -364,7 +364,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition IX.7.1, p. 334",
-          "excerpt": "More generally, for any b ∈ B(G), we can define a map ΨbG : Z spec (G, Λ) → Z(Gb (E), Λ) to the Bernstein center for Gb (E) by using the fully faithful embedding",
           "match": "Definition IX.7.1 defines the fully faithful stratum restrictions; the excursion replacement is in the proof of IX.7.2."
         }
       ],
@@ -478,7 +477,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "§IX.7.1 (Compatibility with G_b), p. 334",
-          "excerpt": "normalized as usual by sending a geometric Frobenius to 1.",
           "match": "The displayed twisted formula uses this degree convention."
         }
       ],
@@ -579,7 +577,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of IX.7.2, p. 335",
-          "excerpt": "We note that to prove the theorem, we can assume that Λ is killed by power of ℓ (if ℓ divides the order of π0 Z(G), replacing the left-hand side with an algebra of excursion operators),",
           "match": "The proof reduces coefficients to avoid the lisse/étale distinction."
         }
       ],
@@ -627,19 +624,16 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.7.2, p. 335",
-          "excerpt": "as in [Kal18, Section 5], with quotient a torus D, so that the center Z(G′ ) is connected. Then BunG = BunG′ ×BunD {∗} and the map B(G) → B(G′ ) is injective.",
           "match": "This is the complete reduction in the source."
         },
         {
           "sourceId": "Kaletha-2018",
           "locator": "§5.1, Definition 5.1 (p. 78) and Fact 5.5 (p. 80)",
-          "excerpt": "Fact 5.5. The map Z(Gz )(F ) → C(F ) is surjective and Gz (F ) = Z(Gz )(F ) · G(F ). Proof. The injectivity of H 1 (F, Z(G)) → H 1 (F, Z(Gz )) implies the first point.",
           "match": "Definition 5.1 (torus quotient, H¹(F, C) = 1, bijective H¹ on centres; z-embedding: also connected Z(G_z) and induced C) and Fact 5.5 (central surjectivity). Kaletha assumes F p-adic (§2, p. 64)."
         },
         {
           "sourceId": "Kottwitz-2014",
           "locator": "Proposition 10.4, p. 50",
-          "excerpt": "in which Z is a torus that is central in G′ . Then the natural map (10.11) p : B(F, G′ ) → B(F, G) is surjective.",
           "match": "Proposition 10.4 holds for any local field (§10.1) and gives B(G)_bsc → B(G_ad)_bsc surjective for connected Z(G); identifying B(G_ad)_bsc with H¹(E, G_ad) uses κ (Proposition 13.1), requested from BG1."
         }
       ],
@@ -685,7 +679,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of Theorem IX.7.2, pp. 335–336",
-          "excerpt": "we can pick N large enough so that any modification of EbN to itself, of type bounded by V , is automatically compatible with the Harder–Narasimhan reduction to P .",
           "match": "The sequence and preservation argument are both used in the proof."
         }
       ],
@@ -735,7 +728,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.2 and proof, pp. 335–337",
-          "excerpt": "Now the excursion operators, which involve maps from and to the sheaf corresponding to V = 1, require only the connected component where degP = 0, so we can ignore the shift.",
           "match": "Creation and annihilation force the component on which the constant-term shift vanishes."
         }
       ],
@@ -784,7 +776,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.7.3 and proof, pp. 337–338",
-          "excerpt": "Let µ : Gm → G be a cocharacter with dynamical parabolic P and let b = µ(π −1 ) ∈ B(G). Then Gb = M , and we can build a sheaf A ∈ Dét (BunG , Λ) concentrated on BunbG , given by the representation σ.",
           "match": "The source explicitly uses unnormalized induction; its proof has the inverse cocharacter and negative shift."
         }
       ],
@@ -832,7 +823,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Corollary IX.7.3, p. 337 (with the twisted formula of §IX.7.1, p. 334)",
-          "excerpt": "for all representations σ of M (E) with (unnormalized) parabolic induction",
           "match": "FS state only the unnormalized result with the cyclotomically twisted Levi map. The δ_P^{1/2} ↔ c^{-1} dictionary is this node’s own derivation (checked: δ_P^{1/2}(λ(ϖ)) = (√q)^{-⟨2ρ_N,λ⟩}, dual to (2ρ_Ĝ − 2ρ_M̂)(√q)^{-1} at geometric Frobenius)."
         }
       ],
@@ -881,7 +871,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of IX.7.4, p. 338",
-          "excerpt": "Now the second Hecke operator, when restricted to BunbGLn , produces the π-isotypic component of the cohomology of the Drinfeld tower, which is σ ⊗ ρ∗π .",
           "match": "FS identify the second operation with the Drinfeld-tower isotypic part σ ⊗ ρ_π^*; the tower/Hecke-fibre comparison itself is imported from ET.6a."
         }
       ],
@@ -930,7 +919,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of IX.7.4, p. 338",
-          "excerpt": "the WE -equivariant map σ → σ ⊗ ρπ ⊗ ρ∗π induced by α (and the similar map backwards induced by β) must agree up to scalar with the obvious map. The scalar of the total composite can be identified by taking both elements of WE to be equal to 1.",
           "match": "The source determines the composite scalar at the identity tuple."
         }
       ],
@@ -971,7 +959,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of IX.7.4, p. 338",
-          "excerpt": "operators determine the trace of the representation (and thus the semisimplified representation).",
           "match": "FS use this implication; ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces states it for any group, so no LP2 refinement is needed."
         }
       ],
@@ -1014,7 +1001,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of IX.7.4, p. 338",
-          "excerpt": "This shows that B has the correct L-parameter. Now use that the sheaf corresponding to π appears as a summand of Tstd (B) (after forgetting the WE -action) to conclude the same for π.",
           "match": "The direct-summand argument follows the scalar computation."
         }
       ],
@@ -1058,7 +1044,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.4 and first line of its proof, p. 338",
-          "excerpt": "Then the L-parameter φπ agrees with the usual (semisimplified) L-parameter. Proof. By Corollary IX.7.3, we can assume that π is supercuspidal.",
           "match": "The theorem quantifies over all irreducibles; the proof reduces by IX.7.3."
         }
       ],
@@ -1108,7 +1093,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§1.1, p. 1291",
-          "excerpt": "On choisit également un faisceau cohérent D localement libre en OX -algèbres, de fibre générique D, tel qu’en tout point fermé x de X, Dx = D ⊗OX Ox soit un ordre maximal de Dx = D ⊗F Fx .",
           "match": "The standing global order data and the split-place identification are explicitly specified."
         }
       ],
@@ -1209,7 +1193,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "§13.3, p. 291",
-          "excerpt": "More precisely, let 𝒜(D^×\\D_𝔸^×/ϖ_∞^ℤ) be the space of locally constant functions, equipped with the right regular representation of D_𝔸^×/ϖ_∞^ℤ. Since D is a division algebra the coset space D^×\\D_𝔸^×/ϖ_∞^ℤ is compact.",
           "match": "LRS assert compactness of D^×\\D_𝔸^×/ϖ_∞^ℤ for their division algebra split at ∞; discreteness and the D̄ case are standard facts this node adds."
         }
       ],
@@ -1254,7 +1237,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "§13.3, p. 291",
-          "excerpt": "Therefore this space is admissible and decomposes as a direct sum of irreducible admissible representations with finite multiplicities, 𝒜(D^×\\D_𝔸^×/ϖ_∞^ℤ) = ⊕_Π m(Π)·Π. Here Π ranges over the irreducible admissible representations of D_𝔸^×/ϖ_∞^ℤ",
           "match": "LRS give the algebraic decomposition with finite multiplicities; the L² Hilbert-sum form and the restricted-tensor-product factorization are this node’s standard additions."
         }
       ],
@@ -1296,7 +1278,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "§13.5, p. 291",
-          "excerpt": "The compactness of the coset space also implies that the operator induced by a locally constant function with compact support on D_𝔸^×/ϖ_∞^ℤ has a trace. The usual manipulation (integration of the kernel function over the diagonal) yields the Selberg trace formula.",
           "match": "LRS derive display (13.5) by integrating the kernel over the diagonal; the local finiteness and integrability argument is this node’s own."
         }
       ],
@@ -1341,7 +1322,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "§13.1, p. 290",
-          "excerpt": "be the sign character of the permutation representation afforded by the vertices of σ_I. We extend χ_I to all of GL_d(F_∞) by setting it zero outside of 𝒫_I. The weakly cuspidal Euler-Poincaré function [Lau 2, 5.1.2], is defined by the following expression",
           "match": "This character and the displayed facet sum define the EP function; the normalizer is distinguished from the pointwise stabilizer."
         }
       ],
@@ -1432,7 +1412,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Theorem 13.2(i), p. 290",
-          "excerpt": "(i) The orbital integrals of f_∞ for non-elliptic elements are 0. Let γ∈D_∞^× be elliptic and let γ̄∈D̄_∞^× be its transfer by the inner twisting (γ̄ is well-defined up to conjugacy).",
           "match": "The theorem gives vanishing on nonelliptic elements and the elliptic inner-form equality."
         }
       ],
@@ -1470,7 +1449,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Theorem 13.2(ii), p. 290",
-          "excerpt": "(ii) Let π_∞ be a unitary irreducible representation of D_∞^×/ϖ_∞^ℤ. Then tr π_∞(f_∞) = 0 except in the following two cases: the trace of f_∞ on the trivial representation is 1 and the trace of f_∞ on the Steinberg representation St_∞ is (−1)^{d−1}.",
           "match": "Theorem 13.2(ii) gives the two exceptional traces; its proof cites Kottwitz [Kot 2, Theorem 2′], noting in one sentence that the characteristic-zero assumption there is not used."
         }
       ],
@@ -1514,7 +1492,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Proof of Lemma 15.10, p. 315",
-          "excerpt": "For f_{x_3} ∈ 𝒞_c^∞(GL_d(F_{x_3})) we take a function with support contained in the regular elliptic set. Then for any f^{∞,x_0,x_1,x_2,x_3} ∈ 𝒞_c^∞(GL_d(𝔸^{∞,x_0,x_1,x_2,x_3})) we have the simple trace formula, as follows",
           "match": "Lemma 15.10 uses only the Deligne–Kazhdan simple trace formula for GL_d with these test functions; the comparison with D^× is quoted in 15.11 from Henniart [He 1, A.4], recorded as ES7/gap/simple-transfer."
         }
       ],
@@ -1560,7 +1537,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Lemma 15.10 and proof, pp. 314–316",
-          "excerpt": "(15.10) Lemma. Let x_2 be a place of F with x_2 ∉ {∞, x_0, x_1}. There exists a cuspidal automorphic representation Π ⊂ 𝒜_cusp(GL_d(F)F_∞^×\\GL_d(𝔸)) such that Π_∞ ≃ St_∞, Π_{x_0} ≃ π, Π_{x_1} and Π_{x_2} are supercuspidal admissible irreducible representations.",
           "match": "Nonvanishing of both sides of the simple trace formula yields the selected globalization."
         }
       ],
@@ -1605,13 +1581,11 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Lemmas 10.2–10.3 and Theorem 10.4(2), p. 1340",
-          "excerpt": "Supposons que l’algèbre à division D soit scindée en dehors de S. Donnons-nous une représentation automorphe cuspidale Π de GLd (A) telle que Πv soit essentiellement de carré intégrable en toute place v ∈ S et qu’en une place v",
           "match": "Theorem 10.4(2) (the printed condition reads “v ∉ S”; the text layer renders ∉ as ∈) puts the auxiliary cuspidal place outside S, a finite set outside which D splits; Lemma 10.3 adds Π_v ≃ JL(Π̃_v) at o, o′."
         },
         {
           "sourceId": "LRS-1993",
           "locator": "Lemma 15.11, p. 316",
-          "excerpt": "(15.11) Lemma. Let Π be as in (15.10). Then there is one and up to isomorphism only one Π̃ ⊂ 𝒜(D^×F_∞^×\\D_𝔸^×) such that Π̃_y ≃ Π_y y ≠ x_0, x_1. Furthermore, the multiplicity m(Π̃) in 𝒜(D^×F_∞^×\\D_𝔸^×) is 1.",
           "match": "Lemma 15.11 (quoted from [He 1, A.4]) gives the unique D^×-representation with the same components away from x₀, x₁ and multiplicity one. LRS write Π for the GL_d representation and Π̃ for the D^× one; this packet uses the opposite letters."
         }
       ],
@@ -1657,7 +1631,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Definition 1.1, pp. 1292–1293",
-          "excerpt": "(iii) Zéro : Ei /t(τEi−1 ) est isomorphe comme OX×S -module à l’image directe (Γz )∗ Bi d’un OS -module Bi localement libre de rang d par une section Γz : S → X × S, graphe d’un morphisme de Fq -schémas z : S → X − {∞} − R.",
           "match": "The Frobenius is on the base S, and the diagram has t from τE_{i−1} to E_i."
         }
       ],
@@ -1757,7 +1730,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§1.3, p. 1293",
-          "excerpt": "On définit alors une structure de niveau I sur (Ei , j, t) comme la donnée d’un isomorphisme OI×S -linéaire ι : DI",
           "match": "The Frobenius-compatible trivialization is defined there."
         }
       ],
@@ -1848,13 +1820,11 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Theorem 6.1, proof and Theorem 6.4, pp. 1311–1313",
-          "excerpt": "Ce schéma est lisse et purement de dimension relative d−1 au-dessus de X",
           "match": "The moduli theorem and the division/projective extension hypotheses are explicit."
         },
         {
           "sourceId": "LRS-1993",
           "locator": "Theorems 4.1, 5.1, 6.1 and Corollary 6.2, pp. 236, 241, 246",
-          "excerpt": "(4.1) Theorem. 𝓔ll_{X,𝒟,I} is an algebraic stack in the sense of Deligne-Mumford (cf. [De-Mu]) which is smooth of relative dimension (d − 1) over X′\\I.",
           "match": "Theorem 4.1 (smooth DM stack of relative dimension d − 1), Theorem 5.1 (quasi-projective for I ≠ ∅) and Theorem 6.1 (properness for D division); projectivity with Corollary 6.2."
         }
       ],
@@ -1952,7 +1922,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§6.3, pp. 1315–1316 (right action and Hecke correspondences); §10.1, p. 1338 (induced left action on cohomology)",
-          "excerpt": "dont il est question plus haut peut également se décrire en terme de correspondances de Hecke : la double classe de g ∞ modulo KI∞ induit la correspondance géométrique",
           "match": "The source converts the right tower action to a commuting left cohomology action."
         }
       ],
@@ -2042,7 +2011,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Definition 3.1, p. 1302",
-          "excerpt": "Il est dit spécial lorsque l’action de Od ⊂ OD induite sur l’espace tangent Lie X fait de celui-ci un Od ⊗O B-module inversible.",
           "match": "Specialness is the invertibility of the tangent module over O_d⊗B."
         }
       ],
@@ -2133,7 +2101,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Theorems 3.4,7.2,7.4, §§7.2–7.3, pp. 1303,1317–1319",
-          "excerpt": "D’après la proposition 3.4, tous les OD -modules formels spéciaux de hauteur d² sur κ sont isogènes ; soit Φ l’un d’entre eux, que l’on fixe, ainsi qu’un isomorphisme GLd (K) = Aut⁰D (Φ).",
           "match": "Theorem 7.2 represents the framed deformation functor by Ω̂^d ⊗̂_O Ô^nr; Propositions 7.5–7.6 give the GL_d(K) and D^× actions (D^× only through Frobenius on Ô^nr)."
         }
       ],
@@ -2178,7 +2145,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§8.1 (pp. 1319–1321; D̄ defined p. 1319), Theorem 8.1 (p. 1321), Theorem 8.3 (p. 1323)",
-          "excerpt": "Rappelons que I ∩{∞, o} = ∅. Avec les conventions et notations précédentes, on a un isomorphisme de Oo -schémas formels",
           "match": "The formal statement uses D̄ and away-o level; Theorem 8.3 adds Drinfeld covers on generic fibres."
         }
       ],
@@ -2227,7 +2193,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§§9.2–9.3, Definition 9.3, pp. 1335–1337",
-          "excerpt": "est le sous-groupe Pd constitué des triplets (g, b, w) qui vérifient det(g)N (b) Cl(w)⁻¹ ∈ O∗ .",
           "match": "The ordinary infinite restriction is rejected, and Res′ is explicitly the ℤ-indexed coproduct with the triple-action stabilizer."
         }
       ],
@@ -2323,7 +2288,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Proposition 10.6(i) and Proposition 9.4 caveat, pp. 1341,1337",
-          "excerpt": "représentation lisse du groupe produit GLd (Fo ) × Do∗ . Elle est de type fini en tant que GLd (Fo )-module.",
           "match": "The finiteness statement is at finite cover level; the source separately flags the full GL_d admissibility import."
         }
       ],
@@ -2367,13 +2331,11 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Theorem 10.1 and its setup, pp. 1338–1339",
-          "excerpt": "dans les décompositions isotypiques des (Hₒⁿ)ˢˢ , des représentations telles que, ou bien Π∞ ⊗ 1, ou bien Π∞ ⊗ St∞ , soit automorphe. Dans le premier cas, Π∞ se factorise sous la forme χ∞ ◦ Nr,",
           "match": "The cohomology setup restates LRS §14; the packet restricts the stronger concentration assertion to its selected globalizations."
         },
         {
           "sourceId": "LRS-1993",
           "locator": "§§14.1–14.2 and Theorem 14.9, pp. 294, 297–298",
-          "excerpt": "We decompose (H_η^n)^ss into isotypic components under the action of (D^∞)^×: (H_η^n)^ss = ⊕_{π^∞} V^n_{π^∞}⊗π^∞. Here π^∞ ranges over the irreducible admissible representations of (D^∞)^× and V^n_{π^∞} = Hom_{(D^∞)^×}(π^∞, (H_η^n)^ss)",
           "match": "The limit cohomology, its admissible (D^∞)^×-action and isotypic decomposition (§§14.1–14.2) precede Theorem 14.9."
         }
       ],
@@ -2417,7 +2379,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Proposition 13.6 and Theorem 14.9(ii), pp. 291, 297",
-          "excerpt": "(13.6) Proposition. We keep the notations of (12.5) and introduce the function f = f_∞·f^∞ on D_𝔸^×/ϖ_∞^ℤ with f_∞ as in (13.2). Then tr(Frob_o^r × 1_{K_I^{∞,o}·g^{∞,o}K_I^{∞,o}}; H*_{o,I}) = Σ_Π m(Π)·tr Π(f).",
           "match": "Proposition 13.6 expresses the geometric trace spectrally; Corollary 13.7 and Theorem 14.9(ii) give the coefficients and the Steinberg isotype formula."
         }
       ],
@@ -2457,7 +2418,6 @@
         {
           "sourceId": "Kaiser-erratum",
           "locator": "Opening paragraph and Corollary 14.11 correction, p. 1",
-          "excerpt": "They claimed that the cup product makes V•_{Π^∞} selfdual. If Π^∞ is not selfdual up to some character twist, this is wrong. This false claim was only used in (14.11) Corollary and (14.12) Theorem.",
           "match": "Kaiser identifies the false self-duality claim (LRS p. 300 and §14.16, p. 306); the isotypic pairing of Π with Π^∨ is the standard consequence of Poincaré duality that this node states, not printed in the erratum."
         }
       ],
@@ -2494,7 +2454,6 @@
         {
           "sourceId": "Kaiser-erratum",
           "locator": "Corollary 14.11 correction, p. 1",
-          "excerpt": "(14.11) Corollary becomes correct, if we substitute L_x(V•_{Π^∞}, q_x^{−d}T^{−1}) by L_x(V•∨_{Π^∞}, q_x^{−1}T^{−1}), in the statement as well as in the proof. Here we denote by V•∨_{Π^∞} the dual Galois representation.",
           "match": "The correction changes the dual representation and q-exponent, not only an informal self-duality warning."
         }
       ],
@@ -2537,7 +2496,6 @@
         {
           "sourceId": "Kaiser-erratum",
           "locator": "Lemma 14.14′ and its proof, pp. 1–2",
-          "excerpt": "(14.14) Lemma′: Let us fix non-negative integers m and m′ such that m′ divides m. Let V• be a pure graded Frob-semisimple l'adic representation of Gal(F̄_∞|F_∞) (cf. (14.13)). We assume moreover, that",
           "match": "Lemma 14.14′ drops the integrality and self-duality hypotheses of LRS 14.14 and concludes one-sided chains with m = |A|m′."
         }
       ],
@@ -2579,7 +2537,6 @@
         {
           "sourceId": "Kaiser-erratum",
           "locator": "Proposition 14.17′, p. 1",
-          "excerpt": "(14.17) Proposition′: Assumption as in (14.17) Proposition, but the claim is: V• = (V•_{Π^∞})^{Frob−ss} ≃ [⊕_{j=0}^{s} σ^0(St_{i_j})(−i_0 − … − i_{j−1})]^{m(Π)} for some tuple (i_0, …, i_s) of positive integers with i_0 + … + i_s = d.",
           "match": "Proposition 14.17′ replaces the U′/U″ alternatives of LRS 14.17 by chains of multiplicity m(Π); Kaiser keeps the proof."
         }
       ],
@@ -2624,13 +2581,11 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Theorem 15.12 (pp. 316–317) and the Remark following it (p. 317)",
-          "excerpt": "We note that by [Sh] the local components Π̃_y, y ≠ x_0, x_1 are generic. We are therefore in the range of applicability of the remark after the statement of (14.12), which allows us to avoid in our proof of the local Langlands conjecture the use of the more subtle arguments",
           "match": "The selected generic route avoids the more subtle proof of general Theorem 14.12."
         },
         {
           "sourceId": "Hausberger-2005",
           "locator": "Proposition 10.5, p. 1341",
-          "excerpt": "Soit Π la représentation automorphe de D∗ (A) obtenue à partir de π en appliquant les lemmes 10.2 et 10.3. Alors la composante Π∞,o -isotypique de (Hₒⁿ)ˢˢ est nulle sauf pour n = d − 1.",
           "match": "Proposition 10.5 restricts to the representation obtained from π by Lemmas 10.2–10.3 and gives vanishing outside degree d − 1; the Frobenius trace formula and the genericity/Satake-bound route are LRS’s."
         }
       ],
@@ -2673,7 +2628,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Proposition 15.13 and Corollary 15.14, pp. 317–318",
-          "excerpt": "(15.14) Corollary. Let π ∈ 𝒜^0_{F_{x_0}}(d) and define Σ_π ⊂ 𝒢_{F_{x_0}}(d) by Σ_π = {Σ(Π)_{x_0}; Π ∈ Π(π)}. Then Σ_π satisfies the conditions (i) and (ii) of Proposition 15.6, and hence consists of one element σ_π ∈ 𝒢^0_F(d).",
           "match": "Proposition 15.13 gives determinant, contragredient, twist and pair-factor compatibilities; Corollary 15.14 gives independence over the globalizations Π ∈ Π(π) of one fixed global setup."
         }
       ],
@@ -2716,7 +2670,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Theorem 9.2, pp. 1334–1335",
-          "excerpt": "caractérisée par les propriétés suivantes : (i) le déterminant de σd (π) correspond par l’isomorphisme de la théorie du corps de classes local au caractère central de π. En particulier, σ1 est donné par cet isomorphisme ;",
           "match": "Hausberger restates the independently constructed LRS correspondence with its four characterizing properties."
         }
       ],
@@ -2757,7 +2710,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Theorem 9.1, pp. 1333–1334",
-          "excerpt": "caractérisée par la propriété que les caractères de π et JL(π) coı̈ncident au signe (−1)ᵈ⁻¹ près sur les éléments associés réguliers.",
           "match": "The local Jacquet–Langlands theorem and its character relation precede the independent LLC statement."
         }
       ],
@@ -2802,7 +2754,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Proposition 10.6(ii) (p. 1341), Corollary 10.7 and Remark 10.8 (p. 1342), Proposition A.12 (pp. 1364–1365)",
-          "excerpt": "est l’espace des formes automorphes sur ZIᵒ triviales à l’infini et où (d − 1) indique comme toujours un twist de Tate. De plus, les suites spectrales obtenues lorsque I varie (donc également la multiplicité n de o dans I) sont compatibles avec les applications de transition",
           "match": "The displayed E₂ page uses compact-support duality and smooth Ext; Appendix A provides the analytic quotient application."
         }
       ],
@@ -2844,7 +2795,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Lemma 10.14, Lemma 10.15, Remark 10.16, Proposition 10.17, pp. 1353–1356",
-          "excerpt": "Cette proposition signifie que la partie cuspidale de la suite spectrale (9) est dégénérée. Cela provient essentiellement du lemme 10.14 précédent, en ajoutant un argument de comptage des multiplicités.",
           "match": "The proof uses the restriction to the determinant-unit subgroup and the finite-representation projective/injective argument."
         }
       ],
@@ -2886,7 +2836,6 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§9.3 and Theorem 9.5 (p. 1337); final proof in §10.4 (pp. 1356–1357)",
-          "excerpt": "si et seulement si i = d − 1. La composante π-isotypique de la représentation locale fondamentale est",
           "match": "The finite-order central character was fixed immediately before the theorem; the isotype is Hom, not an unexplained subspace."
         }
       ],
@@ -2932,7 +2881,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "§IX.7.3, p. 338 (cf. §IX.3, pp. 324–325)",
-          "excerpt": "In the proof, we use the translation between Hecke operators and local Shimura varieties as Section IX.3, together with the description of these as the Lubin–Tate tower and Drinfeld tower in special cases, see [SW13].",
           "match": "FS use the §IX.3 translation and the Lubin–Tate/Drinfeld description of [SW13], which is mixed characteristic; FS give no equal-characteristic identification, so it is recorded as ES7/gap/equal-transport."
         }
       ],
@@ -2981,7 +2929,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.4 and proof, p. 338",
-          "excerpt": "More precisely, we use the identification of the cohomology of the Lubin–Tate and Drinfeld tower, see [Boy99], [Har97], [HT01], [Hau05], [Dat07].",
           "match": "FS state IX.7.4 for every E and cite [LRS93], [Hau05] and [Boy99] for the equal-characteristic towers; this node is the equal-characteristic half."
         }
       ],
@@ -3021,7 +2968,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Theorem IX.7.4, p. 338",
-          "excerpt": "agrees with the usual (semisimplified) L-parameter.",
           "match": "The source theorem is the target over all E; its two independent proof inputs are separated in this packet."
         }
       ],
@@ -3063,7 +3009,6 @@
         {
           "sourceId": "LRS-1993",
           "locator": "Proof of Lemma 15.10, pp. 314–315",
-          "excerpt": "The composition π_{x_i}∘φ is a scalar c ≠ 0. Then f_{x_i} = c^{−1}·φ(π_{x_i}(1_{K_{x_i}})) has the asserted properties. From this expression we conclude that f_{x_i}(1) = c^{−1}·tr π_{x_i}(1_{K_{x_i}}) = c^{−1}·dim π_{x_i}^{K_{x_i}} ≠ 0.",
           "match": "LRS build f from the matrix-coefficient map φ(A)(g) = tr(π(g^{-1})A) [Be-Ze 1, 2.4.2]; f acts by π(1_K) on π and by 0 on every other irreducible admissible representation, and f(1) = c^{-1} dim π^K ≠ 0."
         }
       ],
@@ -3151,7 +3096,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "After IX.7.4, p. 338",
-          "excerpt": "to the Bernstein center agrees with the usual map. But this refines to a map",
           "match": "FS records the characteristic-zero agreement and its integral centre refinement."
         }
       ],

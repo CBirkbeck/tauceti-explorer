@@ -680,19 +680,16 @@
     {
      "sourceId": "FO",
      "locator": "Definition 9.4 and Lemma 9.5, pp. 218–219",
-     "excerpt": "Filr (D⟨i⟩)K = Filr+i DK for r ∈ Z; (iii) the ϕ- and N -actions are given by N |D⟨i⟩ = N |D , ϕ|D⟨i⟩ = p−i ϕ|D .",
      "match": "The twist convention (iv)."
     },
     {
      "sourceId": "Berger2003",
      "locator": "§I.2, p. 6",
-     "excerpt": "We will say that V is positive if its Hodge-Tate weights are negative (the definition of the sign of the Hodge-Tate weights is unfortunate",
      "match": "The sign convention, with Q_p(1) of weight +1 in the conventions used here."
     },
     {
      "sourceId": "BNQD2002",
      "locator": "§1.3, p. 646",
-     "excerpt": "em = t−m ⊗ ε⊗m ∈ DdR(Qp(m)) ne dépend pas du choix de ε et donne une base canonique de Dcris(Qp(m)). Le Frobenius ϕ opère sur em par ϕ(em) = p−m em.",
      "match": "The canonical basis e_r of (iii)."
     }
    ],
@@ -731,19 +728,16 @@
     {
      "sourceId": "FO",
      "locator": "Theorem 7.28(4), p. 170",
-     "excerpt": "The sequence 0 −→ Qp −→ Be ⊕ BdR+ −→ BdR −→ 0 (7.27) is exact.",
      "match": "(a), second form."
     },
     {
      "sourceId": "FO",
      "locator": "Remark 7.29, p. 171",
-     "excerpt": "The exact sequence (7.27) is the so-called fundamental exact sequence of p-adic Hodge theory, which also has the form 0 −→ Qp −→ Be −→ BdR /BdR+ −→ 0.",
      "match": "(a), first form."
     },
     {
      "sourceId": "CN2017",
      "locator": "§2.4.3, p. 23",
-     "excerpt": "0 → Zp t{r} → F r Acr −(pr−ϕ)→ Acr",
      "match": "(d), with t^{r} = t^{b(r)}(t^{p−1}/p)^{a(r)} spanning Z_p(r)'."
     }
    ],
@@ -780,7 +774,6 @@
     {
      "sourceId": "BNQD2002",
      "locator": "§1.3, p. 647",
-     "excerpt": "par rapport à un élément de det DdR(Qp(m)) qui engendre le réseau det_Zp OK em",
      "match": "The integral lattice O_K·e_m in D_dR(Q_p(m)) against which the integral statements are measured."
     }
    ],
@@ -914,13 +907,11 @@
     {
      "sourceId": "FO",
      "locator": "Definition 9.22, (9.8), p. 232",
-     "excerpt": "Hf1 (K, V ) := Ker H 1 (K, V ) −→ H 1 (K, Bcris ⊗Qp V )",
      "match": "The definitions, with (9.7) and (9.10) for e and g."
     },
     {
      "sourceId": "Rubin2000",
      "locator": "Remark I.3.6, p. 7",
-     "excerpt": "Bloch and Kato define Hf1 (K, V ) using the ring Bcris … Hf1 (K, V ) = ker H 1 (K, V ) → H 1 (K, V ⊗ Bcris )",
      "match": "The finite condition at p and its integral propagation (Definition I.3.4)."
     }
    ],
@@ -1043,13 +1034,11 @@
     {
      "sourceId": "FO",
      "locator": "(9.11), p. 233",
-     "excerpt": "Tensoring the fundamental exact sequence with V , we get a short exact sequence 0 −→ V −→ Be ⊗ V −→ B̃dR ⊗ V −→ 0, which induces a long exact sequence 0 → H 0 (K, V ) → DN=0,φ=1 → tV −→ He1 (K, V ) −→ 0",
      "match": "The exponential and its exact sequence."
     },
     {
      "sourceId": "Berger2003",
      "locator": "Introduction, p. 2",
-     "excerpt": "The exponential map is then the connecting homomorphism DdR (V )/ Fil0 DdR (V ) → H 1 (K, V ).",
      "match": "The definition."
     }
    ],
@@ -1164,13 +1153,11 @@
     {
      "sourceId": "HK2011",
      "locator": "Remark 1.3.3, p. 9",
-     "excerpt": "(where ∂ is the Kummer map) established by Bloch and Kato in their work on the exponential map [BK] 3.10.1.",
      "match": "The weight-one case."
     },
     {
      "sourceId": "HK2011",
      "locator": "§1.3, p. 8",
-     "excerpt": "Recall ([BK] Definition 3.10) that the Bloch-Kato exponential expBK : K → H1et(K, Qp(n)) is the connecting morphism of the short exact sequence of continuous Gal(K̄/K)-modules",
      "match": "The exponential for Q_p(n), an isomorphism for n > 1."
     }
    ],
@@ -1285,13 +1272,11 @@
     {
      "sourceId": "Berger2003",
      "locator": "Introduction, p. 2",
-     "excerpt": "The cup product ∪ : H 1 (K, V ) × H 1 (K, V ∗ (1)) → H 2 (K, Qp (1)) ≃ Qp defines a perfect pairing, which we can use (by dualizing twice) to define Bloch and Kato’s dual exponential map exp∗K,V ∗ (1) : H 1 (K, V ) → Fil0 DdR (V ).",
      "match": "The definition by duality."
     },
     {
      "sourceId": "Berger2003",
      "locator": "§II, p. 13",
-     "excerpt": "Let us point out that the image of exp∗V ∗ (1) is included in Fil0 DdR (V ) and that its kernel is Hg1 (F, V ).",
      "match": "Image and kernel."
     }
    ],
@@ -1328,13 +1313,11 @@
     {
      "sourceId": "Benois2014",
      "locator": "Proposition 2.8.2(i), p. 44",
-     "excerpt": "dimE H 1f (D) = dimE DdR (D) − dimE Fil0 DdR (D) + dimE H 0 (D).",
      "match": "The H^1_f formula (for (φ,Γ)-modules, which covers V via D†_rig(V))."
     },
     {
      "sourceId": "FO",
      "locator": "(9.16), p. 235",
-     "excerpt": "dimQp Hf1 (K, V )/He1 (K, V ) = dimQp DN=0,φ=1",
      "match": "The quotient H^1_f/H^1_e."
     }
    ],
@@ -1377,13 +1360,11 @@
     {
      "sourceId": "FO",
      "locator": "Theorem 9.27, p. 235",
-     "excerpt": "Suppose K is a finite extension of Qp and V is semi-stable. Under the perfect pairing of class field theory … given by the cup-product, we have (1) Hg1 (K, V ∗ (1)) = He1 (K, V )⊥ , (2) He1 (K, V ∗ (1)) = Hg1 (K, V )⊥ , (3) Hf1 (K, V ∗ (1)) = Hf1 (K, V )⊥ .",
      "match": "The statement (citing Bloch–Kato Proposition 3.8)."
     },
     {
      "sourceId": "Rubin2000",
      "locator": "Remark I.7.1, p. 17",
-     "excerpt": "the Bloch-Kato subspaces Hf1 (Kv , V ) and Hf1 (Kv , V ∗ ) are orthogonal complements (see [FPR] Proposition I.3.3.9(iii) or [BK] Proposition 3.8).",
      "match": "The same, in Rubin's notation V^* = V^*(1)."
     }
    ],
@@ -1423,13 +1404,11 @@
     {
      "sourceId": "Berger2003",
      "locator": "Proof of Theorem II.2, p. 11",
-     "excerpt": "Because the diagram [exp_{F_{n+1}}, Tr, cor, exp_{F_n}] is commutative, it is enough to prove the theorem under the further assumption that Γn is torsion free.",
      "match": "The corestriction–trace square (bracketed text paraphrases a diagram)."
     },
     {
      "sourceId": "Rubin2000",
      "locator": "Appendix B, Corollary 5.2, p. 157",
-     "excerpt": "Corollary 5.2. With notation as above, there are canonical isomorphisms H i (GF , IndGD (T )) ≅ ⊕Q∈S H i (FQ , T )",
      "match": "Shapiro's lemma in the form used for semilocal conditions."
     }
    ],
@@ -1468,13 +1447,11 @@
     {
      "sourceId": "HK2",
      "locator": "Appendix A, p. 46",
-     "excerpt": "Bloch-Kato show in [BlKa] p. 358 that their exponential agrees with the usual p-adic exponential in this case. Hence Hf1 (K, Qp (1)) ⊂ (K ∗ )∧ ⊗ Qp agrees with the image of the exponential which is (OK∗ )∧ ⊗ Qp .",
      "match": "Case (ii)."
     },
     {
      "sourceId": "HK2011",
      "locator": "§1.3, p. 8",
-     "excerpt": "It is an isomorphism for n > 1.",
      "match": "Case (iii): exp_BK : K → H^1(K, Q_p(n))."
     }
    ],
@@ -1513,13 +1490,11 @@
     {
      "sourceId": "Berger2003",
      "locator": "Introduction, p. 2",
-     "excerpt": "if G is a formal Lie group of finite height over OK , and V = Qp ⊗Zp T where T is the p-adic Tate module of G, then V is a de Rham representation and DdR (V )/ Fil0 DdR (V ) is identified with the tangent space tan(G(K)) of G(K).",
      "match": "The formal-group square (Bloch–Kato 3.10.1)."
     },
     {
      "sourceId": "Rubin2000",
      "locator": "§I.6.4, (9), p. 16",
-     "excerpt": "This definition agrees with the Bloch-Kato definition of Hf1 .",
      "match": "H^1_f of V_pA is the Kummer image."
     }
    ],
@@ -1564,19 +1539,16 @@
     {
      "sourceId": "BNQD2002",
      "locator": "Lemme 1.3.2, p. 647",
-     "excerpt": "Tam0K(Z(m)) = q^m (H^1(K, Zp(m)) : exp_{K,m}(OK)) si m ⩾ 2",
      "match": "The index form."
     },
     {
      "sourceId": "BNQD2002",
      "locator": "Théorème 2.1, p. 648",
-     "excerpt": "Si K est abélien sur Qp, alors pour tout m ⩾ 2, on a Tam0K(Z(m)) = w(p)1−m(K) |(m−1)!|^N_p |dK|^{m−1}_p.",
      "match": "The local Tamagawa number, which with Lemme 1.3.2 gives the index; the lattice form is derived in proofSteps (no open source states it in one line)."
     },
     {
      "sourceId": "FontaineBPR1994",
      "locator": "§2.1, p. 153",
-     "excerpt": "La suite exacte courte 0 → Qp(r) → Fil^r B^+_cris —(p^{−r}φ − 1)→ B^+_cris → 0 induit un homomorphisme ∂^r : K = (B^+_cris)^{GK} → H^1(GK, Qp(r)), qui est injectif si r ≥ 1.",
      "match": "Fontaine's map ∂^r."
     }
    ],
@@ -1687,13 +1659,11 @@
     {
      "sourceId": "Rubin2000",
      "locator": "Chapter II §2, p. 25",
-     "excerpt": "H 1 (Kp , · ) = ⊕v|p H 1 (Kv , · ) and similarly for Hf1 and Hs1 = H 1 /Hf1",
      "match": "The semilocal convention."
     },
     {
      "sourceId": "HK2",
      "locator": "Appendix A, p. 21",
-     "excerpt": "The map expp : OF ⊗ Qp → Hf1 (F ⊗ Qp , Qp (1)) is an isomorphism.",
      "match": "A semilocal exponential."
     }
    ],
@@ -1817,13 +1787,11 @@
     {
      "sourceId": "CC99",
      "locator": "Théorème II.1.3, p. 12",
-     "excerpt": "L'application Log*_{V*(1)} : D(V)^{ψ=1} → H¹_Iw(K,V) ainsi définie est un isomorphisme.",
      "match": "The isomorphism."
     },
     {
      "sourceId": "Berger2003DM",
      "locator": "Theorem II.8, p. 118",
-     "excerpt": "The map y ↦ lim_n h¹_{K_n,V}(y) defines an isomorphism from D(T)^{ψ=1} to H¹_Iw(K,T) and from D(V)^{ψ=1} to H¹_Iw(K,V).",
      "match": "The integral and rational forms."
     }
    ],
@@ -1858,13 +1826,11 @@
     {
      "sourceId": "CC99",
      "locator": "Lemme I.4.2, p. 7",
-     "excerpt": "les isomorphismes ℓ_K(γ)ι_{ϕ,γ} et ℓ_K(γ′)ι_{ϕ,γ′} ∘ ι_{γ,γ′} de H¹(C_{ϕ,γ}(K,V)) sur H¹(K,V) sont égaux.",
      "match": "The generator change."
     },
     {
      "sourceId": "Berger2003DM",
      "locator": "Proposition I.8, p. 110",
-     "excerpt": "does not depend either on the choice of a generator γ of Γ_K or on the choice of a particular solution b",
      "match": "The independence asserted by Berger."
     }
    ],
@@ -1903,7 +1869,6 @@
     {
      "sourceId": "LZ2014",
      "locator": "Remark 4.16, p. 20",
-     "excerpt": "L^G_V(x, γζ)(ω) = ω(γ̃)^{−1} L^G_V(x, ζ)(ω)",
      "match": "The effect of a root change on the regulator; the coordinate dictionary is derived in proofSteps (no source states it as one lemma)."
     }
    ],
@@ -2014,13 +1979,11 @@
     {
      "sourceId": "CC99",
      "locator": "Proposition II.1.2, p. 12",
-     "excerpt": "est un isomorphisme de H m (K, ΛK ⊗Zp V ) sur HIw m (K, V (k))",
      "match": "The twist by χ^k."
     },
     {
      "sourceId": "LZ2014",
      "locator": "Lemma 2.4, p. 7",
-     "excerpt": "immediate if η has finite order, and follows for all η by reduction modulo powers of p",
      "match": "Twisting by arbitrary characters of G_∞."
     }
    ],
@@ -2058,13 +2021,11 @@
     {
      "sourceId": "CC99",
      "locator": "Proof of Théorème IV.2.1, p. 21",
-     "excerpt": "notons y(i) l'image de y dans D(V(i))^{ψ=1} = D(V)^{ψ=1} (les deux modules sont égaux ; il n'y a que l'action de Γ_K qui change)",
      "match": "(i) and (iii)."
     },
     {
      "sourceId": "Berger2003DM",
      "locator": "Appendix A, p. 124",
-     "excerpt": "Notice that N(T(−1)) = πN(T) ⊗ e_{−1}.",
      "match": "(iv)."
     }
    ],
@@ -2110,13 +2071,11 @@
     {
      "sourceId": "Berger2003DM",
      "locator": "Theorem A.3, p. 124",
-     "excerpt": "If V is a crystalline representation of G_F, whose Hodge-Tate weights are in [a; b], then D(V)^{ψ=1} ⊂ π^{a−1} N(V). If in addition V has no quotient isomorphic to Q_p(a), then actually D(V)^{ψ=1} ⊂ π^a N(V).",
      "match": "The theorem."
     },
     {
      "sourceId": "LLZWach",
      "locator": "§1, p. 4",
-     "excerpt": "with non-negative Hodge-Tate weights, and V has no quotient isomorphic to Q_p, then Berger has shown in [Ber03] that D(V)^{ψ=1} = N(V)^{ψ=1}",
      "match": "Form (iii), used by the L3 regulator."
     }
    ],
@@ -2218,13 +2177,11 @@
     {
      "sourceId": "LZ2014",
      "locator": "Definition 4.14, p. 20",
-     "excerpt": "For x ∈ H1Iw (K∞ , V ), we write xω,0 for the image of x in H1 (Qp , V (ω−1 )).",
      "match": "The specialisation."
     },
     {
      "sourceId": "Berger2003DM",
      "locator": "§II, p. 118",
-     "excerpt": "There is a natural projection map pr_{K_n,V} : H^i_Iw(K,V) → H^i(K_n,V) and when i = 1 it is of course equal to the composition",
      "match": "The level-n projection through h^1."
     }
    ],
@@ -2264,13 +2221,11 @@
     {
      "sourceId": "LLZWach",
      "locator": "§2.2, p. 8",
-     "excerpt": "If T is a GQp -stable lattice in V , then N(T ) = N(V ) ∩ D(T ) is an OE ⊗Zp A+Qp -lattice in N(V )",
      "match": "Lattices of Wach modules."
     },
     {
      "sourceId": "Limites2004",
      "locator": "Proposition III.4.2, p. 21",
-     "excerpt": "T ↦ N(T) induit une bijection respectant l'inclusion entre les réseaux de V et les modules de Wach sur A⁺_F contenus dans N(V)",
      "match": "The lattice bijection."
     }
    ],
@@ -2312,13 +2267,11 @@
     {
      "sourceId": "CC99",
      "locator": "Proposition V.3.2 iii), p. 27",
-     "excerpt": "Exp*_{Q_p}(δ(u)) = ι̂_K(u)^{−1} ∇ ι̂_K(u)",
      "match": "The rank-one comparison."
     },
     {
      "sourceId": "CC99",
      "locator": "§V.3, p. 27",
-     "excerpt": "τ → (1 − τ)(log[u_n]/t)(1) est un 1-cocycle … dont l'image dans H¹(K_n, Q_p(1)) est égale à δ_n(u^{(n)})",
      "match": "Cherbonnier–Colmez's normalisation of δ_n, whose sign against the Kummer cocycle is computed in proofSteps (sourceIssues)."
     }
    ],
@@ -2362,13 +2315,11 @@
     {
      "sourceId": "TauCetiTeichmuller",
      "locator": "TauCeti/NumberTheory/LocalField/Teichmuller.lean, module docstring (pinned commit f790474)",
-     "excerpt": "it is what splits the reduction map 𝒪[K]ˣ → 𝓀[K]ˣ, whose kernel is the pro-p group of principal units.",
      "match": "The library supplies the Teichmüller section; this node states the resulting internal product decomposition that the layer needs."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (176), p. 38",
-     "excerpt": "In what follows, we are mostly interested in evaluating Li2(ζ) when ζ is a root of unity of order prime to p. This case is important because these are rank 1 elements",
      "match": "The regulator calculation works with the Teichmüller (order prime to p) roots of unity and principal units separately."
     }
    ],
@@ -2405,13 +2356,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (176), p. 38",
-     "excerpt": "these are rank 1 elements, i.e., they satisfy the equation φp ζ = ζ^p .",
      "match": "The relation stated here, extended to finite products of unramified fields."
     },
     {
      "sourceId": "TauCetiTeichmuller",
      "locator": "TauCeti/NumberTheory/LocalField/Teichmuller.lean, eq_teichmuller",
-     "excerpt": "A unit of `𝒪[K]` killed by `q - 1` that reduces to `α` is `teichmuller K α`.",
      "match": "The uniqueness used to identify φ(ω(α)) with ω(α^p)."
     }
    ],
@@ -2566,19 +2515,16 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (174), p. 37",
-     "excerpt": "Then Coleman obtains a well-defined function Li2 : Cp ∖ {1} → Cp and defines Dp : Cp ∖ {0, 1} → Cp , z ↦ Li2 (z) + 1/2 log(z) log(1 − z) .",
      "match": "The function D^0 used factor by factor."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, paragraph after (174), p. 38",
-     "excerpt": "Conveniently, for unramified primes p of the field K, we can combine these functions Dσ into one function Dp : B(K) → Kp such that the projection onto the various field factors of Kp corresponding to σ agree with the function Dσ .",
      "match": "The combination into an algebra-valued map; here it is done for any finite étale Q_p-algebra."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "§1, after Remark 1.5 (Galois equivariance), p. 3",
-     "excerpt": "In particular, if K ⊂ Cp is a complete subfield, then Lin , and as a result also Ln and Lmod,n , send K to K provided log was defined such that log(π) = 0 with π ∈ K.",
      "match": "Values in the field of the argument, for a branch with log p = 0."
     }
    ],
@@ -2622,13 +2568,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (176), p. 38",
-     "excerpt": "these are rank 1 elements, i.e., they satisfy the equation φp ζ = ζ^p .",
      "match": "The Frobenius compatibility on roots of unity."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Remark 1.13, p. 6",
-     "excerpt": "From Galois equivariance it follows that Frob(Lin (ζ)) = Lin (Frob(ζ)) = Lin (ζ^p ) .",
      "match": "Frobenius equivariance at roots of unity of order prime to p."
     }
    ],
@@ -2764,19 +2708,16 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, paragraph after (174), p. 38",
-     "excerpt": "Conveniently, for unramified primes p of the field K, we can combine these functions Dσ into one function Dp : B(K) → Kp such that the projection onto the various field factors of Kp corresponding to σ agree with the function Dσ .",
      "match": "The construction; here for all p, with the integrality restricted to unramified p > 3."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Example 4.3, (270)–(271), p. 54",
-     "excerpt": "Then ξ = [z1 ] + [z2 ] + [z3 ] ∈ B(K) represents the element of the Bloch group of 52 .",
      "match": "The computation test; z_2 = z_1² − z_1 + 2 = 1 − α and z_3 = z_1."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Remark 1.15, p. 6",
-     "excerpt": "Moreover, it implies that the map H1(M̃(n)(K)) → K given by mapping [x]n to Lmod,n (x) is independent of the choice of the branch of the logarithm.",
      "match": "Branch independence on the weight-two cohomology, proved here directly for B(K) from the explicit branch difference."
     }
    ],
@@ -2814,19 +2755,16 @@
     {
      "sourceId": "BdJ2003",
      "locator": "§1, after Remark 1.5's preamble, p. 3",
-     "excerpt": "For n = 2, there is a unique such function, namely L2 (z) + 1/2 log(z)L1 (z) = Li2 (z) − 1/2 log(z)Li1 (z) , which is studied in Section VI and beyond in [Col82], where it is called D(z).",
      "match": "Identity (i)."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Remark 1.13, p. 6",
-     "excerpt": "One has the relation regGros = (1 − Frob/p^n) reg , where Frob is the Frobenius automorphism (The Gros regulator is only defined for unramified fields.)",
      "match": "Identity (iii)."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "§1.5, (19), p. 9",
-     "excerpt": "we use the p-adic dilogarithm map Dp : K3 (Kp ) → Kp , Kp = Rp∧ [ 1/p ] = K ⊗Q Qp (19) of Coleman [11], which coincides with the p-adic regulator map as shown in Besser–de Jeu [7, Thm.1.6(2)]",
      "match": "The normalisation GSWZ adopt; see sourceIssues E101 for the scope of the cited theorem."
     }
    ],
@@ -2866,7 +2804,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, p. 37",
-     "excerpt": "Coleman used an “analytic continuation along Frobenius” to define such a function after choosing a logarithm log : C×p → Cp . For example, one could take the Iwasawa logarithm, which has log(p) = 0.",
      "match": "The branch fixed throughout the layer."
     }
    ],
@@ -2902,7 +2839,6 @@
     {
      "sourceId": "BdJ2003",
      "locator": "§1, after Remark 1.5's preamble, p. 3",
-     "excerpt": "It is easily deduced from Coleman’s theory (see Remark 2.3) that Lin is Galois equivariant.",
      "match": "Galois equivariance, the input that turns norms into traces."
     }
    ],
@@ -3030,13 +2966,11 @@
     {
      "sourceId": "HK2011",
      "locator": "§1.3, p. 8",
-     "excerpt": "the Chern classes cn ∈ H^{2n−1}(GLN(K), H^1et(K, Qp(n))) induced by the universal Chern classes (via restriction to B·GLδN) cn ∈ H^{2n}et(B·GLN, Qp(n))",
      "match": "Soulé's regulator r_p as Chern classes, the definition used here."
     },
     {
      "sourceId": "NN2016",
      "locator": "§5.2, p. 59",
-     "excerpt": "rét r,i : K2r−i−1 (X)0 → H 1 (GK , H i ét (XK̄ , Qp (r)))",
      "match": "The étale regulator for varieties; for X = Spec F and i = 0 it is the map of this node."
     }
    ],
@@ -3152,19 +3086,16 @@
     {
      "sourceId": "HK2011",
      "locator": "Definition 2.2.1, p. 14",
-     "excerpt": "Cone(FilnX†Ω∗(]Xk[P) ⊕ Ω∗(]Xk[P0) → Ω∗(]Xk[P) ⊕ Ω∗(]Xk[P0))[−1] where the map is given by (a, b) ↦ (a − b, (1 − Φ∗/pn)b).",
      "match": "The rigid syntomic complex."
     },
     {
      "sourceId": "HK2011",
      "locator": "Example 2.2.4, pp. 14–15",
-     "excerpt": "The Qp-linear map (1 − σ/pn) is bijective, hence η−1 : K[−1] → RΓsyn(SpecR, n)P0,X is a quasi-isomorphism. Hence for n > 0, H^i_syn(SpecR, n) = K if i = 1, 0 otherwise.",
      "match": "The computation for Spec R."
     },
     {
      "sourceId": "Besser2000",
      "locator": "§6 and Proposition 8.6(3), author PDF pp. 26–28",
-     "excerpt": "isomorphisms",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -3279,25 +3210,21 @@
     {
      "sourceId": "HK2011",
      "locator": "Definition 2.3.3, p. 16",
-     "excerpt": "uniquely characterised by the fact that its image in Fili H2i(BGL†N,K, Ω∗) is the usual Chern class in de Rham cohomology",
      "match": "The universal syntomic Chern class."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "§1, p. 1",
-     "excerpt": "If X/R is smooth, separated and of finite type, there is a regulator map from K-theory to syntomic cohomology Kn(j)(X) → H^{2j−n}_syn(X, j) , see [Bes00a].",
      "match": "The regulator and its source in Besser's work."
     },
     {
      "sourceId": "NN2016",
      "locator": "Proposition 5.6, p. 57",
-     "excerpt": "For X ∈ VarK, i, j ≥ 0, there are functorial syntomic Chern class maps c^syn_{i,j} : Kj(X) → H^{2i−j}_syn(Xh, i).",
      "match": "The generic-fibre version used for comparisons."
     },
     {
      "sourceId": "Besser2000",
      "locator": "§§7,9,10; Proposition 8.8 and Proposition 10.3",
-     "excerpt": "base change",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -3337,25 +3264,21 @@
     {
      "sourceId": "HK2011",
      "locator": "Proposition 2.3.4, p. 16",
-     "excerpt": "In [Be] Proposition 9.11 the relation to the exponential is made explicit",
      "match": "The identification of H^1_syn(R, n) → H^1(K, Q_p(n)) with exp_BK ∘ η."
     },
     {
      "sourceId": "Tamme2014",
      "locator": "Proof of Corollary 5.19, p. 20",
-     "excerpt": "[Bes00b, Prop. 9.11] the composition HdR 2n−i−1 (XK /K)/F n → Hsyn 2n−i (X, n) → Hét 2n−i (XK , Qp (n)) → H 1 (GK , Hét 2n−i−1 (XK , Qp (n))) is the Bloch-Kato exponential",
      "match": "The same comparison, for smooth projective R-schemes."
     },
     {
      "sourceId": "NN2016",
      "locator": "Proposition 5.7, p. 58",
-     "excerpt": "The syntomic and the étale Chern classes are compatible, i.e., for X ∈ VarK, j ≥ 0, 2i − j ≥ 0, the following diagram commutes",
      "match": "Compatibility of Chern classes on the generic fibre."
     },
     {
      "sourceId": "Besser2000",
      "locator": "Corollary 9.10 and Proposition 9.11, author PDF p. 32",
-     "excerpt": "Bloch-Kato exponential",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -3401,19 +3324,16 @@
     {
      "sourceId": "BdJ2003",
      "locator": "Theorem 1.6(2), p. 4",
-     "excerpt": "If in addition σ : F → K is an embedding with σ(O) ⊂ R, then for r = 1, the regulator map H1(M̃(n)•(O)) → K(n)2n−1(O) → K(n)2n−1(R) → K is given by mapping [x]n to ±(n − 1)! Lmod,n(σ(x)).",
      "match": "The theorem; n = 2 holds without the Beilinson–Soulé hypothesis."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Theorem 1.12, p. 6",
-     "excerpt": "the regulator map regσ [...] maps [ζ]n to ±(n − 1)! Lmod,n(σ(ζ)) if ζ is any root of unity in F∗.",
      "match": "Cyclotomic elements of every order."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Conjecture 1.14, p. 6",
-     "excerpt": "Then, for all n ≥ 2, the regulator map H1(M̃(n)•(K)) → K(n)2n−1(K) ≅ K(n)2n−1(R) → K is given by the same formula as before, [x]n being mapped to ±(n − 1)! Lmod,n(x).",
      "match": "The general case, which remains conjectural and is not asserted here."
     }
    ],
@@ -3452,13 +3372,11 @@
     {
      "sourceId": "BdJ2003",
      "locator": "Theorem 1.10(2), p. 5",
-     "excerpt": "is given by mapping [x]n to ±(n − 1)! Lmod,n(σ(x)).",
      "match": "The number-field theorem in weight n."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Theorem 1.12, p. 6",
-     "excerpt": "maps [ζ]n to ±(n − 1)! Lmod,n(σ(ζ)) if ζ is any root of unity in F∗.",
      "match": "Cyclotomic elements."
     }
    ],
@@ -3495,13 +3413,11 @@
     {
      "sourceId": "BdJ2003",
      "locator": "Remark 1.13, p. 6",
-     "excerpt": "The result of Gros is that the element [ζ]n is mapped under the syntomic regulator to Lin(p)(ζ), where Lin(p) is defined by Lin(p)(z) = Lin(z) − 1/p^n Lin(z^p).",
      "match": "Gros's value at roots of unity."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Remark 1.13, p. 6",
-     "excerpt": "One has the relation regGros = (1 − Frob/p^n) reg , where Frob is the Frobenius automorphism (The Gros regulator is only defined for unramified fields.)",
      "match": "The normalisation change."
     }
    ],
@@ -3613,13 +3529,11 @@
     {
      "sourceId": "CN2017",
      "locator": "§5.1.1, pp. 52–53",
-     "excerpt": "We have the mod pn and completed syntomic complexes RΓsyn(X, r)n := [RΓcr(X, J[r])n −(pr−ϕ)→ RΓcr(Xn)], RΓsyn(X, r) := holimn RΓsyn(X, r)n.",
      "match": "The definition."
     },
     {
      "sourceId": "NN2016",
      "locator": "Introduction, (1), p. 2",
-     "excerpt": "RΓsyn(X , r) := Cone(RΓcr(X , J[r]) −(1−ϕr)→ RΓcr(X ))[−1], where RΓcr(·, J[r]) denotes the absolute rational log-crystalline cohomology [...] and ϕr is the crystalline Frobenius divided by pr.",
      "match": "The rational form."
     }
    ],
@@ -3724,13 +3638,11 @@
     {
      "sourceId": "CN2017",
      "locator": "§1, p. 2",
-     "excerpt": "Fontaine-Messing [28], Kato [36] have constructed period morphisms αFM r,n : Sn(r)X → i∗Rj∗Z/pn(r)′Xtr, r ≥ 0.",
      "match": "The period morphism."
     },
     {
      "sourceId": "CN2017",
      "locator": "§1, p. 2",
-     "excerpt": "Zp(r)′ := (1/p^a(r)) Zp(r), for r = (p − 1)a(r) + b(r), 0 ≤ b(r) ≤ p − 1.",
      "match": "The twist; see sourceIssues for the range of b(r)."
     }
    ],
@@ -3770,13 +3682,11 @@
     {
      "sourceId": "CN2017",
      "locator": "§1, (1.3), p. 2",
-     "excerpt": "For i ≤ r ≤ p − 1, it is known that a stronger statement is true: the period map αFM r,n : H i (Sn (r)X ) → i∗ Ri j∗ Z/pn (r)Xtr is an isomorphism for X a log-scheme log-smooth over a henselian discrete valuation ring OK of mixed characteristic.",
      "match": "The classical range, with attribution to Kato, Kurihara and Tsuji."
     },
     {
      "sourceId": "CN2017",
      "locator": "Theorem 1.1, p. 2",
-     "excerpt": "In general, the kernel and cokernel of this map are annihilated by pN for an integer N = N (e, p, r), which depends on e, r, but not on X or n.",
      "match": "The general bounded comparison (stated with N(K, p, r) in Theorem 5.4; see sourceIssues)."
     }
    ],
@@ -3815,13 +3725,11 @@
     {
      "sourceId": "CN2017",
      "locator": "Corollary 3.16, p. 37",
-     "excerpt": "There is a natural map αr,i : H^{i−1}_dR(XK,tr) → H^i_syn(X, r)Q. It is an isomorphism for i ≤ r − 1 and an injection for i = r.",
      "match": "The syntomic exponential."
     },
     {
      "sourceId": "CN2017",
      "locator": "§1, p. 3",
-     "excerpt": "The map αr,i for the formal scheme X associated to X is then the Bloch-Kato’s map [46] DdR (Vi−1 ) → H1(GK, Vi−1)",
      "match": "The identification with the Bloch–Kato exponential."
     }
    ],
@@ -3928,7 +3836,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, paragraph before Theorem 9, p. 39",
-     "excerpt": "Note that if K/Q is a number field and p is unramified, so that p = ∏i pi , N (pi ) = p^si , then Kp ≃ ∏i Qpsi and Kn (Kp ) ≃ ∏i Kn (Qpsi ) for every n.",
      "match": "The class of algebras; the K-theory product comparison is D.3/completed-k3-unramified."
     }
    ],
@@ -4049,7 +3956,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Proof of Theorem 9, p. 39",
-     "excerpt": "It is known that K3 (Kp ; Zp ) ≅ H 1 (Kp , Zp (2)) is a free Zp -module of rank r, cf. [46, Thm. 7.4] (the torsion-freeness follows from the vanishing of H 0 (Kp , Fp (2)), which follows from p > 3).",
      "match": "The structure of the group; r = [K : Q] here."
     }
    ],
@@ -4090,7 +3996,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Proof of Theorem 9, p. 39",
-     "excerpt": "Under the isomorphism between K3 and the Bloch group (and noting that there is no contribution from K2 = K2M to K3 (−; Zp )) and using Lemma 3.1, one sees that the image is contained in p2 OKp .",
      "match": "The comparison of completed K_3 with the Bloch group used in the proof; the containment it claims is D.3/unramified-regulator-theorem (sourceIssues: GSWZ E39)."
     }
    ],
@@ -4208,13 +4113,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (177), p. 38",
-     "excerpt": "its modulo p reduction can be described by a rational function, the finite polylogarithm function introduced by Kontsevich (unpublished note, reproduced as an appendix to [17]) lin,p (z) = Σ_{k=1}^{p−1} z^k / k^n .",
      "match": "The definition, verbatim up to layout."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Proof of Proposition 3.3, (180), p. 38",
-     "excerpt": "Since li2,p (1) ≡ 0 (mod p) and li′2,p (1) ≡ 0 (mod p), there exists a polynomial gp (x) of degree p − 3 such that fp (x) = gp (x)/(x−1)^{p−2} .",
      "match": "The double root at 1, valid for p > 3."
     }
    ],
@@ -4249,7 +4152,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Proposition 3.2, (178), p. 38",
-     "excerpt": "Proposition 3.2. [6, Cor. 2.2] For a prime p and ζ ∈ µ(Qps ) with ζ ≠ 1, we have p^−2 Dp (ζ^p ) = 1/(ζ − 1)^p li2,p (ζ) (mod p) .",
      "match": "The statement, for odd p; the extraction records the p = 2 caveat as GSWZ E80."
     }
    ],
@@ -4288,7 +4190,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Lemma 3.1 and proof, (175), p. 38",
-     "excerpt": "Lemma 3.1. If z ∈ Rp∧ and |z|p = 1 and |z − 1|p ≥ 1 then Dp (z) ∈ p2 Rp∧ . Proof. From [8, Cor. 4.9] we know that Li2 (ζ) ∈ p2 Zp [ζ] and Li1 (ζ) ∈ pZp [ζ] .",
      "match": "The statement and the root-of-unity input; the Taylor step is expanded in proofSteps."
     }
    ],
@@ -4331,13 +4232,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Proposition 3.3 and proof, (179)–(182), pp. 38–39",
-     "excerpt": "Proposition 3.3. For every positive integer s, we have SpanZp {p−2 Dp (ζ) | ζ ∈ µ(Qps )} = Zps .",
      "match": "Statement (a); ζ = 1 is excluded (GSWZ E38) and p > 3 is used in the proof."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Proof of Proposition 3.3, (182), p. 39",
-     "excerpt": "This gives a lower bound for the size of the image of fp #image(fp ) ≥ (p^s − 1)/(p − 2) > p^{s−1} ,",
      "match": "The source count includes x=0; for nonzero admissible roots use the repaired q−2 count for s>1 and the separate s=1 argument in proofSteps."
     }
    ],
@@ -4450,7 +4349,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Theorem 9 and proof, p. 39",
-     "excerpt": "K3 (Kp ; Zp ) is generated as a Zp -module by {[ζ] | ζ ∈ µ(Kp )}. [...] But the elements ord(ζ)Dp (ζ) ∈ Kp generate the image.",
      "match": "The classes and the integral multiple ord(ζ)·[ζ]; components equal to 1 are excluded (GSWZ E38)."
     }
    ],
@@ -4573,13 +4471,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§1.5, (19), p. 9",
-     "excerpt": "we use the p-adic dilogarithm map Dp : K3 (Kp ) → Kp , Kp = Rp∧ [ 1/p ] = K ⊗Q Qp (19) of Coleman [11], which coincides with the p-adic regulator map",
      "match": "The map; here defined on the completed group as the regulator and compared with the dilogarithm where proved."
     },
     {
      "sourceId": "HK2011",
      "locator": "Theorem 1.3.2 and Proposition 2.3.4, pp. 9 and 16",
-     "excerpt": "In [Be] Proposition 9.11 the relation to the exponential is made explicit",
      "match": "The identification of Besser's regulator with log_BK of Soulé's regulator."
     }
    ],
@@ -4625,13 +4521,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Theorem 9, (183), p. 39",
-     "excerpt": "Theorem 9. Assume p > 3. We have a Zp -linear isomorphism Dp : K3 (Kp ; Zp ) → p2 OKp , and K3 (Kp ; Zp ) is generated as a Zp -module by {[ζ] | ζ ∈ µ(Kp )}.",
      "match": "Part (a); p unramified is implicit (D_p : B(K) → K_p is defined for unramified p)."
     },
     {
      "sourceId": "BNQD2002",
      "locator": "Lemme 1.3.2, p. 647",
-     "excerpt": "Tam0K(Z(m)) = q^m (H^1(K, Zp(m)) : exp_{K,m}(OK)) si m ⩾ 2",
      "match": "The index form of the integral Bloch–Kato logarithm used for the image."
     }
    ],
@@ -4671,7 +4565,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Theorem 9, p. 39",
-     "excerpt": "and K3 (Kp ; Zp ) is generated as a Zp -module by {[ζ] | ζ ∈ µ(Kp )}.",
      "match": "Part (b), with components equal to 1 excluded (GSWZ E38)."
     }
    ],
@@ -4789,7 +4682,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§1.5, (19), p. 9",
-     "excerpt": "we use the p-adic dilogarithm map Dp : K3 (Kp ) → Kp , Kp = Rp∧ [ 1/p ] = K ⊗Q Qp",
      "match": "The map from K_3 of the semilocal algebra; precomposed with localisation from K_3(K)."
     }
    ],
@@ -4827,13 +4719,11 @@
     {
      "sourceId": "BdJ2003",
      "locator": "Theorem 1.10(2) and Remark 1.11, p. 5",
-     "excerpt": "For any fixed element in H1(M̃(n)•(F )), all elements involved are special units for almost all p, so that this Theorem applies to any given element in H1(M̃(n)•(F )) for almost all p.",
      "match": "The number-field version and its scope."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Lemma 3.1, p. 38",
-     "excerpt": "Lemma 3.1. If z ∈ Rp∧ and |z|p = 1 and |z − 1|p ≥ 1 then Dp (z) ∈ p2 Rp∧ .",
      "match": "GSWZ work with special units of R = O_K[1/Δ], which is the range of this theorem."
     }
    ],
@@ -4872,7 +4762,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, paragraph after (174), p. 38",
-     "excerpt": "we can combine these functions Dσ into one function Dp : B(K) → Kp such that the projection onto the various field factors of Kp corresponding to σ agree with the function Dσ .",
      "match": "Componentwise definition, which makes the trace compatibility a sum over embeddings."
     }
    ],
@@ -4908,7 +4797,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "§3.1, (176), p. 38",
-     "excerpt": "these are rank 1 elements, i.e., they satisfy the equation φp ζ = ζ^p .",
      "match": "The Frobenius on roots of unity used with D_p(φ_p ξ) = φ_p D_p(ξ)."
     }
    ],
@@ -4949,7 +4837,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Proof of Theorem 9, p. 39",
-     "excerpt": "It is known that K3 (Kp ; Zp ) ≅ H 1 (Kp , Zp (2)) is a free Zp -module of rank r",
      "match": "Torsion-freeness of the target, which makes torsion classes vanish."
     }
    ],
@@ -4988,13 +4875,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Definition 1.3, (20)–(22), p. 9",
-     "excerpt": "Here fb(q) = (fbm (x))m is the formal completion of f defined by log(fbm (x)) = Dp (ξ)/(m2 log(q)) + log(fm (x)) ∈ x−1 Kp [ζm ][[x]] .",
      "match": "The use of D_p(ξ) that fixes the normalisation."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Theorem 1, p. 9",
-     "excerpt": "Let K be a number field, and ∆ a number divisible by its discriminant and by 6. For ξ ∈ K3 (K) and p a prime with (p, ∆) = 1, there exists invertible Lp (ξ)-sections.",
      "match": "The range of primes for which the export is made."
     }
    ],
@@ -5103,7 +4988,6 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Theorem 9, p. 39",
-     "excerpt": "We have a Zp -linear isomorphism Dp : K3 (Kp ; Zp ) → p2 OKp",
      "match": "A local statement; it says nothing about the image of global K_3, whence the separate proposition."
     }
    ],
@@ -5140,13 +5024,11 @@
     {
      "sourceId": "GSWZ2024",
      "locator": "Example 4.3, (270)–(275), p. 54",
-     "excerpt": "Consider the prime p = 5, where K5 ≅ Q52 × Q5 is a product of two unramified extension of Q5 , one of degree two and one of degree one.",
      "match": "The example."
     },
     {
      "sourceId": "GSWZ2024",
      "locator": "Example 4.3, (274), p. 54",
-     "excerpt": "which illustrates Theorem 9 of Section 3.1.",
      "match": "The decomposition of D_5(ξ) by the root-of-unity values."
     }
    ],
@@ -5266,19 +5148,16 @@
     {
      "sourceId": "BdJ2003",
      "locator": "Definition 4.6, p. 24",
-     "excerpt": "When n ⩾ i > relative dimension of X, we have a canonical isomorphism, H̃^i_ms(X, n) ≅ H^{i−1}_rig(Xκ)/F^n, (0, ε) ↦ (1 − ϕ∗/q^n)^{−1}(class of ε)",
      "match": "The normalised identification."
     },
     {
      "sourceId": "Ara2003",
      "locator": "Lemma 3.3, p. 8",
-     "excerpt": "If both dF and dG are forms of the second kind, then ⟨dF, dG⟩_gl = [dF] ∪ [dG]",
      "match": "The residue formula for the cup product."
     },
     {
      "sourceId": "Besser2000",
      "locator": "Proposition 8.6(3), Remark 8.7(3) and Proposition 10.1(3), author PDF pp. 26–28,34",
-     "excerpt": "Proposition 8.6.",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -5379,7 +5258,6 @@
     {
      "sourceId": "BdJ2012",
      "locator": "§1, pp. 4–5",
-     "excerpt": "There exists a canonical projection HdR1 (U/K) → HdR1 (C/K), compatible with restriction to a smaller U ; see [Bes00c, Proposition 4.8] and (9.13) below.",
      "match": "The projection p_D from the open curve, from Besser's K_2 paper."
     }
    ],
@@ -5501,19 +5379,16 @@
     {
      "sourceId": "AM18",
      "locator": "Proposition 6.4, p. 34",
-     "excerpt": "If the relative dimension of V /W is one, then the last",
      "match": "The hypothesis under which H^2 rigid syntomic cohomology is identified with H^1_rig (the sentence continues with the isomorphism)."
     },
     {
      "sourceId": "BdJ2003",
      "locator": "Lemma 4.7, p. 24",
-     "excerpt": "Lemma 4.7. ([Bes00a, Proposition 10.3]) The syntomic regulator sends the class of f in K1 (X) to the cohomology class of (dlog f, log(f0 )/q) in the representation (4.4) of H̃ms (X, 1).",
      "match": "The K_1 regulator cocycle (f_0 = f^q/φ^*f) whose cup product gives ε(f, g)."
     },
     {
      "sourceId": "Besser2000",
      "locator": "Proposition 10.3, author PDF p. 35",
-     "excerpt": "Proposition 10.3.",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -5557,13 +5432,11 @@
     {
      "sourceId": "AM18",
      "locator": "Theorem 9.1, p. 45",
-     "excerpt": "Suppose that C has a good reduction. … Then Tr_C(Θ(reg_syn{f, g}) ∪ [ω]) = (r_p{f, g})(ω) for ω ∈ H^0(C, Ω^1_{C/K})",
      "match": "The formula (= Besser II Theorem 3, unramified K)."
     },
     {
      "sourceId": "BdJ2012",
      "locator": "Remark 1.10, p. 4",
-     "excerpt": "the regulator is obtained by sending the symbol {f, g} in K2(F) to ∫_(f) log(g)ω",
      "match": "The Coleman–de Shalit form, known to be the syntomic regulator by Besser."
     }
    ],
@@ -5602,19 +5475,16 @@
     {
      "sourceId": "AC20",
      "locator": "Footnote 4, p. 43",
-     "excerpt": "(1 − p^{−2}φ) log reg_f = reg_syn, where φ is the p-th Frobenius on H^1_dR(E/Q_p)",
      "match": "The canonical form of the comparison."
     },
     {
      "sourceId": "NN2016",
      "locator": "Proposition 1.1, p. 3",
-     "excerpt": "The induced … map H^{i−1}_dR(X)/F^r → H^1(G_K, H^{i−1}_ét(X_K̄, Q_p(r))) is equal to the Bloch-Kato exponential",
      "match": "The general comparison."
     },
     {
      "sourceId": "Besser2000",
      "locator": "Proposition 9.11, author PDF p. 32",
-     "excerpt": "Bloch-Kato exponential",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
@@ -5658,7 +5528,6 @@
     {
      "sourceId": "Ara2003",
      "locator": "Lemmas 3.6–3.7, p. 8",
-     "excerpt": "Lemma 3.6. if f : X → Y is a finite map of curves, then ⟨f∗dF, f∗dG⟩gl = deg(f)⟨dF, dG⟩gl .",
      "match": "Pullback similitude; Lemma 3.7 gives the trace adjunction."
     }
    ],
@@ -5694,13 +5563,11 @@
     {
      "sourceId": "NN2016",
      "locator": "Theorem B, p. 7",
-     "excerpt": "The regulators rét r,i factor through the group H^1_st(GK, H^i(XK̄,ét, Qp(r))).",
      "match": "The semistable factorisation."
     },
     {
      "sourceId": "BZ2017",
      "locator": "Theorem 1.1, p. 2",
-     "excerpt": "The function F − F̃ is constant on X(K)",
      "match": "Vologodsky integrals versus glued Coleman integrals."
     }
    ],

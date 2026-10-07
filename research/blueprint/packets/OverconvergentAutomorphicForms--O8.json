@@ -208,7 +208,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Lemma 2.3.1 and its displayed proof, p. 15",
-          "excerpt": "(γa + z γc)−1",
           "match": "The chart calculation is restated over an arbitrary commutative ring with its exact unit hypothesis."
         }
       ],
@@ -251,7 +250,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Lemma 2.3.1, p. 15; equation (5), p. 20; Remark 3.1.15, p. 25",
-          "excerpt": "γa + z γc",
           "match": "Derived by composing the source row-graph calculation. This supplies the specific Siegel factor to O1; it does not redefine general cocycles."
         }
       ],
@@ -296,7 +294,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Lemma 2.3.1, p. 15",
-          "excerpt": "(γb + z γd)",
           "match": "The right-action law follows from the source graph normalisation and ordinary matrix associativity."
         }
       ],
@@ -338,7 +335,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Proof of Proposition 3.3.10, constructions Ψ1 and Ψ2, pp. 35–36",
-          "excerpt": "γ‡a + z γ‡c",
           "match": "Corrected finite identity underlying the displayed proof; the printed product order fails for noncommuting genus-two matrices."
         }
       ],
@@ -386,7 +382,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Equation (5), p. 20; Definition 3.1.14(iii), p. 24",
-          "excerpt": "ρκU(γa + z γc)−1",
           "match": "Specialization of the displayed representation factor to the one-dimensional determinant representation, derived algebraically."
         }
       ],
@@ -433,7 +428,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Corollary 2.4.2, p. 17; Proposition 2.5.2, pp. 18–19; equation (5), p. 20",
-          "excerpt": "γ∗s = s ·(γa + z γc)",
           "match": "The source explicitly identifies the dual tautological bundle with the Hodge bundle and states this frame transformation."
         }
       ],
@@ -481,7 +475,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Corollary 2.4.2, p. 17; equation (5), p. 20",
-          "excerpt": "γ∗s = s ·(γa + z γc)",
           "match": "Taking determinant is a stated consequence here, not a separately numbered source theorem."
         }
       ],
@@ -531,7 +524,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Definition 3.1.14(iii), p. 24; Remark 3.1.15, p. 25",
-          "excerpt": "γ∗f",
           "match": "The source equivariance condition is specialized to the finite-rank determinant representation supplied by O0. It is not an identification with the full analytic induced coefficient module."
         }
       ],
@@ -589,7 +581,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Equation (5), p. 20; §3.4, pp. 37–38",
-          "excerpt": "ω",
           "match": "Independent determinant-line descent consequence of the verified frame formula. The integer extension uses the imported dual-line functor; no reliance on the flawed induced-module comparison in Proposition 3.3.10."
         }
       ],
@@ -648,7 +639,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Corollary 2.4.2, p. 17; §3.4 and Proposition 3.4.3, pp. 37–38",
-          "excerpt": "ρk",
           "match": "The finite-representation recovery is proved through the frame torsor with an explicit associated-bundle convention. The source motivates the comparison; its printed highest-weight torsor description and intertwiner require the recorded corrections."
         }
       ],
@@ -696,7 +686,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Definitions 3.1.10 and 3.1.14, pp.23–24; Proposition 3.4.3, p.38",
-          "excerpt": "f (γ β) = κ(β)f (γ)",
           "match": "The determinant function gives a concrete finite-character submodule of the displayed induced coefficient module. The unrestricted algebraic map is its directly derived reusable interface."
         }
       ],
@@ -810,7 +799,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Definition 3.1.10, Remark 3.1.13 and Definition 3.1.14, pp.23–25",
-          "excerpt": "Cκw−an",
           "match": "The displayed induced-module sheaf is instantiated through O0/O1; the inverse factor and genus are retained."
         }
       ],
@@ -863,7 +851,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Definition 3.4.2 and Proposition 3.4.3, p.38",
-          "excerpt": "a natural injection",
           "match": "The finite realization and its analytic inclusion are retained; the classical frame sheaf is corrected to full Borel equivariance."
         }
       ],
@@ -903,7 +890,6 @@
         {
           "sourceId": "drw-v3",
           "locator": "Remark 3.6.2, Atkin–Lehner display, p.43; canonical-chart coordinates in §3.6, p.42",
-          "excerpt": "AL : Fℓ×_{w−1} → Fℓ×_{can,w}",
           "match": "The displayed row-graph identity gives Z′=−pZ in the canonical chart. The finite identity is separate from canonical-subgroup geometry; the missing prime in the p.42 domain formula is recorded as E-O8-15."
         }
       ],
@@ -954,7 +940,6 @@
         {
           "sourceId": "bp-author",
           "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
-          "excerpt": "at the expense of working with diamonds",
           "match": "The geometry/torsor identification is imported from S6/T6; O8 applies the generic coefficient functor."
         }
       ],
@@ -1005,7 +990,6 @@
         {
           "sourceId": "bp-author",
           "locator": "§4.4.38–4.4.40, pp.79–80; Hecke compatibility: Remark 4.4.28, p.76 and §4.6.18, pp.96–97",
-          "excerpt": "up to a cyclotomic twist by µ",
           "match": "The torsor identity is transported through the finite associated-bundle functor; Tate weights are retained."
         }
       ],
@@ -1055,7 +1039,6 @@
         {
           "sourceId": "bp-author",
           "locator": "§4.6.12, pp.94–95 and §6.3.1, p.153",
-          "excerpt": "reduction to an étale torsor",
           "match": "The analytic reduction is imported as data; its associated coefficient formalism supplies the instance. BP proves a specific such reduction under its own hypotheses."
         }
       ],
@@ -1106,7 +1089,6 @@
         {
           "sourceId": "bp-author",
           "locator": "§4.6.8–4.6.15, pp.92–95; §6.3.1 and Proposition 6.3.6, pp.153–154",
-          "excerpt": "p-adic families of sheaves",
           "match": "The source proves the explicit Bruhat-domain reduction and instantiates analytic induction; only this coefficient-level application belongs to O8."
         }
       ],

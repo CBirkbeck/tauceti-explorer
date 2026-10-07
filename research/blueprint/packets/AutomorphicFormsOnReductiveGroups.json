@@ -887,7 +887,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.1, arXiv p. 17",
-          "excerpt": "We say of a function f : G(A) → C that it is smooth if it is right invariant by a compact-open subgroup J of G(Af ) and for every gf ∈ G(Af ) the function g∞ ∈ G(F∞ ) 7→ f (gf g∞ ) is C∞.",
           "match": "Definition taken verbatim; we write the archimedean variable on the left, which is equivalent since G(F_∞) and G(𝔸_f) commute."
         }
       ],
@@ -996,13 +995,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§3.2, (3.2.1)-(3.2.2), p. 17",
-          "excerpt": "In the number field case, H is known as the non-archimedian Hecke algebra or the Hecke algebra away from infinity.",
           "match": "The finite factor C_c^∞(G(𝔸_f)) and its description as a direct limit over finite sets of places."
         },
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.2, arXiv p. 17",
-          "excerpt": "The Schwartz space is an algebra for the convolution product denoted by ∗. It contains the dense subspace Cc∞ (G(A)) of smooth and compactly supported functions.",
           "match": "The test-function space as a dense subalgebra of the Schwartz algebra."
         }
       ],
@@ -1119,7 +1116,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.2, arXiv p. 17",
-          "excerpt": "This family of semi-norms define a topology on S(G(A), C, K0 ) making it into a Fréchet space. The global Schwartz space S(G(A)) is the topological direct limit over all pairs (C, J) of the spaces S(G(A), C, J).",
           "match": "Definition of the global Schwartz space and its topology."
         }
       ],
@@ -1213,13 +1209,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.2, Definitions 6.7-6.8, pp. 30-31",
-          "excerpt": "A function φ : G(F∞ ) → C is said to be slowly increasing if there exists a norm k·k, a constant C and a positive integer r such that |f (x)| ≤ Ckxkr for all x ∈ G(F∞ ).",
           "match": "The archimedean predicate; the notes add that the definition is independent of the choice of norm."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§13, (13.2)-(13.4), p. 70",
-          "excerpt": "The chosen height function k · k on G(A) then satisfies (13.2) kxyk ≤ kxkkyk, x, y ∈ G(A),",
           "match": "The adelic height and its submultiplicativity."
         }
       ],
@@ -1330,13 +1324,11 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.7, arXiv p. 18",
-          "excerpt": "The space of functions of uniform moderate growth T ([G]P ) of [G]P is defined as the space of smooth functions ϕ : [G]P → C for which there exists N > 0 such that for every X ∈ U(g∞ ) we have |(R(X)ϕ)(g)| ≪ kgkN[G]P",
           "match": "Definition and LF topology."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§13, p. 70",
-          "excerpt": "Let us say that a function φ ∈ C ∞ G(Q)\\G(A)1 is uniformly tempered if there is an N0 ≥ 0 with the property that for every left invariant differentiable operator X on G(R)1 , there is a constant cX such that |(Xφ)(x)| ≤ cX kxkN0 ,",
           "match": "The same condition under the name uniformly tempered, on G(ℚ)\\G(𝔸)^1."
         }
       ],
@@ -1447,13 +1439,11 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.8, arXiv p. 18",
-          "excerpt": "The spaces S([G]P ), C([G]P ) and T ([G]P ) are all topological representations of G(A) for the action by right translation R.",
           "match": "Right translation acts continuously; the levels T_N([G])^J are SF representations of G(F_∞) in the sense of Bernstein–Krötz."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§13, (13.2), p. 70",
-          "excerpt": "kxyk ≤ kxkkyk, x, y ∈ G(A),",
           "match": "The estimate behind (i)."
         }
       ],
@@ -1496,13 +1486,11 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.8, (2.5.8.6), arXiv p. 18",
-          "excerpt": "For every distribution D ∈ S([G]P )′ and f ∈ S(G(A)), the distribution R(f )D is representable by a function in T ([G]P ).",
           "match": "The stronger statement for distributions; for a moderate-growth function the representing function is R(f)φ."
         },
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.8, arXiv p. 18",
-          "excerpt": "It follows that the action of G(A) on S([G]P ), C([G]P ) and T ([G]P ) integrates to an action of the algebra (S(G(A)), ∗) (by right convolution).",
           "match": "The module structure."
         }
       ],
@@ -1544,13 +1532,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§3.4, p. 18",
-          "excerpt": "The space L2 (G(F )AG \\G(AF )) carries a natural action R of H by convolution:",
           "match": "The convolution action of the global Hecke algebra; here restricted to the finite factor on smooth growth spaces."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§24, p. 158",
-          "excerpt": "Let Rdisc (πR , h) be the operator on L2disc (πR , K0 ) obtained by right convolution of h.",
           "match": "Right convolution by the nonarchimedean Hecke algebra H(G(𝔸_fin), K₀)."
         }
       ],
@@ -1593,13 +1579,11 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, p. 11",
-          "excerpt": "In case that h = k and K is not connected there is a subcomplex",
           "match": "The pair (𝔤, K) with K possibly disconnected."
         },
         {
           "sourceId": "cg20",
           "locator": "§2.2, arXiv v1 p. 8 (Duke p. 810)",
-          "excerpt": "Then we have Q− = KC h − P and Lie Q− = khC ⊕ p− .",
           "match": "The pair (Lie Q⁻, K^h) for the θ-stable parabolic (K^h_ℂ rendered 'KC h' in the PDF text)."
         }
       ],
@@ -1707,13 +1691,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§5.3, Definition 5.14, p. 26",
-          "excerpt": "A (g, K)-module is a vector space V with a representation of π of g and K which satisfy the following:",
           "match": "Conditions (2)–(3) agree. The present general module category drops the source’s countability condition (1); local finiteness alone is strictly weaker. Harish-Chandra modules meet the countability condition."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, Remark 4.1, p. 21",
-          "excerpt": "in other words E K−fin is a weakly admissible (g, K)-module.",
           "match": "K-finite vectors of a Banach representation form a (g,K)-module."
         }
       ],
@@ -1835,13 +1817,11 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, p. 11",
-          "excerpt": "The relative Lie algebra cohomology",
           "match": "The definition and formulas immediately following this literal text define the based/invariant Chevalley–Eilenberg subcomplex. PDF formula extraction must not be spliced into an invented verbatim sentence."
         },
         {
           "sourceId": "pilloni20",
           "locator": "§15.2.2, p. 108",
-          "excerpt": "Let W be a (g, K∞ )-module. Then one can define the (p, K∞ )-cohomology of W , denoted by H• (p, K∞ ; W ) (see [30], sect. 4.1.1).",
           "match": "The same construction for the parabolic pair (𝔭, K∞); see AF.4/coherent-relative-cohomology."
         }
       ],
@@ -1967,13 +1947,11 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, (10), p. 11",
-          "excerpt": "This gives rise to a sequence in cohomology",
           "match": "Restriction maps induced by inclusions of pairs."
         },
         {
           "sourceId": "ichino-prasanna23",
           "locator": "§7.1",
-          "excerpt": "relative Lie algebra cohomology",
           "match": "Used with tensor products F^* ⊗ A_q(λ) and Künneth-type decompositions."
         }
       ],
@@ -2016,13 +1994,11 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, Remark 3.1 and proof of Theorem 3.3, pp. 12-13",
-          "excerpt": "the morphisms in the top row are quasi-isomorphisms by Proposition 2.7 and [Fuc11, Section 7].",
           "match": "Comparison of the locally smooth, smooth and continuous cochain models."
         },
         {
           "sourceId": "wockel-vanest",
           "locator": "Introduction, p. 2",
-          "excerpt": "We call this the van Est cohomology HvE (G; A) of G,",
           "match": "The continuous-cochain (van Est) cohomology for topological vector space coefficients."
         }
       ],
@@ -2127,7 +2103,6 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, Lemma 3.2, p. 12",
-          "excerpt": "Noting that we have a K-equivariant diffeomorphism G ∼ = G/K × K",
           "match": "Cochains on G/K versus K-relative cochains on G; the evaluation at the identity coset."
         }
       ],
@@ -2227,13 +2202,11 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, Theorem 3.3, p. 13",
-          "excerpt": "The following isomorphism is sometimes also called the van Est isomorphism.",
           "match": "Theorem 3.3: D_n : H^n_{loc,s}((G,K);A) → H^n_Lie((g,K);a) is an isomorphism, under the standing hypotheses of §3 (finitely many components, K maximal compact, quasi-complete smooth coefficients)."
         },
         {
           "sourceId": "wockel-vanest",
           "locator": "§3, p. 11",
-          "excerpt": "Unless mentioned otherwise, G will throughout this section be a finite-dimensional Lie group with finitely many components and K will be a maximal compact subgroup.",
           "match": "Standing hypotheses of the theorem."
         }
       ],
@@ -2276,7 +2249,6 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "§2, Proposition 2.8, p. 9",
-          "excerpt": "Suppose that G is a finite-dimensional Lie group with finitely many components, that K ≤ G is a maximal compact subgroup",
           "match": "The hypotheses under which maximal compact subgroups are used for the relative comparison."
         }
       ],
@@ -2317,7 +2289,6 @@
         {
           "sourceId": "wockel-vanest",
           "locator": "Introduction, p. 2",
-          "excerpt": "since there it can be read off the associated compact dual Gu /K of the non-compact symmetric space G/K naturally associated to G",
           "match": "The compact dual computes the relative Lie algebra cohomology of semisimple G (Section 5)."
         }
       ],
@@ -2365,13 +2336,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§3.3, p. 17",
-          "excerpt": "Then G(R ⊗Q F ) is a real reductive Lie group (in other words, the real points of a reductive group over R).",
           "match": "G(F_∞) as a real Lie group."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§5.1, p. 22",
-          "excerpt": "For GLn , the Lie algebra gln is the collection of n × n matrices. The exponential is simply the matrix exponential in this case.",
           "match": "The GL_n case of the Lie algebra and exponential."
         }
       ],
@@ -2492,13 +2461,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§3.3, p. 17",
-          "excerpt": "We let K∞ ≤ G(R ⊗Q F ) be a maximal compact subgroup.",
           "match": "The maximal compact subgroup K_∞ fixed throughout."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, p. 2",
-          "excerpt": "Let G be a linear reductive real Lie group G with Lie algebra g1. Let us fix a maximal compact subgroup K of G.",
           "match": "The datum (G, K) of the globalization theory."
         }
       ],
@@ -2608,13 +2575,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§5.2, Definition 5.10, p. 26",
-          "excerpt": "is the space of K-finite vectors in V .",
           "match": "V_fin = ⊕_{σ ∈ K̂} V(σ)."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§5.2, Proposition 5.12, p. 26",
-          "excerpt": "Thus K-finiteness can be detected using the Lie algebra of K.",
           "match": "The 𝔨-criterion for smooth vectors."
         }
       ],
@@ -2725,13 +2690,11 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, p. 22",
-          "excerpt": "A (g, K)-module V will be called Harish-Chandra module or admis- sible (g, K)-module if the conditions in the theorem above are satisfied.",
           "match": "Definition via the equivalent conditions of Theorem 4.3."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§5.3, p. 26",
-          "excerpt": "We say that the (g, K)-module is admissible if we can choose the Vi to have have distinct K-types.",
           "match": "Admissibility as finite K-multiplicities."
         }
       ],
@@ -2859,19 +2822,16 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, p. 21",
-          "excerpt": "Dixmier’s version of Schur’s Lemma is applicable (see [17], 0.5.1 and 0.5.2) and associates to V an infinitesimal character χV ∈ spec(Z(g)).",
           "match": "Irreducible (𝔤,K)-modules have an infinitesimal character."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, p. 21",
-          "excerpt": "A U(g)-module V will be called Z(g)-finite provided there exists an ideal I ⊳ Z(g) of finite codimension which annihilates V",
           "match": "Z(𝔤)-finiteness and its description by finitely many characters."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§6.5, p. 34",
-          "excerpt": "Then πk is an irreducible admissible (g, K∞ )-module.",
           "match": "The modules π_k with Δv_ℓ = k(k−2)/4 v_ℓ."
         }
       ],
@@ -2994,19 +2954,16 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, Theorem 4.2, p. 21",
-          "excerpt": "Every V ∈ Irr(g, K) is weakly admissible.",
           "match": "Theorem 4.2 (i); (ii) is finiteness of the fibres of V ↦ χ_V."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, Theorem 4.3, p. 21",
-          "excerpt": "For a weakly admissible (g, K)-module V the following assertions are equivalent:",
           "match": "Finite generation ⇔ Z(𝔤)-finiteness ⇔ finite generation over 𝔫."
         },
         {
           "sourceId": "casselman-sl2",
           "locator": "§10, Proposition 10.8, p.27 (Casimir normalization in Proposition 10.7, p.26)",
-          "excerpt": "is irreducible except when s is an integer m",
           "match": "Normalized exponent ν=s; odd parity at ν=1 is irreducible. See the review for the full infinitesimal-character example."
         }
       ],
@@ -3053,7 +3010,6 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, p. 22",
-          "excerpt": "the smooth sections of the G-equivariant vector-bundle W ×Pmin G → Pmin\\G, that is the smooth functions f : G → W which satisfy f (pg) = p · f (g) for all p ∈ Pmin and g ∈ G.",
           "match": "Definition of I^∞(W) and its Fréchet topology."
         }
       ],
@@ -3159,7 +3115,6 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§4, p. 22",
-          "excerpt": "Another basic feature of Harish-Chandra modules is the Casselman embedding theorem which asserts that every Harish-Chandra module can be embedded into the K-finite vectors of some minimal principal series representation ([5]).",
           "match": "Statement as used for G-continuous norms."
         }
       ],
@@ -3201,13 +3156,11 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, p. 2",
-          "excerpt": "Let us denote by SAF the category whose objects are smooth ad- missible moderate growth Fréchet representations of G with continuous linear G-maps as morphisms.",
           "match": "The category SAF and the functor E ↦ E^{K-fin}."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§5.1, Definition 5.2, p. 22",
-          "excerpt": "A vector φ ∈ V is said to be smooth if φ is C ∞ . The subspace of smooth vectors is denoted by V ∞ ≤ V .",
           "match": "Smooth vectors."
         }
       ],
@@ -3315,13 +3268,11 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, p. 2",
-          "excerpt": "A norm p on a Harish-Chandra module V will be called G-continuous provided the completion Vp of the normed space (V, p) gives rise to a Banach-representation of G.",
           "match": "Definition and Sobolev order."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, p. 3",
-          "excerpt": "implies that the smooth vectors Vp∞ form a nuclear Fréchet space.",
           "match": "Nuclearity from polynomially bounded K-multiplicities."
         }
       ],
@@ -3422,13 +3373,11 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, Theorem 1.1, p. 3",
-          "excerpt": "Theorem 1.1. Any two G-continuous norms on a Harish-Chandra module V are Sobolev-equivalent.",
           "match": "The globalization theorem in the form proved."
         },
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§1, p. 2",
-          "excerpt": "The Casselman-Wallach globalization theorem ([5], [16] and [18], Sect. 11) essentially asserts that F is an equivalence of categories.",
           "match": "Equivalence SAF ≃ HC and V^∞ = π(S(G))V."
         }
       ],
@@ -3472,19 +3421,16 @@
         {
           "sourceId": "bernstein-kroetz",
           "locator": "§2, Remark 2.19, p. 12",
-          "excerpt": "If (π, E) is a smooth Fréchet-representation, then Π(Cc∞ (G))E = E by Dixmier-Malliavin [6].",
           "match": "Statement (i)."
         },
         {
           "sourceId": "bpcz22",
           "locator": "§2.5.3, arXiv p. 17",
-          "excerpt": "A vector v ∈ H is smooth if it is invariant by a compact-open subgroup of G(Af ) and the function g∞ ∈ G(F∞ ) 7→ g∞ v ∈ H is C ∞ .",
           "match": "Smooth vectors of G(𝔸)-representations for the adelic form (2.5.3.2)."
         },
         {
           "sourceId": "jiang-zhang20",
           "locator": "Appendix A, proof of Proposition A.1, arXiv p. 84",
-          "excerpt": "Applying the same inductive argument in Sections 6 and 7 of [74] and the Dixmier-Marlliavin Lemma ([12])",
           "match": "The lemma as used for local zeta integrals."
         }
       ],
@@ -3521,7 +3467,6 @@
         {
           "sourceId": "langlands-notion",
           "locator": "p. 1",
-          "excerpt": "The irreducible representations of a reductive group over a local field can be obtained from the square-integrable representations of Levi factors of parabolic subgroups by induction and formation of subquotients [2], [4].",
           "match": "The organising principle of the sub-layer."
         }
       ],
@@ -3621,13 +3566,11 @@
         {
           "sourceId": "kaletha16",
           "locator": "§5.1, arXiv p. 31",
-          "excerpt": "The subsets rig rig rig Πunit (G), Πtemp (G) and Π2 (G) will then be those consisting of unitary, tem- pered, and essentially square-integrable representations.",
           "match": "The three classes of irreducible admissible representations of real groups."
         },
         {
           "sourceId": "gan-ichino18",
           "locator": "§1, arXiv p. 4",
-          "excerpt": "θψ preserves the square-integrability and the temperedness of representations;",
           "match": "Square-integrability and temperedness as properties of local representations."
         }
       ],
@@ -3735,19 +3678,16 @@
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§1.4, arXiv p. 8",
-          "excerpt": "Assume that G(R) has discrete series, i.e. that G is not isomorphic to SO2n with n odd,",
           "match": "The existence criterion specialised to split classical groups."
         },
         {
           "sourceId": "cg20",
           "locator": "§5.3, proof of Theorem 5.5 (arXiv v1 p. 22; Duke p. 828)",
-          "excerpt": "Hence, using the Harish-Chandra parameterization, we may write π∞ = π(λ, C)∗ = π(−w0 (λ), −w0 (C))",
           "match": "Harish-Chandra's parametrization π(λ, C) used for GSp_4(ℝ); see AF.4/gsp4-discrete-series."
         },
         {
           "sourceId": "pilloni20",
           "locator": "§5.1.6, p. 22",
-          "excerpt": "and a Weyl chamber C positive for λ we have a (limit of) discrete series π(λ, C) (see [28], 3.3).",
           "match": "(Limits of) discrete series π(λ, C) with λ possibly on a wall of C."
         }
       ],
@@ -3793,13 +3733,11 @@
         {
           "sourceId": "langlands-notion",
           "locator": "p. 1",
-          "excerpt": "The irreducible representations of a reductive group over a local field can be obtained from the square-integrable representations of Levi factors of parabolic subgroups by induction and formation of subquotients [2], [4].",
           "match": "The classification principle, with [4] Langlands' classification for real groups."
         },
         {
           "sourceId": "gan-ichino18",
           "locator": "§1, arXiv p. 4",
-          "excerpt": "θψ is compatible with the Langlands classification (modulo tempered representations);",
           "match": "Use of the Langlands classification for real groups."
         }
       ],
@@ -3841,13 +3779,11 @@
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§2.1, arXiv p. 13",
-          "excerpt": "WR = C× jC× , where j 2 × −1 × is the element −1 of C and with jzj = z for all z ∈ C .",
           "match": "Definition of W_ℝ (the PDF text drops the ⊔ and the overline on z)."
         },
         {
           "sourceId": "gan-ichino18",
           "locator": "§6.1, arXiv p. 22",
-          "excerpt": "since any irreducible representation of LC is 1-dimensional and hence non-symplectic.",
           "match": "Irreducible representations of W_ℂ = L_ℂ are 1-dimensional."
         }
       ],
@@ -3961,19 +3897,16 @@
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§2.1, arXiv p. 13",
-          "excerpt": "The Langlands correspondence for GLn (R) is a natural bijection V 7→ L(V ) between the set of isomorphism classes of irreducible admissible Harish-Chandra modules for GLn (R), and the set of isomorphism classes of n-dimensional (complex, continuous and semi- simple) representations of WR [Kna94].",
           "match": "The bijection as stated."
         },
         {
           "sourceId": "gan-ichino18",
           "locator": "§6.1, arXiv p. 22",
-          "excerpt": "since any irreducible representation of LC is 1-dimensional and hence non-symplectic.",
           "match": "The case F = ℂ: essentially square-integrable representations of GL_n(ℂ) exist only for n = 1."
         },
         {
           "sourceId": "knapp94",
           "locator": "§3, Theorem 2, p.403, and §4, Theorem 5, p.406",
-          "excerpt": "is a well-defined bijection between the set",
           "match": "The scanned public survey states the real and complex GL_n archimedean correspondences, after the explicit parameter constructions. Its local-factor formulas and normalization are stated in §§3–4; full classification proof closure remains a gap."
         }
       ],
@@ -4018,7 +3951,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.5, p. 34",
-          "excerpt": "If k ≥ 2 then these modules are known as the discrete series of weight k and when k = 1 they are known as the limit of discrete series.",
           "match": "Definition of π_k with the displayed action (1)-(6), including Δv_ℓ = k(k−2)/4 v_ℓ."
         }
       ],
@@ -4125,7 +4057,6 @@
         {
           "sourceId": "jiang-zhang20",
           "locator": "Appendix B, proof of Theorem B.2, arXiv p. 86",
-          "excerpt": "given by Vogan in [80] for the archimedean case and by Tadic in [79] for the non-archimedean case",
           "match": "The generic unitary dual (B.5) with 1/2 > β_1 > … > β_t > 0."
         }
       ],
@@ -4172,13 +4103,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, Definition 6.12, p. 31",
-          "excerpt": "An automorphic form on G(AF ) is a function φ : G(AF ) → C such that",
           "match": "Conditions (1)-(5) of the definition (Getz–Hahn also imposes A_G-invariance; we keep A_G-invariance as the variant with central character)."
         },
         {
           "sourceId": "bpcz22",
           "locator": "§2.7.1, arXiv p. 23",
-          "excerpt": "The space AP (G) of automorphic forms on [G]P is defined as the subspace of Z(g∞ )-finite functions in T ([G]P ).",
           "match": "The smooth (Fréchet) variant without K_∞-finiteness; see AF.2/smooth-automorphic-forms."
         }
       ],
@@ -4308,13 +4237,11 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.7.1, arXiv p. 23",
-          "excerpt": "The space AP (G) of automorphic forms on [G]P is defined as the subspace of Z(g∞ )-finite functions in T ([G]P ).",
           "match": "The modern definition presupposes uniform moderate growth; the theorem identifies its K_∞-finite vectors with A(G)."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§6.2, Theorem 6.10, p. 31",
-          "excerpt": "The space A(Γ, J) is an admissible (g, K∞ )-module and hence A(Γ, ξ, J) is finite dimensional for each ξ",
           "match": "Admissibility input [HC68]."
         }
       ],
@@ -4356,7 +4283,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.7.1, arXiv p. 23",
-          "excerpt": "The space AP (G) of automorphic forms on [G]P is defined as the subspace of Z(g∞ )-finite functions in T ([G]P ).",
           "match": "Definition of smooth automorphic forms (BPCZ's A_P(G))."
         }
       ],
@@ -4454,7 +4380,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.2, Theorem 6.10, p. 31",
-          "excerpt": "The space A(Γ, J) is an admissible (g, K∞ )-module and hence A(Γ, ξ, J) is finite dimensional for each ξ",
           "match": "Theorem 6.10, citing Harish-Chandra [HC68]."
         }
       ],
@@ -4500,7 +4425,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, (6.3.1), p. 31",
-          "excerpt": "with notation as in (6.1.1).",
           "match": "The bijection A(ξ_∞ ⊗ ξ_{K^∞}, J) ≅ ⊕_i A(Γ_i(K^∞), ξ_∞, J), φ ↦ (x_i ↦ φ(x_i t_i))."
         }
       ],
@@ -4543,13 +4467,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§3.4, p. 18",
-          "excerpt": "In the number field case, the global Hecke algebra is H := H∞ ⊗ H∞ .",
           "match": "The global Hecke algebra acting on automorphic forms."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§5.5, Definition 5.18, p. 29",
-          "excerpt": "An automorphic representation of G(AF ) is an admissible (g, K∞ ) × G(A∞ F )module isomorphic to a subquotient of L2 (G(F )AG \\G(AF )).",
           "match": "The (𝔤, K_∞) × G(𝔸_f)-module structure."
         }
       ],
@@ -4650,13 +4572,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§5.5, Definition 5.18, p. 29",
-          "excerpt": "An automorphic representation of G(AF ) is an admissible (g, K∞ ) × G(A∞ F )module isomorphic to a subquotient of L2 (G(F )AG \\G(AF )).",
           "match": "The L² formulation; the Borel–Jacquet formulation uses subquotients of A(G)."
         },
         {
           "sourceId": "langlands-notion",
           "locator": "Proposition 2, p. 2",
-          "excerpt": "A representation π of G(A) is an automorphic representation if and only if π is a constituent of Ind σ for some P and some σ.",
           "match": "Langlands' characterisation."
         }
       ],
@@ -4770,7 +4690,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§7.1, p. 35",
-          "excerpt": "This is the restricted tensor product of the Av with respect to the a0v .",
           "match": "Restricted tensor products of algebras and modules, (7.1.2), Remark 7.1 and Examples 7.2-7.3."
         }
       ],
@@ -4869,7 +4788,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§8, Proposition 8.6, p. 39",
-          "excerpt": "If K ⊂ G is compact and open then (G, K) is a Gelfand pair if and only if Cc∞ (G//K) is commutative.",
           "match": "Gelfand-pair criterion; the proof's 'dim(V^K) = 1' should read ≤ 1 (sourceIssues E2)."
         }
       ],
@@ -4913,13 +4831,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§7.2, Theorem 7.5, p. 36",
-          "excerpt": "Theorem 7.5 (Flath). Every admissible irreducible representation W of Cc∞ (G(A∞ F )) is factorizable.",
           "match": "Flath's theorem for the finite part; the archimedean factor is split off by Theorem 7.11."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§7.2, p. 36",
-          "excerpt": "The most interesting part is proving that dim(WvKv ) = 1 for almost all v; this is accomplished via Gelfand’s lemma.",
           "match": "Role of the spherical dimension statement."
         }
       ],
@@ -4962,7 +4878,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, Definition 6.13, p. 31",
-          "excerpt": "An automorphic form φ is said to be cuspidal if",
           "match": "Cuspidality, which constants fail."
         }
       ],
@@ -5004,7 +4919,6 @@
         {
           "sourceId": "zhang21",
           "locator": "§1.2, (1.12)-(1.13), arXiv p. 7",
-          "excerpt": "Then there is a Fourier expansion (by an absolute convergent sum): for h ∈ H(A0 ),",
           "match": "Notation of §1.2: A_hol(H(𝔸_0), K, k), the Whittaker coefficients W_{φ,ξ} and the expansion (1.13)."
         }
       ],
@@ -5108,7 +5022,6 @@
         {
           "sourceId": "arthur-trace",
           "locator": "§12, (12.1), p. 64",
-          "excerpt": "This condition is a general analogue of the vanishing of the constant term of a classical modular form, which character- izes space of cusp forms.",
           "match": "Integration over N_P(ℚ)\\N_P(𝔸) in the cuspidality condition."
         }
       ],
@@ -5153,13 +5066,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, Definition 6.13, p. 31",
-          "excerpt": "for all parabolic subgroups P ⊆ G with Levi decomposition P = M N , and for all g ∈ G(AF ).",
           "match": "The integral ∫_{N(𝔸)} φ(ng)dn in the definition of cuspidality (over N(F)\\N(𝔸))."
         },
         {
           "sourceId": "bpcz22",
           "locator": "§2.7.1, arXiv p. 23",
-          "excerpt": "The subspace AP,cusp (G) of cuspidal automorphic forms consists of the ϕ ∈ AP (G) such that for every proper standard parabolic subgroup Q ⊆ P we have ϕQ = 0.",
           "match": "Constant terms φ_Q as maps between spaces of automorphic forms on [G]_P."
         }
       ],
@@ -5280,7 +5191,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "§2.7.1, arXiv p. 23",
-          "excerpt": "for every proper standard parabolic subgroup Q ⊆ P we have ϕQ = 0.",
           "match": "Cuspidality tested on proper standard parabolics only."
         }
       ],
@@ -5323,13 +5233,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, Definition 6.13, p. 31",
-          "excerpt": "An automorphic form φ is said to be cuspidal if",
           "match": "Definition: vanishing of ∫φ(ng)dn for all parabolic P = MN and all g."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§12, p. 64",
-          "excerpt": "The subspace L2cusp G(Q)\\G(A)1 of cuspidal functions in L2 G(Q)\\G(A)1 is closed and invariant under right translation by G(A)1 .",
           "match": "The L² cuspidal subspace."
         }
       ],
@@ -5453,7 +5361,6 @@
         {
           "sourceId": "arthur-trace",
           "locator": "§12, p. 64",
-          "excerpt": "For if G(Q)\\G(A)1 is compact, there are no proper parabolic subgroups, by the criterion of Borel and Harish-Chandra, and L2cusp G(Q)\\G(A)1 equals L2 G(Q)\\G(A)1 .",
           "match": "The compact-quotient case."
         }
       ],
@@ -5498,13 +5405,11 @@
         {
           "sourceId": "arthur-trace",
           "locator": "§13, p. 70",
-          "excerpt": "We shall say that a function φ on G(Q)\\G(A)1 is rapidly decreasing if for any positive integer N and any Siegel set S = S G (T1 ) for G(A), there is a positive constant C such that",
           "match": "Definition of rapid decrease on Siegel sets, used for cusp forms."
         },
         {
           "sourceId": "franke98",
           "locator": "§2, p. 22 of the scan (printed p. 202)",
-          "excerpt": "is the space of rapidly decreasing (or moderately increasing) cuspidal functions",
           "match": "Cuspidal functions of moderate growth are rapidly decreasing (Franke's Theorem 5 context)."
         }
       ],
@@ -5550,13 +5455,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, p. 32",
-          "excerpt": "and this subspace is dense.",
           "match": "∪_{ξ,J} A_0(ξ, J) ⊆ L²_0(G(F)A_G\\G(𝔸)) and density."
         },
         {
           "sourceId": "arthur-trace",
           "locator": "§12, Theorem 12.1, p. 64",
-          "excerpt": "The space L2cusp G(Q)\\G(A)1 decomposes under the action of G(A)1 into a discrete sum of irreducible represen- tations with finite multiplicities.",
           "match": "Used for the density statement."
         }
       ],
@@ -5601,7 +5504,6 @@
         {
           "sourceId": "arthur-trace",
           "locator": "§12, Theorem 12.1, p. 64",
-          "excerpt": "Theorem 12.1 (Gelfand, Piatetski-Shapiro). The space L2cusp G(Q)\\G(A)1 decomposes under the action of G(A)1 into a discrete sum of irreducible represen- tations with finite multiplicities.",
           "match": "The theorem; Arthur indicates the proof via the compact-quotient argument combined with the vanishing of constant terms."
         }
       ],
@@ -5646,7 +5548,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.3, Definition 6.15, p. 32",
-          "excerpt": "A cuspidal automorphic representation is an automorphic representation equivalent to a subrepresentation of L20 (G(F )AG \\G(AF )).",
           "match": "Definition, with the remark that subrepresentation (not subquotient) is meant."
         }
       ],
@@ -5748,7 +5649,6 @@
         {
           "sourceId": "zhang21",
           "locator": "§13.3, proof of Lemma 13.6, arXiv p. 64",
-          "excerpt": "Now note that, for every v, H(F0,v ) is generated by N (F0,v ) and any single element in H(F0,v ) \\ B(F0,v ).",
           "match": "Statement (i); (ii) is the local generation input [27, Prop. 8.1.2]."
         }
       ],
@@ -5791,7 +5691,6 @@
         {
           "sourceId": "zhang21",
           "locator": "§13.3, Lemma 13.6, arXiv p. 64",
-          "excerpt": "Suppose that Wφ,ξ (h∞ ) vanishes identically (as a function in h∞ ∈ H(F0,∞ )) for all ξ ∈ F0× such that (ξ, B) = 1",
           "match": "Lemma 13.6 as stated, with K_v from (13.3)."
         }
       ],
@@ -5833,13 +5732,11 @@
         {
           "sourceId": "dit16",
           "locator": "§5, (5.6)-(5.7), p. 962",
-          "excerpt": "We can and always will normalize such a Hecke-Maass cusp form ' so that this Fourier expansion has the form3",
           "match": "Normalisation (5.7) with a(1) = 1 and the parity a(−n) = a(−1)a(n) = ±a(n)."
         },
         {
           "sourceId": "dit16",
           "locator": "§5, p. 962",
-          "excerpt": "Being a Hecke-Maass cusp form means that, in addition, ' is an eigenfunction of all the Hecke operators, that k'k2 = h', 'i < 1 and that the constant term in its Fourier expansion at i1 is zero.",
           "match": "Definition ('< ∞' and 'i∞' are garbled in the PDF text)."
         }
       ],
@@ -5947,13 +5844,11 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3.7, p. 4",
-          "excerpt": "We let Vκ be the highest weight κ representation of K∞ .",
           "match": "Highest-weight representations attached to algebraic weights (here of K_∞ = M_μ(ℝ))."
         },
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§1.4, arXiv p. 11",
-          "excerpt": "Assume we have found a finite set Λ of dominant weights of G(C)",
           "match": "Dominant weights of G(ℂ) indexing the coefficient representations V_λ."
         }
       ],
@@ -6071,13 +5966,11 @@
         {
           "sourceId": "bcg25",
           "locator": "§1, arXiv p. 1",
-          "excerpt": "weight zero means that π∞ has the same infinitesimal character as the trivial representation.",
           "match": "Weights of automorphic representations defined through the infinitesimal character of an algebraic representation."
         },
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3.3, p. 3",
-          "excerpt": "This is the dominant representative of the infinitesimal character of automorphic forms contributing to the coherent cohomology in weight κ.",
           "match": "Dominant representatives of infinitesimal characters."
         }
       ],
@@ -6118,19 +6011,16 @@
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§2.1, arXiv p. 13",
-          "excerpt": "We say that the Harish-Chandra module V is algebraic if every element in the center R× of WR acts as a homothety with factor ±1 in L(V ).",
           "match": "Algebraicity at infinity for GL_n(ℝ)."
         },
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§1.2, arXiv p. 5",
-          "excerpt": "We say that π is algebraic if the infinitesimal character of π∞ , that we may view following Harish-Chandra and Langlands as a semi-simple conjugacy class in Mm (C), has its eigenvalues in 21 Z, say w1 ≥ w2 ≥ · · · ≥ wm , and with wi − wj ∈ Z.",
           "match": "Algebraicity of cuspidal π of PGL_m (the PDF renders ½ℤ as '21 Z')."
         },
         {
           "sourceId": "buzzard-gee",
           "locator": "§5.2, Proposition 5.2.2, p.27",
-          "excerpt": "π is C-algebraic if and only if π ⊗ | · |θ−δ is L-algebraic.",
           "match": "δ denotes the half-sum ρ; θ is the integral twisting element, and θ−δ is the central rational twist."
         }
       ],
@@ -6236,7 +6126,6 @@
         {
           "sourceId": "ichino-prasanna23",
           "locator": "§7.1, arXiv p. 40",
-          "excerpt": "We consider an irreducible unitary (g, K)-module π such that the relative Lie algebra cohomology H ∗ (g, K; π ⊗ F ) is non-zero for some irreducible finite-dimensional representation F of G. Such (g, K)-modules are called cohomological",
           "match": "Definition (for unitary π, the case classified by Vogan–Zuckerman)."
         }
       ],
@@ -6343,13 +6232,11 @@
         {
           "sourceId": "ichino-prasanna23",
           "locator": "§7.1, arXiv p. 40",
-          "excerpt": "We consider an irreducible unitary (g, K)-module π such that the relative Lie algebra cohomology H ∗ (g, K; π ⊗ F ) is non-zero for some irreducible finite-dimensional representation F of G.",
           "match": "Context: nonvanishing forces the infinitesimal character of F^∨ (Borel–Wallach I.4.1, as used)."
         },
         {
           "sourceId": "hr",
           "locator": "§3.1.4, p.17; §3.1.5, Proposition 3.11, p.19",
-          "excerpt": "By Wigner’s Lemma",
           "match": "The infinitesimal-character constraint and the separate component/central-character action in the cohomological GL_n application."
         }
       ],
@@ -6393,19 +6280,16 @@
         {
           "sourceId": "cg18",
           "locator": "§8.4, arXiv p. 80",
-          "excerpt": "2q0 + l0 is the (real) dimension of the lo- cally symmetric space associated to G := ResF/Q (PGL(n)),",
           "match": "Definition and meaning of ℓ₀ and q₀ for Res_{F/ℚ}PGL(n)."
         },
         {
           "sourceId": "cg18",
           "locator": "§1, arXiv p. 3",
-          "excerpt": "l0 = rank(G) − rank(K) − rank(A) is arbitrary,",
           "match": "The general invariant (printed with rank(G); read as ranks of real Lie groups, PAPER-CALEGARI-GERAGHTY-18 E2)."
         },
         {
           "sourceId": "cg20-appendix",
           "locator": "§A.3.1, arXiv p. 4",
-          "excerpt": "Let l0 := d (rank(SLn (C)) − rank(SUn (C))) = d(n − 1),",
           "match": "The imaginary CM case."
         }
       ],
@@ -6512,19 +6396,16 @@
         {
           "sourceId": "cg18",
           "locator": "§8.4, arXiv p. 80",
-          "excerpt": "and [q0 , . . . , q0 + l0 ] is the range such that cuspidal automorphic π for G which are tempered at ∞ contribute to",
           "match": "The tempered range, citing Borel–Wallach [9] Theorem VII.6.7."
         },
         {
           "sourceId": "cg20-appendix",
           "locator": "§A.3.1, proof of Lemma A.3, arXiv p. 5",
-          "excerpt": "Because of the degree where [c] occurs, we deduce (from [BW80, Ch.II, Prop 3.1] and [Clo90, Lemma 3.14]) that Π is not tempered.",
           "match": "Cohomology outside [q₀, q₀ + ℓ₀] comes from non-tempered Π."
         },
         {
           "sourceId": "hr",
           "locator": "§3.1.5, Proposition 3.11 and its proof, p.19",
-          "excerpt": "The cohomology degrees.",
           "match": "Source-scoped GL_n check: bottom and top degrees, the exterior factor z/s and component-group multiplicities; not a proof of the whole general reductive tempered theorem."
         }
       ],
@@ -6570,13 +6451,11 @@
         {
           "sourceId": "ichino-prasanna23",
           "locator": "§7.1, arXiv p. 40",
-          "excerpt": "Such (g, K)-modules are called cohomological and classified by Vogan-Zuckerman [65].",
           "match": "The classification, with the modules A_𝔮(λ) and their cohomology stated in §7.1."
         },
         {
           "sourceId": "vogan-zuckerman",
           "locator": "Theorem 5.6 and Proposition 6.19 (Numdam scan)",
-          "excerpt": "Unitary representations with non-zero cohomology",
           "match": "Title of the source of the classification and Hodge computation."
         }
       ],
@@ -6618,13 +6497,11 @@
         {
           "sourceId": "bcg25",
           "locator": "§1, Remark 1.2, arXiv p. 4",
-          "excerpt": "If n is even, there is a unique tempered cohomological π∞ , and the (gln , SO(n))- cohomology is free as a C[O(n)/ SO(n)] ≃ C[Z/2Z]-module.",
           "match": "Even case."
         },
         {
           "sourceId": "bcg25",
           "locator": "§1, Remark 1.2, arXiv p. 4",
-          "excerpt": "There are now two tempered cohomological π∞ which differ by a twist by the sign character of GLn (R), and the action of O(n)/ SO(n) on (gln , SO(n))-cohomology is either trivial or by −1.",
           "match": "Odd case."
         }
       ],
@@ -6667,13 +6544,11 @@
         {
           "sourceId": "cg20",
           "locator": "§7.2, proof of Theorem 7.11, arXiv p. 40",
-          "excerpt": "By Clozel’s Purity Lemma [Clo90, Lemme 4.9], π e∞ is essentially tempered.",
           "match": "Statement as used."
         },
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§2.1, arXiv p. 13",
-          "excerpt": "Clozel’s purity lemma (or the Archimedean Jacquet-Shalika estimates) shows that the Harish- Chandra module π∞ is algebraic in the sense above if, and only if, π is algebraic in the sense of §1.2",
           "match": "Purity and the two notions of algebraicity."
         }
       ],
@@ -6716,13 +6591,11 @@
         {
           "sourceId": "cg20",
           "locator": "§2.2, arXiv p. 8 (Duke p. 810)",
-          "excerpt": "The compact roots Φc are those appearing in khC , while the non-compact roots Φn are those appearing in p+ ⊕ p− .",
           "match": "Definition of compact and noncompact roots and the positive system."
         },
         {
           "sourceId": "cg20",
           "locator": "§2.2, arXiv p. 8",
-          "excerpt": "We are then forced to take Φ+ to be the set of roots appearing in C(Lie B)C −1",
           "match": "Their choice; only Φ_n^+ is forced."
         }
       ],
@@ -6827,13 +6700,11 @@
         {
           "sourceId": "cg20",
           "locator": "§5.3, arXiv p. 19 (Duke p. 825)",
-          "excerpt": "H i (Lie Q− , K h ; A(2) (G) ⊗ Vσ )",
           "match": "Definition of H^i_{(2),σ} and H^i_{cusp,σ}."
         },
         {
           "sourceId": "pilloni20",
           "locator": "§15.2.2, p. 108",
-          "excerpt": "Let W be a (g, K∞ )-module. Then one can define the (p, K∞ )-cohomology of W , denoted by H• (p, K∞ ; W ) (see [30], sect. 4.1.1).",
           "match": "(𝔭, K_∞)-cohomology after Harris [30]."
         }
       ],
@@ -6930,19 +6801,16 @@
         {
           "sourceId": "cg20",
           "locator": "§5.3, Definition 5.7, arXiv p. 23 (Duke p. 830)",
-          "excerpt": "If µ − w0 (ρ) lies in the intersection of exactly two of Weyl chambers Ci , we say it is a limit of discrete series weight or a non-regular weight.",
           "match": "Definition 5.7 and the three families."
         },
         {
           "sourceId": "cg20",
           "locator": "§5.3, arXiv p. 21 (Duke p. 828)",
-          "excerpt": "C0 = {(a, b; c) ∈ R3 : a ≥ b ≥ 0} C1 = {(a, b; c) ∈ R3 : a ≥ −b ≥ 0} C2 = {(a, b; c) ∈ R3 : −b ≥ a ≥ 0} C3 = {(a, b; c) ∈ R3 : −b ≥ −a ≥ 0}.",
           "match": "The chambers (the page prints C_0, …, C_4 for four chambers; sourceIssues E4)."
         },
         {
           "sourceId": "cg20",
           "locator": "§5.3, proof of Theorem 5.5, arXiv p. 22",
-          "excerpt": "we may write π∞ = π(λ, C)∗ = π(−w0 (λ), −w0 (C))",
           "match": "Harish-Chandra parametrisation and contragredient."
         }
       ],
@@ -7058,13 +6926,11 @@
         {
           "sourceId": "pilloni20",
           "locator": "§15.2.2, Theorem 15.2.2.1(1), p. 108",
-          "excerpt": "Hi (p, K∞ ; π(λ)h ⊗ V(−λ1 +1,2;−c) ) = C if i = 0 and Hi (p, K∞ ; π(λ)h ⊗ V(−λ1 +1,2;−c) ) = 0 otherwise,",
           "match": "Part (1)."
         },
         {
           "sourceId": "cg20",
           "locator": "§5.3, proof of Theorem 5.5, arXiv p. 22",
-          "excerpt": "By [BHR94, Theorem 3.2.1], it follows that:",
           "match": "λ and i = #(Φ(C)^+ ∩ Φ_n^+)."
         }
       ],
@@ -7109,19 +6975,16 @@
         {
           "sourceId": "cg20",
           "locator": "§5.3, Theorem 5.6, arXiv p. 23",
-          "excerpt": "The last part is 4 due to Mirković and was established in the proof of Theorem 5.5.",
           "match": "Use of Mirković's theorem via Harris [37, Theorem 3.5]."
         },
         {
           "sourceId": "bcgp21",
           "locator": "§3.10, proof of Theorem 3.10.1, arXiv v3 p. 73",
-          "excerpt": "by [Har90a, Thm. 3.5] (a theorem of Mirković) and [BHR94, Thm. 3.2.1], for each v|∞ we have that",
           "match": "The same input at each real place."
         },
         {
           "sourceId": "harris90-survey",
           "locator": "§3, Theorem 3.5 (Mirković), printed p.63 (PDF p.75)",
-          "excerpt": "Suppose V is a tempered representation with ∂̄-cohomology.",
           "match": "Scanned published statement; its preceding Hodge-pair and real-component hypotheses are retained."
         }
       ],
@@ -7165,13 +7028,11 @@
         {
           "sourceId": "pilloni20",
           "locator": "§15.2.2, Theorem 15.2.2.1(2), p. 108",
-          "excerpt": "There is a constant R such that if λ1 ≥ R and",
           "match": "Part (2), with the printed λ_1 ≥ R to be read −λ_1 ≥ R."
         },
         {
           "sourceId": "bcgp21",
           "locator": "§3.10, proof of Theorem 3.10.1, arXiv v3 p. 73",
-          "excerpt": "In view of the relation between the inﬁnitesimal character of π∞ and κ arising from the Casselman–Osborne theorem (see [BHR94, Prop. 2.4.5]),",
           "match": "Temperedness under regularity; the three nonvanishing cases at each real place follow."
         }
       ],
@@ -7216,19 +7077,16 @@
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3.7, Theorem 1.3.8, p. 4",
-          "excerpt": "There exists a unique non degenerate limit of discrete series representation π∞ (κ, w) of G(R), with the property that π∞ (κ, w) ⊗ Vκ has (pµ , K∞ )-cohomology in degree ℓ(w).",
           "match": "Theorem 1.3.8 ([Har90], Thm. 3.4); existence used, the uniqueness clause corrected."
         },
         {
           "sourceId": "boxer-pilloni",
           "locator": "§1.3.3, p. 3",
-          "excerpt": "If ν + ρ is regular, then the set C(κ) contains a unique element.",
           "match": "C(κ) (defined on p. 3 with X^*(T)^+, to be read in X^*(T)_ℚ as on p. 48)."
         },
         {
           "sourceId": "goldring-koskivirta",
           "locator": "Theorem 10.1.2 and Remark 10.1.3",
-          "excerpt": "This is false already for G = GL(2).",
           "match": "The warning concerns Harris’s extra vanishing-in-other-degrees claim; use the retained one-dimensional contributing degree only, and separately verify component conventions."
         }
       ],
@@ -7268,7 +7126,6 @@
         {
           "sourceId": "scholze15",
           "locator": "§5.1, Proposition 5.1.1, arXiv p. 79",
-          "excerpt": "For k > n, resp. k ≥ n, there is a unique discrete series representation πk of G with minimal K-type χ⊗k , and it has infinitesimal character (k − 1, k − 2, . . . , k − n) ∈ X ∗ (TC )R = Rn ,",
           "match": "Proposition 5.1.1."
         }
       ],
@@ -7310,13 +7167,11 @@
         {
           "sourceId": "ding25",
           "locator": "§4.2.2, arXiv p. 72",
-          "excerpt": "Let Wξ,τ be a GLn (OFv+ )-invariant OE -lattice of the locally algebraic representation",
           "match": "Lattices W_{ξ,τ} in locally algebraic representations stable under the level at p (the lattice must be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9)."
         },
         {
           "sourceId": "ichino-prasanna23",
           "locator": "§2, arXiv p. 13",
-          "excerpt": "Let (ρ, V ) be a finite-dimensional representation of G defined over a number field L ⊂ C.",
           "match": "Algebraic representations over number fields giving local systems."
         }
       ],
@@ -7419,7 +7274,6 @@
         {
           "sourceId": "bcg25",
           "locator": "§1, arXiv p. 1",
-          "excerpt": "Higher rank analogues of the Eichler–Shimura isomorphism (see Remark 1.2) imply that Problem A is equivalent to the existence of cuspidal automorphic rep- resentations π for GLn /Q which have level one and weight zero.",
           "match": "The cohomological realisation through which rationality is proved."
         }
       ],
@@ -7523,19 +7377,16 @@
         {
           "sourceId": "bcg25",
           "locator": "§1, arXiv p. 1",
-          "excerpt": "Higher rank analogues of the Eichler–Shimura isomorphism (see Remark 1.2) imply that Problem A is equivalent to the existence of cuspidal automorphic rep- resentations π for GLn /Q which have level one and weight zero.",
           "match": "Cuspidal cohomology of GL_n(ℤ) realises cohomological cuspidal π (the input of the rationality proof)."
         },
         {
           "sourceId": "chenevier-taibi20",
           "locator": "§1.2, arXiv p. 5",
-          "excerpt": "The algebraic cuspidal π are especially interesting to number theorists, as for such a π standard conjectures (by Clozel, Langlands) predict the existence of a compatible system",
           "match": "Context: algebraic cuspidal π of GL_m."
         },
         {
           "sourceId": "hr",
           "locator": "§2.3.4, pp.14–15",
-          "excerpt": "One may see, using strong multiplicity one",
           "match": "The GL_n cohomological rationality route through rational Betti/Hecke cohomology and strong multiplicity one, with E enlarged to split the isotypical summand. The full Clozel theorem remains the named imported theorem."
         }
       ],
@@ -7579,7 +7430,6 @@
         {
           "sourceId": "scholze15",
           "locator": "§5.1, arXiv p. 82",
-          "excerpt": "Now T acts on the C-vector spaces of cusp forms",
           "match": "Hecke algebras acting on (torsion) cohomology of locally symmetric spaces in Scholze's setting."
         }
       ],
@@ -7679,7 +7529,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§10.1, proof of Theorem 10.8, p. 47",
-          "excerpt": "Proof. An irreducible automorphic representation of GL1 (AF ) can be identified with a character",
           "match": "Automorphic representations of GL_1 are idele class characters."
         }
       ],
@@ -7729,13 +7578,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.4, p. 32",
-          "excerpt": "Set φf (g) = j(g, i)−k f (gi) : GL2 (R)+ −→ C where g acts on i by fractional linear transformations.",
           "match": "The archimedean part of the adelization (Getz–Hahn use j(g, z) = det(g)^{−1/2}(cz + d), which equals our det^{k/2}j^{−k} normalisation)."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§6.4, Remark 6.20, p. 33",
-          "excerpt": "Composing the isomorphism of Lemma 6.19 with (6.3.1) we obtain an isomorphism",
           "match": "Passage to adelic forms on GL_2(𝔸) at level K_0(N)."
         }
       ],
@@ -7867,13 +7714,11 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.4, Lemma 6.19, p. 33",
-          "excerpt": "For each integer k ≥ 1 the C-linear map f 7→ ϕf induces an isomorphism",
           "match": "The dictionary for cusp forms, with the Casimir ideal corrected to ⟨Δ − k(k−2)/4, Z⟩ (sourceIssues E1)."
         },
         {
           "sourceId": "getz-hahn",
           "locator": "§6.5, p. 34",
-          "excerpt": "Any irreducible sub-(g, K∞ )-module of A0 (Γ, ξk , h∆ − 14 (k 2 − 1)i) is equivalent to Dk (0).",
           "match": "Archimedean component D_k(0) (same Casimir misprint)."
         }
       ],
@@ -7920,7 +7765,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§6.4, Remark 6.20, p. 33",
-          "excerpt": "Composing the isomorphism of Lemma 6.19 with (6.3.1) we obtain an isomorphism",
           "match": "Level K_0(N) adelic forms, on which the local Hecke algebras act."
         }
       ],
@@ -7965,13 +7809,11 @@
         {
           "sourceId": "bcgp25",
           "locator": "§5.7.2, arXiv p. 131",
-          "excerpt": "We say that U is suﬃciently small if for some ﬁnite place v of F + , the projection of U to G(Fv+ ) contains no element of ﬁnite order other than the identity.",
           "match": "Definition 5.7.2; the spaces S_λ(U, A) of §5.7 are functions with f(gu) = u⁻¹f(g)."
         },
         {
           "sourceId": "ding25",
           "locator": "§4.2.2, arXiv p. 72",
-          "excerpt": "Let Wξ,τ be a GLn (OFv+ )-invariant OE -lattice of the locally algebraic representation σ(τvQ) ⊗E L(ξv )",
           "match": "Coefficient lattices with inertial types (the lattice should be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9)."
         }
       ],
@@ -8097,7 +7939,6 @@
         {
           "sourceId": "bcgp25",
           "locator": "§5.7, arXiv p. 133",
-          "excerpt": "This is a semi-simple admissible Q2 [G(A∞ F + )]-module, and by [Lab11, Cor. 5.3, Thm. 5.9] the irreducible submodules of ıAλ are the ﬁnite parts of automorphic rep- resentations of G/F + which arise as the descents",
           "match": "A_λ = lim_U S_λ(U, ℚ̄_2) and its irreducible constituents as finite parts of automorphic representations."
         }
       ],
@@ -8142,7 +7983,6 @@
         {
           "sourceId": "getz-hahn",
           "locator": "§7.3, Theorem 7.11, p. 37",
-          "excerpt": "Let G1 , G2 be locally compact totally disconnected groups and let G = G1 × G2 .",
           "match": "Irreducible admissible representations of products (the finite-place input of (ii))."
         }
       ],

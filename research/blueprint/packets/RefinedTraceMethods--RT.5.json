@@ -245,7 +245,6 @@
         {
           "sourceId": "efimov",
           "locator": "Theorem 3.1; proof at end of §3.1",
-          "excerpt": "Theorem 3.1. Theorem 0.1. The symmetric monoidal category Motloc is rigid in the sense of Gaitsgory and Rozenblyum [GR17]. In particular, it is dualizable. Recall that for small symmetric monoidal categories the classica",
           "match": "This locator supplies rigidity of relative localizing motives. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: E = Sp gives rigid absolute localizing motives."
         }
       ],
@@ -286,7 +285,6 @@
         {
           "sourceId": "mw",
           "locator": "Construction 1.3; §§2.1 and 2.4",
-          "excerpt": "1.3. Refined localising invariants (Efimov–Scholze). — Let T be a localising invariant over E, that is, a colimit-preserving functor E −! D T : Motloc into a presentable stable ∞-category D. If T is equipped with a symme",
           "match": "This locator supplies the refined localizing invariant. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The ordinary comparison is a realization map, not an equivalence for arbitrary rational inputs."
         }
       ],
@@ -334,7 +332,6 @@
         {
           "sourceId": "mw",
           "locator": "Theorem 3.14(a) and proof; §3.1 convention on p-completions",
-          "excerpt": "3.14. Theorem. — TC−,ref (ku ⊗ Q/ku) and TC−,ref (KU ⊗ Q/KU) are concentrated in even degrees. Furthermore, their even homotopy groups are given as follows: (a) π2∗ TC−,ref (ku ⊗ Q/ku) ∼= A∗ku , where A∗ku is obtained by",
           "match": "This locator supplies refined tc⁻ of rational ku. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Odd homotopy groups vanish in the ind-category."
         }
       ],
@@ -378,7 +375,6 @@
         {
           "sourceId": "mw",
           "locator": "Theorem 3.14(b); Corollary 3.8; Lemma 3.11",
-          "excerpt": "3.14. Theorem. — TC−,ref (ku ⊗ Q/ku) and TC−,ref (KU ⊗ Q/KU) are concentrated in even degrees. Furthermore, their even homotopy groups are given as follows: (a) π2∗ TC−,ref (ku ⊗ Q/ku) ∼= A∗ku , where A∗ku is obtained by",
           "match": "This locator supplies refined tc⁻ of rational ku. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The β grading is periodic and the scalar relation q−1=βt agrees after Bott localization."
         }
       ],
@@ -422,7 +418,6 @@
         {
           "sourceId": "bs",
           "locator": "Theorem 13.1 and proof, pp. 94–96",
-          "excerpt": "Theorem 13.1. There is a functorial (in S) δ-ring structure on ∆ The induced map ∆S = ∆init b b S → ∆S identifies ∆S with the Nygaard completion of ∆S , compatibly with Nygaard filtrations. Note that the δ-ring structure",
           "match": "This locator supplies trace-to-prismatic nygaard completion. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A perfectoid ring yields Ainf with its Nygaard filtration."
         }
       ],
@@ -461,7 +456,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 1.12(4); Proposition 7.13",
-          "excerpt": "Theorem 1.12. At this point, we have defined our new complexes",
           "match": "This locator supplies the graded bms2 trace comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For perfectoid R, gr^iTHH is R{i}[2i] for i≥0 and zero for i<0."
         }
       ],
@@ -500,7 +494,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 1.12(5); §7.4, corrected weight index",
-          "excerpt": "Theorem 1.12. At this point, we have defined our new complexes",
           "match": "This locator supplies syntomic complexes as graded tc. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Weight zero is the fiber of φ−1 on the trace complex."
         }
       ],
@@ -548,7 +541,6 @@
         {
           "sourceId": "wagner",
           "locator": "Theorem 5.63 and Corollary 6.15; source restrictions in §4",
-          "excerpt": "Theorem 5.63). — The Habiro–Hodge complex q9HdgR/Z associated to the q-Hodge filtration fil⋆q9Hdg q9dRR/Z from Theorem 1.2 satisfies",
           "match": "This locator supplies the coherent trace interface for habiro cohomology. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A periodic nonconnective KU input uses the imported periodic reconstruction proof."
         }
       ],
@@ -588,7 +580,6 @@
         {
           "sourceId": "efimov",
           "locator": "§1.5, dualizable modules over rigid monoidal categories",
-          "excerpt": "1.5. Dualizable modules over rigid monoidal categories 18 1.6. Localizing invariants of dualizable modules 20 1.7. Right and left trace-class 2 -morphisms 21 1.8. Infinite products of dualizable modules 22 1.9. Deformed",
           "match": "This locator supplies dualizable presentable stable categories. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Ind(A) is dualizable for small idempotent-complete stable A."
         }
       ],
@@ -679,7 +670,6 @@
         {
           "sourceId": "mw",
           "locator": "Definition 2.1; Lemma 2.2",
-          "excerpt": "2.1. Definition. — A morphism φ : X ! Y in C is called trace-class if there exists morphism η : 1 ! X ∨ ⊗ Y in C such that φ is the composition X⊗η ⊗Y X ≃ X ⊗ 1 −−−! X ⊗ X ∨ ⊗ Y −−−−−! 1 ⊗ Y ≃ Y . X ev We often call η th",
           "match": "This locator supplies trace-class morphisms. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Identity is trace-class exactly for dualizable objects."
         }
       ],
@@ -767,7 +757,6 @@
         {
           "sourceId": "efimov",
           "locator": "§1.3 and Proposition 1.1, pp. 15–16",
-          "excerpt": "Proposition 1.1. [Ram24, Corollary 4.52][E25, Proposition 4.57] Let E be a presentable stable E1 -monoidal category. Then E is rigid if and only if the following two conditions hold. (i) The unit object of E is compact.",
           "match": "This locator supplies rigid monoidal categories. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Sp is rigid with compact sphere unit."
         }
       ],
@@ -855,7 +844,6 @@
         {
           "sourceId": "mw",
           "locator": "Definition 2.3; Theorem 2.4; Remark 2.5",
-          "excerpt": "2.3. Definition. — In addition to the assumptions above, let us now assume that C is stable, compactly generated, and the tensor unit 1 is compact. (a) An object X ∈ C is called nuclear if every morphism P ! X from a com",
           "match": "This locator supplies nuclear objects. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: In Ind(Perf(k)), every object is nuclear but the basic nuclear size bound is countable."
         }
       ],
@@ -943,7 +931,6 @@
         {
           "sourceId": "continuous",
           "locator": "Definition 2.58; Propositions 2.59–2.61",
-          "excerpt": "Definition 2.58. For a dualizable presentable stable category C we define its continu- ous κ -Calkin category Calkcont κ pCq as the category of compact objects in the quotient IndpC κ q{ŶpCq » kerpcolim : IndpC κ q Ñ Cq",
           "match": "This locator supplies the continuous calkin category. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For compactly generated C it agrees with the classical κ-Calkin of C^ω."
         }
       ],
@@ -1027,7 +1014,6 @@
         {
           "sourceId": "efimov",
           "locator": "§1.6, Definition 1.2",
-          "excerpt": "1.6. Localizing invariants of dualizable modules 20 1.7. Right and left trace-class 2 -morphisms 21 1.8. Infinite products of dualizable modules 22 1.9. Deformed tensor algebra 23 2. Duality between categories of 1 -morp",
           "match": "This locator supplies accessible localizing invariants. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A split exact sequence yields a direct sum in T."
         }
       ],
@@ -1116,7 +1102,6 @@
         {
           "sourceId": "continuous",
           "locator": "Definition 8.5; Propositions 8.6–8.8; Theorem 8.10",
-          "excerpt": "Definition 8.5. Let C be a dualizable presentable 8 -category. For any accessible stable category E and for any accessible localizing invariant F : Catperf Ñ E, we define the functor F cont : Catdual st Ñ E by the formul",
           "match": "This locator supplies continuous extensions of localizing invariants. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For Mod_R, Kcont(Mod_R)≃K(Perf(R))."
         }
       ],
@@ -1205,7 +1190,6 @@
         {
           "sourceId": "continuous",
           "locator": "Theorem 8.10; relative statement in Efimov rigidity §1.6",
-          "excerpt": "Theorem 8.10. Let κ be a regular cardinal and E an accessible stable category with κ - filtered colimits. The precomposition functor ´˝Ind Funacc pCatdual ÝÝÝÑ Funacc pCatperf , Eq st , Eq Ý induces an equivalence betwee",
           "match": "This locator supplies uniqueness of continuous extension. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The equivalence is between categories of functors and natural transformations, not only objectwise equalities."
         }
       ],
@@ -1247,13 +1231,11 @@
         {
           "sourceId": "efimov",
           "locator": "Definition 1.2 and §1.6; BGT Theorems 1.1 and 1.3",
-          "excerpt": "Definition 1.2. As above, let E be a rigid E1 -monoidal category, and let κ be a regular cardinal. We denote by Uloc,κ : Catdual E Ñ Motloc E,κ the universal κ -finitary localizing invariant. This means that the category",
           "match": "This locator supplies the category of relative localizing motives. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Motloc_Sp agrees with BGT’s localizing motives through the universal functor equivalence."
         },
         {
           "sourceId": "bgt",
           "locator": "Proposition 8.6; Theorem 8.7; Theorem 9.8",
-          "excerpt": "Theorem 8.7. The functor Uloc is the universal localizing invariant, i.e., given any stable presentable ∞-category D, we have an equivalence of ∞-categories ∼ (Uloc )∗ : FunL (Mloc , D) −→ Funloc (Catex ∞ , D) . Proof. L",
           "match": "This locator supplies the category of relative localizing motives. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Motloc_Sp agrees with BGT’s localizing motives through the universal functor equivalence."
         }
       ],
@@ -1345,7 +1327,6 @@
         {
           "sourceId": "efimov",
           "locator": "Definition 3.2; Proposition 3.6",
-          "excerpt": "Definition 3.2. Let E be a rigid E1 -monoidal category. 30 ALEXANDER I. EFIMOV (i) Let C, D P Catdual E be dualizable left E -modules. A strongly continuous E -linear functor F : C Ñ D is called right trace-class over E",
           "match": "This locator supplies nuclear e-modules. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The nuclear length-one resolution produces nuclear E-modules."
         }
       ],
@@ -1427,7 +1408,6 @@
         {
           "sourceId": "efimov",
           "locator": "Proposition 3.13 and proof, pp. 41–43",
-          "excerpt": "Proposition 3.13. We will say that an E1 -algebra A P AlgE1 pEq is smooth resp. proper over E if so is the category Mod -A P Catdual E . Note that properness simply means that the underlying object of A is compact in E.",
           "match": "This locator supplies the nuclear resolution of length one. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Every ω₁-compact E₁-algebra has its module category as a quotient of this length-one basic nuclear resolution."
         }
       ],
@@ -1510,7 +1490,6 @@
         {
           "sourceId": "efimov",
           "locator": "Theorem 2.1 and proof, pp. 25–28",
-          "excerpt": "Theorem 2.1. Let A be a category enriched over pPrL st , bq, and let X, Y P A be two objects. Suppose that the following condition hold. (i) The identity 1 -morphism 1X is compact in ApX, Xq. (ii) The category ApX, Y q i",
           "match": "This locator supplies enriched trace-class duality. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Both left and right generation hypotheses are required; one-sided generation alone is not the theorem."
         }
       ],
@@ -1551,7 +1530,6 @@
         {
           "sourceId": "mw",
           "locator": "Construction 1.3; Remark 2.5 (citing Ramzi Construction 4.75 and Efimov Theorem 4.2)",
-          "excerpt": "1.3. Refined localising invariants (Efimov–Scholze). — Let T be a localising invariant over E, that is, a colimit-preserving functor E −! D T : Motloc into a presentable stable ∞-category D. If T is equipped with a symme",
           "match": "This locator supplies rigidification of the target. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The realized value of a constant dualizable object is the original object."
         }
       ],
@@ -1636,7 +1614,6 @@
         {
           "sourceId": "mw",
           "locator": "§2.2, Constructions 2.6, 2.9, 2.11; Proposition 2.14",
-          "excerpt": "2.11. Killing idempotent pro-algebras. — Suppose that A is idempotent in Pro(C), that is, 1 ! A induces an equivalence A ≃ 1 ⊗ A −! A ⊗ A . ≃ (2.1) We’ll ignore the set-theoretic difficulties that arise with applying Pro",
           "match": "This locator supplies killing an idempotent pro-algebra. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Killing A=0 preserves the unit; killing A=1 gives zero."
         }
       ],
@@ -1725,7 +1702,6 @@
         {
           "sourceId": "mw",
           "locator": "Lemma 2.18 and Corollary 2.19",
-          "excerpt": "2.18. Lemma. — Let X be a dualisable E-module. (a) X is smooth and proper in the sense above if and only if X is dualisable in Catdual E .(2.4) (b) If this is the case, then T ref (X ) ≃ T (X ). Proof sketch. Assume firs",
           "match": "This locator supplies smooth and proper e-linear categories. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A smooth and proper X has Tref(X) represented by constant T(X)."
         }
       ],
@@ -1808,7 +1784,6 @@
         {
           "sourceId": "mw",
           "locator": "Corollary 2.19; Lemma 2.26; Remark 1.4",
-          "excerpt": "2.26. Lemma. — Let X ! X ′ be a symmetric monoidal colimit-preserving functor into another rigid presentable stable symmetric monoidal ∞-category X ′ . Let V0′ denote the image ′ of V0 , let U ′ := (X ′ )V0 ⊆ X ′ and let",
           "match": "This locator supplies base change in the refined construction. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The forgetful Motloc_(O_C) → Motloc does not in general preserve trace-class maps; no base-independent refinement is asserted."
         }
       ],
@@ -1849,7 +1824,6 @@
         {
           "sourceId": "mw",
           "locator": "Theorem 2.21; Lemmas 2.22–2.26; Corollary 2.30",
-          "excerpt": "2.21. Theorem. — Let E be rigid and let T : Motloc E ! D be a localising invariant such that D is locally rigid and its tensor unit is ω1 -compact. Let X and U be as in 2.20. (a) The pro-object “lim”r⩾0 T (RModVr (X )) i",
           "match": "This locator supplies the refined localization cofiber. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A Burklund tower for a dualizable v:I → 1 with right-unital quotient meets the factorization after passing to sufficiently separated exponents."
         }
       ],
@@ -1889,7 +1863,6 @@
         {
           "sourceId": "mw",
           "locator": "Construction 1.7; Lemma 3.2; Convention 3.1",
-          "excerpt": "1.7. Refined TC− . — If k is complex orientable and t ∈ π−2 (k hS ) is a chosen complex orientation, then taking S 1 -fixed points induces a symmetric monoidal equivalence 1 1 ≃ (−)hS : Modk (Sp)BS −! ModkhS1 (Sp)∧ t 1 b",
           "match": "This locator supplies refined thh and tc⁻. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The ordinary p-completed THH of a rational input can vanish while the refined nuclear ind-object retains p-complete information."
         }
       ],
@@ -1980,7 +1953,6 @@
         {
           "sourceId": "mw",
           "locator": "§3.1, paragraph 3.3",
-          "excerpt": "3.3. Outline of the computation. — Q For convenience, let’s call a positive integer m high- α powered if its prime factorisation m = p p has the following property: For all primes p > 2 p either αp = 0 or αp ⩾ 2 and for",
           "match": "This locator supplies high-powered positive integers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: 1,9,16,64 satisfy the predicate; 0,3,8,32 do not."
         }
       ],
@@ -2078,7 +2050,6 @@
         {
           "sourceId": "mw",
           "locator": "Corollary 3.8; preceding finite-coefficient calculation",
-          "excerpt": "3.8. Corollary. — Let m ∈ N be a high-powered positive integer. Then the spectra TC− ((ku/m)/ku) and TC− ((KU/m)/KU) are concentrated in even degrees and we have π2∗ TC− (ku/m)/ku ∼= fil⋆q9Hdg q9dR",
           "match": "This locator supplies finite-coefficient tc⁻ and q-hodge complexes. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For odd p and exponent ≥2, the derived deformation reduces modulo q−1 to the Hodge filtration of derived dR(Z/p^a)."
         }
       ],
@@ -2116,7 +2087,6 @@
         {
           "sourceId": "mw",
           "locator": "Lemma 3.9 and proof",
-          "excerpt": "3.9. Lemma. — Let k be an even E1 -ring spectrum and let M, N be even left-k-modules. Then the mapping spectrum Homk (M, N ) admits a complete exhaustive descending filtration with graded pieces gr∗ Homk (M, N ) ≃ Σ2∗ RH",
           "match": "This locator supplies filtered derived hom of even spectra. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For the even free rank-one module M=k, this agrees with N and its Whitehead filtration."
         }
       ],
@@ -2153,7 +2123,6 @@
         {
           "sourceId": "mw",
           "locator": "Corollary 3.10 and proof",
-          "excerpt": "3.10. Corollary. — Let m ∈ N be a high-powered positive integer. Then the spectra TC− ((ku/m)/ku)∨ and TC− ((KU/m)/KU)∨ are concentrated in odd degrees and we have",
           "match": "This locator supplies the dual finite-coefficient tc⁻ spectra. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The dual of Z/m in D(Z) contributes Ext¹=Z/m, not ordinary Hom_Z(Z/m,Z)=0."
         }
       ],
@@ -2191,7 +2160,6 @@
         {
           "sourceId": "mw",
           "locator": "Lemma 3.11 and proof",
-          "excerpt": "3.11. Lemma. — Let k be an even E∞ -ring spectrum, let t ∈ π2∗ (k) be a homogeneous element, and let M , N be even k-modules. Then the t-completed tensor product M b ⊗k N admits a complete exhaustive descending filtratio",
           "match": "This locator supplies the completed tensor filtration. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Derived tensor of Z/m with itself has Tor₁; the comparison retains that extra degree."
         }
       ],
@@ -2229,7 +2197,6 @@
         {
           "sourceId": "mw",
           "locator": "Corollary 3.12; Corollary 2.30",
-          "excerpt": "3.12. Corollary. — “lim”m∈N fil⋆q9Hdg q9 c dR(Z/m)/Z and “lim”m∈N q9Hdg(Z/m)/Z are idempotent pro-algebras, respectively, in the derived ∞-categories of t-complete graded Z[β]JtK-modules and of (q − 1)-complete ZJq − 1K-",
           "match": "This locator supplies pro-idempotence of the finite-coefficient q-hodge system. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The result holds as a pro-algebra equivalence; it is not termwise idempotence of each finite coefficient algebra."
         }
       ],
@@ -2269,7 +2236,6 @@
         {
           "sourceId": "mw",
           "locator": "Corollary 3.13 and proof",
-          "excerpt": "3.13. Corollary. — “lim”m∈N fil⋆q9Hdg q9dR c (Z/m)/Z and “lim” m∈N q9Hdg(Z/m)/Z are equivalent to pro-objects with trace-class transition maps. Proof. Throughout the proof, b ⊗ will denote a t-completed tensor product. U",
           "match": "This locator supplies trace-class finite-coefficient transitions. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The transition is m³ → m; termwise identities are not claimed trace-class."
         }
       ],
@@ -2311,7 +2277,6 @@
         {
           "sourceId": "scholze",
           "locator": "§8, almost-module paragraph before Proposition 8.7, pp. 46–47",
-          "excerpt": "The kernel of this Verdier quotient is the dualizable ∞- category D(B a ) of almost B-modules with respect to the ideal A<1 . As K-theory takes Verdier sequences to fibre sequences, we see that K(D(B a )) = fib(K(B) → K(",
           "match": "This locator supplies continuous k-theory of almost modules. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For I=0 the kernel and Kcont are zero."
         }
       ],
@@ -2353,7 +2318,6 @@
         {
           "sourceId": "bms",
           "locator": "Corollary 3.4 and Remark 3.5; §§4–5 basis unfolding",
-          "excerpt": "Corollary 3.4. (1) For any commutative ring R, the functors HH(−/R), HC− (−/R), HH(−/R)hT , HP(−/R) on the category of commutative R-algebras are fpqc sheaves. (2) Similarly, the functors THH(−), TC− (−), THH(−)hT , TP(−",
           "match": "This locator supplies flat and quasisyntomic descent for trace spectra. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For a faithfully flat polynomial Čech cover the augmentation is an equivalence of trace spectra."
         }
       ],
@@ -2393,7 +2357,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 5.14; corrected use in Theorem 7.1",
-          "excerpt": "Lemma 5.14. — Fix S ∈ qrsPerfdR ; if R is perfectoid or R = Zp , we allow more generally S ∈ QRSPerfdR . (1) For each i ≥ 0, the S-complex ∧iS LS/R [−i] is p-completely flat, and in particular its p-completion is concent",
           "match": "This locator supplies even hochschild homology on quasiregular covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For S=R, only π₀HH(S/R) survives."
         }
       ],
@@ -2434,7 +2397,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 5.15; Theorem 1.17 and proof, pp. 241–242",
-          "excerpt": "Proposition 5.15. — The sheaf (π0 HC− (−/R; Zp ))",
           "match": "This locator supplies negative and periodic cyclic homology from derived de rham. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For R[x], the differential x ↦ dx agrees with Connes B through the imported HKR map."
         }
       ],
@@ -2476,7 +2438,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 6.2 and diagram (1), pp. 245–247",
-          "excerpt": "Proposition 6.2. — The square obtained by applying π∗ to the square (1) above is given by u→σ,v →ϕ(ξ )σ −1 Ainf [u, v]/(uv − ξ ) Ainf [σ, σ −1 ] ϕ-linear θ-linear u→u,v →0 θ",
           "match": "This locator supplies the perfectoid trace coefficient presentation. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The Frobenius map must apply φ to scalar ξ in the relation."
         }
       ],
@@ -2590,7 +2551,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 6.1 and proof, pp. 243–244",
-          "excerpt": "Theorem 6.1. — The ring π∗ THH(R; Zp ) = R[u] is a polynomial ring, where u ∈ π2 THH(R; Zp ) ∼ = π2 HH(R; Zp ) = ker(θ )/ ker(θ )2 is a generator of ker(θ )/ ker(θ )2 . Proof. — We first claim that πi HH(R; Zp ) ∼ = R if",
           "match": "This locator supplies thh of a perfectoid ring. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: R=F_p gives Bökstedt polynomial multiplication, not a divided-power algebra."
         }
       ],
@@ -2634,7 +2594,6 @@
         {
           "sourceId": "bms",
           "locator": "Propositions 6.2–6.3, pp. 245–247",
-          "excerpt": "Proposition 6.2. — The square obtained by applying π∗ to the square (1) above is given by u→σ,v →ϕ(ξ )σ −1 Ainf [u, v]/(uv − ξ ) Ainf [σ, σ −1 ] ϕ-linear θ-linear u→u,v →0 θ",
           "match": "This locator supplies perfectoid tc⁻ and tp with can and frobenius. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: At a perfect characteristic-p R, ξ=p; can(u)=pσ and φ(u)=σ remain different maps."
         }
       ],
@@ -2671,7 +2630,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 6.4, p. 247",
-          "excerpt": "Proposition 6.4. — For any connective E∞ -R-algebra A, the natural maps TC− (A; Zp )/v = TC− (A; Zp ) ⊗TC− (R;Zp ) THH(R; Zp ) → THH(A; Zp ) and TP(A; Zp )/ξ̃ = TP(A; Zp ) ⊗TP(R;Zp ) THH(R; Zp )tCp → THH(A; Zp )tCp are e",
           "match": "This locator supplies tc⁻/v and tp/φ(ξ). The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For R itself, the first quotient yields R[u] by θ and v=0, while the second uses θ̃ and φ(ξ)=0."
         }
       ],
@@ -2709,7 +2667,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 6.7, pp. 251–252",
-          "excerpt": "Theorem 6.7. — Let A be an R-algebra. Then there is a T-equivariant cofiber sequence u THH(A; Zp )[2] − → THH(A; Zp ) → HH(A/R; Zp ) of THH(A; Zp )-module spectra. In particular, by passage to fixed points, there is an i",
           "match": "This locator supplies thh as a deformation of hochschild homology. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=R the Hochschild cofiber is R in degree zero."
         }
       ],
@@ -2748,7 +2705,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 6.8, pp. 252–253",
-          "excerpt": "Construction 6.8. — For any R-algebra A, we shall construct a natural graded A-algebra map",
           "match": "This locator supplies antisymmetrization into thh. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The class dx for a polynomial variable maps to its standard Hochschild/THH degree-one class."
         }
       ],
@@ -2833,7 +2789,6 @@
         {
           "sourceId": "bms",
           "locator": "Corollaries 6.9–6.10, p. 253",
-          "excerpt": "Corollary 6.10. — The functor THH(−; Zp ) on the category of p-complete R-algebras admits a complete descending multiplicative N-indexed filtration P (−) with grnP THH(−; Zp ) being naturally identified with",
           "match": "This locator supplies the cotangent filtration of thh. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For R[x] the exterior degree-one class occurs alongside the even u powers."
         }
       ],
@@ -2873,7 +2828,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 7.1, pp. 254–255",
-          "excerpt": "Theorem 7.1. — Let S ∈ QRSPerfdR and let M = π1 (LS/R )∧p be the associated p-completely flat S-module. (1) π∗ THH(S; Zp ) is concentrated in even degrees. (2) Multiplication by the generator u ∈ π2 THH(R; Zp ) gives a n",
           "match": "This locator supplies even thh on quasiregular semiperfectoid covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For S=R, π_(2i)=R·u^i."
         }
       ],
@@ -2916,7 +2870,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 7.2 and Remark 7.3, pp. 255–256",
-          "excerpt": "Theorem 7.2. — Let S ∈ QRSPerfdR . (1) The homotopy fixed point spectral sequence calculating TC− (S; Zp ) and the Tate spectral sequence calculating TP(S; Zp ) degenerate. Both π∗ TC− (S; Zp ) and π∗ TP(S; Zp ) live can",
           "match": "This locator supplies tc⁻, tp and the trace nygaard filtration on covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For perfectoid S, C_S=Ainf(S) and N^{≥i}=(ker θ_S)^i."
         }
       ],
@@ -2958,7 +2911,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 7.7; Propositions 7.8–7.9",
-          "excerpt": "Construction 7.7 (Unfolding π0 TC− ). — Consider the",
           "match": "This locator supplies the trace nygaard complex. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For perfectoid F over R, C_F=Ainf(F), N^{≥i}=(ker θ_F)^i and Frobenius is Witt Frobenius."
         }
       ],
@@ -3055,7 +3007,6 @@
         {
           "sourceId": "bms",
           "locator": "Corollary 7.10 and Remark 7.11, p. 258",
-          "excerpt": "Corollary 7.10. Proposition 5.8. — Let R be a ring, and let I ⊂ R be an ideal defining a Cartier divisor. Fix K ∈ D(R). Let I ⊗ K ∈ DF(R) be the I-adic filtration on K, i.e., the i-th level of the filtration is Ii ⊗R K w",
           "match": "This locator supplies frobenius factorization for smooth trace complexes. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The twist φ_* uses restriction of scalars, and ξ_r contains inverse Frobenius translates."
         }
       ],
@@ -3098,7 +3049,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 7.12; BS Theorem 13.1 proof",
-          "excerpt": "Construction 7.12 (Non-complete variant of",
           "match": "This locator supplies the non-nygaard-completed trace extension. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=R, Cnc=Ainf(R)."
         }
       ],
@@ -3190,7 +3140,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 7.4; Proposition 7.5; Proposition 7.13; Theorem 1.12",
-          "excerpt": "Proposition 7.13. — For any A ∈ QSynR , we have: (1) The spectrum TC− (A; Zp ) admits a functorial complete and exhaustive descending mul-",
           "match": "This locator supplies the bms2 motivic filtrations. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: On QRSP S the filtration is double-speed Postnikov."
         }
       ],
@@ -3285,7 +3234,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 7.14, p. 260",
-          "excerpt": "Lemma 7.14. — Fix M, N ∈ ModA (",
           "match": "BMS Lemma 7.14 requires the natural graded base-change maps to be equivalences and the degree-zero pairing to be an equivalence; conservativity on complete N-filtered modules proves invertibility."
         }
       ],
@@ -3325,7 +3273,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 1.12(3); Proposition 6.5; Lemma 7.14",
-          "excerpt": "Proposition 6.5. — Consider the Ainf -module Ainf {1} = π2 TP(R; Zp ) with the ϕ-linear map",
           "match": "This locator supplies the trace breuil–kisin twist. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Over a ring receiving a perfectoid map the twist can be trivialized, but the trivialization depends on generator data."
         }
       ],
@@ -3413,7 +3360,6 @@
         {
           "sourceId": "bms",
           "locator": "Remark 6.6, pp. 250–251",
-          "excerpt": "Remark 6.6. — In this remark, we show that these Breuil-Kisin twists agree with those of [BMS18, Example 4.24]; this is essentially the only spot in the paper that uses “classical” results about topological Hochschild ho",
           "match": "This locator supplies agreement with the bms1 twist. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The transition is p times the twist transition, not the identity."
         }
       ],
@@ -3453,7 +3399,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 1.12(5); §7.4; Theorem 7.2",
-          "excerpt": "Theorem 1.12. At this point, we have defined our new complexes",
           "match": "This locator supplies filtered can, frobenius and the tc fiber. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: At weight zero over a perfectoid base, can=id and φ is Witt Frobenius."
         }
       ],
@@ -3546,7 +3491,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 1.12(4)–(5); Proposition 7.13",
-          "excerpt": "Proposition 7.13. — For any A ∈ QSynR , we have: (1) The spectrum TC− (A; Zp ) admits a functorial complete and exhaustive descending mul-",
           "match": "This locator supplies derived convergence of the trace spectral sequences. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The signs of weight −b, cohomological degree a−b and homotopical abutment −a−b agree."
         }
       ],
@@ -3585,7 +3529,6 @@
         {
           "sourceId": "bms",
           "locator": "TC-internal part of proof of Proposition 7.16, p. 262",
-          "excerpt": "Proposition 7.16. — For n < 0, the sheaf of complexes Zp (n) = 0 vanishes. For n = 0, there is a natural isomorphism Zp (0) = limr Z/pr Z. ← − Proof. — For any connective ring spectrum A, one has πi TC(A; Zp ) = 0 for i",
           "match": "This locator supplies the tc-internal negative-degree calculation. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=F_p pointwise F−1 on Z_p is zero, so π_(−1)TC(F_p)=Z_p; local vanishing must not be mistaken for pointwise vanishing."
         }
       ],
@@ -3629,7 +3572,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 8.17 and proof, pp. 276–279",
-          "excerpt": "Theorem 8.17. — The maps ϕ and ϕ",
           "match": "This locator supplies the crystalline trace comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For S=F_p, C_S=Z_p and the Frobenius is the identity."
         }
       ],
@@ -3675,7 +3617,6 @@
         {
           "sourceId": "bms",
           "locator": "Proof of Theorem 8.17, the key case, pp. 277–278",
-          "excerpt": "HP Z[Qp /Zp ]; Zp ≃ TP Fp [Qp /Zp ] . 278 BHARGAV BHATT, MATTHEW MORROW, PETER SCHOLZE On the other hand, Theorem 1.17 gives an isomorphism",
           "match": "This locator supplies the root group algebra trace calculation. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The index group is Q_p/Z_p, not the perfect polynomial algebra without the relation T−1."
         }
       ],
@@ -3713,7 +3654,6 @@
         {
           "sourceId": "bms",
           "locator": "Corollary 8.18, pp. 279–280",
-          "excerpt": "Corollary 8.18. — Let A be a smooth k-algebra of dimension d. For all i ∈ Z, there are natural isomorphisms",
           "match": "This locator supplies the segal comparison in characteristic p. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=k and d=0, Frobenius gives the nonnegative-degree equivalence."
         }
       ],
@@ -3752,7 +3692,6 @@
         {
           "sourceId": "bms",
           "locator": "Notation 9.1 and Lemma 9.2, pp. 283–284",
-          "excerpt": "Lemma 9.2. — For d ≥ 1, set Jd = r (ϕ −r (μ)d ) ⊂ Ainf , so Jd ⊂ J1 ⊂ W(m",
           "match": "This locator supplies the root ideals controlling almost comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A bounded root ideal is not itself substituted for the completed almost ideal."
         }
       ],
@@ -3791,7 +3730,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 9.3, pp. 284–285",
-          "excerpt": "Lemma 9.3. — Fix K ∈ D≥0 tf (Ainf ) that is p-complete. Then each cohomology group of the cofiber Q of the natural map Lημ K → R limr Lηξr K of p-complete complexes is killed by W(m",
           "match": "This locator supplies the almost décalage limit comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: K=Ainf in degree zero satisfies the hypotheses; the argument must also handle bounded positive cohomological degree."
         }
       ],
@@ -3829,7 +3767,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 9.4 and paragraph after its proof, p. 285",
-          "excerpt": "Lemma 9.4. — If M is the (p, ξ )-completion of a free Ainf -module, then the natural map",
           "match": "This locator supplies almost elements of a completed free module. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Infinite completed free modules require the restricted-product decay condition; replacing them by unrestricted products changes the proof."
         }
       ],
@@ -3872,7 +3809,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 9.5, p. 286",
-          "excerpt": "Construction 9.5 (Noncomplete A",
           "match": "This locator supplies the animated extension of imported aω. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For O_C itself the value is Ainf and its ξ-specialization is O_C."
         }
       ],
@@ -3961,7 +3897,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 9.6 proof, primitive and almost comparison steps, pp. 286–288",
-          "excerpt": "Constructing the comparison map in the almost category. — We shall now refine bA to obtain a functorial comparison map",
           "match": "This locator supplies the almost comparison map to aω. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The output at this step is almost; the next step is needed for an honest comparison."
         }
       ],
@@ -4045,7 +3980,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 9.8, p. 289",
-          "excerpt": "Lemma 9.8. — Assume S ∈ qrsPerfdOC (see Variant 4.36 for the definition). Then",
           "match": "This locator supplies completed freeness on projective qrsp covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The special projectivity hypothesis cannot be dropped by QRSP discreteness alone."
         }
       ],
@@ -4086,7 +4020,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 9.9, pp. 289–290",
-          "excerpt": "Lemma 9.9. — Let A be the p-adic completion of a smooth OC -algebra. Let η :",
           "match": "This locator supplies cartier and bockstein recognition of the comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A map preserving only the abstract dimensions of the graded pieces is not the required identity on H⁰."
         }
       ],
@@ -4129,7 +4062,6 @@
         {
           "sourceId": "bms",
           "locator": "Theorem 9.6 and proof, pp. 286–290; Theorem 1.8",
-          "excerpt": "Theorem 9.6. Define a map A → B of p-complete and p-torsionfree rings to be a proj-quasisyntomic map (resp. cover) if the following properties hold: (1) B/p is a projective (resp. projective and faithfully flat) A/p-modu",
           "match": "This locator supplies the honest trace-to-aω comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: On O_C the comparison is the canonical Ainf identification."
         }
       ],
@@ -4171,7 +4103,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 9.10 and Remark 9.11, p. 290",
-          "excerpt": "Proposition 9.10. — Let A be the p-adic completion of a smooth OC -algebra. The map",
           "match": "This locator supplies nygaard agrees with the aω décalage filtration. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The Frobenius pullback and ξ are retained in the filtration identity."
         }
       ],
@@ -4209,7 +4140,6 @@
         {
           "sourceId": "bms",
           "locator": "Corollary 9.12, pp. 290–291",
-          "excerpt": "Corollary 9.12. — Let A be the p-adic completion of a smooth OC -algebra of dimension d. For all i ∈ Z, there are natural isomorphisms",
           "match": "This locator supplies the segal comparison over o_c. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The statement uses the Hodge–Tate complex over O_C, not ordinary untwisted de Rham forms."
         }
       ],
@@ -4250,7 +4180,6 @@
         {
           "sourceId": "bms",
           "locator": "Construction 9.13 and Proposition 9.14, pp. 291–292",
-          "excerpt": "Construction 9.13. — Note that p-completed THH(A; Zp ) can also be defined as the p-completion of A ⊗E∞ -k T∧p , where we consider the p-completion T∧p = K(Zp , 1) of the circle. This implies that the automorphisms Z× ∧",
           "match": "This locator supplies the p-adic adams operations on traces. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: γ acts trivially in weight zero and by γ in weight one."
         }
       ],
@@ -4339,7 +4268,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 11.3, pp. 299–300",
-          "excerpt": "Proposition 11.3. — The T-equivariant E∞ -ring spectrum THH(S[z]) is given by S[B N], where Bcy denotes the cyclic bar construction, with its natural T-action. Concretely, Bcy N cy is equivalent to the topological abelia",
           "match": "This locator supplies thh of the sphere polynomial ring. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The n=0 component is a point with trivial circle action; positive components have degree-n action."
         }
       ],
@@ -4377,7 +4305,6 @@
         {
           "sourceId": "bms",
           "locator": "§11.1 definition and Construction 11.5, pp. 299–300",
-          "excerpt": "Construction 11.5 (Construction of the cyclotomic structure on THH(−/S[z])). — For any E∞ -S[z]-algebra A, there is a natural map",
           "match": "This locator supplies relative cyclotomic thh over s[z]. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: This is relative THH; the base S[z] itself has relative THH equal to S[z] with trivial circle action."
         }
       ],
@@ -4471,7 +4398,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 11.6; Proposition 11.7; Corollary 11.8, p. 301",
-          "excerpt": "Corollary 11.8. — For any OK -algebra A, the p-completion of",
           "match": "This locator supplies the two base changes of relative thh. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: All base changes are derived; ordinary tensor is used only when its flatness hypothesis has been supplied."
         }
       ],
@@ -4510,7 +4436,6 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 11.10 and its preceding notation, pp. 302–303",
-          "excerpt": "Proposition 11.10. — On homotopy groups,",
           "match": "This locator supplies the relative dvr coefficient calculation. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The coefficient ring is frakS^(−1), not an untwisted identification of frakS-algebras."
         }
       ],
@@ -4554,13 +4479,11 @@
         {
           "sourceId": "bms",
           "locator": "Proposition 11.11 and Corollary 11.12; BS Proposition 15.7",
-          "excerpt": "Proposition 11.11. — If S ∈ QRSPerfdOK is quasiregular semiperfectoid, then THH(S/ S[z]; Zp ), TC− (S/S[z]; Zp ) and TP(S/S[z]; Zp ) are concentrated in even degrees, and S → πi THH(S/S[z]; Zp ) respectively S → πi TC− (",
           "match": "This locator supplies relative evenness and acyclicity on qrsp covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The relative trace complex corresponds to φ^*Δ before completing; omitting φ^* changes the statement."
         },
         {
           "sourceId": "bs",
           "locator": "Proposition 15.7 and proof, pp. 106–107",
-          "excerpt": "Proposition 15.7. For any quasiregular semiperfectoid quasisyntomic OK -algebra S, the cyclo- tomic Frobenius on π0 TP(S/S[u]; Zp ) refines to a δ-ring structure, functorial in S, and identifies [(1) (1) with the Nygaard",
           "match": "This locator supplies relative evenness and acyclicity on qrsp covers. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The relative trace complex corresponds to φ^*Δ before completing; omitting φ^* changes the statement."
         }
       ],
@@ -4600,7 +4523,6 @@
         {
           "sourceId": "bms",
           "locator": "Lemma 8.19 and TC-sheaf part of Proposition 8.20, pp. 280–281",
-          "excerpt": "Lemma 8.19. (1) For any quasiregular semiperfect Fp -algebra S and i > 0, the operator ϕi − 1 : N ≥i",
           "match": "This locator supplies the even tc sheaf in characteristic p. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: TC(F_p;Z_p) still has π_(−1)=Z_p at the point; the sheaf statement does not erase this pointwise group."
         }
       ],
@@ -4644,7 +4566,6 @@
         {
           "sourceId": "bm",
           "locator": "Example 1.6, p. 2",
-          "excerpt": "Example 1.6 (The Z/pn (i)X via algebraic K-theory). Let X be a p-quasisyntomic scheme. In this case, one can give a direct construction of the Z/pn (i)X using algebraic K-theory for i ≥ 0. Namely, Z/pn (i)X ∈ D(Xet , Z/p",
           "match": "This locator supplies syntomic complexes from sheafified even k-groups. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The sheafification precedes derived pushforward; replacing it by pointwise K_(2i) gives a different statement."
         }
       ],
@@ -4688,7 +4609,6 @@
         {
           "sourceId": "ammn",
           "locator": "Theorem 6.17 and proof, pp. 44–45",
-          "excerpt": "Theorem 6.17 (The Beilinson ﬁber square on graded terms). Let R ∈ qSynZp . Then, for each i ≥ 0, there exists a natural map χi : Qp (i)(R/p) → (LΩR )Qp and a functorial pullback square Qp (i)(R) / Qp (i)(R/p) χi (55)",
           "match": "This locator supplies the filtered trace interface for the beilinson bridge. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: No square for arbitrary rings with uncontrolled p-torsion is asserted."
         }
       ],
@@ -4728,7 +4648,6 @@
         {
           "sourceId": "bms",
           "locator": "Proofs of Corollary 3.4 and Proposition 5.15; elementary chain-level specialization",
-          "excerpt": "Proposition 5.15. — The sheaf (π0 HC− (−/R; Zp ))",
           "match": "This locator supplies the mixed-complex comparison compatibility. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Identity maps satisfy the compatibility."
         }
       ],

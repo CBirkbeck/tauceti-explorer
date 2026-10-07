@@ -274,7 +274,6 @@
         {
           "sourceId": "yz",
           "locator": "§§3.1–3.2, pp.551–555",
-          "excerpt": "Λ′p := O∨B,p ⊕ OB,p",
           "match": "Specialized integral datum; correct dimension using PAPER-YUAN-ZHANG-18/E19."
         }
       ],
@@ -358,7 +357,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.1, pp.561–562, Proposition 4.1",
-          "excerpt": "If U is contained in U (N ) for some N ≥ 3",
           "match": "Small-level freeness modulo centre and genus bound."
         }
       ],
@@ -397,7 +395,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.1, p.562, p-divisible groups",
-          "excerpt": "Hn = [Bp /OB,p × X] /Up (n)",
           "match": "Associated p-divisible sheaf and finite torsion descent."
         }
       ],
@@ -488,13 +485,11 @@
         {
           "sourceId": "yz",
           "locator": "§4.1, pp.562–563, Propositions 4.2–4.3",
-          "excerpt": "There is an isomorphism X 0 ≃ X 00",
           "match": "Connected-component and p-divisible comparisons, corrected E39."
         },
         {
           "sourceId": "carayol",
           "locator": "§§4.2,4.4",
-          "excerpt": "4.2.2",
           "match": "Primary comparison of the connected canonical and auxiliary PEL curves."
         }
       ],
@@ -532,7 +527,6 @@
         {
           "sourceId": "yz",
           "locator": "Proposition 4.4, pp.563–564",
-          "excerpt": "depending on n",
           "match": "Finite-level passage with the discriminant restriction."
         }
       ],
@@ -573,7 +567,6 @@
         {
           "sourceId": "carayol",
           "locator": "§0.2, §§5.4,6–7,9",
-          "excerpt": "où B se déploie",
           "match": "Split finite place and Drinfeld-level regularity."
         }
       ],
@@ -616,7 +609,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.2, Theorem 4.5, pp.564–565",
-          "excerpt": "n is prime to dB",
           "match": "Regular projective tower with exact local good/bad conditions."
         }
       ],
@@ -659,7 +651,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.2, p.565 and Corollary 4.6",
-          "excerpt": "not necessarily at all points",
           "match": "Coarse quotients with honest flatness scope."
         }
       ],
@@ -702,7 +693,6 @@
         {
           "sourceId": "yz",
           "locator": "Theorem 4.5 and Corollary 4.6, pp.564–566",
-          "excerpt": "form a projective system",
           "match": "Integral tower and finite correspondence specialization."
         }
       ],
@@ -740,7 +730,6 @@
         {
           "sourceId": "yz",
           "locator": "Corollary 4.6(2), p.566",
-          "excerpt": "unramified above every finite prime",
           "match": "Q-factoriality in precisely the source’s base-change range."
         }
       ],
@@ -780,7 +769,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.2, Theorem 4.7, pp.567–568",
-          "excerpt": "|dz| = 2y",
           "match": "Specialized arithmetic Q-line, including effective ramification."
         }
       ],
@@ -873,7 +861,6 @@
         {
           "sourceId": "yz",
           "locator": "Theorem 4.9, pp.568–569",
-          "excerpt": "a special formal OB,℘ -module",
           "match": "Integral special factor, relative deformation and discriminant-qualified levels."
         }
       ],
@@ -913,7 +900,6 @@
         {
           "sourceId": "yz",
           "locator": "Theorem 4.10, pp.569–570",
-          "excerpt": "KS℘ extends to an isomorphism",
           "match": "Corrected determinant and relative crystal; E8, E9 (review-amended correction), E30."
         }
       ],
@@ -952,7 +938,6 @@
         {
           "sourceId": "yz",
           "locator": "§5.1, pp.571–573, Proposition 5.1",
-          "excerpt": "z 7−→ (z, z −1 )",
           "match": "Imported bridge with owned coefficient specialization."
         }
       ],
@@ -991,7 +976,6 @@
         {
           "sourceId": "yz",
           "locator": "§5.2, pp.573–574",
-          "excerpt": "they are not regular if ℘ is ramified",
           "match": "Integral bridge with exact regularity boundary."
         }
       ],
@@ -1030,7 +1014,6 @@
         {
           "sourceId": "yz",
           "locator": "Proposition 5.2, p.574",
-          "excerpt": "extends uniquely to a p-divisible group",
           "match": "Pointwise theorem with E34–E35 corrections."
         }
       ],
@@ -1069,7 +1052,6 @@
         {
           "sourceId": "yz",
           "locator": "Proposition 5.3 and discussion of Proposition 5.4, pp.574–575",
-          "excerpt": "a canonical isomorphism of filtered",
           "match": "Filtered tensor versus the nonexact ramified τ-quotient; E31."
         }
       ],
@@ -1107,7 +1089,6 @@
         {
           "sourceId": "yz",
           "locator": "Proposition 5.4 and Corollary 5.5, pp.575–576",
-          "excerpt": "Taking determinants",
           "match": "Determinant cancellation with E31–E32 corrected scope."
         }
       ],
@@ -1145,7 +1126,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.57–59, display (5); §7.2, pp.61–62",
-          "excerpt": "(U(A∞F)∗ ∩ t−1 D∗ t)/F∗",
           "match": "Central quotient and finite isotropy, used in every integral assertion."
         }
       ],
@@ -1236,13 +1216,11 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.58–59",
-          "excerpt": "Write Wk and W̄k for ⊗F↪E Symk−2 OE2",
           "match": "Integral coefficient module and dyadic convention."
         },
         {
           "sourceId": "taylor",
           "locator": "§1, pp.741–742",
-          "excerpt": "if 2 ≤ k ≤ l + 1 then this pairing is perfect",
           "match": "The natural differential pairing on Sym^{k−2} pairs monomials with factorial coefficients; it is perfect only in the stated weight range."
         }
       ],
@@ -1331,7 +1309,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.58–59, display (5)",
-          "excerpt": "f (gz) = ψ(z)f (g)",
           "match": "Specialization of shared carrier; extension of generic supplier is explicit."
         }
       ],
@@ -1370,13 +1347,11 @@
         {
           "sourceId": "taylor",
           "locator": "Lemma 1.1 and Corollary 1.2, pp.738–739",
-          "excerpt": "as we are assuming l > 3 and l is unramified in F",
           "match": "Automatic prime-to-l isotropy with exact restrictions."
         },
         {
           "sourceId": "kw",
           "locator": "§8.2, p.73; §8.4, p.77",
-          "excerpt": "satisfies the conclusion of Lemma 1.1 of [59]",
           "match": "Auxiliary smallness is geometric, not a modularity input."
         }
       ],
@@ -1418,7 +1393,6 @@
         {
           "sourceId": "taylor",
           "locator": "§1, pp.741–742",
-          "excerpt": "perfect pairing",
           "match": "Weighted integral pairing and inverse-double-coset adjoint."
         }
       ],
@@ -1456,7 +1430,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), p.59; §7.4, p.65",
-          "excerpt": "X2 − Tv X + N(v)ψ(πv)",
           "match": "The polynomial normalization used by the eigenroot and residual ideal."
         }
       ],
@@ -1495,7 +1468,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.59–60: definition of Eisenstein maximal ideals and proof of Lemma 7.1",
-          "excerpt": "and thus f1 factors through the norm",
           "match": "Character branch and geometric support of degeneracy kernels."
         }
       ],
@@ -1533,7 +1505,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), Lemma 7.1, p.60",
-          "excerpt": "that are in the support of ker(αw) are Eisenstein",
           "match": "Precise definite degeneracy input for TW control."
         }
       ],
@@ -1574,7 +1545,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.59–60",
-          "excerpt": "Jacquet-Langlands",
           "match": "Owned transfer imported; this node is its quaternionic finite-level application."
         }
       ],
@@ -1612,7 +1582,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.2, displays (6)–(7), pp.61–62",
-          "excerpt": "divides 4Nw where Nw is the cardinality of GL2(kw)",
           "match": "Uniform p-isotropy bound with compact/noncompact distinction."
         }
       ],
@@ -1649,7 +1618,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.3, Lemma 7.3 and its proof, pp.62–63",
-          "excerpt": "set χ = Πv′ χv′ = χ′^{4Nw}",
           "match": "Field/base-change and residue divisibility retained."
         }
       ],
@@ -1688,7 +1656,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.4, p.63 (auxiliary levels before Lemma 7.4)",
-          "excerpt": "Let ∆v be the quotient of ∆′v by its N-torsion",
           "match": "Geometric auxiliary level for arbitrary admissible Q."
         }
       ],
@@ -1778,7 +1745,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.4, proof of Lemma 7.4, display (8), pp.64–65",
-          "excerpt": "We next claim that for each t",
           "match": "The geometric mechanism behind group-ring freeness."
         }
       ],
@@ -1817,7 +1783,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.4, Lemma 7.4(2), p.64 (proof p.65)",
-          "excerpt": "free O[∆Q ]-module",
           "match": "Ownership R18.3; no prime-choice or patching input."
         }
       ],
@@ -1859,7 +1824,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.4, construction of ξv and Corollary 7.5 with its proof, pp.65–66",
-          "excerpt": "ξv(f) = Av f −",
           "match": "Compatibility-dependent refinement separated from geometric freeness."
         }
       ],
@@ -1898,7 +1862,6 @@
         {
           "sourceId": "kw",
           "locator": "§7.5, p.66, before Proposition 7.6",
-          "excerpt": "fχ(g) := f(g)χ(Nm(g))",
           "match": "Geometric dyadic involution, owned by R18.3."
         }
       ],
@@ -1985,7 +1948,6 @@
         {
           "sourceId": "kw",
           "locator": "Proposition 7.6, pp.66–67",
-          "excerpt": "fχ|Tv = χ(πv)(f|Tv)χ",
           "match": "Hecke and diamond formulas with the scalar-square normalization."
         }
       ],
@@ -2023,7 +1985,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), pp.58–59",
-          "excerpt": "in one of 2^{|Σ′|} possible ways",
           "match": "Noncompact level convention and its coefficient extensions."
         }
       ],
@@ -2066,7 +2027,6 @@
         {
           "sourceId": "cdn23",
           "locator": "§4.1.3, pp.48–49",
-          "excerpt": "(respectivement N(v)−1 det(ρ̄(Frobv)))",
           "match": "Exact residual dictionary; the inverse norm is essential."
         }
       ],
@@ -2157,7 +2117,6 @@
         {
           "sourceId": "carayol",
           "locator": "§1.4, pp.159–160; §4.4, pp.186–188",
-          "excerpt": "Construction d’un groupe p-divisible sur M0",
           "match": "Quaternionic coefficient sheaf and its canonical descent."
         }
       ],
@@ -2251,7 +2210,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1, proof of Proposition 5.2, pp.41–42",
-          "excerpt": "est muni d’actions qui commutent de GE := Gal(Q̄/E) et Ǧ(Af)",
           "match": "Finite-level cohomology and commuting global/tower actions; generic machinery imported."
         }
       ],
@@ -2342,7 +2300,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1, p.41",
-          "excerpt": "est muni d’actions qui commutent de GE := Gal(Q̄/E) et Ǧ(Af)",
           "match": "Only the rational finite-level realization is stated in CDN20; the integral H⁰-vanishing criterion is the routine coefficient long exact sequence plus duality spelled out in the proof steps, with no source passage claimed for it."
         }
       ],
@@ -2381,7 +2338,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1, pp.41–42",
-          "excerpt": "cohomologies",
           "match": "CDN20 uses the finite-level étale H¹ of the curve; the duality is the generic proper-smooth-curve Poincaré duality (requested from ClassicalAdicEtaleCohomology H3), not a CDN20 statement."
         }
       ],
@@ -2421,7 +2377,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1, pp.41–42, Proposition 5.2",
-          "excerpt": "Soit SD2(Ǧ) l’ensemble des représentations automorphes",
           "match": "The weight-two automorphic realization; Galois compatibility imported rather than recreated."
         }
       ],
@@ -2462,7 +2417,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1, pp.40–42",
-          "excerpt": "Πpf = Π̌pf",
           "match": "Exchange of the local and real invariant with away-place identification."
         }
       ],
@@ -2501,7 +2455,6 @@
         {
           "sourceId": "kw",
           "locator": "§7 (opening), Lemma 7.1, p.60",
-          "excerpt": "Consider the degeneracy map αw",
           "match": "The definite model of the two level maps at w with U′w = U0(w). The indefinite cohomological construction is the standard pullback/trace along the two level morphisms; no packet source states it, and Carayol §§9.2–9.4 (previously cited) studies the p-level morphism v : Mn,H → Mn,v(H) instead."
         }
       ],
@@ -2592,7 +2545,6 @@
         {
           "sourceId": "yz",
           "locator": "§3.2, moduli problem F1,U′p, pp.553–554",
-          "excerpt": "A is an abelian scheme over S up to prime-to-p isogeny",
           "match": "The auxiliary quaternionic PEL family to which the requested projector purity applies; purity itself is Deligne’s Weil II via WeightsInEtaleCohomology R34.5, not a statement of YZ."
         }
       ],
@@ -2634,7 +2586,6 @@
         {
           "sourceId": "yz",
           "locator": "§4.2, construction of the coarse models, p.565",
-          "excerpt": "Note that U/U′ is a finite group",
           "match": "Effective finite level quotients; the invariants/trace statement is generic Hochschild–Serre for finite étale covers (ClassicalAdicEtaleCohomology H0), not stated in YZ."
         }
       ],
@@ -2671,13 +2622,11 @@
         {
           "sourceId": "bc",
           "locator": "Part I §§1–2, pp.49–53",
-          "excerpt": "demi-plan",
           "match": "Analytic structure from the Bruhat–Tits norm map."
         },
         {
           "sourceId": "cdn20",
           "locator": "§1.2, pp.12–13",
-          "excerpt": "P1F − P1 (F )",
           "match": "Actual analytic complement, not a scheme complement."
         }
       ],
@@ -2771,7 +2720,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§1.2, p.12",
-          "excerpt": "distance au plus n",
           "match": "Explicit affinoids and equivariant reduction."
         }
       ],
@@ -2862,13 +2810,11 @@
         {
           "sourceId": "cdn20",
           "locator": "§1.2, pp.12–13",
-          "excerpt": "réunion croissante",
           "match": "Iterated blow-ups and union of formal opens."
         },
         {
           "sourceId": "bc",
           "locator": "Part I §3, pp.53–56",
-          "excerpt": "modèle formel",
           "match": "Lattice/edge charts for the standard model."
         }
       ],
@@ -2958,13 +2904,11 @@
         {
           "sourceId": "bc",
           "locator": "Part II §§2, 5.16, Definition 8.1, pp.79–84, 97–98, 107",
-          "excerpt": "une quasi-isogénie de hauteur zéro ρ : Φ_{B/πB} → X_{B/πB}",
           "match": "Local functor and BC framing direction."
         },
         {
           "sourceId": "bz",
           "locator": "§5, pp.38–39, (5.18)–(5.20)",
-          "excerpt": "MDr (0)",
           "match": "Relative height and framing direction used here."
         }
       ],
@@ -3055,7 +2999,6 @@
         {
           "sourceId": "bc",
           "locator": "Part II Theorems 8.2,8.4, pp.107–109",
-          "excerpt": "Le foncteur Ḡ est représentable par le Ô^nr-schéma formel Ω̂⊗O Ô^nr",
           "match": "Actual functorial local theorem."
         }
       ],
@@ -3091,7 +3034,6 @@
         {
           "sourceId": "bz",
           "locator": "Proposition 5.9, p.39; Theorem 6.7, p.49",
-          "excerpt": "ordp0 det δ + m",
           "match": "Separate height and Weil descent actions."
         }
       ],
@@ -3132,13 +3074,11 @@
         {
           "sourceId": "bz",
           "locator": "§1, pp.1–3; §6, pp.45–50",
-          "excerpt": "Γg = {d ∈ Ď× ∩ gKp0 g−1 | ordFp0 det d = 0}",
           "match": "Totally real arithmetic quotient and fixed-point-free level."
         },
         {
           "sourceId": "bc",
           "locator": "Part III §§5.1–5.3, pp.139–142",
-          "excerpt": "formes tordues",
           "match": "Rational-field component decomposition and small-level fence."
         }
       ],
@@ -3225,7 +3165,6 @@
         {
           "sourceId": "bz",
           "locator": "Theorem 6.7 and Corollary 6.8, pp.49–50",
-          "excerpt": "uniformization isomorphism",
           "match": "Totally real theorem with exact level and descent data."
         }
       ],
@@ -3265,7 +3204,6 @@
         {
           "sourceId": "bc",
           "locator": "Part III Theorem 5.2 and comments, pp.140–142",
-          "excerpt": "Cerednik-Drinfeld",
           "match": "Primary rational-field arithmetic theorem and action conventions."
         }
       ],
@@ -3306,13 +3244,11 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1–5.2.2, pp.40–43, Proposition 5.4",
-          "excerpt": "variation de U et n",
           "match": "Tower theorem with explicit global setup."
         },
         {
           "sourceId": "bc",
           "locator": "Part III §5.5, Théorème (5.5), p.146",
-          "excerpt": "Généralisation au cas où Up n’est pas maximal",
           "match": "The rational-field all-level statement; the totally real case is CDN20 Proposition 5.4."
         }
       ],
@@ -3351,13 +3287,11 @@
         {
           "sourceId": "bc",
           "locator": "Part III §5.4, pp.144–146 (graph); generic monodromy imported from R11.4",
-          "excerpt": "Le graphe dual \"avec longueurs\" associé coïncide avec le",
           "match": "Dual-graph quotient and arithmetic descent."
         },
         {
           "sourceId": "yz",
           "locator": "§8.3, ‘Multiplicity function: the superspecial case’, pp.619–620",
-          "excerpt": "Then its irreducible components are indexed by GL2(Fv)/Fv× GL2(OFv)",
           "match": "Lattice class indexing of quaternionic special-fibre components."
         }
       ],
@@ -3397,7 +3331,6 @@
         {
           "sourceId": "bc",
           "locator": "Part III §5.4, pp.144–146 (graph); generic monodromy imported from R11.4",
-          "excerpt": "graphe",
           "match": "Graph identification; monodromy theorem is a separate supplier, not attributed to these pages."
         }
       ],

@@ -405,7 +405,6 @@
         {
           "sourceId": "casselman73",
           "locator": "p. 301, §1 definition of Γ₀(b)",
-          "excerpt": "let Γ₀(b)",
           "match": "The passage supplies the the lower-left congruence subgroup input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -495,7 +494,6 @@
         {
           "sourceId": "aky22",
           "locator": "§1.2, pp. 3–4, K(n,λ) and generic λπ",
-          "excerpt": "Kn,λ",
           "match": "The passage supplies the the last-row congruence subgroup input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -596,7 +594,6 @@
         {
           "sourceId": "jl70",
           "locator": "§2 printed p. 12, compact-subgroup and Haar convention",
-          "excerpt": "GL(2,",
           "match": "The passage supplies the gl₂ local and adelic compact subgroups input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -639,7 +636,6 @@
         {
           "sourceId": "jl70",
           "locator": "§3 formula (3.1) and following compact realization, printed p. 46",
-          "excerpt": "restrictions",
           "match": "The compact realization uses G=BK and formula (3.1) has the square-root modulus |a/d|¹ᐟ². Cartan uniqueness and archimedean decompositions are the separately requested supplier results."
         }
       ],
@@ -684,7 +680,6 @@
         {
           "sourceId": "jl70",
           "locator": "§10 and §16 fixed central character",
-          "excerpt": "η(a)I",
           "match": "The passage supplies the haar and central-character quotient comparison input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -728,7 +723,6 @@
         {
           "sourceId": "jl70",
           "locator": "Definition 10.2 and following cusp-form definition",
-          "excerpt": "automorphic",
           "match": "The passage supplies the finite-level automorphic functions input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -773,7 +767,6 @@
         {
           "sourceId": "casselman73",
           "locator": "p. 305, principal/special classification",
-          "excerpt": "equivalences",
           "match": "The passage supplies the explicit nonarchimedean classification input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -818,7 +811,6 @@
         {
           "sourceId": "casselman73",
           "locator": "§1 Theorem1 and Kirillov setup, printed p.302; elementary subgroup decomposition, printed p.303",
-          "excerpt": "Kirillov realization",
           "match": "The Kirillov realization and smoothness give existence at some level independently of the least-level/dimension calculation; the stated contragredient translation converts the paper’s top-left character convention to last-row invariants."
         }
       ],
@@ -861,7 +853,6 @@
         {
           "sourceId": "casselman73",
           "locator": "Theorem 1 p. 302 and epsilon remark p. 307",
-          "excerpt": "conductor",
           "match": "The passage supplies the the newvector conductor exponent input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -948,7 +939,6 @@
         {
           "sourceId": "casselman73",
           "locator": "Theorem 1; Corollary to the Proof pp. 302–307",
-          "excerpt": "dimension",
           "match": "The passage supplies the casselman’s newvector theorem input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -990,7 +980,6 @@
         {
           "sourceId": "jl70",
           "locator": "§11 following Proposition 11.1.1, printed p. 183; normalize the spherical local function at e",
-          "excerpt": "almost",
           "match": "The passage supplies the the normalized whittaker newvector input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1078,7 +1067,6 @@
         {
           "sourceId": "jl70",
           "locator": "§3 spherical functions and unramified zeta calculation",
-          "excerpt": "µ₁",
           "match": "The passage supplies the the spherical whittaker values input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1167,7 +1155,6 @@
         {
           "sourceId": "cg20",
           "locator": "§1.3 printed pp. 805–806",
-          "excerpt": "not trivial",
           "match": "The passage supplies the the characteristic-zero iwahori oldforms input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1208,7 +1195,6 @@
         {
           "sourceId": "casselman73",
           "locator": "p. 302, equation (1.2)",
-          "excerpt": "Kirillov realization",
           "match": "The passage supplies the the supercuspidal kirillov comparison input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1250,7 +1236,6 @@
         {
           "sourceId": "bm02",
           "locator": "Appendix A.1.4–A.1.5(1), pp. 75–76; A.3",
-          "excerpt": "unique à isomorphisme près",
           "match": "The passage supplies the henniart’s unicity of supercuspidal types input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1292,7 +1277,6 @@
         {
           "sourceId": "dlb17",
           "locator": "p. 64, footnote 52",
-          "excerpt": "à caractère central trivial",
           "match": "The passage supplies the supercuspidals in a fixed central-character category input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1332,7 +1316,6 @@
         {
           "sourceId": "cg18",
           "locator": "§3.9.2 construction Wσx; CDT §5.1 p. 18",
-          "excerpt": "the representation σx",
           "match": "The passage supplies the the conrad–diamond–taylor vexing type input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1416,13 +1399,11 @@
         {
           "sourceId": "bcgp21",
           "locator": "Lemma 2.4.15, pp. 178–179; HKP §4.6 (4.6.1)",
-          "excerpt": "the centre",
           "match": "The passage supplies the the gl₂ iwahori center input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         },
         {
           "sourceId": "hkp10",
           "locator": "§2.3 Lemma 2.3.1; §4.6 equation (4.6.1)",
-          "excerpt": "center",
           "match": "The Bernstein center is the Weyl-invariant Laurent algebra, and h=e_K z identifies its spherical projection. BCGP supplies the concrete rank-two generators in the convention used here."
         }
       ],
@@ -1466,7 +1447,6 @@
         {
           "sourceId": "jl70",
           "locator": "§5 Lemmas 5.6–5.7; §6 Lemma 6.1, beginning printed p. 110",
-          "excerpt": "Representations",
           "match": "JL §5–§6 give the concrete real/complex modules and boundary cases. Modern archimedean Weil parametrization and globalization are imported from the exact AF.1 nodes, not asserted to be proved by these passages."
         }
       ],
@@ -1513,7 +1493,6 @@
         {
           "sourceId": "nt26",
           "locator": "§1.2 printed p. 8, ArtK and recK",
-          "excerpt": "Frobenius",
           "match": "NT §1.2 pins geometric Artin reciprocity and the rec convention. The normalized principal-series parameter calculation is an ET.6 specialization, with its explicit local character factors in JL §3 and AL.1."
         }
       ],
@@ -1559,7 +1538,6 @@
         {
           "sourceId": "casselman73",
           "locator": "p. 307 epsilon remark and special-representation calculation",
-          "excerpt": "conductor",
           "match": "The passage supplies the steinberg monodromy and its factors input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1604,7 +1582,6 @@
         {
           "sourceId": "nt26",
           "locator": "§2 after Definition 2.4, printed p. 11",
-          "excerpt": "supercuspidal",
           "match": "The passage supplies the supercuspidal parameters including wild cases input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1647,7 +1624,6 @@
         {
           "sourceId": "nt26",
           "locator": "§1.2 printed p. 8, normalization identity",
-          "excerpt": "normalization",
           "match": "The passage supplies the the tate and unitary normalization bridge input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1694,7 +1670,6 @@
         {
           "sourceId": "casselman73",
           "locator": "p. 307 remark following the Corollary to the Proof",
-          "excerpt": "conductor",
           "match": "The passage supplies the conductor, twists and additive-character change input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1735,7 +1710,6 @@
         {
           "sourceId": "jl70",
           "locator": "§5 printed pp. 96–97, explicit character L/epsilon formulas and induced-real factor",
-          "excerpt": "Γ",
           "match": "JL pp. 96–97 state the real/complex character factors and the real induced factor. The modern parameter classification is the separate AF.1/archimedean-llc-gln input; AL.1 fixes the gamma/epsilon conventions."
         }
       ],
@@ -1779,7 +1753,6 @@
         {
           "sourceId": "nt26",
           "locator": "Definition 2.4 and following paragraph, printed p. 11",
-          "excerpt": "dihedral",
           "match": "Definition 2.4 gives the exact prime-order inertia and unramified quadratic induction property. Its induction indices are corrected as recorded in E12."
         }
       ],
@@ -1866,7 +1839,6 @@
         {
           "sourceId": "nt26",
           "locator": "Paragraph immediately after Definition 2.4",
-          "excerpt": "irreducible",
           "match": "The following paragraph proves supercuspidality from irreducibility. The conductor-two/L=1 calculation is a stated application of the imported tame parameter conductor formula."
         }
       ],
@@ -1911,7 +1883,6 @@
         {
           "sourceId": "cdt99",
           "locator": "Lemma 4.2.4(3), printed pp. 17–18",
-          "excerpt": "Conversely",
           "match": "The passage supplies the the cdt inertial comparison and multiplicity one input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -1956,7 +1927,6 @@
         {
           "sourceId": "jl70",
           "locator": "§11 product formula (11.1.2), printed p. 183",
-          "excerpt": "spanned",
           "match": "The passage supplies the the cuspidal restricted tensor factorization input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2000,7 +1970,6 @@
         {
           "sourceId": "jl70",
           "locator": "Proposition 11.1.1 proof, printed pp. 182–183",
-          "excerpt": "Fourier",
           "match": "The passage supplies the the global gl₂ whittaker expansion input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2044,13 +2013,11 @@
         {
           "sourceId": "jl70",
           "locator": "Proposition 11.1.1, printed p. 183",
-          "excerpt": "multiplicity one",
           "match": "The passage supplies the gl₂ global multiplicity one input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         },
         {
           "sourceId": "cogdell-fields",
           "locator": "Lecture 4 §3, Theorem 4.2 and proof, printed pp.33–34 (PDF pp.37–38)",
-          "excerpt": "multiplicity m(π)",
           "match": "The single general GL_n producer is AL.3/global-multiplicity-one; this node specializes its embedding-space result to GL₂."
         }
       ],
@@ -2093,13 +2060,11 @@
         {
           "sourceId": "cogdell-fields",
           "locator": "Theorem9.3 and proof, printed pp.74–75 (PDF pp.78–79)",
-          "excerpt": "Strong Multiplicity One",
           "match": "The finite exceptional set may contain all archimedean places. The Rankin–Selberg pole criterion together with zero/pole-free omitted local factors recovers the whole cuspidal representation from cofinite finite-place agreement. Casselman supplies only the weaker parallel statement assuming the archimedean factors already agree."
         },
         {
           "sourceId": "casselman73",
           "locator": "§2 Theorem 2 and proof, printed pp. 307–308",
-          "excerpt": "Theorem 2",
           "match": "Casselman Theorem 2 proves the fixed-classical comparison using all twists and local converse. The statement recovering arbitrary infinite-place factors from cofinite finite-place data uses the explicitly requested AL.3 Rankin–Selberg pole criterion, not the pinned classical theorem alone."
         }
       ],
@@ -2146,7 +2111,6 @@
         {
           "sourceId": "nt26",
           "locator": "§1.2 printed pp. 8–9, regular algebraic weights and conjugation",
-          "excerpt": "algebraic",
           "match": "The passage supplies the cohomological rationality and coefficient fields input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2188,7 +2152,6 @@
         {
           "sourceId": "nt26",
           "locator": "Lemma 2.1 introductory hypothesis, printed p. 9",
-          "excerpt": "non-trivial",
           "match": "The passage supplies the the non-cm self-twist condition input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2279,7 +2242,6 @@
         {
           "sourceId": "jl70",
           "locator": "Theorem11.1 printed p.180; formula (11.1.2) and its Euler product, printed pp.183–184; Lemma11.1.3 printed p.184",
-          "excerpt": "L(s,",
           "match": "Formula (11.1.2) unfolds the multiplicative quotient integral to the global Whittaker integral; its factorizable Euler product is on p.184. Lemma11.1.3 supplies the right-half-plane estimate. AL.2/AL.3 supply the local test-vector and integral comparisons."
         }
       ],
@@ -2328,13 +2290,11 @@
         {
           "sourceId": "jl70",
           "locator": "Theorem 11.3, printed p. 186",
-          "excerpt": "entire",
           "match": "The passage supplies the the gl₂ converse theorem with all twists input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         },
         {
           "sourceId": "converse",
           "locator": "§2 pp. 5–6; §3 Theorem 3.1, p. 6, n=2",
-          "excerpt": "nice",
           "match": "For n=2 the full twist family T(n−1) is the Hecke-character family. The survey explicitly lists entire continuation, bounded vertical strips and the functional equation, as well as convergence and automorphic central character."
         }
       ],
@@ -2381,7 +2341,6 @@
         {
           "sourceId": "jl70",
           "locator": "§11 classical specialization of standard factors",
-          "excerpt": "functional",
           "match": "The passage supplies the classical and unitary l-function normalization input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2425,7 +2384,6 @@
         {
           "sourceId": "jl70",
           "locator": "Theorem 11.1, printed p. 180",
-          "excerpt": "equation",
           "match": "The passage supplies the global functional equation and conductor normalization input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2472,7 +2430,6 @@
         {
           "sourceId": "jl70",
           "locator": "§11 holomorphic specialization and §5 real lowest-weight modules",
-          "excerpt": "holomorphic",
           "match": "The passage supplies the primitive newforms and holomorphic cuspidal classes input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2573,7 +2530,6 @@
         {
           "sourceId": "casselman73",
           "locator": "§3 start, printed p. 308; §1 local conductor theorem",
-          "excerpt": "Atkin and Lehner",
           "match": "The passage supplies the the complete level and hecke dictionary input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2618,7 +2574,6 @@
         {
           "sourceId": "nt26",
           "locator": "§1.2 regular algebraic highest-weight convention, printed p. 8",
-          "excerpt": "highest",
           "match": "The passage supplies the hilbert cohomological algebraic weights input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2711,7 +2666,6 @@
         {
           "sourceId": "nt26",
           "locator": "§1.2 recᵀ and Hodge–Tate conventions, printed p. 8",
-          "excerpt": "cyclotomic",
           "match": "The passage supplies the the weight-k arithmetic parameter conversion input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2757,7 +2711,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1 printed pp. 347–348, archimedean weight two",
-          "excerpt": "poids 2",
           "match": "The passage supplies the newvector and multiplicity exports input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2798,7 +2751,6 @@
         {
           "sourceId": "jl70",
           "locator": "Theorem 15.1 and following orthogonality discussion, printed pp. 249–250",
-          "excerpt": "absolutely",
           "match": "The passage supplies the quaternionic local jacquet–langlands input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2842,7 +2794,6 @@
         {
           "sourceId": "jl70",
           "locator": "§15 special/norm-character correspondence; §16 p. 269",
-          "excerpt": "χv",
           "match": "The passage supplies the norm characters and steinberg twists input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2888,7 +2839,6 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1 printed pp. 347–348",
-          "excerpt": "triviale",
           "match": "CDN20 fixes the weight-two trivial quaternionic/holomorphic discrete-series convention in its global application. The general weight/central-character comparison uses the requested AF.1 archimedean character interfaces; finite-place ET.6 is not a real-place proof."
         }
       ],
@@ -2935,7 +2885,6 @@
         {
           "sourceId": "cdn23",
           "locator": "§4.1.2, printed p. 38, local division/split identification",
-          "excerpt": "non déployée",
           "match": "The passage supplies the wild and dyadic quaternionic compatibility input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -2978,7 +2927,6 @@
         {
           "sourceId": "cdn23",
           "locator": "§4.1.2 and equation (4.6), printed pp. 38–39",
-          "excerpt": "en échangeant les invariants",
           "match": "The passage supplies the swapped quaternion invariants in arithmetic applications input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -3024,7 +2972,6 @@
         {
           "sourceId": "jl70",
           "locator": "§16 printed pp. 268–269, properties (i)–(iv) and ζ″−ζ′",
-          "excerpt": "ζv",
           "match": "JL §16 explicitly constructs ζ=ζ″−ζ′ with the stated H and determinant characters and gives the Steinberg trace 1 and matching determinant-character trace −1."
         }
       ],
@@ -3128,7 +3075,6 @@
         {
           "sourceId": "jl70",
           "locator": "§16 character orthogonality and regular-elliptic orbital-integral identity, printed pp.269–270",
-          "excerpt": "orthogonality",
           "match": "The identity on p.270 gives the negative GL₂ character divided by the common torus quotient volume. The unrelated averaged constant-term equation (16.1.7) is on p.277. General matching existence and singular terms are requested from ET.3."
         }
       ],
@@ -3175,7 +3121,6 @@
         {
           "sourceId": "ac89",
           "locator": "Chapter 1 §3 Proposition 3.1 pp. 20–22; §4 p. 32",
-          "excerpt": "is a norm",
           "match": "The passage supplies the concrete cyclic norm matching input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -3277,7 +3222,6 @@
         {
           "sourceId": "langlands80",
           "locator": "§10 opening spectral decomposition; §11 opening comparison",
-          "excerpt": "scamped",
           "match": "The passage supplies the the continuous and residual spectral ledger input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
         }
       ],
@@ -3322,7 +3266,6 @@
         {
           "sourceId": "jl70",
           "locator": "§16 equation (16.1.7), printed p.277; preceding Steinberg averaged constant term, printed p.269",
-          "excerpt": "0",
           "match": "Equation (16.1.7) is K-averaged and yields induced traces zero. The stronger all-x,y condition stated here kills the whole induced operator by the requested SR.2 kernel formula; it is not attributed to the Steinberg projector. AS.6 supplies the resulting distributional vanishing."
         }
       ],
@@ -3371,7 +3314,6 @@
         {
           "sourceId": "jl70",
           "locator": "Introduction printed p. vi and §16 opening printed p. 262",
-          "excerpt": "not verified",
           "match": "The introduction explicitly warns that §16 is a sketch with unverified details. This motivates the recorded analytical gap; AS.6/ET.4, not this sketch, must supply the complete specialized trace proof."
         }
       ],
@@ -3421,7 +3363,6 @@
         {
           "sourceId": "getz15",
           "locator": "§6.4 Lemma 6.19, p. 33, corrected as AF/E1; §6.5 limit module, p. 34",
-          "excerpt": "limit of discrete",
           "match": "The notes explicitly include k=1 and give the full O(2) module whose connected constituents are the two limits. The displayed Casimir ideal in §6.4 is corrected using the notes’ §6.5 computation, as independently confirmed in the AF packet. The Weil/gamma and primitive comparisons import the listed owners."
         }
       ],

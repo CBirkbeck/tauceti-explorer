@@ -537,13 +537,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "1.1.1, p. 484-485",
-     "excerpt": "Si 𝒜 est un faisceau d’anneaux sur 𝑋, annulé par 𝑛 inversible sur 𝑋, il se prolonge en un foncteur exact 𝐾 ↦ 𝐾(𝑖) de 𝐷(𝑋, 𝒜) dans 𝐷(𝑋, 𝒜).",
      "match": "The finite-level coefficient category D(X, 𝒜) of étale sheaves of modules over a ring killed by n invertible on X; this node names it on Mathlib's site."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.1 (tag 0G2C)",
-     "excerpt": "Let Λ be a torsion coefficient ring. The functor Rf! : D(Xétale , Λ) → D(Yétale , Λ) has a right adjoint",
      "match": "The unbounded category D(X_étale, Λ) on which the adjoint is constructed."
     }
    ],
@@ -670,7 +668,6 @@
     {
      "sourceId": "SGA4-XVII",
      "locator": "5.2.10, p. 359",
-     "excerpt": "Si 𝐾 est de tor-dimension finie ≤ 𝑑 (4.1.9), alors 𝑅𝑓! 𝐾 est de tor-dimension finie ≤ 𝑑.",
      "match": "Finite Tor-dimension is preserved by Rf_!; the D_ctf subcategory is the one SGA 4 uses for coefficients."
     }
    ],
@@ -797,13 +794,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "1.1.1, (1.1.1.1)-(1.1.1.3), p. 484",
-     "excerpt": "un faisceau de modules localement libre de rang 1",
      "match": "Definition of the twists Z/n(i) and F(i) = F ⊗ Z/n(i)."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "§16, p. 108",
-     "excerpt": "Let X be a variety over a field k whose characteristic doesn’t divide n",
      "match": "The same twist, defined by sections over affine étale U."
     }
    ],
@@ -841,7 +836,6 @@
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.5 (tag 0GLC), proof",
-     "excerpt": "The first equality holds by Cohomology on Sites, Lemma 19.1. The second equality by Cohomology on Sites, Lemma 35.2.",
      "match": "The pullback/pushforward and tensor/RHom adjunctions on the unbounded étale derived category, used as the formal input to the sheafified adjunction."
     }
    ],
@@ -989,19 +983,16 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.8 (ii), p. 571",
-     "excerpt": "Si 𝑓 est une immersion fermée, alors 𝑓 ! est le foncteur « sections à support dans 𝑋 ».",
      "match": "For a closed immersion the sheaf-level right adjoint is sections with support."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 2.1 (tag 0F6F)",
-     "excerpt": "Then there is a canonical bijection {s ∈ F(U ) | Supp(s) ⊂ Z} = {s′ ∈ F(U ′ ) | Supp(s′ ) ⊂ Z ′ } which is given by restriction if φ−1 (Z) = Z ′ .",
      "match": "Étale excision for sections with support."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "§23, p. 138",
-     "excerpt": "an exact sequence (of the triple)",
      "match": "The sequence of the triple used for semi-purity and cycle classes."
     }
    ],
@@ -1116,13 +1107,11 @@
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Remark 11.8 (tag 0GLF)",
-     "excerpt": "commutes where res is the “restriction” functor which turns a",
      "match": "Restriction of scalars commutes with Rf_! (Remark 10.8) and with Rf^! (Remark 11.8)."
     },
     {
      "sourceId": "SGA4-XVII",
      "locator": "Proposition 5.2.9, p. 358",
-     "excerpt": "On a canoniquement",
      "match": "The projection formula, which gives the reduction identity for extension of scalars."
     }
    ],
@@ -1246,13 +1235,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "0.1 (III), p. 481",
-     "excerpt": "(III) le foncteur 𝑅𝑓! peut se calculer « au niveau des complexes », i.e. à partir d’un foncteur entre catégories de complexes.",
      "match": "The property of Rf_! that the enhancement uses."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "proof of 3.1.4, (3.1.4.7), p. 568-569",
-     "excerpt": "le foncteur des faisceaux de modules",
      "match": "The complex-level model f_!^• of Rf_!."
     }
    ],
@@ -1290,19 +1277,16 @@
     {
      "sourceId": "SGA4-XVII",
      "locator": "Corollaire 5.2.8.1, p. 358",
-     "excerpt": "Si les fibres de 𝑓 sont de dimension ≤ 𝑑, le foncteur 𝑅𝑓! est de dimension cohomologique ≤ 2𝑑 (1.2.9) : pour tout faisceau de torsion ℱ, on a 𝑅𝑖 𝑓! ℱ = 0 pour 𝑖 > 2𝑑.",
      "match": "Amplitude bound (a)."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 10.1 (tag 0G29)",
-     "excerpt": "commutes with direct sums.",
      "match": "Colimit preservation (c) on the unbounded category."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "0.1 (II), p. 481",
-     "excerpt": "(II) les foncteurs 𝑅𝑖 𝑓! commutent aux limites inductives filtrantes ; ils sont nuls pour 𝑖 assez grand ;",
      "match": "The properties Deligne isolates as the input to the existence of Rf^!."
     }
    ],
@@ -1452,25 +1436,21 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 3.1.4, p. 567",
-     "excerpt": "admet un adjoint à droite partiel",
      "match": "Existence of the right adjoint on D⁺."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Définition 3.1.6, p. 570-571",
-     "excerpt": "s’appelle le foncteur image inverse extraordinaire.",
      "match": "Name and definition."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.1 (tag 0G2C)",
-     "excerpt": "The functor Rf! : D(Xétale , Λ) → D(Yétale , Λ) has a right adjoint Rf ! : D(Yétale , Λ) → D(Xétale , Λ).",
      "match": "The unbounded right adjoint (by Brown representability), isomorphic to ours by uniqueness of adjoints."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 3.1.8, p. 571",
-     "excerpt": "(iii) Si 𝑓 est étale, alors 𝑓 ! s’identifie au foncteur 𝑓 ∗ , avec Tr𝑓 ∶ 𝑓! 𝑓 ∗ 𝐹 ⟶ 𝐹 comme morphisme d’adjonction.",
      "match": "The étale case."
     }
    ],
@@ -1505,13 +1485,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.13, (3.1.13.1), p. 576",
-     "excerpt": "vérifiant la condition de cocycle habituelle pour un composé triple.",
      "match": "Composition isomorphisms for f^!."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "proof of 3.1.10, (3.1.10.1), p. 573",
-     "excerpt": "se transpose en un isomorphisme de localisation",
      "match": "Localization isomorphism for étale base change."
     }
    ],
@@ -1553,19 +1531,16 @@
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.5 (tag 0GLC)",
-     "excerpt": "For every K ∈ D(Yétale , Λ) and L ∈ D(Xétale , Λ) the map (11.4.1) Rf∗ R Hom Λ (L, Rf ! K) −→ R Hom Λ (Rf! L, K) is an isomorphism.",
      "match": "Statement (a)."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Corollaires 3.1.12.2-3.1.12.3, p. 575-576",
-     "excerpt": "On a la formule d’induction",
      "match": "Statements (b) and (c)."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Corollaire 3.1.12.1, p. 575",
-     "excerpt": "On voit donc que le faisceau d’anneaux joue un rôle bidon dans la construction de 𝑅𝑓 ! .",
      "match": "Statement (d)."
     }
    ],
@@ -1604,7 +1579,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 3.1.8 (ii), p. 571",
-     "excerpt": "Si 𝑓 est une immersion fermée, alors 𝑓 ! est le foncteur « sections à support dans 𝑋 ».",
      "match": "Identification of i^! with sections with support."
     }
    ],
@@ -1722,13 +1696,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, (3.2.6.1), p. 586",
-     "excerpt": "L’isomorphisme 3.2.5.1, ou, plutôt l’isomorphisme qui s’en déduit",
      "match": "The role of a^!Λ (here identified with Z/n(d)[2d]) as the dualizing object of global duality."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.3 (tag 0GL9)",
-     "excerpt": "Let j : U → X be a separated étale morphism of quasi-compact and quasi-separated schemes. Let Λ be a torsion coefficient ring. The functor Rj ! : D(Xétale , Λ) → D(Uétale , Λ) is equal to j −1 .",
      "match": "Restriction of the dualizing complex along étale maps."
     }
    ],
@@ -1837,7 +1809,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, p. 586",
-     "excerpt": "Désignant par ∨ un Z/𝑛-dual, on a 𝑅 Hom(𝐹 , Z/𝑛) = 𝐹 ∨ (en degré 0). Cette formule résulte de ce que Z/𝑛 est un Z/𝑛-module injectif.",
      "match": "The dual on locally constant coefficients, the model case of D_X."
     }
    ],
@@ -1871,7 +1842,6 @@
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.6 (tag 0GLD)",
-     "excerpt": "For every K ∈ D(Yétale , Λ) and L ∈ D(Xétale , Λ) the map (11.4.1) induces an isomorphism R HomX (L, Rf ! K) −→ R HomY (Rf! L, K) of global derived homs.",
      "match": "The global form of (a) with K = K_S."
     }
    ],
@@ -1974,19 +1944,16 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.13, (3.1.13.2), p. 576",
-     "excerpt": "on dispose donc d’un morphisme de cochangement de base",
      "match": "Cobase-change map (iii)."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.7 (tag 0GLE)",
-     "excerpt": "Then we have Rf ! ◦ Rg∗ = Rg∗′ ◦ R(f ′ )! .",
      "match": "Isomorphism (i)."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.14, (3.1.14.2), p. 577–578",
-     "excerpt": "un « morphisme de changement de base »",
      "match": "Cartesian base-change transformation, separately from the cobase-change map in 3.1.13."
     }
    ],
@@ -2110,19 +2077,16 @@
     {
      "sourceId": "SGA4-XVII",
      "locator": "Théorème 6.2.3, p. 422-423",
-     "excerpt": "On peut d’une et d’une seule façon définir, pour tout morphisme 𝑓 ∶ 𝑋 → 𝑆, séparé, plat de présentation finie et quasi-fini, et tout faisceau abélien ℱ sur 𝑆, un morphisme trace Tr𝑓 ∶ 𝑓! 𝑓 ∗ ℱ ⟶ ℱ",
      "match": "Existence and uniqueness with (Var 1)-(Var 4)."
     },
     {
      "sourceId": "SGA4-XVII",
      "locator": "Théorème 6.2.3 (Var 4), p. 423",
-     "excerpt": "(Normalisation). Si",
      "match": "Degree normalization."
     },
     {
      "sourceId": "SGA4-XVII",
      "locator": "Proposition 6.2.11, p. 430",
-     "excerpt": "Si 𝑓 est un morphisme étale, séparé de type fini, le foncteur 𝑓! est un adjoint à gauche du foncteur 𝑓 ∗ , et admet le morphisme trace pour flèche d’adjonction.",
      "match": "Étale case."
     }
    ],
@@ -2239,13 +2203,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "1.1.3, (1.1.3.2), p. 485",
-     "excerpt": "On dispose de plus d’un isomorphisme IX 4.7 (donné par la théorie de Kummer) (1.1.3.2) 𝐻 2 (𝑋, Z/𝑛(1)) = Pic(𝑋)/𝑛 = (Z/𝑛)𝑐",
      "match": "Kummer identification on a complete curve, built from c₁."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "§23, p. 138",
-     "excerpt": "the cohomology sequence of the Kummer sequence",
      "match": "Definition of c₁ (text layer of the PDF as extracted)."
     }
    ],
@@ -2365,19 +2327,16 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "1.1.3, (1.1.3.3), p. 486",
-     "excerpt": "ou simplement Tr la flèche composée",
      "match": "Definition over an algebraically closed field, with multiplicities."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 1.1.6, p. 489",
-     "excerpt": "Il est d’une et d’une seule façon possible de définir, pour toute courbe",
      "match": "Relative curve trace."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Lemme 1.1.9, p. 491",
-     "excerpt": "alors le morphisme trace (1.1.6) est un isomorphisme.",
      "match": "Isomorphism criterion."
     }
    ],
@@ -2417,19 +2376,16 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 14.7, p. 93",
-     "excerpt": "there is a canonical perfect pairing of finite groups",
      "match": "Statement (symbols restored from the page; the text layer drops them)."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Example 14.8, p. 93",
-     "excerpt": "For r D 1, this can be identified with the Weil pairing",
      "match": "The Jacobian input."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Lemme 1.6.6, p. 545",
-     "excerpt": "est alors (non canoniquement(35) ) isomorphe au transposé du morphisme",
      "match": "The transposition statement used for effacement."
     }
    ],
@@ -2473,13 +2429,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Lemme fondamental 1.6.9, p. 548",
-     "excerpt": "Il existe un voisinage étale",
      "match": "Statement."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "0.2, p. 481-482",
-     "excerpt": "L’ingrédient essentiel de 1.6.9 est l’une ou l’autre forme de la dualité de Poincaré pour les courbes lisses sur un corps algébriquement clos, et le lemme d’acyclicité XV 2.6",
      "match": "The inputs of the proof."
     }
    ],
@@ -2571,13 +2525,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "2.8, (2.8.1), p. 552-553",
-     "excerpt": "on définit comme suit, par récurrence sur",
      "match": "Definition."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "2.8.2, p. 553",
-     "excerpt": "L’isomorphisme (2.8.1) est invariant par permutation des coordonnées.",
      "match": "Permutation invariance."
     }
    ],
@@ -2713,25 +2665,21 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 2.9, p. 553",
-     "excerpt": "Il est d’une et d’une seule façon possible d’associer à chaque triple (𝑓 , 𝑑, 𝐹 ) comme plus haut un morphisme trace Tr𝑓 ∶ 𝑅2𝑑 𝑓! 𝑓 ∗ 𝐹 (𝑑) ⟶ 𝐹",
      "match": "Existence and uniqueness with (Var 1)-(Var 4)."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 2.10, p. 559",
-     "excerpt": "Les morphismes trace XVII 6.2.3, XVIII 1.1.6 et (2.8.1)",
      "match": "Special cases."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "2.13, (2.13.2), p. 560",
-     "excerpt": "Par tensorisation avec 𝐾, ce morphisme définit, via (2.13.1), un morphisme trace (2.13.2) Tr𝑓 ∶ 𝑅𝑓! (𝑓 ∗ 𝐾(𝑑)[2𝑑]) ⟶ 𝐾.",
      "match": "Derived form."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Remarque 2.10.1, p. 559",
-     "excerpt": "le morphisme trace de 2.9 est un isomorphisme si et seulement si les fibres géométriques",
      "match": "Isomorphism criterion."
     }
    ],
@@ -2765,13 +2713,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 2.14, p. 560-561",
-     "excerpt": "Soient 𝑓 ∶ 𝑋 → 𝑆 un morphisme lisse et compactifiable purement de dimension relative 𝑑, et 𝑛 un entier ≥ 1 inversible sur 𝑆.",
      "match": "Hypotheses of the effacement theorem."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Corollaire 2.14.4, p. 562",
-     "excerpt": "Sous les hypothèses de 2.14, il existe un diagramme (2.14.1) tel que le morphisme XVII 6.2.4, dans 𝐷𝑏 (𝑉 , Z/𝑛) admette une factorisation",
      "match": "The derived factorization used in the purity proof."
     }
    ],
@@ -2819,19 +2765,16 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 3.2.5 (Dualité de Poincaré), p. 585",
-     "excerpt": "avec le morphisme (2.13.2)",
      "match": "Statement."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.4, p. 584-585",
-     "excerpt": "On déduit aussitôt de ce lemme et de la définition (3.1.13) des isomorphismes de",
      "match": "Compatibility with composition."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 16.1 (tag 0GLK)",
-     "excerpt": "is the sheaf associated to the presheaf",
      "match": "The stalk formula for f^! used in the proof."
     }
    ],
@@ -2873,13 +2816,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Lemme 2.1, p. 550",
-     "excerpt": "la flèche canonique",
      "match": "Top degree does not see small closed subsets."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Remarque 2.10.1, p. 559",
-     "excerpt": "le morphisme trace de 2.9 est un isomorphisme si et seulement si les fibres géométriques",
      "match": "Component count."
     }
    ],
@@ -2921,13 +2862,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, p. 586",
-     "excerpt": "Désignant par ∨ un Z/𝑛-dual, on a 𝑅 Hom(𝐹 , Z/𝑛) = 𝐹 ∨ (en degré 0). Cette formule résulte de ce que Z/𝑛 est un Z/𝑛-module injectif.",
      "match": "Dual of a local system over a self-injective ring."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 3.2.5, p. 586",
-     "excerpt": "On identifiera dorénavant à l’aide de 𝑡𝑓 les foncteurs 𝑓 ∗ 𝐿(𝑑)[2𝑑] et 𝑅𝑓 ! 𝐿.",
      "match": "K_X ≅ Λ(d)[2d]."
     }
    ],
@@ -2966,7 +2905,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, p. 586",
-     "excerpt": "Passant aux groupes de cohomologie, et utilisant à nouveau que",
      "match": "Self-injectivity is what turns derived duality into ordinary duals."
     }
    ],
@@ -3017,13 +2955,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, (3.2.6.1), p. 586",
-     "excerpt": "s’écrit donc ici",
      "match": "The smooth-stratum calculation that the dévissage reduces to."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "0.2, p. 481",
-     "excerpt": "Le § 2 est consacré au point (IV) ; il est purement formel à partir du § 1",
      "match": "This is the introduction describing §2 (trace and smooth calculations), not a citation proving general constructible biduality. A source and proof of the missing dévissage are still required."
     }
    ],
@@ -3060,7 +2996,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.10 and 3.2.6, p. 573 and 586",
-     "excerpt": "Proposition 3.1.10. — La flèche 3.1.9.6 est un isomorphisme.",
      "match": "The sheafified adjunction from which the exchange isomorphisms follow after biduality."
     }
    ],
@@ -3099,7 +3034,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 3.1.8, p. 571",
-     "excerpt": "(ii) Si 𝑓 est une immersion fermée, alors 𝑓 ! est le foncteur « sections à support dans 𝑋 ». (iii) Si 𝑓 est étale, alors 𝑓 ! s’identifie au foncteur 𝑓 ∗",
      "match": "The two exceptional inverse images of the recollement."
     }
    ],
@@ -3142,13 +3076,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, p. 586",
-     "excerpt": "L’isomorphisme 3.2.5.1, ou, plutôt l’isomorphisme qui s’en déduit",
      "match": "Geometric global duality over an algebraically closed field."
     },
     {
      "sourceId": "Stacks-MoreEtale",
      "locator": "Lemma 11.6 (tag 0GLD)",
-     "excerpt": "the map (11.4.1) induces an isomorphism R HomX (L, Rf ! K) −→ R HomY (Rf! L, K) of global derived homs.",
      "match": "Relative form."
     }
    ],
@@ -3194,13 +3126,11 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.2.6, (3.2.6.2), p. 586",
-     "excerpt": "qui est la forme habituelle de la dualité de Poincaré.",
      "match": "Statement."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 24.1, p. 144",
-     "excerpt": "which are perfect pairings of finite groups.",
      "match": "Pairing form (symbols restored from the page)."
     }
    ],
@@ -3242,13 +3172,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "§24, p. 145",
-     "excerpt": "the pairing can be defined by the usual cup-product formula.",
      "match": "The pairing is cup product."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Proposition 2.12, p. 559-560",
-     "excerpt": "Le diagramme suivant",
      "match": "Trace compatible with products, used for the cup product form."
     }
    ],
@@ -3283,7 +3211,6 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "(2.4), p. 281",
-     "excerpt": "est compatible",
      "match": "The Galois-equivariant rational pairing and eigenvalue reciprocity. Finite-level equivariance follows from trace base change; eigenvalues require field coefficients."
     }
    ],
@@ -3325,7 +3252,6 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "(2.14) A), p. 283",
-     "excerpt": "Tous les résultats importants en cohomologie étale se démontrent d'abord",
      "match": "Passage from torsion to ℓ-adic coefficients."
     }
    ],
@@ -3362,13 +3288,11 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§2, Théorème (2.12), p. 283",
-     "excerpt": "est une dualité parfaite.",
      "match": "Statement (displayed pairing reconstructed from the OCR fragments)."
     },
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "§2, (2.14) E), p. 283",
-     "excerpt": "par un calcul local qui n'est, pas difficile.",
      "match": "Import boundary: the local computation is the first proof step."
     }
    ],
@@ -3403,7 +3327,6 @@
     {
      "sourceId": "Deligne-WeilI-1974",
      "locator": "Scholie (2.10), p. 282",
-     "excerpt": "n'a pas de section à support fini.",
      "match": "Statement for curves (OCR symbols restored)."
     }
    ],
@@ -3438,7 +3361,6 @@
     {
      "sourceId": "Yu-2023",
      "locator": "§6.1, equations (6.1.1)-(6.1.2), p. 42",
-     "excerpt": "et par la dualité de Poincaré,",
      "match": "The printed formulas, with the Hom arguments reversed; the node states the corrected form (known erratum PAPER-YU-23/E14)."
     }
    ],
@@ -3472,7 +3394,6 @@
     {
      "sourceId": "SGA4-XVIII",
      "locator": "Théorème 3.2.5, p. 585",
-     "excerpt": "admet pour adjoint à droite le foncteur",
      "match": "The relative setting in which the duality holds."
     }
    ],
@@ -3517,13 +3438,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 16.1, p. 108",
-     "excerpt": "For any smooth pair of k-varieties",
      "match": "Statement over an algebraically closed field (symbols restored from the page)."
     },
     {
      "sourceId": "SGA4-XVIII",
      "locator": "3.1.13, p. 576",
-     "excerpt": "vérifiant la condition de cocycle habituelle pour un composé triple.",
      "match": "Composition of f^!, which reduces purity of the pair to smooth purity of X and Z."
     }
    ],
@@ -3562,7 +3481,6 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Lemma 23.1 (Semi-purity), p. 138",
-     "excerpt": "For any closed subvariety Z of codimension c in X,",
      "match": "Statement (Λ restored)."
     }
    ],
@@ -3684,7 +3602,6 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "§23, p. 139",
-     "excerpt": "Now let Z be a prime cycle in X of codimension c, and let Y be the singular locus of Z.",
      "match": "Construction through the dense smooth locus (symbols restored)."
     }
    ],
@@ -3820,13 +3737,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Remark 24.2, p. 145",
-     "excerpt": "This is the definition.",
      "match": "Definition by duality and agreement with the purity Gysin map (symbols restored; see sourceIssues for the misprinted degree)."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Remark 24.2 (e)-(f), p. 145",
-     "excerpt": "(Projection formula) If Y and X are complete, then",
      "match": "Projection formula and degree."
     }
    ],
@@ -3861,7 +3776,6 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Corollary 16.2, p. 108",
-     "excerpt": "In the situation of the theorem, there are isomorphisms",
      "match": "Statement."
     }
    ],
@@ -3896,7 +3810,6 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 23.2, p. 139",
-     "excerpt": "be the associated projective bundle.",
      "match": "Statement (symbols restored)."
     }
    ],
@@ -4016,13 +3929,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "§23, p. 140",
-     "excerpt": "the total Chern class of E, and",
      "match": "Definition (Milne writes ch_r for c_r; symbols restored)."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 23.3, p. 140",
-     "excerpt": "The Chern classes have the following properties:",
      "match": "Axioms."
     }
    ],
@@ -4162,13 +4073,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "§23, p. 139",
-     "excerpt": "We extend this by linearity to a homomorphism",
      "match": "Direct definition (symbols restored)."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 23.4, p. 142",
-     "excerpt": "This chern-class cycle map agrees with the directly-defined cycle map.",
      "match": "The two constructions agree (Milne gives no proof; see the proof steps)."
     }
    ],
@@ -4205,13 +4114,11 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "Remark 24.2 (e), p. 145",
-     "excerpt": "(Projection formula) If Y and X are complete, then",
      "match": "The projection formula, which with the self-intersection formula computes i^*i_*."
     },
     {
      "sourceId": "Milne-LEC",
      "locator": "Theorem 23.3, p. 140",
-     "excerpt": "given by the Kummer sequence.",
      "match": "The c = 1 case."
     }
    ],
@@ -4250,7 +4157,6 @@
     {
      "sourceId": "Milne-LEC",
      "locator": "proof of Theorem 23.2, p. 139",
-     "excerpt": "There is an isomorphism of graded rings",
      "match": "Cohomology of projective space (symbols restored)."
     }
    ],

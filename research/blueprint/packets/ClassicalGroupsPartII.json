@@ -261,7 +261,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -355,13 +354,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -469,13 +466,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -569,7 +564,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -686,13 +680,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, complement 22.12, printed p.466",
-          "excerpt": "A central isogeny",
           "match": "Specifies the finite-index character-lattice inclusion and central-kernel descent of highest-weight representations. The explicit square-root cover proves the GSp specialization."
         }
       ],
@@ -744,13 +736,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -850,7 +840,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -950,7 +939,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1038,13 +1026,11 @@
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1145,13 +1131,11 @@
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132 and symplectic dimension calculation at the start of p.133",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1196,7 +1180,6 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1244,19 +1227,16 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1343,19 +1323,16 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §c, Lemma 22.39 and Theorem 22.42, pp.477–479",
-          "excerpt": "A representation of G",
           "match": "Semisimplicity descends under field extension and holds for connected reductive groups in characteristic zero."
         }
       ],
@@ -1397,13 +1374,11 @@
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         },
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1496,13 +1471,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1606,13 +1579,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "milne-2022",
           "locator": "Chapter 22 §a, Theorem 22.2 and complements 22.3–22.6, pp.464–466",
-          "excerpt": "split reductive group",
           "match": "Highest weights, absolute simplicity and scalar extension for algebraic representations; the node specializes these facts to GSp with the explicit central lattice."
         }
       ],
@@ -1655,13 +1626,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -1764,7 +1733,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1852,13 +1820,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -1898,7 +1864,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -1984,7 +1949,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2087,7 +2051,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2173,7 +2136,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2264,13 +2226,11 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         },
         {
           "sourceId": "sternberg-2004",
           "locator": "§7.9, pp.131–132",
-          "excerpt": "contraction by Ω",
           "match": "Primitive symplectic exterior powers and Cartan products; use the corrected binomial coefficient recorded in sourceIssues."
         }
       ],
@@ -2314,7 +2274,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],
@@ -2403,7 +2362,6 @@
         {
           "sourceId": "yu-2022",
           "locator": "§7.1, equation (7.1.1) and Remark 7.1.1, printed p.64",
-          "excerpt": "la théorie du plus haut poids",
           "match": "The stated rational GSp character ring and its tensor-constituent subring motivate this declaration."
         }
       ],

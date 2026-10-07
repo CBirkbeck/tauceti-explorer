@@ -199,7 +199,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1 pp. 320–321; IX.5 p. 328; VIII.4.1 p. 291",
-          "excerpt": "π0 End",
           "match": "FS specifies the enhanced center pi_0 End(id). The E_2 and Ind mapping-object facts are requested from E5; the Perf(A) test uses Hochschild cohomology in degree zero, not an asserted comparison with all homotopy-category centers."
         }
       ],
@@ -289,7 +288,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 p. 328; Mathlib Center/Basic and Center/Linear at the pins",
-          "excerpt": "π0 End",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -331,7 +329,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.2 pp. 291–292; IX.2 pp. 321–324",
-          "excerpt": "Definition VIII.4.2.",
           "match": "VIII.4.2 defines the abstract datum and operator; IX.2 supplies the normalized enhanced Bun_G Hecke family. Only the specialization is owned here."
         }
       ],
@@ -436,7 +433,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.1 pp. 291–293; IX.5 p. 328",
-          "excerpt": "canonical map of algebras",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -480,7 +476,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.1.2 pp. 320–321; IX.5.1 pp. 327–328; VIII.3.7 pp. 288–290",
-          "excerpt": "condensed",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -520,7 +515,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.7 pp. 288–290; IX.5 p. 328",
-          "excerpt": "independent",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -564,7 +558,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 p. 329; VII.7.2 pp. 271–273",
-          "excerpt": "usual Bernstein center",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -605,7 +598,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 p. 329; roadmap ES0:classical-center coefficient dictionary",
-          "excerpt": "usual Bernstein center",
           "match": "FS supplies the map to the smooth center, not the complex block theorem. SR.3 and the requested coefficient dictionary supply this roadmap-added comparison."
         }
       ],
@@ -645,7 +637,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 328–329",
-          "excerpt": "Z spec",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -742,7 +733,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.1 pp. 327–328",
-          "excerpt": "for all finite sets",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -788,7 +778,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 328–329",
-          "excerpt": "direct product",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -831,7 +820,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 328–329; VIII.3.7 pp. 288–290",
-          "excerpt": "canonical map of algebras",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -874,7 +862,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.2 p. 329",
-          "excerpt": "order of π0 Z(G)",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -919,7 +906,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.2 p. 329; VIII.4.2 pp. 291–293",
-          "excerpt": "natural map",
           "match": "Roadmap compatibility obligation derived from the shared excursion construction and the imported normalized kernel comparisons, rather than a separately numbered FS theorem."
         }
       ],
@@ -957,7 +943,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.6 opening p. 330",
-          "excerpt": "excursion algebra",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -996,7 +981,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X opening p. 339",
-          "excerpt": "compactly supported",
           "match": "The verifier of RT-AREA-geomlanglands/6 assigns Chapter X universal action mathematics to ES2/ES3. The duplicate LP4 compact-support node is proposed for removal, while LP1 retains the geometric exhaustion."
         }
       ],
@@ -1082,7 +1066,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.1 pp. 340–342",
-          "excerpt": "evaluation",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1173,7 +1156,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.1 pp. 340–343",
-          "excerpt": "Theorem X.1.1.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1215,7 +1197,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.2 pp. 342–343",
-          "excerpt": "Lemma X.1.2.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1257,7 +1238,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.2 proof p. 343",
-          "excerpt": "pushouts",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1305,7 +1285,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.3 pp. 343–344",
-          "excerpt": "Corollary X.1.3.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1350,7 +1329,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.3 p. 344; IX.5.2 p. 329",
-          "excerpt": "Corollary X.1.3.",
           "match": "A roadmap-added comparison deduced from FS’s uniqueness and the two constructions’ shared excursion generators; not a separately numbered assertion in FS."
         }
       ],
@@ -1388,7 +1366,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3 pp. 348–349",
-          "excerpt": "sifted colimits",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1478,7 +1455,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.1 pp. 348–349",
-          "excerpt": "Proposition X.3.1.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1519,7 +1495,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.2 p. 349",
-          "excerpt": "highest weight theory",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1562,7 +1537,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.3 pp. 349–350",
-          "excerpt": "fully faithful",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1603,7 +1577,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.4 p. 350",
-          "excerpt": "Proposition X.3.4.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1647,7 +1620,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.2 p. 340; X.3 closing p. 350; VIII.5.1 p. 293",
-          "excerpt": "Theorem X.0.2.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1692,7 +1664,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.1 pp. 339–340; X.3 closing p. 350",
-          "excerpt": "Theorem X.0.1.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1740,7 +1711,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.1 pp. 339–340; X.3.1 pp. 348–349",
-          "excerpt": "equivalent",
           "match": "The roadmap asks for these coherence diagrams. FS provides their universal action characterization; the precise LP and HS base-change interfaces are requested."
         }
       ],
@@ -1782,7 +1752,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.1 pp. 339–340; IX.2 pp. 321–322",
-          "excerpt": "Λ-linear",
           "match": "A conditional roadmap coefficient-comparison target; the supplied higher-category base-change equivalences are open requests rather than unproved theorem fields."
         }
       ],
@@ -1823,7 +1792,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 327–328",
-          "excerpt": "full ∞-subcategory",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -1913,7 +1881,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1 pp. 343–344; X.3.5 p. 350",
-          "excerpt": "Whittaker sheaf",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2009,13 +1976,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 328–329; Mathlib RingTheory/Spectrum/Prime/Basic.lean at 082e2d3",
-          "excerpt": "connected components",
           "match": "This is a roadmap-added central annihilator support built from the FS center action and the pinned zero-locus definition. It is not attributed to FS VIII.2’s singular-support formalism."
         },
         {
           "sourceId": "mathlib-prime-spectrum",
           "locator": "zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical",
-          "excerpt": "zeroLocus",
           "match": "Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry."
         }
       ],
@@ -2106,13 +2071,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 p. 329; Mathlib Prime/Basic zeroLocus_mul and zeroLocus_inf",
-          "excerpt": "Hecke",
           "match": "Elementary consequences of the defined central action, not a separate source theorem. The triangle product-ideal argument is supplied explicitly."
         },
         {
           "sourceId": "mathlib-prime-spectrum",
           "locator": "zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical",
-          "excerpt": "zeroLocus",
           "match": "Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry."
         }
       ],
@@ -2150,13 +2113,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.2 p. 329; X.0.1 pp. 339–340",
-          "excerpt": "natural map",
           "match": "Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses."
         },
         {
           "sourceId": "mathlib-prime-spectrum",
           "locator": "zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical",
-          "excerpt": "zeroLocus",
           "match": "Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry."
         }
       ],
@@ -2198,7 +2159,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5 pp. 328–329; X.0 p. 339; Mathlib Prime/Basic zero-locus radical criterion",
-          "excerpt": "idempotents",
           "match": "The source supplies the idempotent case; general single-function localization is the explicit E5-backed roadmap obligation."
         }
       ],
@@ -2243,7 +2203,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.5.3 pp. 329–330; VI.12.1 pp. 239–241",
-          "excerpt": "Chevalley involution",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2292,7 +2251,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "IX.3.1–IX.3.2 pp. 324–327; I.9 pp. 35–36",
-          "excerpt": "partial Frobenii",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2333,7 +2291,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.2.1 p. 346",
-          "excerpt": "Definition X.2.1.",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2420,7 +2377,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.2.1 pp. 346–347",
-          "excerpt": "unramified twists",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2463,7 +2419,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.2 pp. 346–348",
-          "excerpt": "supercuspidal",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],

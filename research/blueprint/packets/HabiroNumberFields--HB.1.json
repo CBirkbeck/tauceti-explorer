@@ -306,7 +306,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§3.4, proof of Lemma 3.5, p.402",
-          "excerpt": "non-zero if and only if",
           "match": "The finite-module vanishing assertion is proved here using a cyclic generator and primary decomposition; only its needed direction is used."
         }
       ],
@@ -352,7 +351,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§3.4, Lemma 3.5, p.402",
-          "excerpt": "Keune",
           "match": "CGZ supplies the application and quoted injection; the original Keune theorem is owned and source-gapped at N.6."
         }
       ],
@@ -404,7 +402,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§3.4, proof of Lemma 3.5, pp.402–403",
-          "excerpt": "totally ramified at p.",
           "match": "The assertion is expanded through the actual Eisenstein and completion suppliers, with the unique prime and fixed valuation lattice made explicit."
         }
       ],
@@ -452,7 +449,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§3.4, proof of Lemma 3.5, p.402",
-          "excerpt": "Kummer sequence",
           "match": "Supplies a precise elementary lifting argument for the passage to eigenclasses; no unjustified exact eigenfunctor is used."
         }
       ],
@@ -505,7 +501,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§3.4, Lemma 3.5 and proof, pp.402–403",
-          "excerpt": "actual units.",
           "match": "The needed conclusion is recovered with the actual valuation-image lattice and two injective lifts. Generic Kummer/cohomology and Chern constructions are imported."
         }
       ],
@@ -571,13 +566,11 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§2.6, Proposition 2.12(a) and proof, p.399",
-          "excerpt": "dim",
           "match": "The character calculation motivates the node; its Galois-closure product argument is replaced by the direct logarithmic action and orbit calculation (E6)."
         },
         {
           "sourceId": "Sutherland.HerbrandUnits.2021",
           "locator": "Theorem 24.6, pp.3–4",
-          "excerpt": "generates a finite index subgroup",
           "match": "An independent source for the permutation-module description of units modulo a single relation. The proof here consumes pinned Dirichlet, rather than planning another unit theorem."
         }
       ],
@@ -633,7 +626,6 @@
         {
           "sourceId": "CGZ.BlochUnits.Published.2023",
           "locator": "§2.6, Proposition 2.12(b), p.399; §3.5, p.403",
-          "excerpt": "distinct characters of G",
           "match": "Makes the integral-to-residual comparison and the exceptional μ₃ term explicit. The printed uniform count in §3.5 is corrected (E2)."
         }
       ],

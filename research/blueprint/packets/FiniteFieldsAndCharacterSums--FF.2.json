@@ -296,7 +296,6 @@
         {
           "sourceId": "kowalski-expsums-elementary",
           "locator": "Chapter 4, Proposition 4.8 and primitive Dirichlet characters, pp. 41–43",
-          "excerpt": "is primitive, in particular",
           "match": "General finite-ring kernel characterization of the source’s primitive Dirichlet character; the reduction-surjectivity proof is specified here."
         }
       ],
@@ -394,7 +393,6 @@
         {
           "sourceId": "kowalski-expsums-elementary",
           "locator": "Chapter 4, (4.12), (4.16), pp. 44–47",
-          "excerpt": "As for the Gauss sum over R, we claim that",
           "match": "Extends the stated primitive-modulus claim beyond the squarefree proof using annihilator ideals and Parseval; the source alone is not credited with this proof."
         }
       ],
@@ -435,7 +433,6 @@
         {
           "sourceId": "kowalski-expsums-elementary",
           "locator": "Proof of Proposition 4.11, pp. 46–47, corrected coefficient argument",
-          "excerpt": "We express",
           "match": "The parent E720 corrects coefficient reversal. This comparison states the correct pairing in the nonreduced case and supplies its dimension argument."
         }
       ],
@@ -478,7 +475,6 @@
         {
           "sourceId": "kowalski-expsums-elementary",
           "locator": "Proposition 4.11, pp. 46–47",
-          "excerpt": "satisfies the functional equation",
           "match": "The general primitive-modulus statement, supplied with the corrected pairing and the new nonunit argument, rather than repeating the parent’s squarefree theorem."
         }
       ],
@@ -521,13 +517,11 @@
         {
           "sourceId": "SERRE-RESIDUE",
           "locator": "§4.4, Lemma 4′, pp. 144–145",
-          "excerpt": "cyclique de degré p.",
           "match": "The equal-characteristic case of the local calculation; the uniformizer proof explains the perfect-residue-field extension."
         },
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "Exemple 3.5, (3.5.4), volume p. 191",
-          "excerpt": "Sw",
           "match": "This is the geometric Swan input used by the parent rational-function bound; the definition still requires the AGR extension."
         }
       ],
@@ -570,13 +564,11 @@
         {
           "sourceId": "DELIGNE-WEIL-II",
           "locator": "§3.7.2, p. 215",
-          "excerpt": "le polynôme universel",
           "match": "The coefficient scheme and smooth-leading open; the notation is fixed here to avoid prime/unprime ambiguity."
         },
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "§8.10, p. 305",
-          "excerpt": "Puisque S est connexe",
           "match": "The original family argument used in the proof of 8.5."
         }
       ],
@@ -679,13 +671,11 @@
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "§§8.7–8.8, pp. 304–305",
-          "excerpt": "lisse sur une surface",
           "match": "The two local models, with variables rendered as subscripts; normalization and étale products are supplier inputs."
         },
         {
           "sourceId": "DELIGNE-WEIL-II",
           "locator": "§3.7.3, p. 216",
-          "excerpt": "est constant, i.e. isomorphe au produit avec S",
           "match": "The local constant-product argument for j!L in the alternative lissity proof."
         }
       ],
@@ -726,7 +716,6 @@
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "§§8.5(iii), 8.6, 8.9–8.10, pp. 303–305",
-          "excerpt": "alternativement, on normalise et on éclate",
           "match": "The exact historical compactification route; the theorem remains conditional on the surface supplier contract."
         }
       ],
@@ -768,7 +757,6 @@
         {
           "sourceId": "DELIGNE-WEIL-II",
           "locator": "§3.7.3, p. 216",
-          "excerpt": "est donc localement acyclique",
           "match": "The resolution-free lissity mechanism; actual local acyclicity and constructible derived coefficients are imported."
         }
       ],
@@ -808,13 +796,11 @@
         {
           "sourceId": "DELIGNE-WEIL-II",
           "locator": "Lemma 3.7.3, pp. 215–216",
-          "excerpt": "sont lisses",
           "match": "The lissity conclusion; source notation is reconciled to the fixed S above."
         },
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "§8.10, p. 305",
-          "excerpt": "localement constants sur S",
           "match": "The historical relative-compactification proof supplies an alternative route."
         }
       ],
@@ -865,13 +851,11 @@
         {
           "sourceId": "DELIGNE-WEIL-II",
           "locator": "§3.7.4, p. 216",
-          "excerpt": "il suffit donc",
           "match": "Reduction to Fermat via 1.8.12 and Künneth."
         },
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "§§8.10–8.12, pp. 305–306",
-          "excerpt": "il reste à vérifier",
           "match": "The one-variable Euler characteristic and clean-duality inputs, with the same prime-to-p guard."
         }
       ],
@@ -916,7 +900,6 @@
         {
           "sourceId": "DELIGNE-WEIL-I",
           "locator": "Lemma 8.5(ii) and reduction at §8.5, pp. 303–304",
-          "excerpt": "dualité parfaite",
           "match": "The clean-cover argument behind the parent’s forget-supports and cup-product statement; not inferred merely from the numerical bound."
         }
       ],
@@ -956,13 +939,11 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "§7.1, (7.1.1)–(7.1.4), pp. 218–219",
-          "excerpt": "somme de Gauss",
           "match": "All-coordinate product-fiber convention; §7.7 checks its zero fiber."
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "§4.3.3, Theorem 4.4, pp. 12–13",
-          "excerpt": "Kloosterman",
           "match": "The analytic unit-fiber normalized convention is compared, rather than substituted at zero."
         }
       ],
@@ -1067,7 +1048,6 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "Proposition 4.11 and §4.12, pp. 201–202",
-          "excerpt": "par la signature",
           "match": "Split Künneth concentration and the signed permutation action, used by §7.12 to prove wild monodromy of Kl."
         }
       ],
@@ -1109,13 +1089,11 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "Theorem 7.8(i)–(iv), pp. 221–222",
-          "excerpt": "son prolongement",
           "match": "The scan was inspected: zero extension is from A¹ to P¹, while the extension across 0 is direct image."
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "Theorem 4.4, pp. 12–13",
-          "excerpt": "pure of weight 0",
           "match": "Comparison to analytic normalization; no half Tate twist is silently assumed in E."
         }
       ],
@@ -1222,7 +1200,6 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "Theorem 7.4; §§7.7, 7.13–7.14, pp. 220–225",
-          "excerpt": "La cohomologie",
           "match": "The fiber concentration, clean comparison and the simultaneous induction with local monodromy; the zero-fiber spectral-sequence shift is retained."
         }
       ],
@@ -1266,7 +1243,6 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "Theorem 7.8 and proof §§7.9–7.12, pp. 221–224",
-          "excerpt": "Swan vaut",
           "match": "Full local input, not only the numerical trace bound; uses the same single GOS owner request."
         }
       ],
@@ -1306,13 +1282,11 @@
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
           "locator": "§7.1(7.1.3) and §7.5, pp. 219–221",
-          "excerpt": "valeurs propres",
           "match": "The rank-k weight-(k−1) estimate."
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "Theorem 4.4, p. 13",
-          "excerpt": "Kloosterman",
           "match": "The normalized analytic bound, compared with the geometric sign convention."
         }
       ],
@@ -1354,7 +1328,6 @@
         {
           "sourceId": "KATZ-BETTI",
           "locator": "Part I, Theorem 2 and proof, manuscript pp. 2–4",
-          "excerpt": "We proceed by induction",
           "match": "The precise affine weak-Lefschetz induction and constants, not the existing projective smooth weak-Lefschetz contract."
         }
       ],
@@ -1397,7 +1370,6 @@
         {
           "sourceId": "KATZ-BETTI",
           "locator": "Part I, Theorem 1 and proof, manuscript pp. 2–3",
-          "excerpt": "1 - Z",
           "match": "The complement cover and auxiliary smooth hypersurface argument, including the N=1 extension needed by Theorem 3."
         }
       ],
@@ -1438,13 +1410,11 @@
         {
           "sourceId": "KATZ-BETTI",
           "locator": "Part I, Theorem 3, manuscript p. 4",
-          "excerpt": "1 +",
           "match": "Affine stratification yields the displayed sum; the sharper factor 8 is derived explicitly here."
         },
         {
           "sourceId": "GHORPADE-LACHAUD-02",
           "locator": "§5, explicit Betti-number bound and §11.1–11.2",
-          "excerpt": "9 × 2",
           "match": "The factor 9 in uniform Lang–Weil comes after the Betti bound, not from identifying the two constants."
         }
       ],
@@ -1488,7 +1458,6 @@
         {
           "sourceId": "GHORPADE-LACHAUD-02",
           "locator": "Proposition 9.4(i)–(iii), pp. 28–29",
-          "excerpt": "dim Albw X ≤ g(Ye )",
           "match": "The generic section maps and genus inequality; the proof references a general rational-Albanese theory absent from the present A2 contract."
         }
       ],
@@ -1535,7 +1504,6 @@
         {
           "sourceId": "GHORPADE-LACHAUD-02",
           "locator": "Lemma 11.7 and proof, pp. 37–38",
-          "excerpt": "O(q n−1 )",
           "match": "The pencil proof of the all-extension expansion; source alone does not replace the surface and family-uniformity supplier inputs."
         }
       ],
@@ -1580,7 +1548,6 @@
         {
           "sourceId": "GHORPADE-LACHAUD-02",
           "locator": "Theorem 10.7; proof after Lemma 11.7, pp. 34, 38",
-          "excerpt": "these two families are identical",
           "match": "The highest-weight spectrum identification, with the all-extension and signed-power-sum argument stated explicitly."
         }
       ],
@@ -1624,7 +1591,6 @@
         {
           "sourceId": "GHORPADE-LACHAUD-02",
           "locator": "Theorem 11.1 and Remark 11.3, pp. 35–36",
-          "excerpt": "depends only on",
           "match": "The projective equation-data bound and its affine extension; the family contract spells out the bounded presentation needed in routed applications."
         }
       ],
@@ -1667,7 +1633,6 @@
         {
           "sourceId": "MEAGHER-CHEBOTAREV",
           "locator": "Proof of Theorem 1.1, pp. 198–200",
-          "excerpt": "twist",
           "match": "Extends the geometrically connected-cover twist count by retaining its constant-field components and the FA.5 coset convention."
         }
       ],
@@ -1711,7 +1676,6 @@
         {
           "sourceId": "MEAGHER-CHEBOTAREV",
           "locator": "Theorem 1.1 and Appendix A, pp. 196–202",
-          "excerpt": "Lang–Weil",
           "match": "Geometrically connected case of the argument; the constant-coset correction and bounded finite linear system are supplied explicitly here."
         }
       ],
@@ -1760,7 +1724,6 @@
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "§5, (5.1)–(5.2), pp. 13–14",
-          "excerpt": "coinvariants",
           "match": "The full Frobenius main term, before imposing isotypicity; the explicit Betti error avoids ambiguity in printed conductor exponents."
         }
       ],
@@ -1804,7 +1767,6 @@
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "Theorem 5.2, (5.3)–(5.4), p. 14",
-          "excerpt": "complex numbers",
           "match": "The geometric-isotypic main term and extension-uniform error, retaining the distinction from arithmetic semisimplicity."
         }
       ],
@@ -1845,7 +1807,6 @@
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "Definition 7.1 and Examples 7.3, pp. 19–20",
-          "excerpt": "γ ∗ F ≃geom F",
           "match": "The group used by the correlation criterion; its additional representability claim is not needed for this target."
         }
       ],
@@ -1945,7 +1906,6 @@
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
           "locator": "Proposition 7.2, p. 20",
-          "excerpt": "γ",
           "match": "The vanishing-Hom correlation criterion, not the separate finite-group classification of §§7.4–7.7."
         }
       ],

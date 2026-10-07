@@ -576,7 +576,6 @@
         {
           "sourceId": "yetter",
           "locator": "§2 Definition 1 and Example 4",
-          "excerpt": "A measurable field of Hilbert spaces H on a Borel space (X, S) is a pair (Hx , MH ), where HxQis an X-indexed family of Hilbert spaces, and MH = M is a linear subspace of x∈X Hx (the product as vector-spaces) satisfying ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -662,7 +661,6 @@
         {
           "sourceId": "yetter",
           "locator": "§4 Definition26, p.13; Theorem27, pp.13–14",
-          "excerpt": "Definition 26 Given a(n almost) measurable field H of Hilbert spaces on a Borel space (X, S) and a measure µ on (X, S), the direct integral Z ⊕ Hx dµ(x) X is the Hilbert space of all measurable sections ξ ∈ MH such that ",
           "match": "Definition26 constructs the L²-section quotient and its inner product; Theorem27 verifies its linear functoriality. The completeness/separability proof in this packet is an explicit analytic adaptation, not a claimed numbered theorem of Yetter."
         }
       ],
@@ -752,7 +750,6 @@
         {
           "sourceId": "yetter",
           "locator": "§2 Definition2; §4 Definition26 and Theorem27",
-          "excerpt": "Similarly given a (µ-essentially) bounded field of operators α : H → K, the R⊕ R⊕ direct integral X α(x)dµ(x) is the map which takes an element ξ of X Hx dµ(x) R⊕ to the element of X Kx dµ(x) given at each point x by α(x",
           "match": "Definition26 gives the operator on L² classes and Theorem27 its bound/functoriality. Equality of the essential-supremum norm uses the countable fundamental sequence, as detailed in the proof work."
         }
       ],
@@ -833,7 +830,6 @@
         {
           "sourceId": "teschl",
           "locator": "§0.4 Theorem0.26 (B.L.T. theorem), pp.23–24",
-          "excerpt": "Theorem 0.26 below). In particular it is no restriction to assume that a normed linear space or an inner product space is complete. However, in the important case of L2cont it is somewhat inconvenient to work with equiva",
           "match": "The source proves unique norm-preserving bounded extension from a dense domain. Polarization and the closed range of an isometry supply the Hilbert-space corollary; density of the target range is a separate hypothesis."
         }
       ],
@@ -867,7 +863,6 @@
         {
           "sourceId": "teschl",
           "locator": "§3.1 equations (3.5)–(3.15); PDF page 100",
-          "excerpt": "A projection-valued mea- sure is a map P : B → L(H), Ω 7→ P (Ω), (3.5) from the Borel sets to the set of orthogonal projections, that is, P (Ω)∗ = P (Ω) and P (Ω)2 = P (Ω), such that the following two conditions hold: (i",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -949,13 +944,11 @@
         {
           "sourceId": "teschl",
           "locator": "§3.4 Theorem 3.20",
-          "excerpt": "Herglotz representation). Suppose F is a Herglotz function satisfying M |F (z)| ≤ , z ∈ C+",
           "match": "Theorem 3.20 proves only the finite-measure Borel-transform case under |F(z)|≤M/Im(z). It supplies the resolvent specialization, not the general a+bz representation."
         },
         {
           "sourceId": "shapiro25",
           "locator": "§10.1 Theorem 10.5, equation (10.1), and proof, printed pp.125–126",
-          "excerpt": "Theorem 10.5 (Herglotz representation theorem).",
           "match": "This is the general subtracted representation with a real constant, nonnegative linear coefficient and weighted-integrable positive measure. The Im F=0 boundary case follows by the open mapping theorem (F is a real constant). The proof invokes the positive harmonic Poisson representation."
         }
       ],
@@ -996,7 +989,6 @@
         {
           "sourceId": "teschl",
           "locator": "§3.1 Theorems 3.1–3.7; §3.3 Theorem 3.17",
-          "excerpt": "To every self-adjoint operator A there corresponds a unique projection-valued measure PA such that Z A= λdPA (λ). (3.49) R Proof. Existence has already been established. Moreover, Lemma 3.5 shows that PA ((λ−z)−1 ) = RA ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -1039,7 +1031,6 @@
         {
           "sourceId": "teschl",
           "locator": "§3.1 bounded functional calculus and §3.3 multiplication models",
-          "excerpt": "multiplication operator. Example. (Multiplication operator) Consider the multiplication operator (Af )(x) = A(x)f (x), D(A) = {f ∈ L2 (Rn , dµ) | Af ∈ L2 (Rn , dµ)} (2.21) given by multiplication with the measurable func",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -1078,7 +1069,6 @@
         {
           "sourceId": "teschl",
           "locator": "§6.3 equations (6.8)–(6.13), Lemma 6.10; PDF page 152",
-          "excerpt": "Lemma 6.10. A compact operator K is Hilbert–Schmidt if and only if X kKψn k2 < ∞ (6.16) n for some orthonormal basis and X kKψn k2 = kKk22 (6.17) n for any orthonormal basis in this case. Proof. This follows from X X X k",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1164,7 +1154,6 @@
         {
           "sourceId": "teschl",
           "locator": "§6.2 Theorems 6.6–6.7; §6.3 Lemma 6.13, Corollary 6.14 and Lemmas 6.15–6.16, printed pp.136–144",
-          "excerpt": "Lemma 6.15. If K is trace class, then for any orthonormal basis {ϕn } the trace X tr(K) = hϕn , Kϕn i (6.26) n is finite and independent of the orthonormal basis. Proof. Let {ψn } be another ONB. If we write K = K1 K2 wi",
           "match": "The singular-value expansion is Theorem 6.7, proved using the compact self-adjoint spectral theorem. Lemma 6.13 gives Hilbert–Schmidt factorization; Lemmas 6.15–6.16 give basis independence and bounded-operator cyclicity."
         }
       ],
@@ -1255,7 +1244,6 @@
         {
           "sourceId": "teschl",
           "locator": "§6.3 kernel expansion (6.10)–(6.12) and Lemma 6.15",
-          "excerpt": "integral operators Z Kψ(x) = K(x, y)ψ(y)dµ(y), ψ ∈ L2 (M, dµ), (6.8) M where K(x, y) ∈ L2 (M ×M, dµ⊗dµ). Such an operator is called a Hilbert– Schmidt operator. Using Cauchy–Schwarz, Z Z Z 2 2 |Kψ(x)| dµ(x) = |K(x, y)ψ(y",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -1294,7 +1282,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.1, A.0.5 and A.0.6; PDF page 145",
-          "excerpt": "quasi-complete if every closed bounded subset of it is complete. Fréchet spaces and strict LF spaces are quasi-complete. A.0.2 We recall the notion of integral valued in a LCTVS in the form we use it in the core of the p",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1383,7 +1370,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.2 and Lemmas A.0.6.1–A.0.6.2; PDF page 145",
-          "excerpt": "A.0.2 We recall the notion of integral valued in a LCTVS in the form we use it in the core of the paper. Let X be a σ -compact locally compact topological space, dx be a Radon measure on X and V be a LCTVS. Let f : X → V",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1421,7 +1407,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.7; PDF page 148",
-          "excerpt": "It admits a canonical linear map",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1505,7 +1490,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.8–A.0.9, Lemma A.0.9.1; PDF page 149",
-          "excerpt": "A.0.9 Let A be a real vector space. Denote by Diff(A) the space of complex poly- nomial differential operators on A (which can be identified with Sym(A∗C ) ⊗C Sym(AC )). When V is quasi-complete, we define the space of S",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1588,7 +1572,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.3–A.0.5 holomorphy; Arthur 2005 §7 motivates meromorphic extension; PDF page 146",
-          "excerpt": "A.0.3 We will also freely use the notions of smooth or holomorphic functions val- ued in a LCTVS. For basic references on these subjects, we refer the reader to [Bou67, §2, §3], [Gro53, §2], [Gro73, Chap. 3, §8]. There a",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1671,7 +1654,6 @@
         {
           "sourceId": "teschl",
           "locator": "§6.2 Fredholm alternative and analytic perturbation motivation; PDF page 148",
-          "excerpt": "Recall from Section 5.2 that we have introduced the set of compact operators C(H) as the closure of the set of all finite rank operators in L(H). Before we can proceed, we need to establish some further results for such ",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1712,7 +1694,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.2–A.0.5; PDF page 146",
-          "excerpt": "A.0.4 Assume that V is a LF space. As LF spaces are barreled [Trè67, Corol- lary 33.3] they satisfy the Banach-Steinhaus theorem [Trè67, Theorem 33.1] hence any bounded subset of Hom(V, W) is equicontinuous (as Hom(V, W)",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -1754,7 +1735,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.8 definition; Lemma A.0.10.1, printed p.332",
-          "excerpt": "Lemma A.0.10.1. — Assume that V is quasi-complete. Let Z+ , Z− : H>C → V be holo- morphic functions of finite order in vertical strips for some C > 0. Assume that there exists a total subspace H ⊂ V\u0004 such that for every ",
           "match": "The hypotheses and proof of the entire vector continuation have been read. This lemma does not assert arbitrary polynomial growth."
         }
       ],
@@ -1796,7 +1776,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 pp.32–34",
-          "excerpt": "This representation acts on the Hilbert space HP of measurable functions φ : NP (A)MP (Q)AP (R)0 \\G(A) −→ C such that the function φx : m −→ φ(mx), m ∈ MP (Q)\\MP (A)1 , \u0001 belongs to L2disc MP (Q)\\MP (A)1 for any x ∈ G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -1886,7 +1865,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 equation (7.1) and Lemma 7.1",
-          "excerpt": "The associated Eisenstein series is X (7.1) E(x, φ, λ) = φ(δx)e(λ+ρP )(HP (δx))",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -1974,7 +1952,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Lemma 7.1; §13 paragraph after Proposition 13.2",
-          "excerpt": "both converge absolutely to analytic functions of λ.",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2014,7 +1991,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 equation (7.2) and Lemma7.1, p.34; outer ρ sign corrected as sourceIssue E37",
-          "excerpt": "both converge absolutely to analytic functions",
           "match": "Lemma7.1 supplies the convergence chamber. The displayed outer exponent in (7.2) has a sign error; the packet uses −(wλ+ρ_Q), checked against the identity Weyl case and the local formula on p.135."
         }
       ],
@@ -2102,7 +2078,6 @@
         {
           "sourceId": "langlands66",
           "locator": "§3 Lemma 3 and following Bruhat computation",
-          "excerpt": "Using the Bruhat decomposition to write γ as pnW u, we see that the integral equals (Z ) exp(Λ(H(p)) + ρ(H(p)) exp(Λ(H(nW ng)) + ρ(H(nW ng))dn Φ(g). N ∩n−1 W P nW \\N The expression in brackets equals Z exp(Λ(Ad nW (H(g))",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2145,7 +2120,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§12 preceding Lemma 12.2",
-          "excerpt": "of Paley-Wiener type, with 0 values in a finite dimensional subspace of functions x → Ψ(λ, x) in HP,cusp,σ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2232,7 +2206,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§12 Lemma 12.2",
-          "excerpt": "lies in L G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2273,7 +2246,6 @@
         {
           "sourceId": "langlands66",
           "locator": "§4 Corollary formula (2)",
-          "excerpt": "a formula which is basic for everything to follow. Corollary. Suppose P and P 0 are associate standard cuspidal subgroups, V and V 0 are associate admissible subspaces, φ belongs to D(V, W ), and ψ belongs to D(V 0 , W )",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2311,7 +2283,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§12 Lemma 12.4 and its definition",
-          "excerpt": "cuspidal automorphic datum to be an equivalence class of pairs (P, σ), where P ⊂ G is a standard parabolic subgroup of G, and σ is an irreducible \u0001 rep- resentation of MP (A)1 such that the space L2cusp,σ MP (Q)\\MP (A)1 ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2395,7 +2366,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§12 Lemma 12.4, equation (12.4)",
-          "excerpt": "There is an orthogonal decomposition \u0001 M 2 \u0001 (12.4) L2 G(Q)\\G(A) = Lχ G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2438,7 +2408,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§21 pp.134–135 preceding Theorem 21.4",
-          "excerpt": "This is a local analogue of Langlands’ analytic contin- uation of the global operators MQ|P (λ). Unlike the operators MQ|P (λ), however, the local operators JQ|P (πv,λ ) are not transitive in Q and P",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2519,7 +2488,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§21 p.135 before Theorem 21.4",
-          "excerpt": "Harish-Chandra has proved that JP |P̄ (πv,λ )JP̄ |P (πv,λ ) = µM (πv,λ )−1 , where µM (πv,λ ) is a meromorphic scalar valued function that is closely related to the Plancherel density. To make the operators JQ|P (πv,λ ) ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2606,7 +2574,6 @@
         {
           "sourceId": "arthur89weighted",
           "locator": "§2 Theorem 2.1; §§3–4",
-          "excerpt": "There exist meromophic, scalar valued functions such that the normalized operators have analytic continuation as meromorphic functions of A e and such that the following properties hold: ( R l ) R P , , P ( n , ) ^ P ( n",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2652,7 +2619,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(a), equations (7.3)–(7.4)",
-          "excerpt": "Then E(x, φ, λ) and M (s, λ)φ can be analytically continued to meromorphic functions of λ ∈ a∗P,C that satisfy the functional equations \u0001 (7.3) E x, M (s, λ)φ, sλ = E(x, φ, λ) and (7.4) M (ts, λ) = M (t, sλ)M (s, λ), t ∈",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2696,7 +2662,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§21 equations (21.13)–(21.14)",
-          "excerpt": "The restriction of the global intertwining operator MQ|P (λ) to HP,π can be expressed in terms of the local intertwining operators above. It is isomorphic to mdisc (π)-copies of the operator O JQ|P (πλ ) = JQ|P (πv,λ ), ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2737,7 +2702,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§12 p.66 discussion of contour shifts",
-          "excerpt": "an elaborate analysis of the resulting residues. It was a tour de force, the details of which comprise the notoriously difficult Chapter 7 of [Lan5]. Any class χ = {(P, σ)} in X determines an associated class Pχ = {P } o",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2822,7 +2786,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "§5.1 equations (5.3)–(5.4)",
-          "excerpt": "we take the Shahidi normalization by defining, for each 48 DIHUA JIANG AND LEI ZHANG ν ∈ S, (5.3) N (ω0, τ ⊗ σ, s)ν := βν (s, τ, σ, ψF ; ρ) · M(ω0, τ ⊗ σ, s)ν , where the local normalizing factor βν (s, τ, σ, ψF ; ρ) is ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2907,7 +2870,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "Appendix B Proposition B.1 and (B.5)–(B.6)",
-          "excerpt": "standard modules as displayed in (B.2) are irreducible. This is the key point for us to apply the argument in [11] in the proof of this proposition. According to the structure of the generic unitary dual of the general l",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2945,7 +2907,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "Appendix B after (B.7)–(B.9), citing [66]",
-          "excerpt": "holomorphic and nonzero for Re(s) > −1. Because of the bounds for the exponents, it follows that ′ N (wj,i, τj ⊗ τ (φi ), s ± αj ± βi ) and N (wj,i , τj ⊗ τi , 2s ± αj ± αi ) are holomorphic and nonzero for Re(s) ≥ 0. Fo",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -2984,7 +2945,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "Appendix B p.87",
-          "excerpt": "non-normalized local intertwin- ing operator M(w ′′ , τ ⊗ σ0 , s) for tempered data is holomorphic and nonzero for Re(s) > 0. It follows that both M(w ′′ , τj ⊗ σ0 , s − αj ) and L(s − αj , τj × σ0 ) are holomorphic and ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3022,7 +2982,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "Appendix B proof of Theorem B.2",
-          "excerpt": "If σ is generic, the proposition follows from Theorem 11.1 in [11]. Assume now that σ is not generic. For such a generic local L-packet e Πφ+ (Hm ), by Proposition B.1, the standard modules as displayed in (B.2) are irre",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3063,7 +3022,6 @@
         {
           "sourceId": "jiangzhang20",
           "locator": "Appendix B Theorem B.2 = §5.1 Theorem 5.1",
-          "excerpt": "Theorem B.2. Let φ+ be a local ν-component of an Hm -relevant, ∗ generic global Arthur parameter of Hm",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3104,7 +3062,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§6 Identity 6.2; §15 denominator (15.7), p.84",
-          "excerpt": "(15.7) θQ (sλ − µ) = vol aG Q /Z(∆Q ) (sλ − µ)(α∨ ). α∈∆Q It is worth emphasizing that ΨQ (µ, x) is a rather simple function of µ, namely a linear combination of products of exponentials with quotients of polynomials. We",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -3187,7 +3144,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§13 equation (13.1)",
-          "excerpt": "The inner sum may be taken over a finite set (that depends on x), while the integrand is a bounded function of n. Notice the formal similarity of the definition \u0001 with that of k T (x) in §6. Notice also that if φ belongs",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3274,7 +3230,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§13 Proposition 13.1(a)–(c) and correction after statement",
-          "excerpt": "The symbol < in the statement of this lemma should in fact be ≤.) In the case G = SL(2), it follows directly from classical reduction theory, as illustrated in the earlier Figure 8.3. In general, one has to apply the Bru",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3315,7 +3270,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§13 Proposition 13.2(a)–(b), (13.5)–(13.6)",
-          "excerpt": "there is a constant cX such that |(Xφ)(x)| ≤ cX kxkN0 , for every x ∈ G(A)1",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3356,7 +3310,6 @@
         {
           "sourceId": "arthur82ms",
           "locator": "Introduction formula (1); §9 ωᵀ formula",
-          "excerpt": "Langlands has established the elegant inner product formula (ATE(+,A), ATE(+\" X)) = ^A, X, +, +I), (1) + where for any E & p and +' E e P 1 ,u ^(A, A', +, +') is defined as the sum over all standard parabolic subgroups P",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3398,7 +3351,6 @@
         {
           "sourceId": "arthur82ms",
           "locator": "§9 Theorem 9.1, Q=G, printed p.69",
-          "excerpt": "There is a positive number and a locally bounded function p on ia; x ia;, such that is bounded by for all <f> <Sf' @P,~,P @ ~ , , ~A, râ , ia*p,A' â ia;. and all T in the set (9.2). Q We will use a special case of this t",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3442,7 +3394,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b) wave-packet formula",
-          "excerpt": "a smooth, compactly supported function of λ with values in a finite dimensional subspace of HP0 , extends to \u0001a unitary mapping from b P onto L \u0001 a closed G(A)-invariant subspace \u0001L2P G(Q)\\G(A) of L2 G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3530,7 +3481,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b) and §12 contour discussion; PDF page 35",
-          "excerpt": "Then the mapping that sends F to the function X Z \u0001 n−1 P E x, FP (λ), λ dλ, x ∈ G(A), P ∈P ia∗ P defined whenever FP (λ) is a smooth, compactly supported function of λ with values in a finite dimensional subspace of HP0",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -3570,7 +3520,6 @@
         {
           "sourceId": "arthur82ms",
           "locator": "§§3–6 taking residues of the cuspidal pairing",
-          "excerpt": "taking residues of cuspidal Eisenstein series E(Fg(A), A + A), where B is a standard parabolic subgroup which is contained in P , A is a point in a;,,-, and FB is an analytic function from to h,cusp. We must proceed this",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3612,7 +3561,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b), definition of L̂_𝒫",
-          "excerpt": "families of measurable functions F = {FP : ia∗P −→ HP , P ∈ P} that satisfy the symmetry condition FP ′ (sλ) = M (s, λ)FP (λ), s ∈ W (aP , aP ′ ), and the finiteness condition X Z 2 kF k = n−1 P kFP (λ)k2 dλ < ∞, P ∈P ia",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3697,7 +3645,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b)",
-          "excerpt": "unitary mapping from b P onto L \u0001 a closed G(A)-invariant subspace \u0001L2P G(Q)\\G(A) of L2 G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3784,7 +3731,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b), equation (7.5); §12",
-          "excerpt": "orthogonal direct sum decomposition \u0001 M 2 \u0001 (7.5) L2 G(Q)\\G(A) = LP G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3826,7 +3772,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 and §12 contour residues",
-          "excerpt": "residues. It was a tour de force, the details of which comprise the notoriously difficult Chapter 7 of [Lan5]. Any class χ = {(P, σ)} in X determines an associated class Pχ = {P } of standard parabolic subgroups. We then",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3913,7 +3858,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 discrete decomposition and §12",
-          "excerpt": "decomposition of the discrete spectrum of MP into irreducible representations of the local groups MP (Qv ), we understand the decomposition of the generic induced representations IP (λ) into irreducible representations o",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3955,7 +3899,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 representation decomposition and §§12,15",
-          "excerpt": "G(A)-invariant subspace \u0001L2P G(Q)\\G(A) of L2 G(Q)\\G(A)",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -3999,7 +3942,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§§3–4 compact quotient trace formula; PDF page 8",
-          "excerpt": "The first is that R decomposes discretely into irreducible representations π, with finite multiplicities m(π, R). This is not hard to deduce from the spectral theorem for compact operators. Since the kernel K(x, y) is a ",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -4043,7 +3985,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5 equations (5.1)–(5.6)",
-          "excerpt": "First we review the spectral expansion. The initial idea is to employ hyperbolic Weyl integrals, which are analogous to the usual Weyl sums used in proving the uniform distribution of sequences of points on a circle. One",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4084,7 +4025,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5 equation (5.10) and paragraph after (5.11)",
-          "excerpt": "Weyl’s law gives that as x ! 1, x (5.10) #{'; (')  x} ⇠",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4124,7 +4064,6 @@
         {
           "sourceId": "wallach",
           "locator": "§4 Theorem 4.3 and its proof pp.233–234",
-          "excerpt": "Theorem 4.3. Let V be Q tempered (g, K)- module. Let : V ---",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4167,7 +4106,6 @@
         {
           "sourceId": "franke",
           "locator": "§2.1 (1)–(7); §2.2 current comparison",
-          "excerpt": "This is a complex with differential d (the differential of the local system E). Its cohomology is the weighted J^-cohomology of E, it is denoted by H^GAg^R^G/K-^K.E). It is usually more convenient to investigate the indu",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4254,7 +4192,6 @@
         {
           "sourceId": "franke",
           "locator": "§§2.2–2.3 and §3 Theorems 2–3",
-          "excerpt": "THEOREM 3. - If L^(E) is defined as in (2.1.7) but with GAg^R^G/^K replaced by X, then the inclusion S^(E) C L^(E)induces an isomorphism on cohomology. We need the following lemma: LEMMA 2. - There exists a constant K su",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4291,7 +4228,6 @@
         {
           "sourceId": "franke",
           "locator": "§4 definition before Theorem 7 and Theorem 7(1)–(2)",
-          "excerpt": "THEOREM 7. (1) IfV is an injective (5, K) -module, then so is S^jV. (2) We have (3) ^jV = conmExt^^^)/^ V). More generally if the 3(fl) -module structure ofV extends to the structure of an R-module for a flat ^{^-algebra",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4376,7 +4312,6 @@
         {
           "sourceId": "franke",
           "locator": "§4 Theorem 7 and equation (4.4)",
-          "excerpt": "annihilator of E, then there is a spectral sequence (4) EP,q=H^(W^V)®E)^H^(V®E). 4s SfiRIE - TOME 31 - 1998 - N° 2 HARMONIC ANALYSIS IN WEIGHTED 1/2-SPACES 209 (4) Let f = m + a - } - n b e a parabolic subalgebra of 3. W",
           "match": "The printed Theorem7(3) uses the annihilator of the contragredient Ẽ; the text layer loses the tilde. The spectral sequence is E₂^(p,q)=H^p(R^qFin_J(V)⊗E)⇒H^(p+q)(V⊗E)."
         }
       ],
@@ -4416,7 +4351,6 @@
         {
           "sourceId": "franke",
           "locator": "§6 (1)–(9), printed pp.232–233",
-          "excerpt": "This is the filtration we announced at the beginning of this chapter. It is clear that this filtration has finite length. Let M^ rp, be the set of triples t = (K, A, \\) with the following properties: • % = ./M^AT^A/\"^ is",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4503,7 +4437,6 @@
         {
           "sourceId": "franke",
           "locator": "§6 (12)–(13), printed pp.235–236",
-          "excerpt": "put MW/ = /o- Fo1' any complete locally convex vector space B, MW defines a continuous operator 2?(g)G —> B on the space of germs of meromorphic functions with values in B and singularities only along the ai. This operat",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4587,7 +4520,6 @@
         {
           "sourceId": "franke",
           "locator": "§6 Theorem 14, equation (14)",
-          "excerpt": "THEOREM 14. - Ifr G a^, then for every i > 0, (13) induces an isomorphism rank{P} (14) ^E) colim M(t) ^ *.,fc,T,i .^ A^'^ fc==0 ^.{P},^ ^ ?in^V^(GA?W°\\G)^ / ^^^^^^(G^W^G)^4-1 of(g,K,Gf)-modules. This isomorphism is indep",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4627,7 +4559,6 @@
         {
           "sourceId": "franke",
           "locator": "§7 Theorem 16",
-          "excerpt": "THEOREM 16. - Ifr C o^\", then T?in^5^+iog(a4c?(^)°\\G) vanishes for i > 0. If in addition r G ^G, then the same is true for /S^^JSp_^-^{GAg(R)o\\G). The proof will proceed by induction on the rank of Q. In the cocompact ca",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4666,7 +4597,6 @@
         {
           "sourceId": "franke",
           "locator": "§7.1 Theorem 17",
-          "excerpt": "THEOREM 17. - 77^ ma/? (2) is an isomorphism, and we have (3) limy5,[.]=0 /or i > 0. We first define a sufficiently large class of acyclic functors from (? to the category of vector spaces. Then we show that the functor ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4709,7 +4639,6 @@
         {
           "sourceId": "franke",
           "locator": "§7.4 Theorem 18",
-          "excerpt": "THEOREM 18. - The inclusions SinjS^GAG{R)°\\G) -. S^GA^R)0^) -^ ^(GA^nG) define an isomorphism on the {mg^K)-cohomology with coefficients in E. In particular, H-(GA^R)°\\G/K^) ^ ^^^(S^GA^RUG)) 0E)(Cz^ where the twist (<^) ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4751,7 +4680,6 @@
         {
           "sourceId": "bcg25",
           "locator": "Remark 1.2, pp.511–512",
-          "excerpt": "If n is even, there is a unique tempered cohomological π∞ , and the (gln , SO(n))- cohomology is free as a C[O(n)/ SO(n)] ≃ C[Z/2Z]-module. (See [Clo90, Lem. 3.14] and its proof.) This results from the fact that the rest",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4794,7 +4722,6 @@
         {
           "sourceId": "bcgp21",
           "locator": "Notation preceding automorphic representation results",
-          "excerpt": "isobaric) automorphic representation of GLn (AL ) satisfying BCL/K (π )w = BCLw /Kv (πv ) for all places w of L where v = w|K is the restriction of w to K. If πi is an automor- phic representation of GLni (AK ) for i = 1",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4878,7 +4805,6 @@
         {
           "sourceId": "cgh20",
           "locator": "§3 proof of Lemma 3.1, citing FS98 Theorem 2.3",
-          "excerpt": "see [FS98, Thm 2.3]). Suppose that [c] corresponds to such an automorphic representation Π. Because of the degree where [c] occurs, we deduce (from [BW80, Ch.II, Prop 3.1] and [Clo90, Lemma 3.14]) that Π is not tempered.",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4920,7 +4846,6 @@
         {
           "sourceId": "cgh20",
           "locator": "§3 proof of Lemma 3.1",
-          "excerpt": "Eigenclasses in cohomology may be realized by isobaric automorphic representations (see [FS98, Thm 2.3]). Suppose that [c] corresponds to such an automorphic representation Π. Because of the degree where [c] occurs, we d",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -4961,7 +4886,6 @@
         {
           "sourceId": "clozeldelorme90",
           "locator": "§0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′",
-          "excerpt": "Les conditions (a) et (b) suivantes sont équivalentes. (a) II existe feC^ (G, K), telle que ¥i (8, v) = tr 7i^ ^ (/) /WMr î=l,",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5006,7 +4930,6 @@
         {
           "sourceId": "arthur83acta",
           "locator": "III §4 Theorem 4.1, pp.84–85",
-          "excerpt": "is a topological isomorphism from Cc(G, K) onto PW(G, K).",
           "match": "Theorem III.4.1, printed p.85, states the topological isomorphism and fixed-radius/fixed-K-type image; III.4.1 differential relations are retained."
         }
       ],
@@ -5045,7 +4968,6 @@
         {
           "sourceId": "arthur83acta",
           "locator": "III §4 Theorem 4.2 and its proof, pp.86–87",
-          "excerpt": "For every distribution y in ([1)w and every function fE Cc(G, K), there is a unique function fy in Cc(G, K) such that r(fy) = y(v)) 7r(f) for any n E Rep (G). Proof. It is clear that fy is uniquely determined by this con",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5132,7 +5054,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§4 (4.1)–(4.2) and §14 spectral kernels; PDF page 8",
-          "excerpt": "It follows that R(f ) is an integral operator with kernel X (1.1) K(x, y) = f (x−1 γy), x, y ∈ Γ\\H. γ∈Γ The sum over γ is finite for any x and y, since it may be taken over the intersection of the discrete group Γ with t",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -5216,7 +5137,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§§5–6 definition; §9 polynomial dependence; §14 (14.2)",
-          "excerpt": "modified kernel, on which the general trace formula is based. A few remarks might help to put it into perspective. One has to show that for any x, the sum over δ in (6.1) may be taken over a finite set. In the case G = S",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5299,7 +5219,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§14 Theorem 14.1; §16 (16.1); PDF page 74",
-          "excerpt": "Theorem 14.1. (a) The double integral XZ (14.1) ΛT2 Kχ (x, x)dx χ∈X G(Q)\\G(A)1 converges absolutely. (b) If T is suitably regular, in a sense that depends only on the support of f , the double integral XZ (14.2) kχT (x)d",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -5338,7 +5257,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§17 definition and Lemma 17.1, pp.93–94",
-          "excerpt": "is called a (G, M )-family if cP (λ) = cP ′ (λ), for any pair of adjacent groups P, P ′ ∈ P(M ), and any point λ in the hyperplane spanned by the common wall of the chambers i(a∗M )+ ∗ + P and i(aM )P ′",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5424,7 +5342,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14)",
-          "excerpt": "The product (G, M )-family satisfies the splitting formula X (cd)M (λ) = cQ ′ M (λ)dQ (λQ ). Q∈P(M) In particular the values at λ = 0 of the functions in the formula satisfy X (17.8) (cd)M = cQ ′ M dQ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5464,7 +5381,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§18 (18.3), Theorem 18.2, (18.10)",
-          "excerpt": "we define the weighted orbital integral G JM (γ, f ) = JM (γ, f ) \u0001 of f ∈ Cc∞ G(FS ) at γ by Z 1 (18.3) JM (γ, f ) = |D(γ)| 2 f (x−1 γx)vM (x)dx. Gγ (FS )\\G(FS ) The normalizing factor Y D(γ) = DG (γ) = DG (γv ) v∈S is ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5551,7 +5467,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§21 (21.11)–(21.16); §23 (23.1)–(23.2)",
-          "excerpt": "general meromorphic function \u0001 (23.1) JM (πλ , f Z ) = tr RM (πλ , P )IP (πλ , f Z ) , λ ∈ a∗M,C , \u0001 to any M ∈ L, π ∈ Π M (FS ) and Z ∈ aG,S",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5638,7 +5553,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§19 Theorems 19.1–19.2 and Corollary 19.3 (19.10)",
-          "excerpt": "Corollary 19.3. Given a compact neighbourhood ∆ of 1 in G(A)1 , we can 0 find a finite set S∆ ⊃ S∆ \u0001 of valuations of F such that for any finite set S ⊃ S∆ , ∞ 1 and any f ∈ C∆ G(FS ) , X X (19.10) J(f ) = |W0M ||W0G |−1",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5680,19 +5594,16 @@
         {
           "sourceId": "arthur05",
           "locator": "§21 Theorem 21.6, Corollary 21.7; Remarks 3–4; Arthur88global Theorem4.4",
-          "excerpt": "Theorem 21.6. For any f ∈ H(G),\u0001 the linear form Jχ (f ) equals the sum over M ∈ L, L ∈ L(M ), π ∈ Πunit M (A)1 , and s ∈ W L (M )reg of the product of (21.17) |W0M ||W0G |−1 | det(s − 1)aG M |−1 with Z \u0001 tr ML (λ, P )MP",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         },
         {
           "sourceId": "arthur05",
           "locator": "§21 (21.5), p.129, and Corollary21.3, p.134",
-          "excerpt": "Since the mapping Fs : µ −→ sµ − µ is a linear isomorphism of i(aL ∗ M ) , (21.4) equals the product of the inverse | det(s − 1)aLM |−1 of the determinant of this mapping with the sum over S ∈ F(M ) of Z Z \u0001 (21.5) cSM (",
           "match": "The explicit change-of-variable Jacobian fixes the determinant space a_M^L, independently of the later displayed misprint."
         },
         {
           "sourceId": "arthur88global",
           "locator": "Theorem4.4 proof, p.520, first coefficient in the proof",
-          "excerpt": "Theorem 4.4. Suppose that f 6 Z ( G ( A ) )",
           "match": "Read the displayed coefficient on the scanned page: a_(L₀)^(M₁), corresponding to a_M^L in the survey notation. The theorem also separates integral absolute convergence and outer summability."
         }
       ],
@@ -5731,7 +5642,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§23 pp.146–148 and Proposition 23.1",
-          "excerpt": "have “almost compact support”, in the \u0001sense that f Z has compact support for any Z ∈ aG,S",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5815,7 +5725,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§23 Theorems 23.2–23.3, (23.3)–(23.4), (23.10)",
-          "excerpt": "inductive definitions of IM (γ, f ) and IM (π, X, f ). We need to know that these linear forms are supported on char- acters in order that the summands on the right hand sides of the two formulas be defined. 3. The theor",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5900,7 +5809,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§23 Theorem23.4 (23.11)–(23.13); Arthur88global §§3–6",
-          "excerpt": "Theorem 23.4. For any f ∈ H(G), I(f ) has a geometric expansion X X (23.11) I(f ) = lim |W0M ||W0G |−1 aM (γ)IM (γ, f ), S M∈L γ∈Γ(M)S and a spectral expansion X Z (23.12) I(f ) = lim |W0M ||W0G |−1 aM (π)IM (π, f )dπ. T",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -5944,7 +5852,6 @@
         {
           "sourceId": "arthur05",
           "locator": "§1 compact quotient formula; §16 (16.1)′′; PDF page 8",
-          "excerpt": "The second property is that for many functions, the operator R(f ) is actually of trace class, with Z (1.2) tr R(f ) = K(x, x)dx. Γ\\H If H is a Lie group, for example, one can require that f be smooth as well as compactl",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -5984,7 +5891,6 @@
         {
           "sourceId": "clozeldelorme90",
           "locator": "§5 Theorem3, pp.213–215",
-          "excerpt": "G a une série discrète, il existe, pour tout r > 0, une fonction f^ e C^° (G, K)y telle que, pour tout (9, K)-module de longueur finie n de G : ep(Q,l;îr(x)0=tr7T(^). Il y a un théorème analogue concernant l'opérateur de",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6069,7 +5975,6 @@
         {
           "sourceId": "arthur89lefschetz",
           "locator": "Arthur89 §2, p.264 (compact-Cartan hypothesis), Proposition 2.1; §3 Proposition 3.2; §6 Theorem 6.1; CT20 §1.4",
-          "excerpt": "Proposition 2.1. For any he S(G(Afin)), Much is known about the relative Lie algebra cohomology groups (2.1). They have been completely characterized [20] if % is an arbitrary irreducible unitary representation. We are o",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6108,7 +6013,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §2.2.3, p. 9 (M(A)^0, Ξ_M, X_M, X_M^L); unitary parts Im X in §4",
-          "excerpt": "2.2.3 Groupes topologiques Pour tout e ∈ Z, soit Gn (A)e = {g ∈ G(A)| deg det g = e}. P Soit M un sous-groupe de Levi de G sur F , on a M ∼ = Gn1 × · · · × Gnr avec i ni = n. Soit ZM le centre de M et X ∗ (M ) le groupe ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6212,7 +6116,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §2.3.3, pp. 10–11, Définition 2.3.4 and the definition of L²(M_P(F)\\M_P(A))_θ^K",
-          "excerpt": "Définition 2.3.4. Soit P un sous-groupe parabolique. Une représentation automorphe discrète (irréduc- tible) partout non-ramifiée π de MP (A) est un sous-HMP -module simple de L2 (MP (F )\\MP (A))K θ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6301,7 +6204,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §2.3.3 pp11–12",
-          "excerpt": "Définition 2.3.5. Une paire discrète partout non-ramifiée (P, π) de G est la donnée d’un sous-groupe parabolique standard P ∈ P(B), et d’une représentation discrète irréductible partout non-ramifiée π de MP (A) d",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6401,7 +6303,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §2.3.3, p. 12 ('bon représentant'); used in §6.2.1 and §6.4.1",
-          "excerpt": "un bon représentant. L’intérêt d’introduire un bon représentant qui va faciliter les calculs est le fait suivant : pour tout bon représentant (P, π), un couple (w, λ) ∈ stab(P, π) si et seulement si (w, 1) ∈ stab(P,",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6497,7 +6398,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §2.3.4, p. 12, Théorème 2.3.6 (the theorem is on p. 12 only)",
-          "excerpt": "Théorème 2.3.6. [MW89, Théorème p. 606, Moeglin-Waldspurger] Soit Π une représentation auto- morphe discrète irréductible partout non-ramifiée de Gn (A). Alors il existe un entier d | n, un sous- groupe paraboliq",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6536,7 +6436,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Proposition 2.3.7 p13",
-          "excerpt": "Proposition 2.3.7. Soit π ⊠ ν une représentation discrète automorphe partout non-ramifiée de Gn (A). Gd G Avec l’identification XG d ⊆ XG ci-dessus, on a Fix(π) = Fix(π ⊠ ν) et (G, π ⊠ ν) est inertiellement équivalen",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6578,7 +6477,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.1.1–3.1.6 pp13–15",
-          "excerpt": "3.1 Notations",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6691,7 +6589,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.1.3–3.1.6 pp14–15",
-          "excerpt": "3.1.6 pour une présentation explicite. 3.1.5 Bases spécifiques Soit P un sous-groupe parabolique standard tel que MP ∼ = Gn1 × · · · × Gnr , les caractères detMP ,i : MP −→ Gm (m1 ,",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6780,7 +6677,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.2.1 pp15–16",
-          "excerpt": "3.2.1 Soit P un sous-groupe parabolique standard. L’action de 1K ∈ HG sur L2 (MP (F )NP (A)\\G(A)/ΞG K) est un opérateur intégral de noyau X X Z kP (x, y) = 1K (y −1 γnxa)dn, a∈ΞG γ∈MP (F ) NP (A) où x, y ∈ MP (F )NP (",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6873,7 +6769,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.2.1; Theorem 3.3.1; Laf97 p227; Ch15 Definition4.5.3",
-          "excerpt": "Théorème 3.3.1. En tant que fonction en T ∈ aB , l’application T 7→ JeT est quasi-polynomiale au sens de la définition [Ch15, Définition 4.5.3]. D’après Lafforgue (proposition 11, page 227, de [Laf97]) pour T ∈ aB t",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -6915,7 +6810,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), AppendixB pp78–79",
-          "excerpt": "Les T ↦ Jᵀₚ,ₑ et T ↦ J̃ᵀₚ,ₑ sont quasi-polynomiaux quand d(T) est assez grand",
           "match": "Appendix B, p.79, uses characteristic-polynomial fibres; the Lie-trace theorem cited there remains an explicit external proof gap."
         }
       ],
@@ -7000,7 +6894,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix B, p. 79; [Ch15, Théorème 6.2.1, Corollaires 5.2.2–5.2.3]",
-          "excerpt": "Par le corollaire 5.2.2 et le corollaire 5.2.3 de [Ch15], on a q − 1 −n2 (g−1) Je = q vol(Higgsst n,e (X1 )(Fq )), q où vol est la masse d’un groupoı̈de (la somme pondérée par l’inverse de l’ordre du groupe des auto- ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7041,7 +6934,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.1.1, p. 21, and §4.1.3, p. 22",
-          "excerpt": "4.1.3 Soit M un sous-groupe de Levi semi-standard et w ∈ Wn",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7130,7 +7022,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.1.5–4.1.6, p. 22",
-          "excerpt": "4.1.6 λH et hλ, Hi. Un caractère α ∈ X ∗ (L) définit un élément dans XL comme le composé α qdeg(·) → Gm (A) −−−−→ C×",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7234,7 +7125,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.1.2, p. 21, and §4.2.1, p. 23, Définition 4.2.1 and (4.2.1)",
-          "excerpt": "Définition 4.2.1. Soit Ω ⊆ XM ou XM un domaine. Soit (cP (λ))P ∈P(M) une famille de fonctions holomorphes sur Ω. On dit que c’est une (G, M )-famille si cP (λ) = cP ′ (λ) pour toute paire de sous- groupes paraboliques a",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7333,7 +7223,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.1–4.2.2, p. 23, Théorème 4.2.2 and (4.2.2)–(4.2.5)",
-          "excerpt": "Théorème 4.2.2 (lemme 6.2, [Ar81]). Soit (cQ )Q∈P(M) une famille des fonctions méromorphes sur XM G ou XM",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7375,7 +7264,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.2, pp. 23–24, Proposition 4.2.3 (variant of Arthur 1981, Corollary 6.5)",
-          "excerpt": "Proposition 4.2.3 (Corollary 6.5, [Ar81]). Soient (cQ )Q∈P(M) et (dQ )Q∈P(M) deux (G, M )-familles sur un voisinage de 1 telles que pour chaque L ∈ L(M ), les valeurs cQ M soient indépendantes de Q ∈ P(L), on notera cL ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7418,7 +7306,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Theorem4.2.4 pp24–26",
-          "excerpt": "Théorème 4.2.4 (Arthur, Lemma 7.1. [Ar82]). Soit (cβ )β∈Φ(ZM ,G) une famille des fonctions méro- morphes sur C× indexées par les racines avec cβ (1) = 1. Soit (cQ )Q∈P(M) la famille de fonctions définies par : Y ∨ c",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7459,7 +7346,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Lemma4.2.5 p26",
-          "excerpt": "Lemme 4.2.5. Soit S1 le cercle unité dans C× orienté dans le sens antihoraire et dz la mesure complexe usuelle. Pour des fonctions fβ complexes continues définies sur S1 et une partie F de Φ(ZM , G) qui forme une base",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7500,7 +7386,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Corollary4.2.6 p27, corrected E4",
-          "excerpt": "Corollaire 4.2.6. Soit (cβ )β∈Φ(ZM ,G) une famille de fonctions holomorphes non-nulles sur un voisinage de {z ∈ C× | |z| = 1}. Soit (cQ )Q∈P(M) une famille des fonctions définies par Y ∨ cQ (λ) = cβ (λβ ). β∈ΦQ Alors Z ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7544,7 +7429,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Lemmas4.2.7–4.2.8 pp27–29",
-          "excerpt": "Lemme 4.2.8. Soit µ0 ∈ XM",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7585,7 +7469,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.1.1 p29, corrected E6",
-          "excerpt": "5.1.1 Un choix auxiliaire : κ ∈ aB Outre le sous-groupe de Borel B, il faut faire un choix auxiliaire. On fixe κ ∈ aB dans la chambre positive tel que la projection de κ sur aL ne soit pas nulle pour tout sous-groupe de ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7671,7 +7554,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.1 pp31–32",
-          "excerpt": "5.2.1 Fonctions 1 bQ (λ) et 1beQ (λ) La fonction 1 bQ (λ) est définie par Lafforgue dans la preuve de Lemme 5, p.301 de [Laf97] (qu’il a notée 1 p b (λ) pour un sous-groupe parabolique standard P , une permutation P,τ ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7765,7 +7647,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.2.1 p32, E7",
-          "excerpt": "Proposition 5.2.1. Soit L un sous-groupe de Levi semi-standard défini sur F et L ∼ = Gn1 ×Gn2 ×· · ·×Gnr par le choix de κ (cf. 5.1.1). Soit Q ∈ P(L), et s ∈ Sr qui lui correspond. On a Y 1 1beQ (λ) = λHQ e (5.2.4) , 1 ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7807,7 +7688,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.2 and§5.3.2 pp32,39, E8",
-          "excerpt": "5.2.2 Opérateurs d’entrelacement On introduit les opérateurs d’entrelacement pour fixer les no- tations. On peut consulter [Laf97, p.284-p.287] ou [LW13, §5.1 - §5.3] pour plus de détails et des références. Soit (P,",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7900,7 +7780,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.2–5.2.3 pp32–35",
-          "excerpt": "(5.2.7) MR (λ, P ; µ) := MR|P (λ)−1 ◦ MR|P (λ/µ). Soit L un sous-groupe de Levi contenant M et Q ∈ P(L). Soit P Q (M ) l’ensemble des sous-groupes paraboliques de G contenus dans Q et admettant M comme un sous-groupe G d",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -7999,7 +7878,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3 pp34–35",
-          "excerpt": "(5.2.12) χ( )f (λ)dλ = f (λ0 ), χ ImXL G ⊕ImX Lw w M λπ | ker µw | −1 P λ0 ∈µw (λπ ) w P où f est une fonction lisse sur ImXLGw ⊕ ImXM L P , et la somme χ porte sur les caractères continus de G ImXMP et dλ est la mesur",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8050,7 +7928,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem",
-          "excerpt": "Théorème 5.2.2 (L. Lafforgue). La trace tronquée tordue Jη est égale à la somme portant sur un ensemble de représentants des classes d’équivalence inertielle des paires discrètes (P, π) partout non- ramifiées, e",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8092,7 +7969,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.1 andRemark5.3.2 pp36–39",
-          "excerpt": "Proposition 5.3.1. Soit (P, π) une paire discrète partout non-ramifiée. Soit ϕ ∈ AP,π",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8136,7 +8012,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.4 p39, E12",
-          "excerpt": "Proposition 5.3.4. Avec les notations ci-dessus, soit S, R ∈ P(MP ), on a MR|S (λ)ϕS = nR|S (π, λ)ϕR",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8177,7 +8052,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.1 p75; Laf97 Lemma5(ii)p301",
-          "excerpt": "Lemme A.1. Pour tout e ∈ Z, la famille des fonctions (λ 7→ λIQ )Q∈P(M) définie dans 5.2.1 (en G particulier (A.0.2)) est une (G, M )-famille sur XM",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8262,7 +8136,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.2 pp75–76, E24",
-          "excerpt": "Lemme A.2. Soit µ0 ∈ XM",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8304,7 +8177,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.3 pp76–77",
-          "excerpt": "Lemme A.3. Supposons que {cQ }Q∈P(M) est une (G, M )-famille sur un voisinage de 1 telle que pour chaque L ∈ L(M ), cR L M soit indépendante de R ∈ P(L) (qu’on désigne par cM ) pour tout sous-groupe de Levi L défini s",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8345,7 +8217,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "5.2.3). 5.1.1 Un choix auxiliaire : κ ∈ aB Outre le sous-groupe de Borel B, il faut faire un choix auxiliaire. On fixe κ ∈ aB dans la chambre positive tel que la projection de κ sur aL ne soit pas nulle pour tout sous-gr",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8439,7 +8310,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "a pour image (ImXM P )◦ , la composante connexe neutre de ImXM L P , et le groupe ImXLGw rencontre Lw chaque composante connexe de ImXMP",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8482,7 +8352,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "Concernant le cardinal du ker µw , observons que le morphisme λ′ w w λ′ 7−→ , L ImXM L −→ (ImXM )◦",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8523,7 +8392,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "(5.2.12) χ( )f (λ)dλ = f (λ0 ), χ ImXL G ⊕ImX Lw w M λπ | ker µw | −1 P λ0 ∈µw (λπ ) w P où f est une fonction lisse sur ImXLGw ⊕ ImXM L P , et la somme χ porte sur les caractères continus de G ImXMP et dλ est la mesur",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8614,7 +8482,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "(5.2.12) χ( )f (λ)dλ = f (λ0 ), χ ImXL G ⊕ImX Lw w M λπ | ker µw | −1 P λ0 ∈µw (λπ ) w P où f est une fonction lisse sur ImXLGw ⊕ ImXM L P , et la somme χ porte sur les caractères continus de G ImXMP et dλ est la mesur",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8658,7 +8525,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "f est une fonction lisse sur ImXLGw ⊕ ImXM L P , et la somme χ porte sur les caractères continus de G ImXMP et dλ est la mesure produit. Concernant le cardinal du ker µw , observons que le morphisme λ′ w w λ′ 7−→ , L Im",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8705,7 +8571,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "(5.2.9) L | stab (P, π)| ImXL |w||XL | G G L λL ∈ImXL ,λL ∈(ImXM L )◦ λw ∈ImXM P P L λπ =λ λL λw /w −1 (λw )=λL X lim TrAP,π ( 1bQ (µλL η−1 )MQ (λλw , P ; µλL ) ◦ M(w, w−1 (λw )) ◦ λπ )dλ. µ→1 Q∈P(L) Rappelons que MQ (λλ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8793,7 +8658,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "Corollaire 5.2.3 (L. Lafforgue). Avec les notations du théorème 5.2.2, pour tout e ∈ Z, Je est égale à la somme portant sur un ensemble de représentants des classes d’équivalence inertielle des paires discrètes (P",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8835,7 +8699,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "excerpt": "5.2.2 Opérateurs d’entrelacement On introduit les opérateurs d’entrelacement pour fixer les no- tations. On peut consulter [Laf97, p.284-p.287] ou [LW13, §5.1 - §5.3] pour plus de détails et des références. Soit (P,",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8916,7 +8779,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.3.1, p. 20, and Remarque 3.3.3, p. 19; [Ch15, Définition 4.5.3, Proposition 4.5.5]",
-          "excerpt": "Théorème 3.3.1. En tant que fonction en T ∈ aB , l’application T 7→ JeT est quasi-polynomiale au sens de la définition [Ch15, Définition 4.5.3]. D’après Lafforgue (proposition 11, page 227, de [Laf97]) pour T ∈ aB t",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -8957,7 +8819,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 33, equation (5.2.8); p. 36, displays before Corollaire 5.2.3",
-          "excerpt": "(5.2.8) JηT := η(g)k T (g, g)dg = ζ e JeT",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9001,7 +8862,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 34, proof of Théorème 5.2.2, equation (5.2.10)",
-          "excerpt": "(5.2.10) lim 1bQ (µµ0 η−1 ) | stab(P, π)| µ ∈XLG w G ImXL G ImXM (w,λπ )∈stab(P,π) 0µ →1 Q∈P(Lw ) w P 0 λw(λπ )µ0 µ χ( )TrAP,π (MQ (λ, P ; µµ0 ) ◦ M(w−1 , w(λ)) ◦ w(λπ )−1 )dλdµ w(λ) où on a utilisé le fait que les ope",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9043,7 +8903,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.3.1, pp. 38–39, proof of Proposition 5.3.1 (citing [MW94, V.3.13(iii)] and [MW94, II.1.5])",
-          "excerpt": "Proposition 5.3.1. Soit (P, π) une paire discrète partout non-ramifiée. Soit ϕ ∈ AP,π",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9084,7 +8943,6 @@
         {
           "sourceId": "yu23",
           "locator": "§4.2.3 proof of Théorème4.2.4, p.26, k=m case; citing Ar82 pp.1319–1320",
-          "excerpt": "il a montré que ce coefficient est égal à 0 si les βi sont linéairement dépendants, et est égal à 1 si les βi forment une base.",
           "match": "The following sentence explicitly states the dependent/basis 0/1 result; the packet separates Arthur’s quoted root-cone input and type-A lattice normalization."
         }
       ],
@@ -9123,7 +8981,6 @@
         {
           "sourceId": "yu23",
           "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix A, pp. 75–76, input to Lemme A.2 (supplement; not stated in the paper)",
-          "excerpt": "Lemme A.3. Supposons que {cQ }Q∈P(M) est une (G, M )-famille sur un voisinage de 1 telle que pour chaque L ∈ L(M ), cR L M soit indépendante de R ∈ P(L) (qu’on désigne par cM ) pour tout sous-groupe de Levi L défini s",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9162,7 +9019,6 @@
         {
           "sourceId": "dit16",
           "locator": "(5.2)",
-          "excerpt": "Here E(z, s) is the Eisenstein series of weight 0 given for Re(s) > 1 by X X (5.2) E(z, s) = (Im z)s = 12 (Im z)s |cz + d| 2s , 2 1\\ gcd(c,d)=1 where 1 is the subgroup of generated by T",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9245,7 +9101,6 @@
         {
           "sourceId": "dit16",
           "locator": "(5.3)",
-          "excerpt": "If we define E*(z, s) = Λ(2s)E(z, s), the Fourier expansion of E*(z, s) is given by",
           "match": "The definition preceding (5.3) and the displayed expansion on printed p.962 fix the completed normalization and its two constant terms."
         }
       ],
@@ -9325,7 +9180,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5, (5.3), p962",
-          "excerpt": "If we define E*(z, s) = Λ(2s)E(z, s), the Fourier expansion of E*(z, s) is given by",
           "match": "The definition preceding (5.3) and the displayed expansion on printed p.962 fix the completed normalization and its two constant terms."
         }
       ],
@@ -9365,7 +9219,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5, text before (5.4), (5.4) and (5.5), p962",
-          "excerpt": "it has simple poles and satisfies the functional equation (5.4) E ⇤ (z, 1 s) = E ⇤ (s). Furthermore, we have that (5.5) Ress=1 E ⇤ (z, s) = Ress=0 E ⇤ (z, s) = 12",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9408,7 +9261,6 @@
         {
           "sourceId": "dit16",
           "locator": "§8, p974",
-          "excerpt": "where for Re(s) > 1, 8 » X <I |mn| c 1 ) 2s 1 (4⇡ if mn < 0, (m, n; s) = c 1 K(m, n; c) · » :J2s 1 (4⇡ |mn| c 1) if mn > 0. c>0 Here K(m, n; c) is the Kloosterman sum X Ä ä K(m, n; c) = e ma+na c",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9490,7 +9342,6 @@
         {
           "sourceId": "dit16",
           "locator": "(8.1)",
-          "excerpt": "consider the Poincaré series X (8.1) Fm (z, s) = fm ( z, s), 2 1\\ where f0 (z, s) = y s and for m 6= 0, 1/2 fm (z, s) = y 1/2 Is 1/2 (2⇡|m|y)e(mx) = |m|2⇡ (s) (2s) M0,s 1 (4⇡|m|y)e(mx). 2 The function Fm (z, s), which w",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9571,7 +9422,6 @@
         {
           "sourceId": "dit16",
           "locator": "§8, p973",
-          "excerpt": "For Re(s) > 1, consider the Poincaré series X (8.1) Fm (z, s) = fm ( z, s), 2 1\\ where f0 (z, s) = y s and for m 6= 0, 1/2 fm (z, s) = y 1/2 Is 1/2 (2⇡|m|y)e(mx) = |m|2⇡ (s) (2s) M0,s 1 (4⇡|m|y)e(mx). 2 The function Fm ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9612,7 +9462,6 @@
         {
           "sourceId": "dit16",
           "locator": "(8.2)–(8.4), Fay[20]",
-          "excerpt": "the resolvent kernel G(z, z 0 ; s) for satisfies Ä äZ (8.2) s(1 s) G(z, z 0 ; s)u(z)dµ(z) = u(z 0 ). F The function Fm (z, s) occurs in the Fourier expansion of G(z, z 0 ; s), which is given by p X (8.3) G(z, z 0 ; s) = ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9694,7 +9543,6 @@
         {
           "sourceId": "dit16",
           "locator": "(8.4)",
-          "excerpt": "has a holomorphic extension to s = 12 + ir. This is a consequence of the fact that it represents the resolvent on the orthogonal complement of this eigenspace and vanishes identically on the eigenspace itself. ' Now let ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9738,7 +9586,6 @@
         {
           "sourceId": "dit16",
           "locator": "Proposition3, pp973–974",
-          "excerpt": "Proposition 3. For any m 6= 0, we have that Fm (z, s) has meromorphic continuation in s to Re(s) > 0 and that X Ress= 1 +ir (2s 1)Fm (z, s) = h', 'i 1 2a(m)'(z), 2 ' where the (finite) sum is over all Hecke-Maass cusp fo",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9782,7 +9629,6 @@
         {
           "sourceId": "dit16",
           "locator": "§8, pp974–975",
-          "excerpt": "It follows that for fixed m, n with mn 6= 0, the function (m, n; s) has mero- morphic continuation to Re(s) > 0 and X Ress= 1 +ir (2s 1) ( m, n; s) = 2 h', 'i 1 a(m)a(n), 2 ' where the sum is over all Hecke-Maass cusp fo",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9821,7 +9667,6 @@
         {
           "sourceId": "dit16",
           "locator": "§9, p979",
-          "excerpt": "For a smooth function φ(y) that satisfies φ(y) ≪ y^{1+ε} as y → 0",
           "match": "The printed hypothesis is y^{1+ε}. The adapter separately justifies the weaker y^ε value bound by comparison with the Eisenstein majorant of exponent 1+ε; derivative convergence requires additional derivative bounds."
         }
       ],
@@ -9901,7 +9746,6 @@
         {
           "sourceId": "dit16",
           "locator": "(9.2)",
-          "excerpt": "Whittaker functions in [38, p.302] gives for that for Re(s) > 1, X d( z) 2i@z Fm (z, s) = f2,m ( z, s) , 2 1\\ dz where (s) (9.2) f2,m (z) = s|m| 1/2 (2⇡y) 1 (2s) Msgn(m),s 1/2 (4⇡|m|y)e(mx). The proof proceeds in a very ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -9941,7 +9785,6 @@
         {
           "sourceId": "dit11",
           "locator": "DIT11 Appendix A, (A.1)–(A.2), p. 977; DIT16 §5, p. 961; the series for M_{μ,s−1/2} is the display on DIT16 p. 984",
-          "excerpt": "For fixed µ, ν with Re(ν ± µ + 1/2) > 0, the Whittaker functions may be defined for y > 0 by [30, pp. 311, 313] Z 1 y ν+ 21 Γ(1+2ν) 1 1 (A.1) Mµ,ν (y) = y e 2 Γ(ν+µ+ 12 )Γ(ν−µ+ 21 ) tν+µ− 2 (1 − t)ν−µ− 2 e−yt dt 0 and Z ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10025,7 +9868,6 @@
         {
           "sourceId": "dit11",
           "locator": "DIT11 AppendixA, p977",
-          "excerpt": "The I-Bessel and K-Bessel functions are special Whittaker functions [30]: 1 1 » Iν (y) = 2−2ν− 2 Γ(ν + 1)−1 y − 2 M0,ν (2y) and Kν (y) = π 2y W0,ν (2y). Their asymptotic properties for large y thus follow from (A.4). Ref",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10067,7 +9909,6 @@
         {
           "sourceId": "dit11",
           "locator": "DIT11 Appendix A, (A.3)–(A.5), printed p.977",
-          "excerpt": "Their asymptotic behavior as y → ∞ for fixed µ, ν is easily found from (A.1) and (A.2) by changing variable t 7→ t/y: Γ(1+2ν) −µ y/2 (A.4) Mµ,ν (y) ∼ Γ(ν−µ+ 1 y ) e and Wµ,ν (y) ∼ y µ e−y/2",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10110,7 +9951,6 @@
         {
           "sourceId": "dit16",
           "locator": "AppendixA, p984; [23]3.892(1)",
-          "excerpt": "Using the integral formula (see [23, p. 511, 3.892(1)]), Z ⇡ ⇡ei⇡ /2 (⌫) ei x sin⌫ 1 xdx = , 0 ( ⌫+2 +1 ) ( ⌫ 2 +1 ) GEOMETRIC INVARIANTS 985 (a+n) and (a)n = (a) gives Z ⇡ d✓ (A.2) ei(t cos ✓+µ✓) Mµ,s 1/2 (2t sin ✓) 0 s",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10152,7 +9992,6 @@
         {
           "sourceId": "dit16",
           "locator": "Lemma 7, display (9.4), p. 980 (statement); restated as (A.1), Appendix A, p. 983; proof Appendix A, pp. 983–985",
-          "excerpt": "Lemma 7. For µ 2 C, t > 0 and Re(s) > 0, Z ⇡ d✓ (9.4) e±i(t cos ✓+µ✓) Mµ,s 1/2 (2t sin ✓) = G(s, µ)t1/2 Js 1/2 (t), 0 sin ✓ where 2 s (2s) G(s, µ) = e(±µ/4)(2⇡)3/2",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10192,7 +10031,6 @@
         {
           "sourceId": "dit16",
           "locator": "Lemma1 proof, p972",
-          "excerpt": "To deduce Lemma 1, note that both E(z, s) and '(z) satisfy (7.10) and that the growth condition for ' is clear while that for E(z, s) when Re(s) = 1/2 follows from its Fourier expansion (5.3). Finally, since both '(z) an",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10233,7 +10071,6 @@
         {
           "sourceId": "dit16",
           "locator": "Appendix A, proof of (A.1), p. 984: the displays from 'Using this last equation gives for the integral in (A.1)' to 'This proves that both sides of (A.1) satisfy the same differential equation', including the boundary term [e^{i(t cos θ+μθ)}M_{μ,λ}(2t sin θ)]_0^π = 0",
-          "excerpt": "Using this last equation gives for the integral in (A.1) Ç 2 Ç 2 åå Z d 1/4 ⇡ d✓ 2 + 1 + 2 ei(t cos ✓+µ✓) Mµ, (2t sin ✓) dt t 0 sin ✓ Z ⇡Å ã Z ⇡ 2µ 0 = 2 sin ✓ h(t)eiµ✓ d✓ + 2i 2 cos ✓ei(t cos ✓)+iµ✓ Mµ, (2t sin ✓)d✓. 0 ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10272,7 +10109,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5, p963, paragraph after (5.12)",
-          "excerpt": "the first case is zero when d0 , d > 0 as is that in the second case when d0 , d < 0. When u(z) = E(z, s), we apply a version of a classical formula of Hecke. Let L(s, d ) be the Dirichlet L-function with character given",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10313,7 +10149,6 @@
         {
           "sourceId": "dit16",
           "locator": "§5, p963 ('by (5.3)')",
-          "excerpt": "Note that E(z, s) is absolutely integrable over FA for Re(s) = 1/2 by (5.3). To pick out genera we need genus characters, or what is the same thing, real characters of Cl+ (K). These are in one-to- one correspondence wit",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10353,7 +10188,6 @@
         {
           "sourceId": "dit16",
           "locator": "§8, p.974, citing [20] and [16]",
-          "excerpt": "instructive to carry the analysis one step further. The Fourier expansion of Fm (z, s) is given by (see [20],[16]) 1/2 s Fm (z, s) = fm (z, s) + 2|m|(2s 1)⇤(2s) 2s 1 (|m|) 1 s y ] X + 2y 1/2 (m, n; s)Ks 1 (2⇡|n|y)e(nx), ",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10395,7 +10229,6 @@
         {
           "sourceId": "dit16",
           "locator": "(8.3), p.973, citing Fay [20, Thm 3.1, p.173]",
-          "excerpt": "The function Fm (z, s) occurs in the Fourier expansion of G(z, z 0 ; s), which is given by p X (8.3) G(z, z 0 ; s) = y0 F m (z, s)Ks 1/2 (2⇡|m|y 0 )e(mx0 ), m2Z valid when y 0 > y. This follows from Theorem 3.1 on page 1",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10436,7 +10269,6 @@
         {
           "sourceId": "dit16",
           "locator": "Appendix A, (A.2), p. 985 (derivation p. 984)",
-          "excerpt": "and (a)n = (a) gives Z ⇡ d✓ (A.2) ei(t cos ✓+µ✓) Mµ,s 1/2 (2t sin ✓) 0 sin ✓ (2s) = (2⇡)e(µ/4) (s µ) 1 X X ( 1)m (s µ + n) (s + n) s+` ⇥ n+s+m+µ+1 n+s m µ+1 t",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10478,7 +10310,6 @@
         {
           "sourceId": "dit16",
           "locator": "Appendix A, (A.3), p. 985",
-          "excerpt": "gives for the right-hand side of (A.1) (A.3) 1 (⇡)3/2 e(µ/4)22 2s (2s) X ( 1)r 2 2r G(s, µ)t1/2 Js 1/2 (t) = s+1+µ s+1 µ ts+2r ( 2 ) ( 2 ) r=0 r! (s + 1/2 + r) A straightforward calculation shows that the coefficients of",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10519,7 +10350,6 @@
         {
           "sourceId": "dit16",
           "locator": "Appendix A, p. 985 (last paragraph of the proof)",
-          "excerpt": "A straightforward calculation shows that the coefficients of ts , ts+1 and ts+2 in (A.2) and (A.3) match, which is more than what is needed to finish the proof of the lemma. ⇤ References [1] E. M. Baruch and Z. Mao, A ge",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -10560,7 +10390,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.5), (2.6), p. 238; inspected printed p.238",
-          "excerpt": "This is the Legendre differential equation of index s−1",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10645,7 +10474,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.7), (2.8), p. 238; inspected printed p.238",
-          "excerpt": "This is the Legendre differential equation of index s−1",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10686,7 +10514,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.4), (2.9), pp. 238–239; inspected printed p.238",
-          "excerpt": "This is the Legendre differential equation of index s−1",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10772,7 +10599,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.13), p. 239; inspected printed p.239",
-          "excerpt": "But this function would not be harmonic",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10812,7 +10638,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.14), p. 239; inspected printed p.239",
-          "excerpt": "But this function would not be harmonic",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10896,7 +10721,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.16), p. 240; p. 241; inspected printed p.240",
-          "excerpt": "We must therefore know the expansions",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10937,7 +10761,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §5, display after (5.7), p. 251; inspected printed p.251",
-          "excerpt": "Using the asymptotic expansion",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -10980,7 +10803,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §1, p. 271; inspected printed p.271",
-          "excerpt": "where Eₛ denotes the Eisenstein series",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11067,7 +10889,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §2, (2.1), p. 273; inspected printed p.273",
-          "excerpt": "We begin with Eₛ⁽¹⁾. For each decomposition D = D₁ · D₂ we define",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11151,7 +10972,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, (3.2) Proposition, p. 277; inspected printed p.277",
-          "excerpt": "The function Vₛ(t) occurring in (3.2) has the following properties:",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11234,7 +11054,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.2), p. 278; inspected printed p.278",
-          "excerpt": "The computation of the Fourier development is standard.",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11275,7 +11094,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.2), pp. 278–279; inspected printed p.279",
-          "excerpt": "We now give the proof of Proposition (3.3).",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11316,7 +11134,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition a), p. 277; proofs pp. 279–280; inspected printed p.279",
-          "excerpt": "We now give the proof of Proposition (3.3).",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11358,7 +11175,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition b), p. 277; proof pp. 280–281; inspected printed p.280",
-          "excerpt": "This proves",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11400,7 +11216,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition c), p. 278; proof p. 280; inspected printed p.280",
-          "excerpt": "This proves",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11440,7 +11255,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition d), p. 278; proof p. 281; inspected printed p.281",
-          "excerpt": "we could also treat the cases",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11480,7 +11294,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition e), p. 278; proof p. 281; inspected printed p.281",
-          "excerpt": "we could also treat the cases",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11523,7 +11336,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.3), p. 280; inspected printed p.280",
-          "excerpt": "This proves",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11562,7 +11374,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV §5 proof of (5.1), p.289; estimate follows from II(2.17), inspected p.240",
-          "excerpt": "We must therefore know the expansions",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11602,7 +11413,6 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §6, proof of (6.2), pp. 298-299; inspected printed p.299",
-          "excerpt": "Integration by parts gives",
           "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
         }
       ],
@@ -11639,7 +11449,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Corollary A.0.11.1, pp.332–333; PDF page 150",
-          "excerpt": "Corollary A.0.11.1. — Let Z+ , Z− : A × C → C be two functions such that:",
           "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
         }
       ],
@@ -11678,7 +11487,6 @@
         {
           "sourceId": "bpcz22",
           "locator": "Corollary A.0.11.2, p.333",
-          "excerpt": "Corollary A.0.11.2. — Let W be a LF space, C > 0 and Z+ , Z− : H>C × W → C be two functions. Assume that: 1. For every s ∈ H>C , Z+ (s, .) and Z− (s, .) are continuous functionals on W; 2. There exists d > 0 such that fo",
           "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
         }
       ],
@@ -11724,7 +11532,6 @@
         {
           "sourceId": "gz86",
           "locator": "ChapterII §2 equations(2.10)–(2.13), p.239",
-          "excerpt": "converges absolutely for",
           "match": "Literal prose read on the scanned printed p.239 immediately after (2.10); (2.11) states the eigen-equation and (2.12) the invariance. Effective Γ notation is made explicit here to prevent duplicate central terms."
         }
       ],

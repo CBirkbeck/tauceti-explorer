@@ -637,13 +637,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.5.5 (PDF p. 228)",
-     "excerpt": "Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).",
      "match": "The universal central extension, imported from K2SymbolsBrauer:T.1/steinberg-is-uce, to which K2SymbolsBrauer:T.1:classical/uce-source-superperfect is applied."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).",
      "match": "The K-book's use of the same fact on the way to K_3(R) ≅ H_3(St(R); Z)."
     }
    ],
@@ -689,7 +687,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Show that there is a homotopy fibration BA → BS+ → BP+. Conclude that πn(BS+) = 0 for n ≤ 2, and that πn(BS+) ≅ πn(BP+) ≅ πn(BG+) for all n ≥ 3.",
      "match": "The space BS⁺ of the exercise for the universal central extension St(A) → E(A); its properties are the three nodes named in the statement."
     }
    ],
@@ -823,7 +820,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).",
      "match": "The displayed isomorphism K_3(R) ≅ H_3(St(R); Z) is the statement of this node."
     }
    ],
@@ -877,13 +873,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).",
      "match": "The K-book states the isomorphism; the bar presentation of the right-hand side follows Mathlib's inhomogeneous chains (PROTOCOL §5, a node that follows the library)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Example VI.2.1.2 (PDF p. 478)",
-     "excerpt": "In [108], Lee and Szczarba used a variant of the formula K3(R) = H3(St(R); Z) (Ex. IV.1.9) to show that K3(Z) ≅ K3(Q) ≅ Z/48.",
      "match": "Motivates an explicit chain-level model of the right-hand side for computations."
     }
    ],
@@ -1026,13 +1020,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).",
      "match": "The isomorphism whose naturality and stabilisation are proved here; the K-book does not state them, the V.1 stage text requires them ('Prove naturality under ring maps and compatibility with stabilisation')."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2 (PDF p. 225)",
-     "excerpt": "We write St(R) for lim−→ Stn(R), and observe that by stabilizing the φn induce a surjection φ: St(R) → E(R).",
      "match": "The colimit presentation of St(R) used for the stabilisation clause."
     }
    ],
@@ -1072,13 +1064,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.19–IV.1.20 (PDF pp. 280–281)",
-     "excerpt": "Corollary 1.20. For any ring R the product with [−1] ∈ K1(Z) fits into an exact sequence K2(R) →[−1] K3(R) →h H3(E(R), Z) → 0.",
      "match": "The statement of this node."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.2.1.3 (PDF p. 478)",
-     "excerpt": "In particular, the image {−1, −1, −1} of η3 ∈ πs3 is nonzero in K3(Z) (see Ex. IV.1.12).",
      "match": "The nonvanishing used in the acceptance test for R = Z."
     }
    ],
@@ -1119,7 +1109,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Show that there is a homotopy fibration BA → BS+ → BP+. Conclude that πn(BS+) = 0 for n ≤ 2, and that πn(BS+) ≅ πn(BP+) ≅ πn(BG+) for all n ≥ 3.",
      "match": "The fibration and its degree-three-and-above consequence; the undefined BG⁺ of the exercise is read as BP⁺ (source issue)."
     }
    ],
@@ -1156,7 +1145,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Show that there is a homotopy fibration BA → BS+ → BP+. Conclude that πn(BS+) = 0 for n ≤ 2, and that πn(BS+) ≅ πn(BP+) ≅ πn(BG+) for all n ≥ 3.",
      "match": "The first conclusion of the exercise, πn(BS+) = 0 for n ≤ 2, for S = St(A)."
     }
    ],
@@ -1195,13 +1183,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.8 (PDF p. 282)",
-     "excerpt": "For G = GL(R) and P = E(R), this shows that BE(R)+ is homotopy equivalent to the universal covering space of BGL(R)+. Thus Kn(R) ≅ πnBE(R)+ for n ≥ 2.",
      "match": "The second step; the first is Ex. IV.1.9."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. IV.1.9 (PDF p. 282)",
-     "excerpt": "Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).",
      "match": "The conclusion Kn(R) ≅ πnSt(R)+ for n ≥ 3, read with B inserted (source issue)."
     }
    ],
@@ -1237,7 +1223,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2 (PDF p. 225)",
-     "excerpt": "We write St(R) for lim−→ Stn(R), and observe that by stabilizing the φn induce a surjection φ: St(R) → E(R).",
      "match": "The colimit presentation; the V.1 stage text requires 'compatibility with stabilisation'."
     }
    ],
@@ -1270,13 +1255,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma IV.1.19 (PDF p. 280)",
-     "excerpt": "Lemma 1.19. If X is a simply connected loop space, the composition product with η and the Hurewicz map h : π3(X) → H3(X, Z) fit into an exact sequence π2(X) →◦η π3(X) →h H3(X, Z) → 0.",
      "match": "The loop-space version."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark IV.1.19.1 (PDF p. 281)",
-     "excerpt": "Remark 1.19.1. (Suslin) Lemma 1.19 holds for any simply connected H-space X.",
      "match": "The H-space version stated in this node."
     }
    ],
@@ -1315,13 +1298,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Example IV.1.10.1 (PDF p. 274)",
-     "excerpt": "If F is a field, the universal property (III.7.1) of Milnor K-theory implies that there is a ring homomorphism KM∗(F) → K∗(F).",
      "match": "The K-book's definition of the graded map whose degree-three part this is."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 opening (PDF p. 495)",
-     "excerpt": "By Proposition 4.3.2, KM3(F) injects into K3(F).",
      "match": "The K-book uses the degree-three component; injectivity is Proposition VI.4.3.2 (PDF p. 490)."
     }
    ],
@@ -1439,7 +1420,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 opening (PDF p. 495)",
-     "excerpt": "The focus of this section will be to relate the group K_3^ind(F) := K_3(F)/K_3^M(F) to Bloch's group B(F) of a field F.",
      "match": "The displayed definition, with the caution about the image made explicit here."
     }
    ],
@@ -1588,7 +1568,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 opening (PDF p. 495)",
-     "excerpt": "K_3^ind(F) := K_3(F)/K_3^M(F)",
      "match": "The exactness statement is the definition of the quotient; the left-hand end is treated separately in VI.4.3.2."
     }
    ],
@@ -1630,13 +1609,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.4.3.2 (PDF p. 490)",
-     "excerpt": "Proposition 4.3.2. The map KM3(k)→K3(k) is an injection for every field k. Proof. We have seen that the kernel of KM3(k) → K3(k) has exponent 2.",
      "match": "The theorem and the first step of its motivic proof, followed here step by step."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Low degree terms VI.4.3.1 (PDF p. 490)",
-     "excerpt": "K4(k) → H0(k, Z(2)) →d2 KM3(k) → K3(k) → H1(k, Z(2)) → 0,",
      "match": "The exact sequence whose differential d_2 the proof shows to vanish."
     }
    ],
@@ -1675,13 +1652,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Example III.7.2(d) (PDF pp. 253–254)",
-     "excerpt": "When F is a number field, let r1 be the number of embeddings of F into R. Then we have a map from KMn(F) to the torsion subgroup (Z/2)r1 of KMn(R)r1. Bass and Tate proved in [21] that this map is an isomorphism for all n ≥ 3: KMn(F) ≅ (Z/2)r1.",
      "match": "The displayed isomorphism, in degree three; the K-book cites Bass–Tate [21] without proof."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 before Corollary 5.3 (PDF p. 496)",
-     "excerpt": "Then KM3(F) ≅ (Z/2)r1 by III.7.2(d), and K3(F) is finitely generated by IV.6.9 and V.6.8.",
      "match": "The degree-three case as the K-book uses it."
     }
    ],
@@ -1722,7 +1697,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 before Corollary 5.3 (PDF p. 496)",
-     "excerpt": "By Borel’s Theorem IV.1.18, K3(F) is the sum of Zr2 and a finite group.",
      "match": "Borel's theorem in the shape used by the K-book for degree three (Theorem IV.1.18, PDF p. 279)."
     }
    ],
@@ -1763,7 +1737,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.3 (PDF p. 496)",
-     "excerpt": "K_3^ind(F) = Z^{r_2} + Z/w, and: (a) If F is totally imaginary then K_3(F) = Z^{r_2} + Z/w; (b) If F has r_1 > 0 embeddings into R then K_3(F) = Z^{r_2} + Z/(2w) + (Z/2)^{r_1-1}.",
      "match": "The integral answers whose torsion is exactly what rationalisation destroys."
     }
    ],
@@ -1801,7 +1774,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5 opening (PDF p. 495)",
-     "excerpt": "By IV.1.20, the map K3(F) → H3(SL(F)) is onto, and its kernel is the subgroup of KM3(F) generated by the symbols {−1, a, b}.",
      "match": "The statement; the kernel is kept as an image until injectivity is proved, as the V.2 stage text requires."
     }
    ],
@@ -1838,13 +1810,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Low degree terms VI.4.3.1 (PDF p. 490)",
-     "excerpt": "K4(k) → H0(k, Z(2)) →d2 KM3(k) → K3(k) → H1(k, Z(2)) → 0,",
      "match": "The displayed exact sequence."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Edge Map VI.4.3 (PDF p. 489)",
-     "excerpt": "the edge maps in the spectral sequence are canonically identified with the maps KM∗(k) → K∗(k) and KM∗(k)/m → K∗(k; Z/m) described in IV.1.10.1.",
      "match": "The identification of the edge map with the Milnor-to-Quillen map."
     }
    ],
@@ -1878,7 +1848,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma V.11.13 (PDF p. 466)",
-     "excerpt": "Lemma 11.13. Let F be a field. Then the composition of KMi(F) → Ki(F) and ci,i : Ki(F) → Hi,i(Spec(F)) ≅ KMi(F) is multiplication by (−1)i−1(i−1)!.",
      "match": "The case i = 3."
     }
    ],
@@ -1923,7 +1892,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5, opening of the section (PDF p. 495)",
-     "excerpt": "For any abelian group A, let ∧̃²A denote the quotient of the group A ⊗ A by the subgroup generated by all a ⊗ b + b ⊗ a. The exterior power ∧²A is the quotient of ∧̃²A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The definition over ℤ and its relation to the exterior square; the node states it over a commutative ring R, and R = ℤ is the case the source uses. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -2107,7 +2075,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5, opening of the section (PDF p. 495)",
-     "excerpt": "The exterior power ∧²A is the quotient of ∧̃²A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The identification of the kernel with A/2A is quoted; the source gives no proof, and the injectivity argument is supplied in the proof steps. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -2145,7 +2112,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "with relations [1] = 0 and [x] - [y] + [y/x] - [(1 - x^{-1})/(1 - y^{-1})] + [(1 - x)/(1 - y)] = 0, x not equal to y in F without 0 and 1.",
      "match": "The relation in the normalisation used throughout this roadmap."
     }
    ],
@@ -2285,7 +2251,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "Definition 5.1. For any field F, let P(F) denote the abelian group presented with generators symbols [x] for x ∈ F − {0}, with relations [1] = 0 and [x] − [y] + [y/x] − [(1 − x^{-1})/(1 − y^{-1})] + [(1 − x)/(1 − y)] = 0, x ≠ y in F − {0, 1}.",
      "match": "The definition of this node. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -2429,7 +2394,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "There is a canonical map P(F) -> ~^2 F^x sending [1] to 0 and [x] to x wedge (1 - x) for x not equal to 1.",
      "match": "The map of this node, with its target."
     }
    ],
@@ -2548,7 +2512,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "and Bloch's group B(F) is defined to be its kernel.",
      "match": "The definition of this node."
     }
    ],
@@ -2662,7 +2625,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "Thus we have an exact sequence 0 -> B(F) -> P(F) -> ~^2 F^x -> K_2(F) -> 0.",
      "match": "The displayed sequence."
     }
    ],
@@ -2703,19 +2665,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.4 (a) (PDF p. 496)",
-     "excerpt": "Lemma 5.4. Assuming that |F| ≥ 4, (a) c = [x] + [1 − x] is independent of the choice of x ∈ F − {0, 1}.",
      "match": "Part (a) of the cited lemma. Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of VI.5.4 (PDF p. 497)",
-     "excerpt": "Given x ≠ y in F − {0, 1}, we have the relations in P(F): [1 − y] − [1 − x] + [(1 − x)/(1 − y)] − [(1 − x^{-1})/(1 − y^{-1})] + [y/x] = 0; [x^{-1}] − [y^{-1}] + [x/y] − [(1 − x)/(1 − y)] + [(1 − x^{-1})/(1 − y^{-1})] = 0.",
      "match": "The substituted relation used here is the first one displayed. Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of VI.5.4 (PDF p. 497)",
-     "excerpt": "Subtracting the first from the relation in 5.1 yields [x]+[1−x]−[y]−[1−y] = 0, whence (a) holds.",
      "match": "The derivation of (a)."
     }
    ],
@@ -2819,13 +2778,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.4 (c) (PDF p. 496)",
-     "excerpt": "(c) There is a homomorphism F^× → B(F) sending x to ⟨x⟩.",
      "match": "Part (c) of the cited lemma, with the target corrected from B(F) to P(F) (source issue: the elements ⟨x⟩ need not lie in B(F)). Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Before VI.5.4 (PDF p. 496)",
-     "excerpt": "The elements c = [x] + [1 − x] and ⟨x⟩ = [x] + [x^{-1}] of B(F) play an important role, as illustrated by the following calculations.",
      "match": "The sentence introducing ⟨x⟩, which also places it in B(F); see the source issue. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -2865,7 +2822,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.4.1 (PDF p. 497)",
-     "excerpt": "Corollary 5.4.1. If char(F) = 2 or √−1 ∈ F then 3c = 0 in B(F); if char(F) = 3 or ∛−1 ∈ F then 2c = 0 in B(F).",
      "match": "The corollary, with '∛−1 ∈ F' read as a root of t² − t + 1 (see the source issue); the source gives no proof."
     }
    ],
@@ -2900,7 +2856,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.2.1 (PDF p. 496)",
-     "excerpt": "In fact, the element c = [2] + [−1] has order exactly 6 in both B(Q) and B(R). This may be proven using the Rogers L-function, which is built from the dilogarithm function.",
      "match": "The only use the K-book makes of the analytic side in this section: the order of c is detected by the Rogers function, not by D, which vanishes on real points. The definition of D is sourced in the owning node of Polylogarithms."
     }
    ],
@@ -2954,7 +2909,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.2.1 (PDF p. 496)",
-     "excerpt": "In fact, the element c = [2] + [−1] has order exactly 6 in both B(Q) and B(R). This may be proven using the Rogers L-function, which is built from the dilogarithm function.",
      "match": "The K-book's use of the analytic side; the five-term identity and the descent are owned and sourced by Polylogarithms P.1 and P.2."
     }
    ],
@@ -3001,19 +2955,16 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "Definition 1.1 and the remark after it, §1.1, p. 2",
-     "excerpt": "With our convention, the relations [1] = 3 [0] = [X] + [1/X] = [X] + [1 − X] − [0] = 0 hold in B(F) for all X. Our Bloch group is a quotient of Suslin's Bloch group B̃(F) by a subgroup of exponent 2 (see Lemma 2.2).",
      "match": "CGZ's comparison, which concerns their B̃(F) (Definition 2.1, target the exterior square); this node proves the composite with B(F) ⊆ B̃(F)."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "Proof of Theorem 2.11, §2.5, p. 15",
-     "excerpt": "since, when n is odd, the groups B(F)/nB(F) and B(F; Z/nZ) coincide with Suslin's Bloch group B̃(F)/nB̃(F) and the group B̃(F; Z/nZ) respectively by Lemma 2.2.",
      "match": "The odd-n identification this node recovers from the exponent-two statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "and Bloch's group B(F) is defined to be its kernel.",
      "match": "Suslin's side of the comparison."
     }
    ],
@@ -3054,13 +3005,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1.1 (PDF p. 495)",
-     "excerpt": "Remark 5.1.1. Since the cases B(F_2) = 0 and B(F_3) = Z are pathological, we will tacitly assume that |F| ≥ 4 in this section.",
      "match": "The two exceptional values."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.3 (PDF p. 508)",
-     "excerpt": "Show that B(F_5) ≅ Z/3 on generator c = [2] = 2[3], with [−1] = 0. Then show that B(F_7) ≅ Z/4 on generator [−1] = 2[3] with c = [4] = 2[−1]. (In both cases, [3] ∉ B(F).) Show that B(F_4) ≅ Z/5.",
      "match": "The small cases, with the misprint c = [4] for F_7 corrected to c = 2[4] (see the source issue)."
     }
    ],
@@ -3098,13 +3047,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.4 (b) (PDF p. 496)",
-     "excerpt": "(b) For each x in F − {0, 1}, 2⟨x⟩ = 0.",
      "match": "Part (b) of the cited lemma, read in P(F). Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of VI.5.4 (PDF p. 497)",
-     "excerpt": "Adding the second to the relation in 5.1 yields ⟨y⟩ − ⟨x⟩ = ⟨y/x⟩. Interchanging x and y, and using ⟨y/x⟩ = ⟨x/y⟩, we obtain 2⟨y/x⟩ = 0. Because |F| ≥ 4, any z ∈ F − {0, 1} has the form z = zx/x for x ≠ 1 and hence 2⟨z⟩ = 0.",
      "match": "The derivation; the choice 'x ≠ 1' is sharpened to x ∉ {0, 1, z^{-1}} (see the source issue). Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -3144,13 +3091,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.4 (d) (PDF p. 496)",
-     "excerpt": "(d) 3c = ⟨−1⟩ and hence 6c = 0 in B(F).",
      "match": "Part (d) of the cited lemma. Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of VI.5.4 (PDF p. 497)",
-     "excerpt": "3c =[x] + [1 − x] + [x^{-1}] + [1 − x^{-1}] + [(1 − x)^{-1}] + [1 − (1 − x)^{-1}] =⟨x⟩ + ⟨1 − x⟩ + ⟨1 − x^{-1}⟩ = ⟨−(1 − x)^2⟩ = ⟨−1⟩.",
      "match": "The displayed computation. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -3190,7 +3135,6 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "Definition 2.1, §2.1, p. 8",
-     "excerpt": "Definition 2.1. Suslin's Bloch group of a field F is the quotient B̃(F) = Ã(F)/C̃(F), where Z̃(F) = Z[F^× \\ 1], Ã(F) is the kernel of the map d : Z̃(F) → ∧²F^×, [X] ↦ (X) ∧ (1 − X)",
      "match": "CGZ's 'Suslin's Bloch group', with the exterior square as target; its quotient-by-five-term form equals the kernel on P(F) because the five-term elements have vanishing boundary."
     }
    ],
@@ -3287,13 +3231,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5, opening of the section (PDF p. 495)",
-     "excerpt": "The exterior power ∧²A is the quotient of ∧̃²A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The A/2A kernel used in the first step. Transcribed from the PDF: fractions and superscripts written inline."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "Thus we have an exact sequence 0 → B(F) → P(F) → ∧̃²F^× → K_2(F) → 0.",
      "match": "The four-term exact sequence used in the second step. Transcribed from the PDF: fractions and superscripts written inline."
     }
    ],
@@ -3332,13 +3274,11 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "Definition 1.1, §1.1, p. 2",
-     "excerpt": "Definition 1.1. The Bloch group of a field F is the quotient B(F) = A(F)/C(F), where A(F) is the kernel of the map d : Z(F) → ∧²F^×, [X] ↦ (X) ∧ (1 − X) (and [0], [1], [∞] ↦ 0) and C(F) ⊆ A(F) the group generated by the five-term relation",
      "match": "The definition, with C(F) read as A(F) ∩ ⟨ξ⟩ (see the source issue)."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "Definition 1.1, §1.1, p. 2",
-     "excerpt": "with X and Y ranging over P^1(F) (but forbidding arguments 0/0 or ∞/∞ on the right-hand side).",
      "match": "The index set of the five-term relation."
     }
    ],
@@ -3457,13 +3397,11 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "Lemma 2.2, §2.1, p. 9",
-     "excerpt": "Lemma 2.2. There is a surjection B̃(F) → B(F) whose kernel is the 2-torsion group generated by the elements ⟨X⟩ = [X] + [X^{-1}] for X ∈ F^× \\ 1.",
      "match": "The lemma, with |F| ≥ 4 added and the kernel read as B̃(F) ∩ ⟨Fˣ⟩ (see the source issue)."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "Proof of Lemma 2.2, p. 9",
-     "excerpt": "0 = [X] − [0] + [0] − [0] + [1 − X] = c − [0], 0 = [X] − [1] + [1/X] − [∞] + [∞] = ⟨X⟩ − [1],",
      "match": "Two of the degenerate specialisations; the rest are completed in the proof steps."
     }
    ],
@@ -3502,7 +3440,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.5 (PDF p. 497)",
-     "excerpt": "Definition 5.5. If X is any set, let C∗(X) denote the “configuration” chain complex in which Cn is the free abelian group on the set of (n + 1)-tuples (x0, . . . , xn) of distinct points in X, with differential d(x0, . . . , xn) = Σ_{i=0}^{n} (−1)^i (x0, . . . , x̂i, . . . , xn).",
      "match": "The definition; the augmentation is the next sentence, 'There is a natural augmentation C0(X) → Z sending each (x) to 1.'"
     }
    ],
@@ -3637,13 +3574,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.5.1 and its proof (PDF p. 497)",
-     "excerpt": "Lemma 5.5.1. If X is infinite then C∗(X) → Z is a quasi-isomorphism. Proof. If X0 is a proper subset of X and z ∈ X − X0 then sn(x0, . . . ) = (z, x0, . . . ) defines a chain homotopy sn : Cn(X0) → Cn+1(X) from the inclusion C∗(X0) → C∗(X) to the projection",
      "match": "The lemma and the prepending homotopy."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.1 (PDF p. 508)",
-     "excerpt": "5.1. (Hutchinson) If |X| = d, Cn(X) = 0 for n ≥ d by 5.5. Show that Hn(C∗(X)) = 0 for all n ≠ 0, d − 1, and that Hn(C′∗(X)) = 0 for all n ≠ d − 1.",
      "match": "The finite case, recorded in the acceptance only; the top homology is nonzero, so no finite set is acyclic."
     }
    ],
@@ -3688,13 +3623,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.5, second paragraph (PDF p. 497)",
-     "excerpt": "If a group G acts on X, then C∗(X) is a complex of G-modules, and we may form its hyperhomology Hn(G, C∗(X)); see [223, 6.1.15]. There is a canonical map Hn(G, C∗(X)) → Hn(CG), where CG denotes C∗(X) ⊗G Z.",
      "match": "The construction."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.5.2 (PDF p. 497)",
-     "excerpt": "Corollary 5.5.2. If a group G acts on X, and X is infinite (or |X| > n + 1), then Hn(G, C∗(X)) ∼= Hn(G, Z).",
      "match": "The identification, for infinite X only."
     }
    ],
@@ -3799,7 +3732,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.6 and its proof (PDF p. 498)",
-     "excerpt": "Lemma 5.6. H0(CG) = Z, Hn(CG) = 0 for n = 1, 2 and H3(CG) ∼= P(F). … For n = 3 we write [x] for (0, ∞, 1, x); C3 is a free Z[G]-module on the set {[x] : x ∈ F − {0, 1}}. … Thus the cokernel H3(CG) of d : C4 ⊗G Z → C3 ⊗G Z is P(F).",
      "match": "The lemma and its computation; 'free Z[G]-module' is corrected to a sum of modules induced from the centre (source issues)."
     }
    ],
@@ -3843,13 +3775,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "(5.8) and the paragraph after Theorem VI.5.7 (PDF p. 498)",
-     "excerpt": "the stabilizer of (0, ∞) ∈ X2 is the diagonal subgroup T2 = F× × F×, so E1 1,q = Hq(G, C1) = Hq(T2, Z), and the stabilizer of (0, ∞, 1) ∈ X3 is the subgroup ∆ = {(a, a−1)} of T2, isomorphic to F×, so E1 2,q = Hq(∆, Z).",
      "match": "The first page; the printed ∆ = {(a, a−1)} is corrected to the centre {(a, a)} (source issues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Theorem VI.5.7 (PDF p. 499)",
-     "excerpt": "By Lemma 5.8.1, the row q = 1 in (5.8) has E2 0,1 = (T2)σ = F× and E2 1,1 = 0 (because Tσ 2 = F×).",
      "match": "The row q = 1 of the second page; the reason given (T_2^σ = F^×) is the centre, not {(a, a^{−1})}."
     }
    ],
@@ -3892,13 +3822,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.7 (PDF p. 498)",
-     "excerpt": "Theorem 5.7. For all F, H1(GL2(F), Z) = F×, H2(GL2(F), Z) = (∧2 F×) ⊕ K2(F) and there is a map ψ and an exact sequence H3(M2, Z) → H3(GL2(F), Z) −ψ→ B(F) → 0.",
      "match": "The theorem, restricted to infinite F (source issues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Theorem VI.5.7 (PDF p. 499)",
-     "excerpt": "Analyzing the subquotient Q2 in (5.8.2), Suslin showed in [187, p. 223] that K is the image of H3(M2, Z) → H3(GL2(F), Z). The result follows.",
      "match": "The kernel step, taken from Suslin without proof (gap)."
     }
    ],
@@ -3939,13 +3867,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.9 (PDF p. 500)",
-     "excerpt": "The associated acyclic complex (Ca∗, da) is the complex obtained from the reduced complex C∗ by omitting the last face operator; Ca∗ is acyclic, and there is a chain map N : C∗ → Ca∗ defined by N = Σ_{i=0}^{n} (−1)^i t_n^i on Cn.",
      "match": "The construction; N's sign is corrected to Σ ((−1)^n t_n)^i and the acyclicity is proved by prepending (source issues)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "(5.9.1) (PDF p. 500)",
-     "excerpt": "We write D∗ for the the associated mapping cone of this morphism. Thus, D0 = Ca1, and Dn = Ca_{n+1} ⊕ Cn for n > 0 with differential (x, y) ↦ (dax − Ny, −dy). Then cone(N)[1] → D∗ is a quasi-isomorphism.",
      "match": "The cone D_* as displayed."
     }
    ],
@@ -4069,7 +3995,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.12 and its proof (PDF p. 502)",
-     "excerpt": "Proposition 5.12. The image of ψ is B(F), and there is an exact sequence H3(M2, Z) ⊕ H3(T3, Z) → H3(GL3(F), Z) −ψ→ B(F) → 0. Proof. By [183, 3.4], H3(T3, Z) and H3(GL2, Z) generate H3(GL3, Z).",
      "match": "The proposition; its proof uses Lemma 5.10, so V.4/psi-compatibility is a prerequisite."
     }
    ],
@@ -4108,7 +4033,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.10 and its proof (PDF p. 501)",
-     "excerpt": "Lemma 5.10. The composition H3(GL2, Z) → H3(GL3, Z) −ψ→ P(F) is the homomorphism H3(GL2, Z) → B(F) ⊂ P(F) of Theorem 5.7.",
      "match": "The lemma, with the projection argument of its proof."
     }
    ],
@@ -4147,7 +4071,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.14, IV.1.14.1 and IV.1.15 (PDF p. 278)",
-     "excerpt": "Proposition 1.15. (Suslin) If F is an infinite field, then H_n(GL_r(F)) -> H_n(GL(F)) is an isomorphism for all r >= n. In addition, there is a canonical isomorphism H_n(GL_n(F))/im H_n(GL_{n-1}(F)) = K^M_n(F).",
      "match": "The statement as displayed."
     }
    ],
@@ -4189,7 +4112,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.13 and its proof (PDF p. 502)",
-     "excerpt": "Proposition 5.13. The image of H3(Σ∞, Z) −ι∗→ H3(GL(F), Z) −ψ→ B(F) is the subgroup generated by 2c, which is trivial or cyclic of order 3. Proof. We saw in Ex. IV.1.13 that H3(Σ∞, Z) ∼= Z/12 ⊕ (Z/2)2",
      "match": "The proposition; Lemma 5.14 is the separate node V.4/alternating-group-image."
     }
    ],
@@ -4227,7 +4149,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.15 (PDF p. 503) and its proof (PDF p. 504)",
-     "excerpt": "Proposition 5.15. Let ι : Σ∞ → GL(F) be the inclusion. Then there is an exact sequence: H3(M, Z) → H3(GL(F), Z) ⊕ H3(Σ∞, Z) −(ψ,−ψι∗)→ B(F) → 0.",
      "match": "The proposition as displayed."
     }
    ],
@@ -4271,7 +4192,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.16 (PDF p. 504)",
-     "excerpt": "Theorem 5.16. ([187, Lemma 5.4]) The cokernel of π3BM+ → K3(F) is B(F)/(2c), and there is an exact sequence: π3(BM+) → K3(F) ⊕ πs3 −(ψ,−ψι∗)→ B(F) → 0.",
      "match": "The theorem; Corollary 5.16.1 is moved to V.4/pi3ind-sequence."
     }
    ],
@@ -4311,7 +4231,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.1.2 (PDF p. 495)",
-     "excerpt": "For any finite cyclic abelian group A of even order m, there is a unique nontrivial extension Ã of A by Z/2. If A is cyclic of odd order, we set Ã = A. Since the group µ(F) of roots of unity is a union of finite cyclic groups, we may define µ̃(F) as the union of the µ̃n(F).",
      "match": "The definition; the union is replaced by an equivalent model that needs no choice of transition maps."
     }
    ],
@@ -4437,7 +4356,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.20 and its proof (PDF p. 507)",
-     "excerpt": "Corollary 5.20. πind3(BM+) ∼= µ̃(F) ⊕ Z/12. Proof. If char(F) = 2, the result is immediate from Proposition 5.17, so we may suppose that char(F) ≠ 2. If F ⊂ E then µ(F) ⊆ µ(E) and therefore, by naturality of Proposition 5.17 in F, the map on π3(BM+) groups is an injection.",
      "match": "The corollary; Proposition 5.17 and Lemmas 5.18 and 5.19 are separate nodes."
     }
    ],
@@ -4479,13 +4397,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.2 (PDF p. 495)",
-     "excerpt": "Theorem 5.2. (Suslin) For any field F with |F| ≥ 4, there is an exact sequence 0 → µ̃(F) → Kind3(F) → B(F) → 0.",
      "match": "The theorem, for infinite F (the case the printed proof covers and the stage asks for), with the left-hand term in its natural form."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Theorem VI.5.2 (PDF p. 507)",
-     "excerpt": "By Corollaries 5.16.1 and 5.20, the kernel of Kind3(F) → B(F) is the image of µ̃(F). Thus it suffices to show that the summand µ̃(F) of π3(BM+) (given by Corollary 5.20) injects into Kind3(F).",
      "match": "The proof collated from 5.16.1, 5.19 and 5.20."
     }
    ],
@@ -4527,13 +4443,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.9 (PDF p. 509)",
-     "excerpt": "(a) Show that ∧2A → H2(A, Z) is an isomorphism, and that ∧3A → H3(A, Z) is an injection whose cokernel Hind3(A) is canonically isomorphic to Tor(A, A)τ.",
      "match": "The natural Tor form of the homology that produces the torsion term."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.9(b) (PDF p. 509)",
-     "excerpt": "(b) If A is a finite cyclic group and σ is an automorphism of A, show that the composite A ∼= Hind3(A) −σ→ Hind3(A) ∼= A sends a ∈ A to σ2(a).",
      "match": "The twist that prevents a natural isomorphism with μ(F) or μ̃(F)."
     }
    ],
@@ -4574,7 +4488,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.16 proof and VI.5.12.1 (PDF pp. 502, 504-505)",
-     "excerpt": "The map psi extends to a map defined on H_3(GL(F), Z), because of the stability result H_3(GL_3(F), Z) = H_3(GL(F), Z); see IV.1.15.",
      "match": "The extension and the compatibility used here."
     }
    ],
@@ -4613,7 +4526,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Lemma VI.5.6 (PDF p. 498)",
-     "excerpt": "For n = 3 we write [x] for (0, ∞, 1, x); … d(0, ∞, 1, x, y) = (∞, 1, x, y) − (0, 1, x, y) + (0, ∞, x, y) − (0, ∞, 1, y) + (0, ∞, 1, x) = [(1 − x)/(1 − y)] − [(1 − x−1)/(1 − y−1)] + [y/x] − [y] + [x].",
      "match": "The normalisation (0, ∞, 1, x) ↦ x and the face values; the K-book uses the cross-ratio without naming it, and the V.4 stage names 'the cross-ratio map' as a target."
     }
    ],
@@ -4724,13 +4636,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Before Theorem VI.5.7 (PDF p. 498)",
-     "excerpt": "Let T2 denote the diagonal subgroup (isomorphic to F× × F×) of GL2(F); the semidirect product T2 ⋊ Σ2 is the subgroup of M2 of monomial matrices in GL2(F) (matrices with only one nonzero term in every row and column).",
      "match": "The rank-two case."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Monomial matrices, before Proposition VI.5.15 (PDF p. 503)",
-     "excerpt": "We write Mn for the group of all monomial matrices in GLn(F) and M for the union of the Mn in GL(F); Mn is isomorphic to the wreath product F×≀Σn = (F×)n⋊Σn and M ∼= F×≀Σ∞.",
      "match": "The general case."
     }
    ],
@@ -4837,7 +4747,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Paragraph after Theorem VI.5.7 (PDF p. 498)",
-     "excerpt": "By Lemma 5.6, the edge map H3(G, Z) → E∞3,0 lands in a subset of E1 3,0 = H3(CG) ∼= P(F), which we must show is B(F).",
      "match": "The construction of ψ as the edge map."
     }
    ],
@@ -4935,7 +4844,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Paragraph after Theorem VI.5.7 (PDF p. 498)",
-     "excerpt": "Indeed, the stabilizer of 0 ∈ X is the group B of upper triangular matrices, so E1 0,q = Hq(G, C0) = Hq(B, Z); … By [184, §3], the inclusion T2 ⊂ B induces an isomorphism on homology.",
      "match": "The statement, cited from Suslin without proof; valid for infinite F only."
     }
    ],
@@ -4978,13 +4886,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.8.1 (PDF p. 499)",
-     "excerpt": "Lemma 5.8.1. Let σ : T2 → T2 be the involution σ(a, b) = (b, a). Then the differential d1 : Hq(T2) → Hq(B) ∼= Hq(T2) is induced by 1 − σ.",
      "match": "The lemma."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.2(iii) (PDF p. 508)",
-     "excerpt": "(iii) The fact that Hq(T2, Z) → Hq(B, Z) is an isomorphism ([184, §3]) implies that d1 = 1 − σ.",
      "match": "The proof outline of Exercise 5.2 (i)–(iii)."
     }
    ],
@@ -5029,7 +4935,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Theorem VI.5.7 (PDF p. 499)",
-     "excerpt": "A routine but tedious calculation shows that the differential d3 : P(F) → H2(T2)σ is the canonical map P(F) → ∧̃2(F×) of 5.1 followed by the split inclusion of ∧̃2(F×) into H2(T2)σ; see [187, 2.4]. Thus the cokernel of d3 is E3 0,2 ∼= ∧2F× ⊕ K2(F).",
      "match": "The identification of d^3; H_2(T_2)_σ is the coinvariants (subscript σ in the source), not the invariants."
     }
    ],
@@ -5071,7 +4976,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Example VI.5.9.1 (PDF p. 500)",
-     "excerpt": "Example 5.9.1. When X = P2(F), let Cn denote the subgroup of Cn(X) generated by the (n + 1)-tuples of points (x0, . . . , xn) for which no three xi are collinear. … The proof of Lemma 5.5.1 goes through to show that if X is infinite then C∗ → Z and hence C∗ → C∗(X) are quasi-isomorphisms.",
      "match": "The subcomplex and its acyclicity; the prepending point must also avoid the lines through pairs of support points."
     }
    ],
@@ -5177,7 +5081,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Before Lemma VI.5.10 (PDF p. 501)",
-     "excerpt": "The map ψ′ : (DG)3 → P(F) defined by ψ′(P) = 2c, ψ′([a x]) = a vanishes on the image of (DG)4, by a straightforward calculation done in [187, 3.3], so it induces a homomorphism ψ : H3(GL3, Z) → H3(DG) → P(F).",
      "match": "The construction; 'a' is read as [a], and the P-value is −2c with the displayed cone differential (source issues)."
     }
    ],
@@ -5281,7 +5184,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.11 (PDF p. 501)",
-     "excerpt": "Lemma 5.11. Let T3 denote the diagonal subgroup F× × F× × F× of GL3(F). If F is infinite, Hn(T3, Z) → Hn(D∗T3) is zero for n > 0.",
      "match": "The lemma and its proof."
     }
    ],
@@ -5321,7 +5223,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Proposition VI.5.12 (PDF p. 502)",
-     "excerpt": "Proof. By [183, 3.4], H3(T3, Z) and H3(GL2, Z) generate H3(GL3, Z).",
      "match": "The generation statement, taken from Suslin."
     }
    ],
@@ -5361,7 +5262,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise VI.5.5 (PDF p. 508)",
-     "excerpt": "5.5. (Dupont-Sah) Show that [x2] = 2 ([x] + [−x] + [−1]) in P(F) for all x ≠ ±1. Using this, show that [x2] + 2[−x2] − 2[x − 1] − [1/x2] = 2c.",
      "match": "(i) as printed; (ii) corrected."
     }
    ],
@@ -5410,13 +5310,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.14 (PDF p. 502)",
-     "excerpt": "Lemma 5.14. If |F| ≥ 4, the image of Z/3 ∼= H3(A3) in B(F) is generated by 2c.",
      "match": "The lemma, for infinite F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Lemma VI.5.14 (PDF p. 503)",
-     "excerpt": "As |F| ≥ 4, we can take x ≠ −1 and y = x^{−1}, so this expression becomes −[x2]−2[−x2]+2[x−1]+[1/x2]. This equals −2c, by Exercise 5.5.",
      "match": "The final step, corrected: the constraint x ≠ 2 is also needed, and the resulting expression is different (source issues)."
     }
    ],
@@ -5457,7 +5355,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "After Theorem VI.5.16 (PDF p. 505)",
-     "excerpt": "We define πind3(BM+) to be the quotient of π3(BM+) by all products from π1(BM+) ⊗ π2(BM+). There is a natural map πind3(BM+) → πs3/(η3) ∼= Z/12.",
      "match": "The definition."
     }
    ],
@@ -5557,7 +5454,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.16.1 (PDF p. 505)",
-     "excerpt": "Corollary 5.16.1. The sequence of Theorem 5.16 induces an exact sequence πind3(BM+) → Kind3(F) ⊕ Z/12 → B(F) → 0.",
      "match": "The corollary."
     }
    ],
@@ -5599,13 +5495,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.17 (PDF p. 505)",
-     "excerpt": "Proposition 5.17. There is an exact sequence 0 → µ2(F) → πind3(BM+) −γ→ µ(F) ⊕ Z/12 → 0.",
      "match": "The proposition, with µ(F) in its natural Tor form."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Proposition VI.5.17 (PDF p. 506)",
-     "excerpt": "Modding out by the products from ∧2F× ⊗ F× replaces H3(F×, Z) by H3(F×, Z)/∧3F×, which by Ex. 5.9 is isomorphic to µ(F).",
      "match": "The step that identifies the Tor term; Ex. 5.9 gives Tor(A, A)^τ canonically."
     }
    ],
@@ -5645,7 +5539,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.18 (PDF p. 506)",
-     "excerpt": "Lemma 5.18. The composition µ(F) −δ→ πind3(BM+) −γ→ µ(F) sends x to x2.",
      "match": "The lemma, in the natural Tor form."
     }
    ],
@@ -5688,7 +5581,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.19 (PDF p. 507)",
-     "excerpt": "Lemma 5.19. The following composition is an injection: µ(F) −δ→ πind3(BM+) → Kind3(F) −e→ H0(F, µ⊗2). If F is algebraically closed it is an isomorphism.",
      "match": "The lemma, with µ(F) replaced by its natural form H_3(µ(F), Z)."
     }
    ],
@@ -5730,13 +5622,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.17 (PDF p. 505)",
-     "excerpt": "Proposition 5.17. There is an exact sequence 0 → µ2(F) → πind3(BM+) −γ→ µ(F) ⊕ Z/12 → 0.",
      "match": "The extension that defines the enhanced term."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Proof of Theorem VI.5.2 (PDF p. 507)",
-     "excerpt": "Thus it suffices to show that the summand µ̃(F) of π3(BM+) (given by Corollary 5.20) injects into Kind3(F).",
      "match": "The summand used as the left-hand term of Suslin's sequence."
     }
    ],
@@ -5843,7 +5733,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary IV.1.13 (PDF p. 277)",
-     "excerpt": "Corollary 1.13. For every finite field Fq, and n ≥ 1, we have Kn(Fq) = πnBGL(Fq)+ ≅ Z/(q^i − 1) if n = 2i − 1, and 0 if n is even.",
      "match": "The case i = 2 is this node, for every finite field including F_2 and F_3; the two displayed cases of the source are written inline. KTheoryFiniteLocalFields L.1 owns the calculation."
     }
    ],
@@ -5885,7 +5774,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary IV.1.13 (PDF p. 277)",
-     "excerpt": "Moreover, if Fq ⊂ Fq′ then Kn(Fq) → Kn(Fq′) is an injection, identifying Kn(Fq) with Kn(Fq′)^G, where G = Gal(Fq′/Fq); the transfer map Kn(Fq′) → Kn(Fq) is onto (see 1.1.3).",
      "match": "The degree-three case gives injectivity of restriction, the identification with Galois invariants and surjectivity of transfer; the two composite formulas are part of L.1's functorial model."
     }
    ],
@@ -5929,25 +5817,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.1.1 (PDF p. 495)",
-     "excerpt": "Theorem 5.2 below implies that if q > 3 is odd then B(F_q) is cyclic of order (q + 1)/2, while if q > 3 is even then B(F_q) is cyclic of order q + 1.",
      "match": "The statement for q ≥ 4, with the derivation from Theorem 5.2 indicated there."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.1.1 (PDF p. 495)",
-     "excerpt": "Since the cases B(F2) = 0 and B(F3) = Z are pathological, we will tacitly assume that |F| ≥ 4 in this section.",
      "match": "The two excluded fields and their Bloch groups."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "§4.2, p. 23",
-     "excerpt": "By [15], the Bloch group B(Fq) is a cyclic group of order q + 1 up to 2-torsion.",
      "match": "The Calegari-Garoufalidis-Zagier convention for odd q; order q + 1 up to 2-torsion is consistent with (q + 1)/2. Their reference [15] is Hutchinson; the v2 preprint’s finite-field corollary was read for this fix and supplies V.5/finite-field-bloch-comparison."
     },
     {
      "sourceId": "Hutchinson.1107.0264v2",
      "locator": "Corollary 7.5, PDF pp.35–36",
-     "excerpt": "The exact sequence extends the infinite-field result to finite fields with the stated convention.",
      "match": "Paraphrase of the inspected passage, not a quotation. The exact sequence extends the infinite-field result to finite fields with the stated convention."
     }
    ],
@@ -5989,25 +5873,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Example VI.2.1.2 (PDF p. 478)",
-     "excerpt": "In [108], Lee and Szczarba used a variant of the formula K3(R) = H3(St(R); Z) (Ex. IV.1.9) to show that K3(Z) ≅ K3(Q) ≅ Z/48. It follows that the e-invariant K3(Q) → Z/24 cannot be an injection.",
      "match": "The two groups, the isomorphism and the non-injectivity of the e-invariant; Lee-Szczarba's route through H_3(St) is historical and is not re-proved here."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.2.1.3 (PDF p. 478)",
-     "excerpt": "In particular, the image {−1, −1, −1} of η³ ∈ π^s_3 is nonzero in K3(Z) (see Ex. IV.1.12).",
      "match": "The decomposable class {−1, −1, −1} is nonzero."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.3 (PDF p. 496)",
-     "excerpt": "Corollary 5.3. Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F). Then K^ind_3(F) ≅ Z^r2 ⊕ Z/w, and: (a) If F is totally imaginary then K3(F) ≅ Z^r2 ⊕ Z/w; (b) If F has r1 > 0 embeddings into R then K3(F) ≅ Z^r2 ⊕ Z/(2w) ⊕ (Z/2)^(r1−1).",
      "match": "Case (b) with r_1 = 1, r_2 = 0 and w = 24, which gives Z/48 for Q."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Example VI.2.1.2 (PDF p. 478)",
-     "excerpt": "If i is even then wi(Q) = wi(Q(√−1)), and ℓ|wi(Q) exactly when (ℓ−1) divides i. We have: w2 = 24, w4 = 240",
      "match": "w_2(Q) = 24."
     }
    ],
@@ -6054,7 +5934,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.2.1 (PDF p. 496)",
-     "excerpt": "In fact, B(Q) ≅ Z/6. This follows from Theorem 5.2 and the calculations that K3(Q) ≅ Z/48 (2.1.2), K^M_3(Q) ≅ Z/2 (III.7.2.d) and µ̃(Q) ≅ Z/4.",
      "match": "The four values; the claim about the order of c is the next node."
     }
    ],
@@ -6096,19 +5975,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.3 (PDF p. 496)",
-     "excerpt": "Corollary 5.3. Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F). Then K^ind_3(F) ≅ Z^r2 ⊕ Z/w, and: (a) If F is totally imaginary then K3(F) ≅ Z^r2 ⊕ Z/w; (b) If F has r1 > 0 embeddings into R then K3(F) ≅ Z^r2 ⊕ Z/(2w) ⊕ (Z/2)^(r1−1).",
      "match": "The corollary as displayed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.2.1 (PDF p. 477)",
-     "excerpt": "If µ(i)^G is a finite group it is cyclic, and we write wi(F) for its order, so that µ(i)^G ≅ Z/wi(F).",
      "match": "The definition of w_2(F)."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "§1.2, equation (10), p. 4",
-     "excerpt": "w2(F) is the integer w2(F) = 2 ∏_p p^νp, νp := max{ν ∈ Z | ζ_{p^ν} + ζ_{p^ν}^{−1} ∈ F}.",
      "match": "An explicit formula for w_2(F), used in the acceptance examples."
     }
    ],
@@ -6148,13 +6024,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary VI.5.3 (PDF p. 496)",
-     "excerpt": "Corollary 5.3. Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F). Then K^ind_3(F) ≅ Z^r2 ⊕ Z/w, and: (a) If F is totally imaginary then K3(F) ≅ Z^r2 ⊕ Z/w; (b) If F has r1 > 0 embeddings into R then K3(F) ≅ Z^r2 ⊕ Z/(2w) ⊕ (Z/2)^(r1−1).",
      "match": "Case (a) with r_2 = 1 and w = 24."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Example VI.2.1.2 (PDF p. 478)",
-     "excerpt": "If i is even then wi(Q) = wi(Q(√−1)), and ℓ|wi(Q) exactly when (ℓ−1) divides i. We have: w2 = 24, w4 = 240",
      "match": "w_2(Q(i)) = w_2(Q) = 24."
     }
    ],
@@ -6192,7 +6066,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Examples III.7.2(a) (PDF p. 253)",
-     "excerpt": "Examples 7.2. (a) If Fq is a finite field, then K^M_n(Fq) = 0 for all n ≥ 2, because K^M_2(Fq) = 0 by Cor. 6.1.1.",
      "match": "The case n = 3."
     }
    ],
@@ -6235,7 +6108,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.2.1 (PDF p. 496)",
-     "excerpt": "In fact, the element c = [2] + [−1] has order exactly 6 in both B(Q) and B(R). This may be proven using the Rogers L-function, which is built from the dilogarithm function. See [187, pp. 219–220].",
      "match": "The statement, and the analytic route to its lower bound."
     }
    ],
@@ -6281,13 +6153,11 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "Lemma 4.4, proof, p. 25",
-     "excerpt": "Proof. The isomorphism of the left vertical map is a theorem of Suslin [30, Theorem 5.2] (taking into account Lemma 2.2), and the isomorphism of the right vertical map follows from [15].",
      "match": "CGZ uses Hutchinson for the right-hand finite-field comparison; the explicit supplier is now V.5/finite-field-bloch-comparison."
     },
     {
      "sourceId": "Hutchinson.1107.0264v2",
      "locator": "Corollary 7.5, PDF pp.35–36",
-     "excerpt": "The exact sequence extends the infinite-field result to finite fields with the stated convention.",
      "match": "Paraphrase of the inspected passage, not a quotation. The exact sequence extends the infinite-field result to finite fields with the stated convention."
     }
    ],
@@ -6331,13 +6201,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.1 (PDF p. 495)",
-     "excerpt": "let P(F) denote the abelian group presented with generators symbols [x] for x ∈ F − {0}, with relations [1] = 0 and [x] − [y] + [y/x] − [(1 − x^{−1})/(1 − y^{−1})] + [(1 − x)/(1 − y)] = 0, x ≠ y in F − {0, 1}.",
      "match": "A certificate is a witness that an element lies in the subgroup generated by exactly these relations and [1]."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.4(a), proof (PDF p. 497)",
-     "excerpt": "Given x ≠ y in F − {0, 1}, we have the relations in P(F): [1 − y] − [1 − x] + [(1 − x)/(1 − y)] − [(1 − x^{−1})/(1 − y^{−1})] + [y/x] = 0; ... Subtracting the first from the relation in 5.1 yields [x]+[1−x]−[y]−[1−y] = 0, whence (a) holds.",
      "match": "The first displayed relation is R(1 − y, 1 − x); the proof is the certificate used in the tests."
     }
    ],
@@ -6498,19 +6366,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.1 (PDF p. 495)",
-     "excerpt": "There is a canonical map P(F) → ∧̃2F× sending [1] to 0 and [x] to x ∧ (1 − x) for x ≠ 1, and Bloch’s group B(F) is defined to be its kernel.",
      "match": "The constructor produces exactly the elements of this kernel."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.4(a) (PDF p. 496)",
-     "excerpt": "(a) c = [x] + [1 − x] is independent of the choice of x ∈ F − {0, 1}.",
      "match": "The element c is the worked example."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "§VI.5, before Definition 5.1 (PDF p. 495)",
-     "excerpt": "For any abelian group A, let ∧̃2A denote the quotient of the group A ⊗ A by the subgroup generated by all a ⊗ b + b ⊗ a. The exterior power ∧2A is the quotient of ∧̃2A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The target of the boundary is ∧̃², not ∧²; the not_projected test rests on this."
     }
    ],
@@ -6660,7 +6525,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "let P(F) denote the abelian group presented with generators symbols [x]",
      "match": "Soundness and completeness are the two halves of what it means to present a group by generators and relations."
     }
    ],
@@ -6705,19 +6569,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Proposition VI.5.12 (PDF p. 502)",
-     "excerpt": "Proposition 5.12. The image of ψ is B(F), and there is an exact sequence H3(M2, Z) ⊕ H3(T3, Z) → H3(GL3(F), Z) → B(F) → 0.",
      "match": "Surjectivity of ψ and its kernel."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.12.1 (PDF p. 502)",
-     "excerpt": "The map ψ extends to a map defined on H3(GL(F), Z), because of the stability result H3(GL3(F), Z) ≅ H3(GL(F), Z); see IV.1.15.",
      "match": "Passage from GL_3 to GL."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma VI.5.6, proof (PDF p. 498)",
-     "excerpt": "Thus the cokernel H3(CG) of d : C4 ⊗G Z → C3 ⊗G Z is P(F).",
      "match": "The five-term elements are the boundaries of the four-simplices in the coinvariant complex; this is where a certificate lives."
     }
    ],
@@ -6758,13 +6619,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.1 (PDF p. 495)",
-     "excerpt": "There is a canonical map P(F) → ∧̃2F× sending [1] to 0 and [x] to x ∧ (1 − x) for x ≠ 1, and Bloch’s group B(F) is defined to be its kernel.",
      "match": "Membership of [ζ] is the vanishing of ζ ∧ (1 − ζ) under this map."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "§VI.5, before Definition 5.1 (PDF p. 495)",
-     "excerpt": "For any abelian group A, let ∧̃2A denote the quotient of the group A ⊗ A by the subgroup generated by all a ⊗ b + b ⊗ a. The exterior power ∧2A is the quotient of ∧̃2A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The kernel of ∧̃² → ∧² is the subgroup of the x ∧ x, isomorphic to A/2A; this is the criterion for [ω]."
     }
    ],
@@ -6807,7 +6666,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.2 (PDF p. 495)",
-     "excerpt": "Theorem 5.2. (Suslin) For any field F with |F| ≥ 4, there is an exact sequence 0 → µ̃(F) → K^ind_3(F) → B(F) → 0.",
      "match": "Rationalising the displayed sequence is the content of this comparison."
     }
    ],
@@ -6851,19 +6709,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.2 (PDF p. 495)",
-     "excerpt": "Theorem 5.2. (Suslin) For any field F with |F| ≥ 4, there is an exact sequence 0 → µ̃(F) → K^ind_3(F) → B(F) → 0.",
      "match": "The integral sequence."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark VI.5.2.1 (PDF p. 496)",
-     "excerpt": "In fact, B(Q) ≅ Z/6. This follows from Theorem 5.2 and the calculations that K3(Q) ≅ Z/48 (2.1.2), K^M_3(Q) ≅ Z/2 (III.7.2.d) and µ̃(Q) ≅ Z/4.",
      "match": "The worked example that exhibits the non-split extension."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "Definition 1.1 and its remarks, p. 2",
-     "excerpt": "With our convention, the relations [1] = 3 [0] = [X] + [1/X] = [X] + [1 − X] − [0] = 0 hold in B(F) for all X.",
      "match": "In CGZ's convention c = [X] + [1 − X] equals [0] and 3[0] = 0, so κ(c) has order dividing three."
     }
    ],
@@ -6911,19 +6766,16 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "§2.5, proof of Theorem 2.11, p. 15",
-     "excerpt": "when n is odd, the groups B(F)/nB(F) and B(F; Z/nZ) coincide with Suslin’s Bloch group B̃(F)/nB̃(F) and the group B̃(F; Z/nZ) respectively by Lemma 2.2.",
      "match": "The odd-coefficient identification of the conventions."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "Lemma 4.4 and its proof, pp. 24-25",
-     "excerpt": "Proof. The isomorphism of the left vertical map is a theorem of Suslin [30, Theorem 5.2] (taking into account Lemma 2.2), and the isomorphism of the right vertical map follows from [15].",
      "match": "The left-hand isomorphism, which needs the root-of-unity hypothesis stated here (source issue recorded)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem VI.5.2 (PDF p. 495)",
-     "excerpt": "Theorem 5.2. (Suslin) For any field F with |F| ≥ 4, there is an exact sequence 0 → µ̃(F) → K^ind_3(F) → B(F) → 0.",
      "match": "The sequence being reduced."
     }
    ],
@@ -6963,7 +6815,6 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "§1.2, p. 4",
-     "excerpt": "It was proved by Suslin [30] that, if F is a number field, then (up to 2-torsion) K3(F) is an extension of B(F) by the roots of unity in F",
      "match": "The comparison through which the regulators are transported; the analytic identification is Polylogarithms:P.2/borel-comparison."
     }
    ],
@@ -7005,13 +6856,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "§VI.5, before Definition 5.1 (PDF p. 495)",
-     "excerpt": "For any abelian group A, let ∧̃2A denote the quotient of the group A ⊗ A by the subgroup generated by all a ⊗ b + b ⊗ a. The exterior power ∧2A is the quotient of ∧̃2A by the subgroup (isomorphic to A/2A) of all symbols x ∧ x.",
      "match": "The target of the boundary; the certificate computes in ∧̃² of a finitely generated subgroup."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.1 (PDF p. 495)",
-     "excerpt": "There is a canonical map P(F) → ∧̃2F× sending [1] to 0 and [x] to x ∧ (1 − x) for x ≠ 1, and Bloch’s group B(F) is defined to be its kernel.",
      "match": "A valid certificate witnesses that the class lies in this kernel."
     }
    ],
@@ -7155,13 +7004,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Definition VI.5.1 (PDF p. 495)",
-     "excerpt": "There is a canonical map P(F) → ∧̃2F× sending [1] to 0 and [x] to x ∧ (1 − x) for x ≠ 1, and Bloch’s group B(F) is defined to be its kernel.",
      "match": "The classes are elements of this kernel after reduction or localisation."
     },
     {
      "sourceId": "CGZ.2018",
      "locator": "§1.2, equation (14), p. 5",
-     "excerpt": "B(F; Z/nZ) = A(F; Z/nZ)/(nZ(F) + C(F)), (14) where A(F; Z/nZ) is the kernel of the map d : Z(F) → ∧2(F×/F×n) induced by d.",
      "match": "CGZ's finite-coefficient group, in which [ζ] with ζ an n-th power has vanishing boundary; the class (i) is the corresponding element of B(F)/nB(F)."
     }
    ],
@@ -7293,7 +7140,6 @@
     {
      "sourceId": "CGZ.2018",
      "locator": "§2.5, proof of Theorem 2.11, p. 15",
-     "excerpt": "when n is odd, the groups B(F)/nB(F) and B(F; Z/nZ) coincide with Suslin’s Bloch group B̃(F)/nB̃(F) and the group B̃(F; Z/nZ) respectively by Lemma 2.2.",
      "match": "The odd-coefficient identification used to pass between conventions."
     }
    ],
@@ -7335,7 +7181,6 @@
     {
      "sourceId": "Hutchinson.1107.0264v2",
      "locator": "Corollaries 3.6–3.9, PDF pp.14–15; §7, pp.34–36",
-     "excerpt": "The finite-field stabilization map and finite-field Bloch–Wigner exact sequence have separate proofs.",
      "match": "Paraphrase of the inspected passage, not a quotation. The finite-field stabilization map and finite-field Bloch–Wigner exact sequence have separate proofs."
     }
    ],
@@ -7387,7 +7232,6 @@
     {
      "sourceId": "Hutchinson.1107.0264v2",
      "locator": "Corollary 3.7, p.15; §6.4, p.33",
-     "excerpt": "Prime-to-characteristic subgroup homology injects, with an explicit cyclic generator formula.",
      "match": "Paraphrase of the inspected passage, not a quotation. Prime-to-characteristic subgroup homology injects, with an explicit cyclic generator formula."
     }
    ],

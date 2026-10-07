@@ -309,7 +309,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(i), p.122",
-          "excerpt": "there exists a chain",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -344,7 +343,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.1(ii), p.122",
-          "excerpt": "a spectral map of locally spectral spaces",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -433,7 +431,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.2, p.122",
-          "excerpt": "there exists a dense subfield",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -542,13 +539,11 @@
         {
           "sourceId": "ECD",
           "locator": "After Definition21.2 and proof of Lemma21.3, p.122",
-          "excerpt": "minimal complete and algebraically closed subfield",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "CONRAD",
           "locator": "Theorem 1.1 and §2, pp.1–3",
-          "excerpt": "The completion CK of K is algebraically closed.",
           "match": "The root-approximation proof adapts to the closure of a dense algebraically closed subfield, without a characteristic-zero assumption."
         }
       ],
@@ -582,7 +577,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(i) and proof, p.122",
-          "excerpt": "containing K and x1",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -616,7 +610,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3(ii) and proof, p.122",
-          "excerpt": "the algebraic closure of",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -651,7 +644,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "excerpt": "over all complete algebraically closed extensions",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -754,7 +746,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5, p.123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -789,7 +780,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph before Definition21.5 and Remark21.8, p.123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -825,7 +815,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.5, p.123",
-          "excerpt": "completed algebraic closures of the completed residue fields",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -909,7 +898,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.6 and proof, p.123",
-          "excerpt": "the rationalized value group does not change",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -946,7 +934,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.7 and Remark21.8, p.123",
-          "excerpt": "choose quasi-pro-étale maps",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1047,7 +1034,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.8, p.123",
-          "excerpt": "a pullback will not increase",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1081,7 +1067,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.3, modified paragraph and Definitions21.5–21.7, pp.122–123",
-          "excerpt": "Lemma 21.3 holds true",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -1117,7 +1102,6 @@
         {
           "sourceId": "ECD",
           "locator": "Convention22.1, p.127; Definitions21.7–21.8, p.123",
-          "excerpt": "which will locally guarantee the assumptions on bounded cohomological dimension",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1201,7 +1185,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "excerpt": "vanishing of étale cohomology on strictly totally disconnected spaces",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1239,7 +1222,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark21.14, p.125",
-          "excerpt": "quasicompact separated quasi-pro-étale morphisms",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1275,7 +1257,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.13 and proof, p.125",
-          "excerpt": "a quasicompact injection of locally spatial diamonds",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1312,7 +1293,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9 and proof, pp.123–124",
-          "excerpt": "some profinite group G acting continuously and faithfully",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1347,7 +1327,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.9, uniqueness paragraph, p.124",
-          "excerpt": "unique up to (non- unique) isomorphism",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1386,7 +1365,6 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph after Proposition21.9, p.124",
-          "excerpt": "étale sheaves on Y are equivalent to continuous discrete G-modules",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1424,7 +1402,6 @@
         {
           "sourceId": "ECD",
           "locator": "After Proposition21.9, p.124; proof of21.15, p.126",
-          "excerpt": "étale cohomology is equivalent to continuous G-cohomology",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1462,7 +1439,6 @@
         {
           "sourceId": "ECD",
           "locator": "Definition21.10, p.124",
-          "excerpt": "For each maximal point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1548,7 +1524,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, proof first two paragraphs, p.126",
-          "excerpt": "an inclusion of profinite groups",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1585,7 +1560,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, last proof paragraph, p.126",
-          "excerpt": "amount to a continuous",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1622,7 +1596,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.15, p.126",
-          "excerpt": "local with closed point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1659,7 +1632,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final inequality, p.127",
-          "excerpt": "Therefore we get the desired inequality",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1695,7 +1667,6 @@
         {
           "sourceId": "ECD",
           "locator": "Lemma21.17 and proof, p.127",
-          "excerpt": "converges (pointwise) to the identity",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1732,7 +1703,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "excerpt": "P is a pro-p-group",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1770,7 +1740,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, first proof paragraph, p.126",
-          "excerpt": "This follows from Lemma 21.17",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1805,7 +1774,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-action paragraph, p.126",
-          "excerpt": "acts faithfully and continuously on the discrete field",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1844,13 +1812,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, residue-field bound, p.126",
-          "excerpt": "a perfect field with algebraic closure",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 03RF (Lemma 59.67.11), with Tag 03RD (Theorem 59.67.10, Tsen)",
-          "excerpt": "Then the Brauer group of the function field of $C$ is zero",
           "match": "Supplies the Brauer-group vanishing for every finite extension of K^alg(t); the passage from Brauer vanishing to cd_ℓ≤1 is the remaining gap."
         }
       ],
@@ -1886,7 +1852,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, tame-inertia paragraph, p.127",
-          "excerpt": "the image of",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1923,7 +1888,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, p.127",
-          "excerpt": "This implies that",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -1959,7 +1923,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, final proof paragraph, p.127",
-          "excerpt": "using [Bou98, VI.10.3 Corollary 1]",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2005,7 +1968,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.16, pp.126–127",
-          "excerpt": "be a maximal point",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2045,7 +2007,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "Its set of n-simplices is given by chains of specialisations",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2135,7 +2096,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "the associated normalized subcomplex, which also computes",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2170,7 +2130,6 @@
         {
           "sourceId": "KST",
           "locator": "Lemma 6.6 and proof, p.24, citing Scheiderer §2, Remark 2.5, Theorem 4.1 and Proposition 4.7",
-          "excerpt": "Then H n (X, F) = 0",
           "match": "The inspected proof supplies the chain construction and normalization route. Scheiderer’s imported descent proof is explicitly unread and recorded as a gap."
         }
       ],
@@ -2208,7 +2167,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, first proof paragraph on p.125",
-          "excerpt": "any chain of specializations inside",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2247,7 +2205,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, proof p.124",
-          "excerpt": "We may assume that there is a constructible sheaf",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2288,7 +2245,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11, final proof paragraph, p.125",
-          "excerpt": "This can be checked on stalks, so we can assume",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2329,7 +2285,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition21.11 and Remark21.12, pp.124–125",
-          "excerpt": "for some open subset",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2368,7 +2323,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "excerpt": "with the Zariski-Riemann space",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2403,7 +2357,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.19 and proof, pp.711–712",
-          "excerpt": "the dimension of X is equal",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2440,7 +2393,6 @@
         {
           "sourceId": "CS17",
           "locator": "Proposition4.2.21 and proof, p.712",
-          "excerpt": "additivity of transcendence degrees",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2477,7 +2429,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.9 and proof, pp.116–117",
-          "excerpt": "complexes uniformly bounded to the left",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2512,7 +2463,6 @@
         {
           "sourceId": "ECD",
           "locator": "First proof paragraphs of20.10 and20.17, pp.117,121",
-          "excerpt": "the hypothesis on cohomological dimension passes",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2550,7 +2500,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "left-completeness follows from",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2586,7 +2535,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "by Proposition 14.15",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2625,7 +2573,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions20.10 and20.17, pp.117,121",
-          "excerpt": "commutes with arbitrary direct sums",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2661,7 +2608,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "The objects",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2700,7 +2646,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, second proof paragraph, p.121",
-          "excerpt": "vanishes as soon as",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2737,13 +2682,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "A set of compact generators is given",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 09SQ, Definition 13.37.5",
-          "excerpt": "if there exists a set $E_ i$, $i \\in I$ of compact objects such that $\\bigoplus E_ i$ generates",
           "match": "The meaning of compactly generated used by the node."
         }
       ],
@@ -2787,13 +2730,11 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "a retract of a perfect-constructible complex",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         },
         {
           "sourceId": "STACKS",
           "locator": "Tag 09SM, Lemmas 13.37.3–13.37.4 and proof of Proposition 13.37.6",
-          "excerpt": "If $C$ is a compact object and $C \\to X_ n$ is a morphism, then there is a factorization",
           "match": "A compact object is a direct summand of an object built from finitely many generators by finitely many extensions; the triangulated form of the thick-closure statement."
         }
       ],
@@ -2834,7 +2775,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, end of proof, pp.121–122",
-          "excerpt": "tensoring with the dual",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2873,7 +2813,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, last proof paragraph, pp.121–122",
-          "excerpt": "by passage to a 2-term resolution",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2908,7 +2847,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.17, p.121",
-          "excerpt": "compact if and only if it is perfect-constructible",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2946,7 +2884,6 @@
         {
           "sourceId": "ECD",
           "locator": "Proposition20.10, p.117",
-          "excerpt": "bounded and all cohomology sheaves are con- structible",
           "match": "The stated construction or proof route at this locator, retaining its topology, coefficient and finiteness hypotheses; derived consequences are identified in the proof sketch."
         }
       ],
@@ -2983,13 +2920,11 @@
         {
           "sourceId": "ECD",
           "locator": "Paragraph immediately after Question 21.4, p.123",
-          "excerpt": "There is the following theorem of Temkin",
           "match": "Explicit finite-intermediate-degree theorem; no general answer to the question."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Lemma 2.2.2; Theorems 3.2.1 and 3.2.3, pp.6–8",
-          "excerpt": "The topological transcendence degree is a monotonic invariant.",
           "match": "Lemma 2.2.2 is monotonicity of the independent degree. Theorem 3.2.3 identifies it with the generating degree when that degree is finite; the ECD paragraph uses exactly this finite case."
         }
       ],
@@ -3026,7 +2961,6 @@
         {
           "sourceId": "ECD",
           "locator": "Finite-degree paragraph and modified invariant before Definition 21.5, p.123",
-          "excerpt": "over all complete algebraically closed extensions",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -3061,7 +2995,6 @@
         {
           "sourceId": "ECD",
           "locator": "Remark 21.8, second paragraph, p.123",
-          "excerpt": "To evaluate this, it is enough to range",
           "match": "The field-point test statement is about topological dim, not a replacement of the point/presentation definition of dim.trg."
         }
       ],
@@ -3099,7 +3032,6 @@
         {
           "sourceId": "ECD",
           "locator": "Propositions 21.11 and 21.16 combined with 20.10, pp.117,124,126",
-          "excerpt": "the hypothesis on cohomological dimension passes",
           "match": "A derived consequence of the cited definitions and inequalities, with the extra hypotheses stated in the node and the derivation given in its proof sketch; not a verbatim named theorem in the source."
         }
       ],
@@ -3134,7 +3066,6 @@
         {
           "sourceId": "TEMKIN",
           "locator": "§2.1.6, p.5",
-          "excerpt": "A set S ⊂ L is topgebraically independent",
           "match": "Temkin's definition of topgebraic independence and of top.tr.deg as the bound on the sizes of independent sets."
         }
       ],
@@ -3222,19 +3153,16 @@
         {
           "sourceId": "TEMKIN",
           "locator": "Theorem 3.2.1, p.8",
-          "excerpt": "In particular, top.tr.deg(L/K) ≤ Top.tr.deg(L/K).",
           "match": "Part (a); Temkin's generating degree Top.tr.deg is ECD's tr.c by finite-topological-generators."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Remark 2.1.10(i) and Theorem 3.2.3, pp.5 and 8",
-          "excerpt": "Then S also becomes topgebraically independent.",
           "match": "Part (b), the finite case."
         },
         {
           "sourceId": "TEMKIN",
           "locator": "Lemma 2.2.2, p.6",
-          "excerpt": "The topological transcendence degree is a monotonic invariant.",
           "match": "Part (c)."
         }
       ],

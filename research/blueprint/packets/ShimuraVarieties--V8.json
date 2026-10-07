@@ -41,13 +41,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "13.4, p.118",
-          "excerpt": "For every finite extension L",
           "match": "States the special-reflex-field lemma."
         },
         {
           "sourceId": "deligne-1971",
           "locator": "5.1, 5.1.2, 5.1.3, pp.153–155 (page images checked)",
-          "excerpt": "soit linéairement disjointe de F",
           "match": "Incidence cover, connected-fibre argument and real-open Hilbert specialization."
         }
       ],
@@ -95,7 +93,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "13.6, pp.118–119",
-          "excerpt": "have canonical models",
           "match": "Reciprocity, dense translates and disjoint reflex fields prove descent."
         }
       ],
@@ -139,7 +136,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "13.7(a), p.119",
-          "excerpt": "unique up to a unique isomorphism",
           "match": "Uniqueness includes the fixed complex model identification."
         }
       ],
@@ -187,7 +183,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "5.29(a), p.65; 12.10, p.115; 13.7(b), p.119",
-          "excerpt": "form an inverse system",
           "match": "Assemble the algebraic models with their actual maps. Neither an infinite-level scheme nor its point formula is required."
         }
       ],
@@ -306,13 +301,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "5.29(b)–(c), p.65",
-          "excerpt": "the identity map",
           "match": "Source/target levels and coherent right translations."
         },
         {
           "sourceId": "milne-svi",
           "locator": "Discussion before Definition 5.14, p.58",
-          "excerpt": "Note that this is a right action",
           "match": "Pins the convention T(gh)=T(h)∘T(g): first T(g), then T(h)."
         }
       ],
@@ -358,7 +351,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "5.29(c), p.65",
-          "excerpt": "of the finite group",
           "match": "Finite quotient statement of 5.29(c), with the effective-kernel qualification inherited from V1."
         }
       ],
@@ -405,7 +397,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "5.29, p.65; 13.6, p.118",
-          "excerpt": "right action",
           "match": "Arithmetic descent of the two legs of the V1 Hecke correspondence."
         }
       ],
@@ -519,19 +510,16 @@
         {
           "sourceId": "milne-svi",
           "locator": "13.8, p.119",
-          "excerpt": "In fact, one can prove more.",
           "match": "Milne's compositum statement; the compositum equals E(D)."
         },
         {
           "sourceId": "deligne-1971",
           "locator": "5.4, pp.155–156",
-          "excerpt": "est défini sur E",
           "match": "Special-pair proof of datum functoriality."
         },
         {
           "sourceId": "milne-svi",
           "locator": "12.3(c), p.112",
-          "excerpt": "be an inclusion of Shimura data",
           "match": "The reflex field of the source contains that of the target; the argument uses only Galois-equivariance of the induced map on cocharacter classes."
         }
       ],
@@ -581,13 +569,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "§5, Zero-dimensional Shimura varieties and the GL2 example, pp.62–63",
-          "excerpt": "We should extend this definition a little",
           "match": "Defines Sh(T,Y) for a finite set Y with transitive T(R)/T(R)^+-action, extending Deligne's one-point torus data; the GL2 example gives (Z/NZ)^× ≅ Gal(Q[zeta_N]/Q)."
         },
         {
           "sourceId": "milne-svi",
           "locator": "§13, The Galois action on the connected components, formula (64), p.119",
-          "excerpt": "When we use (64) to define the notion a canonical model",
           "match": "Formula (64) defines the canonical model of a zero-dimensional Shimura variety."
         }
       ],
@@ -712,13 +698,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "§13, The Galois action on the connected components, (64) and footnote 73, p.119",
-          "excerpt": "When we use (64) to define the notion a canonical model",
           "match": "pi_0 of the canonical model is the canonical model of Sh(T,Y); footnote 73 gives the special-point argument."
         },
         {
           "sourceId": "milne-svi",
           "locator": "(34) and Theorem 5.17, p.59",
-          "excerpt": "the set of connected components is a",
           "match": "The complex component set is the zero-dimensional Shimura variety when G^der is simply connected."
         }
       ],
@@ -762,7 +746,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "14.15–14.16 and the paragraph after them, p.127; 13.7, p.119",
-          "excerpt": "canonical models for all connected Shimura varieties of abelian type",
           "match": "Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof. On p.127 the second citation “(14.16)” should read (14.15); see E9."
         }
       ],
@@ -815,7 +798,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "6.3, pp.70–71; 6.11, p.74; 14.12, p.125",
-          "excerpt": "a canonical model",
           "match": "The symplectic/abelian moduli description and normalized CM action certify the genus-one canonical condition."
         }
       ],
@@ -859,13 +841,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "6.3, pp.70–71; 6.11, p.74; 13.7(a), p.119",
-          "excerpt": "modulo isomorphism",
           "match": "The moduli description followed by canonical-model uniqueness gives a scheme isomorphism over Q."
         },
         {
           "sourceId": "pink",
           "locator": "10.9, p.175; 12.9, p.200 (author-typeset version)",
-          "excerpt": "compatible isomorphisms",
           "match": "Genus-one full-level model is the arithmetic base case."
         }
       ],
@@ -916,19 +896,16 @@
         {
           "sourceId": "milne-svi",
           "locator": "§13, The Galois action on the connected components, (64), p.119; §14, Siegel proof, p.125",
-          "excerpt": "through the cyclotomic character",
           "match": "Determinant-component Galois action."
         },
         {
           "sourceId": "milne-mf",
           "locator": "8.7, p.100 (root normalization corrected)",
-          "excerpt": "A level-N structure",
           "match": "The fixed-pairing condition; the chosen analytic reference root must be calibrated."
         },
         {
           "sourceId": "milne-svi",
           "locator": "§5, Zero-dimensional Shimura varieties, GL2 example, p.63",
-          "excerpt": "We should extend this definition a little",
           "match": "pi_0(Sh_K(N)) is T(Q)\\{±1} × A_f^×/(1+N Zhat)^× ≅ (Z/NZ)^×, using Y = {±1}, not a one-point torus datum."
         }
       ],
@@ -975,13 +952,11 @@
         {
           "sourceId": "milne-mf",
           "locator": "8.7–8.8, p.100",
-          "excerpt": "induces a bijection",
           "match": "Fixed-pairing complex uniformization and cyclotomic model, with the normalization issue recorded."
         },
         {
           "sourceId": "milne-svi",
           "locator": "5.17, pp.59–61; connected components in section 13, p.119",
-          "excerpt": "the connected components",
           "match": "The determinant separates full-level components."
         }
       ],
@@ -1025,13 +1000,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "6.3, pp.70–71",
-          "excerpt": "We first check",
           "match": "The literal level-map orientation fixes the right-action convention; use the corrected arrow directions in the proof."
         },
         {
           "sourceId": "pr81",
           "locator": "Conventions, item 5: Full level and actions",
-          "excerpt": "Full level and actions",
           "match": "The native row-basis convention to which the canonical model is compared."
         }
       ],
@@ -1078,13 +1051,11 @@
         {
           "sourceId": "pr81",
           "locator": "Layer 5A: Tate normal form and Y1(N) for N>=4",
-          "excerpt": "N ≥ 4",
           "match": "Imports the actual fine-moduli qualification rather than extending it to levels two or three."
         },
         {
           "sourceId": "milne-svi",
           "locator": "5.29 and 13.7, pp.65,119",
-          "excerpt": "quotient",
           "match": "Canonical finite-level quotient and uniqueness."
         }
       ],
@@ -1130,13 +1101,11 @@
         {
           "sourceId": "milne-mf",
           "locator": "8.6, p.100",
-          "excerpt": "a solution to the moduli problem",
           "match": "Coarse characteristic-zero comparison; universal-family claims are deliberately excluded."
         },
         {
           "sourceId": "pr81",
           "locator": "Layer 9E: the coarse j-line and Y0(N)",
-          "excerpt": "coarse",
           "match": "The supplier of the coarse scheme, retaining elliptic stabilizers."
         }
       ],
@@ -1180,13 +1149,11 @@
         {
           "sourceId": "pink",
           "locator": "12.9, p.200",
-          "excerpt": "we just set",
           "match": "Uses the independent generalized-elliptic compact model to descend GL2 before the general compactification proof."
         },
         {
           "sourceId": "pink",
           "locator": "10.20–10.21, pp.183–184",
-          "excerpt": "generalized elliptic curve",
           "match": "The complex compact comparison and cusp formal model."
         }
       ],
@@ -1238,19 +1205,16 @@
         {
           "sourceId": "pink",
           "locator": "12.10, pp.200–201 (author-typeset version)",
-          "excerpt": "lifts to an almost direct factor of",
           "match": "The lifted and general cases of the codimension-one extension for reductive P, using 12.9 for GL2, descent of closed subschemes and a finite quotient."
         },
         {
           "sourceId": "pink",
           "locator": "8.2, p.132",
-          "excerpt": "with all boundary strata of codimension 1",
           "match": "Definition and properties of the partial compactification M^+(C)."
         },
         {
           "sourceId": "pink",
           "locator": "12.9, p.200",
-          "excerpt": "we just set",
           "match": "The GL2 case is the compactified moduli of generalized elliptic curves, supplied here by gl2-compact-model."
         }
       ],
@@ -1305,13 +1269,11 @@
         {
           "sourceId": "pink",
           "locator": "12.3(a), p.197; 12.6–12.7, pp.198–199; 12.10, pp.200–201; 12.12, p.202",
-          "excerpt": "extends uniquely to a scheme",
           "match": "The codimension-one extension and intrinsic logarithmic line make arithmetic descent effective."
         },
         {
           "sourceId": "pink",
           "locator": "8.2, pp.132–133",
-          "excerpt": "is generated by global sections",
           "match": "The relevant ample line is the top logarithmic differential, built from complex BB geometry, not B1 canonical automorphic bundles."
         }
       ],
@@ -1365,7 +1327,6 @@
         {
           "sourceId": "pink",
           "locator": "12.3(b), p.197; 12.6, p.198",
-          "excerpt": "the morphism descends on some open dense subscheme",
           "match": "Functoriality follows only after the arithmetic compactification objects have been constructed."
         }
       ],
@@ -1411,7 +1372,6 @@
         {
           "sourceId": "pink",
           "locator": "10.21–10.22, pp.184–185; 12.9, p.200",
-          "excerpt": "completion",
           "match": "The formal cusp comparison is an arithmetic deformation/Tate statement, not just an equality of complex points."
         }
       ],
@@ -1462,13 +1422,11 @@
         {
           "sourceId": "milne-svi",
           "locator": "5.29, pp.65–66; 6.3, pp.70–71; 13.6–13.8, pp.118–119",
-          "excerpt": "inverse system",
           "match": "Arithmetic comparisons intertwine the actual finite-level maps."
         },
         {
           "sourceId": "pink",
           "locator": "12.3(b), p.197",
-          "excerpt": "functoriality",
           "match": "The same compatibility persists on minimal compact models."
         }
       ],
@@ -1514,7 +1472,6 @@
         {
           "sourceId": "milne-svi",
           "locator": "12.10, p.115; 13.6–13.8, pp.118–119",
-          "excerpt": "have canonical models",
           "match": "V8 applies to actual models independently of the argument establishing existence."
         }
       ],
@@ -1560,7 +1517,6 @@
         {
           "sourceId": "pink",
           "locator": "12.3(a)–(b), p.197; 12.10–12.12, pp.200–202",
-          "excerpt": "Consider pure Shimura data",
           "match": "Same compactification construction specialized to the class supplied by general existence."
         }
       ],

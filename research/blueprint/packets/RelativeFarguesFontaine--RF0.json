@@ -415,7 +415,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1, printed p. 53",
-          "excerpt": "E de caractéristique zéro",
           "match": "The characteristic-zero scope of the arbitrary-algebra construction precedes the displayed Witt polynomials."
         }
       ],
@@ -494,7 +493,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Lemme 1.2.1, proof, printed p. 53",
-          "excerpt": "sans π-torsion",
           "match": "The proof identifies the ghost image by successive congruences under a Frobenius lift."
         }
       ],
@@ -530,7 +528,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Lemme 1.2.1, printed p. 53",
-          "excerpt": "Il existe une unique factorisation",
           "match": "The statement is a functor on all O_E-algebras, not only perfect residue algebras."
         }
       ],
@@ -646,7 +643,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1 and Définition 1.2.2, printed pp. 53–54",
-          "excerpt": "Définition 1.2.2.",
           "match": "The preceding comparison identifies the functors and Definition 1.2.2 removes the uniformizer choice."
         }
       ],
@@ -728,7 +724,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1, printed p. 54",
-          "excerpt": "F Vπ = π",
           "match": "The displayed F/V relations include the projection formula and separate the residue-algebra case."
         }
       ],
@@ -822,7 +817,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1, printed p. 54",
-          "excerpt": "séparé complet",
           "match": "The expansion and inverse-limit completeness are stated before any perfectness assumption."
         }
       ],
@@ -862,13 +856,11 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1, perfect case and Lemme 1.2.3, printed pp. 54–55",
-          "excerpt": "algèbre parfaite",
           "match": "Inverting F converts the V-adic expansion into the π-adic strict lift."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1 opening, printed p. 47",
-          "excerpt": "WOE (R+ )",
           "match": "The introductory coefficient convention includes both characteristics; FF §1.3.2 gives the equal-characteristic power-series model."
         }
       ],
@@ -971,13 +963,11 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Lemme 1.2.3, printed p. 55",
-          "excerpt": "On a u([a]) = [a]",
           "match": "The ghost diagram defines coefficient comparison; the following V formula requires the corrected Frobenius index."
         },
         {
           "sourceId": "FF18-corrected",
           "locator": "§1.2.1 Lemme 1.2.3, printed p. 7",
-          "excerpt": "u(F",
           "match": "The Frobenius iterate lies inside u, confirming the corrected Verschiebung coefficient formula in E2."
         }
       ],
@@ -1059,7 +1049,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1 following Lemme 1.2.3, printed p. 55",
-          "excerpt": "W(∆(x)) = (F n x)n≥0",
           "match": "The diagonal supplies the otherwise missing unramified scalar structure."
         }
       ],
@@ -1136,7 +1125,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "§1.2.1, printed pp. 55–56",
-          "excerpt": "Si A est une Fq0 -algèbre parfaite",
           "match": "The comparison is an isomorphism exactly after imposing perfectness and using the unramified scalar action."
         }
       ],
@@ -1172,7 +1160,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Proposition 1.2.4 and Lemmes 1.2.5–1.2.6, printed pp. 56–57",
-          "excerpt": "Q ∈ OE [X] un polynôme tel que Q ≡ X q modulo π",
           "match": "The proposition constructs the twisted functor for arbitrary coefficient algebras."
         }
       ],
@@ -1249,7 +1236,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Proposition 1.2.7 and Exemple 1.2.8, printed pp. 57–58",
-          "excerpt": "Il existe une unique application naturelle",
           "match": "The natural lift has a functional equation; Example 1.2.8 distinguishes it from the multiplicative lift."
         }
       ],
@@ -1332,7 +1318,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Lemme 1.2.9 and Corollaire 1.2.10, printed p. 58",
-          "excerpt": "suite qui converge pour la topologie faible",
           "match": "The formal-group lift converges weakly and intertwines the Lubin–Tate module law."
         }
       ],
@@ -1411,7 +1396,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Définition 1.4.10, Proposition 1.4.11 and Remarque 1.4.12, printed pp. 64–65",
-          "excerpt": "La topologie faible de A coı̈ncide avec la topologie",
           "match": "The comparison explicitly excludes the endpoint norm from continuity of Teichmuller representatives."
         }
       ],
@@ -1447,7 +1431,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1.1 proof, printed p. 48",
-          "excerpt": "the integral closure",
           "match": "The displayed rings define the chart and its plus ring before sheafiness is proved."
         }
       ],
@@ -1528,7 +1511,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1.1 root-extension presentation, printed p. 48",
-          "excerpt": "A = A+",
           "match": "The displayed root presentation roots the entire ratio. Its tilt-coordinate reciprocal in the MPIM copy is corrected as source finding E1; the Fargues author copy has the correct coordinate."
         }
       ],
@@ -1625,13 +1607,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.1 and proof, printed pp. 48–49",
-          "excerpt": "splits off",
           "match": "The actual topological direct-summand argument establishes sheafiness; the root presentation checks the integral criterion."
         },
         {
           "sourceId": "BMS18-integral",
           "locator": "Lemma 3.10(ii), printed pp. 22–23",
-          "excerpt": "π is a non-zero-divisor",
           "match": "The criterion requires regularity, divisibility and the Frobenius quotient isomorphism, not merely surjectivity."
         }
       ],
@@ -1670,7 +1650,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1 opening and Proposition II.1.1, printed pp. 47–48",
-          "excerpt": "These objects do not depend on the choice",
           "match": "The topology and nonvanishing locus are both independent of the chosen pseudouniformizer."
         }
       ],
@@ -1755,7 +1734,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.2, printed p. 49",
-          "excerpt": "YS♢",
           "match": "The asserted integral product includes the whole O_E-untilt functor."
         }
       ],
@@ -1791,7 +1769,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.3 and proof, printed p. 49",
-          "excerpt": "the maps on structure sheaves are naturally",
           "match": "The split base extension proves the open comparison before global gluing."
         }
       ],
@@ -1826,7 +1803,6 @@
         {
           "sourceId": "Ked-Ainf",
           "locator": "Hypothesis 3.4, Definition 3.5 and Theorem 3.8",
-          "excerpt": "the closed subspace where p = [x] = 0",
           "match": "The locus removes simultaneous vanishing, not each divisor separately."
         }
       ],
@@ -1905,13 +1881,11 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 13.1.1, Remark 13.1.2 and Theorem 13.1.3",
-          "excerpt": "adic space",
           "match": "The endpoint sheafiness and perfect discrete input are broader than the relative integral open."
         },
         {
           "sourceId": "Ked-Ainf",
           "locator": "Proposition 3.6",
-          "excerpt": "are stably uniform",
           "match": "The exact chart list suffices; A_2 is only proved uniform."
         }
       ],
@@ -1947,13 +1921,11 @@
         {
           "sourceId": "Ked-Ainf",
           "locator": "Theorem 3.8 and Example 3.14",
-          "excerpt": "pullback along the morphism",
           "match": "The theorem is on the punctured spectrum; the example prevents a general global freeness assertion."
         },
         {
           "sourceId": "GR24-prismatic",
           "locator": "Theorem 4.15 proof, printed pp. 74–75",
-          "excerpt": "[42, Thm. 3.8]",
           "match": "Guo–Reinecke applies this precise algebraicity theorem, while product φ-module freeness has the RF4 owner."
         }
       ],
@@ -1989,7 +1961,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Example II.1.6 and Definition/Proposition II.1.7, printed p. 51",
-          "excerpt": "The set of classical points",
           "match": "The definition uses untilts and retains the equal-characteristic zero point."
         }
       ],
@@ -2065,7 +2036,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.8 and preceding construction, printed p. 51",
-          "excerpt": "sends any x ∈ C",
           "match": "The displayed map sends classical x to (π−[x]) and detects the classical locus."
         }
       ],
@@ -2140,7 +2110,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Lemma II.1.10 and proof, printed p. 52",
-          "excerpt": "contains the open disk",
           "match": "The Gauss-point calculation is used only for discs lying in D_C; the endpoint in the printed hypothesis is restricted."
         }
       ],
@@ -2176,7 +2145,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.9 and proof, printed pp. 51–52",
-          "excerpt": "contains a nonempty open subset",
           "match": "The dichotomy is specifically for nonclassical rank-one points."
         }
       ],
@@ -2213,7 +2181,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Lemma II.1.14 and proof, printed p. 54",
-          "excerpt": "the image of any Gaußpoint",
           "match": "The nonclassical Gauss-point calculation gives the surjection onto inertia."
         }
       ],
@@ -2248,7 +2215,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition II.1.15, printed p. 54",
-          "excerpt": "YS = YS",
           "match": "The generic period domain removes precisely the π=0 fibre from curly-Y."
         }
       ],
@@ -2328,7 +2294,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.16, printed pp. 54–55",
-          "excerpt": "possibly with a = b",
           "match": "The source allows boundary circles and distinguishes the rational open from the radius inverse image."
         }
       ],
@@ -2417,7 +2382,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition II.1.15 and Proposition II.1.16, printed pp. 54–55",
-          "excerpt": "free and totally discontinuous",
           "match": "The local quotient and the boundary identification define the relative adic curve."
         }
       ],
@@ -2504,7 +2468,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.17 and preceding paragraph, printed p. 55",
-          "excerpt": "Although XS does not sit over S",
           "match": "The topological map exists through diamond presentations; it is not the ordinary adic projection."
         }
       ],
@@ -2546,7 +2509,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1.3 and paragraph after II.1.16, printed pp. 49 and 55",
-          "excerpt": "functoriality defines a morphism",
           "match": "The source supplies base maps and fibre curves without an adic projection onto S."
         }
       ],
@@ -2585,7 +2547,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.4 proof, printed p. 50",
-          "excerpt": "π − a[ϖ]",
           "match": "The source first identifies the regular primitive quotient and then chooses this convenient equation."
         }
       ],
@@ -2628,7 +2589,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.4 and Remark II.1.5, printed p. 50",
-          "excerpt": "has closed image",
           "match": "The norm estimate proves the complete quotient; this integral argument precedes products."
         }
       ],
@@ -2669,13 +2629,11 @@
         {
           "sourceId": "SW20-berkeley",
           "locator": "Proposition 19.5.3 and proof, printed pp. 180–181",
-          "excerpt": "splits",
           "match": "The general torsor statement uses ordinary vector-bundle descent and a split-module argument; only its GL_1 consequence is needed here."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1.2 proof, printed p. 191",
-          "excerpt": "line bundles on YS satisfy v-descent",
           "match": "The source descends the invertible ideal itself."
         }
       ],
@@ -2712,7 +2670,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VI.1.1, printed p. 190",
-          "excerpt": "quotients of small v-sheaves",
           "match": "The symmetric quotients are sheaf quotients, retaining repeated entries."
         }
       ],
@@ -2800,7 +2757,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VI.1.2 and proof, printed p. 191",
-          "excerpt": "ξ =",
           "match": "The product equation, ideal descent and chart containment yield the three affine assertions."
         }
       ],
@@ -2841,13 +2797,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Remark VI.1.3, printed p. 191",
-          "excerpt": "give degree d Cartier divisors",
           "match": "The remark asserts the fibrewise characterization."
         },
         {
           "sourceId": "Far-divisors",
           "locator": "Definition 2.6 and Proposition 2.18, printed pp. 6 and 11",
-          "excerpt": "l’application somme de d diviseurs",
           "match": "The generic ordered sum is a surjective quasi-pro-etale diamond morphism and its symmetric sheaf quotient is Div^d."
         }
       ],
@@ -2889,13 +2843,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VI.1.4 and proof, printed pp. 191–192",
-          "excerpt": "v-stack",
           "match": "The matrix-improvement argument proves ordinary effectivity using almost H^1 as a tool."
         },
         {
           "sourceId": "SW20-berkeley",
           "locator": "Lemma 17.1.8 and Corollary 17.1.9",
-          "excerpt": "v-stack",
           "match": "The same filtration/limit method treats finite local de Rham thickenings and their rings."
         }
       ],
@@ -2938,7 +2890,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1 after Proposition VI.1.4, printed p. 192",
-          "excerpt": "the completion",
           "match": "The positive and punctured rings are defined from the invertible ideal in all three period domains."
         }
       ],
@@ -3038,13 +2989,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition VI.1.1 and VI.1.2 product proof, printed pp. 190–191",
-          "excerpt": "symmetric group",
           "match": "Concatenation and product equations give addition including repeated legs."
         },
         {
           "sourceId": "Far-divisors",
           "locator": "§2.4 preceding Proposition 2.18, printed p. 11",
-          "excerpt": "monoı̈de commutatif",
           "match": "The source explicitly records the divisor addition monoid."
         }
       ],
@@ -3129,7 +3078,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.1.18, printed p. 55",
-          "excerpt": "depends only on the composite",
           "match": "The generic curve divisor depends on the Frobenius orbit of the marked untilt."
         }
       ],
@@ -3166,7 +3114,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Definition II.1.19 and following paragraph, printed p. 56",
-          "excerpt": "Div1 = Spd(E)/φZ",
           "match": "The source’s Perf_Fq formula precedes the Perf_k unramified-completion formula after II.2.4."
         }
       ],
@@ -3255,13 +3202,11 @@
         {
           "sourceId": "Sch13-periods",
           "locator": "§6 period-ring definitions, Lemma 6.3 and Corollary 6.4",
-          "excerpt": "perfectoid affinoid",
           "match": "The exact affinoid range and theta-adic ring are the supplier’s statement."
         },
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1 completion definition, printed p. 192",
-          "excerpt": "usually denoted",
           "match": "The divisor-completion notation is identified with the same theta-adic object."
         }
       ],
@@ -3300,13 +3245,11 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Lemme 1.2.3 and coefficient base change, printed pp. 55–56",
-          "excerpt": "un morphisme naturel",
           "match": "The coefficient comparison is the starting ring map; the completion factor is selected by the untilt coefficient embedding."
         },
         {
           "sourceId": "Stacks-finite-etale",
           "locator": "Tags 09XI and 09ZL, accessed 7 October 2026",
-          "excerpt": "idempotents",
           "match": "Finite etale lifting selects the unique residue-compatible factor of the complete coefficient extension."
         }
       ],
@@ -3344,7 +3287,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1 after Proposition VI.1.4, printed p. 192",
-          "excerpt": "In the case of d = 1",
           "match": "The de Rham name is attached to the already defined divisor completion."
         }
       ],
@@ -3381,7 +3323,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition VI.1.11 and preceding VI.1.10, printed pp. 194–195",
-          "excerpt": "ISm /ISm+1 is a line bundle",
           "match": "The source identifies Breuil–Kisin twists intrinsically; the local scalar presentation depends on a generator."
         }
       ],
@@ -3422,13 +3363,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1 degree-one ring convention, printed p. 192",
-          "excerpt": "BdR",
           "match": "The local ring is the completion at a geometric degree-one Cartier point."
         },
         {
           "sourceId": "Sch13-periods",
           "locator": "§6, geometric specialization of Lemma 6.3",
-          "excerpt": "ker",
           "match": "The primitive theta generator supplies the maximal ideal in the matching characteristic-zero case."
         }
       ],
@@ -3472,7 +3411,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VI.1 completion v-sheaves, printed p. 192",
-          "excerpt": "This defines v-sheaves",
           "match": "The source gives functorial descent, while tensor-limit exchange needs the separately stated hypotheses."
         }
       ],
@@ -3509,7 +3447,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.2 opening after Proposition II.2.1, printed p. 58",
-          "excerpt": "π −n σ",
           "match": "The chosen coefficient multiplier fixes both the section eigenvalue and the slope sign."
         }
       ],
@@ -3611,7 +3548,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.2.3 and proof, printed pp. 60–61",
-          "excerpt": "with a simple zero",
           "match": "The exact sequence is obtained over the Lubin–Tate tower by the logarithm zero calculation."
         }
       ],
@@ -3653,7 +3589,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.2.3 opening and proof of Proposition II.2.7, printed pp. 64–67",
-          "excerpt": "Proj",
           "match": "The source’s chart construction is used; the preceding generation theorem is required to extend it to all X_S."
         }
       ],
@@ -3739,7 +3674,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proposition II.2.7 proof, printed p. 67",
-          "excerpt": "degree 0 part",
           "match": "The proof constructs maps on nonvanishing opens; the generation input determines whether their union covers."
         }
       ],
@@ -3778,13 +3712,11 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Definition 3.3.2, Lemma 3.3.3 and Proposition 5.1.2",
-          "excerpt": "continuous",
           "match": "The first construction is on general perfect rings; the later estimates state the analytic domination conditions."
         },
         {
           "sourceId": "Ked-Witt",
           "locator": "§4, Theorem 4.5",
-          "excerpt": "strongly continuous and monotonic",
           "match": "The theorem gives continuity and the retraction inequalities, without calling the Teichmuller map additive."
         }
       ],
@@ -3873,7 +3805,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Hypothesis 5.0.1; Definitions 5.1.1 and 5.1.3",
-          "excerpt": "perfect uniform adic Banach algebra",
           "match": "The source retains a general Banach base and distinguishes the several completions and topologies."
         }
       ],
@@ -3966,7 +3897,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemmas 5.2.1–5.2.4 and Lemma 5.2.11",
-          "excerpt": "continuous and convex",
           "match": "The norm estimates and coefficient criteria retain the relative base, and the last result distinguishes plus from infinity."
         }
       ],
@@ -4003,7 +3933,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemmas 5.2.6–5.2.10 and Remark 5.2.13",
-          "excerpt": "If the inclusions are not strict",
           "match": "The source expressly warns that even injectivity may fail without the strictness assumptions."
         }
       ],
@@ -4042,7 +3971,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Corollary 5.2.12 and proof",
-          "excerpt": "For n a nonnegative integer",
           "match": "The restriction result applies to nonnegative eigenweights and general relative R^+."
         }
       ],
@@ -4077,7 +4005,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Definition 5.3.1",
-          "excerpt": "inverse limit",
           "match": "The definition is on the rational basis and lists twelve variants rather than a single unspecified period sheaf."
         }
       ],
@@ -4160,7 +4087,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma 5.3.2, Theorems 5.3.3 and5.3.6",
-          "excerpt": "All of the presheaves",
           "match": "The all-variant sheaf statement and restricted acyclicity/Kiehl lists are separate source assertions."
         }
       ],
@@ -4204,7 +4130,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Theorem 5.3.9 and Lemma5.3.14",
-          "excerpt": "relatively perfectoid",
           "match": "The theorem concerns three Banach rings; its proof verifies the tensor norm rather than assuming its exactness."
         }
       ],
@@ -4242,7 +4167,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma5.3.4 and Definition5.3.10",
-          "excerpt": "The set of x",
           "match": "The adic projection is built from a valuation ring, not a nonexistent additive Teichmuller ring map."
         }
       ],
@@ -4326,7 +4250,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma5.3.11, Corollary5.3.12, Theorems5.3.13 and5.3.16",
-          "excerpt": "effective descent morphism",
           "match": "Rational localization in the base and descent along interval covers are distinct comparisons."
         }
       ],
@@ -4364,7 +4287,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Theorem5.4.1, Definition5.4.3, Theorem5.4.4 and Proposition5.4.6",
-          "excerpt": "strong deformation retract",
           "match": "The source proves a topological retraction on Berkovich spectra and their quotient."
         }
       ],
@@ -4454,7 +4376,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma5.4.2",
-          "excerpt": "M(S) → M(R) is surjective",
           "match": "The conclusion is spectral surjectivity, with an explicit auxiliary-variable proof."
         }
       ],
@@ -4495,7 +4416,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma 5.5.2 (printed pp. 128–129), Propositions 5.5.3–5.5.4, Lemma 5.5.5 and Corollary 5.5.6",
-          "excerpt": "each of these is a tensor equivalence",
           "match": "The fixed-radius integral category has Frobenius descent, and the primitive quotient theorem keeps its normalization."
         }
       ],
@@ -4535,7 +4455,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Definition8.3.4; Lemma8.7.15 and Remark8.7.16",
-          "excerpt": "morphism of étale topoi",
           "match": "The conclusion is a site/topos morphism, rather than a missing map of structure rings."
         }
       ],
@@ -4622,7 +4541,6 @@
         {
           "sourceId": "FF18-courbes",
           "locator": "Preface Remark 3.19, printed p. 38",
-          "excerpt": "Remarque 3.19.",
           "match": "The remark records the punctured perfectoid-disc/diamond picture arising from the LT field; the all-base product theorem is supplied separately."
         }
       ],
@@ -4660,7 +4578,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.2 opening, printed p. 57",
-          "excerpt": "Stein",
           "match": "The source assertion concerns generic Y_S for affinoid S; the annular proof explains the scope."
         }
       ],
@@ -4697,7 +4614,6 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of PropositionII.2.5, printed p. 63",
-          "excerpt": "short exact sequence",
           "match": "The source uses the boundary analytic chart in proving a later generation theorem."
         }
       ],
@@ -4740,13 +4656,11 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "II.1.1 and generic-open convention, printed pp.48–49",
-          "excerpt": "independent",
           "match": "The relative construction retains canonical choice transport; the fixed-field ring comparison matches the imported absolute period charts."
         },
         {
           "sourceId": "KL15-foundations",
           "locator": "Definitions5.1.1–5.1.3 and Remark5.1.6",
-          "excerpt": "functorial",
           "match": "The comparison must preserve the named topologies and restriction maps."
         }
       ],
@@ -4784,7 +4698,6 @@
         {
           "sourceId": "KL15-foundations",
           "locator": "Lemma5.1.7 and proof",
-          "excerpt": "rational localization",
           "match": "The relative residue-field generation criterion spreads over a neighborhood, without a global freeness assertion."
         }
       ],

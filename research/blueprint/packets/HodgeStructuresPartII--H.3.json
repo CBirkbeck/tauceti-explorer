@@ -402,7 +402,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3, pp.221–222, before (3.2)",
-          "excerpt": "filtrations",
           "match": "The polarized compact dual is cut out by the first bilinear relation; this is its all-integer carrier adapter."
         }
       ],
@@ -499,7 +498,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3, pp.221–222, compact-dual/domain correspondence",
-          "excerpt": "parameterizes",
           "match": "Extend the pinned point carrier by its filtration, rather than defining another Hodge structure."
         }
       ],
@@ -582,7 +580,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.3)–(3.7), p.222",
-          "excerpt": "acts",
           "match": "Real isometries act on the full domain, while lattice isometries supply monodromy."
         }
       ],
@@ -671,7 +668,6 @@
         {
           "sourceId": "PINK",
           "locator": "§§1.6–1.8, printed pp.12–14, pure specialization",
-          "excerpt": "faithful",
           "match": "The real filtration image has a canonical orbit manifold; retain the representation and selected component."
         }
       ],
@@ -767,7 +763,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.7 proof, printed p.13, pure case",
-          "excerpt": "Grass",
           "match": "The faithful flag image factors through the complex homogeneous quotient; this is the period-specific image construction."
         }
       ],
@@ -857,7 +852,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.9)–(3.15), pp.223–224",
-          "excerpt": "End",
           "match": "Generalize the represented Lie filtration beyond adjoint types −1,0,1."
         }
       ],
@@ -944,7 +938,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5)",
-          "excerpt": "tangent",
           "match": "Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q."
         }
       ],
@@ -1035,7 +1028,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 pp.227–228, (3.23)–(3.27)",
-          "excerpt": "mapping",
           "match": "The marked filtration defines the native point map; variation and local-system objects are imported."
         }
       ],
@@ -1127,7 +1119,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.1 and proof, p.54",
-          "excerpt": "lift",
           "match": "The derivative is the quotient jet of a local section, independent of the lift."
         }
       ],
@@ -1218,7 +1209,6 @@
         {
           "sourceId": "LL",
           "locator": "Definition A.1.5 and Remark A.1.6, p.56",
-          "excerpt": "connecting",
           "match": "Defines the exact logarithmic connecting map used in the derivative proof."
         }
       ],
@@ -1304,7 +1294,6 @@
         {
           "sourceId": "LL",
           "locator": "§5.2 equation (5.5), p.29; Lemma A.1.8, p.57",
-          "excerpt": "pairing",
           "match": "The derivative-specific trace multiplication has one marked-divisor twist, not two."
         }
       ],
@@ -1394,7 +1383,6 @@
         {
           "sourceId": "GH",
           "locator": "§4, printed pp.15–17, especially the proof that Ω(s) is holomorphic on p.17",
-          "excerpt": "holomorphic",
           "match": "The local holomorphic integration argument supplies the abelian period-matrix adapter; normalization is the usual principal-polarization specialization."
         }
       ],
@@ -1489,7 +1477,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 pp.221–223, (3.2)–(3.8)",
-          "excerpt": "open",
           "match": "The full-isometry homogeneous construction supplies the ambient manifold, without a Mumford–Tate restriction."
         }
       ],
@@ -1535,7 +1522,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.7(a)–(c), proof p.13; Lemma 1.8 pure-case proof p.14",
-          "excerpt": "open",
           "match": "The tangent-surjectivity proof and faithful-representation comparison are read in full."
         }
       ],
@@ -1579,7 +1565,6 @@
         {
           "sourceId": "K17",
           "locator": "§2.3, pp.7–8, rational Hodge tensors and Mumford–Tate groups",
-          "excerpt": "tensors",
           "match": "Carries fixed rational (0,0) tensors along the specified orbit; tensor-stabilizer theory belongs to the imported MT supplier."
         }
       ],
@@ -1617,7 +1602,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.4)–(3.6), p.222",
-          "excerpt": "transitively",
           "match": "The equality with the ambient component is confined to the full-isometry specialization."
         }
       ],
@@ -1662,7 +1646,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.11)–(3.15) and Lemma (3.18), pp.223–226",
-          "excerpt": "horizontal",
           "match": "Retains the full negative tangent quotient and singles out grade −1; no SV1 hypothesis is smuggled into a general period manifold."
         }
       ],
@@ -1705,7 +1688,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.7 proof, p.13, tangent map and open image",
-          "excerpt": "complex",
           "match": "A local-chart consequence of the displayed tangent map; the inverse-function input is supplied, not hidden in the map definition."
         }
       ],
@@ -1744,7 +1726,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.10 and full proof, p.15, pure specialization",
-          "excerpt": "Transversality",
           "match": "The proof tests F^(−1)g=g and yields the pure three-type criterion."
         }
       ],
@@ -1785,7 +1766,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "Corollary (3.22) and Theorem (3.27), pp.227–228",
-          "excerpt": "holomorphic",
           "match": "The complete local proof is the flag map plus the existing Griffiths-transversality condition."
         }
       ],
@@ -1828,7 +1808,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.8), (3.23)–(3.27), pp.222–223 and 227–228",
-          "excerpt": "monodromy",
           "match": "The quotient conclusion is kept at the proper level of freeness and arithmetic hypotheses."
         }
       ],
@@ -1872,7 +1851,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.1 with full proof p.54; §5.1 (5.3), p.29",
-          "excerpt": "adjoint",
           "match": "The derivative is the quotient Gauss–Manin operator, with the source filtration and quotient target retained."
         }
       ],
@@ -1914,7 +1892,6 @@
         {
           "sourceId": "LL",
           "locator": "Notation 5.1.1 and §§5.1.2–5.1.5, pp.27–29, (5.1)–(5.3)",
-          "excerpt": "unitary",
           "match": "All geometric, boundary and unitary hypotheses are retained; the common variation and canonical-extension constructions stay with H.2."
         }
       ],
@@ -1953,7 +1930,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.4 and full proof, p.55",
-          "excerpt": "closed",
           "match": "The proof is the fibrewise-closed Ehresmann computation; smooth/log resolutions and trivialization are explicit supplier inputs."
         }
       ],
@@ -1997,7 +1973,6 @@
         {
           "sourceId": "LL",
           "locator": "Proposition A.1.7 and complete proof, p.56",
-          "excerpt": "commuting",
           "match": "The complete A.1.7 cup/contraction proof is read. Its invoked harmonic-lift input is realized here from the explicit H.2 direct-image base-change identification plus a supplied smooth splitting of the logarithmic vector-bundle sequence; the source Voisin proof is not claimed read."
         }
       ],
@@ -2038,7 +2013,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.8 and full proof, p.57",
-          "excerpt": "Serre",
           "match": "The complete proof identifies both linear functionals by the same Serre trace, not by dimension alone."
         }
       ],
@@ -2083,7 +2057,6 @@
         {
           "sourceId": "LL",
           "locator": "Theorem 5.1.6 p.29 and §A.2 full proof p.57",
-          "excerpt": "factors",
           "match": "The two-step trace/cotangent factorization and its Gauss–Manin adjointness are the main derivative target."
         }
       ],
@@ -2120,7 +2093,6 @@
         {
           "sourceId": "LL",
           "locator": "§5.1.4–5.1.6 pp.28–29 and §6 use of Theorem 5.1.6, p.32",
-          "excerpt": "derivative",
           "match": "An elementary finite-dimensional consequence of the proven cotangent factorization, with the base-deformation factor retained."
         }
       ],
@@ -2163,7 +2135,6 @@
         {
           "sourceId": "GH",
           "locator": "§4, printed pp.16–17, holomorphic Hodge planes and Ω computation",
-          "excerpt": "period",
           "match": "The local proof is read through (4.2); the general geometric variation and fibre Riemann relations are imported."
         }
       ],
@@ -2200,7 +2171,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3, pp.221–222, compact-dual/domain correspondence",
-          "excerpt": "parameterizes",
           "match": "Extend the pinned point carrier by its filtration, rather than defining another Hodge structure."
         }
       ],
@@ -2238,7 +2208,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.3)–(3.7), p.222",
-          "excerpt": "acts",
           "match": "Real isometries act on the full domain, while lattice isometries supply monodromy."
         }
       ],
@@ -2276,7 +2245,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.9)–(3.15), pp.223–224",
-          "excerpt": "End",
           "match": "Generalize the represented Lie filtration beyond adjoint types −1,0,1."
         }
       ],
@@ -2314,7 +2282,6 @@
         {
           "sourceId": "PINK",
           "locator": "Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5)",
-          "excerpt": "tangent",
           "match": "Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q."
         }
       ],
@@ -2352,7 +2319,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 pp.227–228, (3.23)–(3.27)",
-          "excerpt": "mapping",
           "match": "The marked filtration defines the native point map; variation and local-system objects are imported."
         }
       ],
@@ -2390,7 +2356,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.1 and proof, p.54",
-          "excerpt": "lift",
           "match": "The derivative is the quotient jet of a local section, independent of the lift."
         }
       ],
@@ -2429,7 +2394,6 @@
         {
           "sourceId": "LL",
           "locator": "Definition A.1.5 and Remark A.1.6, p.56",
-          "excerpt": "connecting",
           "match": "Defines the exact logarithmic connecting map used in the derivative proof."
         }
       ],
@@ -2467,7 +2431,6 @@
         {
           "sourceId": "LL",
           "locator": "Definition A.1.5 and Remark A.1.6, p.56",
-          "excerpt": "connecting",
           "match": "Defines the exact logarithmic connecting map used in the derivative proof."
         }
       ],
@@ -2505,7 +2468,6 @@
         {
           "sourceId": "LL",
           "locator": "§5.2 equation (5.5), p.29; Lemma A.1.8, p.57",
-          "excerpt": "pairing",
           "match": "The derivative-specific trace multiplication has one marked-divisor twist, not two."
         }
       ],
@@ -2543,7 +2505,6 @@
         {
           "sourceId": "LL",
           "locator": "§5.2 equation (5.5), p.29; Lemma A.1.8, p.57",
-          "excerpt": "pairing",
           "match": "The derivative-specific trace multiplication has one marked-divisor twist, not two."
         }
       ],
@@ -2581,7 +2542,6 @@
         {
           "sourceId": "GH",
           "locator": "§4, printed pp.15–17, especially the proof that Ω(s) is holomorphic on p.17",
-          "excerpt": "holomorphic",
           "match": "The local holomorphic integration argument supplies the abelian period-matrix adapter; normalization is the usual principal-polarization specialization."
         }
       ],
@@ -2619,7 +2579,6 @@
         {
           "sourceId": "LL",
           "locator": "Lemma A.1.1 and proof, p.54",
-          "excerpt": "lift",
           "match": "The derivative is the quotient jet of a local section, independent of the lift."
         }
       ],
@@ -2657,7 +2616,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.11)–(3.15) and Lemma (3.18), pp.223–226",
-          "excerpt": "horizontal",
           "match": "Retains the full negative tangent quotient and singles out grade −1; no SV1 hypothesis is smuggled into a general period manifold."
         }
       ],
@@ -2742,7 +2700,6 @@
         {
           "sourceId": "SCHMID",
           "locator": "§3 (3.11)–(3.15) and Lemma (3.18), pp.223–226",
-          "excerpt": "horizontal",
           "match": "Retains the full negative tangent quotient and singles out grade −1; no SV1 hypothesis is smuggled into a general period manifold."
         }
       ],

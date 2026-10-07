@@ -452,19 +452,16 @@
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "<.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate height pairing induced by the M-linear Neron-Tate height pairing",
      "match": "A(χ) is the domain of YZZ's L-linear pairing."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, before Theorem 1.5, p. 6",
-     "excerpt": "Define a Heegner cycle associated to (π, χ) to be P⁰_χ(f) := Σ_{t∈Pic_{K/F}(O_{c1})} f(P)^{σ_t} χ(t) ∈ A(K^ab)_Q ⊗_M L",
      "match": "The ambient space A(K^ab)_ℚ ⊗_M L and the reciprocity action t ↦ σ_t."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.3, Theorem 4.3.1(2), p. 588",
-     "excerpt": "dim(AΠ(E^ab) ⊗ C)^χ = deg LΠ(χ) where (AΠ(E^ab) ⊗ C)^χ is the χ-eigen subspace of AΠ(E^ab) ⊗ C under action by Gal(E^ab/E)",
      "match": "The χ-eigenspace as the object whose dimension the BSD consequences control."
     }
    ],
@@ -593,13 +590,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, before Theorem 1.5, p. 6",
-     "excerpt": "Let ⟨,⟩_{K,M} : A(K̄)_Q ⊗_M A∨(K̄)_Q → M ⊗_Q R be the unique M-bilinear pairing such that ⟨,⟩_K = tr_{M⊗R/R} ⟨,⟩_{K,M}.",
      "match": "The coefficient pairing and its trace characterisation."
     },
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "Here <.,.>_L : A(chi) x A-dual(chi^{-1}) -> L tensor_Q R is the L-linear Neron-Tate height pairing induced by the M-linear Neron-Tate height pairing <.,.>_M between A(F) and A-dual(F).",
      "match": "The pairing in YZZ's main theorem."
     }
    ],
@@ -737,25 +732,21 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, before Theorem 1.5, p. 6",
-     "excerpt": "Fix a point P ∈ X^{K×} and let f ∈ V(π, χ) be a non-zero vector. Define a Heegner cycle associated to (π, χ) to be P⁰_χ(f) := Σ_{t∈Pic_{K/F}(O_{c1})} f(P)^{σ_t} χ(t)",
      "match": "The finite form of the χ-Heegner point."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.2, p. 587",
-     "excerpt": "Pχ = ∫_{Gal(E^ab/E)} χ(σ)^{-1}(P^σ − ξ_{P^σ}) dσ ∈ Alb(X)(E^ab) ⊗ C with respect to a Haar measure of volume 2L(1, η)",
      "match": "The integral form with the toric measure of volume 2L(1, η) and the Hodge-class base point."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Theorem 1.6, p. 8",
-     "excerpt": "P⁰_χ(f′) = #Pic(O_{c1}) / Vol(K^× F̂^× \\ K̂^×, dt) · ∫ f′(P)^{σ_t} χ(t) dt",
      "match": "The normalised integral that recovers P⁰_χ from the integral form."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter I §6, p. 230",
-     "excerpt": "We identify χ with a character of Gal(H/K), and define c_χ = Σ_σ χ^{-1}(σ) c^σ in the χ-eigenspace of J(H) ⊗ ℂ. (This is h times the standard eigencomponent.)",
      "match": "The classical eigencomponent and its normalisation."
     }
    ],
@@ -800,13 +791,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Theorem 1.6, p. 8",
-     "excerpt": "P⁰_χ(f′) = #Pic(O_{c1}) / Vol(K^× F̂^× \\ K̂^×, dt) · ∫_{K^× F̂^× \\ K̂^×} f′(P)^{σ_t} χ(t) dt",
      "match": "The ratio between the integral and the finite sum."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.2, p. 587",
-     "excerpt": "with respect to a Haar measure of volume 2L(1, η)",
      "match": "The total volume of the toric measure."
     }
    ],
@@ -842,13 +831,11 @@
     {
      "sourceId": "zhang-2010",
      "locator": "§4.2, p. 587",
-     "excerpt": "NTχ((t1, t2)f) = χ^{-1}(t1)χ(t2)NTχ(f)",
      "match": "The toric equivariance of the height distribution, whose source is the equivariance of P_χ."
     },
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "If Sigma(B) not= Sigma(A, chi), the linear space is zero and thus both sides of the formula are zero.",
      "match": "Both sides of Thm. 1.2 lie in the toric Hom spaces, which is what the equivariance gives."
     }
    ],
@@ -901,25 +888,21 @@
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "Theorem 1.2. Assume omega_A . chi|_{A_F^x} = 1. For any f1 in pi_A and f2 in pi_{A-dual}, <P_chi(f1), P_{chi^{-1}}(f2)>_L = [zeta_F(2) L'(1/2, pi_A, chi) / (4 L(1, eta)^2 L(1, pi_A, ad))] alpha(f1, f2)",
      "match": "The theorem with its exact constant."
     },
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, Secs. 1.2.1 and 1.3.1, printed pp. 2–3 and 6 (via the decomposition's verified excerpt)",
-     "excerpt": "Now assume that F is a totally real number field and that B is an incoherent quaternion algebra over A, totally definite at infinity ... Let E/F be a totally imaginary quadratic extension, with a fixed embedding E_A into B over A.",
      "match": "The standing hypotheses."
     },
     {
      "sourceId": "yzz-erratum-2026",
      "locator": "Erratum items 1 and 16 (via the decomposition's verified record)",
-     "excerpt": "Change 'It is a regular scheme over F, locally noetherian but not of finite type' to 'If #Sigma > 1, it is a regular scheme over F, locally noetherian but not of finite type.'",
      "match": "The structural restriction in the modular case."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.2, Theorem 4.2.1, p. 587",
-     "excerpt": "Theorem 4.2.1 (Gross-Zagier [2], Yuan-Zhang-Zhang [7]). NT_{π^JL,χ} = L′(1/2, π, χ) L(1, η) β_{π^JL,χ}.",
      "match": "A public statement of the same theorem in distribution form, with the Rankin–Selberg root-number set Σ."
     }
    ],
@@ -959,7 +942,6 @@
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "If Sigma(B) not= Sigma(A, chi), the linear space is zero and thus both sides of the formula are zero. The theorem is vacuous in this case.",
      "match": "The zero case."
     }
    ],
@@ -997,19 +979,16 @@
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "In the essential case Sigma(B) = Sigma(A, chi), the linear space is one-dimensional and alpha is a generator. ... Note that epsilon(1/2, pi_A, chi) = -1 in this case.",
      "match": "The global sign in the essential case."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.2, p. 586",
-     "excerpt": "Thus we have ε(1/2, π, χ) = (−1)^{#Σ}",
      "match": "The parity formula for the root number."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§4.1, after (gen-H), p. 25",
-     "excerpt": "The third and forth assumption of either Heegner-type hypothesis implies that the epsilon factor ǫ(π, K, s) of the base change of π to GL2(AK) satisfies ǫ(π, K, 1/2) = −1.",
      "match": "The sign in the generalised Heegner setting."
     }
    ],
@@ -1051,25 +1030,21 @@
     {
      "sourceId": "skinner-2020",
      "locator": "§2.5, Proposition 2.5.1, p. 11",
-     "excerpt": "Suppose (sqf), (sgn), and (ram) hold. If P_K(f) ≠ 0, then ord_{s=1} L(f, K, s) = 1.",
      "match": "The converse direction (b)–(c) in the classical rational case."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.5, Corollary 2.5.2, p. 12",
-     "excerpt": "If P_K(f) ≠ 0, then ord_{s=1} L(A_f/K, s) = [M_f : Q].",
      "match": "Simultaneous nonvanishing of the conjugates."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.3, Theorem 4.3.1, p. 588",
-     "excerpt": "Assume that ords=1 L(s, π, χ) = 1. Then 1. ords=1 L(s, π σ , χσ ) = 1 for all automorphism σ of C",
      "match": "The same simultaneous nonvanishing over a totally real field."
     },
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, after Thm. 1.2, printed p. 9 (via the decomposition's verified excerpt)",
-     "excerpt": "In the essential case Sigma(B) = Sigma(A, chi), the linear space is one-dimensional and alpha is a generator.",
      "match": "α is a nonzero generator, so suitable test vectors exist."
     }
    ],
@@ -1111,19 +1086,16 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.1, before Theorem 1.1, p. 1",
-     "excerpt": "Let (φ, φ)Γ0(N) denote the Petersson norm of φ: (φ, φ)Γ0(N) = ∫∫_{Γ0(N)\\H} |φ(z)|² dxdy, z = x + iy.",
      "match": "The normalisation of the Petersson norm."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.1, after Theorem 1.1, p. 2",
-     "excerpt": "C is the positive integer such that if ω0 is a Néron differential on E then f*ω0 = ±C · 2πiφ(z)dz.",
      "match": "The Manin constant of the parametrisation."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter I §6, after (6.4), p. 230",
-     "excerpt": "We remark also that the quantity 8π²(f, f) is equal to the period integral ‖ω_f‖² = ∫∫_{X(ℂ)} ω_f ∧ iω̄_f, where ω_f = 2πif(z)dz is the eigendifferential associated to f.",
      "match": "The Petersson–period identity."
     }
    ],
@@ -1171,25 +1143,21 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.1, Theorem 1.1, p. 2",
-     "excerpt": "Theorem 1.1. Let φ, χ be as above satisfying the Heegner conditions (1) and (2). Then L′(1, φ, χ) = 2^{−µ(N,D)} · 8π²(φ, φ)Γ0(N) / (u² √|Dc²|) · ĥK(Pχφ)",
      "match": "The formula with its constant."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.1, conditions (1)–(2), p. 1",
-     "excerpt": "(1) (c, N) = 1, and no prime divisor p of N is inert in K, and also p must be split in K if p²|N. (2) χ([p]) ≠ ap for any prime p|(N, D)",
      "match": "The Heegner conditions."
     },
     {
      "sourceId": "yzz-2013",
      "locator": "Chapter 1, Thm. 1.1, printed p. 1 (via the decomposition's verified excerpt)",
-     "excerpt": "Theorem 1.1 (Gross-Zagier). Denote by h the class number of K, and u half of the number of units of O_K. Then <P_chi(f), P_chi(f)>^H_NT = [h u^2 |D|^{1/2} / (8 pi^2 (f, f))] . L'(f, chi, 1).",
      "match": "The classical formula as YZZ quote it."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter I §6, Theorem (6.3) and (6.5), p. 230",
-     "excerpt": "(6.3) Theorem. L'(f, χ, 1) = 8π²(f, f)/(h u² |D|^{1/2}) ĥ(c_{χ,f}). Here ĥ is the canonical height on J over H",
      "match": "The original formula, with heights over H; (6.5) restates it with ĥ_K and ‖ω_f‖² = 8π²(f, f)."
     }
    ],
@@ -1239,19 +1207,16 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.1, Theorem 1.1, second display, p. 2",
-     "excerpt": "the Heegner divisor Pχ0 (f ) := Σ_{[a]∈Pic(Oc)} f (Pa ) ⊗ χ([a]) ∈ E(Hc )C satisfies L′(1, E, χ) = 2^{−µ(N,D)} · 8π²(φ, φ)Γ0(N) / (u² √|Dc²|) · ĥK (Pχ0 (f )) / deg f",
      "match": "The elliptic-curve formula with the degree of the parametrisation."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.4, p. 11",
-     "excerpt": "Put PK (f ) = φ(QK (f )) ∈ Af (K) ⊗ Mf .",
      "match": "The trace Heegner point in the rational modular case."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter V §2, Theorem (2.1), p. 311",
-     "excerpt": "(2.1) Theorem. L'(E/K, 1) = ‖ω‖² ĥ(P_K)/c² u_K² |D|^{1/2}.",
      "match": "The elliptic-curve form with the Manin constant c and ‖ω‖² = ∫∫_{E(ℂ)} |ω ∧ ω̄|."
     }
    ],
@@ -1360,13 +1325,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Definition 1.3, p. 5",
-     "excerpt": "An Ô-order R of B_f is called admissible for (π, χ) if for every finite place v of F, R_v := R ⊗_Ô O_v is admissible for (π_v, χ_v).",
      "match": "Admissible orders."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Definition 1.4, p. 6",
-     "excerpt": "Let V(π, χ) denote the space of forms f ∈ πA ⊗M L, which are ω-eigen under U^(N2), and χ_v^{-1}-eigen under Kv^× for all places v ∈ Σ1. The space V(π, χ) is actually a one dimensional L-space (see Proposition 3.7).",
      "match": "The test-vector line."
     }
    ],
@@ -1416,13 +1379,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Theorem 1.5, p. 6",
-     "excerpt": "Theorem 1.5 (Explicit Gross-Zagier Formula). ... For any non-zero forms f1 ∈ V(πA, χ) and f2 ∈ V(πA∨, χ^{-1}), we have an equality in L ⊗Q C",
      "match": "The general explicit formula."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Special case 1, p. 7",
-     "excerpt": "Special case 1. Further assume that (N, Dc) = 1. Then there is a non-constant morphism f : XU −→ A mapping a Hodge class on XU to torsion of A",
      "match": "The coprime special case used for totally real fields."
     }
    ],
@@ -1459,13 +1420,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Theorem 1.6, p. 8",
-     "excerpt": "Theorem 1.6 (Variation of Gross-Zagier Formula). Let (A, χ) and f1 ∈ V(πA, χ), f2 ∈ V(πA∨, χ^{-1}) be as in Theorem 1.5. Let S be a finite set of finite places of F",
      "match": "The variation formula."
     },
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Example after Theorem 1.6, p. 8",
-     "excerpt": "Let A be the elliptic curve X0(36) with the cusp ∞ as the identity point and let K = Q(√−3). Let p ≡ 2 mod 9 be a prime",
      "match": "The cube-sum example."
     }
    ],
@@ -1510,19 +1469,16 @@
     {
      "sourceId": "skinner-2020",
      "locator": "§2.5, proof of Proposition 2.5.1, p. 12",
-     "excerpt": "⟨PK(f), PK(f)⟩_L = ⟨PK(f), λ(PK(f))⟩_NT = hK² ⟨P(f1)^ι, P(f2)^ι⟩_NT = hK² ζ(2)L′(f, K, 1) · (f1 ◦ f2∨)^ι / (4L(χD, 1)² L(Sym² f, 2)vol(X))",
      "match": "The height formula, quoted by Skinner from YZZ Theorem 3.13."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.4, Cases I and II, p. 10",
-     "excerpt": "II. N = N^− N^+ with N^− a nontrivial product of an even number of primes that are inert in K and N^+ is the product of primes that split in K",
      "match": "The quaternionic case."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§4.1, (gen-H), p. 24",
-     "excerpt": "ℓ | N+ if and only if ℓ is split or ramified in K; ℓ | N− if and only if ℓ is inert in K; N− is squarefree with an even number of prime factors.",
      "match": "The generalised Heegner hypothesis of the consumers."
     }
    ],
@@ -1564,13 +1520,11 @@
     {
      "sourceId": "cai-shu-tian-2014",
      "locator": "§1.2, Special case 1, p. 7",
-     "excerpt": "For any such f1 : XU → A and f2 : XU → A∨, let (f1, f2) = f1 ◦ f2∨. Then we have an equality in L ⊗Q C",
      "match": "The formula for the trace point at an admissible level."
     },
     {
      "sourceId": "zhang-2010",
      "locator": "§4.3, Theorem 4.3.1, p. 588",
-     "excerpt": "Assume that ords=1 L(s, π, χ) = 1. Then 1. ords=1 L(s, π σ , χσ ) = 1 for all automorphism σ of C",
      "match": "Simultaneous order one for all conjugates."
     }
    ],
@@ -1665,13 +1619,11 @@
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1, list after (5.1.a), p. 32",
-     "excerpt": "α(f, fB) = ⟨f,f⟩Γ0(N) / ⟨fB,fB⟩Γ0B(N+) is a ratio of Petersson norms ... in [Bro14] this ratio was shown to belong to L",
      "match": "The ratio and its rationality."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.2, after Theorem 8.2, p. 4232",
-     "excerpt": "The element α( f, fGL2 ) is the quotient of the Petersson inner products ⟨fGL2, fGL2⟩/⟨f, f⟩. Because of our normalization of f, it is an element of K by [20, Theorem 12.3].",
      "match": "Brooks's inverse convention and the rationality."
     }
    ],
@@ -1818,25 +1770,21 @@
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1, display (5.1.a), p. 32",
-     "excerpt": "there exists Lp(f) ∈ ΛR := Λ⊗̂O R = R[[Γ]] such that for ψ ∈ Σcc with n ≡ 0 (mod p − 1), the image Lp(f, ψ) := ψ̂(Lp(f)) ∈ R ... satisfies (5.1.a)",
      "match": "The definition by interpolation."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1, Remark 5.1.1(c), p. 32",
-     "excerpt": "In [BDP13] and [Bro14] the p-adic L-function is only constructed as a continuous function (though the construction clearly gives a measure). The measure is made explicit, for example, in [Bur14].",
      "match": "Measure versus continuous function."
     },
     {
      "sourceId": "bdp-2013",
      "locator": "§5.2, (5.2.3) and Proposition 5.10, pp. 1134–1135",
-     "excerpt": "The function χ ↦ Lp(f, χ) extends to a continuous function on Σ̂cc(N).",
      "match": "BDP's construction for N⁻ = 1."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "Published §2.6, p. 342 (preprint p. 13 uses O[[Γ]])",
-     "excerpt": "Paraphrase of the published version: the imprimitive anticyclotomic function lies in O^ur[[Γ]], with O^ur the integers of the completion of the maximal unramified extension of L.",
      "match": "Published coefficient ring; supersedes the preprint O[[Γ]] in this citation."
     }
    ],
@@ -1882,13 +1830,11 @@
     {
      "sourceId": "castella-hsieh-2018",
      "locator": "§3.3, Definition 3.7, p. 13",
-     "excerpt": "Define the p-adic measure Lp,ψ (f ) on Γ̃ by Lp,ψ (f )(ρ) = Σ_{[a]∈Pic Oco} ψ(a)N(a)^{−r} · f̂♭_a ⊗ ψp ρ|[a] (Aa , ηa ).",
      "match": "The square-root measure."
     },
     {
      "sourceId": "castella-hsieh-2018",
      "locator": "§3.3, Proposition 3.8, p. 13",
-     "excerpt": "If φ̂ ∈ Xp∞ is the p-adic avatar of a Hecke character φ of infinity type (m, −m) with m ≥ 0 and p-power conductor, then (Lp,ψ (f )(φ̂)/Ω_p^{2r+2m})² = L^alg(1/2, πK ⊗ ψφ) · ep(f, ψφ) · φ(N^{−1}) · 2^{#A(ψ)+3} co ε(f) · u_K² √DK.",
      "match": "The square interpolates the central values."
     }
    ],
@@ -2001,19 +1947,16 @@
     {
      "sourceId": "brooks-2015",
      "locator": "§8.4, definition before Proposition 8.9, p. 4237",
-     "excerpt": "Now set L p( f, χ ) = Ω p^{2(k+2 j)} (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) pk−1 )2 L alg ( f, χ −1 , 0).",
      "match": "The definition."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.5, Proposition 8.10, p. 4237",
-     "excerpt": "The function χ → L p( f, χ ) extends to a continuous function on all of Σ̂cc (which we will still write as L p.)",
      "match": "Continuity."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1, p. 31",
-     "excerpt": "As explained in [BDP13], [Bro14], and [Bur14], under the hypotheses (H) and (good) there exists Lp (f ) ∈ ΛR",
      "match": "The measure in the quaternionic case."
     }
    ],
@@ -2062,13 +2005,11 @@
     {
      "sourceId": "brooks-2015",
      "locator": "§8.2, Theorem 8.2, p. 4232",
-     "excerpt": "Let χ be an unramified Hecke character of K of infinity type (k + j, − j) whose central character is the nebentypus of f. Then one has, for some α( f, fGL2 ) ∈ K",
      "match": "The Waldspurger-type formula."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.3, Proposition 8.5, p. 4235",
-     "excerpt": "Under the hypotheses of Theorem 8.2, one has C ( f, χ )L( f, χ −1 , 0) = α( f, fGL2 )W( f, χ )(Σ χ −1 (a)Na− j · (Θ∞ j f)(a ⋆ (A, P , ωC )))2",
      "match": "The squared form."
     }
    ],
@@ -2106,13 +2047,11 @@
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1.5, Proposition 5.1.6, p. 34",
-     "excerpt": "Lp (f, 1) = 1/(1 − aℓ0 + ℓ0)² · ((1 + p − ap)/p)² · log²_ωf x_K^{N+,N−}",
      "match": "The Euler factor at the BDP point."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.6, Proposition 8.12, p. 4239",
-     "excerpt": "L p( f, χ ) = (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) p)2 · logω f ( f Δχ ).",
      "match": "The χ-twisted factor in weight two."
     }
    ],
@@ -2152,19 +2091,16 @@
     {
      "sourceId": "brooks-2015",
      "locator": "§6.4, p. 4224",
-     "excerpt": "In the weight two case, the p-adic Abel–Jacobi map can be identified with a formal group logarithm as follows: writing J for the Jacobian of C , there is, for each differential form ω ∈ Ω J , a unique group homomorphism logω : J(F p) → F p with dlogω = ω.",
      "match": "The identification."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§7, Lemma 7.5, p. 4229",
-     "excerpt": "Suppose that the weight of f is 2. Then for any zero-cycle Δ on C , one has (θ −1 f ♭ )(ε f Δ0 ) = (θ −1 f ♭ )(Δ0 ).",
      "match": "The projector does not change the value."
     },
     {
      "sourceId": "bdp-2013",
      "locator": "Remark 2.6 and Proposition 2.7, published p. 1063",
-     "excerpt": "When r = 0, the generalized Heegner cycle Δϕ is a CM point on the modular curve C. In this case, we replace Δϕ by Δϕ − ∞, where ∞ is any cusp, in order to make Δϕ homologically trivial.",
      "match": "The weight-two cycle."
     }
    ],
@@ -2210,19 +2146,16 @@
     {
      "sourceId": "bdp-2013",
      "locator": "§5.3, Theorem 5.13, p. 1137",
-     "excerpt": "Suppose that χ ∈ Σ(1)cc(N) is a character of infinity type (k − 1 − j, 1 + j), with 0 ≤ j ≤ r. Then Lp(f, χ)/Ω_p^{2(r−2j)} = (1 − χ^{−1}(p̄)ap + χ^{−2}(p̄)εf(p)p^{k−1})² (c^j/j! Σ χ^{−1}(a)N(a) · AJF(ϕa ϕ0)(ωf ∧ ωA^j ηA^{r−j}))²",
      "match": "The general theorem, imported from GH at r = j = 0."
     },
     {
      "sourceId": "bdp-2013",
      "locator": "Introduction, p. 1038",
-     "excerpt": "Those approaching this paper for the first time may find it pedagogically helpful to focus on the simplest case r = j = 0, where f is a newform of weight 2 and χ ∈ Σ(1)cc(N) is a grossencharacter of infinity type (1, 1).",
      "match": "The weight-two case."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.6, Proposition 2.6.1, p. 14",
-     "excerpt": "Suppose (sqf), (sgn), (ram), (flt), and (odd) hold. Then L^S_p(f, 1) ≐ (logω PK (f ))².",
      "match": "The trace-point form."
     }
    ],
@@ -2270,19 +2203,16 @@
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1.5, Proposition 5.1.6, p. 34",
-     "excerpt": "Proposition 5.1.6 ([Bro14, Prop. 8.13]). Suppose (-free) holds and N and K satisfy (gen-H). Then Lp (f, 1) = 1/(1 − aℓ0 + ℓ0 )² · ((1 + p − ap)/p)² · log²ωf x_K^{N+,N−}, where the equality is up to a p-adic unit.",
      "match": "The formula used by JSW."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.6, Proposition 8.13, p. 4239",
-     "excerpt": "The cycle Δ′χ ∈ Div(C′)(K) ⊗ Q̄ satisfies L p( f, χ ) = (1 − χ −1 (p̄)ap + χ −2 (p̄) f ( p) p)2 · logω′f (Δ′χ ).",
      "match": "Brooks's statement, printed without the square on the logarithm."
     },
     {
      "sourceId": "brooks-2015",
      "locator": "§8.5, Theorem 8.11, p. 4238",
-     "excerpt": "Lp(f, χ)/Ωp^{2(k−2−2j)} = (1 − χ^{−1}(p̄)ap + χ^{−2}(p̄)εf(p)p^{k−1})² · ((1/j!) Σ χ^{−1}(a)N(a) · AJp(Δa)(ωf ∧ ωA^j ηA^{k−2−j}))²",
      "match": "The general-weight theorem, with the square."
     }
    ],
@@ -2326,13 +2256,11 @@
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1.5, Proposition 5.1.7, p. 34",
-     "excerpt": "Proposition 5.1.7. Suppose (good) and (irredK ) hold. Then with the above choice of Af and π, up to a unit in O we have that Lp (f, 1) equals ((1 + p − ap)/p)² log²_{ωAf} z_K^{N+,N−}",
      "match": "The p-optimal form."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1.5, proof of Proposition 5.1.7, pp. 34–35",
-     "excerpt": "To prove this proposition it suffices to prove that π∗(ωAf ) is an O×-multiple of ωf . By the hypothesis (good), each of J(X∗N+,N−), A0, and Af has good reduction at p.",
      "match": "The proof strategy."
     }
    ],
@@ -2374,13 +2302,11 @@
     {
      "sourceId": "skinner-2020",
      "locator": "§2.6, Corollary 2.6.2, p. 14",
-     "excerpt": "PK (f ) ≠ 0 if and only if LSp (f, 1) ≠ 0.",
      "match": "The detection statement."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.6, after Proposition 2.6.1, p. 14",
-     "excerpt": "To prove that PK (f ) ≠ 0, and hence that Af (K) has positive rank, it suffices to show that logω PK (f ) ≠ 0 and, therefore, to show that LSp (f, 1) ≠ 0.",
      "match": "The logarithm detects the point."
     }
    ],
@@ -2419,13 +2345,11 @@
     {
      "sourceId": "castella-hsieh-2018",
      "locator": "§4.5, p. 19",
-     "excerpt": "If Dcris,L (V )^{Φ=1} = 0, then the natural inclusion H¹e(L, V ) ⊂ H¹f (L, V ) is an equality (see for example [BK90, Cor. 3.8.4]), and we define the Bloch–Kato logarithm map log := logL,V : H¹f (L, V ) −→ DdR,L (V )/Fil⁰DdR,L (V )",
      "match": "The Bloch–Kato logarithm and its domain."
     },
     {
      "sourceId": "castella-hsieh-2018",
      "locator": "§4.5, Theorem 4.9, p. 20",
-     "excerpt": "relates the Bloch–Kato logarithm of generalized Heegner classes to the values of the p-adic L-function Lp,ψ (f ) at characters outside the range of interpolation",
      "match": "The logarithm of Heegner classes in the p-adic Gross–Zagier formula."
     }
    ],
@@ -2465,13 +2389,11 @@
     {
      "sourceId": "brooks-2015",
      "locator": "§8.6, before Proposition 8.13, p. 4239",
-     "excerpt": "Writing φ : C → C′ for the natural map, one has the rule for p-adic logarithms logφ∗ω(P ) = logω(φ(P )).",
      "match": "The pullback rule."
     },
     {
      "sourceId": "jsw-2017",
      "locator": "§5.1.5, p. 34",
-     "excerpt": "logωf x_K^{N+,N−} = logωf εf · x_K^{N+,N−} = (1 − aℓ0 + ℓ0 ) · logωf x̃_K^{N+,N−}",
      "match": "Compatibility with the Hecke projector and the auxiliary prime."
     }
    ],
@@ -2515,19 +2437,16 @@
     {
      "sourceId": "castella-2018-multiplicative",
      "locator": "§3, Theorem 3.2, p. 9",
-     "excerpt": "Theorem 3.2. The following equality holds up to a p-adic unit: Lp (f, 1) = (1 − ap p−1 + εp )2 · (logωE PK )2 , where εp = p−1 if p ∤ N and εp = 0 otherwise, and PK ∈ E(K) is a Heegner point.",
      "match": "The formula, uniform in p ∤ N and p | N."
     },
     {
      "sourceId": "castella-2020-exceptional",
      "locator": "§2.5, Theorem 2.11, p. 15",
-     "excerpt": "Let f = q + Σ an(f)q^n ∈ Sk(Γ0(Np)) be a p-new eigenform of weight k = r + 2 ≥ 2, and suppose that χ ∈ Σ−k,c has infinity type (r + 1 − j, 1 + j), with 0 ≤ j ≤ r.",
      "match": "The semistable extension of BDP's theorem."
     },
     {
      "sourceId": "castella-2020-exceptional",
      "locator": "Introduction, Theorem and (0.4), pp. 2–3",
-     "excerpt": "Then Zp,f,0 = 0 and Z′p,f,0 = Lp (f, K) · locp (κf ).",
      "match": "The exceptional zero belongs to the big Heegner point, with the L-invariant."
     }
    ],
@@ -2574,13 +2493,11 @@
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter I §6, Theorem (6.1)–(6.2), p. 230",
-     "excerpt": "(6.1) Theorem. The series g_𝒜(z) = Σ_{m≥1} ⟨c, T_m c^σ⟩ e^{2πimz} is a cusp form of weight 2 on Γ₀(N) which satisfies (6.2) (f, g_𝒜) = u²|D|^{1/2}/(8π²) L'_𝒜(f, 1) for all f in the space of newforms of weight 2 on Γ₀(N).",
      "match": "The main identity."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter V §1, p. 307",
-     "excerpt": "find the identity ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1, where a_{m,𝒜} is the m-th Fourier coefficient of the cusp form defined in Theorem (6.9) of Chap. IV!",
      "match": "The coefficient identity and its proof by adding the archimedean and finite local heights."
     }
    ],
@@ -2619,13 +2536,11 @@
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter V §1, Corollaries (1.1)–(1.2), pp. 308–309",
-     "excerpt": "(1.1) Corollary. Let f ∈ S₂(Γ₀(N)) be any newform and χ any character of Gal(H/K). Then L'(f, χ, 1) ≥ 0.",
      "match": "Positivity."
     },
     {
      "sourceId": "gross-zagier-1986",
      "locator": "Chapter V §1, Corollary (1.3), p. 309",
-     "excerpt": "(1.3) Corollary. Let f be any newform of weight 2 and f^α (α ∈ Gal(Q̄/Q)) any conjugate of f. Then ord_{s=1} L(f, s) = 0 ⇔ ord_{s=1} L(f^α, s) = 0",
      "match": "Galois invariance of low orders of vanishing."
     }
    ],
@@ -2664,13 +2579,11 @@
     {
      "sourceId": "skinner-2020",
      "locator": "Published §2.6, p. 343",
-     "excerpt": "the functions constructed in [2] and [6] are a priori only continuous on Γ. That they belong to the Iwasawa algebra (which follows from the constructions in [7] and [26]) requires additional argument",
      "match": "The integrality statement and its sources."
     },
     {
      "sourceId": "castella-hsieh-2018",
      "locator": "§3.3, Proposition 3.8, p. 13",
-     "excerpt": "If φ̂ ∈ Xp∞ is the p-adic avatar of a Hecke character φ of infinity type (m, −m) with m ≥ 0 and p-power conductor",
      "match": "The interpolation at characters ramified at p."
     }
    ],
@@ -2707,13 +2620,11 @@
     {
      "sourceId": "skinner-2020",
      "locator": "Published §2.6, p. 343",
-     "excerpt": "Then L^S_p(f) is the imprimitive variant of the p-adic L-function denoted Lp(f, χ) in [2] (in Case I) and in [6] (in Case II).",
      "match": "The identification."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "Published §2.6, p. 343",
-     "excerpt": "Also, still in the notation of [2] and [6], e∞(f, ψ)wK(2πi)^{1+2n} = C(f, χ, 1), and w(f, ψ) = wK w(f, χ)^{−1}. The constant we have denoted C(f, K) is denoted α(f, fGL2)^{−1} in [6]",
      "match": "The constants."
     }
    ],
@@ -2750,25 +2661,21 @@
     {
      "sourceId": "bsw-2026",
      "locator": "§1.4, Theorem 1.1, p. 3",
-     "excerpt": "For an abelian variety over Q̄ with dim A = [F:Q] and a real embedding of F, every non-torsion algebraic point has nonzero logarithm against every nonzero F-eigendifferential. (Paraphrase; the bars on Q in the source are essential.)",
      "match": "The algebraic-point nonvanishing."
     },
     {
      "sourceId": "bsw-2026",
      "locator": "§1.3, p. 3",
-     "excerpt": "A nonzero vector logarithm gives some nonzero eigencomponent; it does not by itself give every component. (Paraphrase, for algebraic points over Q̄.)",
      "match": "Why the eigencomponent statement is not elementary."
     },
     {
      "sourceId": "skinner-2020",
      "locator": "§2.6, Corollary 2.6.2, p. 14",
-     "excerpt": "PK (f ) ≠ 0 if and only if LSp (f, 1) ≠ 0.",
      "match": "The consumer statement."
     },
     {
      "sourceId": "bsw-2026",
      "locator": "§2.3, Theorem 2.8(i), p. 6",
-     "excerpt": "For a non-torsion twisted point and a totally real coefficient extension E, every eigenlogarithm is nonzero. (Paraphrase.)",
      "match": "The twisted case (c), using only the totally real alternative (i)."
     }
    ],

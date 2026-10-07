@@ -269,7 +269,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -307,7 +306,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Corrects the omitted exclusion of exponent zero in the printed contradiction argument; see E1."
         }
       ],
@@ -351,7 +349,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -390,7 +387,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Equation (5), author copy printed p. 546",
-          "excerpt": "(5)",
           "match": "The scalar unit consequence of the actual Fourier transformation law; the lattice and line trivialization are supplier obligations."
         }
       ],
@@ -432,7 +428,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -476,7 +471,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; Theorem 8.3, printed p. 547",
-          "excerpt": "8.3",
           "match": "Elementary positivity consequence used to identify the Hilbert boundary ideal; generic toric coordinate construction remains in C0."
         }
       ],
@@ -515,7 +509,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(iii), author copy printed p. 548",
-          "excerpt": "(iii)",
           "match": "The explicit ring-valued equality underlying the source’s zero-divisor formulation."
         }
       ],
@@ -554,7 +547,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(iii), author copy printed p. 548",
-          "excerpt": "(iii)",
           "match": "Coefficient-sensitive consequence; no assertion that every nonparallel character remains nontrivial modulo a prime."
         }
       ],
@@ -602,7 +594,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 completed toric coordinates, author copy printed pp. 529–530; Theorem 8.3 proof, printed p. 547",
-          "excerpt": "8.3",
           "match": "Hilbert specialization of imported completed-coordinate algebra; not a new generic completion theorem."
         }
       ],
@@ -654,7 +645,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3 proof, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -707,7 +697,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.3, author copy printed p. 547",
-          "excerpt": "8.3",
           "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
         }
       ],
@@ -761,7 +750,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Section 2 boundary coordinates, author copy printed pp. 529–530; equation (5) and Theorem 8.3, printed pp. 546–547",
-          "excerpt": "8.3",
           "match": "Explicit Hilbert-specific consequence of positive support and the boundary-ideal computation, not attributed as a separately numbered theorem in Dimitrov."
         }
       ],
@@ -805,7 +793,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "§3, Definition 3.2 and Proposition 3.3(iv), printed pp. 531–535",
-          "excerpt": "Proposition 3.3.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -845,7 +832,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Definition 7.1 and proof of Theorem 7.2, printed pp. 541–542",
-          "excerpt": "Définition 7.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -884,7 +870,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -921,7 +906,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -957,7 +941,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -994,7 +977,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii), printed p. 537",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1035,7 +1017,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(ii) and equation (5), printed pp. 537, 546",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1152,7 +1133,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 4.1(i)–(iii), printed pp. 536–537",
-          "excerpt": "Proposition 4.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1196,7 +1176,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(i), §§5–6, printed pp. 538–543",
-          "excerpt": "Théorème 7.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1240,13 +1219,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(ii), author copy printed pp. 542–543",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Proposition 8.4, printed p. 1766",
-          "excerpt": "finite étale",
           "match": "The finite tame polarization quotient on the open Hilbert variety; extension and boundary freeness are supplied by Dimitrov Theorem 7.2(ii), not by this open torsor statement."
         }
       ],
@@ -1290,7 +1267,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.2(i),(ii), printed pp. 541–543",
-          "excerpt": "Théorème 7.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1330,7 +1306,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Corollary 7.4, printed p. 544",
-          "excerpt": "Corollaire 7.4.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1370,7 +1345,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Corollary 7.5 and Remark 7.3, printed pp. 543–544",
-          "excerpt": "Corollaire 7.5.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1415,7 +1389,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 7.6, printed p. 544",
-          "excerpt": "Proposition 7.6.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1460,13 +1433,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 7.6 and opening of section 8, author copy printed pp. 544–546",
-          "excerpt": "Proposition 7.6.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 7.1, printed pp. 1759–1760",
-          "excerpt": "conormal sheaf",
           "match": "Identifies the natural invariant differentials of the semiabelian extension. The subsequently modified integral lattice has a different owner and is not identified with this sheaf."
         }
       ],
@@ -1510,7 +1481,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 7.7, printed pp. 544–545",
-          "excerpt": "Théorème 7.7.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1550,7 +1520,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(i) and proof citing [9] IX.2.1 / [7] V.2.1, printed pp. 548–549",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1591,7 +1560,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(ii) and proof, printed pp. 548–549",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1632,7 +1600,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1673,7 +1640,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1714,7 +1680,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iii) and proof, printed pp. 548–549",
-          "excerpt": "(iii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1758,7 +1723,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iv), printed p. 548",
-          "excerpt": "(iv)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1798,7 +1762,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(v) and proof using [7] V.2.2, printed pp. 548–549",
-          "excerpt": "(v)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1840,7 +1803,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(v), printed p. 548",
-          "excerpt": "(v)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1884,7 +1846,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(vi) and proof, printed pp. 548–549",
-          "excerpt": "(vi)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1927,7 +1888,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Definition 8.4, equation (5), printed pp. 546–547",
-          "excerpt": "Définition 8.4.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -1972,13 +1932,11 @@
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         },
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2016,13 +1974,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(i)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         }
       ],
@@ -2063,13 +2019,11 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Proposition 8.5(ii), printed p. 547 (proof delegated to [6], §7)",
-          "excerpt": "(ii)",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-TILOUINE-AUTHOR",
           "locator": "§7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586",
-          "excerpt": "Proposition 7.3.",
           "match": "The companion gives the abelian-coefficient injectivity argument and explicitly assumes an inclusion of coefficient algebras; its displayed chart presentation is restricted to nonramified cusps. Dimitrov §8 supplies the general cusp presentation, whose unit phase preserves the argument."
         }
       ],
@@ -2121,7 +2075,6 @@
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorem 8.6(iv),(v) and its proof, author copy printed pp. 548–549; Corollary 7.4, printed p. 544",
-          "excerpt": "(v)",
           "match": "Derived ideal comparison from the source boundary contraction and toric charts, plus the explicitly requested integral global-function theorem in SF.0/C5; not a separately numbered source theorem."
         }
       ],
@@ -2165,13 +2118,11 @@
         {
           "sourceId": "BHW-2023",
           "locator": "Sections 5.1.2–5.2, printed pp. 1744–1748",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         },
         {
           "sourceId": "DIMITROV-AUTHOR",
           "locator": "Theorems 7.2 and 8.6, author copy printed pp. 541–543, 548–549",
-          "excerpt": "Théorème 7.2.",
           "match": "The arithmetic toroidal/minimal models to which the BHW ordinary construction is compared; ramified integral local-model compatibility is separately requested from H2."
         }
       ],
@@ -2216,7 +2167,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.2, Lemma 5.12 proof, pp. 1746–1748; §7.1, pp. 1759–1760",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2257,7 +2207,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW Lemma 5.12 proof, printed p. 1748",
-          "excerpt": "Lemma 5.12.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2306,7 +2255,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.2, pp. 1746–1748; elliptic convention §2.1, p. 1721",
-          "excerpt": "5.2.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2350,7 +2298,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW Proposition 8.4 and Lemma 8.5, pp. 1766–1767",
-          "excerpt": "Lemma 8.5.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2403,7 +2350,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779",
-          "excerpt": "8.2.",
           "match": "BHW supplies the actual open finite-level maps, effective groups and mixed-level distinction. Extension to compactifications is a C6 comparison using C5 and the explicitly requested C0/C3 fan compatibility; BHW is not cited as proving extension for arbitrary toroidal fans."
         }
       ],
@@ -2448,7 +2394,6 @@
         {
           "sourceId": "BHW-2023",
           "locator": "BHW §7.1, Definition 7.3 and Proposition 7.4, pp. 1759–1760",
-          "excerpt": "7.1.",
           "match": "Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners."
         }
       ],
@@ -2493,13 +2438,11 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a",
-          "excerpt": "properness, normality",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 2.1, printed pp. 1720–1721",
-          "excerpt": "divisor of cusps",
           "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
@@ -2546,13 +2489,11 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a and R13.4b",
-          "excerpt": "components, determinant and cusp fields",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a and R13.4b."
         },
         {
           "sourceId": "BHW-2023",
           "locator": "Section 2.1, printed pp. 1720–1721",
-          "excerpt": "divisor of cusps",
           "match": "The elliptic compactification and Hasse-neighbourhood convention. The algebraic/formal comparison with the Hilbert specialization still uses the separately requested modular-curve contracts."
         }
       ],
@@ -2591,7 +2532,6 @@
         {
           "sourceId": "MODULAR-CURVES-II",
           "locator": "R13.4a",
-          "excerpt": "properness, normality",
           "match": "A roadmap supplier contract, not an implemented theorem or a primary proof. The precise comparison is requested from R13.4a."
         }
       ],

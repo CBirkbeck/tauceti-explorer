@@ -674,7 +674,6 @@
         {
           "sourceId": "Poonen.RPV",
           "locator": "§5.7.6, display (5.7.29), PDF p. 158",
-          "excerpt": "Without restriction on the characteristic, E is the curve in P2K defined by a Weierstrass equation (5.7.29) y2z + a1xyz + a3yz2 = x3 + a2x2z + a4xz2 + a6z3 such that a certain polynomial ∆ in a1, a2, a3, a4, a6 is nonzero",
           "match": "The projective Weierstrass cubic with non-zero discriminant, the scheme this node fixes."
         }
       ],
@@ -785,13 +784,11 @@
         {
           "sourceId": "Poonen.RPV",
           "locator": "§5.7.6, display (5.7.29), PDF p. 158",
-          "excerpt": "Without restriction on the characteristic, E is the curve in P2K defined by a Weierstrass equation (5.7.29) y2z + a1xyz + a3yz2 = x3 + a2x2z + a4xz2 + a6z3 such that a certain polynomial ∆ in a1, a2, a3, a4, a6 is nonzero",
           "match": "The smooth projective cubic whose properties this node records."
         },
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BY3, Lemma 53.2.8",
-          "excerpt": "Let $k$ be a field. Let $X$ be a curve and let $Y$ be the nonsingular projective model of $X$. If $k$ is perfect, then $Y$ is a smooth projective curve.",
           "match": "Over a perfect field the regular projective model is smooth; the converse direction the node warns about fails over imperfect fields."
         }
       ],
@@ -832,13 +829,11 @@
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BYC, Lemma 53.9.2",
-          "excerpt": "Then $Z$ is a curve if and only if $F$ is irreducible.",
           "match": "integrality of the plane cubic"
         },
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BYD, Lemma 53.9.3",
-          "excerpt": "Then $H^0(Z, \\mathcal{O}_ Z) = k$ and the genus of $Z$ is $(d - 1)(d - 2)/2$ where $d = \\deg (F)$.",
           "match": "H⁰ = F and genus 1"
         }
       ],
@@ -878,7 +873,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "I.5.14 (PDF p. 65, printed p. 57)",
-          "excerpt": "A scheme X is called regular (resp. locally factorial) if the local rings OX,x are all regular local rings (resp. UFD’s).",
           "match": "the notion of regularity used"
         }
       ],
@@ -921,7 +915,6 @@
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BY1, Theorem 53.2.6",
-          "excerpt": "The category of regular projective curves and nonconstant morphisms.",
           "match": "One of the categories equivalent to function fields of transcendence degree one; the equivalence sends a curve to its function field."
         }
       ],
@@ -969,7 +962,6 @@
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BY1, Theorem 53.2.6",
-          "excerpt": "The category of regular projective curves and nonconstant morphisms.",
           "match": "The anti-equivalence with function fields that turns a function-field isogeny into a morphism of curves."
         }
       ],
@@ -1011,13 +1003,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "I.5.16, PDF p. 67 (printed p. 59)",
-          "excerpt": "If X has genus 1, the map x ↦ x − ∞ gives a canonical bijection X(k) ≅ Pic0(X).",
           "match": "The group structure on points through Pic⁰, over an algebraically closed field; the rational case is ModularCurves 1B–1D."
         },
         {
           "sourceId": "Poonen.RPV",
           "locator": "§5.7.6, display (5.7.29), PDF p. 158",
-          "excerpt": "Without restriction on the characteristic, E is the curve in P2K defined by a Weierstrass equation (5.7.29)",
           "match": "The scheme whose points are compared."
         }
       ],
@@ -1062,7 +1052,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.2.1, PDF p. 154 (printed p. 146)",
-          "excerpt": "Proposition 8.2.1 (Nonsingular Curves). Let X be a 1-dimensional separated regular noetherian scheme, such as a nonsingular curve. Then SK0(X) = 0, and K0(X) = H0(X; Z) ⊕ Pic(X).",
           "match": "The statement, with its hypotheses; the node previously cited VI.6.7, a theorem about curves over finite fields."
         }
       ],
@@ -1107,13 +1096,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.2.3, PDF p. 155 (printed p. 147)",
-          "excerpt": "If f : X → Y is a proper morphism of separated noetherian schemes with Y regular, we can use the transfer G0(X) → G0(Y) of Lemma 6.2.6 to get a functorial transfer map f∗ : K0(X) → K0(Y), this time sending [F] to Σ(−1)^i [R^i f∗F].",
           "match": "The degree-zero pushforward along a proper morphism, by the alternating sum of higher direct images."
         },
         {
           "sourceId": "Stacks.curves",
           "locator": "Tag 0BS6, Lemma 53.5.2 (Riemann-Roch)",
-          "excerpt": "for a locally free $\\mathcal{O}_ X$-module $\\mathcal{E}$ of constant rank we have \\[ \\chi (X, \\mathcal{E}) = \\deg (\\mathcal{E}) - \\textstyle {\\frac{1}{2}} \\text{rank}(\\mathcal{E}) \\deg (\\omega _ X) \\]",
           "match": "Riemann-Roch in the form χ(E) = deg E + rank(E)(1 − g), deg ω = 2g − 2, which the tests use; the degree itself is imported."
         }
       ],
@@ -1228,7 +1215,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "I.5.15, PDF p. 66 (printed p. 58)",
-          "excerpt": "Proposition 5.15. Let X be an integral, separated and locally factorial scheme. Then Cart(X) ≅ D(X) and Pic(X) ≅ Cl(X).",
           "match": "the statement, verbatim"
         }
       ],
@@ -1278,13 +1264,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "I.5.16, PDF p. 66 (printed p. 58)",
-          "excerpt": "the choice of a basepoint ∞ ∈ X determines a splitting Pic(X) ≅ Z ⊕ Pic0(X).",
           "match": "The degree splitting with a base point."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "I.5.16, PDF p. 67 (printed p. 59)",
-          "excerpt": "If X has genus 1, the map x ↦ x − ∞ gives a canonical bijection X(k) ≅ Pic0(X).",
           "match": "The degree-zero part as the point group in genus one, over an algebraically closed field; the rational statement is Tau Ceti's."
         }
       ],
@@ -1322,13 +1306,11 @@
         {
           "sourceId": "Poonen.RPV",
           "locator": "Exercise 6.10 (PDF p. 217)",
-          "excerpt": "Assume that X(k) ≠ ∅. (a) Prove that the homomorphism Br k → Br X is injective. (b) Prove that the homomorphism Pic X → (Pic X s )Gk is an isomorphism.",
           "match": "descent with a rational point"
         },
         {
           "sourceId": "Poonen.RPV",
           "locator": "Exercise 2.12 (PDF p. 68)",
-          "excerpt": "Let X be the curve x2 + y 2 + z 2 = 0 in P2R . Prove that the homomorphism Pic X → (Pic XC )Gal(C/R) is not an isomorphism.",
           "match": "the non-example the stage text's warning is about"
         }
       ],
@@ -1366,7 +1348,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.1, PDF p. 153 (printed p. 145)",
-          "excerpt": "Their sum rank ⊕ det : K0(X) → H0(X; Z) ⊕ Pic(X) is a surjective ring map. The ring structure on H0(X; Z) ⊕ Pic(X) is (a1, L1)·(a2, L2) = (a1a2, L2^a1 ⊗ L1^a2).",
           "match": "the multiplication, verbatim"
         }
       ],
@@ -1409,13 +1390,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.2.1, PDF p. 154 (printed p. 146)",
-          "excerpt": "Proposition 8.2.1 (Nonsingular Curves). Let X be a 1-dimensional separated regular noetherian scheme, such as a nonsingular curve. Then SK0(X) = 0, and K0(X) = H0(X; Z) ⊕ Pic(X).",
           "match": "The rank-determinant decomposition this node combines with the point group."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.4, PDF p. 511 (printed p. 503)",
-          "excerpt": "Theorem 6.4. Let X be a smooth projective curve over Fq, and set X̄ = X ⊗Fq F̄q. Then for all n ≥ 0 we have isomorphisms of Gal(F̄q/Fq)-modules: Kn(X̄) ≅ Z ⊕ Z ⊕ J(X̄), n = 0;",
           "match": "The geometric shape in degree zero, with the Jacobian as the third summand; over the base field it is the point group."
         }
       ],
@@ -1464,25 +1443,21 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12, PDF p. 424 (printed p. 416)",
-          "excerpt": "By devissage (4.3), K∗M0(X) ≅ ⊕x K∗(k(x)) = ⊕K∗(x). In this case, the Localization sequence (5.1.1) becomes: · · · → Kn+1(F) −∂→ ⊕x Kn(k(x)) −⊕(ix)∗→ Gn(X) → Kn(F) −∂→ · · · .",
           "match": "The projective-curve sequence over all closed points, the form this node states."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12, PDF p. 424 (printed p. 416)",
-          "excerpt": "If X is regular, then Kn(X) ≅ Gn(X) and this sequence tells us about Kn(X).",
           "match": "The passage from G to K for a regular curve."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.6, Dedekind Domains, PDF p. 417 (printed p. 409)",
-          "excerpt": "Hence the localization sequence of 6.1 with S = R − {0} becomes the long exact sequence: · · · → Kn+1(F) −∂→ ⊕p Kn(R/p) −⊕(ip)∗→ Kn(R) → Kn(F) −∂→ · · · . (6.6) Here p runs over the nonzero prime ideals of R",
           "match": "The affine (Dedekind) form of the sequence; the projective curve is V.6.12, not a gluing of affine sequences."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.8, PDF p. 513 (printed p. 505)",
-          "excerpt": "Fq ⊂ F induces an isomorphism K2i+1(Fq) ≅ K2i+1(F), and there is an exact reciprocity sequence (generalizing V.6.12.1): 0 → K2i(X) → K2i(F) −⊕∂x→ ⊕x∈X K2i−1(Fq(x)) −N→ K2i−1(Fq) → 0.",
           "match": "The projective form over a finite field, in which the sum runs over all closed points and ends with the norm to the base."
         }
       ],
@@ -1530,19 +1505,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.6, PDF p. 417 (printed p. 409)",
-          "excerpt": "We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5.",
           "match": "Quillen's boundary is the K-book's tame symbol."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.6, PDF p. 417 (printed p. 409)",
-          "excerpt": "so if u ∈ R× has image ū ∈ R/p then ∂{π, u} = [ū] in R/p×.",
           "match": "The K-book normalisation on {π, u}."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.3, PDF p. 242 (printed p. 234)",
-          "excerpt": "This symbol is called the tame symbol of the valuation v. The tame symbol is onto, because if u ∈ R× then v(u) = 0 and ∂v(π, u) = ū.",
           "match": "Fixes the K-book's order, the inverse of K2SymbolsBrauer's."
         }
       ],
@@ -1579,7 +1551,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.6 (PDF p. 417, printed p. 409)",
-          "excerpt": "Writing K1(R) = R× ⊕ SK1(R) (see III.1.1.1), the formula 6.1.2 allows us to identify the ending with the sequence 1 → R× → F× −div→ D(R) → K0(R) → Z → 0 of I.3.6.",
           "match": "the affine case; the projective curve is V.6.12"
         }
       ],
@@ -1620,7 +1591,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12, PDF p. 424 (printed p. 416)",
-          "excerpt": "By devissage (4.3), K∗M0(X) ≅ ⊕x K∗(k(x)) = ⊕K∗(x). In this case, the Localization sequence (5.1.1) becomes: · · · → Kn+1(F) −∂→ ⊕x Kn(k(x)) −⊕(ix)∗→ Gn(X) → Kn(F) −∂→ · · · .",
           "match": "The sequence over all closed points; restricting to U deletes exactly the terms at Z."
         }
       ],
@@ -1658,7 +1628,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.3.1 (PDF p. 242, printed p. 234)",
-          "excerpt": "The natural map K2(F) → K2(E) is compatible with the tame symbols in the sense that for every r1, r2 ∈ F× we have ∂w(r1, r2) = ∂v(r1, r2)^e in kw×.",
           "match": "the degree-two formula"
         }
       ],
@@ -1695,7 +1664,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.6.3-6.6.4, PDF p. 418 (printed p. 410)",
-          "excerpt": "Taking homotopy groups yields the morphism of localization sequences (6.6):",
           "match": "the Dedekind case with N̄ = ⊕N_{p′/p}; applied stalkwise on the curve"
         }
       ],
@@ -1735,7 +1703,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12, PDF p. 424 (printed p. 416)",
-          "excerpt": "If X is regular, then Kn(X) ≅ Gn(X) and this sequence tells us about Kn(X).",
           "match": "the sequence whose K₂ segment is used"
         }
       ],
@@ -1768,7 +1735,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6, opening (PDF p. 510, printed p. 502)",
-          "excerpt": "Since K2 vanishes on finite fields (III.6.1.1), the localization sequence V.6.12 for X ends in the exact sequence",
           "match": "the finite-field case, with its input"
         }
       ],
@@ -1813,19 +1779,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6, opening discussion, printed p. 502 (PDF p. 510)",
-          "excerpt": "Since K2 vanishes on finite fields (III.6.1.1), the localization sequence V.6.12 for X ends in the exact sequence 0 → K2(X) → K2(F) −∂→ ⊕x∈X k(x)× → K1(X) → F×q → 0.",
           "match": "The localisation sequence ending at the constants, which is the definition and the cokernel description, in the finite-field case."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.8, proof, printed p. 412 (PDF p. 420)",
-          "excerpt": "Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).",
           "match": "For an affine curve the kernel to the function field is the stable SK_1: the source uses one symbol for both."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.13.2, printed p. 417 (PDF p. 425)",
-          "excerpt": "Corollary 6.13.2. If X is regular noetherian then for all n: Kn(X) ≅ Kn(X[s]), Kn(X[s, s−1]) ≅ Kn(X) ⊕ Kn−1(X) and Kn(X × P1) ≅ Kn(X) ⊕ Kn(X).",
           "match": "K_1(P^1_F) ≅ F^× ⊕ F^× and SK_1(F[t]) = 0, used in the tests."
         }
       ],
@@ -1939,7 +1902,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12.1, proof, printed p. 417 (PDF p. 425)",
-          "excerpt": "Consider the proper transfer π∗ : Gn(X) → Gn(k) of 3.7 associated to the structure map π : X → Spec(k). By functoriality, π∗(ix)∗ = Nk(x)/k for each closed point x ∈ X.",
           "match": "Item (b), and the pattern of item (a)."
         }
       ],
@@ -1984,19 +1946,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.9, opening paragraph, printed p. 435 (PDF p. 443)",
-          "excerpt": "…which reduces the calculation of Gn(X) to a knowledge of the K-theory of fields, up to extensions. The prototype of the extension problem is illustrated by the exact sequences in 6.6 and 6.12, for Dedekind domains and smooth curves.",
           "match": "The curve case of the coniveau description is the localisation sequence of a smooth curve, up to the extension this node keeps."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.9.5 and 9.5.1, printed p. 437 (PDF p. 445)",
-          "excerpt": "Proposition 9.5. (Gersten) If X is noetherian and dim(X) < ∞, there is a convergent 4th quadrant cohomological spectral sequence (zero unless p + q ≤ 0): E1p,q = ⊕codim(x)=p K−p−q(k(x)) ⇒ G−p−q(X).",
           "match": "The spectral sequence and (9.5.1) its filtration by images of K_n M_p(X)."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.7.1, printed p. 411 (PDF p. 419)",
-          "excerpt": "Corollary 6.7.1. If k is a field, the localization sequence (6.6) for k[t] ⊂ k(t) breaks up into split short exact sequences: 0 → Kn(k) → Kn(k(t)) −∂→ ⊕p Kn−1(k[t]/p) → 0.",
           "match": "The vanishing of the left term for the affine line, and ker ∂_3 = K_3(F) for P^1_F."
         }
       ],
@@ -2106,13 +2065,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.12, PDF p. 424 (printed p. 416)",
-          "excerpt": "· · · → Kn+1(F) −∂→ ⊕x Kn(k(x)) −⊕(ix)∗→ Gn(X) → Kn(F) −∂→ · · · . Here the maps (ix)∗ : Kn(x) → Gn(X) are the finite transfer maps",
           "match": "The sequence whose split at K_3(X) is the node's exact sequence."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.8, proof, PDF p. 513 (printed p. 505)",
-          "excerpt": "Let SK2i−1(X) denote the kernel of K2i−1(X) → K2i−1(F).",
           "match": "The curve-level SK notation for the kernel to the function field."
         }
       ],
@@ -2155,13 +2112,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.4, after Example 4.5(iv), printed p. 484 (PDF p. 492)",
-          "excerpt": "When X has dimension d > 0, the spectral sequence (4.2) extends to the fourth quadrant, with terms only in columns ≤ d. This is because H n (X, A(i)) = 0 for n > i + d",
           "match": "The weight range bound used for the decomposition of the K-groups of a curve."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.6, printed p. 149 (PDF p. 157)",
-          "excerpt": "Corollary 8.6. As a ring, K0(PrZ) = Z[z]/(zr+1), where z = 1−[O(−1)].",
           "match": "The ring used in the non-example K0_P2_not_integral."
         }
       ],
@@ -2270,7 +2225,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.4.3, Edge Map, printed p. 481 (PDF p. 489)",
-          "excerpt": "We now consider the other edge map, from E20,−n = H n (k, Z(n)) ≅ KnM (k) to Kn (k). Since the ring K∗M (k) is generated by its degree 1 terms",
           "match": "Milnor K-theory is the diagonal (weight n) edge of the motivic spectral sequence, which places the decomposable part of K_3 in weight 3."
         }
       ],
@@ -2313,7 +2267,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.11, PDF p. 403 (printed p. 395)",
-          "excerpt": "Suppose in addition that X has finite flat dimension over Y, so that f∗ sends perfect complexes to perfect complexes. (We say that f is a perfect map.) Then we have an exact functor f∗ : Chperf(X) → Chperf(Y) and hence a proper transfer K(X) ≃ KChperf(X) −f∗→ KChperf(Y) ≃ K(Y).",
           "match": "The proper transfer on K for a perfect map (the AMS erratum to V.3.11 is source issue EllipticKTheory/E10)."
         }
       ],
@@ -2429,7 +2382,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.12, PDF p. 403 (printed p. 395)",
-          "excerpt": "Projection Formula 3.12. Let f : X → Y be a proper morphism of noetherian schemes. Then f∗ : G∗(X) → G∗(Y) is a graded K∗(Y)-module homomorphism: for all x ∈ Gm(X) and y ∈ Kn(Y): f∗(x · f^∗y) = f∗(x) · y.",
           "match": "The projection formula in all degrees; x = 1 gives the composite."
         }
       ],
@@ -2472,7 +2424,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.12, PDF p. 403 (printed p. 395)",
-          "excerpt": "Projection Formula 3.12. Let f : X → Y be a proper morphism of noetherian schemes. Then f∗ : G∗(X) → G∗(Y) is a graded K∗(Y)-module homomorphism: for all x ∈ Gm(X) and y ∈ Kn(Y): f∗(x · f^∗y) = f∗(x) · y.",
           "match": "With x = 1: f_*f^*(y) = [f_*O]·y, the identity this lemma evaluates."
         }
       ],
@@ -2516,19 +2467,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.8.5, PDF p. 157 (printed p. 149)",
-          "excerpt": "Projective Bundle Theorem 8.5. Let P be the projective space bundle of E over a quasi-compact scheme X. Then K0(P) is a free K0(X)-module with basis the twisting line bundles.",
           "match": "The theorem in degree zero."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5, PDF p. 377 (printed p. 369)",
-          "excerpt": "Projective Bundle Theorem 1.5. Let P(E) be a projective bundle over a quasi-projective scheme X. Then the ui induce an equivalence K(X)^{r+1} ≃ K(P(E))",
           "match": "The theorem in all degrees over a quasi-projective base."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.6.13.2, PDF p. 425 (printed p. 417)",
-          "excerpt": "Corollary 6.13.2. If X is regular noetherian then for all n: K_n(X) = K_n(X[s]), K_n(X[s, s^{-1}]) = K_n(X) (+) K_{n-1}(X) and K_n(X x P^1) = ...",
           "match": "The higher-degree statements for a regular noetherian base, verbatim."
         }
       ],
@@ -2581,19 +2529,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.1, PDF p. 510 (printed p. 502)",
-          "excerpt": "Harder’s Theorem 6.1. Let X be a smooth projective curve over a finite field of characteristic p. For n ≥ 1, each Kn(X) is a finite group of order prime to p.",
           "match": "The finiteness input, verbatim."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.7, PDF p. 513 (printed p. 505)",
-          "excerpt": "Theorem 6.7. Let X be the smooth projective curve corresponding to a global field F over Fq. Then K0(X) = Z ⊕ Pic(X), and the finite groups Kn(X) for n > 0 are given by: Kn(X) ≅ Kn(X̄)^G ≅ Kn(Fq) ⊕ Kn(Fq), n odd; ⊕ℓ≠p J(X̄)ℓ(i)^G, n = 2i even.",
           "match": "The computation."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6.8, PDF p. 513 (printed p. 505)",
-          "excerpt": "Fq ⊂ F induces an isomorphism K2i+1(Fq) ≅ K2i+1(F), and there is an exact reciprocity sequence (generalizing V.6.12.1): 0 → K2i(X) → K2i(F) −⊕∂x→ ⊕x∈X K2i−1(Fq(x)) −N→ K2i−1(Fq) → 0.",
           "match": "The function-field companion with the reciprocity sequence."
         }
       ],
@@ -2631,25 +2576,21 @@
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Definition 3.1, p. 6",
-          "excerpt": "If X is a separated K-scheme, an R-model of X is a pair (X , i) where X is a flat and separated R-scheme and i : X/K ≃ X is a K-isomorphism. If X is a regular scheme, it is a regular R-model of X",
           "match": "The definition, over a DVR; E.6 uses it over O_{F,S}."
         },
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Corollary 4.7 and proof, p. 12",
-          "excerpt": "Since W is likewise obtained from W reg by contracting all irreducible components of the special fiber that do not contain the reduction of the identity section",
           "match": "A minimal Weierstrass model equals the minimal regular model iff the latter's fibre is irreducible; otherwise it is singular."
         },
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Example 5.3, p. 13",
-          "excerpt": "the Néron model A of an abelian variety A is proper over R (and so is an abelian scheme over R) if and only if Ak0 is k-proper, and moreover any abelian scheme over R is the Néron model of its generic fiber.",
           "match": "neronModel_isProper_iff."
         },
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Tag 0C5Z (Lemma 9.1), p. 35",
-          "excerpt": "Let X be a regular model of a smooth curve C over K. (1) the special fibre Xk is an effective Cartier divisor on X, (2) each irreducible component Ci of Xk is an effective Cartier divisor on X, (3) Xk = Σ mi Ci (sum of effective Cartier divisors) where mi is the multiplicity of Ci in Xk",
           "match": "Components and multiplicities."
         }
       ],
@@ -2767,19 +2708,16 @@
         {
           "sourceId": "Stacks.ResolutionOfSurfaces",
           "locator": "Tag 0ADX (introduction), p. 1",
-          "excerpt": "if Y is a 2-dimensional scheme of finite type over a quasi-excellent base ring R (for example a field or a Dedekind domain with fraction field of characteristic 0 such as Z) then the normalization of Y is finite, has finitely many singular points, and the completions of the local rings are normal.",
           "match": "Hypothesis (4) of Lipman's theorem 0BGP for W; the text continues 'Thus such a Y has a resolution of singularities.'"
         },
         {
           "sourceId": "Stacks.SemistableReduction",
           "locator": "Tags 0C2U (Lemma 8.3) and 0C6B (Lemma 10.1), pp. 34, 39",
-          "excerpt": "Lemma 8.3. Let X be a model of a smooth curve C over K. Then there exists a resolution of singularities of X and any resolution is a model of C.",
           "match": "The local statement over a DVR and, with 0C6B ('There is a unique minimal model for C'), the minimal model."
         },
         {
           "sourceId": "Conrad.MinimalModels",
           "locator": "Theorem 3.10, p. 8",
-          "excerpt": "Theorem 3.10 (Minimal models theorem). If C is a smooth K-curve with positive genus, then a minimal regular proper model C reg exists and is unique. In particular, C reg is dominated by all regular proper R-models of C.",
           "match": "Existence and uniqueness of the minimal model over a DVR."
         }
       ],
@@ -2820,19 +2758,16 @@
         {
           "sourceId": "Scholl.IntegralElements",
           "locator": "1.1.2 and Theorem 1.1.6(iii), p. 4",
-          "excerpt": "(iii) If X ∈ Ob Vo then H^i_{M/o}(hk(X), n) = Im(K^{(n)}_{2n−i} X → K^{(n)}_{2n−i} X/k) ⊗ E.",
           "match": "The definition as an image of K-theory of a regular (1.1.2: 'projective and flat o-schemes X which are regular') model, over o = ring of S-integers (1.1.1)."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "§3, p. 5 (arXiv v2)",
-          "excerpt": "Unfortunately, this conjecture was wrong, as K2T(C)/torsion can have rank bigger than g already for g = 1, as was discovered by Bloch and Grayson in [3]. They found that one should consider a certain subgroup of K2T(C)/torsion defined by an additional condition",
           "match": "An unramified class need not be integral, already for elliptic curves (Bloch–Grayson)."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "Theorem 8.3, p. 23 (arXiv v2)",
-          "excerpt": "Let m(x) ∈ Z[x] be a non-constant factor, irreducible over Z, of the 2-torsion polynomial t(x) = −x^d + f(x)^2/4 and let M be the class of {y^2/x^d, m(x)/m(0)} in K2T(C)/torsion. We have … (2) if there is a prime dividing m(0) but not every bi then nM ∉ K2(C; Z) for any n ≠ 0.",
           "match": "The explicit witness of unramified_not_integral (g = 1, d = 3, f(x) = x + 12, m(x) = x − 4)."
         }
       ],
@@ -2929,7 +2864,6 @@
         {
           "sourceId": "Stacks.ResolutionOfSurfaces",
           "locator": "Tag 0C5S (Lemma 17.2), p. 53",
-          "excerpt": "Let S be a Noetherian scheme. Let X and Y be proper integral schemes over S which are regular of dimension 2. Then X and Y are S-birational if and only if there exists a diagram of S-morphisms X = X0 ← X1 ← . . . ← Xn = Ym → . . . → Y1 → Y0 = Y where each morphism is a blowup in a closed point.",
           "match": "Exactly the statement, over the Dedekind base."
         }
       ],
@@ -2968,19 +2902,16 @@
         {
           "sourceId": "Scholl.IntegralElements",
           "locator": "1.3.3, p. 8",
-          "excerpt": "The projection formula gives f/k∗ j∗X Kq X = j∗Y f∗ Kq X ⊂ j∗Y Kq Y hence f/k∗(H(X)) ⊂ H(Y).",
           "match": "The pushforward inclusion; the pullback inclusion is the preceding sentence ('The pullback map … maps H(Y) into H(X)')."
         },
         {
           "sourceId": "Scholl.IntegralElements",
           "locator": "Remark 1.1.7, p. 4",
-          "excerpt": "However, it is not in general true that for proper flat o-schemes X with smooth generic fibre, the image of K′∗X → K∗X/k depends only on X/k (even ignoring torsion). Rob de Jeu has observed that this fails even in the case of elliptic curves",
           "match": "The non-example: regularity of the models cannot be dropped."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "§3, p. 6 (arXiv v2)",
-          "excerpt": "This group, sometimes denoted by K2(C)Z/torsion (cf. [16, § 3.3]), is independent of the choice of the regular proper model C of C (see [15, page 13]), justifying the notation.",
           "match": "The statement for K_2 of curves over Q."
         }
       ],
@@ -3018,19 +2949,16 @@
         {
           "sourceId": "Scholl.IntegralElements",
           "locator": "Proposition 1.3.6 and proof, p. 9",
-          "excerpt": "H^i_{M/o}(M, n) = ∩_{v∉S} ρ_v^{−1} H^i_{M/ov}(Mv, n) ⊂ H^i_M(M, n). Proof. It is enough to check this for M = hk(X). In this case it follows at once from the diagram of localisation sequences",
           "match": "Integrality is a conjunction of local conditions at the primes outside S, with obstruction in K_{q−1} of the fibre."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.6, opening, PDF p. 510 (printed p. 502)",
-          "excerpt": "By classical Weil reciprocity V.6.12.1, the cokernel of ∂ is F×q, so K1(X) ≅ F×q × F×q.",
           "match": "K_1 of the good fibre is finite (see also source issue EllipticKTheory/E2)."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "§8, p. 22 (arXiv v2)",
-          "excerpt": "(One can show though that, to a given α, one can always add an element in K2(Q) such that the sum satisfies this condition for each prime p for which the fiber Cp is smooth over Fp.)",
           "match": "The same conclusion stated for curves over Q, up to the torsion group K_2(Q)."
         }
       ],
@@ -3077,19 +3005,16 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "(3.5)–(3.6), p. 6 (arXiv v2)",
-          "excerpt": "where the map to Fp(D)∗ is given as follows. The order of vanishing along D gives rise to a discrete valuation on F, vD. The component of the map in (3.5) corresponding to D is given by the tame symbol corresponding to D, TD : {a, b} ↦ (−1)^{vD(a)vD(b)} a^{vD(b)}/b^{vD(a)} (D)",
           "match": "The vertical residues at the components D of the fibres C_p of a regular proper model."
         },
         {
           "sourceId": "Scholl.IntegralElements",
           "locator": "Introduction, (0.1), p. 1",
-          "excerpt": "H1(S, K2) is the H1 of the Gersten complex K2 k(S) −(∂C)→ ∐C⊂S k(C)∗ −div→ ∐P∈S Z. Here C runs over irreducible curves in S and P over closed points; ∂C is (up to a sign) the tame symbol attached to the valuation ordC of k(S)",
           "match": "The codimension-two compatibility (div ∘ ∂ = 0) and the tame symbol at ord_C on a regular surface."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.9.5, printed p. 437 (PDF p. 445)",
-          "excerpt": "Proposition 9.5. (Gersten) If X is noetherian and dim(X) < ∞, there is a convergent 4th quadrant cohomological spectral sequence (zero unless p + q ≤ 0): E1p,q = ⊕codim(x)=p K−p−q(k(x)) ⇒ G−p−q(X).",
           "match": "Applied to the one-dimensional fibre 𝓔_v, it gives step 2."
         }
       ],
@@ -3138,13 +3063,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Section 4, opening paragraphs, p. 7 (arXiv v2)",
-          "excerpt": "If div(f) and div(g) have disjoint support, then this symbol lies in K2T(C) if and only if f(P)^ordP(g) = 1 for every zero or pole P of g and g(Q)^ordQ(f) = 1 for every zero or pole Q of f.",
           "match": "The certificate condition in the disjoint-support case: finitely many local conditions at the zeros and poles."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Lemma III.6.3, PDF p. 242 (printed p. 234)",
-          "excerpt": "For every discrete valuation v on F there is a Steinberg symbol K2(F) -> kv^x, defined by dv({r, s}) = (-1)^(v(r)v(s)) s^(v(r)) / r^(v(s)).",
           "match": "The tame symbol at a place; the K-book's order is the inverse of K2SymbolsBrauer's, which does not change the condition 'equal to one'."
         }
       ],
@@ -3279,13 +3202,11 @@
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 3.8, p. 6 (arXiv v2)",
-          "excerpt": "We could have defined K2T(C) in a single step as K2T(C) = ker(K2(F) -> (+)_D F(D)^*), where D runs through all irreducible curves on C and F(D) stands for the residue field at D.",
           "match": "The integral condition is triviality of the tame symbol at every vertical and horizontal prime divisor of the model."
         },
         {
           "sourceId": "Young.1995",
           "locator": "Theorem 3.3, printed p. 41",
-          "excerpt": "The group K'1(Ep) is torsion unless E has split multiplicative reduction at p in which case K'1(Ep) is isomorphic to Z upto torsion.",
           "match": "Why only split multiplicative primes can obstruct integrality rationally."
         }
       ],
@@ -3372,13 +3293,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Weil Reciprocity Formula V.6.12.1, PDF p. 424 (printed p. 416); proof on PDF p. 425",
-          "excerpt": "Weil Reciprocity Formula 6.12.1. Let X be a projective curve over a field k, with function field F. For every a in Kn+1(F) we have the following formula in Kn(k): sum over x in X of Nk(x)/k dx(a) = 0.",
           "match": "The curve form of the reciprocity with its norms; the proof is pushforward to the base, as the packet's node described."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "Proof of Lemma 4.2, p. 8 (arXiv v2)",
-          "excerpt": "The components of Si are normalized to make the tame symbol trivial at Pi-1 and Pi+1. By the product formula (3.2) it is also trivial at Pi, this being the only other point in the support of the divisors of fi-1 and fi+1.",
           "match": "The use of reciprocity in certificates: the last point is free."
         }
       ],
@@ -3419,7 +3338,6 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, 10.1, printed p. 76 (supplied scan PDF p. 88)",
-          "excerpt": "Let rho denote a function on E with poles of order 1 at every non-zero point of E_C and a zero of order C^2 - 1 at the origin. Note that such a function exists when E_C = (Z/C)^(+2).",
           "match": "Case (b); Bloch asserts the existence, which this lemma proves."
         }
       ],
@@ -3458,13 +3376,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Proposition 10.1.1, printed p. 75 (supplied scan PDF p. 87)",
-          "excerpt": "Let f, g be functions on E defined over k. Let C be an integer and assume all points of order C are defined over k and that the divisors of f and g are supported in the group E_C of such points. Then there exist f_i in k(E)*, c_i in k* such that {f, g}^C . prod{f_i, c_i} in Ker(tame symbol).",
           "match": "The statement, verbatim up to transliteration."
         },
         {
           "sourceId": "Young.1995",
           "locator": "Lemma 3.1, printed p. 37",
-          "excerpt": "Lemma 3.1. If f, g in O(E \\ T)*, and the number of elements in T is N, then there exist hj in O(E \\ T)*, and cj in k* such that N{f, g} + sum{hj, cj} in ker d",
           "match": "The same result for a finite group T of rational torsion points, with the proof given point by point."
         }
       ],
@@ -3506,13 +3422,11 @@
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Lecture 10, (10.1.2) and the following paragraph, printed p. 76 (supplied scan PDF p. 88)",
-          "excerpt": "Define S_a in Ker(tame) by S_a = {rho, f_a} (mod Image k(E)* (x) k*). S_a is actually well-defined modulo torsion and symbols with both entries constant, as one sees by looking at the kernel of div (x) Id in (10.1.1).",
           "match": "The definition and the meaning of 'independence modulo torsion and constants': independence of the choices."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "Proposition 4.3(1), p. 8 (arXiv v2)",
-          "excerpt": "There is a unique element {P1, P2, P3} of K2T(C)/torsion such that in this group Si = lcm(m1, m2, m3)/mi {P1, P2, P3}, i = 1, 2, 3.",
           "match": "Classes built from torsion divisors are linearly dependent in general."
         }
       ],
@@ -3625,13 +3539,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Remark III.6.3.1, PDF p. 242 (printed p. 234)",
-          "excerpt": "The natural map K2(F) -> K2(E) is compatible with the tame symbols in the sense that for every r1, r2 in F^x we have dw(r1, r2) = dv(r1, r2)^e in kw^x.",
           "match": "The restriction half of the compatibility; the transfer half is the norm-residue formula imported from K2SymbolsBrauer."
         },
         {
           "sourceId": "Bloch.CRM11",
           "locator": "Exercise 10.1.2, printed p. 76",
-          "excerpt": "Prove an analogous result without assuming all points of order C defined over k.",
           "match": "Bloch leaves the non-rational case as an exercise; transfer is the route the stage text prescribes."
         }
       ],
@@ -3670,13 +3582,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise IV.6.13, PDF p. 335 (printed p. 327)",
-          "excerpt": "If f : R -> S is a Galois extension with group G, show that f^*f_* = sum over g in G of g.",
           "match": "res o N = sum of sigma."
         },
         {
           "sourceId": "DJZ.2006",
           "locator": "Remark 4.14, p. 11 (arXiv v2)",
-          "excerpt": "In fact, the map K2(Q(C)) -> K2(Qbar(C)) has torsion kernel and we may identify K2(Q(C)) (x) Q with the subspace of K2(Qbar(C)) (x) Q on which Gal(Qbar/Q) acts trivially.",
           "match": "The rational descent, for Qbar/Q, with the same statement for K2T."
         }
       ],
@@ -3730,7 +3640,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Theorem VI.6.7, PDF p. 513 (printed p. 505)",
-          "excerpt": "Then K0(X) = Z (+) Pic(X), and the finite groups Kn(X) for n > 0 are given by:",
           "match": "The kind of complete answer available over a finite field (E.5); none is claimed over a number field."
         }
       ],
@@ -3770,13 +3679,11 @@
         {
           "sourceId": "DGJK.2026",
           "locator": "Proposition 10.2(1) and its proof, pp. 29-30 (arXiv v1)",
-          "excerpt": "The elements {-1, x}, {-1, x + 1} and alpha = {v, w} + {-1, h} of K2(Q(Eu)) are in K2T(Eu).",
           "match": "The element and its certificate for general u; u = 4 here."
         },
         {
           "sourceId": "DGJK.2026",
           "locator": "Section 10, after Remark 10.3, p. 31 (arXiv v1)",
-          "excerpt": "From h(P) = w(P) = 1 we obtain i*P(alpha) = 0. Similarly, with h(Q) = u + 1 and w(Q) = 1, we get i*Q(alpha) = {-1, 1 + u}.",
           "match": "The specialisations used for nontriviality."
         }
       ],
@@ -3813,7 +3720,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.5.3, PDF p. 244 (printed p. 236)",
-          "excerpt": "In Weil's formula, 'Np' denotes the usual norm map (F[t]/p)^x -> F^x.",
           "match": "The norms the example exercises."
         }
       ],
@@ -3851,13 +3757,11 @@
         {
           "sourceId": "DGJK.2026",
           "locator": "Proof of Proposition 10.2(2), p. 30 (arXiv v1)",
-          "excerpt": "the local ring OD,eta is normal, hence a discrete valuation ring. Therefore the corresponding tame symbol TC' is defined, and TC'{v, w} = Z/W, which has infinite order in Fp(C')^x.",
           "match": "The negative calculation (b)."
         },
         {
           "sourceId": "Young.1995",
           "locator": "Theorem 3.3, printed p. 41",
-          "excerpt": "The group K'1(Ep) is torsion unless E has split multiplicative reduction at p in which case K'1(Ep) is isomorphic to Z upto torsion.",
           "match": "Why the bad fibre must be split multiplicative for the example to test anything rationally."
         }
       ],
@@ -3894,7 +3798,6 @@
         {
           "sourceId": "Kbook.VI.chapter",
           "locator": "VI.6.1 and proof, PDF p.37; VI.4.7, PDF p.20",
-          "excerpt": "The low-degree tame-kernel argument and the higher-degree p-divisibility argument are distinct.",
           "match": "Paraphrase of the inspected passage, not a quotation. The low-degree tame-kernel argument and the higher-degree p-divisibility argument are distinct."
         }
       ],
