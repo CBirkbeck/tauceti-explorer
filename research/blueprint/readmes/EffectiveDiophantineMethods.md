@@ -3898,7 +3898,7 @@ Every entry below is also attached to its target node and appears in the Lean om
 
 ## Source corrections and qualifications
 
-The source-issue register distinguishes misprints, proof issues and source-access qualifications. The literal text, precise locator and correction-search record are retained in the packet; the mathematical effect is summarized here.
+The source-issue register distinguishes misprints, proof issues and source-access qualifications. The packet records the source’s assertion in our own words, retaining mathematical formulas, precise locators and correction-search records; the mathematical effect is summarized here.
 
 ### E1: misprint
 
@@ -3934,7 +3934,7 @@ The source-issue register distinguishes misprints, proof issues and source-acces
 
 **Source and locator:** `tzanakis-de-weger-1989` — §II.3, proof of Proposition 3.2, printed p. 115
 
-**Correction or qualification:** then the inequality |Λ| < K1 · exp(−K2 · A) (the first inequality of (3.1)) has no solution in that range.
+**Correction or qualification:** The excluded inequality is |Λ|<K₁ exp(−K₂A), the first inequality of (3.1), on the stated range of A.
 
 **Reason:** The argument shows c_0|Λ| ≥ qK_3 for every (a_i) with A ≤ X_0, which is incompatible with |Λ| < K_1 exp(−K_2A) when A ≥ (1/K_2)log(c_0K_1/(qK_3)); the inequality with '>' is the one that every such vector satisfies, not the one without solutions. Proposition 3.2 as stated is correct.
 
@@ -3974,9 +3974,9 @@ The source-issue register distinguishes misprints, proof issues and source-acces
 
 **Source and locator:** `tzanakis-de-weger-1992` — §5, proof of the second corollary of Lemma 1, pp. 232–233
 
-**Correction or qualification:** the 1st Corollary (i) can be applied to prove that at most one 𝔭_i dividing p satisfies (8)
+**Correction or qualification:** Use part (i) of the first corollary to obtain uniqueness of a prime ideal 𝔭_i above p satisfying (8).
 
-**Reason:** 'At most one 𝔭_i' is part (i) of the first corollary; part (ii) concerns d_i > 1 or e_i > 1 and is used in the next sentence for d_i = e_i = 1.
+**Reason:** Uniqueness of the prime ideal is the conclusion of part (i). Part (ii) addresses d_i>1 or e_i>1; the following sentence uses that second part to obtain d_i=e_i=1.
 
 **Effect:** nothing. **Existing correction or search outcome:** new
 
@@ -4036,7 +4036,7 @@ The source-issue register distinguishes misprints, proof issues and source-acces
 
 **Correction or qualification:** if n < ε1: // success?
 
-**Reason:** The text before the algorithm requires n((∏ qk)Γ) < ε1, and the sentence after it ('if we made sure in the first step that there is some M such that n(MΓ) < ε1, then FindQSequence will not fail') holds only for the test against ε1; §7 confirms that the q-sequence uses ε1 with ε < ε1 < 1.
+**Reason:** Before the algorithm the required bound is n((∏q_k)Γ)<ε₁. The subsequent termination claim assumes an initial multiple M with n(MΓ)<ε₁, so it requires testing against ε₁ as well. The §7 choice of q-sequence confirms ε<ε₁<1.
 
 **Effect:** nothing. **Existing correction or search outcome:** new
 
@@ -4076,7 +4076,7 @@ The source-issue register distinguishes misprints, proof issues and source-acces
 
 **Correction or qualification:** (2.2) is equivalent to Norm(X − Yϑ) = 1 and (2.1) to Norm(X − Yφ) = 1.
 
-**Reason:** With ϑ⁴ − 12ϑ² − 8ϑ + 4 = 0 (printed on the same page), Norm(X − Yϑ) = X⁴ − 12X²Y² − 8XY³ + 4Y⁴, the form of (2.2); the next sentence ('as is obvious from the known solutions of (2.2), ε1 = 1 + ϑ, ε2 = 3 + ϑ are units') uses the corrected assignment.
+**Reason:** Using ϑ⁴−12ϑ²−8ϑ+4=0 from the same page gives Norm(X−Yϑ)=X⁴−12X²Y²−8XY³+4Y⁴, which is form (2.2). The next sentence obtains the units ε₁=1+ϑ and ε₂=3+ϑ from known solutions of (2.2), agreeing with the corrected assignment.
 
 **Effect:** nothing. **Existing correction or search outcome:** new
 
@@ -4104,7 +4104,7 @@ The source-issue register distinguishes misprints, proof issues and source-acces
 
 **Source and locator:** `bdmtv-2021` — Version of record, Compositio159 (2023), Lemma4.7, p.1136; same in arXiv:2101.01862v4 p.25.
 
-**Correction or qualification:** ord_p(F_i) + i ≥ n for every i ≥ m, i.e. max{i ≥ 0 : ord_p(F_i) + i < n} < m; this is what the proof uses ('Since G(x + α) has degree ≤ m mod p^{n−k}').
+**Correction or qualification:** Require ord_p(F_i)+i≥n for every i≥m, equivalently max{i≥0:ord_p(F_i)+i<n}<m. This is the coefficient condition needed for the degree bound on G(x+α) modulo p^(n−k) used in the proof.
 
 **Reason:** With G(x) = p^(−k)F(px), the coefficient G_i has valuation ord_p(F_i) + i − k, so G is a polynomial of degree < m modulo p^(n−k) exactly when ord_p(F_i) + i ≥ n for i ≥ m. The printed condition only restricts the indices with ord_p(F_i) + i = n. For F = p² − p·x and n = 5 the printed set is empty, so m = 1 is allowed, k = 2, and the lemma would determine the roots from F_0 = p² modulo p⁵; but F has the root x = p in the disc, which F_0 does not see.
 

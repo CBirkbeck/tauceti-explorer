@@ -2075,7 +2075,7 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed pp. 33–34",
-          "match": "The precision contract makes this two-sided rounding explicit: every approximate value is an enclosure whose endpoints are exact rationals. Quoted from the rendered page; the OCR text layer is garbled."
+          "match": "The precision contract makes this two-sided rounding explicit: every approximate value is an enclosure whose endpoints are exact rationals. The original source review checked the rendered page because the OCR text layer is garbled."
         },
         {
           "sourceId": "doyle-krumm-2015",
@@ -2239,7 +2239,7 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§2.5, printed p. 34",
-          "match": "The refinement produces such an interval of any requested width by exact bisection. Quoted from the rendered page."
+          "match": "The refinement produces such an interval of any requested width by exact bisection. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
@@ -2800,7 +2800,7 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.13, Lemma 3.17(i), printed p. 67",
-          "match": "The p-adic orders ord_p of embedded algebraic numbers and of their logarithms are the inputs this construction certifies. Quoted from the rendered page."
+          "match": "The p-adic orders ord_p of embedded algebraic numbers and of their logarithms are the inputs this construction certifies. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
@@ -3243,17 +3243,17 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, printed p. 53",
-          "match": "Definition of the real approximation lattice; the packet allows a separate weight W_i in each coordinate. Quoted from the rendered page."
+          "match": "Definition of the real approximation lattice; the packet allows a separate weight W_i in each coordinate. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3(i), printed p. 112",
-          "match": "The same lattice with unit weights and C = c_0. Quoted from the rendered page."
+          "match": "The same lattice with unit weights and C = c_0. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§16, printed p. 264",
-          "match": "Weighted real lattice with rounding toward zero; the packet's contract |φ_i − Cθ_i| ≤ 1 covers it. Quoted from the rendered page."
+          "match": "Weighted real lattice with rounding toward zero; the packet's contract |φ_i − Cθ_i| ≤ 1 covers it. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3302,12 +3302,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.4, Lemma 3.5, printed p. 43",
-          "match": "Part (b), with de Weger's 1-based index shifted to GN.5's zero-based convention. Quoted from the rendered page."
+          "match": "Part (b), with de Weger's 1-based index shifted to GN.5's zero-based convention. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.4, Lemma 3.6, printed p. 44",
-          "match": "Part (c); the count n − i_0 of indices above i_0 in the 1-based source is n − 1 − i_0 here. Quoted from the rendered page."
+          "match": "Part (c); the count n − i_0 of indices above i_0 in the 1-based source is n − 1 − i_0 here. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1992",
@@ -3352,12 +3352,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, Lemma 3.7, printed p. 54",
-          "match": "Special case W_i = γ, X_i = X_1, μ = X_1. Quoted from the rendered page."
+          "match": "Special case W_i = γ, X_i = X_1, μ = X_1. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, Proposition 3.1, printed p. 114",
-          "match": "Special case W_i = 1, X_i = K_3 with the LLL lower bound for ℓ(Γ). Quoted from the rendered page."
+          "match": "Special case W_i = 1, X_i = K_3 with the LLL lower bound for ℓ(Γ). The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3397,12 +3397,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.8, Lemma 3.10, printed p. 58",
-          "match": "Special case W_i = γ, X_i = μ = X_1 ≥ 1. Quoted from the rendered page."
+          "match": "Special case W_i = γ, X_i = μ = X_1 ≥ 1. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§II.3, Proposition 3.2, printed p. 114",
-          "match": "Special case W_i = 1, X_i = K_3, μ = qK_3 with the distance bound of de Weger's Lemma 3.5. Quoted from the rendered page."
+          "match": "Special case W_i = 1, X_i = K_3, μ = qK_3 with the distance bound of de Weger's Lemma 3.5. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
@@ -3528,12 +3528,12 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, printed p. 260",
-          "match": "Definition of Γ_m with weights; Lemma 14 on the same page is the characterisation. Quoted from the rendered page."
+          "match": "Definition of Γ_m with weights; Lemma 14 on the same page is the characterisation. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.11, Lemma 3.13, printed p. 64",
-          "match": "The homogeneous case with unit weights. Quoted from the rendered page."
+          "match": "The homogeneous case with unit weights. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
@@ -3580,12 +3580,12 @@
         {
           "sourceId": "tzanakis-de-weger-1992",
           "locator": "§15, Proposition 15, printed p. 262",
-          "match": "Q = vW²N_0² + rK_0² is Σ_j W_j²X_j² for the source's weights and bounds. Quoted from the rendered page."
+          "match": "Q = vW²N_0² + rK_0² is Σ_j W_j²X_j² for the source's weights and bounds. The original source review checked the rendered page."
         },
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.11, Lemma 3.14, printed p. 64",
-          "match": "Homogeneous case with unit weights. Quoted from the rendered page."
+          "match": "Homogeneous case with unit weights. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
@@ -3821,7 +3821,7 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, Lemma 3.8 and following paragraph, printed p. 55",
-          "match": "The theorem is this case split, with K_0 = C_0. Quoted from the rendered page."
+          "match": "The theorem is this case split, with K_0 = C_0. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4102,12 +4102,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.7, summary after Lemma 3.8, printed p. 55",
-          "match": "The certificate is the data of that computation. Quoted from the rendered page."
+          "match": "The certificate is the data of that computation. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.2, printed p. 125",
-          "match": "The data of an LLL witness: the reduced basis and the unimodular transformation and its inverse. Quoted from the rendered page."
+          "match": "The data of an LLL witness: the reduced basis and the unimodular transformation and its inverse. The original source review checked the rendered page."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4167,12 +4167,12 @@
         {
           "sourceId": "de-weger-1989",
           "locator": "§3.8, summary after Lemma 3.10, printed p. 59",
-          "match": "Statement of the exclusion principle in the inhomogeneous case. Quoted from the rendered page."
+          "match": "Statement of the exclusion principle in the inhomogeneous case. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.2, printed p. 126",
-          "match": "Two certificates followed by exhaustive enumeration of the box A ≤ 10. Quoted from the rendered page."
+          "match": "Two certificates followed by exhaustive enumeration of the box A ≤ 10. The original source review checked the rendered page."
         },
         {
           "sourceId": "tzanakis-de-weger-1993-correction",
@@ -8594,7 +8594,7 @@
         {
           "sourceId": "siksek-1995",
           "locator": "Author preprint, §4 opening, p.17, equation(39)",
-          "match": "The source identifies absence of nontrivial p-division of a full-rank free sublattice with p not dividing its index. The node proves the general additive-group reformulation via p-torsion of A/G, and explicitly includes A[p]⊆G for groups with torsion; this generality is the displayed elementary proof, not an attributed verbatim source theorem."
+          "match": "The source identifies absence of nontrivial p-division of a full-rank free sublattice with p not dividing its index. The node proves the general additive-group reformulation via p-torsion of A/G, explicitly including A[p]⊆G when A has torsion; that additional generality is established by the packet’s elementary proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -9037,7 +9037,7 @@
         {
           "sourceId": "flynn-poonen-schaefer-1997",
           "locator": "§5, Proposition 5, p. 12 (arXiv v1)",
-          "match": "Quoted with the source's spelling."
+          "match": "Gives the index-one criterion for 2J(K) inside ker(x−T), using either a K-rational root of f or a Galois-stable unordered partition of its six roots into two subsets of size three."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
@@ -10622,7 +10622,7 @@
         {
           "sourceId": "mccallum-poonen-2012",
           "locator": "§5.3 Remark 5.2, author copy p.6",
-          "match": "Statement (c); its hypothesis on the coefficient of t^{p−1} precedes the excerpt."
+          "match": "Supplies statement (c), including the preceding hypothesis on the coefficient of t^{p−1}."
         },
         {
           "sourceId": "flynn-poonen-schaefer-1997",
@@ -12330,7 +12330,7 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.278",
-          "match": "The iteration over decreasing subgroups N_kΓ relies on surviving fine classes projecting to surviving coarse classes; the node states that projection lemma, which the source uses without stating it. The excerpt stops where the product formula breaks in the extracted text."
+          "match": "The iteration over decreasing subgroups N_kΓ relies on surviving fine classes projecting to surviving coarse classes; the node states that projection lemma, which the source uses without stating it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -12397,7 +12397,7 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§3.3, published p.279, Lift; author implementation LiftInformation, lines 2563–2600",
-          "match": "The inner loops of Lift: choose a representative of each coarse survivor in the finer quotient and run through the kernel L_{j−1}/L_j. The node is the corresponding finite construction with an explicit section; the quoted line omits the prime on the representative a′, which the extracted text renders as a0."
+          "match": "The inner loops of Lift choose a representative a′ of each coarse survivor in the finer quotient and enumerate the kernel L_{j−1}/L_j. The node gives this finite construction with an explicit section; the original extraction rendered a′ as a0."
         },
         {
           "sourceId": "bruin-stoll-2010",
@@ -13401,7 +13401,7 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.2, published p.281",
-          "match": "The conclusion (the excerpt stops before the prime on H′, which the extracted text renders as H 0)."
+          "match": "Gives separation of bounded-height points within each coset; the node retains the primed height bound H′."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13553,7 +13553,7 @@
         {
           "sourceId": "bruin-stoll-2010",
           "locator": "§4.3, published p.282",
-          "match": "The step and its conclusion (the excerpt stops before the prime on L′)."
+          "match": "Gives the lattice-refinement step and its survivor conclusion with the refined lattice L′."
         },
         {
           "sourceId": "bruin-stoll-2010",
@@ -16928,7 +16928,7 @@
         {
           "sourceId": "tzanakis-de-weger-1989",
           "locator": "§III.1, p.119",
-          "match": "Cubic-field certificate inputs (OCR of ψ cleaned; quote checked against the rendered page)."
+          "match": "Supplies the cubic-field inputs for the certificate; the original source review checked the rendered page and corrected the OCR rendering of ψ."
         }
       ],
       "implementationStatus": "unchecked"
@@ -17952,8 +17952,8 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§II.3, proof of Proposition 3.2, printed p. 115",
-      "printed": "then the inequality |Λ| > K1 · exp(−K2 · A) has no solution in the range (1/K2) · log(c0 · K1/q · K3) ≤ A ≤ X0",
-      "correction": "then the inequality |Λ| < K1 · exp(−K2 · A) (the first inequality of (3.1)) has no solution in that range.",
+      "printed": "The proof assigns the no-solution conclusion to |Λ| > K1 · exp(−K2 · A) in the displayed range (1/K2) · log(c0 · K1/q · K3) ≤ A ≤ X0.",
+      "correction": "The excluded inequality is |Λ|<K₁ exp(−K₂A), the first inequality of (3.1), on the stated range of A.",
       "reason": "The argument shows c_0|Λ| ≥ qK_3 for every (a_i) with A ≤ X_0, which is incompatible with |Λ| < K_1 exp(−K_2A) when A ≥ (1/K_2)log(c_0K_1/(qK_3)); the inequality with '>' is the one that every such vector satisfies, not the one without solutions. Proposition 3.2 as stated is correct.",
       "affects": "nothing",
       "known": "new",
@@ -17971,7 +17971,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§II.2, Lemma 2.1, p. 107 (definition of U_I) with (2.1), p. 108",
-      "printed": "U_I = (log|ε_i^{(h_l)}|)_{1≤i≤r, 1≤l≤r} (where i indicates a row and l a column of the matrix), U_I^{−1} = (u_il), N[U_I^{−1}] = max_{1≤i≤r} Σ_{l=1}^r |u_il|",
+      "printed": "The matrix is U_I=(log|ε_i^{(h_l)}|)_{1≤i≤r,1≤l≤r}, with unit index i assigned to rows and embedding index l to columns; U_I^(−1)=(u_il), and the norm used is max_{1≤i≤r} Σ_{l=1}^r|u_il|.",
       "correction": "l indicates a row and i a column: (U_I)_{l,i} = log|ε_i^{(h_l)}|, so that (2.1) (log|β^{(h_l)}/μ^{(h_l)}|)_l = U_I·(a_1, …, a_r)^T holds and a = U_I^{−1}(…) gives max|a_i| ≤ N[U_I^{−1}]·max_l|log|β^{(h_l)}/μ^{(h_l)}||.",
       "reason": "With the printed orientation the l-th entry of U_I·a is Σ_i log|ε_l^{(h_i)}|·a_i, not log|β^{(h_l)}/μ^{(h_l)}| = Σ_i a_i log|ε_i^{(h_l)}|, so (2.1) would be false; the row-sum norm of the inverse of the transposed matrix differs in general (for U = ((2, 1), (0, 1)) the row-sum norms of U^{−1} and (U^T)^{−1} are 1 and 3/2). Tzanakis–de Weger's 1992 paper (Lemma 6, p. 239) displays U_I with rows indexed by the embeddings, as corrected here.",
       "affects": "nothing",
@@ -17991,7 +17991,7 @@
       "source": "de-weger-1989",
       "kind": "error",
       "locator": "§3.13, Lemma 3.17(i), p. 67",
-      "printed": "Then Γ#_μ ⊆ Γ*_μ ⊆ Γ_μ are lattices. If p = 2 they are all equal. If p = 3 then Γ*_μ = Γ_μ. If p ≥ 3 then #(Γ_μ/Γ*_μ) = (p−1)/2, #(Γ_μ/Γ#_μ) = p−1, #(Γ*_μ/Γ#_μ) = 2.",
+      "printed": "The stated lattice inclusions are Γ#_μ⊆Γ*_μ⊆Γ_μ. The source claims all three are equal for p=2, Γ*_μ=Γ_μ for p=3, and, for p≥3, the three indices #(Γ_μ/Γ*_μ), #(Γ_μ/Γ#_μ), #(Γ*_μ/Γ#_μ) equal (p−1)/2, p−1, 2 respectively.",
       "correction": "For p = 2 only Γ*_μ = Γ_μ holds in general; for p ≥ 3 the indices divide (p−1)/2, p−1 and 2 respectively, with equality when the residues of the α_i generate (ℤ/p)^× (as in Chapter 6, where p_0 is chosen to be a primitive root).",
       "reason": "p = 2, α = (3, 5), μ = 0: ord_2(log_2 3) = ord_2(log_2 5) = 2 = μ_0, so Γ_0 = ℤ², but Γ#_0 = {x : 3^{x_1}5^{x_2} ≡ 1 (mod 4)} = {x_1 even}. p = 5, α = (6, 11), μ = 0: μ_0 = 1, Γ_0 = ℤ² and ξ ≡ 1 (mod 5) always, so Γ#_0 = Γ_0 and #(Γ_0/Γ#_0) = 1 ≠ 4.",
       "affects": "a stated result",
@@ -18011,7 +18011,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "gap",
       "locator": "§II.3, (3.8) and the summary procedure, pp. 117–118",
-      "printed": "(2) Expand ξ̃ into its continued fraction with partial quotients b_0, b_1, b_2, …, b_{k+1} and convergents p_i/q_i for all i = 1, …, k with q_k ≤ C < q_{k+1}. (3) Test all these convergents for the conditions (3.8) and F(p_i, q_i) = m.",
+      "printed": "The procedure expands the approximation ξ̃, retaining partial quotients b₀,…,b_{k+1} and convergents p_i/q_i for 1≤i≤k with q_k≤C<q_{k+1}. It then tests those convergents using (3.8) as well as F(p_i,q_i)=m.",
       "correction": "Condition (3.8), a_{k+1} > |q_k|^{n−2}/C_1 − 2, is proved for the partial quotient a_{k+1} of ξ^{(i_0)}; applied to the computed partial quotients b_{k+1} of ξ̃ it is not justified. Either test every convergent p_i/q_i of ξ̃ with q_i ≤ C directly (F(Zp_i, Zq_i) = m with Z^n ∣ m), or compute ξ^{(i_0)} precisely enough to determine a_{k+1}.",
       "reason": "The proof shows that p_k/q_k is a convergent of both ξ^{(i_0)} and ξ̃, but the next partial quotients can differ: if |ξ̃ − ξ^{(i_0)}| is close to its allowed maximum 1/(6C²) and q_k is close to C, then |ξ̃ − p_k/q_k| ≈ 1/(6q_k²), which forces b_{k+1} ≤ 5, while a solution with Y = q_k makes a_{k+1} > q_k^{n−2}/C_1 − 2 large; a test of (3.8) with b_{k+1} would then discard that solution.",
       "affects": "the proof",
@@ -18031,9 +18031,9 @@
       "source": "tzanakis-de-weger-1992",
       "kind": "misprint",
       "locator": "§5, proof of the second corollary of Lemma 1, pp. 232–233",
-      "printed": "hence (8) implies (7), and the 1st Corollary (ii) can be applied to prove that at most one 𝔭_i dividing p satisfies (8).",
-      "correction": "the 1st Corollary (i) can be applied to prove that at most one 𝔭_i dividing p satisfies (8)",
-      "reason": "'At most one 𝔭_i' is part (i) of the first corollary; part (ii) concerns d_i > 1 or e_i > 1 and is used in the next sentence for d_i = e_i = 1.",
+      "printed": "After deducing (7) from (8), the proof cites part (ii) of the first corollary for the assertion that at most one prime ideal 𝔭_i above p satisfies (8).",
+      "correction": "Use part (i) of the first corollary to obtain uniqueness of a prime ideal 𝔭_i above p satisfying (8).",
+      "reason": "Uniqueness of the prime ideal is the conclusion of part (i). Part (ii) addresses d_i>1 or e_i>1; the following sentence uses that second part to obtain d_i=e_i=1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18069,7 +18069,7 @@
       "source": "aitken-lemmermeyer-2011",
       "kind": "misprint",
       "locator": "Appendix B, p. 17, first lines (arXiv:1108.6310v1; the same sentence in the author's six-page version on his web page)",
-      "printed": "represents an element of order 2 in Ш_E where E is defined by y² = x³ − 2⁴17x (which can be transformed into the form y² = x³ − 17x).",
+      "printed": "The source assigns the order-two Tate–Shafarevich class to y²=x³−2⁴·17x and identifies its scaled model as y²=x³−17x.",
       "correction": "E is y² = x³ + 2⁴·17x, which is isomorphic over ℚ to y² = x³ + 17x.",
       "reason": "The general formula four lines earlier, y² = x³ − 2bdx² + (b² − 4ac)d²x with (a, b, c, d) = (1, 0, −17, 2), gives (0 + 68)·4 = +272. Independently, the system is X⁴ − 17Y⁴ = 2Z², i.e. v² = 2u⁴ − 34, whose invariants I = −816, J = 0 give the Jacobian Y² = X³ + 22032X ≅ y² = x³ + 17x (22032 = 6⁴·17; Cremona (3.6.3)). y² = x³ − 17x is not isomorphic to it over ℚ, since −1 is not a fourth power.",
       "affects": "nothing",
@@ -18090,7 +18090,7 @@
       "source": "poonen-1998",
       "kind": "misprint",
       "locator": "§4, paragraph before Proposition 2, p. 15 of arXiv:math/9512217v1 (page rendered); the published Math. Z. version was not read",
-      "printed": "The mod 3 reductions of the eight known rational points Q+, Q−, R+, R−, S+, S−, ∞+, ∞− are distinct, except that R+ and R− both reduce to the Weierstrass point (1, 0) ∈ C(F3).",
+      "printed": "The reduction comparison singles out R⁺ and R⁻ as the only collision among Q⁺,Q⁻,R⁺,R⁻,S⁺,S⁻,∞⁺,∞⁻ modulo3, placing their common reduction at the Weierstrass point (1,0)∈C(𝔽₃).",
       "correction": "…except that S⁺ and S⁻ both reduce to the Weierstrass point (1, 0) ∈ C(𝔽_3).",
       "reason": "R^± = (0, ±1) reduce to (0, ±1) ∈ C(𝔽_3), which are distinct and not Weierstrass points; S^± = (1, ±3) reduce to (1, 0), and g(1) = 9 ≡ 0 (mod 3) with g'(1) ≡ 1 (mod 3), so (1, 0) is a Weierstrass point. The proof of Proposition 2 treats S^± as the two points over (1, 0), in agreement with the correction.",
       "affects": "nothing",
@@ -18110,7 +18110,7 @@
       "source": "bruin-stoll-2010",
       "kind": "error",
       "locator": "Lemma 4.1 and its proof, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "p1 p2 · · · pm > e^{H′+γ} max{|a|, |b|}^2 … This integer has absolute value at most e^{H′+γ} max{|a|, |b|}^2, so if it is divisible by p1, . . . , pm, it must be zero.",
+      "printed": "The proof uses p₁⋯p_m>e^{H′+γ}max{|a|,|b|}² and claims the integer under consideration has absolute value at most e^{H′+γ}max{|a|,|b|}²; divisibility by all p_j is then used to force it to vanish.",
       "correction": "|k1 b^2 − k2 ab + k3 a^2| ≤ (|k1| + |k2| + |k3|)·max{|a|,|b|}^2 ≤ 3e^{H′+γ}max{|a|,|b|}^2; the hypothesis should read p1 p2 · · · pm > 3e^{H′+γ} max{|a|, |b|}^2, under which the divisibility step gives k1 a^2 − k2 ab + k3 b^2 = 0 (the last step of the proof needs the further correction recorded as a separate gap).",
       "reason": "With coprime Kummer coordinates (k1, k2, k3) = (1, −1, 1) and a = b = 1 the integer is 3, while max|kj|·max{|a|,|b|}^2 = 1; the claimed estimate only bounds each of the three terms separately.",
       "affects": "the proof",
@@ -18130,7 +18130,7 @@
       "source": "bruin-stoll-2010",
       "kind": "misprint",
       "locator": "Proof of Lemma 4.1, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "then pj divides k1 b^2 − k2 ab + k3 a^2",
+      "printed": "p_j ∣ k₁b²−k₂ab+k₃a².",
       "correction": "With x(P0) = (a : b) the divisibility is pj | k1 a^2 − k2 ab + k3 b^2: the quadratic k1 X^2 − k2 XZ + k3 Z^2, whose roots are the x-coordinates of the divisor of Q, is evaluated at (X : Z) = (a : b).",
       "reason": "In the paper's own convention (Lemma 5.3, p.288) the Kummer point (x1 : x2 : x3 : x4) gives A(X, Z) = x1 X^2 − x2 XZ + x3 Z^2; vanishing at x(P0) = (a : b) is x1 a^2 − x2 ab + x3 b^2 = 0. The printed form evaluates at (b : a).",
       "affects": "nothing",
@@ -18150,9 +18150,9 @@
       "source": "bruin-stoll-2010",
       "kind": "misprint",
       "locator": "§3.2, FindQSequence, published p.278 (same in arXiv v2 and the author copy)",
-      "printed": "if n < ε: // success?",
+      "printed": "The stopping test accepts n<ε.",
       "correction": "if n < ε1: // success?",
-      "reason": "The text before the algorithm requires n((∏ qk)Γ) < ε1, and the sentence after it ('if we made sure in the first step that there is some M such that n(MΓ) < ε1, then FindQSequence will not fail') holds only for the test against ε1; §7 confirms that the q-sequence uses ε1 with ε < ε1 < 1.",
+      "reason": "Before the algorithm the required bound is n((∏q_k)Γ)<ε₁. The subsequent termination claim assumes an initial multiple M with n(MΓ)<ε₁, so it requires testing against ε₁ as well. The §7 choice of q-sequence confirms ε<ε₁<1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18170,7 +18170,7 @@
       "source": "bdmtv-2021",
       "kind": "misprint",
       "locator": "Version of record, Compositio159 (2023), p.1129, item(3) after(4.2); same in arXiv:2101.01862v4 p.18.",
-      "printed": "where gx ∈ Q̄[[tx]] is defined to be the formal integral of dΩ⊺x ZdΩx−η",
+      "printed": "The assigned carrier is g_x∈Q̄[[t_x]], with formal antiderivative equation dg_x=dΩ_xᵀ Z dΩ_x−η.",
       "correction": "g_x ∈ Q̄((t_x)) is a formal primitive of Ω_xᵀ Z dΩ_x − η, as in BDMTV 2019 (29).",
       "reason": "By (d) Z is antisymmetric, so dΩ_xᵀ Z dΩ_x = Σ Z_ij ω_i ω_j vanishes identically (as a product of coefficient functions in t_x it is a quadratic form in an antisymmetric matrix). As printed, g_x would be −∫η, and (4.2) would no longer involve the quadratic term that the gauge equation C_x^(−1)dC_x = Λ produces. g_x has poles at x (it is determined only through its principal part), so it lies in Q̄((t_x)), not Q̄[[t_x]].",
       "affects": "nothing",
@@ -18211,7 +18211,7 @@
       "source": "bruin-stoll-2010",
       "kind": "gap",
       "locator": "Lemma 4.1, last sentence of the proof, published p.281 (same in arXiv v2 and the author copy)",
-      "printed": "If P0 ≠ P̄0, these two cases can be distinguished mod p_{j0}.",
+      "printed": "The source claims that P₀≠P̄₀ allows the two possible curve-image cases to be separated at the single reduction prime p_{j₀}.",
       "correction": "Require that the primes p_j separating P0 from P̄0 have product greater than e^{H′+γ} (for instance that every p_j separates them). At each separating prime the test then forces Q ≡ 0, so these primes divide k1, k2, k3, which are not all zero since Q ≠ 0: a contradiction.",
       "reason": "For P ∈ C(ℚ) with P ≠ P̄0 and P ≡ P̄0 modulo p_{j0}, the class Q = [P − P̄0] = [P + P0 − W] reduces to 0 = ι(P̃0) modulo p_{j0}, so it passes the test there, and it passes at every p_j where P0 ≡ P̄0; yet Q ∉ ι(C(ℚ)), since P + P0 is the unique effective divisor in its class and Q = −ι(P̄). One separating prime does not distinguish the two cases.",
       "affects": "the proof",
@@ -18231,9 +18231,9 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "misprint",
       "locator": "§III.2, p.123",
-      "printed": "On the other hand, (2.1) and (2.2) are respectively equivalent to Norm_{K/Q}(X − Y·ϑ) = 1 and Norm_{K/Q}(X − Y·φ) = 1",
+      "printed": "The two norm-one equations are assigned in the order (2.1)↔Norm_{K/ℚ}(X−Yϑ)=1 and (2.2)↔Norm_{K/ℚ}(X−Yφ)=1.",
       "correction": "(2.2) is equivalent to Norm(X − Yϑ) = 1 and (2.1) to Norm(X − Yφ) = 1.",
-      "reason": "With ϑ⁴ − 12ϑ² − 8ϑ + 4 = 0 (printed on the same page), Norm(X − Yϑ) = X⁴ − 12X²Y² − 8XY³ + 4Y⁴, the form of (2.2); the next sentence ('as is obvious from the known solutions of (2.2), ε1 = 1 + ϑ, ε2 = 3 + ϑ are units') uses the corrected assignment.",
+      "reason": "Using ϑ⁴−12ϑ²−8ϑ+4=0 from the same page gives Norm(X−Yϑ)=X⁴−12X²Y²−8XY³+4Y⁴, which is form (2.2). The next sentence obtains the units ε₁=1+ϑ and ε₂=3+ϑ from known solutions of (2.2), agreeing with the corrected assignment.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -18251,7 +18251,7 @@
       "source": "tzanakis-de-weger-1989",
       "kind": "error",
       "locator": "§II.1, proof of Lemma 1.2, p.106",
-      "printed": "Since |e^{iΛ} − 1| = 2·|sin Λ/2|, it follows that |sin Λ/2| < ¼, and therefore |Λ| ≤ 2·(¼/sin ¼)·|sin Λ/2| = (¼/sin ¼)·|e^{iΛ} − 1| ≤ 1.02·|e^{iΛ} − 1|",
+      "printed": "From |e^{iΛ}−1|=2|sin(Λ/2)| and |sin(Λ/2)|<1/4, the proof infers |Λ|≤2·((1/4)/sin(1/4))·|sin(Λ/2)|=((1/4)/sin(1/4))·|e^{iΛ}−1|≤1.02·|e^{iΛ}−1|.",
       "correction": "|Λ| ≤ 2·(arcsin ¼)/(¼)·|sin Λ/2| = 4·arcsin(¼)·|e^{iΛ} − 1| ≤ 1.02·|e^{iΛ} − 1|: the factor (¼)/sin(¼) ≈ 1.01049 becomes 4·arcsin(¼) ≈ 1.01072, and the stated constant 1.02 still holds.",
       "reason": "x/sin x increases on (0, π/2), so x ≤ (¼/sin ¼)·sin x holds only for 0 ≤ x ≤ ¼; the hypothesis |sin(Λ/2)| < ¼ allows |Λ/2| up to arcsin ¼ ≈ 0.2527, and at x = 0.2526 the printed inequality fails (x/sin x ≈ 1.01071 > 1.01049).",
       "affects": "nothing",
@@ -18271,7 +18271,7 @@
       "source": "flynn-poonen-schaefer-1997",
       "kind": "misprint",
       "locator": "End of the proof of Lemma 2, p.16 (arXiv:math/9508211)",
-      "printed": "subspace generated by u1 and u3 β1 β3 .",
+      "printed": "span(u₁,u₃β₁β₃).",
       "correction": "subspace generated by u1 and u3 β1 β2, as in the statement of Lemma 2 and in Lemma 5.",
       "reason": "The statement of Lemma 2 (same page) and the proof of Lemma 5 use u3β1β2; the norm of u3β1β3 is −3701⁴, not a square, so it cannot lie in the norm kernel described.",
       "affects": "nothing",
@@ -18292,7 +18292,7 @@
       "kind": "error",
       "locator": "Version of record, Compositio159 (2023), Lemma4.7, p.1136; same in arXiv:2101.01862v4 p.25.",
       "printed": "max{i ≥ 0 : ordp(Fi) + i = n} < m",
-      "correction": "ord_p(F_i) + i ≥ n for every i ≥ m, i.e. max{i ≥ 0 : ord_p(F_i) + i < n} < m; this is what the proof uses ('Since G(x + α) has degree ≤ m mod p^{n−k}').",
+      "correction": "Require ord_p(F_i)+i≥n for every i≥m, equivalently max{i≥0:ord_p(F_i)+i<n}<m. This is the coefficient condition needed for the degree bound on G(x+α) modulo p^(n−k) used in the proof.",
       "reason": "With G(x) = p^(−k)F(px), the coefficient G_i has valuation ord_p(F_i) + i − k, so G is a polynomial of degree < m modulo p^(n−k) exactly when ord_p(F_i) + i ≥ n for i ≥ m. The printed condition only restricts the indices with ord_p(F_i) + i = n. For F = p² − p·x and n = 5 the printed set is empty, so m = 1 is allowed, k = 2, and the lemma would determine the roots from F_0 = p² modulo p⁵; but F has the root x = p in the disc, which F_0 does not see.",
       "affects": "a stated result",
       "known": "new",
@@ -18312,7 +18312,7 @@
       "source": "siksek-2010",
       "kind": "misprint",
       "locator": "Algebra & Number Theory 7 (2013), version of record, p.770, immediately after pairing (4); also arXiv:1010.2603v2, §3.3, p.5.",
-      "printed": "whose kernel on the right is 0 and on the left is the torsion subgroup of J(K_v).",
+      "printed": "For pairing (4), the source assigns a trivial right kernel and identifies the left kernel with J(K_v)_tors.",
       "correction": "For the displayed order Ω × J(K_v), the left kernel is 0 and the right kernel is J(K_v)_tors.",
       "reason": "The right carrier is J(K_v), which contains its torsion, and the left carrier is a characteristic-zero vector space. Both the published p.770 and preprint p.5 reverse the kernels for pairing (4); the same paper correctly gives them for pairing (3) on published p.769/preprint p.4. Stoll arXiv:1307.1773v4 p.7 uses the correct Ω × J order.",
       "affects": "nothing",
@@ -18376,7 +18376,7 @@
       "source": "de-weger-1989",
       "kind": "misprint",
       "locator": "§3.6, Figure2, printed p.52, step(5), original CWI edition and author copy.",
-      "printed": "Print x, then stop when the scanned vector reaches zero.",
+      "printed": "The displayed enumeration emits x alone and terminates when the scanned vector is zero.",
       "correction": "Print both x and −x before zero termination, as Fincke–Pohst(2.8); an affine adaptation instead scans all signed bounds and includes zero separately.",
       "reason": "For n=1, B=(1), C=1, the printed scan outputs −1 and then stops at0, omitting +1. The paragraph on p.51 promises all short vectors. This is a missing sign in the displayed pseudocode; Fincke–Pohst itself prints both signs.",
       "affects": "the proof",
@@ -18416,7 +18416,7 @@
       "source": "flynn-poonen-schaefer-1997",
       "kind": "misprint",
       "locator": "arXiv:math/9508211v1, p.23, Theorem6 proof, θ₁ branch.",
-      "printed": "The linear coefficient has strictly larger 3-adic valuation than the others.",
+      "printed": "The valuation comparison places the coefficient of n strictly above the other coefficients.",
       "correction": "The linear coefficient has strictly smaller 3-adic valuation than the others (equivalently, larger 3-adic absolute value).",
       "reason": "The displayed congruence is θ₁≡27n modulo81. The coefficient of n has valuation3 while all other nonzero coefficients have valuation≥4; zero coefficients have valuation∞. Strassmann singles out the maximal absolute value, hence the minimal valuation. This is a reversed word in the proof, and does not change the intended one-root conclusion.",
       "affects": "the proof",
@@ -18471,7 +18471,7 @@
       "source": "bdmtv-2021",
       "kind": "misprint",
       "locator": "arXiv:2101.01862v4,p24,last sentence before Proposition4.6; already corrected in published Compositio159(2023),p1136",
-      "printed": "Then we have ϕ(i) = −2⌊log_p(i)⌋ + c_1 for all i ≥ i_0.",
+      "printed": "ϕ(i)=−2⌊log_p(i)⌋+c₁ for i≥i₀.",
       "correction": "Here ϕ(i)=−2⌊log_p(i)⌋, without+c1. The coefficient bound for λφ adds c1 separately; the final Proposition4.6 bound keeps its stated+c1.",
       "reason": "Equation(4.21) defines ϕ(i)=−floor(log_p i)+min(d_i(η),−floor(log_p i)); the i0 branch makes the second argument the minimum, so no c1 entersϕ. Publishedp1136 prints the corrected equality.",
       "affects": "nothing",
@@ -18486,7 +18486,7 @@
       "source": "siksek-symmetric-2009",
       "kind": "misprint",
       "locator": "Version of record, Algebra & Number Theory3(2009), p.223, Theorem4.3 after equation(15); repeated in its proof p.225 after equation(17). Author-linked November26,2008 preprint symmetric7.pdf has the same condition in Theorem2 p.14 and proof p.15.",
-      "printed": "Suppose ord_p(i+1)<i/N′ for all i≥0.",
+      "printed": "The quantified assumption is ord_p(i+1)<i/N′ for every i≥0.",
       "correction": "The strict inequality is required for positive integers i≥1; omit i=0 in both the hypothesis and the displayed strict higher-term norm consequence. This repairs the evident index slip; this entry does not certify every other step of the general relative theorem.",
       "reason": "At i=0 the printed hypothesis becomes v_p(1)=0<0/N′=0, impossible for the positive ramification bound N′. The proof likewise claims |z^0/1|<1, which reads1<1. Its actual use concerns higher-degree terms (z+z′)/2,(z²+zz′+z′²)/3,…, indexed by i≥1 after factoring the linear difference. Thus the published conditional theorem is vacuous as literally printed; the intended index correction is visible in the proof. No counterexample to the intended geometric conclusion is asserted.",
       "affects": "a stated result",
