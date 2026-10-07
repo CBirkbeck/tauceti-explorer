@@ -9,9 +9,16 @@ section of its own. Objects the pinned libraries have are used directly (number 
 numbers, power series, lattices, Weierstrass curves and their points, quotient groups). Objects they
 lack (Jacobians of curves of higher genus, Coleman integrals, the quadratic Chabauty heights) are
 abstract inputs: an additive group with the homomorphisms and the properties the statement needs.
-Tau Ceti declarations the roadmap builds on (elliptic Selmer groups, canonical heights, the
-regulator) are named in comments, since the file imports Mathlib modules only.
+The elliptic canonical height, quotient by torsion, regulator and local descent map are
+imported from Tau Ceti. Abstract supporting algebra is explicitly distinguished from the
+geometric application signatures omitted under PROTOCOL §13; see the omission register below.
 -/
+import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight
+import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.PointModTorsion
+import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.Regulator
+import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.LocalCondition
+import Mathlib.Data.Finset.Pi
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Order.Interval.Basic
 import Mathlib.NumberTheory.Padics.Hensel
 import Mathlib.NumberTheory.Padics.RingHoms
@@ -207,7 +214,7 @@ def ofRat (q : ℚ) (N : ℤ) : PadicEnclosure p (q : ℚ_[p]) := sorry
 
 /-- Compatibility with CN.0: the canonical `PadicApproximation` record of `(centre, precision)`
 denotes the closed ball below, which contains `x`. -/
-theorem toPadicApproximation {x : ℚ_[p]} (e : PadicEnclosure p x) :
+theorem centre_ball_mem {x : ℚ_[p]} (e : PadicEnclosure p x) :
     x ∈ Metric.closedBall (e.centre : ℚ_[p]) ((p : ℝ) ^ (-e.precision)) := sorry
 
 end PadicEnclosure
@@ -589,6 +596,13 @@ def heightEnclosure (pb : PowerBasis ℚ K) (x : K) (n : ℕ) :
 theorem heightEnclosure_width (pb : PowerBasis ℚ K) (x : K) (n : ℕ) :
     (heightEnclosure pb x n).width ≤ (2 : ℚ) ^ (-(n : ℤ)) := sorry
 
+theorem charpoly_leftMul_basis_independent {ι ι' : Type*} [Fintype ι] [DecidableEq ι]
+    [Fintype ι'] [DecidableEq ι'] (b : Module.Basis ι ℚ K) (b' : Module.Basis ι' ℚ K) (x : K) :
+    (Algebra.leftMulMatrix b x).charpoly = (Algebra.leftMulMatrix b' x).charpoly := sorry
+theorem charpoly_leftMul_arbitrary (pb : PowerBasis ℚ K) (x : K) :
+    (Algebra.leftMulMatrix pb.basis x).charpoly =
+      minpoly ℚ x ^ (Module.finrank ℚ K / (minpoly ℚ x).natDegree) := sorry
+
 /-- `mulHeight₁ x` is the Mahler measure of the primitive integral multiple of the
 characteristic polynomial of `x` (via DT.0/height-comparisons). -/
 theorem mulHeight₁_eq_mahlerMeasure_charpoly (pb : PowerBasis ℚ K) (x : K) :
@@ -704,7 +718,8 @@ variable {k : ℕ}
 Unknowns are indexed by `Fin (k + 1)`; the last index `Fin.last k` carries the form. -/
 
 /-- The integer matrix `A`: `diag(W_1, …, W_k)` above, `(φ_1, …, φ_{k+1})` as last row. -/
-def linearFormMatrix (W φ : Fin (k + 1) → ℤ) : Matrix (Fin (k + 1)) (Fin (k + 1)) ℤ := sorry
+def linearFormMatrix (W φ : Fin (k + 1) → ℤ) : Matrix (Fin (k + 1)) (Fin (k + 1)) ℤ :=
+  fun i j => if i = Fin.last k then φ j else if i = j then W i else 0
 
 theorem linearFormMatrix_mulVec (W φ x : Fin (k + 1) → ℤ) :
     linearFormMatrix W φ *ᵥ x =
@@ -734,7 +749,8 @@ theorem abs_linearForm_sub_le (C : ℝ) (θ : Fin (k + 1) → ℝ) (φ : Fin (k 
     |(∑ j, (x j : ℝ) * φ j) - C * ∑ j, (x j : ℝ) * θ j| ≤ ∑ j, |(x j : ℝ)| := sorry
 
 /-- The inhomogeneous target `y = (0, …, 0, -ψ)`. -/
-def linearFormTarget (ψ : ℤ) : Fin (k + 1) → ℤ := sorry
+def linearFormTarget (ψ : ℤ) : Fin (k + 1) → ℤ :=
+  fun i => if i = Fin.last k then -ψ else 0
 
 theorem normSq_linearFormMatrix_mulVec_sub_target (W φ x : Fin (k + 1) → ℤ) (ψ : ℤ) :
     ∑ i, ((linearFormMatrix W φ *ᵥ x - linearFormTarget (k := k) ψ : Fin (k + 1) → ℤ) i) ^ 2 =
@@ -1002,6 +1018,9 @@ inductive DistanceWitness {n : ℕ} (A : Matrix (Fin (n + 1)) (Fin (n + 1)) ℤ)
       (hgs : ∀ i, (2 : ℝ) ^ (-(n : ℤ)) * ‖columnVectors (A * U) 0‖ ^ 2 ≤
         ‖InnerProductSpace.gramSchmidt ℝ (columnVectors (A * U)) i‖ ^ 2) (hy : y = 0)
   | enumeration (R : ℚ) (hR : 0 ≤ R)
+      (E : Finset (Fin (n + 1) → ℤ))
+      (complete : ∀ x : Fin (n + 1) → ℤ,
+        (∑ i, (((A *ᵥ x - y) i : ℤ) : ℚ) ^ 2) < R → x ∈ E)
 
 namespace DistanceWitness
 
@@ -1021,6 +1040,111 @@ def ofLLL (U V : Matrix (Fin (n + 1)) (Fin (n + 1)) ℤ) (hUV : U * V = 1) (hVU 
     (hy : y ∉ Set.range (A *ᵥ ·)) : DistanceWitness A y := sorry
 
 end DistanceWitness
+
+attribute [-instance] Classical.propDecidable
+
+/-- Raw exhaustive distance check. `D` bounds coordinates of all vectors at distance
+below `B`; the rational inverse-matrix row tests certify this bound. No proof fields. -/
+structure RawDistanceCertificate (n : ℕ) where
+  A : Matrix (Fin n) (Fin n) ℤ
+  y : Fin n → ℤ
+  inverse : Matrix (Fin n) (Fin n) ℚ
+  B : ℚ
+  lower : ℚ
+  D : ℕ
+
+namespace RawDistanceCertificate
+def box (n D : ℕ) : Finset (Fin n → ℤ) :=
+  Fintype.piFinset (fun _ => Finset.Icc (-(D : ℤ)) D)
+def normSq {n : ℕ} (A : Matrix (Fin n) (Fin n) ℤ) (y x : Fin n → ℤ) : ℚ :=
+  ∑ i, (((A *ᵥ x - y) i : ℤ) : ℚ) ^ 2
+def check {n : ℕ} (c : RawDistanceCertificate n) : Bool :=
+  decide (c.A.map (Int.cast : ℤ → ℚ) * c.inverse = 1 ∧
+    c.inverse * c.A.map (Int.cast : ℤ → ℚ) = 1 ∧
+    0 < c.B ∧ 0 ≤ c.lower ∧ c.lower ≤ c.B ^ 2 ∧
+    (∀ i, ∑ j, |c.inverse i j| * (|(c.y j : ℚ)| + c.B) ≤ c.D) ∧
+    ∀ x ∈ box n c.D, (c.y = 0 → x ≠ 0) → c.lower ≤ normSq c.A c.y x)
+theorem sound {n : ℕ} (c : RawDistanceCertificate n) (hc : c.check = true)
+    (x : Fin n → ℤ) (hx : c.y = 0 → x ≠ 0) : c.lower ≤ normSq c.A c.y x := sorry
+/-- Slow complete producer: compute a rational inverse and a coordinate cap from its row
+norms, enumerate the whole cube, and take the minimum of B² and eligible squared distances. -/
+def ofMatrix {n : ℕ} (A : Matrix (Fin n) (Fin n) ℤ) (hA : A.det ≠ 0)
+    (y : Fin n → ℤ) (B : ℚ) (hB : 0 < B) : RawDistanceCertificate n := sorry
+theorem ofMatrix_check {n : ℕ} (A : Matrix (Fin n) (Fin n) ℤ) (hA : A.det ≠ 0)
+    (y : Fin n → ℤ) (B : ℚ) (hB : 0 < B) :
+    (ofMatrix A hA y B hB).check = true ∧ (ofMatrix A hA y B hB).A = A ∧
+      (ofMatrix A hA y B hB).y = y := sorry
+end RawDistanceCertificate
+
+/-- Raw real exclusion fields. Intervals are supplier outputs; their membership in the
+actual logarithms is a separate arithmetic input to soundness, never decided on ℝ. -/
+structure RawRealExclusionCertificate (k : ℕ) where
+  C : ℚ
+  W : Fin (k + 1) → ℤ
+  φ : Fin (k + 1) → ℤ
+  ψ : ℤ
+  homogeneous : Bool
+  lo : Fin (k + 1) → ℚ
+  hi : Fin (k + 1) → ℚ
+  betaLo : ℚ
+  betaHi : ℚ
+  X : Fin (k + 1) → ℚ
+  margin : ℚ
+  distance : RawDistanceCertificate (k + 1)
+
+namespace RawRealExclusionCertificate
+def check {k : ℕ} (c : RawRealExclusionCertificate k) : Bool :=
+  decide (0 < c.C ∧ (∀ i, 0 < c.W i ∧ 0 ≤ c.X i ∧ c.lo i ≤ c.hi i ∧
+      |(c.φ i : ℚ) - c.C * c.lo i| ≤ 1 ∧ |(c.φ i : ℚ) - c.C * c.hi i| ≤ 1) ∧
+    c.betaLo ≤ c.betaHi ∧ |(c.ψ : ℚ) - c.C * c.betaLo| ≤ 1 ∧
+    |(c.ψ : ℚ) - c.C * c.betaHi| ≤ 1 ∧ c.φ (Fin.last k) ≠ 0 ∧ 0 < c.margin ∧
+    (c.homogeneous = true → c.betaLo = 0 ∧ c.betaHi = 0 ∧ c.ψ = 0) ∧
+    c.distance.A = linearFormMatrix c.W c.φ ∧ c.distance.y = linearFormTarget c.ψ ∧
+    c.distance.check = true ∧
+    ∑ i : Fin k, (c.W i.castSucc * c.X i.castSucc) ^ 2 +
+      ((if c.homogeneous then 0 else 1) + ∑ i, c.X i + c.margin) ^ 2 ≤ c.distance.lower)
+theorem sound {k : ℕ} (c : RawRealExclusionCertificate k) (hc : c.check = true)
+    (θ : Fin (k + 1) → ℝ) (β : ℝ)
+    (hθ : ∀ i, (c.lo i : ℝ) ≤ θ i ∧ θ i ≤ c.hi i)
+    (hβ : (c.betaLo : ℝ) ≤ β ∧ β ≤ c.betaHi)
+    (x : Fin (k + 1) → ℤ) (hx : ∀ i, |(x i : ℚ)| ≤ c.X i) (h0 : c.ψ = 0 → x ≠ 0) :
+    (c.margin : ℝ) ≤ (c.C : ℝ) * |β + ∑ i, (x i : ℝ) * θ i| := sorry
+/-- Supplier adapter from certified CN.4 intervals and an ED.1 distance replay. Return the
+raw data only when its finite rounding and separation checks pass. -/
+def ofEnclosures {k : ℕ} (C : ℚ) (W : Fin (k + 1) → ℤ)
+    (θ : Fin (k + 1) → ℝ) (β : ℝ) (eθ : ∀ i, ED0.RealEnclosure (θ i))
+    (eβ : ED0.RealEnclosure β) (X : Fin (k + 1) → ℚ) (margin radius : ℚ) :
+    Option (RawRealExclusionCertificate k) := sorry
+theorem ofEnclosures_check {k : ℕ} (C : ℚ) (W : Fin (k + 1) → ℤ)
+    (θ : Fin (k + 1) → ℝ) (β : ℝ) (eθ : ∀ i, ED0.RealEnclosure (θ i))
+    (eβ : ED0.RealEnclosure β) (X : Fin (k + 1) → ℚ) (margin radius : ℚ)
+    (c : RawRealExclusionCertificate k)
+    (hc : ofEnclosures C W θ β eθ eβ X margin radius = some c) :
+    c.check = true ∧ (∀ i, (c.lo i : ℝ) ≤ θ i ∧ θ i ≤ c.hi i) ∧
+      (c.betaLo : ℝ) ≤ β ∧ β ≤ c.betaHi := sorry
+end RawRealExclusionCertificate
+
+-- raw_distance_one: the integer lattice has squared nonzero distance at least one.
+example : (RawDistanceCertificate.mk (n := 1) 1 0 1 1 1 1).check = true := sorry
+-- raw_distance_bad_inverse: a forged inverse is rejected.
+example : (RawDistanceCertificate.mk (n := 1) 1 0 0 1 1 1).check = false := sorry
+-- raw_distance_integral_target: no positive bound for an integral, nonzero target.
+example : (RawDistanceCertificate.mk (n := 1) 1 ![1] 1 1 1 2).check = false := sorry
+
+-- raw_real_ten: a full rational check with θ=10 and homogeneous β=0.
+example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
+    ![10] ![10] 0 0 ![1] 1
+    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = true := sorry
+-- raw_real_bad_endpoint: an endpoint with excessive rounding error is rejected.
+example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
+    ![10] ![12] 0 0 ![1] 1
+    (RawDistanceCertificate.mk ![![10]] 0 ![![1/10]] 2 4 1)).check = false := sorry
+-- raw_real_bad_distance: the enclosure check replays the inverse check too.
+example : (RawRealExclusionCertificate.mk (k := 0) 1 ![1] ![10] 0 true
+    ![10] ![10] 0 0 ![1] 1
+    (RawDistanceCertificate.mk ![![10]] 0 0 2 4 1)).check = false := sorry
+
+attribute [local instance] Classical.propDecidable
 
 /-- A real lattice exclusion certificate for `β + ∑ xᵢ θᵢ` (homogeneous when
 `homogeneous = true`, then `β = 0` and `ψ = 0`). -/
@@ -1053,7 +1177,8 @@ structure PadicExclusionCertificate (k : ℕ) (p : ℕ) [Fact p.Prime] (β₀ : 
   witness : DistanceWitness (padicLatticeMatrix m W β) (padicLatticeTarget m W β₀)
   inequality : ∑ j, (W j * X j) ^ 2 < witness.bound
 
-/-- The Boolean evaluation of the rational inequality of a real certificate. -/
+/-- Supporting evaluation on already validated data. The raw checker below is the
+finite verifier; this helper alone does not validate the real enclosure hypotheses. -/
 def RealExclusionCertificate.check {C : ℚ} {θ : Fin (k + 1) → ℝ} {β : ℝ}
     (c : RealExclusionCertificate k C θ β) : Bool := sorry
 
@@ -1119,7 +1244,7 @@ Objects of other stages are used through the Mathlib notions they denote:
 * ED.0 enclosures and embedding certificates (`TauCeti.EffectiveDiophantine.ED0`)
   are not imported; their outputs enter as rational data with stated properties;
 * ED.1 reduction certificates enter only through the inequalities they prove,
-  which appear as the step implications of `ExponentReductionChain`;
+  which appear as the step implications of `WeightedExponentReductionChain`;
 * DT.3 (Matveev, Yu) and DT.4 (Thue, S-unit, Thue–Mahler bounds) are cited in
   comments; their constants are certified here by rational inequalities.
 Validity of the certificates is a conjunction of genuine conditions (structures
@@ -1430,6 +1555,44 @@ example : IsEmpty (PadicDiscreteLogCertificate 6 1 ![1, 19]) := sorry
 example (b : Fin 2 → ℤ) :
     ((25 : ℤ) ∣ 0 + b 0 * 5 + b 1 * 0) ↔ (5 : ℤ) ∣ b 0 := sorry
 
+/-! ### Componentwise exponent boxes (ED.2/exponent-reduction-chain).
+The weighted scalar chain below is a convenience specialization, not the per-prime representation. -/
+
+def InExponentBox {q : ℕ} (a : Fin q → ℤ) (X : Fin q → ℚ) : Prop :=
+  ∀ i, |(a i : ℚ)| ≤ X i
+
+structure ExponentReductionChain {q : ℕ} (𝒮 : Set (Fin q → ℤ)) where
+  k : ℕ
+  X : Fin (k + 1) → Fin q → ℚ
+  nonnegative : ∀ j i, 0 ≤ X j i
+  antitone : ∀ i, Antitone (fun j => X j i)
+  E : Fin k → Finset (Fin q → ℤ)
+  step : ∀ j : Fin k, ∀ a ∈ 𝒮, InExponentBox a (X j.castSucc) →
+    InExponentBox a (X j.succ) ∨ a ∈ E j
+
+namespace ExponentReductionChain
+variable {q : ℕ} {𝒮 : Set (Fin q → ℤ)}
+def final (R : ExponentReductionChain 𝒮) : Fin q → ℚ := R.X (Fin.last R.k)
+theorem sound (R : ExponentReductionChain 𝒮) (a : Fin q → ℤ) (ha : a ∈ 𝒮)
+    (h0 : InExponentBox a (R.X 0)) : InExponentBox a R.final ∨ ∃ j, a ∈ R.E j := sorry
+def nil (X₀ : Fin q → ℚ) (hX₀ : ∀ i, 0 ≤ X₀ i) : ExponentReductionChain 𝒮 := sorry
+def append (R : ExponentReductionChain 𝒮) (X' : Fin q → ℚ) (E' : Finset (Fin q → ℤ))
+    (hnonneg : ∀ i, 0 ≤ X' i) (hdecrease : ∀ i, X' i ≤ R.final i)
+    (hstep : ∀ a ∈ 𝒮, InExponentBox a R.final → InExponentBox a X' ∨ a ∈ E') :
+    ExponentReductionChain 𝒮 := sorry
+end ExponentReductionChain
+
+-- box_chain_nil: no coordinate changes without steps.
+example {q : ℕ} (𝒮 : Set (Fin q → ℤ)) (X₀ : Fin q → ℚ) (hX₀ : ∀ i, 0 ≤ X₀ i) :
+    (ExponentReductionChain.nil (𝒮 := 𝒮) X₀ hX₀).final = X₀ := sorry
+-- box_chain_per_prime: lowering only the first coordinate preserves the second bound.
+example (R : ExponentReductionChain ({![(2 : ℤ), 9]} : Set (Fin 2 → ℤ)))
+    (h0 : R.X 0 = ![100, 10]) (hf : R.final = ![2, 10]) (hE : ∀ j, R.E j = ∅) :
+    InExponentBox ![(2 : ℤ), 9] R.final := sorry
+-- box_chain_missing_exception: the second coordinate cannot be silently lowered to five.
+example : ¬ ∃ R : ExponentReductionChain ({![(2 : ℤ), 9]} : Set (Fin 2 → ℤ)),
+    R.X 0 = ![100, 10] ∧ R.final = ![2, 5] ∧ ∀ j, R.E j = ∅ := sorry
+
 /-! ### ED.2/exponent-reduction-chain -/
 
 /-- Height `max |aᵢ|` of an exponent vector, as a rational. -/
@@ -1441,7 +1604,7 @@ def weightedHeight {q : ℕ} (w : Fin q → ℕ) (a : Fin q → ℤ) : ℚ :=
 
 /-- An exponent reduction chain: decreasing bounds, exceptional sets, and for every step the
 implication established by an ED.1 reduction or enumeration certificate. -/
-structure ExponentReductionChain {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin q → ℤ)) where
+structure WeightedExponentReductionChain {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin q → ℤ)) where
   k : ℕ
   X : Fin (k + 1) → ℚ
   E : Fin k → Finset (Fin q → ℤ)
@@ -1449,42 +1612,42 @@ structure ExponentReductionChain {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin 
   step : ∀ (j : Fin k), ∀ a ∈ 𝒮, weightedHeight w a ≤ X j.castSucc →
     weightedHeight w a ≤ X j.succ ∨ a ∈ E j
 
-namespace ExponentReductionChain
+namespace WeightedExponentReductionChain
 
 variable {q : ℕ} {w : Fin q → ℕ} {𝒮 : Set (Fin q → ℤ)}
 
 /-- The last bound of the chain. -/
-def final (R : ExponentReductionChain w 𝒮) : ℚ := R.X (Fin.last R.k)
+def final (R : WeightedExponentReductionChain w 𝒮) : ℚ := R.X (Fin.last R.k)
 
-theorem sound (R : ExponentReductionChain w 𝒮) (a : Fin q → ℤ) (ha : a ∈ 𝒮)
+theorem sound (R : WeightedExponentReductionChain w 𝒮) (a : Fin q → ℤ) (ha : a ∈ 𝒮)
     (h0 : weightedHeight w a ≤ R.X 0) : weightedHeight w a ≤ R.final ∨ ∃ j, a ∈ R.E j := sorry
 
 /-- The chain without steps. -/
-def nil (X₀ : ℚ) : ExponentReductionChain w 𝒮 := sorry
+def nil (X₀ : ℚ) : WeightedExponentReductionChain w 𝒮 := sorry
 
 /-- Adding one certified step. -/
-def append (R : ExponentReductionChain w 𝒮) (X' : ℚ) (E' : Finset (Fin q → ℤ))
+def append (R : WeightedExponentReductionChain w 𝒮) (X' : ℚ) (E' : Finset (Fin q → ℤ))
     (hX : X' ≤ R.final)
     (hstep : ∀ a ∈ 𝒮, weightedHeight w a ≤ R.final → weightedHeight w a ≤ X' ∨ a ∈ E') :
-    ExponentReductionChain w 𝒮 := sorry
+    WeightedExponentReductionChain w 𝒮 := sorry
 
-end ExponentReductionChain
+end WeightedExponentReductionChain
 
 -- chain_nil: the empty chain ends at its initial bound.
 example {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin q → ℤ)) (X₀ : ℚ) :
-    (ExponentReductionChain.nil (w := w) (𝒮 := 𝒮) X₀).final = X₀ := sorry
+    (WeightedExponentReductionChain.nil (w := w) (𝒮 := 𝒮) X₀).final = X₀ := sorry
 
 -- chain_two_steps: bounds 10⁴⁰ ≥ 600 ≥ 70 without exceptions give height ≤ 70.
-example {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin q → ℤ)) (R : ExponentReductionChain w 𝒮)
+example {q : ℕ} (w : Fin q → ℕ) (𝒮 : Set (Fin q → ℤ)) (R : WeightedExponentReductionChain w 𝒮)
     (h0 : R.X 0 = 10 ^ 40) (hf : R.final = 70) (hE : ∀ j, R.E j = ∅) (a : Fin q → ℤ) (ha : a ∈ 𝒮)
     (hb : weightedHeight w a ≤ 10 ^ 40) : weightedHeight w a ≤ 70 := sorry
 
 -- chain_enumeration_step: a vector of height 9 beyond the final bound 5 is an exception.
-example (R : ExponentReductionChain (fun _ => 1) ({![(9 : ℤ)]} : Set (Fin 1 → ℤ)))
+example (R : WeightedExponentReductionChain (fun _ => 1) ({![(9 : ℤ)]} : Set (Fin 1 → ℤ)))
     (h0 : 9 ≤ R.X 0) (hf : R.final = 5) : ∃ j, ![(9 : ℤ)] ∈ R.E j := sorry
 
 -- chain_missing_certificate: decreasing bounds alone do not form a chain.
-example : ¬ ∃ R : ExponentReductionChain (fun _ => 1) ({![(100 : ℤ)]} : Set (Fin 1 → ℤ)),
+example : ¬ ∃ R : WeightedExponentReductionChain (fun _ => 1) ({![(100 : ℤ)]} : Set (Fin 1 → ℤ)),
     R.X 0 = 1000 ∧ R.final = 10 ∧ ∀ j, R.E j = ∅ := sorry
 
 -- chain_unit_weights: with unit weights the weighted height is max |aᵢ|.
@@ -1545,6 +1708,7 @@ structure ThueFactorCovering (g : ℤ[X]) (m : ℤ) (K : Type*) [Field K] [Numbe
   r : ℕ
   ε : Fin r → (𝓞 K)ˣ
   M : Finset K
+  representatives_ne_zero : ∀ μ ∈ M, μ ≠ 0
   units_generate : ∀ u : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, u = ∏ i, ε i ^ a i ∨ u = -∏ i, ε i ^ a i
   covers : ∀ x y : ℤ, thueForm g x y = m → ∃ μ ∈ M, ∃ η : (𝓞 K)ˣ,
     (g.leadingCoeff : K) * (x - y * ξ) = g.leadingCoeff * μ * ((η : 𝓞 K) : K)
@@ -1560,12 +1724,18 @@ theorem exists_repr (cov : ThueFactorCovering g m K ξ) (hg : g.leadingCoeff ≠
       ((x : K) - y * ξ) = s * μ * ∏ i, (((cov.ε i : (𝓞 K)ˣ) : 𝓞 K) : K) ^ a i := sorry
 
 /-- The covering from bounded divisor representatives (DT.4/divisors-up-to-units). -/
-def ofDivisorRepresentatives (hξ : aeval ξ g = 0) (r : ℕ) (u : Fin r → (𝓞 K)ˣ)
-    (hu : ∀ v : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, v = ∏ i, u i ^ a i ∨ v = -∏ i, u i ^ a i) :
-    ThueFactorCovering g m K ξ := sorry
+def ofDivisorRepresentatives (hg : Irreducible (g.map (Int.castRingHom ℚ)))
+    (hdegree : 3 ≤ g.natDegree) (hm : m ≠ 0) (hξ : aeval ξ g = 0)
+    (hfield : Module.finrank ℚ K = g.natDegree)
+    (r : ℕ) (u : Fin r → (𝓞 K)ˣ)
+    (hu : ∀ v : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, v = ∏ i, u i ^ a i ∨ v = -∏ i, u i ^ a i)
+    (D : Finset (𝓞 K)) (hDzero : ∀ δ ∈ D, δ ≠ 0)
+    (hD : ∀ z : 𝓞 K, z ∣ (g.leadingCoeff : 𝓞 K) ^ (g.natDegree - 1) * m →
+      z ≠ 0 → ∃ δ ∈ D, Associated z δ) : ThueFactorCovering g m K ξ := sorry
 
 /-- Unit generation from CN.2's regulator certificate. -/
 def ofRegulatorBound (ε : Fin (Units.rank K) → (𝓞 K)ˣ) (M : Finset K) (hmax : Units.IsMaxRank ε)
+    (hM : ∀ μ ∈ M, μ ≠ 0)
     (hreg : Units.regOfFamily ε < 2 * Units.regulator K)
     (htors : ∀ ζ ∈ Units.torsion K, ζ = 1 ∨ ζ = -1)
     (hcov : ∀ x y : ℤ, thueForm g x y = m → ∃ μ ∈ M, ∃ η : (𝓞 K)ˣ,
@@ -1573,7 +1743,7 @@ def ofRegulatorBound (ε : Fin (Units.rank K) → (𝓞 K)ˣ) (M : Finset K) (hm
     ThueFactorCovering g m K ξ := sorry
 
 /-- Enlarging the list of representatives. -/
-def mono (cov : ThueFactorCovering g m K ξ) (M' : Finset K) (h : cov.M ⊆ M') :
+def mono (cov : ThueFactorCovering g m K ξ) (M' : Finset K) (h : cov.M ⊆ M') (hM' : ∀ μ ∈ M', μ ≠ 0) :
     ThueFactorCovering g m K ξ := sorry
 
 end ThueFactorCovering
@@ -1583,6 +1753,11 @@ open NumberField in
 example (K : Type*) [Field K] [NumberField K] (ξ : K) (hξ : ξ ^ 3 = 2)
     (hdeg : Module.finrank ℚ K = 3) :
     ∃ cov : ThueFactorCovering (X ^ 3 - C 2) 1 K ξ, cov.M = {1} := sorry
+
+open NumberField in
+-- covering_zero_representative: a zero representative is rejected even if redundant.
+example {g : ℤ[X]} {m : ℤ} {K : Type*} [Field K] [NumberField K] {ξ : K}
+    (cov : ThueFactorCovering g m K ξ) : (0 : K) ∉ cov.M := sorry
 
 open NumberField in
 -- covering_missing_rep: for m = 2 the list {1} misses the solution (0, −1).
@@ -1599,7 +1774,8 @@ example (K : Type*) [Field K] [NumberField K] (ξ : K) (hξ : ξ ^ 3 = 2)
 open NumberField in
 -- covering_degenerate: for a monic g and m = 1 the list {1} covers once units generate.
 example (g : ℤ[X]) (hg : g.Monic) (K : Type*) [Field K] [NumberField K] (ξ : K)
-    (hξ : aeval ξ g = 0) (r : ℕ) (ε : Fin r → (𝓞 K)ˣ)
+    (hξ : aeval ξ g = 0) (hfield : Module.finrank ℚ K = g.natDegree)
+    (r : ℕ) (ε : Fin r → (𝓞 K)ˣ)
     (hU : ∀ u : (𝓞 K)ˣ, ∃ a : Fin r → ℤ, u = ∏ i, ε i ^ a i ∨ u = -∏ i, ε i ^ a i) :
     ∃ cov : ThueFactorCovering g 1 K ξ, cov.M = {1} ∨ cov.M = {1, -1} := sorry
 
@@ -1607,6 +1783,7 @@ open NumberField in
 -- covering_compat_fundSystem: (U) for fundSystem is Mathlib's Dirichlet unit theorem.
 example (g : ℤ[X]) (m : ℤ) (K : Type*) [Field K] [NumberField K] (ξ : K)
     (htors : ∀ ζ ∈ Units.torsion K, ζ = 1 ∨ ζ = -1) (M : Finset K)
+    (hM : ∀ μ ∈ M, μ ≠ 0)
     (hcov : ∀ x y : ℤ, thueForm g x y = m → ∃ μ ∈ M, ∃ η : (𝓞 K)ˣ,
       (g.leadingCoeff : K) * (x - y * ξ) = g.leadingCoeff * μ * ((η : 𝓞 K) : K)) :
     ∃ cov : ThueFactorCovering g m K ξ, cov.r = Units.rank K ∧ cov.M = M ∧
@@ -1830,7 +2007,7 @@ structure ThueReductionCase {g : ℤ[X]} {m : ℤ} {K : Type*} [Field K] [Number
   logC₆ : ℚ
   log2b : ℚ
   K₃ : ℚ
-  chain : ExponentReductionChain (fun _ => 1) (thueExponentSet cov T.Y₂ μ σ)
+  chain : WeightedExponentReductionChain (fun _ => 1) (thueExponentSet cov T.Y₂ μ σ)
 
 namespace ThueReductionCase
 
@@ -1949,17 +2126,14 @@ theorem solutions_eq (c : ThueCertificate E K ξ) (hc : c.Valid) (hξ : aeval ξ
 
 end ThueCertificate
 
--- thueCert_soundness_only: a valid certificate for x³ − 2y³ = 1 lists (1, 0) and (−1, −1).
+-- thueCert_contains_known_solutions (supporting conditional soundness): a valid certificate for x³ − 2y³ = 1 lists (1, 0) and (−1, −1).
 example (E : ThueEquation) (hE : E.g = X ^ 3 - C 2) (hm : E.m = 1) (K : Type*) [Field K]
-    [NumberField K] (ξ : K) (c : ThueCertificate E K ξ) (hc : c.Valid) :
+    [NumberField K] (ξ : K) (hξ : aeval ξ E.g = 0) (hK : Module.finrank ℚ K = E.g.natDegree)
+    (c : ThueCertificate E K ξ) (hc : c.Valid) :
     ((1 : ℤ), (0 : ℤ)) ∈ c.solutions ∧ ((-1 : ℤ), (-1 : ℤ)) ∈ c.solutions :=
   sorry
 
--- thueCert_totally_complex: for X⁴ + X + 1 (s = 0) a valid certificate without reduction data
--- lists exactly the small solutions up to Ŷ₀.
-example (E : ThueEquation) (hE : E.g = X ^ 4 + X + 1) (hm : E.m = 1) (K : Type*) [Field K]
-    [NumberField K] (ξ : K) : ∃ c : ThueCertificate E K ξ, c.Valid ∧ c.reduction = none ∧
-      c.solutions = thueSmallSolutions E.g E.m c.constants.Y₀ := sorry
+-- thueCert_totally_complex: OMITTED (§13), pending replayable raw certificate data.
 
 -- thueCert_bad_box: validity requires the root approximations, whatever the list.
 example (E : ThueEquation) (K : Type*) [Field K] [NumberField K] (ξ : K)
@@ -2024,6 +2198,11 @@ example (g : ℤ[X]) (c x y : ℤ) : (x, y, (Fin.elim0 : Fin 0 → ℕ)) ∈ thu
     (Fin.elim0 : Fin 0 → ℕ) ↔ IsCoprime x y ∧ IsCoprime y g.leadingCoeff ∧
       (x, y) ∈ thueSolutions g c := sorry
 
+-- thueMahler_nonprimitive_zero_primes: (2,0) solves F=8, but is excluded by normalization.
+example : ((2 : ℤ), (0 : ℤ)) ∈ thueSolutions (X ^ 3 - C 2) 8 ∧
+    ((2 : ℤ), (0 : ℤ), (Fin.elim0 : Fin 0 → ℕ)) ∉
+      thueMahlerSolutions (X ^ 3 - C 2) 8 (Fin.elim0 : Fin 0 → ℕ) := sorry
+
 -- thueMahler_sign: c = −1 is a separate instance containing (1, 1, 0).
 example : ((1 : ℤ), (1 : ℤ), ![0]) ∈ thueMahlerSolutions (X ^ 3 - C 2) (-1) ![5] := sorry
 
@@ -2079,7 +2258,7 @@ theorem exists_repr (cov : ThueMahlerCovering E K θ) (s : ℤ × ℤ × (Fin E.
         ∀ i, s.2.2 i = n i * cs.h i + cs.s i + cs.t i := sorry
 
 /-- The covering from ideal factorisations, principal generators and a unit certificate. -/
-def ofIdealFactorization (hθ : aeval θ (integralNormalization E.g) = 0) (r : ℕ)
+def semanticCoveringOfUnits (hθ : aeval θ (integralNormalization E.g) = 0) (r : ℕ)
     (ε : Fin r → (𝓞 K)ˣ)
     (hU : ∀ u : (𝓞 K)ˣ, ∃ ζ ∈ Units.torsion K, ∃ a : Fin r → ℤ, u = ζ * ∏ i, ε i ^ a i) :
     ThueMahlerCovering E K θ := sorry
@@ -2101,11 +2280,16 @@ example (E : ThueMahlerEquation) (hE : E.g = X ^ 3 - 23 * X ^ 2 + 5 * X + 24)
     ∃ cov : ThueMahlerCovering E K θ, cov.cases.length = 5 := sorry
 
 open NumberField in
--- tmCovering_no_degree_one: with π_i = 1 the exponent z_i is bounded by the t′_i.
+-- tmCovering_no_degree_one: normalize the dummy exponent to zero when πᵢ=1,hᵢ=0.
 example (E : ThueMahlerEquation) (K : Type*) [Field K] [NumberField K] (θ : K)
     (cov : ThueMahlerCovering E K θ) (i : Fin E.v) (hπ : ∀ cs ∈ cov.cases, cs.π i = 1)
+    (hh : ∀ cs ∈ cov.cases, cs.h i = 0)
     (s : ℤ × ℤ × (Fin E.v → ℕ)) (hs : s ∈ thueMahlerSolutions E.g E.c E.p) :
-    ∃ cs ∈ cov.cases, ∃ n : ℕ, s.2.2 i = n * cs.h i + cs.s i + cs.t i := sorry
+    ∃ cs ∈ cov.cases, ∃ a : Fin cov.r → ℤ, ∃ n : Fin E.v → ℕ, ∃ σ : K,
+      n i = 0 ∧ (σ = 1 ∨ σ = -1) ∧
+      ((E.g.leadingCoeff * s.1 : ℤ) : K) - (s.2.1 : K) * θ =
+        σ * cs.α * (∏ j, (((cov.ε j : (𝓞 K)ˣ) : 𝓞 K) : K) ^ a j) * ∏ j, cs.π j ^ n j ∧
+      ∀ j, s.2.2 j = n j * cs.h j + cs.s j + cs.t j := sorry
 
 open NumberField in
 -- tmCovering_missing_case: dropping a needed case breaks the covering.
@@ -2178,7 +2362,7 @@ structure ThueMahlerCertificate (E : ThueMahlerEquation) (K : Type*) [Field K] [
   w : Fin (E.v + covering.r) → ℕ
   K₀ : ℚ
   chain : ∀ j : Fin covering.cases.length,
-    ExponentReductionChain w (thueMahlerExponentSet covering (covering.cases.get j))
+    WeightedExponentReductionChain w (thueMahlerExponentSet covering (covering.cases.get j))
   residualBox : Fin covering.cases.length → (Fin E.v → ℕ) × ℕ
   solutions : Finset (ℤ × ℤ × (Fin E.v → ℕ))
 
@@ -2229,7 +2413,7 @@ theorem solutions_eq (c : ThueMahlerCertificate E K θ) (hc : c.Valid)
 
 end ThueMahlerCertificate
 
--- tmCert_listed_solution: a valid certificate for x³ − 2y³ = 5^z lists (3, 1, 2).
+-- tmCert_contains_known_solution (supporting conditional soundness): a valid certificate for x³ − 2y³ = 5^z lists (3, 1, 2).
 example (E : ThueMahlerEquation) (hE : E.g = X ^ 3 - C 2) (hc : E.c = 1) (hv : E.v = 1)
     (hp : ∀ i, E.p i = 5) (K : Type*) [Field K] [NumberField K] (θ : K)
     (hθ : aeval θ (integralNormalization E.g) = 0) (hK : Module.finrank ℚ K = E.g.natDegree)
@@ -2334,7 +2518,7 @@ structure SUnitCertificate (S : Finset ℕ) where
   yu : 2 ≤ S.card → ∀ p ∈ S, YuConstantCertificate S.card 1 p
   X₀ : ℚ
   w : Fin S.card → ℕ
-  chain : ExponentReductionChain w (sUnitExponentSet S)
+  chain : ExponentReductionChain (sUnitExponentSet S)
   finalBound : ℕ → ℕ
   exceptional : Finset (ℚ × ℚ)
   solutions : Finset (ℚ × ℚ)
@@ -2357,8 +2541,8 @@ structure Valid (c : SUnitCertificate S) : Prop where
       Real.log (2 * (11 / 10 * ((c.yu h p hp).Φ : ℝ) * Real.log p) / Real.log 2)) ≤ c.X₀
   one_le_X₀ : 1 ≤ c.X₀
   one_le_w : ∀ i, 1 ≤ c.w i
-  chain_start : c.X₀ ≤ c.chain.X 0
-  finalBound_ge : ∀ i, c.chain.final * c.w i ≤ c.finalBound (sUnitPrime S i)
+  chain_start : ∀ i, c.X₀ ≤ c.chain.X 0 i
+  finalBound_ge : ∀ i, c.chain.final i ≤ c.finalBound (sUnitPrime S i)
   solutions_pass : ∀ p ∈ c.solutions, p ∈ sUnitSolutions S
   box_subset : ∀ e : Fin S.card → ℤ, (∀ i, e i ∈ Finset.Icc (-(c.finalBound (sUnitPrime S i) : ℤ))
       (c.finalBound (sUnitPrime S i))) → ∀ s ∈ ({1, -1} : Finset ℚ),
@@ -2536,6 +2720,21 @@ theorem localCondition_eq_unramified_of_good (μ : Multiplicative A →* M)
     μ.range = U := by
   sorry
 
+/-! Genuine elliptic carrier adapter. The coordinate isomorphism is a finite-local-factor
+supplier input, not a substitute for μ. Its construction from valuations/residue units is
+the exact omitted factory recorded in the packet. -/
+section EllipticLocalImage
+variable (p : ℕ) [Fact p.Prime] (W : WeierstrassCurve.Affine ℚ_[p])
+    [DecidableEq ℚ_[p]] [W.IsElliptic] [W.IsCharNeTwoNF]
+def ellipticLocalImage {n : ℕ}
+    (coord : W.M ≃* Multiplicative (Fin n → ZMod 2))
+    (points : List W.Point) : CertifiedLocalImage W.μ n := sorry
+theorem ellipticLocalImage_span {n : ℕ}
+    (coord : W.M ≃* Multiplicative (Fin n → ZMod 2)) (points : List W.Point) :
+    (ellipticLocalImage p W coord points).span =
+      Subgroup.closure (W.μ '' (Multiplicative.ofAdd '' (points.toFinset : Set W.Point))) := sorry
+end EllipticLocalImage
+
 end LocalImage
 
 /-! ### ED.3/two-selmer-certificate
@@ -2606,14 +2805,15 @@ theorem selmer_eq_selmerGroup₂ (C : TwoSelmerCertificate μ N μv res)
     C.selmer = sel := by
   sorry
 
-theorem selmer_mono (C D : TwoSelmerCertificate μ N μv res) (hAS : C.AS = D.AS)
+theorem selmer_mono (C D : TwoSelmerCertificate μ N μv res) (hAS : C.AS ≤ D.AS)
     (hpl : C.places ⊆ D.places) (hgood : ∀ m ∈ C.selmer, ∀ v ∈ D.places, res v m ∈ (D.loc v).span) :
-    C.selmer = D.selmer := by
+    C.selmer ≤ D.selmer := by
   sorry
 
 end TwoSelmerCertificate
 
--- twoSelmer_x3_minus_x: for y² = x³ − x the certified Selmer group has order 4 = #E(ℚ)[2].
+-- twoSelmer_basis_length_two: abstract cardinality from a supplied two-element basis.
+-- The actual twoSelmer_x3_minus_x factory test is omitted in the register below.
 example (μ : Multiplicative A →* M) (N : M →* Q) (μv : ∀ v, Multiplicative (Av v) →* Mv v)
     (res : ∀ v, M →* Mv v) (C : TwoSelmerCertificate μ N μv res) (h : C.basis.length = 2) :
     Nat.card C.selmer = 4 := by
@@ -2808,22 +3008,20 @@ section Heights
 
 variable {K : Type*} [Field K] [NumberField K]
 
-/-- Silverman's `μ(E) = h(Δ)/12 + h_∞(j)/12 + h_∞(b₂/12)/2 + (log 2*)/2` (absolute heights). -/
-def silvermanMu (W : WeierstrassCurve K) : ℝ := sorry
+-- General-number-field Silverman μ and comparison: omitted pending independent source access.
 
-/-- ED.3/explicit-height-difference-bound, in Tau Ceti's normalisation: `ĥ` is the limit of
-`naiveHeight (2ⁿ • P) / (2 · 4ⁿ)` and `naiveHeight P = Height.logHeight P.xRep` (relative to `K`). -/
-theorem canonicalHeight_sub_half_naiveHeight_mem (W : WeierstrassCurve K) [W.IsElliptic]
+/-- Accessible rational bound: half of Cremona III, Proposition 3.5.1, p.77.
+The general-number-field Silverman statement is omitted pending independent source access. -/
+def cremonaMu (W : WeierstrassCurve ℚ) : ℝ :=
+  ((Real.log |(W.Δ : ℝ)| + Real.log (max 1 |(W.j : ℝ)|)) / 6 +
+    Real.log (max 1 |((W.b₂ : ℝ) / 12)|) + Real.log (if W.b₂ = 0 then 1 else 2)) / 2
+
+theorem canonicalHeight_sub_half_naiveHeight_mem (W : WeierstrassCurve ℚ) [W.IsElliptic]
     (h₁ : IsIntegral ℤ W.a₁) (h₂ : IsIntegral ℤ W.a₂) (h₃ : IsIntegral ℤ W.a₃)
-    (h₄ : IsIntegral ℤ W.a₄) (h₆ : IsIntegral ℤ W.a₆)
-    (ĥ : W.toAffine.Point → ℝ)
-    (hĥ : ∀ P, Tendsto (fun n : ℕ ↦ Height.logHeight ((2 ^ n) • P).xRep / (2 * 4 ^ n)) atTop
-      (𝓝 (ĥ P)))
-    (P : W.toAffine.Point) :
-    -(Module.finrank ℚ K : ℝ) * (NumberField.absLogHeight₁ W.j / 24 + silvermanMu W + 0.973) ≤
-        ĥ P - Height.logHeight P.xRep / 2 ∧
-      ĥ P - Height.logHeight P.xRep / 2 ≤ (Module.finrank ℚ K : ℝ) * (silvermanMu W + 1.07) := by
-  sorry
+    (h₄ : IsIntegral ℤ W.a₄) (h₆ : IsIntegral ℤ W.a₆) (P : W.toAffine.Point) :
+    -(NumberField.absLogHeight₁ W.j / 24 + cremonaMu W + 961 / 1000) ≤
+      P.canonicalHeight - P.naiveHeight / 2 ∧
+    P.canonicalHeight - P.naiveHeight / 2 ≤ cremonaMu W + 107 / 100 := sorry
 
 variable (W : WeierstrassCurve ℚ) [W.IsElliptic]
 
@@ -2833,10 +3031,7 @@ def canonicalHeightEnclosure (P : W.toAffine.Point) (n : ℕ) : ℚ × ℚ := so
 /-- The enclosure of `⟨P, Q⟩ = (ĥ(P + Q) − ĥ P − ĥ Q)/2` from three height enclosures. -/
 def pairingEnclosure (P Q : W.toAffine.Point) (n : ℕ) : ℚ × ℚ := sorry
 
-variable (ĥ : W.toAffine.Point → ℝ)
-  (hĥ : ∀ P, Tendsto (fun n : ℕ ↦ Height.logHeight ((2 ^ n) • P).xRep / (2 * 4 ^ n)) atTop
-    (𝓝 (ĥ P)))
-include hĥ
+local notation "ĥ" => WeierstrassCurve.Affine.Point.canonicalHeight (W := W.toAffine)
 
 theorem canonicalHeight_mem_canonicalHeightEnclosure (h₁ : IsIntegral ℤ W.a₁)
     (h₂ : IsIntegral ℤ W.a₂) (h₃ : IsIntegral ℤ W.a₃) (h₄ : IsIntegral ℤ W.a₄)
@@ -2856,11 +3051,9 @@ theorem neronTatePairing_mem_pairingEnclosure (h₁ : IsIntegral ℤ W.a₁)
       (ĥ (P + Q) - ĥ P - ĥ Q) / 2 ≤ (pairingEnclosure W P Q n).2 := by
   sorry
 
-omit hĥ in
 theorem canonicalHeightEnclosure_zero (n : ℕ) : canonicalHeightEnclosure W 0 n = (0, 0) := by
   sorry
 
-omit hĥ in
 theorem canonicalHeightEnclosure_neg (P : W.toAffine.Point) (n : ℕ) :
     canonicalHeightEnclosure W (-P) n = canonicalHeightEnclosure W P n := by
   sorry
@@ -2874,8 +3067,8 @@ theorem linearIndependent_of_det_enclosure_pos {r : ℕ} (P : Fin r → W.toAffi
     (δ : ℚ) (hδ : 0 < δ)
     (hdet : ∀ G : Matrix (Fin r) (Fin r) ℝ, (∀ i j, ((I i j).1 : ℝ) ≤ G i j ∧ G i j ≤ (I i j).2) →
       (δ : ℝ) ≤ G.det) :
-    LinearIndependent ℤ (fun i ↦ (QuotientAddGroup.mk (P i) :
-        W.toAffine.Point ⧸ AddCommGroup.torsion W.toAffine.Point)) ∧
+    LinearIndependent ℤ (fun i ↦ (Submodule.Quotient.mk (P i) :
+        WeierstrassCurve.Affine.PointModTorsion W.toAffine)) ∧
       (δ : ℝ) ≤ (Matrix.of fun i j ↦ (ĥ (P i + P j) - ĥ (P i) - ĥ (P j)) / 2).det := by
   sorry
 
@@ -2887,7 +3080,6 @@ theorem le_canonicalHeight_of_search (B c lam : ℝ) (L : Finset W.toAffine.Poin
     ∀ Q : W.toAffine.Point, ¬ IsOfFinAddOrder Q → lam ≤ ĥ Q := by
   sorry
 
-omit hĥ in
 /-- The Hermite property of a constant `γ` in dimension `r`. -/
 theorem minkowski_hermite_bound (r : ℕ) (hr : 0 < r) (G : Matrix (Fin r) (Fin r) ℝ)
     (hG : G.PosDef) :
@@ -2903,8 +3095,8 @@ theorem saturationIndex_le {r : ℕ} (hr : 0 < r) (P : Fin r → W.toAffine.Poin
     (hlow : ∀ Q : W.toAffine.Point, ¬ IsOfFinAddOrder Q → lam ≤ ĥ Q)
     (hγ : ∀ G : Matrix (Fin r) (Fin r) ℝ, G.PosDef → ∃ x : Fin r → ℤ, x ≠ 0 ∧
       dotProduct (fun i ↦ (x i : ℝ)) (G.mulVec fun i ↦ (x i : ℝ)) ≤ γ * G.det ^ ((1 : ℝ) / r))
-    (hind : LinearIndependent ℤ (fun i ↦ (QuotientAddGroup.mk (P i) :
-        W.toAffine.Point ⧸ AddCommGroup.torsion W.toAffine.Point))) :
+    (hind : LinearIndependent ℤ (fun i ↦ (Submodule.Quotient.mk (P i) :
+        WeierstrassCurve.Affine.PointModTorsion W.toAffine))) :
     let L : AddSubgroup W.toAffine.Point :=
       AddSubgroup.closure (Set.range P) ⊔ AddCommGroup.torsion W.toAffine.Point
     (L.relIndex (saturation L) : ℝ) ≤
@@ -2920,9 +3112,7 @@ def curveX3Plus1 : WeierstrassCurve ℚ := ⟨0, 0, 0, 0, 1⟩
 section HeightTests
 
 variable [curveX3Plus1.IsElliptic]
-  (ĥ : curveX3Plus1.toAffine.Point → ℝ)
-  (hĥ : ∀ P, Tendsto (fun n : ℕ ↦ Height.logHeight ((2 ^ n) • P).xRep / (2 * 4 ^ n)) atTop
-    (𝓝 (ĥ P)))
+local notation "ĥ" => WeierstrassCurve.Affine.Point.canonicalHeight (W := curveX3Plus1.toAffine)
 
 -- enclosure_torsion: for the point (−1, 0) of order 2 the enclosure is [0, 0] for n ≥ 1.
 example (h : curveX3Plus1.toAffine.Nonsingular (-1) 0) (n : ℕ) (hn : 1 ≤ n) :
@@ -2935,16 +3125,14 @@ example (n : ℕ) : canonicalHeightEnclosure curveX3Plus1 0 n = (0, 0) :=
 
 -- enclosure_contains_tauceti: the enclosure contains Tau Ceti's normalisation `ĥ`, the limit of
 -- `naiveHeight (2ⁿ • P) / (2 · 4ⁿ)`.
-include hĥ in
 example (P : curveX3Plus1.toAffine.Point) (n : ℕ) :
     ((canonicalHeightEnclosure curveX3Plus1 P n).1 : ℝ) ≤ ĥ P ∧
       ĥ P ≤ (canonicalHeightEnclosure curveX3Plus1 P n).2 :=
-  canonicalHeight_mem_canonicalHeightEnclosure curveX3Plus1 ĥ hĥ isIntegral_zero isIntegral_zero
+  canonicalHeight_mem_canonicalHeightEnclosure curveX3Plus1 isIntegral_zero isIntegral_zero
     isIntegral_zero isIntegral_zero isIntegral_one P n
 
 -- enclosure_not_naive: (2, 3) is torsion, so ĥ = 0 while naiveHeight/2 = (log 2)/2 > 0; the
 -- n = 0 enclosure contains 0.
-include hĥ in
 example (h : curveX3Plus1.toAffine.Nonsingular 2 3) :
     ((canonicalHeightEnclosure curveX3Plus1 (.some 2 3 h) 0).1 : ℝ) ≤ 0 ∧
       (0 : ℝ) ≤ (canonicalHeightEnclosure curveX3Plus1 (.some 2 3 h) 0).2 ∧
@@ -3030,6 +3218,28 @@ theorem torsion_eq_of_reduction_bounds {ι : Type*} (q : ι → ℕ) (hq : ∀ i
       (Nat.card (B i)).factorization ℓ ≤ (Nat.card T₀).factorization ℓ) :
     T₀ = AddCommGroup.torsion A := by
   sorry
+
+/-! Bounded-height coordinate enumeration, including every torsion fibre.
+RP.1 owns the Jacobian free quotient and Néron–Tate form; ED consumes its coordinates. -/
+section HeightCoordinates
+variable {A T : Type*} [AddCommGroup A] [AddCommGroup T] [Fintype T] {r : ℕ}
+def heightCoordinatePoints (e : A ≃+ (Fin r → ℤ) × T) (D : ℕ) : Finset A :=
+  (Fintype.piFinset (fun _ : Fin r => Finset.Icc (-(D : ℤ)) D) ×ˢ Finset.univ).map
+    e.symm.toEquiv.toEmbedding
+theorem mem_heightCoordinatePoints (e : A ≃+ (Fin r → ℤ) × T) (D : ℕ) (P : A) :
+    P ∈ heightCoordinatePoints e D ↔ ∀ i, |(e P).1 i| ≤ D := sorry
+theorem heightCoordinatePoints_complete (e : A ≃+ (Fin r → ℤ) × T)
+    (height : A → ℝ) (lam B : ℝ) (hlam : 0 < lam) (D : ℕ)
+    (hform : ∀ P, lam * ∑ i, ((e P).1 i : ℝ) ^ 2 ≤ height P)
+    (hD : B < lam * ((D : ℝ) + 1) ^ 2) (P : A) (hP : height P ≤ B) :
+    P ∈ heightCoordinatePoints e D := sorry
+-- heightCoordinates_rank_zero: all points are the finite torsion fibre.
+example (e : A ≃+ (Fin 0 → ℤ) × T) (P : A) : P ∈ heightCoordinatePoints e 0 := sorry
+-- heightCoordinates_torsion_fibres: both torsion representatives are included.
+example : (heightCoordinatePoints (AddEquiv.refl ((Fin 1 → ℤ) × ZMod 2)) 0).card = 2 := sorry
+-- heightCoordinates_kernel_nonexample: the zero form on ℤ has infinite bounded set.
+example : ¬ Set.Finite {x : ℤ | (0 : ℝ) ≤ 1} := sorry
+end HeightCoordinates
 
 /-! ### ED.3/finite-index-subgroup-certificate -/
 
@@ -3217,7 +3427,7 @@ instance fact_prime_seven : Fact (Nat.Prime 7) := ⟨by norm_num⟩
 
 /-- A good-reduction Chabauty datum at `p`: the reduction map on ℚ_p-points of the curve,
 local parameters on residue discs, the Abel–Jacobi map and the reduction of the Jacobian. -/
-structure GoodReductionChabautyDatum (p : ℕ) [Fact p.Prime] (X Xt J Jt : Type)
+structure ReductionDiscData (p : ℕ) [Fact p.Prime] (X Xt J Jt : Type)
     [AddCommGroup J] [AddCommGroup Jt] where
   /-- reduction X(ℚ_p) = 𝒳(ℤ_p) → X̃(𝔽_p) -/
   red : X → Xt
@@ -3234,15 +3444,15 @@ structure GoodReductionChabautyDatum (p : ℕ) [Fact p.Prime] (X Xt J Jt : Type)
   abelJacobiT : Xt → Jt
   redJ_abelJacobi : ∀ P, redJ (abelJacobi P) = abelJacobiT (red P)
 
-namespace GoodReductionChabautyDatum
+namespace ReductionDiscData
 
 variable {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCommGroup J] [AddCommGroup Jt]
-variable (D : GoodReductionChabautyDatum p X Xt J Jt)
+variable (D : ReductionDiscData p X Xt J Jt)
 
 theorem red_surjective : Function.Surjective D.red := sorry
 
 /-- The residue disc `D(x̃) = red⁻¹(x̃)`. -/
-def residueDisc (D : GoodReductionChabautyDatum p X Xt J Jt) (xt : Xt) : Set X := sorry
+def residueDisc (D : ReductionDiscData p X Xt J Jt) (xt : Xt) : Set X := sorry
 
 theorem mem_residueDisc (xt : Xt) (P : X) : P ∈ D.residueDisc xt ↔ D.red P = xt := sorry
 
@@ -3252,39 +3462,33 @@ theorem localParam_bijOn (xt : Xt) :
 theorem redJ_comp_abelJacobi (P Q : X) (h : D.red P = D.red Q) :
     D.redJ (D.abelJacobi P - D.abelJacobi Q) = 0 := sorry
 
-/-- The good-reduction pair `(𝒳, Ō)` of ColemanIntegration, recorded by the reduction of
-the section and the ℚ_p-points of its residue disc. -/
-def toGoodReductionPair (D : GoodReductionChabautyDatum p X Xt J Jt) (O : X) : Xt × Set X :=
+/-- Supporting reduction data only. The geometric Coleman supplier adapter is omitted. -/
+def baseResidueDisc (D : ReductionDiscData p X Xt J Jt) (O : X) : Xt × Set X :=
   sorry
 
-end GoodReductionChabautyDatum
+end ReductionDiscData
 
 section DatumTests
 variable {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCommGroup J] [AddCommGroup Jt]
 
 -- datum_C05_three: for C₀(5) at p = 3, X̃(𝔽_3) consists of the two points at infinity and the
 -- affine points of y² = x⁶ + 8x⁵ + 22x⁴ + 22x³ + 5x² + 6x + 1 over 𝔽_3: four residue discs.
-example (D : GoodReductionChabautyDatum 3 X Xt J Jt)
+example (D : ReductionDiscData 3 X Xt J Jt)
     (hXt : Xt ≃ Fin 2 ⊕ {q : ZMod 3 × ZMod 3 // q.2 ^ 2 =
       q.1 ^ 6 + 8 * q.1 ^ 5 + 22 * q.1 ^ 4 + 22 * q.1 ^ 3 + 5 * q.1 ^ 2 + 6 * q.1 + 1}) :
     (Set.range D.residueDisc).ncard = 4 := sorry
 
 -- datum_MP_example_one: y² = x(x−1)(x−2)(x−5)(x−6) at p = 7: X̃(𝔽_7) is the point at infinity
 -- and the affine points over 𝔽_7, eight residue discs.
-example (D : GoodReductionChabautyDatum 7 X Xt J Jt)
+example (D : ReductionDiscData 7 X Xt J Jt)
     (hXt : Xt ≃ Option {q : ZMod 7 × ZMod 7 //
       q.2 ^ 2 = q.1 * (q.1 - 1) * (q.1 - 2) * (q.1 - 5) * (q.1 - 6)}) :
     (Set.range D.residueDisc).ncard = 8 := sorry
 
--- datum_projectiveLine: for ℙ¹ over ℤ_p (points `Option ℤ_[p]`, `none = ∞`) with J = 0 there are
--- p + 1 residue discs, the disc of a is {x ≡ a mod p}, parametrised by x − a.
-example (D : GoodReductionChabautyDatum p (Option ℤ_[p]) (Option (ZMod p)) Unit Unit)
-    (hred : D.red = Option.map (PadicInt.toZMod (p := p))) (a : ℤ_[p]) :
-    (Set.range D.residueDisc).ncard = p + 1 ∧
-    D.residueDisc (some (PadicInt.toZMod a)) =
-      some '' {x : ℤ_[p] | ‖((x - a : ℤ_[p]) : ℚ_[p])‖ < 1} ∧
-    Set.BijOn (fun P : Option ℤ_[p] => P.elim 0 (fun x => ((x - a : ℤ_[p]) : ℚ_[p])))
-      (D.residueDisc (some (PadicInt.toZMod a))) {t : ℚ_[p] | ‖t‖ < 1} := sorry
+-- datum_elliptic_three: the smooth genus-one curve y² = x³ - x over F₃
+-- has its three affine points and the point at infinity. This checks the special fibre;
+-- construction of the geometric datum and all four analytic disc charts is omitted.
+example : Nat.card (Option {q : ZMod 3 × ZMod 3 // q.2 ^ 2 = q.1 ^ 3 - q.1}) = 4 := sorry
 
 -- datum_not_smooth_at_five: the reduction of x(x−1)(x−2)(x−5)(x−6) mod 5 is x²(x−1)²(x−2): not
 -- squarefree, with the singular points (0, 0) and (1, 0) of y² = f̃(x). (The abstract datum
@@ -3300,11 +3504,13 @@ example : ¬ Squarefree (Polynomial.map (Int.castRingHom (ZMod 5))
         (Polynomial.X - 1) * (Polynomial.X - 2) * (Polynomial.X - 5) * (Polynomial.X - 6) :
           Polynomial ℤ))).eval x₀ = 0 := sorry
 
--- datum_residueDisc_eq_tube: D(x̃) is the set of ℚ_p-points of the residue disc ]x̃[ of the
+-- datum_param_fibre: supporting parametrisation identity only, not a Coleman tube identification.
+-- Former stronger test datum_residueDisc_eq_tube is omitted under §13.
+-- D(x̃) is the set of ℚ_p-points of the residue disc ]x̃[ of the
 -- good-reduction pair (𝒳, Ō), i.e. the image of the open unit disc under the inverse of the
 -- disc parametrisation `t_x̃`; the pair's residue disc of `Ō` is D(red O).
-example [Nonempty X] (D : GoodReductionChabautyDatum p X Xt J Jt) (O : X) (xt : Xt) :
-    (D.toGoodReductionPair O).2 = D.residueDisc (D.red O) ∧
+example [Nonempty X] (D : ReductionDiscData p X Xt J Jt) (O : X) (xt : Xt) :
+    (D.baseResidueDisc O).2 = D.residueDisc (D.red O) ∧
     D.residueDisc xt =
       Function.invFunOn (D.param xt) (D.residueDisc xt) '' {t : ℚ_[p] | ‖t‖ < 1} := sorry
 
@@ -3399,9 +3605,9 @@ variable {X J T Ω : Type*} [AddCommGroup J] [AddCommGroup T] [Module K T]
 def abelianIntegral (D : FormalLogDatum K J T) (e : Ω ≃ₗ[K] Module.Dual K T) (d : J) (ω : Ω) :
     K := sorry
 
-/-- `ι_O^*` is bijective and does not depend on `O`: recorded as the equality of the
-identifications attached to two base points. -/
-theorem abelJacobi_pullback_bijective (e e' : Ω ≃ₗ[K] Module.Dual K T)
+/-- Supporting extensionality of supplied linear identifications. The actual pullback
+isomorphism and its geometric base-point independence are omitted under §13. -/
+theorem pullback_basepoint_independent (e e' : Ω ≃ₗ[K] Module.Dual K T)
     (h : ∀ ω, e ω = e' ω) : e = e' := sorry
 
 theorem abelianIntegral_add (D : FormalLogDatum K J T) (e : Ω ≃ₗ[K] Module.Dual K T)
@@ -3441,7 +3647,7 @@ theorem abelianIntegral_baseChange {J' T' Ω' : Type*} [AddCommGroup J'] [AddCom
 -- integrals from (0, 1) to (−3, 1) are ≡ 2·3 + 3⁴ and ≡ 2·3² + 2·3³ (mod 3⁵).
 example {X Xt J Jt T Ω : Type} [AddCommGroup J] [AddCommGroup Jt] [AddCommGroup T]
     [Module ℚ_[3] T] [AddCommGroup Ω] [Module ℚ_[3] Ω]
-    (D : GoodReductionChabautyDatum 3 X Xt J Jt) (L : FormalLogDatum ℚ_[3] J T)
+    (D : ReductionDiscData 3 X Xt J Jt) (L : FormalLogDatum ℚ_[3] J T)
     (e : Ω ≃ₗ[ℚ_[3]] Module.Dual ℚ_[3] T) (ω₀ ω₁ : Ω) (xt : Xt) (P₀ P₁ : X)
     (_h₀ : D.red P₀ = xt) (_h₁ : D.red P₁ = xt) (ht₀ : D.param xt P₀ = 0)
     (ht₁ : D.param xt P₁ = -3) (w : PowerSeries ℚ_[3]) (hw0 : PowerSeries.constantCoeff w = 1)
@@ -3495,7 +3701,7 @@ signature". No abstract substitute for that theorem is declared. -/
 `Q₁, …, Q_g` of the disc of `P'` pairs as the sum of tiny integrals. -/
 theorem integrationPairing_eq_sum_tiny {X Xt J Jt T Ω : Type} [AddCommGroup J]
     [AddCommGroup Jt] [AddCommGroup T] [Module ℚ_[p] T] [AddCommGroup Ω] [Module ℚ_[p] Ω]
-    (D : GoodReductionChabautyDatum p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
+    (D : ReductionDiscData p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
     (e : Ω ≃ₗ[ℚ_[p]] Module.Dual ℚ_[p] T) (ω : Ω) (P' : X) (lam : PowerSeries ℚ_[p])
     (hlam : ∀ P, D.red P = D.red P' →
       abelianIntegral L e (D.abelJacobi P - D.abelJacobi P') ω = discEval lam (D.param (D.red P') P))
@@ -3511,7 +3717,7 @@ equation without roots of unity (Dwork's principle), for a Frobenius lift `frob`
 residue discs of the `𝔽_p`-points. -/
 theorem colemanIntegral_eq_abelianIntegral {X Xt J Jt T Ω : Type} [AddCommGroup J]
     [AddCommGroup Jt] [AddCommGroup T] [Module ℚ_[p] T] [AddCommGroup Ω] [Module ℚ_[p] Ω]
-    (D : GoodReductionChabautyDatum p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
+    (D : ReductionDiscData p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
     (e : Ω ≃ₗ[ℚ_[p]] Module.Dual ℚ_[p] T) (ω : Ω) (colemanPrimitive : X → ℚ_[p]) (x : X)
     (frob : X → X) (hfrobred : ∀ y, D.red (frob y) = D.red y) (P : Polynomial ℤ)
     (hP : ∀ m : ℕ, 1 ≤ m → IsCoprime (P.map (Int.castRingHom ℚ)) (Polynomial.X ^ m - 1))
@@ -3528,7 +3734,7 @@ theorem colemanIntegral_eq_abelianIntegral {X Xt J Jt T Ω : Type} [AddCommGroup
 then `η(B) = ⟨ι(B) − γ, ω_J⟩`, a kernel-of-reduction value. -/
 theorem eta_eq_const_add_tiny {X Xt J Jt T Ω : Type} [AddCommGroup J] [AddCommGroup Jt]
     [AddCommGroup T] [Module ℚ_[p] T] [AddCommGroup Ω] [Module ℚ_[p] Ω]
-    (D : GoodReductionChabautyDatum p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
+    (D : ReductionDiscData p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
     (e : Ω ≃ₗ[ℚ_[p]] Module.Dual ℚ_[p] T) (ω : Ω) (G : AddSubgroup J)
     (hω : ∀ γ ∈ G, abelianIntegral L e γ ω = 0) (B : X) (γ : J) (hγ : γ ∈ G)
     (hred : D.redJ γ = D.redJ (D.abelJacobi B)) :
@@ -3728,14 +3934,14 @@ end ZeroBound
 on every point of the closure set, and each of the finitely many residue discs carries a finite
 bound for its zeros, the closure set is finite. -/
 theorem finite_rationalPoints_of_rank_lt_genus {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type}
-    [AddCommGroup J] [AddCommGroup Jt] (D : GoodReductionChabautyDatum p X Xt J Jt)
+    [AddCommGroup J] [AddCommGroup Jt] (D : ReductionDiscData p X Xt J Jt)
     (η : X → ℚ_[p]) (S : Set X) (hS : ∀ P ∈ S, η P = 0) (N : Xt → ℕ)
     (hN : ∀ xt (Z : Finset X), (∀ z ∈ Z, D.red z = xt ∧ η z = 0) → Z.card ≤ N xt) : S.Finite :=
   sorry
 
 /-- ED.4/coleman-bound: summing `m + 1` over the residue discs with `Σ m ≤ 2g − 2`. -/
 theorem card_rationalPoints_le_coleman {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type}
-    [AddCommGroup J] [AddCommGroup Jt] (D : GoodReductionChabautyDatum p X Xt J Jt)
+    [AddCommGroup J] [AddCommGroup Jt] (D : ReductionDiscData p X Xt J Jt)
     (g : ℕ) (hp : 2 * g < p) (rat : Finset X) (m : Xt → ℕ)
     (hm : ∑ xt ∈ @Finset.univ Xt D.fintypeXt, m xt ≤ 2 * g - 2)
     (hdisc : ∀ xt, (rat.filter (fun P => D.red P = xt)).card ≤ m xt + 1) :
@@ -3758,7 +3964,7 @@ and `y = Y(t) ∈ ℤ_p[[t]]` with `Y(0) = y₀`; at a Weierstrass point `(x̃�
 `x = ξ(t) ∈ ℤ_p[[t]]` with `h(ξ) = t²` and `h'(ξ) dξ = 2t dt` (so `dx/y = 2 dt/h'(x)`). The basis
 statement (a) for `H⁰(𝒳, Ω¹)` and the orders (c) need differentials on the model and are not
 stated. -/
-theorem hyperelliptic_integralDifferentials_basis (p : ℕ) [Fact p.Prime] (hp : p ≠ 2)
+theorem hyperelliptic_chart_powerSeries (p : ℕ) [Fact p.Prime] (hp : p ≠ 2)
     (f : Polynomial ℤ_[p]) (g : ℕ) (hg : 1 ≤ g)
     (hdeg : f.natDegree = 2 * g + 1 ∨ f.natDegree = 2 * g + 2) (hlead : IsUnit f.leadingCoeff)
     (hsq : Squarefree (f.map (PadicInt.toZMod (p := p)))) :
@@ -3781,7 +3987,7 @@ theorem hyperelliptic_integralDifferentials_basis (p : ℕ) [Fact p.Prime] (hp :
 local parameter of the disc, a certified bound `N` and the list of all `N` zeros, split into
 verified rational points and certified non-rational points. -/
 structure ResidueDiscVerdict {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCommGroup J]
-    [AddCommGroup Jt] (D : GoodReductionChabautyDatum p X Xt J Jt) (η : X → ℚ_[p]) (xt : Xt) where
+    [AddCommGroup Jt] (D : ReductionDiscData p X Xt J Jt) (η : X → ℚ_[p]) (xt : Xt) where
   base : X
   baseValue : ℚ_[p]
   /-- the expansion `I_B(t) = c_B + primitive(w)(t)` of `η` on `D(x̃)` -/
@@ -3793,7 +3999,7 @@ structure ResidueDiscVerdict {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCom
 namespace ResidueDiscVerdict
 
 variable {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCommGroup J] [AddCommGroup Jt]
-variable {D : GoodReductionChabautyDatum p X Xt J Jt} {η : X → ℚ_[p]} {xt : Xt}
+variable {D : ReductionDiscData p X Xt J Jt} {η : X → ℚ_[p]} {xt : Xt}
 
 /-- All listed zeros. -/
 def zeros (V : ResidueDiscVerdict D η xt) : Finset X := sorry
@@ -3836,7 +4042,7 @@ end ResidueDiscVerdict
 
 section VerdictTests
 variable {p : ℕ} [Fact p.Prime] {X Xt J Jt : Type} [AddCommGroup J] [AddCommGroup Jt]
-variable {D : GoodReductionChabautyDatum p X Xt J Jt} {η : X → ℚ_[p]} {xt : Xt}
+variable {D : ReductionDiscData p X Xt J Jt} {η : X → ℚ_[p]} {xt : Xt}
 
 -- verdict_C05_disc_zero_one: N = 2 with the two rational points (0,1), (−3,1).
 example (V : ResidueDiscVerdict D η xt) (rat : Set X) (hV : V.Valid rat)
@@ -3862,13 +4068,21 @@ example (V : ResidueDiscVerdict D η xt) (rat : Set X) (hV : V.Valid rat)
 
 end VerdictTests
 
+/-- Abstract rank-to-index bridge on the actual finitely generated group and its torsion
+quotient. The geometric Chabauty factory still must identify J(Q), g and regular differentials. -/
+theorem finiteIndex_of_rank_and_independent {A : Type*} [AddCommGroup A] [AddGroup.FG A]
+    {r : ℕ} (γ : Fin r → A)
+    (hind : LinearIndependent ℤ (fun i =>
+      (QuotientAddGroup.mk (γ i) : A ⧸ AddCommGroup.torsion A)))
+    (hrank : Module.finrank ℤ A ≤ r) : (AddSubgroup.closure (Set.range γ)).FiniteIndex := sorry
+
 /-! ### ED.4/chabauty-coleman-certificate and ED.4/chabauty-coleman-completeness -/
 
 /-- A Chabauty–Coleman certificate: the datum, the subgroup `G` and its rank input, the
 pairing `⟨·, ω_J⟩` of an annihilating differential, and one verdict per point of `X̃(𝔽_p)`. -/
 structure ChabautyColemanCertificate (p : ℕ) [Fact p.Prime] (X Xt J Jt : Type) [AddCommGroup J]
     [AddCommGroup Jt] where
-  datum : GoodReductionChabautyDatum p X Xt J Jt
+  datum : ReductionDiscData p X Xt J Jt
   /-- the rational points inside `X(ℚ_p)` and the image of `J(ℚ)` inside `J(ℚ_p)` -/
   rat : Set X
   JQ : AddSubgroup J
@@ -3903,8 +4117,9 @@ theorem card_points_le (C : ChabautyColemanCertificate p X Xt J Jt) (hC : C.Vali
     C.points.card ≤ ∑ xt ∈ @Finset.univ Xt C.datum.fintypeXt, (C.verdict xt).bound := sorry
 
 /-- The conditional certificate: the finite index of `G` is replaced by a labelled hypothesis
-`rank J(ℚ) ≤ r`, passed as the `FiniteIndex` assumption it implies. -/
-def ofRankHypothesis (C : ChabautyColemanCertificate p X Xt J Jt) (r : ℕ)
+`FiniteIndex` input. This helper is not the rank-to-index constructor; that signature
+is omitted until certified independent generators and the geometric differential carrier exist. -/
+def withFiniteIndex (C : ChabautyColemanCertificate p X Xt J Jt) (r : ℕ)
     (_hyp : (C.G.addSubgroupOf C.JQ).FiniteIndex) : ChabautyColemanCertificate p X Xt J Jt :=
   sorry
 
@@ -3944,7 +4159,7 @@ example {K T Ω : Type*} [Field K] [CharZero K] [AddCommGroup T] [Module K T]
 -- certificate_conditional_label: the conditional certificate keeps the same points.
 example (C : ChabautyColemanCertificate p X Xt J Jt) (r : ℕ)
     (hyp : (C.G.addSubgroupOf C.JQ).FiniteIndex) :
-    (C.ofRankHypothesis r hyp).points = C.points := sorry
+    (C.withFiniteIndex r hyp).points = C.points := sorry
 
 end CertificateTests
 
@@ -4734,6 +4949,34 @@ example :
         (fun p : Fin 2 => ((p : ℕ) : ℤ)) (fun _ p => ((p : ℕ) : ZMod 2))
         (fun _ => Int.castAddHom (ZMod 2)) (fun _ => id) (by sorry)).localImage () := sorry
 
+/-- Raw tables at one finite quotient refinement. `project` is represented on class indices;
+`allowed` includes all local tests after reducing modulo the image of the new subgroup.
+CN.3 supplies invariant-factor presentations and the transport of these tables. -/
+structure RawSieveStep (oldSize newSize places : ℕ) where
+  project : Fin newSize → Fin oldSize
+  allowed : Fin places → Fin newSize → Bool
+  oldClasses : Finset (Fin oldSize)
+  nextClasses : Finset (Fin newSize)
+namespace RawSieveStep
+attribute [-instance] Classical.propDecidable
+def check {o n k : ℕ} (c : RawSieveStep o n k) : Bool :=
+  decide (∀ b : Fin n, b ∈ c.nextClasses ↔
+    c.project b ∈ c.oldClasses ∧ ∀ v : Fin k, c.allowed v b = true)
+attribute [local instance] Classical.propDecidable
+theorem sound {o n k : ℕ} (c : RawSieveStep o n k) (hc : c.check = true) :
+    (c.nextClasses : Set (Fin n)) =
+      {b | c.project b ∈ c.oldClasses ∧ ∀ v, c.allowed v b = true} := sorry
+end RawSieveStep
+-- rawSieve_mod_four: both lifts of the surviving mod-two class must be listed.
+example : (RawSieveStep.mk (oldSize := 2) (newSize := 4) (places := 0)
+  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1, 3}).check = true := sorry
+-- rawSieve_missing_lift: keeping only one lift is rejected.
+example : (RawSieveStep.mk (oldSize := 2) (newSize := 4) (places := 0)
+  (fun b => ⟨b.val % 2, by omega⟩) Fin.elim0 {1} {1}).check = false := sorry
+-- rawSieve_empty: a false local test rules out every class.
+example : (RawSieveStep.mk (oldSize := 1) (newSize := 1) (places := 1)
+  id (fun _ _ => false) {0} ∅).check = true := sorry
+
 -- ED.5/sieve-certificate: the final certificate.
 structure SieveCertificate (P M : Type*) [AddCommGroup M] {κ : Type*} (C J : κ → Type*)
     [∀ k, AddCommGroup (J k)] [∀ k, Fintype (C k)] where
@@ -4770,11 +5013,11 @@ theorem candidates_eq_siftChain (c : SieveCertificate P M C J) :
 
 /-- API (other): the checks a verifier runs on the recorded chain. -/
 def Checked (c : SieveCertificate P M C J) : Prop :=
-  (∀ j, ∀ a ∈ c.data.sieveSet c.primes (c.chain j),
+  (∀ j < c.length, ∀ a ∈ c.data.sieveSet c.primes (c.chain j),
     QuotientAddGroup.map (c.chain (j + 1)) (c.chain j) (AddMonoidHom.id M)
       (by simpa using c.chain_succ_le j) (c.lifts j a) = a) ∧
-  (∀ j, c.tests j ⊆ c.primes) ∧
-  (∀ j, ∀ k ∈ c.primes, k ∉ c.tests j →
+  (∀ j < c.length, c.tests j ⊆ c.primes) ∧
+  (∀ j < c.length, ∀ k ∈ c.primes, k ∉ c.tests j →
     (c.chain (j + 1)).map (c.data.red k) = (c.chain j).map (c.data.red k))
 
 theorem candidates_eq_sieveSet (c : SieveCertificate P M C J) (hc : c.Checked) :
@@ -4943,7 +5186,7 @@ theorem eq_of_matched_or_excluded {X ι : Type*} (R Z : Set X) (hRZ : R ⊆ Z)
 
 /-- A residue-disc certificate: every common zero of the functions `fn i` on `ℤ_[p]` lies
 within `p ^ (-prec)` of a centre, and each such ball contains at most one common zero. -/
-structure QCDiscCertificate (p : ℕ) [Fact p.Prime] (ι : Type*) where
+structure SemanticQCDiscCertificate (p : ℕ) [Fact p.Prime] (ι : Type*) where
   fn : ι → ℤ_[p] → ℚ_[p]
   centres : Finset ℤ_[p]
   prec : ℕ
@@ -4952,52 +5195,52 @@ structure QCDiscCertificate (p : ℕ) [Fact p.Prime] (ι : Type*) where
   unique : ∀ c ∈ centres, ∀ s t : ℤ_[p], (∀ i, fn i s = 0) → (∀ i, fn i t = 0) →
     ‖s - c‖ ≤ (p : ℝ) ^ (-(prec : ℤ)) → ‖t - c‖ ≤ (p : ℝ) ^ (-(prec : ℤ)) → s = t
 
-namespace QCDiscCertificate
+namespace SemanticQCDiscCertificate
 
 variable {p : ℕ} [Fact p.Prime] {ι : Type*}
 
 /-- The common zeros of the certified functions on the disc. -/
-def commonZeros (C : QCDiscCertificate p ι) : Set ℤ_[p] := {s | ∀ i, C.fn i s = 0}
+def commonZeros (C : SemanticQCDiscCertificate p ι) : Set ℤ_[p] := {s | ∀ i, C.fn i s = 0}
 
-theorem exists_centre (C : QCDiscCertificate p ι) {s : ℤ_[p]} (hs : s ∈ C.commonZeros) :
+theorem exists_centre (C : SemanticQCDiscCertificate p ι) {s : ℤ_[p]} (hs : s ∈ C.commonZeros) :
     ∃ c ∈ C.centres, ‖s - c‖ ≤ (p : ℝ) ^ (-(C.prec : ℤ)) := sorry
 
-theorem eq_of_mem_ball (C : QCDiscCertificate p ι) {c s t : ℤ_[p]} (hc : c ∈ C.centres)
+theorem eq_of_mem_ball (C : SemanticQCDiscCertificate p ι) {c s t : ℤ_[p]} (hc : c ∈ C.centres)
     (hs : s ∈ C.commonZeros) (ht : t ∈ C.commonZeros)
     (hsc : ‖s - c‖ ≤ (p : ℝ) ^ (-(C.prec : ℤ))) (htc : ‖t - c‖ ≤ (p : ℝ) ^ (-(C.prec : ℤ))) :
     s = t := sorry
 
-theorem ncard_commonZeros_le (C : QCDiscCertificate p ι) :
+theorem ncard_commonZeros_le (C : SemanticQCDiscCertificate p ι) :
     C.commonZeros.Finite ∧ C.commonZeros.ncard ≤ C.centres.card := sorry
 
-theorem commonZeros_eq_empty (C : QCDiscCertificate p ι) (h : C.centres = ∅) :
+theorem commonZeros_eq_empty (C : SemanticQCDiscCertificate p ι) (h : C.centres = ∅) :
     C.commonZeros = ∅ := sorry
 
 /-- Adding a function to the family keeps the certificate (same centres and precision). -/
-def addFunction (C : QCDiscCertificate p ι) (f : ℤ_[p] → ℚ_[p]) :
-    QCDiscCertificate p (Option ι) := sorry
+def addFunction (C : SemanticQCDiscCertificate p ι) (f : ℤ_[p] → ℚ_[p]) :
+    SemanticQCDiscCertificate p (Option ι) := sorry
 
-end QCDiscCertificate
+end SemanticQCDiscCertificate
 
 instance fact_prime_seventeen : Fact (Nat.Prime 17) := ⟨by norm_num⟩
 instance fact_prime_eleven : Fact (Nat.Prime 11) := ⟨by norm_num⟩
 instance fact_prime_five : Fact (Nat.Prime 5) := ⟨by norm_num⟩
 
 -- qcDisc_linear: f(s) = s − 1 with centres {1} at precision 5 is a certificate.
-example : ∃ C : QCDiscCertificate 17 Unit,
+example : ∃ C : SemanticQCDiscCertificate 17 Unit,
     (∀ s, C.fn () s = (s : ℚ_[17]) - 1) ∧ C.centres = {1} ∧ C.prec = 5 ∧ C.commonZeros = {1} := sorry
 
 -- qcDisc_no_zero: f ≡ 1 is certified by the empty set of centres.
-example : ∃ C : QCDiscCertificate 17 Unit, (∀ s, C.fn () s = 1) ∧ C.centres = ∅ ∧
+example : ∃ C : SemanticQCDiscCertificate 17 Unit, (∀ s, C.fn () s = 1) ∧ C.centres = ∅ ∧
     C.commonZeros = ∅ := sorry
 
 -- qcDisc_close_roots: the zeros 0 and 17⁶ cannot be separated at precision 5.
-example : ¬ ∃ C : QCDiscCertificate 17 Unit,
+example : ¬ ∃ C : SemanticQCDiscCertificate 17 Unit,
     (∀ s, C.fn () s = (s : ℚ_[17]) * ((s : ℚ_[17]) - 17 ^ 6)) ∧ C.centres = {0} ∧
       C.prec = 5 := sorry
 
 -- qcDisc_polynomial_roots: for a polynomial, the zero count is bounded by the degree.
-example (F : Polynomial ℤ_[17]) (hF : F ≠ 0) (C : QCDiscCertificate 17 Unit)
+example (F : Polynomial ℤ_[17]) (hF : F ≠ 0) (C : SemanticQCDiscCertificate 17 Unit)
     (hC : ∀ s, C.fn () s = ((F.eval s : ℤ_[17]) : ℚ_[17])) :
     C.commonZeros.ncard ≤ F.natDegree := sorry
 
@@ -5010,7 +5253,7 @@ structure QCRun (p : ℕ) [Fact p.Prime] (X : Type*) (R : Set X) where
   [instFintype : Fintype D]
   ι : Type
   param : D → ℤ_[p] → X
-  cert : D → QCDiscCertificate p ι
+  cert : D → SemanticQCDiscCertificate p ι
   nc5 : ∀ x ∈ R, ∃ d s, param d s = x ∧ ∀ i, (cert d).fn i s = 0
 
 /-- Every centre of every disc certificate is matched by a point of `S` or excluded from `R`. -/
@@ -5290,30 +5533,8 @@ theorem hodgeFiltration_basis {L A : Type*} [Field L] [CommRing A] {g : ℕ} {ι
       ∀ x, IsRegularLaurent (gx x + expand x p.1 - ∑ i, HahnSeries.C (p.2 i) * lin x i - quad x) :=
   sorry
 
--- hodgeData_xs13_Z1_beta: β_Fil and γ_Fil for Z1 on the first chart of X_s(13): given the X_s(13)
--- expansions at the points at infinity (inputs) and that BDMTV's data (b_Fil = (0, 1/2, 1/2),
--- γ_Fil = 5y/6 + 3x/2, base point P2 = (0, 0)) satisfy (30) and (32), every solution has
--- betaFil = (0,0,0,0,1/2,1/2) and gammaFil = 5y/6 + 3x/2.
-example {ι : Type*} [Fintype ι] (res : Matrix ι (Fin (4 - 1)) ℚ) (target : ι → ℚ)
-    (expand : ι → MvPolynomial (Fin 2) ℚ →+* LaurentSeries ℚ)
-    (gx quad : ι → LaurentSeries ℚ) (lin : ι → Fin 3 → LaurentSeries ℚ)
-    (hres : Function.Injective (res *ᵥ ·))
-    (hconst : ∀ a, (∀ x, IsRegularLaurent (expand x a)) → MvPolynomial.eval ![0, 0] a = 0 → a = 0)
-    (hind : ∀ (a : MvPolynomial (Fin 2) ℚ) (b : Fin 3 → ℚ),
-      (∀ x, IsRegularLaurent (expand x a - ∑ i, HahnSeries.C (b i) * lin x i)) → b = 0)
-    (η₀ : Fin (4 - 1) → ℚ)
-    (href₁ : (⟨η₀, ![0, 1 / 2, 1 / 2],
-      MvPolynomial.C (5 / 6) * MvPolynomial.X 1 + MvPolynomial.C (3 / 2) * MvPolynomial.X 0⟩ :
-      HodgeFiltrationData ℚ (MvPolynomial (Fin 2) ℚ) 3 4).ResidueCondition res target)
-    (href₂ : (⟨η₀, ![0, 1 / 2, 1 / 2],
-      MvPolynomial.C (5 / 6) * MvPolynomial.X 1 + MvPolynomial.C (3 / 2) * MvPolynomial.X 0⟩ :
-      HodgeFiltrationData ℚ (MvPolynomial (Fin 2) ℚ) 3 4).RegularCondition expand
-        (MvPolynomial.eval ![0, 0]) gx quad lin)
-    (H : HodgeFiltrationData ℚ (MvPolynomial (Fin 2) ℚ) 3 4) (h₁ : H.ResidueCondition res target)
-    (h₂ : H.RegularCondition expand (MvPolynomial.eval ![0, 0]) gx quad lin) :
-    H.betaFil = Sum.elim (0 : Fin 3 → ℚ) ![0, 1 / 2, 1 / 2] ∧
-      H.gammaFil = MvPolynomial.C (5 / 6) * MvPolynomial.X 1 + MvPolynomial.C (3 / 2) * MvPolynomial.X 0 :=
-  sorry
+-- hodgeData_xs13_Z1_beta: OMITTED (§13). The finite Laurent replay on the actual
+-- affine coordinate ring is missing; accepting href₁/href₂ as inputs would assume the answer.
 
 -- hodgeData_zero: for Z = 0 the residue targets, the principal parts g_x and the quadratic terms
 -- vanish, and the unique data satisfying (30) and (32) are η = 0, b_Fil = 0, γ_Fil = 0.
@@ -5432,7 +5653,7 @@ disc is a root of the truncation `F_0 + ⋯ + F_{m−1}x^{m−1}` modulo `p^n`. 
 `min_i {ord_p(F_i) + i} = k` (`hk`, `hkmin`) and `max {i : ord_p(F_i) + i < n} < m` (`hm`); the printed
 `max {i : ord_p(F_i) + i = n} < m` does not make the tail vanish modulo `p^n` (for `F = p² − p x`,
 `n = 5`, `m = 1` the truncation `p²` is not `0` mod `p⁵` at the root `x = p`). -/
-theorem roots_determined_of_truncation (p : ℕ) [Fact p.Prime] (F : PowerSeries ℚ_[p])
+theorem root_satisfies_truncation_congruence (p : ℕ) [Fact p.Prime] (F : PowerSeries ℚ_[p])
     (Fval : ℤ_[p] → ℚ_[p])
     (hFval : ∀ s : ℤ_[p], HasSum (fun i => PowerSeries.coeff i F * ((p : ℚ_[p]) * s) ^ i) (Fval s))
     (k : ℤ) (m n : ℕ)
@@ -5559,31 +5780,43 @@ def baranSubstitution : Fin 3 → MvPolynomial (Fin 3) ℚ :=
     MvPolynomial.X 0 + MvPolynomial.X 2]
 
 /-- BDMTV §6.3 (ii) and (iv): the substitution identity and the seven points. -/
-theorem xs13_planeModel :
+theorem xs13_quartic_identity_and_points :
     MvPolynomial.aeval baranSubstitution xs13Quartic = 16 * baranQuartic ∧
       (∀ i, MvPolynomial.eval (xs13Points i) xs13Quartic = 0) ∧
       xs13Quartic.IsHomogeneous 4 ∧ baranQuartic.IsHomogeneous 4 := sorry
+
+/-- Unique projective representatives: Z=1, then Z=0,Y=1, then (1:0:0). -/
+def xs13SpecialFibrePoints : Finset (Fin 3 → ZMod 17) :=
+  (((Finset.univ : Finset (ZMod 17 × ZMod 17)).image (fun q => ![q.1, q.2, 1])) ∪
+    ((Finset.univ : Finset (ZMod 17)).image (fun x => ![x, 1, 0])) ∪ {![1, 0, 0]}).filter
+      (fun q => MvPolynomial.eval q (MvPolynomial.map (Int.castRingHom (ZMod 17)) xs13QuarticInt) = 0)
+theorem xs13_specialFibre_card : xs13SpecialFibrePoints.card = 20 := sorry
+theorem xs13_specialFibre_smooth : ∀ q ∈ xs13SpecialFibrePoints,
+    ∃ i : Fin 3, MvPolynomial.eval q (MvPolynomial.map (Int.castRingHom (ZMod 17))
+      (MvPolynomial.pderiv i xs13QuarticInt)) ≠ 0 := sorry
 
 /-- The newform coefficient field `K = ℚ(α)`, `α³ + 2α² − α − 1 = 0`, as a polynomial. -/
 def xs13CoeffFieldPoly : Polynomial ℚ :=
   Polynomial.X ^ 3 + 2 * Polynomial.X ^ 2 - Polynomial.X - 1
 
-/-- BDMTV §6.1 (cited data): `End(J) ⊗ ℚ ≅ ℚ(ζ₇)⁺` and `ρ(J) = 3`; the abelian variety
-`J = Jac(X_s(13))` is not in Mathlib, so the statement is recorded on its endomorphism algebra
-`E` and Néron–Severi rank `ρ` as inputs (R14.5, CN.3). -/
-theorem xs13_endAlgebra (E : Type*) [Field E] [Algebra ℚ E] (α : E)
+-- xs13_coeffField_inert_seventeen: the defining cubic has no root modulo17.
+example : ∀ a : ZMod 17, a ^ 3 + 2 * a ^ 2 - a - 1 ≠ 0 := sorry
+
+/-- Supporting dimension computation for a field generated by a root of the displayed
+irreducible cubic. The identification with End(J) and the Néron–Severi rank are omitted. -/
+theorem finrank_of_xs13_cubic (E : Type*) [Field E] [Algebra ℚ E] (α : E)
     (hgen : Algebra.adjoin ℚ {α} = ⊤) (hα : Polynomial.aeval α xs13CoeffFieldPoly = 0) :
     Module.finrank ℚ E = 3 := sorry
 
 /-- BDMTV Proposition 6.2 input: certified interval enclosures (CN.4) of `L'(f^σ, 1)` with
 lower endpoints above `0.6`, one for each real embedding, prove nonvanishing. -/
-theorem xs13_analyticRank_eq_one (lo hi : Fin 3 → ℚ) (Lder : Fin 3 → ℝ)
+theorem xs13_derivative_ne_zero (lo hi : Fin 3 → ℚ) (Lder : Fin 3 → ℝ)
     (hencl : ∀ σ, (lo σ : ℝ) ≤ Lder σ ∧ Lder σ ≤ hi σ) (hlo : ∀ σ, (3 : ℚ) / 5 < lo σ) :
     ∀ σ, Lder σ ≠ 0 := sorry
 
-/-- BDMTV Proposition 6.2: `rk J(ℚ) = 3`, with `J(ℚ)` an abstract finitely generated
-abelian group and the GZ.8/HE.7 analytic-rank-one conclusion as input. -/
-theorem xs13_rank_eq_three (V K : Type*) [AddCommGroup V] [Module ℚ V] [Field K] [Algebra ℚ K]
+/-- Supporting restriction-of-scalars dimension computation. The RM action on J(Q)
+and the rank-one-over-Q supplier theorem must be established independently. -/
+theorem finrank_restrictScalars_three (V K : Type*) [AddCommGroup V] [Module ℚ V] [Field K] [Algebra ℚ K]
     [Module K V] [IsScalarTower ℚ K V] (hK : Module.finrank ℚ K = 3)
     (hGZKL : Module.finrank K V = 1) : Module.finrank ℚ V = 3 := sorry
 
@@ -5601,10 +5834,25 @@ def xs13GammaFil : Fin 2 → MvPolynomial (Fin 2) ℚ :=
   ![MvPolynomial.C (5 / 6) * MvPolynomial.X 1 + MvPolynomial.C (3 / 2) * MvPolynomial.X 0,
     MvPolynomial.C (-5 / 6) * MvPolynomial.X 1 - MvPolynomial.C (15 / 2) * MvPolynomial.X 0]
 
+def xs13AffineQuartic : MvPolynomial (Fin 2) ℚ :=
+  MvPolynomial.aeval ![MvPolynomial.X 0, MvPolynomial.X 1, 1] xs13Quartic
+abbrev Xs13AffineCoordinateRing :=
+  MvPolynomial (Fin 2) ℚ ⧸ Ideal.span {xs13AffineQuartic}
+def xs13GammaFilClass (i : Fin 2) : Xs13AffineCoordinateRing :=
+  Ideal.Quotient.mk _ (xs13GammaFil i)
+-- xs13_coordinate_relation: the quartic vanishes in its quotient, not in a polynomial ring.
+example : (Ideal.Quotient.mk (Ideal.span {xs13AffineQuartic})) xs13AffineQuartic = 0 := sorry
+-- xs13_hodge_nonconstant: the first gamma class is nonzero; zero data cannot pass.
+example : xs13GammaFilClass 0 ≠ 0 := sorry
+-- xs13_gamma_class: Hodge expressions are transported through the quotient map.
+example : xs13GammaFilClass 0 =
+  Ideal.Quotient.mk _ (MvPolynomial.C (5 / 6) * MvPolynomial.X 1 +
+    MvPolynomial.C (3 / 2) * MvPolynomial.X 0) := sorry
+
 /-- BDMTV §6.4 Hodge data: `γ_Fil` vanishes at the base point `P2 = (0, 0)` and `β_Fil` has
 zero holomorphic part (the full conditions (30), (32) are the certificate of
 `hodge-filtration-algorithm`). -/
-theorem xs13_hodgeData_conditions :
+theorem xs13_hodgeData_base_conditions :
     (∀ i, MvPolynomial.eval ![0, 0] (xs13GammaFil i) = 0) ∧
       (∀ i j, xs13BetaFil i (Sum.inl j) = 0) := sorry
 
@@ -5860,3 +6108,153 @@ end TauCeti.EffectiveDiophantine.ED6
 end PartED6
 
 end
+
+/-! ## Exact supplier-bound signature omissions (PROTOCOL §13)
+
+The following are planning obligations, not substitute definitions or theorem assumptions.
+
+EffectiveDiophantineMethods:ED.0/certified-enclosure
+Names: TauCeti.EffectiveDiophantine.ED0.PadicEnclosure.toPadicApproximation
+Reason: CN.0 PadicApproximation is planned but not a declaration at either pin.
+Required mathematical signature: For e : PadicEnclosure p x, return a : CN.0 PadicApproximation p with a.N=e.precision and a.denotation={z : Q_p | ||z-e.centre||≤p^(-N)}; hence x∈a.denotation. At c=0 take (N,N,0); otherwise v=min(v_p(c),N), and if v<N choose the nonzero residue s prime to p. The (5,1) at p=3 test must return (1,0,2), not merely a ball-membership proof.
+
+EffectiveDiophantineMethods:ED.2/thue-certificate
+Names: thueCert_soundness_only, thueCert_totally_complex
+Reason: The source output has not been replayed as raw finite covering/reduction/search data.
+Required mathematical signature: Construct an explicit Valid certificate from the named equation and certified number-field/root input, without receiving a cover or Valid output. For x³−2y³=1 produce its finite unit/norm cover, logarithm bounds, reductions and exhaustive residual solution list. For x³−2y³=5^z produce finite ideal cases and reductions including (3,1,2). Existing conditional soundness tests are supporting implications, not these factory tests.
+
+EffectiveDiophantineMethods:ED.2/thue-mahler-s-unit-covering
+Names: TauCeti.EffectiveDiophantine.ThueMahlerCovering.ofIdealFactorization
+Reason: CN.2 certified ideal factorization/principal generator carriers are not yet built.
+Required mathematical signature: For θ root of integralNormalization g, [K:Q]=deg g, normalized ThueMahlerEquation, verified primes above each p_i, complete valuations/divisor representatives, principal ideal generators, ideal class orders h_i and complete units, return the finite cases α,π,h,s,t with α and each active π nonzero, and covers. Class orders and degree-one factors determine when n_i is free; when no degree-one factor occurs use h_i=0,π_i=1,n_i=0. The current abstract unit-only helper is not this producer.
+
+EffectiveDiophantineMethods:ED.2/thue-mahler-certificate
+Names: tmCert_listed_solution
+Reason: The source output has not been replayed as raw finite covering/reduction/search data.
+Required mathematical signature: Construct an explicit Valid certificate from the named equation and certified number-field/root input, without receiving a cover or Valid output. For x³−2y³=1 produce its finite unit/norm cover, logarithm bounds, reductions and exhaustive residual solution list. For x³−2y³=5^z produce finite ideal cases and reductions including (3,1,2). Existing conditional soundness tests are supporting implications, not these factory tests.
+
+EffectiveDiophantineMethods:ED.3/local-descent-image
+Names: certifiedLocalImage_real_three_roots, certifiedLocalImage_odd_prime_two
+Reason: The finite local-factor factory and actual point evaluations have not been constructed.
+Required mathematical signature: For W=y²=x³−x over R or Q_p, derive the decomposition of W.A, valuation parity and residue-unit square coordinates, construct W.M≃(Z/2)^n, lift each certified rational abscissa to a W.Point using real sign or p-adic Hensel certificates, evaluate actual W.μ, and prove the expected image cardinality using W.μ kernel and local quotient count. The abstract tests with hidx/hcard are only cardinality algebra.
+
+EffectiveDiophantineMethods:ED.3/two-selmer-certificate
+Names: twoSelmer_x3_minus_x.factory, twoSelmer_no_places.factory
+Reason: The abstract basis-length examples compute cardinality only after the desired basis length is supplied; the actual descent/local factor factory has not been replayed.
+Required mathematical signature: For the actual curve W:y²=x³−x over Q, factor its étale cubic Q³, compute square classes at2 and infinity, apply the pinned μ with all exceptional points, form actual norm and local restriction matrices, and row-reduce to a two-dimensional Selmer kernel. Independently compute the four-dimensional unconditioned norm kernel. Return concrete certificates and prove their pass/cardinality results without input basis-length hypotheses.
+
+EffectiveDiophantineMethods:ED.4/good-reduction-chabauty-datum
+Names: TauCeti.EffectiveDiophantine.ED4.GoodReductionChabautyDatum.geometricFactory, TauCeti.EffectiveDiophantine.ED4.GoodReductionChabautyDatum.toGoodReductionPair, datum_residueDisc_eq_tube, TauCeti.EffectiveDiophantine.ED4.GoodReductionChabautyDatum, GoodReductionChabautyDatum.red, GoodReductionChabautyDatum.red_surjective, GoodReductionChabautyDatum.residueDisc, GoodReductionChabautyDatum.localParam_bijOn, GoodReductionChabautyDatum.redJ_comp_abelJacobi, GoodReductionChabautyDatum.toGoodReductionPair
+Reason: The smooth proper curve, relative Jacobian, analytic tubes and Coleman supplier carriers have not been identified.
+Required mathematical signature: For actual X/Q smooth proper geometrically integral, genus g≥1, O∈X(Q) and smooth proper model over Z_p, construct point reduction, all special-fibre points, full formal disc charts, the geometric Abel–Jacobi morphism, its differential pullback isomorphism and completion at O, and return the ColemanIntegration good-reduction pair. Abstract ReductionDiscData and baseResidueDisc support set-theoretic disc partitioning only; a pair Xt×Set X is not the supplier model. All listed GoodReductionChabautyDatum APIs use this same actual geometric carrier. ReductionDiscData.red/residueDisc/param are only supporting set/group data. Its genus-one finite-field test has four special-fibre points; analytic chart construction is omitted.
+
+EffectiveDiophantineMethods:ED.4/abelian-integral
+Names: TauCeti.EffectiveDiophantine.ED4.abelJacobi_pullback_bijective
+Reason: The current abstract helper only gives base-point independence; the regular differential carriers are missing.
+Required mathematical signature: For the geometric Abel–Jacobi ι_O:X→Jac(X), construct a linear equivalence ι_O*:H⁰(J,Ω¹_J)≃H⁰(X,Ω¹_X), independent of O. Compose with the formal logarithm differential to derive tiny primitives; do not pass the primitive equality as a field.
+
+EffectiveDiophantineMethods:ED.4/tiny-integral-expansion
+Names: TauCeti.EffectiveDiophantine.ED4.abelianIntegral_eq_primitive
+Reason: The actual regular differential, geometric Abel–Jacobi and convergent formal disc supplier identifications are missing; the earlier abstract primitive statement was false.
+Required mathematical signature: For a genuine smooth proper curve over K with good reduction, integral regular differential ω and a formal parameter t on one full residue disc, construct the integral coefficient series w(t), its convergent formal primitive I, and derive ∫_Q^Q′ω=I(t(Q′))−I(t(Q)) for points in that disc over finite extensions. Obtain this from the differential pullback of the actual Abel–Jacobi morphism and its completed formal group; do not assume the equality as a field.
+
+EffectiveDiophantineMethods:ED.4/coleman-abelian-comparison
+Names: TauCeti.EffectiveDiophantine.ED4.colemanIntegral_eq_abelianIntegral.geometric
+Reason: The abstract Dwork calculation receives the nonroutine Frobenius relation as input.
+Required mathematical signature: For actual ColemanIntegration L1 integral and geometric Abel–Jacobi logarithm on a good-reduction Jacobian, derive Frobenius compatibility from the cohomology supplier, local primitive equality and Weil polynomial with no eigenvalue1; conclude equality of the two integrals. The algebraic uniqueness lemma alone is supporting.
+
+EffectiveDiophantineMethods:ED.4/hyperelliptic-residue-discs
+Names: TauCeti.EffectiveDiophantine.ED4.hyperelliptic_integralDifferentials_basis
+Reason: The generic polynomial and disc algebra does not provide an integral regular-differential module.
+Required mathematical signature: For a smooth good-reduction hyperelliptic model y²=f(x), 2 invertible and degree 2g+1 or2g+2, prove dx/y,x dx/y,…,x^(g−1)dx/y form the integral basis and compute orders in each affine/infinity chart. State and derive smoothness/discriminant and infinity charts on the actual model.
+
+EffectiveDiophantineMethods:ED.4/chabauty-coleman-certificate
+Names: TauCeti.EffectiveDiophantine.ED4.ChabautyColemanCertificate.ofRankHypothesis, certificate_conditional_label.geometric, certificate_C05.factory
+Reason: Finite index, genus/rank and a nonzero geometric annihilator are not derived by the abstract record.
+Required mathematical signature: Given actual J(Q) finitely generated, g≥1, rank J(Q)≤r<g, r certified independent generators modulo torsion, show their subgroup has full rank and finite index by the FG free quotient. Its p-adic log span has dimension≤r, so construct nonzero ω∈H⁰(X_Qp,Ω¹) annihilating it; only then construct all analytic disc verdicts. Conditional rank labels must be recorded; withFiniteIndex is merely a semantic helper. C05 factory must build rank/differential/four-disc data rather than receive Valid and a bound sum.
+
+EffectiveDiophantineMethods:ED.4/relative-symmetric-chabauty
+Names: TauCeti.EffectiveDiophantine.ED4.mem_pullback_of_relativeCriterion.geometric
+Reason: The abstract symmetric-space test receives the Box criterion as an assumption.
+Required mathematical signature: Use actual Sym²X, the degree-two Abel–Jacobi map and relative cover X→C, regular differential trace kernel, all divisors and local parameters; derive Box rank/vanishing criterion then membership in the pullback locus. Caraiani–Newton §7.4 is its relative application, not a new general owner.
+
+EffectiveDiophantineMethods:ED.6/qc-disc-certificate
+Names: TauCeti.EffectiveDiophantine.ED6.QCDiscCertificate, TauCeti.EffectiveDiophantine.ED6.QCDiscCertificate.check, TauCeti.EffectiveDiophantine.ED6.QCDiscCertificate.check_sound, TauCeti.EffectiveDiophantine.ED6.QCDiscCertificate.ofRestrictedSeries
+Reason: Actual disc/function/precision suppliers and multiplicity-aware root isolation are not built.
+Required mathematical signature: Input actual geometric disc chart and finitely many restricted F_i(pT), finite coefficients as residues modulo p^N, rational tail bounds derived from height-series-valuation-bound, finite residue-ball tree, root multiplicity/verifier data and centre representatives modulo p^n. Check finite coefficients, exhaustive tree cover/discard decisions and uniqueness/root counts by Newton/Weierstrass and derivative bounds; check=true plus supplier coefficient/tail semantics implies covers and unique. An arbitrary fn:Z_p→Q_p and universal covers proof is excluded from raw input; do not name the semantic record a numerical checker.
+
+EffectiveDiophantineMethods:ED.6/hodge-filtration-algorithm
+Names: TauCeti.EffectiveDiophantine.ED6.HodgeFiltrationData.geometricFactory, hodgeData_xs13_Z1_beta
+Reason: Actual function field, Laurent charts and sufficient truncation orders are missing; previous tests assumed the printed answer.
+Required mathematical signature: Use the actual affine coordinate ring/function field, boundary points and uniformizers, exact Laurent expansions of ΩᵀZdΩ and ΩᵀZNNᵀΩ. Derive product/primitive pole bounds and the finite function space for γ; compute residues and solve finite linear systems, then verify conditions(30),(32) and base normalization. For xs13 use H⁰(O(2D)) with basis1,x,y,x²,xy,y² and replay actual principal parts, without href₁/href₂ assuming the Hodge answer. Largest individual differential pole alone is not enough.
+
+EffectiveDiophantineMethods:ED.6/root-determination-precision
+Names: TauCeti.EffectiveDiophantine.ED6.roots_determined_of_truncation
+Reason: The existing algebraic lemma supplies only a necessary congruence for an existing root.
+Required mathematical signature: For nonzero restricted F(pT) over completed Cp, positive multiplicity bound d, finite coefficients modulo p^N and certified tail lower bounds, prove the Weierstrass/Newton perturbation theorem with n−k>0: a complete ball cover of every root, multiplicities, isolation and stability. Exact Polynomial.roots over Q_p is not a residue-root enumerator or a Cp root constructor. Zero coefficients have valuation∞; a zero dominant coefficient is rejected.
+
+EffectiveDiophantineMethods:ED.6/qc-modular-algorithm
+Names: TauCeti.EffectiveDiophantine.ED6.QCOutput.geometricFactory
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: Construct NC.2/NC.5 connection/height objects, SF.3 curve/differential geometry, RP.1 Mordell–Weil data, CN.4 certified coefficients and actual RD.7 Frobenius. Only then run finite coefficient/tree checks and assemble all chart verdicts; semantic loci finiteness does not give the numerical output.
+
+EffectiveDiophantineMethods:ED.6/xs13-plane-model
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_planeModel
+Reason: The polynomial identity/point memberships do not identify the modular curve or prove good reduction.
+Required mathematical signature: Return the actual modular identification with X_s(13), smooth projective quartic/good reduction at17, complete20-point special fibre and all chart data from R13.4a/CN.3; the exact quartic identity and seven memberships are supporting.
+
+EffectiveDiophantineMethods:ED.6/xs13-endomorphism-algebra
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_endAlgebra
+Reason: A generated cubic field is not End(J)⊗Q or an NS-rank computation.
+Required mathematical signature: Construct the algebra isomorphism End(J_s(13))⊗Q≃Q(ζ₇)^+, prove no additional endomorphisms using supplier R14.5/newform/RM data, and identify Rosati-fixed NS rank3. The cubic field dimension helper alone does not prove this.
+
+EffectiveDiophantineMethods:ED.6/xs13-analytic-rank-certificate
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_analyticRank_eq_one
+Reason: Positive derivative intervals only imply derivative nonzero.
+Required mathematical signature: Use the correct three conjugate newform L-functions, certified analytic continuation, central vanishing L(f^σ,1)=0 and nonzero derivative enclosures. Conclude order of vanishing exactly1. Numerical enclosure, central vanishing and newform identity are separate certified inputs.
+
+EffectiveDiophantineMethods:ED.6/xs13-rank-three
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_rank_eq_three
+Reason: Restriction-of-scalars dimension does not establish Q-rank1 over the RM field.
+Required mathematical signature: Import exact admissible modular rank-one overQ theorem: exhibit imaginary quadraticK satisfying Heegner/Kolyvagin hypotheses, twist factorization and nonvanishing, admissible Gross–Zagier trace and passage back toQ, so dim_RM(J(Q)⊗Q)=1. Combine the genuine cubic RM action and its degree3 to obtain rank3; HE.7 and GZ.8 stage names alone do not supply this theorem.
+
+EffectiveDiophantineMethods:ED.6/xs13-first-chart-hodge-data
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_hodgeData_conditions
+Reason: Base normalization and zero holomorphic part omit Laurent residue/regularity and basis checks.
+Required mathematical signature: On the actual quotient Q[x,y]/(Q(x,y,1)) and its function field, certify the six differential basis, cup product, boundary and Laurent replay of η,β,γ for Z1,Z2. The quotient relation is nonvacuous; elementary gamma/base checks are supporting only.
+
+EffectiveDiophantineMethods:ED.6/xs13-first-chart-frobenius
+Names: TauCeti.EffectiveDiophantine.ED6.xs13FrobeniusLift.actualProducer, TauCeti.EffectiveDiophantine.ED6.xs13FrobeniusMatrix.actualProducer
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: RD.7 Tuitman plane-curve producer must return actual dagger Frobenius lift, the6×6 matrix and exact differentials/precision. Conditional Hensel uniqueness for a supplied lift does not construct these data; existing certified Kedlaya hyperelliptic output is insufficient.
+
+EffectiveDiophantineMethods:ED.6/xs13-equivariant-height-matrices
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_equivariant_height_factory
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: Certify the actual E₁(P5) p-adic log vector, inert cubic coefficient field at17, correspondence action, height pairing and determinant. It is already a log vector; do not reject it because some global class could be torsion.
+
+EffectiveDiophantineMethods:ED.6/xs13-first-chart-points
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_points_firstChart.factory
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: Construct actual matrices/functions/coefficient precision and every disc zero table from the source computations, not a supplied complete QCOutput. Distinguish affine domain excluding zeros of Q_y and its complement.
+
+EffectiveDiophantineMethods:ED.6/xs13-second-chart-points
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_points_secondChart.factory
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: Construct and replay second-chart coordinate change, smoothness, Frobenius, height and every zero table, plus overlap agreement; do not accept the output certificate as input.
+
+EffectiveDiophantineMethods:ED.6/xs13-p0-disc
+Names: TauCeti.EffectiveDiophantine.ED6.xs13_points_P0Disc.factory
+Reason: The required concrete geometric/numerical input data have not been replayed at the supplier boundary.
+Required mathematical signature: Replay the ramified-extension Coleman integration and overconvergent precision for P0 using Balakrishnan–Tuitman, then derive the unique common-zero verdict. This source/precision gap remains.
+EffectiveDiophantineMethods:ED.3/explicit-height-difference-bound
+Names: TauCeti.EffectiveDiophantine.ED3.silvermanMu, canonicalHeight_sub_half_naiveHeight_mem.numberField
+Reason: The Silverman general-number-field primary statement and constants were independently unavailable; the rational Cremona bound cannot supply it.
+Required mathematical signature: For integral W over a number field K, read and state the exact primary height-comparison constants and all weighted local factors in relative versus absolute normalization, then convert to the pinned canonicalHeight. Do not extend the Q-only Cremona proposition by changing the ground-field parameter.
+
+EffectiveDiophantineMethods:ED.4/abelian-logarithm
+Names: TauCeti.EffectiveDiophantine.ED4.abelianLog.geometric, TauCeti.EffectiveDiophantine.ED4.integrationPairing.geometric
+Reason: The supplied abstract homomorphism and linear carrier are supporting algebra; the Néron/formal group, invariant differentials and analytic comparison for the actual abelian variety have not been identified.
+Required mathematical signature: For an actual abelian variety A/K over a finite extension K/Q_p, identify A¹(K) with its formal group on the maximal ideal, derive its convergent formal logarithm with identity differential, and extend by N⁻¹log(Nx). Prove choice independence, torsion kernel, functoriality and the point-first pairing with invariant differentials. Compatible finite-extension maps define the algebraic-closure map; a separate analytic/continuous construction gives completed Cp. Do not substitute a supplied arbitrary additive homomorphism for this construction.
+
+-/
