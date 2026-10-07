@@ -22733,7 +22733,8 @@
    ],
    "avoidAccountOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/REV-BunGAndNewtonStrata.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #366"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H0",
