@@ -1,3 +1,4 @@
+import Mathlib.LinearAlgebra.Complex.Module
 import Mathlib.Analysis.Normed.Field.Basic
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Localization.FractionRing
@@ -778,9 +779,14 @@ def MatrixRepresentationSemisimple (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K) :
   ∀ W : Submodule K (Fin d → K), MatrixRepresentationStable ρ W →
     ∃ W' : Submodule K (Fin d → K), MatrixRepresentationStable ρ W' ∧ IsCompl W W'
 namespace Determinant
-/-- IHG.1/residual-determinant-properties: these predicates apply to the residual law. -/
+/-- IHG.1/residual-determinant-properties: these predicates apply to the residual law.
+Split means all simple factors of the faithful quotient are matrices over K.
+Arbitrary matrix realizability is weaker: the real regular representation of ℂ
+realizes its norm but does not split its faithful quotient (source issue E17). -/
 def IsSplit (D : Determinant K R d) : Prop :=
-  ∃ ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K, ofMatrix ρ=D
+  ∃ (s : ℕ) (size : Fin s → ℕ), (∀ i, 0 < size i) ∧
+    ∃ ρ : R →ₐ[K] (∀ i : Fin s, Matrix (Fin (size i)) (Fin (size i)) K),
+      Function.Surjective ρ ∧ ∀ r, ρ r = 0 ↔ r ∈ D.ker
 def IsAbsolutelyIrreducible (D : Determinant K R d) : Prop :=
   0 < d ∧ ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
     ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
@@ -1915,7 +1921,9 @@ theorem ribet_lattice {K G : Type u} [IsDomain A] [IsDiscreteValuationRing A]
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/completed-cayley-hamilton-finite`.
 Let G be profinite, D̄ a continuous finite-field determinant, R_D its noetherian universal pseudodeformation ring, and dim_kH¹_c(G,adρ̄_ss)<∞. Then its completed Cayley–Hamilton algebra E_D is finite over R_D, and its profinite, quotient and maximal-ideal-adic topologies agree. Residual split absolute irreducibility gives E_D≅M_d(R_D).
 
-Omitted: E is the completed Cayley–Hamilton algebra of the continuous residual determinant on profinite G, A is its noetherian universal pseudodeformation ring, and continuous adjoint H¹ is finite dimensional. E is supplied by the completed group-algebra interface of L1; no discrete group-algebra quotient is substituted. The topology comparison and residual matrix equivalence remain in the reader. -/
+Omitted: E is the completed Cayley–Hamilton algebra of the continuous residual determinant on profinite G, A is its noetherian universal pseudodeformation ring, and continuous adjoint H¹ is finite dimensional. E is supplied by the completed group-algebra interface of L1; no discrete group-algebra quotient is substituted. The topology comparison and residual matrix equivalence remain in the reader.
+The source proof does not establish small-characteristic nilpotence or closedness
+of the generated CH ideal; E19–E20 and the explicit proof leaf record this. -/
 theorem completed_cayley_hamilton_finite {E : Type u} [Ring E] [Algebra A E]
     [IsNoetherianRing A] (D : Determinant A E d) (hCH : D.IsCayleyHamilton) :
     Module.Finite A E := sorry
@@ -2929,6 +2937,22 @@ example [IsAzumaya ℝ (Quaternion ℝ)]
     (hRank : Determinant.HasConstantRank (A := ℝ) (Quaternion ℝ) 4) :
     let D := Determinant.ofAzumaya 2 (by decide) hRank
     D.IsAbsolutelyIrreducible ∧ ¬ D.IsSplit := sorry
+
+/-- Real regular multiplication by a complex number, for the splitness regression. -/
+def SuggestedFixtures.complexRegular : ℂ →ₐ[ℝ] Matrix (Fin 2) (Fin 2) ℝ where
+  toFun z := !![z.re, -z.im; z.im, z.re]
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+  commutes' := sorry
+
+/-- `residual_real_norm_not_split`: Real realizability does not split the faithful
+quotient. Over ℂ the two norm constituents are distinct. -/
+example : let D := Determinant.ofMatrix SuggestedFixtures.complexRegular
+    (∀ z : ℂ, D.eval z = z.re^2 + z.im^2) ∧
+    D.IsMultiplicityFree ∧ ¬ D.IsSplit ∧
+    (∃ ρ : ℂ →ₐ[ℝ] Matrix (Fin 2) (Fin 2) ℝ, Determinant.ofMatrix ρ = D) := sorry
 
 /-- `gma_full_matrix`: For R=M_d(A) partitioned into blocks, every A_ij=A. -/
 example (s : ℕ) (i j : Fin s) : Nonempty (GMA.entryModule (SuggestedFixtures.matrixGMA A s) i j ≃ₗ[A] A) := sorry
