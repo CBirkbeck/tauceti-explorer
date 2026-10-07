@@ -113,7 +113,7 @@
    "statement": "Every irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) is modular (oddness is automatic in characteristic 2). If the image is solvable, the projective image is dihedral (KW I Lemma 6.1: S₄ does not occur, and A₄ would lie in a Borel subgroup over 𝔽₄), and the dihedral case is Rohrlich–Tunnell. If the image is non-solvable, take the KW I Theorem 5.1(1)/(2) dyadic weight-2 system and an auxiliary prime p > 3 (R33.5/auxiliary-odd-prime-for-the-dyadic-system): ρ̄_p is either reducible, and ρ_p is modular by Theorem 1.6, or irreducible, odd and not bad dihedral in odd characteristic, hence modular by the already proved odd case (R33.4/dp-odd-characteristic-assembly), and ρ_p is modular by Theorem 1.4. By Remark 4 the whole system, hence ρ̄, is modular.",
    "hypotheses": [
     "this stage uses the odd-characteristic qualitative theorem of §2; it does not use its own p = 2 conclusion",
-    "the solvable branch is entirely imported: Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.6), with the dyadic refinement of Dickson (KW I Lemma 6.1, R27.1)",
+     "the solvable branch is entirely imported: Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.6), with the dyadic refinement of Dickson (KW I Lemma 6.1, ArithmeticGaloisRepresentations R01.4/dickson-classification-and-the-dyadic-refinement)",
     "the lifting theorems used are Theorem 1.6 at p ≥ 5 and Theorem 1.4 at odd p; no dyadic lifting theorem is needed here, only the dyadic lift-existence Theorem 1.9(1)–(2)"
    ],
    "proofSteps": [
@@ -129,7 +129,7 @@
     "ClassicalSerreModularity:R33.5/auxiliary-odd-prime-for-the-dyadic-system",
     "ClassicalSerreModularity:R33.4/dp-odd-characteristic-assembly",
     "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
-    "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+     "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
     "GL2AutomorphicRepresentationsAndTransfer:R17.6",
     "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer"
    ],
@@ -326,7 +326,7 @@
     "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
     "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
     "SerreWeightAndLevelOptimisation:R20.6",
-    "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+     "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
     "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular"
    ],
    "library": {
