@@ -492,7 +492,8 @@
         "EnhancedDerivedSheaves:E3/coherent-diagrams-of-ringed-topoi",
         "DiamondSixOperations:S2/lower-shriek",
         "DiamondSixOperations:S2/lower-shriek-base-change",
-        "DiamondSixOperations:S2/projection-formula"
+        "DiamondSixOperations:S2/projection-formula",
+        "DiamondSixOperations:S4/smooth-twisted-pullback"
       ],
       "sources": [
         {
@@ -571,7 +572,7 @@
       ],
       "title": "Partial compact-support functors",
       "kind": "construction",
-      "statement": "Over an algebraically closed field k of characteristic p, let X be a spatial diamond partially proper over Spd k of finite transcendence dimension, and S a spatial diamond over k. Put α:X×k S→X and β:X×k S→S. Quasi-pro-étale universally open affinoid covers and two pseudouniformizers define the annular systems U_{a,b}, U_a and U_b. Define Rβ_!+=colim_a Rβ_*j_{a!}(−|U_a) and Rβ_!-=colim_b Rβ_*j_{b!}(−|U_b), with transitions given by extension-by-zero counits. Common cofinal refinements give independence of covers and pseudouniformizers. These are partially supported functors, not an unrestricted stacky Rβ_!. No general adjunction is inferred merely from the colimit.",
+      "statement": "For a coefficient ring Λ killed by an integer n prime to p, over an algebraically closed field k of characteristic p, let X be a spatial diamond partially proper over Spd k of finite transcendence dimension, and S a spatial diamond over k. Put α:X×k S→X and β:X×k S→S. Quasi-pro-étale universally open affinoid covers and two pseudouniformizers define the annular systems U_{a,b}, U_a and U_b. Define Rβ_!+=colim_a Rβ_*j_{a!}(−|U_a) and Rβ_!-=colim_b Rβ_*j_{b!}(−|U_b), with transitions given by extension-by-zero counits. Common cofinal refinements give independence of covers and pseudouniformizers. These are partially supported functors, not an unrestricted stacky Rβ_!. No general adjunction is inferred merely from the colimit.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
@@ -653,6 +654,11 @@
           "name": "TauCeti.Blueprint.VStack.PartialSupport.cofinalAnnuli",
           "kind": "characterisation",
           "statement": "Replacing an annular system by a cofinal subsequence gives the same functor; reversing the support direction is not that replacement."
+        },
+        {
+          "name": "TauCeti.Blueprint.VStack.PartialSupport.properBand",
+          "kind": "computation",
+          "statement": "For nonzero Λ and S=Spa(C,O_C), suppose a section i:S→X×k S of β is a proper closed immersion whose image lies in one finite annular band U_{a,b}. For i_*Λ, both partial-support functors are canonically Λ: sufficiently large supports contain the graph, and β∘i=id. In particular neither functor is identically zero."
         }
       ],
       "uses": [
@@ -792,7 +798,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Definition IV.1.13; Remark IV.1.14; Definition IV.1.15, pp.110–111",
+          "locator": "IV.1.11–IV.1.16, pp.110–112, including Remark IV.1.16",
           "excerpt": "Definition IV.1.13.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -1149,7 +1155,7 @@
       ],
       "title": "Formal smoothness of v-stacks",
       "kind": "definition",
-      "statement": "A map X→Y is formally smooth in the IV.3 sense if for every characteristic-p affinoid perfectoid S, closed perfectoid subspace S0⊂S, map S→Y and compatible S0→X, the lift S→X exists after replacing S by an étale neighbourhood whose pullback over S0 contains the prescribed lift. This is lifting along closed perfectoid subspaces, not along nilpotent thickenings of schemes.",
+      "statement": "A map X→Y is formally smooth in the IV.3 sense if for every characteristic-p affinoid perfectoid S, closed perfectoid subspace S0⊂S, map S→Y and compatible S0→X, there are an étale map S′→S whose image contains all of |S0| and a lift S′→X over Y agreeing with the prescribed map after pullback to S′×S S0. This is lifting along closed perfectoid subspaces, not along nilpotent thickenings of schemes.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
@@ -1253,7 +1259,7 @@
       ],
       "title": "Formal smoothness and local sections",
       "kind": "theorem",
-      "statement": "Formal smoothness is stable under composition and base change, is étale-local on both sides, gives universal openness, and a formally smooth v-surjection admits étale-local sections. The source descent proposition IV.3.7 applies with its formally smooth surjection; it is not descent through an arbitrary map.",
+      "statement": "Formal smoothness of small v-stack maps is stable under composition and base change and gives universal openness. For maps of locally spatial diamonds it is étale-local on both sides. A formally smooth v-surjection of small v-stacks admits étale-local sections. Corollary IV.3.6 is the descent statement through a formally smooth surjection; no descent through an arbitrary map is asserted.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
@@ -1273,7 +1279,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Propositions IV.3.2–IV.3.7, pp.130–133",
+          "locator": "Observations following Definition IV.3.1; Propositions IV.3.2–IV.3.5; Corollary IV.3.6, pp.130–133",
           "excerpt": "Proposition IV.3.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -1300,7 +1306,7 @@
       "proofSteps": [
         "Identify the finite étale curve/diamond sites by the supplied comparison and Frobenius relocation.",
         "Import, rather than re-prove, the finite étale algebra theorem from VB2; it reduces covers to finite étale E-algebras.",
-        "Spread covers over strict-local geometric points with the finite-stage comparison; apply connected-fibre factorization. The relative qcqs hypothesis in SW16.3.3 is on D→Spd k, not on D as an absolute diamond."
+        "Use the curve/diamond comparison, Frobenius relocation and the imported constant finite-étale E-algebra classification to obtain the pullback equivalence for covers of Spa C0×Div¹. This is Lemma 16.3.2, not the connected-fibre product theorem 16.3.3."
       ],
       "acceptance": [
         "For E=Q_p this recovers SW20 Lemma 16.3.2 exactly.",
@@ -1316,7 +1322,7 @@
       "sources": [
         {
           "sourceId": "SW20",
-          "locator": "SW20 Lemma 16.3.2; Propositions 16.3.3,16.3.6, pp.144–148; FS IV.7.3, pp.165–166",
+          "locator": "SW20 Lemma 16.3.2, pp.144–145; FS Lemma IV.7.3, pp.165–166",
           "excerpt": "Lemma 16.3.2.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -1492,7 +1498,7 @@
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
-        "Embed locally in projective space and use period-ring vanishing to obtain representability and compactifiability.",
+        "Locally on S, use the fixed closed immersion of Z into an open projective space supplied by the section-space node, and its relative normal-cone deformation; do not infer the theorem from arbitrary local embeddings on Z.",
         "Construct section lifts by successive Frobenius corrections with positive-slope estimates; étale retractions give constant-sheaf ULA.",
         "Deform the section to its normal/tangent cone, use ULA and constructibility to stabilize the family, and identify the dualizing fibre with that of the positive BC tangent space."
       ],
@@ -1535,7 +1541,7 @@
       ],
       "title": "The category of cohomological kernels",
       "kind": "construction",
-      "statement": "For a small v-stack S, C_S has objects compactifiable representable locally spatial X→S of locally finite transcendence dimension, Hom(X,Y)=D_et(X×S Y,Λ), composition A⋆B=Rπ13!(π12*A⊗π23*B), and identity Δ!Λ. The eligible operations give the associator and units in this 2-category. Relative Verdier duality is D_X/S(A)=RHom(A,Rf!Λ). This is the kernel 2-category used for ULA adjoints, not ordinary rigidity of a monoidal category.",
+      "statement": "For Λ killed by an integer prime to p, for a small v-stack S, C_S has objects compactifiable representable locally spatial X→S of locally finite transcendence dimension, Hom(X,Y)=D_et(X×S Y,Λ), composition A⋆B=Rπ13!(π12*A⊗π23*B), and identity Δ!Λ. The eligible operations give the associator and units in this 2-category. Relative Verdier duality is D_X/S(A)=RHom(A,Rf!Λ). This is the kernel 2-category used for ULA adjoints, not ordinary rigidity of a monoidal category.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
@@ -1737,13 +1743,13 @@
       ],
       "title": "Perfect internal Hom and local acyclicity",
       "kind": "theorem",
-      "statement": "For a spatial diamond X, perfect-constructible A and any small-v-stack map g:Y→X, g*RHom(A,B)→RHom(g*A,g*B) is an isomorphism for all B, and RHom(A,Λ) is overconvergent. For an eligible f:X→S, local acyclicity implies D_X/S(A)⊗f*B≃RHom(A,f!B). Conversely this formula, together with overconvergence, characterizes LA under the local uniform bound on the cohomological dimension of separated qc étale neighborhoods of X. Universally on S it characterizes ULA with overconvergence retained. Affinoid perfectoid maps to spatial S admit the cofinal relative-ball neighborhoods of IV.2.16 used to prove the formula.",
+      "statement": "For a spatial diamond X, perfect-constructible A and any small-v-stack map g:Y→X, g*RHom(A,B)→RHom(g*A,g*B) is an isomorphism for all B, and RHom(A,Λ) is overconvergent. For an eligible f:X→S, universal local acyclicity implies D_X/S(A)⊗f*B≃RHom(A,f!B). Conversely this formula, together with overconvergence, characterizes LA under the local uniform bound on the cohomological dimension of separated qc étale neighborhoods of X. Universally on S it characterizes ULA with overconvergence retained. Affinoid perfectoid maps to spatial S admit the cofinal relative-ball neighborhoods of IV.2.16 used to prove the formula.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
         "Use the relative affinoid-ball approximation and smooth base change to compute perfect-constructible Hom on geometric stalks.",
-        "Duality and the rank-one specialization triangle prove overconvergence and the tensor-Hom formula.",
+        "After arbitrary base change, ULA, duality and the rank-one specialization triangle prove overconvergence and the tensor-Hom formula of IV.2.19. The non-universal converse retains the separate IV.2.21 dimension bound.",
         "For the converse, adjunction and Neeman’s compactness lemma give perfect constructibility; the stated uniform dimension bound makes section functors commute with sums."
       ],
       "acceptance": [
@@ -1784,14 +1790,14 @@
       ],
       "title": "Relative section spaces and positive tangent locus",
       "kind": "construction",
-      "statement": "For a perfectoid S/F_q and smooth Z→X_S over the relative Fargues–Fontaine curve, locally a locally closed subspace of a projective space over X_S, M_Z(T)=sections X_T→Z_T. Its subfunctor M_Z^sm consists of sections s for which s*T_Z/X_S has only strictly positive slopes at every geometric point. The infinitesimal deformation complex is RΓ(X_T,s*T_Z/X_S); positive slopes kill H¹ and its H⁰ is the supplied positive Banach–Colmez tangent space. Smoothness and differentials over sousperfectoid charts are imported from AdicSpacesPartII.",
+      "statement": "For a perfectoid S/F_q and smooth Z→X_S over the relative Fargues–Fontaine curve, assume, locally on S, a fixed closed immersion of Z into an open subset of a projective space over X_S. Define M_Z(T)=sections X_T→Z_T. Its subfunctor M_Z^sm consists of sections s for which s*T_Z/X_S has only strictly positive slopes at every geometric point. The source uses the candidate tangent/obstruction cohomology RΓ(X_T,s*T_Z/X_S): positive slopes kill H¹ and H⁰ is the supplied positive Banach–Colmez space. Its normal-cone construction identifies the zero-section fibre with BC(s*T_Z/X_S); it does not directly identify an infinitesimal deformation theory of M_Z. Smoothness and differentials on sousperfectoid charts are imported from AdicSpacesPartII.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
         "Sheafify relative sections by the supplied bundle/curve descent and identify pullback maps.",
         "Define positivity through geometric HN slopes, not by a free boolean label.",
-        "Linearize the section problem and identify its cohomology with the supplied two-term BC geometry."
+        "Use the normal-cone deformation and its zero-section fibre BC(s*T_Z/X_S) in IV.4; the quantitative lifting estimates needed for the Jacobian criterion remain recorded in G-jacobian."
       ],
       "acceptance": [
         "For Z=X_S, the unique section has zero tangent and lies in M_Z^sm.",
@@ -1813,7 +1819,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Definition IV.4.1; Theorem IV.4.2; Example IV.4.7, pp.134–136",
+          "locator": "IV.4 preamble; Definition IV.4.1; Theorem IV.4.2; Remark IV.4.6; Example IV.4.7, pp.134–136",
           "excerpt": "Definition IV.4.1.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -1848,7 +1854,7 @@
         {
           "name": "TauCeti.Blueprint.VStack.SectionSpace.tangent",
           "role": "data",
-          "statement": "The deformation complex at s is RΓ(X_T,s*T_Z/X_S), including both H⁰ and H¹."
+          "statement": "The candidate tangent/obstruction cohomology is RΓ(X_T,s*T_Z/X_S), with H⁰ and H¹ and the normal-cone zero-section fibre BC(s*T_Z/X_S). No direct infinitesimal deformation theorem for M_Z is asserted."
         },
         {
           "name": "TauCeti.Blueprint.VStack.SectionSpace.vectorBundle",
@@ -2134,14 +2140,14 @@
       ],
       "title": "ULA locality and proper pushforward",
       "kind": "theorem",
-      "statement": "ULA descends under a v-cover of the base and is local under separated cohomologically smooth surjections of the source. For a proper representable map g:Y→X of locally finite relative dimension, g_* preserves ULA relative to S. Tensor composition g*A⊗B is ULA for f∘g if A is f-ULA and B is g-ULA with eligible maps; the relative-dual formula is IV.2.26. Non-universal local acyclicity uses the source’s local uniform bound on étale cohomological dimension; the ULA statements require no extra uniform bound on the base.",
+      "statement": "ULA descends under a v-cover of the base and is local under separated cohomologically smooth surjections of the source. For a proper representable map g:Y→X of locally finite relative dimension, g_* preserves ULA relative to S. Non-universal local acyclicity uses the source’s local uniform bound on étale cohomological dimension; the ULA statements require no extra uniform bound on the base.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
         "Descent of clause (a) is stalkwise; proper base change and perfect-constructible descent prove clause (b).",
         "For smooth source descent use projection formulas and the smooth dualizing object; reduce universal assertions to strictly totally disconnected base changes.",
-        "For tensor composition use the constructibility criterion and the relative duality identities, retaining all eligibility and properness conditions."
+        "For proper representable g of locally finite relative dimension, proper base change and preservation of perfect constructibility prove the direct-image ULA clauses universally over the base."
       ],
       "acceptance": [
         "A smooth cover detects ULA, but an arbitrary surjective map of sources is not substituted.",
@@ -2159,7 +2165,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Propositions IV.2.4–IV.2.6, IV.2.11–IV.2.13; IV.2.26, pp.116–127",
+          "locator": "Propositions IV.2.4–IV.2.6, IV.2.11–IV.2.13, pp.116–119",
           "excerpt": "Proposition IV.2.4.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -2197,12 +2203,13 @@
         "VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality",
         "DiamondSixOperations:S3/upper-shriek",
         "DiamondSixOperations:S3/adjunction-calculus",
-        "DiamondSixOperations:S3/upper-shriek-pushforward-exchange"
+        "DiamondSixOperations:S3/upper-shriek-pushforward-exchange",
+        "VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Theorem IV.2.23; Corollaries IV.2.24–IV.2.25, pp.124–126",
+          "locator": "Theorem IV.2.23; Proposition IV.2.24; Corollary IV.2.25, pp.124–126",
           "excerpt": "Theorem IV.2.23.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -2593,7 +2600,7 @@
       ],
       "title": "Cohomology of compact condensed spaces",
       "kind": "theorem",
-      "statement": "For compact Hausdorff S, condensed cohomology with discrete integer coefficients agrees with ordinary sheaf/Čech cohomology. Profinite S has H^i(S,Z)=0 for i>0. For the topological condensed reals, H^i(S,R)=0 for i>0 and H⁰=C(S,R). A profinite hypercover computes the latter by the complex C(S_•,R); every cocycle admits a primitive of norm at most (1+ε) times its norm for each ε>0.",
+      "statement": "For compact Hausdorff S, condensed cohomology with discrete integer coefficients agrees with ordinary sheaf/Čech cohomology. Profinite S has H^i(S,Z)=0 for i>0. For the topological condensed reals, H^i(S,R)=0 for i>0 and H⁰=C(S,R). A profinite hypercover computes the latter by the augmented complex 0→C(S,R)→C(S0,R)→C(S1,R)→⋯; for i≥0, a cocycle in C(S_i,R) admits a primitive in the preceding augmented term (C(S,R) when i=0) of norm at most (1+ε) times its norm for each ε>0.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
@@ -2642,7 +2649,7 @@
       ],
       "proofSteps": [
         "At a fixed regular cutoff, the profinite-site sheaf condition uses finite products and finite equalizers, which commute with filtered colimits. Transport this statement to the pinned CompHaus presentation through the recorded cutoff/site-comparison interface.",
-        "Apply sheaf descent for the effective epi assertion and compact factorization to filtered qcqs unions.",
+        "Apply sheaf descent for effective epimorphisms. For X=colim_i X_i and profinite T→X×X, evaluation/finite-product commutation first gives a common stage i through which T→X×X factors. Since X_i→X is a monomorphism, T×(X×X)X≃T×(X_i×X_i)X_i; quasi-separatedness of X_i makes this fibre quasicompact. Do not choose an arbitrary stage or assert X_i→X is quasicompact without proof.",
         "On profinite pullbacks the equalizer is compact Hausdorff and closed; agreement on all points forces the maps to coincide."
       ],
       "acceptance": [
@@ -3729,6 +3736,11 @@
           "name": "TauCeti.Blueprint.VStack.SolidPartialSupport.torsion",
           "kind": "compatibility",
           "statement": "On torsion pullback coefficients the resulting vanishing agrees with IV.5 after the solid comparison."
+        },
+        {
+          "name": "TauCeti.Blueprint.VStack.SolidPartialSupport.properBand",
+          "kind": "computation",
+          "statement": "In the VII.2.9 setup, let S=Spa(C,O_C) and suppose a section i:S→X×k S of β is a proper closed immersion contained in a finite annular band. For the nonzero solid coefficient unit Λ, both end functors send i_*Λ to Λ. Extension by zero is eventually constant on this support and β∘i=id, so the zero functor fails this test."
         }
       ],
       "uses": [
@@ -4590,7 +4602,7 @@
       ],
       "proofSteps": [
         "Import SR’s compact inductions and prove chart images compact via strict locality and the restriction adjunctions.",
-        "For the puncture, reduce to finitely presented solid sheaves and uniformly bounded finite constructible cohomology; proper partial-support vanishing gives the needed finite groups, so inverse limits preserve the bound.",
+        "For the puncture, reduce to finitely presented solid sheaves and uniformly bounded finite constructible cohomology. Lemma VII.7.5 invokes torsion IV.5.3 directly for the finite constructible groups, then inverse limits preserve the bound; distinguish this from the separate solid VII.2.10 vanishing used for stratum adjoints.",
         "Induct on qc finite HN supports and pass to the qc open exhaustion; finite support distinguishes compact objects from infinite sums of compact strata."
       ],
       "acceptance": [
@@ -4606,7 +4618,8 @@
         "BunGAndNewtonStrata:BG4/section-and-spatial-complement",
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "EnhancedDerivedSheaves:E5:presentability/compact-objects",
-        "EnhancedDerivedSheaves:E5:abstract/idempotent-completion"
+        "EnhancedDerivedSheaves:E5:abstract/idempotent-completion",
+        "VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing"
       ],
       "sources": [
         {
@@ -4640,7 +4653,7 @@
       ],
       "proofSteps": [
         "Split the torsor v-locally and use the imported slope resolutions to reduce to O(1/n).",
-        "Compute the perfectoid-ball trace identity with the supplier’s diamond operations.",
+        "Compute the torsion perfectoid-ball trace identity with the supplied smooth diamond operations. For solid unit homology, use relative f♯ and the nonproper torsion comparison VII.5.2, together with the integral finitely-presented bounded-cone detection/completion interface recorded in G-bc-unit-homology; extend coefficients by the homology coefficient comparison. VII.3.5 proper Poincaré duality does not apply to these nonproper BC fibres.",
         "Present the negative case by a positive resolution, then iterate these unit homology calculations for connected-kernel towers."
       ],
       "acceptance": [
@@ -4650,11 +4663,13 @@
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
         "VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution",
-        "VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare",
         "DiamondSixOperations:S4/cohomologically-smooth",
         "DiamondSixOperations:S4/smooth-composition",
         "DiamondSixOperations:S4/smooth-stable-under-base-change",
-        "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection"
+        "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection",
+        "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
+        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion"
       ],
       "sources": [
         {
@@ -5369,18 +5384,17 @@
       ],
       "title": "Lisse Verdier exchange",
       "kind": "theorem",
-      "statement": "For open j:V→U of open Bun_G substacks and all A∈D_lis(V,Λ), j♯RHom_lis(A,Λ)≃RHom_lis(Rj_lis*A,Λ). The ordinary opposite exchange follows from adjunction. The proof also gives the lisse reflexivity criterion: biduality is detected by the full K-invariants complexes on every HN stratum, using VII.7.7’s explicitly stated continuation of V.6.2.",
+      "statement": "For open j:V→U of open Bun_G substacks and all A∈D_lis(V,Λ), j♯RHom_lis(A,Λ)≃RHom_lis(Rj_lis*A,Λ). The opposite exchange follows from adjunction. No lisse biduality/reflexivity criterion is included: the source omits its proof and RT29 explicitly excludes it from this verified target.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
-        "Repeat the compact-generator BZ argument with j♯ and lisse internal Hom.",
-        "Use the lisse stratum adjunction and finite HN localization to transport the V.6.3 biduality calculation.",
-        "Pass to the qc open exhaustion and the imported stratum smooth-dual criterion."
+        "Use the lisse compact-generator BZ argument of VII.7.6, together with the lisse internal Hom and stratum adjunctions.",
+        "Apply the V.6.1 exchange argument as directed by VII.7.7: verify on compact generators, pass to colimits in A, and take adjunction mates for the opposite exchange."
       ],
       "acceptance": [
         "No reflexivity assumption is imposed on A for the exchange.",
-        "The lisse reflexivity continuation is justified by the localization argument, not by substituting coefficients into V.6.2."
+        "The exchange applies also to integral/rational coefficients, including Λ=Q_ell, using the actual lisse adjoints rather than torsion coefficient substitution."
       ],
       "prerequisites": [
         "VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality",
@@ -5392,7 +5406,7 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Proposition VII.7.7 and following paragraph, p.275; V.6.2–V.6.3 proof",
+          "locator": "Proposition VII.7.7, p.275; Proposition V.6.1 proof",
           "excerpt": "Proposition VII.7.7.",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
@@ -5798,7 +5812,8 @@
         "Requested SolidAnalyticRings:SA.3: Finite-type Z-algebra measures R[S]_solid=lim R[S_i] and the restriction criterion for arbitrary R, compared with the pinned finite-type CondensedMod.IsSolid. Separate R-solid and (R,Z)-solid structures.",
         "Requested SolidAnalyticRings:SA.4: For topological nonarchimedean E, the analytic structure with measures E⊗solid_Z Z[S]_solid, its complete closed tensor/Hom and continuous coefficient extension. Classical functional-analysis equivalences are its consumers.",
         "Requested AnalyticStacks:AS.2: AnSpec and !-topology descent for the imported analytic rings, its module-category realization, proper induced analytic localization and open/closed excision, specialized to (A,Z)-solid coefficients.",
-        "Requested AnalyticStacks:AS.3: Scheme gluing and formal completion in the analytic-stack category, including the discrete (A,Z)-solid coefficient variant of BCGP25 §2.4.1. Compare that variant with the R-solid scheme embedding; they are not identified without proof."
+        "Requested AnalyticStacks:AS.3: Scheme gluing and formal completion in the analytic-stack category, including the discrete (A,Z)-solid coefficient variant of BCGP25 §2.4.1. Compare that variant with the R-solid scheme embedding; they are not identified without proof.",
+        "VStackSheavesAndLisseCategories/G-rt30-scope: Verified generic-core ownership and reader revision"
       ]
     },
     {
@@ -5817,7 +5832,8 @@
         "Requested SmoothRepresentationsOfLocalGroups:SR.0:abelian-category: The abelian smooth category on the existing discrete continuous representation carrier; exact open pro-p invariants in prime-to-p coefficients, including kernels, cokernels and coproducts.",
         "Requested SmoothRepresentationsOfLocalGroups:SR.0:derived-extension: The common EDS enhancement of the smooth category, with continuous torsor descent, derived invariants and their exact open pro-p computation.",
         "Requested SmoothRepresentationsOfLocalGroups:SR.2: Imported c-Ind_K Λ for open pro-p K, Frobenius reciprocity with K-invariants, exactness and product/coefficient comparisons in ell≠p coefficients. Derived smooth BZ pairing and the compact-generator/perfect-invariant criterion are requested as a Part II extension, rather than claimed to be present in SR.2.",
-        "Requested ClassicalAdicEtaleCohomology:H1:formal-adic-comparison: The strict-local formal-neighborhood comparison needed for FS V.4.3: identify RΓ over the adic formal tube with the closed-point fibre, preserving the actual ideal, completion, support and prime-to-p coefficient conventions; use the filtered formula outside type (S)."
+        "Requested ClassicalAdicEtaleCohomology:H1:formal-adic-comparison: The strict-local formal-neighborhood comparison needed for FS V.4.3: identify RΓ over the adic formal tube with the closed-point fibre, preserving the actual ideal, completion, support and prime-to-p coefficient conventions; use the filtered formula outside type (S).",
+        "VStackSheavesAndLisseCategories/G-bc-unit-homology: Integral nonproper solid unit calculation"
       ]
     },
     {
@@ -6039,6 +6055,27 @@
         "VStackSheavesAndLisseCategories:VS1/ula-analytification"
       ],
       "detail": "FS IV.2.30 imports the algebraic Lu–Zheng criterion. Existing EDC.1 nodes supply exceptional duality, and the actual H5 comparison node supplies Hub96 3.8.1, but no atlas target names algebraic relative-kernel ULA dualizability. Propose EtaleDualityAndPerverseSheaves, Part II, on EDC.1’s carrier; do not route it to the perverse-only EDC.5 or assume that category contains the criterion. This source interface remains open."
+    },
+    {
+      "id": "VStackSheavesAndLisseCategories/G-rt30-scope",
+      "title": "Verified RT30 generic-core scope not implemented",
+      "detail": "RT30 verification chooses the alternative, not VS0→VS2/VS1→VS2 edges: keep VII.2.1–VII.2.6 and VII.3 generic operations in VS2, move VII.2.9–VII.2.10 to VS4, and move VII.2.7–VII.2.8 to VS4 or HS1. Split the VII.2.6 base-change part from the current combined Drinfeld node. The packet and reader instead put all of these in VS2. A revision authorized to update the reader must reconcile IDs, targetCoverage, dependencies, uses and stage text; also isolate or explicitly reconcile the additional VS1-dependent VII.4/VII.5 applications, so the generic core feeding HabiroRings HR.2 does not inherit ULA/Artin geometry. This review does not silently reparent existing target IDs or edit the unauthorized reader.",
+      "neededBy": [
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
+        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding",
+        "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons"
+      ]
+    },
+    {
+      "id": "VStackSheavesAndLisseCategories/G-bc-unit-homology",
+      "title": "Integral solid unit homology for nonproper BC kernels",
+      "detail": "Expand the VII.7.1 proof that connected BC kernel fibres have f♯Λ≃Λ: start integrally, identify the nonproper VII.5.2 torsion comparison with the torsion ball trace, establish the required bounded finitely-presented cone/detection or derived-completion hypotheses for the unit calculation, and extend to solid algebra coefficients via relative homology. Do not apply VII.3.5 proper Poincaré duality to nonproper BC fibres and do not infer an arbitrary rational solid equivalence from mod-ell reductions. V.2.1 supplies torsion full faithfulness; VII.7.1 states the solid conclusion but needs this interface made explicit.",
+      "neededBy": [
+        "VStackSheavesAndLisseCategories:VS4/contractibility-of-connected-banach-colmez-torsors"
+      ]
     }
   ],
   "sourceIssues": [
@@ -6055,7 +6092,12 @@
       "searched": [
         "2026-10-07: Cambridge DOI 10.1017/fmp.2026.10030 article/PDF and arXiv:2404.14622 version metadata; no correction listed in the opened notices.",
         "2026-10-07: author/publication and title-specific Lemma A.8 erratum searches; this is a bounded search, not proof of absence."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the published A.8 proof: the list of r equations has simultaneous values in A^r, not A. Arbitrary closed ideals also require the compact intersection argument, which the packet now states; no finite defining-ideal assumption is smuggled in.",
+        "by": "REV-VStackSheavesAndLisseCategories"
+      }
     },
     {
       "id": "VStackSheavesAndLisseCategories/E2",
@@ -6070,7 +6112,12 @@
       "searched": [
         "2026-10-07: author-hosted Geometrization PDF and arXiv:2102.13459 version listing (latest v4, 27 November 2024); the finding is scoped to the hashed author copy.",
         "2026-10-07: title/Proposition VII.7.10 erratum searches and author paper page; no separately listed correction found in the opened sources."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at VII.7.10: the displayed functor, hypotheses and preceding paragraph are D_lis. The isolated D_et compactness sentence is a notation slip; it cannot supply the Q_ell target otherwise.",
+        "by": "REV-VStackSheavesAndLisseCategories"
+      }
     },
     {
       "id": "VStackSheavesAndLisseCategories/E3",
@@ -6086,7 +6133,12 @@
         "Read the registered PAPER-PASKUNAS-QUAST-26/E10 correction and its 2 October 2026 Cambridge/arXiv/Crossref/author-page search provenance.",
         "2026-10-07: compared the accessible-presheaf passage and Lemma A.8 against the hashed published Cambridge PDF; use the registered counterexample and corrected affine construction."
       ],
-      "provenance": "PAPER-PASKUNAS-QUAST-26/E10"
+      "provenance": "PAPER-PASKUNAS-QUAST-26/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently against the published A.1 sentence and the registered PAPER-PASKUNAS-QUAST-26/E10 counterexample. A constant two-element accessible functor fails both the empty-cover singleton and the binary disjoint-union product condition. Representable affine Hom repairs the applications.",
+        "by": "REV-VStackSheavesAndLisseCategories"
+      }
     },
     {
       "id": "VStackSheavesAndLisseCategories/E4",
@@ -6101,7 +6153,33 @@
       "searched": [
         "2026-10-07: reread the hashed author PDF IV.1.9(iv)–IV.1.11 and the recorded ECD étale/cohomological-smoothness statements.",
         "2026-10-07: author/arXiv version listing and exact Remark IV.1.10/discrete/finite correction searches; no correction identified in the accessible results. The finding is scoped to the author copy, not an unexamined edition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at IV.1.10: the distribution obstruction applies to infinite compact open subgroups. The closed infinite discrete subgroup π^Z⊂E× has an étale point atlas, whose base change is a disjoint union of identities, so the finite-only parenthesis is false.",
+        "by": "REV-VStackSheavesAndLisseCategories"
+      }
+    },
+    {
+      "id": "VStackSheavesAndLisseCategories/E5",
+      "source": "PQ26",
+      "kind": "gap",
+      "locator": "Published Appendix A, Lemma A.5 proof, p.90",
+      "printed": "The diagram uses T→X_i×X_i, and the proof asserts X_i×X_i→X×X is a quasi-compact injection.",
+      "correction": "First use Lemma A.1 and filtered-colimit/finite-product commutation to choose i through which the profinite map T→X×X factors. The monomorphism X_i→X then identifies T×(X×X)X with T×(X_i×X_i)X_i, which is quasicompact by quasi-separatedness of X_i. No quasicompactness of the colimit inclusion is needed.",
+      "reason": "The displayed map from T has not been chosen. For the filtered system X_0=empty, X_i=point (i≥1), T=point maps to X×X but cannot factor through stage 0. Compact factorization at some common stage supplies the missing step and avoids the unjustified quasicompact-inclusion assertion. The theorem remains valid.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-07: independently read the hashed published Cambridge Appendix A.5 and Lemma A.1; compared the registered PQ source issues, including E10.",
+        "2026-10-07: searched the exact title/Appendix A.5/erratum, opened arXiv:2404.14622 and Julian Quast publication page; no separately indicated correction was found in these bounded checks."
+      ],
+      "addedBy": "REV-VStackSheavesAndLisseCategories",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the printed A.5 diagram: no map T→X_i×X_i has yet been chosen and quasicompactness of the colimit inclusion is asserted without an argument. Compact profinite evaluation plus filtered finite products supplies a suitable common i; monomorphy then makes the diagonal pullback Cartesian. This repairs the proof without changing its theorem.",
+        "by": "REV-VStackSheavesAndLisseCategories"
+      }
     }
   ],
   "upstreamNotes": [
@@ -6115,11 +6193,11 @@
     },
     {
       "id": "RT-AREA-geomlanglands/29",
-      "detail": "VS5 now names VII.7.6 BZ, VII.7.7 Verdier exchange/reflexivity, VII.7.8 lisse ULA, VII.7.9 invariants and VII.7.10 Künneth; VII.7.2 stratum adjoint and VII.2.10 vanishing are direct prerequisite chains. Propose VS5→HS1, using the existing HS1 duality-exchange and coefficient-base-change nodes, in integral/rational coefficients."
+      "detail": "VS5 now names VII.7.6 BZ, VII.7.7 Verdier exchange (without an additional lisse reflexivity criterion), VII.7.8 lisse ULA, VII.7.9 invariants and VII.7.10 Künneth; VII.7.2 stratum adjoint and VII.2.10 vanishing are direct prerequisite chains. Propose VS5→HS1, using the existing HS1 duality-exchange and coefficient-base-change nodes, in integral/rational coefficients."
     },
     {
       "id": "RT-AREA-geomlanglands/30",
-      "detail": "VS2 explicitly includes VII.2.6, VII.2.7–8 and VII.2.10. Their nodes depend on VS1 Drinfeld pullback and VS0 partial-support vanishing, providing VS0→VS2 and VS1→VS2."
+      "detail": "Independent review: the verified RT30 decision takes the alternative, not the edges. The present placement of VII.2.7–VII.2.10 in VS2 contradicts that decision; G-rt30-scope records the required revision. Keep VII.2.1–VII.2.6/VII.3 in the generic core; place VII.2.9–VII.2.10 in VS4 and VII.2.7–VII.2.8 in VS4 or HS1. Do not present VS0→VS2/VS1→VS2 as the verified fix."
     },
     {
       "id": "RT-AREA-geomlanglands/31",
@@ -6143,7 +6221,7 @@
       "kind": "split",
       "stage": "VStackSheavesAndLisseCategories:VS2",
       "title": "Split condensed coefficients from solid sheaf operations",
-      "reason": "VS2 combines compact-Hausdorff cohomology, corrected coefficient solidity, analytic coefficient applications and solid operations on small v-stacks. Keep the current stage IDs while proposing readable subdivisions.",
+      "reason": "VS2 combines compact-Hausdorff cohomology, corrected coefficient solidity, analytic coefficient applications and solid operations on small v-stacks. Keep the current stage IDs while proposing readable subdivisions. Independent review: this readable subdivision proposal does not implement the verified RT30 generic-core isolation; reconcile its parts with G-rt30-scope before applying it.",
       "parts": [
         {
           "title": "Condensed groups and solidification",
@@ -6484,5 +6562,403 @@
     "All enhanced limits, derived tensor/Hom, completions and kernel coherences use the common EDS enhancement. Ordinary pinned DerivedCategory, rigid monoidal or finitely generated module structures do not replace these inputs.",
     "Smallness and cutoff universes are part of every category construction. Source regular-cardinal/pyknotic models and the pinned CompHaus or light condensed models require the recorded comparison interface.",
     "The packet completes a target-level planning pass. All implementation statuses are unchecked; six planned coverage records retain exact gaps and requests, and no closure is asserted."
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-VStackSheavesAndLisseCategories",
+    "date": "2026-10-07",
+    "notes": "Independent source, hypothesis, proof-closure, supplier, API/test, planet, library-audit and suggested-signature review of all 78 target-level nodes. All 39 baseline declarations confirmed at the exact pins; 18 node contents corrected, two nonzero tests and two explicit gaps added, no new mathematical nodes. Six nodes retain an unresolved stage-scope/core-isolation conflict with the verified RT30 alternative, including the additional ULA-dependent VS2 applications. The reader is not an authorized deliverable and must be revised with that scope fix. All five source issues independently confirmed. The suggested file elaborates against exact pinned Mathlib; its four typed cores and omission ledger do not formalize the roadmap. Complete means a finished pass; all six stages remain planned with explicit gaps. See the review report for the per-node ledger, source versions and checks.",
+    "checked": [
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/artin-v-stack-definition",
+        "verdict": "verified",
+        "note": "IV.1.1–IV.1.8: smallness, representable locally spatial diagonal and separated smooth surjective atlas are retained; the stack itself is not assumed quasiseparated. API covers charts, equivalences and refinements; BG is an application, not a duplicate geometry owner."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/enhanced-smooth-descent",
+        "verdict": "corrected",
+        "note": "Added the direct smooth twisted-pullback input used to normalize atlas descent; it supplies the dualizing twist rather than assuming ordinary pullback descent suffices."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/partial-compact-support",
+        "verdict": "corrected",
+        "note": "Made the prime-to-p torsion coefficient hypothesis explicit and added a nonzero proper-band section test. The three original tests alone would also pass for the identically zero functor; the new test uses an explicitly proper graph, not an assertion that every point graph is proper."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing",
+        "verdict": "verified",
+        "note": "IV.5.3: verified the annular trace/continuity proof and the exterior-pullback scope. The statement does not say every sheaf has zero support cohomology. The partially proper finite-dimensional hypotheses and torsion coefficients are essential."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/point-to-classifying-stack-not-smooth",
+        "verdict": "verified",
+        "note": "IV.1.9–IV.1.11 and supplier S5 distributions/S4 étale smoothness: the infinite compact-open obstruction is valid; the infinite discrete exception corrects the printed finite-only claim. E4 has the explicit closed π^Z counterexample."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/shriek-pullback-for-smooth-stacky-maps",
+        "verdict": "corrected",
+        "note": "Added Remark IV.1.16 for the asserted left adjoint; eligibility and normalized dualizing twists are retained."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS0/stability-under-fibre-products-and-representable-maps",
+        "verdict": "verified",
+        "note": "IV.1.8: pullback of atlases and representability of diagonals prove the stability statements; the smooth-local comparison retains separation and the constructed-operation class."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/braden-theorem",
+        "verdict": "verified",
+        "note": "IV.6.3 and IV.6.9: checked the affine-coordinate reduction, partial-support vanishing and monodromic induction. The local compactifiable result has its bounded-below qualification, whereas the global proper finite-dimensional result does not."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/divisor-weil-map",
+        "verdict": "verified",
+        "note": "IV.7 preamble and II.1.14: checked the W_E action τ∘Frob^(−deg τ) and quotient presentation. RF2 owns divisors; the existing ClassFieldTheory layer 9 owns Weil data. API/tests retain the sign and do not substitute a profinite π1."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/drinfeld-local-systems",
+        "verdict": "verified",
+        "note": "IV.7.2–IV.7.3: finite-étale comparison gives locally constant perfect complexes and the finite-I version. This is distinguished from essential surjectivity for all étale complexes or an unrestricted product π1 assertion."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/drinfeld-pullback",
+        "verdict": "verified",
+        "note": "IV.7.1: checked full faithfulness by geometric base-change invariance and the conditional essential-surjectivity statement; iteration gives finite I. Suppliers provide the actual divisor/Weil and finite-étale input."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/formal-smoothness",
+        "verdict": "corrected",
+        "note": "Specified that the étale neighbourhood covers the entire prescribed closed subspace and that the lift agrees on its pullback, making the IV.3.1 quantifiers explicit."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus",
+        "verdict": "corrected",
+        "note": "Corrected the descent reference IV.3.7 to Corollary IV.3.6 and restricted the étale-locality observation to maps of locally spatial diamonds. IV.3.7 concerns Bun_G, so it is not this general calculus input."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale",
+        "verdict": "corrected",
+        "note": "Removed the unrelated SW16.3.3/16.3.6 connected-fibre product argument. The needed input is exactly SW16.3.2, reduced to the existing VB2 finite-étale constant-algebra theorem (SW13.5.7), as RT31 verifies."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula",
+        "verdict": "verified",
+        "note": "IV.6.6–IV.6.8: checked the mates, inverse-action Verdier comparison and ULA reduction. Exceptional base pullback and supported base pushforward retain the compactifiable finite-dimensional hypotheses."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/hyperbolic-localization",
+        "verdict": "verified",
+        "note": "IV.6.1–IV.6.2: attractor/repeller representability, correspondence directions L+=p+!q+* and L−=p−*q−!, and comparison are correct. API/tests include fixed, attracting and repelling cases and retain the action-extension hypothesis."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/jacobian-criterion",
+        "verdict": "corrected",
+        "note": "Aligned the first proof step with the corrected section-space embedding hypothesis; the quantitative Frobenius/normal-cone estimates remain explicit in G-jacobian."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category",
+        "verdict": "corrected",
+        "note": "Made the prime-to-p torsion convention explicit in the relative correspondence category, whose kernel operations use the torsion six-functor formalism."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/perfect-local-systems",
+        "verdict": "verified",
+        "note": "IV.2.7–IV.2.10: v-local perfect complexes coincide with tensor-dualizable objects, with étale locality only on spatial diamonds. API/tests distinguish perfect complexes from complexes with finite cohomology in every degree."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation",
+        "verdict": "corrected",
+        "note": "Restricted the forward tensor-Hom assertion to ULA, as in Proposition IV.2.19. The LA converse with overconvergence and a local uniform cohomological-dimension bound remains distinct."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent",
+        "verdict": "corrected",
+        "note": "Restricted the projective embedding hypothesis to the source: locally on S, one fixed closed embedding into an open projective space. Replaced the unsupported infinitesimal-deformation identification by the candidate cohomology and actual normal-cone fibre construction; IV.4 explicitly warns that a direct infinitesimal interpretation is unavailable."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/smooth-spd-oe",
+        "verdict": "verified",
+        "note": "IV.2.34: the formal-disc comparison includes the special fibre and yields F_ell(1)[2]. The supplier request explicitly distinguishes integral Spd O_E from the generic Tate-pair constructor."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion",
+        "verdict": "verified",
+        "note": "IV.2.28–IV.2.30: checked cancellation of the smooth dualizing twist and the converse with ULA unit plus invertible exceptional dual. This is not the ordinary monoidal tensor-rigidity criterion alone."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-analytification",
+        "verdict": "verified",
+        "note": "IV.2.32–IV.2.33: algebraic/analytic comparison is limited to separated locally finite-type maps and bounded constructible prime-to-p complexes. The relative-kernel algebraic criterion is explicitly requested/gapped rather than supplied by an ordinary ULA definition."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-definition-with-constructibility",
+        "verdict": "verified",
+        "note": "IV.2.1–IV.2.3: both specialization cohomology and perfect direct-image constructibility are present, with eligible maps and universal locally spatial base change. Tests catch omission of the constructibility clause and the difference between LA and ULA."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality",
+        "verdict": "corrected",
+        "note": "Removed the advanced IV.2.26 tensor-composition assertion from this basic locality node; it is already owned by ula-relative-adjoints-and-calculus. Keeping it here would conceal the dualizability input and create a proof cycle when that input is made explicit."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion",
+        "verdict": "corrected",
+        "note": "Added the direct IV.2.15/IV.2.19 Hom/duality input and corrected IV.2.24 from corollary to proposition. The basic locality node has been narrowed first, so this closes the proof without a cycle."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks",
+        "verdict": "verified",
+        "note": "IV.2.27–IV.2.28: eligibility of the composed smooth chart is explicit, and common refinements plus smooth descent prove independence. The statement does not extend unconstructed exceptional operations to arbitrary Artin maps."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus",
+        "verdict": "verified",
+        "note": "IV.2.24–IV.2.26, IV.2.31: checked properness of the target for kernel adjoints, relative duals, tensor composition, retracts and proper quasi-pro-étale detection. This is the correct advanced owner after narrowing basic locality."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/affine-condensed-points",
+        "verdict": "verified",
+        "note": "PQ Appendix A.1/A.8: representable Hom preserves sheaf products/equalizers; accessibility is asserted in the finite-presentation range. Tests include the constant-two-element counterexample, so the known accessible-functor error E3 is not reproduced."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution",
+        "verdict": "verified",
+        "note": "CS 4.10–4.17: finite sums of finite powers, universal integer-matrix differentials and functorial scalar homotopies are retained. G-breen honestly requests the uniform stable-range Eilenberg–Mac Lane homology input instead of assuming an arbitrary free resolution suffices."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/closed-affine-points-quasicompact",
+        "verdict": "verified",
+        "note": "PQ A.8: verified finite-dimensional affine ambient space, quasi-separated coefficients, the corrected multi-equation target A^r, and compact intersections for arbitrary defining ideals. Tests distinguish a finite equation list from arbitrary closed immersions."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "verdict": "unverifiable",
+        "note": "VII.5.2–VII.5.4: checked both solid duals, bounded Tor amplitude, properness in the second comparison, and reversed 2-morphisms. Its actual VS1 ULA inputs remain in VS2 and need reconciliation with the generic-core isolation chosen by RT30. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/condensed-cohomology",
+        "verdict": "corrected",
+        "note": "Specified the augmentation and degree range in the norm-controlled primitive assertion. Without the augmented term, degree-zero cocycles do not all have primitives; the statement now matches CS Theorem 3.3."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/condensed-epis-and-colimits",
+        "verdict": "corrected",
+        "note": "Filled the missing choice of a common factorization stage in PQ Appendix A.5. The printed proof writes T→X_i×X_i without making that choice, and asserts a quasicompact colimit inclusion without justification; evaluation on compact profinites and filtered finite products repair the argument."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/condensed-lca-rhom",
+        "verdict": "verified",
+        "note": "CS 4.3,4.5,4.8: checked the Breen spectral-sequence/topological cohomology proofs and shifts. These are condensed internal derived Hom results, not Hom of abstract groups; compact groups into real coefficients vanish."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding",
+        "verdict": "unverifiable",
+        "note": "VII.5.1(b),VII.5.3–VII.5.5: checked double-duality, compact-image/Ind range, separated finite-type charts and finite-Tor torsion qualification. Its direct VS1 analytification input must be isolated or explicitly reconciled with the RT30 generic-core scope. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/derived-solid-tensor",
+        "verdict": "verified",
+        "note": "CS 6.1–6.3: checked closed symmetric monoidal solidification and the derived tensor of integer products. The source uses the solid category and its reflection, not the ambient condensed tensor; API/tests include unit and product compatibility."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/general-ring-solidity",
+        "verdict": "verified",
+        "note": "Pinned IsSolid docstring and CS Lecture VII: every Z[X]→R restriction is tested, agreeing with the finite-type predicate only in the justified range. The suggested predicate uses the actual restrictScalars and sheafCompose, and tests include the naive-general-R non-example."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/nonarchimedean-solid-coefficients",
+        "verdict": "verified",
+        "note": "BCGP 2.2.1 and CS Lecture VII: E has its nonarchimedean topology and analytic measures E⊗solid Z[S]_solid; it is not silently discrete. SA.4 supplies the analytic coefficient category; Banach/Smith theory remains a consumer."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/principal-localization-and-formal-complement",
+        "verdict": "verified",
+        "note": "BCGP 2.4.1 examples (2)–(3): checked the analytic proper localization, derived inverse-limit criterion and discrete coefficient convention; derived f-completion is the complement, including the SL2 example."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare",
+        "verdict": "verified",
+        "note": "VII.3.2–VII.3.5: all sum, dimension, projection and homology comparisons require proper representable spatial finite-dimensional smooth f. The diagonal object and inverse exceptional twist are correct; the theorem is not exported to nonproper BC maps."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/qcqs-condensed-sets",
+        "verdict": "verified",
+        "note": "PQ A.1–A.4: definitions use profinite test objects and a quasicompact diagonal on actual CondensedSet. The suggested version uses epimorphisms and categorical pullbacks; tests include nonquasicompact infinite discrete sets."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
+        "verdict": "verified",
+        "note": "VII.3.1: pullback preserves limits at adequate cutoffs, so f♯ exists for every small-v-stack map; projection and arbitrary base change follow by mates. API/tests distinguish this left adjoint from eligible torsion lower shriek."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-abelian-groups",
+        "verdict": "verified",
+        "note": "CS 5.8 and 6.1: full subcategory reuses the pinned integer IsSolid predicate; abelian, limit/colimit and extension structure is new. Suggested signatures use actual ObjectProperty.FullSubcategory and short exact sequences; no second solidity predicate is introduced."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
+        "verdict": "verified",
+        "note": "VII.2.1–VII.2.5: tensor is solidified, internal Hom is solid, and arbitrary solid base change is retained. Compatible cutoffs are explicit. Properness alone is not used to infer a pushforward projection formula."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-free-structure",
+        "verdict": "verified",
+        "note": "CS 5.4–5.8: Nöbeling is imported from the pinned freeOfProfinite theorem, while solidity and hypercover exactness are new. Existing profiniteSolid/free/maps are reused and finite-set compatibility is tested."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "verdict": "unverifiable",
+        "note": "VII.2.6–VII.2.8: all three geometric field-extension cases and Drinfeld full faithfulness are supported by the source; however the generic VII.2.6 and the VS1-dependent VII.2.7–VII.2.8 must be separated under RT30. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
+        "verdict": "unverifiable",
+        "note": "VII.2.9: construction and proper finite-dimensional scope checked; the nonzero test was added. RT30 explicitly places this target in VS4, whereas its current ID, parent stage and reader still put it in VS2. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
+        "verdict": "unverifiable",
+        "note": "VII.2.10: checked reduction to torsion IV.5.3; the alternative bounded-below or cohomologically smooth hypotheses are correctly retained. RT30 explicitly places this target in VS4, not VS2. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion",
+        "verdict": "verified",
+        "note": "VII.1.10–VII.1.18: checked finitely presented=Pro(constructible torsion), Ind presentation, vanishing higher inverse limits and the derived fully faithful solid subcategory. Cutoff presentability is kept separate from unrestricted global presentability."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solid-sheaves-on-v-stacks",
+        "verdict": "verified",
+        "note": "VII.1.1–VII.1.9: j♯ generators, Hom-extension criterion and spatial-chart descent are correct; Λ means solid underlying Zhat^p-modules, not naive arbitrary-Λ solidity. Cutoff comparisons remain explicit gaps."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/solidification",
+        "verdict": "verified",
+        "note": "CS 6.1–6.2: ordinary reflection and derived left adjoint are distinguished; derived solidification need not stay in degree zero. The actual suggested adjunction, unit, counit and free-object comparison have meaningful categorical types."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons",
+        "verdict": "unverifiable",
+        "note": "VII.4.1–VII.4.3: checked naive versus contravariant embeddings, overconvergence, finite Tor amplitude and bounded-below/finite-dimensional pushforward conditions. The bundled ULA-Hom input from VS1 needs explicit reconciliation with generic-core isolation, not an unqualified VS1→VS2 stage edge. Mathematics checked; stage ownership/core isolation remains unresolved. See G-rt30-scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS2/z-solid-analytification",
+        "verdict": "verified",
+        "note": "BCGP 2.4.1 and SA/AS ownership: the discrete A category uses underlying-integer solidity and imports AnSpec/gluing. It is not identified without proof with A-solid coefficients; the light/regular-cutoff interface is an honest gap."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS3/lisse-adjoints-and-operations",
+        "verdict": "verified",
+        "note": "VII.6.1–VII.6.2: the coreflection is glued at cutoffs; kernel detection uses the smooth chart generators. Internal Hom and pushforward are lisse projections of solid operations, and global solid presentability is not assumed."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS3/lisse-category-definition",
+        "verdict": "verified",
+        "note": "VII.6.1: verified the relative-discrete Z_ell-algebra convention and the stable sum-closed smooth-generator class. The source of a representable smooth map need not be an absolute diamond. Tests separate lisse from locally constant perfect objects."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS3/lisse-coefficient-change",
+        "verdict": "verified",
+        "note": "VII.6 coefficient discussion: actual relative-discrete solid extension sends generators to generators. Mod-ell detection is restricted to derived-complete objects; the rational category is constructed rather than asserted detectable by zero torsion reductions."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS3/lisse-comparisons",
+        "verdict": "verified",
+        "note": "VII.6.3–VII.6.6: geometric-point and torsion naive-image comparisons are correctly qualified, with bounded-cohomological-dimension basis for equality. Relative-discrete scalar extension and rational localization are kept distinct."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition",
+        "verdict": "verified",
+        "note": "VII.6.7: retained a closed geometric point presented by the specified cofiltered qcqs neighbourhoods with F_ell cohomology. The localization is not claimed for every arbitrary solid stratification."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/classifying-stack-equivalence",
+        "verdict": "verified",
+        "note": "V.1.1–V.1.5: continuous torsor descent for locally pro-p H and prime-to-p torsion gives smooth representations. SR owns the abelian/enhanced representation category, invariants and smooth dual, not ordinary abstract Rep."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects",
+        "verdict": "corrected",
+        "note": "Added the actual torsion IV.5.3 input used in Lemma VII.7.5 and separated that proof from the solid VII.2.10 input to the stratum adjoint."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/contractibility-of-connected-banach-colmez-torsors",
+        "verdict": "corrected",
+        "note": "Removed the improper use of proper-smooth Poincaré duality for nonproper BC fibres. Named relative homology and the nonproper VII.5.2 comparison instead, and exposed the integral unit-homology detection/completion argument as G-bc-unit-homology. Testing arbitrary rational solid objects only modulo ℓ would not suffice."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/hn-localization-and-geometric-invariance",
+        "verdict": "verified",
+        "note": "V.2.2–V.2.3 and VII.7.1–VII.7.3: finite HN decompositions on qc opens are extended by justified exhaustion. Torsion locally closed invariance and lisse open invariance are not conflated; no infinite direct product is asserted."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint",
+        "verdict": "verified",
+        "note": "VII.7.2: L_b=π_b♯q_b* is fully faithful via the BG4 chart, connected-kernel equivalence and the solid partial-vanishing input. The unit is in the correct direction; this remains a VS4 target as RT29 requires."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks",
+        "verdict": "verified",
+        "note": "V.2.2 and VII.7.1: BG3 supplies the split classifying-stack geometry including its positive BC kernel; VS proves the sheaf equivalence rather than discarding that kernel. SR categories and their derived extension are explicit suppliers."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS4/strict-locality-of-the-chart",
+        "verdict": "verified",
+        "note": "V.3.1–V.3.2, V.4.2–V.4.3: checked absolute punctured-chart dimension, boundary gluing and exact pro-p invariants. The Spa C base-change is not incorrectly assumed quasicompact; formal-adic comparison is requested in its exact I-adic scope."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/bernstein-zelevinsky-duality",
+        "verdict": "verified",
+        "note": "V.5.1–V.5.3: compact representability, involution and basic-stratum smooth BZ comparison use chart compact generators and the homology pairing. SR derived duality is requested rather than assumed available in SR.2."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/duality-and-admissibility-coefficient-change",
+        "verdict": "verified",
+        "note": "VII.7.9 and IX.2.1–IX.2.3: checked derived coefficient extension, compact BZ compatibility and ULA internal-dual comparison; perfect descent is restricted/requested in its valid range. Existing HS1 nodes are the consumers."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality",
+        "verdict": "verified",
+        "note": "VII.7.6: the pairing is solid homology on compact lisse objects, with integral/rational coefficients and open support. It follows from the actual lisse compact generators and stratum adjunction, not torsion substitution."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/lisse-kunneth",
+        "verdict": "verified",
+        "note": "VII.7.10: verified compact exterior generators and Hom tensor comparison in the lisse category. E2 corrects the isolated D_et notation; the statement includes Q_ell and the existing coefficient conventions."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/lisse-ula-definition",
+        "verdict": "verified",
+        "note": "VII.7.8: the explicit diagonal lisse-Hom criterion is for Bun_G→*, not an unsupported general notion of lisse ULA. API/tests include perfect scalar, inadmissible regular representation and rational coefficient cases."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/lisse-ula-equals-admissibility",
+        "verdict": "verified",
+        "note": "VII.7.9: admissibility is perfection of the full derived K-invariants for every open pro-p K on every stratum over Λ_disc, not merely finite cohomology in each degree. The criterion includes integral/rational relative-discrete coefficients."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/lisse-verdier-exchange",
+        "verdict": "corrected",
+        "note": "Removed the additional lisse reflexivity criterion and its unproved localization outline. The named target is the VII.7.7 exchange; RT29 excludes a new reflexivity node because FS omits that proof. Torsion V.6.2 reflexivity remains in its own node."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/torsion-bun-homology-and-haar-dualizing",
+        "verdict": "verified",
+        "note": "V.3.1–V.3.5: the normalized smooth-stack left adjoint is canonical; global trivialization depends on the chosen Haar measures. G-haar exposes that construction and no arbitrary stacky eligible lower-shriek extension is inferred."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/torsion-kunneth",
+        "verdict": "verified",
+        "note": "V.7.1–V.7.2: compact exterior generators and Hom tensor comparison identify the presentable categorical tensor product, not a Cartesian product; EDS owns the required enhanced tensor input."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/ula-equals-admissibility",
+        "verdict": "verified",
+        "note": "V.7.3: checked the relative diagonal criterion and stratum reduction to perfect derived pro-p invariants. Bounded Tor amplitude is retained in perfection; this is the torsion statement separate from VII.7.9."
+      },
+      {
+        "nodeId": "VStackSheavesAndLisseCategories:VS5/verdier-biduality-and-reflexivity",
+        "verdict": "verified",
+        "note": "V.6.1–V.6.3: checked the open exchange and the torsion biduality localization argument. Reflexivity is that of the full K-invariants complex, not pointwise finite-dimensional cohomology; no reflexivity assumption is needed for exchange."
+      }
+    ]
+  }
 }
