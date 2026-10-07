@@ -2409,7 +2409,8 @@
       ],
       "prerequisites": [
         "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component",
-        "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction",
         "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects",
         "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks",
         "SmoothRepresentationsOfLocalGroups:SR.3"
@@ -2649,14 +2650,6 @@
         "ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf",
         "ExcursionOperatorsAndSpectralAction:ES4/support-coefficient-change",
         "ExcursionOperatorsAndSpectralAction:ES4/central-localization"
-      ],
-      "status": "open"
-    },
-    {
-      "supplier": "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
-      "need": "Proved nonbasic-stratum and unnormalized parabolic parameter factorization, retaining the twisted Levi inclusion, used to deduce elliptic support and supercuspidality.",
-      "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component"
       ],
       "status": "open"
     },
