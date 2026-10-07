@@ -5335,7 +5335,16 @@ theorem renormalised_sum {M : ℕ} [NeZero M] (Φ : ZMod M → ℂ) (hΦ : ∑ j
       Tendsto (fun t : ℝ => ∑' n : ℕ, Φ (n + 1) * Complex.exp (-(((n + 1 : ℕ) : ℂ) ^ 2 * t))) (𝓝[>] 0)
         (𝓝 (ZMod.LFunction Φ 0)) := sorry
 
-/-! ### Quantum modular forms (Zagier's canonical definition) -/
+/-! ### Quantum modular forms (Zagier's canonical definition)
+
+QM.5 owns this definition and the Kontsevich–Zagier and Lawrence–Zagier q-series examples.
+ArithmeticQuantumTopology QT.7 imports the exact nodes listed in the reader's export table.
+QT.7 owns the knot invariant comparisons, Kashaev modularity conjecture, matrix-valued
+cocycle and sourced proved cases. Zagier's Example 5 explicitly allows a discontinuous knot
+cocycle, so its asymptotic or matrix transformation law does not imply the canonical
+`IsQuantumModularForm` predicate. No QT.7 theorem is an input of this section. The character/
+multiplier and finite-Weil-image gaps in the packet remain mathematical proof obligations.
+-/
 
 /-- The Möbius action of `SL(2, ℤ)` on `ℚ` (junk value when `cx + d = 0`). -/
 def qmfMoebius (γ : SL(2, ℤ)) (x : ℚ) : ℚ :=

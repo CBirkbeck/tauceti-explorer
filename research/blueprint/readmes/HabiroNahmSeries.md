@@ -5,11 +5,13 @@ Packet: `research/blueprint/packets/HabiroNahmSeries.json`. Suggested Lean file:
 `research/blueprint/suggested/HabiroNahmSeries.lean`. Handoff:
 `research/blueprint/handoff/BP-HabiroNahmSeries.md`.
 
-**Every layer in scope is decomposed from its sources.** The packet has 74 nodes
-(10 definitions, 11 constructions, 23 theorems, 14 lemmas, 3 comparisons, 13 applications),
-143 API items, 84 unit tests and 25 planets; it cites 46 declarations of the pinned libraries, records 10 gaps,
-makes 24 requests to other roadmaps and makes 5 structural proposals. No layer is closed: closure means
-Lean, and nothing here is claimed to be formalised.
+The packet has 109 nodes (10 definitions, 17 constructions, 31 theorems, 33 lemmas,
+6 comparisons and 12 applications), 177 API items, 125 definition/construction unit tests
+and 22 planets. It cites 94 declarations of the pinned libraries, records 22 gaps and
+makes 9 requests to other roadmaps. Its status is `partial`: HB.3 is `source_decomposed`
+and the other layers remain partial. Mathematical closure requires all prerequisite
+chains and source arguments to be accounted for, independently of Lean elaboration;
+implementation status remains `unchecked`.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
