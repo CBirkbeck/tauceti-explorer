@@ -239,8 +239,9 @@ example [Fact (Nat.Prime 3)] (x : ℚ_[3]) :
 
 /-! ### ED.0/isolating-interval-refinement -/
 
-/-- A rational interval containing exactly one real root of `g`. -/
+/-- A rational interval containing exactly one real root of a nonzero `g`. -/
 structure RealRootIsolation (g : ℚ[X]) where
+  polynomial_ne_zero : g ≠ 0
   interval : NonemptyInterval ℚ
   existsUnique_root : ∃! u : ℝ, aeval u g = 0 ∧
     ((interval.fst : ℚ) : ℝ) ≤ u ∧ u ≤ ((interval.snd : ℚ) : ℝ)
@@ -251,6 +252,13 @@ variable {g : ℚ[X]} (I : RealRootIsolation g)
 
 /-- The isolated real root. -/
 def root (I : RealRootIsolation g) : ℝ := sorry
+
+theorem root_spec : aeval I.root g = 0 ∧
+    ((I.interval.fst : ℚ) : ℝ) ≤ I.root ∧ I.root ≤ ((I.interval.snd : ℚ) : ℝ) := sorry
+
+theorem root_unique (u : ℝ) (hu : aeval u g = 0)
+    (hl : ((I.interval.fst : ℚ) : ℝ) ≤ u) (hr : u ≤ ((I.interval.snd : ℚ) : ℝ)) :
+    u = I.root := sorry
 
 /-- Exact bisection of the squarefree part, `n` steps. -/
 def refine (I : RealRootIsolation g) (n : ℕ) : RealRootIsolation g := sorry
@@ -266,6 +274,7 @@ def toEnclosure : RealEnclosure I.root := sorry
 
 /-- A CN.0 certificate `(h, R, I)` whose root is real gives the isolation `(h, R)`. -/
 def ofRealCertificate (h : ℚ[X]) (R J : NonemptyInterval ℚ)
+    (h_ne_zero : h ≠ 0)
     (hunique : ∃! z : ℂ, aeval z h = 0 ∧ ((R.fst : ℚ) : ℝ) ≤ z.re ∧ z.re ≤ ((R.snd : ℚ) : ℝ) ∧
       ((J.fst : ℚ) : ℝ) ≤ z.im ∧ z.im ≤ ((J.snd : ℚ) : ℝ))
     (hreal : hunique.exists.choose.im = 0) : RealRootIsolation h := sorry
@@ -289,6 +298,9 @@ example (I : RealRootIsolation (X - C (1 / 2) : ℚ[X])) (h₁ : I.interval.fst 
 -- isolation_two_roots: [-2, 2] does not isolate a root of X² - 2.
 example : ¬ ∃ I : RealRootIsolation (X ^ 2 - C 2 : ℚ[X]), I.interval.fst = -2 ∧
     I.interval.snd = 2 := sorry
+
+-- isolation_zero_polynomial: even a singleton interval cannot certify the zero polynomial.
+example : IsEmpty (RealRootIsolation (0 : ℚ[X])) := sorry
 
 -- refine_toEnclosure: the refined enclosure has width at most 2^(-n) · width(I).
 example {g : ℚ[X]} (I : RealRootIsolation g) (n : ℕ) :
@@ -1023,6 +1035,7 @@ structure RealExclusionCertificate (k : ℕ) (C : ℚ) (θ : Fin (k + 1) → ℝ
   hφn : φ (Fin.last k) ≠ 0
   hhom : homogeneous = true → β = 0 ∧ ψ = 0
   X : Fin (k + 1) → ℚ
+  hX : ∀ i, 0 ≤ X i
   μ : ℚ
   hμ : 0 < μ
   witness : DistanceWitness (linearFormMatrix W φ) (linearFormTarget ψ)
@@ -1036,6 +1049,7 @@ structure PadicExclusionCertificate (k : ℕ) (p : ℕ) [Fact p.Prime] (β₀ : 
   W : Fin (k + 1) → ℤ
   hW : ∀ j, 0 < W j
   X : Fin (k + 1) → ℚ
+  hX : ∀ j, 0 ≤ X j
   witness : DistanceWitness (padicLatticeMatrix m W β) (padicLatticeTarget m W β₀)
   inequality : ∑ j, (W j * X j) ^ 2 < witness.bound
 
@@ -1338,11 +1352,13 @@ example [Fact (Nat.Prime 5)] (C : YuConstantCertificate 2 1 5) (a : Fin 2 → �
 /-- A discrete-logarithm certificate for `p`-adic units `γ₀, …, γₙ` given by residues
 (natural numbers prime to `p`), checked by modular exponentiation in `ZMod (p ^ t)`. -/
 structure PadicDiscreteLogCertificate (p n : ℕ) (γ : Fin (n + 1) → ℕ) where
+  prime : p.Prime
   t : ℕ
   e : ℕ
   g : ℕ
   M : ℕ
   ℓ : Fin (n + 1) → ℕ
+  ell_lt : ∀ i, ℓ i < p ^ M
   e_pos : 0 < e
   one_le_M : 1 ≤ M
   g_mod : (g : ZMod p) = 1
@@ -1404,6 +1420,15 @@ example {p n : ℕ} {γ : Fin (n + 1) → ℕ} (C : PadicDiscreteLogCertificate 
 -- discreteLog_compat_two: 5 has order 8 modulo 32.
 example : orderOf (5 : ZMod 32) = 8 ∧
     ∃ C : PadicDiscreteLogCertificate 2 0 ![1], C.t = 5 ∧ C.e = 2 ∧ C.g = 5 ∧ C.M = 3 := sorry
+
+-- discreteLog_composite_nonexample: 19 has order 2 modulo 36, which cannot justify
+-- divisibility by 6. The certificate requires p to be prime.
+example : IsEmpty (PadicDiscreteLogCertificate 6 1 ![1, 19]) := sorry
+
+-- discreteLog_zero_coefficient: use the nonzero coefficient 5 as pivot at p = 5.
+-- The zero constant and zero second coefficient do not make the coset empty.
+example (b : Fin 2 → ℤ) :
+    ((25 : ℤ) ∣ 0 + b 0 * 5 + b 1 * 0) ↔ (5 : ℤ) ∣ b 0 := sorry
 
 /-! ### ED.2/exponent-reduction-chain -/
 
@@ -3457,19 +3482,14 @@ section Disc
 
 variable {p : ℕ} [Fact p.Prime]
 
-/-- ED.4/tiny-integral-expansion: on a residue disc, `ω` has an expansion `w(t) dt` with
-`w ∈ ℚ_p[[t]]` of bounded denominators (`w ∈ ℤ_p[[t]]` after scaling `ω` by `p^k`), and the
-abelian integral between points of the disc is the power-series primitive `I` of `w` (constant
-term `0`) evaluated at the local parameter: `∫_Q^P ω = I(t(P)) − I(t(Q))`. -/
-theorem abelianIntegral_eq_primitive {X Xt J Jt T Ω : Type} [AddCommGroup J] [AddCommGroup Jt]
-    [AddCommGroup T] [Module ℚ_[p] T] [AddCommGroup Ω] [Module ℚ_[p] Ω]
-    (D : GoodReductionChabautyDatum p X Xt J Jt) (L : FormalLogDatum ℚ_[p] J T)
-    (e : Ω ≃ₗ[ℚ_[p]] Module.Dual ℚ_[p] T) (ω : Ω) (xt : Xt) :
-    ∃ w : PowerSeries ℚ_[p], (∃ k : ℕ, ∀ n, ‖PowerSeries.coeff n w‖ ≤ (p : ℝ) ^ k) ∧
-      ∀ I : PowerSeries ℚ_[p], PowerSeries.constantCoeff I = 0 →
-        PowerSeries.derivative ℚ_[p] I = w → ∀ Q P : X, D.red Q = xt → D.red P = xt →
-          abelianIntegral L e (D.abelJacobi P - D.abelJacobi Q) ω =
-            discEval I (D.param xt P) - discEval I (D.param xt Q) := sorry
+/- ED.4/tiny-integral-expansion has no faithful signature here yet (REV #535).
+The abstract datum above imposes no analytic condition on `abelJacobi`, nor does it
+identify `Ω` with regular differentials on a smooth proper curve. Consequently the
+previous assertion of an analytic primitive was false for these carriers. The missing
+interface must identify the actual geometric Abel–Jacobi map, its differential and the
+disc chart with the suppliers' carriers, then derive convergence and the primitive
+identity from ColemanIntegration L0/L1. See the packet gap "Geometric tiny-integral
+signature". No abstract substitute for that theorem is declared. -/
 
 /-- ED.4/kernel-of-reduction-evaluation: a kernel-of-reduction class represented by points
 `Q₁, …, Q_g` of the disc of `P'` pairs as the sum of tiny integrals. -/
@@ -3676,8 +3696,16 @@ theorem strassmann_card_zeros_le {K : Type*} [NormedField K] [IsUltrametricDist 
     (Z : Finset K) (hZ : ∀ z ∈ Z, ‖z‖ ≤ 1 ∧ HasSum (fun n => PowerSeries.coeff n f * z ^ n) 0) :
     Z.card ≤ N := sorry
 
-/-- The disc Strassmann index: the largest `i` minimising `v(a_i) + i`. -/
+/-- The disc Strassmann index, for a nonzero series with integral derivative: the largest
+`i` maximising `‖a_i‖ * p⁻ⁱ`, equivalently minimising the extended valuation `v(a_i) + i`.
+Zero coefficients have extended valuation `+∞`; `Padic.valuation 0 = 0` must not be used
+as their weight. Values outside this convergence contract are immaterial to the API. -/
 def discStrassmannIndex (f : PowerSeries ℚ_[p]) : ℕ := sorry
+
+/-- Zero-coefficient regression: the constant coefficient of `X` is zero, but the
+last dominant coefficient of `X(pT)` is the coefficient at index one. -/
+theorem discStrassmannIndex_X :
+    discStrassmannIndex (PowerSeries.X : PowerSeries ℚ_[p]) = 1 := sorry
 
 theorem card_zeros_le_discStrassmannIndex (f : PowerSeries ℚ_[p]) (hf : f ≠ 0)
     (hint : ∀ n : ℕ, ‖PowerSeries.coeff (n + 1) f * (n + 1 : ℚ_[p])‖ ≤ 1)
