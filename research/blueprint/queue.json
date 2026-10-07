@@ -11615,8 +11615,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3548"
+   "state": "external",
+   "note": "claimed on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -28720,9 +28720,10 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #987"
+   "note": "deliverables arrived from an external worker on issue #987",
+   "finishedAt": "2026-10-07T02:25:06Z"
   },
   {
    "id": "REV-SchemeKTheoryOperations",
