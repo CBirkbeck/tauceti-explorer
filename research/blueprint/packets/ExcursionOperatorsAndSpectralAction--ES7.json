@@ -337,7 +337,7 @@
       "hypotheses": [
         "E a nonarchimedean local field with residue field of cardinality q = p^f; ℓ ≠ p prime; G connected reductive over E; b ∈ B(G).",
         "Λ a ℤ_ℓ[√q]-algebra (p is then invertible in Λ).",
-        "Spectral-centre form: |π₀Z(Ĝ)| invertible in Λ (the hypothesis of FS IX.5.2); the excursion-algebra form has no condition on Λ."
+        "Spectral-centre form: |π₀Z(G)| invertible in Λ (the hypothesis of FS IX.5.2); the excursion-algebra form has no condition on Λ."
       ],
       "proofSteps": [
         "Use VS4 to identify the stratum category and its fully faithful embedding.",
@@ -620,7 +620,6 @@
         "BunGAndNewtonStrata:BG0/pure-inner-twisting",
         "BunGAndNewtonStrata:BG1",
         "BunGAndNewtonStrata:BG0",
-        "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
         "BunGAndNewtonStrata:BG2:uniformization/bun-g-as-v-stack",
         "HeckeStacksAndLocalShtukas:HS0/structure-group-and-inner-form"
       ],
@@ -3265,7 +3264,7 @@
     },
     {
       "supplier": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
-      "need": "Extend ES6:functoriality/isogenies to every map G′ → G inducing an isomorphism of adjoint groups (FS Theorem IX.6.1 is stated so, and the reduction applies it to a z-embedding, which is not an isogeny). Strengthen ES6:functoriality/z-embedding to all conditions of Kaletha Definition 5.1 (induced torus quotient C, H¹(E,C)=1, bijective H¹ on centres, connected target centre) and Fact 5.5’s central surjectivity. For equal characteristic, supply the case of smooth Z(G); for non-smooth Z(G) no embedding with these properties exists (see ES7/gap/z-embedding), so a different route is needed.",
+      "need": "The p-adic adjoint-isomorphism comparison and full Kaletha Definition 5.1/Fact 5.5 data are supplied by ES6:functoriality/isogenies and ES6:functoriality/z-embedding. The residual request is an equal-characteristic extension when Z(G) is smooth, and a different quasi-split reduction or centre-detection argument when Z(G) is not smooth. The present p-adic node does not supply either; see ES7/gap/z-embedding. No arbitrary-local-field z-embedding is inferred.",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction"
       ]
@@ -3463,7 +3462,7 @@
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction"
       ],
-      "detail": "Kaletha’s consulted text is p-adic (§2: “F will denote a p-adic field”). For E of characteristic p the construction cannot simply be extended: if Z(G) is not smooth (e.g. G = SL_p, Z(G) = μ_p), then for every embedding G ↪ G′ with torus quotient C and Z(G′) a torus, the cokernel of Z(G′)(E) → C(E) injects into ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))), and H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite while H¹(E, Z(G′)) is finite, so Fact 5.5’s surjectivity fails. For smooth Z(G) extend Definition 5.1/Fact 5.5 to equal characteristic; for non-smooth Z(G) a different reduction to quasi-split G (or a different proof of B(G) ↪ B(G′) and of centre detection) is needed. Then prove the Bun fibre identity, B-injectivity and centre detection as in FS. Kottwitz’s B(G_ad)-to-H¹ bridge is a BG1 request. Recorded as source issue ExcursionOperatorsAndSpectralAction/E2."
+      "detail": "Kaletha’s consulted text is p-adic (§2: “F will denote a p-adic field”). For E of characteristic p the construction cannot simply be extended: if Z(G) is not smooth (e.g. G = SL_p, Z(G) = μ_p), then for every embedding G ↪ G′ with torus quotient C and Z(G′) a torus, the cokernel of Z(G′)(E) → C(E) injects into ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))), and H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite while H¹(E, Z(G′)) is finite, so Fact 5.5’s surjectivity fails. For smooth Z(G) extend Definition 5.1/Fact 5.5 to equal characteristic; for non-smooth Z(G) a different reduction to quasi-split G (or a different proof of B(G) ↪ B(G′) and of centre detection) is needed. Then prove the Bun fibre identity, B-injectivity and centre detection as in FS. Kottwitz’s B(G_ad)-to-H¹ bridge is a BG1 request. Recorded as source issue ExcursionOperatorsAndSpectralAction/E2. Cross-part interface: ES6:functoriality/isogenies already covers adjoint-isomorphism maps, and ES6:functoriality/z-embedding supplies the full p-adic conditions and central surjectivity. Those exact nodes are prerequisites of the consuming reduction. The remaining equal-characteristic input has no supplying node in ES5; it is this explicit gap, with the residual ES6:functoriality supplier request, rather than a claimed consequence of the whole stage."
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/HN",
