@@ -23,119 +23,119 @@
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Existing unit group of square matrices over a semiring; GL₂ uses Fin 2, without a second group carrier.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.det",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Multiplicative determinant to R units over a commutative ring.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.scalar",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Scalar matrices form a monoid homomorphism R units → GL(n,R).",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.det_scalar",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "The determinant of scalar u is u to the cardinality of n; in rank two it is u squared.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "A ring homomorphism induces the coefficient map on GL(n,R).",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.mkOfDetNeZero",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Builds a matrix unit over a field from a nonzero determinant; used for explicit unipotents and diagonals.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A representation is a monoid homomorphism into linear endomorphisms, over a semiring and module.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "The submodule of vectors fixed by every element of a group; subgroup invariants are restriction to that subgroup.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:Representation.mem_invariants",
         "kind": "theorem",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "Membership is equivalent to the pointwise fixed-vector equations, with CommRing coefficients and group action.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.haarMeasure",
         "kind": "def",
         "module": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
         "provides": "Existing Haar measure normalized on a positive compact; does not provide an automorphic quotient measure.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.haarMeasure_self",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
         "provides": "The chosen positive compact has Haar mass one.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform",
         "kind": "structure",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
         "provides": "Existing normalized new cusp form at Γ₁(N), nebentypus and eigenvalues only away from level, new subspace membership and first Fourier coefficient one. Bad-prime eigenconditions are not fields.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform.qExpansion_coeff_one",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
         "provides": "The first q-expansion coefficient of a bundled newform equals one.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
         "provides": "At fixed positive level, weight and nebentypus, equality of every good-index eigenvalue outside a finite set gives equality of newforms. This is a classical fixed-level result, not number-field adelic multiplicity one.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:CuspForm.LSeries_qExpansion_coeff_eq",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
         "provides": "For positive weight and Re(s)>k/2+1 the q-coefficient Dirichlet series equals strict cusp width to −s times ModularForm.L; width one gives direct equality.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:TauCeti.symPowerRep",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/ClassicalGroups/SymmetricPower.lean",
         "provides": "Existing d-th symmetric power of the standard GL(n,k) representation on Sym[k]^d(k^n), over a commutative ring.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       },
       {
         "ref": "tauceti:TauCeti.simple_indFDRep_ofLinearCharacter_iff",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Induction/Mackey/LinearCharacter.lean",
         "provides": "For a finite group, normal subgroup and algebraically closed characteristic-zero coefficients, a linear character induces simply iff each element outside the subgroup changes it under conjugation. The arbitrary Weil-character reduction is requested separately.",
-        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin."
+        "checked": "Full declaration and section hypotheses read at the pinned commit on 2026-10-07. Tau Ceti statements read with git show; Mathlib source tree is at the exact pin. Independently reread and scope-confirmed by REV-GL2AutomorphicRepresentationsAndTransfer--R16.1."
       }
     ]
   },
@@ -362,6 +362,18 @@
       "readSections": [
         "§6.4–6.5, printed pp. 32–34: holomorphic adelization for k≥1, corrected Casimir and full-O(2) limit module at k=1."
       ]
+    },
+    {
+      "id": "cogdell-fields",
+      "title": "Lectures on L-functions, converse theorems, and functoriality for GL(n)",
+      "authors": "James W. Cogdell",
+      "edition": "Fields Institute lecture notes, author-hosted PDF; printed pagination retained",
+      "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
+      "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+      "accessDate": "2026-10-07",
+      "readSections": [
+        "Theorem9.3 and proof, printed pp.74–75 (PDF pp.78–79), including the omitted finite and archimedean factors and the Rankin–Selberg pole criterion."
+      ]
     }
   ],
   "nodes": [
@@ -505,6 +517,11 @@
           "statement": "K₁(I)⊆K₀(I)."
         },
         {
+          "name": "TauCeti.GL2Blueprint.k1_mono",
+          "role": "functoriality",
+          "statement": "I⊆J implies K₁(I)⊆K₁(J); in particular K₁(pⁿ⁺¹)⊆K₁(pⁿ)."
+        },
+        {
           "name": "TauCeti.GL2Blueprint.k1_top",
           "role": "simp",
           "statement": "K₁(R) is the full matrix unit group."
@@ -570,7 +587,8 @@
         "mathlib:Matrix.GeneralLinearGroup",
         "AdelicAlgebraicGroups:AA.1/adelic-points",
         "AdelicAlgebraicGroups:AA.1/adelic-points-locally-compact",
-        "ReductiveGroupsPartII:RG2.4"
+        "ReductiveGroupsPartII:RG2.0",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
       ],
       "sources": [
         {
@@ -597,12 +615,12 @@
       "title": "Rank-two Iwasawa and Cartan coordinates",
       "kind": "theorem",
       "declaration": "TauCeti.GL2Blueprint.iwasawaCartan",
-      "statement": "Specialize RG2.4: GL₂(Fv)=B(Fv)K_v. At a finite place every double coset K_v g K_v has a unique representative diag(ϖᵃ,ϖᵇ) with a≥b integers. With upper triangular B and normalized induction, δB(diag(a,d))=|a/d|v. At infinity use positive singular values and O(2)/U(2).",
+      "statement": "Specialize RG2.4 at finite places and AF.1 at infinity: GL₂(Fv)=B(Fv)K_v. At a finite place every double coset K_v g K_v has a unique representative diag(ϖᵃ,ϖᵇ) with a≥b integers. With upper triangular B and normalized induction, δB(diag(a,d))=|a/d|v. At infinity use positive singular values and O(2)/U(2).",
       "hypotheses": [
         "Chosen uniformizer at finite v; upper triangular B."
       ],
       "proofSteps": [
-        "Apply the imported Cartan/Iwasawa theorems.",
+        "Apply RG2.4 finite-place Cartan/Iwasawa and the requested AF.1 real/complex Iwasawa and singular-value decompositions.",
         "Compute the unique positive root a/d and hence the modulus; uniqueness at finite places follows from invariant factors."
       ],
       "acceptance": [
@@ -611,13 +629,14 @@
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison",
         "ReductiveGroupsPartII:RG2.4",
-        "mathlib:Matrix.GeneralLinearGroup.det"
+        "mathlib:Matrix.GeneralLinearGroup.det",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
       ],
       "sources": [
         {
           "sourceId": "jl70",
-          "locator": "§3 formula (3.1) and following compact realization, printed p. 45",
-          "match": "The passage supplies the rank-two iwasawa and cartan coordinates input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
+          "locator": "§3 formula (3.1) and following compact realization, printed p. 46",
+          "match": "The compact realization uses G=BK and formula (3.1) has the square-root modulus |a/d|¹ᐟ². Cartan uniqueness and archimedean decompositions are the separately requested supplier results."
         }
       ],
       "library": {
@@ -761,6 +780,48 @@
       }
     },
     {
+      "id": "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists",
+      "parentStageId": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "realises": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+      ],
+      "title": "Existence of a nonzero newvector level",
+      "kind": "theorem",
+      "declaration": "TauCeti.GL2Blueprint.newvectorLevelExists",
+      "statement": "For an irreducible admissible infinite-dimensional complex smooth representation π of GL₂(F), with F a nonarchimedean local field of characteristic zero, there is n≥0 and a nonzero vector fixed by the last-row K₁(pⁿ). This assertion neither uses a conductor exponent nor asserts the dimension formula; it supplies the nonempty level set before its minimum is defined.",
+      "hypotheses": [
+        "Irreducible admissible infinite-dimensional complex smooth π; K₁ is the last-row subgroup over the valuation ring."
+      ],
+      "proofSteps": [
+        "Use SR.5 genericity/Kirillov realization of π∨ with ψ of conductor O. Choose the nonzero compactly supported function f(u)=ωπ∨(u) on O×, extended by zero. The Borel action gives the top-left character on upper triangular matrices in GL₂(O); smoothness gives invariance under a sufficiently small lower unipotent subgroup.",
+        "Use the elementary K₀ decomposition into upper-triangular and lower-unipotent factors (Casselman p.303) to obtain Casselman’s top-left ωπ∨(a) transformation law at some level, enlarging the level to contain the central-character conductor.",
+        "Apply SR.3’s π∨≅π⊗ωπ⁻¹det and twist back. Since det(g)≡ad modulo pⁿ and ωπ is trivial on 1+pⁿ, the resulting law is ωπ(d); restriction to last-row K₁(pⁿ) is trivial."
+      ],
+      "acceptance": [
+        "The existence proof never takes the minimum of an unproved nonempty set or invokes the subsequent Casselman dimension theorem."
+      ],
+      "prerequisites": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1/k1",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification",
+        "mathlib:Representation.invariants",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "casselman73",
+          "locator": "§1 Theorem1 and Kirillov setup, printed p.302; elementary subgroup decomposition, printed p.303",
+          "match": "The Kirillov realization and smoothness give existence at some level independently of the least-level/dimension calculation; the stated contragredient translation converts the paper’s top-left character convention to last-row invariants."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/GL2/R162",
+        "namespace": "TauCeti.GL2Blueprint"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+    },
+    {
       "id": "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor",
       "parentStageId": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
       "realises": [
@@ -769,13 +830,13 @@
       "title": "The newvector conductor exponent",
       "kind": "definition",
       "declaration": "TauCeti.GL2Blueprint.conductorExponent",
-      "statement": "For irreducible admissible infinite-dimensional π of GL₂(F), c(π) is the least n≥0 for which π^{K₁(pⁿ)} is nonzero. Define the ideal conductor p^{c(π)}. The same least-level construction is available for an existing representation with an explicit nonempty level set. Existence for the stated π is the newvector theorem below, not a field stored in a replacement representation. This is a specialization of fixed vectors, not a new admissibility predicate.",
+      "statement": "For irreducible admissible infinite-dimensional π of GL₂(F), c(π) is the least n≥0 for which π^{K₁(pⁿ)} is nonzero. Define the ideal conductor p^{c(π)}. The same least-level construction is available for an existing representation with an explicit nonempty level set. Existence for the stated π is the preceding newvectorLevelExists theorem, not a field stored in a replacement representation. This is a specialization of fixed vectors, not a new admissibility predicate.",
       "hypotheses": [
         "π generic, equivalently infinite-dimensional irreducible in characteristic zero; O,p and K₁ fixed."
       ],
       "proofSteps": [
         "Restrict the existing representation to K₁(pⁿ) and use Representation.invariants.",
-        "Take the least member of the nonempty subset of ℕ; existence comes from Casselman and smoothness/central-character reduction."
+        "Apply newvectorLevelExists to make the subset of ℕ nonempty, then take its least member; this does not depend on the subsequent Casselman dimension formula."
       ],
       "acceptance": [
         "Compare to the epsilon exponent with additive character conductor O."
@@ -785,7 +846,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification",
         "mathlib:Representation",
         "mathlib:Representation.invariants",
-        "SmoothRepresentationsOfLocalGroups:SR.3"
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists"
       ],
       "sources": [
         {
@@ -830,7 +892,7 @@
         {
           "name": "TauCeti.GL2Blueprint.conductor_ramified_steinberg",
           "kind": "non-example",
-          "statement": "For ramified χ of conductor a>0, c(St⊗χdet)=2a, not 1+a."
+          "statement": "For χ of conductor a≥2, c(St⊗χdet)=2a≠1+a. At a=1 both formulas give2, so that case alone would not detect the incorrect rule."
         }
       ],
       "uses": [
@@ -1248,7 +1310,7 @@
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/henniart-unicity",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-        "ArithmeticGaloisRepresentations:R01.1"
+        "ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices"
       ],
       "sources": [
         {
@@ -1405,9 +1467,10 @@
       "title": "Principal-series parameters and factors",
       "kind": "theorem",
       "declaration": "TauCeti.GL2Blueprint.principalParameter",
-      "statement": "With Art_F(ϖ)=Φ geometric and ν(ϖ)=q⁻¹, rec(I(χ₁,χ₂))=(χ₁∘Art_F⁻¹)⊕(χ₂∘Art_F⁻¹), N=0, for an irreducible normalized principal series. Thus det rec=ωπ∘Art_F⁻¹ and L(s,π)=L(s,χ₁)L(s,χ₂). A ramified character contributes 1. At the reducible ratio ν^{±1}, this is the parameter of the one-dimensional Langlands quotient; the generic Steinberg constituent instead has nonzero N as below. The statement uses Frobenius-semisimple Weil–Deligne parameters, not semisimplification that discards N.",
+      "statement": "For F/ℚp finite, with Art_F:F×≃W_Fᵃᵇ the topological Weil-group reciprocity isomorphism normalized by Art_F(ϖ)=Φ geometric and ν(ϖ)=q⁻¹, rec(I(χ₁,χ₂))=(χ₁∘Art_F⁻¹)⊕(χ₂∘Art_F⁻¹), N=0, for an irreducible normalized principal series. Thus det rec=ωπ∘Art_F⁻¹ and L(s,π)=L(s,χ₁)L(s,χ₂). A ramified character contributes 1. At the reducible ratio ν^{±1}, this is the parameter of the one-dimensional Langlands quotient; the generic Steinberg constituent instead has nonzero N as below. The statement uses Frobenius-semisimple Weil–Deligne parameters, not semisimplification that discards N.",
       "hypotheses": [
-        "Characteristic-zero nonarchimedean F; χ₁χ₂⁻¹≠ν^{±1} in the principal-series assertion."
+        "Characteristic-zero nonarchimedean F; χ₁χ₂⁻¹≠ν^{±1} in the principal-series assertion.",
+        "Art_F⁻¹ is evaluated on the topological Weil abelianization supplied by CFT Layer9, not on the absolute Galois abelianization of Layer7."
       ],
       "proofSteps": [
         "Apply ET.6 compatibility with normalized induction and AL.1 character factors.",
@@ -1422,7 +1485,8 @@
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
-        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
       ],
       "sources": [
         {
@@ -1794,7 +1858,8 @@
       "declaration": "TauCeti.GL2Blueprint.cdtInertiaMultiplicity",
       "statement": "For CDT’s regular θ of conductor xⁿ, write Θ(θ) for its full GL₂(ℤ/xⁿℤ) type. For infinite-dimensional irreducible admissible Π of GL₂(ℚx), Hom_K(Θ(θ),Π^{U(xⁿ)})≠0 iff rec Π|I≅θ∘η_{x²} ⊕ θ∘Frob∘η_{x²} in CDT’s reciprocity convention. In that case Π^{U(xⁿ)}≅Θ(θ) and the type multiplicity is one. Translate the Artin convention to R16.3. This comparison concerns the full K-type; its U₀(x) restriction used as a vexing selector can identify more than one finite-character twist. The special case in CDT’s surrounding discussion is translated with N retained, not as an N=0 parameter.",
       "hypotheses": [
-        "x≠ℓ; regular θ and coefficient field containing its values; principal congruence U(xⁿ), full compact type."
+        "x≠ℓ; regular θ and coefficient field containing its values; principal congruence U(xⁿ), full compact type.",
+        "Use CFT Layer9 Weil reciprocity for ℚx and its unramified quadratic extension; Layer7 supplies the compatible absolute/finite-quotient map, not an inverse on all of G_Fᵃᵇ."
       ],
       "proofSteps": [
         "Apply CDT Lemma 4.2.4(3) in both directions and compare the inertial characters through the local Artin map.",
@@ -1810,7 +1875,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.3/supercuspidal-parameter",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
       ],
       "sources": [
         {
@@ -1972,7 +2038,7 @@
       ],
       "proofSteps": [
         "Apply AL.3’s Rankin–Selberg pole criterion: L(s,π×π̃) has a simple pole at one, while the corresponding mixed factor has one only for π≅π′.",
-        "Cancel equal cofinite Euler factors; import the nonvanishing/regularity needed for the finite omitted factors at one.",
+        "Cancel equal cofinite Euler factors; import nonvanishing and absence of poles at s=1 for every omitted finite AND archimedean Rankin–Selberg factor, as in Cogdell Theorem9.3. Infinite-place equality is a conclusion, not an input.",
         "Compare the classical fixed-level baseline after the AF.5 dictionary; Casselman Theorem 2 supplies a parallel local-converse proof when the infinite-place factors are already identified."
       ],
       "acceptance": [
@@ -1984,6 +2050,11 @@
         "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
       ],
       "sources": [
+        {
+          "sourceId": "cogdell-fields",
+          "locator": "Theorem9.3 and proof, printed pp.74–75 (PDF pp.78–79)",
+          "match": "The finite exceptional set may contain all archimedean places. The Rankin–Selberg pole criterion together with zero/pole-free omitted local factors recovers the whole cuspidal representation from cofinite finite-place agreement. Casselman supplies only the weaker parallel statement assuming the archimedean factors already agree."
+        },
         {
           "sourceId": "casselman73",
           "locator": "§2 Theorem 2 and proof, printed pp. 307–308",
@@ -2026,7 +2097,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/strong-multiplicity-one",
         "AutomorphicFormsOnReductiveGroups:AF.4/rationality-field",
         "AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality"
       ],
       "sources": [
         {
@@ -2162,8 +2234,8 @@
       "sources": [
         {
           "sourceId": "jl70",
-          "locator": "Theorem 11.1 and formula (11.1.2), printed pp. 180–182",
-          "match": "The passage supplies the the gl₂ whittaker mellin comparison input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
+          "locator": "Theorem11.1 printed p.180; formula (11.1.2) and its Euler product, printed pp.183–184; Lemma11.1.3 printed p.184",
+          "match": "Formula (11.1.2) unfolds the multiplicative quotient integral to the global Whittaker integral; its factorizable Euler product is on p.184. Lemma11.1.3 supplies the right-half-plane estimate. AL.2/AL.3 supply the local test-vector and integral comparisons."
         }
       ],
       "library": {
@@ -2401,7 +2473,7 @@
         {
           "name": "TauCeti.GL2Blueprint.primitiveBijection_scalar_normalization",
           "kind": "characterisation",
-          "statement": "A nonunit scalar multiple of a normalized eigenform fails a₁=1; normalization restores the same primitive class."
+          "statement": "For a normalized eigenform with a₁=1, multiplying by a scalar c≠1 changes a₁ to c and fails normalization. Every nonzero c yields the same primitive class after renormalization; c=0 is excluded from the eigenform carrier."
         }
       ],
       "uses": [
@@ -2739,7 +2811,7 @@
         "Real place, k≥2 and m integer; AF.1b supplies full O(2) representation and archimedean LLC."
       ],
       "proofSteps": [
-        "Use ET.6 archimedean inner-form comparison through the AF.1b request.",
+        "Use AF.1’s requested SU(2) highest-weight and GL₂(ℝ) Harish–Chandra character interfaces. Compare the characters on matching regular elliptic elements with the rank-two minus sign to characterize the real local JL image; the current ET.6 theorem covers finite extensions of ℚp only.",
         "Compare SU(2) highest weight k−2, SO(2) lowest weight k, and the scalar characters; apply the determinant/norm twist.",
         "Match the weight-two convention of CDN20 with the general Hilbert algebraic weight construction."
       ],
@@ -2751,7 +2823,6 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
         "GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
         "AutomorphicFormsOnReductiveGroups:AF.1",
         "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion"
       ],
@@ -2759,7 +2830,7 @@
         {
           "sourceId": "cdn20",
           "locator": "§5.2.1 printed pp. 347–348",
-          "match": "The passage supplies the the real quaternionic coefficient comparison input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
+          "match": "CDN20 fixes the weight-two trivial quaternionic/holomorphic discrete-series convention in its global application. The general weight/central-character comparison uses the requested AF.1 archimedean character interfaces; finite-place ET.6 is not a real-place proof."
         }
       ],
       "library": {
@@ -2823,13 +2894,14 @@
       "title": "Swapped quaternion invariants in arithmetic applications",
       "kind": "theorem",
       "declaration": "TauCeti.GL2Blueprint.quaternionSwap",
-      "statement": "Import upstream quaternion classification and Hilbert reciprocity. In CDN23’s totally real F of even degree, D₀ ramifies at all real places and splits at all finite places. Interchange invariants at one chosen v₀|p and one real place τ₀: D ramifies at v₀ and all real places except τ₀, and has the same local algebra as D₀ away from {v₀,τ₀}. The ramified-place count stays even. Record chosen local splitting isomorphisms for Hecke comparison. Existence/globalization, auxiliary prime, small level and the resulting global spectral statement belong to R17.3/R18.3; here the local transfer at the two changed places is normCharacterSteinberg/realQuaternionic or the specified square-integrable type.",
+      "statement": "Import upstream LOCAL quaternion classification and Hilbert reciprocity. Assume global quaternion algebras D₀,D with the prescribed ramification have been chosen; their global existence is a separate R17.3 construction, not a consequence of QFI Layer6D. In CDN23’s totally real F of even degree, D₀ ramifies at all real places and splits at all finite places. Interchange invariants at one chosen v₀|p and one real place τ₀: D ramifies at v₀ and all real places except τ₀, and has the same local algebra as D₀ away from {v₀,τ₀}. The ramified-place count stays even. Record chosen local splitting isomorphisms for Hecke comparison. Existence/globalization, auxiliary prime, small level and the resulting global spectral statement belong to R17.3/R18.3; here the local transfer at the two changed places is normCharacterSteinberg/realQuaternionic or the specified square-integrable type.",
       "hypotheses": [
-        "Totally real F of even degree for this exact D₀ example; chosen v₀ and τ₀; general parity supplied upstream."
+        "Totally real F of even degree for this exact D₀ example; chosen v₀ and τ₀; general parity supplied upstream.",
+        "Chosen global D₀,D with the displayed local invariants; this node proves their local comparisons and parity, conditional on that choice."
       ],
       "proofSteps": [
-        "Apply the upstream invariant classification with inv=1/2 at the listed places; verify the invariant sum is zero.",
-        "Use the equal local invariants to choose identifications away from the changed places.",
+        "For the chosen global algebras, use the local split/division classification from QFI Layer6D at every finite place and the real split/Hamilton classification. Verify the invariant sum/parity by CFT Layer14; neither local uniqueness nor parity alone constructs a global quaternion algebra.",
+        "At finite places outside the swap use QFI Layer6D local uniqueness, and at real places use the split/Hamilton classification, to choose equal-local-algebra identifications.",
         "Apply the two local JL comparisons and route the auxiliary/global geometric work to its owners."
       ],
       "acceptance": [
@@ -2993,8 +3065,8 @@
       "sources": [
         {
           "sourceId": "jl70",
-          "locator": "§16 equation (16.1.7) and printed pp. 269–270",
-          "match": "The passage supplies the quaternionic orbital integrals and the sign input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
+          "locator": "§16 character orthogonality and regular-elliptic orbital-integral identity, printed pp.269–270",
+          "match": "The identity on p.270 gives the negative GL₂ character divided by the common torus quotient volume. The unrelated averaged constant-term equation (16.1.7) is on p.277. General matching existence and singular terms are requested from ET.3."
         }
       ],
       "library": {
@@ -3115,9 +3187,9 @@
       "title": "The continuous and residual spectral ledger",
       "kind": "theorem",
       "declaration": "TauCeti.GL2Blueprint.spectralLedger",
-      "statement": "In the fixed-unitary-central-character GL₂ L² spectrum, identify AS.4–AS.6’s cuspidal terms, residual determinant characters χdet with χ²=ω, and continuous families of normalized inductions I(μ,ωμ⁻¹). The invariant trace formula includes the continuous integrals of normalized intertwining operators and their logarithmic derivatives, together with the residual/exceptional contributions prescribed by AS.6. On the anisotropic quaternion side identify norm characters χNrd and the non-norm cuspidal/discrete spectrum. For steinbergProjectorDifference, a matching χdet has trace −1; hence compare its residual term against the quaternion norm-character term rather than declaring both absent. In a cyclic quadratic comparison retain the σ-invariant induced families and their exceptional automorphic-induction terms, including the one-half Weyl weights, until the ET.4/AS.6 identities identify them. Local regular-elliptic matching alone does not remove the identity or continuous distributions.",
+      "statement": "In the fixed-unitary-central-character GL₂ L² spectrum, identify AS.2, AS.4 and AS.6’s cuspidal terms, residual determinant characters χdet with χ²=ω, and continuous families of normalized inductions I(μ,ωμ⁻¹). The invariant trace formula includes the continuous integrals of normalized intertwining operators and their logarithmic derivatives, together with the residual/exceptional contributions prescribed by AS.6. On the anisotropic quaternion side identify norm characters χNrd and the non-norm cuspidal/discrete spectrum. For steinbergProjectorDifference, a matching χdet has trace −1; hence compare its residual term against the quaternion norm-character term rather than declaring both absent. In a cyclic quadratic comparison retain the σ-invariant induced families and their exceptional automorphic-induction terms, including the one-half Weyl weights, until the ET.4/AS.6 identities identify them. Local regular-elliptic matching alone does not remove the identity or continuous distributions.",
       "hypotheses": [
-        "Use the same global Haar, central quotient and normalized intertwining conventions throughout; generic spectral carriers belong to AS.4–AS.6."
+        "Use the same global Haar, central quotient and normalized intertwining conventions throughout; generic spectral carriers belong to AS.2, AS.4 and AS.6."
       ],
       "proofSteps": [
         "Import AS.4 discrete/residual classification and AS.6 invariant distributions.",
@@ -3132,7 +3204,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.2/quaternionic-orbital-matching",
         "GL2AutomorphicRepresentationsAndTransfer:R17.2/cyclic-local-matching",
         "AutomorphicSpectralTheory:AS.4",
-        "AutomorphicSpectralTheory:AS.5",
+        "AutomorphicSpectralTheory:AS.2",
         "AutomorphicSpectralTheory:AS.6",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
         "AdelicAlgebraicGroups:AA.2"
@@ -3184,8 +3256,8 @@
       "sources": [
         {
           "sourceId": "jl70",
-          "locator": "§16 equation (16.1.7), printed p. 270",
-          "match": "The passage supplies the vanishing with a strongly cuspidal local factor input or motivating calculation. The statement explicitly separates the supplier-owned general theorem from the GL₂ calculation; any unverified extension is in gaps."
+          "locator": "§16 equation (16.1.7), printed p.277; preceding Steinberg averaged constant term, printed p.269",
+          "match": "Equation (16.1.7) is K-averaged and yields induced traces zero. The stronger all-x,y condition stated here kills the whole induced operator by the requested SR.2 kernel formula; it is not attributed to the Steinberg projector. AS.6 supplies the resulting distributional vanishing."
         }
       ],
       "library": {
@@ -3298,15 +3370,15 @@
   "requests": [
     {
       "supplier": "ReductiveGroupsPartII:RG2.4",
-      "need": "Import local integral/maximal compact subgroups, real O(2)/complex U(2), Iwasawa/Cartan decompositions and their local-to-adelic topology; only the GL₂ coordinate comparison belongs here.",
+      "need": "Import finite-place Iwasawa/Cartan decompositions with the local integral maximal compact and dominant invariant factors; RG2.0 supplies integral-point topology, while AF.1 supplies real/complex decompositions.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan"
       ]
     },
     {
-      "supplier": "ArithmeticGaloisRepresentations:R01.1",
-      "need": "Import coefficient fields, scalar extensions and characteristic-zero integral lattices; choose a stable lattice in the finite CDT compact type without claiming it is canonical.",
+      "supplier": "ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices",
+      "need": "Use the existing compact-subgroup stable-lattice theorem for the finite CDT type over a finite nonarchimedean coefficient field; choose an invariant O-lattice and preserve coefficient extension, without asserting canonicity.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/cdt-vexing-type"
       ]
@@ -3352,7 +3424,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor",
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/henniart-unicity",
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-projective",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.2/strong-cuspidal-vanishing"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2/strong-cuspidal-vanishing",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists"
       ]
     },
     {
@@ -3375,19 +3448,22 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/spherical-whittaker-values",
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-kirillov",
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-whittaker-expansion",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists"
       ]
     },
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
-      "need": "Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+      "need": "Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
         "GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R16.5/full-gl2-converse",
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
         "GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan"
       ]
     },
     {
@@ -3436,7 +3512,7 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
-      "need": "General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing/regularity of omitted finite factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
+      "need": "General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing and absence of poles at s=1 for omitted finite and archimedean Rankin–Selberg factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-whittaker-expansion",
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/strong-multiplicity-one",
@@ -3456,8 +3532,8 @@
       ]
     },
     {
-      "supplier": "AutomorphicSpectralTheory:AS.5",
-      "need": "Normalized intertwining operators, continuous induction families, residues and their operator-valued derivatives in the fixed central-character spectrum, with the same ψ/Haar and truncation conventions used by AS.6.",
+      "supplier": "AutomorphicSpectralTheory:AS.2",
+      "need": "Import normalized global/local intertwining operators, their factorization, meromorphic continuation and residues from AS.2; AS.6 supplies their operator-valued derivative distributions in the trace formula. Use the same ψ/Haar and normalization. AS.5 weighted cohomology supplies none of this.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.2/continuous-residual-ledger"
       ]
@@ -3529,7 +3605,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
-      "need": "Import the upstream classification by ramification invariants and its global existence/uniqueness corollaries; do not plan another quaternion carrier.",
+      "need": "Import the LOCAL uniqueness of the quaternion division algebra over a nonarchimedean local field and the split/division comparison. This layer supplies no global prescribed-ramification existence theorem; the swapped global example assumes chosen algebras and records that missing realization separately.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.1/local-quaternionic-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R17.1/swapped-quaternion-invariants"
@@ -3537,7 +3613,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-      "need": "Import the upstream absolute local Artin reciprocity isomorphism, arithmetic/geometric Frobenius conversion, character conductors and unramified norm conventions.",
+      "need": "Import the absolute Artin homomorphism with dense image, finite-quotient reciprocity, arithmetic/geometric Frobenius conversion and character conductors. This is NOT an isomorphism F×→G_Fᵃᵇ; inverse character transport uses Layer9 topological Weil-group reciprocity for F/ℚp finite.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.3/principal-series-parameter",
         "GL2AutomorphicRepresentationsAndTransfer:R16.3/cdt-inertia-multiplicity"
@@ -3573,6 +3649,28 @@
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.1/swapped-quaternion-invariants"
       ]
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.0",
+      "need": "Import topology and compactness of integral GL₂ points and openness of congruence kernels; use determinant a unit, not merely nonzero. AA.1 then supplies the adelic restricted-product identification.",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "need": "Use localWeilArtinEquiv:F×≃ₜ*W_Fᵃᵇ onto the topological abelianization, with the Layer7 absolute-map compatibility and inversion for geometric Frobenius. This reciprocity export is available here only for finite extensions of ℚp.",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/principal-series-parameter",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/cdt-inertia-multiplicity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+      "need": "Import Galois stability/conjugate primitive newforms, CharacterField χ≤CoefficientField f, and rationality of the Hecke characteristic polynomials. Layer8 alone gives coefficient-field algebraicity and does not justify Galois conjugation of analytic forms.",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality"
+      ]
     }
   ],
   "coverage": [
@@ -3581,24 +3679,26 @@
       "status": "planned",
       "remaining": [
         "Supplier test-function and automorphic carriers in Lean: The pins lack the supplier smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution interfaces. Provisional Lean signatures use explicit carrier/operation parameters with the unavailable mathematical hypotheses identified in comments. They are signature checks only, not theorems for arbitrary parameters or functions. Replace them by the actual supplier declarations before implementation.",
-        "Supplier ReductiveGroupsPartII:RG2.4: Import local integral/maximal compact subgroups, real O(2)/complex U(2), Iwasawa/Cartan decompositions and their local-to-adelic topology; only the GL₂ coordinate comparison belongs here.",
-        "Supplier SmoothRepresentationsOfLocalGroups:SR.1: Use the existing C_c^∞ Hecke convolution carrier and its compact-mod-center ω⁻¹-equivariant variant, quotient Haar measure, character-isotypic compact-mod-center idempotents, double-coset operators, scalar extension and integrated representation. Keep 1_I and normalized e_K distinct."
+        "Supplier ReductiveGroupsPartII:RG2.4: Import finite-place Iwasawa/Cartan decompositions with the local integral maximal compact and dominant invariant factors; RG2.0 supplies integral-point topology, while AF.1 supplies real/complex decompositions.",
+        "Supplier SmoothRepresentationsOfLocalGroups:SR.1: Use the existing C_c^∞ Hecke convolution carrier and its compact-mod-center ω⁻¹-equivariant variant, quotient Haar measure, character-isotypic compact-mod-center idempotents, double-coset operators, scalar extension and integrated representation. Keep 1_I and normalized e_K distinct.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
+        "Supplier ReductiveGroupsPartII:RG2.0: Import topology and compactness of integral GL₂ points and openness of congruence kernels; use determinant a unit, not merely nonzero. AA.1 then supplies the adelic restricted-product identification."
       ]
     },
     {
       "stageId": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
       "status": "planned",
       "remaining": [
-        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters.",
+        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it.",
         "Full newvector and ramified factor interface: Translate Casselman’s top-left ω(a) convention by applying the theorem to π∨≅π⊗ω⁻¹det and twisting back, giving ω(d), hence last-row K₁ invariants. Verify the exact newvector Whittaker evaluation and ramified primitive U_p factor in SR.5/AL.2/upstream Layer 4. The public scan was read; it does not by itself provide the complete modern supplier signature.",
-        "Supplier ArithmeticGaloisRepresentations:R01.1: Import coefficient fields, scalar extensions and characteristic-zero integral lattices; choose a stable lattice in the finite CDT compact type without claiming it is canonical.",
+        "Supplier ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices: Use the existing compact-subgroup stable-lattice theorem for the finite CDT type over a finite nonarchimedean coefficient field; choose an invariant O-lattice and preserve coefficient extension, without asserting canonicity.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.0:abelian-category: The fixed-smooth-central-character abelian category in characteristic zero, exact compact-open invariants and projectivity of supercuspidal blocks. Include the L/ℚp scalar-extension case used by Dospinescu–Le Bras. No unrestricted-category or mod-p projectivity claim.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.1: Use the existing C_c^∞ Hecke convolution carrier and its compact-mod-center ω⁻¹-equivariant variant, quotient Haar measure, character-isotypic compact-mod-center idempotents, double-coset operators, scalar extension and integrated representation. Keep 1_I and normalized e_K distinct.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.2: Normalized induction with δ_B^{1/2}, its compact and Jacquet models, contragredients, finite-length exceptional principal series and induced-operator kernels. Supply the all-x,y constant-term criterion that makes an induced operator zero.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.3: Admissibility, contragredient identity π∨≅π⊗ωπ⁻¹det for GL₂, compact-mod-center supercuspidal matrix coefficients, Bernstein inertial equivalence and typical K-types. Include characteristic-zero stable lattices for CDT finite-group types without declaring every integral realization canonical.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.4: Normalized Satake coordinates and the Bernstein/Iwahori presentation, center≅spherical via e_K, scalar-extension hypotheses and GL₂ generator conventions U₀,U₁,T₀,T₁. The general parahoric-center extension is the proposed SmoothRepresentationsPartIIParahoricCenters owner; use SR.4 until that roadmap is installed.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.5: The single local Whittaker/Kirillov functor, uniqueness, explicit Borel action, genericity, nonzero newvector evaluation for conductor-O ψ, spherical Whittaker values and Weyl operator from the gamma factor. Supply the finite L/ℚp Kirillov scalar extension/Γ descent used by Dospinescu–Le Bras; locally analytic theory remains R30.",
-        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.2: The sole local standard-factor and Whittaker zeta-integral carrier, compatibility with LLC, local fractional ideal/test-vector theorem, epsilon shifts/conductor exponents, and archimedean gamma conventions. A normalized newvector realizes the untwisted standard L-factor; arbitrary ramified twists require their own test-vector statement.",
         "Supplier EndoscopicTransferAndUnitaryTraceComparison:ET.6: The canonical characteristic-zero GLn local LLC and GLr(D) inner-form/JL carrier, including normalized induction/segments, twisting, determinant, Artin conductor and L/epsilon compatibility. Supply all finite extensions of ℚp including dyadic primitive wild parameters, index-two Weil induction, Henniart typical-type interface and CDT Θ(θ) inertial comparison; no dependence on this GL₂ specialization."
       ]
@@ -3607,15 +3707,16 @@
       "stageId": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
       "status": "planned",
       "remaining": [
-        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters.",
+        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it.",
         "Full newvector and ramified factor interface: Translate Casselman’s top-left ω(a) convention by applying the theorem to π∨≅π⊗ω⁻¹det and twisting back, giving ω(d), hence last-row K₁ invariants. Verify the exact newvector Whittaker evaluation and ramified primitive U_p factor in SR.5/AL.2/upstream Layer 4. The public scan was read; it does not by itself provide the complete modern supplier signature.",
         "Primitive wild dyadic worked example: The all-field theorem is imported from ET.6, but no explicit primitive dyadic parameter together with its Swan computation and quaternion matching function was verified in the source passages read. Add a worked primitive example, not a tame quadratic replacement, and compute a(r), L=1 and its matching function in the supplier normalization.",
         "Suggested-file supplier conditions and full tensor coefficient types: The suggested file prototypes the actual algebraic pieces and explicitly lists omitted supplier conditions. The full Weil-induction property, geometric Hilbert tensor representation, primitive cusp subtype, compact-mod-center supports/volumes and orbital integrals cannot be stated at the pins. Replace the parameters by supplier carriers and add their conditions; do not interpret provisional statements as unconditional mathematics.",
-        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.1: Character L/epsilon factors over nonarchimedean and archimedean fields, ψ/measure change, ν-shifts and the discriminant convention in global products. Fix Γℝ,Γℂ, |z|ℂ and geometric Artin conventions explicitly.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.2: The sole local standard-factor and Whittaker zeta-integral carrier, compatibility with LLC, local fractional ideal/test-vector theorem, epsilon shifts/conductor exponents, and archimedean gamma conventions. A normalized newvector realizes the untwisted standard L-factor; arbitrary ramified twists require their own test-vector statement.",
         "Supplier EndoscopicTransferAndUnitaryTraceComparison:ET.6: The canonical characteristic-zero GLn local LLC and GLr(D) inner-form/JL carrier, including normalized induction/segments, twisting, determinant, Artin conductor and L/epsilon compatibility. Supply all finite extensions of ℚp including dyadic primitive wild parameters, index-two Weil induction, Henniart typical-type interface and CDT Θ(θ) inertial comparison; no dependence on this GL₂ specialization.",
-        "Supplier tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors: Import the upstream absolute local Artin reciprocity isomorphism, arithmetic/geometric Frobenius conversion, character conductors and unramified norm conventions."
+        "Supplier tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors: Import the absolute Artin homomorphism with dense image, finite-quotient reciprocity, arithmetic/geometric Frobenius conversion and character conductors. This is NOT an isomorphism F×→G_Fᵃᵇ; inverse character transport uses Layer9 topological Weil-group reciprocity for F/ℚp finite.",
+        "Supplier tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group: Use localWeilArtinEquiv:F×≃ₜ*W_Fᵃᵇ onto the topological abelianization, with the Layer7 absolute-map compatibility and inversion for geometric Frobenius. This reciprocity export is available here only for finite extensions of ℚp."
       ]
     },
     {
@@ -3625,9 +3726,10 @@
         "Supplier test-function and automorphic carriers in Lean: The pins lack the supplier smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution interfaces. Provisional Lean signatures use explicit carrier/operation parameters with the unavailable mathematical hypotheses identified in comments. They are signature checks only, not theorems for arbitrary parameters or functions. Replace them by the actual supplier declarations before implementation.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.5: The single local Whittaker/Kirillov functor, uniqueness, explicit Borel action, genericity, nonzero newvector evaluation for conductor-O ψ, spherical Whittaker values and Weyl operator from the gamma factor. Supply the finite L/ℚp Kirillov scalar extension/Γ descent used by Dospinescu–Le Bras; locally analytic theory remains R30.",
         "Supplier AutomorphicFormsOnReductiveGroups:AF.2: The existing smooth automorphic/cuspidal isomorphism classes, determinant-twist action and Hecke-character classes, so non-CM is a subset of this carrier. Supply classical/adelic finite-level comparison and growth conditions; do not create another representation structure.",
-        "Supplier AutomorphicLFunctionsAndLocalFactors:AL.3: General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing/regularity of omitted finite factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
+        "Supplier AutomorphicLFunctionsAndLocalFactors:AL.3: General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing and absence of poles at s=1 for omitted finite and archimedean Rankin–Selberg factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
         "Supplier AutomorphicSpectralTheory:AS.4: Cuspidal Hilbert decomposition with finite multiplicity, algebraic smooth restricted-tensor realization and its relation to the completion. Supply GL₂ discrete residual determinant-character identification from the generic spectral carrier; multiplicity one is not presupposed.",
-        "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields: Import the upstream coefficient-field theorem for primitive normalized forms and its compatibility with algebraic Hecke eigenvalues."
+        "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields: Import the upstream coefficient-field theorem for primitive normalized forms and its compatibility with algebraic Hecke eigenvalues.",
+        "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality: Import Galois stability/conjugate primitive newforms, CharacterField χ≤CoefficientField f, and rationality of the Hecke characteristic polynomials. Layer8 alone gives coefficient-field algebraicity and does not justify Galois conjugation of analytic forms."
       ]
     },
     {
@@ -3635,11 +3737,11 @@
       "status": "planned",
       "remaining": [
         "Supplier test-function and automorphic carriers in Lean: The pins lack the supplier smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution interfaces. Provisional Lean signatures use explicit carrier/operation parameters with the unavailable mathematical hypotheses identified in comments. They are signature checks only, not theorems for arbitrary parameters or functions. Replace them by the actual supplier declarations before implementation.",
-        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
         "Supplier AutomorphicFormsOnReductiveGroups:AF.2: The existing smooth automorphic/cuspidal isomorphism classes, determinant-twist action and Hecke-character classes, so non-CM is a subset of this carrier. Supply classical/adelic finite-level comparison and growth conditions; do not create another representation structure.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.1: Character L/epsilon factors over nonarchimedean and archimedean fields, ψ/measure change, ν-shifts and the discriminant convention in global products. Fix Γℝ,Γℂ, |z|ℂ and geometric Artin conventions explicitly.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.2: The sole local standard-factor and Whittaker zeta-integral carrier, compatibility with LLC, local fractional ideal/test-vector theorem, epsilon shifts/conductor exponents, and archimedean gamma conventions. A normalized newvector realizes the untwisted standard L-factor; arbitrary ramified twists require their own test-vector statement.",
-        "Supplier AutomorphicLFunctionsAndLocalFactors:AL.3: General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing/regularity of omitted finite factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
+        "Supplier AutomorphicLFunctionsAndLocalFactors:AL.3: General GLn global Fourier–Whittaker expansion (including convergence/injectivity) BEFORE multiplicity applications; GL₂×GL₁ integral comparison, full Hecke-character twisted functional equations and Mellin-inversion estimates; Rankin–Selberg pole criterion for π×π̃, nonvanishing and absence of poles at s=1 for omitted finite and archimedean Rankin–Selberg factors for cofinite strong multiplicity one. No second GL₂ carrier is created.",
         "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor: Import existing primitive newform/newspace and exact conductor theory, including bad-prime Hecke eigenproperties beyond the pinned Newform fields and their classical Euler factors.",
         "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions: Import the upstream primitive classical finite Euler factors, Mellin completion and functional equation, with exact width, conductor, nebentypus and weight normalization."
       ]
@@ -3648,12 +3750,12 @@
       "stageId": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
       "status": "planned",
       "remaining": [
-        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters.",
+        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it.",
         "Supplier test-function and automorphic carriers in Lean: The pins lack the supplier smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution interfaces. Provisional Lean signatures use explicit carrier/operation parameters with the unavailable mathematical hypotheses identified in comments. They are signature checks only, not theorems for arbitrary parameters or functions. Replace them by the actual supplier declarations before implementation.",
         "Full newvector and ramified factor interface: Translate Casselman’s top-left ω(a) convention by applying the theorem to π∨≅π⊗ω⁻¹det and twisting back, giving ω(d), hence last-row K₁ invariants. Verify the exact newvector Whittaker evaluation and ramified primitive U_p factor in SR.5/AL.2/upstream Layer 4. The public scan was read; it does not by itself provide the complete modern supplier signature.",
         "Geometric versus arithmetic Galois normalization handoff: The algebraic Satake half-twist and Frobenius inversion are specified. R19.1 must match its nebentypus reciprocity and dual convention to the Galois representation with determinant ε·χ_cyc^{k−1}, and prove ramified WD compatibility with N preserved. This is a downstream interface requirement, not a prerequisite edge from R19 back to R16.",
         "Suggested-file supplier conditions and full tensor coefficient types: The suggested file prototypes the actual algebraic pieces and explicitly lists omitted supplier conditions. The full Weil-induction property, geometric Hilbert tensor representation, primitive cusp subtype, compact-mod-center supports/volumes and orbital integrals cannot be stated at the pins. Replace the parameters by supplier carriers and add their conditions; do not interpret provisional statements as unconditional mathematics.",
-        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
         "Supplier AutomorphicFormsOnReductiveGroups:AF.4: The relative-Lie-algebra-cohomological criterion for Sym^{kτ−2}⊗det^{mτ} at real GL₂, with explicit coefficient-dual and central-character convention, and compatibility under coefficient extension. Use existing rationality-field/clozel-rationality nodes for the general number-field model.",
         "Supplier AutomorphicLFunctionsAndLocalFactors:AL.1: Character L/epsilon factors over nonarchimedean and archimedean fields, ψ/measure change, ν-shifts and the discriminant convention in global products. Fix Γℝ,Γℂ, |z|ℂ and geometric Artin conventions explicitly.",
         "Supplier tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor: Import existing primitive newform/newspace and exact conductor theory, including bad-prime Hecke eigenproperties beyond the pinned Newform fields and their classical Euler factors."
@@ -3663,13 +3765,14 @@
       "stageId": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
       "status": "planned",
       "remaining": [
-        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters.",
+        "Archimedean owner and complete comparison signatures: AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it.",
         "Supplier test-function and automorphic carriers in Lean: The pins lack the supplier smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution interfaces. Provisional Lean signatures use explicit carrier/operation parameters with the unavailable mathematical hypotheses identified in comments. They are signature checks only, not theorems for arbitrary parameters or functions. Replace them by the actual supplier declarations before implementation.",
         "Primitive wild dyadic worked example: The all-field theorem is imported from ET.6, but no explicit primitive dyadic parameter together with its Swan computation and quaternion matching function was verified in the source passages read. Add a worked primitive example, not a tame quadratic replacement, and compute a(r), L=1 and its matching function in the supplier normalization.",
-        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.",
+        "Global realization of prescribed quaternion ramification: QFI Layer6D proves only local classification. CFT Layer14 proves reciprocity/parity, which is necessary but alone does not construct a global algebra. The present local swap/parity comparison assumes chosen D₀,D as in CDN23. Before the R17.3 global transfer application, identify the owner and prove the global prescribed-ramification existence/uniqueness theorem on the existing QuaternionAlgebra carrier (with the global Brauer/degree-index comparison); do not infer it from local classification or add a second carrier.",
+        "Supplier AutomorphicFormsOnReductiveGroups:AF.1: Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency. Include real/complex O(2), U(2) compact subgroups, Iwasawa/singular-value decompositions, SU(2) algebraic highest-weight characters and GL₂(ℝ) Harish–Chandra characters needed to prove the explicit real-quaternionic comparison. This archimedean input is not supplied by finite-place ET.6.",
         "Supplier EndoscopicTransferAndUnitaryTraceComparison:ET.6: The canonical characteristic-zero GLn local LLC and GLr(D) inner-form/JL carrier, including normalized induction/segments, twisting, determinant, Artin conductor and L/epsilon compatibility. Supply all finite extensions of ℚp including dyadic primitive wild parameters, index-two Weil induction, Henniart typical-type interface and CDT Θ(θ) inertial comparison; no dependence on this GL₂ specialization.",
         "Supplier tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion: Import the upstream quaternion algebra/reduced norm, local split/division classification and chosen splitting isomorphisms. This packet only applies these objects.",
-        "Supplier tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries: Import the upstream classification by ramification invariants and its global existence/uniqueness corollaries; do not plan another quaternion carrier.",
+        "Supplier tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries: Import the LOCAL uniqueness of the quaternion division algebra over a nonarchimedean local field and the split/division comparison. This layer supplies no global prescribed-ramification existence theorem; the swapped global example assumes chosen algebras and records that missing realization separately.",
         "Supplier tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity: Import upstream reciprocity/parity of quaternion ramification for the swapped-invariant example; this is not a new global existence proof."
       ]
     },
@@ -3687,7 +3790,7 @@
         "Supplier SmoothRepresentationsOfLocalGroups:SR.3: Admissibility, contragredient identity π∨≅π⊗ωπ⁻¹det for GL₂, compact-mod-center supercuspidal matrix coefficients, Bernstein inertial equivalence and typical K-types. Include characteristic-zero stable lattices for CDT finite-group types without declaring every integral realization canonical.",
         "Supplier SmoothRepresentationsOfLocalGroups:SR.4: Normalized Satake coordinates and the Bernstein/Iwahori presentation, center≅spherical via e_K, scalar-extension hypotheses and GL₂ generator conventions U₀,U₁,T₀,T₁. The general parahoric-center extension is the proposed SmoothRepresentationsPartIIParahoricCenters owner; use SR.4 until that roadmap is installed.",
         "Supplier AutomorphicSpectralTheory:AS.4: Cuspidal Hilbert decomposition with finite multiplicity, algebraic smooth restricted-tensor realization and its relation to the completion. Supply GL₂ discrete residual determinant-character identification from the generic spectral carrier; multiplicity one is not presupposed.",
-        "Supplier AutomorphicSpectralTheory:AS.5: Normalized intertwining operators, continuous induction families, residues and their operator-valued derivatives in the fixed central-character spectrum, with the same ψ/Haar and truncation conventions used by AS.6.",
+        "Supplier AutomorphicSpectralTheory:AS.2: Import normalized global/local intertwining operators, their factorization, meromorphic continuation and residues from AS.2; AS.6 supplies their operator-valued derivative distributions in the trace formula. Use the same ψ/Haar and normalization. AS.5 weighted cohomology supplies none of this.",
         "Supplier AutomorphicSpectralTheory:AS.6: The invariant trace formula on compact-mod-center test functions, all identity/elliptic/unipotent terms, residual characters, continuous intertwining-derivative distributions and their measure normalization. Its specialization must expose every term needed by the concrete quaternionic/cyclic ledger.",
         "Supplier EndoscopicTransferAndUnitaryTraceComparison:ET.1: The transfer-factor and norm conventions, regular centralizer identifications and measure factors for GL₂ ordinary, inner-form and cyclic twisted transfer. Provide archimedean input through the proposed AF.1b, not a second LLC classification.",
         "Supplier EndoscopicTransferAndUnitaryTraceComparison:ET.3: Local transfer on the existing smooth test-function carriers, quaternionic matching with rank-two sign and common torus measure, cyclic ordinary/twisted orbital-integral transfer, and identity/singular-term compatibility. General transfer existence remains here.",
@@ -3706,7 +3809,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison"
       ],
-      "detail": "AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters."
+      "detail": "AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it."
     },
     {
       "title": "Supplier test-function and automorphic carriers in Lean",
@@ -3779,6 +3882,13 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.2/cyclic-local-matching"
       ],
       "detail": "The suggested file prototypes the actual algebraic pieces and explicitly lists omitted supplier conditions. The full Weil-induction property, geometric Hilbert tensor representation, primitive cusp subtype, compact-mod-center supports/volumes and orbital integrals cannot be stated at the pins. Replace the parameters by supplier carriers and add their conditions; do not interpret provisional statements as unconditional mathematics."
+    },
+    {
+      "title": "Global realization of prescribed quaternion ramification",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1/swapped-quaternion-invariants"
+      ],
+      "detail": "QFI Layer6D proves only local classification. CFT Layer14 proves reciprocity/parity, which is necessary but alone does not construct a global algebra. The present local swap/parity comparison assumes chosen D₀,D as in CDN23. Before the R17.3 global transfer application, identify the owner and prove the global prescribed-ramification existence/uniqueness theorem on the existing QuaternionAlgebra carrier (with the global Brauer/degree-index comparison); do not infer it from local classification or add a second carrier."
     }
   ],
   "restructure": [
@@ -3821,7 +3931,12 @@
       "known": "Previously recorded and confirmed as PAPER-NEWTON-THORNE-26/E3 by REV-PAPER-NEWTON-THORNE-26",
       "searched": [
         "Read the accepted extraction and its independently confirmed correction; compared the exact cited passage of the version downloaded for this packet. Crossref record of doi:10.4007/annals.2026.203.1.4, 23 September 2026: no update-to, updated-by or relation entries"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv2212.03595v2 pp.11,14: the character lives on the extension subgroup, so induction runs from that subgroup to the base group.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+      }
     },
     {
       "kind": "misprint",
@@ -3835,7 +3950,12 @@
       "known": "Previously recorded and confirmed as PAPER-CALEGARI-GERAGHTY-20/E8 by REV-PAPER-CALEGARI-GERAGHTY-20",
       "searched": [
         "Read the accepted extraction and its independently confirmed correction; compared the exact cited passage of the version downloaded for this packet. The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the author-hosted published Duke PDF p.805: a nontrivial unramified determinant character is one-dimensional and has both fixed spaces of dimension1. The generic/infinite-dimensional restriction is necessary.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E14",
@@ -3849,7 +3969,12 @@
       "known": "Already noted in accepted PAPER-BOXER-CALEGARI-GEE-PILLONI-21/20 and in the job routing brief",
       "searched": [
         "Read the accepted paper extraction item 20 and this job’s source-routing correction; compared §2.4.15 in the published Centre Mersenne PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published IHÉS PDF p.179: the second equality is in the GL₂ Hecke algebra; its right-hand T₁ must carry the same GL₂ superscript as the preceding definitions.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E15",
@@ -3863,7 +3988,12 @@
       "known": "Previously independently confirmed as AutomorphicFormsOnReductiveGroups/E1 by REV-AutomorphicFormsOnReductiveGroups; this packet uses that correction.",
       "searched": [
         "Read the exact 2015 author PDF and the supplier’s independently reviewed source issue; the notes’ §6.5 computes the corrected Casimir. Jayce Getz's web page (sites.math.duke.edu/~jgetz), the 2015 PDF read and the published book Getz–Hahn, An Introduction to Automorphic Representations (Springer GTM 300, 2024) table of contents; no erratum list found for the 2015 notes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 13 March2015 notes pp.33–34: the displayed Lie action on the generated module gives k(k−2)/4. At k=2 the stated (k²−1)/4 ideal has the wrong infinitesimal character.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+      }
     }
   ],
   "extension": {
@@ -3900,5 +4030,288 @@
       "sha256": "e52f7da0685c7e330f096b3f23beaf8832972067d191f77e3c05ac3113fff0ac",
       "citation": "Author-hosted course notes, 13 March 2015 (89 pages)"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R16.1",
+    "date": "2026-10-07",
+    "notes": "Independent target-level review of all 55 nodes, 17 pinned baseline declarations, 48 API items, 37 tests, 42 planets, 19 public sources, eight stage targets and RT-AREA-automorphic-1/2, /9, /14 with accepted RS-21 ownership. Corrected 16 nodes, added an independent newvector-level existence theorem, corrected source locators, supplier scopes and discriminating tests; confirmed all four source issues. Eight honest gaps remain; no stage is closed and no implementation is claimed. See the review report for the complete changes and required orchestrator reader synchronization.",
+    "checked": [
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/k0",
+        "verdict": "verified",
+        "note": "Read Casselman p.301; matrix units, lower-left ideal and reduction subgroup convention agree with the pinned GL carrier."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/k1",
+        "verdict": "corrected",
+        "note": "Checked AKY last-row convention against K(n,λ); added level-monotonicity API and matching Lean signature."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison",
+        "verdict": "corrected",
+        "note": "JL p.12 supplies the finite local convention. Routed integral-point compactness to RG2.0 and infinity compacts to AF.1, with AA.1 restricted-product topology."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan",
+        "verdict": "corrected",
+        "note": "Corrected printed page45 to46, checked δB=|a/d|, and separated finite RG2.4 from archimedean AF.1 input."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/haar-quotient-comparison",
+        "verdict": "verified",
+        "note": "Read JL central-character conventions and normalized Mathlib Haar statement; AA.0 product and AA.2 central quotient remain separate imported constructions."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.1/finite-level-comparison",
+        "verdict": "verified",
+        "note": "JL Definition10.2 and AF finite-level dictionary use actual automorphic growth/type/character spaces, with the SR.1 Hecke action."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification",
+        "verdict": "verified",
+        "note": "Visually checked Casselman p.305 reducible ratios and principal/special orientation; classification is characteristic zero and wild supercuspidals remain included."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists",
+        "verdict": "added",
+        "note": "Independent existence proof via Kirillov realization, smoothness, K₀ factorization and the contragredient twist. Breaks the conductor/dimension-theorem dependency cycle; addedBy records this review."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor",
+        "verdict": "corrected",
+        "note": "Added independent level-existence prerequisite before the least-level definition; strengthened the ramified Steinberg discriminator to a≥2 with explicit inequality."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/casselman-newvector",
+        "verdict": "verified",
+        "note": "Read Casselman301–307 including dimension corollary306 and epsilon remark307; bottom-right convention is obtained by contragredient/determinant twist."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/normalized-newvector",
+        "verdict": "verified",
+        "note": "JL spherical normalization is consistent; existence/uniqueness follow on a one-dimensional line from a nonzero Whittaker functional, whose restriction is explicitly requested."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/spherical-whittaker-values",
+        "verdict": "verified",
+        "note": "Checked JL §3 unramified calculation, q-half scaling and recurrence; equal roots give (m+1)α^m without division by α−β."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-oldforms",
+        "verdict": "verified",
+        "note": "Read CG20 pp.805–806; E13 fixes the generic hypothesis, and characteristic-zero q+1 denominators are retained."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-kirillov",
+        "verdict": "verified",
+        "note": "Read Casselman p.302 equation1.2 and DLB scalar-extension passages; Borel action contains central character and ψ, not just translation."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/henniart-unicity",
+        "verdict": "verified",
+        "note": "Read BM Appendix A.1.4–1.5 and DLB Theorem5.5 proof; supercuspidal typical type singles out the inertial class and occurs once."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-projective",
+        "verdict": "verified",
+        "note": "Read DLB footnote52 p.64; it is fixed-central-character characteristic zero. General fixed-character projectivity is an explicit SR.0 request, with no mod-p assertion."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/cdt-vexing-type",
+        "verdict": "corrected",
+        "note": "Read CG18 §3.9.2 and CDT §5; replaced broad R01.1 reference by the exact compact-subgroup stable-lattice export, without claiming canonical lattices."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-center",
+        "verdict": "verified",
+        "note": "Read BCGP178–179 and HKP2.3/4.6; Laurent determinant generator and normalized eK are retained, with q,q+1 invertible and E14 corrected."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
+        "verdict": "verified",
+        "note": "Read JL5–6 and AF Weil/discrete-series statements; full O(2), limit boundary and lack of GL₂(ℂ) discrete series agree. Complete AF.1b signatures remain a gap."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/principal-series-parameter",
+        "verdict": "corrected",
+        "note": "Confirmed parameter and reciprocity convention; added CFT Layer9 topological Weil abelianization, since Layer7 absolute Artin has dense image and is not surjective."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/steinberg-monodromy",
+        "verdict": "verified",
+        "note": "Read Casselman special/conductor calculation; checked geometric rNr⁻¹ covariance, one-dimensional ker N factor, and ramified 2a(χ) behavior."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/supercuspidal-parameter",
+        "verdict": "verified",
+        "note": "NT p.11 supplies tame motivation; all-field bijection and primitive dyadic parameters are imported from ET.6, not inferred from quadratic induction."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/tate-unitary-normalization",
+        "verdict": "verified",
+        "note": "NT p.8 recᵀ=rec(π⊗|det|⁻¹ᐟ²) and geometric Artin convention give the stated determinant and s-shift."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/conductor-epsilon-comparison",
+        "verdict": "verified",
+        "note": "Read Casselman epsilon remark307 and AR conductor export; additive conductor/measure changes are explicit AL inputs and monodromy is retained."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison",
+        "verdict": "verified",
+        "note": "Read JL96–97 gamma formulas; Γℝ,Γℂ, complex normalized absolute value and induced-real lambda factor agree with AF/AL requests."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral",
+        "verdict": "verified",
+        "note": "Read NT Definition2.4 p.11; odd order n>1 with q≡−1 mod n and unramified quadratic source are retained; E12 direction is corrected."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral-supercuspidal",
+        "verdict": "verified",
+        "note": "NT p.11 distinct conjugate character argument proves irreducibility; no even-order or reducible n=1 case is inferred. Finite Mackey baseline is only a finite analogue."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.3/cdt-inertia-multiplicity",
+        "verdict": "corrected",
+        "note": "Confirmed parameter and reciprocity convention; added CFT Layer9 topological Weil abelianization, since Layer7 absolute Artin has dense image and is not surjective."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/cuspidal-tensor-factorization",
+        "verdict": "verified",
+        "note": "JL183 product and AF.2 restricted tensor statement/AS.4 spectrum distinguish algebraic smooth tensors from Hilbert completion and do not presume multiplicity one."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-whittaker-expansion",
+        "verdict": "verified",
+        "note": "Read JL182–183 Fourier proof; AL.3 convergence/injectivity input precedes multiplicity and R16.5 Mellin applications, as RT/9 requires."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one",
+        "verdict": "verified",
+        "note": "Read JL Proposition11.1.1 p.183; tensor factorization, local uniqueness and injective global expansion supply the proof without assuming multiplicity one in AS.4."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/strong-multiplicity-one",
+        "verdict": "corrected",
+        "note": "Added direct public Cogdell Theorem9.3 source for recovery of infinite places; kept Casselman’s weaker parallel result and required omitted archimedean factors as well as finite ones."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality",
+        "verdict": "corrected",
+        "note": "Checked algebraic determinant twist and T₁/T₀ scalings; added upstream Layer8G for Galois stability, character-field inclusion and rationality already used in the proof."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.4/non-cm-self-twists",
+        "verdict": "verified",
+        "note": "Read NT Lemma2.1 hypothesis; stabilizer uses actual Hecke-character classes and cusp classes, with quadratic self-twist/dihedral criterion an AL.3 request."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.5/whittaker-integral-comparison",
+        "verdict": "corrected",
+        "note": "Moved unfolding/product locator from180–182 to183–184 and named the convergence estimate; ramified twisted test vectors remain explicit supplier inputs."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.5/full-gl2-converse",
+        "verdict": "verified",
+        "note": "Read JL Theorem11.3 p.186 and Cogdell converse pp.5–6; all character twists, niceness and infinite local data are present, beyond a finite Euler product."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.5/classical-l-function-comparison",
+        "verdict": "verified",
+        "note": "Read JL standard completion and pinned CuspForm LSeries statement; upstream L7 gives primitive bad factors, with width and s+(k−1)/2 shift retained."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.5/global-epsilon-normalization",
+        "verdict": "verified",
+        "note": "JL Theorem11.1 p.180 has character-change formula; global product formula cancels it, with discriminant and conductor conventions requested from AL.1/AL.3."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/primitive-classical-bijection",
+        "verdict": "corrected",
+        "note": "Corrected “nonunit scalar” to c≠1: over ℂ every nonzero scalar is a unit. Existing Lean example already uses the correct condition."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/classical-hecke-and-level",
+        "verdict": "verified",
+        "note": "Casselman §3 p.308 and pinned Newform fields confirm good-prime normalization; bad-prime and primitive-level theorems come from upstream L4, not Newform fields."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
+        "verdict": "verified",
+        "note": "Read NT p.8 highest-weight dual convention, pinned symPowerRep and AF.4 cohomology; parity and determinant central weights are explicit and full tensor signatures are a gap."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-k-parameter-conversion",
+        "verdict": "verified",
+        "note": "Checked NT recᵀ and cyclotomic−1 against reciprocal Frobenius eigenvalues; determinant/nebentypus/dual conversion is an explicit downstream R19 handoff."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/geometry-and-galois-exports",
+        "verdict": "verified",
+        "note": "Read CDN20 §5.2.1 pp.347–348; multiplicity, chosen local identifications and weight-two normalization are exported to geometric owners, with no R19 prerequisite cycle."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.1/local-quaternionic-comparison",
+        "verdict": "verified",
+        "note": "Read JL Theorem15.1 pp.249–250; only essentially square-integrable classes transfer at a division place and the regular elliptic sign is−1."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.1/norm-character-steinberg",
+        "verdict": "verified",
+        "note": "Read JL norm-character/special correspondence and269 projector convention; χ∘Nrd transfers to St⊗χdet with unchanged central character."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison",
+        "verdict": "corrected",
+        "note": "Checked k−2 versus k and norm/determinant twists; removed the unsupported archimedean use of finite-place ET.6 and requested the actual AF.1 character comparison."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.1/wild-dyadic-transfer",
+        "verdict": "verified",
+        "note": "CDN23 p.38 supplies local split/division context only; ET.6 supplies full WD/JL with dyadic wild parameters, and the unverified worked primitive example remains a gap."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.1/swapped-quaternion-invariants",
+        "verdict": "corrected",
+        "note": "QFI Layer6D is local classification, not a global existence theorem. Made the example conditional on chosen algebras and recorded global realization as an R17.3 gap."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/steinberg-projector-difference",
+        "verdict": "verified",
+        "note": "Read JL268–269; ζ″−ζ′ selects the Steinberg twist, retains determinant-character trace−1, and uses normalized character idempotents with the required volumes."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/quaternionic-orbital-matching",
+        "verdict": "corrected",
+        "note": "Removed the unrelated equation16.1.7 locator; checked the p.270 character/orbital-integral minus sign and torus quotient measure."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/cyclic-local-matching",
+        "verdict": "verified",
+        "note": "Read AC89 Proposition3.1 pp.20–22 and unramified statement32, plus Langlands24–25; compatible centralizer measures, norm character, Satake dth powers and nonnorm vanishing agree."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/continuous-residual-ledger",
+        "verdict": "corrected",
+        "note": "Read Langlands §10/§11 including analytical caveat and quadratic half-weight; moved normalized-intertwiner supply from unrelated AS.5 weighted cohomology to AS.2."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/strong-cuspidal-vanishing",
+        "verdict": "corrected",
+        "note": "Corrected equation16.1.7 from p.270 to p.277; preserved the distinction between averaged trace vanishing and all-x,y induced-operator vanishing."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.2/specialized-trace-comparison",
+        "verdict": "verified",
+        "note": "Read JL introductory warning and §16 opening, Langlands10/11 and ET.4/AS.6 contracts; complete singular/continuous comparison is explicitly a gap, not proved by the sketch."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison",
+        "verdict": "verified",
+        "note": "Read Getz32–34 and AF corrected Casimir/full O(2) model; D₁ is the limit, Γℝ(s)Γℝ(s+1)=Γℂ(s), and E15 correction is used."
+      }
+    ]
+  }
 }
