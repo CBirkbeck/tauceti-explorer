@@ -16745,8 +16745,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6897",
-   "finishedAt": "2026-10-07T16:43:04Z"
+   "finishedAt": "2026-10-07T16:43:04Z",
+   "note": "deliverables arrived from an external worker on issue #6897"
   },
   {
    "id": "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM",
@@ -16771,8 +16771,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6904",
-   "finishedAt": "2026-10-07T18:03:03Z"
+   "finishedAt": "2026-10-07T18:03:03Z",
+   "note": "deliverables arrived from an external worker on issue #6904"
   },
   {
    "id": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16793,8 +16793,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6898",
-   "finishedAt": "2026-10-07T16:51:34Z"
+   "finishedAt": "2026-10-07T16:51:34Z",
+   "note": "deliverables arrived from an external worker on issue #6898"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16928,8 +16928,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6899",
-   "finishedAt": "2026-10-07T17:57:17Z"
+   "finishedAt": "2026-10-07T17:57:17Z",
+   "note": "deliverables arrived from an external worker on issue #6899"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -22964,8 +22964,8 @@
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "deliverables arrived from an external worker on issue #686",
-   "finishedAt": "2026-10-07T13:59:00Z"
+   "finishedAt": "2026-10-07T13:59:00Z",
+   "note": "deliverables arrived from an external worker on issue #686"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -22987,8 +22987,8 @@
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #361",
-   "finishedAt": "2026-10-07T17:30:00Z"
+   "finishedAt": "2026-10-07T17:30:00Z",
+   "note": "deliverables arrived from an external worker on issue #361"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -26057,8 +26057,8 @@
    "avoidAccountOf": "BP-GeometricSatakeAndFusion--GS0",
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #418",
-   "finishedAt": "2026-10-07T13:54:45Z"
+   "finishedAt": "2026-10-07T13:54:45Z",
+   "note": "deliverables arrived from an external worker on issue #418"
   },
   {
    "id": "BP-GeometricSatakeAndFusion--GS3",
@@ -26807,8 +26807,8 @@
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #432",
-   "finishedAt": "2026-10-07T14:22:00Z"
+   "finishedAt": "2026-10-07T14:22:00Z",
+   "note": "deliverables arrived from an external worker on issue #432"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups--T6",
@@ -32037,8 +32037,8 @@
    "avoidAccountOf": "BP-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/REV-ModularityAndLanglandsExtensions.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #541",
-   "finishedAt": "2026-10-07T14:55:53Z"
+   "finishedAt": "2026-10-07T14:55:53Z",
+   "note": "deliverables arrived from an external worker on issue #541"
   },
   {
    "id": "BP-PeriodsAndSpecialValues--PS.0",
@@ -32585,8 +32585,8 @@
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6938",
-   "finishedAt": "2026-10-07T18:18:42Z"
+   "finishedAt": "2026-10-07T18:18:42Z",
+   "note": "deliverables arrived from an external worker on issue #6938"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.1",
@@ -36074,294 +36074,6 @@
    "note": "deliverables arrived from an external worker on issue #6453"
   },
   {
-   "id": "BP-HabiroNahmSeries--HB.10",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.10"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.10.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T05:07:54Z",
-   "note": "deliverables arrived from an external worker on issue #6505"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.10",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.10.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.10"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.10",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.10.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T05:33:16Z",
-   "note": "deliverables arrived from an external worker on issue #6457"
-  },
-  {
-   "id": "BP-HabiroNahmSeries--HB.3",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.3"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.3.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.3.md",
-   "state": "done",
-   "finishedAt": "2026-10-05T22:24:48Z",
-   "note": "deliverables arrived from an external worker on issue #6506"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.3",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.3.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.3.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.3"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.3",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.3.md",
-   "state": "done",
-   "finishedAt": "2026-10-05T23:01:27Z",
-   "note": "deliverables arrived from an external worker on issue #6458"
-  },
-  {
-   "id": "BP-HabiroNahmSeries--HB.4",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.4"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.4.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T00:03:43Z",
-   "note": "deliverables arrived from an external worker on issue #6507"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.4",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.4.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.4"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.4",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.4.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T00:33:38Z",
-   "note": "deliverables arrived from an external worker on issue #6459"
-  },
-  {
-   "id": "BP-HabiroNahmSeries--HB.5",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.5"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.5.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.5.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T01:13:34Z",
-   "note": "deliverables arrived from an external worker on issue #6508"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.5",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.5.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.5.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.5"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.5",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.5.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T01:38:20Z",
-   "note": "deliverables arrived from an external worker on issue #6460"
-  },
-  {
-   "id": "BP-HabiroNahmSeries--HB.8",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.8"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.8.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.8.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T04:23:43Z",
-   "note": "deliverables arrived from an external worker on issue #6509"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.8",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.8.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.8.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.8"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.8",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.8.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T04:47:52Z",
-   "note": "deliverables arrived from an external worker on issue #6461"
-  },
-  {
-   "id": "BP-HabiroNahmSeries--HB.9",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "scope": [
-    "HabiroNahmSeries:HB.9"
-   ],
-   "outputs": [
-    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.9.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries"
-   ],
-   "followUpOf": "BP-HabiroNahmSeries",
-   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.9.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T05:50:37Z",
-   "note": "deliverables arrived from an external worker on issue #6510"
-  },
-  {
-   "id": "REV-HabiroNahmSeries--HB.9",
-   "kind": "review",
-   "priority": 2,
-   "order": 313100,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.9.md",
-    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.9.md"
-   ],
-   "after": [
-    "BP-HabiroNahmSeries--HB.9"
-   ],
-   "avoidAccountOf": "BP-HabiroNahmSeries--HB.9",
-   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.9.md",
-   "state": "done",
-   "finishedAt": "2026-10-06T06:19:30Z",
-   "note": "deliverables arrived from an external worker on issue #6462"
-  },
-  {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
    "kind": "blueprint",
    "priority": 3,
@@ -37837,8 +37549,8 @@
    "revisionOf": "BP-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/BP-ArithmeticLocallySymmetricSpaces~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6922",
-   "finishedAt": "2026-10-07T15:28:29Z"
+   "finishedAt": "2026-10-07T15:28:29Z",
+   "note": "deliverables arrived from an external worker on issue #6922"
   },
   {
    "priority": 2,
@@ -37864,8 +37576,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6908",
-   "finishedAt": "2026-10-07T17:30:07Z"
+   "finishedAt": "2026-10-07T17:30:07Z",
+   "note": "deliverables arrived from an external worker on issue #6908"
   },
   {
    "kind": "blueprint",
@@ -37974,6 +37686,62 @@
     "BP-AutomorphicGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentations~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 203300,
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "scope": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+    "AutomorphicGaloisRepresentationsPartII:AG2.1b",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.3",
+    "AutomorphicGaloisRepresentationsPartII:AG2.4",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5"
+   ],
+   "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
+   "outputs": [
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.0.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean",
+    "research/blueprint/handoff/BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md"
+   ],
+   "after": [
+    "REV-AutomorphicGaloisRepresentationsPartII--AG2.0"
+   ],
+   "revisionOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
+   "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 203300,
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "id": "REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.0.md"
+   ],
+   "after": [
+    "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
+   ],
+   "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
+   "independentOf": [
+    "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
+    "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
    "state": "pending"
   },
   {
@@ -39011,6 +38779,62 @@
   {
    "kind": "blueprint",
    "priority": 3,
+   "order": 207000,
+   "roadmapIds": [
+    "GeometricSatakeAndFusion"
+   ],
+   "scope": [
+    "GeometricSatakeAndFusion:GS0",
+    "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+    "GeometricSatakeAndFusion:GS0:Witt-geometry",
+    "GeometricSatakeAndFusion:GS0:loop-geometry",
+    "GeometricSatakeAndFusion:GS1",
+    "GeometricSatakeAndFusion:GS2",
+    "GeometricSatakeAndFusion:GS2:Satake-closure",
+    "GeometricSatakeAndFusion:GS2:correspondences"
+   ],
+   "id": "BP-GeometricSatakeAndFusion--GS0~2",
+   "outputs": [
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json",
+    "research/blueprint/readmes/GeometricSatakeAndFusion--GS0.md",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean",
+    "research/blueprint/handoff/BP-GeometricSatakeAndFusion--GS0~2.md"
+   ],
+   "after": [
+    "REV-GeometricSatakeAndFusion--GS0"
+   ],
+   "revisionOf": "BP-GeometricSatakeAndFusion--GS0",
+   "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 207000,
+   "roadmapIds": [
+    "GeometricSatakeAndFusion"
+   ],
+   "id": "REV-GeometricSatakeAndFusion--GS0~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-GeometricSatakeAndFusion--GS0~2.md",
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean",
+    "research/blueprint/readmes/GeometricSatakeAndFusion--GS0.md"
+   ],
+   "after": [
+    "BP-GeometricSatakeAndFusion--GS0~2"
+   ],
+   "avoidAccountOf": "BP-GeometricSatakeAndFusion--GS0~2",
+   "independentOf": [
+    "BP-GeometricSatakeAndFusion--GS0",
+    "BP-GeometricSatakeAndFusion--GS0~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS0~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
    "order": 207001,
    "roadmapIds": [
     "GeometricSatakeAndFusion"
@@ -39389,6 +39213,60 @@
   {
    "kind": "blueprint",
    "priority": 3,
+   "order": 207900,
+   "roadmapIds": [
+    "HodgeTateAndCanonicalSubgroups"
+   ],
+   "scope": [
+    "HodgeTateAndCanonicalSubgroups:T0",
+    "HodgeTateAndCanonicalSubgroups:T1",
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "HodgeTateAndCanonicalSubgroups:T3",
+    "HodgeTateAndCanonicalSubgroups:T4",
+    "HodgeTateAndCanonicalSubgroups:T5"
+   ],
+   "id": "BP-HodgeTateAndCanonicalSubgroups--T0~2",
+   "outputs": [
+    "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T0.json",
+    "research/blueprint/readmes/HodgeTateAndCanonicalSubgroups--T0.md",
+    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups--T0.lean",
+    "research/blueprint/handoff/BP-HodgeTateAndCanonicalSubgroups--T0~2.md"
+   ],
+   "after": [
+    "REV-HodgeTateAndCanonicalSubgroups--T0"
+   ],
+   "revisionOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
+   "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T0~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 207900,
+   "roadmapIds": [
+    "HodgeTateAndCanonicalSubgroups"
+   ],
+   "id": "REV-HodgeTateAndCanonicalSubgroups--T0~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-HodgeTateAndCanonicalSubgroups--T0~2.md",
+    "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T0.json",
+    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups--T0.lean",
+    "research/blueprint/readmes/HodgeTateAndCanonicalSubgroups--T0.md"
+   ],
+   "after": [
+    "BP-HodgeTateAndCanonicalSubgroups--T0~2"
+   ],
+   "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T0~2",
+   "independentOf": [
+    "BP-HodgeTateAndCanonicalSubgroups--T0",
+    "BP-HodgeTateAndCanonicalSubgroups--T0~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
    "order": 207901,
    "roadmapIds": [
     "HodgeTateAndCanonicalSubgroups"
@@ -39467,8 +39345,8 @@
    "revisionOf": "BP-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/BP-IgusaVarietiesAndTorsionConcentration~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6931",
-   "finishedAt": "2026-10-07T16:15:22Z"
+   "finishedAt": "2026-10-07T16:15:22Z",
+   "note": "deliverables arrived from an external worker on issue #6931"
   },
   {
    "priority": 2,
@@ -39494,8 +39372,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-IgusaVarietiesAndTorsionConcentration~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6909",
-   "finishedAt": "2026-10-07T17:20:37Z"
+   "finishedAt": "2026-10-07T17:20:37Z",
+   "note": "deliverables arrived from an external worker on issue #6909"
   },
   {
    "kind": "blueprint",
@@ -39526,8 +39404,8 @@
    "revisionOf": "BP-IntegralHeckeAndGaloisDeterminants",
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6932",
-   "finishedAt": "2026-10-07T15:28:31Z"
+   "finishedAt": "2026-10-07T15:28:31Z",
+   "note": "deliverables arrived from an external worker on issue #6932"
   },
   {
    "priority": 2,
@@ -39553,8 +39431,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6910",
-   "finishedAt": "2026-10-07T16:43:06Z"
+   "finishedAt": "2026-10-07T16:43:06Z",
+   "note": "deliverables arrived from an external worker on issue #6910"
   },
   {
    "kind": "blueprint",
@@ -39585,8 +39463,8 @@
    "revisionOf": "BP-KTheoryFiniteLocalFields",
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6973",
-   "finishedAt": "2026-10-07T17:57:18Z"
+   "finishedAt": "2026-10-07T17:57:18Z",
+   "note": "deliverables arrived from an external worker on issue #6973"
   },
   {
    "priority": 2,
@@ -39813,8 +39691,8 @@
    "revisionOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6975",
-   "finishedAt": "2026-10-07T17:46:51Z"
+   "finishedAt": "2026-10-07T17:46:51Z",
+   "note": "deliverables arrived from an external worker on issue #6975"
   },
   {
    "priority": 2,
@@ -41559,8 +41437,8 @@
    "revisionOf": "BP-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6934",
-   "finishedAt": "2026-10-07T14:43:09Z"
+   "finishedAt": "2026-10-07T14:43:09Z",
+   "note": "deliverables arrived from an external worker on issue #6934"
   },
   {
    "priority": 2,
@@ -41586,8 +41464,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructure~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6913",
-   "finishedAt": "2026-10-07T15:50:34Z"
+   "finishedAt": "2026-10-07T15:50:34Z",
+   "note": "deliverables arrived from an external worker on issue #6913"
   },
   {
    "kind": "blueprint",
@@ -41890,8 +41768,8 @@
    "revisionOf": "BP-EffectiveDiophantineMethods",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6936",
-   "finishedAt": "2026-10-07T15:28:33Z"
+   "finishedAt": "2026-10-07T15:28:33Z",
+   "note": "deliverables arrived from an external worker on issue #6936"
   },
   {
    "priority": 2,
@@ -41917,8 +41795,64 @@
    ],
    "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6914",
-   "finishedAt": "2026-10-07T17:30:10Z"
+   "finishedAt": "2026-10-07T17:30:10Z",
+   "note": "deliverables arrived from an external worker on issue #6914"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414600,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "scope": [
+    "EffectiveDiophantineMethods:ED.0",
+    "EffectiveDiophantineMethods:ED.1",
+    "EffectiveDiophantineMethods:ED.2",
+    "EffectiveDiophantineMethods:ED.3",
+    "EffectiveDiophantineMethods:ED.4",
+    "EffectiveDiophantineMethods:ED.5",
+    "EffectiveDiophantineMethods:ED.6"
+   ],
+   "id": "BP-EffectiveDiophantineMethods~3",
+   "outputs": [
+    "research/blueprint/packets/EffectiveDiophantineMethods.json",
+    "research/blueprint/readmes/EffectiveDiophantineMethods.md",
+    "research/blueprint/suggested/EffectiveDiophantineMethods.lean",
+    "research/blueprint/handoff/BP-EffectiveDiophantineMethods~3.md"
+   ],
+   "after": [
+    "REV-EffectiveDiophantineMethods~2"
+   ],
+   "revisionOf": "BP-EffectiveDiophantineMethods",
+   "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~3.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 414600,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "id": "REV-EffectiveDiophantineMethods~3",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-EffectiveDiophantineMethods~3.md",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json",
+    "research/blueprint/suggested/EffectiveDiophantineMethods.lean",
+    "research/blueprint/readmes/EffectiveDiophantineMethods.md"
+   ],
+   "after": [
+    "BP-EffectiveDiophantineMethods~3"
+   ],
+   "avoidAccountOf": "BP-EffectiveDiophantineMethods~3",
+   "independentOf": [
+    "BP-EffectiveDiophantineMethods",
+    "BP-EffectiveDiophantineMethods~2",
+    "BP-EffectiveDiophantineMethods~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods~3.md",
+   "state": "pending"
   },
   {
    "kind": "blueprint",
@@ -41973,6 +41907,60 @@
     "BP-GeometryOfNumbersAndQuadraticArithmetic~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic~2.md",
+   "state": "pending"
+  },
+  {
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 515100,
+   "roadmapIds": [
+    "ModularityAndLanglandsExtensions"
+   ],
+   "scope": [
+    "ModularityAndLanglandsExtensions:ML.0",
+    "ModularityAndLanglandsExtensions:ML.1",
+    "ModularityAndLanglandsExtensions:ML.2",
+    "ModularityAndLanglandsExtensions:ML.3",
+    "ModularityAndLanglandsExtensions:ML.4",
+    "ModularityAndLanglandsExtensions:ML.5"
+   ],
+   "id": "BP-ModularityAndLanglandsExtensions~2",
+   "outputs": [
+    "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+    "research/blueprint/readmes/ModularityAndLanglandsExtensions.md",
+    "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
+    "research/blueprint/handoff/BP-ModularityAndLanglandsExtensions~2.md"
+   ],
+   "after": [
+    "REV-ModularityAndLanglandsExtensions"
+   ],
+   "revisionOf": "BP-ModularityAndLanglandsExtensions",
+   "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions~2.md",
+   "state": "pending"
+  },
+  {
+   "priority": 2,
+   "order": 515100,
+   "roadmapIds": [
+    "ModularityAndLanglandsExtensions"
+   ],
+   "id": "REV-ModularityAndLanglandsExtensions~2",
+   "kind": "review",
+   "outputs": [
+    "research/blueprint/reviews/REV-ModularityAndLanglandsExtensions~2.md",
+    "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+    "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
+    "research/blueprint/readmes/ModularityAndLanglandsExtensions.md"
+   ],
+   "after": [
+    "BP-ModularityAndLanglandsExtensions~2"
+   ],
+   "avoidAccountOf": "BP-ModularityAndLanglandsExtensions~2",
+   "independentOf": [
+    "BP-ModularityAndLanglandsExtensions",
+    "BP-ModularityAndLanglandsExtensions~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-ModularityAndLanglandsExtensions~2.md",
    "state": "pending"
   },
   {
@@ -42298,8 +42286,8 @@
    "revisionOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6968",
-   "finishedAt": "2026-10-07T17:42:12Z"
+   "finishedAt": "2026-10-07T17:42:12Z",
+   "note": "deliverables arrived from an external worker on issue #6968"
   },
   {
    "priority": 2,
@@ -42325,8 +42313,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #7055",
-   "finishedAt": "2026-10-07T18:11:46Z"
+   "finishedAt": "2026-10-07T18:11:46Z",
+   "note": "deliverables arrived from an external worker on issue #7055"
   },
   {
    "kind": "blueprint",
@@ -42688,7 +42676,7 @@
     "research/blueprint/handoff/ASM-AutomorphicGaloisRepresentationsPartII.md"
    ],
    "after": [
-    "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
+    "REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicGaloisRepresentationsPartII.md",
@@ -43126,7 +43114,7 @@
     "research/blueprint/handoff/ASM-GeometricSatakeAndFusion.md"
    ],
    "after": [
-    "REV-GeometricSatakeAndFusion--GS0",
+    "REV-GeometricSatakeAndFusion--GS0~2",
     "REV-GeometricSatakeAndFusion--GS3~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeometricSatakeAndFusion.md",
@@ -43284,7 +43272,7 @@
     "research/blueprint/handoff/ASM-HodgeTateAndCanonicalSubgroups.md"
    ],
    "after": [
-    "REV-HodgeTateAndCanonicalSubgroups--T0",
+    "REV-HodgeTateAndCanonicalSubgroups--T0~2",
     "REV-HodgeTateAndCanonicalSubgroups--T6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-HodgeTateAndCanonicalSubgroups.md",
@@ -43732,32 +43720,6 @@
    ],
    "prompt": "research/blueprint/prompts/ASM-DrinfeldModulesAndTModules.md",
    "state": "pending"
-  },
-  {
-   "id": "ASM-HabiroNahmSeries",
-   "kind": "assembly",
-   "priority": 2,
-   "order": 5000,
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/readmes/HabiroNahmSeries.md",
-    "research/blueprint/suggested/HabiroNahmSeries.lean",
-    "research/blueprint/handoff/ASM-HabiroNahmSeries.md"
-   ],
-   "after": [
-    "REV-HabiroNahmSeries",
-    "REV-HabiroNahmSeries--HB.10",
-    "REV-HabiroNahmSeries--HB.3",
-    "REV-HabiroNahmSeries--HB.4",
-    "REV-HabiroNahmSeries--HB.5",
-    "REV-HabiroNahmSeries--HB.8",
-    "REV-HabiroNahmSeries--HB.9"
-   ],
-   "prompt": "research/blueprint/prompts/ASM-HabiroNahmSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6420"
   },
   {
    "id": "ASM-OverconvergentAutomorphicForms",
@@ -56571,6 +56533,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-DESIGN-CrystallineLocalGlobalCompatibilityCM",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 596,
+   "name": "new roadmap DESIGN-CrystallineLocalGlobalCompatibilityCM: Reusable infrastructure for potential automorphy over CM fields, Part II: P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting",
+   "target": "DESIGN-CrystallineLocalGlobalCompatibilityCM",
+   "roadmapIds": [
+    "CrystallineLocalGlobalCompatibilityCM"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.result.json",
+    "research/blueprint/redteam/RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-CrystallineLocalGlobalCompatibilityCM",
+    "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-CrystallineLocalGlobalCompatibilityCM",
+   "kind": "review",
+   "priority": 2,
+   "order": 596,
+   "name": "new roadmap DESIGN-CrystallineLocalGlobalCompatibilityCM: Reusable infrastructure for potential automorphy over CM fields, Part II: P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting",
+   "roadmapIds": [
+    "CrystallineLocalGlobalCompatibilityCM"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.md"
+   ],
+   "after": [
+    "RT-DESIGN-CrystallineLocalGlobalCompatibilityCM"
+   ],
+   "avoidAccountOf": "RT-DESIGN-CrystallineLocalGlobalCompatibilityCM",
+   "independentOf": [
+    "RT-DESIGN-CrystallineLocalGlobalCompatibilityCM",
+    "DESIGN-CrystallineLocalGlobalCompatibilityCM",
+    "REV-DESIGN-CrystallineLocalGlobalCompatibilityCM"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "kind": "redteam",
    "priority": 2,
@@ -58548,8 +58557,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-05.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5708",
-   "finishedAt": "2026-10-07T13:59:02Z"
+   "finishedAt": "2026-10-07T13:59:02Z",
+   "note": "deliverables arrived from an external worker on issue #5708"
   },
   {
    "id": "RT-RS-06",
@@ -61174,8 +61183,54 @@
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5714",
-   "finishedAt": "2026-10-07T13:54:57Z"
+   "finishedAt": "2026-10-07T13:54:57Z",
+   "note": "deliverables arrived from an external worker on issue #5714"
+  },
+  {
+   "id": "FIX-RT-BP-ArithmeticKTheory--N.7~3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 728,
+   "name": "blueprint BP-ArithmeticKTheory--N.7: K-theory of number fields and S-integers",
+   "target": "BP-ArithmeticKTheory--N.7",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticKTheory--N.7.fixes-3.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.7.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean"
+   ],
+   "after": [
+    "REV-FIX-RT-BP-ArithmeticKTheory--N.7~2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7~3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 728,
+   "name": "blueprint BP-ArithmeticKTheory--N.7: K-theory of number fields and S-integers",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-ArithmeticKTheory--N.7~3"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-ArithmeticKTheory--N.7~3",
+   "independentOf": [
+    "FIX-RT-BP-ArithmeticKTheory--N.7~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-AutomorphicBundles--B0",
@@ -65530,292 +65585,10 @@
    "state": "pending"
   },
   {
-   "id": "RT-BP-HabiroNahmSeries--HB.10",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 992,
-   "name": "blueprint BP-HabiroNahmSeries--HB.10: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.10",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.10",
-    "REV-HabiroNahmSeries--HB.10"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.10.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.10",
-   "kind": "review",
-   "priority": 2,
-   "order": 992,
-   "name": "blueprint BP-HabiroNahmSeries--HB.10: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.10.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.10"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.10",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.10",
-    "BP-HabiroNahmSeries--HB.10",
-    "REV-HabiroNahmSeries--HB.10"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.10.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-HabiroNahmSeries--HB.3",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 993,
-   "name": "blueprint BP-HabiroNahmSeries--HB.3: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.3",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.3",
-    "REV-HabiroNahmSeries--HB.3"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.3.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.3",
-   "kind": "review",
-   "priority": 2,
-   "order": 993,
-   "name": "blueprint BP-HabiroNahmSeries--HB.3: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.3.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.3"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.3",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.3",
-    "BP-HabiroNahmSeries--HB.3",
-    "REV-HabiroNahmSeries--HB.3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.3.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-HabiroNahmSeries--HB.4",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 994,
-   "name": "blueprint BP-HabiroNahmSeries--HB.4: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.4",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.4",
-    "REV-HabiroNahmSeries--HB.4"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.4.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.4",
-   "kind": "review",
-   "priority": 2,
-   "order": 994,
-   "name": "blueprint BP-HabiroNahmSeries--HB.4: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.4.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.4"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.4",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.4",
-    "BP-HabiroNahmSeries--HB.4",
-    "REV-HabiroNahmSeries--HB.4"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.4.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-HabiroNahmSeries--HB.5",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 995,
-   "name": "blueprint BP-HabiroNahmSeries--HB.5: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.5",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.5",
-    "REV-HabiroNahmSeries--HB.5"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.5.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.5",
-   "kind": "review",
-   "priority": 2,
-   "order": 995,
-   "name": "blueprint BP-HabiroNahmSeries--HB.5: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.5.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.5"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.5",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.5",
-    "BP-HabiroNahmSeries--HB.5",
-    "REV-HabiroNahmSeries--HB.5"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.5.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-HabiroNahmSeries--HB.8",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 996,
-   "name": "blueprint BP-HabiroNahmSeries--HB.8: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.8",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.8",
-    "REV-HabiroNahmSeries--HB.8"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.8.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.8",
-   "kind": "review",
-   "priority": 2,
-   "order": 996,
-   "name": "blueprint BP-HabiroNahmSeries--HB.8: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.8.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.8"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.8",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.8",
-    "BP-HabiroNahmSeries--HB.8",
-    "REV-HabiroNahmSeries--HB.8"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.8.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-HabiroNahmSeries--HB.9",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 997,
-   "name": "blueprint BP-HabiroNahmSeries--HB.9: Nahm series, asymptotics and Habiro integrality",
-   "target": "BP-HabiroNahmSeries--HB.9",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.result.json",
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-HabiroNahmSeries--HB.9",
-    "REV-HabiroNahmSeries--HB.9"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.9.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-HabiroNahmSeries--HB.9",
-   "kind": "review",
-   "priority": 2,
-   "order": 997,
-   "name": "blueprint BP-HabiroNahmSeries--HB.9: Nahm series, asymptotics and Habiro integrality",
-   "roadmapIds": [
-    "HabiroNahmSeries"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.review.json",
-    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.9.md"
-   ],
-   "after": [
-    "RT-BP-HabiroNahmSeries--HB.9"
-   ],
-   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.9",
-   "independentOf": [
-    "RT-BP-HabiroNahmSeries--HB.9",
-    "BP-HabiroNahmSeries--HB.9",
-    "REV-HabiroNahmSeries--HB.9"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.9.md",
-   "state": "pending"
-  },
-  {
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1007,
+   "order": 1001,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "roadmapIds": [
@@ -65837,7 +65610,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "review",
    "priority": 2,
-   "order": 1007,
+   "order": 1001,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -65862,7 +65635,7 @@
    "id": "RT-DESIGN-LV~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1016,
+   "order": 1010,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "target": "DESIGN-LV~2",
    "roadmapIds": [
@@ -65884,7 +65657,7 @@
    "id": "REV-RT-DESIGN-LV~2",
    "kind": "review",
    "priority": 2,
-   "order": 1016,
+   "order": 1010,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "roadmapIds": [
     "MordellLawrenceVenkatesh"
@@ -65906,10 +65679,57 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-ArithmeticLocallySymmetricSpaces~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1022,
+   "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
+   "target": "BP-ArithmeticLocallySymmetricSpaces~2",
+   "roadmapIds": [
+    "ArithmeticLocallySymmetricSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticLocallySymmetricSpaces~2.result.json",
+    "research/blueprint/redteam/RT-BP-ArithmeticLocallySymmetricSpaces~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ArithmeticLocallySymmetricSpaces~2",
+    "REV-ArithmeticLocallySymmetricSpaces~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ArithmeticLocallySymmetricSpaces~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ArithmeticLocallySymmetricSpaces~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1022,
+   "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
+   "roadmapIds": [
+    "ArithmeticLocallySymmetricSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ArithmeticLocallySymmetricSpaces~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ArithmeticLocallySymmetricSpaces~2.md"
+   ],
+   "after": [
+    "RT-BP-ArithmeticLocallySymmetricSpaces~2"
+   ],
+   "avoidAccountOf": "RT-BP-ArithmeticLocallySymmetricSpaces~2",
+   "independentOf": [
+    "RT-BP-ArithmeticLocallySymmetricSpaces~2",
+    "BP-ArithmeticLocallySymmetricSpaces~2",
+    "REV-ArithmeticLocallySymmetricSpaces~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticLocallySymmetricSpaces~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1053,
+   "order": 1049,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.8~2: Q-Hodge filtrations and Habiro cohomology",
    "target": "BP-HabiroCohomologyFoundations--HQ.8~2",
    "roadmapIds": [
@@ -65931,7 +65751,7 @@
    "id": "REV-RT-BP-HabiroCohomologyFoundations--HQ.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1053,
+   "order": 1049,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.8~2: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations"
@@ -65956,7 +65776,7 @@
    "id": "RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1055,
+   "order": 1051,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "target": "BP-HeegnerPointEulerSystems--HE.0~2",
    "roadmapIds": [
@@ -65978,7 +65798,7 @@
    "id": "REV-RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1055,
+   "order": 1051,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "roadmapIds": [
     "HeegnerPointEulerSystems"
@@ -66000,10 +65820,480 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-IgusaVarietiesAndTorsionConcentration~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1055,
+   "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
+   "target": "BP-IgusaVarietiesAndTorsionConcentration~2",
+   "roadmapIds": [
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-IgusaVarietiesAndTorsionConcentration~2.result.json",
+    "research/blueprint/redteam/RT-BP-IgusaVarietiesAndTorsionConcentration~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-IgusaVarietiesAndTorsionConcentration~2",
+    "REV-IgusaVarietiesAndTorsionConcentration~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-IgusaVarietiesAndTorsionConcentration~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-IgusaVarietiesAndTorsionConcentration~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1055,
+   "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
+   "roadmapIds": [
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-IgusaVarietiesAndTorsionConcentration~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-IgusaVarietiesAndTorsionConcentration~2.md"
+   ],
+   "after": [
+    "RT-BP-IgusaVarietiesAndTorsionConcentration~2"
+   ],
+   "avoidAccountOf": "RT-BP-IgusaVarietiesAndTorsionConcentration~2",
+   "independentOf": [
+    "RT-BP-IgusaVarietiesAndTorsionConcentration~2",
+    "BP-IgusaVarietiesAndTorsionConcentration~2",
+    "REV-IgusaVarietiesAndTorsionConcentration~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-IgusaVarietiesAndTorsionConcentration~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-IntegralHeckeAndGaloisDeterminants~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1056,
+   "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
+   "target": "BP-IntegralHeckeAndGaloisDeterminants~2",
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-IntegralHeckeAndGaloisDeterminants~2.result.json",
+    "research/blueprint/redteam/RT-BP-IntegralHeckeAndGaloisDeterminants~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-IntegralHeckeAndGaloisDeterminants~2",
+    "REV-IntegralHeckeAndGaloisDeterminants~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-IntegralHeckeAndGaloisDeterminants~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1056,
+   "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-IntegralHeckeAndGaloisDeterminants~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2.md"
+   ],
+   "after": [
+    "RT-BP-IntegralHeckeAndGaloisDeterminants~2"
+   ],
+   "avoidAccountOf": "RT-BP-IntegralHeckeAndGaloisDeterminants~2",
+   "independentOf": [
+    "RT-BP-IntegralHeckeAndGaloisDeterminants~2",
+    "BP-IntegralHeckeAndGaloisDeterminants~2",
+    "REV-IntegralHeckeAndGaloisDeterminants~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PotentialAutomorphyInfrastructure~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1093,
+   "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
+   "target": "BP-PotentialAutomorphyInfrastructure~2",
+   "roadmapIds": [
+    "PotentialAutomorphyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PotentialAutomorphyInfrastructure~2.result.json",
+    "research/blueprint/redteam/RT-BP-PotentialAutomorphyInfrastructure~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PotentialAutomorphyInfrastructure~2",
+    "REV-PotentialAutomorphyInfrastructure~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PotentialAutomorphyInfrastructure~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PotentialAutomorphyInfrastructure~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1093,
+   "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
+   "roadmapIds": [
+    "PotentialAutomorphyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PotentialAutomorphyInfrastructure~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PotentialAutomorphyInfrastructure~2.md"
+   ],
+   "after": [
+    "RT-BP-PotentialAutomorphyInfrastructure~2"
+   ],
+   "avoidAccountOf": "RT-BP-PotentialAutomorphyInfrastructure~2",
+   "independentOf": [
+    "RT-BP-PotentialAutomorphyInfrastructure~2",
+    "BP-PotentialAutomorphyInfrastructure~2",
+    "REV-PotentialAutomorphyInfrastructure~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PotentialAutomorphyInfrastructure~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1109,
+   "name": "blueprint BP-HabiroCohomologyFoundations--HQ.1-2~2: Q-Hodge filtrations and Habiro cohomology",
+   "target": "BP-HabiroCohomologyFoundations--HQ.1-2~2",
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroCohomologyFoundations--HQ.1-2~2",
+    "REV-HabiroCohomologyFoundations--HQ.1-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1109,
+   "name": "blueprint BP-HabiroCohomologyFoundations--HQ.1-2~2: Q-Hodge filtrations and Habiro cohomology",
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.md"
+   ],
+   "after": [
+    "RT-BP-HabiroCohomologyFoundations--HQ.1-2~2"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
+   "independentOf": [
+    "RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
+    "BP-HabiroCohomologyFoundations--HQ.1-2~2",
+    "REV-HabiroCohomologyFoundations--HQ.1-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.10",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1112,
+   "name": "blueprint BP-HabiroNahmSeries--HB.10: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.10",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.10",
+    "REV-HabiroNahmSeries--HB.10"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.10.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.10",
+   "kind": "review",
+   "priority": 2,
+   "order": 1112,
+   "name": "blueprint BP-HabiroNahmSeries--HB.10: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.10.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.10.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.10"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.10",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.10",
+    "BP-HabiroNahmSeries--HB.10",
+    "REV-HabiroNahmSeries--HB.10"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.10.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1113,
+   "name": "blueprint BP-HabiroNahmSeries--HB.3: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.3",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.3",
+    "REV-HabiroNahmSeries--HB.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1113,
+   "name": "blueprint BP-HabiroNahmSeries--HB.3: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.3.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.3"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.3",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.3",
+    "BP-HabiroNahmSeries--HB.3",
+    "REV-HabiroNahmSeries--HB.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1114,
+   "name": "blueprint BP-HabiroNahmSeries--HB.4: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.4",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.4",
+    "REV-HabiroNahmSeries--HB.4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1114,
+   "name": "blueprint BP-HabiroNahmSeries--HB.4: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.4.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.4"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.4",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.4",
+    "BP-HabiroNahmSeries--HB.4",
+    "REV-HabiroNahmSeries--HB.4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1115,
+   "name": "blueprint BP-HabiroNahmSeries--HB.5: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.5",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.5",
+    "REV-HabiroNahmSeries--HB.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1115,
+   "name": "blueprint BP-HabiroNahmSeries--HB.5: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.5.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.5"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.5",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.5",
+    "BP-HabiroNahmSeries--HB.5",
+    "REV-HabiroNahmSeries--HB.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.8",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1116,
+   "name": "blueprint BP-HabiroNahmSeries--HB.8: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.8",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.8",
+    "REV-HabiroNahmSeries--HB.8"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.8",
+   "kind": "review",
+   "priority": 2,
+   "order": 1116,
+   "name": "blueprint BP-HabiroNahmSeries--HB.8: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.8.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.8.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.8"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.8",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.8",
+    "BP-HabiroNahmSeries--HB.8",
+    "REV-HabiroNahmSeries--HB.8"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.8.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HabiroNahmSeries--HB.9",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1117,
+   "name": "blueprint BP-HabiroNahmSeries--HB.9: Nahm series, asymptotics and Habiro integrality",
+   "target": "BP-HabiroNahmSeries--HB.9",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.result.json",
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HabiroNahmSeries--HB.9",
+    "REV-HabiroNahmSeries--HB.9"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HabiroNahmSeries--HB.9.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HabiroNahmSeries--HB.9",
+   "kind": "review",
+   "priority": 2,
+   "order": 1117,
+   "name": "blueprint BP-HabiroNahmSeries--HB.9: Nahm series, asymptotics and Habiro integrality",
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HabiroNahmSeries--HB.9.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HabiroNahmSeries--HB.9.md"
+   ],
+   "after": [
+    "RT-BP-HabiroNahmSeries--HB.9"
+   ],
+   "avoidAccountOf": "RT-BP-HabiroNahmSeries--HB.9",
+   "independentOf": [
+    "RT-BP-HabiroNahmSeries--HB.9",
+    "BP-HabiroNahmSeries--HB.9",
+    "REV-HabiroNahmSeries--HB.9"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroNahmSeries--HB.9.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-DESIGN-EllipticModularityEffectiveComparisons",
    "kind": "redteam",
    "priority": 2,
-   "order": 1120,
+   "order": 1125,
    "name": "new roadmap DESIGN-EllipticModularityEffectiveComparisons: Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
    "target": "DESIGN-EllipticModularityEffectiveComparisons",
    "roadmapIds": [
@@ -66025,7 +66315,7 @@
    "id": "REV-RT-DESIGN-EllipticModularityEffectiveComparisons",
    "kind": "review",
    "priority": 2,
-   "order": 1120,
+   "order": 1125,
    "name": "new roadmap DESIGN-EllipticModularityEffectiveComparisons: Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
    "roadmapIds": [
     "EllipticModularityEffectiveComparisons"
@@ -66050,7 +66340,7 @@
    "id": "RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "redteam",
    "priority": 2,
-   "order": 1121,
+   "order": 1126,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "target": "DESIGN-EllipticLegendreCharacterInterfaces",
    "roadmapIds": [
@@ -66072,7 +66362,7 @@
    "id": "REV-RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "review",
    "priority": 2,
-   "order": 1121,
+   "order": 1126,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "roadmapIds": [
     "EllipticLegendreCharacterInterfaces"
@@ -66097,7 +66387,7 @@
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 1238,
+   "order": 1243,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -66125,7 +66415,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 1238,
+   "order": 1243,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -66156,7 +66446,7 @@
    "id": "FIX-RT-AUDIT-01",
    "kind": "fix",
    "priority": 1,
-   "order": 1238,
+   "order": 1243,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -66180,7 +66470,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 1239,
+   "order": 1244,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -66208,7 +66498,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 1239,
+   "order": 1244,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -66239,7 +66529,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 1240,
+   "order": 1245,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -66267,7 +66557,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 1240,
+   "order": 1245,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -66298,7 +66588,7 @@
    "id": "FIX-RT-AUDIT-03",
    "kind": "fix",
    "priority": 1,
-   "order": 1240,
+   "order": 1245,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -66322,7 +66612,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 1241,
+   "order": 1246,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -66350,7 +66640,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 1241,
+   "order": 1246,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -66381,7 +66671,7 @@
    "id": "FIX-RT-AUDIT-04",
    "kind": "fix",
    "priority": 1,
-   "order": 1241,
+   "order": 1246,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -66405,7 +66695,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 1242,
+   "order": 1247,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -66433,7 +66723,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 1242,
+   "order": 1247,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -66464,7 +66754,7 @@
    "id": "FIX-RT-AUDIT-05",
    "kind": "fix",
    "priority": 1,
-   "order": 1242,
+   "order": 1247,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -66488,7 +66778,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 1243,
+   "order": 1248,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -66515,7 +66805,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 1243,
+   "order": 1248,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -66545,7 +66835,7 @@
    "id": "FIX-RT-AUDIT-06",
    "kind": "fix",
    "priority": 1,
-   "order": 1243,
+   "order": 1248,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -66568,7 +66858,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 1244,
+   "order": 1249,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -66596,7 +66886,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 1244,
+   "order": 1249,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -66627,7 +66917,7 @@
    "id": "FIX-RT-AUDIT-07",
    "kind": "fix",
    "priority": 1,
-   "order": 1244,
+   "order": 1249,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -66651,7 +66941,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 1245,
+   "order": 1250,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -66679,7 +66969,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 1245,
+   "order": 1250,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -66710,7 +67000,7 @@
    "id": "FIX-RT-AUDIT-08",
    "kind": "fix",
    "priority": 1,
-   "order": 1245,
+   "order": 1250,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -66734,7 +67024,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 1246,
+   "order": 1251,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -66762,7 +67052,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 1246,
+   "order": 1251,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -66793,7 +67083,7 @@
    "id": "FIX-RT-AUDIT-09",
    "kind": "fix",
    "priority": 1,
-   "order": 1246,
+   "order": 1251,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -66817,7 +67107,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 1247,
+   "order": 1252,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -66845,7 +67135,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 1247,
+   "order": 1252,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -66876,7 +67166,7 @@
    "id": "FIX-RT-AUDIT-10",
    "kind": "fix",
    "priority": 1,
-   "order": 1247,
+   "order": 1252,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -66900,7 +67190,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 1248,
+   "order": 1253,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -66927,7 +67217,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 1248,
+   "order": 1253,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -66957,7 +67247,7 @@
    "id": "FIX-RT-AUDIT-11",
    "kind": "fix",
    "priority": 1,
-   "order": 1248,
+   "order": 1253,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -66980,7 +67270,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 1249,
+   "order": 1254,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -67004,7 +67294,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 1249,
+   "order": 1254,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -67031,7 +67321,7 @@
    "id": "FIX-RT-AUDIT-12",
    "kind": "fix",
    "priority": 1,
-   "order": 1249,
+   "order": 1254,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -67051,7 +67341,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 1250,
+   "order": 1255,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -67079,7 +67369,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 1250,
+   "order": 1255,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -67110,7 +67400,7 @@
    "id": "FIX-RT-AUDIT-13",
    "kind": "fix",
    "priority": 1,
-   "order": 1250,
+   "order": 1255,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -67134,7 +67424,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 1251,
+   "order": 1256,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -67162,7 +67452,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 1251,
+   "order": 1256,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -67193,7 +67483,7 @@
    "id": "FIX-RT-AUDIT-14",
    "kind": "fix",
    "priority": 1,
-   "order": 1251,
+   "order": 1256,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -67217,7 +67507,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 1252,
+   "order": 1257,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -67245,7 +67535,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 1252,
+   "order": 1257,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -67276,7 +67566,7 @@
    "id": "FIX-RT-AUDIT-15",
    "kind": "fix",
    "priority": 1,
-   "order": 1252,
+   "order": 1257,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -67300,7 +67590,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 1253,
+   "order": 1258,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -67327,7 +67617,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 1253,
+   "order": 1258,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -67357,7 +67647,7 @@
    "id": "FIX-RT-AUDIT-16",
    "kind": "fix",
    "priority": 1,
-   "order": 1253,
+   "order": 1258,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -67380,7 +67670,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 1254,
+   "order": 1259,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -67408,7 +67698,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 1254,
+   "order": 1259,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -67439,7 +67729,7 @@
    "id": "FIX-RT-AUDIT-17",
    "kind": "fix",
    "priority": 1,
-   "order": 1254,
+   "order": 1259,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -67463,7 +67753,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 1255,
+   "order": 1260,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -67491,7 +67781,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 1255,
+   "order": 1260,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -67522,7 +67812,7 @@
    "id": "FIX-RT-AUDIT-18",
    "kind": "fix",
    "priority": 1,
-   "order": 1255,
+   "order": 1260,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -67546,7 +67836,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 1256,
+   "order": 1261,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -67574,7 +67864,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 1256,
+   "order": 1261,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -67605,7 +67895,7 @@
    "id": "FIX-RT-AUDIT-19",
    "kind": "fix",
    "priority": 1,
-   "order": 1256,
+   "order": 1261,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -67629,7 +67919,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 1257,
+   "order": 1262,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -67657,7 +67947,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 1257,
+   "order": 1262,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -67688,7 +67978,7 @@
    "id": "FIX-RT-AUDIT-20",
    "kind": "fix",
    "priority": 1,
-   "order": 1257,
+   "order": 1262,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -67712,7 +68002,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 1258,
+   "order": 1263,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -67740,7 +68030,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 1258,
+   "order": 1263,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -67771,7 +68061,7 @@
    "id": "FIX-RT-AUDIT-21",
    "kind": "fix",
    "priority": 1,
-   "order": 1258,
+   "order": 1263,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -67795,7 +68085,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 1259,
+   "order": 1264,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -67822,7 +68112,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 1259,
+   "order": 1264,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -67852,7 +68142,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 1260,
+   "order": 1265,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -67880,7 +68170,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 1260,
+   "order": 1265,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -67911,7 +68201,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 1261,
+   "order": 1266,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -67939,7 +68229,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 1261,
+   "order": 1266,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -67970,7 +68260,7 @@
    "id": "FIX-RT-AUDIT-24",
    "kind": "fix",
    "priority": 1,
-   "order": 1261,
+   "order": 1266,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -67994,7 +68284,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 1262,
+   "order": 1267,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -68022,7 +68312,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 1262,
+   "order": 1267,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -68053,7 +68343,7 @@
    "id": "FIX-RT-AUDIT-25",
    "kind": "fix",
    "priority": 1,
-   "order": 1262,
+   "order": 1267,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -68077,7 +68367,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 1263,
+   "order": 1268,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -68105,7 +68395,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 1263,
+   "order": 1268,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -68136,7 +68426,7 @@
    "id": "FIX-RT-AUDIT-26",
    "kind": "fix",
    "priority": 1,
-   "order": 1263,
+   "order": 1268,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -68160,7 +68450,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 1264,
+   "order": 1269,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -68188,7 +68478,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 1264,
+   "order": 1269,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -68219,7 +68509,7 @@
    "id": "FIX-RT-AUDIT-27",
    "kind": "fix",
    "priority": 1,
-   "order": 1264,
+   "order": 1269,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -68243,7 +68533,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 1265,
+   "order": 1270,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -68271,7 +68561,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 1265,
+   "order": 1270,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -68302,7 +68592,7 @@
    "id": "FIX-RT-AUDIT-28",
    "kind": "fix",
    "priority": 1,
-   "order": 1265,
+   "order": 1270,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -68326,7 +68616,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 1266,
+   "order": 1271,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -68353,7 +68643,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 1266,
+   "order": 1271,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -68383,7 +68673,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 1267,
+   "order": 1272,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -68411,7 +68701,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 1267,
+   "order": 1272,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -68442,7 +68732,7 @@
    "id": "FIX-RT-AUDIT-30",
    "kind": "fix",
    "priority": 1,
-   "order": 1267,
+   "order": 1272,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -68466,7 +68756,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 1268,
+   "order": 1273,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -68494,7 +68784,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 1268,
+   "order": 1273,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",
@@ -68525,7 +68815,7 @@
    "id": "FIX-RT-AUDIT-31",
    "kind": "fix",
    "priority": 1,
-   "order": 1268,
+   "order": 1273,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -68549,7 +68839,7 @@
    "id": "RT-AUDIT-34",
    "kind": "redteam",
    "priority": 2,
-   "order": 1271,
+   "order": 1276,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -68577,7 +68867,7 @@
    "id": "REV-RT-AUDIT-34",
    "kind": "review",
    "priority": 2,
-   "order": 1271,
+   "order": 1276,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure",
@@ -68608,7 +68898,7 @@
    "id": "FIX-RT-AUDIT-34",
    "kind": "fix",
    "priority": 1,
-   "order": 1271,
+   "order": 1276,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -68632,7 +68922,7 @@
    "id": "RT-AUDIT-39",
    "kind": "redteam",
    "priority": 2,
-   "order": 1276,
+   "order": 1281,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -68659,7 +68949,7 @@
    "id": "REV-RT-AUDIT-39",
    "kind": "review",
    "priority": 2,
-   "order": 1276,
+   "order": 1281,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine",
@@ -68689,7 +68979,7 @@
    "id": "FIX-RT-AUDIT-39",
    "kind": "fix",
    "priority": 1,
-   "order": 1276,
+   "order": 1281,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -69734,6 +70024,7 @@
     "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json",
     "research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md",
     "research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean",
+    "research/blueprint/handoff/BP-ArithmeticLocallySymmetricSpaces~2.md",
     "research/blueprint/packets/AdelicAlgebraicGroups.json",
     "research/blueprint/readmes/AdelicAlgebraicGroups.md",
     "research/blueprint/suggested/AdelicAlgebraicGroups.lean",
@@ -69743,6 +70034,7 @@
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
     "research/blueprint/readmes/IntegralHeckeAndGaloisDeterminants.md",
     "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
+    "research/blueprint/handoff/BP-IntegralHeckeAndGaloisDeterminants~2.md",
     "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
     "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.0.md",
     "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
@@ -69885,8 +70177,8 @@
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #6900",
-   "finishedAt": "2026-10-07T17:09:21Z"
+   "finishedAt": "2026-10-07T17:09:21Z",
+   "note": "deliverables arrived from an external worker on issue #6900"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~3",
@@ -69943,6 +70235,128 @@
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~3.md",
    "state": "external",
    "note": "claimed on GitHub issue #6902"
+  },
+  {
+   "id": "FIX-RT-AREA-automorphic-1~4",
+   "kind": "fix",
+   "priority": 1,
+   "order": 381,
+   "name": "area: Modular and automorphic forms (Algebraic number theory), part 1 of 2",
+   "target": "area:automorphic:1",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-automorphic-1.fixes-4.md",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
+    "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean",
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
+    "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+    "research/blueprint/readmes/AutomorphicLFunctionsAndLocalFactors.md",
+    "research/blueprint/suggested/AutomorphicLFunctionsAndLocalFactors.lean",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
+    "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer--R16.1.md",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
+    "research/blueprint/packets/AutomorphicSpectralTheory.json",
+    "research/blueprint/readmes/AutomorphicSpectralTheory.md",
+    "research/blueprint/suggested/AutomorphicSpectralTheory.lean",
+    "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json",
+    "research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md",
+    "research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean",
+    "research/blueprint/packets/AdelicAlgebraicGroups.json",
+    "research/blueprint/readmes/AdelicAlgebraicGroups.md",
+    "research/blueprint/suggested/AdelicAlgebraicGroups.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.2.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.2.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.2.lean",
+    "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
+    "research/blueprint/readmes/IntegralHeckeAndGaloisDeterminants.md",
+    "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
+    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+    "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.0.md",
+    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+    "research/blueprint/readmes/MetaplecticAutomorphicForms--MP.0.md",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.0.lean",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+    "research/blueprint/readmes/MetaplecticAutomorphicForms--MP.8.md",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.8.lean",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
+    "research/blueprint/handoff/BP-ArithmeticLocallySymmetricSpaces~2.md",
+    "research/blueprint/handoff/BP-IntegralHeckeAndGaloisDeterminants~2.md"
+   ],
+   "after": [
+    "FIX-RT-AREA-automorphic-1~3"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-automorphic-1~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 381,
+   "name": "area: Modular and automorphic forms (Algebraic number theory), part 1 of 2",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~4.md",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
+    "research/blueprint/packets/AutomorphicSpectralTheory.json",
+    "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json",
+    "research/blueprint/packets/AdelicAlgebraicGroups.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.2.json",
+    "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
+    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
+    "research/blueprint/suggested/AutomorphicLFunctionsAndLocalFactors.lean",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
+    "research/blueprint/suggested/AutomorphicSpectralTheory.lean",
+    "research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean",
+    "research/blueprint/suggested/AdelicAlgebraicGroups.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.2.lean",
+    "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
+    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.0.lean",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.8.lean",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-automorphic-1~4"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-automorphic-1~4",
+   "independentOf": [
+    "FIX-RT-AREA-automorphic-1~4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~4.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -70687,6 +71101,9 @@
    ],
    "outputs": [
     "research/blueprint/redteam/RT-AREA-langlands-1.fixes-2.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.0.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean",
     "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
     "research/blueprint/readmes/ArithmeticGaloisRepresentations.md",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean",
@@ -70696,9 +71113,11 @@
     "research/blueprint/packets/PotentialAutomorphyInfrastructure.json",
     "research/blueprint/readmes/PotentialAutomorphyInfrastructure.md",
     "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean",
+    "research/blueprint/handoff/BP-PotentialAutomorphyInfrastructure~2.md",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
     "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
     "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.6.md",
     "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean",
@@ -70710,7 +71129,8 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
     "research/blueprint/readmes/IntegralHeckeAndGaloisDeterminants.md",
-    "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean"
+    "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
+    "research/blueprint/handoff/BP-IntegralHeckeAndGaloisDeterminants~2.md"
    ],
    "after": [
     "FIX-RT-AREA-langlands-1"
@@ -70737,6 +71157,7 @@
    ],
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
     "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
     "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
     "research/blueprint/packets/PotentialAutomorphyInfrastructure.json",
@@ -70745,6 +71166,7 @@
     "research/blueprint/packets/GlobalGaloisDeformations.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean",
     "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
     "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean",
@@ -71685,6 +72107,7 @@
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
     "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json",
     "research/blueprint/readmes/AlgebraicModularFormsAndSerreWeights.md",
     "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean",
@@ -71859,6 +72282,7 @@
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
     "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json",
     "research/blueprint/readmes/AlgebraicModularFormsAndSerreWeights.md",
     "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean",
@@ -72069,6 +72493,7 @@
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
     "research/blueprint/packets/PrismaticCohomology--PR.0.json",
     "research/blueprint/readmes/PrismaticCohomology--PR.0.md",
     "research/blueprint/suggested/PrismaticCohomology--PR.0.lean",
@@ -72098,7 +72523,10 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean",
     "research/blueprint/packets/AdicSpacesPartII.json",
     "research/blueprint/readmes/AdicSpacesPartII.md",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
+    "research/blueprint/suggested/AdicSpacesPartII.lean",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.0.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-2"
@@ -72140,6 +72568,7 @@
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
     "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
     "research/blueprint/suggested/AInfCohomology--AI.0.lean",
     "research/blueprint/suggested/CrystallineCohomology--CR.0.lean",
     "research/blueprint/suggested/CohomologyComparisons.lean",
@@ -72153,7 +72582,8 @@
     "research/blueprint/suggested/RelativeFarguesFontaine--RF0.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean",
-    "research/blueprint/suggested/AdicSpacesPartII.lean"
+    "research/blueprint/suggested/AdicSpacesPartII.lean",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-2~2"
@@ -72281,6 +72711,7 @@
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
     "research/blueprint/packets/PrismaticCohomology--PR.0.json",
     "research/blueprint/readmes/PrismaticCohomology--PR.0.md",
     "research/blueprint/suggested/PrismaticCohomology--PR.0.lean",
@@ -72301,7 +72732,10 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
     "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean"
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII--AG2.0.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
     "REV-FIX-RT-AREA-padic-2~3"
@@ -72343,6 +72777,7 @@
     "research/blueprint/packets/RelativeFarguesFontaine--RF0.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
     "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
     "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
     "research/blueprint/suggested/AdicSpacesPartII.lean",
@@ -72356,7 +72791,8 @@
     "research/blueprint/suggested/CrystallineCohomology--CR.5.lean",
     "research/blueprint/suggested/RelativeFarguesFontaine--RF0.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
-    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean"
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-2~4"
@@ -72600,6 +73036,7 @@
     "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1-2.json",
     "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1-2.md",
     "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1-2.lean",
+    "research/blueprint/handoff/BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
     "research/blueprint/packets/PrismaticCohomology--PR.0.json",
     "research/blueprint/readmes/PrismaticCohomology--PR.0.md",
     "research/blueprint/suggested/PrismaticCohomology--PR.0.lean",
@@ -72951,9 +73388,11 @@
     "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
     "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean",
     "research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3~2.md",
+    "research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3~3.md",
     "research/blueprint/packets/KTheoryFiniteLocalFields.json",
     "research/blueprint/readmes/KTheoryFiniteLocalFields.md",
-    "research/blueprint/suggested/KTheoryFiniteLocalFields.lean"
+    "research/blueprint/suggested/KTheoryFiniteLocalFields.lean",
+    "research/blueprint/handoff/BP-KTheoryFiniteLocalFields~2.md"
    ],
    "after": [
     "REV-FIX-RT-AREA-ktheory-1"
@@ -73211,6 +73650,7 @@
     "research/blueprint/packets/KTheoryFiniteLocalFields.json",
     "research/blueprint/readmes/KTheoryFiniteLocalFields.md",
     "research/blueprint/suggested/KTheoryFiniteLocalFields.lean",
+    "research/blueprint/handoff/BP-KTheoryFiniteLocalFields~2.md",
     "research/blueprint/packets/ArithmeticKTheory--N.1.json",
     "research/blueprint/readmes/ArithmeticKTheory--N.1.md",
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
@@ -73242,6 +73682,7 @@
     "research/blueprint/readmes/KTheoryLowDegrees--Z.3.md",
     "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean",
     "research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3~2.md",
+    "research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3~3.md",
     "research/blueprint/packets/MotivicEtaleKTheory--M.1.json",
     "research/blueprint/readmes/MotivicEtaleKTheory--M.1.md",
     "research/blueprint/suggested/MotivicEtaleKTheory--M.1.lean",
@@ -73500,12 +73941,14 @@
     "research/blueprint/packets/PotentialAutomorphyInfrastructure.json",
     "research/blueprint/readmes/PotentialAutomorphyInfrastructure.md",
     "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean",
+    "research/blueprint/handoff/BP-PotentialAutomorphyInfrastructure~2.md",
     "research/blueprint/packets/VectorBundlesAndIsocrystals--VB0.json",
     "research/blueprint/readmes/VectorBundlesAndIsocrystals--VB0.md",
     "research/blueprint/suggested/VectorBundlesAndIsocrystals--VB0.lean",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
-    "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean"
+    "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md"
    ],
    "after": [
     "FIX-RT-AREA-geomlanglands"
@@ -74159,6 +74602,7 @@
     "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json",
     "research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md",
     "research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean",
+    "research/blueprint/handoff/BP-ArithmeticLocallySymmetricSpaces~2.md",
     "research/blueprint/packets/EllipticRegulators.json",
     "research/blueprint/readmes/EllipticRegulators.md",
     "research/blueprint/suggested/EllipticRegulators.lean",
@@ -74318,12 +74762,6 @@
     "research/blueprint/packets/HabiroNahmSeries.json",
     "research/blueprint/readmes/HabiroNahmSeries.md",
     "research/blueprint/suggested/HabiroNahmSeries.lean",
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
@@ -74356,15 +74794,11 @@
     "research/blueprint/packets/Polylogarithms.json",
     "research/blueprint/packets/Polylogarithms--P.2.json",
     "research/blueprint/packets/HabiroNahmSeries.json",
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/suggested/ArithmeticQuantumTopology.lean",
     "research/blueprint/suggested/Polylogarithms.lean",
     "research/blueprint/suggested/Polylogarithms--P.2.lean",
     "research/blueprint/suggested/HabiroNahmSeries.lean",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
    "after": [
@@ -74473,12 +74907,6 @@
     "research/blueprint/packets/Polylogarithms--P.2.json",
     "research/blueprint/readmes/Polylogarithms--P.2.md",
     "research/blueprint/suggested/Polylogarithms--P.2.lean",
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
-    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
@@ -74511,15 +74939,11 @@
     "research/blueprint/packets/HabiroNahmSeries.json",
     "research/blueprint/packets/ArithmeticQuantumTopology.json",
     "research/blueprint/packets/Polylogarithms--P.2.json",
-    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
-    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/suggested/Polylogarithms.lean",
     "research/blueprint/suggested/HabiroNahmSeries.lean",
     "research/blueprint/suggested/ArithmeticQuantumTopology.lean",
     "research/blueprint/suggested/Polylogarithms--P.2.lean",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
-    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
    "after": [
@@ -76368,6 +76792,320 @@
    "avoidAccountOf": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
    "state": "pending"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.10",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.10"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.10.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T05:07:54Z",
+   "note": "deliverables arrived from an external worker on issue #6505"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.10",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.10.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.10.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.10.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.10"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.10",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.10.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T05:33:16Z",
+   "note": "deliverables arrived from an external worker on issue #6457"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.3.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.3.md",
+   "state": "done",
+   "finishedAt": "2026-10-05T22:24:48Z",
+   "note": "deliverables arrived from an external worker on issue #6506"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.3.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.3.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.3.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.3.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.3"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.3",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.3.md",
+   "state": "done",
+   "finishedAt": "2026-10-05T23:01:27Z",
+   "note": "deliverables arrived from an external worker on issue #6458"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.4.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T00:03:43Z",
+   "note": "deliverables arrived from an external worker on issue #6507"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.4.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.4.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.4.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.4"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.4",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.4.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T00:33:38Z",
+   "note": "deliverables arrived from an external worker on issue #6459"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.5.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.5.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T01:13:34Z",
+   "note": "deliverables arrived from an external worker on issue #6508"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.5.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.5.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.5.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.5.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.5"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.5",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.5.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T01:38:20Z",
+   "note": "deliverables arrived from an external worker on issue #6460"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.8",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.8.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.8.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T04:23:43Z",
+   "note": "deliverables arrived from an external worker on issue #6509"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.8",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.8.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.8.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.8.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.8.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.8"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.8",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.8.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T04:47:52Z",
+   "note": "deliverables arrived from an external worker on issue #6461"
+  },
+  {
+   "id": "BP-HabiroNahmSeries--HB.9",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "scope": [
+    "HabiroNahmSeries:HB.9"
+   ],
+   "outputs": [
+    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.9.md",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries"
+   ],
+   "followUpOf": "BP-HabiroNahmSeries",
+   "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries--HB.9.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T05:50:37Z",
+   "note": "deliverables arrived from an external worker on issue #6510"
+  },
+  {
+   "id": "REV-HabiroNahmSeries--HB.9",
+   "kind": "review",
+   "priority": 2,
+   "order": 313100,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-HabiroNahmSeries--HB.9.md",
+    "research/blueprint/packets/HabiroNahmSeries--HB.9.json",
+    "research/blueprint/suggested/HabiroNahmSeries--HB.9.lean",
+    "research/blueprint/readmes/HabiroNahmSeries--HB.9.md"
+   ],
+   "after": [
+    "BP-HabiroNahmSeries--HB.9"
+   ],
+   "avoidAccountOf": "BP-HabiroNahmSeries--HB.9",
+   "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries--HB.9.md",
+   "state": "done",
+   "finishedAt": "2026-10-06T06:19:30Z",
+   "note": "deliverables arrived from an external worker on issue #6462"
+  },
+  {
+   "id": "ASM-HabiroNahmSeries",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/handoff/ASM-HabiroNahmSeries.md"
+   ],
+   "after": [
+    "REV-HabiroNahmSeries",
+    "REV-HabiroNahmSeries--HB.10",
+    "REV-HabiroNahmSeries--HB.3",
+    "REV-HabiroNahmSeries--HB.4",
+    "REV-HabiroNahmSeries--HB.5",
+    "REV-HabiroNahmSeries--HB.8",
+    "REV-HabiroNahmSeries--HB.9"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-HabiroNahmSeries.md",
+   "state": "external",
+   "note": "claimed on GitHub issue #6420"
   },
   {
    "id": "BP-DirichletPadicLFunctions",
