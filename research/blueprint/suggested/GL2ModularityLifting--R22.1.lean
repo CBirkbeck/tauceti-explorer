@@ -38,6 +38,11 @@ formalised.
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 Independent review REV-GL2ModularityLifting--R22.1 returned needs_changes.
 Fix revision (round 3): Claude claude-c9TlsS, 6 October 2026, Refs #5870.
+Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
+needs_changes. Its declarations are unchanged by that review. The file elaborates with `lake env lean` against
+Mathlib `082e2d3` with no errors; its only warnings are 13 `declaration uses sorry`. The fifteen
+definitions and constructions in the packet's gap "Typed suggested signatures and tests are
+incomplete" still have no typed signature here.
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only. At the
 pinned Mathlib the whole file elaborates; its only warnings are `declaration uses sorry`.

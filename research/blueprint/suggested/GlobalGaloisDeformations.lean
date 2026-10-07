@@ -37,6 +37,9 @@ between `R04.1/determinant-comparison` (the determinant map and its non-injectiv
 `R04.2/determinant-comparison-isomorphism` (bijectivity for absolutely irreducible residual representations);
 both are in the comment block of supplier-dependent sketches below, which is not elaborated. The file
 elaborates at the pinned Mathlib with `sorry` as its only warning.
+Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
+accepted; its declarations are unchanged by that review. The file elaborates with `lake env lean` against Mathlib `082e2d3`
+with no errors; its only warnings are 18 `declaration uses sorry`.
 
 Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 The earlier revision did not claim compilation. FIX-RT-BP-GlobalGaloisDeformations (#5719)
