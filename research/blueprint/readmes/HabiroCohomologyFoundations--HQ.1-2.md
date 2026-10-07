@@ -5,9 +5,11 @@ left open by the accepted [HQ.1 packet](../packets/HabiroCohomologyFoundations--
 étale descent of the global q-de Rham complex, and the derived quotient-stack
 comparison for modified torus connections. It builds on that packet without
 changing any of its declarations. The [follow-up packet](../packets/HabiroCohomologyFoundations--HQ.1-2.json)
-contains seven new nodes; every implementation status is unchecked. “Complete”
-describes this planning pass. HQ.1 has coverage **planned**, with four precise
-generic supplier requests. It is not a closed or implemented library.
+contains seven new nodes: two theorems, two comparisons, two constructions
+and one definition, with 21 API items and 11 unit tests. Two nodes are selected
+as new planets. Every implementation status is unchecked. “Complete” describes
+this planning pass. HQ.1 has coverage **planned**, with four precise generic
+supplier requests. It is not a closed or implemented library.
 
 The descent theorem is a consequence of Wagner's global functor and its
 specialization, proved here by derived complete conservativity. Wagner's Appendix
@@ -94,10 +96,14 @@ the smooth separated affine-cover computation of de Rham hypercohomology.
 No calculation of q-divided-power envelopes enters this argument.
 
 Second, the algebraic torus quotient is the sheafification of a prestack
-colimit. `LanglandsParameterStacks:LP1` explicitly owns generic derived affine
-schemes, fpqc quotient stacks and quasi-coherent pullback/descent. Its packet
-has no declaration yet giving the arbitrary infinite discrete-group interface
-needed here. The request specifies Lurie's cartesian-module QCoh∞ construction,
+colimit. `LanglandsParameterStacks:LP1` is the requested exporter of the enhanced
+quotient and quasi-coherent pullback/descent interface. The ordinary effective
+fpqc descent and quotient constructions are supplied by
+`SchemeAndStackFoundations:SF.1`, as the verified
+[routing of finding 27](../redteam/RT-AREA-geomlanglands.review.json) requires.
+The LP1 request remains open: parameter-specific LP1 nodes do not supply the
+arbitrary infinite discrete-group interface needed here. The request specifies
+Lurie's cartesian-module QCoh∞ construction,
 its affine values, its conversion of prestack colimits into categorical limits,
 and its invariance under fpqc sheafification. The nerve components are copies
 of the affine torus, indexed by G^n; taking QCoh∞ gives **products** of D(C).
@@ -194,7 +200,7 @@ Choose an étale framing □_U for S and for each multi-index overlap U in a fin
 
 **Declaration:** `qOmegaEtale` (construction). **Node:** `HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf`.
 
-For a smooth separated finitely presented A-scheme X over a torsion-free Λ-ring A, qOmegaEtale(X/A) is the sheaf of derived h-complete E∞ B-algebras on X_et whose value on an affine étale object U=Spec S of finite presentation is qΩ_{S/A}. It is the unique extension, up to equivalence, of this sheaf on the affine basis. Write qOmegaEtale.sections(X)=RΓ(X_et,qOmegaEtale). For a finite affine open cover of X, sections are the limit of the affine Čech diagram; all finite intersections are affine by separatedness. Its derived reduction modulo h is RΓ(X,Ω*_{X/A}).
+For a smooth separated finitely presented A-scheme X over a torsion-free Λ-ring A, qOmegaEtale(X/A) is the sheaf of derived h-complete E∞ B-algebras on X_et whose value on an affine étale object U=Spec S of finite presentation is qΩ_{S/A}. It is the unique extension, up to equivalence, of this sheaf on the affine basis. Write qOmegaEtale.sections(X)=RΓ(X_et,qOmegaEtale). For a finite affine open cover of X, sections are the limit of the affine Čech diagram; all finite intersections are affine by separatedness. The sheaf reduces to the ordinary de Rham sheaf complex; the derived reduction of its section object modulo h is RΓ(X,Ω*_{X/A}).
 
 **Hypotheses and scope.**
 
@@ -219,10 +225,12 @@ For a smooth separated finitely presented A-scheme X over a torsion-free Λ-ring
 | Name | Role | Mathematical statement |
 |---|---|---|
 | `qOmegaEtale` | constructor | The complete E∞ B-algebra sheaf determined by U=Spec S ↦ qΩ_{S/A} on the affine étale basis. |
-| `qOmegaEtale.affine` | equivalence | For affine étale U=Spec S, RΓ(U_et,qOmegaEtale|_U)≃qΩ_{S/A}, naturally in U. |
+| `qOmegaEtale.affine` | equivalence | For affine étale U=Spec S, RΓ(U_et,qOmegaEtale\|_U)≃qΩ_{S/A}, naturally in U. |
 | `qOmegaEtale.sections` | projection | The enhanced global-section object RΓ(X_et,qOmegaEtale). |
 | `qOmegaEtale.cech` | characterisation | For a finite affine open cover of separated X, global sections are Tot of the products of the affine qΩ values on intersections; compatible with refinement. |
 | `qOmegaEtale.modH` | compatibility | The derived reduction of the sheaf is the ordinary de Rham sheaf complex, and sections/h≃RΓ(X,Ω*_{X/A}). |
+| `qOmegaEtale.restrict` | functoriality | For U→V in X_et, the restriction RΓ(V_et,qOmegaEtale\|_V)→RΓ(U_et,qOmegaEtale\|_U) is a complete B-algebra map; on affine objects it is the existing qΩ map for the corresponding ring homomorphism. Identity and composition hold with all coherent functor laws. |
+| `qOmegaEtale.ext` | universal-property | Restriction to the affine étale basis induces equivalences on mapping spaces between sheaves valued in complete E∞ B-algebras. A specified comparison of basis functors extends with contractible choice; in particular qOmegaEtale is characterized by its affine-value functor. |
 
 **Unit tests.**
 
@@ -294,7 +302,7 @@ Let B be any commutative ring, q a unit in B and d≥0. Reuse the native additiv
 
 **Declaration:** `derivedModifiedQConnections` (definition). **Node:** `HabiroCohomologyFoundations:HQ.1/descent-derived-modified`.
 
-For C=B[Z^d], let F_a:D(C)→D(C) be pullback along Spec σ_a, namely C⊗^L_{C,σ_a}(−). Under its canonical identification with the same underlying complex, the C-action is twisted by σ_a⁻¹. The action law gives a coherent functor BZ^d→Cat∞. Define derivedModifiedQConnections(B,q,d)=lim_{BZ^d} D(C), using the enhanced unbounded derived module category. An object has an underlying M, equivalences θ_a:M≃F_a(M), and the full homotopy-coherent group-law data. A strict degree-zero θ_a is an invertible additive map Γ_a with Γ_a(fm)=σ_a(f)Γ_a(m). Morphisms include all coherent equivariance data; they are not just maps commuting in the homotopy category.
+For C=B[Z^d], let F_a:D(C)→D(C) be pullback along Spec σ_a, namely C⊗^L_{C,σ_a}(−). Under its canonical identification with the same underlying complex, the C-action is twisted by σ_a⁻¹. The action law gives a coherent functor BZ^d→Cat∞. Define derivedModifiedQConnections(B,q,d)=lim_{BZ^d} D(C), using the enhanced unbounded derived module category. An object has an underlying M, equivalences θ_a:F_a(M)≃M, and the full homotopy-coherent group-law data, with θ_0=id and θ_{a+b}=θ_a∘F_a(θ_b) under the coherent action identification F_{a+b}≃F_aF_b. On a strict complex, Γ_a(m)=θ_a(1⊗m) is an invertible additive chain map with Γ_a(fm)=σ_a(f)Γ_a(m), and θ_a(c⊗m)=cΓ_a(m). Morphisms include all coherent equivariance data; they are not just maps commuting in the homotopy category.
 
 **Hypotheses and scope.**
 
@@ -305,10 +313,11 @@ For C=B[Z^d], let F_a:D(C)→D(C) be pullback along Spec σ_a, namely C⊗^L_{C,
 **Construction or proof.**
 
 1. Apply the imported LP1 enhanced affine-module pullback construction to the explicit σ action. For an automorphism this pullback is exact and its ordinary tensor model agrees with derived tensor.
-2. Identify C⊗_{C,σ_a}M with the underlying abelian object by c⊗m↦σ_a⁻¹(c)m. Thus a C-linear map M→F_a(M) corresponds exactly to positive σ_a-semilinearity of Γ_a; pin this inverse in scalar twisting.
+2. Identify C⊗_{C,σ_a}M with the underlying abelian object by η_a(c⊗m)=σ_a⁻¹(c)m. A C-linear map θ_a:F_a(M)→M corresponds to the positive σ_a-semilinear map Γ_a(m)=θ_a(1⊗m): the tensor relation 1⊗fm=σ_a(f)⊗m proves the formula, and conversely θ_a(c⊗m)=cΓ_a(m) respects that relation. A map M→F_a(M), followed by η_a, instead has σ_a⁻¹-semilinearity. The chosen orientation and cocycle therefore agree with the accepted ordinary modified connection.
 3. Apply the existing E5 coherent-action/homotopy-fixed-point construction. Use its full limit and the compatible objectwise derived tensor products to obtain a B-linear stable symmetric monoidal category. This last enhanced monoidal interface is requested from LP1, not constructed generically in HQ.1.
 4. Evaluation at the unique base object gives a conservative exact forgetful functor. The unit is C with Γ_a=σ_a; the tensor action is diagonal, respecting the balanced C-tensor relation. Mapping spectra are the limit of the equivariant mapping diagram, retaining higher group cohomology.
 5. For the higher-cohomology test at q=1,d=1, unit endomorphisms are the cochains RΓ(Z,C) with trivial action. The free two-term C[t^{±1}]-resolution with differential t−1 is exact: augmentation evaluates t=1, and elementary Laurent coefficient calculation identifies its kernel with (t−1). Applying Hom gives C in degrees 0 and 1 with zero differential, whereas Ext_C^1(C,C)=0. This computes the test without importing or rebuilding a generic Koszul complex.
+6. For the scalar-twist test take B=Q,q=2,d=1. The unit linearization θ_1(c⊗f)=cσ_1(f) sends 1⊗x to 2x. Its inverse is x↦x⊗1, and η_1(x⊗1)=x/2. This distinguishes the two orientations even though q=1 tests cannot.
 
 **Uses that determine the interface.**
 
@@ -323,30 +332,36 @@ For C=B[Z^d], let F_a:D(C)→D(C) be pullback along Spec σ_a, namely C⊗^L_{C,
 | `derivedModifiedQConnections.forget` | projection | Conservative exact evaluation functor to D(C). |
 | `derivedModifiedQConnections.unit` | data | The tensor unit has underlying C and generator actions σ_{e_i}. |
 | `derivedModifiedQConnections.tensor` | structure | The derived C-tensor with diagonal coherent action; on flat strict representatives Γ_i(m⊗n)=Γ_i(m)⊗Γ_i(n). |
+| `derivedModifiedQConnections.linearization` | projection | For an object with underlying M, extract θ_a:F_a(M)≃M, θ_0, the coherent cocycle θ_{a+b}=θ_a∘F_a(θ_b), and all higher compatibilities. On strict complexes Γ_a(m)=θ_a(1⊗m); on tensors θ_a is the tensor of the two θ_a maps through monoidal pullback. |
+| `derivedModifiedQConnections.fromStrict` | constructor | A C-complex with commuting invertible σ_i-semilinear chain maps gives an enhanced modified connection by integer iterates and their coherent action. Horizontal chain maps induce morphisms, coherently respecting identity and composition. This constructs examples without asserting an equivalence from the localization of strict models. |
+| `derivedModifiedQConnections.mappingSpectrum` | characterisation | For M,N, the mapping spectrum is Map_{D(C)}(M,N)^{hZ^d}; the coherent action on the underlying mapping spectrum sends f to θ_a^N∘F_a(f)∘(θ_a^M)⁻¹. In particular the forgetful functor need not be faithful on homotopy-category morphisms. |
+| `derivedModifiedQConnections.isLimit` | universal-property | For every enhanced category K, Fun(K,derivedModifiedQConnections)≃lim_{BZ^d} Fun(K,D(C)) naturally in K and compatibly with evaluation. A coherent cone of functors lifts with contractible choice. This is the specialized limit universal property imported from E5. |
 
 **Unit tests.**
 
 - `derivedModifiedQConnections.rankZero` (degenerate): For d=0 the category is D(B) via the native B[Z^0]≃B identification and the trivial group.
 - `derivedModifiedQConnections.unitGenerators` (compatibility): For the unit, Γ_i(x^m)=q^{m_i}x^m, agreeing with the accepted ordinary modified connection.
 - `derivedModifiedQConnections.higherCohomology` (non-example): For B=Q, q=1, d=1 and C=Q[x^{±1}], Hom(unit,unit[1])≅C, whereas the mapping group in D(C) is zero. The Z action has not been discarded.
+- `derivedModifiedQConnections.positiveScalarTwist` (computation): For B=Q,q=2,d=1,C=Q[x^{±1}], the unit θ_1:F_1(C)→C sends 1⊗x to 2x. Under η_1(c⊗m)=σ_1⁻¹(c)m its inverse C→F_1(C) sends x to x/2. Reversing θ while retaining positive semilinearity fails this test.
 
 **Acceptance.**
 
-- The convention θ_a:M→F_a(M) gives Γ_a(fm)=σ_a(f)Γ_a(m), rather than its inverse.
+- The convention θ_a:F_a(M)→M gives Γ_a(fm)=σ_a(f)Γ_a(m). The q=2 scalar-twist test must distinguish it from inverse semilinearity of M→F_a(M).
 - Strict semilinear complexes give examples, but no equivalence with their localization is assumed or needed.
 
 **Direct prerequisites:** `HabiroCohomologyFoundations:HQ.1/descent-torus-scaling`, `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`, `LanglandsParameterStacks:LP1`, `HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus`.
 
-**Source match:** Section 2.7 opening, printed pp.69–70; Definition 2.7.8 and Remarks 2.7.10–12, printed pp.71–72 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): Enhanced module and pullback convention. Applying them to the action gives this specialized category; generic homotopy fixed points are imported from E5.
+**Source match:** Section 2.7 opening, printed pp.69–70; Definition 2.7.8 and Remarks 2.7.10–12, printed pp.71–72; symmetric monoidal construction preceding Notation 2.7.27, printed p.75 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): Enhanced module and pullback convention. Applying them to the action gives this specialized category; generic homotopy fixed points are imported from E5.
 
 ### 6. Derived torus quotient comparison
 
 **Declaration:** `modifiedQConnection.torusQuotientEquivalence` (theorem). **Node:** `HabiroCohomologyFoundations:HQ.1/descent-derived-quotient`.
 
-Let Q=[Spec C/Z^d] be the fpqc sheafification of the discrete action prestack of σ, using the generic quotient-functor construction of LP1. Then QCoh∞(Q)≃derivedModifiedQConnections(B,q,d), naturally and as B-linear stable symmetric monoidal categories, with pullback to Spec C corresponding to forget. Explicitly QCoh∞(Q)≃Tot_{[n]∈Δ} ∏_{(a₁,…,a_n)∈(Z^d)^n} D(C), with the action-twisted face maps, identity degeneracies and their coherent compatibilities. Thus the algebraic meaning of QCoh∞((G_m/q^Z)^d) is the action quotient, with its stabilizers.
+Let Q=[Spec C/Z^d] be the fpqc sheafification of the discrete action prestack of σ, using the generic quotient-functor construction of LP1. Then QCoh∞(Q)≃derivedModifiedQConnections(B,q,d), naturally and as B-linear stable symmetric monoidal categories, with pullback to Spec C corresponding to forget. Explicitly QCoh∞(Q)≃Tot_{[n]∈Δ} ∏_{(a₁,…,a_n)∈(Z^d)^n} D(C), with the action-twisted face maps, degeneracies inserting the zero group label (identity pullback on each selected component) and their coherent compatibilities. Thus the algebraic meaning of QCoh∞((G_m/q^Z)^d) is the action quotient, with its stabilizers.
 
 **Hypotheses and scope.**
 
+- In DAG VIII’s functor-of-points convention, Spec C denotes the affine functor corepresented by the Eilenberg–Mac Lane E∞-ring HC on connective E∞-rings. Use the enhanced equivalence Mod_HC≃D(C), not merely its triangulated homotopy category; LP1 supplies compatibility with pullback and tensor.
 - The enhanced QCoh functor is the functor-of-points construction of DAG VIII §2.7, which works for this arbitrary discrete-group quotient. No finite-type, affine-diagonal or perfect-stack theorem is substituted.
 - The action nerve in degree n is the coproduct over (Z^d)^n of Spec C. For d>0 this is an infinite coproduct, not an affine scheme whose coordinate ring is an infinite product.
 - The map Spec C→Q is a torsor under an infinite discrete constant group after base change; it need not be a quasi-compact fpqc morphism. The proof uses sheafification invariance and the prestack colimit, not the assertion that this single map is an fpqc affine cover.
@@ -356,7 +371,7 @@ Let Q=[Spec C/Z^d] be the fpqc sheafification of the discrete action prestack of
 
 1. Import from LP1 the action prestack, its fpqc sheafification and the QCoh∞ functor of DAG VIII Definition 2.7.8. The action prestack is the geometric realization of the simplicial action nerve.
 2. Proposition 2.7.6 and the right Kan construction make QCoh∞ send prestack colimits to category limits. Proposition 2.7.14 / Remark 2.7.15 identify the QCoh categories before and after fpqc sheafification. These general assertions are the LP1 request, not new HQ nodes.
-3. On each component of the nerve use QCoh∞(Spec C)=D(C); a coproduct of affine functors gives a product of these categories. Identify the face restrictions using F_a and the fixed scalar-twist convention. The resulting bar totalization is exactly the E5 homotopy fixed points in derived-modified.
+3. On each component of the nerve use QCoh∞(Spec HC)=Mod_HC≃D(C); a coproduct of affine functors gives a product of these categories. Identify the face restrictions using F_a and the fixed scalar-twist convention. The resulting bar totalization is exactly the E5 homotopy fixed points in derived-modified.
 4. Pullback and tensor products are pointwise in the cartesian-module description, so the equivalence is B-linear symmetric monoidal and commutes with pullback to Spec C. Apply the nerve description to q=1 or finite order to verify the retained stabilizers.
 
 **Acceptance.**
@@ -368,7 +383,7 @@ Let Q=[Spec C/Z^d] be the fpqc sheafification of the discrete action prestack of
 
 **Direct prerequisites:** `HabiroCohomologyFoundations:HQ.1/descent-torus-scaling`, `HabiroCohomologyFoundations:HQ.1/descent-derived-modified`, `LanglandsParameterStacks:LP1`, `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`.
 
-**Source match:** Proposition 2.7.6, Definition 2.7.8, Remark 2.7.10, Proposition 2.7.14 and Remark 2.7.15, printed pp.71–72 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): These general QCoh results imply the quotient comparison by the action-nerve argument above. Proposition 2.7.18 alone, for spectral Deligne–Mumford stacks, is not used as a substitute.
+**Source match:** Proposition 2.7.6, Definition 2.7.8, Remark 2.7.10, Proposition 2.7.14 and Remark 2.7.15, printed pp.71–72; symmetric monoidal construction preceding Notation 2.7.27, printed p.75 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): These general QCoh results imply the quotient comparison by the action-nerve argument above. Proposition 2.7.18 alone, for spectral Deligne–Mumford stacks, is not used as a substitute.
 
 ### 7. The heart, vector bundles and perfect complexes
 
@@ -386,7 +401,7 @@ The quotient equivalence is compatible with the t-structures detected after pull
 
 1. The t-exact coherent action gives the componentwise t-structure on its limit: pointwise truncations preserve the descent data. The quotient QCoh t-structure agrees by the imported cartesian-module description.
 2. Mapping spaces between heart objects are discrete, so the higher coherent data reduces to the ordinary group-law cocycle. Apply the accepted heart/skew-ring correspondence. Stacks Proposition 96.14.3 independently verifies the ordinary quotient-groupoid interpretation.
-3. Pullback to the affine torus detects finite local freeness and perfectness by the LP1 local-property descent interface. Over an affine scheme these are respectively finite projective modules and perfect derived objects.
+3. Use the action prestack’s cartesian-module description: each point pulls the underlying torus module back from C, so a base-change-stable property holds on every point if it holds on C. Conversely the torus point detects it. Passing to fpqc sheafification preserves and reflects fpqc-local properties (DAG VIII 2.7.24), through the requested LP1 interface. Perfectness is covered by 2.7.20(7), fpqc locality from Proposition 2.6.15(10) and 2.7.28; finite local freeness by 2.7.31–32. Over C these are perfect derived objects and finite projective modules, respectively. This uses no quasi-compact infinite-group atlas.
 4. At q=1 the trivial geometric action still permits arbitrary commuting invertible C-linear Γ_i. Over Q[x^{±1}] the rank-one action Γ=2·id is a vector bundle on the quotient and is not the trivial linearization. For formal q=1+h its version Γ=2σ is not congruent to identity modulo h and does not arise from an ordinary q-connection.
 
 **Acceptance.**
@@ -397,7 +412,7 @@ The quotient equivalence is compatible with the t-structures detected after pull
 
 **Direct prerequisites:** `HabiroCohomologyFoundations:HQ.1/descent-derived-quotient`, `HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections`, `HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus`, `LanglandsParameterStacks:LP1`.
 
-**Source match:** Proposition 96.14.3 (tag 06WT), statement and groupoid cocycle proof ([stacks-quotient](https://stacks.math.columbia.edu/tag/06WT)): Ordinary QCoh/groupoid descent only; the derived step comes from the preceding theorem and imported LP1 interfaces. Definition 2.7.8, Remark 2.7.12, printed pp.71–72 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): The cartesian-module description provides the local detection framework; specialized heart/perfect restrictions are proved in the displayed steps.
+**Source match:** Proposition 96.14.3 (tag 06WT), statement and groupoid cocycle proof ([stacks-quotient](https://stacks.math.columbia.edu/tag/06WT)): Ordinary QCoh/groupoid descent only; the derived step comes from the preceding theorem and imported LP1 interfaces. Definition 2.6.14 and Proposition 2.6.15, printed pp.66–68; Definition 2.7.8 and Remark 2.7.12, printed pp.71–72; Proposition 2.7.20(7), Example 2.7.23 and Remark 2.7.24, printed pp.73–74; Proposition 2.7.28 and Propositions 2.7.31–32, printed pp.75–76 ([dag-viii](https://people.math.harvard.edu/~lurie/papers/DAG-VIII.pdf)): The cartesian-module description, base-change and fpqc locality, and perfect/dualizable and finite locally free criteria supply the local detection framework. The t-structure follows from the t-exact action limit, not from a pointwise coconnectivity assertion for arbitrary prestacks.
 
 ## Supplier requests and coverage
 
@@ -420,7 +435,7 @@ Consumed by `HabiroCohomologyFoundations:HQ.1/descent-global-etale`, `HabiroCoho
 
 Consumed by `HabiroCohomologyFoundations:HQ.1/descent-etale-sheaf`.
 
-**`LanglandsParameterStacks:LP1`.** Apply LP1’s generic fpqc quotient and quasi-coherent descent prefix to an arbitrary discrete group G acting on a commutative affine ring C, including infinite G=Z^d. Define QCoh∞ on prestacks by cartesian enhanced modules (DAG VIII 2.7.8), affine value D(C), send prestack colimits/coproducts to category limits/products, and prove fpqc sheafification invariance (2.7.14). Supply pullback, its symmetric monoidal coherence and limit mapping spectra, plus the pullback-detected t-structure and flat local detection of finite local freeness/perfectness. Do not require the atlas Spec C→[Spec C/G] to be a quasi-compact fpqc morphism or use an affine finite constant-group scheme in place of the discrete sheaf.
+**`LanglandsParameterStacks:LP1`.** Apply LP1’s generic fpqc quotient and quasi-coherent descent prefix to an arbitrary discrete group G acting on a commutative affine ring C, including infinite G=Z^d. Define QCoh∞ on prestacks by cartesian enhanced modules (DAG VIII 2.7.8), affine value Mod_HC≃D(C) for the affine functor corepresented by the Eilenberg–Mac Lane E∞-ring HC, compatibly with enhanced pullback and tensor, send prestack colimits/coproducts to category limits/products, and prove fpqc sheafification invariance (2.7.14). Supply pullback, its symmetric monoidal coherence and limit mapping spectra, plus the pullback-detected t-structure and flat local detection of finite local freeness/perfectness (DAG VIII 2.7.20, 2.7.23–24, 2.7.28 and 2.7.31–32). Do not require the atlas Spec C→[Spec C/G] to be a quasi-compact fpqc morphism or use an affine finite constant-group scheme in place of the discrete sheaf.
 
 Consumed by `HabiroCohomologyFoundations:HQ.1/descent-derived-modified`, `HabiroCohomologyFoundations:HQ.1/descent-derived-quotient`, `HabiroCohomologyFoundations:HQ.1/descent-heart-perfect`.
 
@@ -444,9 +459,11 @@ heart are already in the accepted packet. This pass supplies the derived
 coherent equivariance and quotient comparison they need. The distinct framed
 Habiro coefficient ring, its γ_i and its uncompleted Koszul complex belong to
 HQ.4 under accepted RS-10; HQ.3 applies descent to that construction and
-compares it with the q-Hodge object, including its twisted q-dR applications.
-The original atlas edge HQ.4→HQ.3 stays. These are not the h-complete framed
-complex imported here, and none of those HQ.3/HQ.4 targets is repeated.
+compares it with the q-Hodge object. The original atlas edge HQ.4→HQ.3 stays.
+HQ.2 retains the twisted q-de Rham constructions and Nygaard applications,
+as PLAN-HABIRO §6.5 and accepted RS-10 require. The h-complete framed complex
+imported here has its existing owner; none of these HQ.2/HQ.3/HQ.4 targets is
+repeated in this follow-up.
 The algebraic comparison exports a usable input for the draft analytic
 consumers while making no analytic conclusion.
 
@@ -478,9 +495,9 @@ proofs or silently discharged prerequisites.
 
 The pinned commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
 and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed HQ.1
-library audit was read before planning. Source-tree and declaration-index
-searches find no q-connection, quotient-stack, coherent homotopy-fixed-point
-or derived-completion implementation. The native `AddMonoidAlgebra` and
+library audit was read before planning. The completed independent review's
+source-tree and declaration-index searches found no q-connection, quotient-stack,
+coherent homotopy-fixed-point or derived-completion implementation. The native `AddMonoidAlgebra` and
 `AlgEquiv` statements were read at the pins and supply the carriers for
 `torusScale`; they are not replanned. The convolution formula on single
 monomials is the routine finite-sum computation used by the scaling proof.
@@ -495,27 +512,40 @@ sheaf in this packet. Existing carriers and near misses are distinguished
 from the missing interface.
 
 The [suggested file](../suggested/HabiroCohomologyFoundations--HQ.1-2.lean)
-elaborates against pinned Mathlib. It gives `torusScale`, its five API lemmas
-and four tests as genuine signatures, with only the expected placeholder-proof
-warnings. It uses no Tau Ceti imports, so the shared build's newer Tau Ceti
-checkout supplies none of these declarations. The six enhanced nodes cannot
-yet be expressed at the pins: the global qΩ functor, complete E∞ target,
-enhanced action limit and quotient/QCoh functor are absent. The file's omission
-inventory names their four theorem/comparison signatures, two object
-signatures, seven API items and six tests with their exact mathematical forms.
-They are comments, not elaborated declarations. No opaque proposition, axiom,
-or artificially weakened condition replaces any of them. This is the honest
-omission permitted by PROTOCOL section 13; elaboration of the algebraic
-prototype must not be reported as elaboration of the entire plan.
+gives `torusScale`, its five API lemmas and four tests as native signatures.
+The [independent review](../reviews/REV-HabiroCohomologyFoundations--HQ.1-2.md)
+records successful elaboration of this scaling subset against pinned Mathlib,
+with ten expected placeholder-proof warnings. This revision checks agreement
+without claiming a new compilation. The file uses no Tau Ceti imports.
+
+Six enhanced nodes cannot yet be expressed at the pins: the global qΩ functor,
+complete E∞ target, enhanced action limit and quotient/QCoh functor are absent.
+The omission inventory names four theorem/comparison signatures, two object
+signatures, twelve non-constructor enhanced API items and seven enhanced tests
+with their exact mathematical forms. Together with the six native scaling API
+items and four native tests, every one of the packet's 21 API names and eleven
+tests is represented by a signature or an explicit omission. The fifteen enhanced
+API entries include three constructor items: `qOmegaEtale`,
+`derivedModifiedQConnections` and `derivedModifiedQConnections.fromStrict`.
+The enhanced entries are comments, not elaborated declarations. No opaque
+proposition, axiom or artificially weakened condition replaces them. This is
+the omission permitted by PROTOCOL section 13; elaboration of the algebraic
+prototype does not establish elaboration of the entire plan.
 
 ## Sources read
 
-The public sources, versions, hashes and access date are recorded in the
-packet. The central readings are Wagner arXiv:2510.04782v2 Appendix A,
+The public sources, versions, hashes and access dates checked in the
+completed independent review are recorded in the packet. Revision 2 preserves
+that source provenance; its additional reads and access limits are recorded
+in the [revision handoff](../handoff/BP-HabiroCohomologyFoundations--HQ.1-2~2.md).
+The central readings are Wagner arXiv:2510.04782v2 Appendix A,
 Theorem A.1 and its proof, and Scholze arXiv:1606.01796 §7, Definition 7.3,
 Remark 7.4 and Conjecture 7.5. Lurie's *DAG VIII*, dated November 5, 2011,
 §2.7 was read for the general functor-of-points quasi-coherent construction,
 especially Proposition 2.7.6, Definition 2.7.8 and Proposition 2.7.14.
+The local-property argument also uses Definition 2.6.14 and Proposition 2.6.15,
+Proposition 2.7.20(7), Example 2.7.23, Remark 2.7.24, the monoidal construction
+before Notation 2.7.27, and Propositions 2.7.28 and 2.7.31–32.
 The latter, rather than a quasi-compact spectral-stack representability
 theorem, provides the required sheafification argument. The Stacks Project
 readings were tag 091N (complete limits and derived Nakayama), tag 03OY
