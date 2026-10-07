@@ -37203,7 +37203,8 @@
     "REV-GL2ModularityLifting--R32.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-GL2ModularityLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #232"
   },
   {
    "id": "ASM-GeneralAlgebraicKTheory",
@@ -37377,7 +37378,8 @@
     "REV-HeegnerPointEulerSystems--HE.7s"
    ],
    "prompt": "research/blueprint/prompts/ASM-HeegnerPointEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #238"
   },
   {
    "id": "ASM-HilbertModularVarietiesAndShimuraCurves",
@@ -37561,7 +37563,8 @@
     "REV-MotivicEtaleKTheory--M.5d"
    ],
    "prompt": "research/blueprint/prompts/ASM-MotivicEtaleKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #247"
   },
   {
    "id": "ASM-PadicHodgeRegulators",
@@ -37622,8 +37625,9 @@
     "REV-PerfectoidSpaces--P8"
    ],
    "prompt": "research/blueprint/prompts/ASM-PerfectoidSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #251"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #251",
+   "finishedAt": "2026-10-07T00:29:04Z"
   },
   {
    "id": "ASM-PotentialModularityAndCompatibleSystems",
@@ -37744,7 +37748,8 @@
     "REV-ShimuraCompactifications--C6"
    ],
    "prompt": "research/blueprint/prompts/ASM-ShimuraCompactifications.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #258"
   },
   {
    "id": "ASM-ShimuraVarieties",
@@ -37805,8 +37810,9 @@
     "REV-VectorBundlesAndIsocrystals--VB3"
    ],
    "prompt": "research/blueprint/prompts/ASM-VectorBundlesAndIsocrystals.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #261"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #261",
+   "finishedAt": "2026-10-07T00:29:07Z"
   },
   {
    "id": "ASM-WeilConjectures",
