@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7785 new mistakes confirmed · 1380 awaiting review · 1809 already corrected in print · 134 rejected on review · 13 extractions and packets not yet checked.
+7785 new mistakes confirmed · 1380 awaiting review · 1810 already corrected in print · 134 rejected on review · 13 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -18705,6 +18705,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Stephen S. Kudla, Tate’s Thesis, Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan (`AutomorphicLFunctionsAndLocalFactors`), Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2: corrected in new (no addressing correction located; independent review required).
 - Stephen S. Kudla, Tate’s Thesis, Nineteen-page lecture preprint, expanded from March 2001 Jerusalem lectures; distinct from the published chapter (`AutomorphicLFunctionsAndLocalFactors`), Lecture preprint p.1, bibliographic overview; corrected in published 2004 chapter p.110: corrected in Already corrected in Kudla 2004, p.110.
 - John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions, Princeton doctoral thesis, May 1950; original thesis scan, not the 1967 reprint (`AutomorphicLFunctionsAndLocalFactors`), Original 1950 thesis scan, §2.5 "k 𝔭-adic", physical p. 26, printed (2.19), the sentence before "Explicit Expressions for ρ(c)": corrected in new (the 1967 Cassels–Fröhlich reprint was not collated).
+- Stephen S. Kudla, Tate’s Thesis, Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan (`AutomorphicLFunctionsAndLocalFactors`), Published p.126, Lemma4.1, unqualified converse: corrected in new (bounded search; independent verification required).
 - Sources of the blueprint of AutomorphicPadicLFunctions (`AutomorphicPadicLFunctions`), arXiv v3, Section 9.2.2 and Proposition 9.3, p.31; cancellation in Proposition 9.6, p.32: corrected in Unresolved source-version status; no correction located in the checked sources, and the journal version was not collated. Not a claim of a new journal error..
 - Sources of the blueprint of AutomorphicPadicLFunctions (`AutomorphicPadicLFunctions`), arXiv v3, Definitions 6.3 and 6.6 and Lemma 6.7, pp.21-22; parsed text: corrected in Unresolved source-version status. Urban Lemma 3.2.8 and the journal text must be compared; no novelty or main-theorem failure is claimed..
 - Sources of the blueprint of AutomorphicPadicLFunctions (`AutomorphicPadicLFunctions`), arXiv v3, Lemma 8.1(iii), p.24; parsed text: corrected in Possible typographical/missing-hypothesis issue in the checked preprint; printed rendering and journal collation are incomplete. No new published-error claim..
