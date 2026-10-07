@@ -80,7 +80,7 @@ for all five sources. Read FS VI.8–VI.12 in full, IV.7, VI.0, VI.6.5–6.8,
 VI.7.5/7.7/7.10/7.12–13, IX.2 p321, IX.6.1–6.3 and IX.7.1; Zhu §2.1 and
 §2.2 through the IC/classical equations; Gross §2, §3, §4 through (4.4) and §8;
 Prasad–Yu's author preprint introduction/Corollary 1.3 and §5.3–5.4; and
-Deligne–Milne's revised 2012 notes §2, Propositions 2.20/2.22/2.23 and proofs.
+Deligne–Milne's revised 2012 notes §2, Proposition 2.20, Corollary 2.22 and Proposition 2.23 and proofs.
 The author-hosted FS file matches the checkpoint hash. The published
 Prasad–Yu text was unavailable (publisher access refused); its published
 Corollary 5.2 is cited by FS, while our quotations use author-preprint

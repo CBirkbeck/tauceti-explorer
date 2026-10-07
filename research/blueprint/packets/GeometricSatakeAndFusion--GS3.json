@@ -246,7 +246,7 @@
       "url": "https://www.math.columbia.edu/~dejong/tannakian/Deligne-Milne-Tannakian-Categories.pdf",
       "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
       "readSections": [
-        "§2 pp24–27, Propositions 2.20/2.22/2.23 and proofs: finite type, connectedness, proreductivity"
+        "§2 pp24–27, Proposition 2.20, Corollary 2.22 and Proposition 2.23 and proofs: finite type, connectedness, proreductivity"
       ],
       "accessed": "2026-10-07"
     }
