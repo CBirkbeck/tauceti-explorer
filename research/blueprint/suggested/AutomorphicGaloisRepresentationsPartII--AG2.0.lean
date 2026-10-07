@@ -56,6 +56,23 @@ def IsInW (c : ι → ι) (w : ℤ) (a : DominantWeight n ι) : Prop :=
 def baseChange {ι' : Type*} (f : ι' → ι) (a : DominantWeight n ι) : DominantWeight n ι' :=
   fun τ => a (f τ)
 
+/-- Construct the coordinate specialization from its dominant coordinates. -/
+def mk (a : ι → Fin n → ℤ) (ha : ∀ τ, Antitone (a τ)) : DominantWeight n ι :=
+  fun τ => ⟨a τ, ha τ⟩
+
+/-- Dominant weights are determined by their coordinates. -/
+@[ext] theorem ext {a b : DominantWeight n ι}
+    (h : ∀ τ i, (a τ).1 i = (b τ).1 i) : a = b := by
+  funext τ
+  apply Subtype.ext
+  funext i
+  exact h τ i
+
+@[simp] theorem baseChange_id (a : DominantWeight n ι) : a.baseChange id = a := rfl
+
+theorem baseChange_comp {ι' ι'' : Type*} (f : ι' → ι) (g : ι'' → ι')
+    (a : DominantWeight n ι) : (a.baseChange f).baseChange g = a.baseChange (f ∘ g) := rfl
+
 open scoped Classical in
 /-- Extremely regular (BLGGT §2.1): at some `τ`, equal-size sets of the numbers `a_{τ,i} + n − 1 − i` with equal sums
 coincide. -/
@@ -122,7 +139,7 @@ theorem conjugate_eq_comp_complexConj {K : Type*} [Field K] [NumberField K] [Num
 `AlgHeckeChar.galoisChar`, `IsAttached` and `fieldOfRationality`: not stated; they need automorphic representations of
 `GL_n(𝔸_F)` with infinitesimal characters (AF.1/AF.4), algebraic Hecke characters with global reciprocity (Tau Ceti
 GlobalNumberFields layers 9–10, ClassFieldTheory layer 11), continuous `ℓ`-adic representations (R01.1) and the
-group `𝒢_n` (GlobalGaloisDeformations G7). The sign computation they rest on is below. -/
+group `𝒢_n` (ArithmeticGaloisRepresentations G7). The sign computation they rest on is below. -/
 
 /-- `…:AG2.0/sign-of-the-polarization-multiplier`: with `χ_v(−1) = (−1)^{n+w}` the multiplier
 `µ(c_v) = (−1)^{n−1} (−1)^w χ_v(−1)` is `−1`. -/
@@ -159,6 +176,15 @@ theorem expectedHodgeTate_strictAnti {n : ℕ} {a : Fin n → ℤ} (ha : Antiton
     omega
   have : ((n - 1 - (j : ℕ) : ℕ) : ℤ) < ((n - 1 - (i : ℕ) : ℕ) : ℤ) := by exact_mod_cast h2
   linarith
+
+/-- The expected labelled multiset has the specified rank. -/
+@[simp] theorem expectedHodgeTate_card {n : ℕ} (a : Fin n → ℤ) :
+    (expectedHodgeTate a).card = n := by simp [expectedHodgeTate]
+
+/-- Dominance and the shift give distinct labelled weights. -/
+theorem expectedHodgeTate_nodup {n : ℕ} {a : Fin n → ℤ} (ha : Antitone a) :
+    (expectedHodgeTate a).Nodup := by
+  sorry
 
 /-- `expectedHodgeTate_conj`: for `a ∈ (ℤⁿ)_w`, the Hodge–Tate numbers at `cτ` are `w + n − 1` minus those at `τ`,
 entry by entry. -/
@@ -393,7 +419,15 @@ Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations
 Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TauCeti.AutomorphicGalois.DominantWeight.isInW_baseChange` (compatibility): a ∈ (ℤⁿ)_w implies a_{F′} ∈ (ℤⁿ)_w when F′ ⊇ F is CM or totally real.
 Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TauCeti.AutomorphicGalois.DominantWeight.isInW_classical` (value): For F = ℚ, n = 2 and a = (k − 2, 0): a is dominant and lies in (ℤ²)_{k−2}.
+/- API `TauCeti.AutomorphicGalois.DominantWeight.mk` (constructor): An embedding-indexed family a of antitone Fin n → ℤ functions constructs its DominantWeight.
+Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. -/
+/- API `TauCeti.AutomorphicGalois.DominantWeight.ext` (extensionality): Two dominant weights are equal when every embedding-wise coordinate is equal.
+Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. -/
+/- API `TauCeti.AutomorphicGalois.DominantWeight.baseChange_id` (simp): a.baseChange id = a.
+Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. -/
+/- API `TauCeti.AutomorphicGalois.DominantWeight.baseChange_comp` (functoriality): (a.baseChange f).baseChange g = a.baseChange (f ∘ g).
+Missing-object note: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. -/
+/- Test `TauCeti.AutomorphicGalois.DominantWeight.isInW_classical` (computation): For F = ℚ, n = 2, integer k≥2 and a = (k − 2, 0): a is dominant and lies in (ℤ²)_{k−2}.
 An example requiring the full object is omitted because AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.DominantWeight.isInW_rank_one` (degenerate): For n = 1 every a ∈ ℤ^{Hom(F,ℂ)} is dominant, and a ∈ (ℤ¹)_w iff a_τ + a_{cτ} = w for all τ.
 An example requiring the full object is omitted because AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -418,9 +452,9 @@ Missing-object note: AF.1 archimedean (g,K)-modules and their infinitesimal char
 Missing-object note: AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TauCeti.AutomorphicGalois.HasWeight.twist_norm` (simp): (π ⊗ ‖det‖^t).HasWeight (a − t) ↔ π.HasWeight a.
 Missing-object note: AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TauCeti.AutomorphicGalois.hasWeight_heckeCharacter` (value): n = 1: ψ with ψ_∞(x) = ∏ τ(x)^{−a_τ} on (F_∞^×)⁰ has weight (a_τ).
+/- Test `TauCeti.AutomorphicGalois.hasWeight_heckeCharacter` (computation): n = 1: ψ with ψ_∞(x) = ∏ τ(x)^{−a_τ} on (F_∞^×)⁰ has weight (a_τ).
 An example requiring the full object is omitted because AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `TauCeti.AutomorphicGalois.hasWeight_classical` (value): π_f ⊗ ‖det‖^{1−k/2} has weight (k − 2, 0) for a weight-k newform f.
+/- Test `TauCeti.AutomorphicGalois.hasWeight_classical` (computation): For a classical newform f of integer weight k≥2, π_f ⊗ ‖det‖^{1−k/2} has weight (k − 2, 0).
 An example requiring the full object is omitted because AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.not_isRegularAlgebraic_odd_weight_unitary` (non-example): π_f with f of odd weight k is not regular algebraic: its infinitesimal character (±(k − 1)/2) is not a shifted integral weight.
 An example requiring the full object is omitted because AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -447,7 +481,7 @@ Missing-object note: AF.1 adele automorphic representations with dual/conjugatio
 Missing-object note: AF.1 adele automorphic representations with dual/conjugation, global Hecke multiplier characters and their infinity components. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TauCeti.AutomorphicGalois.PolarizedAutRep.weight_mem_W` (relation): A regular algebraic polarized pair has weight in (ℤⁿ)_w with |χ| = ‖·‖^{−w}.
 Missing-object note: AF.1 adele automorphic representations with dual/conjugation, global Hecke multiplier characters and their infinity components. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TauCeti.AutomorphicGalois.polarized_heckeCharacter_cm` (value): n = 1, ψ of weight (1, 0) over an imaginary quadratic field: (ψ, ψ|_{𝔸_ℚ}δ) is totally odd; (ψ, ψ|_{𝔸_ℚ}) is not.
+/- Test `TauCeti.AutomorphicGalois.polarized_heckeCharacter_cm` (computation): n = 1, ψ of weight (1, 0) over an imaginary quadratic field: (ψ, ψ|_{𝔸_ℚ}δ) is totally odd; (ψ, ψ|_{𝔸_ℚ}) is not.
 An example requiring the full object is omitted because AF.1 adele automorphic representations with dual/conjugation, global Hecke multiplier characters and their infinity components. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.isConjSelfDual_iff_multiplier_one` (degenerate): π.IsConjSelfDual ↔ π.IsEssConjSelfDual 1.
 An example requiring the full object is omitted because AF.1 adele automorphic representations with dual/conjugation, global Hecke multiplier characters and their infinity components. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -458,9 +492,9 @@ An example requiring the full object is omitted because AF.1 adele automorphic r
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation` (comparison): BLGGT pairing conventions for the imported polarized carrier.
 Mathematical signature: Use the continuous representation and polarized-extension carriers of R01.1 and G7. For CM F, the BLGGT pairing has symmetry ε_v=−μ(c_v), so total oddness is ε_v=1, equivalently μ(c_v)=−1; this is the convention bridge to the G_n-valued extension with multiplier μ. For totally real F, an invariant alternating (respectively symmetric) pairing has μ(c_v)=−ε_v (respectively ε_v) in the corresponding symplectic (respectively orthogonal) extension convention. Algebraic and regular conditions import the p-adic Hodge carrier, with HT(ε_ℓ)={−1}. This node specializes those carriers and does not construct a second deformation theory.
-Hypotheses: The condition at one infinite place implies it at all of them, with ε_{v′} = µ(c_v c_{v′})ε_v and ⟨x, y⟩_{v′} = ⟨x, r(c_v c_{v′}) y⟩_v. For F imaginary, (r, µ) is polarized if and only if r extends to r̃: G_{F⁺} → 𝒢_n(Q̄_l) with multiplier µ, where 𝒢_n is the group of Clozel–Harris–Taylor (GlobalGaloisDeformations:G7/polarized-deformation-problem). For F totally real, (r, µ) is polarized if and only if r factors through GSp_n (µ(c_v) = −ε_v) or GO_n (µ(c_v) = ε_v) with multiplier µ. Hodge–Tate numbers use BLGGT's convention HT_τ(ε_l) = {−1}.
+Hypotheses: The condition at one infinite place implies it at all of them, with ε_{v′} = µ(c_v c_{v′})ε_v and ⟨x, y⟩_{v′} = ⟨x, r(c_v c_{v′}) y⟩_v. For F imaginary, (r, µ) is polarized if and only if r extends to r̃: G_{F⁺} → 𝒢_n(Q̄_l) with multiplier µ, where 𝒢_n is the group of Clozel–Harris–Taylor (ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group). For F totally real, (r, µ) is polarized if and only if r factors through GSp_n (µ(c_v) = −ε_v) or GO_n (µ(c_v) = ε_v) with multiplier µ. Hodge–Tate numbers use BLGGT's convention HT_τ(ε_l) = {−1}.
 Signature omitted where not prototyped above. Missing objects: R01.1 continuous Galois representations and G7 polarized G_n extensions with multiplier; no replacement carrier is introduced.
-Direct owners/contracts: ArithmeticGaloisRepresentations:R01.1/continuous-representation; ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist; GlobalGaloisDeformations:G7/polarized-deformation-problem; PadicHodgeTheory:R06.2
+Direct owners/contracts: ArithmeticGaloisRepresentations:R01.1/continuous-representation; ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist; PadicHodgeTheory:R06.2; ArithmeticGaloisRepresentations:G7/polarized-representation; ArithmeticGaloisRepresentations:G7/polarization-sign-and-determinant; ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character` (construction): The l-adic character r_{l,ι}(χ) of an algebraic Hecke character, its Hodge–Tate numbers and its weight.
@@ -485,7 +519,7 @@ Missing-object note: global idele Hecke characters, the geometric Artin map, con
 Missing-object note: global idele Hecke characters, the geometric Artin map, continuous ℓ-adic characters and R06.2 labelled p-adic Hodge conditions. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TauCeti.AutomorphicGalois.AlgHeckeChar.galoisChar_restrict` (functoriality): r_{l,ι}(χ|_{𝔸_{F⁺}^×}) = r_{l,ι}(χ) ∘ V, V: G_{F⁺}^{ab} → G_F^{ab} the transfer.
 Missing-object note: global idele Hecke characters, the geometric Artin map, continuous ℓ-adic characters and R06.2 labelled p-adic Hodge conditions. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TauCeti.AutomorphicGalois.galoisChar_norm_rat` (value): F = ℚ: r_{l,ι}(‖·‖) = ε_l, with HT {−1} and wt −2.
+/- Test `TauCeti.AutomorphicGalois.galoisChar_norm_rat` (computation): F = ℚ: r_{l,ι}(‖·‖) = ε_l, with HT {−1} and wt −2.
 An example requiring the full object is omitted because global idele Hecke characters, the geometric Artin map, continuous ℓ-adic characters and R06.2 labelled p-adic Hodge conditions. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.galoisChar_trivial` (degenerate): r_{l,ι}(1) = 1, with a = 0 and wt 0.
 An example requiring the full object is omitted because global idele Hecke characters, the geometric Artin map, continuous ℓ-adic characters and R06.2 labelled p-adic Hodge conditions. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -515,9 +549,13 @@ Missing-object note: the named automorphic/Hecke/Galois objects in the prerequis
 Missing-object note: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TauCeti.AutomorphicGalois.expectedHodgeTate_twist` (simp): expectedHodgeTate (a − t) = (expectedHodgeTate a).map (· − t).
 Missing-object note: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TauCeti.AutomorphicGalois.expectedHodgeTate_classical` (value): n = 2, a = (k − 2, 0) ↦ {k − 1, 0}; for k = 12, {11, 0}.
+/- API `TauCeti.AutomorphicGalois.expectedHodgeTate_card` (characterisation): The multiset expectedHodgeTate a has cardinality n.
+Missing-object note: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. -/
+/- API `TauCeti.AutomorphicGalois.expectedHodgeTate_nodup` (characterisation): For antitone a, expectedHodgeTate a has no repetitions, by strict antitonicity of the shifted coordinates.
+Missing-object note: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. -/
+/- Test `TauCeti.AutomorphicGalois.expectedHodgeTate_classical` (computation): n = 2, a = (k − 2, 0) ↦ {k − 1, 0}; for k = 12, {11, 0}.
 An example requiring the full object is omitted because the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `TauCeti.AutomorphicGalois.expectedHodgeTate_zero` (degenerate): a = 0 ↦ {n − 1, …, 1, 0}: parallel weight 0 gives the Hodge–Tate numbers of Symⁿ⁻¹ of the dual Tate module of an elliptic curve.
+/- Test `TauCeti.AutomorphicGalois.expectedHodgeTate_zero` (degenerate): For n≥1, a = 0 ↦ {n − 1, …, 1, 0}: parallel weight 0 gives the Hodge–Tate numbers of Symⁿ⁻¹ of the dual Tate module of an elliptic curve.
 An example requiring the full object is omitted because the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.expectedHodgeTate_regular` (compatibility): The elements are pairwise distinct, so the multiset is regular in BLGGT's sense (|HT_τ| = n).
 An example requiring the full object is omitted because the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -549,7 +587,7 @@ Missing-object note: AF.1 automorphic representations, IHG.3 spherical Hecke eig
 Missing-object note: AF.1 automorphic representations, IHG.3 spherical Hecke eigencharacters, R01.1 global representations and unramified Frobenius lifts. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- Test `TauCeti.AutomorphicGalois.isAttached_heckeCharacter` (degenerate): n = 1: r_{l,ι}(ψ).IsAttached ι ψ.
 An example requiring the full object is omitted because AF.1 automorphic representations, IHG.3 spherical Hecke eigencharacters, R01.1 global representations and unramified Frobenius lifts. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `TauCeti.AutomorphicGalois.isAttached_classical` (value): ρ_f^∨ is attached to π_f ⊗ ‖det‖^{1−k/2}; for Δ the polynomial at 2 is X² + 24X + 2^{11}.
+/- Test `TauCeti.AutomorphicGalois.isAttached_classical` (computation): ρ_f^∨ is attached to π_f ⊗ ‖det‖^{1−k/2}; for Δ the polynomial at 2 is X² + 24X + 2^{11}.
 An example requiring the full object is omitted because AF.1 automorphic representations, IHG.3 spherical Hecke eigencharacters, R01.1 global representations and unramified Frobenius lifts. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TauCeti.AutomorphicGalois.not_isAttached_classical_rho` (non-example): ρ_f is not attached to π_f ⊗ ‖det‖^{1−k/2} (for Δ its geometric polynomial at 2 is X² + 24·2^{−11}X + 2^{−11}).
 An example requiring the full object is omitted because AF.1 automorphic representations, IHG.3 spherical Hecke eigencharacters, R01.1 global representations and unramified Frobenius lifts. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -558,7 +596,7 @@ An example requiring the full object is omitted because AF.1 automorphic represe
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality` (theorem): Rationality of the good Hecke polynomials.
 Mathematical signature: Import M_π=C^{Aut(C/π^∞)} and Clozel rationality from AF.4. For regular algebraic cuspidal π on GL_n over a CM or totally real field, every spherical integral Hecke polynomial P_v(π_v;X) has coefficients in M_π. At good places the traces of any attached r therefore lie in ι^(−1)(M_π). This controls traces, not a model of r over (M_π)_λ: the Schur-index obstruction is supplied by R01.5. Coefficient conjugation sends M_π to M_{σπ}=σ(M_π).
-Hypotheses: The definition uses π^∞ only. σπ^∞ is π^∞ with scalars extended along σ. M_π controls traces, not realisations. The field over which r can be written may be strictly larger, by a Schur-index obstruction, and AG2.7 states the realisation only after proving a finite coefficient field. Clozel's theorem is used with its exact hypotheses: π regular algebraic (cohomological) and cuspidal. It is not claimed for non-cuspidal or non-algebraic π.
+Hypotheses: The definition uses π^∞ only. σπ^∞ is π^∞ with scalars extended along σ. M_π controls traces, not realizations. The field over which r can be written may be strictly larger, by a Schur-index obstruction. AG2.3/finite-number-field-of-realization proves a common realization field using the regular labelled Hodge–Tate input supplied by AG2.6; the early rationality theorem does not depend on that late result. Clozel's theorem is used with its exact hypotheses: π regular algebraic (cohomological) and cuspidal. It is not claimed for non-cuspidal or non-algebraic π.
 Signature omitted where not prototyped above. Missing objects: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions; AutomorphicFormsOnReductiveGroups:AF.4/rationality-field; AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality; ArithmeticGaloisRepresentations:R01.5/descent-obstruction
 -/
@@ -628,7 +666,7 @@ Missing-object note: the compact PEL moduli scheme, universal polarized O_F-line
 Missing-object note: the compact PEL moduli scheme, universal polarized O_F-linear abelian scheme, reflex field and ramified Drinfeld integral charts. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- Test `CompactPEL.zeroPower` (degenerate): m=0 gives X_U, not an empty scheme.
 An example requiring the full object is omitted because the compact PEL moduli scheme, universal polarized O_F-linear abelian scheme, reflex field and ramified Drinfeld integral charts. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `CompactPEL.signatureDimension` (small): n=3 gives a proper surface, not the quasi-split six-dimensional local symmetric space.
+/- Test `CompactPEL.signatureDimension` (computation): n=3 gives a proper surface of dimension 2; the signature (3,3) datum has complex dimension 9[F⁺:Q].
 An example requiring the full object is omitted because the compact PEL moduli scheme, universal polarized O_F-linear abelian scheme, reflex field and ramified Drinfeld integral charts. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `CompactPEL.ramifiedFactor` (non-example): An unramified-only local datum cannot satisfy the API for ramified F_w.
 An example requiring the full object is omitted because the compact PEL moduli scheme, universal polarized O_F-linear abelian scheme, reflex field and ramified Drinfeld integral charts. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -647,11 +685,11 @@ Missing-object note: algebraic correspondences on the PEL abelian power, étale 
 Missing-object note: algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `CoefficientProjector.level` (functoriality): a_ξ commutes with level pullback and the correspondences defining Hecke actions.
 Missing-object note: algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `CoefficientProjector.denominator` (small): For N=2, y=0, the denominator is 1; for y=2 it is −2.
+/- Test `CoefficientProjector.denominator` (computation): For N=2, y=0, the denominator is 1; for y=2 it is −2.
 An example requiring the full object is omitted because algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `CoefficientProjector.degreeSelector` (non-example): On H⁰ of one abelian factor the y=0 term annihilates the class; on H¹ every term acts as 1.
 An example requiring the full object is omitted because algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `CoefficientProjector.zeroPower` (degenerate): The empty product m=0 is the identity and gives the trivial coefficient.
+/- Test `CoefficientProjector.zeroPower` (degenerate): For ξ=1 with m_ξ=t_ξ=0 and ε_ξ=1, the empty product is the identity and realizes the trivial coefficient. The condition m_ξ=0 alone does not exclude a nontrivial Tate twist.
 An example requiring the full object is omitted because algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `CoefficientProjector.lerayCorrection` (compatibility): The global selector uses the power 2n−1 even though its associated-graded selector is idempotent.
 An example requiring the full object is omitted because algebraic correspondences on the PEL abelian power, étale Leray cohomology and B2/Schur–Weyl graded ξ realization; scalar factors alone are available. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -714,7 +752,7 @@ Missing-object note: the actual smooth G(A_f) coefficient-cohomology tower and i
 Missing-object note: the actual smooth G(A_f) coefficient-cohomology tower and its discrete automorphic decomposition with continuous commuting Galois action. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- Test `MultiplicitySpace.absent` (degenerate): If π∞ is absent then every R^k is zero.
 An example requiring the full object is omitted because the actual smooth G(A_f) coefficient-cohomology tower and its discrete automorphic decomposition with continuous commuting Galois action. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `MultiplicitySpace.double` (small): Two copies of π∞ give a two-dimensional multiplicity space.
+/- Test `MultiplicitySpace.double` (computation): Two copies of π∞ give a two-dimensional multiplicity space.
 An example requiring the full object is omitted because the actual smooth G(A_f) coefficient-cohomology tower and its discrete automorphic decomposition with continuous commuting Galois action. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `MultiplicitySpace.cancellation` (non-example): Equal multiplicity spaces in adjacent degrees give zero virtual class with nonzero actual spaces.
 An example requiring the full object is omitted because the actual smooth G(A_f) coefficient-cohomology tower and its discrete automorphic decomposition with continuous commuting Galois action. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -737,7 +775,7 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.1b/compact-global-mantov
 Mathematical signature: For every Newton class b of the compact datum, define Mant_{b,μ}(ρ) by the colimit over Rapoport–Zink levels of the alternating Ext^i_{J_b(Q_p)}(H^j_c(M_{b,μ}),ρ), with the source’s dimension twist (−D) and sign (−1)^{i+j}. Shin Proposition 5.2 gives [H(Sh,L_ξ)]=Σ_b Mant_{b,μ}([H_c(Ig_b,L_ξ)]) as a class with commuting prime-to-p Hecke and Weil actions. The split local factors tensor as in (5.6).
 Hypotheses: Mantovan’s cohomology, smooth derived Ext, towers and actions for the chosen compact Drinfeld model; the dimension twist is included.
 Signature omitted where not prototyped above. Missing objects: the compact tower and Mantovan Ext/Igusa functors, local transfer, isotypic cohomology and continuous semisimple Galois multiplicities.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/raw-nearby-cycle-traces; IgusaVarietiesAndTorsionConcentration:IG.1/harris-taylor-igusa-varieties; HeckeStacksAndLocalShtukas:HS3; SmoothRepresentationsOfLocalGroups:SR.0:derived-extension
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/raw-nearby-cycle-traces; IgusaVarietiesAndTorsionConcentration:IG.1/harris-taylor-igusa-varieties; HeckeStacksAndLocalShtukas:HS3; SmoothRepresentationsOfLocalGroups:SR.0:derived-extension; IgusaVarietiesAndTorsionConcentration:IG.1
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.1b/shin-st-end-igusa-computation` (theorem): Shin’s stable and endoscopic Igusa computation.
@@ -765,7 +803,7 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.1b/archimedean-packet-mu
 Mathematical signature: Under ST/END, the sum of discrete multiplicities at the ith relevant cohomological archimedean packet member is τ(G) for all i in ST; in END it is τ(G) for i≤m₁ if e₁=e₂, or i>m₁ if e₁=−e₂, and zero for the other indices. These are the multiplicities of Shin Corollary 6.5(iv), compatible with the ξ highest-weight partition W^1_κ⊔W^2_κ.
 Hypotheses: The exact cohomological packet and signs of §3.6/§6.1, with middle-degree concentration.
 Signature omitted where not prototyped above. Missing objects: the compact tower and Mantovan Ext/Igusa functors, local transfer, isotypic cohomology and continuous semisimple Galois multiplicities.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1b/weight-separation-middle-degree; AutomorphicGaloisRepresentationsPartII:AG2.1b/shin-st-end-igusa-computation; AutomorphicGaloisRepresentationsPartII:AG2.1a/automorphic-multiplicity-spaces; EndoscopicTransferAndUnitaryTraceComparison:ET.7b
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1b/weight-separation-middle-degree; AutomorphicGaloisRepresentationsPartII:AG2.1b/shin-st-end-igusa-computation; AutomorphicGaloisRepresentationsPartII:AG2.1a/automorphic-multiplicity-spaces; EndoscopicTransferAndUnitaryTraceComparison:ET.7b; AutomorphicFormsOnReductiveGroups:AF.1
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.1b/actual-galois-constituent-from-cohomology` (construction): The actual Galois constituent of cohomology.
@@ -782,9 +820,9 @@ Missing-object note: actual isotypic middle cohomology, continuous semisimple Ga
 Missing-object note: actual isotypic middle cohomology, continuous semisimple Galois representations and the irreducible multiplicity-divisibility theorem. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `ActualConstituent.goodWeil` (projection): At source split primes recover the selected class (6.31), including the norm twist.
 Missing-object note: actual isotypic middle cohomology, continuous semisimple Galois representations and the irreducible multiplicity-divisibility theorem. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `ActualConstituent.stableRank` (small): Case ST n=3 gives rank 3 after removing C_G copies.
+/- Test `ActualConstituent.stableRank` (computation): Case ST n=3 gives rank 3 after removing C_G copies.
 An example requiring the full object is omitted because actual isotypic middle cohomology, continuous semisimple Galois representations and the irreducible multiplicity-divisibility theorem. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `ActualConstituent.endRank` (small): For n=5,m₁=3,m₂=2 the two sign cases give rank 3 and 2 respectively.
+/- Test `ActualConstituent.endRank` (computation): For n=5,m₁=3,m₂=2 the two sign cases give rank 3 and 2 respectively.
 An example requiring the full object is omitted because actual isotypic middle cohomology, continuous semisimple Galois representations and the irreducible multiplicity-divisibility theorem. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `ActualConstituent.rankOnly` (non-example): A semisimple rank-4 representation with irreducible multiplicities 1 and 3 cannot be divided into two copies merely because 2 divides 4.
 An example requiring the full object is omitted because actual isotypic middle cohomology, continuous semisimple Galois representations and the irreducible multiplicity-divisibility theorem. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -817,7 +855,7 @@ Missing-object note: discrete unitary automorphic transfer, normalized cuspidal 
 Missing-object note: discrete unitary automorphic transfer, normalized cuspidal block representations and their continuous Galois direct sums and twists. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `DiscreteAssembly.choice` (functoriality): Replacing each supplied r_i by an isomorphic attached representative gives an isomorphic R.
 Missing-object note: discrete unitary automorphic transfer, normalized cuspidal block representations and their continuous Galois direct sums and twists. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `DiscreteAssembly.singleBlock` (small): n=1,m₁=1,n₁=2 gives r₁ε^−1⊕r₁ε^−2.
+/- Test `DiscreteAssembly.singleBlock` (computation): n=1,m₁=1,n₁=2 gives r₁ε^−1⊕r₁ε^−2.
 An example requiring the full object is omitted because discrete unitary automorphic transfer, normalized cuspidal block representations and their continuous Galois direct sums and twists. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `DiscreteAssembly.cuspidal` (degenerate): n₁=1,m₁=2n gives r₁ε^−n, tracking the cohomological twist on π₁.
 An example requiring the full object is omitted because discrete unitary automorphic transfer, normalized cuspidal block representations and their continuous Galois direct sums and twists. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -828,7 +866,7 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.2/cs-discrete-polarizati
 Mathematical signature: For an irreducible admissible Π^S in BC^S[H_c(I_Mant^b,Q̄_ℓ)]_Sur of CS Corollary 5.5.5, Corollary 5.5.2 chooses the specified transfer from G_{n₁,n₂}, with Π⃗=ψ⊗Π₁⊗Π₂ and n₁+n₂=N. Let r_i be the representation for the L-algebraic parameter Π_i|det|^{(1−n_i)/2}. The character |det|^{(n_i−N)/2}(ϖ∘N_{F/K})^{ε(N−n_i)} is L-algebraic, with Galois character ε_i. Then r_{Π^S,ℓ}=⊕_{i=1}^2 r_i⊗ε_i has rank N, is unramified outside the places above S∪{ℓ}, and at v above q∈Spl_{F₀/Q} outside S∪{ℓ} has the displayed integral Hecke polynomial. The parity ε takes values 0 or 1 and ϖ has odd infinity exponent. This is the selected two-block cohomological transfer, not an assertion about every abstract discrete GL_N representation. The full local normalization at the specified split places is the separate Remark 5.5.6 comparison contract.
 Hypotheses: The exact cohomological surjection and transferred packet of Corollaries 5.5.2/5.5.5; published numbering; specified imaginary quadratic K, source splitting set, n₁+n₂=N and odd ϖ.
 Signature omitted where not prototyped above. Missing objects: cuspidal/discrete adele representations, geometric local parameters, algebraic characters and continuous attached Galois representations.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.2/discrete-unitary-galois-assembly; AutomorphicGaloisRepresentationsPartII:AG2.0/attachment-twist-dual-and-conjugation; EndoscopicTransferAndUnitaryTraceComparison:ET.7a
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.2/discrete-unitary-galois-assembly; AutomorphicGaloisRepresentationsPartII:AG2.0/attachment-twist-dual-and-conjugation; EndoscopicTransferAndUnitaryTraceComparison:ET.7a; AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change` (theorem): Attachment under cuspidal solvable base change.
@@ -839,10 +877,10 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-rep
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.3/definite-unitary-eigenvariety-instance` (construction): The definite-unitary eigenvariety instance.
-Mathematical signature: Under CH Hypotheses 1.2.1 and 1.2.3, K/F is unramified at finite places and [F:Q] is even. The hermitian V₀ gives a unitary G₀ compact at all real places and quasi-split at finite places. Choose v₀|ℓ split in K and an Iwahori refinement of Π there; fix weights at all other real places, and tame Bernstein components with the prescribed local monodromy bound. Specialize the group-independent finite-slope eigenvariety to overconvergent G₀ forms varying the weights belonging to v₀. The classical Π gives a point x with its good Hecke eigenvalues.
+Mathematical signature: Under CH General Hypotheses 1.1 and all Special Hypotheses 1.2, including Π spherical at nonsplit places (1.2.2), K/F is unramified at finite places and [F:Q] is even. The hermitian V₀ gives a unitary G₀ compact at all real places and quasi-split at finite places. Choose v₀|ℓ split in K and an Iwahori refinement of Π there; fix weights at all other real places, and tame Bernstein components with the prescribed local monodromy bound. Specialize the group-independent finite-slope eigenvariety to overconvergent G₀ forms varying the weights belonging to v₀. The classical Π gives a point x with its good Hecke eigenvalues.
 Hypotheses: General Hypothesis 1.1 and Special Hypotheses 1.2 and 2.2; n even in the interpolation step; a genuine finite-slope refinement at v₀.
 Signature omitted where not prototyped above. Missing objects: the supplied definite-unitary Banach family and compact operator, L4 finite-slope pieces, L2a eigenvariety points and tame Bernstein types.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation; EndoscopicTransferAndUnitaryTraceComparison:ET.7a; PadicFamilies:L2a/linked-banach-families; PadicFamilies:L2a/eigenpacket-points; LocallyAnalyticDistributions:L4/finite-slope-summands
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation; EndoscopicTransferAndUnitaryTraceComparison:ET.7a; PadicFamilies:L2a/linked-banach-families; PadicFamilies:L2a/eigenpacket-points; LocallyAnalyticDistributions:L4/finite-slope-summands; AutomorphicFormsOnReductiveGroups:AF.4
 -/
 /- API `DefiniteFamily.classicalPoint` (constructor): A refined classical Π with the fixed tame/infinity data gives x.
 Missing-object note: the supplied definite-unitary Banach family and compact operator, L4 finite-slope pieces, L2a eigenvariety points and tame Bernstein types. A fragment already declared above is only the stated weight or polynomial computation. -/
@@ -856,7 +894,7 @@ Missing-object note: the supplied definite-unitary Banach family and compact ope
 An example requiring the full object is omitted because the supplied definite-unitary Banach family and compact operator, L4 finite-slope pieces, L2a eigenvariety points and tame Bernstein types. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `DefiniteFamily.missingRefinement` (non-example): An infinite-slope eigensystem does not give a point of a finite-slope chart.
 An example requiring the full object is omitted because the supplied definite-unitary Banach family and compact operator, L4 finite-slope pieces, L2a eigenvariety points and tame Bernstein types. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `DefiniteFamily.classicalSpecialization` (small): At a classical point the good Hecke polynomial is the integral polynomial specialized to Π.
+/- Test `DefiniteFamily.classicalSpecialization` (computation): At a classical point the good Hecke polynomial is the integral polynomial specialized to Π.
 An example requiring the full object is omitted because the supplied definite-unitary Banach family and compact operator, L4 finite-slope pieces, L2a eigenvariety points and tame Bernstein types. The expressible scalar/weight examples above retain the available fragment only. -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.3/strongly-regular-classical-density` (theorem): Density of strongly regular classical points.
@@ -875,7 +913,7 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.3/strongly-r
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.3/finite-slope-regular-target-existence` (theorem): Existence at the regular finite-slope target.
 Mathematical signature: Under CH Hypotheses 1.1, 1.2 and 2.2, a regular CSD cuspidal Π has a unique continuous semisimple rank-n good-place attached r, without Hypothesis 1.3. The assertion includes even rank without slight regularity, because it is obtained by specializing the determinant at x, not by identifying Π itself with a geometric middle-degree constituent.
-Hypotheses: A split coefficient place with Iwahori invariants and the technical unramified CM datum of the definite-unitary family.
+Hypotheses: A split coefficient place with Iwahori invariants and the technical unramified CM datum of the definite-unitary family. CH §2 takes n even; the odd-rank existence branch comes from the geometric theorem. This node is the even-rank finite-slope step of the general construction.
 Signature omitted where not prototyped above. Missing objects: the definite-unitary automorphic eigenvariety and its continuous determinant, effective base change/patching and constructed Galois representation.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.3/definite-family-determinant-interpolation; AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places
 -/
@@ -894,7 +932,7 @@ Missing-object note: embedded number-field extensions in a fixed algebraic closu
 Missing-object note: embedded number-field extensions in a fixed algebraic closure, solvable extension degrees, disjointness and automorphic cuspidal base change. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- Test `SGeneralFamily.quantifier` (non-example): An infinite collection all containing one fixed nontrivial extension is not S-general.
 An example requiring the full object is omitted because embedded number-field extensions in a fixed algebraic closure, solvable extension degrees, disjointness and automorphic cuspidal base change. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `SGeneralFamily.split` (small): At a prescribed split place the local completion of each branch is the original field.
+/- Test `SGeneralFamily.split` (computation): At a prescribed split place the local completion of each branch is the original field.
 An example requiring the full object is omitted because embedded number-field extensions in a fixed algebraic closure, solvable extension degrees, disjointness and automorphic cuspidal base change. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `SGeneralFamily.forbidden` (degenerate): No splitting assertion is made for v∈S unless included in the local prescription.
 An example requiring the full object is omitted because embedded number-field extensions in a fixed algebraic closure, solvable extension degrees, disjointness and automorphic cuspidal base change. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -943,7 +981,7 @@ Missing-object note: the HLTT mixed Shimura/Kuga moduli schemes, toroidal bounda
 Missing-object note: the HLTT mixed Shimura/Kuga moduli schemes, toroidal boundary strata, ordinary dagger tube and subcanonical automorphic bundles. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- Test `HLTTModel.zeroKuga` (degenerate): m=0 has dimension [F⁺:Q]n².
 An example requiring the full object is omitted because the HLTT mixed Shimura/Kuga moduli schemes, toroidal boundary strata, ordinary dagger tube and subcanonical automorphic bundles. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `HLTTModel.oneKuga` (small): n=1,m=1 has dimension 3[F⁺:Q].
+/- Test `HLTTModel.oneKuga` (computation): n=1,m=1 has dimension 3[F⁺:Q].
 An example requiring the full object is omitted because the HLTT mixed Shimura/Kuga moduli schemes, toroidal boundary strata, ordinary dagger tube and subcanonical automorphic bundles. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `HLTTModel.boundaryIdeal` (non-example): Canonical sections without the boundary ideal include noncuspidal classes and cannot replace the subcanonical module.
 An example requiring the full object is omitted because the HLTT mixed Shimura/Kuga moduli schemes, toroidal boundary strata, ordinary dagger tube and subcanonical automorphic bundles. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -962,7 +1000,7 @@ Missing-object note: dagger analytic spaces with Frobenius, boundary ideal sheav
 Missing-object note: dagger analytic spaces with Frobenius, boundary ideal sheaves, derived de Rham complexes and the source transition-map colimit. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `BoundaryCohomology.groupAction` (functoriality): The source ordinary adelic group acts through these transition correspondences.
 Missing-object note: dagger analytic spaces with Frobenius, boundary ideal sheaves, derived de Rham complexes and the source transition-map colimit. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `BoundaryCohomology.localIdeal` (small): For ∂=(t=0), the degree-zero term is tO^†, not O^†.
+/- Test `BoundaryCohomology.localIdeal` (computation): For ∂=(t=0), the degree-zero term is tO^†, not O^†.
 An example requiring the full object is omitted because dagger analytic spaces with Frobenius, boundary ideal sheaves, derived de Rham complexes and the source transition-map colimit. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `BoundaryCohomology.empty` (degenerate): With ∂=∅ recover ordinary dagger de Rham cohomology.
 An example requiring the full object is omitted because dagger analytic spaces with Frobenius, boundary ideal sheaves, derived de Rham complexes and the source transition-map colimit. The expressible scalar/weight examples above retain the available fragment only. -/
@@ -977,14 +1015,14 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-ordin
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization` (lemma): HLTT Frobenius and trace normalization.
-Mathematical signature: On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient weight factor of Proposition 6.15 retained. This distinguishes geometric Frobenius pullback from its finite-étale trace.
+Mathematical signature: On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient factor p^{mn[F:Q]} of Proposition 6.15: on a graded E_ρ term the Kuga trace is p^{mn[F:Q]} times the cusp-section trace. Thus a Kuga slope bound a becomes a section slope bound a+mn[F:Q] in Corollary 6.17. This distinguishes geometric Frobenius pullback from its finite-étale trace.
 Hypotheses: HLTT ordinary Frobenius quotient, dagger finite-étale trace and its boundary extension; characteristic zero coefficients.
 Signature omitted where not prototyped above. Missing objects: the ordinary mixed Shimura dagger/boundary cohomology, integral Hecke actions and continuous determinant/representation carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology; AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-functorial-dagger-rigid-comparison; AdicSpacesPartII:F1/dagger-finite-etale-trace
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/ordinary-cusp-finite-slope-pieces` (theorem): Finite slope cusp sections on the ordinary tube.
-Mathematical signature: For each algebraic ρ and slope bound a, H⁰(X^ord,min,†,E_ρ^sub)_{≤a} is an admissible ordinary adelic module; at each fixed small level it is finite-dimensional. The completely continuous normalized trF acts on Banach strict neighborhoods and the finite-slope summand is unchanged upon shrinking through the source compatible neighborhoods. Its tower embeds in the ordinary classical-section space.
+Mathematical signature: For each algebraic ρ and slope bound a, H⁰(X^ord,min,†,E_ρ^sub)_{≤a} is an admissible ordinary adelic module; at each fixed small level it is finite-dimensional. The completely continuous normalized trF acts on Banach strict neighborhoods and the finite-slope summand is unchanged upon shrinking through the source compatible neighborhoods. Its tower embeds in the ordinary formal-section space H⁰(X^ord,min,E_ρ^ord,sub)⊗Q_p.
 Hypotheses: HLTT Lemmas 6.6 and 6.10–6.12, compact restriction maps and exact linked neighborhood data; the slope is measured for the normalized source trace.
 Signature omitted where not prototyped above. Missing objects: the ordinary mixed Shimura dagger/boundary cohomology, integral Hecke actions and continuous determinant/representation carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-ordinary-boundary-instance; AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization; LocallyAnalyticDistributions:L4/finite-slope-summands; LocallyAnalyticDistributions:L4/summand-fredholm-theory; PadicFamilies:L2a/linked-banach-families
@@ -1019,7 +1057,7 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/uniform-in
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/logarithmic-cusp-section-spectral-sequence` (theorem): The logarithmic cusp-section spectral sequence.
-Mathematical signature: At each finite slope, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Lemma 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with the specified trace and dimension shifts. Combining with Lemma 6.20 gives the spectral sequence to H^*_{c−∂,≤a}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
+Mathematical signature: At each finite slope, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Corollary 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with the specified trace and dimension shifts. Combining with Lemma 6.20 gives the spectral sequence to H^*_{c−∂,≤a}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
 Hypotheses: Actual algebraic representations ρ_{m,s}^{i,j}, coefficient trace factor and finite filtrations; the higher coherent cohomology vanishing on the ordinary affine locus.
 Signature omitted where not prototyped above. Missing objects: the ordinary mixed Shimura dagger/boundary cohomology, integral Hecke actions and continuous determinant/representation carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology; AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization; AutomorphicGaloisRepresentationsPartII:AG2.4/ordinary-cusp-finite-slope-pieces; AutomorphicGaloisRepresentationsPartII:AG2.4/ordinary-hecke-determinant-limit; AutomorphicBundles:B3
@@ -1085,7 +1123,7 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-tensor-square
 Mathematical signature: For the source auxiliary CM extensions F/F′/L and π with local Iwahori invariants, choose the compact unitary datum with signatures (1,n−1) at two distinguished real places and (0,n) at the others. Its dimension is 2n−2. The selected cohomological automorphic packet and corrected coefficient projector realize the tensor square of the already constructed rank-n representation, with the scalar character and multiplicity corrections of Caraiani §7. The integral model is locally étale over a product of two semistable charts at the chosen split prime.
 Hypotheses: The solvable extensions and two split distinguished p-adic places of the proof of Theorem 7.4; cuspidality preserved, relevant local components Iwahori fixed and exact source coefficient twists.
 Signature omitted where not prototyped above. Missing objects: the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris; AutomorphicGaloisRepresentationsPartII:AG2.1a/kuga-sato-coefficient-projector; PELModuli:M4; EndoscopicTransferAndUnitaryTraceComparison:ET.7a; LefschetzPencilsAndVanishingCycles:LPV.6
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris; AutomorphicGaloisRepresentationsPartII:AG2.1a/kuga-sato-coefficient-projector; PELModuli:M4; EndoscopicTransferAndUnitaryTraceComparison:ET.7a; LefschetzPencilsAndVanishingCycles:LPV.6; ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation
 -/
 /- API `TensorSquareInstance.signature` (characterisation): Exactly two nondefinite signatures give dimension 2n−2.
 Missing-object note: the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. A fragment already declared above is only the stated weight or polynomial computation. -/
@@ -1095,16 +1133,16 @@ Missing-object note: the two-signature compact PEL variety, product semistable c
 Missing-object note: the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. A fragment already declared above is only the stated weight or polynomial computation. -/
 /- API `TensorSquareInstance.actions` (functoriality): This identification preserves Hecke and Weil actions with N acting as N⊗1+1⊗N.
 Missing-object note: the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. A fragment already declared above is only the stated weight or polynomial computation. -/
-/- Test `TensorSquareInstance.rankTwo` (small): n=2 gives a two-dimensional Shimura variety and a rank-four tensor-square constituent.
+/- Test `TensorSquareInstance.rankTwo` (computation): n=2 gives a two-dimensional Shimura variety and a rank-four tensor-square constituent.
 An example requiring the full object is omitted because the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. The expressible scalar/weight examples above retain the available fragment only. -/
 /- Test `TensorSquareInstance.dimension` (non-example): The single-signature Shin variety cannot replace the dimension-2n−2 model.
 An example requiring the full object is omitted because the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. The expressible scalar/weight examples above retain the available fragment only. -/
-/- Test `TensorSquareInstance.monodromy` (compatibility): If one tensor factor has N=0, the tensor monodromy is the operator on the other factor, not zero.
+/- Test `TensorSquareInstance.monodromy` (compatibility): For nonzero tensor factors V₁,V₂ with N₁=0 and N₂≠0, total monodromy is 1⊗N₂≠0. For the tensor square with N=0, total monodromy is zero.
 An example requiring the full object is omitted because the two-signature compact PEL variety, product semistable charts, corrected coefficient cohomology and the constructed tensor-square Galois representation. The expressible scalar/weight examples above retain the available fragment only. -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.5/two-chart-nearby-cycle-monodromy` (comparison): Nearby cycles of the two-chart instance.
-Mathematical signature: Import the product nearby-cycle theorem of Caraiani Theorems 4.6 and 4.10 from LPV.6. On the tensor-square instance RΨ of the product is the derived tensor product of the two factors, and N=N₁⊗1+1⊗N₂. The two monodromy filtrations yield Corollary 4.29’s double-filtered stratum spectral sequence, compatible with the corrected projector, Hecke and Weil actions.
-Hypotheses: The actual étale-local product of semistable charts, all shifts and Tate twists, and coefficient projector equivariance.
+Mathematical signature: Import the product nearby-cycle comparison of Caraiani Proposition 3.9 and Proposition 4.10, with the single-chart filtration of Proposition 4.6 from LPV.6. On the tensor-square instance RΨ of the product is the derived tensor product of the two factors, and N=N₁⊗1+1⊗N₂. The kernel and image filtrations of the total monodromy operator N yield Corollary 4.29’s double-filtered stratum spectral sequence, compatible with the corrected projector, Hecke and Weil actions.
+Hypotheses: The actual étale-local product of semistable charts, all shifts and Tate twists, and coefficient projector equivariance. Characteristic-zero ℓ-adic coefficients Λ=Q_ℓ or Q̄_ℓ for the product argument of §4.2; the two charts are semistable over the same trait.
 Signature omitted where not prototyped above. Missing objects: the constructed global representation, genuine local WD parameter with N, local Langlands and the indicated geometric/purity comparison carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-tensor-square-geometric-instance; LefschetzPencilsAndVanishingCycles:LPV.6; AutomorphicGaloisRepresentationsPartII:AG2.1a/kuga-sato-coefficient-projector
 -/
@@ -1118,9 +1156,9 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-t
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.5/racsdc-temperedness` (theorem): Temperedness of regular unitary-type cuspidal forms.
 Mathematical signature: Every regular algebraic conjugate-self-dual cuspidal π on GL_n over CM L has tempered local components at all finite places. With every coefficient conjugate accounted for, the normalized local parameter is pure of weight n−1 in geometric normalization. This is the automorphic purity input to the monodromy comparison; arbitrary nonselfdual π is outside this theorem.
-Hypotheses: Regular algebraic CSD cuspidal, source solvable-base-change descent and all coefficient embeddings.
+Hypotheses: Regular algebraic CSD cuspidal, source solvable-base-change descent and all coefficient embeddings. Corollary 5.9 is stated for n≥2. For n=1 the assertion follows separately from the conjugate-self-dual algebraic Hecke-character dictionary and class field theory.
 Signature omitted where not prototyped above. Missing objects: the constructed global representation, genuine local WD parameter with N, local Langlands and the indicated geometric/purity comparison carriers.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-stratum-concentration; AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change; EndoscopicTransferAndUnitaryTraceComparison:ET.6; ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-stratum-concentration; AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change; EndoscopicTransferAndUnitaryTraceComparison:ET.6; ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations; AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.5/tensor-square-weight-spectral-sequence` (theorem): Purity from the double weight spectral sequence.
@@ -1155,7 +1193,7 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.3/automorphic-polarizati
 Mathematical signature: For the constructed regular algebraic polarized cuspidal pair (π,χ), r^c≅r∨⊗ε_ℓ^{1−n}r(χ)|_{G_F}. After the E2 parity normalization every conjugate-self-dual irreducible factor has Bellaïche–Chenevier sign +1, and the representation admits the G7 polarized-extension structure with totally odd multiplier µ=ε_ℓ^{1−n}r(χ). The good-place dual identity alone supplies the self-duality isomorphism; the sign theorem is the independent input needed for the prescribed symmetric polarization.
 Hypotheses: The normalized polarized pair and algebraic twisting character; characteristic-zero semisimple r; irreducible factors fixed by the dual-conjugation operation as in BC Theorem 1.2.
 Signature omitted where not prototyped above. Missing objects: the definite-unitary automorphic eigenvariety and its continuous determinant, effective base change/patching and constructed Galois representation.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris; AutomorphicGaloisRepresentationsPartII:AG2.2/algebraic-character-polarization-twist; AutomorphicGaloisRepresentationsPartII:AG2.0/attachment-twist-dual-and-conjugation; AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier; GlobalGaloisDeformations:G7/polarized-deformation-problem; GlobalGaloisDeformations:G7
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris; AutomorphicGaloisRepresentationsPartII:AG2.2/algebraic-character-polarization-twist; AutomorphicGaloisRepresentationsPartII:AG2.0/attachment-twist-dual-and-conjugation; AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier; ArithmeticGaloisRepresentations:G7/polarized-representation; ArithmeticGaloisRepresentations:G7/polarization-sign-and-determinant; ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group; ArithmeticGaloisRepresentations:G7/operations-on-polarized-representations
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.3/finite-number-field-of-realization` (theorem): A common finite field of realization in the polarized range.
@@ -1169,11 +1207,11 @@ Declaration `AutomorphicGaloisRepresentationsPartII:AG2.5/late-gl2-modular-compa
 Mathematical signature: For a classical or Hilbert modular eigenform in the overlap of the source hypotheses, compare the constructed rank-two automorphic r with the classical R19.1/R19.2 representation after the explicit dual/cyclotomic and geometric-versus-arithmetic conversion. Equality of the good polynomials implies semisimple isomorphism. In the local range where R19.4 proves its own comparison, transport that comparison through the isomorphism. R19 is a consumer comparison, not an input to arbitrary-rank existence or raw geometry.
 Hypotheses: Both independently constructed representations exist; identical weight, nebentype, embedding and Frobenius convention after conversion; only the actual R19 local range is used.
 Signature omitted where not prototyped above. Missing objects: the constructed global representation, genuine local WD parameter with N, local Langlands and the indicated geometric/purity comparison carriers.
-Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/good-prime-unramified-polynomial; IntegralHeckeAndGaloisDeterminants:IHG.3/rank-two-modular-normalization; AutomorphicGaloisRepresentations:R19.1; AutomorphicGaloisRepresentations:R19.2; AutomorphicGaloisRepresentations:R19.4
+Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.5/good-prime-unramified-polynomial; IntegralHeckeAndGaloisDeterminants:IHG.3/rank-two-modular-normalization; AutomorphicGaloisRepresentations:R19.1; AutomorphicGaloisRepresentations:R19.2; AutomorphicGaloisRepresentations:R19.4; ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/relevant-automorphic-coefficient-field` (comparison): The coefficient field of a relevant automorphic representation.
-Mathematical signature: For relevant π in Liu et al. Definition 1.1.3, import Q(π) as the fixed field of automorphisms preserving π∞. Its local coefficient field is generated by coefficients of ∏_i(T−α_i q_v^{(N−1)/2}) at spherical places. Lemma 3.1.2 identifies Q(π) with the compositum of these local fields, using Clozel rationality and strong multiplicity one. This is an automorphic coefficient-field result; it does not prove Definition 3.2.5 strong Galois realization over each completion.
+Mathematical signature: For relevant π in Liu et al. Definition 1.1.3, import Q(π) as the fixed field of automorphisms preserving the finite part π^∞. Its local coefficient field is generated by coefficients of ∏_i(T−α_i q_v^{(N−1)/2}) at spherical places. Lemma 3.1.2 identifies Q(π) with the compositum of these local fields, using Clozel rationality and strong multiplicity one. This is an automorphic coefficient-field result; it does not prove Definition 3.2.5 strong Galois realization over each completion.
 Hypotheses: Relevant regular algebraic CSD cuspidal π and normalized spherical parameters; all coefficient embeddings tracked.
 Signature omitted where not prototyped above. Missing objects: the named automorphic/Hecke/Galois objects in the prerequisites; the number-field embedding and finite combinatorics fragments are available above.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality; AutomorphicFormsOnReductiveGroups:AF.4/rationality-field; AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality; AutomorphicFormsOnReductiveGroups:AF.4
