@@ -10382,7 +10382,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3344"
   },
   {
    "id": "REV-DESIGN-PotentialAutomorphyInfrastructurePartII",
@@ -23023,8 +23024,9 @@
    ],
    "avoidAccountOf": "BP-CohomologyComparisons",
    "prompt": "research/blueprint/prompts/REV-CohomologyComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #372"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #372",
+   "finishedAt": "2026-10-07T03:22:22Z"
   },
   {
    "id": "BP-ColemanIntegration",
@@ -26889,12 +26891,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #770"
+   "note": "claimed on GitHub issue #770"
   },
   {
    "id": "REV-LocalGaloisDeformationRings",
@@ -28534,8 +28536,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #983"
   },
   {
    "id": "REV-RefinedTraceMethods--RT.1",
@@ -36887,8 +36890,9 @@
     "REV-ClassicalAdicEtaleCohomology--H4"
    ],
    "prompt": "research/blueprint/prompts/ASM-ClassicalAdicEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #218"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #218",
+   "finishedAt": "2026-10-07T03:22:24Z"
   },
   {
    "id": "ASM-ClassicalSerreModularity",
@@ -37534,8 +37538,9 @@
     "REV-LefschetzPencilsAndVanishingCycles--LPV.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-LefschetzPencilsAndVanishingCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #244"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #244",
+   "finishedAt": "2026-10-07T03:22:27Z"
   },
   {
    "id": "ASM-MetaplecticAutomorphicForms",
