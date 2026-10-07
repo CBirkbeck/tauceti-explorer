@@ -22377,9 +22377,9 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #685"
+   "note": "claimed on GitHub issue #685"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentations",
@@ -28876,8 +28876,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraCompactifications--C0",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications--C0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #487"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #487",
+   "finishedAt": "2026-10-07T00:06:59Z"
   },
   {
    "id": "BP-ShimuraCompactifications--C6",
@@ -37120,7 +37121,8 @@
     "REV-EtaleDualityAndPerverseSheaves--EDC.4"
    ],
    "prompt": "research/blueprint/prompts/ASM-EtaleDualityAndPerverseSheaves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #228"
   },
   {
    "id": "ASM-EulerSystemsAndKolyvaginSystems",
@@ -37761,7 +37763,8 @@
     "REV-ShimuraVarieties--V8"
    ],
    "prompt": "research/blueprint/prompts/ASM-ShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #259"
   },
   {
    "id": "ASM-SmoothRepresentationsOfLocalGroups",
