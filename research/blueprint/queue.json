@@ -23783,9 +23783,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondsAndVStacks.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #712"
+   "note": "claimed on GitHub issue #712"
   },
   {
    "id": "REV-DiamondsAndVStacks",
@@ -26790,9 +26790,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #767"
+   "note": "deliverables arrived from an external worker on issue #767",
+   "finishedAt": "2026-10-07T09:54:09Z"
   },
   {
    "id": "REV-LanglandsParameterStacks",
