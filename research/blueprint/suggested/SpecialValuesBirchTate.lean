@@ -28,11 +28,14 @@ and signatures. All packet implementation statuses are unchecked.
 
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The native signatures and arithmetic regression examples below elaborate at pinned
-Mathlib. Higher signatures are explicit comments: their actual K/cohomology,
-Iwasawa and motivic objects have not landed. No replacement carriers are defined.
-The three existing Tau Ceti modules cited below lack shared .olean files here;
-their source declarations were read at the pinned commit, without building them.
+REV-SpecialValuesBirchTate (codex-CTuEhy, 2026-10-06) reported a successful pinned
+Mathlib check of the active native signatures and arithmetic examples below, with
+exactly three admitted-proof warnings. This revision did not run Lean: there is no
+existing pinned build here and available memory is below WORKERS.md's threshold.
+The executable text is unchanged. Higher signatures are explicit comments: their
+actual K/cohomology, Iwasawa and motivic objects have not landed. No replacement
+carriers are defined. The prior run did not build the three cited Tau Ceti modules;
+their declarations are source-level inputs at the pinned commit.
 
 Existing source imports for the quadratic and finite Euler-product adapters:
   import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
@@ -82,7 +85,9 @@ example : (-1 : ℚ) / 12 = -2 / 24 ∧ (1 : ℚ) / 30 = 4 / 120 ∧
 example : (-1 : ℚ) / 12 * (1-2) * (1-3) = -1 / 6 ∧
     (2 : ℕ) * (2-1) * (3-1) = 4 := by norm_num
 
--- B.8: keep the real-place factor 2 in both even-weight examples.
+-- B.8: these are global checks using full finite-group orders.
+-- The separate local 2-primary cohomological ratios are 2/8 = 1/4 at n=2
+-- and 2/16 = 1/8 at n=4; 240 is not the order of the local H¹ group.
 example : (2 : ℚ) / 48 ≠ 1 / 12 ∧ (2 : ℚ) * 2 / 48 = 1 / 12 ∧
     (2 : ℚ) / 24 = 1 / 12 ∧ (2 : ℚ) * 1 / 240 = 1 / 120 := by norm_num
 
@@ -188,7 +193,9 @@ section Sign
 variable (F : Type*) [Field F] [NumberField F]
 
 /-- B.2/zeta-via-reciprocal-gamma. Lean's `(Gammaℝ s)⁻¹` is the entire reciprocal: at a pole
-of `Γ_ℝ` the totalised `Gammaℝ s` is `0` and its inverse is `0`, the value of `1/Γ_ℝ` there. -/
+of `Γ_ℝ` the totalised `Gammaℝ s` is `0` and its inverse is `0`, the value of `1/Γ_ℝ` there.
+Use `NumberField.discr_ne_zero` to obtain the positive base `|discr F|`;
+its complex powers are defined by the real logarithm and are entire in s. -/
 theorem dedekindZeta_eq_inv_gamma_mul_completed (s : ℂ) (h0 : s ≠ 0) (h1 : s ≠ 1) :
     dedekindZetaCont F s = (|discr F| : ℂ) ^ (-s / 2) * (Gammaℝ s)⁻¹ ^ nrRealPlaces F *
       (Gammaℂ s)⁻¹ ^ nrComplexPlaces F * completedDedekindZetaCont F s := by sorry
@@ -664,10 +671,13 @@ theorem sModifiedZeta_enlarge (S T : Finset (HeightOneSpectrum (𝓞 F)))
       Nat.card (K2 ((S : Set (HeightOneSpectrum (𝓞 F))).integer F)) *
         ∏ v ∈ T \ S, (Ideal.absNorm v.asIdeal - 1) := by sorry
 
--- B.7/localisation-comparison-naturality: the requested M.3 arithmetic Chern
--- map and M.7 corrected map at real places, with their coefficient/residue maps.
--- The full natural transformation, including boundary squares, is authoritative
--- in the reader. This displayed square is its degree-two inclusion component.
+-- B.7/localisation-comparison-naturality: M.3 supplies the actual Galois/Tate h,
+-- with ∂ ∘ h = -κ ∘ tame at finite coefficients; it is not silently named c₂,₂.
+-- M.8 owns the separate normalized Chern/Galois comparison (RS-08) required
+-- for the Chern-map prototype below. M.7 owns higher corrected real-place maps.
+-- The full natural transformation and signed boundary squares are authoritative
+-- in the reader. This displayed square is only the Chern inclusion component.
+-- For the M.3 supplier, append all archimedean places to the finite S,T here.
 theorem chern_localisation_square (ℓ : ℕ) [Fact ℓ.Prime]
     (S T : Finset (HeightOneSpectrum (𝓞 F))) (hST : S ⊆ T)
     (hS : ArithmeticKTheory.primesAbove F ℓ ⊆ S) :
@@ -675,6 +685,8 @@ theorem chern_localisation_square (ℓ : ℕ) [Fact ℓ.Prime]
       (MotivicEtaleKTheory.etaleRestriction F ℓ hST).comp (MotivicEtaleKTheory.chernTwo F ℓ S) := by sorry
 
 -- B.8/real-place-two-correction: n is even; both K groups are finite here.
+-- Étale groups here are 2-primary. In the local order interpretation, use
+-- K_even{2}, K_odd{2} and w_n^(2); the valuation statement below already does so.
 theorem padicValRat_higher_two_correction [IsTotallyReal F] (n : ℕ)
     (hn : 2 ≤ n) (he : Even n) :
     (padicValNat 2 (Nat.card (MotivicEtaleKTheory.arithmeticEtaleH2 F 2 n)) : ℤ) -
@@ -731,6 +743,10 @@ theorem tateMotive_etnc_statement_lattice_invariant (E L : Type*)
 example : (2 : ℚ) / 24 = 1 / 12 ∧ (2 : ℚ) * 2 / 48 = 1 / 12 := by sorry
 
 -- TauCeti.BirchTate.tateMotive_etnc_complex_leading_term
+-- This example displays the scalar obstruction. For Q(i)/Q in weight two,
+-- the center-valued Artin orders are (0,1), while the scalar Dedekind order is 1.
+-- The complete reader test requires both nonzero componentwise leading terms
+-- in PS.5's actual center-valued input; a zero quadratic component is not a unit.
 example (h : nrComplexPlaces F = 1) :
     dedekindZetaCont F (-1) = 0 ∧ zetaLeadingCoeff F 2 ≠ 0 := by sorry
 
