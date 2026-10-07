@@ -676,3 +676,12 @@ genericity, archimedean, dual entireness, strip and epsilon hypotheses.
 AL.3/gln-converse-reduced-rank has n>=3 and supplies no rank-two shortcut.
 These ownership annotations add no missing native carrier or proof.
 -/
+
+/-
+Archimedean classification imports the exact current AF.1/weil-group-real,
+AF.1/gl2-real-discrete-series, AF.1/archimedean-llc-gln and
+AF.1/casselman-wallach-globalization nodes. The factor comparison uses
+AF.1/archimedean-llc-gln and AL.1's gamma/additive-character conventions.
+AF.1b remains a proposed stage split; these exact node imports do not close
+AF's original classification proofs or missing native signature interfaces.
+-/

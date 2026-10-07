@@ -573,21 +573,21 @@ For the upper Iwahori I and a characteristic-zero coefficient ring in which q an
 
 **Declaration:** `TauCeti.GL2Blueprint.archimedeanClassification` (theorem); node `GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification`.
 
-Import archimedean Weil groups, Langlands classification and globalizations from the proposed AF.1b owner (requested through current AF.1). For GL₂(ℝ), real reducible parameters χ₁⊕χ₂ correspond to the appropriate Langlands quotient of normalized induction, including its finite-dimensional exceptional quotients. An irreducible parameter Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), integer m≥1, corresponds to D_{m+1}⊗|det|^t, the full O(2) representation whose positive-determinant restriction has holomorphic and antiholomorphic pieces. For m=0 the parameter splits and one obtains the limit boundary; it is not an irreducible Weil parameter. For GL₂(ℂ), every parameter is a pair of continuous quasicharacters and the representation is the corresponding Langlands quotient; GL₂(ℂ) has no discrete series modulo center.
+Import the existing AF.1/weil-group-real, AF.1/archimedean-llc-gln and AF.1/casselman-wallach-globalization nodes of the single AF real-representation owner. The proposed AF.1b split preserves these contracts; it is not an installed stage. For GL₂(ℝ), real reducible parameters χ₁⊕χ₂ correspond to the appropriate Langlands quotient of normalized induction, including its finite-dimensional exceptional quotients. An irreducible parameter Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), integer m≥1, corresponds to D_{m+1}⊗|det|^t, the full O(2) representation whose positive-determinant restriction has holomorphic and antiholomorphic pieces. For m=0 the parameter splits and one obtains the limit boundary; it is not an irreducible Weil parameter. For GL₂(ℂ), every parameter is a pair of continuous quasicharacters and the representation is the corresponding Langlands quotient; GL₂(ℂ) has no discrete series modulo center.
 
 **Hypotheses.** Admissible irreducible Harish–Chandra modules with their Casselman–Wallach globalizations; explicit chamber/order in a Langlands quotient.
 
 **Proof or construction.**
 
-1. Specialize AF.1b Langlands classification and Wℝ/Wℂ classification to rank two.
+1. Specialize AF.1/archimedean-llc-gln and AF.1/weil-group-real to rank two, using AF.1/casselman-wallach-globalization for the smooth realization.
 2. Compare the lowest SO(2) weights with JL §5 and the complex principal-series coordinates with JL §6.
 3. Keep full O(2), connected-group constituents, finite-dimensional quotients and limit cases distinct.
 
-**Direct prerequisites:** `AutomorphicFormsOnReductiveGroups:AF.1/weil-group-real`, `AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series`, `AutomorphicFormsOnReductiveGroups:AF.1`.
+**Direct prerequisites:** `AutomorphicFormsOnReductiveGroups:AF.1/weil-group-real`, `AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series`, `AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln`, `AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization`.
 
 **Acceptance.** D₂ has weights ±2,±4,…; a full GL₂(ℝ) holomorphic representation is not just one connected-group constituent.
 
-**Source:** [Hervé Jacquet and Robert P. Langlands, *Automorphic forms on GL(2)*](https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl_9.pdf), §5 Lemmas 5.6–5.7; §6 Lemma 6.1, beginning printed p. 110. JL §5–§6 give the concrete real/complex modules and boundary cases. Modern archimedean Weil parametrization and globalization are imported through the AF.1/AF.1b request, not asserted to be proved by these passages.
+**Source:** [Hervé Jacquet and Robert P. Langlands, *Automorphic forms on GL(2)*](https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl_9.pdf), §5 Lemmas 5.6–5.7; §6 Lemma 6.1, beginning printed p. 110. JL §5–§6 give the concrete real/complex modules and boundary cases. Modern archimedean Weil parametrization and globalization are imported from the exact AF.1 nodes, not asserted to be proved by these passages.
 
 **Closure requirements for this stage.** Resolve the applicable gaps and supplier contracts listed below. The packet’s coverage record lists every applicable contract under this stage.
 
@@ -720,15 +720,15 @@ Use Γℝ(s)=π^{−s/2}Γ(s/2), Γℂ(s)=2(2π)^{−s}Γ(s). For a real charact
 
 **Proof or construction.**
 
-1. Import AF.1b archimedean LLC and AL.1 archimedean character factors via the current AF.1 request.
+1. Import AF.1/archimedean-llc-gln and AL.1 archimedean character factors; the proposed AF.1b split does not change the current supplier node.
 2. Decompose the Weil parameter into its real one-dimensional or induced two-dimensional summands.
 3. Apply the gamma duplication formula for the m=0 boundary and compare D_k lowest weights.
 
-**Direct prerequisites:** [R16.2/archimedean-classification](#R16-2-archimedean-classification), `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicLFunctionsAndLocalFactors:AL.1`, `AutomorphicLFunctionsAndLocalFactors:AL.2`.
+**Direct prerequisites:** [R16.2/archimedean-classification](#R16-2-archimedean-classification), `AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln`, `AutomorphicLFunctionsAndLocalFactors:AL.1`, `AutomorphicLFunctionsAndLocalFactors:AL.2`.
 
 **Acceptance.** D₂ contributes Γℂ(s+1/2); the complex angular exponent is absolute-valued.
 
-**Source:** [Hervé Jacquet and Robert P. Langlands, *Automorphic forms on GL(2)*](https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl_9.pdf), §5 printed pp. 96–97, explicit character L/epsilon formulas and induced-real factor. JL pp. 96–97 state the real/complex character factors and the real induced factor. The modern parameter classification is a separate AF.1b input; AL.1 fixes the gamma/epsilon conventions.
+**Source:** [Hervé Jacquet and Robert P. Langlands, *Automorphic forms on GL(2)*](https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl_9.pdf), §5 printed pp. 96–97, explicit character L/epsilon formulas and induced-real factor. JL pp. 96–97 state the real/complex character factors and the real induced factor. The modern parameter classification is the separate AF.1/archimedean-llc-gln input; AL.1 fixes the gamma/epsilon conventions.
 
 <a id="R16-3-tamely-dihedral"></a>
 
@@ -1626,7 +1626,9 @@ The single local Whittaker/Kirillov functor, uniqueness, explicit Borel action, 
 
 Through the verified RT-AREA-automorphic-1/2 fix, split off proposed AF.1b after AF.1: archimedean Wℝ,Wℂ representations, Langlands classification/globalization for GLn(ℝ),GLn(ℂ), nondegenerate limits, full-O(2) GL₂ discrete series and archimedean LLC with L/epsilon factors. The present request names current AF.1; no uninstalled AF.1b stage is treated as an existing dependency.
 
-**Required by:** [R16.2/archimedean-classification](#R16-2-archimedean-classification), [R16.3/archimedean-factor-comparison](#R16-3-archimedean-factor-comparison), [R16.5/full-gl2-converse](#R16-5-full-gl2-converse), [R16.6/hilbert-algebraic-weights](#R16-6-hilbert-algebraic-weights), [R17.1/real-quaternionic-comparison](#R17-1-real-quaternionic-comparison), [R16.6/weight-one-classical-comparison](#R16-6-weight-one-classical-comparison).
+R16.2/archimedean-classification and R16.3/archimedean-factor-comparison use the exact current AF.1 supplier nodes above. Their classification/globalization proof and signature gaps remain those of AF.
+
+**Required by:** [R16.5/full-gl2-converse](#R16-5-full-gl2-converse), [R16.6/hilbert-algebraic-weights](#R16-6-hilbert-algebraic-weights), [R17.1/real-quaternionic-comparison](#R17-1-real-quaternionic-comparison), [R16.6/weight-one-classical-comparison](#R16-6-weight-one-classical-comparison).
 
 ### Contract 11: AutomorphicFormsOnReductiveGroups:AF.2
 

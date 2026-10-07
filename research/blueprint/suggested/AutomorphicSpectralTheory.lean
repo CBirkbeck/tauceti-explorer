@@ -4669,3 +4669,12 @@ The raw weight-zero Laplacian is QM.3/weight-k-hyperbolic-laplacian;
 the GZ Green operator has the opposite sign. Uniform parameter estimates
 remain distinct from the carrier formulas and fixed-parameter asymptotics.
 -/
+
+/-
+The single AF real-representation owner already plans Langlands
+classification, discrete series, the archimedean GL_n correspondence and
+Casselman-Wallach globalization. Their original proofs and native signatures
+remain gaps. AS imports that owner; it does not create a second classification
+theory. The mu-function, Plancherel scalar and rank-one meromorphic-integral
+proof requirements remain separate local harmonic-analysis obligations.
+-/
