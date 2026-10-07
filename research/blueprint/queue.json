@@ -22983,8 +22983,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #361"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #361",
+   "finishedAt": "2026-10-07T17:30:00Z"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -32580,7 +32581,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6938"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.1",
@@ -32624,7 +32626,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6939"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.2",
@@ -37856,8 +37859,9 @@
     "BP-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6908"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6908",
+   "finishedAt": "2026-10-07T17:30:07Z"
   },
   {
    "kind": "blueprint",
@@ -39576,7 +39580,8 @@
    ],
    "revisionOf": "BP-KTheoryFiniteLocalFields",
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6973"
   },
   {
    "priority": 2,
@@ -39801,7 +39806,8 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6975"
   },
   {
    "priority": 2,
@@ -41902,8 +41908,9 @@
     "BP-EffectiveDiophantineMethods~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6914"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6914",
+   "finishedAt": "2026-10-07T17:30:10Z"
   },
   {
    "kind": "blueprint",
@@ -42282,7 +42289,8 @@
    ],
    "revisionOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6968"
   },
   {
    "priority": 2,
@@ -71069,8 +71077,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "RT-AREA-langlands-3",
