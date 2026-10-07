@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 14,
+  "measured": 15,
   "built": 7,
   "children": 1
  },
@@ -68,7 +68,7 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.859,
+  "distanceVsClassification": 0.857,
   "distanceVsMissingTargets": 0.963,
   "distanceVsMissingLayers": 0.965,
   "distanceVsDepth": 0.949,
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.129
+  "declarationsVsDistance": -0.116
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -908,6 +908,10 @@
     {
      "galaxy": "automorphic",
      "roadmaps": 1
+    },
+    {
+     "galaxy": "representations",
+     "roadmaps": 1
     }
    ]
   },
@@ -1327,6 +1331,34 @@
      "roadmaps": 1
     }
    ]
+  },
+  "ClassicalGroupsPartII": {
+   "classification": 7,
+   "structure": {
+    "layers": 4,
+    "missingOwn": 4.0,
+    "missingLayers": 11.5,
+    "missingTargets": 46.6,
+    "depth": 5,
+    "suppliers": 3,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 26,
+     "missingDeclarations": 26,
+     "depth": 15,
+     "layersCovered": 4,
+     "layers": 4,
+     "sourcePages": 10
+    }
+   },
+   "measurement": 2.96,
+   "judgements": 0,
+   "distance": 2.96,
+   "low": 1.81,
+   "high": 4.12,
+   "basis": "measured",
+   "usedBy": []
   },
   "ClassicalSerreModularity": {
    "classification": 10,
@@ -8148,6 +8180,16 @@
        "consumer": "LogicAndDefinabilityInNumberTheory"
       }
      ]
+    },
+    {
+     "galaxy": "representations",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ArithmeticStatistics",
+       "consumer": "ClassicalGroupsPartII"
+      }
+     ]
     }
    ],
    "frontier": [
@@ -10660,8 +10702,8 @@
    "upstreamOnly": true
   },
   "representations": {
-   "distance": 2.4,
-   "roadmaps": 17,
+   "distance": 2.43,
+   "roadmaps": 18,
    "supplies": [
     {
      "galaxy": "automorphic",

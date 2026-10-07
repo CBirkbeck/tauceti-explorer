@@ -1,8 +1,8 @@
 {
-  "roadmaps": 235,
-  "stages": 4494,
-  "originalStages": 2156,
-  "sourceRefinements": 2338,
+  "roadmaps": 236,
+  "stages": 4519,
+  "originalStages": 2160,
+  "sourceRefinements": 2359,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -278,7 +278,7 @@
       "deferredLinks": 1
     }
   ],
-  "terminalTargets": 2084,
+  "terminalTargets": 2088,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -287,7 +287,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 14,
+    "measured": 15,
     "built": 7,
     "children": 1
   },
@@ -295,18 +295,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 235,
+  "mathematicalSummaries": 236,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4393,
+  "mathematicalStars": 4418,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2067,
-  "stageEdges": 11662,
+  "roadmapEdges": 2071,
+  "stageEdges": 11710,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -410,6 +410,12 @@
       "roadmap": "ClassicalArithmeticCompletion",
       "nodes": 333,
       "reviewer": "independent-review-REV-FIX-RT-PAPER-GHOSH-SARNAK-22"
+    },
+    {
+      "file": "ClassicalGroupsPartII",
+      "roadmap": "ClassicalGroupsPartII",
+      "nodes": 26,
+      "reviewer": "independent-review-REV-DESIGN-ClassicalGroupsPartII"
     },
     {
       "file": "ClassicalSerreModularity--R27.3",
@@ -1073,8 +1079,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35317184,
-  "htmlSha256": "8a387f3d7729bb7f31277ced5e55060d4f429a8f581f2bdbfd1cce81cac9563f",
+  "htmlBytes": 35378848,
+  "htmlSha256": "c012d6e47e5fafbde3974c340d9f9d4a0f2686ebdf405b8821ca7fae817b74fa",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1106,8 +1112,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "b115d505a8d2c5a0eac44fe06a6148527effb7b91fc87962db879b5feb1d3c5f",
-    "data/galaxy-layout.json": "98061aa7b7c38e49c88f8e5493418730fe805069b5c68d5fe2a30111b520062a",
+    "data/roadmap-distances.json": "ac3bf9444f894246d9f53e0d936be71289407f71c11484c2c116cb1c93155160",
+    "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -1198,6 +1204,8 @@
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
     "data/blueprints/ClassicalArithmeticCompletion.json": "57020993340f50dc1886705554d03b02622b2aa379ac36b9602ff4182553a8cc",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
+    "data/blueprints/ClassicalGroupsPartII.json": "927e20a023c2c480ae44e73d532cb45b1bde30affadb1280cb344aed7b9c2ce8",
+    "data/blueprints/ClassicalGroupsPartII.md": "ba16d13a13a7734c1dedfaadca28eb9282e2fd7058aa30fe654b0da90cf611e5",
     "data/blueprints/ClassicalSerreModularity--R27.3.json": "b156d9728eee8d01aadaa804ea15e7e223790d1b5ff8f209198a5d203561866c",
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "864dc2351c1de7f6765c8d8cc2b8d8d91c2fa7b55bf8131b92e059a1224239b4",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "263c823041a3dff54a66d11c203e6d871d0f68177f5430300d9f492ecb43157d",
@@ -1420,6 +1428,7 @@
     "data/blueprints/WeilConjectures--WC.6.md": "7f1a831e2b0451a1a2ac492483e463832b00a579ee2546bb94a8f5c7d4c5d99e",
     "data/blueprints/roadmaps/AbelianSchemesAndArithmeticModuliPartII.json": "444741ba656f1e4ead75407906b20b9e1b9145585ad3c9d8b86053231e3641c0",
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
+    "data/blueprints/roadmaps/ClassicalGroupsPartII.json": "96394499f8287395ec5dcbfd6b51ee3c1866473d21d0c7a46e31a7dfcbcbe211",
     "data/blueprints/roadmaps/ConformalMappingPartII.json": "ddd4e3d4097c295f24ab7f018f6427105621a2335e2040955e49fd8f5137088b",
     "data/blueprints/roadmaps/CrystallineLocalGlobalCompatibilityCM.json": "69e20eee2aadc47c32b45dfae4d6525d4cdf14980face2e87244052d3c1d3f05",
     "data/blueprints/roadmaps/EllipticCurveModularityImaginaryQuadratic.json": "6e64390574345ea126710e816d3db0f143ed0bd79eb8e383060f8cdcdeb1a933",
