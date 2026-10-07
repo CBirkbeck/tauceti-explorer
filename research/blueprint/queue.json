@@ -22113,7 +22113,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #354"
   },
   {
    "id": "BP-AutomorphicBundles--B0",
@@ -26941,8 +26942,9 @@
    ],
    "avoidAccountOf": "BP-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/REV-LocalGaloisDeformationRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #447"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #447",
+   "finishedAt": "2026-10-07T05:13:31Z"
   },
   {
    "id": "BP-MetaplecticAutomorphicForms--MP.0",
