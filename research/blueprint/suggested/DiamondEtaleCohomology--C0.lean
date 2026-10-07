@@ -177,6 +177,31 @@ def qproetSite (Y : S.Dia) : GrothendieckTopology (S.QpOver Y) := sorry
 /-- C0/v-site: the v-site `Y_v` of a small v-stack at a cutoff (ECD 14.1(iii)). -/
 def vSite (Y : S.V) : GrothendieckTopology (S.VOver Y) := sorry
 
+/-- A family `fᵢ : Xᵢ → Y` of maps of small v-stacks is jointly surjective as maps of v-stacks
+(at the cutoff of `Carriers`): every object `T → Y` of the v-site is covered by objects over which
+`T → Y` lifts through some `fᵢ`. This is surjectivity of `⊔ Xᵢ → Y` in the v-topos. -/
+def IsVCoverFamily {ι : Type u} {X : ι → S.V} {Y : S.V} (f : ∀ i, X i ⟶ Y) : Prop :=
+  ∀ T : S.VOver Y, (⟨fun T' _ => ∃ (i : ι) (h : ((S.vSrc Y).obj T').left ⟶ X i),
+      h ≫ f i = ((S.vSrc Y).obj T').hom, by
+      rintro T₁ T₂ g ⟨i, h, hh⟩ k
+      exact ⟨i, ((S.vSrc Y).map k).left ≫ h, by simp [hh]⟩⟩ : Sieve T) ∈ vSite S Y T
+
+/-- A map of small v-stacks is a v-cover (surjective as a map of v-stacks). -/
+def IsVCover {X Y : S.V} (f : X ⟶ Y) : Prop := IsVCoverFamily S (fun _ : PUnit.{u+1} => f)
+
+/-- Quasicompactness of a small v-stack (ECD §8): it admits a surjection from a strictly totally
+disconnected (hence quasicompact) perfectoid space. For small v-sheaves this is stronger than
+compactness of `|Z|` (ECD p. 3: the converse fails in general). -/
+def IsQuasicompactV (Z : S.V) : Prop :=
+  ∃ (T : S.Std) (g : S.ofLS (S.ofStd T) ⟶ Z), IsVCover S g
+
+/-- Quasiseparatedness of a small v-stack as an object (ECD §8): fibre products over `Z` of
+quasicompact objects are quasicompact. This differs from quasiseparatedness of `Z → ∗`, because `∗`
+is not quasiseparated (ECD §8, Remark 10.8). -/
+def IsQuasiseparatedV (Z : S.V) : Prop :=
+  ∀ (T₁ T₂ : S.Std) (a : S.ofLS (S.ofStd T₁) ⟶ Z) (b : S.ofLS (S.ofStd T₂) ⟶ Z),
+    IsQuasicompactV S (pullback a b)
+
 variable (Λ : Type u) [CommRing Λ]
 
 /-- Sheaves of Λ-modules on the three sites. -/
@@ -249,15 +274,20 @@ def etaleShriek {Y : S.V} (U : S.EtVOver Y) : DetCat S Λ ((S.etVSrc Y).obj U).l
 def etaleShriekAdj {Y : S.V} (U : S.EtVOver Y) :
     etaleShriek S Λ U ⊣ pull S Λ ((S.etVSrc Y).obj U).hom := sorry
 
+/-- C5/etale-extension-by-zero API `etaleShriek.enhanced`: the enhanced `f_!`, obtained from a
+hypercover by Beck–Chevalley; recorded at the homotopy level, where it is `etaleShriek`. -/
+abbrev etaleShriek.enhanced {Y : S.V} (U : S.EtVOver Y) := etaleShriek S Λ U
+
 /-! ## Proper and partially proper maps (C4), genuine definitions over the carriers
 
 These are stated for maps of small v-sheaves; the 0-truncatedness clause needed for v-stacks
 is not typable against `Carriers` and is omitted. -/
 
-/-- Quasicompactness of a map, tested by pullback along maps from quasicompact objects (for small
-v-sheaves `Z` quasicompactness is quasicompactness of `|Z|`). -/
+/-- Quasicompactness of a map (ECD §8 (iii)): the pullback along every map from a strictly totally
+disconnected space (it suffices to test these, ECD Propositions 8.3 and 10.11(o)) is a quasicompact
+small v-stack. -/
 def IsQuasicompactMap {X Y : S.V} (f : X ⟶ Y) : Prop :=
-  ∀ (Z : S.V) (g : Z ⟶ Y), CompactSpace (S.pts.obj Z) → CompactSpace (S.pts.obj (pullback f g))
+  ∀ (T : S.Std) (g : S.ofLS (S.ofStd T) ⟶ Y), IsQuasicompactV S (pullback f g)
 
 /-- C4/proper-map: universal closedness, `|X ×_Y Z| → |Z|` closed for all `Z → Y` (ECD 18.1). -/
 def IsUniversallyClosed {X Y : S.V} (f : X ⟶ Y) : Prop :=
@@ -432,17 +462,22 @@ theorem etaleSite.adic_compat_isContinuous (Z : AnAdicSpace.{u}) :
       (etaleSite.adic_compat S Z).inverse.IsContinuous (etaleSite S (AnAdicSpace.diamond S Z))
         (AnAdicSpace.etaleSite Z) := sorry
 
--- omitted hypothesis (tests etaleSite_geometricPoint, etaleSite_chain): `C` algebraically closed
--- (and `C⁺ = O_C` for the first); not typable on `S.FieldPair`.
+-- Geometric points `Spa(C, C⁺)` (`C` algebraically closed) are the connected strictly totally
+-- disconnected spaces (ECD Proposition 7.16); `Spa(C, O_C)` are the one-point ones.
 /-- test etaleSite_geometricPoint (computation): for `Y = Spa(C, O_C)`, `C` algebraically closed,
 global sections `Y_ét^∼ → Λ-Mod` is an equivalence. -/
-example (K : S.FieldPair) : (etGamma S Λ (spaLS S (S.fieldTate K))).IsEquivalence := by sorry
+example (X : S.Std) [Unique (S.pts.obj (S.ofLS (S.ofStd X)))] :
+    (etGamma S Λ (S.ofStd X)).IsEquivalence := by sorry
 
-/-- test etaleSite_chain (computation): for `Y = Spa(C, C⁺)`, `C` algebraically closed, `Y_ét^∼` is
-equivalent to sheaves on the totally ordered space `|Y|`. -/
-example (K : S.FieldPair) :
-    Nonempty (EtSh S Λ (spaLS S (S.fieldTate K)) ≌
-      TopCat.Sheaf (ModuleCat.{u} Λ) (S.pts.obj (S.ofLS (spaLS S (S.fieldTate K))))) := by sorry
+/-- test etaleSite_chain (computation): for `Y = Spa(C, C⁺)`, `C` algebraically closed, every
+étale map to `Y` is a local isomorphism, so `Y_ét^∼` is equivalent to sheaves on the totally ordered
+space `|Y|`, compatibly with `etTop`. -/
+example (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))] :
+    Nonempty (EtSh S Λ (S.ofStd X) ≌
+      TopCat.Sheaf (ModuleCat.{u} Λ) (S.pts.obj (S.ofLS (S.ofStd X)))) ∧
+    ∀ U : S.EtOver (S.ofStd X),
+      Topology.IsOpenEmbedding (S.pts.map ((S.etSrc (S.ofStd X)).obj U).hom) ∨
+        ¬ Function.Injective (S.pts.map ((S.etSrc (S.ofStd X)).obj U).hom) := by sorry
 
 /-- test etaleSite_empty (degenerate): for `Y = ∅` (`|Y|` empty) the site has one object and the
 topos is the terminal category. -/
@@ -846,6 +881,12 @@ example [Nontrivial Λ] (Y : S.V) (hY : Nonempty (S.pts.obj Y)) (κ : Cardinal.{
     ∃ (κ' : Cardinal.{u}) (h : κ ≤ κ'), IsCutoffCardinal κ' ∧
       ¬ (cutoffDerived.transition S Λ Y h).EssSurj := by sorry
 
+/-- API `cutoffDerived.transition_products`: for `κ ≤ κ'` the transition functor commutes with
+countable products, hence with `R lim` of sequences (`κ'`-small objects are `κ`-cofiltered limits
+of `κ`-small ones and `cf(κ) > ω`). -/
+theorem cutoffDerived.transition_products (Y : S.V) {κ κ' : Cardinal.{u}} (h : κ ≤ κ') :
+    PreservesLimitsOfShape (Discrete ℕ) (cutoffDerived.transition S Λ Y h) := sorry
+
 /-! ## C0/algebraic-topoi -/
 
 /-- Topos-theoretic quasicompactness of an object of a site: every covering sieve contains a finite
@@ -866,38 +907,35 @@ def IsQuasiseparatedObject {C : Type u} [SmallCategory C] (J : GrothendieckTopol
 -- topoi are not in Mathlib.
 -- omitted hypothesis (third clause): `Y` is 0-truncated (a small v-sheaf).
 /-- DiamondEtaleCohomology:C0/algebraic-topoi (ECD Proposition 14.2): topos-theoretic
-quasicompactness and quasiseparatedness of objects agree with those of small v-stacks. -/
+quasicompactness and quasiseparatedness of objects agree with those of small v-stacks (as objects,
+`IsQuasicompactV`, `IsQuasiseparatedV`; not quasiseparatedness of the map to `∗`). For the étale site,
+whose objects are locally spatial, quasicompactness is that of `|U|` (ECD 11.19). -/
 theorem algebraicTopoi :
     (∀ (Y : S.LS) (U : S.EtOver Y),
       (IsQuasicompactObject (etaleSite S Y) U ↔
           CompactSpace (S.pts.obj ((S.etSrc Y).obj U).left)) ∧
-        (IsQuasiseparatedObject (etaleSite S Y) U ↔
-          IsQuasicompactMap S (pullback.diagonal (terminal.from ((S.etSrc Y).obj U).left)))) ∧
+        (IsQuasiseparatedObject (etaleSite S Y) U ↔ IsQuasiseparatedV S ((S.etSrc Y).obj U).left)) ∧
     (∀ (Y : S.Dia) (U : S.QpOver Y),
-      (IsQuasicompactObject (qproetSite S Y) U ↔
-          CompactSpace (S.pts.obj ((S.qpSrc Y).obj U).left)) ∧
-        (IsQuasiseparatedObject (qproetSite S Y) U ↔
-          IsQuasicompactMap S (pullback.diagonal (terminal.from ((S.qpSrc Y).obj U).left)))) ∧
+      (IsQuasicompactObject (qproetSite S Y) U ↔ IsQuasicompactV S ((S.qpSrc Y).obj U).left) ∧
+        (IsQuasiseparatedObject (qproetSite S Y) U ↔ IsQuasiseparatedV S ((S.qpSrc Y).obj U).left)) ∧
     (∀ (Y : S.V) (U : S.VOver Y),
-      (IsQuasicompactObject (vSite S Y) U ↔
-          CompactSpace (S.pts.obj ((S.vSrc Y).obj U).left)) ∧
-        (IsQuasiseparatedObject (vSite S Y) U ↔
-          IsQuasicompactMap S (pullback.diagonal (terminal.from ((S.vSrc Y).obj U).left)))) :=
+      (IsQuasicompactObject (vSite S Y) U ↔ IsQuasicompactV S ((S.vSrc Y).obj U).left) ∧
+        (IsQuasiseparatedObject (vSite S Y) U ↔ IsQuasiseparatedV S ((S.vSrc Y).obj U).left)) :=
   sorry
 
 /-! ## C0/geometric-stalk and C0/etale-site-enough-points
 
-A geometric point of a locally spatial diamond `Y` is given by a perfectoid field pair
-`K = (C, C⁺)` and a map `ȳ : Spa(C, C⁺) → Y`.
-omitted hypotheses (all declarations of this section): `C` is algebraically closed, `ȳ` is
-quasi-pro-étale and sends the closed point to the given `y ∈ |Y|` (not typable against
-`Carriers`). -/
+A geometric point of a locally spatial diamond `Y` is a map `ȳ : X → Y` from a connected strictly
+totally disconnected space `X = Spa(C, C⁺)` (`C` algebraically closed, ECD Proposition 7.16).
+omitted hypothesis (all declarations of this section): `ȳ` is quasi-pro-étale (not needed for the
+point property: every étale cover of `X` splits). -/
 
 /-- The fibre functor of a geometric point: `U ↦ {lifts of ȳ to U}`. The stalk is the colimit of
 `F(U)` over its category of elements, i.e. over the étale neighbourhoods `ȳ → U`. -/
-def geometricStalk.fiber (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
+def geometricStalk.fiber (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
     S.EtOver Y ⥤ Type u where
-  obj U := { g : S.ofLS (spaLS S (S.fieldTate K)) ⟶ ((S.etSrc Y).obj U).left //
+  obj U := { g : S.ofLS (S.ofStd X) ⟶ ((S.etSrc Y).obj U).left //
     g ≫ ((S.etSrc Y).obj U).hom = S.diaV.map (S.lsDia.map ybar) }
   map φ := TypeCat.ofHom fun g =>
     ⟨g.1 ≫ ((S.etSrc Y).map φ).left, by rw [Category.assoc, Over.w]; exact g.2⟩
@@ -906,86 +944,108 @@ def geometricStalk.fiber (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTa
 
 /-- The point of the site `Y_ét` (in the sense of Mathlib's `GrothendieckTopology.Point`)
 defined by a geometric point. -/
-def geometricStalk.toPoint (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
+def geometricStalk.toPoint (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
     (etaleSite S Y).Point.{u} where
-  fiber := geometricStalk.fiber S Y K ybar
+  fiber := geometricStalk.fiber S Y X ybar
   isCofiltered := sorry
   initiallySmall := sorry
   jointly_surjective := sorry
 
 /-- DiamondEtaleCohomology:C0/geometric-stalk: the stalk functor `F ↦ F_ȳ` on sheaves of
 Λ-modules, the fibre functor of the point `geometricStalk.toPoint`. -/
-def geometricStalk (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
+def geometricStalk (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
     EtSh S Λ Y ⥤ ModuleCat.{u} Λ :=
-  (geometricStalk.toPoint S Y K ybar).sheafFiber
+  (geometricStalk.toPoint S Y X ybar).sheafFiber
 
 /-- `F_ȳ ≅ Γ(Spa(C, C⁺)_ét, ȳ^*F)`, naturally in `F`. -/
-def geometricStalk.eq_pullback_sections (Y : S.LS) (K : S.FieldPair)
-    (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
-    geometricStalk S Λ Y K ybar ≅ etPullSh S Λ ybar ⋙ etGamma S Λ (spaLS S (S.fieldTate K)) :=
+def geometricStalk.eq_pullback_sections (Y : S.LS) (X : S.Std)
+    [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))] (ybar : S.ofStd X ⟶ Y) :
+    geometricStalk S Λ Y X ybar ≅ etPullSh S Λ ybar ⋙ etGamma S Λ (S.ofStd X) :=
   sorry
 
 /-- The stalk functor is exact and commutes with all colimits (on sheaves of sets and of
 Λ-modules). -/
-theorem geometricStalk.exact (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
-    PreservesFiniteLimits (geometricStalk S Λ Y K ybar) ∧
-      PreservesColimitsOfSize.{u, u} (geometricStalk S Λ Y K ybar) ∧
-      PreservesFiniteLimits ((geometricStalk.toPoint S Y K ybar).sheafFiber (A := Type u)) ∧
+theorem geometricStalk.exact (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
+    PreservesFiniteLimits (geometricStalk S Λ Y X ybar) ∧
+      PreservesColimitsOfSize.{u, u} (geometricStalk S Λ Y X ybar) ∧
+      PreservesFiniteLimits ((geometricStalk.toPoint S Y X ybar).sheafFiber (A := Type u)) ∧
       PreservesColimitsOfSize.{u, u}
-        ((geometricStalk.toPoint S Y K ybar).sheafFiber (A := Type u)) := sorry
+        ((geometricStalk.toPoint S Y X ybar).sheafFiber (A := Type u)) := sorry
 
-/-- `(f_ét^*F)_ȳ′ ≅ F_{f∘ȳ′}`. -/
-def geometricStalk.map {Y' Y : S.LS} (f : Y' ⟶ Y) (K : S.FieldPair)
-    (ybar' : spaLS S (S.fieldTate K) ⟶ Y') :
-    etPullSh S Λ f ⋙ geometricStalk S Λ Y' K ybar' ≅ geometricStalk S Λ Y K (ybar' ≫ f) := sorry
+/-- `(f_ét^*F)_ȳ′ ≅ F_{f∘ȳ′}`: `f ∘ ȳ′` is again a map from a connected strictly totally
+disconnected space (it need not be quasi-pro-étale, which the point property does not use). -/
+def geometricStalk.map {Y' Y : S.LS} (f : Y' ⟶ Y) (X : S.Std)
+    [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))] (ybar' : S.ofStd X ⟶ Y') :
+    etPullSh S Λ f ⋙ geometricStalk S Λ Y' X ybar' ≅ geometricStalk S Λ Y X (ybar' ≫ f) := sorry
+
+-- omitted hypothesis (`geometricStalk.indep`): the closed points of `X` and `X'` map to the same
+-- point `y ∈ |Y|` (stated through the closed points `x`, `x'`).
+/-- API `geometricStalk.indep`: the stalks at two geometric points over the same point of `|Y|`
+are isomorphic. -/
+theorem geometricStalk.indep (Y : S.LS) (X X' : S.Std)
+    [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))] [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X')))]
+    (ybar : S.ofStd X ⟶ Y) (ybar' : S.ofStd X' ⟶ Y)
+    (x : S.pts.obj (S.ofLS (S.ofStd X))) (x' : S.pts.obj (S.ofLS (S.ofStd X')))
+    (hx : IsClosed ({x} : Set _)) (hx' : IsClosed ({x'} : Set _))
+    (h : S.pts.map (S.diaV.map (S.lsDia.map ybar)) x = S.pts.map (S.diaV.map (S.lsDia.map ybar')) x') :
+    Nonempty (geometricStalk S Λ Y X ybar ≅ geometricStalk S Λ Y X' ybar') := sorry
 
 /-- The stalk of the constant sheaf with value `M` is `M`. -/
-def geometricStalk.of_constant (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
-    constantSheaf (etaleSite S Y) (ModuleCat.{u} Λ) ⋙ geometricStalk S Λ Y K ybar ≅ 𝟭 _ := sorry
+def geometricStalk.of_constant (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
+    constantSheaf (etaleSite S Y) (ModuleCat.{u} Λ) ⋙ geometricStalk S Λ Y X ybar ≅ 𝟭 _ := sorry
 
 /-- test geometricStalk_closedPoint (computation): for `Y = Spa(C, C⁺)` and `ȳ = id`,
 `F_ȳ = F(Y)`. -/
-example (K : S.FieldPair) :
-    Nonempty (geometricStalk S Λ (spaLS S (S.fieldTate K)) K (𝟙 _) ≅
-      etGamma S Λ (spaLS S (S.fieldTate K))) := by sorry
+example (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))] :
+    Nonempty (geometricStalk S Λ (S.ofStd X) X (𝟙 _) ≅ etGamma S Λ (S.ofStd X)) := by sorry
 
 /-- test geometricStalk_constant (degenerate): the stalk of the constant sheaf `M` is `M`. -/
-example (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) (M : ModuleCat.{u} Λ) :
-    Nonempty ((geometricStalk S Λ Y K ybar).obj ((constantSheaf (etaleSite S Y) _).obj M) ≅ M) := by
+example (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) (M : ModuleCat.{u} Λ) :
+    Nonempty ((geometricStalk S Λ Y X ybar).obj ((constantSheaf (etaleSite S Y) _).obj M) ≅ M) := by
   sorry
 
 /-- test geometricStalk_isPoint (compatibility): `geometricStalk` is the fibre functor of a
 `GrothendieckTopology.Point` of `Y_ét`. -/
-example (Y : S.LS) (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y) :
-    geometricStalk S Λ Y K ybar = (geometricStalk.toPoint S Y K ybar).sheafFiber := by sorry
+example (Y : S.LS) (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y) :
+    geometricStalk S Λ Y X ybar = (geometricStalk.toPoint S Y X ybar).sheafFiber := by sorry
 
 /-- test geometricStalk_generic_vs_global (non-example): stalks at generalizations are not global
 sections (for `Y = Spa(C, C⁺)` of rank 2, `j_!M` has `F(Y) = 0` but `F_η̄ = M`). -/
 example [Nontrivial Λ] :
-    ¬ ∀ (K K' : S.FieldPair) (eta : spaLS S (S.fieldTate K') ⟶ spaLS S (S.fieldTate K)),
-      Nonempty (geometricStalk S Λ _ K' eta ≅ etGamma S Λ (spaLS S (S.fieldTate K))) := by sorry
+    ¬ ∀ (X X' : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+      [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X')))] (eta : S.ofStd X' ⟶ S.ofStd X),
+      Nonempty (geometricStalk S Λ _ X' eta ≅ etGamma S Λ (S.ofStd X)) := by sorry
 
 /-- DiamondEtaleCohomology:C0/etale-site-enough-points (ECD Proposition 14.3): the geometric
 points form a conservative family of points of `Y_ét`. -/
 theorem etaleSiteEnoughPoints (Y : S.LS) :
     ObjectProperty.IsConservativeFamilyOfPoints
-      (fun Φ : (etaleSite S Y).Point.{u} => ∃ (K : S.FieldPair)
-        (ybar : spaLS S (S.fieldTate K) ⟶ Y), Φ = geometricStalk.toPoint S Y K ybar) := sorry
+      (fun Φ : (etaleSite S Y).Point.{u} => ∃ (X : S.Std)
+        (_ : ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))) (ybar : S.ofStd X ⟶ Y),
+          Φ = geometricStalk.toPoint S Y X ybar) := sorry
 
 theorem etaleSiteEnoughPoints.hasEnoughPoints (Y : S.LS) :
     GrothendieckTopology.HasEnoughPoints.{u} (etaleSite S Y) := sorry
 
 /-- A map of étale sheaves of Λ-modules is an isomorphism iff it is so on all geometric stalks. -/
 theorem etaleSiteEnoughPoints.isIso_iff {Y : S.LS} {F G : EtSh S Λ Y} (φ : F ⟶ G) :
-    IsIso φ ↔ ∀ (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y),
-      IsIso ((geometricStalk S Λ Y K ybar).map φ) := sorry
+    IsIso φ ↔ ∀ (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y),
+      IsIso ((geometricStalk S Λ Y X ybar).map φ) := sorry
 
 /-- A section is zero iff all its germs at geometric points are zero. -/
 theorem etaleSiteEnoughPoints.section_eq_zero {Y : S.LS} (F : EtSh S Λ Y) (U : S.EtOver Y)
     (s : F.obj.obj (op U)) :
-    s = 0 ↔ ∀ (K : S.FieldPair) (ybar : spaLS S (S.fieldTate K) ⟶ Y)
-      (x : (geometricStalk.fiber S Y K ybar).obj U),
-        ((geometricStalk.toPoint S Y K ybar).toPresheafFiber U x F.obj).hom s = 0 := sorry
+    s = 0 ↔ ∀ (X : S.Std) [ConnectedSpace (S.pts.obj (S.ofLS (S.ofStd X)))]
+    (ybar : S.ofStd X ⟶ Y)
+      (x : (geometricStalk.fiber S Y X ybar).obj U),
+        ((geometricStalk.toPoint S Y X ybar).toPresheafFiber U x F.obj).hom s = 0 := sorry
 
 /-! ## C0/comparison-morphisms -/
 
@@ -1287,7 +1347,7 @@ def nuColimMap {Y : S.LS} (F : EtSh S Λ Y) {I : Type u} [SmallCategory I] (D : 
 for a spatial diamond `Y`, `Y_ét,qc,sep` is a basis of `Y_ét`, and for `Ỹ = lim_j Ỹ_j` (a limit of
 small v-stacks) of a cofiltered diagram in `Y_ét,qc,sep`, `(ν_Y^*F)(Ỹ) = colim_j F(Ỹ_j)`. -/
 theorem etaleToQuasiProEtaleBasis (Y : S.LS) (hqc : CompactSpace (S.pts.obj (S.ofLS Y)))
-    (hqs : IsQuasicompactMap S (pullback.diagonal (terminal.from (S.ofLS Y)))) :
+    (hqs : QuasiSeparatedSpace (S.pts.obj (S.ofLS Y))) :
     (etQcSepObj S Y).ι.IsCoverDense (etaleSite S Y) ∧
       ∀ (F : EtSh S Λ Y) (I : Type u) [SmallCategory I] [IsCofiltered I]
         (D : I ⥤ (etQcSepObj S Y).FullSubcategory)
@@ -1353,7 +1413,7 @@ cofiltered system of spatial diamonds `Y_i` with final object `0` and inverse li
 v-sheaves), `colim_i H^j(Y_i, F_i) → H^j(Y, F)` is an isomorphism. -/
 theorem etaleCohomologyContinuity {I : Type u} [SmallCategory I] [IsCofiltered I] [HasTerminal I]
     (D : I ⥤ S.LS) (hqc : ∀ i, CompactSpace (S.pts.obj (S.ofLS (D.obj i))))
-    (hqs : ∀ i, IsQuasicompactMap S (pullback.diagonal (terminal.from (S.ofLS (D.obj i)))))
+    (hqs : ∀ i, QuasiSeparatedSpace (S.pts.obj (S.ofLS (D.obj i))))
     (c : Cone D) (hc : IsLimit ((S.lsDia ⋙ S.diaV).mapCone c)) (F₀ : EtSh S Λ (D.obj (⊤_ I)))
     (j : ℤ) : IsIso (etContinuityMap S Λ D c F₀ j) := sorry
 
@@ -1375,7 +1435,7 @@ def etRelContinuityMap {I : Type u} [SmallCategory I] [HasTerminal I] (D : I ⥤
 /-- Relative form: `R^q f_{i₀*}F = colim_{i → i₀} R^q f_{i,i₀*}F_i` on `(Y_{i₀})_ét`. -/
 theorem etaleCohomologyContinuity.relative {I : Type u} [SmallCategory I] [IsCofiltered I]
     [HasTerminal I] (D : I ⥤ S.LS) (hqc : ∀ i, CompactSpace (S.pts.obj (S.ofLS (D.obj i))))
-    (hqs : ∀ i, IsQuasicompactMap S (pullback.diagonal (terminal.from (S.ofLS (D.obj i)))))
+    (hqs : ∀ i, QuasiSeparatedSpace (S.pts.obj (S.ofLS (D.obj i))))
     (c : Cone D) (hc : IsLimit ((S.lsDia ⋙ S.diaV).mapCone c)) (F₀ : EtSh S Λ (D.obj (⊤_ I)))
     (q : ℤ) (i₀ : I) : IsIso (etRelContinuityMap S Λ D c F₀ q i₀) := sorry
 
@@ -1537,6 +1597,32 @@ theorem vQproetBaseChange.id (Y : S.LS) :
         Functor.whiskerLeft (lambdaPull S Λ (S.lsDia.obj Y))
           (vPushD_id S Λ (S.diaV.map (S.lsDia.map (𝟙 Y))) (by simp)).inv :=
   sorry
+
+/-- API `etQproetBaseChange.comp`: the transformation `ν^*Rf_ét* → Rf_qproét*ν^*` for `h ≫ f` is the
+pasting of those for `h` and `f`, for suitable composition isomorphisms of the pushforwards. -/
+theorem etQproetBaseChange.comp {Y'' Y' Y : S.LS} (h : Y'' ⟶ Y') (f : Y' ⟶ Y) :
+    ∃ (e₁ : etPushD S Λ (h ≫ f) ≅ etPushD S Λ h ⋙ etPushD S Λ f)
+      (e₂ : qpPushD S Λ (S.lsDia.map (h ≫ f)) ≅
+        qpPushD S Λ (S.lsDia.map h) ⋙ qpPushD S Λ (S.lsDia.map f)),
+      etQproetBaseChange S Λ (h ≫ f) =
+        Functor.whiskerRight e₁.hom (nuPull S Λ Y) ≫ (Functor.associator _ _ _).hom ≫
+          Functor.whiskerLeft (etPushD S Λ h) (etQproetBaseChange S Λ f) ≫
+          (Functor.associator _ _ _).inv ≫
+          Functor.whiskerRight (etQproetBaseChange S Λ h) (qpPushD S Λ (S.lsDia.map f)) ≫
+          (Functor.associator _ _ _).hom ≫ Functor.whiskerLeft (nuPull S Λ Y'') e₂.inv := sorry
+
+-- omitted (API squareBaseChange.paste): the pasting law for horizontal and vertical composites of
+-- cartesian squares needs the composition isomorphisms of the quasi-pro-étale pullbacks and
+-- pushforwards along composite squares, which this prototype does not name; it is stated in the
+-- packet.
+
+/-- API `squareBaseChange.iso_of_qproet`: if `g` is quasi-pro-étale (so `X′_qproét` is a slice of
+`X_qproét`), the base change transformation of a cartesian square is an isomorphism. -/
+theorem squareBaseChange.iso_of_qproet {Y' Y X' X : S.LS} (g' : Y' ⟶ Y) (f' : Y' ⟶ X') (f : Y ⟶ X)
+    (g : X' ⟶ X) (h : g' ≫ f = f' ≫ g)
+    (hcart : IsPullback (S.diaV.map (S.lsDia.map g')) (S.diaV.map (S.lsDia.map f'))
+      (S.diaV.map (S.lsDia.map f)) (S.diaV.map (S.lsDia.map g)))
+    (hg : IsQproetMap S (S.lsDia.map g)) : IsIso (squareBaseChange S Λ g' f' f g h) := sorry
 
 /-- Restriction to a quasi-pro-étale `u : U → Y` carries the transformation for `f` to that for
 `f_U = f ×_Y U`: for the cartesian square, the quasi-pro-étale and v base change maps along `u`
@@ -1707,8 +1793,8 @@ example {Y' Y : S.LS} (f : Y' ⟶ Y) :
 `λ∘_X(X̃) ×_X Y′` need not be an isomorphism (Artin–Schreier classes on the perfectoid closed
 disc). -/
 example [Nontrivial Λ] (hp : (S.p : Λ) = 0) :
-    ¬ ∀ (X : S.Std) (Y' : S.LS) (f : Y' ⟶ S.ofStd X) (Xt : (vQcqsObj S X).FullSubcategory)
-      (i : ℤ) (F : QpSh S Λ (S.lsDia.obj Y')), (nuSh S Λ Y').essImage F →
+    ¬ ∀ (X : S.Std) (Y' : S.LS) (f : Y' ⟶ S.ofStd X) (Xt : (vQcqsObj S X).FullSubcategory),
+      vStdObj S _ Xt.obj → ∀ (i : ℤ) (F : QpSh S Λ (S.lsDia.obj Y')), (nuSh S Λ Y').essImage F →
         IsIso ((hullComparison S Λ f Xt i).app F) := by sorry
 
 /-! ## C1/strictly-local-reduction -/
@@ -1744,7 +1830,8 @@ theorem vPushforwardDegreeZero {Y' Y : S.LS} (f : Y' ⟶ Y) (F : QpSh S Λ (S.ls
 isomorphism for every `X̃ ∈ X_v`. -/
 theorem vPushforwardDegreeZero.hull {X : S.Std} {Y' : S.LS} (f : Y' ⟶ S.ofStd X)
     (F : QpSh S Λ (S.lsDia.obj Y')) (hF : (nuSh S Λ Y').essImage F)
-    (Xt : (vQcqsObj S X).FullSubcategory) : IsIso ((hullComparison S Λ f Xt 0).app F) := sorry
+    (Xt : (vQcqsObj S X).FullSubcategory) (hXt : vStdObj S _ Xt.obj) :
+    IsIso ((hullComparison S Λ f Xt 0).app F) := sorry
 
 /-- DiamondEtaleCohomology:C1/v-pushforward-quasi-pro-etale (ECD Theorem 16.1(ii)): for `f`
 quasi-pro-étale, `λ_Y^*R^if_qproét*F → R^if_v*λ_{Y′}^*F` is an isomorphism for all `i ≥ 0`. -/
@@ -1754,7 +1841,8 @@ theorem vPushforwardQuasiProEtale {Y' Y : S.LS} (f : Y' ⟶ Y) (hf : IsQproetMap
 
 theorem vPushforwardQuasiProEtale.hull {X : S.Std} {Y' : S.LS} (f : Y' ⟶ S.ofStd X)
     (hf : IsQproetMap S (S.lsDia.map f)) (F : QpSh S Λ (S.lsDia.obj Y'))
-    (hF : (nuSh S Λ Y').essImage F) (Xt : (vQcqsObj S X).FullSubcategory) :
+    (hF : (nuSh S Λ Y').essImage F) (Xt : (vQcqsObj S X).FullSubcategory)
+    (hXt : vStdObj S _ Xt.obj) :
     ∀ i : ℕ, IsIso ((hullComparison S Λ f Xt i).app F) := sorry
 
 /-- DiamondEtaleCohomology:C1/v-pushforward-prime-to-p (ECD Theorem 16.1(iii)): if `nΛ = 0` with
@@ -1765,7 +1853,8 @@ theorem vPushforwardPrimeToP {Y' Y : S.LS} (f : Y' ⟶ Y) (n : ℕ) (hn : Nat.Co
 
 theorem vPushforwardPrimeToP.hull {X : S.Std} {Y' : S.LS} (f : Y' ⟶ S.ofStd X) (n : ℕ)
     (hn : Nat.Coprime n S.p) (hΛ : (n : Λ) = 0) (F : QpSh S Λ (S.lsDia.obj Y'))
-    (hF : (nuSh S Λ Y').essImage F) (Xt : (vQcqsObj S X).FullSubcategory) :
+    (hF : (nuSh S Λ Y').essImage F) (Xt : (vQcqsObj S X).FullSubcategory)
+    (hXt : vStdObj S _ Xt.obj) :
     ∀ i : ℕ, IsIso ((hullComparison S Λ f Xt i).app F) := sorry
 
 /-- DiamondEtaleCohomology:C1/derived-v-pushforward-comparison (ECD Corollary 16.4): if `f` is
@@ -1784,7 +1873,8 @@ theorem derivedVPushforwardComparison.hull {X : S.Std} {Y' : S.LS} (f : Y' ⟶ S
     (hf : IsQproetMap S (S.lsDia.map f) ∨ ∃ n : ℕ, Nat.Coprime n S.p ∧ (n : Λ) = 0)
     (A : DQp S Λ (S.lsDia.obj Y'))
     (hA : ∀ j : ℤ, (nuSh S Λ Y').essImage ((DerivedCategory.homologyFunctor _ j).obj A))
-    (Xt : (vQcqsObj S X).FullSubcategory) : IsIso ((hullComparisonD S Λ f Xt).app A) := sorry
+    (Xt : (vQcqsObj S X).FullSubcategory) (hXt : vStdObj S _ Xt.obj) :
+    IsIso ((hullComparisonD S Λ f Xt).app A) := sorry
 
 /-! ## C1: ECD Proposition 16.6 – Corollary 16.10 -/
 
@@ -1899,18 +1989,6 @@ abbrev stdV (X : S.Std) : S.V := S.ofLS (S.ofStd X)
 
 /-- The map of small v-stacks underlying a map of locally spatial diamonds. -/
 abbrev lsMap {Y' Y : S.LS} (f : Y' ⟶ Y) : S.ofLS Y' ⟶ S.ofLS Y := S.diaV.map (S.lsDia.map f)
-
-/-- A family `fᵢ : Xᵢ → Y` of maps of small v-stacks is jointly surjective as maps of v-stacks
-(at the cutoff of `Carriers`): every object `T → Y` of the v-site is covered by objects over which
-`T → Y` lifts through some `fᵢ`. This is surjectivity of `⊔ Xᵢ → Y` in the v-topos. -/
-def IsVCoverFamily {ι : Type u} {X : ι → S.V} {Y : S.V} (f : ∀ i, X i ⟶ Y) : Prop :=
-  ∀ T : S.VOver Y, (⟨fun T' _ => ∃ (i : ι) (h : ((S.vSrc Y).obj T').left ⟶ X i),
-      h ≫ f i = ((S.vSrc Y).obj T').hom, by
-      rintro T₁ T₂ g ⟨i, h, hh⟩ k
-      exact ⟨i, ((S.vSrc Y).map k).left ≫ h, by simp [hh]⟩⟩ : Sieve T) ∈ vSite S Y T
-
-/-- A map of small v-stacks is a v-cover (surjective as a map of v-stacks). -/
-def IsVCover {X Y : S.V} (f : X ⟶ Y) : Prop := IsVCoverFamily S (fun _ : PUnit.{u+1} => f)
 
 /-- A map into a diamond is a (locally separated, κ-small) quasi-pro-étale map: it is isomorphic
 over `Y` to an object of the quasi-pro-étale site `Y_qproét`. -/
@@ -2321,6 +2399,20 @@ def IsVHypercover {Y : S.V} (X : SimplicialObject (Over Y)) : Prop :=
 def simpPull {Y : S.V} (X : SimplicialObject (Over Y)) :
     DV S Λ Y ⥤ enhancedV.simplicial S Λ (X ⋙ Over.forget Y) := sorry
 
+/-- API `enhancedV.augmentation`: the pullback along an augmentation, landing in cartesian
+objects (its right adjoint is the totalization of the termwise pushforwards). -/
+abbrev enhancedV.augmentation {Y : S.V} (X : SimplicialObject (Over Y)) :
+    DV S Λ Y ⥤ enhancedV.simplicial S Λ (X ⋙ Over.forget Y) := simpPull S Λ X
+
+/-- API `enhancedV.pushforward`: the right adjoint `Rf_v*` of `f_v^*`. -/
+abbrev enhancedV.pushforward {Y' Y : S.V} (f : Y' ⟶ Y) : DV S Λ Y' ⥤ DV S Λ Y := vPushD S Λ f
+
+/-- API `enhancedEt.pullback` (homotopy-level shadow): `f_v^*` restricts to a functor
+`D_ét(Y, Λ) → D_ét(Y′, Λ)` (for 0-truncated `f`; that clause is not typable against `Carriers`). -/
+theorem enhancedEt.pullback {Y' Y : S.V} (f : Y' ⟶ Y) :
+    ∃ F : DetCat S Λ Y ⥤ DetCat S Λ Y', Nonempty (F ⋙ (Det S Λ Y').ι ≅ (Det S Λ Y).ι ⋙ vPull S Λ f) :=
+  sorry
+
 /-- Its `n`-th term is the pullback along `Y_n → Y` (supplier data). -/
 def simpPull_restrict {Y : S.V} (X : SimplicialObject (Over Y)) (n : ℕ) :
     simpPull S Λ X ⋙ simpRestrict S Λ (X ⋙ Over.forget Y) n ≅
@@ -2572,6 +2664,18 @@ def spaceDPull {X Y : TopCat.{u}} (φ : X ⟶ Y) :
 /-- A small v-stack `Spd k` for a discrete field `k` (supplier data, DiamondsAndVStacks). -/
 def spdDisc (k : Type u) [Field k] : S.V := sorry
 
+-- omitted (API pull_twoCell): `Carriers.V` is a 1-category, so 2-isomorphisms of maps of small
+-- v-stacks, and the induced `pull h ≅ pull h′`, are not typable here; the packet states them.
+
+/-- The quotient `[X/G]` of a strictly totally disconnected `X` by the trivial action of a finite
+group `G`, with the quotient map `X → [X/G]` and the projection `[X/G] → X` (supplier data,
+DiamondsAndVStacks D4). -/
+def trivialQuotientStack (X : S.Std) (G : Type u) [Group G] [Finite G] : S.V := sorry
+def trivialQuotientMap (X : S.Std) (G : Type u) [Group G] [Finite G] :
+    stdV S X ⟶ trivialQuotientStack S X G := sorry
+def trivialQuotientProj (X : S.Std) (G : Type u) [Group G] [Finite G] :
+    trivialQuotientStack S X G ⟶ stdV S X := sorry
+
 /-- The classifying stack `[∗/G]` of a group over `∗ = Spd k` and its point `∗ → [∗/G]`
 (supplier data, DiamondsAndVStacks D4). -/
 def classifyingStack (k : Type u) [Field k] (G : Type u) [Group G] : S.V := sorry
@@ -2596,13 +2700,13 @@ example {X' X : S.Std} (f : X' ⟶ X) :
 example {Z Y X : S.V} (g : Z ⟶ Y) (f : Y ⟶ X) :
     Nonempty (pull S Λ (g ≫ f) ≅ pull S Λ f ⋙ pull S Λ g) := by sorry
 
-/-- test pull_classifying_stack (computation): for a finite group `G ≠ 1`, `∗ = Spd F̄_p` (here
-`Spd k`, `k` algebraically closed of characteristic `p`) and `f : ∗ → [∗/G]`, `f^*` is the forgetful
-functor `D(Λ[G]) → D(Λ)`, which is not fully faithful (for `Λ ≠ 0`). The identification
-`D_ét([∗/G], Λ) ≃ D(Λ[G])` is not stated. -/
-example (k : Type u) [Field k] [IsAlgClosed k] [CharP k S.p] (G : Type u) [Group G] [Finite G]
+/-- test pull_classifying_stack (computation): for a finite group `G ≠ 1` acting trivially on
+`X = Spa(C, O_C)` and `q : X → [X/G]`, hyperdescent gives `D_ét([X/G], Λ) ≃ D(Λ[G])` and `q^*` is the
+forgetful functor to `D(Λ)`, which is not fully faithful for `Λ ≠ 0`. The identification with
+`D(Λ[G])` is not stated. -/
+example (X : S.Std) [Unique (S.pts.obj (stdV S X))] (G : Type u) [Group G] [Finite G]
     [Nontrivial G] [Nontrivial Λ] :
-    IsEmpty (pull S Λ (classifyingPoint S k G)).FullyFaithful := by sorry
+    IsEmpty (pull S Λ (trivialQuotientMap S X G)).FullyFaithful := by sorry
 
 /-! ## C3/pushforward (ECD Lemma 17.5) -/
 
@@ -2624,9 +2728,9 @@ def push_id (Y : S.V) : push S Λ (𝟙 Y) ≅ 𝟭 _ :=
 theorem push_limits {Y' Y : S.V} (f : Y' ⟶ Y) :
     (push S Λ f).IsTriangulated ∧ PreservesLimitsOfSize.{u, u} (push S Λ f) := sorry
 
-/-- API `push_globalSections`: for `f : Y → ∗` (the terminal small v-stack), `Rf_*` computes Hom in
-`D_ét`: `Hom(Λ_Y, A[i]) = Hom(Λ_∗, (Rf_* A)[i])` (supplier data; it is the adjunction combined with
-`f^* Λ_∗ ≅ Λ_Y`). -/
+/-- API `push_globalSections`: `H^i(Y, A) := Hom(Λ_Y, A[i])`, and for `f : Y → ∗` (the terminal
+small v-stack) `Hom(Λ_Y, A[i]) = Hom(Λ_∗, (Rf_* A)[i])` (the adjunction with `f^* Λ_∗ ≅ Λ_Y`).
+`D_ét(∗, Λ)` is not `D(Λ)`, so this is not `H^i(Rf_* A)`. -/
 def push_globalSections (Y : S.V) (A : DetCat S Λ Y) (i : ℤ) :
     (unitObj S Λ Y ⟶ A⟦i⟧) ≃+
       (unitObj S Λ (⊤_ S.V) ⟶ ((push S Λ (terminal.from Y)).obj A)⟦i⟧) := sorry
@@ -2702,6 +2806,13 @@ def pushBaseChangeOf {Y' Y Yt Yt' : S.V} {f : Y' ⟶ Y} {g : Yt ⟶ Y} {f' : Yt'
 def pushBaseChange {Y' Y Yt : S.V} (f : Y' ⟶ Y) (g : Yt ⟶ Y) :
     push S Λ f ⋙ pull S Λ g ⟶ pull S Λ (pullback.fst f g) ⋙ push S Λ (pullback.snd f g) :=
   pushBaseChangeOf S Λ pullback.condition
+
+/-- API `push.baseChange`: the base change transformation `g^* ∘ Rf_* ⟶ Rf̃_* ∘ g′^*` of the
+cartesian square (the mate of `pull_comp`; for 2-cartesian squares of v-stacks it also uses the
+2-cell, see `pull_twoCell`). -/
+abbrev push.baseChange {Y' Y Yt : S.V} (f : Y' ⟶ Y) (g : Yt ⟶ Y) :
+    push S Λ f ⋙ pull S Λ g ⟶ pull S Λ (pullback.fst f g) ⋙ push S Λ (pullback.snd f g) :=
+  pushBaseChange S Λ f g
 
 /-- DiamondEtaleCohomology:C3/qcqs-base-change-bounded (ECD Proposition 17.6 (i)): with `nΛ = 0`,
 `n` prime to `p`, and `f` qcqs: for `A ∈ D⁺_ét(Y', Λ)`, `Rf_v* A ∈ D⁺_ét(Y, Λ)`, hence
@@ -2785,6 +2896,12 @@ abbrev vTensor.monoidal (Y : S.V) : MonoidalCategory (DV S Λ Y) where
   rightUnitor_naturality := sorry
   pentagon := sorry
   triangle := sorry
+
+/-- API `vTensor.internalHom`: the internal Hom `RHom_v(A, −)` of `D(Y_v, Λ)` (at the cutoff of
+`Carriers`), right adjoint to `− ⊗^L A`. -/
+def vTensor.internalHom (Y : S.V) (A : DV S Λ Y) : DV S Λ Y ⥤ DV S Λ Y := sorry
+def vTensor.internalHomAdj (Y : S.V) (A : DV S Λ Y) :
+    (vTensor S Λ Y).flip.obj A ⊣ vTensor.internalHom S Λ Y A := sorry
 
 /-- API `vTensor.symmetricMonoidal`: the symmetric monoidal structure (homotopy-level shadow of
 "presentably symmetric monoidal"; presentability and colimit preservation in the ∞-sense are
@@ -3442,27 +3559,35 @@ theorem invarianceCompleteExtension (n : ℕ) (hn : Nat.Coprime n S.p) (hΛ : (n
 increasing union of the annuli `Y'_m`, and `D_ét(Y, Λ) → D_ét(Y', Λ)` is fully faithful as soon as,
 for every `m` and every geometric point `x : Spa(C', C'⁺) → Y`,
 `RΓ(Spa(C', C'⁺), x^*A) → RΓ(Y'_m ×_Y Spa(C', C'⁺), f_m^*A)` is an isomorphism for `A ∈ D⁺_ét(Y, Λ)`. -/
-theorem annulusExhaustion (k : Type u) [Field k] [IsAlgClosed k] [CharP k S.p] (X : S.Std)
+theorem annulusExhaustion (n : ℕ) (hn : Nat.Coprime n S.p) (hΛ : (n : Λ) = 0)
+    (k : Type u) [Field k] [IsAlgClosed k] [CharP k S.p] (X : S.Std)
     (π : stdV S X ⟶ spdDisc S k) :
     Monotone (annulusOpen S k X π) ∧ (⨆ m, annulusOpen S k X π m) = ⊤ ∧
     ((∀ (m : ℕ) (X' : S.Std), ConnectedSpace (S.pts.obj (stdV S X')) →
         ∀ (x : stdV S X' ⟶ stdV S X) (A : DetCat S Λ (stdV S X)),
           DerivedCategory.TStructure.t.plus A.obj →
-            IsIso ((rGammaPull S Λ (pullback.snd (annulusMap S k X π m) x)).app ((pull S Λ x).obj A))) →
+            IsIso ((rGammaPull S Λ (pullback.snd (cptMap S (annulusMap S k X π m)) x)).app
+              ((pull S Λ x).obj A))) →
       Nonempty (pull S Λ (pullback.fst π (tAdicPointMap S k))).FullyFaithful) := sorry
 
-/-- DiamondEtaleCohomology:C6/annulus-extension-by-zero-vanishing (ECD proof of Theorem 19.5 (ii)): for
-a geometric point `Y = Spa(C', C'⁺)` over `k` with closed point `s` and `j : U = Y ∖ {s} ⊂ Y`, and
-`A₀ ∈ D⁺_ét(U, Λ)` (`nΛ = 0`, `n` prime to `p`): `RΓ(Y'_m, f_m^* j_! A₀) = 0` and `RΓ(Y, j_! A₀) = 0`. -/
+/-- DiamondEtaleCohomology:C6/annulus-extension-by-zero-vanishing (repair of ECD's proof of Theorem
+19.5 (ii), PAPER-SCHOLZE-17/E60): the canonical compactification `Ȳ'_m^{/Y}` of the annulus maps
+injectively into `Y'_{m+1}` and is proper over `Y`; for a geometric point `Y = Spa(C', C'⁺)` over `k`
+with closed point `s`, `j : U = Y ∖ {s} ⊂ Y` and `A₀ ∈ D⁺_ét(U, Λ)` (`nΛ = 0`, `n` prime to `p`):
+`RΓ(Ȳ'_m^{/Y}, f̄_m^* j_! A₀) = 0`, `RΓ(Y, j_! A₀) = 0`, and `RΓ(Ȳ'_m^{/Y}, Λ) = RΓ(Y'_m, Λ)`. -/
 theorem annulusExtensionByZeroVanishing (n : ℕ) (hn : Nat.Coprime n S.p) (hΛ : (n : Λ) = 0)
     (k : Type u) [Field k] [IsAlgClosed k] [CharP k S.p] (X : S.Std)
     [ConnectedSpace (S.pts.obj (stdV S X))] (π : stdV S X ⟶ spdDisc S k)
     (z : S.pts.obj (stdV S X)) (hz : IsClosed ({z} : Set (S.pts.obj (stdV S X)))) (m : ℕ)
     (A₀ : DetCat S Λ (openSubV S _ ⟨{z}ᶜ, hz.isOpen_compl⟩))
     (hA : DerivedCategory.TStructure.t.plus A₀.obj) :
-    IsZero ((rGamma S Λ _).obj ((pull S Λ (annulusMap S k X π m)).obj
+    (∃ ι : cpt S (annulusMap S k X π m) ⟶ openSubV S _ (annulusOpen S k X π (m + 1)), Mono ι) ∧
+    IsProper S (cptMap S (annulusMap S k X π m)) ∧
+    IsZero ((rGamma S Λ _).obj ((pull S Λ (cptMap S (annulusMap S k X π m))).obj
       ((etaleShriek S Λ (openSub S _ ⟨{z}ᶜ, hz.isOpen_compl⟩)).obj A₀))) ∧
-    IsZero ((rGamma S Λ _).obj ((etaleShriek S Λ (openSub S _ ⟨{z}ᶜ, hz.isOpen_compl⟩)).obj A₀)) :=
+    IsZero ((rGamma S Λ _).obj ((etaleShriek S Λ (openSub S _ ⟨{z}ᶜ, hz.isOpen_compl⟩)).obj A₀)) ∧
+    Nonempty ((rGamma S Λ _).obj (unitObj S Λ (cpt S (annulusMap S k X π m))) ≅
+      (rGamma S Λ _).obj (unitObj S Λ (openSubV S _ (annulusOpen S k X π m)))) :=
   sorry
 
 /-- DiamondEtaleCohomology:C6/perfectoid-annulus-cohomology (ECD proof of Theorem 19.5 (ii)): over a
@@ -3602,6 +3727,31 @@ theorem IsProper.iff_std {X Y : S.V} (f : X ⟶ Y) :
       ∀ (Z : S.Std) (g : S.ofLS (S.ofStd Z) ⟶ Y), IsClosedMap (S.pts.map (pullback.snd f g)) := by
   sorry
 
+/-- C4/proper-map API `IsProper.iff`: proper means quasicompact, separated and universally closed. -/
+theorem IsProper.iff {X Y : S.V} (f : X ⟶ Y) :
+    IsProper S f ↔ IsQuasicompactMap S f ∧ IsSeparatedMap S f ∧ IsUniversallyClosed S f := Iff.rfl
+
+/-- C4/proper-map API: composites of universally closed maps are universally closed. -/
+theorem IsUniversallyClosed.comp {X Y Z : S.V} (f : X ⟶ Y) (g : Y ⟶ Z)
+    (hf : IsUniversallyClosed S f) (hg : IsUniversallyClosed S g) : IsUniversallyClosed S (f ≫ g) :=
+  sorry
+
+/-- C4/proper-map API: universally closed maps are stable under base change. -/
+theorem IsUniversallyClosed.baseChange {X Y Z : S.V} (f : X ⟶ Y) (g : Z ⟶ Y)
+    (hf : IsUniversallyClosed S f) : IsUniversallyClosed S (pullback.snd f g) := sorry
+
+/-- C4/proper-map API (ECD Lemma 12.11): a proper map with `|f|` surjective is a surjection of
+v-stacks. -/
+theorem IsProper.surjective_of_surjective_points {X Y : S.V} (f : X ⟶ Y) (hf : IsProper S f)
+    (hs : Function.Surjective (S.pts.map f)) : IsSurjectiveMap S f := sorry
+
+/-- test isUniversallyClosed_not_separated (non-example): for a finite group `G ≠ 1` acting
+trivially on `X = Spa(C, O_C)`, `[X/G] → X` is quasicompact and universally closed, but its diagonal
+is not a closed immersion (not a monomorphism), so it is not separated and not proper. -/
+example (X : S.Std) [Unique (S.pts.obj (stdV S X))] (G : Type u) [Group G] [Finite G] [Nontrivial G] :
+    IsQuasicompactMap S (trivialQuotientProj S X G) ∧ IsUniversallyClosed S (trivialQuotientProj S X G) ∧
+      ¬ IsClosedImmersion S (pullback.diagonal (trivialQuotientProj S X G)) := by sorry
+
 /-- C4/proper-map API: composites of proper maps are proper. -/
 theorem IsProper.comp {X Y Z : S.V} (f : X ⟶ Y) (g : Y ⟶ Z) (hf : IsProper S f)
     (hg : IsProper S g) : IsProper S (f ≫ g) := by
@@ -3714,6 +3864,12 @@ C4/proper-iff-partially-proper-qc). -/
 theorem isProper_iff_partiallyProper_qc {X Y : S.V} (f : X ⟶ Y) :
     IsProper S f ↔ IsPartiallyProper S f ∧ IsQuasicompactMap S f :=
   properIffPartiallyProperQc S f
+
+-- test isPartiallyProper_glued_not (non-example): two copies of Spa(C, C⁺) glued along the
+-- quasicompact open {|a| ≤ 1} (a ∈ O_C ∖ C⁺) map to Spa(C, C⁺) by a 0-truncated quasiseparated map
+-- with lifts for all (R, R⁺)-squares, which is not separated (two lifts at the rank-one point).
+-- Not stated: gluing along opens is not part of the `Carriers` data; `IsPartiallyProper.iff_qs`
+-- states the correct form with unique lifts.
 
 /-- test isPartiallyProper_id (degenerate): identities are partially proper. -/
 example (Y : S.V) : IsPartiallyProper S (𝟙 Y) := by sorry
@@ -3831,11 +3987,16 @@ example (Y : S.V) (hY : IsPartiallyProperStack S Y) : IsIso (toCptAbs S Y) := by
 -- field of a perfectoid field pair are not part of the `Carriers` data; the formula itself is the
 -- test cpt_affinoid.
 
-/-- test cpt_not_spatial_preserving (non-example): the envelope of a separated diamond is a
-diamond; that it need not be spatial is not stated (spatiality of `Ȳ` is not asserted anywhere). -/
+/-- test cpt_spatial_not_claimed (characterisation): the envelope of a separated diamond is a
+diamond; whether the envelope of a spatial diamond is spatial is open (ECD p. 130) and is not
+asserted. -/
 example (Y : S.V) (hY : IsSeparatedStack S Y) (hd : S.diaV.essImage Y) :
     S.diaV.essImage (cptAbs S Y) := by
   sorry
+
+-- test cpt_point_not_open (non-example): for C with residue field transcendental over F_p,
+-- Spa(C, O_C) → Spa(C, (O_C)′) is a quasicompact injection whose image is not open. Not stated:
+-- residue fields of perfectoid field pairs are not part of the `Carriers` data.
 
 /-- DiamondEtaleCohomology:C4/compactification-limits-surjectivity (ECD Proposition 18.7(v),(vi))
 Omitted hypothesis: the v-sheaves are 0-truncated (limits are taken among separated small
@@ -3873,6 +4034,11 @@ abbrev canonicalCompactification {X Y : S.V} (f : X ⟶ Y) : Over Y := Over.mk (
 theorem canonicalCompactification.fac {X Y : S.V} (f : X ⟶ Y) :
     TauCeti.DiamondEtale.toCpt S f ≫ cptMap S f = f := by
   sorry
+
+/-- C4/canonical-compactification API `canonicalCompactification.toCpt_injective`: for separated
+`f`, `Y′ → Ȳ′^{/Y}` is an injection (ECD 10.10); it need not be an open immersion. -/
+theorem canonicalCompactification.toCpt_injective {X Y : S.V} (f : X ⟶ Y) (hf : IsSeparatedMap S f) :
+    Mono (TauCeti.DiamondEtale.toCpt S f) := sorry
 
 /-- C4/canonical-compactification API: the map `Y′ → Ȳ′^{/Y}` over `Y`. -/
 def canonicalCompactification.toCpt {X Y : S.V} (f : X ⟶ Y) :
@@ -3992,10 +4158,12 @@ theorem properImageClosed {Y' Y Z : S.V} (f : Y' ⟶ Y) (hf : IsSeparatedMap S f
   sorry
 
 /-- DiamondEtaleCohomology:C4/partially-proper-colimit (ECD Proposition 18.9): `f` is partially
-proper iff it is a filtered colimit of proper maps along closed immersions. All objects of `S.V`
-are small, so the colimit is small (the "possibly large" case is not typable). Omitted hypothesis:
-the v-stacks are v-sheaves (0-truncated). -/
-theorem partiallyProperColimit {Y' Y : S.V} (f : Y' ⟶ Y) :
+proper iff it is a filtered colimit of proper maps along closed immersions, for `Y` quasiseparated
+(every map from a quasicompact object to `Y` is quasicompact); the direction ⇒ fails for `Y = ∗`
+(DiamondEtaleCohomology/E4). All objects of `S.V` are small, so the colimit is small (the "possibly
+large" case is not typable). Omitted hypothesis: the v-stacks are v-sheaves (0-truncated). -/
+theorem partiallyProperColimit {Y' Y : S.V} (f : Y' ⟶ Y)
+    (hY : ∀ (Z : S.V) (g : Z ⟶ Y), IsQuasicompactV S Z → IsQuasicompactMap S g) :
     IsPartiallyProper S f ↔
       ∃ (J : Type u) (_ : SmallCategory J) (_ : IsFiltered J) (D : J ⥤ S.V) (c : Cocone D)
         (_ : IsColimit c) (e : c.pt ≅ Y'),
@@ -4293,10 +4461,11 @@ theorem IsConstructible.etaleShriek [IsNoetherianRing Λ] {Y : S.V} (W : S.EtVOv
   sorry
 
 /-- C7/constructible-sheaf API: geometric stalks of a constructible sheaf on a locally spatial
-diamond are finitely generated. A geometric point is a map from a one-point strictly totally
-disconnected space `Spa(C, O_C)`; the stalk is the module of sections of the pullback. -/
+diamond are finitely generated. A geometric point is a map from a connected strictly totally
+disconnected space `Spa(C, C⁺)` (any rank); the stalk at its closed point is the module of global
+sections of the pullback. -/
 theorem IsConstructible.stalk_fg [IsNoetherianRing Λ] (Y : S.LS) (F : VSh S Λ (S.ofLS Y))
-    (hF : IsConstructible S Λ (S.ofLS Y) F) (X : S.Std) [Unique (stdPts S X)]
+    (hF : IsConstructible S Λ (S.ofLS Y) F) (X : S.Std) [ConnectedSpace (stdPts S X)]
     (f : S.ofLS (S.ofStd X) ⟶ S.ofLS Y) :
     ∃ G : EtSh S Λ (S.ofStd X),
       Module.Finite Λ (((stdSpaceEquiv S Λ X).functor.obj G).presheaf.obj (Opposite.op ⊤)) ∧
@@ -4321,8 +4490,8 @@ example [IsNoetherianRing Λ] (X : S.Std) (F : EtSh S Λ (S.ofStd X)) :
   sorry
 
 -- test isConstructible_open_disc (non-example): for the closed perfectoid unit disc D over
--- Spa(C, O_C) and the non-quasicompact open U = D ∖ {Gauss point}, j_!Λ_U is not constructible.
--- Not stated: the Gauss point, the open subdiamond U and its extension by zero are not part of
+-- Spa(C, O_C), a classical point x and the non-quasicompact open U = D ∖ {x} (Λ ≠ 0), j_!Λ_U is not
+-- constructible. Not stated: classical points of the disc and the open subdiamond U are not part of
 -- the `Carriers` data (the spectral-space analogue is the test isConstructibleSheaf_not_qc_open).
 
 /-- test isConstructible_v_sheaf_not (non-example): for `Y = Spa(K, O_K)` and `Λ ≠ 0`, the sheaf
@@ -4550,9 +4719,34 @@ example (U : S.V) (Z : Set (S.pts.obj U)) (hZ : IsClosed Z) (hZc : Topology.IsCo
     IsZero ((pull S Λ (etvMap S W)).obj ((supportRestrictDerived S Λ U Z).obj A)).obj := by
   sorry
 
--- test supportRestrict_not_subsheaf (non-example): for Z = {s} in Spa(C, C⁺), L|_Z is not i_∗ of
--- a sheaf on a closed sub-v-sheaf, since {s} is not generalizing. Not stated: closed sub-v-sheaves
--- and pushforward along them are not part of the `Carriers` data.
+-- test supportRestrict_not_subsheaf (non-example): for U = Spa(C, C⁺) of rank 2 and Z = {s}, no
+-- sub-v-sheaf Z′ ⊂ U has |Z′| = Z (images of perfectoid spaces are generalizing), so L|_Z is not i_∗ of
+-- a sheaf on a sub-v-sheaf with underlying set Z. Not stated: sub-v-sheaves of `U` are not part of
+-- the `Carriers` data.
+
+/-- C7/support-restriction API `supportRestrict.pullback`: support restriction commutes with
+pullback. -/
+theorem supportRestrict.pullback {U'' U : S.V} (g : U'' ⟶ U) (Z : Set (S.pts.obj U)) (hZ : IsClosed Z)
+    (hZc : Topology.IsConstructible Z) (A : DetCat S Λ U) :
+    Nonempty ((pull S Λ g).obj ((supportRestrictDerived S Λ U Z).obj A) ≅
+      (supportRestrictDerived S Λ U'' ((S.pts.map g) ⁻¹' Z)).obj ((pull S Λ g).obj A)) := sorry
+
+/-- C7/support-restriction API `supportRestrict.etaleShriek`: for étale `j : W → Y` and a constructible
+closed `Z ⊂ |W|`, `(j_!(A|_Z))|_{Z′} ≅ j_!(A|_{Z ∩ j^{-1}(Z′)})`. -/
+theorem supportRestrict.etaleShriek {Y : S.V} (W : S.EtVOver Y) (Z : Set (S.pts.obj (etvSrc S W)))
+    (Z' : Set (S.pts.obj Y)) (A : DetCat S Λ (etvSrc S W)) :
+    Nonempty ((supportRestrictDerived S Λ Y Z').obj
+        ((etaleShriek S Λ W).obj ((supportRestrictDerived S Λ _ Z).obj A)) ≅
+      (etaleShriek S Λ W).obj ((supportRestrictDerived S Λ _ (Z ∩ (S.pts.map (etvMap S W)) ⁻¹' Z')).obj A)) :=
+  sorry
+
+/-- C7/support-restriction API `supportRestrict.isConstructible`: for a constructible `L` on a
+spatial diamond and a constructible closed `Z`, `L|_Z` is constructible. -/
+theorem supportRestrict.isConstructible [IsNoetherianRing Λ] (U : S.LS)
+    [CompactSpace (S.pts.obj (S.ofLS U))] [QuasiSeparatedSpace (S.pts.obj (S.ofLS U))]
+    (Z : Set (S.pts.obj (S.ofLS U))) (hZ : IsClosed Z) (hZc : Topology.IsConstructible Z)
+    (L : EtSh S Λ U) (hL : IsConstructible S Λ _ ((etToV S Λ U).obj L)) :
+    IsConstructible S Λ _ ((etToV S Λ U).obj ((supportRestrict S Λ U Z).obj L)) := sorry
 
 /-! ### Filtrations (C7/constructible-filtration) -/
 
@@ -4770,11 +4964,24 @@ def IsLocallyBounded {Y : S.V} (A : DV S Λ Y) : Prop :=
   ∀ (X : S.Std) (f : S.ofLS (S.ofStd X) ⟶ Y), ∃ a b : ℤ, ∀ n, (n < a ∨ b < n) →
     IsZero ((DerivedCategory.homologyFunctor _ n).obj ((vPull S Λ f).obj A))
 
-/-- All geometric stalks of `A` are perfect: the pullback to every one-point strictly totally
-disconnected space `Spa(C, O_C)` is the constant complex of a perfect complex. -/
+/-- All geometric stalks of `A` are perfect. A geometric point is a connected strictly totally
+disconnected space `X = Spa(C, C⁺)` over `Y` (ECD Proposition 7.16: the connected components of a
+strictly totally disconnected space are of this form, with `C` algebraically closed), for every
+open bounded valuation subring `C⁺`, not only `C⁺ = O_C`. The stalk at its closed point is
+`RΓ(X, f^*A)`, because `X` is the only open neighbourhood of the closed point. -/
 def HasPerfectStalks {Y : S.V} (A : DV S Λ Y) : Prop :=
-  ∀ (X : S.Std), Unique (stdPts S X) → ∀ f : S.ofLS (S.ofStd X) ⟶ Y,
-    ∃ P, IsPerfectComplex Λ P ∧ Nonempty ((vPull S Λ f).obj A ≅ (constDV S Λ _).obj P)
+  ∀ (X : S.Std), ConnectedSpace (stdPts S X) → ∀ f : S.ofLS (S.ofStd X) ⟶ Y,
+    IsPerfectComplex Λ
+      ((vRGammaAt S Λ (stdV S X) (vTop S (S.lsDia.obj (S.ofStd X)))).obj ((vPull S Λ f).obj A))
+
+/-- `A` has locally bounded Tor amplitude: after pullback to every (quasicompact) strictly totally
+disconnected `X → Y` there are `a, b` with `H^n(f^*A ⊗^L_Λ M) = 0` for every Λ-module `M` and
+every `n ∉ [a, b]` (Stacks, Definition 15.68.1, tag 0652, for the constant sheaf `M`). -/
+def HasLocallyBoundedTorAmplitude {Y : S.V} (A : DV S Λ Y) : Prop :=
+  ∀ (X : S.Std) (f : S.ofLS (S.ofStd X) ⟶ Y), ∃ a b : ℤ, ∀ (M : ModuleCat.{u} Λ) (n : ℤ),
+    (n < a ∨ b < n) → IsZero ((DerivedCategory.homologyFunctor _ n).obj
+      (((vTensor S Λ (stdV S X)).obj ((vPull S Λ f).obj A)).obj
+        ((DerivedCategory.singleFunctor _ 0).obj (vConst S Λ (stdV S X) M))))
 
 /-- DiamondEtaleCohomology:C7/perfect-constructible-stalk-criterion (ECD Proposition 20.12) -/
 theorem perfectConstructibleStalkCriterion [IsNoetherianRing Λ] (Y : S.V) (A : DV S Λ Y) :
@@ -4782,6 +4989,22 @@ theorem perfectConstructibleStalkCriterion [IsNoetherianRing Λ] (Y : S.V) (A : 
       (∀ n, IsConstructible S Λ Y ((DerivedCategory.homologyFunctor _ n).obj A)) ∧
       HasPerfectStalks S Λ A := by
   sorry
+
+/-- DiamondEtaleCohomology:C7/perfect-constructible-stalk-criterion, part (iii): the locally bounded
+Tor-amplitude form (ECD Proposition 20.12 with Stacks 0658 and 066E); API
+`IsPerfectConstructible.iff_torAmplitude`. -/
+theorem perfectConstructibleStalkCriterion.torAmplitude [IsNoetherianRing Λ] (Y : S.V)
+    (A : DV S Λ Y) :
+    IsPerfectConstructible S Λ Y A ↔ Det S Λ Y A ∧ IsLocallyBounded S Λ A ∧
+      (∀ n, IsConstructible S Λ Y ((DerivedCategory.homologyFunctor _ n).obj A)) ∧
+      HasLocallyBoundedTorAmplitude S Λ A := by
+  sorry
+
+theorem IsPerfectConstructible.iff_torAmplitude [IsNoetherianRing Λ] (Y : S.V) (A : DV S Λ Y) :
+    IsPerfectConstructible S Λ Y A ↔ Det S Λ Y A ∧ IsLocallyBounded S Λ A ∧
+      (∀ n, IsConstructible S Λ Y ((DerivedCategory.homologyFunctor _ n).obj A)) ∧
+      HasLocallyBoundedTorAmplitude S Λ A :=
+  perfectConstructibleStalkCriterion.torAmplitude S Λ Y A
 
 /-- C7/perfect-constructible API: pullback along any map of small v-stacks preserves
 perfect-constructibility. -/
@@ -4889,14 +5112,28 @@ theorem perfectConstructibleVDescent {Y' Y : S.V} (f : Y' ⟶ Y) (hf : IsSurject
 
 /-! ### Locally constant complexes with perfect values (C7/perfect-local-system) -/
 
-/-- C7/perfect-local-system API: `A ∈ D_ét(U, Λ)` is v-locally the constant complex of a perfect
-complex: for every object `V` of `U_v`, the objects `W → V` over which `A` becomes constant with
-perfect value generate a covering sieve. -/
+/-- C7/perfect-local-system API: `A ∈ D_ét(U, Λ)` is étale-locally the constant complex of a perfect
+complex: there is a jointly surjective family of étale maps `Wᵢ → U` over each of which `A` becomes
+constant with perfect value. -/
 def IsPerfectLocalSystem (U : S.V) (A : DV S Λ U) : Prop :=
-  Det S Λ U A ∧ ∀ V : S.VOver U, Sieve.generate (fun ⦃W : S.VOver U⦄ (_ : W ⟶ V) =>
-    ∃ P, IsPerfectComplex Λ P ∧
-      Nonempty ((vPull S Λ ((S.vSrc U).obj W).hom).obj A ≅
-        (constDV S Λ ((S.vSrc U).obj W).left).obj P)) ∈ vSite S U V
+  Det S Λ U A ∧ ∃ (ι : Type u) (W : ι → S.EtVOver U),
+    IsVCoverFamily S (fun i => ((S.etVSrc U).obj (W i)).hom) ∧
+    ∀ i, ∃ P, IsPerfectComplex Λ P ∧
+      Nonempty ((vPull S Λ ((S.etVSrc U).obj (W i)).hom).obj A ≅
+        (constDV S Λ ((S.etVSrc U).obj (W i)).left).obj P)
+
+/-- C7/perfect-local-system API `IsPerfectLocalSystem.exists_qcsep_trivialization`: on a spatial
+diamond, finitely many quasicompact separated étale maps trivialize `A`. -/
+theorem IsPerfectLocalSystem.exists_qcsep_trivialization (U : S.LS)
+    [CompactSpace (S.pts.obj (S.ofLS U))] [QuasiSeparatedSpace (S.pts.obj (S.ofLS U))]
+    (A : DV S Λ (S.ofLS U)) (hA : IsPerfectLocalSystem S Λ _ A) :
+    ∃ (n : ℕ) (W : ULift.{u} (Fin n) → S.EtVOver (S.ofLS U)),
+      IsVCoverFamily S (fun k => ((S.etVSrc _).obj (W k)).hom) ∧
+      ∀ k, IsQuasicompactMap S ((S.etVSrc _).obj (W k)).hom ∧
+        IsSeparatedMap S ((S.etVSrc _).obj (W k)).hom ∧
+        ∃ P, IsPerfectComplex Λ P ∧
+          Nonempty ((vPull S Λ ((S.etVSrc _).obj (W k)).hom).obj A ≅
+            (constDV S Λ ((S.etVSrc _).obj (W k)).left).obj P) := sorry
 
 /-- C7/perfect-local-system API: `A` is dualizable with dual `A^∨ = RHom_Λ(A, Λ_U)`, and
 `A^∨ ⊗^L B ≅ RHom_Λ(A, B)`. -/
@@ -4911,9 +5148,12 @@ theorem IsPerfectLocalSystem.pullback {U' U : S.V} (g : U' ⟶ U) (A : DV S Λ U
     (hA : IsPerfectLocalSystem S Λ U A) : IsPerfectLocalSystem S Λ U' ((vPull S Λ g).obj A) := by
   sorry
 
-/-- C7/perfect-local-system API: closed under shifts, retracts, `⊗^L` and duals. (It is not
-closed under cones in general; that negative statement is not formalised.) -/
+/-- C7/perfect-local-system API: closed under shifts, retracts, cones, `⊗^L` and duals (étale-locally
+a map of constant perfect complexes is constant). -/
 theorem IsPerfectLocalSystem.triangle (U : S.V) :
+    (∀ (T : Pretriangulated.Triangle (DV S Λ U)), T ∈ Pretriangulated.distinguishedTriangles →
+      IsPerfectLocalSystem S Λ U T.obj₁ → IsPerfectLocalSystem S Λ U T.obj₂ →
+        IsPerfectLocalSystem S Λ U T.obj₃) ∧
     ObjectProperty.IsStableUnderShift (fun A => IsPerfectLocalSystem S Λ U A : ObjectProperty (DV S Λ U)) ℤ ∧
     ObjectProperty.IsStableUnderRetracts
       (fun A => IsPerfectLocalSystem S Λ U A : ObjectProperty (DV S Λ U)) ∧
@@ -4944,8 +5184,7 @@ example (X : S.Std) [Unique (stdPts S X)] (A : DV S Λ (S.ofLS (S.ofStd X))) :
 perfect values iff it is bounded and its cohomology sheaves are local systems of
 finite-dimensional vector spaces (i.e. their `[0]` are locally constant with perfect values). -/
 example (hΛ : IsField Λ) (U : S.V) (A : DV S Λ U) :
-    IsPerfectLocalSystem S Λ U A ↔ Det S Λ U A ∧
-      (∃ a b : ℤ, ∀ n, (n < a ∨ b < n) → IsZero ((DerivedCategory.homologyFunctor _ n).obj A)) ∧
+    IsPerfectLocalSystem S Λ U A ↔ Det S Λ U A ∧ IsLocallyBounded S Λ A ∧
       ∀ n, IsPerfectLocalSystem S Λ U ((singleV S Λ U).obj ((DerivedCategory.homologyFunctor _ n).obj A)) := by
   sorry
 
@@ -5045,6 +5284,20 @@ theorem perfectConstructibleLimitFullyFaithful :
       ∀ {I : Type u} [SmallCategory I] [IsFiltered I] (R : I ⥤ CommRingCat.{u}) (c : Cocone R),
         IsColimit c → (dpcRingColimComparison S (S.ofLS Y) R c).Full ∧
           (dpcRingColimComparison S (S.ofLS Y) R c).Faithful) := by
+  sorry
+
+-- the ring case of C7/perfect-local-system-limit is analogous and omitted.
+/-- DiamondEtaleCohomology:C7/perfect-local-system-limit (from the proof of ECD Proposition 20.15):
+a locally constant complex with perfect values on the limit `Y` of a cofiltered system of spatial
+diamonds is pulled back from such a complex at some finite stage. -/
+theorem perfectLocalSystemLimit {I : Type u} [SmallCategory I] [IsCofiltered I] (D : I ⥤ S.LS)
+    (hD : ∀ i, CompactSpace (S.pts.obj (S.ofLS (D.obj i))) ∧
+      QuasiSeparatedSpace (S.pts.obj (S.ofLS (D.obj i))))
+    (c : Cone (D ⋙ S.lsDia ⋙ S.diaV)) (hc : IsLimit c) (Y : S.LS) (e : S.ofLS Y ≅ c.pt)
+    (hY : CompactSpace (S.pts.obj (S.ofLS Y)) ∧ QuasiSeparatedSpace (S.pts.obj (S.ofLS Y)))
+    (L : DV S Λ (S.ofLS Y)) (hL : IsPerfectLocalSystem S Λ _ L) :
+    ∃ (i : I) (Li : DV S Λ (S.ofLS (D.obj i))), IsPerfectLocalSystem S Λ _ Li ∧
+      Nonempty ((vPull S Λ (e.hom ≫ c.π.app i)).obj Li ≅ L) := by
   sorry
 
 /-- DiamondEtaleCohomology:C7/perfect-constructible-limit-equivalence (ECD Proposition 20.15, with
