@@ -18,7 +18,8 @@ condensed algebras. Smoothness/admissibility of representations is omitted.
 ZEmbedding records the rational-point exact sequence and central lifting only.
 The reductive-scheme, induced-torus, connected-centre and H1 conditions in the
 document are left out, not replaced by unnamed predicates. Its tests exercise
-this rational-point fragment. The reader contains the omission ledger.
+this rational-point fragment. The reader contains the omission ledger; the
+independent review records corrections that its revision must incorporate.
 -/
 import Mathlib.Condensed.Basic
 import Mathlib.Algebra.Category.AlgCat.Basic
@@ -211,11 +212,18 @@ section Transport
 variable {L : Type u} [Field L]
 variable {S S' : Type u} [CommRing S] [Algebra L S] [CommRing S'] [Algebra L S']
 variable {W H H' : Type u} [Group W] [Group H] [Group H']
-theorem invarianceAndCoefficientTransport (f : S' →ₐ[L] S)
-    (χ : S →ₐ[L] L) (χ' : S' →ₐ[L] L)
-    (classify : (S →ₐ[L] L) → (W →* H)) (classify' : (S' →ₐ[L] L) → (W →* H'))
-    (dual : H →* H') (hc : ∀ c, classify' (c.comp f) = dual.comp (classify c))
-    (hχ : χ' = χ.comp f) : classify' χ' = dual.comp (classify χ) := by sorry
+/-- Algebraic coefficient extension; the geometric base-change comparison and
+the retained Schur condition which produce `hχ` remain omitted. -/
+theorem invarianceAndCoefficientTransport
+    {L' Exc' : Type u} [Field L'] [CommRing Exc'] [Algebra L' Exc']
+    (coefficientMap : L →+* L') (extendExcursion : S →+* Exc')
+    (χ : S →ₐ[L] L) (χ' : Exc' →ₐ[L'] L')
+    (classify : (S →ₐ[L] L) → (W →* H))
+    (classify' : (Exc' →ₐ[L'] L') → (W →* H')) (dual : H →* H')
+    (hc : ∀ c c', c'.toRingHom.comp extendExcursion = coefficientMap.comp c.toRingHom →
+      classify' c' = dual.comp (classify c))
+    (hχ : χ'.toRingHom.comp extendExcursion = coefficientMap.comp χ.toRingHom) :
+    classify' χ' = dual.comp (classify χ) := by sorry
 
 theorem coefficientPolicyForFunctorialDiagrams (f : S' →ₐ[L] S)
     (χ : S →ₐ[L] L) (χ' : S' →ₐ[L] L) (h : χ' = χ.comp f) (x : S') :
@@ -252,8 +260,17 @@ theorem toriSpectralCenter (reciprocityComparison : S →ₐ[L] R)
     (h : Function.Bijective reciprocityComparison) :
     ∃ e : S ≃ₐ[L] R, e.toAlgHom = reciprocityComparison := by sorry
 
-theorem toriDiagonalEmbedding (diagonal : R →ₐ[L] (B → R))
-    (hdiag : ∀ r b, diagonal r b = r) (r : R) : diagonal r = fun _ => r := by sorry
+/-- Equality on algebra generators propagates to the full algebra, including
+nilpotents. The actual completed group-algebra/operator comparison is omitted. -/
+theorem toriDiagonalEmbedding {D : Type u} (gen : D → R)
+    (hgen : Algebra.adjoin L (Set.range gen) = ⊤) (diagonal : R →ₐ[L] (B → R))
+    (hdiag : ∀ d b, diagonal (gen d) b = gen d) (r : R) :
+    diagonal r = fun _ => r := by sorry
+
+-- Scalar-valued characters alone cannot supply the generator identity above.
+example (diagonal : R →ₐ[L] (B → R)) (x : R) (hx : x ≠ 0)
+    (hnil : x * x = 0) (hdiag : ∀ r b, diagonal r b = r) (b : B) :
+    diagonal x b ≠ 0 ∧ diagonal x b * diagonal x b = 0 := by sorry
 
 theorem torusTwoLegCalculation {W A : Type u} [Group W] [CommGroup A]
     (recGeomInverse : W →* A) (χ : A →* Lˣ) (γ₁ γ₂ : W) :
