@@ -23655,8 +23655,9 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology--C0",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology--C0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #386"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #386",
+   "finishedAt": "2026-10-07T13:45:56Z"
   },
   {
    "id": "BP-DiamondEtaleCohomology--C8",
@@ -60869,7 +60870,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
