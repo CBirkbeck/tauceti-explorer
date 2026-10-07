@@ -10382,8 +10382,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3344"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3344",
+   "finishedAt": "2026-10-07T04:50:08Z"
   },
   {
    "id": "REV-DESIGN-PotentialAutomorphyInfrastructurePartII",
@@ -25475,9 +25476,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #742"
+   "note": "deliverables arrived from an external worker on issue #742",
+   "finishedAt": "2026-10-07T04:50:09Z"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS3",
@@ -26051,8 +26053,9 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--H0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #753"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--H0",
@@ -37583,7 +37586,8 @@
     "REV-MetaplecticAutomorphicForms--MP.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-MetaplecticAutomorphicForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #245"
   },
   {
    "id": "ASM-ModularCurvesPartII",
