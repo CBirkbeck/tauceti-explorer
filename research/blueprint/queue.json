@@ -25504,8 +25504,9 @@
    ],
    "avoidAccountOf": "BP-GeometricSatakeAndFusion--GS3",
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #419"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #419",
+   "finishedAt": "2026-10-07T05:17:34Z"
   },
   {
    "id": "BP-GlobalGaloisDeformations",
@@ -28590,7 +28591,8 @@
    ],
    "avoidAccountOf": "BP-RefinedTraceMethods--RT.1",
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #480"
   },
   {
    "id": "BP-RefinedTraceMethods--RT.5",
