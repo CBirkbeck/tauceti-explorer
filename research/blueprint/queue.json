@@ -26308,7 +26308,8 @@
    ],
    "avoidAccountOf": "BP-IntegralHeckeAndGaloisDeterminants",
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #435"
   },
   {
    "id": "BP-IntegralIwasawaTheory--I.1",
@@ -28758,8 +28759,9 @@
    ],
    "avoidAccountOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/REV-SchemeKTheoryOperations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #484"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #484",
+   "finishedAt": "2026-10-07T03:55:57Z"
   },
   {
    "id": "BP-SelmerIwasawaCohomology",
