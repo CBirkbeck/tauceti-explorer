@@ -68,6 +68,8 @@ import Mathlib.RingTheory.Length
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.RingTheory.Etale.Basic
+import Mathlib.Algebra.Homology.DerivedCategory.TStructure
 
 /-!
 # Igusa varieties, compactified period fibres and torsion concentration — suggested Lean
@@ -944,12 +946,44 @@ inductive PELType
 def involutionType {p : ℕ} [Fact p.Prime] (B : Type) [Ring B] [Algebra ℚ_[p] B]
     (invol : B ≃ₐ[ℚ_[p]] Bᵐᵒᵖ) : PELType := sorry
 
-/-- (IG.0/unramified-local-pel-datum) An unramified local PEL datum `(B, *, V, (·,·), O_B, Λ, μ)`
-of type (A) or (C) (the class `b ∈ B(G, μ⁻¹)` is an extra argument of the constructions); the
-cocharacter `μ` is recorded by the projector onto `V₁ ⊂ V ⊗ ℚ̄_p`.
-REVIEW LIMITATION: the unramified-centre/maximal-order, B-linear and isotropic Hodge
-decomposition, and c∘μ=id conditions are still omitted. This carrier is not yet the full
-LocalPELDatum contract; see the review and the named packet gap. -/
+/-- An unramified extension of `ℚ_p`, described by its finite étale `ℤ_p`-order and
+fraction field. This is an imported local-field interface (owner: PELModuli M0), not a
+new classification of local fields. -/
+structure UnramifiedPadicField (p : ℕ) [Fact p.Prime] where
+  F : Type
+  [field : Field F]
+  [algebra : Algebra ℚ_[p] F]
+  [finiteDimensional : FiniteDimensional ℚ_[p] F]
+  [integerAlgebra : Algebra ℤ_[p] F]
+  [tower : IsScalarTower ℤ_[p] ℚ_[p] F]
+  integers : Subalgebra ℤ_[p] F
+  finite : Module.Finite ℤ_[p] integers
+  etale : Algebra.Etale ℤ_[p] integers
+  fraction : IsFractionRing integers F
+
+attribute [instance] UnramifiedPadicField.field UnramifiedPadicField.algebra
+  UnramifiedPadicField.finiteDimensional UnramifiedPadicField.integerAlgebra
+  UnramifiedPadicField.tower
+
+/-- Scalar extension of a bilinear form in the standard coordinates, with no extra
+arbitrary pairing over `ℚ̄_p`. -/
+def localPELFormBar {p d : ℕ} [Fact p.Prime]
+    (form : LinearMap.BilinForm ℚ_[p] (Fin d → ℚ_[p]))
+    (v w : Fin d → AlgebraicClosure ℚ_[p]) : AlgebraicClosure ℚ_[p] :=
+  ∑ i, ∑ j, algebraMap ℚ_[p] (AlgebraicClosure ℚ_[p])
+    (form (Pi.single i 1) (Pi.single j 1)) * v i * w j
+
+/-- Scalar extension of the `B`-action in the same coordinates. -/
+def localPELActBar {p d : ℕ} [Fact p.Prime] {B : Type} [Ring B] [Algebra ℚ_[p] B]
+    (act : B →ₐ[ℚ_[p]] Module.End ℚ_[p] (Fin d → ℚ_[p]))
+    (b : B) (v : Fin d → AlgebraicClosure ℚ_[p]) : Fin d → AlgebraicClosure ℚ_[p] :=
+  fun i ↦ ∑ j, algebraMap ℚ_[p] (AlgebraicClosure ℚ_[p]) (act b (Pi.single j 1) i) * v j
+
+/-- (IG.0/unramified-local-pel-datum) The full unramified local PEL datum, excluding type D.
+The matrix decomposition specifies the unramified centre and its maximal integral order.
+The projector specifies weights 0 and 1; B-linearity, both isotropy conditions and the
+similitude equation ensure that `(1-P)+tP` is the required cocharacter in `G`, with `c∘μ=id`.
+The admissible class `b ∈ B(G,μ⁻¹)` is a separate argument. -/
 structure LocalPELDatum (p : ℕ) [Fact p.Prime] where
   /-- The algebra `B`. -/
   B : Type
@@ -957,11 +991,18 @@ structure LocalPELDatum (p : ℕ) [Fact p.Prime] where
   [algebra : Algebra ℚ_[p] B]
   [finiteDimensional : FiniteDimensional ℚ_[p] B]
   [semisimple : IsSemisimpleRing B]
+  factors : ℕ
+  fieldFactor : Fin factors → UnramifiedPadicField p
+  matrixSize : Fin factors → ℕ
+  matrixSize_pos : ∀ i, 0 < matrixSize i
+  decomposition : B ≃ₐ[ℚ_[p]] (∀ i, Matrix (Fin (matrixSize i)) (Fin (matrixSize i)) (fieldFactor i).F)
   /-- The anti-involution `*`. -/
   invol : B ≃ₐ[ℚ_[p]] Bᵐᵒᵖ
+  invol_invol : ∀ b, (invol (invol b).unop).unop = b
   not_typeD : involutionType B invol ≠ PELType.D
   /-- The `*`-stable maximal order `O_B`. -/
   OB : Subring B
+  OB_maximal : ∀ b, b ∈ OB ↔ ∀ i r c, decomposition b i r c ∈ (fieldFactor i).integers
   OB_stable : ∀ b ∈ OB, (invol b).unop ∈ OB
   /-- `dim_{ℚ_p} V`. -/
   dimV : ℕ
@@ -981,6 +1022,15 @@ structure LocalPELDatum (p : ℕ) [Fact p.Prime] where
   /-- The projector onto the weight-one summand `V₁` of `μ`. -/
   hodgeProj : Module.End (AlgebraicClosure ℚ_[p]) (Fin dimV → AlgebraicClosure ℚ_[p])
   hodgeProj_idem : hodgeProj * hodgeProj = hodgeProj
+  hodgeProj_Blinear : ∀ b v,
+    hodgeProj (localPELActBar act b v) = localPELActBar act b (hodgeProj v)
+  hodgeProj_isotropic : ∀ v w, localPELFormBar form (hodgeProj v) (hodgeProj w) = 0
+  hodgeComplement_isotropic : ∀ v w,
+    localPELFormBar form (v - hodgeProj v) (w - hodgeProj w) = 0
+  hodge_similitude : ∀ (t : (AlgebraicClosure ℚ_[p])ˣ) v w,
+    localPELFormBar form ((v - hodgeProj v) + (t : AlgebraicClosure ℚ_[p]) • hodgeProj v)
+      ((w - hodgeProj w) + (t : AlgebraicClosure ℚ_[p]) • hodgeProj w) =
+        (t : AlgebraicClosure ℚ_[p]) * localPELFormBar form v w
 
 attribute [instance] LocalPELDatum.ring LocalPELDatum.algebra LocalPELDatum.finiteDimensional
   LocalPELDatum.semisimple
@@ -1008,16 +1058,24 @@ def reductiveModel (𝒟 : LocalPELDatum p) (R : Type) [CommRing R] [Algebra ℤ
 instance (𝒟 : LocalPELDatum p) (R : Type) [CommRing R] [Algebra ℤ_[p] R] :
     Group (𝒟.reductiveModel R) := sorry
 
-/-- p-divisible groups over `S` with `O_B`-action, determinant condition and principal
-polarization compatible with `*`. -/
+/-- Rational framing objects: p-divisible groups with rational `B`-action on the
+universal cover and symmetric quasi-polarization compatible with `*`. No integral
+principal polarization is inferred from the isocrystal. -/
 def PDivB (𝒟 : LocalPELDatum p) (S : Scheme.{u}) : Type (u + 1) := sorry
 
 /-- The underlying p-divisible group. -/
 def PDivB.toPDivGroup {𝒟 : LocalPELDatum p} {S : Scheme.{u}} (X : 𝒟.PDivB S) : PDivGroup p S :=
   sorry
 
-/-- `O_B`-linear quasi-isogenies respecting the polarizations up to `ℚ_p^×`. -/
+/-- `B`-linear quasi-isogenies respecting the polarizations up to `ℚ_p^×`. -/
 def PDivB.QIsog {𝒟 : LocalPELDatum p} {S : Scheme.{u}} (X Y : 𝒟.PDivB S) : Type u := sorry
+
+/-- Integral PEL objects: integral `O_B`-action, determinant condition and principal
+polarization. The underlying rational object is accessed only by `forget`. -/
+def IntegralPDivB (𝒟 : LocalPELDatum p) (S : Scheme.{u}) : Type (u + 1) := sorry
+
+def IntegralPDivB.forget {𝒟 : LocalPELDatum p} {S : Scheme.{u}} :
+    𝒟.IntegralPDivB S → 𝒟.PDivB S := sorry
 
 /-- (IG.0/unramified-local-pel-datum) The p-divisible group `X_b` over an algebraically closed
 `k ⊃ 𝔽_p` attached to `b ∈ B(G, μ⁻¹)`. -/
@@ -1034,18 +1092,21 @@ instance (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] 
 instance (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] [CharP k p]
     [PerfectRing k p] : WittVector.Isocrystal p k (𝒟.isocrystalOfB b k) := sorry
 
+/-- Rational isocrystal isomorphisms respecting the B-action and the pairing.
+Owner: R07.2/PELModuli. An underlying Witt isocrystal equivalence alone is insufficient. -/
+def PDivB.IsocrystalEquivOfB {𝒟 : LocalPELDatum p} {k : Type u} [Field k] [CharP k p]
+    (Y : 𝒟.PDivB (pt k)) (b : 𝒟.KottwitzSet) : Type u := sorry
+
 /-- (IG.0/unramified-local-pel-datum) The rational covariant Dieudonné module of `X_b` is
 `(V ⊗ L, bσ)` (slopes in `[−1, 0]` in this normalization). -/
 theorem pdivOfB_isocrystal (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
     [IsAlgClosed k] [CharP k p] [PerfectRing k p] :
-    Nonempty (WittVector.IsocrystalEquiv p k (𝒟.pdivOfB b k).toPDivGroup.rationalDieudonne
-      (𝒟.isocrystalOfB b k)) := sorry
+    Nonempty (PDivB.IsocrystalEquivOfB (𝒟.pdivOfB b k) b) := sorry
 
 /-- (IG.0/unramified-local-pel-datum) `X_b` is unique up to quasi-isogeny with extra structures. -/
 theorem pdivOfB_unique (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k]
     [IsAlgClosed k] [CharP k p] [PerfectRing k p] (Y : 𝒟.PDivB (pt k))
-    (hY : Nonempty (WittVector.IsocrystalEquiv p k Y.toPDivGroup.rationalDieudonne
-      (𝒟.isocrystalOfB b k))) :
+    (hY : Nonempty (PDivB.IsocrystalEquivOfB Y b)) :
     Nonempty (PDivB.QIsog Y (𝒟.pdivOfB b k)) := sorry
 
 /-- (IG.0/unramified-local-pel-datum) The local datum of the quasi-split unitary datum at a prime
@@ -1067,9 +1128,14 @@ instance (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) : TopologicalSpace (�
 
 end LocalPELDatum
 
+/-- Every prime of `F⁺` above `p` splits in `F` (no prime of `F` above `p` is conjugation-stable). -/
+def IG0SplitInF (D : UnitarySimilitudeDatum) (p : ℕ) : Prop :=
+  ∀ P : Ideal (𝓞 D.F), P.IsPrime → (p : 𝓞 D.F) ∈ P →
+    P.map (NumberField.IsCMField.ringOfIntegersComplexConj D.F) ≠ P
+
 -- test: LocalPELDatum.pdivOfB_ordinary — unitary datum, p split, b ordinary: X_b ≅ (μ ⊕ ℚ_p/ℤ_p) ⊗ O_F^n ⊗ ℤ_p
 example (D : UnitarySimilitudeDatum) (p : ℕ) [Fact p.Prime]
-    (hp : ¬ (p : ℤ) ∣ NumberField.discr D.F) (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] :
+    (hp : ¬ (p : ℤ) ∣ NumberField.discr D.F) (hsplit : IG0SplitInF D p) (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] :
     Nonempty (((LocalPELDatum.ofGlobal D p hp).pdivOfB
         (LocalPELDatum.ofGlobalKottwitz D p hp (KottwitzSet.ordinary D p)) k).toPDivGroup ≅
       (PDivGroup.sum (PDivGroup.mu p (pt k)) (PDivGroup.etaleUnit p (pt k))).tensorFree
@@ -1098,11 +1164,6 @@ example (D : UnitarySimilitudeDatum) (p : ℕ) [Fact p.Prime]
 def IG0geomPoint (X : Scheme.{u}) (x : X) : pt (AlgebraicClosure (X.residueField x)) ⟶ X :=
   Spec.map (CommRingCat.ofHom (algebraMap (X.residueField x)
     (AlgebraicClosure (X.residueField x)))) ≫ X.fromSpecResidueField x
-
-/-- Every prime of `F⁺` above `p` splits in `F` (no prime of `F` above `p` is conjugation-stable). -/
-def IG0SplitInF (D : UnitarySimilitudeDatum) (p : ℕ) : Prop :=
-  ∀ P : Ideal (𝓞 D.F), P.IsPrime → (p : 𝓞 D.F) ∈ P →
-    P.map (NumberField.IsCMField.ringOfIntegersComplexConj D.F) ≠ P
 
 /-- The class `[b] ∈ B(G_{ℚ_p}, μ⁻¹)` of a p-divisible group with `G`-structure over an
 algebraically closed field (Rapoport–Richartz). -/
@@ -1454,6 +1515,17 @@ example (p : ℕ) [Fact p.Prime] {T : Scheme.{u}} (X : PDivGroup p T) (F : Slope
 
 /-! ### `IG.0/slope-filtration-existence` -/
 
+/-- Requested R07.2 adapter: an integral principal-polarized, completely slope divisible
+representative of a rational PEL class. This type records the exact existence obligation;
+it is not populated by the rational construction `pdivOfB`. Source: CS17 §4.3.1 and
+Koshikawa §6; the generic integral G-structure theorem is requested from R07.2. -/
+structure LocalPELDatum.IntegralSlopeRepresentative {p : ℕ} [Fact p.Prime]
+    (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] [IsAlgClosed k]
+    [CharP k p] where
+  integral : 𝒟.IntegralPDivB (pt k)
+  framing : LocalPELDatum.PDivB.QIsog integral.forget (𝒟.pdivOfB b k)
+  slopeDivisible : IsCompletelySlopeDivisible integral.forget.toPDivGroup
+
 /-- (IG.0/slope-filtration-existence) Oort–Zink: (1) over algebraically closed `k` every p-divisible
 group is isogenous to a completely slope divisible one; (2) over perfect bases the slope filtration
 splits; (3) over a valuation ring with constant Newton polygon, complete slope divisibility of the
@@ -1642,6 +1714,8 @@ variable {p : ℕ} [Fact p.Prime] (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet
   [IsAlgClosed k] [CharP k p]
 
 /-- Isomorphism classes of pairs `(G, ρ)` over `R ∈ Nilp`. -/
+-- The deforming `G` in a pair is an `IntegralPDivB`; the rational framing object
+-- is `pdivOfB`. The quasi-isogeny is between their rational objects after reduction.
 def Pairs (𝒟 : LocalPELDatum p) (b : 𝒟.KottwitzSet) (k : Type u) [Field k] [IsAlgClosed k] [CharP k p] (R : IG0Nilp p (WittVector p k)) : Type u := sorry
 
 /-- (IG.0/pel-rapoport-zink-space) `𝔐(R) = {(G, ρ)}/≅`. -/
@@ -4011,14 +4085,13 @@ example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClos
     IsOpen (ekedahlOortStratum (D := D) k N (EOIndexIG2.longest D p)) ∧
       Dense (ekedahlOortStratum (D := D) k N (EOIndexIG2.longest D p)) := sorry
 
--- REVIEW UNVERIFIED: this universal mixed-Newton assertion still needs an actual datum and
--- witness, or a proof for every datum. It is not a checked negative test.
--- test: ekedahlOortStratum_ne_leaf — proposed mixed-Newton EO example
+-- test: ekedahlOortStratum_disjoint — distinct G-zip labels cannot contain the same point
 example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
     [Fact p.Prime] [CharP k p] (N : ℕ)
-    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)] (hn : 2 ≤ D.n) :
-    ∃ w : EOIndexIG2 D p, ∀ b : KottwitzSet D p,
-      ¬ ekedahlOortStratum (D := D) k N w ⊆ newtonStratum D p k N b := sorry
+    [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
+    (w w' : EOIndexIG2 D p) (hne : w ≠ w') :
+    Disjoint (ekedahlOortStratum (D := D) k N w)
+      (ekedahlOortStratum (D := D) k N w') := sorry
 
 -- test: hasseSection_ordinary_compat — on the ordinary stratum the Hasse section is a power of the classical Hasse invariant
 example {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
@@ -6221,13 +6294,26 @@ instance : HasShift (EtDerivedIG X Λ) ℤ := sorry
 instance (n : ℤ) : (shiftFunctor (EtDerivedIG X Λ) n).Additive := sorry
 instance : Pretriangulated (EtDerivedIG X Λ) := sorry
 
-/-- The perverse t-structure (middle perversity) on `D(X_ét, Λ)` for `X` of finite type over a
-field (owner: EtaleDualityAndPerverseSheaves EDC.4). -/
--- REVIEW LIMITATION: the nonnoetherian, nonconstructible applications below require an
--- enlarged lower-bound category with continuity and uniform costalk bounds; EDC.5 supplies
--- only its constructible interface. This declaration is a requested carrier, not a theorem
--- identifying an existing t-structure on every scheme X.
-def perverseTStructure : Triangulated.TStructure (EtDerivedIG X Λ) := sorry
+/-- Geometric costalk followed by cohomology over an algebraic closure of `κ(x)`.
+Owner: EDC.5; its extension to integral limits and nonconstructible complexes is requested. -/
+def EtDerivedIG.costalk (x : X) : EtDerivedIG X Λ ⥤ DerivedCategory (ModuleCat.{u} Λ) := sorry
+
+/-- Geometric stalk, with the same convention. -/
+def EtDerivedIG.stalk (x : X) : EtDerivedIG X Λ ⥤ DerivedCategory (ModuleCat.{u} Λ) := sorry
+
+/-- The actual lower-bound criterion: `H^i(i_x!K)=0` for `i<a-δ(x)`. The dimension
+function is supplied by a finite-type residue-field model, or pulled back along an integral
+map. This predicate asserts no t-structure on arbitrary nonnoetherian schemes. -/
+def perverseLower (δ : X → ℤ) (a : ℤ) (K : EtDerivedIG X Λ) : Prop :=
+  ∀ x, DerivedCategory.TStructure.t.ge (a - δ x) ((EtDerivedIG.costalk X Λ x).obj K)
+
+/-- The upper-bound stalk criterion on the same model. -/
+def perverseUpper (δ : X → ℤ) (a : ℤ) (K : EtDerivedIG X Λ) : Prop :=
+  ∀ x, DerivedCategory.TStructure.t.le (a - δ x) ((EtDerivedIG.stalk X Λ x).obj K)
+
+/-- `δ(x)=trdeg_k κ(x)`, i.e. dimension of the closure of `x` for a finite-type
+`k`-scheme. The model and its finite-presentation hypothesis are explicit below. -/
+def residueDimension (k : Type u) [Field k] (toK : X ⟶ pt k) : X → ℤ := sorry
 
 /-- The constant sheaf `Λ`. -/
 def EtDerivedIG.const : EtDerivedIG X Λ := sorry
@@ -6395,6 +6481,16 @@ structure AffinoidEtaleNbhd {p : ℕ} [Fact p.Prime] (Y : Diamond.{u}) {C : Padi
   /-- The special fibre `𝔘_k = Spec(A°/p ⊗ k)`. -/
   special : Scheme.{u}
   special_affine : IsAffine special
+  /-- Raw reduction `Spec(A°/p)` and its structure over `O_C/p`. -/
+  modP : Scheme.{u}
+  modPToBase : modP ⟶ Spec (C.Oeps 1)
+  /-- This property is imposed only on the cofinal basis used in CSnc p.62. -/
+  modP_finitePresentation : LocallyOfFinitePresentation modPToBase
+  specialToK : special ⟶ TauCeti.Igusa.pt C.k
+  special_finiteType : LocallyOfFiniteType specialToK
+  /-- Residue-field reduction of the raw model, with its cartesian square. -/
+  reduction : special ⟶ modP
+  reduction_cartesian : IsPullback reduction specialToK modPToBase (C.epsReduction 1)
 
 /-- `V` refines `U`: a map of neighbourhoods over `Y` compatible with the points. -/
 def AffinoidEtaleNbhd.Refines {p : ℕ} [Fact p.Prime] {Y : Diamond.{u}} {C : PadicCField.{u} p}
@@ -6417,13 +6513,27 @@ structure FormalNeighbourhood (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.P
   preimage_affinoid : Diamond.IsAffinoidPerfectoid preimage
   /-- `Spec(R°_{K(p^mN),U}/p ⊗ k)`, for `m ≥ level`. -/
   specialLevel : ℕ → Scheme.{u}
+  /-- Raw finite-level mod-p models are distinguished from their residue-field reductions. -/
+  modPLevel : ℕ → Scheme.{u}
+  modPProj : ∀ m, modPLevel m ⟶ modP
+  levelReduction : ∀ m, specialLevel m ⟶ modPLevel m
+
   /-- The mod-`p` maps `Spec(R°_{K(p^mN),U}/p) → Spec(A°/p)`. -/
   projLevel : ∀ m, specialLevel m ⟶ special
+  levelReduction_cartesian : ∀ m,
+    IsPullback (levelReduction m) (projLevel m) (modPProj m) reduction
   /-- The transition maps in `p`-level. -/
   transitionMap : ∀ {m m'}, m ≤ m' → (specialLevel m' ⟶ specialLevel m)
+  /-- The corresponding transitions on the raw `O_C/p` models. -/
+  modPTransitionMap : ∀ {m m'}, m ≤ m' → (modPLevel m' ⟶ modPLevel m)
   /-- `Spec(R°_{K(p^∞N),U}/p ⊗ k)` and its map to `Spec(A°/p)`. -/
   specialInf : Scheme.{u}
   projInf : specialInf ⟶ special
+  modPInf : Scheme.{u}
+  modPInfProj : modPInf ⟶ modP
+  modPInfToLevel : ∀ m, modPInf ⟶ modPLevel m
+  /-- Finite presentation factors the target map, not a finiteness assertion about the source. -/
+  modP_factor : ∀ m, level ≤ m → modPInfToLevel m ≫ modPProj m = modPInfProj
 
 namespace FormalNeighbourhood
 
@@ -6432,25 +6542,45 @@ variable {D : UnitarySimilitudeDatum} {p N : ℕ} [Fact p.Prime] {C : PadicCFiel
 
 /-- (IG.4/finite-level-formal-models) Such `U` form a cofinal system of affinoid étale
 neighbourhoods of `x`. -/
-theorem cofinal (V : AffinoidEtaleNbhd (FlagVariety.{u} D p) x) :
+theorem cofinal (hN : 3 ≤ N) (hpN : Nat.Coprime p N)
+    (hp : ¬ (p : ℤ) ∣ NumberField.discr D.F) (V : AffinoidEtaleNbhd (FlagVariety.{u} D p) x) :
     ∃ U : FormalNeighbourhood D p N x, U.toAffinoidEtaleNbhd.Refines V := sorry
 
-/-- (IG.4/finite-level-formal-models) `Spec(R°_{K(p^∞N),U}/p) → Spec(A°/p)` and the sufficiently large finite-level maps
-are integral. Finiteness over these nonnoetherian models is not asserted. The necessary
-descent/enlarged perversity interfaces remain packet gaps. -/
+/-- (IG.4/finite-level-formal-models) The valuative criterion for the affine raw
+mod-p map proves integrality at sufficiently large level. Base change gives the
+residue-field maps; no finite-type-F_p finiteness lemma is applied to these raw models. -/
 theorem integral (U : FormalNeighbourhood D p N x) :
-    IsIntegralHom U.projInf ∧ ∀ m, U.level ≤ m → IsIntegralHom (U.projLevel m) := sorry
+    IsIntegralHom U.modPInfProj ∧ IsIntegralHom U.projInf ∧
+      ∀ m, U.level ≤ m → IsIntegralHom (U.modPProj m) ∧ IsIntegralHom (U.projLevel m) := sorry
 
-/-- (IG.4/finite-level-formal-models) Pushforward along the finite-level mod-`p` maps preserves
-`^pD^{≥d}`. -/
+/-- (IG.4/finite-level-formal-models) The raw mod-p map factors at sufficiently large
+level using the finite presentation of `A°/p` over `O_C/p`. -/
+theorem factor_modP (U : FormalNeighbourhood D p N x) (m : ℕ) (hm : U.level ≤ m) :
+    U.modPInfToLevel m ≫ U.modPProj m = U.modPInfProj := sorry
+
+/-- (IG.4/finite-level-formal-models) Requested EDC.5 integral-pushforward lower-bound
+contract, with source dimension pulled back from the finite-type residue-field base.
+The underlying theorem must prove this for the level complexes in CSnc, including
+nonconstructible filtered limits, rather than assuming arbitrary perverse t-exactness. -/
 theorem pushforward_ge (U : FormalNeighbourhood D p N x) (d : ℤ) (m : ℕ) (hm : U.level ≤ m)
-    (K : EtDerivedIG (U.specialLevel m) Λ) (hK : (perverseTStructure _ Λ).ge d K) :
-    (perverseTStructure _ Λ).ge d ((EtDerivedIG.Rpush (U.projLevel m)).obj K) := sorry
+    (ℓ : ℕ) [Fact ℓ.Prime] [CharP Λ ℓ] (hℓp : ℓ ≠ p)
+    (K : EtDerivedIG (U.specialLevel m) Λ)
+    (hK : perverseLower _ Λ (fun z ↦ residueDimension _ C.k U.specialToK ((U.projLevel m).base z)) d K) :
+    perverseLower _ Λ (residueDimension _ C.k U.specialToK) d
+      ((EtDerivedIG.Rpush (U.projLevel m)).obj K) := sorry
 
-/-- (IG.4/finite-level-formal-models) Compatibility with the transition maps in `p`-level (the
-compatibilities with `ℓ`-power level and the toroidal boundary are not formalised). -/
+/-- Imported SF.2/LPV.6 compatibility predicate: the algebraized open/finite charts
+at auxiliary ℓ-power tame level, their level-change maps and toroidal boundary maps
+commute with nearby-cycle and scheme/adic comparisons. This is the requested geometric
+interface, rather than an assertion that the p-level equality supplies those comparisons. -/
+def AuxiliaryTowerBoundaryCompatible (U : FormalNeighbourhood D p N x) : Prop := sorry
+
+/-- (IG.4/finite-level-formal-models) Compatibility on both reductions and in the
+auxiliary tower and boundary comparisons. -/
 theorem transition (U : FormalNeighbourhood D p N x) {m m' : ℕ} (h : m ≤ m') :
-    U.transitionMap h ≫ U.projLevel m = U.projLevel m' := sorry
+    (U.transitionMap h ≫ U.projLevel m = U.projLevel m') ∧
+    (U.modPTransitionMap h ≫ U.modPProj m = U.modPProj m') ∧
+    AuxiliaryTowerBoundaryCompatible U := sorry
 
 /-- A composite `V → U` of finite étale maps and rational embeddings (data witnessing the chain;
 owner: AdicSpacesPartII). -/
@@ -6467,9 +6597,9 @@ example (U : FormalNeighbourhood D p N x) (V : Diamond.{u}) (c : FiniteEtaleRati
 
 -- test: FormalNeighbourhood.level_zero — at sufficiently large finite level the mod-`p` map is integral
 example (U : FormalNeighbourhood D p N x) (m : ℕ) (hm : U.level ≤ m) :
-    IsIntegralHom (U.projLevel m) := sorry
+    IsIntegralHom (U.modPProj m) ∧ IsIntegralHom (U.projLevel m) := sorry
 
--- test: FormalNeighbourhood.not_proper_generic — `π_{HT,U}` has positive-dimensional fibres (needs `d_{b(x)} > 0`, false for basic `x`) although its mod-`p` model is ind-finite
+-- test: FormalNeighbourhood.not_proper_generic — `π_{HT,U}` has positive-dimensional fibres (needs `d_{b(x)} > 0`, false for basic `x`) although its mod-`p` model is integral
 example (U : FormalNeighbourhood D p N x) (hb : 0 < (FlagPoint.newton x).dimLeaf) :
     0 < topologicalKrullDim (Diamond.space (pullback U.piHTU U.pt)) := sorry
 
@@ -6523,9 +6653,10 @@ theorem compactPerversity (Dh : HodgeDatum p) (C : PadicCField.{u} p)
     (V : AffinoidEtaleNbhd Dh.flag x) :
     ∃ U : AffinoidEtaleNbhd Dh.flag x, U.Refines V ∧
       ∃ K₀ : Dh.ProPCompactOpen, ∀ K : Dh.ProPCompactOpen, K.toSubgroup ≤ K₀.toSubgroup →
-        (perverseTStructure U.special Λ).heart
-          ((shiftFunctor (EtDerivedIG U.special Λ) (Dh.dimFlag : ℤ)).obj
-            (compactNearbyCycles Dh U K Λ)) := sorry
+        let L := (shiftFunctor (EtDerivedIG U.special Λ) (Dh.dimFlag : ℤ)).obj
+          (compactNearbyCycles Dh U K Λ)
+        perverseLower _ Λ (residueDimension _ C.k U.specialToK) 0 L ∧
+          perverseUpper _ Λ (residueDimension _ C.k U.specialToK) 0 L := sorry
 
 end CompactHodge
 
@@ -6626,11 +6757,11 @@ def nearbyCyclesGood {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime] (N : 
 `Rψ(Rπ°_HT*𝔽_ℓ)|_𝔘 ∈ ^pD^{≥d}(𝔘_k, 𝔽_ℓ)`, `d = [F⁺:ℚ]n²` (a local statement on the special
 fibres `𝔘_k`, not a perverse t-structure on `Fℓ`). -/
 theorem semiperversity {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime] (N : ℕ) (hN : 3 ≤ N)
-    (hpN : Nat.Coprime p N) (C : PadicCField.{u} p) (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
+    (hpN : Nat.Coprime p N) (hp : ¬ (p : ℤ) ∣ NumberField.discr D.F) (C : PadicCField.{u} p) (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
     (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓp : ℓ ≠ p) (Λ : Type u) [Field Λ] [CharP Λ ℓ] [Fintype Λ]
     (hΛ : Fintype.card Λ = ℓ) (V : AffinoidEtaleNbhd (FlagVariety.{u} D p) x) :
     ∃ U : AffinoidEtaleNbhd (FlagVariety.{u} D p) x, U.Refines V ∧
-      (perverseTStructure U.special Λ).ge (D.dim : ℤ) (nearbyCyclesGood N U Λ) := sorry
+      perverseLower _ Λ (residueDimension _ C.k U.specialToK) (D.dim : ℤ) (nearbyCyclesGood N U Λ) := sorry
 
 /-! ### IG.4/partial-support-cohomology -/
 
@@ -8262,6 +8393,8 @@ end Concentration
 
 section Koshikawa
 
+attribute [local instance] HasDerivedCategory.standard
+
 /-- Local Shimura data `(G, b, μ)` with `G = ∏_{i ∈ I} GL_{n_i}` over a finite extension `F_v/ℚ_p`
 and `K = ∏ GL_{n_i}(𝓞_{F_v})` (owner: HeckeStacksAndLocalShtukas HS2). -/
 def LocalShimuraDatumGL (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
@@ -8305,6 +8438,99 @@ def localUnramifiedParam {p : ℕ} [Fact p.Prime] {Fv : Type} [Field Fv] [Algebr
     (𝔪 : Ideal (LocalSphericalHeckeGL p Fv I n ℓ))
     (emb : LocalSphericalHeckeGL p Fv I n ℓ ⧸ 𝔪 →+* FlBar ℓ) (i : I) : (FlBar ℓ)[X] := sorry
 
+/-! ### IG.7/koshikawa-parameter-irrelevance — the mod-ℓ application of LLC
+
+These carriers import the general ES/SR interfaces. The application theorem below belongs
+to IG. Koshikawa lifts supercuspidal support, not every irreducible representation. -/
+
+/-- Irreducible smooth `𝔽̄_ℓ`-representations of `J_b(F_v)` (owner: SR.0/SR.5). -/
+def JbModEllIrreducible {p : ℕ} [Fact p.Prime] {Fv : Type} [Field Fv] [Algebra ℚ_[p] Fv]
+    {I : Type} [Fintype I] {n : I → ℕ} (𝒟 : LocalShimuraDatumGL p Fv I n) (ℓ : ℕ) : Type := sorry
+
+/-- The semisimple FS parameter, composed with the appropriate twisted Levi inclusion
+into the dual of `G`. `some P` means unramified, with Frobenius characteristic polynomials
+`P`; `none` means ramified. Owners: ES5, ES6 and ES7:parabolic. -/
+def fsUnramifiedJbParameter {p : ℕ} [Fact p.Prime] {Fv : Type} [Field Fv] [Algebra ℚ_[p] Fv]
+    {I : Type} [Fintype I] {n : I → ℕ} {𝒟 : LocalShimuraDatumGL p Fv I n}
+    {ℓ : ℕ} [Fact ℓ.Prime] (π : JbModEllIrreducible 𝒟 ℓ) : Option (I → (FlBar ℓ)[X]) := sorry
+
+/-- (IG.7/koshikawa-parameter-irrelevance) Koshikawa Lemma 3.1, including mod-ℓ coefficients.
+Its proof uses supercuspidal-support lifting (SR.5), reduction and parabolic compatibility,
+then characteristic-zero inner-form LLC (ES7). -/
+theorem koshikawaParameterIrrelevance (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (hℓp : ℓ ≠ p)
+    (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv] [FiniteDimensional ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (𝒟 : LocalShimuraDatumGL p Fv I n)
+    (hJ : ¬ 𝒟.IsJbQuasiSplit) (π : JbModEllIrreducible 𝒟 ℓ) (P : I → (FlBar ℓ)[X])
+    (hP : fsUnramifiedJbParameter π = some P) :
+    ¬ ∀ i, PolyRatioCond (P i) (n i) (localResidueCard p Fv) := sorry
+
+/-- Spherical Hecke algebra after the faithful `ℤ_ℓ[q^(1/2)]` coefficient extension
+(owner: SR.4); kept separate from the original `ℤ_ℓ` algebra in the endpoint. -/
+def SphericalHeckeGLSqrtQ (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) : Type := sorry
+
+instance (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) : CommRing (SphericalHeckeGLSqrtQ p Fv I n ℓ) := sorry
+
+/-- The coefficient-extension map (owner: SR.4). -/
+def sphericalHeckeSqrtScalar (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) :
+    LocalSphericalHeckeGL p Fv I n ℓ →+* SphericalHeckeGLSqrtQ p Fv I n ℓ := sorry
+
+/-- Integral spectral Bernstein centre for this product of GL groups, after the faithful
+`q^(1/2)` coefficient extension used in Koshikawa §4 (owner: ES3). -/
+def SpectralBernsteinGL (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) : Type := sorry
+
+instance (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) : CommRing (SpectralBernsteinGL p Fv I n ℓ) := sorry
+
+/-- Spectral action on `c-Ind_K^G Λ`, with End identified with `H_K^op` (owner: ES3).
+For hyperspecial K this algebra is commutative; the opposite identification still matters
+for the involution in the following theorem. -/
+def compactIndSpectralMap (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) :
+    SpectralBernsteinGL p Fv I n ℓ →+* SphericalHeckeGLSqrtQ p Fv I n ℓ := sorry
+
+/-- Integral Satake spectral-to-spherical map (owner: ES3/SR.4). -/
+def spectralSatakeMap (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) :
+    SpectralBernsteinGL p Fv I n ℓ →+* SphericalHeckeGLSqrtQ p Fv I n ℓ := sorry
+
+/-- The involution sending `[KgK]` to `[Kg⁻¹K]` (owner: SR.4). -/
+def sphericalHeckeInversion (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    (I : Type) [Fintype I] (n : I → ℕ) (ℓ : ℕ) :
+    SphericalHeckeGLSqrtQ p Fv I n ℓ ≃+* SphericalHeckeGLSqrtQ p Fv I n ℓ := sorry
+
+/-- (IG.7/koshikawa-local-vanishing) The requested integral action/Satake compatibility.
+Reduction of the right side at `𝔪` has parameter `localUnramifiedParam 𝔪 emb`; this coefficient
+compatibility is part of the ES3/ES5 request, not a consequence of ES7 characteristic-zero LLC.
+The integral finite-generation passage is a separate SR.6 request. -/
+theorem koshikawaSpectralSatake (p : ℕ) [Fact p.Prime] (Fv : Type) [Field Fv]
+    [Algebra ℚ_[p] Fv] [FiniteDimensional ℚ_[p] Fv] (I : Type) [Fintype I]
+    (n : I → ℕ) (ℓ : ℕ) [Fact ℓ.Prime] (hℓp : ℓ ≠ p) :
+    spectralSatakeMap p Fv I n ℓ =
+      (sphericalHeckeInversion p Fv I n ℓ).toRingHom.comp (compactIndSpectralMap p Fv I n ℓ) := sorry
+
+/-- The unramified parameter of a mod-ℓ spectral character, with `none` for ramification
+(owner: ES5). This is the parameter of the character of the excursion/spectral algebra,
+not an arbitrarily selected irreducible representation. -/
+def fsUnramifiedSpectralCharacter {p : ℕ} [Fact p.Prime] {Fv : Type} [Field Fv]
+    [Algebra ℚ_[p] Fv] {I : Type} [Fintype I] {n : I → ℕ} {ℓ : ℕ} [Fact ℓ.Prime]
+    (χ : SpectralBernsteinGL p Fv I n ℓ →+* FlBar ℓ) : Option (I → (FlBar ℓ)[X]) := sorry
+
+/-- Requested ES3/ES5 reduction part of integral Satake compatibility, after choosing
+an extension χ of the residue character to the q^(1/2) coefficient algebra. -/
+theorem koshikawaSpectralSatakeReduction (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (hℓp : ℓ ≠ p) (Fv : Type) [Field Fv] [Algebra ℚ_[p] Fv]
+    [FiniteDimensional ℚ_[p] Fv] (I : Type) [Fintype I] (n : I → ℕ)
+    (𝔪 : Ideal (LocalSphericalHeckeGL p Fv I n ℓ)) [𝔪.IsMaximal]
+    (emb : LocalSphericalHeckeGL p Fv I n ℓ ⧸ 𝔪 →+* FlBar ℓ)
+    (χ : SphericalHeckeGLSqrtQ p Fv I n ℓ →+* FlBar ℓ)
+    (hχ : χ.comp (sphericalHeckeSqrtScalar p Fv I n ℓ) = emb.comp (Ideal.Quotient.mk 𝔪)) :
+    fsUnramifiedSpectralCharacter (χ.comp (spectralSatakeMap p Fv I n ℓ)) =
+      some (fun i ↦ localUnramifiedParam 𝔪 emb i) := sorry
+
 /-- (IG.7/koshikawa-local-vanishing) Koshikawa Theorem 1.1: for `G = ∏ GL_{n_i}`, hyperspecial `K`,
 `ℓ ≠ p`, and `𝔪 ⊂ ℤ_ℓ[K\G(F_v)/K]` with generic unramified parameter (`α_{j'}/α_j ≠ q` for `j ≠ j'`
 in each factor), if `J_b` is not quasi-split then `H^i_c(M_{(G,b,μ),K}, ℤ_ℓ)_𝔪 = 0` for all `i`. -/
@@ -8342,6 +8568,53 @@ split completely, `G(ℚ_p) = ∏ GL_{2n}(ℚ_p) × ℚ_p^×`). -/
 def localParamAtP {D : UnitarySimilitudeDatum} {p ℓ : ℕ} [Fact ℓ.Prime]
     (𝔪 : Ideal (LocalHeckeAtP D p ℓ)) (emb : LocalHeckeAtP D p ℓ ⧸ 𝔪 →+* FlBar ℓ)
     (v : IgPlace D) : (FlBar ℓ)[X] := sorry
+
+/-! ### Ordinary support at the local spherical ideal (Koshikawa §§8–9)
+
+The following objects are complexes of modules for `H_{K_p}`; thus localization is at p,
+and is not the away-p `𝕋^S` localization used by the other vanishing route. -/
+
+/-- `RΓ_c([Fℓ(ℚ_p)/K_p],Ri₀!Rπ°_HT*𝔽_ℓ)` (support functors: C6, equivariance: SF.2). -/
+def ordinaryCostalkAtP {D : UnitarySimilitudeDatum} {p : ℕ}
+    (K : ShimuraLevelG D p) (ℓ : ℕ) : DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
+
+/-- `RΓ_c([Fℓ(ℚ_p)/K_p],i₀*Rπ°_HT*𝔽_ℓ)`. -/
+def ordinaryStalkAtP {D : UnitarySimilitudeDatum} {p : ℕ}
+    (K : ShimuraLevelG D p) (ℓ : ℕ) : DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
+
+/-- The natural costalk-to-stalk map: restrict the counit `i₀*Ri₀!F→F`.
+Here `Ri₀!` is the RIGHT adjoint of `i₀*`; Koshikawa Lemma 8.3's prose has the reversed
+adjunction (packet source issue E13). -/
+def ordinaryCostalkToStalk {D : UnitarySimilitudeDatum} {p : ℕ}
+    (K : ShimuraLevelG D p) (ℓ : ℕ) : ordinaryCostalkAtP K ℓ ⟶ ordinaryStalkAtP K ℓ := sorry
+
+/-- Derived localization at a maximal local spherical ideal, restricted back to modules
+for `H_{K_p}` (owner: integral Hecke/SR; localization is flat). -/
+def localizeHeckeAtP {D : UnitarySimilitudeDatum} {p ℓ : ℕ}
+    (𝔪 : Ideal (LocalHeckeAtP D p ℓ)) [𝔪.IsMaximal] :
+    DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) ⥤
+      DerivedCategory (ModuleCat (LocalHeckeAtP D p ℓ)) := sorry
+
+/-- (IG.7/koshikawa-ordinary-costalk-bound) Koshikawa Corollary 8.2.
+The proof uses finite closed specialization sets Z and `Rlim RΓ_Z(RψF)`, preserving D≥d.
+No filtered-colimit replacement, stalk bound or away-p localization enters this theorem. -/
+theorem koshikawaOrdinaryCostalkBound (D : UnitarySimilitudeDatum) (p ℓ : ℕ)
+    [Fact p.Prime] [Fact ℓ.Prime] (hℓp : ℓ ≠ p) (hsplit : SplitsCompletelyIG D.F p)
+    (K : ShimuraLevelG D p) :
+    DerivedCategory.TStructure.t.ge (D.dim : ℤ) (ordinaryCostalkAtP K ℓ) := sorry
+
+/-- (IG.7/koshikawa-ordinary-costalk-stalk) Koshikawa Proposition 1.7.
+Smooth base change along q_K, the ordinary dualizing object κ⁻¹[−2d], the opposite-action
+tensor/smooth-dual Hom dictionary and disjoint spectral supports prove this map is an
+isomorphism after local spherical localization. These general interfaces are explicitly
+requested from BG3, SR, C6 and ES; the application belongs here. -/
+theorem koshikawaOrdinaryCostalkStalk (D : UnitarySimilitudeDatum) (p ℓ : ℕ)
+    [Fact p.Prime] [Fact ℓ.Prime] (hℓp : ℓ ≠ p) (hsplit : SplitsCompletelyIG D.F p)
+    (K : ShimuraLevelG D p) (𝔪 : Ideal (LocalHeckeAtP D p ℓ)) [𝔪.IsMaximal]
+    (emb : LocalHeckeAtP D p ℓ ⧸ 𝔪 →+* FlBar ℓ)
+    (hgen : ∀ v : IgPlace D, (p : NumberField.RingOfIntegers D.F) ∈ v.asIdeal →
+      PolyRatioCond (localParamAtP 𝔪 emb v) (2 * D.n) p) :
+    IsIso ((localizeHeckeAtP 𝔪).map (ordinaryCostalkToStalk K ℓ)) := sorry
 
 /-- (IG.7/koshikawa-generic-vanishing) Koshikawa Theorem 1.3 (cited by Caraiani–Newton as
 "[Kos21, Theorem 1.4]", sourceIssues E7): for the datum of IG.0 over any CM field, `p` split
