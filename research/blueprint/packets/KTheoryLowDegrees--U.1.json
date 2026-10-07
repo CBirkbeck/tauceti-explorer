@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁. RS-18 narrows Z.1 and Z.2 to concrete ring/projective constructions on existing categorical K₀ and stalk-rank carriers. This part covers Z.1, Z.2 and U.1–U.6; the companion part supplies Z.3–Z.6.\nZ.1 supplies idempotent and free-summand presentations, concrete ring K₀, stable equality, scalar extension, restriction, Morita invariance and Milnor patching. Z.2 supplies virtual locally constant ranks and division/local/semilocal/product computations. U.1 supplies stable matrices, elementary groups and Whitehead identities. U.2 supplies classical K₁ and the class calculus of projective automorphisms. U.3 targets determinant, special K₁, semilocal vanishing and the Dieudonné determinant, with the real-circle obstruction conditional on its LieGroups retraction. U.4 targets the S-integer arithmetic theorem and S-unit rank formula, with explicit BMS symbol, reciprocity and topology gaps; the routed congruence proof is decomposed through BMS §9, Lemma 9.6. U.5 supplies relative matrix groups, transfers, projection formulas and the positive valuation boundary. U.6 targets loop/determinant/transfer comparisons and classical examples; its relative homotopy comparison requires an actual relative-plus and degree-two boundary argument.\nK₀ uses left modules and right actions on row vectors; automorphism K₁ uses right modules and left actions on column vectors. S consists of finitely many finite places. The determinant identification of K₁(O_{F,S}) with units is canonical; the S-unit decomposition needs fundamental units. The DVR boundary sends a uniformiser to +[k].\nThe bounded pass is complete with 334 nodes: the 332 revision nodes are retained and this independent review separates two transvection lemmas. Publication remains blocked pending reader synchronization and the explicitly recorded proof boundaries. Z.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine gaps and eight supplier requests remain explicit. All implementationStatus values stay unchecked.",
+  "summary": "Part U.1 of Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁. RS-18 narrows Z.1 and Z.2 to concrete ring/projective constructions on existing categorical K₀ and stalk-rank carriers. This part covers Z.1, Z.2 and U.1–U.6; the companion part supplies Z.3–Z.6.\nZ.1 supplies idempotent and free-summand presentations, concrete ring K₀, stable equality, scalar extension, restriction, Morita invariance and Milnor patching. Z.2 supplies virtual locally constant ranks and division/local/semilocal/product computations. U.1 supplies stable matrices, elementary groups and Whitehead identities. U.2 supplies classical K₁ and the class calculus of projective automorphisms. U.3 targets determinant, special K₁, semilocal vanishing and the Dieudonné determinant, with the real-circle obstruction conditional on its LieGroups retraction. U.4 targets the S-integer arithmetic theorem and S-unit rank formula, with explicit BMS symbol, reciprocity and topology gaps; the routed congruence proof is decomposed through BMS §9, Lemma 9.6. U.5 supplies relative matrix groups, transfers, projection formulas and the positive valuation boundary. U.6 targets loop/determinant/transfer comparisons and classical examples; its relative homotopy comparison requires an actual relative-plus and degree-two boundary argument.\nK₀ uses left modules and right actions on row vectors; automorphism K₁ uses right modules and left actions on column vectors. S consists of finitely many finite places. The determinant identification of K₁(O_{F,S}) with units is canonical; the S-unit decomposition needs fundamental units. The DVR boundary sends a uniformiser to +[k].\nThe bounded revision pass is complete with 334 retained nodes and no additions. The reader and suggested outline carry the reviewed corrections, including the separate nonidentity-transvection conjugacy and identity-inclusive membership contracts. Z.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Nine gaps and eight supplier requests remain explicit. The real-circle retraction, general-degree local-symbol and power-subgroup inputs, wild higher-unit input, and relative-plus comparison are future proof obligations. All implementationStatus values stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3975,6 +3975,27 @@
       "read": "2026-10-05",
       "sha256": "2f52d05a0f1ff1563d9da85efd8b224d1e110d9f67c940f3d9c0bbd2051184f9",
       "note": "REV-KTheoryLowDegrees--U.1~2: fresh download hash agrees with recorded source. All four article pages241–244, including the withdrawn numerical exponent and restored norm-defined transfer formula."
+    },
+    {
+      "kind": "revision verification read",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-07",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "note": "BP-KTheoryLowDegrees--U.1~3: fresh public PDF hash matches the recorded version. III.1.5.4 (PDF p.193); III.2.2 and Ex. III.2.7 (PDF pp.201,205); IV.1.11 and Ex. IV.1.15 (PDF pp.275–276,283). Checked the rotation convention, split-case hint and the unsupplied homotopy-fibre proof boundary."
+    },
+    {
+      "kind": "revision verification read",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1345.pdf",
+      "read": "2026-10-07",
+      "sha256": "4173ddea7ff6aa263d05bef78dc1664c8d0b4b37de15d6b8f2935b8bf660eb8e",
+      "note": "BP-KTheoryLowDegrees--U.1~3: fresh public PDF hash matches the recorded version. n°4–6, printed pp.31–32 (PDF pp.6–7). Checked the explicit exclusion of identity from transvection conjugacy and the separate finite-rank commutator exception."
+    },
+    {
+      "kind": "revision verification read",
+      "url": "http://www.numdam.org/item/10.1007/BF02684586.pdf",
+      "read": "2026-10-07",
+      "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
+      "note": "BP-KTheoryLowDegrees--U.1~3: fresh public PDF hash matches the recorded version. Theorem 3.5 and its proof, printed pp.74–77 (PDF pp.17–20), Appendix (A.13)–(A.21), printed pp.85–89 (PDF pp.28–32), and Lemma 5.3, printed p.101 (PDF p.44). Checked the principal scalar congruence, BMS Artin orientation, power-subgroup topology, higher-unit proof dependencies and corrected first-row-completion locator; no read of inaccessible Serre propositions is claimed."
     }
   ],
   "nodes": [
@@ -14842,9 +14863,11 @@
       "hypotheses": [
         "Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).",
         "Hilbert symbols (a, b / 𝔭)_m are those of BMS's Appendix (A.13)–(A.19): for a local field containing μ_m, (a, b / k)_m = σ(a^{1/m})/a^{1/m} with σ = (b, k_ab/k) the local reciprocity image of b — the transpose of the orientation (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b used by ClassicalArithmeticCompletion CA.1. The named cohomological local symbol and nondegeneracy are requested from ClassFieldTheory layer 5; the comparison to BMS reciprocity orientation and the openness/finite index of k_𝔭^{×m} are separate gaps; the tame formula (A.16), the product formula (A.19)/(A.21) and the wild computation (A.17) are gaps (see gaps and restructure).",
-        "'Close at 𝔭' means multiplicatively congruent modulo p^n-th powers in F_𝔭^×, a congruence modulo an open subgroup of finite index."
+        "'Close at 𝔭' means multiplicatively congruent modulo p^n-th powers in F_𝔭^×, a congruence modulo an open subgroup of finite index.",
+        "For n>0 the proof remains conditional on the named BMS-oriented symbol, its open finite-index power subgroups, the tame formula and product reciprocity; these are not conclusions of the layer-5 cohomological pairing alone. The totally imaginary case additionally requires the higher-unit image formula. No such input is claimed for the n=0 branch."
       ],
       "proofSteps": [
+        "If n = 0, choose 0≠q∈𝔮, so qA is nonzero and contained in 𝔮. Apply q-equivalence-smaller-ideal to obtain (a′,b′q) ∈ W_{qA} equivalent to (a,b), and set a₁=a′, c=b′. Then c^{p^n}q=b′q and a₁≡1 mod qA; no Hilbert-symbol or reciprocity input is needed. For the remaining steps assume n>0.",
         "Take a non-complex place 𝔭_∞ ∈ S_∞ (a real place or a prime of S). By nondegeneracy of the Hilbert symbol at 𝔭_∞ (requested) choose u, v ∈ F_{𝔭_∞}^× with (u, v / 𝔭_∞)_{p^n} a generator of μ_{p^n}.",
         "Choose 0 ≠ q ∈ 𝔮 with qA ⊆ 𝔮 and, by U.4/q-equivalence-smaller-ideal, (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b), with b′ ≠ 0 and a′ prime to p.",
         "U.4/dirichlet-theorem-arithmetic-type gives a prime b₁A with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭_∞, and close to 1 at all other places of S_∞ and at the primes of F over p; so b₁A is prime to p.",
@@ -14892,9 +14915,11 @@
       "hypotheses": [
         "Conventions of U.4: F is a number field, 𝓞_F = NumberField.RingOfIntegers F, and S is a finite set of nonzero primes of 𝓞_F (S : Set (IsDedekindDomain.HeightOneSpectrum (𝓞 F)), S.Finite) — the finite places; O_{F,S} is Mathlib's Set.integer S F. This is the convention of ArithmeticKTheory N.1 and of K2SymbolsBrauer T.5. Bass–Milnor–Serre's S_∞ is S together with the archimedean places, and their 'Dedekind ring of arithmetic type defined by S_∞' is O_{F,S}; it is 'totally imaginary' exactly when S = ∅ and F is totally complex (Mathlib's NumberField.IsTotallyComplex).",
         "Hilbert symbols (a, b / 𝔭)_m are those of BMS's Appendix (A.13)–(A.19): for a local field containing μ_m, (a, b / k)_m = σ(a^{1/m})/a^{1/m} with σ = (b, k_ab/k) the local reciprocity image of b — the transpose of the orientation (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b used by ClassicalArithmeticCompletion CA.1. The named cohomological local symbol and nondegeneracy are requested from ClassFieldTheory layer 5; the comparison to BMS reciprocity orientation and the openness/finite index of k_𝔭^{×m} are separate gaps; the tame formula (A.16), the product formula (A.19)/(A.21) and the wild computation (A.17) are gaps (see gaps and restructure).",
-        "This node retains the j_p(𝔮)=0 cases used for stable SK₁. The j_p(𝔮)>0 power-residue Mennicke calculation belongs to the newly required finite-level arithmetic congruence-defect gap; it is not proved by this restricted node."
+        "This node retains the j_p(𝔮)=0 cases used for stable SK₁. The j_p(𝔮)>0 power-residue Mennicke calculation belongs to the newly required finite-level arithmetic congruence-defect gap; it is not proved by this restricted node.",
+        "For n>0 the proof remains conditional on the named BMS-oriented symbol, its open finite-index power subgroups, the tame formula and product reciprocity; these are not conclusions of the layer-5 cohomological pairing alone. The totally imaginary case additionally requires the higher-unit image formula. No such input is claimed for the n=0 branch."
       ],
       "proofSteps": [
+        "If n = 0, choose 0≠q∈𝔮, so qA is nonzero and contained in 𝔮. Apply q-equivalence-smaller-ideal to obtain (a′,b′q) ∈ W_{qA} equivalent to (a,b), and set a₁=a′, c=b′. Then c^{p^n}q=b′q and a₁≡1 mod qA; no Hilbert-symbol or reciprocity input is needed. For the remaining steps assume n>0.",
         "Reduction (Case 2): if 𝔮 is not divisible by every prime over p, let 𝔮′ ⊆ 𝔮 be the largest ideal in 𝔮 divisible by all of them; ord_𝔭(𝔮′) = 1 for some 𝔭 | p, so j_p(𝔮′) = 0, and U.4/q-equivalence-smaller-ideal moves (a, b) into W_{𝔮′}. So assume 𝔮 divisible by every 𝔭 | p and j_p(𝔮) = 0 (Case 3); the power residue symbol (·)_{p^j} is then trivial.",
         "Lemma 3.4(a) for j = 0: there are 𝔭₀ | p, u ≡ 1 mod 𝔮 and v ∈ U_{𝔭₀} with (u, v / 𝔭₀)_{p^n} generating μ_{p^n}, by the local computation (A.17) (gap): (U_{𝔭₀}(h), U_{𝔭₀} / 𝔭₀)_{p^n} = μ_{p^{n−j}}, h = ord_{𝔭₀}(q).",
         "Choose q ∈ 𝔮 with ord_𝔭(q) = ord_𝔭(𝔮) for all 𝔭 | p and (a′, b′q) ∈ W_{qA} 𝔮-equivalent to (a, b). By U.4/dirichlet-theorem-arithmetic-type take a prime b₁A, prime to 𝔮, with b₁ ≡ b′ mod a′, b₁ close to v at 𝔭₀ and close to 1 at the other 𝔭 | p.",
@@ -17612,14 +17637,17 @@
       ],
       "proofSteps": [
         "The fibration gives ⋯ → π₂K(A/I) → π₁K(A, I) → π₁K(A) → π₁K(A/I) → π₀K(A, I) → K₀(A) → K₀(A/I) (H.2/homotopy-fibre-and-long-exact-sequence; K.5).",
-        "Split case (the hint 'Use Ex. III.2.7'): for the double ring D = A ⊕ I with pr split by Δ (U.5/augmented-double-ring), the fibre sequence of K(D) → K(A) splits, so π₁K(D, 0 ⊕ I) = ker(K₁(D) → K₁(A)) = K₁(D, 0 ⊕ I) (U.5/relative-K1-split, U.6/pi1-plus-construction for D and A), and π₀K(D, 0 ⊕ I) = K₀(I) (the hint 'π₀K(R ⊕ I, 0 ⊕ I) must be K₀(I)').",
-        "The map add induces a comparison from the split double-ring fibre to the quotient fibre. A five-lemma argument is not established: its adjacent maps are K_i(D)→K_i(A) and K_i(A)→K_i(A/I), which are not isomorphisms in general. Merely adding π₂=K₂ and a relative K₂ sequence does not prove excision for this square. The missing input is the low-degree relative-plus/excision-defect comparison of Exercise IV.1.15; it must account for the kernel/cokernel of the K₂ maps and establish the degree-one fibre map explicitly (recorded gap).",
-        "Naturality in (A, I) follows from that of K.5's fibre and of U.5's groups."
+        "Split case (the hint 'Use Ex. III.2.7'): for D = A ⊕ I, J = ker pr = 0 ⊕ I and the common section Δ, K(D) → K(A) has a section. Its long exact sequence therefore identifies π₁K(D, J) with ker(K₁(D) → K₁(A)), hence with the classical K₁(D, J) by U.5/relative-K1-split and U.6/pi1-plus-construction. Similarly π₀K(D, J) = ker(K₀(D) → K₀(A)) = K₀(I).",
+        "Algebraic double-ring comparison: add restricts to an isomorphism GL(J) → GL(I), entrywise (r,x) ↦ r+x. It also carries E(D,J) onto E(A,I): every conjugate of an elementary J-matrix maps into E(A,I), and conversely an E(A)-conjugate of e_ij(x), x∈I, lifts using Δ on the conjugating matrix and (0,x) on its coefficient. This gives K₁(D,J) ≅ K₁(A,I). It uses the common section and is not a claim that relative K₁ is independent of the ambient ring.",
+        "The commuting square (pr, add, A → A/I) induces a map from the split double-ring homotopy fibre to K(A,I). The remaining topological obligation is to prove that its π₀ and π₁ maps are isomorphisms and to identify the induced degree-two boundary. Neither the algebraic isomorphism in the preceding step nor π₂=K₂ proves this: K-theory need not carry a Milnor square to a homotopy pullback, and the adjacent absolute K-groups are not isomorphic. A sourced low-degree relative-plus argument for this particular square is still missing.",
+        "Boundary compatibility must identify a class in K₂(A/I), represented in the classical Steinberg presentation, with its fibre-boundary loop and show that its image is the class in GL(I)/E(A,I) given by the U.5/T.6 boundary, with the same orientation. Degree zero must similarly recover the Milnor-patching boundary K₁(A/I) → K₀(I). The existing T.1:plus/T.6 supplier cycle and this relative-plus proof are separate remaining obligations.",
+        "Once that topological comparison and the boundary identifications are established, compose with the split-case and algebraic comparisons. Naturality in (A,I) follows from the maps of double rings, classical quotients and K.5 fibres."
       ],
       "acceptance": [
         "I = A: K(A, A) is the fibre of K(A) → K(0) ≃ ∗, and the comparison is U.6/pi1-plus-construction.",
-        "A = ℤ/p², I = (p): π₁K(A, I) ≅ ℤ/p and π₀K(A, I) = K₀(I) = 0 (I radical).",
-        "K-book IV.1.11: 'K₀(R, I) and K₁(R, I) agree with the relative groups defined in Ex. II.2.3 and III.2.2'."
+        "For a rational prime p, A = ℤ/p² and I = (p): π₁K(A,I) ≅ ℤ/p and π₀K(A,I) = K₀(I) = 0 (I radical).",
+        "K-book IV.1.11: 'K₀(R, I) and K₁(R, I) agree with the relative groups defined in Ex. II.2.3 and III.2.2'.",
+        "For I = 0 both classical relative groups and the homotopy fibre groups vanish. The proof must not infer general K-theory excision from the Milnor square."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.5/relative-K-theory",
@@ -17631,7 +17659,9 @@
         "KTheoryLowDegrees:U.5/relative-K1-split",
         "KTheoryLowDegrees:U.5/augmented-double-ring",
         "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
-        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero"
+        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/PlusConstruction",
@@ -17647,6 +17677,11 @@
           "sourceId": "Kbook.2013",
           "locator": "Ex. IV.1.15 (PDF p. 283; book p. 275)",
           "match": "The hint; no proof is given in the source."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Ex. III.2.7 (PDF p.205; printed p.197), together with Definition III.2.2 (PDF p.201; printed p.193)",
+          "match": "The split relative K₁ decomposition invoked by Exercise IV.1.15. The generator-lifting calculation above uses the explicitly defined E(R,I); the unsplit homotopy comparison is not supplied by this exercise."
         }
       ],
       "implementationStatus": "unchecked"
@@ -25264,7 +25299,7 @@
     },
     {
       "title": "Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15)",
-      "detail": "K-book IV.1.11 and Exercise IV.1.15 state the low-degree comparison with only a double-ring hint. The split case identifies π₁ of the double-ring fibre with a kernel. The induced add-map to the quotient fibre is not proved an isomorphism. The proposed five-lemma proof has nonisomorphic adjacent absolute K-groups, and π₂=K₂ alone does not repair it. Supply the relative-plus/excision-defect argument, including its degree-two boundary comparison, before using this node as an established theorem. The degree-two imports also encounter the recorded T.1:plus/T.6 stage cycle. Use the current finer GeneralAlgebraicKTheory K.5/relative-K-theory definition, which expressly delegates this comparison to U.6, rather than the old combined integrated assertion.",
+      "detail": "K-book IV.1.11 and Exercise IV.1.15 state the low-degree comparison with a double-ring hint. For D=A⊕I and J=ker pr, the common section splits K(D)→K(A), identifying its fibre π₁ with classical K₁(D,J). The add map identifies GL(J) with GL(I) and E(D,J) with E(A,I): lift each elementary conjugating matrix through Δ and each I-coefficient through (0,x). This establishes the algebraic double-ring comparison, using the section, without asserting absolute excision for arbitrary ambient rings. What remains is a sourced proof that the induced map of homotopy fibres gives isomorphisms on π₀ and π₁ for this square, together with the Steinberg-to-fibre boundary K₂(A/I)→GL(I)/E(A,I) and the patching boundary K₁(A/I)→K₀(I), with the existing orientations. A general Milnor square need not be K-theory excisive; neither a five-lemma shortcut nor π₂=K₂ supplies these claims. T.1:plus/T.6 also have the separately recorded stage cycle. The generic relative fibre remains K.5’s; this concrete comparison remains U.6’s and realizes U.5.",
       "neededBy": [
         "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
       ]
@@ -30589,15 +30624,30 @@
     ]
   },
   "revisionAudit": {
-    "job": "BP-KTheoryLowDegrees--U.1~2",
+    "job": "BP-KTheoryLowDegrees--U.1~3",
     "agent": "Codex",
-    "session": "codex-1lp2cs",
-    "date": "2026-10-05",
+    "session": "codex-cSlCMz",
+    "date": "2026-10-07",
     "status": "complete",
     "newNodes": 0,
-    "boundary": "The input already exceeds the 300-node budget. Preserve all 332 ids, all review-corrected mathematics and the independent needs_changes review; synchronize coverage, reader, outline and handoff without extending the decomposition.",
-    "reviewCorrections": "Checked all 59 corrected and 32 added node contracts and the four explicit unverifiable boundaries; regenerated the reader from the current packet, including principal congruences, canonical suppliers, the nine gaps, relative SK₁, split nodes, strengthened tests and all 14 source issues.",
-    "baselineReads": "Re-read the pinned projective retract, stalk-rank base change, row-matrix, finiteProjectiveModules and split/exact K₀ signatures relevant to the splits. CH-L18 adds two pinned Frobenius formula citations, not planned nodes.",
-    "validation": "Full-file Lean attempt stops at missing Exact.Functor import before the body; the shared Tau Ceti checkout is not the packet pin. No successful full-file elaboration is claimed. See the revision handoff for reproducible checks."
-  }
+    "boundary": "The input has 334 nodes, beyond the 300-node budget. All input IDs, the 34 earlier review additions and their provenance, all unchecked implementation statuses and the independent review object are retained. No new decomposition is introduced.",
+    "reviewCorrections": "Verified the eight groups of round-2 corrections and synchronized all 334 node contracts, 484 baseline descriptions, coverage inventories, nine gaps, eight supplier requests and 14 source corrections into the reader. Identity and nonidentity transvections have their distinct statements. The native outline retains all eight finite-S hypotheses and the four named relative-SK₁ tests.",
+    "proofBoundaries": "The four unverifiable nodes retain explicit proof obligations. The relative node now proves the algebraic double-ring generator comparison and distinguishes it from the missing homotopy-fibre and boundary comparison. Both BMS power-reduction nodes isolate the n=0 elementary branch before their missing arithmetic inputs. The SO retraction remains its precise LieGroups request; the independent circle-ring Dedekind proof is not a gap.",
+    "baselineReads": "Read the reviewed eight-stage audit, accepted RS-18 and touching supplier links. Re-read at the exact Mathlib pin the enclosing CommRing scope of GeneralLinearGroup.map, StrongRankCondition scope of finBasis/finBasisOfFinrankEq, chooseBasis, the zero-ring-aware ChooseBasisIndex.fintype, Fintype.equivFin, refl_mem_transvections and Abelianization.equivOfComm. No baseline declaration or new owner is added.",
+    "validation": "See the revision handoff for packet, reader fidelity, signature coverage and authorized-path checks. The attempted lean-check stops at the missing TauCeti.CategoryTheory.Exact.Functor.olean import before reaching the body; no complete existing build at the Tau Ceti pin was found. No successful elaboration is claimed."
+  },
+  "previousRevisionAudits": [
+    {
+      "job": "BP-KTheoryLowDegrees--U.1~2",
+      "agent": "Codex",
+      "session": "codex-1lp2cs",
+      "date": "2026-10-05",
+      "status": "complete",
+      "newNodes": 0,
+      "boundary": "The input already exceeds the 300-node budget. Preserve all 332 ids, all review-corrected mathematics and the independent needs_changes review; synchronize coverage, reader, outline and handoff without extending the decomposition.",
+      "reviewCorrections": "Checked all 59 corrected and 32 added node contracts and the four explicit unverifiable boundaries; regenerated the reader from the current packet, including principal congruences, canonical suppliers, the nine gaps, relative SK₁, split nodes, strengthened tests and all 14 source issues.",
+      "baselineReads": "Re-read the pinned projective retract, stalk-rank base change, row-matrix, finiteProjectiveModules and split/exact K₀ signatures relevant to the splits. CH-L18 adds two pinned Frobenius formula citations, not planned nodes.",
+      "validation": "Full-file Lean attempt stops at missing Exact.Functor import before the body; the shared Tau Ceti checkout is not the packet pin. No successful full-file elaboration is claimed. See the revision handoff for reproducible checks."
+    }
+  ]
 }
