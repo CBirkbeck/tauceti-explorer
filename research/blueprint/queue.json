@@ -30501,8 +30501,9 @@
    ],
    "avoidAccountOf": "BP-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #524",
+   "finishedAt": "2026-10-07T13:03:44Z"
   },
   {
    "id": "BP-TropicalAndBerkovichArithmetic",
@@ -53975,7 +53976,8 @@
     "FIX-RT-RS-21"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5712"
   },
   {
    "id": "RT-RS-22",
