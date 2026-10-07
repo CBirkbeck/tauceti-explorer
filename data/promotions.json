@@ -394,6 +394,17 @@
     "data/blueprints/ArithmeticKTheory--N.7.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json": {
+   "promotedAt": "2026-10-07T17:30:28Z",
+   "review": "05d722b75994194f",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2",
+   "sha256": "5d7184dac1676759f8d3585cf562ae869de1d820a16367d55542d9db6b440a27",
+   "to": [
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.json",
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticStatistics.json": {
    "promotedAt": "2026-10-05T07:13:01Z",
    "review": "dcb0b752fbc30e8f",
