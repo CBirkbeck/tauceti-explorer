@@ -10701,7 +10701,7 @@
         {
           "sourceId": "dmz-quantum-black-holes",
           "locator": "§4.2, printed pp. 25–26",
-          "match": "The holomorphic and cuspidal cases verbatim; for weak forms we state DMZ's sharper 'all hj(τ) = O(q^{−j²/4m})' with the least representative."
+          "match": "Provides the holomorphic and cuspidal cases. For weak forms the node uses the sharper DMZ growth bound h_j(τ)=O(q^{−j²/(4m)}) with the least representative."
         }
       ],
       "implementationStatus": "unchecked"
@@ -23497,7 +23497,7 @@
         {
           "sourceId": "lawrence-zagier",
           "locator": "§3, Corollary, printed pp. 98–99",
-          "match": "Verbatim the corollary this node records."
+          "match": "The cited corollary supplies the node’s conclusion."
         }
       ],
       "implementationStatus": "unchecked"
@@ -24209,7 +24209,7 @@
         {
           "sourceId": "bringmann-rolen-eichler",
           "locator": "§2.4, Lemma 2.2, printed p. 6",
-          "match": "Verbatim the statement; the proof steps follow pp. 6–7."
+          "match": "The cited statement supplies the target, and its proof on pp.6–7 gives the indicated argument."
         }
       ],
       "implementationStatus": "unchecked"
@@ -24288,7 +24288,7 @@
         {
           "sourceId": "bringmann-rolen-eichler",
           "locator": "§2.4, Lemma 2.3, printed p. 7",
-          "match": "Verbatim the statement; the node makes the uniformity in x explicit, which the proof of Proposition 2.1 needs."
+          "match": "Supplies the statement; the packet explicitly records uniformity in x, as needed in the proof of Proposition2.1."
         }
       ],
       "implementationStatus": "unchecked"
@@ -24484,7 +24484,7 @@
       ],
       "acceptance": [
         "The strange identity is the case f = η(24τ) (after the character extension, see half-integral-eichler-quantum-modular) combined with Zagier's Theorem 2.",
-        "This is the precise sense of Zagier's ‘leaking through the rational numbers’: one expansion from above and one from below."
+        "The same asymptotic expansion is obtained by approaching the rational boundary from above and from below."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.5/eichler-integral-asymptotic-expansion",
@@ -24499,7 +24499,7 @@
         {
           "sourceId": "bringmann-rolen-eichler",
           "locator": "§2.3, Proposition 2.1, printed p. 5",
-          "match": "Verbatim the statement."
+          "match": "Supplies the stated comparison of the two expansions."
         },
         {
           "sourceId": "lawrence-zagier",
@@ -24550,7 +24550,7 @@
         {
           "sourceId": "bringmann-rolen-eichler",
           "locator": "§1, Theorem 1.1, printed p. 2",
-          "match": "Verbatim the theorem this node records."
+          "match": "The cited theorem supplies this node’s target."
         }
       ],
       "implementationStatus": "unchecked"
@@ -24588,7 +24588,7 @@
         {
           "sourceId": "bringmann-rolen-eichler",
           "locator": "§1, Corollary 1.2, printed p. 3",
-          "match": "Verbatim the corollary."
+          "match": "The cited corollary supplies this node’s conclusion."
         }
       ],
       "implementationStatus": "unchecked"
@@ -25359,7 +25359,7 @@
         {
           "sourceId": "zagier-qmf",
           "locator": "Example 1, Lemma, printed p. 5",
-          "match": "Verbatim the lemma; the proof steps follow the source's proof."
+          "match": "Supplies the lemma and the argument followed in the proof steps."
         }
       ],
       "implementationStatus": "unchecked"
@@ -25617,7 +25617,7 @@
         {
           "sourceId": "lawrence-zagier",
           "locator": "§3, Theorem 1, printed p. 98",
-          "match": "Verbatim the theorem; the proof steps follow pp. 100–101."
+          "match": "Supplies the theorem and the proof route on pp.100–101."
         },
         {
           "sourceId": "lawrence-zagier",
@@ -25672,7 +25672,7 @@
         {
           "sourceId": "lawrence-zagier",
           "locator": "§3, Theorem 2, printed p. 98",
-          "match": "Verbatim the theorem; the proof follows p. 101."
+          "match": "Supplies the theorem and its p.101 argument."
         },
         {
           "sourceId": "lawrence-zagier",
@@ -26201,7 +26201,7 @@
         {
           "sourceId": "garvan-urbana",
           "locator": "§4, after Theorem 3, eq. (4.23), printed p. 39",
-          "match": "The route of this proof; the source ends with ‘(4.3) follows with not much work’, and the node writes out the 5-dissection."
+          "match": "Supplies the proof route but abbreviates the deduction of(4.3); the node expands that step using the5-dissection."
         },
         {
           "sourceId": "garvan-urbana",
@@ -26246,7 +26246,7 @@
         {
           "sourceId": "garvan-urbana",
           "locator": "§4, after (4.24), printed p. 39",
-          "match": "The mod 7 case ‘in a similar way’; the node writes out the 7-dissection with two triple products."
+          "match": "The source treats the modulus7 argument by analogy; the node gives the7-dissection using two triple products."
         }
       ],
       "implementationStatus": "unchecked"
@@ -26844,7 +26844,7 @@
         {
           "sourceId": "folsom-ono-rhoades",
           "locator": "§1, Theorem 1.2, printed p. 6",
-          "match": "Verbatim the hypotheses of Theorem 1.2; the conclusion is displayed after them."
+          "match": "Supplies the hypotheses and displayed conclusion of Theorem1.2."
         }
       ],
       "implementationStatus": "unchecked"
@@ -26884,7 +26884,7 @@
         {
           "sourceId": "folsom-ono-rhoades",
           "locator": "§1, Theorem 1.1, printed p. 4",
-          "match": "Verbatim the theorem; the limit is displayed after it."
+          "match": "Supplies the theorem and the limit displayed immediately afterwards."
         },
         {
           "sourceId": "bringmann-rolen-radial",
@@ -27601,7 +27601,7 @@
         {
           "sourceId": "zagier-traces",
           "locator": "§2, Theorem 1, printed p. 3",
-          "match": "Verbatim the theorem."
+          "match": "The cited theorem supplies the target statement."
         },
         {
           "sourceId": "zagier-traces",
@@ -28396,7 +28396,7 @@
         {
           "sourceId": "borcherds1992",
           "locator": "§3, p. 12–13",
-          "match": "Definition verbatim (with 'with integral eigenvalues')."
+          "match": "Supplies the definition, including the integral-eigenvalue condition."
         }
       ],
       "library": {
@@ -32001,7 +32001,7 @@
         {
           "sourceId": "gannon2004",
           "locator": "§2, Definition 1, p. 4",
-          "match": "Definition verbatim."
+          "match": "Supplies the definition used by this node."
         },
         {
           "sourceId": "borcherds1992",
@@ -36102,7 +36102,7 @@
       "source": "stanley-ec1",
       "kind": "misprint",
       "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
-      "printed": "Rewrite the left-hand side as 1 + ∑_{n≥1}(−1)ⁿ(x^{−n} + xⁿ)q^{(n 2)}.",
+      "printed": "The left side is expanded as1+Σ_{n≥1}(−1)^n(x^{−n}+x^n)q^{(n 2)}.",
       "correction": "∑_{n∈ℤ}(−1)ⁿxⁿq^{(n 2)} = ∑_{n≥1}(−1)ⁿ(xⁿ − x^{1−n})q^{(n 2)} (pair n with 1 − n, which has the same exponent (n 2)); equivalently 1 + ∑_{n≥1}(−1)ⁿ(xⁿq^{(n 2)} + x^{−n}q^{(n+1 2)}).",
       "reason": "The coefficient of q⁰ of the product side ∏(1 − q^k)(1 − xq^{k−1})(1 − x^{−1}q^k) is 1 − x (only the factor k = 1 of the middle product contributes), and so is that of ∑(−1)ⁿxⁿq^{(n 2)} (n = 0, 1); the printed line gives 1 − x − x^{−1}. With the correction, dividing by 1 − x gives ∑_{n≥1}(−1)ⁿ⁺¹(1 + x + ⋯ + x^{2n−2})x^{1−n}q^{(n 2)}, whose value at x = 1 is the claimed series ∑_{m≥0}(−1)^m(2m + 1)q^{(m+1 2)}.",
       "affects": "nothing",
@@ -36122,7 +36122,7 @@
       "source": "stanley-ec1",
       "kind": "misprint",
       "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF (printed Cambridge edition p. 166), the sentence after the rewritten sum",
-      "printed": "Now divide both sides by 1 − x and let x → 1. The left-hand side becomes ∑_{n≥0}(−1)ⁿ(2n + 1)q^{(n 2)}.",
+      "printed": "After division by1−x and passage to x→1, the asserted left side is Σ_{n≥0}(−1)^n(2n+1)q^{(n 2)}.",
       "correction": "The left-hand side becomes ∑_{n≥0}(−1)ⁿ(2n + 1)q^{(n+1 2)}, the series q^{n(n+1)/2} of the exercise's statement.",
       "reason": "With exponent (n 2) the constant term would be (n = 0, 1) 1 − 3 = −2, but the right-hand side ∏(1 − q^k)³ has constant term 1; the statement of Exercise 1.91(d) (p. 133) correctly has q^{n(n+1)/2}.",
       "affects": "nothing",
@@ -36201,7 +36201,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E202",
       "source": "kong-teo-eta",
       "locator": "§7, remark after Theorem 7.1 and the case c = 1 of its proof, printed p. 17",
-      "printed": "Notice that Theorem 5.3 is a special case of Theorem 7.1. … It follows from Proposition 5.1 and Theorem 5.3 that",
+      "printed": "The passage treats Theorem5.3 as a special case of Theorem7.1 and then invokes Proposition5.1 together with Theorem5.3.",
       "kind": "misprint",
       "correction": "Theorem 5.2 (the S-transformation η(−1/τ) = (−iτ)^{1/2}η(τ)) in both places.",
       "reason": "Theorem 5.3 is Euler's pentagonal number theorem, which is not a case of Theorem 7.1; the proof of the case c = 1 uses η(−1/(τ + d)) = {−i(τ + d)}^{1/2}η(τ + d), which is Theorem 5.2.",
@@ -36220,7 +36220,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E203",
       "source": "kong-teo-eta",
       "locator": "§7, proof of Theorem 7.1, printed p. 17",
-      "printed": "there is a unique positive integer r less than c such that −d ≡ r mod k.",
+      "printed": "The residue representative r is required to be a unique positive integer below c satisfying −d≡r modk.",
       "kind": "misprint",
       "correction": "−d ≡ r (mod c).",
       "reason": "k does not occur in the proof; the next line defines q by d = cq − r, i.e. the congruence is modulo c.",
@@ -36258,7 +36258,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E205",
       "source": "kong-teo-eta",
       "locator": "§7, proof of Theorem 7.1, printed p. 18",
-      "printed": "Since (rτ′ + c)(τ + q) = c(τ + q) − r = cτ + d, and (−i)^{1/2} = exp(−πi/4), we find that",
+      "printed": "The calculation uses (rτ′+c)(τ+q)=c(τ+q)−r=cτ+d and (−i)^{1/2}=exp(−πi/4).",
       "kind": "gap",
       "correction": "The step needs {−i(rτ′ + c)}^{1/2}{−i(τ + q)}^{1/2} = e^{−πi/4}{−i(cτ + d)}^{1/2} for the principal branch, which holds because rτ′ + c, τ + q and their product cτ + d all lie in the upper half-plane (node QM.1/cpow-neg-I-mul-half-mul): the arguments of −ix and −iy lie in (−π/2, π/2) and add without wrapping, and arg(−i) + arg(−i(cτ + d)) ∈ (−π, 0).",
       "reason": "Products of principal square roots need not be the principal square root of the product; the identity (−1)^{1/2}(−1)^{1/2} = −1 ≠ 1 = 1^{1/2} shows that an argument is required. Here it is true (checked also numerically for γ = (2 1; 5 3)).",
@@ -36336,7 +36336,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E302",
       "source": "kong-teo-rademacher-2023",
       "locator": "Proposition 2.4 and its proof, printed p. 5 (arXiv v1)",
-      "printed": "Let ν be a complex number and let c be a positive number. If x is real, then Iν(x) = (x/2)^ν (1/2πi)∫_{c−i∞}^{c+i∞} t^{−ν−1} exp(t + x²/4t) dt.",
+      "printed": "The integral formula I_ν(x)=(x/2)^ν(2πi)⁻¹∫_{c−i∞}^{c+i∞}t^{−ν−1}exp(t+x²/(4t))dt is asserted for ν∈ℂ, c>0 and real x.",
       "kind": "error",
       "correction": "Assume Re ν > 0 (absolute convergence; the formula also holds for Re ν > −1 as an improper integral) and x > 0.",
       "reason": "On Re t = c one has |e^t| = e^c, so the integrand has modulus of order |t|^{−Re ν − 1}; for ν = −2 it grows like |t| and the integral diverges. The proof's claim that the integrand 'decays exponentially fast in the region Re t ≤ c' fails on the line itself.",
@@ -36355,7 +36355,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E303",
       "source": "kong-teo-rademacher-2023",
       "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
-      "printed": "Using the fact that 0 < p(m1) < p(m2) when m1 < m2",
+      "printed": "The proof assumes0<p(m₁)<p(m₂) whenever m₁<m₂.",
       "kind": "error",
       "correction": "p(m₁) ≤ p(m₂) for m₁ ≤ m₂ (strict for 1 ≤ m₁ < m₂).",
       "reason": "p(0) = p(1) = 1. The argument only needs p(m) ≤ p(24m − 1) for m ≥ 1.",
@@ -36412,7 +36412,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E306",
       "source": "kong-teo-rademacher-2023",
       "locator": "Remark 3.4, printed p. 28 (arXiv v1)",
-      "printed": "Since QN(n) → 0 as N → ∞, the series (3.1) converges absolutely.",
+      "printed": "Absolute convergence of(3.1) is inferred from Q_N(n)→0 as N→∞.",
       "kind": "gap",
       "correction": "Absolute convergence follows from the termwise bound |R_k(n)| ≤ (π²/(6√3))k^{−3/2}e^{α(n)/k} proved on p. 31 (|A_k(n)| ≤ k and Lemma 4.3).",
       "reason": "Q_N(n) → 0 gives convergence of the series, not absolute convergence.",
@@ -36452,7 +36452,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E308",
       "source": "lehmer-1939-tams",
       "locator": "§1, inequality (9), printed p. 363",
-      "printed": "instead of the trivial (9) |Ak(n)| < k",
+      "printed": "The comparison invokes the elementary bound |A_k(n)|<k, labelled(9).",
       "kind": "misprint",
       "correction": "|A_k(n)| ≤ k (indeed ≤ φ(k)).",
       "reason": "A_1(n) = 1 = k, so the strict inequality fails at k = 1; for k ≥ 2 it holds since φ(k) < k.",
@@ -36493,7 +36493,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E402",
       "source": "bruinier-funke-2004",
       "locator": "proof of Theorem 3.7, pp. 14–15 (arXiv v4)",
-      "printed": "we ﬁnd that there is a function f ∈ E^{0,0}(X, L_{k,L} ⊗ O_{nD}) satisfying ∂̄f = iv^{−k}ḡ dτ̄. But this is equivalent to saying −v^{k−2}L_kf dτ̄ = ḡ dτ̄.",
+      "printed": "The construction gives f∈E^{0,0}(X,L_{k,L}⊗O_{nD}) with ∂̄f=iv^{−k}ḡdτ̄, then treats this as equivalent to −v^{k−2}L_kf dτ̄=ḡdτ̄.",
       "kind": "misprint",
       "correction": "∂̄f = iv^{−k}ḡ dτ̄ is equivalent to −v^{k−2}L_kf = −2ḡ, i.e. ξ_k(f) = 2g (so f/2 is the required preimage).",
       "reason": "With ∂̄f = (∂f/∂τ̄)dτ̄ and L_k = −2iv²∂/∂τ̄: −v^{k−2}L_kf = 2iv^k∂f/∂τ̄ = 2i·i·ḡ = −2ḡ.",
@@ -36514,7 +36514,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E403",
       "source": "bruinier-funke-2004",
       "locator": "§3, p. 9 (arXiv v4), definition of H(w)",
-      "printed": "H(w) = e^{−w}∫_{−2w}^∞ e^{−t}t^{−k}dt. The integral converges for k < 1 and can be holomorphically continued in k (for w ̸= 0) in the same way as the Gamma function.",
+      "printed": "The definition is H(w)=e^{−w}∫_{−2w}^∞e^{−t}t^{−k}dt. Convergence is asserted for k<1, and holomorphic continuation in k for w≠0 is compared to that of Γ.",
       "kind": "gap",
       "correction": "For w > 0 the path passes through t < 0, where t^{−k} needs a branch unless k ∈ ℤ; for integral k ≥ 2 the continuation in k is regular but its value depends on the branch by an additive multiple iπ·e^{−w}, i.e. by a multiple of the holomorphic basis function. So the splitting a^+(n)/a^−(n) is canonical only for n < 0, for k ≤ 0 integral, or on H^+ (where the n > 0 non-holomorphic terms vanish). The blueprint fixes an explicit second solution for n > 0 (QM.3/nonholomorphic-fourier-basis-growing) and defines f^± only on H^+.",
       "reason": "Near k = j + 1: Γ(1 − k) and (−1)^{−k}∫_0^{2w}e^{s}s^{−k}ds have opposite simple poles, but the finite parts differ by ±iπ according to the branch of (−1)^{−k} = e^{∓iπk}.",
@@ -36578,7 +36578,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E406",
       "source": "bruinier-funke-2004",
       "locator": "proof of Theorem 3.7, p. 14 (arXiv v4)",
-      "printed": "Applying the Hodge star operator, we get the 1-form iv^{−k}ḡ dτ̄ ∈ E^{0,1}(X, L_{k,L} ⊗ O_{nD}).",
+      "printed": "Application of the Hodge star is asserted to produce iv^{−k}ḡdτ̄ as an element of E^{0,1}(X,L_{k,L}⊗O_{nD}).",
       "kind": "gap",
       "correction": "The form iv^{−k}ḡ dτ̄ is not a C^∞ section at the cusps when k ≠ 0: in the local parameter q, v = −(h/2π)log|q| and the coefficient contains (log|q|)^{−k}, which is continuous (after the twist by O_{nD}) but not smooth at q = 0. Repair: near each cusp write down an explicit ξ_k-preimage F_c of g (QM.3/local-xi-preimage-at-cusps, via the non-holomorphic Fourier basis), glue with cut-offs, and apply the Dolbeault/Serre-duality argument only to the smooth compactly supported remainder (QM.3/xi-surjective-free-normal).",
       "reason": "The Hodge star uses the Petersson metric v^k, which has logarithmic singularities at the cusps (as BF note); the sheaf E^{p,q} was defined as C^∞ forms.",
@@ -36599,7 +36599,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E407",
       "source": "bruinier-funke-2004",
       "locator": "Corollary 3.9, p. 15 (arXiv v4)",
-      "printed": "This can be proved using Theorem 3.6 and Eisenstein series in M_{κ,L^−}. The details are left to the reader.",
+      "printed": "The proof is delegated to the reader with Theorem3.6 and Eisenstein series in M_{κ,L^-} identified as its inputs.",
       "kind": "gap",
       "correction": "A proof of the non-degeneracy on the M_κ side: for g ∈ M_κ \\ S_κ one needs f ∈ M^!_k with Σ_c h_c a_c(0)b_c(0) ≠ 0; this follows from Borcherds' obstruction theorem (the realisable principal parts are λ(M_κ)^⊥, and a functional supported on constant terms vanishing on λ(M_κ)^⊥ would come from a constant form of weight κ ≠ 0). Supplied in QM.3/bruinier-funke-duality-negative. This repair requires κ≠0; exclude k=2. The constant-form obstruction in new E409 is not cured by merely filling in the omitted proof.",
       "reason": "Existence of Eisenstein series alone does not produce f; the argument needs the existence of weakly holomorphic forms with prescribed constant terms, i.e. the duality of Borcherds' Theorem 3.1.",
@@ -36641,7 +36641,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E501",
       "source": "zwegers-thesis",
       "locator": "proof of Theorem 3.9, p. 58 (arXiv v1)",
-      "printed": "Using (5) of Proposition 3.5 we ﬁnd",
+      "printed": "The next deduction cites part(5) of Proposition3.5.",
       "kind": "misprint",
       "correction": "Read 'Using (1c) of Proposition 3.5' (Prop. 3.5 has parts (1)–(3); the modular transformation of f̃ is (1c)).",
       "reason": "Prop. 3.5 has no part (5); the cited identity is exactly (1c).",
@@ -36681,7 +36681,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E503",
       "source": "zwegers-thesis",
       "locator": "after Definition 3.2, p. 51 (arXiv v1)",
-      "printed": "The function f^{(1/2)} is the sum studied in Section 1.2.",
+      "printed": "The text identifies f^{(1/2)} with the sum from §1.2.",
       "kind": "misprint",
       "correction": "The Lerch sums are studied in Section 1.3 (Section 1.2 is the Mordell integral); moreover Def. 3.2 requires m ∈ ℤ_{>0}, so f^{(1/2)} is outside its range and matches the Lerch sum of §1.3 only up to the sign (−1)^n and the change of variables.",
       "reason": "Section 1.2 is titled 'The Mordell integral'; the Lerch sum Σ(−1)^n e^{πi(n²+n)τ+2πinv}/(1 − e^{2πinτ+2πiu}) is in §1.3.",
@@ -36721,7 +36721,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E505",
       "source": "zwegers-thesis",
       "locator": "§4.3, p. 71 (arXiv v1)",
-      "printed": "This function has the following modular transformation property, which can be veriﬁed using standard methods: g7(−1/τ) = −M7(−iτ)^{3/2}g7(τ),",
+      "printed": "The modular transformation g₇(−1/τ)=−M₇(−iτ)^{3/2}g₇(τ) is asserted without calculation, referring only to standard methods.",
       "kind": "gap",
       "correction": "A proof: apply ξ_{1/2} to H₇(−1/τ) = √(−iτ)M₇H₇(τ) (Prop. 4.5(1)); the chain rule gives (ξH₇)(−1/τ) = −(−iτ)^{3/2}M₇(ξH₇)(τ), and ξ_{1/2}H₇ = −√42·g₇ (from Prop. 4.2(4)). Supplied in QM.4/seventh-order-shadow-theta.",
       "reason": "The statement is used in the proof of Cor. 4.6 but no proof is given.",
@@ -36741,7 +36741,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E506",
       "source": "zwegers-thesis",
       "locator": "after Definition 3.4, p. 53 (arXiv v1)",
-      "printed": "We will not show that the series deﬁning R_{m,l} converges, since this is similar to the convergence of R, proven in Lemma 1.8.",
+      "printed": "The convergence proof for R_{m,l} is omitted by analogy with the proof for R in Lemma1.8.",
       "kind": "gap",
       "correction": "Convergence of R_{m,l}: split {sgn(λ + ½) − E((λ + 2m Im u/y)√(y/m))} into a finitely supported sign difference and sgn(·)β((λ + 2m Im u/y)²y/m) ≤ e^{−π(λ+2m Im u/y)²y/m}; supplied in QM.4/level-m-r-function.",
       "reason": "The convergence is asserted without proof.",
@@ -36782,7 +36782,7 @@
       "source": "zagier-strange",
       "kind": "misprint",
       "locator": "§2, proof of Theorem 3, printed p. 953",
-      "printed": "and comparing the residues at s = −n gives Eq. (24).",
+      "printed": "Equation(24) is deduced by comparing residues at s=−n.",
       "correction": "The comparison of residues gives Eq. (25) (the formula for γ_n); (24) is the definition of a_n, b_n, c_n.",
       "reason": "The residue of 24^sΓ(s)L(2s − 1, χ) at s = −n is (−1)ⁿL(−2n − 1, χ)/(24ⁿn!), which is the right side of (25).",
       "affects": "nothing",
@@ -36801,7 +36801,7 @@
       "source": "zagier-strange",
       "kind": "misprint",
       "locator": "§6, discussion after the Theorem, printed p. 959",
-      "printed": "for a certain polynomial g of degree ≥ k − 2, the period polynomial of f",
+      "printed": "The period polynomial g of f is assigned degree≥k−2.",
       "correction": "degree ≤ k − 2.",
       "reason": "The period polynomial is c_k∫_0^∞ f(z)(z − x)^{k−2}dz, a polynomial in x of degree at most k − 2.",
       "affects": "nothing",
@@ -36820,7 +36820,7 @@
       "source": "zagier-strange",
       "kind": "gap",
       "locator": "§6, Theorem and the paragraph after it, printed pp. 958–959",
-      "printed": "We do not give the complete proof, since this theorem is a special case of results to be proved in more detail in [7]",
+      "printed": "A complete proof is deferred to reference[7], where more general results are promised.",
       "correction": "A complete proof along the lines of Bringmann–Rolen (non-holomorphic Eichler integral of η on the lower half-plane, its transformation law with the η multiplier, agreement of expansions at rationals, non-tangential boundary values), as in the node kontsevich-quantum-modular.",
       "reason": "The promised paper [7] ('Period functions for modular forms of half-integral weight, in preparation') does not appear in the author's publication list; the indication given does not prove the real-analyticity of g or the transformation at rationals.",
       "affects": "the proof",
@@ -36860,7 +36860,7 @@
       "source": "zagier-qmf",
       "kind": "misprint",
       "locator": "Example 3, printed p. 10",
-      "printed": "since η(z) = Σ_{n=0}^∞ n (12/n) q^{n²/24} (Euler)",
+      "printed": "Euler’s identity is invoked in the form η(z)=Σ_{n=0}^∞n(12/n)q^{n²/24}.",
       "correction": "η(z) = Σ_{n≥1}(12/n)q^{n²/24}; the factor n belongs to η̃ in (27).",
       "reason": "Euler's pentagonal number theorem: q^{1/24}∏(1 − qⁿ) = Σ χ₁₂(n)q^{n²/24} (Topology 40, eq. (19)).",
       "affects": "nothing",
@@ -36937,7 +36937,7 @@
       "source": "lawrence-zagier",
       "kind": "gap",
       "locator": "§4, properties (i) and (ii) and their proof sketch, printed pp. 103–104",
-      "printed": "We explain this only brieﬂy, leaving a more detailed exposition to the later paper [18].",
+      "printed": "Only a brief explanation is supplied, with details deferred to the later reference[18].",
       "correction": "Complete proofs as in the nodes eichler-asymptotic-agreement, nonholomorphic-eichler-transformation and nonholomorphic-eichler-nontangential-limit, applied to Θ± with the transformation matrices of (15).",
       "reason": "The existence of the asymptotic expansion of Θ*± and the passage from the transformation law on H⁻ to rational points are only indicated.",
       "affects": "the proof",
@@ -36957,7 +36957,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "gap",
       "locator": "§4, discussion after Corollary 1.2, printed p. 11",
-      "printed": "this family includes many examples in the literature, such as Kontsevich’s strange function (2.2) [21]",
+      "printed": "The family is claimed to include Kontsevich’s strange function(2.2), citing[21].",
       "correction": "Theorem 1.1 is stated and proved for f ∈ S_k(N) with trivial character; η(24τ) has character χ₁₂. The statement with nebentypus ψ holds with the cocycle relation f* − ψ̄(d)χ₋₄(d)f*|_{2−k}γ = r_{f,−d/c}, since the substitution in (2.4) picks up ψ(d) from f(γu) = ψ(d)ε_d^{−2k}(c/d)(cu + d)^kf(u), and Lemma 2.2 already allows characters.",
       "reason": "The claimed inclusion of Kontsevich's function requires the character case, which the paper does not state.",
       "affects": "a stated result",
@@ -36977,7 +36977,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "gap",
       "locator": "§3, proof of Theorem 1.1, printed pp. 10–11",
-      "printed": "By (2.4), we see that f ∗is a quantum modular form, as for x ∈R, the cocycle is real-analytic on R\\{−d/c}.",
+      "printed": "Equation(2.4) is used to claim f* is quantum modular because its cocycle is real analytic on ℝ\\{−d/c}.",
       "correction": "Show that f* has non-tangential boundary values at rational points (node nonholomorphic-eichler-nontangential-limit) before letting τ → x in (2.4): the term f*(γτ) approaches γx along the image of the vertical ray, which is not vertical.",
       "reason": "Proposition 2.1 and (3.19) give only the vertical limits of f*.",
       "affects": "the proof",
@@ -36996,7 +36996,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "gap",
       "locator": "§2.4, Lemma 2.3, printed p. 7",
-      "printed": "Since the proof is a standard application of the functional equation and the Phragm´en-Lindel¨of principle, we omit the proof.",
+      "printed": "The proof is omitted and attributed to the functional equation combined with Phragmén–Lindelöf.",
       "correction": "The proof of the node twisted-l-function-vertical-growth, with uniformity in the real part (needed to apply Lemma 3.1).",
       "reason": "The lemma is stated for fixed x, but the application of Lemma 3.1 needs bounds uniform on vertical strips.",
       "affects": "the proof",
@@ -37015,7 +37015,7 @@
       "source": "zagier-strange",
       "kind": "gap",
       "locator": "§2, proof of Theorem 3, printed p. 952",
-      "printed": "We have already seen that F(q) and F1(q) agree to all orders as q approaches 1 (or any other root of unity) radially from within the unit disk.",
+      "printed": "The text asserts agreement to every order between F(q) and F₁(q) in radial approaches from the unit disc to1 and every other root of unity.",
       "correction": "Only the formal statement F = F₁ in ℤ[[1 − q]] (from (16)) was shown; the analytic statement needs a uniform bound on the tail Σ_{n>N} n(q;q)_{n−1}qⁿ near roots of unity, supplied by the node pochhammer-root-of-unity-bound. The corrected sum-of-tails-agreement proof now supplies the bounded-product argument directly and uses pochhammer-root-of-unity-bound for the reusable estimate.",
       "reason": "Termwise bounds ∏(1 + |q|^j) grow like e^{c/t} and do not control the tail; the block cancellation is needed.",
       "affects": "the proof",
@@ -37034,7 +37034,7 @@
       "source": "folsom-ono-rhoades",
       "kind": "gap",
       "locator": "§3.2, printed p. 19",
-      "printed": "noting that the function U(ζ a b ; ζ h k ) is a ﬁnite convergent sum when b|k, by the argument above",
+      "printed": "The preceding argument is invoked to treat U(ζ_b^a;ζ_k^h) as a finite convergent sum when b|k.",
       "correction": "The proof also needs lim_{q→ζ_k^h} U(ζ_b^a; q) = U(ζ_b^a; ζ_k^h) for the radial approach; this follows from the uniform bound of pochhammer-root-of-unity-bound.",
       "reason": "The finiteness of the formal value at the root of unity does not by itself give the radial limit of the convergent series U(ζ_b^a; q).",
       "affects": "the proof",
@@ -37054,7 +37054,7 @@
       "source": "zagier-traces",
       "kind": "gap",
       "locator": "§4, proof of the Proposition, printed p. 5",
-      "printed": "(We leave to the reader the modiﬁcations necessary if α is a root of E4 or E6, i.e. a point with a non-trivial stabilizer in Γ.)",
+      "printed": "The modifications for zeros of E₄ or E₆, equivalently points with nontrivial Γ-stabilizer, are left to the reader.",
       "correction": "At the elliptic points i and ρ the residue comparison must account for the stabiliser weights 1/2 and 1/3 and for the zeros of E₄, E₆; the node weight-two-trace-proposition records this step.",
       "reason": "The residue computation divides by E₄(α)E₆(α)j′(α), which vanishes at the elliptic points.",
       "affects": "the proof",
@@ -37073,7 +37073,7 @@
       "source": "zagier-traces",
       "kind": "gap",
       "locator": "§4, end, printed p. 6",
-      "printed": "The proof when n is a square is similar, except that we must also compute the Fourier expansion of Sa,d(τ) in the case when a = d; we leave this calculation to the reader.",
+      "printed": "For square n, the proof is described as analogous except for the Fourier expansion of S_{a,d}(τ) at a=d, whose calculation is omitted.",
       "correction": "Compute S_{m,m} for n = m² (the node trace-second-recursion lists the step); it produces the term −8n in (6).",
       "reason": "The square case of (6) is not derived.",
       "affects": "the proof",
@@ -37092,7 +37092,7 @@
       "source": "zagier-traces",
       "kind": "gap",
       "locator": "§3, end, printed p. 4",
-      "printed": "Hence P |r|<2√n t(4n −r2) = P |r|<2 t(4 −r2) = −4.",
+      "printed": "The stated equality is Σ_{|r|<2√n}t(4n−r²)=Σ_{|r|<2}t(4−r²)=−4.",
       "correction": "For square n the same comparison also gives the class number relation (7), with the extra 1/6 = H(4) + 2H(3) − 1 coming from the omitted factor; the source states (7) for all n but derives it only for non-square n.",
       "reason": "Only (5) is derived in the square case.",
       "affects": "the proof",
@@ -37151,7 +37151,7 @@
       "source": "gannon2004",
       "kind": "misprint",
       "locator": "§3.3, text between (3.7a) and (3.7b), p. 8 of arXiv:math/0402345v2",
-      "printed": "Again, these yield recursions like a4(g) = a2(g) + (a1(g)2 −a1(g2))/2",
+      "printed": "The resulting recurrences include a₄(g)=a₂(g)+(a₁(g)²−a₁(g²))/2.",
       "correction": "a4(g) = a3(g) + (a1(g)² − a1(g²))/2.",
       "reason": "For g = 1 the printed formula gives a4 = a2 + (a1² − a1)/2 = 19403050046, contradicting the recursion a4 = a3 + (a1² − a1)/2 printed a few lines earlier and the value 20245856256; Borcherds (9.1) with k = 1 gives a3; checked for the 2B series (−49152 = 11202 + (276² − 196884)/2).",
       "affects": "nothing",
@@ -37172,7 +37172,7 @@
       "source": "borcherds1992",
       "kind": "misprint",
       "locator": "§1, p. 3 of the author's copy (Invent. Math. 109, p. 407)",
-      "printed": "Its normalized Hauptmodul is T2−(q) = 24+q−1 Πn>0(1−q2n+1)24 = q−1+276q−2048q2+. . .",
+      "printed": "The normalized Hauptmodul is displayed as T_{2^-}(q)=24+q⁻¹∏_{n>0}(1−q^{2n+1})^{24}=q⁻¹+276q−2048q²+⋯.",
       "correction": "T_{2−}(q) = 24 + q^{−1}Π_{n≥0}(1 − q^{2n+1})^{24} = 24 + q^{−1}Π_{n>0}(1 − q^{2n−1})^{24}.",
       "reason": "With n > 0 the factor (1 − q)^{24} is missing and the product would give q^{−1} + 24 − 24q² + ⋯ instead of q^{−1} + 276q − 2048q² + ⋯; with n ≥ 0 the displayed expansion is obtained (computed to order q^{40}).",
       "affects": "nothing",
@@ -37192,7 +37192,7 @@
       "source": "borcherds1992",
       "kind": "misprint",
       "locator": "§5, Lemma 5.4 and its proof, p. 21 of the author's copy",
-      "printed": "Lemma 5.4. The associative algebra generated by the elements Li for i < 0 is generated by elements mapping S1 into S. Proof. Calculation shows that the operators L−1 and L−2+3L2−1/2 have this property",
+      "printed": "Lemma5.4 claims the algebra generated by L_i for i<0 is generated by operators sending S₁ into S; its proof names L_{−1} and L_{−2}+3L_{−1}²/2 as such operators.",
       "correction": "The lemma concerns the L_i with i > 0: the associative algebra they generate is generated by L_1 and L_2 + (3/2)L_1², which map S¹ into S when the central charge is 26.",
       "reason": "L_{−1} and L_{−2} map every vector into the spurious space S, so the printed statement is empty; the proof of Lemma 5.5 applies 'some set of generators of the algebra generated by the Li’s, i > 0'; the Goddard–Thorn computation (Jurisich 1998 Lemma A.6) is for L_1 and L_2 + (3/2)L_1², where c = 26 is used.",
       "affects": "nothing",
@@ -37213,7 +37213,7 @@
       "source": "borcherds1992",
       "kind": "error",
       "locator": "§5, Theorem 5.1, p. 19 of the author's copy",
-      "printed": "Then the quotient of P 1r by the nullspace of its bilinear form is naturally isomorphic, as a G module with an invariant bilinear form, to V 1−(r,r)/2 if r ≠ 0 and to V 1 ⊕ R2 if r = 0.",
+      "printed": "The quotient of P_r^1 by the nullspace of its form is asserted to be naturally isomorphic, as a G-module with invariant form, to V^{1−(r,r)/2} for r≠0 and V¹⊕ℝ² for r=0.",
       "correction": "The case r = 0 needs the extra hypothesis V⁰ = ℝ·1 (dim V⁰ = 1), as in Jurisich 1998 Theorem 6.2 (iii); in general, when L_1V¹ = 0, the quotient is V¹ ⊕ (V⁰ ⊗ ℝ²).",
       "reason": "For V = V♮ × V♮ (direct product vertex algebra, vacuum (1,1), conformal vector (ω,ω) of central charge 24, orthogonal sum of forms) all stated hypotheses hold, V⁰ is two-dimensional and V¹ = 0, while P¹_0/null ≅ V⁰ ⊗ ℝ² is four-dimensional, not V¹ ⊕ ℝ² = ℝ². The case r ≠ 0 and the application to V♮ (V⁰ = ℝ1) are unaffected.",
       "affects": "a stated result",
@@ -37233,7 +37233,7 @@
       "source": "borcherds1988",
       "kind": "gap",
       "locator": "§2, proof of Corollary 2.5, p. 3 of the author's copy",
-      "printed": "Proof.∗ The proof in Kac [3, 11.7] carries over to G because 2(ρ, r) > (r, r) if r is a positive root that is not simple.",
+      "printed": "The proof invokes Kac[3,11.7] and the inequality2(ρ,r)>(r,r) for every positive nonsimple root.",
       "correction": "A complete proof that the contravariant form is positive definite on the root spaces of a generalized Kac–Moody algebra is in Kac, Infinite dimensional Lie algebras, 3rd ed. (1990), §11; for the matrices used in this stage it also follows from Jurisich 1998 Theorem 5.1 and Corollary 5.3.",
       "reason": "The author's footnote states 'This proof is not complete; see the third edition of Kac [3] for a complete proof'; Borcherds 1992 §4 records that the proof of the converse in [4] 'contains a gap which was pointed out and corrected by Kac'.",
       "affects": "the proof",
@@ -37254,7 +37254,7 @@
       "source": "borcherds1986",
       "kind": "misprint",
       "locator": "§5, p. 5 of the author's copy",
-      "printed": "More generally if u is in P 1 then [Lj, uk] = ((j + 1)(i − 1) − k)uj+k.",
+      "printed": "The generalized formula is asserted for u∈P¹ as [L_j,u_k]=((j+1)(i−1)−k)u_{j+k}.",
       "correction": "More generally if u is in P^i then [L_j, u_k] = ((j + 1)(i − 1) − k)u_{j+k}.",
       "reason": "The formula contains i, which is unbound if u ∈ P¹; the commutator formula for a primary vector of weight i gives exactly ((j+1)(i−1) − k)u_{j+k}, which for i = 1 reduces to the preceding sentence.",
       "affects": "nothing",
@@ -37274,7 +37274,7 @@
       "source": "borcherds1992",
       "kind": "error",
       "locator": "§4, remark after Theorem 4.1, p. 15 of the author's copy",
-      "printed": "Remark. The converse of this theorem is also true (but not needed here): any universal generalized Kac-Moody algebra with a countable number of simple roots is a generalized Kac-Moody algebra.",
+      "printed": "The remark asserts that a universal generalized Kac–Moody algebra with countably many simple roots is a generalized Kac–Moody algebra, and labels this converse unnecessary for the paper.",
       "correction": "The converse needs a finiteness hypothesis allowing a grading with finite-dimensional pieces (for example finitely many simple roots with each column of the matrix); it fails in general.",
       "reason": "For the countably infinite matrix with all entries −2, all columns are equal, so h_ij = [e_i, f_j] ≠ 0 for i ≠ j lies in the degree-0 Cartan subalgebra; any grading deg e_i = n_i must therefore have all n_i equal, and the piece containing all e_i is infinite-dimensional, violating condition 1 (Jurisich 1998 §4, remark).",
       "affects": "a stated result",
@@ -37374,7 +37374,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E208",
       "source": "dmz-quantum-black-holes",
       "locator": "§4.4, printed p.31 (physical PDF p.32), paragraph defining elliptic forms just before (4.47), arXiv:1208.4074v2",
-      "printed": "Any elliptic form has a Fourier expansion as in (4.3)",
+      "printed": "A Fourier expansion of the form(4.3) is asserted for every elliptic form.",
       "kind": "error",
       "correction": "Require period one in τ as well as joint holomorphy and the elliptic transformation law before asserting the integer q-Fourier expansion. Without that condition retain only the theta expansion with holomorphic τ-dependent coefficient functions.",
       "reason": "The stated elliptic-form definition imposes only the z-lattice law, not τ↦τ+1. For m=1, F(τ,z)=τ·ϑ_{1,0}(τ,z) is jointly holomorphic and has that elliptic law. Since ϑ_{1,0}(τ+1,z)=ϑ_{1,0}(τ,z), F(τ+1,z)−F(τ,z)=ϑ_{1,0}(τ,z), which is nonzero (at τ=i,z=0 its defining Gaussian series has positive real terms, including 1). An expansion with constant coefficients c(n,r) and integer n as in (4.3), converging at every point, is necessarily period one in τ. Genuine neutral-multiplier Jacobi forms already have this period from the T-transformation, so their U_s mapping statements are unaffected.",
@@ -37435,7 +37435,7 @@
       "source": "kong-teo-rademacher-2023",
       "kind": "error",
       "locator": "arXiv:2302.03835v1 p.2,(1.3)–(1.4)",
-      "printed": "P1(n) is the leading term given by(1.3)",
+      "printed": "P₁(n) is identified with the leading term in(1.3).",
       "correction": "Use the exact Hardy–Ramanujan derivative term in the O(n^−1/4) formula; reserve(1.3) for its asymptotic equivalent.",
       "reason": "Paper36(1.71) contains n−1/24 and the derivative correction. Its relative difference from(1.3) is of order n^−1/2, hence the absolute exponential difference cannot be absorbed in O(n^−1/4).",
       "affects": "a stated result",
@@ -37473,7 +37473,7 @@
       "source": "kong-teo-rademacher-2023",
       "kind": "misprint",
       "locator": "arXiv:2302.03835v1 p.16, Proposition2.14",
-      "printed": "a point z on C",
+      "printed": "The point z is specified to lie on C.",
       "correction": "Require z≠0 when taking1/z.",
       "reason": "The circle passes through0, where the reciprocal is undefined. This is the implicit domain condition of the following reciprocal calculation, and does not invalidate the contour argument.",
       "affects": "nothing",
@@ -37492,7 +37492,7 @@
       "source": "bruinier-funke-2004",
       "kind": "error",
       "locator": "arXiv:math/0212286v4 p.15, Corollary3.9",
-      "printed": "are non-degenerate",
+      "printed": "The objects are asserted to be nondegenerate.",
       "correction": "Excludeκ=0(k=2) from the negative-principal-part pairing with all Mκ, or retain its constant-form radical.",
       "reason": "For the trivial Weil representation of U⊕U, g=1 is a nonzero weight-zero modular form. Every positive Fourier coefficient is zero, so the negative-principal-part pairing vanishes identically on g.",
       "affects": "a stated result",
@@ -37530,7 +37530,7 @@
       "source": "zwegers-thesis",
       "kind": "gap",
       "locator": "arXiv:0807.4834v1 printed p.12, physical p.16, Lemma1.8 proof",
-      "printed": "real-analytic",
+      "printed": "The regularity assertion is real analyticity.",
       "correction": "Prove local normal convergence after complexifying the real variables.",
       "reason": "Uniform convergence of real-analytic functions alone does not imply real analyticity. The packet’s corrected Gaussian-tail polydisc estimate supplies the missing argument without refuting the conclusion.",
       "affects": "the proof",
@@ -37549,7 +37549,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "gap",
       "locator": "arXiv:1409.3781v4 p.7 Lemma3.1 and its application on pp.7–8",
-      "printed": "in the right half-plane",
+      "printed": "The prescribed branch uses the right half-plane.",
       "correction": "Use uniform decay on each bounded vertical strip used by the contour shift.",
       "reason": "Gamma times the continued twisted L-function does not decay as Re s→+∞. The all-half-plane hypothesis stated in Lemma3.1 is not satisfied by the displayed application; finite-strip estimates suffice.",
       "affects": "the proof",
@@ -37568,7 +37568,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "misprint",
       "locator": "arXiv:1409.3781v4 p.8, proof of Proposition2.1",
-      "printed": "simple poles at s=−n",
+      "printed": "The stated poles at s=−n are simple.",
       "correction": "Say possible simple poles at s=−n, allowing cancellation by an L-value zero.",
       "reason": "For f=0 the Mellin transform is0 and has no poles. Residue formulas already allow zero coefficients, so the intended expansion is unchanged.",
       "affects": "nothing",
@@ -37682,7 +37682,7 @@
       "source": "jurisich1998",
       "kind": "misprint",
       "locator": "arXiv:1311.3258v1 p.39, last paragraph of no-ghost proof",
-      "printed": "the radical ... is nondegenerate",
+      "printed": "The radical is asserted to be nondegenerate.",
       "correction": "Say the form restricted to this subspace is nondegenerate.",
       "reason": "The radical has zero restricted form. The intended conclusion is its vanishing, obtained from nondegeneracy on the entire displayed weight-one physical space.",
       "affects": "nothing",
@@ -37741,7 +37741,7 @@
       "source": "skoruppa-critical-weight",
       "kind": "misprint",
       "locator": "§2 Notation, glossary entry w_A, p. 5 of arXiv:0707.0718v1",
-      "printed": "For a matrix A ∈ SL(2, Z), the function w_A(τ) = √(aτ + b), where the square root is chosen in the right half plane or on the nonnegative imaginary axes.",
+      "printed": "For A∈SL₂(ℤ), the assigned function is w_A(τ)=√(aτ+b); the branch is specified by the right half-plane together with the nonnegative imaginary axis.",
       "correction": "w_A(τ) = √(cτ + d) for A = [a, b; c, d].",
       "reason": "The same glossary defines Mp(2, ℤ) as the pairs (A, w) with w(τ)² = cτ + d, and §3 uses (T, w_T) and (S, w_S) as elements of it. For T = [1, 1; 0, 1] the printed formula gives w_T(τ)² = τ + 1, whereas cτ + d = 1, so (T, w_T) would not be in Mp(2, ℤ). With cτ + d one gets w_T = 1 and w_S = √τ, the standard generators.",
       "affects": "nothing",
@@ -37761,7 +37761,7 @@
       "source": "skoruppa-critical-weight",
       "kind": "misprint",
       "locator": "§4, the sentence defining cusp forms after the Definition, p. 11 of arXiv:0707.0718v1",
-      "printed": "If, for a Jacobi form φ, in condition (i) of the definition, for all α, the stronger inequality 4l − F^{−1}[r] > 0 holds true then we call φ a cusp form.",
+      "printed": "For a Jacobi form φ, the cusp-form condition is described by replacing condition(i) with4l−F⁻¹[r]>0 for all α.",
       "correction": "Read 'in condition (ii) of the definition'. Condition (i) itself lacks its variable: 'For all J_n(Γ)' stands for 'For all g in J_n(Γ)'.",
       "reason": "Condition (i) is the transformation law (φ|_{k,F}g)(τ, z) = g(φ(τ, z)) and contains no inequality. The elements α and the inequality 4l − F^{−1}[r] ≥ 0 occur only in condition (ii), the Fourier expansions of the φ|_{k,F}α. The proof of Theorem 5 (p. 13) refers to it correctly: 'the regularity condition for Jacobi forms at the cusps (i.e. from condition (ii) of the definition)'.",
       "affects": "nothing",
@@ -37781,7 +37781,7 @@
       "source": "skoruppa-critical-weight",
       "kind": "misprint",
       "locator": "§2 Notation, glossary entry ℂ(χ), p. 4 of arXiv:0707.0718v1",
-      "printed": "For a character χ of the metaplectic cover M = Mp(2, Z), the M-module with underlying vector space C and with M-action (g, z) ↦ χ(z)g.",
+      "printed": "The M=Mp₂(ℤ)-module attached to χ, with underlying vector space ℂ, is given the displayed action (g,z)↦χ(z)g.",
       "correction": "(g, z) ↦ χ(g)z.",
       "reason": "χ is a character of the group and z a complex number, so χ(z) is undefined and χ(z)g is not an element of ℂ. The module is used as ℂ(ε³) in footnote 2 of §4, where g must act on φ(τ, z) by the scalar ε(g)³.",
       "affects": "nothing",
