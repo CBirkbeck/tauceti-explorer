@@ -25339,8 +25339,9 @@
    ],
    "avoidAccountOf": "BP-GeneralizedHeegnerCycles--GH.0",
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #416"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #416",
+   "finishedAt": "2026-10-07T02:47:03Z"
   },
   {
    "id": "BP-GeneralizedHeegnerCycles--GH.8",
@@ -28743,7 +28744,8 @@
    ],
    "avoidAccountOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/REV-SchemeKTheoryOperations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #484"
   },
   {
    "id": "BP-SelmerIwasawaCohomology",
